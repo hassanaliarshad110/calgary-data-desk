@@ -92,10 +92,11 @@ POP_METHODS = {
                             "communities."},
     'city_pace': {'label': "2021 Census grown to the City's total",
                   'short': "City's total",
-                  'about': "Each community's 2021 Census count grown at one rate for all of Calgary, so the whole city "
-                           "adds up to the City's own population estimate and forecast for that month (April 1 figures, "
-                           "read between the dates). Every community grows by the same percentage and keeps its 2021 "
-                           "share of Calgary; towers and other fully built areas are not held back by a lack of new homes."},
+                  'about': "All of Calgary adds up to the City's own population estimate and forecast for that month. "
+                           "Communities built since 2021 keep their growth model count; every other community is its 2021 "
+                           "Census count grown by one factor, the same for all, so each keeps its 2021 share. The factor "
+                           "also brings in people the Census count of private homes leaves out (seniors' homes, residences, "
+                           "shelters), so growth since 2021 reads a little higher than real growth."},
 }
 
 
@@ -569,17 +570,44 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
     census_ym = popmodel.CENSUS_DAY.year * 12 + popmodel.CENSUS_DAY.month - 1
     city_at_census = city_population_at(census_ym)
 
-    # Calgary's 2021 Census count over every community: city_pace grows it to the City's own total
-    census_all = sum((v.get('census2021') or 0) for v in popmodel.estimate(model, ALL_RES, popmodel.CENSUS_DAY).values())
+    # Calgary's 2021 Census count over every community: city_pace grows it to the City's own total. Communities with
+    # no 2021 count (built since) are counted from their homes with the growth model, and the rest share what is left.
+    at_census = popmodel.estimate(model, ALL_RES, popmodel.CENSUS_DAY)
+    census_all = sum((v.get('census2021') or 0) for v in at_census.values())
+    new_codes = [c for c, v in at_census.items() if not v.get('census2021')]
     whole_city = len(ALL_RES) > len(RESIDENTIAL_CODES) or city
+    _new_at = {}
+
+    def new_people(when):
+        """Growth model residents of the communities built since the 2021 Census, on a date."""
+        key = (when.year, when.month)
+        if key not in _new_at:
+            _new_at[key] = sum(v['model'] for v in popmodel.estimate(model, new_codes, when).values()) if new_codes else 0
+        return _new_at[key]
 
     def city_factor(when):
-        """The City's population estimate for that month / Calgary's 2021 Census count (people in private
-        households). Every community's 2021 count x this factor adds up to the City's own total."""
+        """(The City's population estimate for that month - the residents of communities built since 2021) / Calgary's
+        2021 Census count (people in private households). Every older community's 2021 count x this factor, plus the
+        new communities, adds up to the City's own total."""
         if whole_city and census_all:
-            return city_population_at(when.year * 12 + when.month - 1) / census_all
+            return (city_population_at(when.year * 12 + when.month - 1) - new_people(when)) / census_all
         # without every community known: Calgary's growth since Census day only
         return city_population_at(when.year * 12 + when.month - 1) / city_at_census if when > popmodel.CENSUS_DAY else 1.0
+
+    _fix = {}
+
+    def pace_fix(when, f):
+        """Rounding each community leaves Calgary a person or two off the City's total: the largest community takes
+        the difference, the same in every view, so Calgary's total matches the City's figure exactly."""
+        key = (when.year, when.month)
+        if key not in _fix:
+            _fix[key] = (None, 0)
+            if whole_city and census_all:
+                allc = popmodel.estimate(model, ALL_RES, when)
+                total = sum(int(round(v['census2021'] * f)) if v.get('census2021') else v['model'] for v in allc.values())
+                big = max(allc, key=lambda c: allc[c].get('census2021') or 0)
+                _fix[key] = (big, city_population_at(when.year * 12 + when.month - 1) - total)
+        return _fix[key]
 
     def estimate(when, codes=None):
         """Residents of each community on a date, counted the way the office chose (pop_method).
@@ -588,10 +616,14 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
         if pop_method == 'model':
             return est
         f = city_factor(when) if pop_method == 'city_pace' else 1.0
-        for v in est.values():
+        big, diff = pace_fix(when, f) if pop_method == 'city_pace' else (None, 0)
+        for c_, v in est.items():
             p21 = v['census2021']
             v['growth_model'] = v['model']
-            v['model'] = int(round(p21 * f))
+            v['growth_model_pct'] = v.get('growth_pct')
+            if p21 or pop_method != 'city_pace':
+                v['model'] = int(round((p21 or 0) * f)) + (diff if c_ == big else 0)
+            # (city_pace: a community built since 2021 keeps its growth model count)
             v['growth_pct'] = round((v['model'] / p21 - 1) * 100, 1) if p21 else None
             v['method'] = POP_METHODS[pop_method]['short']
         return est
@@ -944,12 +976,13 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
         pm_, km_ = {}, {}
         for c, v in pop_all.items():
             mod = v.get('growth_model', v.get('model'))
-            base = mod if m_key == 'model' else (v.get('census2021') or 0) * (f_city if m_key == 'city_pace' else 1)
+            base = mod if m_key == 'model' else ((v.get('census2021') or 0) * f_city if v.get('census2021') else mod) \
+                if m_key == 'city_pace' else (v.get('census2021') or 0)
             # growth and "new since 2021" stay the growth model's: they say whether a community grew, whatever the count
             g_ = v.get('growth_pct') if pop_method == 'model' else (round((v['growth_model'] / v['census2021'] - 1) * 100, 1)
                                                                      if v.get('census2021') and v.get('growth_model') else None)
-            pm_[c] = {'model': round(base or 0), 'census2021': v.get('census2021'), 'growth_pct': g_}
-            km_[c] = (kids_at(c, base or 0)[1] if m_key == 'model'
+            pm_[c] = {'model': round(base or 0), 'census2021': v.get('census2021'), 'growth_pct': g_, 'growth_model': mod}
+            km_[c] = (kids_at(c, base or 0)[1] if m_key == 'model' or (m_key == 'city_pace' and not v.get('census2021'))
                       else k014.get(c, 0) * (f_city if m_key == 'city_pace' else 1))
         gap_pops[m_key] = (pm_, km_)
     if amenity_gap:
@@ -1099,7 +1132,8 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
         'requests_change_pct': _pct(tot('requests12') * yr12, tot('requests_prev') * yrprev),
         'requests_per_1000': per1000(tot('requests12', res), mid12_total, yr12),
         'requests_per_1000_prev': per1000(tot('requests_prev', res), midprev_total, yrprev),
-        'infra12': tot('infra12', res), 'infra_prev': tot('infra_prev', res),
+        # counts over every community (as 311 requests and the ward table); rates over lived-in communities
+        'infra12': tot('infra12'), 'infra_prev': tot('infra_prev'),
         'infra_per_1000': per1000(tot('infra12', res), mid12_total, yr12),
         'infra_per_1000_prev': per1000(tot('infra_prev', res), midprev_total, yrprev),
         'open_now': tot('open'), 'open_over_90_days': tot('open_over_90_days'),
@@ -1135,7 +1169,11 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
                        'by_method': {
                            'model': sum(v.get('growth_model', v['model']) for k, v in pop_now.items() if k in RESIDENTIAL_CODES),
                            'census2021': census_total,
-                           'city_pace': round(census_total * city_factor(ref))},
+                           # each community rounded, as the dashboard counts it, so the figures match to the person
+                           'city_pace': (pace_fix(ref, city_factor(ref))[1] if pace_fix(ref, city_factor(ref))[0] in RESIDENTIAL_CODES else 0)
+                                        + sum(int(round(c['census2021'] * city_factor(ref))) if c['census2021'] else
+                                            (pop_now.get(c['code']) or {}).get('growth_model', (pop_now.get(c['code']) or {}).get('model')) or 0
+                                            for c in res)},
                        'city_factor': round(city_factor(ref), 4), 'census_city': census_all,
                        'mid_period': mid12_total, 'mid_prev': midprev_total,
                        'homes_now': tot('homes_now', res), 'homes_census': tot('homes_census', res),
@@ -1172,15 +1210,15 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
         'traffic_points': traffic_points,
         'geo': geo_out,
         'notes': [
-            'Population is estimated live, every time the data refreshes, with the growth model: 2021 Census '
-            'people per home, multiplied by the homes standing today on the City\'s property assessment roll (a home '
-            'counts as lived in one year after it is built), plus rental-building units. The 2021 Census count is '
-            'shown beside it. Rates per 1,000 residents a year use the model population for the middle of each period.',
+            'Residents are counted with ' + POP_METHODS[pop_method]['label'] + ' (chosen in Settings): '
+            + POP_METHODS[pop_method]['about'] + ' The 2021 Census count is shown beside it. Rates per 1,000 residents '
+            'a year use residents in the middle of each period.',
             'Infrastructure reports are the 21 roads, water and sewer, and parks and trees service types used in the '
             '311 equity study.',
             'The City publishes most 311 requests at their community\'s centre point, not their address, so 311 is '
             'mapped by community, not by street.',
-            f'Traffic incidents are the City\'s reported incidents with exact locations, inside the Ward {ward} boundary.',
+            'Traffic incidents are the City\'s reported incidents with exact locations, inside '
+            + ('the City boundary.' if city else f'the Ward {ward} boundary.'),
             'Crime and disorder by community come from the Calgary Police Service community safety data (the data behind '
             'its Community Safety Dashboard), published every quarter by month. Incidents without a location are '
             'left out. The Crime Severity Index (Statistics Canada) compares '
@@ -1231,7 +1269,8 @@ def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, a
         city[k] = {'n': round(n, 1), 'per_1000': round(r, 3) if r is not None else None}
     # neighbourhood amenities: ones the city has enough of for most communities to have some. The rare ones (park
     # washrooms, libraries, recreation centres) serve several communities, so a community without one is not short.
-    lived_in = sum(1 for c in all_codes if (pop_all.get(c) or {}).get('model'))
+    # (counted from homes, whatever way residents are counted, so the kinds don't change with the setting)
+    lived_in = sum(1 for c in all_codes if (pop_all.get(c) or {}).get('growth_model', (pop_all.get(c) or {}).get('model')))
     local = [k for k in use if k.endswith('_ha') or k == 'trees' or city[k]['n'] >= lived_in / 2]
     rows = []
     for code in scope_codes:
@@ -1239,7 +1278,8 @@ def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, a
         if (p.get('model') or 0) < MIN_RATE_RESIDENTS:   # a handful of residents: rates per 1,000 mean nothing
             continue
         row = {'code': code, 'name': names.get(code, code), 'residents': p.get('model'), 'census2021': p.get('census2021'),
-               'growth_pct': p.get('growth_pct'), 'children_0_14': round(kids_all.get(code) or 0), 'n': {}, 'per_1000': {},
+               # growth since 2021 is the growth model's (homes built) whatever way residents are counted
+               'growth_pct': p.get('growth_model_pct', p.get('growth_pct')), 'children_0_14': round(kids_all.get(code) or 0), 'n': {}, 'per_1000': {},
                'vs_city': {}}
         ratios = []
         for k in use:
@@ -1391,7 +1431,7 @@ def ward_summaries(communities, comm_ward, pop_mid12, pop_midprev, yr12, yrprev,
     total['amenity_level'] = 1.0                    # the city is the yardstick
     return {'wards': rows, 'city': total, 'crime_period': (crime or {}).get('period'),
             'note': ('Each ward is its communities (the ward holding most of each community\'s area). Rates are per 1,000 '
-                     'residents a year, using the growth model population in the middle of the period. Traffic incidents '
+                     'residents a year, using residents in the middle of the period, counted the way chosen in Settings. Traffic incidents '
                      'are placed by their exact location; crime is the Calgary Police Service figure for each ward.')}
 
 

@@ -101,7 +101,7 @@ function renderRevenue() {
   const ch = l => { const n = l.values.length; return signed((l.values[n - 1] / l.values[n - 2] - 1) * 100, 0); };
   $('#bud-rev-table tbody').innerHTML = R.lines.map(l => `<tr><td title="${esc(l.note || '')}">${esc(l.name)}</td>${l.values.map(v => `<td class="num">${fmt(v)}</td>`).join('')}<td class="num">${ch(l)}</td></tr>`).join('')
     + `<tr class="cmp-city-row"><td><b>Total operating revenue</b></td>${R.total.map(v => `<td class="num"><b>${fmt(v)}</b></td>`).join('')}<td class="num">${signed((R.total[R.total.length - 1] / R.total[R.total.length - 2] - 1) * 100, 0)}</td></tr>`;
-  $('#bud-rev-note').innerHTML = `Source: ${esc(R.source)}. The City publishes revenue by source in its budget book, not in open data, so these figures are kept with the app and updated with each budget. Of these sources, only property tax can be placed by ward (below); user fees, franchise fees, investment income, grants and the ENMAX dividend have no location. <button class="link-btn small" data-open="${esc(R.page)}">The City's budget pages</button>`;
+  $('#bud-rev-note').innerHTML = `Source: ${esc(R.source)}. Figures are as the City published them, in millions, so a column can differ from its total by 1 through rounding. The City publishes revenue by source in its budget book, not in open data, so these figures are kept with the app and updated with each budget. Of these sources, only property tax can be placed by ward (below); user fees, franchise fees, investment income, grants and the ENMAX dividend have no location. <button class="link-btn small" data-open="${esc(R.page)}">The City's budget pages</button>`;
 }
 
 // property tax by ward: an estimate from the assessment roll and the tax bylaw
@@ -122,6 +122,8 @@ async function renderTax() {
     const rows = Object.entries(T.by_ward).map(([w, v]) => ({ w: +w, ...v })).sort((a, b) => a.w - b.w);
     box.innerHTML = `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Property tax billed</th><th scope="col" class="num">City share</th><th scope="col" class="num">Education (Province)</th><th scope="col" class="num">Paid on homes</th><th scope="col" class="num">Per resident</th><th scope="col" class="num">Share of Calgary's tax</th><th scope="col" class="num">Share of its residents</th></tr></thead><tbody>
       ${rows.map(r => `<tr><td>Ward ${r.w}</td><td>${esc(((T.wards || {})[r.w] || {}).councillor || '')}</td><td class="num">${money(r.total / 1e6)}</td><td class="num">${money(r.municipal / 1e6)}</td><td class="num">${money(r.education / 1e6)}</td><td class="num">${pct(r.residential, r.total)}</td><td class="num">${wardsRes[r.w] ? '$' + fmt(r.total / wardsRes[r.w]) : '–'}</td><td class="num">${pct(r.total, cityTot)}</td><td class="num">${allRes && wardsRes[r.w] ? pct(wardsRes[r.w], allRes) : '–'}</td></tr>`).join('')}
+      ${(() => { const sum = k => rows.reduce((a, r) => a + (r[k] || 0), 0), left = cityTot - sum('total');
+        return left > 1000 ? `<tr><td colspan="2">Not in any ward (land the City's ward table leaves out)</td><td class="num">${money(left / 1e6)}</td><td class="num">${money((T.city.municipal.total - sum('municipal')) / 1e6)}</td><td class="num">${money((T.city.education.total - sum('education')) / 1e6)}</td><td class="num"></td><td class="num"></td><td class="num">${pct(left, cityTot)}</td><td class="num"></td></tr>` : ''; })()}
       <tr class="cmp-city-row"><td><b>Calgary</b></td><td></td><td class="num"><b>${money(cityTot / 1e6)}</b></td><td class="num">${money(T.city.municipal.total / 1e6)}</td><td class="num">${money(T.city.education.total / 1e6)}</td><td class="num">${pct(T.city.municipal.residential + T.city.education.residential, cityTot)}</td><td class="num">${allRes ? '$' + fmt(cityTot / allRes) : '–'}</td><td class="num">100%</td><td class="num">100%</td></tr></tbody></table></div>
       ${taxRecon(T)}
       <p class="card-note"><b>City share</b> is the municipal tax the City keeps; the rest of each bill is the Province's education tax, which the City collects and passes to the Government of Alberta. <b>Paid on homes</b> is the share paid on residential property (houses, condos, rental buildings); the rest is business, industrial and other non-residential property, which pays about 4.6 times the residential City rate. Residents counted with ${esc(popWords())}.</p>`;
@@ -142,10 +144,11 @@ function taxRecon(T) {
   const i = R ? R.years.indexOf(String(T.year)) : -1;
   const line = i >= 0 ? R.lines.find(l => /property tax/i.test(l.name)) : null;
   if (!line) return '';
-  const bud = line.values[i] * 1e6, placed = T.city.municipal.total, gap = bud - placed;
+  const placed = Object.values(T.by_ward || {}).reduce((a, w) => a + (w.municipal || 0), 0);
+  const bud = line.values[i] * 1e6, gap = bud - placed;
   return `<div class="tax-recon"><div><b>${money(bud / 1e6)}</b><span>${esc(T.year)} budget: property tax revenue, including levies</span></div>
     <div><b>${money(placed / 1e6)}</b><span>City share billed under the tax bylaw, placed in the wards above (${fmt(placed / bud * 100, 1)}%)</span></div>
-    <div><b>${money(gap / 1e6)}</b><span>Not placed by ward: local improvement and community revitalization levies, and tax from properties added during the year</span></div></div>`;
+    <div><b>${money(gap / 1e6)}</b><span>Not placed by ward: local improvement and community revitalization levies, tax from properties added during the year, and ${money((T.city.municipal.total - placed) / 1e6)} billed on land outside the ward table</span></div></div>`;
 }
 
 // what can be placed in a ward: City projects and road projects with a stated cost

@@ -75,7 +75,7 @@ METHODS = [
          '"Closed" means the City closed the request, not always that the problem was fixed; some open requests are '
          'years old and may already be dealt with.']},
 
-    {'key': 'profile', 'name': 'Who lives in Ward 5 (City Ward 5 profile, 2021 Census)', 'dataset': 'Ward profile PDF',
+    {'key': 'profile', 'name': 'Who lives in each ward (2021 Census by ward; the City\'s full Ward 5 profile)', 'dataset': 'Ward profile PDF',
      'publisher': 'City of Calgary (Statistics Canada 2021 Census, Community Data Program)',
      'page': 'https://www.calgary.ca/communities/profiles/wards.html',
      'updated': '2021 Census (published 2023, revised July 2025); next: 2026 Census results from early 2027',
@@ -88,7 +88,7 @@ METHODS = [
      'cautions': ['Ward 5 has grown about 30% since 2021, mostly in new communities, so shares today may differ.',
                   'Statistics Canada rounds counts to the nearest 5.']},
 
-    {'key': 'being_built', 'name': 'Being built in Ward 5 (City projects, roads, large building permits)',
+    {'key': 'being_built', 'name': 'Being built (City projects, roads, large building permits)',
      'dataset': 'City project pages; sizs-hgef; c2es-76ed', 'publisher': 'City of Calgary',
      'page': 'https://www.calgary.ca/planning/parks-rec/northeast-athletic-complex.html',
      'updated': 'City projects: checked by hand (data/ward5_projects.json); roads and permits: at each refresh',
@@ -112,21 +112,27 @@ METHODS = [
          '"Ward 5 growth model" below).',
          '2021 Census, no growth: each community\'s 2021 Census count (total_pop_household, f9wk-wej9), unchanged. The '
          'City\'s own 311 ward dashboard counts this way (it divides by 2021 Census households).',
-         'Grown to the City\'s total: each community\'s 2021 Census count x one factor for all of Calgary. The factor '
-         '= the City\'s population estimate for that month (Calgary and Region Economic Outlook 2026-2031: estimates '
-         '2021-2025, forecast from 2026, read between the April 1 figures) / Calgary\'s 2021 Census count, all '
-         'communities (1,288,995 people in private households). In November 2026: 1,598,075 / 1,288,995 = 1.240, so '
-         'every community is 24.0% above its 2021 count and all of Calgary adds up to the City\'s own 1,598,075. Each '
-         'community and ward keeps its 2021 share of Calgary (Ward 5: 106,185 x 1.240 = 131,646). The factor brings in '
-         'growth since 2021 and the people the 2021 count left out (seniors\' homes, residences, shelters).',
+         'Grown to the City\'s total: all of Calgary adds up to the City\'s own population estimate for that month '
+         '(Calgary and Region Economic Outlook 2026-2031: estimates 2021-2025, forecast from 2026, read between the April 1 '
+         'figures). Communities built since 2021 have no 2021 count, so they keep their growth model count (19 '
+         'communities, 29,547 people in November 2026). Every other community is its 2021 Census count x one factor = '
+         '(the City\'s estimate - those new communities) / Calgary\'s 2021 Census count (1,288,995 people in private '
+         'households). November 2026: (1,598,075 - 29,547) / 1,288,995 = 1.217, so each older community is 21.7% above '
+         'its 2021 count. Ward 5: 106,185 x 1.217 = 129,212, plus Homestead (built since 2021) 2,326 = 131,538.',
+         'The factor is more than growth: the City\'s estimate also counts people the 2021 Census count of private '
+         'households leaves out (seniors\' homes, residences, shelters) and those it missed. On Census day the City\'s '
+         'estimate was already 2.7% above the Census count (1,323,783 against 1,288,995); the City\'s own growth from '
+         'May 2021 to November 2026 is 20.7%. So "growth since 2021" under this choice reads higher than real growth, '
+         'and growth for amenity flags always uses the growth model.',
          'Rates per 1,000 residents = count / residents in the middle of the period x 1,000 x (12 / months).'],
      'excel': ['2021 Census: filter f9wk-wej9 to the Ward 5 community codes and add up total_pop_household (106,185).',
-               'Grown to the City\'s total: multiply that by the City\'s population for the date and divide by 1,288,995 '
-               '(f9wk-wej9 total_pop_household added up over every residential community).'],
+               'Grown to the City\'s total: subtract the growth model residents of communities with no 2021 count from the '
+               'City\'s population for the date, divide by 1,288,995 (f9wk-wej9 total_pop_household added up over every '
+               'residential community), and multiply each older community\'s 2021 count by the result.'],
      'cautions': ['The growth model follows homes built, so it can undercount established areas that grew by filling '
                   'existing homes and towers (more people per unit); "grown to the City\'s total" grows every community '
                   'at the same rate, so it undercounts communities where many homes were built (Ward 5: growth model '
-                  '137,391, City\'s total 131,646).',
+                  '137,391, City\'s total 131,538).',
                   'No one has counted Ward 5\'s people since 2021; every choice is an estimate except the 2021 Census itself.']},
 
     {'key': 'population', 'name': 'Growth model (population today, every community)', 'dataset': '4bsw-nn7w, f9wk-wej9, msjx-5ygv',
@@ -157,10 +163,11 @@ METHODS = [
          'Filter assessment_class = RE, property_type = LI, sub_property_use begins with R: that is the number of homes '
          '(Cornerstone, Oct 2026: 4,987).',
          'Pivot year_of_construction against a count of roll_number to see homes by year built. The model then leaves '
-         'out homes built in the last year or so and swaps rental buildings for their units (Cornerstone: 4,952).'],
+         'out homes built in the last year or so and swaps rental buildings for their units (Cornerstone: 4,954).'],
      'cautions': [
          'An estimate, not a count: it holds 2021 people per home and does not count basement suites or more people '
-         'moving into existing homes, so the Calgary total from the same method is about 9% below the City\'s estimate.',
+         'moving into existing homes, nor people in seniors\' homes, residences and shelters, so the Calgary total from the same '
+         'method is 8.2% below the City\'s estimate (1,467,348 against 1,598,075, November 2026).',
          'Tested against the City\'s 2016 and 2019 civic census: typical error about 3% by community, 6% for '
          'fast-growing ones. The 2026 Census by community (expected 2027) will allow a direct check.']},
 
@@ -227,9 +234,11 @@ METHODS = [
          'counted at the middle month of the police period (for October to September, April), the way chosen in Settings. '
          'Calgary: all crimes in the file / every residential community\'s residents counted the same way, so the ward and '
          'Calgary are compared like with like. (Version 1 divided Calgary by the City\'s own population estimate; that '
-         'estimate is about 8% higher than the growth model\'s total, because it also counts more people living in each '
+         'estimate is about 9% higher than the growth model\'s total, because it also counts more people living in each '
          'home, so Calgary\'s rate read lower: 16.3 against 17.8 per 1,000 for Oct 2025 to Sep 2026.)',
-         'Disorder: calls from the public about disorder (sheet "Disorder"), counted by event.'],
+         'Disorder: calls from the public about disorder (sheet "Disorder"), counted by event.',
+         'A few incidents in the file have no ward, so the 14 wards add up to slightly less than Calgary (Oct 2025 to Sep '
+         '2026: 25,857 crimes against 25,861).'],
      'excel': ['Download the spreadsheet: the "Police data file" button on the Crime in Ward 5 card, or "Download Community '
                'Safety Data" on the police page. Sheet "Community Crime": filter Ward = "Ward 5" (or a Community), Year '
                'and Month; sum "Total Crime".',

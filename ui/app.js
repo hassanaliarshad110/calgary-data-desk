@@ -376,7 +376,7 @@ function renderKpis() {
   ].filter(Boolean) : [];
   const items = [
     [popMethod() === 'census2021' ? 'Residents (' + CY() + ' Census)' : 'Residents today', fmt(w.residents), popMethod() === 'census2021' ? '' : chg(w.growth_pct, null, '%', 1, 'the ' + CY() + ' Census'),
-      `${CY()} Census: ${fmt(w.census2021)} (marker). ${popShort()}.${isCity() && D.population && D.population.city_now ? ` The City's own estimate for Calgary is ${fmt(D.population.city_now)}: it also counts more people living in each home since ${CY()}, which the model can't see.` : ''}`, versus(w.residents, w.census2021), 'hero'],
+      `${CY()} Census: ${fmt(w.census2021)} (marker). ${popShort()}.${isCity() && D.population && D.population.city_now && popMethod() === 'model' ? ` The City's own estimate for Calgary is ${fmt(D.population.city_now)}: it also counts more people living in each home since ${CY()} and people in seniors' homes, residences and shelters, which the model can't see.` : ''}${popMethod() === 'city_pace' ? ` This is above the ${CY()} count partly because the Census counted people in private homes only; the City's total also includes people in seniors' homes, residences and shelters.` : ''}`, versus(w.residents, w.census2021), 'hero'],
     [`Open 311 requests as of ${asOf}`, fmt(s.open_now), '', `${fmt(s.open_over_90_days)} (${fmt(over90 * 100, 0)}%) open more than 90 days, whenever they were made`, meter(over90)],
     ...crime,
     [`311 requests, ${esc(D.period)}`, fmt(s.requests12), chg(s.requests_change_pct, null, '%', 1, cw),
@@ -570,9 +570,9 @@ function renderMap(fit = false) {
     overlay.wards = L.layerGroup().addTo(map);
     const w5 = D.geo.ward ? L.geoJSON(D.geo.ward).getBounds().pad(0.02) : null;
     Object.entries(D.geo.wards).forEach(([n, g]) => {
-      if (n === '5') return;
+      if (!isCity() && n === String(SCOPE)) return;     // the ward on screen has its own outline
       const lay = L.geoJSON(g, { style: { color: '#64748B', weight: 1, fill: false, opacity: .7, interactive: false } }).addTo(overlay.wards);
-      if (w5 && !w5.intersects(lay.getBounds())) return;      // name only the wards next to Ward 5
+      if (w5 && !isCity() && !w5.intersects(lay.getBounds())) return;      // name only the wards next to the one on screen
       L.tooltip({ permanent: true, direction: 'center', className: 'ward-label', interactive: false })
         .setLatLng(lay.getBounds().getCenter()).setContent('Ward ' + n).addTo(overlay.wards);
     });
@@ -710,11 +710,11 @@ function renderPanel(code) {
   p.innerHTML = `<button class="back" id="panel-back">${icon('back')}All communities</button>
     <div class="detail">
       <h2>${esc(c.name)}</h2>
-      ${c.residential ? `<p class="card-sub">${fmt(c.residents)} residents today. ${CY()} Census: ${c.census2021 ? fmt(c.census2021) : 'not yet built'}.</p>`
+      ${c.residential ? `<p class="card-sub">${fmt(c.residents)} residents${popMethod() === 'census2021' ? ` (${CY()} Census count)` : ' today'}. ${CY()} Census: ${c.census2021 ? fmt(c.census2021) : 'not yet built'}.</p>`
         : '<p class="card-sub">Business or industrial area</p>'}
       ${c.growing ? `<span class="flag">${icon('home')}${isNum(c.growth_pct) ? signed(c.growth_pct, 0) + ' since the ' + CY() + ' Census' : 'Built since the ' + CY() + ' Census'}</span>` : ''}
       <dl class="stats">
-        ${c.residential ? stat('Residents today (model)', fmt(c.residents), chg(c.growth_pct, null, '%', 0, 'the ' + CY() + ' Census')) : ''}
+        ${c.residential ? stat(popMethod() === 'census2021' ? 'Residents (' + CY() + ' Census)' : 'Residents today (' + popChip() + ')', fmt(c.residents), popMethod() === 'census2021' ? '' : chg(c.growth_pct, null, '%', 0, 'the ' + CY() + ' Census')) : ''}
         ${stat('311 requests, ' + esc(D.period), fmt(c.requests12), chg(c.requests_change_pct, null, '%', 1, cmpWords()))}
         ${c.residential ? stat('311 requests per 1,000 a year', fmt(c.requests_per_1000, 0), `<small>${fmt(c.requests_per_1000_prev, 0)} in the comparison period</small>`) : ''}
         ${c.residential ? stat('Infrastructure reports per 1,000 a year', fmt(c.infra_per_1000, 1), `<small>${fmt(c.infra_per_1000_prev, 1)} in the comparison period</small>`) : ''}
@@ -724,7 +724,7 @@ function renderPanel(code) {
         ${D.development ? stat('Development permit applications', fmt(c.dev_permits12)) : ''}
         ${communityExtras(c)}
       </dl>
-      ${c.residential ? `<p class="drawer-note">Population: ${esc(how)}. ${fmt(c.homes_now)} homes lived in today, ${fmt(c.homes_census)} at the ${CY()} Census.</p>` : ''}
+      ${c.residential ? `<p class="drawer-note">${popMethod() === 'model' || (popMethod() === 'city_pace' && !c.census2021) ? `Population (growth model): ${esc(how)}. ` : `Residents counted with ${esc(popWords())}. `}${fmt(c.homes_now)} homes lived in today, ${fmt(c.homes_census)} at the ${CY()} Census.</p>` : ''}
       <h3 class="sub-h">Most common open requests</h3>
       <ul class="open-list">${c.open_top.map(o => `<li><span>${esc(niceType(o.type))}</span><span class="n">${fmt(o.n)}</span><small>Oldest still open: ${esc(o.oldest)}</small></li>`).join('') || '<li><span>None open</span></li>'}</ul>
       ${c.open ? `<button class="btn" id="panel-issues" style="margin-top:12px">${icon('list')}<span>See all ${fmt(c.open)} open issues in ${esc(c.name)}</span></button>` : ''}
@@ -1054,7 +1054,7 @@ function renderDisorder() {
 // ---------- communities table
 const COLS = [
   { key: 'name', label: 'Community', text: true },
-  { key: 'residents', label: 'Residents today', d: 0, perRes: true },
+  { key: 'residents', label: 'Residents', d: 0, perRes: true },
   { key: 'census2021', label: '' + CY() + ' Census', d: 0, perRes: true },
   { key: 'growth_pct', label: 'Growth', d: 0, perRes: true, pctv: true },
   { key: 'requests12', label: '311 requests', d: 0 },

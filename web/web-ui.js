@@ -24,6 +24,31 @@
     foot.innerHTML = `Data refreshed ${esc(b.built_at)} (Calgary time)${bad ? `, ${bad} source${bad > 1 ? 's' : ''} not reached` : ''}. From public data; not affiliated with The City of Calgary.`;
   }).catch(() => {});
 
+
+  // traffic cameras: the website shows each camera's latest image (the desktop app also keeps 30 minutes to replay)
+  const camWords = el => {
+    if (!el) return;
+    const fix = () => {
+      const t = el.textContent, n = t.replace(/Each plays its images from the last 30 minutes on a loop; the City adds a new image about once a minute\./,
+        'Each shows the City\'s latest image, refreshed every minute here. The desktop app also replays the last 30 minutes.')
+        .replace('Each camera replays its last 30 minutes on a loop', 'The City\'s latest image from each camera, refreshed every minute');
+      if (n !== t) el.textContent = n;
+    };
+    fix();
+    new MutationObserver(fix).observe(el, { childList: true, characterData: true, subtree: true });
+  };
+  camWords($('#cam-sub'));
+  camWords($('#camstrip-title') && $('#camstrip-title').parentElement.querySelector('.card-sub'));
+  setInterval(() => {
+    document.querySelectorAll('.cam[data-cam] img').forEach(img => {
+      if (document.hidden || !img.isConnected) return;
+      const u = img.closest('.cam').dataset.cam;
+      img.style.visibility = '';
+      if (img.nextElementSibling) img.nextElementSibling.hidden = true;
+      img.src = u + (u.includes('?') ? '&' : '?') + 't=' + Math.floor(Date.now() / 60000);
+    });
+  }, 60000);
+
   // the newsletter is made by the desktop app
   const news = $('#view-news .content');
   if (news) {

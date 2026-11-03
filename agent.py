@@ -208,8 +208,11 @@ as population.method / method_label, and population.by_method gives Ward 5 today
 growth model: homes on the City's property assessment roll x 2021 Census people per home, recalculated at every \
 refresh), 'census2021' (2021 Census counts, no growth: the same base as the City's own 311 ward dashboard, which shows \
 requests per 100 households using 2021 Census households, not per resident) and \
-'city_pace' (2021 Census grown to the City's total: every community x the City's population estimate for the month / \
-Calgary's 2021 Census count, 1,288,995, so all of Calgary adds up to the City's own figure, 1,598,075 in November 2026). Every \
+'city_pace' (grown to the City's total: communities built since 2021 keep their growth model count, every other \
+community is its 2021 Census count x one factor, (the City's estimate for the month - the new communities) / Calgary's 2021 \
+Census count of 1,288,995, so all of Calgary adds up to the City's own figure, 1,598,075 in November 2026; the factor also \
+brings in people the Census count of private homes leaves out, so its "growth since 2021" reads higher than real growth, \
+which the City puts at about 20.7% since May 2021). Every \
 residents figure and rate per 1,000 in the dashboard uses the chosen method; always say which one, and when it matters \
 show how the answer changes under the others (rates scale by the ratio of the populations). Ward 5 homes grew about \
 30% since 2021 against 24% under the City's total, so the 2021 Census and the City's total undercount Ward 5, while \

@@ -47,8 +47,9 @@ POP_NOTE = {
              "Census people per home).",
     'census2021': 'Residents are counted as at the 2021 Census, without growth since then (the same base as the City\'s 311 ward '
                   'dashboard, which shows requests per 2021 Census household). Fast-growing communities have more residents today, so their rates per 1,000 look higher.',
-    'city_pace': "Residents are the 2021 Census grown at one rate for all of Calgary, so the city adds up to the City's "
-                 "own population estimate and forecast. Communities where many homes were built are likely undercounted.",
+    'city_pace': "Residents are the 2021 Census grown at one rate for all of Calgary (communities built since 2021 counted "
+                 "from their homes), so the city adds up to the City's own population estimate and forecast. Communities "
+                 "where many homes were built are likely undercounted.",
 }
 
 

@@ -59,11 +59,14 @@ function cmpRank(m, ward) {
   return i < 0 ? null : { n: i + 1, of: rows.length };
 }
 
+// the comparison belongs to a period and a way of counting residents: either changing means loading it again
+const cmpKey = () => JSON.stringify([period || null, popMethod()]);
+
 async function loadCompare(force = false) {
   if (CMP.loading) return CMP.loading;           // one load at a time; callers wait for the one running
   $('#cmp-loading').hidden = !!CMP.data && !force;
   $('#cmp-error').hidden = true;
-  const want = JSON.stringify(period);
+  const want = cmpKey();
   CMP.loading = (async () => {
     try {
       const res = await (await api()).compare_wards(force, period);
@@ -81,9 +84,9 @@ async function loadCompare(force = false) {
 }
 
 async function renderCompare() {
-  if (!CMP.data || CMP.forPeriod !== JSON.stringify(period)) {
+  if (!CMP.data || CMP.forPeriod !== cmpKey()) {
     await loadCompare();
-    if (CMP.data && CMP.forPeriod !== JSON.stringify(period)) await loadCompare();   // the period changed while loading
+    if (CMP.data && CMP.forPeriod !== cmpKey()) await loadCompare();   // the period changed while loading
   }
   if (!CMP.data || !CMP.data.wards_summary) return;
   const ws = CMP.data.wards_summary;
