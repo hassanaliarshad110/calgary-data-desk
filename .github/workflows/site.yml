@@ -52,6 +52,7 @@ jobs:
           CDD_ANTHROPIC_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CDD_ACCESS_CODE: ${{ secrets.GENIE_ACCESS_CODE }}
           CDD_SITE_URL: https://hassanaliarshad110.github.io/calgary-data-desk/
+          CDD_SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
         run: python web/build_site.py _site --cache .site-cache --pyodide pyodide
 
       - uses: actions/cache/save@v4

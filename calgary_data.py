@@ -15,7 +15,9 @@ import urllib.parse
 import urllib.request
 
 BASE = 'https://data.calgary.ca'
-HEADERS = {'User-Agent': 'Ward5DataDesk/1.0', 'Accept': 'application/json'}
+HEADERS = {'User-Agent': 'CalgaryDataDesk/2.0', 'Accept': 'application/json'}
+if os.environ.get('CDD_SOCRATA_TOKEN'):          # a free app token from data.calgary.ca raises the portal's request limits
+    HEADERS['X-App-Token'] = os.environ['CDD_SOCRATA_TOKEN'].strip()
 MAX_QUERY_ROWS = 5000          # rows the agent may pull in one query
 DATASET_ID = re.compile(r'^[a-z0-9]{4}-[a-z0-9]{4}$')
 
@@ -28,9 +30,20 @@ RETRIES = 1                       # extra tries after a timeout, a dropped conne
 RETRY_WAIT = 5                    # seconds before the first extra try; doubled each time
 
 
+MIN_GAP = 0.0                     # seconds between requests (the website's daily build spaces them out)
+_last = [0.0]
+_gap_lock = threading.Lock()
+
+
 def _http_get(url, timeout=120):
     import time as _time
     for attempt in range(RETRIES + 1):
+        if MIN_GAP:
+            with _gap_lock:
+                wait = _last[0] + MIN_GAP - _time.time()
+                if wait > 0:
+                    _time.sleep(wait)
+                _last[0] = _time.time()
         try:
             return _get_once(url, timeout)
         except _Busy as e:

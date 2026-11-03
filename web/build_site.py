@@ -32,6 +32,7 @@ import analyst                  # noqa: E402
 
 cd.KEEP_SECONDS = 6 * 3600      # one build reuses every City answer across wards and ways of counting
 cd.RETRIES, cd.RETRY_WAIT = 3, 10   # the City's portal sometimes drops connections from cloud servers: keep trying
+cd.MIN_GAP = 0.4                     # and is kinder to requests spaced out
 cd.KEEP_BYTES = 1500 * 1024 * 1024
 
 
