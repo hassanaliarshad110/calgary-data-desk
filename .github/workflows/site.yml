@@ -1,0 +1,76 @@
+name: Website
+
+on:
+  schedule:
+    - cron: '23 11 * * *'     # every morning, about 4:20 a.m. in Calgary
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['*.py', 'ui/**', 'web/**', 'data/**', '.github/workflows/site.yml']
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: website
+  cancel-in-progress: false
+
+env:
+  PYODIDE_VERSION: '0.26.4'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Tools for locking the Claude key
+        run: pip install cryptography
+
+      # the weekly and daily copies (assessment roll, Census, police file) carry over between runs
+      - uses: actions/cache/restore@v4
+        with:
+          path: .site-cache
+          key: site-cache-${{ github.run_id }}
+          restore-keys: site-cache-
+
+      - name: Python for Data Genie in the browser (Pyodide)
+        run: |
+          curl -fsSL -o pyodide.tar.bz2 "https://github.com/pyodide/pyodide/releases/download/${PYODIDE_VERSION}/pyodide-core-${PYODIDE_VERSION}.tar.bz2"
+          tar -xjf pyodide.tar.bz2
+
+      - name: Build every ward from public data
+        env:
+          TZ: America/Edmonton
+          CDD_ANTHROPIC_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CDD_ACCESS_CODE: ${{ secrets.GENIE_ACCESS_CODE }}
+        run: python web/build_site.py _site --cache .site-cache --pyodide pyodide
+
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .site-cache
+          key: site-cache-${{ github.run_id }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

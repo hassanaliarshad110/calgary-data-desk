@@ -1,0 +1,18 @@
+{
+  "2026": {
+    "bylaw": "Bylaw 9M2026, the 2026 Property Tax Bylaw (passed March 31, 2026)",
+    "source": "https://municipalaffairs.gov.ab.ca/cfml/FinancialTaxRateSearch/pdf/tr_bylaws/2026_Bylaw_CALGARY_0046.pdf",
+    "rates": {
+      "municipal": {"residential": 0.0038906, "non_residential": 0.0179986, "farm_land": 0.0339557},
+      "education": {"residential": 0.0027593, "non_residential": 0.0041502, "farm_land": 0.0027593}
+    },
+    "levy": {
+      "municipal": {"residential": 1378401552, "non_residential": 1141158372, "farm_land": 1305110, "total": 2520865034},
+      "education": {"residential": 976684302, "non_residential": 258940842, "farm_land": 106056, "total": 1235731200}
+    },
+    "taxable_assessment": {
+      "municipal": {"residential": 354290225719, "non_residential": 63402618665, "farm_land": 38435659},
+      "education": {"residential": 353960896660, "non_residential": 62392376634, "farm_land": 38435659}
+    }
+  }
+}

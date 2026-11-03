@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ward 5 Data Desk</title>
+<link rel="icon" href="logo.svg">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- Icon set (Lucide style, 24px grid, 2px stroke) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M22 17 13.5 8.5 8.5 13.5 2 7"/><path d="M16 17h6v-6"/></symbol>
+    <symbol id="i-flat" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.38 2.63a2.12 2.12 0 1 1 3 3L12 15l-4 1 1-4Z"/></symbol>
+    <symbol id="i-open" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-bars" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="1.2"/><circle cx="17.5" cy="10.5" r="1.2"/><circle cx="8.5" cy="7.5" r="1.2"/><circle cx="6.5" cy="12.5" r="1.2"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.87a.5.5 0 0 0-.75-.43L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .71-1.53l7-6a2 2 0 0 1 2.58 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  </defs>
+</svg>
+
+<nav class="side" aria-label="Sections">
+  <div class="brand">
+    <img class="brand-mark" src="logo.svg" alt="" width="36" height="36">
+    <div class="brand-text"><strong>Ward 5 Data Desk</strong><span>Councillor's office</span></div>
+  </div>
+  <div class="nav">
+    <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
+    <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
+    <button class="tab" data-view="cameras" title="Traffic cameras"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span>Traffic cameras</span></button>
+    <button class="tab" data-view="ask" title="Ask the data"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg><span>Ask the data</span></button>
+    <button class="tab" data-view="files" title="Files"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Files</span></button>
+    <button class="tab" data-view="settings" title="Settings"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span>Settings</span></button>
+  </div>
+  <button class="brief-btn" id="brief-btn" title="Briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span>Briefing screen</span></button>
+  <div class="side-foot">
+    <div class="status" id="side-status"><span class="dot" aria-hidden="true"></span><span class="status-text">Connecting</span></div>
+    <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg><span>Dark mode</span></button>
+  </div>
+</nav>
+
+<main id="main">
+  <!-- ======================= DASHBOARD ======================= -->
+  <section id="view-dashboard" class="view is-on" aria-labelledby="dash-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="dash-title">Ward 5 overview</h1>
+        <p class="meta" id="dash-sub">Loading City of Calgary open data</p>
+      </div>
+      <div class="topbar-actions">
+        <span class="clock" id="clock" aria-label="Current time"></span>
+        <span class="pill" id="period-pill" hidden></span>
+        <span class="stamp" id="dash-stamp"></span>
+        <button class="btn" id="refresh"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Refresh data</span></button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="banner error" id="dash-error" role="alert" hidden>
+        <svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>
+        <div><strong>The dashboard could not load.</strong> <span id="dash-error-text"></span></div>
+        <button class="btn" id="retry">Try again</button>
+      </div>
+
+      <div class="grid" id="dash-loading" aria-busy="true" aria-label="Loading dashboard">
+        <div class="sk span-12 h-board"></div>
+        <div class="sk span-8 h-map"></div><div class="sk span-4 h-map"></div>
+        <p class="sk-note span-12">Fetching 311 requests, traffic incidents, cameras, permits, property records and boundaries from data.calgary.ca, and estimating today's population. The first load takes about 30 seconds.</p>
+      </div>
+
+      <div class="grid" id="dash-body" hidden>
+        <!-- status board -->
+        <section class="board span-12" aria-label="Ward 5 status board">
+          <div class="board-head">
+            <div class="board-title">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>Live from City of Calgary open data</span>
+            </div>
+            <span class="board-period" id="board-period"></span>
+          </div>
+          <div class="kpis" id="kpis" role="list" aria-label="Key figures"></div>
+        </section>
+
+        <!-- map + panel -->
+        <section class="card span-8 map-card" aria-labelledby="map-title">
+          <div class="card-head">
+            <div>
+              <h2 id="map-title">Ward 5 map</h2>
+              <p class="card-sub" id="map-sub"></p>
+            </div>
+            <div class="card-tools">
+              <div class="seg" role="radiogroup" aria-label="Shade the map by" id="metric-seg">
+                <button role="radio" aria-checked="true" data-metric="open_per_1000">Open per 1,000</button>
+                <button role="radio" aria-checked="false" data-metric="requests_per_1000">Requests per 1,000</button>
+                <button role="radio" aria-checked="false" data-metric="requests_change_pct">Change in requests</button>
+                <button role="radio" aria-checked="false" data-metric="growth_pct">Growth since 2021</button>
+              </div>
+            </div>
+          </div>
+          <div class="layer-row">
+            <label class="switch"><input type="checkbox" id="show-traffic" checked><span class="track" aria-hidden="true"></span>Traffic incidents, 90 days</label>
+            <label class="switch cam-switch"><input type="checkbox" id="show-cameras" checked><span class="track" aria-hidden="true"></span>Traffic cameras</label>
+          </div>
+          <div class="map-wrap">
+            <div id="map" role="region" aria-label="Map of Ward 5 communities. The ranked list beside it has the same figures."></div>
+            <div class="legend" id="legend"></div>
+          </div>
+        </section>
+        <aside class="card span-4 panel" id="panel" aria-live="polite" aria-label="Community details"></aside>
+
+        <!-- trend + newest -->
+        <section class="card span-8" aria-labelledby="trend-title">
+          <div class="card-head"><div><h2 id="trend-title">311 requests each month</h2><p class="card-sub">Ward 5, last 12 months against the 12 months before</p></div></div>
+          <div class="chart-holder"><canvas id="trend" aria-label="Line chart of monthly 311 requests in Ward 5" role="img"></canvas></div>
+        </section>
+        <section class="card span-4 feed-card" aria-labelledby="feed-title">
+          <div class="card-head"><div><h2 id="feed-title">Newest 311 reports</h2><p class="card-sub">The latest requests logged in Ward 5</p></div>
+            <button class="link-btn" data-goto="issues">All open issues</button></div>
+          <ol class="feed" id="feed"></ol>
+        </section>
+
+        <!-- population + service areas -->
+        <section class="card span-6" aria-labelledby="pop-title">
+          <div class="card-head"><div><h2 id="pop-title">Population today against the 2021 Census</h2><p class="card-sub" id="pop-sub"></p></div></div>
+          <div id="popcmp"></div>
+        </section>
+        <section class="card span-6" aria-labelledby="areas-title">
+          <div class="card-head"><div><h2 id="areas-title">311 requests by City service</h2><p class="card-sub" id="areas-sub"></p></div></div>
+          <div id="areas"></div>
+        </section>
+
+        <!-- cameras strip -->
+        <section class="card span-12" aria-labelledby="camstrip-title">
+          <div class="card-head"><div><h2 id="camstrip-title">Traffic cameras in Ward 5</h2><p class="card-sub">Each camera replays its last 30 minutes on a loop</p></div>
+            <div class="card-tools"><button class="link-btn" data-goto="cameras">Camera wall</button><button class="btn" data-url="camera_page"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>City camera page</span></button></div></div>
+          <div class="camstrip" id="camstrip"></div>
+        </section>
+
+        <!-- open by type, benchmarks, disorder -->
+        <section class="card span-4" aria-labelledby="open-title">
+          <div class="card-head"><div><h2 id="open-title">Open requests by type</h2><p class="card-sub">Most requests still open today</p></div></div>
+          <div class="chart-holder"><canvas id="open-types" aria-label="Bar chart of open requests by type" role="img"></canvas></div>
+        </section>
+        <section class="card span-4" aria-labelledby="bench-title">
+          <div class="card-head"><div><h2 id="bench-title">Ward 5 against Calgary</h2><p class="card-sub" id="bench-sub"></p></div></div>
+          <div id="bench"></div>
+        </section>
+        <section class="card span-4" aria-labelledby="dis-title">
+          <div class="card-head"><div><h2 id="dis-title">Police-reported social disorder</h2><p class="card-sub" id="dis-sub"></p></div></div>
+          <div id="disorder"></div>
+        </section>
+
+        <!-- table -->
+        <section class="card span-12 table-card" aria-labelledby="table-title">
+          <div class="card-head">
+            <div><h2 id="table-title">All communities</h2><p class="card-sub">Select a column heading to sort. Select a row to show it on the map.</p></div>
+            <div class="card-tools">
+              <div class="seg" role="radiogroup" aria-label="Which areas to list" id="area-seg">
+                <button role="radio" aria-checked="true" data-areas="res">Residential</button>
+                <button role="radio" aria-checked="false" data-areas="all">All areas</button>
+              </div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data" id="comm-table">
+              <thead><tr id="comm-head"></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="notes span-12" id="notes"></footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= OPEN ISSUES ======================= -->
+  <section id="view-issues" class="view" aria-labelledby="issues-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="issues-title">Open issues</h1>
+        <p class="meta" id="issues-sub">Every 311 request still open in Ward 5</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn" id="issues-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="issue-stats" id="issue-stats"></div>
+      <div class="filters card">
+        <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
+          <input id="f-text" type="search" placeholder="Search request number, type, address or department"></label>
+        <label><span>Community</span><select id="f-comm"></select></label>
+        <label><span>Service</span><select id="f-area"></select></label>
+        <label><span>Open for</span><select id="f-age">
+          <option value="0">Any time</option><option value="30">More than 30 days</option><option value="90">More than 90 days</option>
+          <option value="365">More than a year</option></select></label>
+        <label><span>Sort</span><select id="f-sort">
+          <option value="old">Oldest first</option><option value="new">Newest first</option><option value="type">By type</option></select></label>
+      </div>
+      <section class="card issues-card">
+        <div class="table-wrap tall">
+          <table class="data" id="issues-table">
+            <thead><tr><th scope="col">Request</th><th scope="col">Opened</th><th scope="col" class="num">Days open</th><th scope="col">Type</th><th scope="col">Community</th><th scope="col">Department</th><th scope="col">Last update</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="issues-foot"><span id="issues-count"></span><button class="btn" id="issues-more" hidden>Show more</button></div>
+      </section>
+      <p class="notes">Request details come from the City's 311 open data, updated daily. The City's own status page shows a request only to the person who filed it, so each issue links to its public record on data.calgary.ca and to its location.</p>
+    </div>
+    <aside class="drawer" id="drawer" aria-label="Issue details" hidden></aside>
+  </section>
+
+  <!-- ======================= CAMERAS ======================= -->
+  <section id="view-cameras" class="view" aria-labelledby="cam-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="cam-title">Traffic cameras</h1>
+        <p class="meta" id="cam-sub">City of Calgary traffic cameras, each replaying its last 30 minutes</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Which cameras" id="cam-seg">
+          <button role="radio" aria-checked="true" data-cams="ward">Ward 5 and nearby</button>
+          <button role="radio" aria-checked="false" data-cams="all">All Calgary</button>
+        </div>
+        <button class="btn" data-url="camera_page"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>City camera page</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="camgrid" id="camgrid"></div>
+      <p class="notes">The City's cameras are for traffic monitoring only. Footage is not recorded, and cameras can be offline for maintenance or after collisions. Source: City of Calgary Open Data, Traffic Cameras (k7p9-kppz).</p>
+    </div>
+  </section>
+
+  <!-- ======================= ASK ======================= -->
+  <section id="view-ask" class="view" aria-labelledby="ask-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="ask-title">Ask the data</h1>
+        <p class="meta">Questions about any City of Calgary open dataset</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Answer mode" id="mode-seg">
+          <button role="radio" aria-checked="true" data-mode="fast" title="Quick and low cost">Fast</button>
+          <button role="radio" aria-checked="false" data-mode="smart" title="For harder questions">Thorough</button>
+        </div>
+        <button class="btn" id="new-chat"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><span>New chat</span></button>
+      </div>
+    </header>
+    <div class="ask-shell">
+      <div class="thread" id="thread" aria-live="polite">
+        <div class="welcome" id="welcome">
+          <div class="welcome-mark" aria-hidden="true"><svg class="ic"><use href="#i-database"/></svg></div>
+          <h2>What would you like to know?</h2>
+          <p>Ask about Ward 5 or anything the City publishes as open data: for casework, briefings or council meetings. The assistant finds the right dataset, runs the numbers, draws charts and maps, and can save the data to this computer.</p>
+          <div class="banner warn" id="no-key" hidden>
+            <svg class="ic" aria-hidden="true"><use href="#i-key"/></svg>
+            <div>Add the office's Claude API key in Settings to start asking. The dashboard works without it.</div>
+            <button class="btn" id="go-settings">Open Settings</button>
+          </div>
+          <div class="suggest">
+            <button><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span>Which Ward 5 community has the most open pothole requests?</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg><span>How has Calgary's winter snowfall changed over the last 10 years?</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span>Brief me on Taradale: open requests, the oldest ones and what changed this year</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Download all open 311 requests in Martindale and Taradale</span></button>
+          </div>
+        </div>
+      </div>
+      <form class="composer" id="composer">
+        <label class="sr" for="question">Your question</label>
+        <textarea id="question" rows="1" placeholder="Ask a question about City of Calgary data"></textarea>
+        <button type="submit" class="send" id="send" aria-label="Ask"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></button>
+      </form>
+      <p class="composer-hint">Enter to ask. Shift and Enter for a new line. Answers come from the City's open data and show their sources.</p>
+    </div>
+  </section>
+
+  <!-- ======================= FILES ======================= -->
+  <section id="view-files" class="view" aria-labelledby="files-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="files-title">Files</h1>
+        <p class="meta" id="files-where">Data the assistant has saved</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn" id="open-folder"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Open folder</span></button>
+      </div>
+    </header>
+    <div class="content narrow">
+      <section class="card">
+        <table class="data files-table">
+          <thead><tr><th scope="col">File</th><th scope="col">Saved</th><th scope="col" class="num">Size</th><th scope="col"><span class="sr">Action</span></th></tr></thead>
+          <tbody id="files"></tbody>
+        </table>
+      </section>
+    </div>
+  </section>
+
+  <!-- ======================= SETTINGS ======================= -->
+  <section id="view-settings" class="view" aria-labelledby="settings-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="settings-title">Settings</h1><p class="meta">Saved only on this computer</p></div>
+    </header>
+    <div class="content narrow">
+      <form class="settings" id="settings-form">
+        <section class="card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-key"/></svg><div><h2>Claude API key</h2><p class="card-sub">Needed for Ask the data</p></div></div><span class="badge" id="key-badge">Not saved</span></div>
+          <p class="field-hint" id="key-status">No key saved.</p>
+          <label class="field-label" for="api-key">Paste a new key</label>
+          <input type="password" id="api-key" autocomplete="off" placeholder="sk-ant-...">
+          <p class="field-hint">Create a key at console.anthropic.com.</p>
+          <div class="row-actions"><button type="button" class="btn" id="remove-key">Remove saved key</button></div>
+        </section>
+        <section class="card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-cpu"/></svg><div><h2>Models</h2><p class="card-sub">Which Claude model answers each mode</p></div></div></div>
+          <div class="two-fields">
+            <div><label class="field-label" for="fast-model">Fast answers</label><input id="fast-model"></div>
+            <div><label class="field-label" for="smart-model">Thorough answers</label><input id="smart-model"></div>
+          </div>
+          <p class="field-hint">Fast uses Claude Haiku and costs about a cent or two per question. Thorough uses Claude Sonnet for harder questions and costs several times more.</p>
+        </section>
+        <section class="card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg><div><h2>Appearance</h2><p class="card-sub">Light, dark, or follow Windows</p></div></div></div>
+          <div class="seg" role="radiogroup" aria-label="Theme" id="theme-seg">
+            <button type="button" role="radio" aria-checked="true" data-theme-pref="system">Match Windows</button>
+            <button type="button" role="radio" aria-checked="false" data-theme-pref="light">Light</button>
+            <button type="button" role="radio" aria-checked="false" data-theme-pref="dark">Dark</button>
+          </div>
+        </section>
+        <div class="row-actions">
+          <button type="submit" class="btn primary">Save settings</button>
+          <p class="saved" id="saved-msg" role="status"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div class="brief" id="brief" hidden role="dialog" aria-modal="true" aria-label="Briefing screen">
+  <header class="brief-head">
+    <div class="brief-brand"><img src="logo.svg" alt="" width="44" height="44"><div><strong>Ward 5</strong><span id="brief-who"></span></div></div>
+    <div class="brief-clock"><span id="brief-time"></span><span id="brief-date"></span></div>
+    <button class="brief-close" id="brief-close" aria-label="Close the briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+  </header>
+  <div class="brief-body">
+    <div class="brief-kpis" id="brief-kpis"></div>
+    <div class="brief-cams" id="brief-cams"></div>
+    <div class="brief-side">
+      <h2>Newest 311 reports</h2>
+      <ol class="brief-feed" id="brief-feed"></ol>
+      <h2>Most open requests</h2>
+      <ol class="brief-types" id="brief-types"></ol>
+    </div>
+  </div>
+  <footer class="brief-foot" id="brief-foot"></footer>
+</div>
+
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Camera">
+  <div class="viewer-box" id="viewer-box"><div class="viewer-head"><strong id="viewer-name"></strong><button class="brief-close" id="viewer-close" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <div class="viewer-frame"><img id="viewer-img" alt=""><span class="live" data-stamp>Latest</span><span class="progress" aria-hidden="true"><i></i></span></div>
+  <div class="viewer-tools"><button class="btn" id="viewer-pause">Pause</button><button class="btn" id="viewer-latest">Newest image</button><span id="viewer-count" class="viewer-count"></span></div>
+  <p class="viewer-note" id="viewer-note"></p></div>
+</div>
+
+<script src="vendor/leaflet.js"></script>
+<script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/marked.min.js"></script>
+<script src="vendor/purify.min.js"></script>
+<script src="../tests/mock_api.js"></script><script src="../tests/mock_cams.js"></script><script src="app.js"></script>
+</body>
+</html>

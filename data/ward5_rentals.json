@@ -1,0 +1,633 @@
+{
+"built_on": "2026-10-28",
+"about": "Rental (multi-residential) properties in Ward 5 communities on the City's property assessment roll, with their units matched to building permits where possible (otherwise estimated from assessed value). From the Ward 5 growth model.",
+"move_in": [
+{
+"roll": "200205045",
+"comm": "FAL",
+"code": "R510",
+"units": 138,
+"kind": "estimated",
+"t": 1982.0
+},
+{
+"roll": "28204402",
+"comm": "CAS",
+"code": "R510",
+"units": 77,
+"kind": "estimated",
+"t": 1981.0
+},
+{
+"roll": "202622833",
+"comm": "CSC",
+"code": "R510",
+"units": 136,
+"kind": "permit",
+"t": 2021.952
+},
+{
+"roll": "202622833",
+"comm": "CSC",
+"code": "R510",
+"units": 136,
+"kind": "permit",
+"t": 2021.839
+},
+{
+"roll": "202342333",
+"comm": "SKR",
+"code": "R510",
+"units": 56,
+"kind": "permit",
+"t": 2017.009
+},
+{
+"roll": "202342333",
+"comm": "SKR",
+"code": "R510",
+"units": 55,
+"kind": "permit",
+"t": 2017.086
+},
+{
+"roll": "202342333",
+"comm": "SKR",
+"code": "R510",
+"units": 56,
+"kind": "permit",
+"t": 2017.168
+},
+{
+"roll": "202342325",
+"comm": "SKR",
+"code": "R510",
+"units": 58,
+"kind": "estimated",
+"t": 2015.0
+},
+{
+"roll": "202342317",
+"comm": "SKR",
+"code": "R510",
+"units": 57,
+"kind": "estimated",
+"t": 2015.0
+},
+{
+"roll": "202342309",
+"comm": "SKR",
+"code": "R510",
+"units": 56,
+"kind": "permit",
+"t": 2017.258
+},
+{
+"roll": "202499224",
+"comm": "SKR",
+"code": "R510",
+"units": 222,
+"kind": "permit",
+"t": 2019.79
+},
+{
+"roll": "202499190",
+"comm": "SKR",
+"code": "R510",
+"units": 141,
+"kind": "permit",
+"t": 2022.037
+},
+{
+"roll": "202295093",
+"comm": "SKR",
+"code": "R510",
+"units": 87,
+"kind": "permit",
+"t": 2017.401
+},
+{
+"roll": "202295093",
+"comm": "SKR",
+"code": "R510",
+"units": 87,
+"kind": "permit",
+"t": 2017.245
+},
+{
+"roll": "202295093",
+"comm": "SKR",
+"code": "R510",
+"units": 158,
+"kind": "permit",
+"t": 2019.79
+},
+{
+"roll": "202295093",
+"comm": "SKR",
+"code": "R510",
+"units": 87,
+"kind": "permit",
+"t": 2017.319
+},
+{
+"roll": "203280292",
+"comm": "RSN",
+"code": "R520",
+"units": 51,
+"kind": "permit",
+"t": 2025.905
+},
+{
+"roll": "28031003",
+"comm": "FAL",
+"code": "R710",
+"units": 13,
+"kind": "estimated",
+"t": 1981.0
+},
+{
+"roll": "28031102",
+"comm": "FAL",
+"code": "R710",
+"units": 12,
+"kind": "estimated",
+"t": 1980.0
+},
+{
+"roll": "28077907",
+"comm": "FAL",
+"code": "R710",
+"units": 30,
+"kind": "estimated",
+"t": 1988.0
+},
+{
+"roll": "202263364",
+"comm": "SKR",
+"code": "R710",
+"units": 8,
+"kind": "permit",
+"t": 2024.108
+},
+{
+"roll": "202263364",
+"comm": "SKR",
+"code": "R710",
+"units": 5,
+"kind": "permit",
+"t": 2023.965
+},
+{
+"roll": "202263364",
+"comm": "SKR",
+"code": "R710",
+"units": 6,
+"kind": "permit",
+"t": 2023.198
+},
+{
+"roll": "202263364",
+"comm": "SKR",
+"code": "R710",
+"units": 8,
+"kind": "permit",
+"t": 2023.198
+},
+{
+"roll": "202263364",
+"comm": "SKR",
+"code": "R710",
+"units": 8,
+"kind": "permit",
+"t": 2024.045
+},
+{
+"roll": "202263364",
+"comm": "SKR",
+"code": "R710",
+"units": 7,
+"kind": "permit",
+"t": 2024.176
+},
+{
+"roll": "202776464",
+"comm": "CNS",
+"code": "R710",
+"units": 10,
+"kind": "estimated",
+"t": 2019.0
+},
+{
+"roll": "202776480",
+"comm": "CNS",
+"code": "R710",
+"units": 5,
+"kind": "estimated",
+"t": 2019.0
+},
+{
+"roll": "202776472",
+"comm": "CNS",
+"code": "R710",
+"units": 10,
+"kind": "estimated",
+"t": 2019.0
+},
+{
+"roll": "202776456",
+"comm": "CNS",
+"code": "R710",
+"units": 10,
+"kind": "estimated",
+"t": 2019.0
+},
+{
+"roll": "202776498",
+"comm": "CNS",
+"code": "R710",
+"units": 5,
+"kind": "estimated",
+"t": 2019.0
+},
+{
+"roll": "201782299",
+"comm": "SAD",
+"code": "R710",
+"units": 4,
+"kind": "permit",
+"t": 2027.242
+},
+{
+"roll": "201782299",
+"comm": "SAD",
+"code": "R710",
+"units": 4,
+"kind": "permit",
+"t": 2027.174
+},
+{
+"roll": "201782398",
+"comm": "SAD",
+"code": "R710",
+"units": 10,
+"kind": "permit",
+"t": 2024.642
+},
+{
+"roll": "201782398",
+"comm": "SAD",
+"code": "R710",
+"units": 12,
+"kind": "permit",
+"t": 2024.664
+},
+{
+"roll": "201782398",
+"comm": "SAD",
+"code": "R710",
+"units": 16,
+"kind": "permit",
+"t": 2024.582
+},
+{
+"roll": "201782398",
+"comm": "SAD",
+"code": "R710",
+"units": 10,
+"kind": "permit",
+"t": 2024.403
+},
+{
+"roll": "201782398",
+"comm": "SAD",
+"code": "R710",
+"units": 6,
+"kind": "permit",
+"t": 2024.618
+},
+{
+"roll": "201782398",
+"comm": "SAD",
+"code": "R710",
+"units": 4,
+"kind": "permit",
+"t": 2024.403
+},
+{
+"roll": "201782398",
+"comm": "SAD",
+"code": "R710",
+"units": 16,
+"kind": "permit",
+"t": 2024.403
+},
+{
+"roll": "202584116",
+"comm": "SKR",
+"code": "R940",
+"units": 40,
+"kind": "permit",
+"t": 2015.423
+},
+{
+"roll": "202584116",
+"comm": "SKR",
+"code": "R940",
+"units": 120,
+"kind": "permit",
+"t": 2019.892
+},
+{
+"roll": "202263323",
+"comm": "SKR",
+"code": "X057",
+"units": 99,
+"kind": "permit",
+"t": 2025.373
+},
+{
+"roll": "202499216",
+"comm": "SKR",
+"code": "X057",
+"units": 146,
+"kind": "permit",
+"t": 2024.395
+},
+{
+"roll": "202530515",
+"comm": "SKR",
+"code": "X057",
+"units": 136,
+"kind": "permit",
+"t": 2019.985
+},
+{
+"roll": "202530515",
+"comm": "SKR",
+"code": "X057",
+"units": 136,
+"kind": "permit",
+"t": 2020.157
+},
+{
+"roll": "203292917",
+"comm": "SKR",
+"code": "X057",
+"units": 124,
+"kind": "permit",
+"t": 2026.963
+}
+],
+"properties": [
+{
+"roll": "200205045",
+"comm": "FAL",
+"code": "R510",
+"year_of_construction": 1982,
+"units": 138,
+"source": "estimated"
+},
+{
+"roll": "28204402",
+"comm": "CAS",
+"code": "R510",
+"year_of_construction": 1981,
+"units": 77,
+"source": "estimated"
+},
+{
+"roll": "202622833",
+"comm": "CSC",
+"code": "R510",
+"year_of_construction": 2019,
+"units": 272,
+"source": "permit"
+},
+{
+"roll": "202342333",
+"comm": "SKR",
+"code": "R510",
+"year_of_construction": 2015,
+"units": 167,
+"source": "permit"
+},
+{
+"roll": "202342325",
+"comm": "SKR",
+"code": "R510",
+"year_of_construction": 2015,
+"units": 58,
+"source": "estimated"
+},
+{
+"roll": "202342317",
+"comm": "SKR",
+"code": "R510",
+"year_of_construction": 2015,
+"units": 57,
+"source": "estimated"
+},
+{
+"roll": "202342309",
+"comm": "SKR",
+"code": "R510",
+"year_of_construction": 2015,
+"units": 56,
+"source": "permit"
+},
+{
+"roll": "202499224",
+"comm": "SKR",
+"code": "R510",
+"year_of_construction": 2017,
+"units": 222,
+"source": "permit"
+},
+{
+"roll": "202499190",
+"comm": "SKR",
+"code": "R510",
+"year_of_construction": 2019,
+"units": 141,
+"source": "permit"
+},
+{
+"roll": "202295093",
+"comm": "SKR",
+"code": "R510",
+"year_of_construction": 2015,
+"units": 419,
+"source": "permit"
+},
+{
+"roll": "203080171",
+"comm": "SAD",
+"code": "R520",
+"year_of_construction": null,
+"units": 10,
+"source": "estimated"
+},
+{
+"roll": "203280292",
+"comm": "RSN",
+"code": "R520",
+"year_of_construction": 2022,
+"units": 51,
+"source": "permit"
+},
+{
+"roll": "28031003",
+"comm": "FAL",
+"code": "R710",
+"year_of_construction": 1981,
+"units": 13,
+"source": "estimated"
+},
+{
+"roll": "28031102",
+"comm": "FAL",
+"code": "R710",
+"year_of_construction": 1980,
+"units": 12,
+"source": "estimated"
+},
+{
+"roll": "28077907",
+"comm": "FAL",
+"code": "R710",
+"year_of_construction": 1988,
+"units": 30,
+"source": "estimated"
+},
+{
+"roll": "202263364",
+"comm": "SKR",
+"code": "R710",
+"year_of_construction": 2020,
+"units": 42,
+"source": "permit"
+},
+{
+"roll": "202636858",
+"comm": "SAD",
+"code": "R710",
+"year_of_construction": null,
+"units": 20,
+"source": "permit"
+},
+{
+"roll": "202776464",
+"comm": "CNS",
+"code": "R710",
+"year_of_construction": 2019,
+"units": 10,
+"source": "estimated"
+},
+{
+"roll": "202776480",
+"comm": "CNS",
+"code": "R710",
+"year_of_construction": 2019,
+"units": 5,
+"source": "estimated"
+},
+{
+"roll": "202776472",
+"comm": "CNS",
+"code": "R710",
+"year_of_construction": 2019,
+"units": 10,
+"source": "estimated"
+},
+{
+"roll": "202776456",
+"comm": "CNS",
+"code": "R710",
+"year_of_construction": 2019,
+"units": 10,
+"source": "estimated"
+},
+{
+"roll": "202776498",
+"comm": "CNS",
+"code": "R710",
+"year_of_construction": 2019,
+"units": 5,
+"source": "estimated"
+},
+{
+"roll": "201782299",
+"comm": "SAD",
+"code": "R710",
+"year_of_construction": null,
+"units": 16,
+"source": "permit"
+},
+{
+"roll": "201782398",
+"comm": "SAD",
+"code": "R710",
+"year_of_construction": 2022,
+"units": 74,
+"source": "permit"
+},
+{
+"roll": "202584116",
+"comm": "SKR",
+"code": "R940",
+"year_of_construction": 2010,
+"units": 160,
+"source": "permit"
+},
+{
+"roll": "202263323",
+"comm": "SKR",
+"code": "X057",
+"year_of_construction": 2022,
+"units": 99,
+"source": "permit"
+},
+{
+"roll": "202499216",
+"comm": "SKR",
+"code": "X057",
+"year_of_construction": 2021,
+"units": 146,
+"source": "permit"
+},
+{
+"roll": "202530515",
+"comm": "SKR",
+"code": "X057",
+"year_of_construction": 2018,
+"units": 272,
+"source": "permit"
+},
+{
+"roll": "203292917",
+"comm": "SKR",
+"code": "X057",
+"year_of_construction": 2024,
+"units": 124,
+"source": "permit"
+},
+{
+"roll": "203382155",
+"comm": "SKR",
+"code": "X057",
+"year_of_construction": null,
+"units": 87,
+"source": "permit"
+},
+{
+"roll": "201671039",
+"comm": "TAR",
+"code": "X057",
+"year_of_construction": null,
+"units": 135,
+"source": "permit"
+}
+],
+"city_people_per_home": 2.66
+}

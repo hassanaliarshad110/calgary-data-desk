@@ -1,0 +1,10 @@
+tests/_cache/
+tests/out_*.json
+tests/missing_*.json
+__pycache__/
+ui/_v2.html
+tests/mock_v2.js
+tests/shots_v2/
+.site-cache/
+_site/
+tests/

@@ -1,0 +1,345 @@
+{
+ "source": {
+  "name": "The City of Calgary Ward Profiles: Ward 5",
+  "publisher": "City of Calgary (Statistics Canada 2021 Census, through the Community Data Program)",
+  "page": "https://www.calgary.ca/communities/profiles/wards.html",
+  "census_day": "2021-05-11",
+  "published": "2023 (revised July 2025)",
+  "notes": "People in private households (not seniors' homes or other collective dwellings). 2021 ward boundaries. Income is for the 2020 calendar year. Work questions refer to May 2021, during the pandemic. Statistics Canada rounds counts to the nearest 5, so totals can differ slightly."
+ },
+ "groups": [
+  {
+   "key": "people",
+   "title": "People and households",
+   "items": [
+    {
+     "label": "People in private households",
+     "w5": 106220,
+     "cal": 1291790,
+     "unit": "n"
+    },
+    {
+     "label": "Share of Calgary's people",
+     "w5": 8.2,
+     "cal": null,
+     "unit": "%",
+     "note": "106,220 of 1,291,790"
+    },
+    {
+     "label": "Households",
+     "w5": 29605,
+     "cal": 502310,
+     "unit": "n"
+    },
+    {
+     "label": "People per household",
+     "w5": 3.6,
+     "cal": 2.6,
+     "unit": "x"
+    },
+    {
+     "label": "Households of 5 or more people",
+     "w5": 27,
+     "cal": 10,
+     "unit": "%"
+    },
+    {
+     "label": "Children aged 0 to 14",
+     "w5": 24,
+     "cal": 18,
+     "unit": "%",
+     "note": "25,100 children"
+    },
+    {
+     "label": "Aged 65 and over",
+     "w5": 7,
+     "cal": 13,
+     "unit": "%",
+     "note": "7,800 people"
+    },
+    {
+     "label": "One-parent families",
+     "w5": 15,
+     "cal": 15,
+     "unit": "%"
+    }
+   ]
+  },
+  {
+   "key": "language",
+   "title": "Language",
+   "items": [
+    {
+     "label": "Speak a language other than English most often at home",
+     "w5": 60,
+     "cal": 25,
+     "unit": "%"
+    },
+    {
+     "label": "Speak neither English nor French",
+     "w5": 7.1,
+     "cal": 2.5,
+     "unit": "%",
+     "note": "7,535 people"
+    },
+    {
+     "label": "Mother tongue other than English",
+     "w5": 70,
+     "cal": 36,
+     "unit": "%"
+    }
+   ],
+   "list": {
+    "title": "Languages spoken most often at home",
+    "rows": [
+     [
+      "English",
+      42860,
+      40
+     ],
+     [
+      "Punjabi",
+      25685,
+      24
+     ],
+     [
+      "Urdu",
+      5260,
+      5
+     ],
+     [
+      "Tagalog (Filipino)",
+      4340,
+      4
+     ],
+     [
+      "Hindi",
+      1730,
+      2
+     ],
+     [
+      "Spanish",
+      1475,
+      1
+     ]
+    ],
+    "note": "Share of Ward 5 people; 13% speak more than one language equally at home."
+   }
+  },
+  {
+   "key": "newcomers",
+   "title": "Newcomers and moving",
+   "items": [
+    {
+     "label": "Immigrants",
+     "w5": 58,
+     "cal": 33,
+     "unit": "%"
+    },
+    {
+     "label": "Arrived in Canada 2016 to 2021",
+     "w5": 13,
+     "cal": 6,
+     "unit": "%",
+     "note": "14,065 people"
+    },
+    {
+     "label": "Non-permanent residents (work or study permit, asylum claimants)",
+     "w5": 5,
+     "cal": 2,
+     "unit": "%"
+    },
+    {
+     "label": "Moved home in the 5 years before the Census",
+     "w5": 49,
+     "cal": 42,
+     "unit": "%"
+    },
+    {
+     "label": "Moved from another country in those 5 years",
+     "w5": 12,
+     "cal": 6,
+     "unit": "%"
+    }
+   ],
+   "list": {
+    "title": "Where Ward 5's immigrants were born",
+    "rows": [
+     [
+      "India",
+      27060,
+      44
+     ],
+     [
+      "Philippines",
+      9595,
+      16
+     ],
+     [
+      "Pakistan",
+      6940,
+      11
+     ]
+    ],
+    "note": "Share of Ward 5's 61,140 immigrants."
+   }
+  },
+  {
+   "key": "housing",
+   "title": "Housing",
+   "items": [
+    {
+     "label": "Renter households",
+     "w5": 26,
+     "cal": 31,
+     "unit": "%",
+     "note": "7,825 households"
+    },
+    {
+     "label": "Homes without enough bedrooms for the household",
+     "w5": 15,
+     "cal": 5,
+     "unit": "%",
+     "note": "4,460 households (Statistics Canada's housing suitability)"
+    },
+    {
+     "label": "Households spending 30% or more of income on housing",
+     "w5": 27,
+     "cal": 23,
+     "unit": "%"
+    },
+    {
+     "label": "Owners spending 30% or more",
+     "w5": 26,
+     "cal": 18,
+     "unit": "%"
+    },
+    {
+     "label": "Renters spending 30% or more",
+     "w5": 30,
+     "cal": 34,
+     "unit": "%"
+    },
+    {
+     "label": "Owners with a mortgage",
+     "w5": 87,
+     "cal": 65,
+     "unit": "%"
+    },
+    {
+     "label": "Median monthly housing cost, owners",
+     "w5": 1960,
+     "cal": 1720,
+     "unit": "$"
+    },
+    {
+     "label": "Median monthly housing cost, renters",
+     "w5": 1400,
+     "cal": 1350,
+     "unit": "$"
+    },
+    {
+     "label": "Homes built 2016 to 2021",
+     "w5": 26,
+     "cal": 9,
+     "unit": "%",
+     "note": "7,580 homes"
+    },
+    {
+     "label": "Apartments in buildings of 5 storeys or more",
+     "w5": 0,
+     "cal": 8,
+     "unit": "%"
+    }
+   ]
+  },
+  {
+   "key": "income",
+   "title": "Income (2020)",
+   "items": [
+    {
+     "label": "Median household income",
+     "w5": 97000,
+     "cal": 98000,
+     "unit": "$"
+    },
+    {
+     "label": "Median income per person aged 15 and over",
+     "w5": 36000,
+     "cal": 44400,
+     "unit": "$"
+    },
+    {
+     "label": "Children (0 to 17) in low-income households",
+     "w5": 12,
+     "cal": 11,
+     "unit": "%",
+     "note": "3,610 children (after-tax low income measure)"
+    },
+    {
+     "label": "People in low-income households",
+     "w5": 9,
+     "cal": 9,
+     "unit": "%"
+    },
+    {
+     "label": "Income gap: top 10% against bottom 10% (90/10 ratio)",
+     "w5": 2.8,
+     "cal": 4.1,
+     "unit": "x",
+     "note": "Lower means incomes are closer together"
+    }
+   ]
+  },
+  {
+   "key": "work",
+   "title": "Work and getting to work (May 2021)",
+   "items": [
+    {
+     "label": "Take transit to work",
+     "w5": 11,
+     "cal": 9,
+     "unit": "%"
+    },
+    {
+     "label": "Leave for work between noon and 5 a.m.",
+     "w5": 26,
+     "cal": 17,
+     "unit": "%",
+     "note": "Shift work"
+    },
+    {
+     "label": "Commute 45 minutes or more",
+     "w5": 13,
+     "cal": 10,
+     "unit": "%"
+    },
+    {
+     "label": "Work in transportation and warehousing",
+     "w5": 17,
+     "cal": 7,
+     "unit": "%",
+     "note": "The airport and logistics; the ward's largest industry"
+    },
+    {
+     "label": "In the labour force",
+     "w5": 71,
+     "cal": 69,
+     "unit": "%"
+    },
+    {
+     "label": "Unemployed (May 2021, during the pandemic)",
+     "w5": 14,
+     "cal": 13,
+     "unit": "%"
+    },
+    {
+     "label": "No certificate, diploma or degree (aged 15+)",
+     "w5": 20,
+     "cal": 13,
+     "unit": "%"
+    }
+   ]
+  }
+ ]
+}

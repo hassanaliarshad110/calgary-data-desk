@@ -1,0 +1,20 @@
+{
+  "source": "The City of Calgary, 2026 Budget as approved (December 3, 2025), Budget Overview, Operating Revenue table, page 24 of 158",
+  "file": "2026-budget-as-approved-dec-3-2025.pdf",
+  "page": "https://www.calgary.ca/our-finances/budget.html",
+  "unit": "millions of dollars",
+  "years": ["2023", "2024", "2025", "2026"],
+  "lines": [
+    {"name": "Property tax, including levies", "values": [2181, 2338, 2467, 2551], "note": "Tax increases on existing properties, tax from new and redeveloped properties, local improvement and community revitalization levies."},
+    {"name": "Sales of goods and services", "values": [1301, 1297, 1362, 1432], "note": "Mostly the water utility (16.5% of all revenue) and waste and recycling (3.7%)."},
+    {"name": "Investment income", "values": [116, 127, 215, 253]},
+    {"name": "Return on equity", "values": [173, 191, 189, 207], "note": "The ENMAX dividend and contributions from the self-supported water utilities."},
+    {"name": "Franchise fees", "values": [190, 210, 231, 234], "note": "Paid by utility companies to The City in lieu of property taxes, for the right to deliver their services in Calgary."},
+    {"name": "Licences and permits", "values": [115, 139, 135, 136]},
+    {"name": "Government grants", "values": [86, 82, 95, 95]},
+    {"name": "Fines and penalties", "values": [83, 83, 83, 58]},
+    {"name": "Other non-tax revenue", "values": [119, 129, 139, 150]}
+  ],
+  "total": [4365, 4595, 4916, 5116],
+  "reserve_withdrawal": [202, 223, 519, 391]
+}

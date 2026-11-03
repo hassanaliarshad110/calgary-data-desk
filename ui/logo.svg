@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Calgary Data Desk">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#1A4677"/>
+      <stop offset="1" stop-color="#0A1A33"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7DC97"/>
+      <stop offset="1" stop-color="#C8922B"/>
+    </linearGradient>
+    <linearGradient id="ice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#D3E7F6"/>
+    </linearGradient>
+    <linearGradient id="river" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <clipPath id="tile"><rect width="256" height="256" rx="56"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="256" height="256" fill="url(#bg)"/>
+    <!-- the Rockies to the west, snow on the peaks -->
+    <path d="M0 176 L40 128 L62 150 L104 96 L140 142 L164 118 L210 160 L256 128 L256 196 L0 196 Z" fill="#2E5F93" fill-opacity=".6"/>
+    <path d="M92 111 L104 96 L117 113 L110 109 L104 117 L98 110 Z" fill="#FFFFFF" fill-opacity=".8"/>
+    <path d="M30 140 L40 128 L50 140 L44 137 L40 142 L35 137 Z" fill="#FFFFFF" fill-opacity=".6"/>
+    <!-- downtown: the Saddledome, the Bow and the Calgary Tower -->
+    <path d="M30 196 L30 172 Q57 186 84 172 L84 196 Z" fill="url(#ice)" fill-opacity=".85"/>
+    <path d="M98 196 L98 104 Q126 128 128 196 Z" fill="url(#ice)" fill-opacity=".92"/>
+    <path d="M161 196 L164.5 98 L175.5 98 L179 196 Z" fill="url(#ice)"/>
+    <rect x="145" y="76" width="50" height="24" rx="11" fill="url(#ice)"/>
+    <rect x="145" y="84" width="50" height="7" fill="url(#gold)"/>
+    <rect x="164" y="58" width="12" height="20" rx="3" fill="url(#ice)"/>
+    <path d="M170 26 C178 36 180 45 174 56 L166 56 C160 45 162 36 170 26 Z" fill="#EF4444"/>
+    <path d="M170 37 C173.5 42 173.5 47 171.5 53 L168.5 53 C166.5 47 166.5 42 170 37 Z" fill="#FDE68A"/>
+    <!-- the Bow River -->
+    <path d="M0 214 C46 200 84 222 128 210 C172 198 210 220 256 206 L256 256 L0 256 Z" fill="#081427"/>
+    <path d="M0 210 C46 196 84 218 128 206 C172 194 210 216 256 202" fill="none" stroke="url(#river)" stroke-width="7" stroke-linecap="round"/>
+    <!-- rising trend over the city, in gold -->
+    <path d="M44 158 L98 124 L142 90" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="44" cy="158" r="8" fill="#F7DC97"/>
+    <circle cx="98" cy="124" r="8" fill="#F7DC97"/>
+  </g>
+  <rect x="9" y="9" width="238" height="238" rx="48" fill="none" stroke="url(#gold)" stroke-opacity=".8" stroke-width="3"/>
+</svg>
