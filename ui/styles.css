@@ -1212,3 +1212,12 @@ tr.bb-done td { opacity: .85; }
 .tab-budget:hover { background: rgba(251, 146, 60, .10); }
 .tab-budget.is-on { background: linear-gradient(90deg, rgba(249, 115, 22, .28), rgba(249, 115, 22, .10)); box-shadow: inset 3px 0 0 #FB923C; }
 .tab-budget.is-on .ic { color: #FDBA74; }
+
+.gap-assets-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+table.gap-assets th, table.gap-assets td { white-space: nowrap; }
+table.gap-assets td:first-child { position: sticky; left: 0; background: var(--card); }
+
+/* the ward in focus against Calgary, beside it */
+.cmp-table .cmp-vs { font-weight: 600; background: color-mix(in srgb, var(--muted) 70%, transparent); white-space: nowrap; }
+.cmp-table .cmp-city { background: color-mix(in srgb, #FBBF24 10%, transparent); border-right: 2px solid var(--border-strong); }
+.cmp-table th.cmp-city small, .cmp-table th.cmp-vs small { display: block; font-weight: 400; color: var(--muted-fg); }

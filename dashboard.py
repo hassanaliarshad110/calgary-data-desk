@@ -1168,12 +1168,19 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
                                                 for m_key, (pm_, km_) in gap_pops.items()}
                 sub = amenity_view(asset_data, codes_w, ALL_RES, pop_all, kids_all, names)
                 r['amenities'] = {k: v['per_1000'] for k, v in sub['scope'].items()}
+                # every asset in the ward, counted over all its communities (parks in business areas too)
+                byc = asset_data.get('by_comm') or {}
+                r['amenity_counts'] = {k: round(sum((byc.get(c) or {}).get(k, 0) for c, w_ in comm_ward.items() if w_ == r['ward']), 1)
+                                       for k in sub['scope']}
                 r['amenities_vs_city'] = {k: v['vs_city'] for k, v in sub['scope'].items()}
                 r['amenity_level'] = scope_level(sub)
                 r['amenity_flagged'] = len(sub['flagged'])
             wards_summary['amenity_kinds'] = amenity_gap['kinds']
             wards_summary['pop_methods'] = {k: v['label'] for k, v in POP_METHODS.items()}
             wards_summary['amenities_city'] = {k: v['per_1000'] for k, v in amenity_gap['city'].items()}
+            byc = asset_data.get('by_comm') or {}
+            wards_summary['amenity_counts_city'] = {k: round(sum((v or {}).get(k, 0) for v in byc.values()), 1)
+                                                    for k in amenity_gap['city']}
 
     sum_ = {
         'requests12': tot('requests12'), 'requests_prev': tot('requests_prev'),

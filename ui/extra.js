@@ -473,10 +473,18 @@ function renderGap() {
   $('#gr-stats').innerHTML = stats.map(([b, s]) => `<div class="istat"><b>${b}</b><span>${s}</span></div>`).join('');
 
   // the ward against the city, kind by kind
-  const scopeTable = city ? '' : `<div class="gap-scope"><h3>${esc(W())} against Calgary</h3>
-    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Amenity</th><th scope="col" class="num">${esc(W())}</th><th scope="col" class="num">${esc(W())}, per 1,000</th><th scope="col" class="num">Calgary, per 1,000</th><th scope="col">Against the city</th></tr></thead><tbody>
+  // every asset counted in each ward and in all of Calgary (the city view), so the office can read the inventory
+  const ws = city && D.wards_summary;
+  const assetTable = ws && ws.amenity_counts_city ? `<div class="gap-scope" id="gap-assets"><div class="gap-assets-head"><h3>Assets in every ward</h3>
+      <button type="button" class="btn small" id="gap-assets-save">${icon('download')}<span>Save this table</span></button></div>
+    <p class="card-sub">How many of each the City's open data lists in each ward and in Calgary as a whole (park space in hectares). Counted ${esc(stampText(g.counted || ''))}.</p>
+    <div class="table-wrap"><table class="data gap-assets"><thead><tr><th scope="col">Asset</th>${ws.wards.map(w => `<th scope="col" class="num">Ward ${w.ward}</th>`).join('')}<th scope="col" class="num">Calgary</th></tr></thead><tbody>
+    ${keys.map(k => `<tr><td>${esc(kinds[k].label)}</td>${ws.wards.map(w => `<td class="num">${fmt((w.amenity_counts || {})[k], k.endsWith('_ha') ? 1 : 0)}</td>`).join('')}<td class="num"><b>${fmt(ws.amenity_counts_city[k], k.endsWith('_ha') ? 1 : 0)}</b></td></tr>`).join('')}
+    </tbody></table></div></div>` : '';
+  const scopeTable = city ? assetTable : `<div class="gap-scope"><h3>${esc(W())} against Calgary</h3>
+    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Amenity</th><th scope="col" class="num">${esc(W())}</th><th scope="col" class="num">Calgary</th><th scope="col" class="num">${esc(W())}, per 1,000</th><th scope="col" class="num">Calgary, per 1,000</th><th scope="col">Against the city</th></tr></thead><tbody>
     ${keys.map(k => { const s = (g.scope || {})[k] || {}, c = (g.city || {})[k] || {}; const v = s.vs_city;
-      return `<tr><td>${esc(kinds[k].label)} <small class="gap-short">${unit(k)}</small></td><td class="num">${fmt(s.n, k.endsWith('_ha') ? 1 : 0)}</td><td class="num">${kd(k, s.per_1000)}</td><td class="num">${kd(k, c.per_1000)}</td>
+      return `<tr><td>${esc(kinds[k].label)} <small class="gap-short">${unit(k)}</small></td><td class="num">${fmt(s.n, k.endsWith('_ha') ? 1 : 0)}</td><td class="num">${fmt(c.n, k.endsWith('_ha') ? 1 : 0)}</td><td class="num">${kd(k, s.per_1000)}</td><td class="num">${kd(k, c.per_1000)}</td>
         <td>${gapMeter(v)}<span class="gap-level ${isNum(v) ? (v < g.level_threshold ? 'low' : v >= 1 ? 'high' : '') : ''}">${isNum(v) ? fmt(v * 100, 0) + '%' : '–'}</span></td></tr>`; }).join('')}
     </tbody></table></div></div>`;
 
@@ -532,6 +540,12 @@ function renderGap() {
       <div class="gap-ctl"><label class="field"><span>Show</span><select id="gap-kind"><option value="">Overall amenity level</option>${keys.map(k => `<option value="${k}" ${k === gapKind ? 'selected' : ''}>${esc(kinds[k].label)}</option>`).join('')}</select></label>
       <label class="check"><input type="checkbox" id="gap-flagged" ${gapFlagged ? 'checked' : ''}> Only communities that have not kept up</label></div></div>
     <div class="table-wrap tall"><table class="data" id="gap-table"><thead>${head}</thead><tbody>${body}</tbody></table></div>`;
+  const sv = $('#gap-assets-save');
+  if (sv) sv.addEventListener('click', async () => {
+    const r = await (await api()).save_csv('Assets by ward', ['Asset', ...ws.wards.map(w => 'Ward ' + w.ward), 'Calgary'],
+      keys.map(k => [kinds[k].label, ...ws.wards.map(w => (w.amenity_counts || {})[k] ?? ''), ws.amenity_counts_city[k] ?? '']));
+    if (r && r.ok) sv.querySelector('span').textContent = 'Saved';
+  });
   $('#gr-notes').textContent = `${g.note || ''} Counted ${g.counted ? dmy(g.counted) : ''}. Sources: City of Calgary open data: Parks Seating, Playground Equipment, Parks Sport Equipment, Parks Plumbing Fixtures, Parks Wayfinder Garbage and Recycle, Parks Off Leash Areas, Parks Sites, Public Trees, Recreation Facilities, Community Services and Calgary Transit Stops.`;
 }
 function gapMeter(v) {

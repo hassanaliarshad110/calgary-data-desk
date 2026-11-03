@@ -582,12 +582,14 @@ def ward5_section(d, section='overview', wards=None):
                 'violent', 'violent_change_pct', 'traffic12', 'traffic_per_1000', 'traffic_change_pct', 'new_homes12',
                 'dev_permits12', 'child_care_spaces', 'child_care_per_100_kids', 'daycare_per_100_0_4', 'schools',
                 'students', 'facilities', 'playgrounds', 'stops', 'amenity_level', 'amenity_level_by_method',
-                'amenity_flagged', 'amenities_vs_city')
+                'amenity_flagged', 'amenities_vs_city', 'amenity_counts')
         slim = lambda r: {k: r.get(k) for k in keep if r.get(k) is not None}
-        return {'wards': [slim(r) for r in ws.get('wards') or []], 'calgary': slim(ws.get('city') or {}),
+        return {'wards': [slim(r) for r in ws.get('wards') or []], 'calgary': {**slim(ws.get('city') or {}),
+                                                                            'amenity_counts': ws.get('amenity_counts_city')},
                 'crime_period': ws.get('crime_period'), 'how': ws.get('note'),
                 'note': 'One row per ward and one for Calgary, for the same period as the dashboard. amenity_level and '
-                        'amenities_vs_city: 1.00 = the city level.'}
+                        'amenities_vs_city: 1.00 = the city level. amenity_counts: how many of each asset (benches, '
+                        'playgrounds, picnic tables, park hectares and so on) the City lists in the ward or in Calgary.'}
     out = {k: d.get(k) for k in ('period', 'prev_period', 'period_spec', 'scope', 'ward', 'population', 'summary', 'disorder',
                                  'roadwork')}
     out['open_by_type'] = (d.get('open_by_type') or [])[:8]

@@ -103,27 +103,44 @@ async function renderCompare() {
   renderCmpMap();
 }
 
+// the ward in focus against Calgary: points for percentages, share of Calgary for counts, difference for rates
+const CMP_COUNTS = new Set(['residents', 'children_0_14', 'traffic12', 'new_homes12', 'dev_permits12', 'schools', 'students']);
+function cmpVsCity(m, v, city) {
+  if (!isNum(v) || !isNum(city) || city === 0) return { text: '–', cls: '' };
+  if (CMP_COUNTS.has(m.k)) return { text: fmt(v / city * 100, 1) + '% of Calgary', cls: '' };
+  const diff = m.unit === '%' ? v - city : (v / city - 1) * 100;
+  const text = m.unit === '%' ? signed(diff, 1, ' pts') : signed(diff, 0, '%');
+  let cls = '';
+  if (m.better && Math.abs(m.unit === '%' ? diff / Math.abs(city || 1) : diff / 100) >= .1) cls = ((diff > 0) === (m.better === 'high')) ? 'good' : 'bad';
+  return { text, cls };
+}
+
 function renderCmpTable() {
   const ws = CMP.data.wards_summary;
-  const cols = [CMP.main, ...[...CMP.others].sort((a, b) => a - b)];
+  const others = [...CMP.others].sort((a, b) => a - b);
   const row = w => ws.wards.find(r => r.ward === w);
-  $('#cmp-table thead').innerHTML = `<tr><th scope="col">Measure</th>${cols.map((w, i) => `<th scope="col" class="num ${i ? '' : 'cmp-main'}">Ward ${w}<small>${esc((row(w) || {}).councillor || '')}</small></th>`).join('')}<th scope="col" class="num cmp-city">Calgary</th></tr>`;
+  const cellFor = (m, w, main, city) => {
+    const v = cmpVal(row(w), m.k);
+    const rk = cmpRank(m, w);
+    let cls = '';
+    if (m.better && isNum(v) && isNum(city) && city !== 0 && Math.abs(v / city - 1) >= .1) cls = ((v > city) === (m.better === 'high')) ? 'good' : 'bad';
+    const rank = rk ? `<small class="cmp-rank">${m.better ? (rk.n === 1 ? 'best' : rk.n === rk.of ? 'last' : ord(rk.n)) : (rk.n === 1 ? 'highest' : rk.n === rk.of ? 'lowest' : ord(rk.n) + ' highest')} of ${rk.of}</small>` : '';
+    return `<td class="num ${main ? 'cmp-main' : ''} ${cls}">${cmpFmt(m, v)}${rank}</td>`;
+  };
+  $('#cmp-table thead').innerHTML = `<tr><th scope="col">Measure</th><th scope="col" class="num cmp-main">Ward ${CMP.main}<small>${esc((row(CMP.main) || {}).councillor || '')}</small></th>`
+    + `<th scope="col" class="num cmp-vs">Ward ${CMP.main} against Calgary</th><th scope="col" class="num cmp-city">Calgary<small>all 14 wards</small></th>`
+    + others.map(w => `<th scope="col" class="num">Ward ${w}<small>${esc((row(w) || {}).councillor || '')}</small></th>`).join('') + '</tr>';
   let group = '';
   $('#cmp-table tbody').innerHTML = cmpMetrics().map(m => {
-    const head = m.g !== group ? `<tr class="cmp-group"><th colspan="${cols.length + 2}" scope="rowgroup">${esc(m.g)}</th></tr>` : '';
+    const head = m.g !== group ? `<tr class="cmp-group"><th colspan="${others.length + 4}" scope="rowgroup">${esc(m.g)}</th></tr>` : '';
     group = m.g;
     const city = cmpCity(m.k);
-    const cells = cols.map((w, i) => {
-      const v = cmpVal(row(w), m.k);
-      const rk = cmpRank(m, w);
-      let cls = '';
-      if (m.better && isNum(v) && isNum(city) && city !== 0 && Math.abs(v / city - 1) >= .1) cls = ((v > city) === (m.better === 'high')) ? 'good' : 'bad';
-      const rank = rk ? `<small class="cmp-rank">${m.better ? (rk.n === 1 ? 'best' : rk.n === rk.of ? 'last' : ord(rk.n)) : (rk.n === 1 ? 'highest' : rk.n === rk.of ? 'lowest' : ord(rk.n) + ' highest')} of ${rk.of}</small>` : '';
-      return `<td class="num ${i ? '' : 'cmp-main'} ${cls}">${cmpFmt(m, v)}${rank}</td>`;
-    }).join('');
-    return `${head}<tr data-k="${m.k}" class="${m.k === CMP.metric ? 'is-sel' : ''}"><th scope="row"><button type="button" class="link-btn cmp-m" data-k="${m.k}">${esc(m.label)}</button></th>${cells}<td class="num cmp-city">${cmpFmt(m, city)}</td></tr>`;
+    const vs = cmpVsCity(m, cmpVal(row(CMP.main), m.k), city);
+    return `${head}<tr data-k="${m.k}" class="${m.k === CMP.metric ? 'is-sel' : ''}"><th scope="row"><button type="button" class="link-btn cmp-m" data-k="${m.k}">${esc(m.label)}</button></th>`
+      + cellFor(m, CMP.main, true, city) + `<td class="num cmp-vs ${vs.cls}">${vs.text}</td><td class="num cmp-city">${cmpFmt(m, city)}</td>`
+      + others.map(w => cellFor(m, w, false, city)).join('') + '</tr>';
   }).join('');
-  $('#cmp-table-sub').innerHTML = `Ward ${CMP.main} first, then the wards you chose. Green: better than Calgary by 10% or more; red: worse. Choose a measure to rank every ward. <button type="button" class="link-btn small" data-method="compare">How each measure is worked out</button>`;
+  $('#cmp-table-sub').innerHTML = `Ward ${CMP.main} against Calgary as a whole, then the wards you chose. Green: better than Calgary by 10% or more; red: worse. Choose a measure to rank every ward. <button type="button" class="link-btn small" data-method="compare">How each measure is worked out</button>`;
   $('#cmp-note').textContent = `${ws.note || ''} Crime: ${ws.crime_period || 'the latest months published'}. Amenities: City assets in open data per 1,000 residents (playgrounds per 1,000 children); the amenity level averages them against the city.`;
 }
 
