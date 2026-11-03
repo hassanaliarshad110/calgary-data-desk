@@ -1243,3 +1243,24 @@ table.gap-assets td:first-child { position: sticky; left: 0; background: var(--c
 @media (max-width: 900px) { :not(.table-wrap) > table.data { display: block; overflow-x: auto; max-width: 100%; } }
 
 table.gap-assets .cmp-city { background: color-mix(in srgb, #FBBF24 10%, transparent); }
+
+/* briefing screen on a phone or narrow window: one column that scrolls, figures readable */
+@media (max-width: 900px) {
+  .brief { display: block; overflow-y: auto; padding: 16px; }
+  .brief > * + * { margin-top: 14px; }
+  .brief-head { flex-wrap: wrap; gap: 10px; }
+  .brief-brand strong { font-size: 22px; }
+  .brief-clock { margin-left: 0; text-align: left; order: 3; width: 100%; }
+  .brief-clock span:first-child { font-size: 26px; display: inline; margin-right: 10px; }
+  .brief-close { margin-left: auto; }
+  .brief-body { display: flex; flex-direction: column; gap: 14px; }
+  .brief-kpis { grid-template-rows: none; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bk { padding: 12px 14px; min-width: 0; }
+  .bk b { font-size: 26px; overflow-wrap: anywhere; }
+  .brief-cams { grid-template-rows: none; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .brief-cams .cam img { height: auto; }
+  .brief-side { overflow: visible; }
+  .brief-feed, .brief-types { overflow: visible; }
+  .brief-feed li span, .brief-types li span { white-space: normal; }
+}
+@media (max-width: 420px) { .brief-kpis, .brief-cams { grid-template-columns: minmax(0, 1fr); } }

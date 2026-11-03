@@ -1330,7 +1330,7 @@ async function saveList(btn, name, cols, rows) {
 let briefTimer = null, briefCamIndex = 0, briefRefresh = null;
 function renderBrief() {
   const s = D.summary, w = D.ward;
-  $('#brief-who').textContent = `Office of Councillor ${w.councillor || ''}`;
+  $('#brief-who').textContent = isCity() || !w.councillor ? 'City of Calgary · Mayor and Council' : `Office of Councillor ${w.councillor}`;
   const k = [
     [popMethod() === 'census2021' ? `Residents (${CY()} Census)` : 'Residents today', fmt(w.residents), popMethod() === 'census2021' ? popShort() : `${CY()} Census ${fmt(w.census2021)} (${signed(w.growth_pct, 1)})`, true],
     ['311 requests still open as of today', fmt(s.open_now), `${fmt(s.open_over_90_days)} open more than 90 days`],
