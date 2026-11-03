@@ -4,6 +4,7 @@ Every dataset on the portal has an API at https://data.calgary.ca/resource/<data
 SoQL queries ($select, $where, $group, $order, $limit). No account or key is needed.
 """
 import csv
+import http.client
 import io
 import json
 import os
@@ -72,7 +73,7 @@ def _get_once(url, timeout):
         raise DataError(f'The open data portal answered {e.code}: {msg}') from None
     except urllib.error.URLError as e:
         raise _Busy(f'Could not reach data.calgary.ca ({e.reason}). Check the internet connection.') from None
-    except (TimeoutError, ConnectionError, OSError) as e:      # a read that timed out or a connection that dropped
+    except (TimeoutError, ConnectionError, OSError, http.client.HTTPException) as e:   # timed out, dropped or cut short
         raise _Busy(f'data.calgary.ca did not answer in time ({e}). Try again shortly.') from None
 
 
