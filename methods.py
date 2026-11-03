@@ -179,10 +179,18 @@ METHODS = [
          'Each community keeps its 2021 Census children (pop_age_0_to_4, pop_age_0_to_14) for the residents it had '
          'in 2021.',
          'Residents added since 2021 are given the share of children seen in 2021 in Ward 5\'s newest communities '
-         '(Cityscape and Cornerstone): about 27.5% aged 0 to 14 and 12.8% under 5.'],
+         '(Cityscape and Cornerstone): about 27.5% aged 0 to 14 and 12.8% under 5. (Growth model and 2021 Census.)',
+         'Grown to the City\'s total: children follow the City\'s own forecast of children, from the same table as the '
+         'population (Calgary and Region Economic Outlook 2026-2031, Table 4, page 19, Population by Cohort: 0-4, 5-9 and '
+         '10-14, as of April, read on a straight line between Aprils). Communities built since 2021 keep the estimate '
+         'above; every other community is its 2021 count of children x one factor, so all of Calgary adds up to the '
+         'City\'s forecast. November 2026: aged 0 to 14 = 270,400 + 7/12 x (273,300 - 270,400) = 272,092; aged 0 to 4 '
+         '= 86,542.'],
      'excel': ['Take each community\'s 2021 Census children, then add (residents today - 2021 residents) x 27.5% '
                '(0 to 14) or x 12.8% (under 5).'],
-     'cautions': ['No public count of children by community exists after 2021.']},
+     'cautions': ['No public count of children by community exists after 2021.',
+                  'The City\'s forecast is for all of Calgary, so each community keeps its 2021 share of the city\'s '
+                  'children under "grown to the City\'s total".']},
 
     {'key': 'permits', 'name': 'Building Permits', 'dataset': 'c2es-76ed', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/c2es-76ed', 'updated': 'Daily',

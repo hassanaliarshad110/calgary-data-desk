@@ -75,7 +75,11 @@ DATA_VERSION = 12          # bump when the dashboard's data layout changes, so o
 # Table 4: 2021-2025 estimates, 2026 onward forecast). Used for city-wide crime rates, read at the middle of the
 # crime period so Calgary and Ward 5 are counted at the same date.
 CITY_POP_APRIL = {2021: 1_321_600, 2022: 1_347_800, 2023: 1_422_200, 2024: 1_509_800, 2025: 1_558_700,
-                  2026: 1_583_200, 2027: 1_608_700, 2028: 1_634_800}
+                  2026: 1_583_200, 2027: 1_608_700, 2028: 1_634_800, 2029: 1_662_300, 2030: 1_689_400, 2031: 1_717_600}
+# Children in the same table (Population by Cohort, April): (aged 0 to 4, aged 0 to 14 = 0-4 + 5-9 + 10-14)
+CITY_KIDS_APRIL = {2021: (79_000, 238_300), 2022: (79_000, 241_000), 2023: (80_900, 250_000), 2024: (82_900, 261_700),
+                   2025: (83_900, 267_300), 2026: (85_200, 270_400), 2027: (87_500, 273_300), 2028: (89_700, 275_900),
+                   2029: (91_700, 278_700), 2030: (92_800, 281_100), 2031: (92_600, 283_200)}
 CITY_POP_SOURCE = {
     'name': 'Calgary and Region Economic Outlook 2026-2031 (Spring 2026), Table 4 City of Calgary Population Projection, '
             'page 19: Total Population (as of April); 2021-2025 estimates, 2026 on forecast (completed January 2026)',
@@ -225,6 +229,15 @@ def pop_method_ok(method):
     if method == 'model_city':                  # retired: the City's total is now model 3 (city_pace)
         return 'city_pace'
     return method if method in POP_METHODS else 'model'
+
+
+def city_children_at(ym):
+    """Calgary's children (aged 0 to 4, aged 0 to 14) in month ym, from the City's forecast, straight line between Aprils."""
+    years = sorted(CITY_KIDS_APRIL)
+    t = min(max(ym / 12 - 3 / 12, years[0]), years[-1])
+    y0 = min(int(t), years[-2])
+    f = t - y0
+    return tuple(round(a + (b - a) * f) for a, b in zip(CITY_KIDS_APRIL[y0], CITY_KIDS_APRIL[y0 + 1]))
 
 
 def city_population_at(ym):
@@ -963,15 +976,42 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
         added = max(0.0, pop - p21.get(code, 0))
         return (k04.get(code, 0) + added * new04, k014.get(code, 0) + added * new014)
 
+    # Grown to the City's total: children follow the City's own forecast of children (the same table), shared by each
+    # community's 2021 count of children; communities built since 2021 keep the growth model's estimate.
+    k04_all = sum(k04.get(c, 0) for c in ALL_RES if p21.get(c))
+    k014_all = sum(k014.get(c, 0) for c in ALL_RES if p21.get(c))
+    _kf = {}
+
+    def kid_factors(when):
+        key = when.isoformat()
+        if key not in _kf:
+            _kf[key] = None
+            if whole_city and k014_all:
+                c04, c014 = city_children_at(when.year * 12 + when.month - 1)
+                n04 = n014 = 0.0
+                for c_, v_ in (popmodel.estimate(model, new_codes, when).items() if new_codes else []):
+                    a_, b_ = kids_at(c_, v_['model'])
+                    n04, n014 = n04 + a_, n014 + b_
+                _kf[key] = ((c04 - n04) / k04_all, (c014 - n014) / k014_all)
+        return _kf[key]
+
+    def kids_for(code, pop, when):
+        """(aged 0 to 4, aged 0 to 14) in a community on a date, for the way residents are counted."""
+        if pop_method == 'city_pace' and p21.get(code):
+            f_ = kid_factors(when)
+            if f_:
+                return (k04.get(code, 0) * f_[0], k014.get(code, 0) * f_[1])
+        return kids_at(code, pop)
+
     kids = {}
     for code in RESIDENTIAL_CODES:
         now = pop_now.get(code, {}).get('model') or 0
-        a, b = kids_at(code, now)
+        a, b = kids_for(code, now, ref)
         kids[code] = {'k0_4': round(a), 'k0_14': round(b), 'k0_4_2021': round(k04.get(code, 0)),
                       'k0_14_2021': round(k014.get(code, 0)), 'pop_2021': round(p21.get(code, 0))}
     # ---- amenities against residents and children, every community in the city, and the gap where growth is fast ----
     pop_all = estimate(ref, ALL_RES)
-    kids_all = {c: kids_at(c, (pop_all.get(c) or {}).get('model') or 0)[1] for c in ALL_RES}
+    kids_all = {c: kids_for(c, (pop_all.get(c) or {}).get('model') or 0, ref)[1] for c in ALL_RES}
     asset_data, asset_err = _safe(lambda: assetmap.load(cdir, force=False))
     # against the whole city: only when every community is known (without the ward table the "city" would be the ward)
     amenity_gap = amenity_view(asset_data, RESIDENTIAL_CODES, ALL_RES, pop_all, kids_all, names, amenities) \
@@ -989,8 +1029,9 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
             g_ = v.get('growth_pct') if pop_method == 'model' else (round((v['growth_model'] / v['census2021'] - 1) * 100, 1)
                                                                      if v.get('census2021') and v.get('growth_model') else None)
             pm_[c] = {'model': round(base or 0), 'census2021': v.get('census2021'), 'growth_pct': g_, 'growth_model': mod}
+            kf_ = kid_factors(ref) if m_key == 'city_pace' else None
             km_[c] = (kids_at(c, base or 0)[1] if m_key == 'model' or (m_key == 'city_pace' and not v.get('census2021'))
-                      else k014.get(c, 0) * (f_city if m_key == 'city_pace' else 1))
+                      else k014.get(c, 0) * (kf_[1] if kf_ else f_city) if m_key == 'city_pace' else k014.get(c, 0))
         gap_pops[m_key] = (pm_, km_)
     if amenity_gap:
         amenity_gap['by_method'] = {}
@@ -1013,7 +1054,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
         for c in RESIDENTIAL_CODES:
             v = est.get(c, {}).get('model') or 0
             by_comm_series[c].append(v)
-            a, b = kids_at(c, v)
+            a, b = kids_for(c, v, m)
             t04 += a
             t14 += b
         kid14.append(round(t14))

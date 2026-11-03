@@ -217,7 +217,9 @@ Calgary and Region Economic Outlook 2026-2031 (Spring 2026), Table 4 "City of Ca
 Total Population as of April (2021-2025 estimates, 2026 onward forecast): https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf \
 (overview page: https://www.calgary.ca/cfod/finance/corporate-economics/economic-outlook-population-outlook.html). \
 A month's figure is read on a straight line between April figures: November 2026 = 1,583,200 + 7/12 x (1,608,700 - \
-1,583,200) = 1,598,075. Cite this exact document and table whenever you quote the City's population. Every \
+1,583,200) = 1,598,075. Cite this exact document and table whenever you quote the City's population. Under 'city_pace', children (per 1,000 \
+children measures, child care spaces per 100 children) follow the same table's Population by Cohort (0-4, 5-9, 10-14; \
+Calgary aged 0 to 14 in November 2026: 272,092), shared by each community's 2021 count of children. Every \
 residents figure and rate per 1,000 in the dashboard uses the chosen method; always say which one, and when it matters \
 show how the answer changes under the others (rates scale by the ratio of the populations). Ward 5 homes grew about \
 30% since 2021 against 24% under the City's total, so the 2021 Census and the City's total undercount Ward 5, while \
