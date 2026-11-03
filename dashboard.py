@@ -70,7 +70,7 @@ class PeriodError(ValueError):
     """A period the user chose that can't be used (the message says why)."""
 
 
-DATA_VERSION = 12          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
+DATA_VERSION = 13          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
 # The City of Calgary's total population on April 1 (Calgary and Region Economic Outlook 2026-2031, spring 2026,
 # Table 4: 2021-2025 estimates, 2026 onward forecast). Used for city-wide crime rates, read at the middle of the
 # crime period so Calgary and Ward 5 are counted at the same date.
