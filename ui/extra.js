@@ -381,9 +381,10 @@ function renderGrowth() {
   $('#gr-filters').hidden = grView !== 'dp';
   $('#gr-note').hidden = grView !== 'dp';
   $('#gr-table').classList.toggle('bb', grView === 'rw');
-  $('#gr-gap').hidden = grView !== 'gap';
-  $('#gr-list').hidden = grView === 'gap';
+  $('#gr-gap').hidden = grView !== 'gap' && grView !== 'assets';
+  $('#gr-list').hidden = grView === 'gap' || grView === 'assets';
   if (grView === 'gap') { renderGap(); return; }
+  if (grView === 'assets') { renderAssets(); return; }
   if (grView === 'dp') {
     const dv = D.development;
     if (!dv) { head.innerHTML = ''; body.innerHTML = '<tr><td class="empty">Development permit data is not available right now.</td></tr>'; $('#gr-stats').innerHTML = ''; return; }
@@ -442,6 +443,40 @@ function renderGrowth() {
 }
 // ---------- amenity gap: where amenities have not kept up with growth
 let gapKind = '', gapFlagged = false;
+// the asset inventory: how many of each asset the City lists, ward by ward and for Calgary (or each community of a ward)
+function renderAssets() {
+  const g = D.amenity_gap, box = $('#gr-gap');
+  if (!g || !g.kinds) { box.innerHTML = '<p class="empty">City asset data is not available right now. It is counted again at the next refresh.</p>'; $('#gr-stats').innerHTML = ''; return; }
+  const kinds = g.kinds, keys = Object.keys(kinds), city = isCity(), ws = D.wards_summary;
+  const dec = k => k.endsWith('_ha') ? 1 : 0;
+  let cols, rows, title, sub;
+  if (city && ws && ws.amenity_counts_city) {
+    title = 'Assets in every ward and in Calgary';
+    cols = ['Calgary', ...ws.wards.map(w => 'Ward ' + w.ward)];
+    rows = keys.map(k => [kinds[k].label, ws.amenity_counts_city[k], ...ws.wards.map(w => (w.amenity_counts || {})[k])]);
+    sub = 'How many of each asset the City of Calgary lists in its open data, in each ward and in all of Calgary. Park space is in hectares.';
+  } else {
+    title = `Assets in ${W()}, community by community`;
+    const comms = (g.by_comm || []).slice().sort((a, b) => String(a.name).localeCompare(String(b.name)));
+    cols = [W(), 'Calgary', ...comms.map(c => titleCase(c.name))];
+    rows = keys.map(k => [kinds[k].label, ((g.scope || {})[k] || {}).n, ((g.city || {})[k] || {}).n, ...comms.map(c => (c.n || {})[k])]);
+    sub = `How many of each asset the City of Calgary lists in each lived-in ${W()} community, in ${W()} and in all of Calgary. Park space is in hectares.`;
+  }
+  $('#gr-sub').textContent = 'Every public asset the City lists: benches, playgrounds, courts, washrooms, fountains, park space, trees, facilities and transit stops';
+  $('#gr-stats').innerHTML = '';
+  box.innerHTML = `<div class="gap-scope" id="gap-assets"><div class="gap-assets-head"><h3>${esc(title)}</h3>
+      <button type="button" class="btn small" id="gap-assets-save">${icon('download')}<span>Save this table</span></button></div>
+    <p class="card-sub">${esc(sub)} Counted ${esc(g.counted ? dmy(g.counted) : '')}.</p>
+    <div class="table-wrap tall"><table class="data gap-assets"><thead><tr><th scope="col">Asset</th>${cols.map((c, i) => `<th scope="col" class="num ${i < (city ? 1 : 2) ? 'cmp-city' : ''}">${esc(c)}</th>`).join('')}</tr></thead><tbody>
+    ${rows.map(r => `<tr><td>${esc(r[0])}</td>${r.slice(1).map((v, i) => `<td class="num ${i < (city ? 1 : 2) ? 'cmp-city' : ''}">${i < (city ? 1 : 2) ? '<b>' + fmt(v, dec(keys[rows.indexOf(r)])) + '</b>' : fmt(v, dec(keys[rows.indexOf(r)]))}</td>`).join('')}</tr>`).join('')}
+    </tbody></table></div></div>`;
+  $('#gap-assets-save').addEventListener('click', async () => {
+    const r = await (await api()).save_csv(title, ['Asset', ...cols], rows.map(x => x.map(v => v ?? '')));
+    if (r && r.ok) $('#gap-assets-save span').textContent = 'Saved';
+  });
+  $('#gr-notes').textContent = 'Sources: City of Calgary open data: Parks Seating, Playground Equipment, Parks Sport Equipment, Parks Plumbing Fixtures, Parks Wayfinder Garbage and Recycle, Parks Off Leash Areas, Parks Sites, Public Trees, Recreation Facilities, Community Services and Calgary Transit Stops. A ward is its communities; assets in business and industrial areas count in the ward and Calgary totals.';
+}
+
 function renderGap() {
   const g = D.amenity_gap, box = $('#gr-gap');
   if (!g || !g.by_comm) {
@@ -565,6 +600,7 @@ $('#gr-export').addEventListener('click', e => {
   const button = e.currentTarget;
   if (!D) return;
   let name, cols, rows;
+  if (grView === 'assets') { const sv = $('#gap-assets-save'); if (sv) sv.click(); return; }
   if (grView === 'dp' && D.development) {
     name = '' + W() + ' development permits ' + D.period;
     cols = ['Permit', 'Applied', 'Status', 'Type', 'Category', 'Address', 'Community', 'Proposed use', 'Description', 'Decision', 'Decision date'];

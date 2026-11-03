@@ -7,7 +7,7 @@ body[data-web] #settings-form > .row-actions, body[data-web] #open-folder { disp
 .web-note b { color: var(--fg); }
 .web-foot { padding: 8px 4px 0; font-size: .72rem; line-height: 1.45; color: rgba(255,255,255,.62); }
 .web-foot a { color: rgba(255,255,255,.8); }
-.web-lock { max-width: 560px; margin: 24px auto; padding: 22px 24px; border: 1px solid var(--border); border-radius: 14px; background: var(--card); }
+.web-lock { max-width: min(560px, calc(100% - 32px)); box-sizing: border-box; margin: 24px auto; padding: 22px 24px; border: 1px solid var(--border); border-radius: 14px; background: var(--card); }
 .web-lock h2 { margin: 0 0 6px; font-size: 1.15rem; }
 .web-lock p { margin: 0 0 14px; color: var(--fg-2); line-height: 1.5; }
 .web-lock form { display: flex; gap: 8px; }

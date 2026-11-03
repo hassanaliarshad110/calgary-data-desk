@@ -857,7 +857,7 @@ h1.with-genie .ic { width: 26px; height: 26px; color: #D97706; }
 .rent-kpis { display: grid; gap: 10px; }
 #rent-table sup.q { font-size: 9.5px; color: var(--muted-fg); margin-left: 2px; }
 #rent-table sup.q-d { color: #B45309; }
-@media (max-width: 1000px) { .rent-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) { .rent-grid { grid-template-columns: minmax(0, 1fr); } }
 .src-dl { margin-top: 8px; }
 
 /* wide tables: the first column stays in view when scrolling sideways */
@@ -1221,3 +1221,25 @@ table.gap-assets td:first-child { position: sticky; left: 0; background: var(--c
 .cmp-table .cmp-vs { font-weight: 600; background: color-mix(in srgb, var(--muted) 70%, transparent); white-space: nowrap; }
 .cmp-table .cmp-city { background: color-mix(in srgb, #FBBF24 10%, transparent); border-right: 2px solid var(--border-strong); }
 .cmp-table th.cmp-city small, .cmp-table th.cmp-vs small { display: block; font-weight: 400; color: var(--muted-fg); }
+
+/* narrow screens (phones, a narrow window): nothing wider than the screen; wide tables scroll inside their card */
+#main, .view, .content, .content > *, .card, .card > *, .grid > *, .dash-grid > * { min-width: 0; }
+.table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+@media (max-width: 900px) {
+  .crime-kpis { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; }
+  .cmp-metric, .cmp-metric select { max-width: 100%; min-width: 0; }
+  .gap-method, .gap-method * { overflow-wrap: anywhere; }
+  .src, .src > * { min-width: 0; overflow-wrap: anywhere; }
+  .src-head { flex-wrap: wrap; }
+  .gap-scope, .gap-head, #gr-list, #gr-gap { min-width: 0; max-width: 100%; }
+}
+@media (max-width: 900px) {
+  .crime-grid, .src-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .crime-kpis { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important; }
+  .cmp-metric select, select { max-width: 100%; width: 100%; }
+  .content { padding-left: 12px; padding-right: 12px; }
+}
+@media (max-width: 900px) { .rent-kpis { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important; } }
+@media (max-width: 900px) { :not(.table-wrap) > table.data { display: block; overflow-x: auto; max-width: 100%; } }
+
+table.gap-assets .cmp-city { background: color-mix(in srgb, #FBBF24 10%, transparent); }
