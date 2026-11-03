@@ -54,6 +54,8 @@
     <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
     <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 8v6M8 22l4-8 4 8M6 11h12"/></symbol>
     <symbol id="i-school" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-budget" viewBox="0 0 24 24"><circle cx="8" cy="8" r="5.5"/><path d="M8 4.8v6.4"/><path d="M9.7 6.2c-.3-.5-.9-.8-1.7-.8-.9 0-1.7.5-1.7 1.2 0 1.7 3.4.8 3.4 2.5 0 .7-.8 1.2-1.7 1.2-.8 0-1.5-.3-1.8-.9"/><path d="M3 21h18"/><path d="M14 21v-5"/><path d="M17.5 21v-8"/><path d="M21 21V9"/></symbol>
+    <symbol id="i-growth" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21v-6h4v6"/><path d="M11 21V11h4v10"/><path d="M17 21v-4h3v4"/><path d="m4 10 5-4 4 3 7-6"/><path d="M15 3h5v5"/></symbol>
     <symbol id="i-crane" viewBox="0 0 24 24"><path d="M3 21h18M6 21V4h12M6 4l12 0 0 4M10 4v17"/></symbol>
     <symbol id="i-cone" viewBox="0 0 24 24"><path d="M9 3h6l4 16H5z"/><path d="M3 21h18M7.5 11h9M6.5 15h11"/></symbol>
     <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 2 5 12h4l-3 4h12l-3-4h4z"/></symbol>
@@ -86,12 +88,12 @@
   <div class="nav">
     <p class="nav-h">Overview</p>
     <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
+    <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: where growth has outpaced amenities"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
     <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
-    <button class="tab" data-view="budget" title="City budget"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg><span>City budget</span></button>
+    <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
     <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
     <p class="nav-h">Topics</p>
     <button class="tab" data-view="families" title="Families and schools"><svg class="ic" aria-hidden="true"><use href="#i-child"/></svg><span>Families and schools</span></button>
-    <button class="tab" data-view="growth" title="Growth and amenities"><svg class="ic" aria-hidden="true"><use href="#i-crane"/></svg><span>Growth and amenities</span></button>
     <button class="tab" data-view="cameras" title="Traffic cameras"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span>Traffic cameras</span></button>
     <p class="nav-h">Ask the data</p>
     <button class="tab tab-genie" data-view="ask" title="Data Genie: ask anything about the data"><svg class="ic" aria-hidden="true"><use href="#i-genie"/></svg><span>Data Genie</span></button>
@@ -446,13 +448,13 @@
   <!-- ======================= GROWTH ======================= -->
   <section id="view-growth" class="view" aria-labelledby="gr-title">
     <header class="topbar">
-      <div class="topbar-title"><h1 id="gr-title">Growth and amenities</h1><p class="meta" id="gr-sub">Development permits, amenities and what is being built in Ward 5</p></div>
+      <div class="topbar-title"><h1 id="gr-title">Growth vs amenities</h1><p class="meta" id="gr-sub">Development permits, amenities and what is being built in Ward 5</p></div>
       <div class="topbar-actions">
         <div class="seg" role="radiogroup" aria-label="Show" id="gr-seg">
-          <button type="button" role="radio" aria-checked="true" data-gr="dp">Development permits</button>
+          <button type="button" role="radio" aria-checked="true" data-gr="gap">Growth vs amenities</button>
           <button type="button" role="radio" aria-checked="false" data-gr="am">Amenities</button>
           <button type="button" role="radio" aria-checked="false" data-gr="rw">Being built</button>
-          <button type="button" role="radio" aria-checked="false" data-gr="gap">Amenity gap</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="dp">Development permits</button>
         </div>
         <button class="btn" id="gr-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
       </div>

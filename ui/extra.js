@@ -355,7 +355,7 @@ $('#fam-export').addEventListener('click', e => {
 });
 
 // ================================================================ GROWTH TAB
-let grView = 'dp';
+let grView = 'gap';
 wireSeg($('#gr-seg'), v => { grView = v; renderGrowth(); });
 const grFilter = { text: '', comm: '', status: '', type: 'larger' };
 function grRows() {
@@ -776,9 +776,9 @@ const DATASETS_OF = () => [
     ask: ['Map traffic incidents in ' + W() + ' in the last 90 days', 'Which ' + W() + ' intersections had the most traffic incidents this year?'] },
   { name: 'Building Permits', id: 'c2es-76ed', pub: 'City of Calgary', what: 'Building permits with housing units, project cost and status.', used: 'Homes in building permits',
     ask: ['How many new homes were approved in Cornerstone each year since 2020?', 'Download building permits issued in ' + W() + ' this year'] },
-  { name: 'Development Permits', id: '6933-unw5', pub: 'City of Calgary', what: 'Development permit applications and decisions, with ward and community.', used: 'Growth and amenities',
+  { name: 'Development Permits', id: '6933-unw5', pub: 'City of Calgary', what: 'Development permit applications and decisions, with ward and community.', used: 'Growth vs amenities',
     ask: ['List new child care centres and schools applied for in ' + W() + ' this year', 'Download development permits for ' + W() + ' in the last 12 months'] },
-  { name: 'Road Construction Projects', id: 'sizs-hgef', pub: 'City of Calgary', what: 'The City\'s larger road projects, with budgets and timing.', used: 'Growth and amenities, map',
+  { name: 'Road Construction Projects', id: 'sizs-hgef', pub: 'City of Calgary', what: 'The City\'s larger road projects, with budgets and timing.', used: 'Growth vs amenities, map',
     ask: ['What road construction is planned near ' + W() + '?'] },
   { name: 'Recreation Facilities', id: 'hxfu-6d96', pub: 'City of Calgary', what: 'Leisure centres, arenas, pools, sports fields and more.', used: 'Amenities',
     ask: ['Which recreation facilities are in or near ' + W() + '?'] },

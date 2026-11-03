@@ -176,7 +176,7 @@ function renderBudgetWards() {
   box.innerHTML = withCost.length ? `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Project</th><th scope="col">Kind</th><th scope="col">Owner</th><th scope="col">Community</th><th scope="col" class="num">Published cost</th></tr></thead><tbody>
     ${withCost.sort((a, b) => b.cost - a.cost).map(i => `<tr><td class="wrap">${i.url ? `<button class="link-btn" data-open="${esc(i.url)}">${esc(i.title)}</button>` : esc(i.title)}</td><td>${esc(i.kind)}</td><td>${esc(i.owner)}</td><td>${esc(i.comm ? commName(i.comm) : '')}</td><td class="num" title="${esc(i.text)}">${money(i.cost)}</td></tr>`).join('')}
     <tr class="cmp-city-row"><td colspan="4"><b>Total of the costs published</b></td><td class="num"><b>${money(withCost.reduce((a, i) => a + i.cost, 0))}</b></td></tr></tbody></table></div>
-    <p class="card-note">${fmt(items.length - withCost.length)} more projects are listed without a published cost (see Growth and amenities, Being built). Costs are as their owners publish them, often over several years and shared with other governments.</p>`
+    <p class="card-note">${fmt(items.length - withCost.length)} more projects are listed without a published cost (see Growth vs amenities, Being built). Costs are as their owners publish them, often over several years and shared with other governments.</p>`
     : `<p class="card-sub">No project with a published cost is listed for ${esc(W())}.</p>`;
 }
 

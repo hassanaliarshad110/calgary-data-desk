@@ -1187,3 +1187,28 @@ tr.bb-done td { opacity: .85; }
 #bud-tax .table-wrap { max-height: none; }
 .ds-tabs { margin: 0 0 16px; }
 .neg { color: #B91C1C; }
+
+/* Growth vs amenities: the office's key question, set apart in green */
+.tab-growth .ic { color: #34D399; }
+.tab-growth { position: relative; }
+.tab-growth::after { content: ''; position: absolute; right: 12px; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%; background: #34D399; box-shadow: 0 0 0 3px rgba(52, 211, 153, .18); }
+.tab-growth:hover { background: rgba(52, 211, 153, .10); }
+.tab-growth.is-on { background: linear-gradient(90deg, rgba(16, 185, 129, .28), rgba(16, 185, 129, .10)); box-shadow: inset 3px 0 0 #34D399; }
+.tab-growth.is-on .ic { color: #6EE7B7; }
+
+/* cameras: the whole picture, uncropped, with labels outside it so the camera's own time stamp shows */
+.cam { display: flex; flex-direction: column; }
+.cam .cam-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; padding: 6px 8px; background: #0B1324; min-height: 30px; }
+.cam .cam-top .badge-in, .cam .cam-top .live { position: static; }
+.cam .cam-pic { position: relative; display: block; background: #000; }
+.cam .cam-pic img, .cam img { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; }
+.cam .cap { position: static; background: #0B1324; padding: 7px 10px 8px; }
+.brief-cams .cam .cam-pic { flex: 1; min-height: 0; display: flex; align-items: center; }
+.brief-cams .cam img { height: 100%; max-height: 100%; object-fit: contain; }
+#viewer-img { object-fit: contain; max-width: 100%; height: auto; }
+
+/* City budget: money in warm orange */
+.tab-budget .ic { color: #FB923C; }
+.tab-budget:hover { background: rgba(251, 146, 60, .10); }
+.tab-budget.is-on { background: linear-gradient(90deg, rgba(249, 115, 22, .28), rgba(249, 115, 22, .10)); box-shadow: inset 3px 0 0 #FB923C; }
+.tab-budget.is-on .ic { color: #FDBA74; }

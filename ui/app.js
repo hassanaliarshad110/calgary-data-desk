@@ -850,12 +850,13 @@ const clockTime = t => new Date(t * 1000).toLocaleTimeString('en-CA', { hour: 'n
 function latestSrc(url) { const f = REPLAY[url]; return f && f.length ? f[f.length - 1].src : camSrc(url); }
 function camCard(c) {
   const f = REPLAY[c.url] || [];
+  // labels sit above and below the picture, never on it, so the camera's own date and time stay readable
   return `<button class="cam" data-cam="${esc(c.url)}" aria-label="Traffic camera at ${esc(c.name)}, replay of the last 30 minutes">
-    <img src="${esc(latestSrc(c.url))}" alt="" loading="lazy" onerror="this.style.visibility='hidden';this.nextElementSibling.hidden=false">
+    <span class="cam-top">${c.in_ward ? '<span class="badge-in">' + W() + '</span>' : c.near_ward ? '<span class="badge-in near">Nearby</span>' : '<span></span>'}
+    <span class="live" data-stamp>${f.length ? clockTime(f[f.length - 1].t) : 'Latest'}</span></span>
+    <span class="cam-pic"><img src="${esc(latestSrc(c.url))}" alt="" loading="lazy" onerror="this.style.visibility='hidden';this.nextElementSibling.hidden=false">
     <span class="off" hidden>Camera offline</span>
-    ${c.in_ward ? '<span class="badge-in">' + W() + '</span>' : c.near_ward ? '<span class="badge-in near">Nearby</span>' : ''}
-    <span class="live" data-stamp>${f.length ? clockTime(f[f.length - 1].t) : 'Latest'}</span>
-    <span class="progress" aria-hidden="true"><i></i></span>
+    <span class="progress" aria-hidden="true"><i></i></span></span>
     <span class="cap">${esc(c.name)}</span></button>`;
 }
 function wardCams() { return D.cameras.filter(c => c.near_ward).sort((a, b) => (b.in_ward - a.in_ward) || a.name.localeCompare(b.name)); }
@@ -864,7 +865,7 @@ let camScope = 'ward';
 function renderCameraWall() {
   if (!D) return;
   const list = camScope === 'ward' ? wardCams() : D.cameras.slice().sort((a, b) => a.name.localeCompare(b.name));
-  $('#cam-sub').textContent = `${list.length} cameras ${camScope === 'ward' ? `in and near ${W()} (${D.cameras.filter(c => c.in_ward).length} inside the ward)` : 'across Calgary'}. Each plays its images from the last 30 minutes on a loop; the City adds a new image about once a minute.`;
+  $('#cam-sub').textContent = `${list.length} cameras ${camScope === 'ward' && !isCity() ? `in and near ${W()} (${D.cameras.filter(c => c.in_ward).length} inside the ward)` : 'across Calgary'}. Each plays its images from the last 30 minutes on a loop; the City adds a new image about once a minute.`;
   $('#camgrid').innerHTML = list.map(camCard).join('');
   watchCams();
 }

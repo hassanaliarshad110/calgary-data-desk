@@ -92,7 +92,7 @@ METHODS = [
      'dataset': 'City project pages; sizs-hgef; c2es-76ed', 'publisher': 'City of Calgary',
      'page': 'https://www.calgary.ca/planning/parks-rec/northeast-athletic-complex.html',
      'updated': 'City projects: checked by hand (data/ward5_projects.json); roads and permits: at each refresh',
-     'used_in': 'Growth and amenities (Being built, Amenities), the dashboard amenities card, map layer, Data Genie',
+     'used_in': 'Growth vs amenities (Being built, Amenities), the dashboard amenities card, map layer, Data Genie',
      'method': ['City projects under construction or approved that the City\'s open data lists of facilities do not have '
                 'yet, each checked against the City\'s own project page (Northeast Athletic Complex, Saddle Ridge).',
                 'Road projects: Road Construction Projects (sizs-hgef) in or near Ward 5.',
@@ -195,7 +195,7 @@ METHODS = [
 
     {'key': 'dp', 'name': 'Development Permits', 'dataset': '6933-unw5', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/6933-unw5', 'updated': 'Daily',
-     'used_in': 'Development permit card, Growth and amenities, newsletter',
+     'used_in': 'Development permit card, Growth vs amenities, newsletter',
      'method': [
          'Ward 5 = the permit\'s own ward field = "5". Applications = applieddate in the period.',
          'Types are grouped from category: New homes and apartment buildings; Secondary (basement) suites; Change of '
@@ -306,7 +306,7 @@ METHODS = [
     {'key': 'amenities', 'name': 'Amenities: recreation facilities, transit stops, playgrounds, community services',
      'dataset': 'hxfu-6d96, muzh-c9qc, bdu9-amk8, x34e-bcjz', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/bdu9-amk8', 'updated': 'As the City updates them',
-     'used_in': 'Amenities by community, map layers, Growth and amenities',
+     'used_in': 'Amenities by community, map layers, Growth vs amenities',
      'method': [
          'Each item is placed in a community by its location inside the community boundary (surr-xmvs).',
          'Transit stops: status = ACTIVE. Playgrounds: playground equipment with life_cycle_status = ACTIVE and '
@@ -409,7 +409,7 @@ METHODS = [
     {'key': 'amenity_gap', 'name': 'Amenity level and the amenity gap', 'dataset':
         'ikeb-n5bc, bdu9-amk8, da6k-wpxb, jjkg-kv4n, fwyk-8pth, enr4-crti, kami-qbfh, tfs4-3wwa, hxfu-6d96, x34e-bcjz, muzh-c9qc',
      'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': 'https://data.calgary.ca/browse',
-     'updated': 'Assets counted again every week', 'used_in': 'Growth and amenities (Amenity gap), Compare wards, Data Genie',
+     'updated': 'Assets counted again every week', 'used_in': 'Growth vs amenities (Amenity gap), Compare wards, Data Genie',
      'method': AMENITY_STEPS,
      'excel': ['Download one asset dataset (for example Parks Seating, ikeb-n5bc, filtered to benches that are ACTIVE or '
                'INSTALLED) and count the rows inside one community; divide by its residents x 1,000; do the same for all '
