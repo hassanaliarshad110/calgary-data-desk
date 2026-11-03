@@ -87,6 +87,7 @@ urllib.request.urlopen = urlopen
 
 import agent as agent_mod                        # noqa: E402  (after the web is set up)
 import analyst                                   # noqa: E402
+import auditor                                   # noqa: E402
 import census                                    # noqa: E402
 import methods                                   # noqa: E402
 
@@ -162,6 +163,16 @@ def handle(op, args_json):
             return json.dumps({'ok': True, **res}, default=str)
         if op == 'analyst_reports':
             return json.dumps(_reports(), default=str)
+        if op == 'audit_list':
+            return json.dumps(auditor.index(DATA), default=str)
+        if op == 'audit_run':
+            entry = next((r for r in _reports() if a.get('report') in (r.get('pdf'), r.get('interactive'))), None)
+            if not entry:
+                return json.dumps({'ok': False, 'error': 'That report is not in this browser any more.'})
+            res = auditor.run(entry, lambda: _make('auditor'), lambda ev: _post('auditor', ev), _today(), DOWN)
+            auditor.index(DATA, res)
+            return json.dumps({'ok': True, 'page': res['page'], 'findings': len(res['findings']), 'verdict': res['verdict'],
+                               'corrected': res.get('corrected'), 'cost_usd': res.get('cost_usd')}, default=str)
         if op == 'file':
             p = os.path.realpath(a.get('path') or '')
             if not p.startswith(HOME + '/') or not os.path.isfile(p):

@@ -37,7 +37,7 @@
       if (typeof m === 'string') {                         // progress from the agent
         try {
           const { event, who } = JSON.parse(m);
-          const fn = who === 'scientist' ? window.onAnalystEvent : window.onAgentEvent;
+          const fn = who === 'scientist' ? window.onAnalystEvent : who === 'auditor' ? window.onAuditEvent : window.onAgentEvent;
           if (fn) fn(event);
         } catch (err) { /* ignore */ }
         return;
@@ -94,6 +94,8 @@
   api.ask = (question, mode) => run('ask', { question, mode });
   api.new_chat = async () => (worker ? call('new_chat', {}).catch(() => true) : true);
   api.analyst_run = (key, text) => run('analyst_run', { key, text });
+  api.audit_run = (report) => run('audit_run', { report });
+  api.audit_list = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('audit_list', {}); } catch (e) { return []; } };
   api.analyst_reports = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('analyst_reports', {}); } catch (e) { return []; } };
   api.analyst_topics = async (n = 6) => {
     let all = [];

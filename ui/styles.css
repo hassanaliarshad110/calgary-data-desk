@@ -1185,3 +1185,5 @@ tr.bb-done td { opacity: .85; }
 .tax-recon span { font-size: .82rem; color: var(--muted-fg); }
 @media (max-width: 900px) { .tax-recon { grid-template-columns: 1fr; } }
 #bud-tax .table-wrap { max-height: none; }
+.ds-tabs { margin: 0 0 16px; }
+.neg { color: #B91C1C; }

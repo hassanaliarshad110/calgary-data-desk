@@ -641,7 +641,7 @@
           <div class="ds-mark" aria-hidden="true"><svg class="ic"><use href="#i-scientist"/></svg></div>
           <div>
             <h1 id="ds-title">Data Scientist</h1>
-            <p>Full analysis reports on Ward 5, built from live public data: every figure worked out and sourced, with charts, maps, recommendations and an action plan.</p>
+            <p>Full analysis reports on Calgary and any ward, built from live public data: every figure worked out and sourced, with charts, maps, recommendations and an action plan.</p>
             <div class="ds-gets"><span><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg>PDF report</span><span><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Interactive charts and maps</span><span><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Excel workbook</span></div>
           </div>
         </div>
@@ -649,8 +649,13 @@
           <div><b>3 to 8 min</b><span>per report</span></div>
         </div>
       </header>
+      <div class="seg ds-tabs" role="radiogroup" aria-label="Data Scientist" id="ds-tabs">
+        <button type="button" role="radio" aria-checked="true" data-dstab="make">Make reports</button>
+        <button type="button" role="radio" aria-checked="false" data-dstab="audit">Report auditor</button>
+      </div>
       <div class="banner warn" id="ds-nokey" hidden><svg class="ic" aria-hidden="true"><use href="#i-key"/></svg><div>Add an AI service key (Claude, Gemini or ChatGPT) in Settings to make reports.</div></div>
 
+      <div id="ds-make">
       <div class="ds-sec-head"><h2>Topics for today</h2><button class="btn" id="ds-shuffle"><svg class="ic" aria-hidden="true"><use href="#i-shuffle"/></svg><span>Show other topics</span></button></div>
       <div class="ds-topics" id="ds-topics"></div>
 
@@ -685,6 +690,28 @@
         <div class="card-head"><div><h2>Your reports</h2><p class="card-sub">Made here or in Data Genie, newest first. Every report is also in Files.</p></div></div>
         <div id="ds-reports"></div>
       </section>
+      </div>
+
+      <div id="ds-audit" hidden>
+        <section class="card">
+          <div class="card-head"><div><h2>Report auditor</h2><p class="card-sub">Three separate checks on a finished report. <b>Claude Opus</b> re-runs every figure from the data and lists what is wrong. <b>Claude Sonnet</b> re-checks each finding itself, accepts, revises or rejects it with its reasons, and makes the corrected report. <b>Claude Opus</b> then checks only those findings: fixed correctly, or rightly rejected. About 5 to 15 minutes a report.</p></div></div>
+          <div id="au-reports"></div>
+        </section>
+        <section class="card ds-run" id="au-run" hidden>
+          <div class="card-head"><div><h2 id="au-run-title"></h2><p class="card-sub" id="au-run-sub"></p></div></div>
+          <ol class="ds-stages" id="au-stages">
+            <li data-stage="0"><i></i><span>Audit: re-run every figure (Opus)</span></li>
+            <li data-stage="1"><i></i><span>Review each finding and fix (Sonnet)</span></li>
+            <li data-stage="2"><i></i><span>Final check of the findings (Opus)</span></li>
+          </ol>
+          <details class="ds-log"><summary>What it is doing</summary><ol class="steps" id="au-steps"></ol></details>
+          <div id="au-result"></div>
+        </section>
+        <section class="card ds-lib">
+          <div class="card-head"><div><h2>Audits</h2><p class="card-sub">Each audit page lists every finding, the reviewer's decision and the final check, with the corrected report.</p></div></div>
+          <div id="au-list"></div>
+        </section>
+      </div>
     </div>
   </section>
 
@@ -858,5 +885,6 @@
 <script src="extra.js"></script>
 <script src="compare.js"></script>
 <script src="budget.js"></script>
+<script src="audit.js"></script>
 </body>
 </html>

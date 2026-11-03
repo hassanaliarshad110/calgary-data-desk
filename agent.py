@@ -19,7 +19,7 @@ import police
 import report
 import weather
 
-MODELS = {'fast': 'claude-haiku-5-5', 'smart': 'claude-sonnet-5-5'}
+MODELS = {'fast': 'claude-haiku-5-5', 'smart': 'claude-sonnet-5-5', 'audit': 'claude-opus-5-5'}
 MAX_STEPS = 30                 # tool rounds per question (an analysis report needs many)
 MAX_OUTPUT = 16000
 # Published prices, US dollars per million tokens (input, output): for the cost shown with each answer. An estimate:
@@ -60,9 +60,9 @@ def with_cache_mark(messages):
 REPORT_WORDS = re.compile(r'\b(report|analy[sz]e|analysis|action plan|recommendations?|briefing paper)\b', re.I)
 MAX_RESULT_CHARS = 14000       # how much of a tool result Claude sees
 
-SYSTEM = """You are the data assistant in Ward 5 Data Desk, a Windows app used by the Office of Councillor Raj \
-Dhaliwal, Ward 5, in northeast Calgary. The people asking are the councillor and office staff, preparing for casework, \
-constituent meetings, briefings and council business. You answer questions using City of Calgary Open Data \
+SYSTEM = """You are the data assistant in Calgary Data Desk, used by the Mayor's office and councillors' offices \
+in Calgary (it began as the Ward 5 Data Desk for Councillor Raj Dhaliwal's office, Ward 5, in northeast Calgary, so it \
+holds extra Ward 5 detail). The people asking prepare for casework, constituent meetings, briefings and council business. You answer questions using City of Calgary Open Data \
 (data.calgary.ca, about 1,000 public datasets) through your tools. Today's date is {today}.
 
 How every number is counted
@@ -658,12 +658,18 @@ class Agent:
         self.provenance = []                      # every data request for the current question (report appendix)
         self._report_pdf = None
         self.last_cost = {}
+        self.tools = TOOLS                        # the auditor gives its agents their own set
+        self.system_text = None                   # ... and its own instructions
+        self.handlers = {}                        # extra tools: name -> function(args) -> result
+        self.last_report = None                   # the entry of the last report made (with its spec file)
 
     def reset(self):
         self.history = []
 
     # ----- tools ---------------------------------------------------------------------------------------------
     def run_tool(self, name, args):
+        if name in self.handlers:
+            return self.handlers[name](args)
         if name == 'search_datasets':
             return cd.search_datasets(args['query'])
         if name == 'describe_dataset':
@@ -726,7 +732,7 @@ class Agent:
         if name == 'make_report':
             d = self.dashboard_provider() or {}
             pop = d.get('population') or {}
-            meta = {'councillor': (d.get('ward') or {}).get('councillor') or 'Raj Dhaliwal',
+            meta = {'councillor': (d.get('ward') or {}).get('councillor') if (d.get('scope') or {}).get('kind') != 'city' else None,
                     'built': f"dashboard data of {d.get('built_at', '')} Calgary time" if d.get('built_at') else '',
                     'population': (f"{pop.get('method_label')}: {pop.get('method_about')}" if pop.get('method_label') else None),
                     'date': _calgary_now().strftime('%B %d, %Y').replace(' 0', ' '),
@@ -745,6 +751,16 @@ class Agent:
             entry = {'title': args.get('title', ''), 'question': args.get('question', ''), 'pdf': res['path'],
                      'interactive': res['interactive'], 'xlsx': res['xlsx'], 'made': _calgary_now().strftime('%Y-%m-%d %H:%M'),
                      'visuals': res['visuals']}
+            # the report as written (its content and every query behind it), so the auditor can check it later
+            spec_path = res['interactive'].replace(' (interactive).html', '') + '.report.json'
+            try:
+                with open(spec_path, 'w', encoding='utf-8') as f:
+                    json.dump({'spec': args, 'provenance': self.provenance,
+                               'meta': {k: meta.get(k) for k in ('councillor', 'built', 'population', 'date', 'day')}}, f, default=str)
+                entry['spec'] = spec_path
+            except OSError:
+                pass
+            self.last_report = entry
             self._index(entry)
             self._report_pdf = entry['pdf']
             self.emit({'type': 'report', **entry, 'name': res['name'], 'warning': res['warning'], 'path': res['path']})
@@ -798,7 +814,7 @@ class Agent:
         elif name == 'get_ward5_dashboard':
             d = self.dashboard_provider() or {}
             pop = (d.get('population') or {}).get('method_label') or ''
-            what = 'Ward 5 Data Desk dashboard'
+            what = 'Calgary Data Desk dashboard'
             detail = f"section {a.get('section') or 'overview'}; period {d.get('period', '')} against {d.get('prev_period', '')}; residents: {pop}"
             got = f"built {d.get('built_at', '')} Calgary time"
         elif name == 'police_crime':
@@ -848,9 +864,12 @@ class Agent:
         chain = engines.ready(self.get_settings(), os.environ.get('ANTHROPIC_API_KEY', ''))
         if not chain:
             raise AgentError('Add a key for Claude, Gemini or ChatGPT in Settings first.')
-        if REPORT_WORDS.search(question or ''):
+        if model_choice == 'fast' and REPORT_WORDS.search(question or ''):
             model_choice = 'smart'                # a full analysis report always uses the thorough model
-        tier = 'smart' if model_choice == 'smart' else 'fast'
+        tier = model_choice if model_choice in ('smart', 'audit') else 'fast'
+        models = {**MODELS, **(self.get_settings().get('models') or {})}
+        for e in chain:                           # the auditor's model: Opus on Claude, the strong model elsewhere
+            e['audit'] = models['audit'] if e['provider'] == 'claude' else e['smart']
         start = len(self.history)
         self.provenance = []
         self.history.append({'role': 'user', 'content': question})
@@ -870,7 +889,7 @@ class Agent:
         while True:
             e = chain[pos]
             try:
-                return engines.call(e, e[tier], system, TOOLS, self._trimmed_history(), MAX_OUTPUT,
+                return engines.call(e, e[tier], system, self.tools, self._trimmed_history(), MAX_OUTPUT,
                                     anthropic_post=post_messages, chat_post=post_chat,
                                     cache_mark=with_cache_mark), pos
             except (engines.EngineError, AgentError) as err:
@@ -890,8 +909,8 @@ class Agent:
 
     def _loop(self, chain, tier, today):
         dash = self.dashboard_provider()
-        system = census_mod.relabel(SYSTEM.format(today=today), int(((dash or {}).get('census') or {}).get('year') or 2021)) \
-            + scope_note(dash)
+        system = census_mod.relabel((self.system_text or SYSTEM).format(today=today),
+                                    int(((dash or {}).get('census') or {}).get('year') or 2021)) + scope_note(dash)
         used = {'input': 0, 'output': 0, 'cache_read': 0, 'cost_usd': 0.0}
         self.last_cost = used
         pos, skipped, services = 0, [], []

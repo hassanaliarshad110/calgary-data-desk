@@ -212,9 +212,9 @@ def render(spec, provenance=None, meta=None, interactive=False):
     title = str(spec.get('title') or 'Ward 5 analysis').strip()
     today = meta.get('date') or dt.date.today().strftime('%B %d, %Y').replace(' 0', ' ')
     visuals = collect(spec)
-    parts = [f'''<header class="band"><div><p class="kicker">Ward 5 Data Desk · Analysis{' · interactive version' if interactive else ''}</p><h1>{e(title)}</h1>
+    parts = [f'''<header class="band"><div><p class="kicker">Calgary Data Desk · Analysis{' · interactive version' if interactive else ''}</p><h1>{e(title)}</h1>
   {f'<p class="sub">{e(spec.get("subtitle"))}</p>' if spec.get('subtitle') else ''}</div>
-  <div class="band-r"><p>Prepared for the Office of Councillor {e(meta.get('councillor') or '')}</p><p>{e(today)}</p></div></header>''']
+  <div class="band-r"><p>Prepared for {e(('the Office of Councillor ' + meta['councillor']) if meta.get('councillor') else 'the Mayor and Council')}</p><p>{e(today)}</p></div></header>''']
     if spec.get('question'):
         parts.append(f'<p class="ask"><b>Question asked:</b> {e(spec["question"])}</p>')
     if spec.get('summary'):
@@ -265,7 +265,7 @@ def render(spec, provenance=None, meta=None, interactive=False):
                      f'them on data.calgary.ca or with the files named here to check the figures.</p>'
                      f'<table class="prov"><thead><tr><th></th><th>Step</th><th>Query or source</th><th>Result</th><th>Time</th>'
                      f'</tr></thead><tbody>{rows}</tbody></table></section>')
-    parts.append(f'''<footer>Prepared by Data Genie, the analysis assistant in Ward 5 Data Desk, from the public data listed above
+    parts.append(f'''<footer>Prepared by Data Genie, the analysis assistant in Calgary Data Desk, from the public data listed above
   ({e(meta.get('built') or today)}). It is an automated analysis: check key figures against the sources before quoting
   them in public. Recommendations are options for the office to consider, not City policy.</footer>''')
     page = PAGE.replace('{{TITLE}}', e(title)).replace('{{BODY}}', '\n'.join(parts))
@@ -323,12 +323,12 @@ def workbook_sheets(spec, provenance, meta):
     """The Excel workbook: about, every table, the data behind every chart and map, recommendations, plan, sources."""
     visuals = collect(spec)
     about = [['Report', spec.get('title') or ''], ['Question', spec.get('question') or ''],
-             ['Prepared', meta.get('date') or ''], ['For', f"Office of Councillor {meta.get('councillor') or ''}"],
+             ['Prepared', meta.get('date') or ''], ['For', f"Office of Councillor {meta['councillor']}" if meta.get('councillor') else 'The Mayor and Council'],
              ['Residents counted with', meta.get('population') or ''], ['Data', meta.get('built') or ''], [], ['Summary']]
     about += [['', x] for x in spec.get('summary') or []]
     about += [[], ['Method']] + [['', x] for x in spec.get('method') or []]
     about += [[], ['Limits']] + [['', x] for x in spec.get('limitations') or []]
-    about += [[], ['Prepared by Data Genie in Ward 5 Data Desk from public data; check key figures before quoting them.']]
+    about += [[], ['Prepared by Data Genie in Calgary Data Desk from public data; check key figures before quoting them.']]
     sheets = [('About', about, False)]
     for v in visuals:
         sp, t = v['spec'], (v['spec'].get('title') or v['id'])

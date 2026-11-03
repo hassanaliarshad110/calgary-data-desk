@@ -41,6 +41,7 @@ import webview
 
 import agent as agent_mod
 import analyst
+import auditor
 import engines
 import camfeed
 import dashboard
@@ -350,6 +351,40 @@ class Api:
             if any(ok.values()):
                 out.append({**x, **ok})
         return out
+
+    # ---- Report auditor: Opus audits, Sonnet reviews and fixes, Opus checks the fixes ----
+    def _emit_audit(self, event):
+        if self._window:
+            self._window.evaluate_js(f'window.onAuditEvent && window.onAuditEvent({json.dumps(event)})')
+
+    def _audit_agent(self):
+        a = agent_mod.Agent(load_settings, self._emit_audit, DOWNLOADS, lambda: self._dash, DATA_DIR, self._wards_summary)
+        a.tax_provider = self._tax_for_agent
+        return a
+
+    def audit_list(self):
+        return auditor.index(DATA_DIR)
+
+    def audit_run(self, report_pdf):
+        """Audit one of the reports in Your reports (named by its file). One at a time."""
+        if self._analyst_busy:
+            return {'ok': False, 'error': 'A report or an audit is already running. It will finish in a few minutes.'}
+        entry = next((r for r in self.analyst_reports() if report_pdf in (r.get('pdf'), r.get('interactive'))), None)
+        if not entry:
+            return {'ok': False, 'error': 'That report is not on this computer any more.'}
+        self._analyst_busy = True
+        try:
+            res = auditor.run(entry, self._audit_agent, self._emit_audit, dashboard.calgary_now().date().isoformat(), DOWNLOADS)
+            auditor.index(DATA_DIR, res)
+            return {'ok': True, 'page': res['page'], 'findings': len(res['findings']), 'verdict': res['verdict'],
+                    'corrected': res.get('corrected'), 'cost_usd': res.get('cost_usd')}
+        except agent_mod.AgentError as e:
+            return {'ok': False, 'error': str(e)}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': f'The audit stopped: {e}'}
+        finally:
+            self._analyst_busy = False
 
     def new_chat(self):
         self._agent.reset()
