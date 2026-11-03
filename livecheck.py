@@ -62,7 +62,10 @@ SOURCES = [
 
 def _get(url, timeout=30):
     """Straight to the source: the app's short-lived memory of answers is skipped on purpose."""
-    return cd._http_get(url, timeout)
+    try:
+        return cd._get_once(url, timeout)          # one try: the test reports what the source does now
+    except cd._Busy as e:
+        raise cd.DataError(str(e)) from None
 
 
 def test(key):

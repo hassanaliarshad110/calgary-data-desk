@@ -24,12 +24,33 @@ class DataError(Exception):
     """A problem with a request to the open data portal, explained in plain words."""
 
 
+RETRIES = 1                       # extra tries after a timeout, a dropped connection or a busy server (429 or 5xx)
+RETRY_WAIT = 5                    # seconds before the first extra try; doubled each time
+
+
 def _http_get(url, timeout=120):
+    import time as _time
+    for attempt in range(RETRIES + 1):
+        try:
+            return _get_once(url, timeout)
+        except _Busy as e:
+            if attempt == RETRIES:
+                raise DataError(str(e)) from None
+            _time.sleep(RETRY_WAIT * (2 ** attempt))
+
+
+class _Busy(Exception):
+    """A failure worth trying again."""
+
+
+def _get_once(url, timeout):
     req = urllib.request.Request(url, headers=HEADERS)
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.read()
     except urllib.error.HTTPError as e:
+        if e.code == 429 or e.code >= 500:
+            raise _Busy(f'The open data portal answered {e.code} (busy). Try again shortly.') from None
         body = e.read().decode('utf-8', 'replace')[:600]
         try:
             msg = json.loads(body).get('message') or body
@@ -37,7 +58,9 @@ def _http_get(url, timeout=120):
             msg = body
         raise DataError(f'The open data portal answered {e.code}: {msg}') from None
     except urllib.error.URLError as e:
-        raise DataError(f'Could not reach data.calgary.ca ({e.reason}). Check the internet connection.') from None
+        raise _Busy(f'Could not reach data.calgary.ca ({e.reason}). Check the internet connection.') from None
+    except (TimeoutError, ConnectionError, OSError) as e:      # a read that timed out or a connection that dropped
+        raise _Busy(f'data.calgary.ca did not answer in time ({e}). Try again shortly.') from None
 
 
 # Replaced in tests with a function that reads saved responses.

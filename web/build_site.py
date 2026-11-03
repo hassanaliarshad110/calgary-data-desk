@@ -31,6 +31,7 @@ import missing                  # noqa: E402
 import analyst                  # noqa: E402
 
 cd.KEEP_SECONDS = 6 * 3600      # one build reuses every City answer across wards and ways of counting
+cd.RETRIES, cd.RETRY_WAIT = 3, 10   # the City's portal sometimes drops connections from cloud servers: keep trying
 cd.KEEP_BYTES = 1500 * 1024 * 1024
 
 
@@ -117,6 +118,15 @@ def lock_key(out):
     print('Data Genie: key locked with the access code')
 
 
+def keep_previous(site, rel, path):
+    """Yesterday's copy of one file from the published website, marked as not refreshed today."""
+    import urllib.request
+    with urllib.request.urlopen(site.rstrip('/') + '/data/' + rel, timeout=120) as r:
+        d = json.loads(r.read().decode('utf-8'))
+    d['stale'] = True
+    write(path, d)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('out')
@@ -124,6 +134,7 @@ def main():
     ap.add_argument('--wards', default=','.join(str(w) for w in range(15)))
     ap.add_argument('--methods', default=','.join(dashboard.POP_METHODS))
     ap.add_argument('--pyodide', default='', help='folder with the Pyodide core files, copied to OUT/pyodide')
+    ap.add_argument('--previous', default=os.environ.get('CDD_SITE_URL', ''), help='the published website, for yesterday\'s copy of a view that fails')
     a = ap.parse_args()
     out, cache = os.path.abspath(a.out), os.path.abspath(a.cache)
     data = os.path.join(out, 'data')
@@ -156,6 +167,16 @@ def main():
                 write(os.path.join(data, m, f'w{w}.json'), d)
                 names[w] = [c.get('name') for c in d.get('communities') or []]
             step(f'dashboard {m} ward {w}', one)
+    # a ward that failed (the City's portal timing out) gets a second try, then yesterday's published copy
+    for m in meths:
+        for w in wards:
+            path = os.path.join(data, m, f'w{w}.json')
+            if os.path.exists(path):
+                continue
+            time.sleep(30)
+            step(f'dashboard {m} ward {w} (second try)', lambda m=m, w=w: write(path, dashboard.build(cache_dir=cache, ward=w, pop_method=m)))
+            if not os.path.exists(path) and a.previous:
+                step(f'dashboard {m} ward {w} (yesterday\'s copy)', lambda m=m, w=w, path=path: keep_previous(a.previous, f'{m}/w{w}.json', path))
     step('budget', lambda: write(os.path.join(data, 'budget.json'), budget.load(cache)))
     step('property tax', lambda: write(os.path.join(data, 'tax.json'), tax_payload(cache, year)))
     write(os.path.join(data, 'methods.json'), census.relabel(methods.METHODS, year))
