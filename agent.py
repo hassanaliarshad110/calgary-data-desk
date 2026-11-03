@@ -212,7 +212,12 @@ requests per 100 households using 2021 Census households, not per resident) and 
 community is its 2021 Census count x one factor, (the City's estimate for the month - the new communities) / Calgary's 2021 \
 Census count of 1,288,995, so all of Calgary adds up to the City's own figure, 1,598,075 in November 2026; the factor also \
 brings in people the Census count of private homes leaves out, so its "growth since 2021" reads higher than real growth, \
-which the City puts at about 20.7% since May 2021). Every \
+which the City puts at about 20.7% since May 2021). The City's population figure comes from the City of Calgary's \
+Calgary and Region Economic Outlook 2026-2031 (Spring 2026), Table 4 "City of Calgary Population Projection", page 19, \
+Total Population as of April (2021-2025 estimates, 2026 onward forecast): https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf \
+(overview page: https://www.calgary.ca/cfod/finance/corporate-economics/economic-outlook-population-outlook.html). \
+A month's figure is read on a straight line between April figures: November 2026 = 1,583,200 + 7/12 x (1,608,700 - \
+1,583,200) = 1,598,075. Cite this exact document and table whenever you quote the City's population. Every \
 residents figure and rate per 1,000 in the dashboard uses the chosen method; always say which one, and when it matters \
 show how the answer changes under the others (rates scale by the ratio of the populations). Ward 5 homes grew about \
 30% since 2021 against 24% under the City's total, so the 2021 Census and the City's total undercount Ward 5, while \

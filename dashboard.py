@@ -76,7 +76,14 @@ DATA_VERSION = 12          # bump when the dashboard's data layout changes, so o
 # crime period so Calgary and Ward 5 are counted at the same date.
 CITY_POP_APRIL = {2021: 1_321_600, 2022: 1_347_800, 2023: 1_422_200, 2024: 1_509_800, 2025: 1_558_700,
                   2026: 1_583_200, 2027: 1_608_700, 2028: 1_634_800}
-CITY_POP_SOURCE = 'https://www.calgary.ca/cfod/finance/corporate-economics/economic-outlook-population-outlook.html'
+CITY_POP_SOURCE = {
+    'name': 'Calgary and Region Economic Outlook 2026-2031 (Spring 2026), Table 4 City of Calgary Population Projection, '
+            'page 19: Total Population (as of April); 2021-2025 estimates, 2026 on forecast (completed January 2026)',
+    'publisher': 'City of Calgary, Corporate Economics',
+    'url': 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf',
+    'page': 'https://www.calgary.ca/cfod/finance/corporate-economics/economic-outlook-population-outlook.html',
+    'how': 'The figure for a month is read on a straight line between the April figures before and after it '
+           '(November 2026: 1,583,200 in April 2026 + 7/12 of the way to 1,608,700 in April 2027 = 1,598,075).'}
 
 
 # How residents are counted. Every per-1,000 rate, the population figures and the children estimates follow it.
@@ -1164,7 +1171,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
         'population': {'as_of': ref.isoformat(), 'model_total': residents, 'census_total': census_total,
                        'method': pop_method, 'method_label': POP_METHODS[pop_method]['label'],
                        'method_about': POP_METHODS[pop_method]['about'],
-                       'city_now': city_population_at(ref.year * 12 + ref.month - 1),
+                       'city_now': city_population_at(ref.year * 12 + ref.month - 1), 'city_source': CITY_POP_SOURCE,
                        # the ward today under each way of counting, so the office can compare them
                        'by_method': {
                            'model': sum(v.get('growth_model', v['model']) for k, v in pop_now.items() if k in RESIDENTIAL_CODES),

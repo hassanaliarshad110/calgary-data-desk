@@ -1005,7 +1005,7 @@ const SRC = {
   cityDisorder: cityDs('Social Disorder Statistics', '4evm-wx9a', 'Police-reported social disorder'),
   pop: () => { const st = stat('Population model'); const m = popMethod();
     if (m === 'census2021') return { name: '' + CY() + ' Census by Community', pub: 'City of Calgary (Statistics Canada)', url: 'https://data.calgary.ca/d/f9wk-wej9', to: 'counted on May 11, 2021, without growth (Settings)' };
-    if (m === 'city_pace') return { name: "" + CY() + " Census by Community, grown to the City's total", pub: 'City of Calgary', url: 'https://www.calgary.ca/cfod/finance/corporate-economics/economic-outlook-population-outlook.html', to: "City population estimates and forecast (Calgary and Region Economic Outlook 2026-2031)" };
+    if (m === 'city_pace') return { name: "" + CY() + " Census by Community, grown to the City's total", pub: 'City of Calgary', url: 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf', to: "City population estimates and forecast (Calgary and Region Economic Outlook 2026-2031, Table 4, page 19)" };
     return { name: 'growth model: ' + CY() + ' Census by Community and Property Assessments', pub: 'City of Calgary',
     url: 'https://data.calgary.ca/d/4bsw-nn7w', to: `${CY()} Census (May ${CY()}), grown with the property roll${st.city_updated ? ` updated ${dmy(st.city_updated)}` : ''}` }; },
   police: () => { const c = D.crime || {}; return { name: 'Community safety data file' + (c.file ? ` (${c.file})` : ''), pub: 'Calgary Police Service', url: c.source || 'https://www.calgarypolice.ca/transparency-and-accountability/community-safety-dashboard---monthly-snapshot.html#dashdata',

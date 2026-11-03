@@ -104,7 +104,7 @@ METHODS = [
                   'Estimated project cost is what the applicant declared on the permit, not the final cost.']},
 
     {'key': 'population_choice', 'name': 'How residents are counted (Settings)', 'dataset': 'f9wk-wej9, 4bsw-nn7w, City population outlook',
-     'publisher': 'City of Calgary', 'page': 'https://www.calgary.ca/cfod/finance/corporate-economics/economic-outlook-population-outlook.html',
+     'publisher': 'City of Calgary', 'page': 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf',
      'updated': 'Census: 2021; property roll: through the year; City outlook: each spring',
      'used_in': 'Residents, every rate per 1,000, population charts, children estimates, newsletter, Data Genie',
      'method': [
@@ -113,8 +113,9 @@ METHODS = [
          '2021 Census, no growth: each community\'s 2021 Census count (total_pop_household, f9wk-wej9), unchanged. The '
          'City\'s own 311 ward dashboard counts this way (it divides by 2021 Census households).',
          'Grown to the City\'s total: all of Calgary adds up to the City\'s own population estimate for that month '
-         '(Calgary and Region Economic Outlook 2026-2031: estimates 2021-2025, forecast from 2026, read between the April 1 '
-         'figures). Communities built since 2021 have no 2021 count, so they keep their growth model count (19 '
+         '(Calgary and Region Economic Outlook 2026-2031, Spring 2026, Table 4 "City of Calgary Population Projection", page 19, '
+         'Total Population as of April: estimates 2021-2025, forecast from 2026; November 2026 = 1,583,200 + 7/12 x '
+         '(1,608,700 - 1,583,200) = 1,598,075). Communities built since 2021 have no 2021 count, so they keep their growth model count (19 '
          'communities, 29,547 people in November 2026). Every other community is its 2021 Census count x one factor = '
          '(the City\'s estimate - those new communities) / Calgary\'s 2021 Census count (1,288,995 people in private '
          'households). November 2026: (1,598,075 - 29,547) / 1,288,995 = 1.217, so each older community is 21.7% above '
