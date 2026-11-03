@@ -108,7 +108,7 @@ METHODS = [
      'updated': 'Census: 2021; property roll: through the year; City outlook: each spring',
      'used_in': 'Residents, every rate per 1,000, population charts, children estimates, newsletter, Data Genie',
      'method': [
-         'Growth model (default): each community\'s 2021 Census count grown with the homes on the property roll (see '
+         'Grown to the City\'s total is the default (below). Growth model: each community\'s 2021 Census count grown with the homes on the property roll (see '
          '"Ward 5 growth model" below).',
          '2021 Census, no growth: each community\'s 2021 Census count (total_pop_household, f9wk-wej9), unchanged. The '
          'City\'s own 311 ward dashboard counts this way (it divides by 2021 Census households).',

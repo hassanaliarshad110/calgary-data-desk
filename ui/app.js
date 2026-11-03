@@ -27,7 +27,7 @@ const daysSince = d => {
   return Math.max(0, Math.round((Date.UTC(b[0], b[1] - 1, b[2]) - Date.UTC(a[0], a[1] - 1, a[2])) / 86400000));
 };
 // how residents are counted (Settings): words for labels and notes
-const popMethod = () => (D && D.population && D.population.method) || 'model';
+const popMethod = () => (D && D.population && D.population.method) || 'city_pace';
 const popWords = () => ({ model: 'the growth model', census2021: `the ${CY()} Census, without growth`, city_pace: `the ${CY()} Census grown to the City's total` })[popMethod()];
 const popShort = () => ({ model: 'Live growth model', census2021: `Counted as at the ${CY()} Census`, city_pace: `${CY()} Census grown to the City's total` })[popMethod()];
 const popChip = () => ({ model: 'growth model', census2021: `${CY()} Census, no growth`, city_pace: "City's total" })[popMethod()];

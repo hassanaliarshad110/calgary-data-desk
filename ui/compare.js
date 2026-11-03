@@ -22,14 +22,14 @@ const CMP_METRICS = [
   { g: 'Families', k: 'daycare_per_100_0_4', label: 'Daycare and preschool spaces per 100 children under 5', d: 1, better: 'high' },
   { g: 'Families', k: 'schools', label: 'Schools', d: 0, better: null },
   { g: 'Families', k: 'students', label: 'Students enrolled', d: 0, better: null },
-  { g: 'Amenities', k: 'alm:model', label: 'Amenity level, residents by the growth model (1.00 = Calgary)', d: 2, better: 'high' },
+  { g: 'Amenities', k: 'alm:city_pace', label: "Amenity level, residents grown to the City's total (1.00 = Calgary)", d: 2, better: 'high' },
+  { g: 'Amenities', k: 'alm:model', label: 'Amenity level, residents by the growth model', d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:census2021', label: 'Amenity level, residents by the ' + CY() + ' Census', d: 2, better: 'high' },
-  { g: 'Amenities', k: 'alm:city_pace', label: "Amenity level, residents grown to the City's total", d: 2, better: 'high' },
 ];
 const CMP_AMENITY = ['playgrounds', 'local_park_ha', 'benches', 'picnic_tables', 'basketball', 'goal_posts', 'washrooms',
   'off_leash', 'trees', 'rec_facilities', 'libraries', 'community_centres', 'transit_stops'];
 
-let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'alm:model', map: null, layer: null, loading: null };
+let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'alm:city_pace', map: null, layer: null, loading: null };
 try {
   const saved = JSON.parse(localStorage.getItem('cdd-compare') || 'null');
   if (saved) { CMP.main = saved.main; CMP.others = new Set((saved.others || []).filter(w => w >= 1 && w <= 14)); CMP.picked = !!saved.picked; CMP.metric = saved.metric === 'amenity_level' ? 'alm:model' : (saved.metric || CMP.metric); }
