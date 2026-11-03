@@ -96,7 +96,7 @@ POP_METHODS = {
                            "Communities built since 2021 keep their growth model count; every other community is its 2021 "
                            "Census count grown by one factor, the same for all, so each keeps its 2021 share. The factor "
                            "also brings in people the Census count of private homes leaves out (seniors' homes, residences, "
-                           "shelters), so growth since 2021 reads a little higher than real growth."},
+                           "shelters), so its growth since 2021 reads about 3 points higher than real growth."},
 }
 
 
@@ -580,7 +580,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
 
     def new_people(when):
         """Growth model residents of the communities built since the 2021 Census, on a date."""
-        key = (when.year, when.month)
+        key = when.isoformat()
         if key not in _new_at:
             _new_at[key] = sum(v['model'] for v in popmodel.estimate(model, new_codes, when).values()) if new_codes else 0
         return _new_at[key]
@@ -599,7 +599,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='model', live=False
     def pace_fix(when, f):
         """Rounding each community leaves Calgary a person or two off the City's total: the largest community takes
         the difference, the same in every view, so Calgary's total matches the City's figure exactly."""
-        key = (when.year, when.month)
+        key = (when.isoformat(), round(f, 12))
         if key not in _fix:
             _fix[key] = (None, 0)
             if whole_city and census_all:

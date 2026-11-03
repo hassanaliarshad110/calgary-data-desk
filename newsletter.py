@@ -176,7 +176,8 @@ def render(D, opts=None):
             (('Residents (2021 Census)', n(ward.get('residents')), 'as counted on May 11, 2021', '')
              if pop_method == 'census2021' else
              ('Residents today', n(ward.get('residents')), f'{n(ward.get("growth_pct"), 1)}% more than the 2021 Census ({n(ward.get("census2021"))})'
-              + ('' if pop_method == 'model' else ", grown to the City's total"), '')),
+              + ('' if pop_method == 'model' else ", grown to the City's total, which also counts people the Census "
+                 "count of private homes left out"), '')),
             ('311 requests', n(s.get('requests12')), f'{n(s.get("requests_per_1000"), 0)} per 1,000 residents {rate_words}', gchg(s.get('requests_change_pct'), None)),
             None if good else ('Road, water and park problems', n(s.get('infra12')), f'{n(s.get("infra_per_1000"), 1)} per 1,000 residents {rate_words}', ''),
             ('Closed within 7 days', f'{n(c7, 1)}%', 'of the requests closed so far'

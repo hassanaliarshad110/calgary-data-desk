@@ -595,7 +595,7 @@ function renderMap(fit = false) {
     onEachFeature: (f, layer) => {
       const c = f.properties;
       layer.bindTooltip(`<strong>${esc(c.name)}</strong><br>${esc(METRICS[metric].label)}: <b>${fmtMetric(c)}</b>` +
-        (c.residential ? `<br>${fmt(c.residents)} residents today, ${fmt(c.census2021)} at the ${CY()} Census` : '<br>Business or industrial area'),
+        (c.residential ? `<br>${fmt(c.residents)} residents${popMethod() === 'census2021' ? ` (${CY()} Census count)` : ` today, ${fmt(c.census2021)} at the ${CY()} Census`}` : '<br>Business or industrial area'),
         { sticky: true, className: 'area-tip' });
       layer.on('click', () => select(c.code, true));
       layer.on('mouseover', () => layer.setStyle({ weight: 3, color: line }));
@@ -1331,7 +1331,7 @@ function renderBrief() {
   const s = D.summary, w = D.ward;
   $('#brief-who').textContent = `Office of Councillor ${w.councillor || ''}`;
   const k = [
-    ['Residents today', fmt(w.residents), `${CY()} Census ${fmt(w.census2021)} (${signed(w.growth_pct, 1)})`, true],
+    [popMethod() === 'census2021' ? `Residents (${CY()} Census)` : 'Residents today', fmt(w.residents), popMethod() === 'census2021' ? popShort() : `${CY()} Census ${fmt(w.census2021)} (${signed(w.growth_pct, 1)})`, true],
     ['311 requests still open as of today', fmt(s.open_now), `${fmt(s.open_over_90_days)} open more than 90 days`],
     [`311 requests, ${esc(D.period)}`, fmt(s.requests12), `${signed(s.requests_change_pct, 1)} against ${esc(cmpWords())}`],
     ['Infrastructure reports per 1,000 a year', fmt(s.infra_per_1000, 1), `${fmt(s.infra_per_1000_prev, 1)} in ${esc(cmpWords())}`],

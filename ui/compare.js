@@ -3,8 +3,8 @@
 
 // Each measure: where it is in a ward's row, how to show it, and which way is better (null: neither).
 const CMP_METRICS = [
-  { g: 'People and growth', k: 'residents', label: 'Residents today', d: 0, better: null },
-  { g: 'People and growth', k: 'growth_pct', label: 'Growth since the ' + CY() + ' Census', d: 1, unit: '%', better: null },
+  { g: 'People and growth', k: 'residents', get label() { return popMethod() === 'census2021' ? 'Residents (' + CY() + ' Census count)' : 'Residents today'; }, d: 0, better: null },
+  { g: 'People and growth', k: 'growth_pct', get label() { return popMethod() === 'city_pace' ? 'Above the ' + CY() + ' Census count (includes people the Census count left out)' : 'Growth since the ' + CY() + ' Census'; }, d: 1, unit: '%', better: null },
   { g: 'People and growth', k: 'children_0_14', label: 'Children aged 0 to 14 (estimate)', d: 0, better: null },
   { g: '311', k: 'requests_per_1000', label: '311 requests per 1,000 residents a year', d: 0, better: null },
   { g: '311', k: 'infra_per_1000', label: 'Infrastructure reports per 1,000 residents a year', d: 1, better: null },

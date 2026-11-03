@@ -118,7 +118,7 @@ METHODS = [
          'communities, 29,547 people in November 2026). Every other community is its 2021 Census count x one factor = '
          '(the City\'s estimate - those new communities) / Calgary\'s 2021 Census count (1,288,995 people in private '
          'households). November 2026: (1,598,075 - 29,547) / 1,288,995 = 1.217, so each older community is 21.7% above '
-         'its 2021 count. Ward 5: 106,185 x 1.217 = 129,212, plus Homestead (built since 2021) 2,326 = 131,538.',
+         'its 2021 count. Ward 5: 106,185 x 1.21686 = 129,212, plus Homestead (built since 2021) 2,326 = 131,538.',
          'The factor is more than growth: the City\'s estimate also counts people the 2021 Census count of private '
          'households leaves out (seniors\' homes, residences, shelters) and those it missed. On Census day the City\'s '
          'estimate was already 2.7% above the Census count (1,323,783 against 1,288,995); the City\'s own growth from '
