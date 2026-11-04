@@ -564,17 +564,18 @@ def population_recon(model, ref, codes, names, pop_now, method, f_pace, f_actual
                   p21 if method == 'census2021' else gm)
         r['rounding'] = (res - expect) if res is not None else 0     # the person or two the largest community takes
         rows.append(r)
-    rentals = []
+    rentals, vpu_ = [], None
     try:
         with open(popmodel.RENTALS_FILE, encoding='utf-8') as f:
-            props = json.load(f).get('properties') or []
+            rfile_ = json.load(f)
+        props, vpu_ = rfile_.get('properties') or [], rfile_.get('value_per_unit')
         rentals = [dict(p_, name=names.get(p_['comm'], p_['comm'])) for p_ in props if p_.get('comm') in set(codes)]
     except (OSError, ValueError):
         pass
     tot = lambda k: round(sum(r.get(k) or 0 for r in rows), 1)
     return {'t': round(t, 4), 'lag': popmodel.LAG, 'roll_year': model.R, 'method': method,
             'factor_actual': round(f_actual, 6) if f_actual else None, 'factor_pace': round(f_pace, 6) if f_pace else None,
-            'rows': rows, 'rentals': rentals, 'homes_where': popmodel.HOMES_WHERE,
+            'rows': rows, 'rentals': rentals, 'value_per_unit': vpu_, 'homes_where': popmodel.HOMES_WHERE,
             'totals': {k: tot(k) for k in ('census2021', 'homes_census', 'homes_now', 'units_now', 'people_in_homes',
                                            'people_in_units', 'population', 'residents')}}
 
