@@ -5,10 +5,6 @@ counts it"), so a person or the assistant can explain or reproduce any dashboard
 """
 import attention
 
-W5_CODES = ('CAS, CSC, CNS, FAL, HSD, MRT, RSN, SAD, SKR, TAR (residential: Castleridge, Cityscape, Cornerstone, '
-            'Falconridge, Homestead, Martindale, Redstone, Saddle Ridge, Skyview Ranch, Taradale) and SRI, DBC, SGL, '
-            'SKE, WES, PEG, CIA, ST2, ST3, ST4, 05D, 05E, 05F, 05G (business, industrial and airport areas, no homes)')
-
 # The amenity level, step by step (dashboard.py uses these numbers: GAP_GROWTH_PCT 20, GAP_LEVEL 0.75,
 # MIN_RATE_RESIDENTS 100; a test checks they match).
 AMENITY_STEPS = [
@@ -51,8 +47,7 @@ METHODS = [
      'used_in': 'Status board, map, 311 charts, Open issues, community table, newsletter',
      'method': [
          'A ward = requests whose comm_code is one of the ward\'s communities (the communities section of the dashboard '
-         'lists them; a community belongs to the ward holding most of its area); Calgary = every request. '
-         f'Example, Ward 5: its 24 communities are {W5_CODES}.',
+         'lists them; a community belongs to the ward holding most of its area); Calgary = every request.',
          'Requests in a period: requested_date from the first day of the first month to the last day of the last month. '
          'Duplicates are left out: status_description "Duplicate (Open)" and "Duplicate (Closed)".',
          'Per 1,000 residents a year: requests in the area\'s residential communities / its residents at the middle of '
@@ -74,10 +69,11 @@ METHODS = [
          'mostly phone, are the rest).',
          'City service: the first part of service_name, before " - " (Roads, WATS = Water, WRS = Waste and '
          'Recycling, CT = Calgary Transit, Bylaw, Parks and so on).',
-         'The 311 study ("our study"): requested_date 2024-10-01 to 2026-09-30, no duplicates, no blank community, '
-         'nine Ward 5 communities (all residential codes except HSD): 56,473 requests.'],
+         'The 311 study ("Who Calgary\'s 311 Hears"): requested_date 2024-10-01 to 2026-09-30, no duplicates, no blank '
+         'community; it looked at nine northeast communities (56,473 requests).'],
      'excel': [
-         'Filter comm_code to the area\'s community codes (Ward 5\'s above as an example, or one community).',
+         'Filter comm_code to the area\'s community codes (see "Wards and their communities"), or to one community; '
+         'for Calgary, no filter.',
          'Filter requested_date between the first and last day of the months you want (dates sort as text: 2025-11-01).',
          'Filter status_description: untick "Duplicate (Open)" and "Duplicate (Closed)". The row count is the number '
          'of requests.',
@@ -89,30 +85,32 @@ METHODS = [
          '"Closed" means the City closed the request, not always that the problem was fixed; some open requests are '
          'years old and may already be dealt with.']},
 
-    {'key': 'profile', 'name': 'Who lives in each ward (2021 Census by ward; the City\'s full Ward 5 profile)', 'dataset': 'Ward profile PDF',
+    {'key': 'profile', 'name': 'The City\'s printed ward profile (2021 Census)', 'dataset': 'Ward profile PDF',
      'publisher': 'City of Calgary (Statistics Canada 2021 Census, Community Data Program)',
      'page': 'https://www.calgary.ca/communities/profiles/wards.html',
      'updated': '2021 Census (published 2023, revised July 2025); next: 2026 Census results from early 2027',
-     'used_in': 'Who lives in Ward 5 card, Data Genie reports',
-     'method': ['Figures are copied from the City\'s Ward 5 profile, Ward 5 next to Calgary, and kept with the app '
-                '(data/ward5_profile_2021.json). Nothing is estimated or grown: they describe May 2021.',
+     'used_in': 'Who lives here card, Data Genie reports',
+     'method': ['Figures are copied from the City\'s printed ward profile, the ward next to Calgary, and kept with the '
+                'app (data/ward5_profile_2021.json, so far for one ward; every other ward uses "Who lives in each ward" '
+                'below). Nothing is estimated or grown: they describe May 2021.',
                 'People in private households only; 2021 ward boundaries; income is for 2020; work questions refer to '
                 'May 2021, during the pandemic.'],
-     'excel': ['Open the Ward 5 profile from the City\'s ward profiles page; each figure is in the table named on the card.'],
-     'cautions': ['Ward 5 has about 30% more homes than in 2021 (about 40% more residents by the default count), mostly in new communities, so shares today may differ.',
+     'excel': ['Open the ward\'s profile from the City\'s ward profiles page; each figure is in the table named on the card.'],
+     'cautions': ['Calgary has about 14% more homes and about 21% more residents than in 2021 (much more in new '
+                  'communities), so shares today may differ.',
                   'Statistics Canada rounds counts to the nearest 5.']},
 
     {'key': 'being_built', 'name': 'Being built (City projects, roads, large building permits)',
      'dataset': 'City project pages; sizs-hgef; c2es-76ed', 'publisher': 'City of Calgary',
-     'page': 'https://www.calgary.ca/planning/parks-rec/northeast-athletic-complex.html',
-     'updated': 'City projects: checked by hand (data/ward5_projects.json); roads and permits: at each refresh',
+     'page': '',
+     'updated': 'City projects: checked by hand (data/ward_projects.json); roads and permits: at each refresh',
      'used_in': 'Growth vs amenities (Being built, Amenities), the dashboard amenities card, map layer, Data Genie',
      'method': ['City projects under construction or approved that the City\'s open data lists of facilities do not have '
-                'yet, each checked against the City\'s own project page (Northeast Athletic Complex, Saddle Ridge).',
-                'Road projects: Road Construction Projects (sizs-hgef) in or near Ward 5.',
-                'Large building permits: Building Permits (c2es-76ed) issued in the period in Ward 5 communities, '
+                'yet, each checked against the City\'s own project page.',
+                'Road projects: Road Construction Projects (sizs-hgef) in or near the area (all of Calgary for the city).',
+                'Large building permits: Building Permits (c2es-76ed) issued in the period in the area\'s communities, '
                 'estimated project cost over $1,000,000 and no housing units, largest first.'],
-     'excel': ['Building permits: filter c2es-76ed to Ward 5 community codes, issueddate in the period, housingunits empty '
+     'excel': ['Building permits: filter c2es-76ed to the area\'s community codes, issueddate in the period, housingunits empty '
                'or 0, estprojectcost > 1000000; sort by estprojectcost.'],
      'cautions': ['Amenity counts include only facilities open now; a facility being built is listed separately until it opens.',
                   'Estimated project cost is what the applicant declared on the permit, not the final cost.']},
@@ -122,8 +120,8 @@ METHODS = [
      'updated': 'Census: 2021; property roll: through the year; City outlook: each spring',
      'used_in': 'Residents, every rate per 1,000, population charts, children estimates, newsletter, Data Genie',
      'method': [
-         'Four choices. The City\'s total, shared by actual growth, is the default (below); its growth for Ward 5 falls inside the growth checks, where one rate for all falls below them. Growth model: each community\'s 2021 Census count grown with the homes on the property roll (see '
-         '"Ward 5 growth model" below).',
+         'Four choices. The City\'s total, shared by actual growth, is the default (below). Growth model: each '
+         'community\'s 2021 Census count grown with the homes on the property roll (see "Growth model" below).',
          '2021 Census, no growth: each community\'s 2021 Census count (total_pop_household, f9wk-wej9), unchanged. The '
          'City\'s own 311 ward dashboard counts this way (it divides by 2021 Census households).',
          'Grown to the City\'s total: all of Calgary adds up to the City\'s own population estimate for that month '
@@ -133,7 +131,7 @@ METHODS = [
          'communities, 29,547 people in November 2026). Every other community is its 2021 Census count x one factor = '
          '(the City\'s estimate - those new communities) / Calgary\'s 2021 Census count (1,288,995 people in private '
          'households). November 2026: (1,598,075 - 29,547) / 1,288,995 = 1.217, so each older community is 21.7% above '
-         'its 2021 count. Ward 5: 106,185 x 1.21686 = 129,212, plus Homestead (built since 2021) 2,326 = 131,538.',
+         'its 2021 count. A ward is its communities added up.',
          'The factor is more than growth: the City\'s estimate also counts people the 2021 Census count of private '
          'households leaves out (seniors\' homes, residences, shelters) and those it missed. On Census day the City\'s '
          'estimate was already 2.7% above the Census count (1,323,783 against 1,288,995); the City\'s own growth from '
@@ -148,10 +146,9 @@ METHODS = [
          'spread over every community as a share of its 2021 count, and the growth from homes built stays where they '
          'were built. f is not people per home: it multiplies each community\'s 2021 count (+10.14% for every community). '
          'Going from the growth model, which already holds the 2021 count once, only the extra is added: residents = '
-         'growth model + 2021 count x (f - 1). Martindale: 14,770 + 14,540 x 0.1014 (1,475) = 16,245, the same as '
-         '14,540 x 1.1014 + 230 (its growth from new homes); that is about 0.39 more people per 2021 home (3.81 to 4.20). '
-         'Ward 5: 106,185 x 1.1014 + (137,391 - 106,185) = about 148,160 (148,161 adding up each community, each rounded; +39.5%), against 131,538 when every '
-         'community grows at one rate. Children: each community\'s 2021 children x one factor + the children the growth '
+         'growth model + 2021 count x (f - 1). Calgary as a whole: 1,288,995 x 1.1014 + (1,467,348 - 1,288,995) = '
+         '1,598,075, the City\'s own estimate. A ward or community is worked out the same way from its own 2021 count '
+         'and growth model count. Children: each community\'s 2021 children x one factor + the children the growth '
          'model adds for its new homes, the factor set so Calgary matches the City\'s forecast of children.',
          'The largest community takes the person or two that rounding leaves over, so Calgary matches the City\'s figure '
          'exactly under both City\'s-total choices.',
@@ -159,7 +156,8 @@ METHODS = [
          'property tax and budget per resident, the briefing screen) is worked out again under the choice; the website '
          'works all of them out under every choice each morning.',
          'Rates per 1,000 residents = count / residents in the middle of the period x 1,000 x (12 / months).'],
-     'excel': ['2021 Census: filter f9wk-wej9 to the Ward 5 community codes and add up total_pop_household (106,185).',
+     'excel': ['2021 Census: filter f9wk-wej9 to the area\'s community codes and add up total_pop_household (all of '
+               'Calgary\'s residential communities: 1,288,995).',
                'City\'s total, shared by actual growth: f = 1 + (City\'s estimate - the growth model total over every '
                'residential community) / 1,288,995; each community = 2021 count x f + (growth model count - 2021 count).',
                'Grown to the City\'s total: subtract the growth model residents of communities with no 2021 count from the '
@@ -170,8 +168,7 @@ METHODS = [
                   'every other community gets a little more of the factor.',
                   'The growth model follows homes built, so it can undercount established areas that grew by filling '
                   'existing homes and towers (more people per unit); "grown to the City\'s total" grows every community '
-                  'at the same rate, so it undercounts communities where many homes were built (Ward 5: growth model '
-                  '137,391, City\'s total 131,538).',
+                  'at the same rate, so it undercounts communities where many homes were built.',
                   'The 2026 Census was taken in May 2026, but its counts are not published yet (population counts are due February 10, 2027); until then every choice is an estimate except the 2021 Census itself.']},
 
     {'key': 'population', 'name': 'Growth model (population today, every community)', 'dataset': '4bsw-nn7w, f9wk-wej9, msjx-5ygv',
@@ -192,11 +189,11 @@ METHODS = [
          'household size if smaller.',
          'People per home = (2021 Census population - people in rental units) / homes lived in on Census day '
          '(May 11, 2021). Residents = people per home x homes lived in + people per unit x rental units.',
-         'Where homes on Census day differ from 2021 Census households by more than 15% (24 communities across Calgary; in Ward 5 Redstone and Skyview Ranch), new '
-         'homes get the community\'s 2021 household size. Homestead had no 2021 count, so it uses the Calgary average '
-         '(2.66 people per home).',
+         'Where homes on Census day differ from 2021 Census households by more than 15% (24 communities across Calgary), new '
+         'homes get the community\'s 2021 household size. Communities built since 2021 have no 2021 count, so they use '
+         'the Calgary average (2.66 people per home).',
          '2021 Census: 2021 Federal Census Population by Community (f9wk-wej9, total_pop_household) and Households '
-         '(msjx-5ygv, total_private_households). Ward 5: 106,185 people in 29,585 households.'],
+         '(msjx-5ygv, total_private_households). Calgary: 1,288,995 people in 500,990 households.'],
      'excel': [
          'Download the roll for a community (4bsw-nn7w, comm_code = e.g. CNS).',
          'Filter assessment_class = RE, property_type = LI, sub_property_use begins with R: that is the number of homes '
@@ -216,8 +213,8 @@ METHODS = [
      'method': [
          'Each community keeps its 2021 Census children (pop_age_0_to_4, pop_age_0_to_14) for the residents it had '
          'in 2021.',
-         'Residents added since 2021 are given the share of children seen in 2021 in Ward 5\'s newest communities '
-         '(Cityscape and Cornerstone): about 27.5% aged 0 to 14 and 12.8% under 5. (Growth model.)',
+         'Residents added since 2021 are given the share of children seen in 2021 in the communities that were newest '
+         'at the 2021 Census (Cityscape and Cornerstone): about 27.5% aged 0 to 14 and 12.8% under 5. (Growth model.)',
          'City\'s total shared by actual growth (the default): each community\'s 2021 children x one factor + the children '
          'the growth model adds for the homes built there; the factor is set so Calgary matches the City\'s forecast of '
          'children (dashboard.kid_factors_actual, kid_added, kids_as).',
@@ -246,14 +243,15 @@ METHODS = [
      'page': 'https://data.calgary.ca/d/6933-unw5', 'updated': 'Daily',
      'used_in': 'Development permit card, Growth vs amenities, newsletter',
      'method': [
-         'A ward = the permit\'s own ward field (e.g. "5" for Ward 5); Calgary = every permit. Applications = applieddate in the period.',
+         'A ward = the permit\'s own ward field (e.g. "1" for Ward 1); Calgary = every permit. Applications = applieddate in the period.',
          'Types are grouped from category: New homes and apartment buildings; Secondary (basement) suites; Change of '
          'use; New commercial and industrial; Non-residential renovations; Home businesses; Signs; Relaxations (small '
          'exceptions to the rules); Home additions and renovations; Other.',
          'Larger developments = New homes and apartment buildings + Change of use + New commercial and industrial.',
          'Approved = statuscurrent "Released". In review also counts "Approved" (decided, not yet released while the '
          'appeal period runs), Hold and Pending Appeal. Also counted: refused, cancelled.'],
-     'excel': ['Filter ward = 5 and applieddate to the period; count rows, or group by category.'],
+     'excel': ['Filter ward to the ward\'s number (no filter for Calgary) and applieddate to the period; count rows, '
+               'or group by category.'],
      'cautions': ['"Change of use" includes new child care centres, schools, clinics and places of worship.']},
 
     {'key': 'traffic', 'name': 'Traffic Incidents', 'dataset': '35ra-9556', 'publisher': 'City of Calgary',
@@ -270,11 +268,11 @@ METHODS = [
      'publisher': 'Calgary Police Service',
      'page': 'https://www.calgarypolice.ca/transparency-and-accountability/community-safety-dashboard---monthly-snapshot.html#dashdata',
      'updated': 'Every quarter (monthly figures)',
-     'used_in': 'Crime tiles, Crime in Ward 5, disorder card, newsletter, Data Genie',
+     'used_in': 'Crime tiles, Crime card, disorder card, Compare wards, newsletter, Data Genie',
      'method': [
          'The spreadsheet linked as "Download Community Safety Data" on the police page; the app finds the current '
          'link at each refresh and downloads it only when it changes.',
-         'A ward = rows whose Ward column is that ward, e.g. "Ward 5" (the police assign each community to a ward, '
+         'A ward = rows whose Ward column is that ward, e.g. "Ward 1" (the police assign each community to a ward, '
          'including the airport and business areas); Calgary = every row.',
          'Crime categories: assault and other violence (not domestic), street and commercial robbery, break and enter '
          '(homes, businesses, other premises such as garages), theft from vehicles and vehicle theft.',
@@ -289,8 +287,9 @@ METHODS = [
          'Disorder: calls from the public about disorder (sheet "Disorder"), counted by event.',
          'A few incidents in the file have no ward, so the 14 wards add up to slightly less than Calgary (Oct 2025 to Sep '
          '2026: 25,857 crimes against 25,861).'],
-     'excel': ['Download the spreadsheet: the "Police data file" button on the Crime in Ward 5 card, or "Download Community '
-               'Safety Data" on the police page. Sheet "Community Crime": filter Ward = "Ward 5" (or a Community), Year '
+     'excel': ['Download the spreadsheet: the "Police data file" button on the Crime card, or "Download Community '
+               'Safety Data" on the police page. Sheet "Community Crime": filter Ward (e.g. "Ward 1"), or a Community, '
+               'or nothing for Calgary; Year '
                'and Month; sum "Total Crime".',
                'When someone asks for the source, open the police page at "Dashboard data download" (link above) and click '
                '"Download Community Safety Data": every crime number in the app can be found in that spreadsheet.'],
@@ -304,18 +303,17 @@ METHODS = [
     {'key': 'rents', 'name': 'Rental Market Survey (rents and vacancy)', 'dataset': 'CMHC Housing Market Information Portal',
      'publisher': 'CMHC', 'page': 'https://www03.cmhc-schl.gc.ca/hmip-pimh/en/TableMapChart?id=0140&t=3',
      'updated': 'Yearly: surveyed each October, published in December or January',
-     'used_in': 'Rents and vacancy near Ward 5, newsletter',
+     'used_in': 'Rents and vacancy card, newsletter',
      'method': [
          'CMHC surveys purpose-built rental apartments (buildings of 3 or more rental units) every October.',
          'Read from the portal\'s Calgary tables: Average Rent, Vacancy Rate and Rental Universe, by bedroom count, '
-         'for Calgary, the Northeast survey zone, and the neighbourhood that covers Ward 5: Falconridge/Castleridge/'
-         'Coral Springs/Martindale/Skyview Ranch/Saddle Ridge/Taradale/Horizon/Sunridge/Westwinds.',
+         'for Calgary, each survey zone and each CMHC neighbourhood (see "Which CMHC rent area a ward gets").',
          'Average rent is what sitting tenants pay, not the asking rent for empty units. Vacancy = units empty and '
          'ready to rent on the survey date.'],
      'excel': ['On the CMHC portal, open Calgary > Primary Rental Market > Average Rent > Neighbourhoods, and choose '
                'Export to Spreadsheet (CSV).'],
      'cautions': ['Condos rented out, basement suites and houses are not in the survey (CMHC\'s secondary market).',
-                  'The Ward 5 area also includes Coral Springs, Horizon and Sunridge; no figures exist by community.',
+                  'CMHC neighbourhoods and zones do not follow community or ward lines; no figures exist by community.',
                   'Letters are CMHC\'s reliability grades (a excellent to d use with caution); ** means not published.']},
 
     {'key': 'csi', 'name': 'Crime Severity Index', 'dataset': 'Statistics Canada 35-10-0026-01', 'publisher': 'Statistics Canada',
@@ -350,7 +348,7 @@ METHODS = [
          'school\'s total enrolment (kindergarten to grade 12), split into K to 9 and grades 10 to 12.'],
      'excel': ['Open the Alberta enrolment file for a school year and filter School Name to the area\'s schools; sum Total.'],
      'cautions': ['Students are counted where they go to school, not where they live: many travel in from other wards '
-                  'and some Ward 5 children go to school elsewhere.']},
+                  'and some of a ward\'s children go to school in another ward.']},
 
     {'key': 'amenities', 'name': 'Amenities: recreation facilities, transit stops, playgrounds, community services',
      'dataset': 'hxfu-6d96, muzh-c9qc, bdu9-amk8, x34e-bcjz', 'publisher': 'City of Calgary',
@@ -368,7 +366,7 @@ METHODS = [
     {'key': 'roads', 'name': 'Road Construction Projects', 'dataset': 'sizs-hgef', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/sizs-hgef', 'updated': 'As projects change', 'used_in': 'Road construction card',
      'method': ['Projects whose location is inside the ward or just outside it (all of Calgary for the whole city).'],
-     'excel': ['Download the dataset and look for projects in northeast Calgary.'],
+     'excel': ['Download the dataset and look for projects in or near the area.'],
      'cautions': ['Only the City\'s larger road projects; repairs and utility work are not listed.']},
 
     {'key': 'cameras', 'name': 'Traffic Cameras', 'dataset': 'k7p9-kppz', 'publisher': 'City of Calgary',
@@ -509,7 +507,7 @@ METHODS = [
                 'units are added from matching building permits (lived in 6 months after the permit is completed) or, '
                 'where there is none, estimated from its assessed value.',
                 'Homes on Census day are checked against the households the 2021 Census counted: Calgary 494,282 homes '
-                'against 500,990 households (1.3% fewer); Ward 5 29,568 against 29,585.',
+                'against 500,990 households (1.3% fewer); each ward\'s check is on Growth vs amenities.',
                 'A ward\'s homes are the homes of its communities (the ward holding most of each community\'s area). '
                 'Residents per home = residents (the way chosen in Settings) / homes lived in today.'],
      'excel': ['Download 4bsw-nn7w filtered to assessment_class = RE, property_type = LI and sub_property_use starting '
@@ -529,10 +527,10 @@ METHODS = [
                 'in 2021 (close to the growth model, which uses each community\'s own people per home).',
                 'Homes plus more people per home: Calgary\'s people per home change = (the City\'s estimate now / at the '
                 'Census) / (Calgary\'s homes now / at the Census) - 1, about +5.5% (20.7% more people on 14.4% more '
-                'homes). The area: (1 + its homes growth) x (1 + that change) - 1 = real growth. Ward 5: 1.304 x 1.055 = '
-                '+37.6%. Read against the 2021 Census count, like the ways of counting that add up to the City\'s total, '
-                'it is x 1.027 (the City\'s estimate on Census day / the Census count: people the Census count of private '
-                'homes left out): Ward 5 +41.3%.',
+                'homes). The area: (1 + its homes growth) x (1 + that change) - 1 = real growth. For all of Calgary this '
+                'gives the City\'s own growth: 1.144 x 1.055 = +20.7%. Read against the 2021 Census count, like the ways '
+                'of counting that add up to the City\'s total, it is x 1.027 (the City\'s estimate on Census day / the '
+                'Census count: people the Census count of private homes left out).',
                 'School enrolment: students in the area\'s schools from 2021/2022 to the latest year, against every '
                 'Calgary school; Calgary\'s growth x (the area\'s enrolment growth / Calgary\'s).',
                 'The range runs from the lowest to the highest check; each way of counting is marked within it, within 1 point '
@@ -604,14 +602,15 @@ METHODS = [
 
     {'key': 'profile_wards', 'name': 'Who lives in each ward (2021 Census by ward)', 'dataset': 'k4pr-cznc, jzfi-qvb4, b5q8-82zn',
      'publisher': 'City of Calgary (Statistics Canada 2021 Census)', 'page': 'https://www.calgary.ca/communities/profiles/wards.html',
-     'updated': 'Census 2021; read again weekly', 'used_in': 'Who lives here (wards other than Ward 5), Data Genie',
+     'updated': 'Census 2021; read again weekly', 'used_in': 'Who lives here (every ward), Compare wards, Data Genie',
      'method': [
          'Population and Dwellings by Ward (k4pr-cznc), Families and Households by Ward (jzfi-qvb4) and Employment by '
          'Ward (b5q8-82zn), against the same three tables for the whole city (fm6w-acnx, u75s-8rqc, 8w7b-2yqx).',
          'Shares: children 0 to 14 and seniors 65+ / people in private households; households of 5 or more and people '
          'living alone / private households; one-parent families / census families; in the labour force / people 15+; '
          'unemployed and self-employed / the labour force.',
-         'Ward 5 also has the City\'s printed ward profile (languages, newcomers, housing costs, income), kept with the app.'],
+         'One ward also shows the City\'s printed ward profile (languages, newcomers, housing costs, income), kept with '
+         'the app (see "The City\'s printed ward profile").'],
      'excel': ['Download the three ward tables and divide the columns named above.'],
      'cautions': ['2021 Census on the wards as they were in 2021; the 2026 Census replaces it when the City publishes it.']},
 
@@ -690,8 +689,10 @@ METHODS = [
     {'key': 'weather', 'name': 'Daily climate data, Calgary International Airport', 'dataset': 'Environment Canada climate',
      'publisher': 'Environment and Climate Change Canada', 'page': 'https://climate.weather.gc.ca/',
      'updated': 'Daily', 'used_in': 'Data Genie',
-     'method': ['Daily temperature, rain, snow and snow on ground at the airport station (inside Ward 5), back to 1881; '
-                'grouped by month or year on request.'], 'excel': [], 'cautions': []},
+     'method': ['Daily temperature, rain, snow and snow on ground at the Calgary International Airport station '
+                '(northeast Calgary), back to 1881; grouped by month or year on request. The forecast is Environment '
+                'Canada\'s public forecast for Calgary, about 7 days ahead.'],
+     'excel': [], 'cautions': ['One station for the whole city: snow and temperature vary across Calgary.']},
 ]
 
 
