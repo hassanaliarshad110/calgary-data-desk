@@ -84,7 +84,7 @@ def chart_svg(ch, w=680):
     step = max(1, math.ceil(len(labels) / 14))
     for i, lab in enumerate(labels):
         if i % step == 0:
-            out.append(f'<text x="{pad_l + cw * (i + .5):.1f}" y="{h - 10}" class="ax" text-anchor="middle">{e(lab[:12])}</text>')
+            out.append(f'<text x="{pad_l + cw * (i + .5):.1f}" y="{h - 10}" class="ax" text-anchor="middle">{e(lab[:14])}</text>')
     if kind in ('line', 'area'):
         for k, s in enumerate(series):
             pts = [(pad_l + cw * (i + .5), yv(v)) for i, v in enumerate(s['values'][:len(labels)]) if isnum(v)]
