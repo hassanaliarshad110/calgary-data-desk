@@ -269,6 +269,15 @@ other accessory or under-construction units (A000, A006, A007). A home counts as
 year_of_construction, spread evenly through the year, so homes built this year and part of last year are not yet \
 counted. A rental apartment building is one roll account; the model swaps it for its number of units. To reconcile \
 the roll with homes_now, count the roll with those filters and by year_of_construction.
+- Record numbers vs dataset IDs: a code like c2es-76ed or 4bsw-nn7w (four letters or digits, a dash, four more) is the \
+ID of a whole dataset, never a record. If the user gives one as if it were a permit or a property, say in one line \
+which dataset it is and where the record number is, then help: the Population build-up Excel (sheet "Rental \
+buildings") lists each building's address, roll number and building permit number(s). Building permit numbers look \
+like BP2016-08149 (development permits DP...): look one up with query on c2es-76ed where permitnum='BP2016-08149' and \
+say what it is (address, community, permit type and class, description, housing units, status, applied, issued and \
+completed dates). A roll number (9 digits) is a property: look it up in 4bsw-nn7w by roll_number (try it with and \
+without the leading zero). For a rental building's units and the permits behind them, use get_dashboard section \
+population_recon with find (permit number, roll number or address).
 - Families: get_dashboard also has licensed child care in the selected area by quarter and community (Government of \
 Alberta Child Care Information, with each program's inspections and enforcement over the last 12 months) and \
 students enrolled in each school in the area by year (Government of Alberta student enrolment). Children 0-4 and 0-14 \
@@ -423,7 +432,11 @@ TOOLS = [
                                                         'with its map link, as a CSV in Files (use for "all" or long lists)'},
          'show_on_map': {'type': 'boolean', 'description': 'section other_amenities: also show every one on the map'},
          'community': {'type': 'string', 'description': 'sections other_amenities and amenity_gap: one community (code '
-                                                         'or name); amenity_gap then gives its whole amenity-level working'}}}},
+                                                         'or name); amenity_gap then gives its whole amenity-level working; '
+                                                         'population_recon: that community\'s rental buildings (code)'},
+         'find': {'type': 'string', 'description': 'section population_recon: find a rental apartment building of the '
+                                                   'Population build-up by building permit number (BP2016-08149), roll '
+                                                   'number or address, with its units and permits'}}}},
     {'name': 'get_weather',
      'description': 'Calgary weather history from Environment Canada (Calgary International Airport, northeast Calgary): '
                     'mean, lowest and highest temperature, precipitation, rain, snowfall, snow on ground, hot and '
@@ -770,6 +783,45 @@ def _other_amenities_out(d, ward=None, community=None, kind=None, gated=None, sa
                     'each opens that feature on the OpenStreetMap map.'}
 
 
+def find_rental_buildings(text, comm=None, limit=60):
+    """Rental apartment buildings the population build-up counts (data/rentals_all.json, every community): find by
+    building permit number (BP2016-08149), roll number (with or without the leading zero), address or community code.
+    Each: roll, address, community, property code, year built, units, where the units come from, and its permits."""
+    import population
+    try:
+        with open(population.RENTALS_FILE, encoding='utf-8') as f:
+            props = json.load(f).get('properties') or []
+    except (OSError, ValueError):
+        return {'error': 'The rental buildings list could not be read.'}
+    t = str(text or '').strip().upper()
+    key = t.lstrip('0')
+    def hit(p):
+        if comm and str(p.get('comm', '')).upper() != str(comm).upper():
+            return False
+        if not t:
+            return True
+        return (any(q.get('num', '').upper() == t for q in p.get('permits') or [])
+                or (key and str(p.get('roll', '')).lstrip('0') == key)
+                or t in str(p.get('address', '')).upper() or t == str(p.get('comm', '')).upper())
+    found = [p for p in props if hit(p)]
+    words = {'permit': 'building permit(s): the housing units on the permit', 'estimated':
+             "estimated from the building's assessed value (no permit found)", 'yoc': 'building permit for the year built'}
+    return {'found': len(found), 'shown': min(len(found), limit),
+            'buildings': [{'roll': p.get('roll'), 'address': p.get('address'), 'community': p.get('comm'),
+                           'property_code': p.get('code'), 'year_built': p.get('year_of_construction'), 'units': p.get('units'),
+                           'units_from': words.get(p.get('source'), p.get('source')),
+                           'permits': [{'permit_number': q['num'], 'units': q['units'], 'completed': q.get('done'),
+                                        'record': f"https://data.calgary.ca/resource/c2es-76ed.json?permitnum={q['num']}"}
+                                       for q in p.get('permits') or []],
+                           'property_roll_record': f"https://data.calgary.ca/resource/4bsw-nn7w.json?roll_number={p.get('roll')}"}
+                          for p in found[:limit]],
+            'note': "These are the rental apartment buildings in the Population build-up (sheet \"Rental buildings\" of its "
+                    "Excel). A rented-out building is one account on the property roll, so its flats are counted from its "
+                    "building permit(s), or estimated from its assessed value when no permit was found. Permit numbers look "
+                    "like BP2016-08149; c2es-76ed (Building Permits) and 4bsw-nn7w (Property Assessments) are dataset IDs, "
+                    "not records."}
+
+
 def dashboard_section(d, section='overview', wards=None, extra=None):
     """The dashboard's figures for the selected area (all of Calgary or one ward), one part at a time so each answer
     fits. wards: () -> the summary of every ward (built from the whole-city dashboard), for section="wards"."""
@@ -826,6 +878,8 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
         return {'ward_profile_2021_census': d.get('profile')}
     if section == 'crime':
         return {'ward_crime': d.get('crime'), 'crime_severity_index': d.get('safety')}
+    if section == 'population_recon' and ((extra or {}).get('find') or (extra or {}).get('community')):
+        return find_rental_buildings((extra or {}).get('find'), (extra or {}).get('community'))
     if section == 'population_recon':
         rc = (d.get('population') or {}).get('recon') or {}
         keys = ('code', 'name', 'census2021', 'households_2021', 'homes_census', 'homes_now', 'people_per_home',
@@ -838,7 +892,9 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                 'note': 'Each row: homes x people per home + rental units x people per unit = the growth model (population), '
                         'then the step to the way of counting in use (residents). method "household size" rows use the 2021 '
                         'household size for the change in homes only. The screen Growth vs amenities > Population build-up '
-                        'lists every property. Code: get_code topic population_recon.'}
+                        'lists every property. Code: get_code topic population_recon. For the rental buildings (with their '
+                        'addresses, units and building permit numbers) pass find (a permit number, roll number or address) '
+                        'or community.'}
     if section == 'other_amenities':
         return _other_amenities_out(d, wards)
     if section == 'needs_attention':
@@ -1112,7 +1168,7 @@ class Agent:
                                                                     '(OpenStreetMap)', 'points': pts}))
                     if args.get('show_on_map') else None)
             return dashboard_section(d, args.get('section') or 'overview', self.wards_provider,
-                                     {'community': args.get('community'), 'ward': args.get('ward')})
+                                     {'community': args.get('community'), 'ward': args.get('ward'), 'find': args.get('find')})
         if name == 'get_weather':
             return weather.history(args['start'], args['end'], args.get('by', 'month'))
         if name == 'police_crime':

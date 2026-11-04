@@ -807,7 +807,7 @@ function renderProfile() {
   const groups = P.groups || [];
   if (profView !== 'all' && !groups.some(g => g.key === profView)) profView = 'all';
   const gr = D.ward && D.ward.growth_pct;
-  $('#prof-sub').textContent = (P.partial ? 'The ' + CY() + ' Census by ward (City of Calgary open data, May ' + CY() + '): ' : 'The City of Calgary\'s ' + W() + ' profile, ' + CY() + ' Census (May ' + CY() + '): ') + W() + ' against Calgary. The latest count of who lives here' + (isNum(gr) && Math.abs(gr) >= 3 ? `; ${W()} has ${gr > 0 ? 'grown' : 'shrunk'} about ${fmt(Math.abs(gr), 0)}% since.` : '.');
+  $('#prof-sub').textContent = (P.partial ? 'The ' + CY() + ' Census by ward (City of Calgary open data, May ' + CY() + '): ' : 'The City of Calgary\'s ' + W() + ' profile, ' + CY() + ' Census (May ' + CY() + '): ') + W() + ' against Calgary. ' + (P.now ? `Residents, homes and children today follow the population setting (${P.now.method_label}, ${P.now.as_of_label}); the shares are from the Census, the latest full count of who lives here.` : 'The latest count of who lives here' + (isNum(gr) && Math.abs(gr) >= 3 ? `; ${W()} has ${gr > 0 ? 'grown' : 'shrunk'} about ${fmt(Math.abs(gr), 0)}% since.` : '.'));
   $('#prof-seg').innerHTML = [['all', 'Highlights'], ...groups.map(g => [g.key, g.title.replace(/ \(.*\)/, '')])]
     .map(([k, t]) => `<button type="button" role="radio" aria-checked="${k === profView}" data-prof="${k}">${esc(t)}</button>`).join('');
   $$('#prof-seg button').forEach(b => b.addEventListener('click', () => { profView = b.dataset.prof; renderProfile(); }));
@@ -815,7 +815,7 @@ function renderProfile() {
   const row = it => {
     const big = isNum(it.w5) && isNum(it.cal) && it.cal > 0 && Math.abs(it.w5 / it.cal - 1) >= .25;
     const bars = it.unit === '%' && isNum(it.cal) ? `<span class="pf-bars"><i class="w" style="width:${Math.min(100, it.w5)}%"></i><i class="c" style="width:${Math.min(100, it.cal)}%"></i></span>` : '';
-    return `<li class="${big ? 'hi' : ''}"><span class="pf-l">${esc(it.label)}${it.note ? `<small>${esc(it.note)}</small>` : ''}</span>
+    return `<li class="${big ? 'hi' : ''}${it.now ? ' now' : ''}"><span class="pf-l">${esc(it.label)}${it.note ? `<small>${esc(it.note)}</small>` : ''}</span>
       <span class="pf-v">${val(it.w5, it.unit)}</span><span class="pf-c">${isNum(it.cal) ? val(it.cal, it.unit) : ''}</span>${bars}</li>`;
   };
   const list = l => l ? `<div class="pf-list"><h4>${esc(l.title)}</h4>${l.rows.map(r => `<div class="pf-lr"><span>${esc(r[0])}</span><span class="track"><span style="width:${Math.min(100, r[2])}%"></span></span><b>${fmt(r[2])}%</b><small>${fmt(r[1])}</small></div>`).join('')}<p class="card-note">${esc(l.note || '')}</p></div>` : '';
@@ -1283,11 +1283,12 @@ function homeShare(R, year) {                               // population.Growth
 function propRows() {
   const R = D.population.recon, row = R.rows.find(x => x.code === rcComm);
   if (!rcProps || rcProps.comm !== rcComm || !rcProps.rows || !row) return null;
-  const rentRolls = new Set(R.rentals.filter(x => x.comm === rcComm).map(x => String(x.roll)));
+  const rollKey = v => String(v || '').replace(/^0+/, '');
+  const rentRolls = new Set(R.rentals.filter(x => x.comm === rcComm).map(x => rollKey(x.roll)));
   const k = row.method === 'household size' ? null : row.people_per_home;
   return rcProps.rows.map(p => {
     const yr = p.year_of_construction ? Math.round(+p.year_of_construction) : null;
-    const rental = rentRolls.has(String(p.roll_number));
+    const rental = rentRolls.has(rollKey(p.roll_number));
     const share = rental ? 0 : homeShare(R, yr);
     return { roll: p.roll_number, address: p.address, type: rental ? 'Rental apartment building (units listed below)' : rcType(p.sub_property_use), code: p.sub_property_use,
       year: yr, value: +p.assessed_value || null, share, people: k !== null ? share * k : null,
@@ -1322,12 +1323,12 @@ function renderProps() {
     </tbody></table></div>
     <div class="table-wrap tall"><table class="data"><thead><tr><th scope="col">Address</th><th scope="col">Kind</th><th scope="col" class="num">Year built</th><th scope="col" class="num">Assessed value</th><th scope="col" class="num">Share lived in</th><th scope="col" class="num">People</th><th scope="col">Note</th></tr></thead><tbody>
       ${P.slice(0, 600).map(p => `<tr><td>${esc(p.address || '')}</td><td>${esc(p.type)}</td><td class="num">${p.year || '–'}</td><td class="num">${p.value ? '$' + fmt(p.value) : '–'}</td><td class="num">${fmt(p.share, 2)}</td><td class="num">${isNum(p.people) ? fmt(p.people, 2) : '–'}</td><td class="wrap">${esc(p.note)}</td></tr>`).join('')}
-      ${rent.map(x => `<tr class="rc-rent"><td>Roll ${esc(x.roll)}</td><td>Rental apartment building</td><td class="num">${x.year_of_construction || '–'}</td><td></td><td class="num">${fmt(x.units)} units</td><td class="num">${hs ? '–' : fmt(x.units * row.people_per_unit, 1)}</td><td class="wrap">${x.source === 'permit' ? 'Units from its building permit' : x.source === 'estimated' ? 'Units estimated from assessed value' + (row.estimate_scale < 1 ? ` (scaled x ${fmt(row.estimate_scale, 3)})` : '') : 'Units by year built'}</td></tr>`).join('')}
+      ${rent.map(x => `<tr class="rc-rent"><td>Roll ${esc(x.roll)}${x.address ? `<small>${esc(x.address)}</small>` : ''}</td><td>Rental apartment building</td><td class="num">${x.year_of_construction || '–'}</td><td></td><td class="num">${fmt(x.units)} units</td><td class="num">${hs ? '–' : fmt(x.units * row.people_per_unit, 1)}</td><td class="wrap">${x.source === 'permit' ? 'Units from building permit ' + (x.permits || []).map(q => `<a href="https://data.calgary.ca/resource/c2es-76ed.json?permitnum=${encodeURIComponent(q.num)}" target="_blank" rel="noopener">${esc(q.num)}</a>`).join(', ') : x.source === 'estimated' ? 'Units estimated from assessed value' + (row.estimate_scale < 1 ? ` (scaled x ${fmt(row.estimate_scale, 3)})` : '') : 'Units by year built'}</td></tr>`).join('')}
     </tbody></table></div>${P.length > 600 ? `<p class="card-note">The first 600 homes are shown; "Save every property" has all ${fmt(P.length)}.</p>` : ''}`;
   $('#rc-save').addEventListener('click', async () => {
     const r = await (await api()).save_csv(`Population build-up, ${titleCase(row.name)}`, ['Roll number', 'Address', 'Kind', 'Use code', 'Year built', 'Assessed value', 'Share lived in', 'People per home', 'People', 'Note'],
       [...P.map(p => [p.roll, p.address, p.type, p.code, p.year, p.value, Math.round(p.share * 1e4) / 1e4, row.people_per_home, isNum(p.people) ? Math.round(p.people * 1e4) / 1e4 : '', p.note]),
-       ...rent.map(x => [x.roll, '', 'Rental apartment building', x.code, x.year_of_construction, '', '', row.people_per_unit, Math.round(x.units * row.people_per_unit * 100) / 100, `${x.units} units (${x.source})`]),
+       ...rent.map(x => [x.roll, x.address || '', 'Rental apartment building', x.code, x.year_of_construction, '', '', row.people_per_unit, Math.round(x.units * row.people_per_unit * 100) / 100, `${x.units} units (${x.source === 'permit' ? 'building permit ' + (x.permits || []).map(q => q.num).join(', ') : x.source})`]),
        ['', '', 'Growth model total', '', '', '', '', '', row.population, row.how], ['', '', 'Residents in use', '', '', '', '', '', row.residents, row.step]]);
     if (r && r.ok) $('#rc-save span').textContent = 'Saved';
   });

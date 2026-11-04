@@ -7,15 +7,18 @@ roll for the whole building, so counting accounts would count it as one home. It
 building permits (housing units on the permit) or, without a permit, estimated from its assessed value. Condo flats
 are different: each one is its own account on the roll, so they are counted as homes directly.
 """
+import urllib.parse
+
 import xlsx
 
 WHY_RENTALS = ("A rented-out apartment building is one account (one roll number) on the City's property roll for the whole "
                "building, so it would count as one home. Its flats are counted instead: from the City's building permits "
                "(the housing units on the permit), or, where no permit was found, estimated from the building's assessed "
                "value. Condo flats are different: each is its own account on the roll, so they are counted as homes directly.")
-SOURCE_WORDS = {'permit': "City building permit (housing units on the permit; Building Permits c2es-76ed, matched by address)",
-                'yoc': "City building permit for the year it was built (Building Permits c2es-76ed)",
-                'estimated': "Estimated from the building's assessed value (Current Year Property Assessments 4bsw-nn7w), "
+SOURCE_WORDS = {'permit': "City building permit: the housing units on the permit(s) in the next column (from the City's Building "
+                          "Permits dataset, matched to this building by address)",
+                'yoc': "City building permit for the year it was built",
+                'estimated': "Estimated from the building's assessed value on the City's property roll (no building permit found), "
                              "scaled so the community's homes on Census day match its 2021 Census households"}
 HOW = {'people per home': 'People per home from the 2021 Census: 2021 residents (less people in rental units) / homes on Census day',
        'household size': '2021 Census count + the change in homes since 2021 x the 2021 household size (homes on the roll were '
@@ -24,6 +27,19 @@ HOW = {'people per home': 'People per home from the 2021 Census: 2021 residents 
 
 def roll_link(roll):
     return f"https://data.calgary.ca/resource/4bsw-nn7w.json?roll_number={roll}"
+
+
+def permit_link(num):
+    return f"https://data.calgary.ca/resource/c2es-76ed.json?permitnum={num}"
+
+
+def _permits(b):
+    """Permit numbers with their units ("BP2016-08149 (6 units)"), and a link to the first permit's record."""
+    ps = b.get('permits') or []
+    words = '; '.join(f"{p['num']} ({p['units']} unit{'s' if p['units'] != 1 else ''})" for p in ps)
+    return words, (permit_link(ps[0]['num']) if len(ps) == 1 else
+                   'https://data.calgary.ca/resource/c2es-76ed.json?$where='
+                   + urllib.parse.quote('permitnum in(' + ','.join(f"'{p['num']}'" for p in ps) + ')') if ps else '')
 
 
 def sheets(recon, ward_of=None, area='Calgary', method_label='', when=''):
@@ -69,18 +85,23 @@ def sheets(recon, ward_of=None, area='Calgary', method_label='', when=''):
                                        "people that new homes alone do not explain (more people per home, seniors' homes, "
                                        "residences, shelters, the Census undercount).") if f else
                                       'The step from the estimate from homes to the way of counting in use.'],
-             ['Rental buildings', 'Every rented-out apartment building, its units and where the number comes from, is on the '
-                                  'sheet "Rental buildings", with a link to its record on the City\'s property roll.'],
+             ['Rental buildings', 'Every rented-out apartment building, its address, its units and where the number comes '
+                                  'from, is on the sheet "Rental buildings": the building permit number(s) when the units come '
+                                  'from a permit (BP2016-08149 is a permit number), with links to the permit and to the '
+                                  'building\'s record on the City\'s property roll. Codes like c2es-76ed or 4bsw-nn7w are not '
+                                  'permits: they are the IDs of the City\'s datasets (Building Permits; Property Assessments).'],
              ['Sources', "City of Calgary open data: Current Year Property Assessments (4bsw-nn7w); 2021 Census by Community "
                          "(f9wk-wej9) and households (msjx-5ygv); Building Permits (c2es-76ed). The City's population "
                          "forecast: Calgary and Region Economic Outlook 2026-2031, Table 4."]]
-    rent = [['Roll number', 'Community', 'Ward', 'Property code', 'Year built', 'Units', 'Where the number of units comes from',
-             "Record on the City's property roll"]]
+    rent = [['Roll number', 'Address', 'Community', 'Ward', 'Property code', 'Year built', 'Units',
+             'Where the number of units comes from', 'Building permit number(s)', "The permit's record (City open data)",
+             "The building's record on the City's property roll"]]
     names = {r.get('code'): str(r.get('name') or '').title() for r in rows}
     for b in sorted(recon.get('rentals') or [], key=lambda x: (names.get(x.get('comm'), ''), -(x.get('units') or 0))):
-        rent.append([str(b.get('roll')), names.get(b.get('comm'), b.get('comm')), ward_of.get(b.get('comm'), ''), b.get('code'),
-                     b.get('year_of_construction'), b.get('units'),
-                     SOURCE_WORDS.get(b.get('source'), b.get('source')), roll_link(b.get('roll'))])
+        pw, pl = _permits(b)
+        rent.append([str(b.get('roll')), b.get('address') or '', names.get(b.get('comm'), b.get('comm')),
+                     ward_of.get(b.get('comm'), ''), b.get('code'), b.get('year_of_construction'), b.get('units'),
+                     SOURCE_WORDS.get(b.get('source'), b.get('source')), pw, pl, roll_link(b.get('roll'))])
     return [('Read me', about, False), ('Communities', out), ('Rental buildings', rent)]
 
 

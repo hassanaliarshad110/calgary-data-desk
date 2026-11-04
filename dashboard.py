@@ -72,7 +72,7 @@ class PeriodError(ValueError):
     """A period the user chose that can't be used (the message says why)."""
 
 
-DATA_VERSION = 17          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
+DATA_VERSION = 18          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
 # The City of Calgary's total population on April 1 (Calgary and Region Economic Outlook 2026-2031, spring 2026,
 # Table 4: 2021-2025 estimates, 2026 onward forecast). Used for city-wide crime rates, read at the middle of the
 # crime period so Calgary and Ward 5 are counted at the same date.
@@ -125,6 +125,48 @@ POP_METHODS = {
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 PROFILE_FILE = os.path.join(DATA_DIR, 'ward5_profile_2021.json')
 PROFILES_FILE = os.path.join(DATA_DIR, 'ward_profiles_2021.json')
+
+
+def profile_now(prof, now):
+    """Put today's counts into the Census profile, so the people and household counts follow the way of counting
+    residents chosen in Settings (the shares stay the Census's: it is the latest full count of who lives here).
+    now: residents, homes and children today for the ward and for Calgary, plus the method's name and the date."""
+    if not prof or not now or not now.get('residents'):
+        return prof
+    fmt = lambda v: f'{v:,.0f}'
+    for g in prof.get('groups') or []:
+        if g.get('key') != 'people':
+            continue
+        items, out = g.get('items') or [], []
+        find = lambda label: next((it for it in items if it.get('label') == label), None)
+        people21 = (find('People in private households') or {}).get('ward')
+        hh21 = (find('Households') or {}).get('ward')
+        out.append({'label': 'Residents today (estimate)', 'ward': now['residents'], 'cal': now.get('city_residents'), 'unit': 'n',
+                    'note': f"{now.get('method_label') or 'Population estimate'}, {now.get('as_of_label') or ''}".rstrip(', ')
+                            + (f'. 2021 Census: {fmt(people21)} in private households' if people21 else ''), 'now': True})
+        if now.get('homes'):
+            out.append({'label': 'Homes today', 'ward': now['homes'], 'cal': now.get('city_homes'), 'unit': 'n',
+                        'note': 'City property roll' + (f'. 2021 Census: {fmt(hh21)} households' if hh21 else ''), 'now': True})
+        for it in items:
+            it = dict(it)
+            if it.get('label') == 'People in private households':
+                it['label'] = 'People in private households, 2021 Census'
+            elif it.get('label') == 'Households':
+                it['label'] = 'Households, 2021 Census'
+            elif it.get('label') == "Share of Calgary's people" and now.get('city_residents'):
+                was = it.get('ward')
+                it['ward'] = round(100 * now['residents'] / now['city_residents'], 1)
+                it['note'] = (f"{fmt(now['residents'])} of {fmt(now['city_residents'])} today"
+                              + (f'; {was}% in 2021' if was is not None else ''))
+            elif it.get('label') == 'Children aged 0 to 14' and now.get('children_0_14'):
+                it['note'] = (f"About {fmt(round(now['children_0_14'], -2))} children today"
+                              + (f" ({it['note']} in 2021)" if it.get('note') else ''))
+            out.append(it)
+        for it in out:                           # older screens read 'w5'
+            it['w5'] = it.get('ward')
+        g['items'] = out
+    prof['now'] = {k: now.get(k) for k in ('method_label', 'as_of_label')}
+    return prof
 
 
 def ward_profile(ward=WARD, cache_dir=None, census=None):
@@ -1590,7 +1632,12 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                                 [] if city else [(ward_table or {}).get('communities', {}).get(c, {}).get('sector')
                                                  for c in RESIDENTIAL_CODES]),
         'pop_series': pop_series,
-        'profile': ward_profile(ward, cdir, census),
+        'profile': profile_now(ward_profile(ward, cdir, census), _safe(lambda: {
+            'residents': residents, 'homes': tot('homes_now', res),
+            'children_0_14': sum((kids.get(c) or {}).get('k0_14') or 0 for c in RESIDENTIAL_CODES),
+            'city_residents': round(sum(counts(pop_method, ref, ALL_RES).values())),
+            'city_homes': sum(v.get('homes_now') or 0 for v in gm_all(ref).values()),
+            'method_label': POP_METHODS[pop_method]['label'], 'as_of_label': ref.strftime('%B %Y')})[0]),
         'development': development,
         'roadwork': roadwork,
         'projects': project_states(city_projects(ward), amenities, fam, ref),

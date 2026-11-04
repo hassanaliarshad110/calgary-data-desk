@@ -1392,3 +1392,6 @@ tr.rc-rent td { background: color-mix(in srgb, #F59E0B 8%, transparent); }
 #cmp-table th[scope="row"] .cmp-m { text-align: left; white-space: normal; line-height: 1.35; }
 #cmp-table thead th:first-child { min-width: 200px; }
 @media (max-width: 700px) { #cmp-table th[scope="row"], #cmp-table thead th:first-child { min-width: 120px; max-width: 150px; } }
+
+/* ward profile: today's counts (follow the population setting) */
+ul.pf li.now .pf-v { color: var(--accent); font-weight: 600; }
