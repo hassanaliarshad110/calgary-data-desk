@@ -27,7 +27,7 @@ async function loadAudits() {
   const list = a.audit_list ? await a.audit_list() : [];
   const box = $('#au-list');
   box.innerHTML = list.length ? `<div class="ds-rows">${list.map(x => `<div class="ds-row">
-      <div class="ds-row-main"><b>${esc(x.title)}</b><small>${esc(x.made)} · ${fmt(x.findings)} finding${x.findings === 1 ? '' : 's'}, ${fmt(x.fixed)} fixed${x.open ? `, <span class="neg">${fmt(x.open)} still open</span>` : ''}${isNum(x.cost_usd) ? ` · $${fmt(x.cost_usd, 2)}` : ''}</small></div>
+      <div class="ds-row-main"><b>${esc(x.title)}</b><small>${esc(x.made)} · ${fmt(x.findings)} finding${x.findings === 1 ? '' : 's'}, ${fmt(x.fixed)} fixed${x.open ? `, <span class="neg">${fmt(x.open)} still open</span>` : ''}</small></div>
       <div class="file-actions"><button class="btn primary" data-p="${esc(x.page)}">${icon('check')}<span>Audit findings</span></button>
       ${x.corrected_pdf ? `<button class="btn" data-p="${esc(x.corrected_pdf)}">${icon('file')}<span>Corrected report</span></button>` : ''}
       ${x.corrected_xlsx ? `<button class="btn" data-p="${esc(x.corrected_xlsx)}">${icon('download')}<span>Excel</span></button>` : ''}</div></div>`).join('')}</div>`
@@ -57,7 +57,7 @@ async function runAudit(r) {
     else {
       auStage(3, true);
       $('#au-run').classList.add('is-done');
-      $('#au-run-sub').textContent = `Done: ${res.findings} finding${res.findings === 1 ? '' : 's'}.${isNum(res.cost_usd) ? ` Cost $${fmt(res.cost_usd, 2)}.` : ''}`;
+      $('#au-run-sub').textContent = `Done: ${res.findings} finding${res.findings === 1 ? '' : 's'}.`;
       $('#au-result').innerHTML = `<div class="answer"><p><b>Final check:</b> ${esc(res.verdict || '')}</p></div>
         <div class="file-actions"><button class="btn primary" data-p="${esc(res.page)}">${icon('check')}<span>Open the audit findings</span></button>
         ${res.corrected && res.corrected.pdf ? `<button class="btn" data-p="${esc(res.corrected.pdf)}">${icon('file')}<span>Corrected report</span></button>` : ''}</div>`;

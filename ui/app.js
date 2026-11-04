@@ -1507,8 +1507,8 @@ async function ask(text) {
     } else {
       $('.answer', current).innerHTML = DOMPurify.sanitize(marked.parse(res.text));
       const tok = res.tokens || {};
-      const tokWords = isNum(tok.input) ? ` · ${fmt((tok.input || 0) + (tok.cache_read || 0))} tokens in, ${fmt(tok.output || 0)} out` : '';
-      $('.msg-meta', current).textContent = `${res.tier === 'smart' ? 'Thorough' : 'Fast'} answer · Model: ${res.engine || res.model || 'unknown'}${isNum(tok.cost_usd) ? ' · ' + costWords(tok.cost_usd) : ''}${tokWords}${(res.skipped || []).length ? ' · skipped ' + res.skipped.map(x => `${x.service} (${x.why.replace(/ \(.*$/, '')})`).join(', ') : ''}`;
+      // no model name and no price on answers (the owner's choice)
+      $('.msg-meta', current).textContent = `${res.tier === 'smart' ? 'Thorough' : 'Fast'} answer${(res.skipped || []).length ? ' · skipped ' + res.skipped.map(x => `${x.service} (${x.why.replace(/ \(.*$/, '')})`).join(', ') : ''}`;
     }
   } catch (e) {
     $('[data-thinking]', current)?.remove();
