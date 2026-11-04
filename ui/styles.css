@@ -1345,3 +1345,8 @@ table.gap-assets .cmp-city { background: color-mix(in srgb, #FBBF24 10%, transpa
 }
 .at-ctl .at-ward { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted-fg); }
 .at-ctl .at-ward select { padding: 6px 8px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: var(--card); color: var(--fg); font-size: 13.5px; }
+.at-osm { font-size: 12.5px; background: color-mix(in srgb, #16A34A 8%, transparent); border: 1px solid color-mix(in srgb, #16A34A 30%, transparent); border-radius: 8px; padding: 6px 10px; }
+.at-osm summary { cursor: pointer; color: var(--fg-2); } .at-osm summary small { color: var(--muted-fg); }
+.at-osm ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 3px; }
+.at-ctl .at-other { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; }
+.at-ctl .at-other input { width: 18px; height: 18px; accent-color: var(--accent); }

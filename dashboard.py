@@ -1016,7 +1016,8 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='city_pace', live=F
     kids_all = {c: kids_for(c, (pop_all.get(c) or {}).get('model') or 0, ref)[1] for c in ALL_RES}
     asset_data, asset_err = _safe(lambda: assetmap.load(cdir, force=False))
     # against the whole city: only when every community is known (without the ward table the "city" would be the ward)
-    amenity_gap = with_attention(amenity_view(asset_data, RESIDENTIAL_CODES, ALL_RES, pop_all, kids_all, names, amenities)) \
+    amenity_gap = with_attention(amenity_view(asset_data, RESIDENTIAL_CODES, ALL_RES, pop_all, kids_all, names, amenities),
+                                 asset_data, RESIDENTIAL_CODES, ALL_RES, pop_all, kids_all, names) \
         if asset_data and ward_table else None
     # the same amenity levels under each way of counting residents, so the office can see how much the count matters
     f_city = city_factor(ref)
@@ -1307,7 +1308,7 @@ def scope_level(view):
     return round(sum(vals) / len(vals), 2) if vals else None
 
 
-def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, amenities=None):
+def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, amenities=None, local_kinds=None, yardstick=None):
     """Amenities per 1,000 residents (playgrounds: per 1,000 children aged 0 to 14) in each community of the scope,
     against the whole city, and an amenity level: the community's figures as a share of the city's, averaged over
     every kind (1.0 = the city level). Communities that grew fast and sit well below the city level are flagged."""
@@ -1324,11 +1325,14 @@ def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, a
     for k in use:
         n, r = per(all_codes, k)
         city[k] = {'n': round(n, 1), 'per_1000': round(r, 3) if r is not None else None}
+    if yardstick:                                   # measured against another count's Calgary level (with_attention)
+        city = {k: dict(yardstick.get(k) or city[k]) for k in use}
     # neighbourhood amenities: ones the city has enough of for most communities to have some. The rare ones (park
     # washrooms, libraries, recreation centres) serve several communities, so a community without one is not short.
     # (counted from homes, whatever way residents are counted, so the kinds don't change with the setting)
     lived_in = sum(1 for c in all_codes if (pop_all.get(c) or {}).get('growth_model', (pop_all.get(c) or {}).get('model')))
-    local = [k for k in use if k.endswith('_ha') or k == 'trees' or city[k]['n'] >= lived_in / 2]
+    local = [k for k in use if k.endswith('_ha') or k == 'trees' or city[k]['n'] >= lived_in / 2] \
+        if local_kinds is None else [k for k in use if k in local_kinds]
     rows = []
     for code in scope_codes:
         p = pop_all.get(code) or {}
@@ -1376,10 +1380,43 @@ def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, a
             'method': AMENITY_METHOD}
 
 
-def with_attention(view):
-    """The amenity view with its Needs attention ranking (attention.py has the score and how it is worked out)."""
-    if view:
-        view['attention'] = attention.rank(view)
+def with_other(asset_data):
+    """The City's asset counts plus the amenities that are not the City's (OpenStreetMap, City ones taken out: osm.py)."""
+    other = (asset_data or {}).get('other')
+    if not other or not other.get('by_comm'):
+        return None
+    by = {c: dict(v) for c, v in (asset_data.get('by_comm') or {}).items()}
+    for c, v in other['by_comm'].items():
+        d = by.setdefault(c, {})
+        for k, n in v.items():
+            d[k] = round(d.get(k, 0) + n, 3)
+    return {**asset_data, 'by_comm': by}
+
+
+def with_attention(view, asset_data=None, scope_codes=None, all_codes=None, pop_all=None, kids_all=None, names=None):
+    """The amenity view with its Needs attention ranking (attention.py has the score and how it is worked out):
+    'attention' counts the City's amenities and the ones that are not the City's (OpenStreetMap), when that count is
+    available; 'attention_city' counts the City's only."""
+    if not view:
+        return view
+    view['attention_city'] = attention.rank(view)
+    merged = with_other(asset_data)
+    if merged:
+        local = [k for k, v in (view.get('kinds') or {}).items() if v.get('local')]
+        # the City's own Calgary level stays the yardstick: amenities that are not the City's can only lift a community,
+        # and how well other parts of the city happen to be mapped in OpenStreetMap does not move it
+        both = amenity_view(merged, scope_codes, all_codes, pop_all, kids_all, names, local_kinds=local,
+                            yardstick=view.get('city'))
+        other = asset_data['other']
+        view['attention'] = attention.rank(both, other=other['by_comm'],
+                                           city_levels={r['code']: r['level'] for r in view.get('by_comm') or []})
+        view['other'] = {'source': other.get('source'), 'counted': other.get('counted'), 'kept_from': other.get('kept_from'),
+                         'stats': other.get('stats'), 'rules': other.get('rules'),
+                         'by_comm': {c: other['by_comm'].get(c) for c in scope_codes if other['by_comm'].get(c)},
+                         'features': [f for f in other.get('features') or [] if f.get('comm') in set(scope_codes)],
+                         'level_with_other': scope_level(both)}
+    else:
+        view['attention'] = view['attention_city']
     return view
 
 

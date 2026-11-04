@@ -8,7 +8,7 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-FILES = ['dashboard.py', 'attention.py', 'population.py', 'census.py', 'assets.py', 'families.py', 'police.py',
+FILES = ['dashboard.py', 'attention.py', 'osm.py', 'population.py', 'census.py', 'assets.py', 'families.py', 'police.py',
          'proptax.py', 'budget.py', 'rents.py', 'wards.py', 'geo.py', 'methods.py', 'calgary_data.py', 'auditor.py',
          'analyst.py', 'missing.py', 'profiles.py']
 MAX_CHARS = 12000
@@ -16,7 +16,9 @@ MAX_CHARS = 12000
 # where each figure is worked out: (file, name). A name is a function (nested ones too) or a constant.
 TOPICS = {
     'needs_attention': {'what': 'Needs attention: score, tiers and the catch-up list',
-                        'code': [('attention.py', '*')]},
+                        'code': [('attention.py', '*'), ('dashboard.py', 'with_other'), ('dashboard.py', 'with_attention')]},
+    'other_amenities': {'what': 'Amenities that are not the City\'s (OpenStreetMap) and how City ones are taken out',
+                        'code': [('osm.py', '*')]},
     'amenity_gap': {'what': 'Amenity level of a community, ward and Calgary; the "not kept up with growth" flag',
                     'code': [('dashboard.py', 'GAP_GROWTH_PCT'), ('dashboard.py', 'GAP_LEVEL'), ('dashboard.py', 'GAP_KINDS'),
                              ('dashboard.py', 'MIN_RATE_RESIDENTS'), ('dashboard.py', 'scope_level'),

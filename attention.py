@@ -17,6 +17,14 @@ THE SCORE (0 to 100, higher = more urgent)
 
   Worked example: level 0.40, grew 50% since 2021 -> shortfall 0.60, pressure 1.50 -> 100 * 0.60 * 1.50 / 2 = 45.
 
+TWO COUNTS
+  The tab ranks communities twice: with the City's amenities only (attention_city), and with the City's plus the
+  ones that are not the City's, mapped in OpenStreetMap (attention, the default). Those come from osm.py: every
+  OpenStreetMap playground, fitness station, basketball court, dog park and park that matches a City one is taken
+  out first, so nothing is counted twice. Calgary's yardstick (per 1,000) stays the City's own in both, so an
+  amenity that is not the City's can only lift a community's level, and how well other parts of the city happen to
+  be mapped in OpenStreetMap cannot move it. The amenity kinds that count in a community's level are the same in both.
+
 THE TIER (decides whether a community is listed at all)
   Urgent  level below 0.50 AND (new since 2021 OR grew more than 20%)
   High    level below 0.75 AND (new since 2021 OR grew more than 20%)   (the "not kept up with growth" flag)
@@ -98,9 +106,12 @@ def catch_up(row, view):
     return out[:CATCH_UP_KINDS]
 
 
-def rank(view):
-    """Every listed community of an amenity view (dashboard.amenity_view), most urgent first."""
+def rank(view, other=None, city_levels=None):
+    """Every listed community of an amenity view (dashboard.amenity_view), most urgent first.
+    other: {community: {kind: n}} amenities that are not the City's, already inside the view's counts (shown apart);
+    city_levels: {community: level} the City-only levels, shown next to the level with the others."""
     rows = []
+    other, city_levels = other or {}, city_levels or {}
     for r in (view or {}).get('by_comm') or []:
         t = tier(r.get('level'), r.get('growth_pct'), r.get('new'))
         if not t:
@@ -110,7 +121,8 @@ def rank(view):
                      'level': r.get('level'), 'tier': t,
                      'shortfall': round(shortfall(r['level']), 2), 'pressure': round(pressure(r.get('growth_pct'), r.get('new')), 2),
                      'score': score(r['level'], r.get('growth_pct'), r.get('new')),
-                     'catch_up': catch_up(r, view)})
+                     'catch_up': [dict(c, have_other=(other.get(r['code']) or {}).get(c['kind'], 0)) for c in catch_up(r, view)],
+                     **({'other': other.get(r['code']), 'level_city': city_levels.get(r['code'])} if other or city_levels else {})})
     rows.sort(key=lambda x: (TIERS.index(x['tier']), -x['score'], -(x['residents'] or 0)))
     counts = {t: sum(1 for x in rows if x['tier'] == t) for t in TIERS}
     people = {t: sum(x['residents'] or 0 for x in rows if x['tier'] == t) for t in TIERS}
@@ -118,7 +130,7 @@ def rank(view):
             'checked': sum(1 for r in (view or {}).get('by_comm') or [] if r.get('level') is not None),
             'thresholds': {'urgent_level': URGENT_LEVEL, 'list_level': LIST_LEVEL, 'growth_pct': GROWTH_PCT,
                            'growth_cap': GROWTH_CAP, 'new_pressure': NEW_PRESSURE},
-            'method': METHOD}
+            'with_other': bool(other), 'method': METHOD}
 
 
 METHOD = [
@@ -136,7 +148,13 @@ METHOD = [
     f'What it would take: for each neighbourhood amenity below {LIST_LEVEL:.2f} of the Calgary level, Calgary per '
     '1,000 x the community\'s residents / 1,000 minus what it has (playgrounds per children aged 0 to 14), rounded '
     f'up; park space in hectares. The {CATCH_UP_KINDS} furthest behind are shown.',
-    'Residents are counted the way chosen in Settings, so the score follows that choice. Counts are City assets in '
-    'open data; private, school and community association facilities are not included.',
+    'Residents are counted the way chosen in Settings, so the score follows that choice.',
+    'Amenities that are not the City\'s (developer, condo, homeowners\' association and school playgrounds, parks, '
+    'courts, fitness stations and dog parks) come from OpenStreetMap, with every one that matches a City amenity '
+    'taken out so nothing counts twice (osm.py: a City playground within 80 m, fitness equipment or a hoop within '
+    '40 m, inside a City off-leash area, or 30% or more of a park inside a City park site). Calgary\'s yardstick '
+    'stays the City\'s own per 1,000, so these can only lift a community, and how well other areas happen to be '
+    'mapped does not move it. The tab can also rank on the City\'s amenities alone. '
+    'OpenStreetMap is edited by volunteers: a missing feature means nobody has mapped it yet.',
     'The code that does this is attention.py; Data Genie can show it (get_code topic "needs_attention").',
 ]

@@ -250,7 +250,10 @@ dataset. Explain the level from method, never by working the formula out backwar
 level under all three counts (amenity_level_by_method).
 - Needs attention: get_ward5_dashboard section needs_attention has the communities that most need public \
 amenities (tier Urgent, High or Watch, a score from 0 to 100, its shortfall and growth pressure, and what it would \
-take to reach the Calgary level). The score is worked out in attention.py (get_code topic needs_attention). Asked \
+take to reach the Calgary level). It counts the City's amenities plus the ones that are not the City's from \
+OpenStreetMap (developer, condo, school), with City ones taken out so nothing counts twice (get_code topic \
+other_amenities); each row also has the City-only level. The score is worked out in attention.py (get_code topic \
+needs_attention). Asked \
 about spending, present it as priorities for review from open data, never as a spending recommendation: the data has \
 no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
 communities often have developer-built parks still to come.
@@ -527,7 +530,9 @@ def _attention_out(a, ward_of, short=False):
     if not a:
         return None
     rows = a.get('rows') or []
-    base = {'counts': a.get('counts'), 'residents': a.get('residents'), 'communities_checked': a.get('checked')}
+    base = {'counts': a.get('counts'), 'residents': a.get('residents'), 'communities_checked': a.get('checked'),
+            'counts_amenities': "the City's and OpenStreetMap's (not the City's, City ones taken out)" if a.get('with_other')
+            else "the City's only"}
     if short:
         return {**base, 'most_urgent': [f"{r['name']} ({r['tier']}, score {r['score']})" for r in rows[:10]],
                 'more': 'get_ward5_dashboard section needs_attention has every listed community, the score and what each would take'}
@@ -542,6 +547,8 @@ def _attention_out(a, ward_of, short=False):
             'rows': [{**{k: r.get(k) for k in ('name', 'tier', 'score', 'level', 'shortfall', 'pressure', 'growth_pct',
                                                'residents')},
                       **({'new_since_2021': True} if r.get('new') else {}), 'ward': ward_of.get(r.get('code')),
+                      **({'level_city_only': r.get('level_city')} if r.get('level_city') is not None else {}),
+                      **({'not_city_openstreetmap': r.get('other')} if r.get('other') else {}),
                       'to_reach_calgary_level': '; '.join(f"{c['label']} +{c['need']}{' ha' if c['unit'] == 'ha' else ''} (has {c['have']})"
                                                           for c in r.get('catch_up') or [])}
                      for r in keep]}

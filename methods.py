@@ -429,7 +429,7 @@ METHODS = [
                   'Amenities near a community\'s edge serve its neighbours too; the level treats each community on its own.']},
 
     {'key': 'needs_attention', 'name': 'Needs attention: communities that most need public amenities (score and tiers)',
-     'dataset': 'Amenity level (see amenity_gap) + growth since 2021 (growth model)',
+     'dataset': 'Amenity level (see amenity_gap) + growth since 2021 (growth model) + OpenStreetMap (see other_amenities)',
      'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': 'https://data.calgary.ca/browse',
      'updated': 'With every refresh; assets counted again every week', 'used_in': 'Needs attention tab, Data Genie',
      'method': attention.METHOD,
@@ -438,12 +438,41 @@ METHODS = [
                'What it would take for one amenity: Calgary per 1,000 x residents / 1,000 - the community\'s count, '
                'rounded up (playgrounds: children 0 to 14 instead of residents).'],
      'cautions': ['Priorities for review, not a spending recommendation: the City\'s open data has no costs.',
+                  'Amenities that are not the City\'s come from OpenStreetMap, which volunteers edit: coverage is '
+                  'uneven, and a missing playground may simply not be mapped yet.',
                   'New communities often have parks and playgrounds still to be built by the developer under their '
                   'subdivision approval; a low score there is a question to ask, not necessarily a gap.',
-                  'School, private, condo and community association amenities are not counted, nor amenities just '
-                  'across a community boundary that its residents use.',
+                  'Benches, picnic tables, washrooms, bins, trees and transit stops are the City\'s only (they are '
+                  'too unevenly mapped in OpenStreetMap to add), and amenities just across a community boundary that '
+                  'its residents use are not counted.',
                   'Counts, not size or condition.'],
-     'code': 'attention.py (score, tier, catch_up, rank); inputs from dashboard.amenity_view'},
+     'code': 'attention.py (score, tier, catch_up, rank); inputs from dashboard.amenity_view and dashboard.with_attention'},
+
+    {'key': 'other_amenities', 'name': 'Amenities that are not the City\'s (OpenStreetMap), without double counting',
+     'dataset': 'OpenStreetMap: leisure=playground, fitness_station, pitch (sport=basketball), dog_park, park',
+     'publisher': 'OpenStreetMap contributors (Open Database Licence)', 'page': 'https://www.openstreetmap.org/copyright',
+     'updated': 'Read again every week with the City\'s assets', 'used_in': 'Needs attention tab, Data Genie',
+     'method': ['Ask OpenStreetMap (Overpass API) for every playground, fitness station, basketball court, dog park and '
+                'park inside a box around Calgary.',
+                'Take out every one the City already lists: a City playground (Playground Equipment) within 80 m of its '
+                'middle or inside its outline; City fitness equipment or a basketball hoop (Parks Sport Equipment) within '
+                '40 m or inside it; a dog park whose middle is inside a City off-leash area or within 100 m of one\'s '
+                'middle; a park with 30% or more of its area inside City park sites (Parks Sites). Anything tagged as '
+                'operated or owned by the City of Calgary is the City\'s too.',
+                'Take out closed, private, customers-only, paid and indoor ones, the same thing mapped twice (within 25 m), and parks '
+                'under 0.05 ha or over 20 ha.',
+                'Place each one left in the community holding its middle and count it: playgrounds, fitness stations and '
+                'dog parks 1 each; basketball courts their hoops tag (else 1); parks their area in hectares, added to '
+                'neighbourhood park space.',
+                'These are added to each community\'s City counts for the Needs attention score. Calgary\'s yardstick '
+                '(per 1,000) stays the City\'s own, so they can only lift a community. The amenity level on Growth '
+                'vs amenities stays the City\'s only.'],
+     'excel': ['Open overpass-turbo.eu, run the query for one kind (for example leisure=playground) over a community, '
+               'and compare each result with the City\'s Playground Equipment points (bdu9-amk8) on the same map.'],
+     'cautions': ['Volunteer-edited: coverage is uneven; a missing feature means nobody has mapped it yet.',
+                  'Matching is by distance: two separate playgrounds closer than 80 m count as one City one.',
+                  'A fitness station may hold several pieces, the City counts each piece.'],
+     'code': 'osm.py (fetch, build, MATCH_M, PARK_OVERLAP, SAME_M); assets.py builds both counts; dashboard.with_other'},
 
     {'key': 'shading', 'name': 'Map shading, flags and colours', 'dataset': 'all', 'publisher': 'Calgary Data Desk',
      'page': '', 'updated': '', 'used_in': 'Maps, Compare wards, tiles',

@@ -13,6 +13,7 @@ import time
 
 import calgary_data as cd
 import geo
+import osm
 
 KEEP_DAYS = 7
 COMMUNITIES = 'surr-xmvs'
@@ -82,6 +83,7 @@ def build():
             d = by.setdefault(code, {})
             d[key] = round(d.get(key, 0) + v, 3)
     errors = []
+    mine = {'playgrounds': [], 'fitness': [], 'basketball': [], 'off_leash': [], 'parks': []}   # to find OSM duplicates
     for key, (label, ds, where, _, _) in KINDS.items():
         try:
             rows = cd.query(ds, select='point', where=where, limit=50000) if where else cd.query(ds, select='point', limit=50000)
@@ -92,6 +94,8 @@ def build():
             pt = (r.get('point') or {}).get('coordinates')
             if pt:
                 add(loc.find(float(pt[0]), float(pt[1])), key)
+                if key in mine:
+                    mine[key].append((float(pt[0]), float(pt[1])))
     for key, (label, ds, where, field, _, _) in POLYGONS.items():
         try:
             sel = f'{field},planning_category' if key == 'parks' else field
@@ -106,6 +110,7 @@ def build():
             lon, lat = geo.centre(shape)
             code = loc.find(lon, lat)
             add(code, key)
+            mine[key].append(shape)
             if key == 'parks':
                 ha = _area_ha(shape)
                 add(code, 'park_ha', ha)
@@ -120,7 +125,15 @@ def build():
     for d in by.values():
         for k, v in d.items():
             totals[k] = round(totals.get(k, 0) + v, 1)
-    return {'by_comm': by, 'totals': totals, 'errors': errors, 'kinds': kinds(), 'sources': SOURCES}
+    # amenities that are not the City's (developer, condo, homeowners' association and school ones), from OpenStreetMap,
+    # with every one the City already lists taken out (osm.py has the matching rules)
+    other = None
+    try:
+        other = osm.build(osm.fetch(), mine, loc)
+        other['counted'] = time.strftime('%Y-%m-%d')
+    except Exception as e:                           # noqa: BLE001 - the City's counts stand on their own
+        errors.append(f'OpenStreetMap: {e}')
+    return {'by_comm': by, 'totals': totals, 'errors': errors, 'kinds': kinds(), 'sources': SOURCES, 'other': other}
 
 
 def kinds():
@@ -140,16 +153,27 @@ def load(cache_dir, force=False):
     if not force and os.path.exists(path) and time.time() - os.path.getmtime(path) < KEEP_DAYS * 86400:
         try:
             with open(path, encoding='utf-8') as f:
-                return json.load(f)
+                kept = json.load(f)
+            # counted before OpenStreetMap was added, or OpenStreetMap could not be reached a day ago: count again
+            if kept.get('other') or ('other' in kept and time.time() - os.path.getmtime(path) < 86400):
+                return kept
         except (OSError, ValueError):
             pass
+    old = None
+    if os.path.exists(path):
+        try:
+            with open(path, encoding='utf-8') as f:
+                old = json.load(f)
+        except (OSError, ValueError):
+            old = None
     try:
         data = build()
     except Exception:
-        if os.path.exists(path):
-            with open(path, encoding='utf-8') as f:
-                return json.load(f)
+        if old:
+            return old
         raise
+    if not data.get('other') and old and old.get('other'):   # OpenStreetMap busy: keep last week's count
+        data['other'] = dict(old['other'], kept_from=old['other'].get('counted'))
     data['counted'] = time.strftime('%Y-%m-%d')
     data['counted_utc'] = time.strftime('%Y-%m-%dT%H:%M:%S', time.gmtime())
     os.makedirs(cache_dir, exist_ok=True)
