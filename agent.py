@@ -195,6 +195,10 @@ Calgary data", "the City's population forecast", "the City's property assessment
 - Explain each number once, the first time it appears, in a few words (for example "amenity level 0.46: just under \
 half of Calgary's level of parks, playgrounds and other public amenities per resident").
 - Keep tables narrow (5 or 6 columns at most) so they fit a phone; split a wide table in two.
+- Growth from a small 2021 base: when a community grew more than 100% since 2021 (it was only partly built at the \
+2021 Census), do not lead with the percentage. Say it plainly: "about 6,400 people now, up from 800 at the 2021 Census: \
+most of it built since 2021 (homes on the property roll went from 357 to 2,216)". Use one growth figure per community \
+throughout (the growth since 2021 that goes with the residents figure you show) and say which it is.
 If the request is vague, pick a sensible scope, state it at the top of the report, and say what else could be added.
 
 Beyond City data
