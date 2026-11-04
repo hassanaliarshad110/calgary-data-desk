@@ -24,8 +24,11 @@ WHAT IS COUNTED, for each feature that is not the City's, in the community holdi
   playgrounds +1; fitness +1 (a station, which may hold several pieces); basketball + the court's hoops tag, else 1;
   off_leash +1; local_park_ha + its area in hectares (parks between PARK_MIN_HA and PARK_MAX_HA only: smaller ones are
   bits of lawn, larger ones natural areas that are not neighbourhood parks). Left out: access=no or customers, fee=yes
-  and indoor ones (paid indoor play centres). access=private stays in: it marks homeowners' association and condo
-  parks and playgrounds, which serve the community's own residents.
+  and indoor ones (paid indoor play centres).
+PRIVATE ONES ARE KEPT APART (by_comm_private), and count only when the screen's "include private ones" filter is on:
+  access=private marks homeowners' association, condo and other residents-only parks and playgrounds. They are not
+  open to everyone, so the default count (by_comm) leaves them out; turning the filter on adds them. They still take
+  part in the duplicate check, so a public playground inside a private outline is not counted twice.
 """
 import json
 import math
@@ -162,11 +165,15 @@ def _kind(tags):
 
 
 def _open_to_all(tags):
-    """Left out: closed ones, paid indoor play centres and anything for customers only. access=private stays in: in
-    OpenStreetMap it marks homeowners' association and condo parks and playgrounds, which serve the community's own
-    residents (the amenities the City's data misses)."""
+    """Left out: closed ones, paid indoor play centres and anything for customers only. access=private is not left out
+    here: it is kept apart (see _private) and counted only when the private filter is on."""
     return ((tags.get('access') or '') not in ('no', 'customers') and (tags.get('fee') or '') != 'yes'
             and (tags.get('indoor') or 'no') == 'no')
+
+
+def _private(tags):
+    """Residents only (homeowners' association, condo): counted only with the "include private ones" filter."""
+    return (tags.get('access') or '').strip().lower() == 'private'
 
 
 def _citys(tags):
@@ -205,7 +212,8 @@ def build(elements, city, community_locator):
         span = (max(p['lon'] for p in g) - min(p['lon'] for p in g)) * (max(p['lat'] for p in g) - min(p['lat'] for p in g)) if g else 0
         return (el.get('type') == 'node', -span)
     elements = sorted(elements, key=order)
-    stats = {k: {'found': 0, 'city': 0, 'left_out': 0, 'kept': 0} for k in KINDS}
+    stats = {k: {'found': 0, 'city': 0, 'left_out': 0, 'kept': 0, 'private': 0} for k in KINDS}
+    private_by = {}                                  # access=private ones, counted only with the private filter
     seen = set()
     for el in elements:
         tags = el.get('tags') or {}
@@ -262,15 +270,16 @@ def build(elements, city, community_locator):
                 v = 1
         else:
             v = 1
-        d = by.setdefault(code, {})
+        priv = _private(tags)
+        d = (private_by if priv else by).setdefault(code, {})
         d[k] = round(d.get(k, 0) + v, 2)
-        st['kept'] += 1
+        st['private' if priv else 'kept'] += 1
         mine[k].add(lon, lat)
         if shape:
             outlines[k].append(geo.Shape(shape))
         kept.append({'kind': k, 'comm': code, 'name': tags.get('name') or '', 'lon': round(lon, 6), 'lat': round(lat, 6),
                      'osm': f"{el.get('type')}/{el.get('id')}", **({'ha': round(area, 2)} if area is not None else {}),
-                     **({'access': tags['access']} if tags.get('access') else {})})
-    return {'by_comm': by, 'features': kept, 'stats': stats, 'source': SOURCE, 'kinds': list(KINDS),
+                     **({'access': tags['access']} if tags.get('access') else {}), **({'private': True} if priv else {})})
+    return {'by_comm': by, 'by_comm_private': private_by, 'version': 2, 'features': kept, 'stats': stats, 'source': SOURCE, 'kinds': list(KINDS),
             'rules': {'match_m': MATCH_M, 'same_m': SAME_M, 'park_overlap': PARK_OVERLAP, 'park_min_ha': PARK_MIN_HA,
                       'park_max_ha': PARK_MAX_HA}}

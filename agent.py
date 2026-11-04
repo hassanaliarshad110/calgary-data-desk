@@ -259,12 +259,14 @@ counted, because the homes they oversee are spread across the city.
 step (method), the level under all four ways of counting residents (level_under_each_resident_count) and every \
 dataset. Explain the level from method, never by working the formula out backwards. section wards has every ward's \
 level under all four counts (amenity_level_by_method), and with amenities that are not the City's too \
-(amenity_level_all, amenity_level_all_by_method).
+(amenity_level_all, amenity_level_all_by_method: only the ones open to everyone), and with private, residents-only ones too (amenity_level_all_private, amenity_level_all_private_by_method: OpenStreetMap access=private, homeowners' association and condo parks and playgrounds; on screen only when the "include private ones" filter is on, off by default).
 - Needs attention: get_dashboard section needs_attention has the communities that most need public \
 amenities (tier Urgent, High or Watch, a score from 0 to 100, its shortfall and growth weight, and what it would \
 take to reach the Calgary level). It counts the City's amenities plus the ones that are not the City's from \
-OpenStreetMap (developer, condo, school), with City ones taken out so nothing counts twice (get_code topic \
-other_amenities); each row also has the City-only level. The score is worked out in attention.py (get_code topic \
+OpenStreetMap that are open to everyone (developer, school), with City ones taken out so nothing counts twice (get_code \
+topic other_amenities); each row also has the City-only level. Private, residents-only ones (access=private: homeowners' \
+association, condo) are left out by default and counted only when the screen's "include private ones" filter is on \
+(needs_attention_with_private). The score is worked out in attention.py (get_code topic \
 needs_attention). Always \
 (in answers, reports and their recommendations) present it as priorities for review from open data, never as a \
 spending recommendation or a list of things to buy: the data has no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
@@ -707,6 +709,11 @@ def dashboard_section(d, section='overview', wards=None):
         g = d.get('amenity_gap') or {}
         ward_of = {c['code']: c.get('ward') for c in d.get('communities') or []}
         return {'needs_attention': _attention_out(g.get('attention'), ward_of),
+                **({'needs_attention_with_private': _attention_out(g.get('attention_private'), ward_of, short=True),
+                    'private_note': 'needs_attention (the default) leaves out private, residents-only amenities '
+                                    '(OpenStreetMap access=private: homeowners\' association, condo); '
+                                    'needs_attention_with_private adds them, as the screen does when its "include '
+                                    'private ones" filter is on.'} if g.get('attention_private') else {}),
                 'caution': 'Priorities for review from open data, not a spending recommendation: no costs; school, private '
                            'and community association amenities and those across a boundary are not counted; new '
                            'communities often have developer-built parks still to come.'} if g.get('attention') else \

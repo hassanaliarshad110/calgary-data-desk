@@ -562,7 +562,9 @@ METHODS = [
                 '40 m or inside it; a dog park whose middle is inside a City off-leash area or within 100 m of one\'s '
                 'middle; a park with 30% or more of its area inside City park sites (Parks Sites). Anything tagged as '
                 'operated or owned by the City of Calgary is the City\'s too.',
-                'Take out closed, customers-only, paid and indoor ones (homeowners\' association and condo ones marked private stay in), '
+                'Take out closed, customers-only, paid and indoor ones. Ones marked private (residents only: homeowners\' '
+                'association, condo) are kept apart and count only when the "include private ones" filter is on (off by '
+                'default); they still take part in the duplicate check. Also take out '
                 'the same thing mapped twice (within 25 m or inside an outline already counted; parks 30% inside one already '
                 'counted), and parks '
                 'under 0.05 ha or over 20 ha.',

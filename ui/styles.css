@@ -1386,3 +1386,4 @@ tr.rc-rent td { background: color-mix(in srgb, #F59E0B 8%, transparent); }
 .gap-other-switch { border: 1px solid color-mix(in srgb, #16A34A 35%, transparent); background: color-mix(in srgb, #16A34A 6%, var(--card)); border-radius: var(--r); padding: 12px 14px; }
 .check.big { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; cursor: pointer; }
 .check.big input { width: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: #16A34A; }
+.at-was { display: block; font-size: 11px; color: var(--muted-fg); margin-top: 2px; } .at-none { font-size: 12px; color: var(--muted-fg); margin: 4px 0 0; }

@@ -25,7 +25,9 @@ TWO COUNTS
   The tab ranks communities twice: with the City's amenities only (attention_city), and with the City's plus the
   ones that are not the City's, mapped in OpenStreetMap (attention, the default). Those come from osm.py: every
   OpenStreetMap playground, fitness station, basketball court, dog park and park that matches a City one is taken
-  out first, so nothing is counted twice. Calgary's yardstick (per 1,000) stays the City's own in both, so an
+  out first, so nothing is counted twice. Only the ones open to everyone count by default; private, residents-only ones
+  (OpenStreetMap access=private: homeowners' association, condo) are added only when the "include private ones" filter
+  is on (a third ranking, attention_private). Calgary's yardstick (per 1,000) stays the City's own in both, so an
   amenity that is not the City's can only lift a community's level, and how well other parts of the city happen to
   be mapped in OpenStreetMap cannot move it. The amenity kinds that count in a community's level are the same in both.
 
@@ -126,7 +128,10 @@ def rank(view, other=None, city_levels=None):
                      'shortfall': round(shortfall(r['level']), 2), 'weight': round(weight(r.get('growth_pct'), r.get('new')), 2),
                      'score': score(r['level'], r.get('growth_pct'), r.get('new')),
                      'catch_up': [dict(c, have_other=(other.get(r['code']) or {}).get(c['kind'], 0)) for c in catch_up(r, view)],
-                     **({'other': other.get(r['code']), 'level_city': city_levels.get(r['code'])} if other or city_levels else {})})
+                     **({'other': other.get(r['code']), 'level_city': city_levels.get(r['code']),
+                         # the same community's score on the City's amenities alone, so the screen can show the change
+                         'score_city': score(city_levels.get(r['code']), r.get('growth_pct'), r.get('new'))}
+                        if other or city_levels else {})})
     rows.sort(key=lambda x: (TIERS.index(x['tier']), -x['score'], -(x['residents'] or 0)))
     counts = {t: sum(1 for x in rows if x['tier'] == t) for t in TIERS}
     people = {t: sum(x['residents'] or 0 for x in rows if x['tier'] == t) for t in TIERS}
@@ -155,8 +160,9 @@ METHOD = [
     '1,000 x the community\'s residents / 1,000 minus what it has (playgrounds per children aged 0 to 14), rounded '
     f'up; park space in hectares. The {CATCH_UP_KINDS} furthest behind are shown.',
     'Residents are counted the way chosen in Settings, so the score follows that choice.',
-    'Amenities that are not the City\'s (developer, condo, homeowners\' association and school playgrounds, parks, '
-    'courts, fitness stations and dog parks) come from OpenStreetMap, with every one that matches a City amenity '
+    'Amenities that are not the City\'s (developer and school playgrounds, parks, courts, fitness stations and dog '
+    'parks open to everyone) come from OpenStreetMap; private, residents-only ones (homeowners\' association, condo) '
+    'are left out unless the "include private ones" filter is on. They come from OpenStreetMap with every one that matches a City amenity '
     'taken out so nothing counts twice (osm.py: a City playground within 80 m, fitness equipment or a hoop within '
     '40 m, inside a City off-leash area, or 30% or more of a park inside a City park site). Calgary\'s yardstick '
     'stays the City\'s own per 1,000, so these can only lift a community, and how well other areas happen to be '

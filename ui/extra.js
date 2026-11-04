@@ -443,7 +443,7 @@ function renderGrowth() {
   }
 }
 // ---------- amenity gap: where amenities have not kept up with growth
-let gapKind = '', gapFlagged = false, gapOther = false;   // gapOther: add amenities that are not the City's (OpenStreetMap)
+let gapKind = '', gapFlagged = false, gapOther = false, gapPrivate = false;   // gapOther: add amenities that are not the City's (OpenStreetMap); gapPrivate: residents-only (access=private) ones too, off unless chosen
 // the asset inventory: how many of each asset the City lists, ward by ward and for Calgary (or each community of a ward)
 function renderAssets() {
   const g = D.amenity_gap, box = $('#gr-gap');
@@ -455,7 +455,8 @@ function renderAssets() {
     title = 'Assets in every ward and in Calgary';
     cols = ['Calgary', ...ws.wards.map(w => 'Ward ' + w.ward)];
     rows = keys.map(k => [kinds[k].label, ws.amenity_counts_city[k], ...ws.wards.map(w => (w.amenity_counts || {})[k])]);
-    if (ws.amenity_counts_other_city) Object.keys(ws.amenity_counts_other_city).forEach(k => { keys.push(k); rows.push([(kinds[k] || { label: k }).label + ", not the City's (OpenStreetMap)", ws.amenity_counts_other_city[k], ...ws.wards.map(w => (w.amenity_counts_other || {})[k] || 0)]); });
+    if (ws.amenity_counts_other_city) Object.keys(ws.amenity_counts_other_city).forEach(k => { keys.push(k); rows.push([(kinds[k] || { label: k }).label + ", private accessible to the community (OpenStreetMap)", ws.amenity_counts_other_city[k], ...ws.wards.map(w => (w.amenity_counts_other || {})[k] || 0)]); });
+    if (ws.amenity_counts_private_city) Object.keys(ws.amenity_counts_private_city).forEach(k => { keys.push(k); rows.push([(kinds[k] || { label: k }).label + ", gated, residents only (OpenStreetMap; counted only when ticked)", ws.amenity_counts_private_city[k], ...ws.wards.map(w => (w.amenity_counts_private || {})[k] || 0)]); });
     sub = 'How many of each asset the City of Calgary lists in its open data, in each ward and in all of Calgary. Park space is in hectares.';
   } else {
     title = `Assets in ${W()}, community by community`;
@@ -463,7 +464,9 @@ function renderAssets() {
     cols = [W(), 'Calgary', ...comms.map(c => titleCase(c.name))];
     rows = keys.map(k => [kinds[k].label, ((g.scope || {})[k] || {}).n, ((g.city || {})[k] || {}).n, ...comms.map(c => (c.n || {})[k])]);
     const ob = (g.other || {}).by_comm || {}, cityOther = (D.wards_summary || {}).amenity_counts_other_city;
-    if (g.other) ['playgrounds', 'basketball', 'fitness', 'off_leash', 'local_park_ha'].forEach(k => { keys.push(k); rows.push([(kinds[k] || { label: k }).label + ", not the City's (OpenStreetMap)", comms.reduce((a, c) => a + ((ob[c.code] || {})[k] || 0), 0), cityOther ? cityOther[k] : null, ...comms.map(c => (ob[c.code] || {})[k] || 0)]); });
+    if (g.other) ['playgrounds', 'basketball', 'fitness', 'off_leash', 'local_park_ha'].forEach(k => { keys.push(k); rows.push([(kinds[k] || { label: k }).label + ", private accessible to the community (OpenStreetMap)", comms.reduce((a, c) => a + ((ob[c.code] || {})[k] || 0), 0), cityOther ? cityOther[k] : null, ...comms.map(c => (ob[c.code] || {})[k] || 0)]); });
+    const obp = (g.other || {}).by_comm_private || {}, cityPriv = (D.wards_summary || {}).amenity_counts_private_city;
+    if (Object.keys(obp).length) ['playgrounds', 'basketball', 'fitness', 'off_leash', 'local_park_ha'].forEach(k => { keys.push(k); rows.push([(kinds[k] || { label: k }).label + ", gated, residents only (OpenStreetMap; counted only when ticked)", comms.reduce((a, c) => a + ((obp[c.code] || {})[k] || 0), 0), cityPriv ? cityPriv[k] : null, ...comms.map(c => (obp[c.code] || {})[k] || 0)]); });
     sub = `How many of each asset the City of Calgary lists in each lived-in ${W()} community, in ${W()} and in all of Calgary. Park space is in hectares.`;
   }
   $('#gr-sub').textContent = 'Every public asset the City lists: benches, playgrounds, courts, washrooms, fountains, park space, trees, facilities and transit stops';
@@ -505,10 +508,10 @@ function renderGap() {
     : 'Public amenities in each ' + W() + ' community against its residents and growth, compared with the city';
   const stats = [[fmt(flagged.length), `communities where amenities have not kept up with growth (grew over ${g.growth_pct_threshold}% since ${CY()} or are new, and sit below ${fmt(g.level_threshold, 2)})`]];
   if (!city && isNum(scopeLevel)) stats.unshift([fmt(scopeLevel, 2), 'amenity level of ' + W() + ', City amenities only (1.00 = the city level)']);
-  if (!city && isNum(g.level_all)) stats.splice(1, 0, [fmt(g.level_all, 2), 'with amenities that are not the City\'s too (developer, condo, school; OpenStreetMap)']);
+  if (!city && isNum(g.level_all)) stats.splice(1, 0, [fmt(g.level_all, 2), 'with private amenities accessible to the community too (developer, school; OpenStreetMap)']);
   if (city && D.wards_summary) {
     const low = [...D.wards_summary.wards].filter(w => isNum(w.amenity_level)).sort((a, b) => a.amenity_level - b.amenity_level)[0];
-    if (low) stats.push([`Ward ${low.ward}`, `lowest amenity level of the 14 wards (${fmt(low.amenity_level, 2)} City only${isNum(low.amenity_level_all) ? ', ' + fmt(low.amenity_level_all, 2) + ' with non-City' : ''})`]);
+    if (low) stats.push([`Ward ${low.ward}`, `lowest amenity level of the 14 wards (${fmt(low.amenity_level, 2)} City only${isNum(low.amenity_level_all) ? ', ' + fmt(low.amenity_level_all, 2) + ' with private accessible' : ''})`]);
   }
   $('#gr-stats').innerHTML = stats.map(([b, s]) => `<div class="istat"><b>${b}</b><span>${s}</span></div>`).join('');
 
@@ -538,9 +541,13 @@ function renderGap() {
   const mKeysC = Object.keys(g.by_method || {}).filter(k => (g.by_method[k] || {}).communities);
   const mShort = { city_actual: "City's total, actual growth", city_pace: "City's total, one rate", model: 'growth model', census2021: CY() + ' Census' };
   const withO = gapOther && !!g.other;               // the "add non-City amenities" switch
+  const hasP = !!(g.other && Object.keys(g.other.by_comm_private || {}).length) || isNum(g.level_all_private);
+  const withP = withO && gapPrivate && hasP;          // the "include private ones" filter (off by default)
+  const sfx = withP ? '_private' : '';                // which figures: open-to-all non-City ones, or private ones too
+  const allWord = withP ? 'City + private accessible + gated residents-only' : 'City + private amenities accessible to the community';
   const head = gapKind
     ? `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth from homes built since ${CY()}<small>growth model</small></th><th scope="col" class="num">${esc(kinds[gapKind].label)}</th><th scope="col" class="num">${unit(gapKind)}</th><th scope="col">Against the city</th></tr>`
-    : `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth from homes built since ${CY()}<small>growth model, used for the flags</small></th><th scope="col" class="num">Children 0 to 14</th>${(mKeysC.length ? mKeysC : ['']).map(k => `<th scope="col" class="${k === popMethod() ? 'gm-cur' : ''}">Amenity level${k ? ', ' + esc(mShort[k] || k) : ''}<small>${withO ? 'City + non-City amenities' : 'City amenities only'}</small></th>`).join('')}<th scope="col">Furthest behind the city</th></tr>`;
+    : `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth from homes built since ${CY()}<small>growth model, used for the flags</small></th><th scope="col" class="num">Children 0 to 14</th>${(mKeysC.length ? mKeysC : ['']).map(k => `<th scope="col" class="${k === popMethod() ? 'gm-cur' : ''}">Amenity level${k ? ', ' + esc(mShort[k] || k) : ''}<small>${withO ? allWord : 'City amenities only'}</small></th>`).join('')}<th scope="col">Furthest behind the city</th></tr>`;
   const body = rows.slice(0, 400).map(r => {
     const name = `${esc(r.name)}${r.flag ? '<span class="gap-flag">Not kept up</span>' : ''}`;
     const ward = city ? `<td class="num">${wardOf[r.code] ? wardOf[r.code] : '–'}</td>` : '';
@@ -552,7 +559,7 @@ function renderGap() {
     }
     return `<tr><td>${name}</td>${ward}<td class="num">${fmt(r.residents)}</td>${grow}<td class="num">${fmt(r.children_0_14)}</td>
       ${(mKeysC.length ? mKeysC : ['']).map(k => { const BMk = (g.by_method || {})[k] || {};
-        const v = withO ? (k ? (BMk.communities_all || {})[r.code] : r.level_all) : (k ? (BMk.communities || {})[r.code] : r.level);
+        const v = withO ? (k ? (BMk['communities_all' + sfx] || {})[r.code] : r['level_all' + sfx]) : (k ? (BMk.communities || {})[r.code] : r.level);
         return `<td class="${k === popMethod() ? 'gm-cur' : ''}">${gapMeter(v)}<span class="gap-level ${isNum(v) ? (v < g.level_threshold ? 'low' : v >= 1 ? 'high' : '') : ''}">${fmt(v, 2)}</span></td>`; }).join('')}<td class="wrap gap-short">${shortList(r) || '–'}</td></tr>`;
   }).join('') || `<tr><td colspan="7" class="empty">No ${gapFlagged ? 'flagged ' : ''}communities to show.</td></tr>`;
 
@@ -563,14 +570,14 @@ function renderGap() {
   if (city && D.wards_summary && mKeys.length) {
     const names = D.wards_summary.pop_methods || {};
     methodTable = `<div class="gap-scope"><h3>Every ward under each way of counting residents</h3>
-      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Growth since ${CY()}</th>${mKeys.map(k => `<th scope="col" class="${k === popMethod() ? 'gm-cur' : ''}">Amenity level, ${esc(names[k] || BM[k].label)}<small>${withO ? 'City + non-City amenities' : 'City amenities only'}</small></th>`).join('')}</tr></thead><tbody>
-      ${[...D.wards_summary.wards].sort((a, b) => ((withO ? a.amenity_level_all : a.amenity_level) ?? 9) - ((withO ? b.amenity_level_all : b.amenity_level) ?? 9)).map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${signed(r.growth_pct, 1, '%')}</td>${mKeys.map(k => `<td class="${k === popMethod() ? 'gm-cur' : ''}">${lv(((withO ? r.amenity_level_all_by_method : r.amenity_level_by_method) || {})[k])}</td>`).join('')}</tr>`).join('')}
-      <tr class="cmp-city-row"><td><b>Calgary</b></td><td></td><td class="num">${signed((D.wards_summary.city || {}).growth_pct, 1, '%')}</td>${mKeys.map(() => `<td>${lv(withO ? (D.wards_summary.city || {}).amenity_level_all : 1)}</td>`).join('')}</tr>
-      </tbody></table></div><p class="card-note">Lowest first. 1.00 = the Calgary level of City amenities.${withO ? ' With non-City amenities added (playgrounds, parks, courts, fitness stations and dog parks that are not the City\'s, City ones taken out), measured against the same Calgary level, so Calgary itself reads above 1.00.' : ''}</p></div>`;
+      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th>${mKeys.map(k => `<th scope="col" class="num ${k === popMethod() ? 'gm-cur' : ''}">Growth since ${CY()}, ${esc(mShort[k] || names[k] || BM[k].label)}</th>`).join('')}${mKeys.map(k => `<th scope="col" class="${k === popMethod() ? 'gm-cur' : ''}">Amenity level, ${esc(names[k] || BM[k].label)}<small>${withO ? allWord : 'City amenities only'}</small></th>`).join('')}</tr></thead><tbody>
+      ${[...D.wards_summary.wards].sort((a, b) => ((withO ? a['amenity_level_all' + sfx] : a.amenity_level) ?? 9) - ((withO ? b['amenity_level_all' + sfx] : b.amenity_level) ?? 9)).map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td>${mKeys.map(k => `<td class="num ${k === popMethod() ? 'gm-cur' : ''}">${isNum((r.growth_pct_by_method || {})[k]) ? signed(r.growth_pct_by_method[k], 1, '%') : (k === popMethod() ? signed(r.growth_pct, 1, '%') : '–')}</td>`).join('')}${mKeys.map(k => `<td class="${k === popMethod() ? 'gm-cur' : ''}">${lv(((withO ? r['amenity_level_all' + sfx + '_by_method'] : r.amenity_level_by_method) || {})[k])}</td>`).join('')}</tr>`).join('')}
+      <tr class="cmp-city-row"><td><b>Calgary</b></td><td></td>${mKeys.map(k => { const cg = ((D.wards_summary.city || {}).growth_pct_by_method || {})[k]; return `<td class="num ${k === popMethod() ? 'gm-cur' : ''}">${isNum(cg) ? signed(cg, 1, '%') : (k === popMethod() ? signed((D.wards_summary.city || {}).growth_pct, 1, '%') : '–')}</td>`; }).join('')}${mKeys.map(() => `<td>${lv(withO ? (D.wards_summary.city || {})['amenity_level_all' + sfx] : 1)}</td>`).join('')}</tr>
+      </tbody></table></div><p class="card-note">Lowest first. 1.00 = the Calgary level of City amenities.${withO ? ' With private amenities accessible to the community added (playgrounds, parks, courts, fitness stations and dog parks that are not the City\'s, City ones taken out), measured against the same Calgary level, so Calgary itself reads above 1.00.' : ''}</p></div>`;
   } else if (mKeys.length) {
     methodTable = `<div class="gap-scope"><h3>${esc(W())} under each way of counting residents</h3>
-      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Residents counted by</th><th scope="col" class="num">Residents</th><th scope="col">Amenity level of ${esc(W())}<small>${withO ? 'City + non-City amenities' : 'City amenities only'}</small></th><th scope="col" class="num">Communities not kept up (City amenities)</th></tr></thead><tbody>
-      ${mKeys.map(k => `<tr${k === popMethod() ? ' class="gc-cur"' : ''}><td>${esc(BM[k].label)}${k === popMethod() ? ' <small>(in use)</small>' : ''}</td><td class="num">${fmt(BM[k].residents)}</td><td>${lv(withO ? BM[k].level_all : BM[k].level)}</td><td class="num">${fmt((BM[k].flagged || []).length)}</td></tr>`).join('')}
+      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Residents counted by</th><th scope="col" class="num">Residents</th><th scope="col">Amenity level of ${esc(W())}<small>${withO ? allWord : 'City amenities only'}</small></th><th scope="col" class="num">Communities not kept up (City amenities)</th></tr></thead><tbody>
+      ${mKeys.map(k => `<tr${k === popMethod() ? ' class="gc-cur"' : ''}><td>${esc(BM[k].label)}${k === popMethod() ? ' <small>(in use)</small>' : ''}</td><td class="num">${fmt(BM[k].residents)}</td><td>${lv(withO ? BM[k]['level_all' + sfx] : BM[k].level)}</td><td class="num">${fmt((BM[k].flagged || []).length)}</td></tr>`).join('')}
       </tbody></table></div><p class="card-note">Calgary is 1.00 under every count. Fewer residents (the ${CY()} Census) means more amenities per resident, so fast-growing areas look better than they are; the growth model counts the people living there now.</p></div>`;
   }
   // the whole method, in plain words, with every dataset
@@ -583,8 +590,10 @@ function renderGap() {
 
   const ost = (g.other || {}).stats || {};
   const otherSwitch = g.other ? `<div class="gap-scope gap-other-switch"><label class="check big"><input type="checkbox" id="gap-other" ${gapOther ? 'checked' : ''}>
-      <span><b>Add amenities that are not the City's</b> (qualified private ones: developer, homeowners' association, condo and school playgrounds, parks, courts, fitness stations and dog parks, from OpenStreetMap, with every one the City already lists taken out so nothing counts twice)</span></label>
-      <p class="card-note">${withO ? 'On: every amenity level below counts them.' : 'Off: every amenity level below counts the City\'s own amenities only.'} Calgary-wide this adds ${fmt((ost.playgrounds || {}).kept)} playgrounds, ${fmt((ost.basketball || {}).kept)} basketball courts, ${fmt((ost.fitness || {}).kept)} fitness stations, ${fmt((ost.off_leash || {}).kept)} dog parks and ${fmt((ost.local_park_ha || {}).kept)} parks. <button type="button" class="link-btn small" data-method="other_amenities">How they are found and matched</button></p></div>` : '';
+      <span><b>Count private amenities accessible to the community</b> (source: OpenStreetMap: developer, school and other playgrounds, parks, courts, fitness stations and dog parks that are not the City's, with every one the City already lists taken out so nothing counts twice)</span></label>
+      ${hasP ? `<label class="check big gap-private"><input type="checkbox" id="gap-private" ${gapPrivate ? 'checked' : ''} ${gapOther ? '' : 'disabled'}>
+      <span><b>Also count gated, residents-only ones</b> (marked private in OpenStreetMap: homeowners' association and condo parks and playgrounds). Off by default.</span></label>` : ''}
+      <p class="card-note">${withO ? (withP ? 'On, gated residents-only ones included: every amenity level below counts them.' : 'On: every amenity level below counts private amenities accessible to the community; gated residents-only ones are left out.') : 'Off: every amenity level below counts the City\'s own amenities only.'} Calgary-wide, accessible to the community: ${fmt((ost.playgrounds || {}).kept)} playgrounds, ${fmt((ost.basketball || {}).kept)} basketball courts, ${fmt((ost.fitness || {}).kept)} fitness stations, ${fmt((ost.off_leash || {}).kept)} dog parks and ${fmt((ost.local_park_ha || {}).kept)} parks.${hasP ? ` Gated, residents-only (only when ticked): ${fmt((ost.playgrounds || {}).private || 0)} playgrounds, ${fmt((ost.basketball || {}).private || 0)} basketball courts, ${fmt((ost.fitness || {}).private || 0)} fitness stations, ${fmt((ost.off_leash || {}).private || 0)} dog parks and ${fmt((ost.local_park_ha || {}).private || 0)} parks.` : ''} <button type="button" class="link-btn small" data-method="other_amenities">How they are found and matched</button></p></div>` : '';
   box.innerHTML = `${otherSwitch}${growthChecks()}${method}${methodTable}${scopeTable}
     <div class="gap-head"><h3>${city ? 'Every community' : 'Each community in ' + esc(W())}</h3>
       <div class="gap-ctl"><label class="field"><span>Show</span><select id="gap-kind"><option value="">Overall amenity level</option>${keys.map(k => `<option value="${k}" ${k === gapKind ? 'selected' : ''}>${esc(kinds[k].label)}</option>`).join('')}</select></label>
@@ -620,6 +629,7 @@ document.addEventListener('change', e => {
   if (e.target.id === 'gap-kind') { gapKind = e.target.value; renderGap(); }
   if (e.target.id === 'gap-flagged') { gapFlagged = e.target.checked; renderGap(); }
   if (e.target.id === 'gap-other') { gapOther = e.target.checked; renderGap(); }
+  if (e.target.id === 'gap-private') { gapPrivate = e.target.checked; renderGap(); }
 });
 let grTyping;
 $('#gr-text').addEventListener('input', e => { clearTimeout(grTyping); grTyping = setTimeout(() => { grFilter.text = e.target.value; renderGrowth(); }, 200); });

@@ -155,7 +155,9 @@ def load(cache_dir, force=False):
             with open(path, encoding='utf-8') as f:
                 kept = json.load(f)
             # counted before OpenStreetMap was added, or OpenStreetMap could not be reached a day ago: count again
-            if kept.get('other') or ('other' in kept and time.time() - os.path.getmtime(path) < 86400):
+            # (version 2 keeps residents-only "private" ones apart; an older copy mixed them in: count again)
+            if (kept.get('other') or {}).get('version') == 2 or (
+                    'other' in kept and not kept['other'] and time.time() - os.path.getmtime(path) < 86400):
                 return kept
         except (OSError, ValueError):
             pass
@@ -172,7 +174,7 @@ def load(cache_dir, force=False):
         if old:
             return old
         raise
-    if not data.get('other') and old and old.get('other'):   # OpenStreetMap busy: keep last week's count
+    if not data.get('other') and old and (old.get('other') or {}).get('version') == 2:   # OpenStreetMap busy: keep last week's count
         data['other'] = dict(old['other'], kept_from=old['other'].get('counted'))
     data['counted'] = time.strftime('%Y-%m-%d')
     data['counted_utc'] = time.strftime('%Y-%m-%dT%H:%M:%S', time.gmtime())
