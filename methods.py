@@ -30,7 +30,7 @@ AMENITY_STEPS = [
     '(or did not exist then) and its level is below 0.75.',
     'Communities with fewer than 100 residents are left out: per-resident figures mean nothing there.',
     'Residents are counted the way chosen in Settings (the City\'s total shared by actual growth, by default). The '
-    'levels under all three counts are shown together. With "grown to the City\'s total" every community counted in 2021 '
+    'levels under all four counts are shown together. With "grown to the City\'s total" every community counted in 2021 '
     'grows by the same factor (communities built since then come from the growth model), so its shares against the city '
     'are close to the 2021 Census ones; the growth model changes them most.',
 ]
@@ -41,11 +41,14 @@ METHODS = [
      'page': 'https://data.calgary.ca/d/iahh-g8bj', 'updated': 'Daily',
      'used_in': 'Status board, map, 311 charts, Open issues, community table, newsletter',
      'method': [
-         f'Ward 5 = requests whose comm_code is one of the 24 Ward 5 communities: {W5_CODES}.',
+         'A ward = requests whose comm_code is one of the ward\'s communities (the communities section of the dashboard '
+         'lists them; a community belongs to the ward holding most of its area); Calgary = every request. '
+         f'Example, Ward 5: its 24 communities are {W5_CODES}.',
          'Requests in a period: requested_date from the first day of the first month to the last day of the last month. '
          'Duplicates are left out: status_description "Duplicate (Open)" and "Duplicate (Closed)".',
-         'Per 1,000 residents a year: requests in the 10 residential communities / Ward 5 growth model population at '
-         'the middle of the period x 1,000 x (12 / months in the period). Business areas have no residents, so their '
+         'Per 1,000 residents a year: requests in the area\'s residential communities / its residents at the middle of '
+         'the period, counted the way chosen in Settings (the City\'s total shared by actual growth by default), x 1,000 '
+         'x (12 / months in the period). Business areas have no residents, so their '
          'requests are in the totals but not in the rates.',
          'Infrastructure reports: the 21 service types of the 311 study. Roads: Pothole Maintenance, Streetlight '
          'Maintenance, Traffic or Pedestrian Light Repair, Sidewalk - Curb and Gutter Repair, Roadway Maintenance, '
@@ -65,7 +68,7 @@ METHODS = [
          'The 311 study ("our study"): requested_date 2024-10-01 to 2026-09-30, no duplicates, no blank community, '
          'nine Ward 5 communities (all residential codes except HSD): 56,473 requests.'],
      'excel': [
-         'Filter comm_code to the Ward 5 codes above (or one community).',
+         'Filter comm_code to the area\'s community codes (Ward 5\'s above as an example, or one community).',
          'Filter requested_date between the first and last day of the months you want (dates sort as text: 2025-11-01).',
          'Filter status_description: untick "Duplicate (Open)" and "Duplicate (Closed)". The row count is the number '
          'of requests.',
@@ -87,7 +90,7 @@ METHODS = [
                 'People in private households only; 2021 ward boundaries; income is for 2020; work questions refer to '
                 'May 2021, during the pandemic.'],
      'excel': ['Open the Ward 5 profile from the City\'s ward profiles page; each figure is in the table named on the card.'],
-     'cautions': ['Ward 5 has grown about 30% since 2021, mostly in new communities, so shares today may differ.',
+     'cautions': ['Ward 5 has about 30% more homes than in 2021 (about 40% more residents by the default count), mostly in new communities, so shares today may differ.',
                   'Statistics Canada rounds counts to the nearest 5.']},
 
     {'key': 'being_built', 'name': 'Being built (City projects, roads, large building permits)',
@@ -134,7 +137,11 @@ METHODS = [
          '2026: 1 + (1,598,075 - 1,467,348) / 1,288,995 = 1.1014. So the City\'s growth the homes do not explain (more '
          'people per home since 2021, seniors\' homes, residences, shelters, the Census undercount: 130,727 people) is '
          'spread over every community as a share of its 2021 count, and the growth from homes built stays where they '
-         'were built. Ward 5: 106,185 x 1.1014 + (137,391 - 106,185) = 148,161 (+39.5%), against 131,538 when every '
+         'were built. f is not people per home: it multiplies each community\'s 2021 count (+10.14% for every community). '
+         'Going from the growth model, which already holds the 2021 count once, only the extra is added: residents = '
+         'growth model + 2021 count x (f - 1). Martindale: 14,770 + 14,540 x 0.1014 (1,475) = 16,245, the same as '
+         '14,540 x 1.1014 + 230 (its growth from new homes); that is about 0.39 more people per 2021 home (3.81 to 4.20). '
+         'Ward 5: 106,185 x 1.1014 + (137,391 - 106,185) = about 148,160 (148,161 adding up each community, each rounded; +39.5%), against 131,538 when every '
          'community grows at one rate. Children: each community\'s 2021 children x one factor + the children the growth '
          'model adds for its new homes, the factor set so Calgary matches the City\'s forecast of children.',
          'The largest community takes the person or two that rounding leaves over, so Calgary matches the City\'s figure '
@@ -176,7 +183,7 @@ METHODS = [
          'household size if smaller.',
          'People per home = (2021 Census population - people in rental units) / homes lived in on Census day '
          '(May 11, 2021). Residents = people per home x homes lived in + people per unit x rental units.',
-         'Where homes on Census day differ from 2021 Census households by more than 15% (Redstone, Skyview Ranch), new '
+         'Where homes on Census day differ from 2021 Census households by more than 15% (24 communities across Calgary; in Ward 5 Redstone and Skyview Ranch), new '
          'homes get the community\'s 2021 household size. Homestead had no 2021 count, so it uses the Calgary average '
          '(2.66 people per home).',
          '2021 Census: 2021 Federal Census Population by Community (f9wk-wej9, total_pop_household) and Households '
@@ -201,8 +208,11 @@ METHODS = [
          'Each community keeps its 2021 Census children (pop_age_0_to_4, pop_age_0_to_14) for the residents it had '
          'in 2021.',
          'Residents added since 2021 are given the share of children seen in 2021 in Ward 5\'s newest communities '
-         '(Cityscape and Cornerstone): about 27.5% aged 0 to 14 and 12.8% under 5. (Growth model and 2021 Census.)',
-         'Grown to the City\'s total: children follow the City\'s own forecast of children, from the same table as the '
+         '(Cityscape and Cornerstone): about 27.5% aged 0 to 14 and 12.8% under 5. (Growth model.)',
+         'City\'s total shared by actual growth (the default): each community\'s 2021 children x one factor + the children '
+         'the growth model adds for the homes built there; the factor is set so Calgary matches the City\'s forecast of '
+         'children (dashboard.kid_factors_actual, kid_added, kids_as).',
+         'City\'s total, one rate for all: children follow the City\'s own forecast of children, from the same table as the '
          'population (Calgary and Region Economic Outlook 2026-2031, Table 4, page 19, Population by Cohort: 0-4, 5-9 and '
          '10-14, as of April, read on a straight line between Aprils). Communities built since 2021 keep the estimate '
          'above; every other community is its 2021 count of children x one factor, so all of Calgary adds up to the '
@@ -218,16 +228,16 @@ METHODS = [
      'page': 'https://data.calgary.ca/d/c2es-76ed', 'updated': 'Daily',
      'used_in': 'Homes in building permits (status board, community table, newsletter)',
      'method': [
-         'Homes in permits = the sum of housingunits on building permits in the 24 Ward 5 communities (communitycode).',
+         'Homes in permits = the sum of housingunits on building permits in the area\'s communities (communitycode).',
          '"Applied for": applieddate in the period. "Issued": issueddate in the period.'],
-     'excel': ['Filter communitycode to the Ward 5 codes and issueddate (or applieddate) to the period; sum housingunits.'],
+     'excel': ['Filter communitycode to the area\'s community codes and issueddate (or applieddate) to the period; sum housingunits.'],
      'cautions': ['Planned homes, not finished ones: a home is lived in a year or more after its permit.']},
 
     {'key': 'dp', 'name': 'Development Permits', 'dataset': '6933-unw5', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/6933-unw5', 'updated': 'Daily',
      'used_in': 'Development permit card, Growth vs amenities, newsletter',
      'method': [
-         'Ward 5 = the permit\'s own ward field = "5". Applications = applieddate in the period.',
+         'A ward = the permit\'s own ward field (e.g. "5" for Ward 5); Calgary = every permit. Applications = applieddate in the period.',
          'Types are grouped from category: New homes and apartment buildings; Secondary (basement) suites; Change of '
          'use; New commercial and industrial; Non-residential renovations; Home businesses; Signs; Relaxations (small '
          'exceptions to the rules); Home additions and renovations; Other.',
@@ -240,10 +250,10 @@ METHODS = [
     {'key': 'traffic', 'name': 'Traffic Incidents', 'dataset': '35ra-9556', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/35ra-9556', 'updated': 'Continuously',
      'used_in': 'Traffic incidents (status board), map points',
-     'method': ['Incidents with start_dt_utc in the period whose exact latitude and longitude fall inside the Ward 5 '
-                'boundary (Ward Boundaries, tz8z-hyaz). The map shows the last 90 days of the period.'],
-     'excel': ['Filter start_dt_utc to the period, then keep rows inside Ward 5 (quadrant NE and a map check; the app '
-               'does the boundary test exactly).'],
+     'method': ['Incidents with start_dt_utc in the period whose exact latitude and longitude fall inside the ward\'s '
+                'boundary (Ward Boundaries, tz8z-hyaz), or anywhere in Calgary for the whole city. The map shows the last 90 days of the period.'],
+     'excel': ['Filter start_dt_utc to the period, then keep rows inside the ward (a map check; the app does the '
+               'boundary test exactly).'],
      'cautions': ['The City stores times in UTC; the app converts them to Calgary time and counts months by Calgary dates. '
                   'These are incidents the City reports for traffic, not every collision.']},
 
@@ -255,8 +265,8 @@ METHODS = [
      'method': [
          'The spreadsheet linked as "Download Community Safety Data" on the police page; the app finds the current '
          'link at each refresh and downloads it only when it changes.',
-         'Ward 5 = rows whose Ward column is "Ward 5" (the police assign each community to a ward, including the airport '
-         'and business areas).',
+         'A ward = rows whose Ward column is that ward, e.g. "Ward 5" (the police assign each community to a ward, '
+         'including the airport and business areas); Calgary = every row.',
          'Crime categories: assault and other violence (not domestic), street and commercial robbery, break and enter '
          '(homes, businesses, other premises such as garages), theft from vehicles and vehicle theft.',
          'The period is the dashboard period moved back to the latest month the police have published, compared with '
@@ -264,9 +274,9 @@ METHODS = [
          'Per 1,000 residents a year: the ward\'s crimes / the ward\'s residents x 1,000 x (12 / months). Residents are '
          'counted at the middle month of the police period (for October to September, April), the way chosen in Settings. '
          'Calgary: all crimes in the file / every residential community\'s residents counted the same way, so the ward and '
-         'Calgary are compared like with like. (Version 1 divided Calgary by the City\'s own population estimate; that '
-         'estimate is about 9% higher than the growth model\'s total, because it also counts more people living in each '
-         'home, so Calgary\'s rate read lower: 16.3 against 17.8 per 1,000 for Oct 2025 to Sep 2026.)',
+         'Calgary are compared like with like. Under the default count (the City\'s total) Calgary\'s residents are the '
+         'City\'s own estimate, so Calgary\'s rate is about 16.3 per 1,000 for Oct 2025 to Sep 2026; under the growth model, '
+         'whose Calgary total is about 9% lower, it reads about 17.8.',
          'Disorder: calls from the public about disorder (sheet "Disorder"), counted by event.',
          'A few incidents in the file have no ward, so the 14 wards add up to slightly less than Calgary (Oct 2025 to Sep '
          '2026: 25,857 crimes against 25,861).'],
@@ -313,11 +323,11 @@ METHODS = [
      'updated': 'Quarterly', 'used_in': 'Families and schools, child care cards, newsletter',
      'method': [
          'One file per quarter listing every licensed program, its type, licensed capacity and every inspection.',
-         'Programs are placed in Ward 5 by their address (matched to the City\'s parcel addresses, 9zvu-p8uz).',
-         'Spaces = licensed capacity of programs located in Ward 5. Family day home agencies are listed but not '
+         'Programs are placed in a ward by their address (matched to the City\'s parcel addresses, 9zvu-p8uz).',
+         'Spaces = licensed capacity of programs located in the area. Family day home agencies are listed but not '
          'counted, because the homes they oversee are spread across the city.',
          'Last 12 months: inspections (visits), non-compliance findings and enforcement actions (such as an order to remedy).'],
-     'excel': ['Open the latest quarter\'s CSV, filter City = Calgary and the Ward 5 addresses or postal codes; sum Capacity '
+     'excel': ['Open the latest quarter\'s CSV, filter City = Calgary and the area\'s addresses or postal codes; sum Capacity '
                'once per program (the file has one row per inspection).'],
      'cautions': ['Capacity is how many children may attend at once, not how many are enrolled.']},
 
@@ -326,10 +336,10 @@ METHODS = [
      'page': 'https://open.alberta.ca/opendata/student-enrolment-by-school-authority-and-grade-level',
      'updated': 'Yearly', 'used_in': 'Schools cards, Families and schools, newsletter',
      'method': [
-         'School locations from the City\'s Schools dataset (fd9t-tdn2): schools inside the Ward 5 boundary.',
+         'School locations from the City\'s Schools dataset (fd9t-tdn2): schools inside the ward\'s boundary (every Calgary school for the whole city).',
          'Each one is matched by name to the Government of Alberta enrolment file for each school year; students = the '
          'school\'s total enrolment (kindergarten to grade 12), split into K to 9 and grades 10 to 12.'],
-     'excel': ['Open the Alberta enrolment file for a school year and filter School Name to the Ward 5 schools; sum Total.'],
+     'excel': ['Open the Alberta enrolment file for a school year and filter School Name to the area\'s schools; sum Total.'],
      'cautions': ['Students are counted where they go to school, not where they live: many travel in from other wards '
                   'and some Ward 5 children go to school elsewhere.']},
 
@@ -348,19 +358,19 @@ METHODS = [
 
     {'key': 'roads', 'name': 'Road Construction Projects', 'dataset': 'sizs-hgef', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/sizs-hgef', 'updated': 'As projects change', 'used_in': 'Road construction card',
-     'method': ['Projects whose location is inside Ward 5 or just outside it.'],
+     'method': ['Projects whose location is inside the ward or just outside it (all of Calgary for the whole city).'],
      'excel': ['Download the dataset and look for projects in northeast Calgary.'],
      'cautions': ['Only the City\'s larger road projects; repairs and utility work are not listed.']},
 
     {'key': 'cameras', 'name': 'Traffic Cameras', 'dataset': 'k7p9-kppz', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/k7p9-kppz', 'updated': 'Images about once a minute', 'used_in': 'Traffic cameras, Briefing screen',
-     'method': ['Cameras inside Ward 5 or within about 2 km of it. The app saves each new image and replays the last 30 minutes.'],
+     'method': ['Cameras inside the ward or within about 2 km of it (every camera for the whole city). The app saves each new image and replays the last 30 minutes.'],
      'excel': [], 'cautions': ['The City keeps no recording; replays exist only while the app is open.']},
 
     {'key': 'city_disorder', 'name': 'Social Disorder Statistics (City open data)', 'dataset': '4evm-wx9a',
      'publisher': 'City of Calgary (Calgary Police Service)', 'page': 'https://data.calgary.ca/d/4evm-wx9a',
      'updated': 'Ended July 2025', 'used_in': 'Disorder card only when the police file is not available',
-     'method': ['Events in Ward 5 community regions over the latest 12 months published.'], 'excel': [],
+     'method': ['Events in the area\'s community regions over the latest 12 months published.'], 'excel': [],
      'cautions': ['No longer updated; the police community safety file replaces it.']},
 
     {'key': 'wards', 'name': 'Wards and their communities', 'dataset': 'tz8z-hyaz, surr-xmvs',
@@ -388,7 +398,8 @@ METHODS = [
          'Per 1,000 residents a year = count / residents x 1,000 x (12 / months in the period). For a 12-month period '
          'the last factor is 1.',
          'Residents for a period are counted at its middle month (for November to October: about May), the way chosen '
-         'in Settings (growth model, 2021 Census, or 2021 Census grown to the City\'s total). Open requests per 1,000 use '
+         'in Settings (the City\'s total shared by actual growth, the default; the City\'s total at one rate for all; the '
+         'growth model; or the 2021 Census). Open requests per 1,000 use '
          'today\'s residents.',
          'A ward or city rate adds the counts of its residential communities and divides by their residents added '
          'together (not an average of community rates).',
@@ -498,21 +509,25 @@ METHODS = [
                   'houses are not separate accounts, so a house with a basement suite counts as one home.',
                   'Residents per home is a check on the way of counting: Ward 10 shows 3.82 under "one rate for all" on '
                   'only 1.7% more homes since 2021, a sign that one rate for all overstates it.'],
-     'code': 'population.py: HOMES_WHERE, GrowthModel.homes, units, homes_lived_in, recon; dashboard.py: ward_summaries, population_recon. '
+     'code': 'population.py: HOMES_WHERE, homes, units, homes_lived_in, recon; dashboard.py: ward_summaries, population_recon. '
              'Growth vs amenities > Population build-up shows it community by community and lists every property'},
 
     {'key': 'growth_checks', 'name': 'Growth checks: is the population growth believable?',
      'dataset': '4bsw-nn7w (homes), City population outlook, Alberta student enrolment by school, fd9t-tdn2 (schools)',
      'publisher': 'City of Calgary; Government of Alberta', 'page': '', 'updated': 'With every refresh',
      'used_in': 'Growth vs amenities (top), Data Genie',
-     'method': ['Homes alone: homes lived in on the property roll today / at the 2021 Census - 1 (the growth model, '
-                'people per home as in 2021: a floor).',
+     'method': ['Homes alone: homes lived in on the property roll today / at the 2021 Census - 1, people per home as '
+                'in 2021 (close to the growth model, which uses each community\'s own people per home).',
                 'Homes plus more people per home: Calgary\'s people per home change = (the City\'s estimate now / at the '
                 'Census) / (Calgary\'s homes now / at the Census) - 1, about +5.5% (20.7% more people on 14.4% more '
-                'homes). The area: (1 + its homes growth) x (1 + that change) - 1. Ward 5: 1.304 x 1.055 = about +38%.',
+                'homes). The area: (1 + its homes growth) x (1 + that change) - 1 = real growth. Ward 5: 1.304 x 1.055 = '
+                '+37.6%. Read against the 2021 Census count, like the ways of counting that add up to the City\'s total, '
+                'it is x 1.027 (the City\'s estimate on Census day / the Census count: people the Census count of private '
+                'homes left out): Ward 5 +41.3%.',
                 'School enrolment: students in the area\'s schools from 2021/2022 to the latest year, against every '
                 'Calgary school; Calgary\'s growth x (the area\'s enrolment growth / Calgary\'s).',
-                'The range runs from the lowest to the highest check; each way of counting is marked within or outside it.'],
+                'The range runs from the lowest to the highest check; each way of counting is marked within it, within 1 point '
+                'of it (rounding and the growth model\'s own people per home in each community), or above or below it.'],
      'excel': ['Homes: sum homes_now and homes_census over the area\'s communities (the dashboard\'s community table).'],
      'cautions': ['Each check assumes something: that homes filled up like Calgary\'s average, or that children moved '
                   'with the population. Schools take students from outside the area, and a new school pulls students in.',
@@ -534,7 +549,7 @@ METHODS = [
      'excel': ['(Next month\'s figure - this month\'s) / days in the month = people a day; this month\'s figure + people a day '
                'x days since the 1st = today\'s live figure.'],
      'cautions': ['A forecast pace, not a count: nobody counts residents day by day.'],
-     'code': 'dashboard.py: population_live, _local_midnight_ms; ui/app.js: livePop'},
+     'code': 'dashboard.py: population_live, _local_midnight_ms (the browser draws the same straight line, ui/app.js livePop)'},
 
     {'key': 'other_amenities', 'name': 'Amenities that are not the City\'s (OpenStreetMap), without double counting',
      'dataset': 'OpenStreetMap: leisure=playground, fitness_station, pitch (sport=basketball), dog_park, park',
@@ -547,7 +562,9 @@ METHODS = [
                 '40 m or inside it; a dog park whose middle is inside a City off-leash area or within 100 m of one\'s '
                 'middle; a park with 30% or more of its area inside City park sites (Parks Sites). Anything tagged as '
                 'operated or owned by the City of Calgary is the City\'s too.',
-                'Take out closed, private, customers-only, paid and indoor ones, the same thing mapped twice (within 25 m), and parks '
+                'Take out closed, customers-only, paid and indoor ones (homeowners\' association and condo ones marked private stay in), '
+                'the same thing mapped twice (within 25 m or inside an outline already counted; parks 30% inside one already '
+                'counted), and parks '
                 'under 0.05 ha or over 20 ha.',
                 'Place each one left in the community holding its middle and count it: playgrounds, fitness stations and '
                 'dog parks 1 each; basketball courts their hoops tag (else 1); parks their area in hectares, added to '
@@ -671,9 +688,9 @@ METHODS = [
 CODE_WHERE = {
     'amenity_gap': 'dashboard.py: scope_level, amenity_view, GAP_LEVEL, GAP_GROWTH_PCT, GAP_KINDS; assets.py (counting)',
     'amenities': 'dashboard.py: amenity_view; assets.py',
-    'population_choice': 'dashboard.py: POP_METHODS, city_population_at, city_factor, new_people, pace_fix, estimate',
+    'population_choice': 'dashboard.py: POP_METHODS, DEFAULT_POP_METHOD, counts, _raw, actual_factor, city_factor, new_people, total_fix, estimate',
     'population': 'population.py (growth model); dashboard.py: estimate',
-    'children': 'dashboard.py: CITY_KIDS_APRIL, city_children_at, kids_at, kid_factors, kids_for',
+    'children': 'dashboard.py: CITY_KIDS_APRIL, city_children_at, kids_at, kid_factors, kid_added, kid_factors_actual, kids_as',
     'rates': 'dashboard.py: _pct, GROWING_PCT, ward_summaries',
     'compare': 'dashboard.py: ward_summaries',
     'police': 'police.py',

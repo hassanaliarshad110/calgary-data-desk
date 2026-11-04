@@ -103,7 +103,7 @@
     const sc = (((await api.load_dashboard(false, null, W.store.get('scope', 0))).data || {}).scope || {});
     const ward = sc.kind === 'city' ? 0 : (sc.ward || null);
     const place = sc.kind === 'city' ? 'Calgary' : (sc.name || 'the selected area');
-    const ONLY = { blue_line: [0, 5] };            // as analyst.ONLY: topics that suit only some areas
+    const ONLY = { blue_line: [5] };               // as analyst.ONLY: topics that suit only some areas
     const fill = v => typeof v !== 'string' ? v : v.split('{area}').join(place);   // {area}: the selected area
     const pool = all.filter(t => ward === null || !(t.only || ONLY[t.key]) || (t.only || ONLY[t.key]).includes(ward))
       .sort(() => Math.random() - 0.5);

@@ -191,14 +191,20 @@ class GrowthModel:
             hs = size or 2.6
             hc21 = ho0 + self.units(c, CENSUS_T)
             out.update({'people_per_home': hs, 'people_per_unit': hs, 'homes_and_units_census': round(hc21, 1),
+                        'base_2021': round(p0), 'people_from_change': round(pop - p0, 1),
                         'how': f'2021 population {p0:,.0f} + {hs:.2f} (2021 household size) x ({ho + un:,.1f} homes '
                                f'and units now - {hc21:,.1f} on Census day); homes on Census day were more than 15% '
                                f'off the Census household count ({hh:,.0f}), so only the change is used'})
         else:
+            raw = self.kcity * ho + A * un
+            floored = p0 > raw
             out.update({'people_per_home': self.kcity, 'people_per_unit': A,
                         'people_in_homes': round(self.kcity * ho, 1), 'people_in_units': round(A * un, 1),
-                        'how': f'no 2021 count: {self.kcity:.2f} people per home (Calgary\'s) x {ho:,.1f} homes + '
-                               f'{A:.1f} per rental unit x {un:,.1f} units'})
+                        'floor_2021': round(p0) if floored else None,
+                        'how': (f'no 2021 count: ' if not p0 else f'fewer than 20 homes on Census day, so Calgary\'s average: ')
+                               + f'{self.kcity:.2f} people per home (Calgary\'s) x {ho:,.1f} homes + {A:.1f} per rental '
+                               f'unit x {un:,.1f} units = {raw:,.1f}'
+                               + (f'; below its 2021 count, so the 2021 count ({p0:,.0f}) is kept' if floored else '')})
         return out
 
     def home_share(self, year, t):

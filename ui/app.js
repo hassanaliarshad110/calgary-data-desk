@@ -30,7 +30,7 @@ const daysSince = d => {
 const popMethod = () => (D && D.population && D.population.method) || 'city_actual';
 const popWords = () => ({ model: 'the growth model', census2021: `the ${CY()} Census, without growth`, city_pace: `the ${CY()} Census grown to the City's total`, city_actual: "the City's total, shared by actual growth" })[popMethod()];
 const popShort = () => ({ model: 'Live growth model', census2021: `Counted as at the ${CY()} Census`, city_pace: `${CY()} Census grown to the City's total`, city_actual: "City's total, shared by actual growth (homes built)" })[popMethod()];
-const popChip = () => ({ model: 'growth model', census2021: `${CY()} Census, no growth`, city_pace: "City's total", city_actual: "City's total, actual growth" })[popMethod()];
+const popChip = () => ({ model: 'growth model', census2021: `${CY()} Census, no growth`, city_pace: "City's total, one rate", city_actual: "City's total, actual growth" })[popMethod()];
 // the federal Census the app counts from (2021 until the City publishes the 2026 Census by community)
 const CY = () => (D && D.census && D.census.year) || 2021;
 // what an answer or report cost, from the AI service's own usage figures (published prices, an estimate)
@@ -396,7 +396,7 @@ function renderKpis() {
       `${fmt(s.requests_per_1000, 0)} per 1,000 residents a year`, spark(D.trend.all)],
     ['Infrastructure reports per 1,000 a year', fmt(s.infra_per_1000, 1), chg(pct(s.infra_per_1000, s.infra_per_1000_prev), null, '%', 1, cw),
       `Roads, water and sewer, parks: the study's 21 types. ${fmt(s.infra_per_1000_prev, 1)} in ${esc(cw)} (marker)`, versus(s.infra_per_1000, s.infra_per_1000_prev)],
-    ['Closed within 7 days', fmt(s.closed_7_days_pct, 1) + '%', chg(s.closed_7_days_pct - s.closed_7_days_pct_city, false, ' pts', 1, 'Calgary as a whole'),
+    ['Closed within 7 days', fmt(s.closed_7_days_pct, 1) + '%', isCity() ? '' : chg(s.closed_7_days_pct - s.closed_7_days_pct_city, false, ' pts', 1, 'Calgary as a whole'),
       `Of the period's requests closed so far. Calgary: ${fmt(s.closed_7_days_pct_city, 1)}% (marker)`, meter(s.closed_7_days_pct / 100, s.closed_7_days_pct_city / 100, 'vs')],
     ['Traffic incidents', fmt(s.traffic12), chg(s.traffic_change_pct, true, '%', 1, cw), `${fmt(s.traffic_prev)} in ${esc(cw)} (marker)`, versus(s.traffic12, s.traffic_prev)],
     ['Homes in building permits issued', fmt(s.issued_homes12), chg(s.issued_homes_change_pct, null, '%', 1, cw),
@@ -429,9 +429,9 @@ function tickPop() {
   const n = $('#live-pop-n'), L = D && D.population && D.population.live;
   if (!n || !L) return;
   const v = livePop();
-  n.textContent = isNum(v) ? fmt(v, 3) : '';
+  n.textContent = isNum(v) ? fmt(v, Math.abs(L.per_day) < 20 ? 4 : 3) : '';      // a ward grows slowly: more decimals so it moves
   const r = $('#live-pop-rate');
-  if (r && !r.textContent) r.textContent = ` live · ${L.per_day >= 0 ? '+' : '−'}${fmt(Math.abs(L.per_day), L.per_day < 10 ? 1 : 0)} a day`;
+  if (r && !r.textContent) r.textContent = ` live, at the forecast pace · ${L.per_day >= 0 ? '+' : '−'}${fmt(Math.abs(L.per_day), Math.abs(L.per_day) < 10 ? 1 : 0)} a day (the figure above is this month's)`;
 }
 setInterval(tickPop, 1000);
 
@@ -1566,15 +1566,15 @@ async function loadSettings() {
   renderPopChoices(s);
   return s;
 }
-// how residents are counted: three choices, each with Ward 5's total today under it
+// how residents are counted: four choices, each with the area's total today under it; the default is marked
 function renderPopChoices(s) {
   const box = $('#pop-choices');
   if (!box || !s.pop_methods) return;
   const totals = (D && D.population && D.population.by_method) || {};
-  const cur = s.pop_method || 'model';
+  const cur = s.pop_method || 'city_actual';
   $('#pop-badge').textContent = (s.pop_methods.find(m => m.key === cur) || {}).short || '';
   box.innerHTML = s.pop_methods.map(m => `<button type="button" role="radio" class="pop-choice${m.key === cur ? ' on' : ''}" aria-checked="${m.key === cur}" data-pop="${m.key}">
-      <span class="pc-head"><b>${esc(m.label)}</b>${isNum(totals[m.key]) ? `<span class="pc-n">${fmt(totals[m.key])}<small>${m.key === 'census2021' ? W() + ', May ' + CY() : '' + W() + ' today'}</small></span>` : ''}</span>
+      <span class="pc-head"><b>${esc(m.label)}${m.key === 'city_actual' ? ' <small class="pc-default">default</small>' : ''}</b>${isNum(totals[m.key]) ? `<span class="pc-n">${fmt(totals[m.key])}<small>${m.key === 'census2021' ? W() + ', May ' + CY() : '' + W() + ' today'}</small></span>` : ''}</span>
       <span class="pc-about">${esc(m.about)}</span></button>`).join('');
   $$('.pop-choice', box).forEach(b => b.addEventListener('click', async () => {
     if (b.dataset.pop === cur) return;

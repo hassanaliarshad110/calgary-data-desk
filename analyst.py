@@ -100,7 +100,7 @@ TOPICS = [
      'at home, recent immigrants, renters and crowding, income and shift work. Draw out what it means for 311 outreach, '
      'communications, office hours and services, and how growth since 2021 may have changed it.'),
     ('population_methods', 'How many people live in {area}? Every way to count',
-     'The growth model, the 2021 Census and the City\'s total compared, and why it matters.', 'People',
+     'The City\'s total shared by actual growth (the default), the City\'s total at one rate, the growth model and the 2021 Census compared, and why it matters.', 'People',
      'Compare {area} and each community\'s (or ward\'s) residents under every way of counting the app offers '
      '(population.by_method on the dashboard), show how rates per 1,000 change with each, and explain which to use for funding and service '
      'arguments.'),
@@ -117,7 +117,7 @@ TOPICS = [
 
 BY_KEY = {t[0]: t for t in TOPICS}
 # topics that only make sense for some areas (0 = all of Calgary): the Blue Line north extension is a northeast question
-ONLY = {'blue_line': (0, 5)}
+ONLY = {'blue_line': (5,)}            # its brief rests on the Ward 5 profile
 DEFAULT_AREA = 'the selected area'
 
 

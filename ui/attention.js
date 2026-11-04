@@ -73,7 +73,7 @@ function renderAttention(countOnly) {
   list.innerHTML = rows.map(r => `<article class="card at-card at-${r.tier.toLowerCase()}">
       <div class="at-top">
         <span class="at-rank">#${r.rank}</span>
-        <div class="at-name"><h3>${esc(titleCase(r.name))}</h3><span>${r.ward ? 'Ward ' + r.ward + ' · ' : ''}${fmt(r.residents)} residents · ${r.new ? 'new since ' + CY() : 'growth ' + signed(r.growth_pct, 1, '%') + ' since ' + CY()}</span></div>
+        <div class="at-name"><h3>${esc(titleCase(r.name))}</h3><span>${r.ward ? 'Ward ' + r.ward + ' · ' : ''}${fmt(r.residents)} residents · ${r.new ? 'new since ' + CY() : 'growth from homes built ' + signed(r.growth_pct, 1, '%') + ' since ' + CY()}</span></div>
         <div class="at-score"><b>${fmt(r.score)}</b><span>score</span></div>
       </div>
       <div class="at-mid"><span class="at-tier">${r.tier}</span>

@@ -186,7 +186,7 @@ def _figure(v, meta, interactive):
     src = sp.get('source')
     if isinstance(src, dict):                      # map points fetched from a dataset: name it, not the query
         src = ('City of Calgary open data, dataset ' + str(src.get('dataset_id'))) if src.get('dataset_id') else (
-            'Ward 5 traffic incidents (City of Calgary open data)' if src.get('layer') else '')
+            'Traffic incidents (City of Calgary open data)' if src.get('layer') else '')
     cap_bits = [sp.get('unit') or sp.get('value_label'), src if isinstance(src, str) else '']
     if interactive:
         note = ('Hover for values; click a community to zoom in, a point for details' if typ == 'map' else
@@ -209,7 +209,7 @@ def render(spec, provenance=None, meta=None, interactive=False):
     """The report page: for the PDF (fixed pictures), or interactive (live charts and zoomable maps)."""
     meta = meta or {}
     prov = provenance or []
-    title = str(spec.get('title') or 'Ward 5 analysis').strip()
+    title = str(spec.get('title') or 'Calgary Data Desk analysis').strip()
     today = meta.get('date') or dt.date.today().strftime('%B %d, %Y').replace(' 0', ' ')
     visuals = collect(spec)
     parts = [f'''<header class="band"><div><p class="kicker">Calgary Data Desk · Analysis{' · interactive version' if interactive else ''}</p><h1>{e(title)}</h1>
@@ -315,8 +315,8 @@ def _vendor_head():
 
 
 def safe_name(name):
-    s = re.sub(r'[^\w\- .,()]+', ' ', str(name or 'Ward 5 analysis')).strip(' .')
-    return re.sub(r'\s+', ' ', s)[:90] or 'Ward 5 analysis'
+    s = re.sub(r'[^\w\- .,()]+', ' ', str(name or 'Analysis')).strip(' .')
+    return re.sub(r'\s+', ' ', s)[:90] or 'Analysis'
 
 
 def workbook_sheets(spec, provenance, meta):

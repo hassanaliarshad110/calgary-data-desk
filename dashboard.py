@@ -426,7 +426,8 @@ def growth_checks(area, census, homes_census, homes_now, city_then, city_now, ci
     same way (the Growth vs amenities tab shows them; the code is the method).
 
     1. Homes alone: growth in homes lived in on the City's property assessment roll since Census day.
-       homes_growth = homes_now / homes_census - 1. People per home as in 2021: this is the growth model, a floor.
+       homes_growth = homes_now / homes_census - 1, people per home as in 2021 (close to the growth model, which uses
+       each community's own people per home, so the two differ by a point or so).
     2. Homes plus more people per home: Calgary's population (the City's estimate) grew faster than its homes, so each
        home holds more people than in 2021. per_home = (city_now / city_then) / (city_homes_now / city_homes_census) - 1.
        estimate = (1 + homes_growth) x (1 + per_home) - 1. Assumes the area's homes filled up like Calgary's average.
@@ -437,9 +438,10 @@ def growth_checks(area, census, homes_census, homes_now, city_then, city_now, ci
     Checks 2 and 3 start from the City's estimate, which on Census day was already above the Census count (the Census
     counted people in private homes only; the City's estimate also counts seniors' homes, residences, shelters and people
     the Census missed): gap = city_then / Calgary's Census count (1.027). Like the ways of counting that add up to the
-    City's total, they are read against the 2021 Census count: (1 + estimate) x gap - 1. Check 1 (homes alone) is the
-    growth model, read against the Census count with no gap: the floor.
-    The range is the lowest to the highest check; each way of counting residents is set against it."""
+    City's total, they are read against the 2021 Census count: (1 + estimate) x gap - 1. Check 1 (homes alone) is
+    read against the Census count with no gap.
+    The range is the lowest to the highest check; a way of counting is 'within' it, 'near' it (no more than 1 point
+    outside: rounding and the growth model's per-community people per home), or above or below it."""
     pct = lambda a, b: round((a / b - 1) * 100, 1) if a and b else None
     gap = city_then / census_city if city_then and census_city else 1.0
     checks = []
@@ -483,8 +485,10 @@ def growth_checks(area, census, homes_census, homes_now, city_then, city_now, ci
     models = {k: pct(v, census) for k, v in (by_method or {}).items() if k != 'census2021'}
     return {'checks': checks, 'low': min(vals) if vals else None, 'high': max(vals) if vals else None,
             'models': models, 'census': census,
-            'verdict': {k: ('within' if vals and min(vals) - 1.0 <= v <= max(vals) + 1.0 else 'outside')
-                        for k, v in models.items() if v is not None},
+            'verdict': {k: ('within' if min(vals) <= v <= max(vals) else
+                            'near' if min(vals) - 1.0 <= v <= max(vals) + 1.0 else
+                            'below' if v < min(vals) else 'above')
+                        for k, v in models.items() if v is not None} if vals else {},
             'settles_it': 'The 2026 Census (counted May 2026): population counts are released on February 10, 2027.'}
 
 
@@ -502,8 +506,10 @@ def population_recon(model, ref, codes, names, pop_now, method, f_pace, f_actual
         res = (pop_now.get(c) or {}).get('model')
         r['residents'] = res
         if method == 'city_actual' and f_actual:
-            r['step'] = (f'+ {p21:,} (2021 count) x ({f_actual:.4f} - 1) = {p21 * (f_actual - 1):+,.0f}: the City\'s growth '
-                         f'that homes do not explain, spread over the 2021 count')
+            r['step'] = (f'+ {p21:,} (2021 count) x {f_actual - 1:.4f} = {p21 * (f_actual - 1):+,.0f}: Calgary\'s growth that '
+                         f'new homes do not explain (more people per home, seniors\' homes, residences, shelters, the '
+                         f'Census undercount) adds {(f_actual - 1) * 100:.2f}% to every community\'s 2021 count. The growth '
+                         f'model already holds the 2021 count once, so only the extra {(f_actual - 1) * 100:.2f}% is added')
         elif method == 'city_pace':
             r['step'] = (f'replaced: {p21:,} (2021 count) x {f_pace:.4f} (one rate for all)' if p21 else
                          'built since 2021: the growth model count is kept')
@@ -511,7 +517,10 @@ def population_recon(model, ref, codes, names, pop_now, method, f_pace, f_actual
             r['step'] = 'replaced: the 2021 Census count, no growth'
         else:
             r['step'] = 'the growth model itself'
-        r['rounding'] = (res - round(gm + p21 * (f_actual - 1))) if method == 'city_actual' and f_actual and res is not None else 0
+        expect = (round(gm + p21 * (f_actual - 1)) if method == 'city_actual' and f_actual else
+                  (round(p21 * f_pace) if p21 else gm) if method == 'city_pace' and f_pace else
+                  p21 if method == 'census2021' else gm)
+        r['rounding'] = (res - expect) if res is not None else 0     # the person or two the largest community takes
         rows.append(r)
     rentals = []
     try:
@@ -700,6 +709,10 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         'dp_counts': lambda: cd.query(DEV_PERMITS, select='communitycode,statuscurrent,count(*) as n',
                                       where=f"{in_ward} AND applieddate>='{s}' AND applieddate<'{e}'",
                                       group='communitycode,statuscurrent', limit=5000),
+        # every application of the period by type and status (the list below is capped; counts must not be)
+        'dp_cur': lambda: cd.query(DEV_PERMITS, select='category,statuscurrent,count(*) as n',
+                                   where=f"{in_ward} AND applieddate>='{s}' AND applieddate<'{e}'",
+                                   group='category,statuscurrent', limit=5000),
         'dp_prev': lambda: cd.query(DEV_PERMITS, select='category,count(*) as n',
                                     where=f"{in_ward} AND applieddate>='{cs}' AND applieddate<'{ce}'",
                                     group='category', limit=1000),
@@ -775,7 +788,18 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
     def actual_factor(when):
         """city_actual: f = 1 + (the City's estimate for that month - Calgary's growth model total) / Calgary's 2021
         Census count. Each community = its 2021 count x f + the growth the growth model measured there (homes built),
-        so growth lands where homes were built and all of Calgary adds up to the City's own total."""
+        so growth lands where homes were built and all of Calgary adds up to the City's own total.
+
+        What f is: NOT people per home. It multiplies each community's 2021 Census count. November 2026: the City's
+        estimate is 1,598,075 and the growth model (homes only) gives 1,467,348, so 130,727 people are not explained by
+        new homes (more people living in each existing home, people in seniors' homes, residences and shelters, the
+        Census undercount). Spread over Calgary's 2021 count: 130,727 / 1,288,995 = 0.1014, so f = 1.1014 and every
+        community's 2021 count goes up 10.14%.
+        Why "f - 1" when going from the growth model: the growth model already holds the 2021 count once
+        (growth model = 2021 count + growth from new homes), so residents = growth model + 2021 count x (f - 1).
+        Martindale: 2021 count 14,540, growth model 14,770 (= 14,540 + 230 for new homes);
+        14,540 x 1.1014 + 230 = 16,245 = 14,770 + 14,540 x 0.1014 (= 1,475). Spread over its 3,815 homes of 2021 that
+        is about 0.39 more people per home (3.81 to 4.20), a result of the 10.14%, not the factor itself."""
         if not (whole_city and census_all):
             return None
         return 1 + (city_population_at(when.year * 12 + when.month - 1)
@@ -1035,19 +1059,30 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                      for r in (dp_list or [])],
         }
         development['change_pct'] = _pct(n_dp * yr12, (development['applied_prev'] or 0) * yrprev)
+        # counts by type from every application of the period (dp_cur), never from the list, which holds at most
+        # 1,500 (all of Calgary has several thousand a year): comparing a capped list with a full count was wrong
+        dp_cur, _ = O['dp_cur']
         by_type = {}
-        for p in development['list']:
-            b = by_type.setdefault(p['type'], {'type': p['type'], 'n': 0, 'released': 0, 'larger': p['type'] in LARGER_DP})
-            b['n'] += 1
-            b['released'] += p['status'] == 'Released'
+        if dp_cur is not None:
+            for r in dp_cur:
+                t = dp_type(r.get('category'))
+                b = by_type.setdefault(t, {'type': t, 'n': 0, 'released': 0, 'larger': t in LARGER_DP})
+                n_ = int(_num(r.get('n')))
+                b['n'] += n_
+                b['released'] += n_ if r.get('statuscurrent') == 'Released' else 0
+        else:                                         # counts not available: the list, marked as possibly incomplete
+            for p in development['list']:
+                b = by_type.setdefault(p['type'], {'type': p['type'], 'n': 0, 'released': 0, 'larger': p['type'] in LARGER_DP})
+                b['n'] += 1
+                b['released'] += p['status'] == 'Released'
         for t, n in prev_by_type.items():
             by_type.setdefault(t, {'type': t, 'n': 0, 'released': 0, 'larger': t in LARGER_DP})['prev'] = n
         development['by_type'] = sorted(by_type.values(), key=lambda x: -x['n'])
-        larger = [p for p in development['list'] if p['type'] in LARGER_DP]
-        development['larger'] = len(larger)
+        development['larger'] = sum(b['n'] for b in by_type.values() if b['larger'])
         development['larger_prev'] = sum(n for t, n in prev_by_type.items() if t in LARGER_DP) if dp_prev is not None else None
-        development['larger_change_pct'] = _pct(len(larger) * yr12, (development['larger_prev'] or 0) * yrprev)
-        development['larger_released'] = sum(1 for p in larger if p['status'] == 'Released')
+        development['larger_change_pct'] = _pct(development['larger'] * yr12, (development['larger_prev'] or 0) * yrprev)
+        development['larger_released'] = sum(b['released'] for b in by_type.values() if b['larger'])
+        development['counts_from'] = 'every application' if dp_cur is not None else 'the list (may be incomplete)'
         development['list_complete'] = len(development['list']) >= n_dp
 
     # ---- road construction: City projects in or near the ward ----
@@ -1325,7 +1360,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         def city_model_at(ym):
             # Calgary counted the same way as the wards (the growth model over every community), so ward and city
             # rates compare like with like; the City's own estimate is shown with the residents
-            when = dt.date(ym // 12, ym % 12 + 1, 15)
+            when = dt.date(ym // 12, ym % 12 + 1, 1)      # the 1st, the same day as the communities' monthly series
             return sum((v.get('model') or 0) for v in estimate(when, ALL_RES).values()) or city_population_at(ym)
         crime, err2 = _safe(lambda: police.summary(pdata, None if city else f'Ward {ward}', name_to_code, residents_at,
                                                    city_model_at if len(ALL_RES) > len(RESIDENTIAL_CODES) or city else city_population_at,
@@ -1415,6 +1450,11 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                 r['amenity_counts'] = {k: round(sum((byc.get(c) or {}).get(k, 0) for c, w_ in comm_ward.items() if w_ == r['ward']), 1)
                                        for k in sub['scope']}
                 r['amenities_vs_city'] = {k: v['vs_city'] for k, v in sub['scope'].items()}
+                # one source for playgrounds everywhere: the City's asset count (Playground Equipment, play complexes)
+                if 'playgrounds' in r['amenity_counts']:
+                    r['playgrounds'] = r['amenity_counts']['playgrounds']
+                    r['playgrounds_per_1000_kids'] = (round(r['playgrounds'] / r['children_0_14'] * 1000, 2)
+                                                      if r.get('children_0_14') else None)
                 r['amenity_level'] = scope_level(sub)
                 r['amenity_flagged'] = len(sub['flagged'])
                 if merged_assets:                  # under every way of counting, with the non-City amenities too
@@ -1433,6 +1473,11 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
             byc = asset_data.get('by_comm') or {}
             wards_summary['amenity_counts_city'] = {k: round(sum((v or {}).get(k, 0) for v in byc.values()), 1)
                                                     for k in amenity_gap['city']}
+            cw_ = wards_summary.get('city') or {}
+            if 'playgrounds' in wards_summary['amenity_counts_city']:
+                cw_['playgrounds'] = wards_summary['amenity_counts_city']['playgrounds']
+                cw_['playgrounds_per_1000_kids'] = (round(cw_['playgrounds'] / cw_['children_0_14'] * 1000, 2)
+                                                    if cw_.get('children_0_14') else None)
             if merged_assets:
                 wards_summary['amenity_counts_other_city'] = {k: round(sum((v or {}).get(k, 0) for v in oth.values()), 1)
                                                               for k in osm.KINDS}

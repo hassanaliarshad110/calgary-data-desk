@@ -397,7 +397,7 @@ function renderGrowth() {
       (dv.by_type || []).map(t => `<option value="${esc(t.type)}">${esc(t.type)} (${fmt(t.n)})</option>`).join('');
     $('#gr-type').value = grFilter.type;
     $('#gr-note').hidden = false;
-    $('#gr-note').innerHTML = `${icon('alert')}<div><strong>What this list shows.</strong> Development permits are the City's approval of what can be built on a property or how it is used, before a building permit. ${grFilter.type === 'larger' ? 'Showing larger developments: new homes and apartment buildings, changes of use (including new child care centres, schools and clinics) and new commercial and industrial buildings. Choose "All types" in Type to include basement suites, signs, home businesses, small exceptions to the rules and renovations.' : 'Showing ' + (grFilter.type ? '"' + esc(grFilter.type) + '"' : 'every type, from basement suites to new buildings') + '.'}</div>`;
+    $('#gr-note').innerHTML = `${icon('alert')}<div>${dv.list_complete === false ? `<strong>The list holds the newest ${fmt(dv.list.length)} of ${fmt(dv.applied)} applications</strong> (the counts above include all of them; choose a ward for its full list). ` : ''}<strong>What this list shows.</strong> Development permits are the City's approval of what can be built on a property or how it is used, before a building permit. ${grFilter.type === 'larger' ? 'Showing larger developments: new homes and apartment buildings, changes of use (including new child care centres, schools and clinics) and new commercial and industrial buildings. Choose "All types" in Type to include basement suites, signs, home businesses, small exceptions to the rules and renovations.' : 'Showing ' + (grFilter.type ? '"' + esc(grFilter.type) + '"' : 'every type, from basement suites to new buildings') + '.'}</div>`;
     $('#gr-status').value = grFilter.status;
     $('#gr-sub').textContent = `Development permit applications in ${W()}, ${D.period}`;
     $('#gr-stats').innerHTML = [[fmt(dv.applied), 'applications'], [fmt(dv.released), 'approved and released'], [fmt(dv.in_review), 'in review or on hold'],
@@ -443,7 +443,7 @@ function renderGrowth() {
   }
 }
 // ---------- amenity gap: where amenities have not kept up with growth
-let gapKind = '', gapFlagged = false;
+let gapKind = '', gapFlagged = false, gapOther = false;   // gapOther: add amenities that are not the City's (OpenStreetMap)
 // the asset inventory: how many of each asset the City lists, ward by ward and for Calgary (or each community of a ward)
 function renderAssets() {
   const g = D.amenity_gap, box = $('#gr-gap');
@@ -537,9 +537,10 @@ function renderGap() {
   // the amenity level under every way of counting residents (and with amenities that are not the City's)
   const mKeysC = Object.keys(g.by_method || {}).filter(k => (g.by_method[k] || {}).communities);
   const mShort = { city_actual: "City's total, actual growth", city_pace: "City's total, one rate", model: 'growth model', census2021: CY() + ' Census' };
+  const withO = gapOther && !!g.other;               // the "add non-City amenities" switch
   const head = gapKind
-    ? `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth since ${CY()}</th><th scope="col" class="num">${esc(kinds[gapKind].label)}</th><th scope="col" class="num">${unit(gapKind)}</th><th scope="col">Against the city</th></tr>`
-    : `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth since ${CY()}</th><th scope="col" class="num">Children 0 to 14</th>${(mKeysC.length ? mKeysC : ['']).map(k => `<th scope="col" class="${k === popMethod() ? 'gm-cur' : ''}">Amenity level${k ? ', ' + esc(mShort[k] || k) : ''}<small>City only${g.other ? ' · with non-City' : ''}</small></th>`).join('')}<th scope="col">Furthest behind the city</th></tr>`;
+    ? `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth from homes built since ${CY()}<small>growth model</small></th><th scope="col" class="num">${esc(kinds[gapKind].label)}</th><th scope="col" class="num">${unit(gapKind)}</th><th scope="col">Against the city</th></tr>`
+    : `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth from homes built since ${CY()}<small>growth model, used for the flags</small></th><th scope="col" class="num">Children 0 to 14</th>${(mKeysC.length ? mKeysC : ['']).map(k => `<th scope="col" class="${k === popMethod() ? 'gm-cur' : ''}">Amenity level${k ? ', ' + esc(mShort[k] || k) : ''}<small>${withO ? 'City + non-City amenities' : 'City amenities only'}</small></th>`).join('')}<th scope="col">Furthest behind the city</th></tr>`;
   const body = rows.slice(0, 400).map(r => {
     const name = `${esc(r.name)}${r.flag ? '<span class="gap-flag">Not kept up</span>' : ''}`;
     const ward = city ? `<td class="num">${wardOf[r.code] ? wardOf[r.code] : '–'}</td>` : '';
@@ -551,8 +552,8 @@ function renderGap() {
     }
     return `<tr><td>${name}</td>${ward}<td class="num">${fmt(r.residents)}</td>${grow}<td class="num">${fmt(r.children_0_14)}</td>
       ${(mKeysC.length ? mKeysC : ['']).map(k => { const BMk = (g.by_method || {})[k] || {};
-        const v = k ? (BMk.communities || {})[r.code] : r.level, va = k ? (BMk.communities_all || {})[r.code] : r.level_all;
-        return `<td class="${k === popMethod() ? 'gm-cur' : ''}">${gapMeter(v)}<span class="gap-level ${isNum(v) ? (v < g.level_threshold ? 'low' : v >= 1 ? 'high' : '') : ''}">${fmt(v, 2)}</span>${g.other && isNum(va) ? `<small class="gap-all" title="With amenities that are not the City's (OpenStreetMap)"> · ${fmt(va, 2)}</small>` : ''}</td>`; }).join('')}<td class="wrap gap-short">${shortList(r) || '–'}</td></tr>`;
+        const v = withO ? (k ? (BMk.communities_all || {})[r.code] : r.level_all) : (k ? (BMk.communities || {})[r.code] : r.level);
+        return `<td class="${k === popMethod() ? 'gm-cur' : ''}">${gapMeter(v)}<span class="gap-level ${isNum(v) ? (v < g.level_threshold ? 'low' : v >= 1 ? 'high' : '') : ''}">${fmt(v, 2)}</span></td>`; }).join('')}<td class="wrap gap-short">${shortList(r) || '–'}</td></tr>`;
   }).join('') || `<tr><td colspan="7" class="empty">No ${gapFlagged ? 'flagged ' : ''}communities to show.</td></tr>`;
 
   // the same levels under each way of counting residents
@@ -562,14 +563,14 @@ function renderGap() {
   if (city && D.wards_summary && mKeys.length) {
     const names = D.wards_summary.pop_methods || {};
     methodTable = `<div class="gap-scope"><h3>Every ward under each way of counting residents</h3>
-      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Growth since ${CY()}</th>${mKeys.map(k => `<th scope="col">Amenity level, ${esc(names[k] || BM[k].label)}</th>`).join('')}${g.other ? `<th scope="col">With non-City amenities, ${esc(popChip())}</th>` : ''}</tr></thead><tbody>
-      ${[...D.wards_summary.wards].sort((a, b) => (a.amenity_level ?? 9) - (b.amenity_level ?? 9)).map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${signed(r.growth_pct, 1, '%')}</td>${mKeys.map(k => `<td>${lv((r.amenity_level_by_method || {})[k])}${g.other && isNum((r.amenity_level_all_by_method || {})[k]) ? `<small class="gap-all" title="With amenities that are not the City's (OpenStreetMap)"> · ${fmt(r.amenity_level_all_by_method[k], 2)}</small>` : ''}</td>`).join('')}${g.other ? `<td>${lv(r.amenity_level_all)}</td>` : ''}</tr>`).join('')}
-      <tr class="cmp-city-row"><td><b>Calgary</b></td><td></td><td class="num">${signed((D.wards_summary.city || {}).growth_pct, 1, '%')}</td>${mKeys.map(() => `<td>${lv(1)}</td>`).join('')}${g.other ? `<td>${lv((D.wards_summary.city || {}).amenity_level_all)}</td>` : ''}</tr>
-      </tbody></table></div><p class="card-note">Lowest first, by the count chosen in Settings. 1.00 = the Calgary level of City amenities. "With non-City amenities" adds playgrounds, parks, courts, fitness stations and dog parks that are not the City's (OpenStreetMap, City ones taken out), measured against the same Calgary level, so Calgary itself reads above 1.00.</p></div>`;
+      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Growth since ${CY()}</th>${mKeys.map(k => `<th scope="col" class="${k === popMethod() ? 'gm-cur' : ''}">Amenity level, ${esc(names[k] || BM[k].label)}<small>${withO ? 'City + non-City amenities' : 'City amenities only'}</small></th>`).join('')}</tr></thead><tbody>
+      ${[...D.wards_summary.wards].sort((a, b) => ((withO ? a.amenity_level_all : a.amenity_level) ?? 9) - ((withO ? b.amenity_level_all : b.amenity_level) ?? 9)).map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${signed(r.growth_pct, 1, '%')}</td>${mKeys.map(k => `<td class="${k === popMethod() ? 'gm-cur' : ''}">${lv(((withO ? r.amenity_level_all_by_method : r.amenity_level_by_method) || {})[k])}</td>`).join('')}</tr>`).join('')}
+      <tr class="cmp-city-row"><td><b>Calgary</b></td><td></td><td class="num">${signed((D.wards_summary.city || {}).growth_pct, 1, '%')}</td>${mKeys.map(() => `<td>${lv(withO ? (D.wards_summary.city || {}).amenity_level_all : 1)}</td>`).join('')}</tr>
+      </tbody></table></div><p class="card-note">Lowest first. 1.00 = the Calgary level of City amenities.${withO ? ' With non-City amenities added (playgrounds, parks, courts, fitness stations and dog parks that are not the City\'s, City ones taken out), measured against the same Calgary level, so Calgary itself reads above 1.00.' : ''}</p></div>`;
   } else if (mKeys.length) {
     methodTable = `<div class="gap-scope"><h3>${esc(W())} under each way of counting residents</h3>
-      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Residents counted by</th><th scope="col" class="num">Residents</th><th scope="col">Amenity level of ${esc(W())}, City only</th>${g.other ? `<th scope="col">With non-City amenities</th>` : ''}<th scope="col" class="num">Communities not kept up</th></tr></thead><tbody>
-      ${mKeys.map(k => `<tr${k === popMethod() ? ' class="gc-cur"' : ''}><td>${esc(BM[k].label)}${k === popMethod() ? ' <small>(in use)</small>' : ''}</td><td class="num">${fmt(BM[k].residents)}</td><td>${lv(BM[k].level)}</td>${g.other ? `<td>${lv(BM[k].level_all)}</td>` : ''}<td class="num">${fmt((BM[k].flagged || []).length)}</td></tr>`).join('')}
+      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Residents counted by</th><th scope="col" class="num">Residents</th><th scope="col">Amenity level of ${esc(W())}<small>${withO ? 'City + non-City amenities' : 'City amenities only'}</small></th><th scope="col" class="num">Communities not kept up (City amenities)</th></tr></thead><tbody>
+      ${mKeys.map(k => `<tr${k === popMethod() ? ' class="gc-cur"' : ''}><td>${esc(BM[k].label)}${k === popMethod() ? ' <small>(in use)</small>' : ''}</td><td class="num">${fmt(BM[k].residents)}</td><td>${lv(withO ? BM[k].level_all : BM[k].level)}</td><td class="num">${fmt((BM[k].flagged || []).length)}</td></tr>`).join('')}
       </tbody></table></div><p class="card-note">Calgary is 1.00 under every count. Fewer residents (the ${CY()} Census) means more amenities per resident, so fast-growing areas look better than they are; the growth model counts the people living there now.</p></div>`;
   }
   // the whole method, in plain words, with every dataset
@@ -580,7 +581,11 @@ function renderGap() {
       <td>${kinds[k].dataset ? `<button class="link-btn small" data-open="https://data.calgary.ca/d/${esc(kinds[k].dataset)}">${esc(kinds[k].dataset)}</button>` : ''}</td></tr>`; }).join('')}
     </tbody></table></div><p class="card-note"><button type="button" class="link-btn small" data-method="amenity_gap">Every formula the app uses</button> · Counted ${g.counted ? dmy(g.counted) : ''}; the City's asset files are read again every week. Communities and their residents: Community District Boundaries (surr-xmvs), the ${CY()} Census by community and the City's property assessment roll (the growth model).</p></details>`;
 
-  box.innerHTML = `${growthChecks()}${method}${methodTable}${scopeTable}
+  const ost = (g.other || {}).stats || {};
+  const otherSwitch = g.other ? `<div class="gap-scope gap-other-switch"><label class="check big"><input type="checkbox" id="gap-other" ${gapOther ? 'checked' : ''}>
+      <span><b>Add amenities that are not the City's</b> (qualified private ones: developer, homeowners' association, condo and school playgrounds, parks, courts, fitness stations and dog parks, from OpenStreetMap, with every one the City already lists taken out so nothing counts twice)</span></label>
+      <p class="card-note">${withO ? 'On: every amenity level below counts them.' : 'Off: every amenity level below counts the City\'s own amenities only.'} Calgary-wide this adds ${fmt((ost.playgrounds || {}).kept)} playgrounds, ${fmt((ost.basketball || {}).kept)} basketball courts, ${fmt((ost.fitness || {}).kept)} fitness stations, ${fmt((ost.off_leash || {}).kept)} dog parks and ${fmt((ost.local_park_ha || {}).kept)} parks. <button type="button" class="link-btn small" data-method="other_amenities">How they are found and matched</button></p></div>` : '';
+  box.innerHTML = `${otherSwitch}${growthChecks()}${method}${methodTable}${scopeTable}
     <div class="gap-head"><h3>${city ? 'Every community' : 'Each community in ' + esc(W())}</h3>
       <div class="gap-ctl"><label class="field"><span>Show</span><select id="gap-kind"><option value="">Overall amenity level</option>${keys.map(k => `<option value="${k}" ${k === gapKind ? 'selected' : ''}>${esc(kinds[k].label)}</option>`).join('')}</select></label>
       <label class="check"><input type="checkbox" id="gap-flagged" ${gapFlagged ? 'checked' : ''}> Only communities that have not kept up</label></div></div>
@@ -604,7 +609,7 @@ function growthChecks() {
     <div class="gc-list">${G.checks.map(c => `<div class="gc-item${c.key === 'homes_per_home' ? ' gc-key' : ''}"><div class="gc-top"><b>${esc(c.label)}</b><span class="gc-n">${signed(c.growth_pct, 1, '%')}${isNum(c.real_growth_pct) ? `<small>real growth ${signed(c.real_growth_pct, 1, '%')}</small>` : ''}</span></div><p>${esc(c.how)}</p></div>`).join('')}
       <div class="gc-item gc-range"><div class="gc-top"><b>Range of the checks</b><span class="gc-n">${signed(G.low, 1, '%')} to ${signed(G.high, 1, '%')}</span></div><p>Growth since the ${CY()} Census count, from the lowest check to the highest.</p></div></div>
     <h4 class="gc-h">Each way of counting residents against the checks</h4>
-    <div class="gc-list">${Object.entries(G.models || {}).filter(([k, v]) => isNum(v) && names[k]).map(([k, v]) => `<div class="gc-item gc-model${k === cur ? ' gc-cur' : ''}"><div class="gc-top"><b>${esc(names[k])}${k === cur ? ' <small>(in use)</small>' : ''}</b><span class="gc-n">${signed(v, 1, '%')}<small>${(G.verdict || {})[k] === 'within' ? 'within the range' : (isNum(G.low) && v < G.low ? 'below the range' : 'above the range')}</small></span></div></div>`).join('')}</div>
+    <div class="gc-list">${Object.entries(G.models || {}).filter(([k, v]) => isNum(v) && names[k]).map(([k, v]) => `<div class="gc-item gc-model${k === cur ? ' gc-cur' : ''}"><div class="gc-top"><b>${esc(names[k])}${k === cur ? ' <small>(in use)</small>' : ''}</b><span class="gc-n">${signed(v, 1, '%')}<small>${({ within: 'within the range', near: 'within 1 point of the range', below: 'below the range', above: 'above the range' })[(G.verdict || {})[k]] || ''}</small></span></div></div>`).join('')}</div>
     <p class="card-note">${esc(G.settles_it || '')} <button type="button" class="link-btn small" data-method="population_choice">How residents are counted</button></p></div>`;
 }
 function gapMeter(v) {
@@ -614,6 +619,7 @@ function gapMeter(v) {
 document.addEventListener('change', e => {
   if (e.target.id === 'gap-kind') { gapKind = e.target.value; renderGap(); }
   if (e.target.id === 'gap-flagged') { gapFlagged = e.target.checked; renderGap(); }
+  if (e.target.id === 'gap-other') { gapOther = e.target.checked; renderGap(); }
 });
 let grTyping;
 $('#gr-text').addEventListener('input', e => { clearTimeout(grTyping); grTyping = setTimeout(() => { grFilter.text = e.target.value; renderGrowth(); }, 200); });
@@ -1183,7 +1189,7 @@ function renderRecon() {
   $('#gr-sub').textContent = 'How the population is built from the property roll: every home and rental unit, times people per home, adding up to the total';
   if (!R) { $('#gr-stats').innerHTML = ''; box.innerHTML = '<p class="empty">The build-up is not available in this refresh.</p>'; return; }
   const T = R.totals, m = popMethod();
-  $('#gr-stats').innerHTML = [[fmt(T.homes_now, 0), 'homes lived in on the property roll'], [fmt(T.units_now, 0), 'rental units (apartment buildings)'],
+  $('#gr-stats').innerHTML = [[fmt(T.homes_now, 0), 'homes lived in on the property roll (rental units counted separately)'], [fmt(T.units_now, 0), 'rental units (apartment buildings)'],
     [fmt(T.population), 'residents by the growth model'], [fmt(T.residents), 'residents, ' + popChip() + ' (in use)']]
     .map(([b, s]) => `<div class="istat"><b>${b}</b><span>${esc(s)}</span></div>`).join('');
   const rows = [...R.rows].sort((a, b) => String(a.name).localeCompare(String(b.name)));
@@ -1196,16 +1202,18 @@ function renderRecon() {
       <th scope="col" class="num">Rental units today</th><th scope="col" class="num">People per unit</th><th scope="col" class="num">People in rental units</th>
       <th scope="col" class="num">Growth model</th><th scope="col">${esc(stepHead)}</th><th scope="col" class="num">Residents (in use)</th><th scope="col">How the model counted it</th></tr></thead><tbody>
     ${rows.map(r => `<tr${r.code === rcComm ? ' class="is-sel"' : ''}><td><button type="button" class="link-btn rc-pick" data-c="${esc(r.code)}">${esc(titleCase(r.name))}</button></td>
-      <td class="num">${fmt(r.census2021)}</td><td class="num">${fmt(r.households_2021)}</td><td class="num">${fmt(r.homes_census, 1)}</td><td class="num">${fmt(r.homes_now, 1)}</td>
+      <td class="num">${r.census2021 ? fmt(r.census2021) : 'new'}</td><td class="num">${r.households_2021 ? fmt(r.households_2021) : 'new'}</td><td class="num">${fmt(r.homes_census, 1)}</td><td class="num">${fmt(r.homes_now, 1)}</td>
       <td class="num">${fmt(r.people_per_home, 3)}</td><td class="num">${isNum(r.people_in_homes) ? fmt(r.people_in_homes, 1) : '–'}</td>
       <td class="num">${fmt(r.units_now, 1)}</td><td class="num">${fmt(r.people_per_unit, 2)}</td><td class="num">${isNum(r.people_in_units) ? fmt(r.people_in_units, 1) : '–'}</td>
       <td class="num"><b>${fmt(r.population)}</b></td><td class="wrap rc-step">${esc(r.step || '')}${r.rounding ? ` (rounding ${signed(r.rounding, 0, '')})` : ''}</td><td class="num"><b>${fmt(r.residents)}</b></td>
-      <td class="wrap rc-how">${esc(r.method === 'people per home' ? 'Per-home average' : r.method === 'household size' ? 'Household size (homes on Census day too far from Census households)' : "Calgary's average (built since " + CY() + ')')}: ${esc(r.how || '')}</td></tr>`).join('')}
+      <td class="wrap rc-how">${esc(r.method === 'people per home' ? 'Per-home average' : r.method === 'household size' ? 'Household size (homes on Census day too far from Census households)' : r.census2021 ? "Calgary's average (fewer than 20 homes on Census day)" : "Calgary's average (built since " + CY() + ')')}: ${esc(r.how || '')}</td></tr>`).join('')}
     <tr class="cmp-city-row"><td><b>${esc(W())}</b></td><td class="num"><b>${fmt(T.census2021)}</b></td><td></td><td class="num"><b>${fmt(T.homes_census, 0)}</b></td><td class="num"><b>${fmt(T.homes_now, 0)}</b></td><td></td><td class="num"><b>${fmt(T.people_in_homes, 0)}</b></td><td class="num"><b>${fmt(T.units_now, 0)}</b></td><td></td><td class="num"><b>${fmt(T.people_in_units, 0)}</b></td><td class="num"><b>${fmt(T.population)}</b></td><td></td><td class="num"><b>${fmt(T.residents)}</b></td><td></td></tr>
     </tbody></table></div>
+    ${(() => { const hsr = rows.filter(r => r.method === 'household size'); return hsr.length ? `<p class="card-note">People in homes and in rental units are not split for the ${hsr.length} ${hsr.length === 1 ? 'community' : 'communities'} counted by household size (${esc(hsr.slice(0, 6).map(r => titleCase(r.name)).join(', '))}${hsr.length > 6 ? '…' : ''}): their residents are the ${CY()} count + the change in homes x the ${CY()} household size, so the two "people in" totals add up to ${fmt(T.people_in_homes + T.people_in_units, 0)}, and the other ${fmt(T.population - T.people_in_homes - T.people_in_units, 0)} come from those communities (and from any community kept at its ${CY()} count, see its note). "Homes on Census day" and "Homes today" leave out rental units, which are in their own column.</p>` : ''; })()}
     <p class="card-note">Homes: residential property with a building and a residential use on the City's property roll (4bsw-nn7w): commercial, vacant lots, parking stalls and storage lockers are left out; each home counts one year after its year of construction. People per home: ${CY()} Census residents (less the people in rental units) / homes on Census day, the same for every kind of home in a community; rental apartment buildings are one account on the roll, so their units come from building permits or, without one, from assessed value. Communities whose homes were more than 15% off the Census household count use the 2021 household size for the change only. <button type="button" class="link-btn small" data-method="homes">How homes are counted</button> <button type="button" class="link-btn small" data-method="population">The growth model</button></p></div>
     <div class="gap-scope" id="rc-props"></div>`;
   $$('.rc-pick', box).forEach(b => b.addEventListener('click', () => { rcComm = b.dataset.c; rcProps = null; renderRecon(); loadProps(); }));
+  $('#gr-notes').textContent = `Sources: City of Calgary open data: Current Year Property Assessments (4bsw-nn7w), the ${CY()} Census by community (f9wk-wej9) and households (msjx-5ygv), building permits matched to rental buildings; the City's population outlook for the step to the City's total.`;
   renderProps();
 }
 async function loadProps() {

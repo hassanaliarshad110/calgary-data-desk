@@ -18,7 +18,7 @@ THE SCORE (0 to 100, higher = more urgent)
 
   So a gap counts in full where the population is new or doubled, and at half where nobody new has arrived: the same
   shortfall is more urgent where demand is growing on it. Worked examples: Homestead (new since 2021), level 0.46 ->
-  100 x 0.54 x 1.00 = 54; Beltline, level 0.43, grew 20.6% -> 100 x 0.57 x 0.60 = 34 (34.3); a community at 0.43 that
+  100 x 0.54 x 1.00 = 54; a community at level 0.43 that grew 20% -> 100 x 0.57 x 0.60 = 34; a community at 0.43 that
   did not grow -> 100 x 0.57 x 0.50 = 29.
 
 TWO COUNTS
@@ -145,7 +145,8 @@ METHOD = [
     f'and 1.00); a community with no residents in 2021 gets {NEW_WEIGHT:.2f}. A gap counts in full where the population '
     'is new or doubled and at half where nobody new has arrived. Growth is the growth model\'s (homes built).',
     'Score = 100 x shortfall x growth weight, rounded: 0 to 100, higher is more urgent. Examples: Homestead (new), '
-    'level 0.46: 100 x 0.54 x 1.00 = 54. Beltline, level 0.43, grew 20.6%: 100 x 0.57 x 0.60 = 34.',
+    'level 0.46: 100 x 0.54 x 1.00 = 54. A community at level 0.43 that grew 20%: 100 x 0.57 x 0.60 = 34. (Levels move '
+    'with the way of counting residents and with the non-City amenities; the dashboard has each community\'s own.)',
     f'Urgent: level below {URGENT_LEVEL:.2f} and new since 2021 or grew more than {GROWTH_PCT}%. High: level below '
     f'{LIST_LEVEL:.2f} and the same growth. Watch: level below {LIST_LEVEL:.2f} with slower growth. Communities at '
     f'{LIST_LEVEL:.2f} or above are not listed.',

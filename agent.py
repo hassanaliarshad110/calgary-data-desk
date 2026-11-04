@@ -159,7 +159,7 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
 3. Check: note gaps, definition changes, partial months, records with
    no community, and anything that would change the reading. Normalise counts by residents (per 1,000) or homes when
    comparing areas of different size, and say which population count you used (the office's Settings choice, in the
-   dashboard's population.method_label) and how the result moves under the other two (population.by_method).
+   dashboard's population.method_label) and how the result moves under the other three (population.by_method).
 4. Compute with calculate for every derived number (rates, % changes, shares, growth per year, trend slopes). Never do
    arithmetic in your head for a figure that goes in a report.
 5. Report with make_report: a summary of 3 to 6 findings (each with its number), sections that each answer one part
@@ -175,7 +175,7 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
    anything the data does not support. The readers are the Mayor, councillors and their staff, who know their area, its projects and
    City processes well: leave out anything obvious to them or that is routine office work (checking a project's opening
    date with the City, "monitor the data", "engage residents", "contact 311", "keep an eye on trends"). Each
-   recommendation must be specific (which community, which service, how much), rest on a finding from the data, and say
+   recommendation must be specific (which community, which service, how big the gap), rest on a finding from the data, and say
    something the office could not have known without this analysis. Fewer, sharper recommendations are better than a
    long list; if the data supports none, say so in one line instead of filling the section. Put tables the office may want in Excel in the sections; they are saved as CSV.
    The app adds an appendix listing every query you ran, so anyone can check the figures.
@@ -204,8 +204,9 @@ when something (an opening date, a cost) is not published rather than guessing. 
 Development Permits (6933-unw5) and Building Permits (c2es-76ed) by address or community, and \
 largest_building_permits_not_homes lists the period's biggest non-housing permits. You cannot read news websites: if \
 asked for news newer than the checked date, say so and suggest the project page link.
-- Who lives in the area: get_dashboard section profile (the 2021 Census profile of the selected ward, or of every \
-ward for all of Calgary; people in private households, 2021 ward boundaries). Use it for context in reports and briefings (for example language when planning \
+- Who lives in the area: get_dashboard section profile (the 2021 Census profile of the selected ward; for all of \
+Calgary there is no single profile, so say so and use the wards section or ask which ward; people in private \
+households, 2021 ward boundaries). Use it for context in reports and briefings (for example language when planning \
 outreach, household size when comparing per household and per person, crowding and renters for housing questions), \
 always say it is the 2021 Census, and never use it as today's population.
 - Population: the office chooses in Settings how residents are counted; get_dashboard section overview gives it \
@@ -221,7 +222,9 @@ which the City puts at about 20.7% since May 2021) and \
 'city_actual' (the City's total, shared by actual growth: each community = its 2021 Census count x f + the growth the \
 growth model measured there from homes built; f = 1 + (the City's estimate - Calgary's growth model total) / 1,288,995, \
 1.1014 in November 2026 (population.actual_factor), so Calgary still adds up to the City's figure but growth lands where \
-homes were built; children likewise: 2021 children x one factor + the growth model's children for new homes, matching \
+homes were built. f is not people per home: it multiplies every community's 2021 count (+10.14%); from the growth \
+model, which already holds the 2021 count once, residents = growth model + 2021 count x (f - 1), e.g. Martindale \
+14,770 + 14,540 x 0.1014 = 16,245 (get_code name actual_factor has the worked example); children likewise: 2021 children x one factor + the growth model's children for new homes, matching \
 the City's forecast of children). Every figure that uses residents is worked out again under the chosen way of \
 counting. Exact code: get_code topic population (counts, actual_factor, total_fix) and children. The dashboard also \
 shows a live population counter: the figure from the last refresh plus the City's forecast pace since then (get_code \
@@ -232,7 +235,7 @@ Total Population as of April (2021-2025 estimates, 2026 onward forecast): https:
 A month's figure is read on a straight line between April figures: November 2026 = 1,583,200 + 7/12 x (1,608,700 - \
 1,583,200) = 1,598,075. Cite this exact document and table whenever you quote the City's population. Under 'city_pace', children (per 1,000 \
 children measures, child care spaces per 100 children) follow the same table's Population by Cohort (0-4, 5-9, 10-14; \
-Calgary aged 0 to 14 in November 2026: 272,092), shared by each community's 2021 count of children. Every \
+Calgary aged 0 to 14 in November 2026: about 272,100; the exact figure for today is in the dashboard), shared by each community's 2021 count of children. Every \
 residents figure and rate per 1,000 in the dashboard uses the chosen method; always say which one, and when it matters \
 show how the answer changes under the others (rates scale by the ratio of the populations). Where many homes were \
 built since 2021 (the new suburbs, much of the northeast) the 2021 Census and a single city-wide growth factor \
@@ -249,20 +252,22 @@ the roll with homes_now, count the roll with those filters and by year_of_constr
 - Families: get_dashboard also has licensed child care in the selected area by quarter and community (Government of \
 Alberta Child Care Information, with each program's inspections and enforcement over the last 12 months) and \
 students enrolled in each school in the area by year (Government of Alberta student enrolment). Children 0-4 and 0-14 \
-are the 2021 Census counts grown with the model. Family day home agencies are listed but their spaces are not \
+follow the way of counting residents: by default each community's 2021 children x one factor + the growth model's \
+children for its new homes, so Calgary matches the City's forecast of children (get_code topic children). Family day home agencies are listed but their spaces are not \
 counted, because the homes they oversee are spread across the city.
 - Amenities and growth: get_dashboard section amenity_gap has the app's amenity level, its method step by \
-step (method), the level under all three ways of counting residents (level_under_each_resident_count) and every \
+step (method), the level under all four ways of counting residents (level_under_each_resident_count) and every \
 dataset. Explain the level from method, never by working the formula out backwards. section wards has every ward's \
-level under all three counts (amenity_level_by_method).
+level under all four counts (amenity_level_by_method), and with amenities that are not the City's too \
+(amenity_level_all, amenity_level_all_by_method).
 - Needs attention: get_dashboard section needs_attention has the communities that most need public \
 amenities (tier Urgent, High or Watch, a score from 0 to 100, its shortfall and growth weight, and what it would \
 take to reach the Calgary level). It counts the City's amenities plus the ones that are not the City's from \
 OpenStreetMap (developer, condo, school), with City ones taken out so nothing counts twice (get_code topic \
 other_amenities); each row also has the City-only level. The score is worked out in attention.py (get_code topic \
-needs_attention). Asked \
-about spending, present it as priorities for review from open data, never as a spending recommendation: the data has \
-no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
+needs_attention). Always \
+(in answers, reports and their recommendations) present it as priorities for review from open data, never as a \
+spending recommendation or a list of things to buy: the data has no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
 communities often have developer-built parks still to come.
 
 Extra detail for Ward 5 (use only when the question is about Ward 5)
@@ -362,7 +367,7 @@ TOOLS = [
                     'all 14 wards and Calgary side by side (residents, growth, 311, crime, traffic, building, child care, '
                     'amenities), whatever area is selected.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'needs_attention', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'needs_attention', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
          'description': 'Which part of the dashboard; overview by default'}}}},
     {'name': 'get_weather',
      'description': 'Calgary weather history from Environment Canada (Calgary International Airport, northeast Calgary): '
@@ -381,7 +386,7 @@ TOOLS = [
      'input_schema': {'type': 'object', 'properties': {
          'kind': {'type': 'string', 'enum': ['crime', 'disorder']},
          'wards': {'type': 'array', 'items': {'type': 'string'}, 'description': 'e.g. ["3"] or ["Ward 3"]; empty for all Calgary'},
-         'communities': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Community names, e.g. ["MARTINDALE"]'},
+         'communities': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Community names in capitals, e.g. ["BOWNESS"]'},
          'categories': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Crime categories or disorder types, or a word in them, e.g. ["Vehicle"]'},
          'start': {'type': 'string', 'description': 'First month, YYYY-MM'},
          'end': {'type': 'string', 'description': 'Last month, YYYY-MM (inclusive)'},
@@ -393,12 +398,15 @@ TOOLS = [
      'input_schema': {'type': 'object', 'properties': {}}},
     {'name': 'get_method',
      'description': "How the app counts every figure, by dataset: filters, codes, formulas, Excel steps and cautions. "
-                    'topic: a key (311, population, children, permits, dp, traffic, police, csi, rents, child_care, schools, '
-                    'amenities, roads, cameras, city_disorder, weather), a dataset ID or a word; empty lists the topics.',
+                    'topic: a key (311, population_choice, population, children, homes, growth_checks, live_counter, '
+                    'needs_attention, other_amenities, amenity_gap, rates, compare, permits, dp, traffic, police, csi, '
+                    'rents, child_care, schools, amenities, roads, cameras, city_disorder, budget, property_tax, weather), '
+                    'a dataset ID or a word; empty lists the topics.',
      'input_schema': {'type': 'object', 'properties': {'topic': {'type': 'string'}}}},
     {'name': 'get_code',
      'description': "The app's own Python code behind any figure: the exact formula, constants and thresholds that "
-                    'produced it. topic (empty lists them): needs_attention, amenity_gap, assets, population, growth_model, '
+                    'produced it. topic (empty lists them): needs_attention, other_amenities, amenity_gap, assets, '
+                    'population, population_recon, homes, growth_checks, live_counter, growth_model, '
                     'children, rates, periods, property_tax, budget, crime, child_care, rents, wards, census, report_auditor. '
                     'Or name: one function or constant (e.g. city_factor, scope_level, GAP_LEVEL), optionally with file. '
                     'Or text with file: search a file (e.g. text "1,598", file "dashboard.py").',
@@ -543,6 +551,59 @@ STEP_TEXT = {
 }
 
 
+def _fit(obj, cap):
+    """Make a tool result fit: shorten its longest list again and again (saying so in the result) until it fits."""
+    import copy
+    o = copy.deepcopy(obj)
+    notes = []
+
+    def compact(x):                                   # {code: {field: value}} with many codes -> one table, same data
+        if isinstance(x, dict):
+            for k, v in list(x.items()):
+                if isinstance(v, dict) and len(v) > 40 and all(isinstance(e, dict) for e in v.values()):
+                    fields = sorted({f for e in v.values() for f in e})
+                    x[k] = {'fields': ['key'] + fields, 'rows': [[kk] + [e.get(f) for f in fields] for kk, e in v.items()]}
+                else:
+                    compact(v)
+        elif isinstance(x, list):
+            for v in x:
+                compact(v)
+    compact(o)
+
+    def longest(x):
+        best = (0, None, None)
+        if isinstance(x, dict):
+            for k, v in x.items():
+                if isinstance(v, list) and len(v) > 5:
+                    n = len(json.dumps(v, default=str))
+                    if n > best[0]:
+                        best = (n, x, k)
+                if isinstance(v, (dict, list)):
+                    sub = longest(v)
+                    if sub[0] > best[0]:
+                        best = sub
+        elif isinstance(x, list):
+            for v in x:
+                if isinstance(v, (dict, list)):
+                    sub = longest(v)
+                    if sub[0] > best[0]:
+                        best = sub
+        return best
+    for _ in range(40):
+        if len(json.dumps(o, default=str)) <= cap - 400:
+            break
+        n, parent, key = longest(o)
+        if not parent:
+            break
+        was = len(parent[key])
+        parent[key] = parent[key][:max(5, was // 2)]
+        notes.append(f'{key}: first {len(parent[key])} of {was}')
+    if notes and isinstance(o, dict):
+        o['_shortened'] = ('Lists shortened to fit: ' + '; '.join(notes) + '. Ask for one ward or community, or query the '
+                           'dataset, for the rest.')
+    return o
+
+
 def _attention_out(a, ward_of, short=False):
     """The Needs attention ranking for the agent. short: the counts and the ten most urgent names (for amenity_gap);
     otherwise every Urgent and High community and the Watch ones, most urgent first, with what each would take."""
@@ -554,7 +615,8 @@ def _attention_out(a, ward_of, short=False):
             else "the City's only"}
     if short:
         return {**base, 'most_urgent': [f"{r['name']} ({r['tier']}, score {r['score']})" for r in rows[:10]],
-                'more': 'get_dashboard section needs_attention has every listed community, the score and what each would take'}
+                'more': 'get_dashboard section needs_attention has every listed community, the score and what each would take',
+                'caution': 'Priorities for review from open data, never a spending recommendation.'}
     top = [r for r in rows if r['tier'] != 'Watch']
     watch = [r for r in rows if r['tier'] == 'Watch']
     keep = top + watch[:max(0, 45 - len(top))]
@@ -563,8 +625,9 @@ def _attention_out(a, ward_of, short=False):
                              'weight = 1.0 if new since 2021 else 0.5 + min(max(growth_pct, 0), 100) / 200 (attention.py)',
             'shown': 'every listed community' if len(keep) == len(rows) else
                      f'every Urgent and High community and the {len(keep) - len(top)} highest-scoring Watch ones of {len(watch)}',
-            'rows': [{**{k: r.get(k) for k in ('name', 'tier', 'score', 'level', 'shortfall', 'weight', 'growth_pct',
-                                               'residents')},
+            'growth_note': 'growth_since_2021_pct is the growth model\'s (homes built), whatever way residents are counted',
+            'rows': [{**{k: r.get(k) for k in ('name', 'tier', 'score', 'level', 'shortfall', 'weight', 'residents')},
+                      'growth_since_2021_pct': r.get('growth_pct'),
                       **({'new_since_2021': True} if r.get('new') else {}), 'ward': ward_of.get(r.get('code')),
                       **({'level_city_only': r.get('level_city')} if r.get('level_city') is not None else {}),
                       **({'not_city_openstreetmap': r.get('other')} if r.get('other') else {}),
@@ -627,6 +690,19 @@ def dashboard_section(d, section='overview', wards=None):
         return {'ward_profile_2021_census': d.get('profile')}
     if section == 'crime':
         return {'ward_crime': d.get('crime'), 'crime_severity_index': d.get('safety')}
+    if section == 'population_recon':
+        rc = (d.get('population') or {}).get('recon') or {}
+        keys = ('code', 'name', 'census2021', 'households_2021', 'homes_census', 'homes_now', 'people_per_home',
+                'people_in_homes', 'units_now', 'people_per_unit', 'people_in_units', 'method', 'population', 'residents')
+        return {**{k: rc.get(k) for k in ('t', 'lag', 'roll_year', 'method', 'factor_actual', 'factor_pace', 'homes_where',
+                                          'totals')},
+                'fields': keys, 'rows': [[r.get(k) for k in keys] for r in rc.get('rows') or []],
+                'step_example': next((r.get('step') for r in rc.get('rows') or [] if r.get('step')), None),
+                'rental_buildings': len(rc.get('rentals') or []),
+                'note': 'Each row: homes x people per home + rental units x people per unit = the growth model (population), '
+                        'then the step to the way of counting in use (residents). method "household size" rows use the 2021 '
+                        'household size for the change in homes only. The screen Growth vs amenities > Population build-up '
+                        'lists every property. Code: get_code topic population_recon.'}
     if section == 'needs_attention':
         g = d.get('amenity_gap') or {}
         ward_of = {c['code']: c.get('ward') for c in d.get('communities') or []}
@@ -666,7 +742,8 @@ def dashboard_section(d, section='overview', wards=None):
                 'violent', 'violent_change_pct', 'traffic12', 'traffic_per_1000', 'traffic_change_pct', 'new_homes12',
                 'dev_permits12', 'child_care_spaces', 'child_care_per_100_kids', 'daycare_per_100_0_4', 'schools',
                 'students', 'facilities', 'playgrounds', 'stops', 'amenity_level', 'amenity_level_by_method',
-                'amenity_flagged', 'amenities_vs_city', 'amenity_counts')
+                'amenity_flagged', 'amenities_vs_city', 'amenity_counts', 'amenity_level_all', 'amenity_level_all_by_method',
+                'homes_now', 'homes_census', 'households_2021', 'homes_growth_pct', 'people_per_home')
         slim = lambda r: {k: r.get(k) for k in keep if r.get(k) is not None}
         return {'wards': [slim(r) for r in ws.get('wards') or []], 'calgary': {**slim(ws.get('city') or {}),
                                                                             'amenity_counts': ws.get('amenity_counts_city')},
@@ -674,8 +751,9 @@ def dashboard_section(d, section='overview', wards=None):
                 'note': 'One row per ward and one for Calgary, for the same period as the dashboard. amenity_level and '
                         'amenities_vs_city: 1.00 = the city level. amenity_counts: how many of each asset (benches, '
                         'playgrounds, picnic tables, park hectares and so on) the City lists in the ward or in Calgary.'}
-    out = {k: d.get(k) for k in ('period', 'prev_period', 'period_spec', 'scope', 'ward', 'population', 'summary', 'disorder',
-                                 'roadwork')}
+    out = {k: d.get(k) for k in ('period', 'prev_period', 'period_spec', 'scope', 'ward', 'summary', 'disorder', 'roadwork')}
+    # population without the community-by-community build-up (section population_recon has it)
+    out['population'] = {k: v for k, v in (d.get('population') or {}).items() if k not in ('recon',)}
     out['open_by_type'] = (d.get('open_by_type') or [])[:8]
     out['service_areas'] = (d.get('service_areas') or [])[:10]
     res = [c for c in d['communities'] if c.get('residential')]
@@ -698,7 +776,7 @@ def dashboard_section(d, section='overview', wards=None):
         out['schools'] = {'latest_year': sc.get('latest_year'), 'students': sc.get('students'),
                           'schools_counted': len([x for x in sc.get('schools', []) if x.get('latest')])}
     out['more'] = ('Call again with section = communities, child_care, schools, development, amenities, amenity_gap, '
-                   'needs_attention, crime, traffic, rents, profile, property_tax or wards (every ward side by side) for detail.')
+                   'needs_attention, population_recon, crime, traffic, rents, profile, property_tax or wards (every ward side by side) for detail.')
     return out
 
 
@@ -1065,7 +1143,9 @@ class Agent:
                     out = json.dumps(result, default=str)
                     cap = 30000 if name in ('get_dashboard', 'get_ward5_dashboard') else MAX_RESULT_CHARS
                     if len(out) > cap:
-                        out = out[:cap] + '... [cut: ask for fewer rows or group the data]'
+                        out = json.dumps(_fit(result, cap), default=str)
+                        if len(out) > cap:
+                            out = out[:cap] + '... [cut: ask for fewer rows or group the data]'
                     results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': out})
                 except Exception as e_:               # noqa: BLE001 - any tool failure goes back to the model to fix
                     results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': f'Error: {e_}',

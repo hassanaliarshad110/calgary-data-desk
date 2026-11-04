@@ -16,13 +16,16 @@ HOW AN OPENSTREETMAP FEATURE IS MATCHED TO THE CITY'S (a match is the City's own
                    metres
   park             PARK_OVERLAP or more of its area inside City park sites (Parks Sites, any category)
   Anything tagged as operated or owned by the City of Calgary is the City's whatever its distance.
-  The same thing mapped twice in OpenStreetMap (a point and an outline, say) counts once: a second playground,
-  station, court or dog park within SAME_M metres of one already counted is left out.
+  The same thing mapped twice in OpenStreetMap counts once: a playground, station, court or dog park within SAME_M
+  metres of one already counted, or inside the outline of one already counted, is left out; a park with PARK_OVERLAP
+  or more of its area inside a park already counted is left out (outlines are counted before points, larger parks
+  before smaller ones). A park's area leaves out its holes (inner rings).
 WHAT IS COUNTED, for each feature that is not the City's, in the community holding its middle:
   playgrounds +1; fitness +1 (a station, which may hold several pieces); basketball + the court's hoops tag, else 1;
   off_leash +1; local_park_ha + its area in hectares (parks between PARK_MIN_HA and PARK_MAX_HA only: smaller ones are
-  bits of lawn, larger ones natural areas that are not neighbourhood parks). Left out: access=no, private or customers,
-  fee=yes and indoor ones (paid indoor play centres): residents cannot simply walk in.
+  bits of lawn, larger ones natural areas that are not neighbourhood parks). Left out: access=no or customers, fee=yes
+  and indoor ones (paid indoor play centres). access=private stays in: it marks homeowners' association and condo
+  parks and playgrounds, which serve the community's own residents.
 """
 import json
 import math
@@ -68,15 +71,17 @@ def fetch(bbox=BBOX, timeout=200):
 
 
 # ---------------------------------------------------------------- shapes
-def _rings(el):
-    """Closed rings [[lon, lat], ...] of a way or a multipolygon relation (outer ways joined end to end)."""
+def _rings(el, role='outer'):
+    """Closed rings [[lon, lat], ...] of a way or a multipolygon relation (its outer ways, or with role='inner' its
+    holes, joined end to end)."""
     if el.get('type') == 'way':
         g = [[p['lon'], p['lat']] for p in el.get('geometry') or []]
-        return [g] if len(g) >= 4 and g[0] == g[-1] else []
+        return [g] if role == 'outer' and len(g) >= 4 and g[0] == g[-1] else []
     if el.get('type') != 'relation':
         return []
+    roles = ('outer', '') if role == 'outer' else ('inner',)
     parts = [[[p['lon'], p['lat']] for p in m.get('geometry') or []] for m in el.get('members') or []
-             if m.get('type') == 'way' and m.get('role', 'outer') in ('outer', '') and m.get('geometry')]
+             if m.get('type') == 'way' and m.get('role', 'outer') in roles and m.get('geometry')]
     rings = []
     while parts:
         ring = parts.pop(0)
@@ -157,8 +162,10 @@ def _kind(tags):
 
 
 def _open_to_all(tags):
-    """Left out: closed or private ones, paid indoor play centres and anything for customers only."""
-    return ((tags.get('access') or '') not in ('no', 'private', 'customers') and (tags.get('fee') or '') != 'yes'
+    """Left out: closed ones, paid indoor play centres and anything for customers only. access=private stays in: in
+    OpenStreetMap it marks homeowners' association and condo parks and playgrounds, which serve the community's own
+    residents (the amenities the City's data misses)."""
+    return ((tags.get('access') or '') not in ('no', 'customers') and (tags.get('fee') or '') != 'yes'
             and (tags.get('indoor') or 'no') == 'no')
 
 
@@ -191,6 +198,13 @@ def build(elements, city, community_locator):
     leash_mid = _Points([geo.centre(s) for s in leash]) if leash else _Points([])
     parks_loc = geo.Locator({i: s for i, s in enumerate(city.get('parks') or []) if s}) if city.get('parks') else None
     by, kept, mine = {}, [], {k: _Points([]) for k in KINDS}
+    outlines = {k: [] for k in KINDS}                # outlines already counted, so a point or park inside one counts once
+    # outlines before points, and larger parks before smaller ones, so the whole is counted and its parts are not
+    def order(el):
+        g = el.get('geometry') or []
+        span = (max(p['lon'] for p in g) - min(p['lon'] for p in g)) * (max(p['lat'] for p in g) - min(p['lat'] for p in g)) if g else 0
+        return (el.get('type') == 'node', -span)
+    elements = sorted(elements, key=order)
     stats = {k: {'found': 0, 'city': 0, 'left_out': 0, 'kept': 0} for k in KINDS}
     seen = set()
     for el in elements:
@@ -209,7 +223,8 @@ def build(elements, city, community_locator):
         area = None
         if k == 'local_park_ha':
             from assets import _area_ha                 # one area formula for City and OpenStreetMap parks
-            area = _area_ha(shape) if shape else 0
+            holes = _shape(_rings(el, 'inner'))
+            area = max(0.0, (_area_ha(shape) if shape else 0) - (_area_ha(holes) if holes else 0))
             if not (PARK_MIN_HA <= area <= PARK_MAX_HA):
                 st['left_out'] += 1
                 continue
@@ -224,7 +239,14 @@ def build(elements, city, community_locator):
         if is_city:
             st['city'] += 1
             continue
-        if k != 'local_park_ha' and mine[k].near(lon, lat, SAME_M):
+        inside_kept = any(o.contains(lon, lat) for o in outlines[k])
+        if k == 'local_park_ha' and not inside_kept and outlines[k] and shape:
+            sh_ = geo.Shape(shape)
+            x0, y0, x1, y1 = sh_.box
+            near_ = [o for o in outlines[k] if not (o.box[2] < x0 or o.box[0] > x1 or o.box[3] < y0 or o.box[1] > y1)]
+            if near_:
+                inside_kept = _share_in(shape, geo.Locator({i: o for i, o in enumerate(near_)})) >= PARK_OVERLAP
+        if inside_kept or (k != 'local_park_ha' and mine[k].near(lon, lat, SAME_M)):
             st['twice'] = st.get('twice', 0) + 1
             continue
         code = community_locator.find(lon, lat)
@@ -244,6 +266,8 @@ def build(elements, city, community_locator):
         d[k] = round(d.get(k, 0) + v, 2)
         st['kept'] += 1
         mine[k].add(lon, lat)
+        if shape:
+            outlines[k].append(geo.Shape(shape))
         kept.append({'kind': k, 'comm': code, 'name': tags.get('name') or '', 'lon': round(lon, 6), 'lat': round(lat, 6),
                      'osm': f"{el.get('type')}/{el.get('id')}", **({'ha': round(area, 2)} if area is not None else {}),
                      **({'access': tags['access']} if tags.get('access') else {})})

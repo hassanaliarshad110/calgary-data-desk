@@ -36,7 +36,7 @@ TOPICS = {
                              ('dashboard.py', 'amenity_view')]},
     'assets': {'what': 'Counting City assets (benches, playgrounds, trees, park space...) in each community',
                'code': [('assets.py', '*')]},
-    'population': {'what': 'Residents today under each way of counting: the City\'s total (default), the City\'s total shared by actual growth, the growth model, the 2021 Census',
+    'population': {'what': 'Residents today under each way of counting: the City\'s total shared by actual growth (default), the City\'s total at one rate for all, the growth model, the 2021 Census',
                    'code': [('dashboard.py', 'CITY_POP_APRIL'), ('dashboard.py', 'CITY_POP_SOURCE'),
                             ('dashboard.py', 'DEFAULT_POP_METHOD'), ('dashboard.py', 'POP_METHODS'),
                             ('dashboard.py', 'city_population_at'), ('dashboard.py', 'new_people'),

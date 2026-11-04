@@ -9,7 +9,7 @@ const CMP_METRICS = [
   { g: '311', k: 'requests_per_1000', label: '311 requests per 1,000 residents a year', d: 0, better: null },
   { g: '311', k: 'infra_per_1000', label: 'Infrastructure reports per 1,000 residents a year', d: 1, better: null },
   // 311 counts are not scored better or worse: fewer reports can mean problems are not being reported (the 311 study)
-  { g: '311', k: 'open_per_1000', label: 'Open requests per 1,000 residents', d: 1, better: null },
+  { g: '311', k: 'open_per_1000', label: 'Open requests per 1,000 residents (requests in residential communities)', d: 1, better: null },
   { g: '311', k: 'closed_7_days_pct', label: 'Requests closed within 7 days', d: 1, unit: '%', better: 'high' },
   { g: '311', k: 'app_share_pct', label: 'Requests made through the 311 app', d: 1, unit: '%', better: null },
   { g: 'Safety', k: 'crime_per_1000', label: 'Crimes per 1,000 residents a year', d: 1, better: 'low' },
@@ -38,7 +38,7 @@ const CMP_METRICS = [
 const CMP_AMENITY = ['playgrounds', 'local_park_ha', 'benches', 'picnic_tables', 'basketball', 'goal_posts', 'washrooms',
   'off_leash', 'trees', 'rec_facilities', 'libraries', 'community_centres', 'transit_stops'];
 
-let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'alm:city_actual', map: null, layer: null, loading: null };
+let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'amenity_level', map: null, layer: null, loading: null };
 try {
   const saved = JSON.parse(localStorage.getItem('cdd-compare') || 'null');
   if (saved) { CMP.main = saved.main; CMP.others = new Set((saved.others || []).filter(w => w >= 1 && w <= 14)); CMP.picked = !!saved.picked; CMP.metric = saved.metric || CMP.metric; }
@@ -63,9 +63,11 @@ const ord = n => n + (['th', 'st', 'nd', 'rd'][(n % 100 - 20) % 10] || ['th', 's
 function cmpRank(m, ward) {
   const rows = CMP.data.wards_summary.wards.filter(r => isNum(cmpVal(r, m.k)));
   const dir = m.better === 'low' ? 1 : -1;                          // rank 1: best, or highest when neither is better
-  rows.sort((a, b) => dir * (cmpVal(a, m.k) - cmpVal(b, m.k)));
-  const i = rows.findIndex(r => r.ward === ward);
-  return i < 0 ? null : { n: i + 1, of: rows.length };
+  // equal values (as shown) share a place: rank = 1 + how many wards come before it
+  const shown = r => Math.round(cmpVal(r, m.k) * Math.pow(10, m.d || 0));
+  const me = rows.find(r => r.ward === ward);
+  if (!me) return null;
+  return { n: 1 + rows.filter(r => dir * (shown(r) - shown(me)) < 0).length, of: rows.length };
 }
 
 // the comparison belongs to a period and a way of counting residents: either changing means loading it again
@@ -99,7 +101,7 @@ async function renderCompare() {
   }
   if (!CMP.data || !CMP.data.wards_summary) return;
   const ws = CMP.data.wards_summary;
-  if (!CMP.main) CMP.main = SCOPE || 5;
+  if (!CMP.main) CMP.main = SCOPE || 1;
   if (!CMP.others.size && !CMP.picked) [...ws.wards].sort((a, b) => (b.residents || 0) - (a.residents || 0)).slice(0, 3)
     .forEach(r => { if (r.ward !== CMP.main) CMP.others.add(r.ward); });
   CMP.others.delete(CMP.main);
