@@ -205,7 +205,8 @@ Development Permits (6933-unw5) and Building Permits (c2es-76ed) by address or c
 largest_building_permits_not_homes lists the period's biggest non-housing permits. You cannot read news websites: if \
 asked for news newer than the checked date, say so and suggest the project page link.
 - Who lives in the area: get_dashboard section profile (the 2021 Census profile of the selected ward; for all of \
-Calgary there is no single profile, so say so and use the wards section or ask which ward; people in private \
+Calgary selected, pass ward=N for any ward's profile, and each item also holds Calgary's figure; read it before \
+searching older Census datasets; people in private \
 households, 2021 ward boundaries). Use it for context in reports and briefings (for example language when planning \
 outreach, household size when comparing per household and per person, crowding and renters for housing questions), \
 always say it is the 2021 Census, and never use it as today's population.
@@ -364,7 +365,8 @@ TOOLS = [
                     'disorder by category and community from the Calgary Police Service (monthly, published quarterly) '
                     'and the Crime Severity Index for Calgary and other cities. section="amenities" also lists City and '
                     'other major projects being built or planned in the area, road projects and the largest non-housing '
-                    'building permits of the period. section="profile" gives who lives in the area against Calgary (2021 '
+                    'building permits of the period. section="profile" (with ward=N for any ward, also when all of Calgary is '
+                    'selected; Ward 5 has the full printed profile incl. immigrants and languages) gives who lives in the area against Calgary (2021 '
                     'Census): household size, children and seniors, languages spoken at home, immigrants and recent '
                     'arrivals, renters, crowding, housing costs, income, low income, shift work and commuting. '
                     'section="amenity_gap" gives City assets (benches, picnic tables, playgrounds, sports equipment, park '
@@ -378,11 +380,13 @@ TOOLS = [
                     'community (code or name) to narrow it. '
                     'section="property_tax" gives the property tax estimate by ward and community. section="wards" gives '
                     'all 14 wards and Calgary side by side (residents, growth, 311, crime, traffic, building, child care, '
-                    'amenities), whatever area is selected.',
+                    'amenities) with each ward\'s place on every measure (ranks), whatever area is selected; '
+                    'section="ward_amenities" gives every asset ward by ward (City, private accessible and gated).',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'needs_attention', 'other_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'needs_attention', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
          'description': 'Which part of the dashboard; overview by default'},
-         'ward': {'type': 'integer', 'description': 'section other_amenities only: one ward of the city view'},
+         'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
+                                                    'Calgary selected, profile needs a ward)'},
          'community': {'type': 'string', 'description': 'section other_amenities only: one community (code or name)'}}}},
     {'name': 'get_weather',
      'description': 'Calgary weather history from Environment Canada (Calgary International Airport, northeast Calgary): '
@@ -812,7 +816,7 @@ def dashboard_section(d, section='overview', wards=None):
                 'communities_counted': len(rows), 'flagged_count': len(g.get('flagged') or []),
                 'by_comm': [dict({k: r.get(k) for k in keys}, ward=ward_of.get(r['code'])) for r in pick],
                 'shown': 'flagged communities and the 40 lowest of the rest' if many else 'every community'}
-    if section == 'wards':
+    if section in ('wards', 'ward_amenities'):
         ws = d.get('wards_summary') or (wards() if wards else None)
         if not ws:
             return {'error': 'The comparison of every ward is not available right now.'}
@@ -825,8 +829,20 @@ def dashboard_section(d, section='overview', wards=None):
                 'students', 'facilities', 'playgrounds', 'stops', 'amenity_level', 'amenity_level_by_method',
                 'amenity_flagged', 'amenities_vs_city', 'amenity_counts', 'amenity_level_all', 'amenity_level_all_by_method',
                 'homes_now', 'homes_census', 'households_2021', 'homes_growth_pct', 'people_per_home')
-        slim = lambda r: {k: r.get(k) for k in keep if r.get(k) is not None}
+        detail = ('amenity_counts', 'amenities_vs_city', 'amenity_counts_other', 'amenity_counts_private')
         rows_ = ws.get('wards') or []
+        if section == 'ward_amenities':          # each asset, ward by ward (kept out of "wards" so that one fits)
+            return {'wards': [{'ward': r['ward'], **{k: r.get(k) for k in detail if r.get(k) is not None}} for r in rows_],
+                    'calgary': {'amenity_counts': ws.get('amenity_counts_city'),
+                                'amenity_counts_other': ws.get('amenity_counts_other_city'),
+                                'amenity_counts_private': ws.get('amenity_counts_private_city')},
+                    'kinds': {k: v.get('label') for k, v in (ws.get('amenity_kinds') or {}).items()},
+                    'note': 'amenity_counts: how many of each City asset the ward has (every community in it); '
+                            'amenities_vs_city: per 1,000 residents (playgrounds per 1,000 children) against Calgary, '
+                            '1.00 = the Calgary level; amenity_counts_other: private amenities accessible to the '
+                            'community (OpenStreetMap); amenity_counts_private: gated, residents-only ones.'}
+        keep = tuple(k for k in keep if k not in detail)
+        fields = [k for k in keep if any(r.get(k) is not None for r in rows_)]
         # every ward's place on each measure (1 = the highest of the 14), worked out here so no answer ranks by eye
         ranks = {}
         for k in keep:
@@ -834,9 +850,12 @@ def dashboard_section(d, section='overview', wards=None):
             if k != 'ward' and len(vals) > 1:
                 order = sorted(vals, key=lambda x: -x[0])
                 ranks[k] = {w: 1 + sum(1 for v2, _ in order if v2 > v) for v, w in order}
-        return {'wards': [slim(r) for r in rows_], 'calgary': {**slim(ws.get('city') or {}),
-                                                              'amenity_counts': ws.get('amenity_counts_city')},
+        cw = ws.get('city') or {}
+        return {'fields': fields, 'wards': [[r.get(k) for k in fields] for r in rows_],
+                'calgary': {k: cw.get(k) for k in fields if cw.get(k) is not None},
                 'ranks': ranks,
+                'rows_note': 'wards: one row per ward, values in the order of fields. Each asset ward by ward '
+                             '(amenity_counts, amenities_vs_city, non-City counts): section ward_amenities.',
                 'ranks_note': 'ranks[measure][ward] = the ward\'s place of 14, 1 = the highest value (ties share a place). '
                               'Use it for "highest", "lowest", "second" and so on; never rank wards by reading the rows. '
                               'Whether high is good depends on the measure (more 311 reports is not worse service). '
@@ -845,9 +864,8 @@ def dashboard_section(d, section='overview', wards=None):
                               'industrial areas too, so they add up to Calgary: use them rather than re-querying a dataset '
                               'and assigning wards yourself.',
                 'crime_period': ws.get('crime_period'), 'how': ws.get('note'),
-                'note': 'One row per ward and one for Calgary, for the same period as the dashboard. amenity_level and '
-                        'amenities_vs_city: 1.00 = the city level. amenity_counts: how many of each asset (benches, '
-                        'playgrounds, picnic tables, park hectares and so on) the City lists in the ward or in Calgary.'}
+                'note': 'One row per ward and one for Calgary, for the same period as the dashboard. amenity_level: '
+                        '1.00 = the city level. playgrounds: City playgrounds in the ward.'}
     out = {k: d.get(k) for k in ('period', 'prev_period', 'period_spec', 'scope', 'ward', 'summary', 'disorder', 'roadwork')}
     # population without the community-by-community build-up (section population_recon has it)
     out['population'] = {k: v for k, v in (d.get('population') or {}).items() if k not in ('recon',)}
@@ -969,7 +987,22 @@ class Agent:
                 return {'error': 'The dashboard has not loaded yet.'}
             if (args.get('section') or '') == 'property_tax':
                 t = self.tax_provider() if self.tax_provider else None
-                return {'property_tax': t, 'how': methods_mod.find('property_tax')} if t else {'error': 'The property tax estimate is not available right now.'}
+                return {'property_tax': t, 'how': methods_mod.find('property_tax'),
+                        'words': 'municipal = the City\'s share of the bill (the City levy); education = the Province\'s '
+                                 'school tax the City collects; total = the whole bill. Say which one every figure is, '
+                                 'and never compare or add a municipal figure with a whole-bill figure in one '
+                                 'sentence.'} if t else {'error': 'The property tax estimate is not available right now.'}
+            if (args.get('section') or '') == 'profile' and args.get('ward'):
+                import dashboard as dash_mod
+                try:
+                    prof = dash_mod.ward_profile(int(args['ward']), self.data_dir, (d or {}).get('census'))
+                except Exception as e_:           # noqa: BLE001
+                    return {'error': f'The Ward {args["ward"]} profile could not be read ({e_}).'}
+                return {'ward_profile_2021_census': prof,
+                        'note': 'Ward 5 has the City\'s full printed profile (languages, newcomers, housing costs, '
+                                'income); the other wards have the City\'s open Census tables (ages, households, '
+                                'families, work). A figure missing here is not published for that ward.'} if prof else \
+                    {'error': f'No 2021 Census profile was found for Ward {args["ward"]}.'}
             if (args.get('section') or '') == 'other_amenities':
                 return _other_amenities_out(d, args.get('ward'), args.get('community'))
             return dashboard_section(d, args.get('section') or 'overview', self.wards_provider)
