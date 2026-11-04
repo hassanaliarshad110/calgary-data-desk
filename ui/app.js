@@ -1192,7 +1192,9 @@ function renderIssues(reset = true) {
   $$('#view-issues .filters, #view-issues .issues-card').forEach(e => { e.hidden = false; });
   const all = D.open_list, over90 = all.filter(r => daysSince(r.date) > 90).length, over365 = all.filter(r => daysSince(r.date) > 365).length;
   const contact = all.filter(r => r.type === '311 Contact Us').length;
-  $('#issues-sub').textContent = `Every 311 request still open in ${W()} as of the last refresh (${longDate(D.built_at)}), whenever it was made`;
+  const newest = all.reduce((m, r) => (r.date && r.date > m ? r.date : m), '');
+  $('#issues-sub').textContent = `Every 311 request still open in ${W()} as of the last refresh (${longDate(D.built_at)}), whenever it was made.`
+    + (newest ? ` The City publishes its 311 file once a day, a day behind: the newest requests in it are from ${longDate(newest)}.` : '');
   $('#issue-stats').innerHTML = [
     [fmt(all.length), 'still open as of today'], [fmt(over90), 'open more than 90 days', 'bad'], [fmt(over365), 'open more than a year', 'bad'],
     [fmt(contact), '"311 Contact Us" messages'],
