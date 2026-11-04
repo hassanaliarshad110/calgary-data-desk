@@ -1508,7 +1508,7 @@ async function ask(text) {
       $('.answer', current).innerHTML = DOMPurify.sanitize(marked.parse(res.text));
       const tok = res.tokens || {};
       // no model name and no price on answers (the owner's choice)
-      $('.msg-meta', current).textContent = `${res.tier === 'smart' ? 'Thorough' : 'Fast'} answer${(res.skipped || []).length ? ' · skipped ' + res.skipped.map(x => `${x.service} (${x.why.replace(/ \(.*$/, '')})`).join(', ') : ''}`;
+      $('.msg-meta', current).textContent = `${res.tier === 'smart' ? 'Thorough' : 'Fast'} answer${(res.skipped || []).length ? ' · answered by the backup AI service' : ''}`;
     }
   } catch (e) {
     $('[data-thinking]', current)?.remove();

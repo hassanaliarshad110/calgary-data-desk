@@ -191,7 +191,7 @@ def run(entry, make_agent, emit, today, folder):
     # 1. audit (Opus)
     _, r1 = _stage(make_agent, 'audit', AUDIT_SYSTEM, data_tools + [SUBMIT_FINDINGS], {'submit_findings': keep('findings')},
                    f"Audit this report.\n\nREPORT ({rep['title']}):\n{rep['content']}\n\nQUERIES THE REPORT RAN:\n{rep['queries']}",
-                   'audit', today, emit, 'The auditor (Claude Opus) is re-running every figure')
+                   'audit', today, emit, 'The auditor is re-running every figure')
     cost.append(r1.get('tokens', {}).get('cost_usd'))
     if 'findings' not in got:
         raise RuntimeError('The auditor stopped without handing in its findings. Try again.')
@@ -204,7 +204,7 @@ def run(entry, make_agent, emit, today, folder):
                               {'submit_review': keep('review')},
                               f"ORIGINAL REPORT ({rep['title']}):\n{rep['content']}\n\nAUDITOR'S FINDINGS:\n"
                               f"{json.dumps(findings, indent=1)}",
-                              'smart', today, emit, 'The reviewer (Claude Sonnet) is checking each finding for itself')
+                              'smart', today, emit, 'The reviewer is checking each finding for itself')
         cost.append(r2.get('tokens', {}).get('cost_usd'))
         corrected = reviewer.last_report
         if 'review' not in got:
@@ -219,7 +219,7 @@ def run(entry, make_agent, emit, today, folder):
                        {'submit_final': keep('final')},
                        f"AUDITOR'S FINDINGS:\n{json.dumps(findings, indent=1)}\n\nREVIEWER'S DECISIONS:\n"
                        f"{json.dumps(decisions, indent=1)}\n\nCORRECTED REPORT:\n{cor['content']}",
-                       'audit', today, emit, 'The final check (Claude Opus) is checking each finding was dealt with')
+                       'audit', today, emit, 'The final check is making sure each finding was dealt with')
         cost.append(r3.get('tokens', {}).get('cost_usd'))
         checks = (got.get('final') or {}).get('checks') or []
         verdict = (got.get('final') or {}).get('verdict') or ''
@@ -278,7 +278,7 @@ td{{border-bottom:1px solid #E2E8F0;padding:8px 6px;vertical-align:top}}td p{{ma
 .sev{{font-size:11px;font-weight:700;padding:1px 7px;border-radius:9px;background:#F1F5F9}}.sev.high{{background:#FEE2E2;color:#991B1B}}.sev.medium{{background:#FEF3C7;color:#92400E}}.sev.low{{background:#DCFCE7;color:#166534}}
 .ok{{color:#166534}}.bad{{color:#B91C1C}}.box{{background:#F8FAFC;border-left:4px solid #0B6BB5;padding:8px 14px;border-radius:4px;margin:8px 0}}
 @media print{{body{{margin:0}}}}</style></head><body>
-<div class="band"><p class="kick">Calgary Data Desk · Report audit</p><h1>{e(a['title'])}</h1><p>Audited {e(a['made'])}: Claude Opus audit, Claude Sonnet review and fixes, Claude Opus final check{f" · cost ${a['cost_usd']:.2f}" if isinstance(a.get('cost_usd'), (int, float)) else ''}</p></div>
+<div class="band"><p class="kick">Calgary Data Desk · Report audit</p><h1>{e(a['title'])}</h1><p>Audited {e(a['made'])}: audit, review and fixes, final check</p></div>
 <div class="stats"><div><b>{e(a.get('figures_checked'))}</b>figures re-run</div><div><b>{n}</b>findings</div><div><b>{fixed}</b>fixed</div><div><b>{rej}</b>rightly rejected</div><div><b class="{'bad' if bad else 'ok'}">{bad}</b>still open</div></div>
 <div class="box"><b>Final check:</b> {e(a.get('verdict'))}</div>
 <div class="box"><b>Auditor:</b> {e(a.get('audit_summary'))}</div>

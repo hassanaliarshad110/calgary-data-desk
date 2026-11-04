@@ -17,7 +17,16 @@ AMENITY_STEPS = [
     'community holding their middle; public trees use the City\'s own community code. Park space is in hectares.',
     'Divide each count by the community\'s residents and multiply by 1,000. Playgrounds are divided by children aged '
     '0 to 14 instead, since they are for children.',
-    'Do the same for Calgary as a whole (every residential community added together).',
+    'Do the same for Calgary as a whole (every residential community added together): Calgary per 1,000 = the count in '
+    'every community where people live / their residents x 1,000 (playgrounds: / children aged 0 to 14). With the '
+    'default way of counting, those residents add up to the City\'s own total for this month.',
+    'What Calgary\'s count leaves out, and why: assets in communities where nobody lives (industrial and business '
+    'areas, the airport, large parks with no homes), because no community\'s own figure includes them either, so '
+    'counting them for Calgary would set the bar above what any community could reach (for example 14 of the City\'s '
+    'playgrounds sit in such areas). Assets the City lists with no location, or whose location is outside every '
+    'community outline, cannot be placed and are not counted. Neighbourhood park space counts only sub-neighbourhood, '
+    'neighbourhood and community parks: regional parks and natural areas are left out. The dashboard keeps the number '
+    'left out for every kind (amenity_gap city: left_out_no_residents, left_out_where, not_placed, not_neighbourhood_parks).',
     'Divide the community\'s figure by Calgary\'s for each kind: 1.00 means the same as the city, 0.50 half, 2.00 '
     'double.',
     'Cap each kind at 2.00, so having far more of one thing (say benches) cannot hide having none of another.',

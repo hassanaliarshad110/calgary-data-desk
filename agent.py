@@ -274,7 +274,10 @@ association, condo) are left out by default and counted only when the screen's "
 (needs_attention_with_private). For a list of these amenities, their counts or their links, use get_dashboard section \
 other_amenities (with ward or community): every feature is saved there with its name and OpenStreetMap link, and its \
 totals count every community in the ward (business and industrial areas too), the same as the Growth vs amenities tab. \
-Never build those totals from the Needs attention rows, which hold only the communities ranked there. The score is worked out in attention.py (get_code topic \
+Never build those totals from the Needs attention rows, which hold only the communities ranked there. When asked \
+for all of them, or for a list longer than about 40, call it with save_csv=true and show_on_map=true: give the totals \
+by kind (and ward), show the first rows with their links, and say the whole list, every row with its link, is saved \
+in Files and shown on the map. Narrow with ward, community, kind or gated when the question does. The score is worked out in attention.py (get_code topic \
 needs_attention). Always \
 (in answers, reports and their recommendations) present it as priorities for review from open data, never as a \
 spending recommendation or a list of things to buy: the data has no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
@@ -387,7 +390,15 @@ TOOLS = [
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
-         'community': {'type': 'string', 'description': 'section other_amenities only: one community (code or name)'}}}},
+         'kind': {'type': 'string', 'description': 'section other_amenities: playground, park, basketball court, '
+                                                   'fitness station or dog park'},
+         'gated': {'type': 'boolean', 'description': 'section other_amenities: true = only gated, residents-only ones; '
+                                                     'false = only the ones accessible to the community; leave out for both'},
+         'save_csv': {'type': 'boolean', 'description': 'section other_amenities: also save the whole list, every row '
+                                                        'with its map link, as a CSV in Files (use for "all" or long lists)'},
+         'show_on_map': {'type': 'boolean', 'description': 'section other_amenities: also show every one on the map'},
+         'community': {'type': 'string', 'description': 'sections other_amenities and amenity_gap: one community (code '
+                                                         'or name); amenity_gap then gives its whole amenity-level working'}}}},
     {'name': 'get_weather',
      'description': 'Calgary weather history from Environment Canada (Calgary International Airport, northeast Calgary): '
                     'mean, lowest and highest temperature, precipitation, rain, snowfall, snow on ground, hot and '
@@ -659,7 +670,7 @@ OSM_KIND_WORD = {'playgrounds': 'playground', 'fitness': 'fitness station', 'bas
                  'off_leash': 'dog park', 'local_park_ha': 'park'}
 
 
-def _other_amenities_out(d, ward=None, community=None):
+def _other_amenities_out(d, ward=None, community=None, kind=None, gated=None, save=None, show=None):
     """Private amenities accessible to the community (OpenStreetMap, not the City's): every community's counts, the
     ward and area totals (the same figures as Growth vs amenities > Assets) and every feature with its map link.
     ward: a ward number to narrow the city view to; community: a community code or name."""
@@ -678,6 +689,11 @@ def _other_amenities_out(d, ward=None, community=None):
         w = None
     keep = lambda c: (want is None or c in want) and (w is None or (cs.get(c) or {}).get('ward') == w)
     feats = [f for f in o.get('features') or [] if keep(f.get('comm'))]
+    if kind:                                      # playground, park, basketball court, fitness station, dog park
+        kw = str(kind).lower().rstrip('s')
+        feats = [f for f in feats if kw in OSM_KIND_WORD.get(f.get('kind'), '') or kw in str(f.get('kind'))]
+    if gated is not None:                         # True: only gated, residents-only; False: only accessible ones
+        feats = [f for f in feats if bool(f.get('private')) == bool(gated)]
     kinds = list(OSM_KIND_WORD)
 
     def tot(by):
@@ -693,12 +709,28 @@ def _other_amenities_out(d, ward=None, community=None):
               **({'hectares': f['ha']} if f.get('ha') is not None else {}),
               'gated_residents_only': bool(f.get('private')),
               'link': f"https://www.openstreetmap.org/{f.get('osm')}"} for f in feats]
-    limit = 250
-    return {'area': (f'Ward {w}' if w else 'the area on screen') + (f', {community}' if community else ''),
+    saved = None
+    if save and out_f and save:                   # the whole list as a CSV in Files, every row with its map link
+        cols = ['kind', 'name', 'community', 'ward', 'hectares', 'gated_residents_only', 'link']
+        saved = save('private amenities accessible to the community' + (f' ward {w}' if w else ''), cols,
+                     [[f.get(c, '') for c in cols] for f in out_f])
+    if show and feats:                            # every one on the map, labelled, with its link
+        show([{'lat': f['lat'], 'lon': f['lon'],
+               'label': f"{OSM_KIND_WORD.get(f.get('kind'), f.get('kind'))}{' (gated)' if f.get('private') else ''}"
+                        f"{' · ' + f['name'] if f.get('name') else ''} · {(cs.get(f.get('comm')) or {}).get('name', f.get('comm'))}"
+                        f" · https://www.openstreetmap.org/{f.get('osm')}"} for f in feats if f.get('lat') is not None])
+    limit = 40 if saved else 80                   # what fits in one answer; the CSV holds the rest
+    return {**({'saved_csv': saved} if saved else {}), **({'shown_on_map': len(feats)} if show and feats else {}),
+            'area': (f'Ward {w}' if w else 'the area on screen') + (f', {community}' if community else ''),
             'totals_accessible': tot(o.get('by_comm') or {}),
             'totals_gated_residents_only': tot(o.get('by_comm_private') or {}),
-            'by_community': rows, 'features': out_f[:limit], 'features_count': len(out_f),
-            **({'features_cut': f'Only the first {limit} of {len(out_f)} are listed: narrow by ward or community.'}
+            'by_community': {'fields': ['community', 'code', 'ward', 'residential', 'accessible', 'gated_residents_only'],
+                             'rows': [[r_[k] for k in ('community', 'code', 'ward', 'residential', 'accessible',
+                                                       'gated_residents_only')] for r_ in rows]},
+            'features': out_f[:limit], 'features_count': len(out_f),
+            **({'features_cut': f'Only the first {limit} of {len(out_f)} are listed here' +
+                                ('; the whole list is in the saved CSV.' if saved else
+                                 ': call again with save_csv=true for the whole list with links, or narrow it.')}
                if len(out_f) > limit else {}),
             'counted': o.get('counted'), 'source': '© OpenStreetMap contributors (Open Database Licence)',
             'note': 'Private amenities accessible to the community: playgrounds, fitness stations, basketball courts, dog '
@@ -711,7 +743,7 @@ def _other_amenities_out(d, ward=None, community=None):
                     'each opens that feature on the OpenStreetMap map.'}
 
 
-def dashboard_section(d, section='overview', wards=None):
+def dashboard_section(d, section='overview', wards=None, extra=None):
     """The dashboard's figures for the selected area (all of Calgary or one ward), one part at a time so each answer
     fits. wards: () -> the summary of every ward (built from the whole-city dashboard), for section="wards"."""
     fam = d.get('families') or {}
@@ -796,6 +828,7 @@ def dashboard_section(d, section='overview', wards=None):
                            'communities often have developer-built parks still to come.'} if g.get('attention') else \
             {'error': 'The amenity data is not available in this refresh.'}
     if section == 'amenity_gap':
+        community = (extra or {}).get('community')
         g = d.get('amenity_gap') or {}
         rows = g.get('by_comm') or []
         many = len(rows) > 40                     # the whole city: the flagged and the 40 lowest, without the detail
@@ -805,8 +838,43 @@ def dashboard_section(d, section='overview', wards=None):
         ward_of = {c['code']: c.get('ward') for c in d.get('communities') or []}
         bm = {k: {'label': v.get('label'), 'level': v.get('level'), 'residents': v.get('residents'),
                   'flagged_count': len(v.get('flagged') or [])} for k, v in (g.get('by_method') or {}).items()}
+        if community:                            # one community's whole working, kind by kind
+            q = str(community).strip().upper()
+            r = next((x for x in rows if x['code'] == q or str(x.get('name', '')).upper() == q), None)
+            if not r:
+                return {'error': f'{community} has no amenity level (fewer than 100 residents, or not a lived-in community).'}
+            kinds_ = g.get('kinds') or {}
+            local = [k for k, v in kinds_.items() if v.get('local')]
+            work = []
+            for k, v in (r.get('vs_city') or {}).items():
+                per_ch = (kinds_.get(k) or {}).get('per') == 'children'
+                work.append({'kind': (kinds_.get(k) or {}).get('label', k), 'count': (r.get('n') or {}).get(k),
+                             'divided_by': ('children 0 to 14: ' if per_ch else 'residents: ') +
+                                           str(r.get('children_0_14') if per_ch else r.get('residents')),
+                             'per_1000': (r.get('per_1000') or {}).get(k),
+                             'calgary_per_1000': ((g.get('city') or {}).get(k) or {}).get('per_1000'),
+                             'share_of_calgary': v, 'capped_at_2': min(v, 2.0),
+                             'in_the_level': k in local})
+            used = [w['capped_at_2'] for w in work if w['in_the_level']]
+            return {'community': r.get('name'), 'code': r['code'], 'residents': r.get('residents'),
+                    'children_0_14': r.get('children_0_14'), 'level': r.get('level'),
+                    'level_check': round(sum(used) / len(used), 2) if used else None,
+                    'working': work,
+                    'how': 'per_1000 = count / residents (playgrounds: / children 0 to 14) x 1,000; share = per_1000 / '
+                           'Calgary per_1000; each share capped at 2.00; the level = the average of the capped shares '
+                           'of the kinds in_the_level (neighbourhood amenities). level_check repeats that average.',
+                    'calgary_left_out': {k: {x: v.get(x) for x in ('n', 'left_out_no_residents', 'left_out_where',
+                                                                 'not_placed', 'not_neighbourhood_parks') if v.get(x)}
+                                         for k, v in (g.get('city') or {}).items()},
+                    'method': g.get('method')}
         return {**{k: g.get(k) for k in ('city', 'scope', 'level', 'growth_pct_threshold', 'level_threshold', 'counted',
                                          'note', 'method')},
+                'left_out_note': 'city[kind].n is Calgary\'s count used for the yardstick: every community where people '
+                                 'live. left_out_no_residents (with left_out_where) is what sits in communities with no '
+                                 'residents and is left out; not_placed is what the City lists with no location or outside '
+                                 'every community; not_neighbourhood_parks is park land that is not a neighbourhood park. '
+                                 'Mention these whenever you explain Calgary\'s figure or the yardstick. For one '
+                                 'community\'s full working, call this section with community.',
                 'level_under_each_resident_count': bm,
                 'datasets': {k: f"https://data.calgary.ca/d/{v.get('dataset')}" for k, v in (g.get('kinds') or {}).items()
                              if v.get('dataset')},
@@ -1004,8 +1072,19 @@ class Agent:
                                 'families, work). A figure missing here is not published for that ward.'} if prof else \
                     {'error': f'No 2021 Census profile was found for Ward {args["ward"]}.'}
             if (args.get('section') or '') == 'other_amenities':
-                return _other_amenities_out(d, args.get('ward'), args.get('community'))
-            return dashboard_section(d, args.get('section') or 'overview', self.wards_provider)
+                def save_(name, cols, rows):
+                    res = local_data.save_table(self.downloads_dir, name, cols, rows)
+                    self.emit({'type': 'download', 'path': res['saved_to'], 'rows': res['rows'], 'bytes': res['bytes'],
+                               'dataset': 'table'})
+                    return res
+                return _other_amenities_out(
+                    d, args.get('ward'), args.get('community'), args.get('kind'), args.get('gated'),
+                    save_ if args.get('save_csv') else None,
+                    (lambda pts: self.emit({'type': 'map', 'title': 'Private amenities accessible to the community '
+                                                                    '(OpenStreetMap)', 'points': pts}))
+                    if args.get('show_on_map') else None)
+            return dashboard_section(d, args.get('section') or 'overview', self.wards_provider,
+                                     {'community': args.get('community'), 'ward': args.get('ward')})
         if name == 'get_weather':
             return weather.history(args['start'], args['end'], args.get('by', 'month'))
         if name == 'police_crime':
@@ -1209,16 +1288,23 @@ class Agent:
                 if not isinstance(err, engines.EngineError):
                     err = engines.EngineError('request', str(err))
                 engines.rest(e, err)
-                skipped.append({'service': engines.label(e), 'model': e[tier], 'why': str(err)})
+                skipped.append({'service': engines.label(e), 'model': e[tier], 'why': str(err), 'kind': err.kind})
                 pos += 1
-                if pos >= len(chain) and len(skipped) == 1:
-                    raise AgentError(f"{skipped[0]['service']} could not answer: {skipped[0]['why']}. "
-                                     'Check the key in Settings, or add a second service there.') from None
                 if pos >= len(chain):
-                    raise AgentError('None of the AI services in Settings could answer: ' + '; '.join(
-                        f"{x['service']} ({x['model']}): {x['why']}" for x in skipped)) from None
-                self.emit({'type': 'step', 'text': f"{engines.label(e)}: {engines.WORDS.get(err.kind, err.kind)}. "
-                                                   f"Carrying on with {engines.label(chain[pos])}"})
+                    # what the user reads: Data Genie, never the AI company or model; the detail goes to the log
+                    print('Data Genie: ' + '; '.join(f"{x['service']} ({x['model']}): {x['why']}" for x in skipped))
+                    kinds_ = {x['kind'] for x in skipped}
+                    if kinds_ <= {'key'}:
+                        msg = 'Data Genie could not answer: the AI key in Settings was not accepted. Check it in Settings.'
+                    elif kinds_ <= {'credit', 'daily'}:
+                        msg = 'Data Genie could not answer: the AI key in Settings has run out of credit or reached its daily limit.'
+                    elif kinds_ <= {'rate', 'busy', 'network'}:
+                        msg = 'Data Genie could not answer just now (the AI service is busy or could not be reached). Try again in a minute.'
+                    else:
+                        msg = 'Data Genie could not answer this question. Try again, or start a New chat if it keeps happening.'
+                    raise AgentError(msg) from None
+                self.emit({'type': 'step', 'text': f"The AI service was not available ({engines.WORDS.get(err.kind, err.kind)}). "
+                                                   'Carrying on with the backup service'})
 
     def _loop(self, chain, tier, today):
         dash = self.dashboard_provider()

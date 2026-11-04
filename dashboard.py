@@ -1665,9 +1665,23 @@ def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, a
         return n, (n / base * 1000 if base else None)
     use = [k for k in GAP_KINDS if k in kinds]
     city = {}
+    lived = set(all_codes)
     for k in use:
         n, r = per(all_codes, k)
         city[k] = {'n': round(n, 1), 'per_1000': round(r, 3) if r is not None else None}
+        # what Calgary's yardstick leaves out: assets in communities where nobody lives (industrial and business
+        # areas, airport, large parks), which no community's own figure includes either
+        out_ = sorted(((v.get(k, 0), c) for c, v in counts.items() if c not in lived and v.get(k)), reverse=True)
+        if out_:
+            city[k]['left_out_no_residents'] = round(sum(x for x, _ in out_), 1)
+            city[k]['left_out_where'] = [{'community': (names or {}).get(c, c), 'code': c, 'n': round(x, 1)}
+                                         for x, c in out_[:4]]
+        pl = (asset_data.get('placed') or {}).get(k) or {}
+        if pl.get('outside_communities') or pl.get('no_location'):
+            city[k]['not_placed'] = {'outside_every_community': pl.get('outside_communities', 0),
+                                     'no_location': pl.get('no_location', 0), 'read': pl.get('read')}
+        if k == 'local_park_ha' and ((asset_data.get('placed') or {}).get('local_park_ha') or {}).get('not_neighbourhood_parks'):
+            city[k]['not_neighbourhood_parks'] = asset_data['placed']['local_park_ha']
     if yardstick:                                   # measured against another count's Calgary level (with_attention)
         city = {k: dict(yardstick.get(k) or city[k]) for k in use}
     # neighbourhood amenities: ones the city has enough of for most communities to have some. The rare ones (park
