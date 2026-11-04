@@ -255,6 +255,10 @@ students enrolled in each school in the area by year (Government of Alberta stud
 follow the way of counting residents: by default each community's 2021 children x one factor + the growth model's \
 children for its new homes, so Calgary matches the City's forecast of children (get_code topic children). Family day home agencies are listed but their spaces are not \
 counted, because the homes they oversee are spread across the city.
+- Ranking wards: whenever an answer says a ward is highest, lowest, second, "the most" or "of 14", take the place from \
+get_dashboard section wards, ranks[measure][ward] (1 = highest), never by reading the rows; and use the wards \
+section's ward figures (they count every community, so they add up to Calgary) instead of re-querying a dataset and \
+assigning wards yourself.
 - Amenities and growth: get_dashboard section amenity_gap has the app's amenity level, its method step by \
 step (method), the level under all four ways of counting residents (level_under_each_resident_count) and every \
 dataset. Explain the level from method, never by working the formula out backwards. section wards has every ward's \
@@ -715,7 +719,9 @@ def dashboard_section(d, section='overview', wards=None):
             keys = ('code', 'name', 'ward', 'residents', 'growth_pct', 'requests_per_1000', 'infra_per_1000', 'open_per_1000',
                     'new_homes12')
             return {'period': d.get('period'), 'prev_period': d.get('prev_period'), 'fields': keys,
-                    'communities': [[c.get(k) for k in keys] for c in cs if c.get('residential')]}
+                    'communities': [[c.get(k) for k in keys] for c in cs if c.get('residential')],
+                    # every community code, business and industrial areas too, so a query by community adds up by ward
+                    'ward_of_every_community': {c['code']: c.get('ward') for c in cs if c.get('code')}}
         return {'period': d.get('period'), 'prev_period': d.get('prev_period'),
                 'communities': [{k: v for k, v in c.items() if k != 'open_top'} for c in cs]}
     if section == 'child_care':
@@ -814,13 +820,30 @@ def dashboard_section(d, section='overview', wards=None):
                 'requests12', 'requests_per_1000', 'requests_change_pct', 'infra_per_1000', 'open', 'open_per_1000',
                 'open_over_90_days', 'closed_7_days_pct', 'app_share_pct', 'crimes', 'crime_per_1000', 'crime_change_pct',
                 'violent', 'violent_change_pct', 'traffic12', 'traffic_per_1000', 'traffic_change_pct', 'new_homes12',
-                'dev_permits12', 'child_care_spaces', 'child_care_per_100_kids', 'daycare_per_100_0_4', 'schools',
+                'new_homes_prev', 'new_homes_change_pct', 'issued_homes12', 'dev_permits12', 'growth_pct_by_method',
+                'amenity_level_all_private', 'amenity_counts_other', 'amenity_counts_private', 'child_care_spaces', 'child_care_per_100_kids', 'daycare_per_100_0_4', 'schools',
                 'students', 'facilities', 'playgrounds', 'stops', 'amenity_level', 'amenity_level_by_method',
                 'amenity_flagged', 'amenities_vs_city', 'amenity_counts', 'amenity_level_all', 'amenity_level_all_by_method',
                 'homes_now', 'homes_census', 'households_2021', 'homes_growth_pct', 'people_per_home')
         slim = lambda r: {k: r.get(k) for k in keep if r.get(k) is not None}
-        return {'wards': [slim(r) for r in ws.get('wards') or []], 'calgary': {**slim(ws.get('city') or {}),
-                                                                            'amenity_counts': ws.get('amenity_counts_city')},
+        rows_ = ws.get('wards') or []
+        # every ward's place on each measure (1 = the highest of the 14), worked out here so no answer ranks by eye
+        ranks = {}
+        for k in keep:
+            vals = [(r.get(k), r['ward']) for r in rows_ if isinstance(r.get(k), (int, float)) and not isinstance(r.get(k), bool)]
+            if k != 'ward' and len(vals) > 1:
+                order = sorted(vals, key=lambda x: -x[0])
+                ranks[k] = {w: 1 + sum(1 for v2, _ in order if v2 > v) for v, w in order}
+        return {'wards': [slim(r) for r in rows_], 'calgary': {**slim(ws.get('city') or {}),
+                                                              'amenity_counts': ws.get('amenity_counts_city')},
+                'ranks': ranks,
+                'ranks_note': 'ranks[measure][ward] = the ward\'s place of 14, 1 = the highest value (ties share a place). '
+                              'Use it for "highest", "lowest", "second" and so on; never rank wards by reading the rows. '
+                              'Whether high is good depends on the measure (more 311 reports is not worse service). '
+                              'issued_homes12 = homes in building permits issued (the dashboard tile); new_homes12 = homes '
+                              'in permits applied for. Ward figures count every community in the ward, business and '
+                              'industrial areas too, so they add up to Calgary: use them rather than re-querying a dataset '
+                              'and assigning wards yourself.',
                 'crime_period': ws.get('crime_period'), 'how': ws.get('note'),
                 'note': 'One row per ward and one for Calgary, for the same period as the dashboard. amenity_level and '
                         'amenities_vs_city: 1.00 = the city level. amenity_counts: how many of each asset (benches, '
@@ -1232,6 +1255,15 @@ class Agent:
     def _trimmed_history(self, keep_turns=8):
         """Keep the most recent questions so long chats stay affordable; never split a tool exchange."""
         starts = [i for i, m in enumerate(self.history) if m['role'] == 'user' and isinstance(m['content'], str)]
-        if len(starts) <= keep_turns:
-            return self.history
-        return self.history[starts[-keep_turns]:]
+        hist = self.history if len(starts) <= keep_turns else self.history[starts[-keep_turns]:]
+        # thinking from earlier questions is not needed again, and once old questions are dropped the service refuses it
+        # (it is bound to the conversation it was written in), so only the current question's thinking is sent
+        cur = max([i for i, m in enumerate(hist) if m['role'] == 'user' and isinstance(m['content'], str)] or [0])
+        out = []
+        for i, m in enumerate(hist):
+            if i < cur and m['role'] == 'assistant' and isinstance(m['content'], list) and any(
+                    b.get('type') in ('thinking', 'redacted_thinking') for b in m['content']):
+                kept = [b for b in m['content'] if b.get('type') not in ('thinking', 'redacted_thinking')]
+                m = {**m, 'content': kept or [{'type': 'text', 'text': '(thought)'}]}
+            out.append(m)
+        return out
