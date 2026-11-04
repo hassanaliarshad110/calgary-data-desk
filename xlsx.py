@@ -22,6 +22,8 @@ def _cell(ref, v, style):
         v = 'Yes' if v else 'No'
     if isinstance(v, (int, float)) and v == v and v not in (float('inf'), float('-inf')):
         return f'<c r="{ref}"{style}><v>{v}</v></c>'
+    if isinstance(v, str) and v.startswith('=') and len(v) > 1:      # an Excel formula, worked out when the file opens
+        return f'<c r="{ref}"{style}><f>{escape(v[1:])}</f></c>'
     text = _CTRL.sub('', '' if v is None else str(v))[:32000]
     if not text:
         return ''

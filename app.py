@@ -503,6 +503,29 @@ class Api:
         webbrowser.open(url)
         return True
 
+    def save_buildup(self):
+        """The population build-up as an Excel workbook in Files (homes x people per home = residents), and open it."""
+        try:
+            import buildup
+            d = self._dash or {}
+            R = (d.get('population') or {}).get('recon')
+            if not R:
+                return {'ok': False, 'error': 'The build-up is not in this refresh. Refresh the data and try again.'}
+            os.makedirs(DOWNLOADS, exist_ok=True)
+            sc = d.get('scope') or {}
+            area = 'Calgary' if sc.get('kind') == 'city' else (sc.get('name') or 'the area')
+            path = os.path.join(DOWNLOADS, f"Population build-up, {area} ({str(d.get('built_at', ''))[:10]}).xlsx")
+            base, n = path[:-5], 2
+            while os.path.exists(path):
+                path = f'{base} ({n}).xlsx'
+                n += 1
+            buildup.write(path, R, {c['code']: c.get('ward') for c in d.get('communities') or []}, area,
+                          (d.get('population') or {}).get('method_label', ''), str(d.get('built_at', ''))[:16])
+            self.open_path(path)
+            return {'ok': True, 'path': path}
+        except Exception as e:  # noqa: BLE001
+            return {'ok': False, 'error': str(e)}
+
     def save_csv(self, name, columns, rows):
         try:
             os.makedirs(DOWNLOADS, exist_ok=True)

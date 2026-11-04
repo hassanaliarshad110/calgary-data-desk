@@ -166,6 +166,13 @@ def main():
             def one(m=m, w=w):
                 d = dashboard.build(cache_dir=cache, ward=w, pop_method=m)
                 write(os.path.join(data, m, f'w{w}.json'), d)
+                if (d.get('population') or {}).get('recon'):      # the build-up workbook for the Population build-up tab
+                    import buildup
+                    sc = d.get('scope') or {}
+                    buildup.write(os.path.join(data, m, f'buildup_w{w}.xlsx'), d['population']['recon'],
+                                  {c['code']: c.get('ward') for c in d.get('communities') or []},
+                                  'Calgary' if sc.get('kind') == 'city' else (sc.get('name') or ''),
+                                  (d.get('population') or {}).get('method_label', ''), str(d.get('built_at', ''))[:16])
                 names[w] = [c.get('name') for c in d.get('communities') or []]
             step(f'dashboard {m} ward {w}', one)
     # a ward that failed (the City's portal timing out) gets a second try, then yesterday's published copy

@@ -106,6 +106,13 @@
     async open_path(p) { if (/^(blob:|https?:)/.test(String(p || ''))) realOpen(String(p), '_blank', 'noopener'); return true; },
     async open_downloads() { return true; },
     async list_downloads() { return []; },
+    async save_buildup() {                     // the build's workbook for the area and way of counting on screen
+      const m = store.get('pop_method', 'city_actual'), w = store.get('scope', 0);
+      const a = document.createElement('a');
+      a.href = `data/${m}/buildup_w${w}.xlsx`; a.download = `Population build-up (${w ? 'Ward ' + w : 'Calgary'}).xlsx`;
+      document.body.appendChild(a); a.click(); a.remove();
+      return { ok: true };
+    },
     async save_csv(name, columns, rows) {
       const q = v => { const s = v === null || v === undefined ? '' : String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
       const text = '﻿' + [columns, ...rows].map(r => r.map(q).join(',')).join('\r\n');

@@ -1226,18 +1226,21 @@ function renderRecon() {
   $('#gr-sub').textContent = 'How the population is built from the property roll: every home and rental unit, times people per home, adding up to the total';
   if (!R) { $('#gr-stats').innerHTML = ''; box.innerHTML = '<p class="empty">The build-up is not available in this refresh.</p>'; return; }
   const T = R.totals, m = popMethod();
-  $('#gr-stats').innerHTML = [[fmt(T.homes_now, 0), 'homes lived in on the property roll (rental units counted separately)'], [fmt(T.units_now, 0), 'rental units (apartment buildings)'],
-    [fmt(T.population), 'residents by the growth model'], [fmt(T.residents), 'residents, ' + popChip() + ' (in use)']]
+  $('#gr-stats').innerHTML = [[fmt(T.homes_now, 0), 'homes on the property roll: houses, condos and other homes, each its own account'],
+    [fmt(T.units_now, 0), 'flats in rented-out apartment buildings (one account per building, so counted apart)'],
+    [fmt(T.homes_now + T.units_now, 0), 'homes in all'], [fmt(T.residents), 'residents, ' + popChip()]]
     .map(([b, s]) => `<div class="istat"><b>${b}</b><span>${esc(s)}</span></div>`).join('');
   const rows = [...R.rows].sort((a, b) => String(a.name).localeCompare(String(b.name)));
-  const stepHead = { city_actual: "Step to the City's total, actual growth", city_pace: "Step to the City's total, one rate", census2021: 'Step to the ' + CY() + ' Census', model: 'Step' }[m] || 'Step';
+  const stepHead = { city_actual: 'City forecast top-up (shared by actual growth)', city_pace: 'City forecast top-up (one rate for all)', census2021: 'Step to the ' + CY() + ' Census', model: 'Step' }[m] || 'Step';
   rcComm = rcComm && rows.some(r => r.code === rcComm) ? rcComm : '';
   box.innerHTML = `<div class="gap-scope"><h3>${esc(W())}: from homes to residents</h3>
-    <p class="card-sub">Read across each row: homes and rental units on the City's property roll, times people per home or per unit, give the growth model's residents; the last columns take it to the way of counting chosen in Settings (${esc(popWords())}). Choose a community to list every property behind its figure.</p>
+    <p class="card-sub">Read across each row: <b>homes × people per home</b>, plus <b>rental units × people per unit</b>, gives the estimate from homes; the City forecast top-up then takes it to the residents shown in the app (${esc(popWords())}). Choose a community to list every property behind its figure.</p>
+    <p class="card-sub"><b>Why rental units are listed apart:</b> a rented-out apartment building is one account (one roll number) on the City's property roll for the whole building, so it would count as one home. Its flats are counted instead, from the City's building permits or, where no permit was found, estimated from its assessed value. Condo flats are each their own account on the roll, so they are counted as homes directly.</p>
+    <p><button type="button" class="btn" id="rc-xlsx">${icon('download')}<span>Save the build-up as Excel</span></button> <small class="card-note">Homes × people per home = residents, community by community, with the sums as Excel formulas, and every rental building with where its number of units comes from.</small></p>
     <div class="table-wrap tall"><table class="data rc-table"><thead><tr><th scope="col">Community</th><th scope="col" class="num">${CY()} Census residents</th><th scope="col" class="num">${CY()} households</th>
       <th scope="col" class="num">Homes on Census day</th><th scope="col" class="num">Homes today</th><th scope="col" class="num">People per home</th><th scope="col" class="num">People in homes</th>
       <th scope="col" class="num">Rental units today</th><th scope="col" class="num">People per unit</th><th scope="col" class="num">People in rental units</th>
-      <th scope="col" class="num">Growth model</th><th scope="col">${esc(stepHead)}</th><th scope="col" class="num">Residents (in use)</th><th scope="col">How the model counted it</th></tr></thead><tbody>
+      <th scope="col" class="num">Estimate from homes</th><th scope="col">${esc(stepHead)}</th><th scope="col" class="num">Residents (in use)</th><th scope="col">How the model counted it</th></tr></thead><tbody>
     ${rows.map(r => `<tr${r.code === rcComm ? ' class="is-sel"' : ''}><td><button type="button" class="link-btn rc-pick" data-c="${esc(r.code)}">${esc(titleCase(r.name))}</button></td>
       <td class="num">${r.census2021 ? fmt(r.census2021) : 'new'}</td><td class="num">${r.households_2021 ? fmt(r.households_2021) : 'new'}</td><td class="num">${fmt(r.homes_census, 1)}</td><td class="num">${fmt(r.homes_now, 1)}</td>
       <td class="num">${fmt(r.people_per_home, 3)}</td><td class="num">${isNum(r.people_in_homes) ? fmt(r.people_in_homes, 1) : '–'}</td>
@@ -1250,6 +1253,12 @@ function renderRecon() {
     <p class="card-note">Homes: residential property with a building and a residential use on the City's property roll (4bsw-nn7w): commercial, vacant lots, parking stalls and storage lockers are left out; each home counts one year after its year of construction. People per home: ${CY()} Census residents (less the people in rental units) / homes on Census day, the same for every kind of home in a community; rental apartment buildings are one account on the roll, so their units come from building permits or, without one, from assessed value. Communities whose homes were more than 15% off the Census household count use the 2021 household size for the change only. <button type="button" class="link-btn small" data-method="homes">How homes are counted</button> <button type="button" class="link-btn small" data-method="population">The growth model</button></p></div>
     <div class="gap-scope" id="rc-props"></div>`;
   $$('.rc-pick', box).forEach(b => b.addEventListener('click', () => { rcComm = b.dataset.c; rcProps = null; renderRecon(); loadProps(); }));
+  $('#rc-xlsx').addEventListener('click', async e => {
+    const btn = e.currentTarget, sp = btn.querySelector('span'), a = await api();
+    const r = a.save_buildup ? await a.save_buildup() : { ok: false, error: 'Not available here.' };
+    sp.textContent = r && r.ok ? 'Saved' : ('Could not save: ' + ((r && r.error) || ''));
+    setTimeout(() => { sp.textContent = 'Save the build-up as Excel'; }, 3000);
+  });
   $('#gr-notes').textContent = `Sources: City of Calgary open data: Current Year Property Assessments (4bsw-nn7w), the ${CY()} Census by community (f9wk-wej9) and households (msjx-5ygv), building permits matched to rental buildings; the City's population outlook for the step to the City's total.`;
   renderProps();
 }

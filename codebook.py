@@ -8,7 +8,7 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-FILES = ['dashboard.py', 'attention.py', 'osm.py', 'population.py', 'census.py', 'assets.py', 'families.py', 'police.py',
+FILES = ['dashboard.py', 'attention.py', 'buildup.py', 'osm.py', 'population.py', 'census.py', 'assets.py', 'families.py', 'police.py',
          'proptax.py', 'budget.py', 'rents.py', 'wards.py', 'geo.py', 'methods.py', 'calgary_data.py', 'auditor.py',
          'analyst.py', 'missing.py', 'profiles.py']
 MAX_CHARS = 12000
@@ -22,7 +22,8 @@ TOPICS = {
                        ('population.py', 'homes_lived_in'), ('population.py', 'queries')]},
     'population_recon': {'what': 'Population build-up: homes and rental units x people per home = the growth model, then the step to the count in use',
                          'code': [('population.py', 'recon'), ('population.py', 'home_share'), ('population.py', 'population'),
-                                  ('dashboard.py', 'population_recon')]},
+                                  ('dashboard.py', 'population_recon'), ('buildup.py', 'WHY_RENTALS'),
+                                  ('buildup.py', 'SOURCE_WORDS')]},
     'growth_checks': {'what': 'Is the growth believable? Homes, homes plus people per home, school enrolment',
                       'code': [('dashboard.py', 'growth_checks'), ('families.py', 'city_school_totals')]},
     'live_counter': {'what': 'The live population counter on the dashboard (forecast pace, reset each refresh)',
