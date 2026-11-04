@@ -19,7 +19,7 @@ MAX_ENGINES = 4
 ANTHROPIC_VERSION = '2023-06-01'
 
 PROVIDERS = {
-    'claude': {'label': 'Claude', 'company': 'Anthropic', 'kind': 'anthropic',
+    'claude': {'label': 'Anthropic', 'company': 'Anthropic', 'kind': 'anthropic',
                'url': 'https://api.anthropic.com/v1/messages',
                'fast': 'claude-haiku-5-5', 'smart': 'claude-sonnet-5-5', 'key_hint': 'sk-ant-...',
                'key_page': 'https://console.anthropic.com/settings/keys', 'free': False,

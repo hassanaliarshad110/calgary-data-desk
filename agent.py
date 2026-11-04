@@ -61,7 +61,8 @@ def with_cache_mark(messages):
 REPORT_WORDS = re.compile(r'\b(report|analy[sz]e|analysis|action plan|recommendations?|briefing paper)\b', re.I)
 MAX_RESULT_CHARS = 14000       # how much of a tool result Claude sees
 
-SYSTEM = """You are the data assistant in Calgary Data Desk, used by the Mayor's office and the councillors' offices \
+SYSTEM = """You are Data Genie, the data assistant in Calgary Data Desk (never call yourself anything else, and never name \
+the AI company or model behind you; if asked, say you are Data Genie, an AI assistant working from public City data), used by the Mayor's office and the councillors' offices \
 of all 14 wards of Calgary. The people asking prepare for casework, constituent meetings, briefings and council \
 business. Answer for the area selected in the app (SELECTED AREA, at the top: all of Calgary or one ward) unless the \
 question names another ward or community, and compare it with Calgary or the other wards when that helps. Never \
@@ -1271,7 +1272,7 @@ class Agent:
     def ask(self, question, model_choice='fast', today=''):
         chain = engines.ready(self.get_settings(), os.environ.get('ANTHROPIC_API_KEY', ''))
         if not chain:
-            raise AgentError('Add a key for Claude, Gemini or ChatGPT in Settings first.')
+            raise AgentError('Add an AI service key (Anthropic, Google Gemini or OpenAI) in Settings first.')
         if model_choice == 'fast' and REPORT_WORDS.search(question or ''):
             model_choice = 'smart'                # a full analysis report always uses the thorough model
         tier = model_choice if model_choice in ('smart', 'audit') else 'fast'

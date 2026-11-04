@@ -671,14 +671,14 @@ METHODS = [
     {'key': 'report_auditor', 'name': 'Report auditor (Data Scientist)', 'dataset': 'The report and the queries behind it',
      'publisher': 'Calgary Data Desk', 'page': 'https://github.com/hassanaliarshad110/calgary-data-desk', 'updated': 'Each audit',
      'used_in': 'Data Scientist, Report auditor tab',
-     'method': ['Step 1, audit (Claude Opus): reads the report and every query it ran, re-runs the queries with the same '
+     'method': ['Step 1, audit by Chinook: reads the report and every query it ran, re-runs the queries with the same '
                 'filters and periods, recomputes every total, rate, share and change with the calculator, and checks the '
                 'sources, the method, the wording and the recommendations. It lists findings with its evidence and changes '
                 'nothing.',
-                'Step 2, review and fix (Claude Sonnet): re-checks each finding itself, accepts, revises or rejects it with '
+                'Step 2, review and fix by Bow: re-checks each finding itself, accepts, revises or rejects it with '
                 'its own numbers and reasons, and makes the corrected report, changing only what the accepted and revised '
                 'findings require.',
-                'Step 3, final check (Claude Opus): checks only the step 1 findings: each accepted one fixed correctly in '
+                'Step 3, final check by Rundle: checks only the step 1 findings: each accepted one fixed correctly in '
                 'the corrected report, each rejected one rightly rejected.',
                 'The audit page lists every finding with all three verdicts; the corrected report is saved like any report '
                 '(title ending "(audited)").'],

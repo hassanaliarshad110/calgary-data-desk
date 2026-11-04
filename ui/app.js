@@ -1612,7 +1612,7 @@ function renderEngines(s) {
     return `<li class="eng" data-i="${i}">
       <div class="eng-top">
         <span class="eng-n" title="Priority ${i + 1}">${i + 1}</span>
-        <select class="eng-prov" aria-label="Service ${i + 1}">${PROV.map(o => `<option value="${o.key}"${o.key === e.provider ? ' selected' : ''}>${esc(o.label)} (${esc(o.company)})</option>`).join('')}</select>
+        <select class="eng-prov" aria-label="Service ${i + 1}">${PROV.map(o => `<option value="${o.key}"${o.key === e.provider ? ' selected' : ''}>${esc(o.label)}${o.company && o.company !== o.label ? ' (' + esc(o.company) + ')' : ''}</option>`).join('')}</select>
         ${state}
         <span class="eng-role">${i === 0 ? 'Used first' : 'Backup ' + i}</span>
         <span class="eng-move">
