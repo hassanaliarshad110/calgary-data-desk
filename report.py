@@ -129,7 +129,7 @@ def _table(t, limit=300):
                                     for i in range(len(cols))) + '</tr>' for r in rows[:limit])
     more = f'<p class="note">Showing {limit:,} of {len(rows):,} rows; the full table is in the Excel workbook.</p>' if len(rows) > limit else ''
     cap = f'<h4>{e(t["title"])}</h4>' if t.get('title') else ''
-    return f'{cap}<table><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>{more}'
+    return f'{cap}<div class="tbl"><table><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>{more}'
 
 
 def _paras(text):
@@ -189,8 +189,8 @@ def _figure(v, meta, interactive):
             'Traffic incidents (City of Calgary open data)' if src.get('layer') else '')
     cap_bits = [sp.get('unit') or sp.get('value_label'), src if isinstance(src, str) else '']
     if interactive:
-        note = ('Hover for values; click a community to zoom in, a point for details' if typ == 'map' else
-                'Hover for values; click a legend item to hide it')
+        note = ('Tap a community to zoom in, a point for details' if typ == 'map' else
+                'Tap or hover for the exact numbers; tap a legend item to hide it')
         cap = ' · '.join(e(x) for x in cap_bits + [note] if x)
         legend = ''
         if typ == 'map':
@@ -212,15 +212,18 @@ def render(spec, provenance=None, meta=None, interactive=False):
     title = str(spec.get('title') or 'Calgary Data Desk analysis').strip()
     today = meta.get('date') or dt.date.today().strftime('%B %d, %Y').replace(' 0', ' ')
     visuals = collect(spec)
-    parts = [f'''<header class="band"><div><p class="kicker">Calgary Data Desk · Analysis{' · interactive version' if interactive else ''}</p><h1>{e(title)}</h1>
-  {f'<p class="sub">{e(spec.get("subtitle"))}</p>' if spec.get('subtitle') else ''}</div>
-  <div class="band-r"><p>Prepared for {e(('the Office of Councillor ' + meta['councillor']) if meta.get('councillor') else 'the Mayor and Council')}</p><p>{e(today)}</p></div></header>''']
+    facts = [x for x in (meta.get('area'), today, meta.get('built')) if x]
+    parts = [f'''<header class="top"><p class="brand">Calgary Data Desk</p>
+  <h1>{e(title)}</h1>{f'<p class="sub">{e(spec.get("subtitle"))}</p>' if spec.get('subtitle') else ''}
+  <p class="facts">{' <span>·</span> '.join(e(x) for x in facts)}</p></header>''']
     if spec.get('question'):
-        parts.append(f'<p class="ask"><b>Question asked:</b> {e(spec["question"])}</p>')
+        parts.append(f'<p class="ask"><span>Question</span>{e(spec["question"])}</p>')
     if spec.get('summary'):
-        parts.append(f'<section class="summary keep"><h2>Summary</h2><ul>{_items(spec["summary"])}</ul></section>')
+        cards = ''.join(f'<li><b class="n">{i}</b><div>{_inline(x)}</div></li>'
+                        for i, x in enumerate([x for x in spec['summary'] if str(x).strip()], 1))
+        parts.append(f'<section class="findings keep"><h2>Key findings</h2><ol class="cards">{cards}</ol></section>')
     for i, sec in enumerate(spec.get('sections') or [], 1):
-        body = [f'<h2>{i}. {e(sec.get("heading") or "")}</h2>', _paras(sec.get('text'))]
+        body = [f'<h2><span class="sn">{i}</span>{e(sec.get("heading") or "")}</h2>', _paras(sec.get('text'))]
         body += [_figure(v, meta, interactive) for v in visuals if v['section'] == i]
         if sec.get('note'):
             body.append(f'<p class="note">{_inline(sec["note"])}</p>')
@@ -233,17 +236,17 @@ def render(spec, provenance=None, meta=None, interactive=False):
             return (f'<tr><td class="no">{i}</td><td><b>{e(r.get("title"))}</b><br>{_inline(r.get("detail") or "")}{ev}</td>'
                     f'<td><span class="pri {e(pri.lower())}">{e(pri.capitalize())}</span></td></tr>')
         rows = ''.join(rec_row(i, r) for i, r in enumerate(recs, 1))
-        parts.append(f'<section><h2>Recommendations</h2><table class="recs"><thead><tr><th></th><th>Recommendation</th>'
-                     f'<th>Priority</th></tr></thead><tbody>{rows}</tbody></table></section>')
+        parts.append(f'<section><h2>Options to consider</h2><div class="tbl"><table class="recs"><thead><tr><th></th><th>Option</th>'
+                     f'<th>Priority</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
     plan = [a for a in spec.get('action_plan') or [] if isinstance(a, dict)]
     if plan:
         rows = ''.join(f'<tr><td>{_inline(a.get("action") or "")}</td><td>{e(a.get("owner"))}</td><td>{e(a.get("timeline"))}</td>'
                        f'<td>{_inline(a.get("measure") or "")}</td></tr>' for a in plan)
-        parts.append(f'<section class="keep"><h2>Action plan</h2><table><thead><tr><th>Action</th><th>Who</th><th>When</th>'
-                     f'<th>How we will know</th></tr></thead><tbody>{rows}</tbody></table></section>')
+        parts.append(f'<section class="keep"><h2>Next steps</h2><div class="tbl"><table><thead><tr><th>Step</th><th>Who</th><th>When</th>'
+                     f'<th>How we will know</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
     if spec.get('method') or meta.get('population'):
         extra = f'<li>Residents: {e(meta["population"])}</li>' if meta.get('population') else ''
-        parts.append(f'<section><h2>Method</h2><ol>{_items(spec.get("method"))}{extra}</ol></section>')
+        parts.append(f'<section class="small"><h2>How this was worked out</h2><ol>{_items(spec.get("method"))}{extra}</ol></section>')
     srcs = [s for s in spec.get('data_sources') or [] if isinstance(s, dict)]
     if srcs:
         rows = []
@@ -253,21 +256,22 @@ def render(spec, provenance=None, meta=None, interactive=False):
             ds = f' ({e(s["dataset_id"])})' if s.get('dataset_id') else ''
             rows.append(f'<tr><td><b>{e(s.get("name"))}</b>{ds}{link}</td>'
                         f'<td>{e(s.get("publisher"))}</td><td>{e(s.get("period"))}</td><td>{_inline(s.get("notes") or "")}</td></tr>')
-        parts.append(f'<section><h2>Data sources</h2><table class="srcs"><thead><tr><th>Source</th><th>Publisher</th>'
-                     f'<th>Period used</th><th>Notes</th></tr></thead><tbody>{"".join(rows)}</tbody></table></section>')
+        parts.append(f'<section class="small"><h2>Data sources</h2><div class="tbl"><table class="srcs"><thead><tr><th>Source</th><th>Publisher</th>'
+                     f'<th>Period used</th><th>Notes</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div></section>')
     if spec.get('limitations'):
-        parts.append(f'<section><h2>Limits of this analysis</h2><ul>{_items(spec["limitations"])}</ul></section>')
+        parts.append(f'<section class="small"><h2>What this cannot tell you</h2><ul>{_items(spec["limitations"])}</ul></section>')
     if prov:
         rows = ''.join(f'<tr><td class="no">{i}</td><td>{e(p.get("what"))}</td><td class="code">{e(p.get("detail"))}</td>'
                        f'<td>{e(p.get("result"))}</td><td>{e(p.get("at"))}</td></tr>' for i, p in enumerate(prov, 1))
-        parts.append(f'<section class="appendix"><h2>Appendix: how the figures were produced</h2>'
-                     f'<p class="note">Every data request made while preparing this report, in order. Anyone can repeat '
-                     f'them on data.calgary.ca or with the files named here to check the figures.</p>'
-                     f'<table class="prov"><thead><tr><th></th><th>Step</th><th>Query or source</th><th>Result</th><th>Time</th>'
-                     f'</tr></thead><tbody>{rows}</tbody></table></section>')
-    parts.append(f'''<footer>Prepared by Data Genie, the analysis assistant in Calgary Data Desk, from the public data listed above
-  ({e(meta.get('built') or today)}). It is an automated analysis: check key figures against the sources before quoting
-  them in public. Recommendations are options for the office to consider, not City policy.</footer>''')
+        table = (f'<div class="tbl"><table class="prov"><thead><tr><th></th><th>Step</th><th>Query or source</th><th>Result</th>'
+                 f'<th>Time</th></tr></thead><tbody>{rows}</tbody></table></div>')
+        intro = ('<p class="note">Every data request made for this report, in order. Anyone can repeat them on '
+                 'data.calgary.ca, or with the files named here, to check the figures.</p>')
+        parts.append(f'<section class="appendix small"><details><summary><h2>Appendix: every data request ({len(prov)})</h2></summary>{intro}{table}</details></section>'
+                     if interactive else f'<section class="appendix small"><h2>Appendix: every data request</h2>{intro}{table}</section>')
+    parts.append(f'''<footer>Made from public data: City of Calgary open data and the other sources listed above
+  ({e(meta.get('built') or today)}). Check key figures against the sources before quoting them in public. Options are
+  ideas to consider, not City policy.</footer>''')
     page = PAGE.replace('{{TITLE}}', e(title)).replace('{{BODY}}', '\n'.join(parts))
     if interactive:
         page = page.replace('</head>', _vendor_head() + '</head>').replace(
@@ -323,12 +327,12 @@ def workbook_sheets(spec, provenance, meta):
     """The Excel workbook: about, every table, the data behind every chart and map, recommendations, plan, sources."""
     visuals = collect(spec)
     about = [['Report', spec.get('title') or ''], ['Question', spec.get('question') or ''],
-             ['Prepared', meta.get('date') or ''], ['For', f"Office of Councillor {meta['councillor']}" if meta.get('councillor') else 'The Mayor and Council'],
+             ['Made', meta.get('date') or ''], ['Area', meta.get('area') or ''],
              ['Residents counted with', meta.get('population') or ''], ['Data', meta.get('built') or ''], [], ['Summary']]
     about += [['', x] for x in spec.get('summary') or []]
-    about += [[], ['Method']] + [['', x] for x in spec.get('method') or []]
+    about += [[], ['How this was worked out']] + [['', x] for x in spec.get('method') or []]
     about += [[], ['Limits']] + [['', x] for x in spec.get('limitations') or []]
-    about += [[], ['Prepared by Data Genie in Calgary Data Desk from public data; check key figures before quoting them.']]
+    about += [[], ['Made from public data (City of Calgary open data and the other sources listed); check key figures before quoting them.']]
     sheets = [('About', about, False)]
     for v in visuals:
         sp, t = v['spec'], (v['spec'].get('title') or v['id'])
@@ -405,41 +409,67 @@ def make(spec, provenance, folder, meta=None, to_pdf=None):
 
 
 PAGE = '''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>{{TITLE}}</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
 <style>
 @page { size: Letter; margin: 14mm 14mm 16mm; }
 * { box-sizing: border-box; }
-html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { margin: 0; font: 10.5pt/1.5 "Segoe UI", Arial, sans-serif; color: #0F172A; background: #fff; }
-.wrap { max-width: 780px; margin: 0 auto; }
-.band { display: flex; justify-content: space-between; gap: 20px; background: #0B3A66; color: #fff; padding: 20px 22px; border-radius: 6px; margin-bottom: 12px; }
-.band h1 { margin: 2px 0 4px; font-size: 21pt; line-height: 1.15; }
-.kicker { margin: 0; text-transform: uppercase; letter-spacing: 1.4px; font-size: 8.5pt; color: #BFDBFE; font-weight: 600; }
-.sub { margin: 0; font-size: 11.5pt; color: #E0F2FE; }
-.band-r { text-align: right; font-size: 9pt; color: #E0F2FE; min-width: 170px; } .band-r p { margin: 0 0 3px; }
-.ask { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 8px 12px; font-size: 9.5pt; }
-h2 { font-size: 13pt; margin: 16px 0 6px; color: #0B3A66; border-bottom: 2px solid #0B3A66; padding-bottom: 3px; break-after: avoid; }
-h4 { font-size: 9.5pt; margin: 8px 0 3px; color: #334155; break-after: avoid; }
-p { margin: 0 0 7px; } ul, ol { margin: 4px 0 8px; padding-left: 20px; } li { margin: 2px 0; }
-.summary { background: #EFF6FF; border-left: 4px solid #0B6BB5; border-radius: 4px; padding: 2px 16px 6px; }
-.summary h2 { border: 0; margin-top: 8px; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font: 10.5pt/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #1F2937; background: #fff; }
+.wrap { max-width: 820px; margin: 0 auto; }
+.top { padding: 4px 0 14px; border-bottom: 1px solid #E5E7EB; margin-bottom: 16px; }
+.brand { margin: 0 0 10px; font-size: 8.5pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #0F766E; }
+.top h1 { margin: 0 0 6px; font-size: 22pt; line-height: 1.2; color: #111827; letter-spacing: -.01em; }
+.sub { margin: 0 0 6px; font-size: 12pt; color: #4B5563; }
+.facts { margin: 0; font-size: 9pt; color: #6B7280; } .facts span { margin: 0 6px; color: #D1D5DB; }
+.ask { margin: 0 0 18px; padding: 10px 14px; background: #F9FAFB; border-radius: 8px; font-size: 10pt; color: #374151; }
+.ask span { display: block; font-size: 8pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9CA3AF; margin-bottom: 2px; }
+h2 { display: flex; align-items: center; gap: 10px; font-size: 14pt; line-height: 1.3; margin: 26px 0 10px; color: #111827; break-after: avoid; }
+.sn { flex: none; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #CCFBF1; color: #115E59; font-size: 10pt; font-weight: 700; }
+h4 { font-size: 10pt; margin: 12px 0 6px; color: #374151; break-after: avoid; }
+p { margin: 0 0 9px; } ul, ol { margin: 4px 0 10px; padding-left: 20px; } li { margin: 3px 0; }
+b { color: #111827; }
+.findings h2 { margin-top: 6px; }
+.cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cards li { display: flex; gap: 10px; margin: 0; padding: 12px 14px; border: 1px solid #E5E7EB; border-radius: 10px; background: #fff; break-inside: avoid; }
+.cards .n { flex: none; display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: #0F766E; color: #fff; font-size: 9pt; }
 .keep, figure, tr { break-inside: avoid; }
-figure { margin: 6px 0 8px; } figcaption { font-size: 8.5pt; color: #64748B; }
+figure { margin: 10px 0 14px; padding: 12px 14px; border: 1px solid #E5E7EB; border-radius: 10px; }
+figure h4 { margin-top: 0; }
+figcaption { font-size: 8.5pt; color: #6B7280; margin-top: 4px; }
 .legend span { margin-right: 12px; white-space: nowrap; } .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
-svg.chart { width: 100%; height: auto; } svg .maplbl { font-size: 7pt; fill: #0F172A; paint-order: stroke; stroke: #fff; stroke-width: 2.5px; } svg .mapval { font-weight: 700; } svg .grid { stroke: #E2E8F0; } svg .ax { font: 8pt "Segoe UI", Arial; fill: #64748B; }
-svg .lbl { fill: #334155; } svg .val { fill: #0F172A; font-weight: 600; }
-table { width: 100%; border-collapse: collapse; font-size: 8.8pt; margin: 4px 0 8px; }
-th { text-align: left; font-size: 8pt; color: #475569; border-bottom: 1.5px solid #94A3B8; padding: 4px 5px; vertical-align: bottom; }
-td { border-bottom: 1px solid #E2E8F0; padding: 4px 5px; vertical-align: top; }
-.num { text-align: right; white-space: nowrap; } td.no { color: #64748B; width: 22px; }
-.recs td:last-child { width: 70px; } .ev { color: #64748B; font-size: 8.3pt; }
-.pri { font-size: 8pt; font-weight: 700; padding: 1px 7px; border-radius: 9px; background: #F1F5F9; color: #475569; }
+svg.chart { width: 100%; height: auto; } svg .maplbl { font-size: 7pt; fill: #111827; paint-order: stroke; stroke: #fff; stroke-width: 2.5px; } svg .mapval { font-weight: 700; } svg .grid { stroke: #E5E7EB; } svg .ax { font: 8pt system-ui, "Segoe UI", Arial; fill: #6B7280; }
+svg .lbl { fill: #374151; } svg .val { fill: #111827; font-weight: 600; }
+.tbl { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 4px 0 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+th { text-align: left; font-size: 8pt; font-weight: 700; color: #4B5563; background: #F3F4F6; padding: 6px 8px; vertical-align: bottom; }
+th:first-child { border-radius: 6px 0 0 6px; } th:last-child { border-radius: 0 6px 6px 0; }
+td { border-bottom: 1px solid #F3F4F6; padding: 6px 8px; vertical-align: top; }
+tbody tr:nth-child(even) td { background: #FAFAFA; }
+.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; } td.no { color: #9CA3AF; width: 22px; }
+.recs td:last-child { width: 80px; } .ev { color: #6B7280; font-size: 8.3pt; }
+.pri { font-size: 8pt; font-weight: 700; padding: 2px 8px; border-radius: 9px; background: #F3F4F6; color: #4B5563; }
 .pri.high { background: #FEE2E2; color: #991B1B; } .pri.medium { background: #FEF3C7; color: #92400E; } .pri.low { background: #DCFCE7; color: #166534; }
-.srcs a { color: #0B6BB5; word-break: break-all; font-size: 8pt; }
+.small { font-size: 9.5pt; color: #374151; } .small h2 { font-size: 12pt; }
+.srcs a { color: #0F766E; word-break: break-all; font-size: 8pt; }
 .prov td { font-size: 7.8pt; } .prov .code { font-family: Consolas, "Courier New", monospace; word-break: break-all; }
-.note { font-size: 8.5pt; color: #64748B; }
-footer { margin-top: 14px; border-top: 1px solid #CBD5E1; padding-top: 6px; font-size: 7.8pt; color: #64748B; }
-@media screen { body { background: #E2E8F0; } .wrap { background: #fff; padding: 14mm; margin: 12px auto; box-shadow: 0 2px 10px rgba(15,23,42,.15); } }
+details summary { cursor: pointer; list-style: none; } details summary h2 { display: inline-flex; margin: 0; }
+details summary::-webkit-details-marker { display: none; } details summary h2::after { content: " +"; color: #9CA3AF; }
+details[open] summary h2::after { content: " \\2212"; }
+.note { font-size: 8.5pt; color: #6B7280; }
+footer { margin-top: 22px; border-top: 1px solid #E5E7EB; padding-top: 8px; font-size: 8pt; color: #6B7280; }
+@media screen { body { background: #F3F4F6; } .wrap { background: #fff; padding: 40px 48px; margin: 16px auto; border-radius: 12px; box-shadow: 0 1px 3px rgba(17,24,39,.08); } }
+@media screen and (max-width: 700px) {
+  body { font-size: 15px; }
+  .wrap { margin: 0; padding: 20px 16px 28px; border-radius: 0; box-shadow: none; }
+  .top h1 { font-size: 24px; } .sub { font-size: 16px; }
+  .cards { grid-template-columns: 1fr; }
+  h2 { font-size: 19px; }
+  figure { padding: 10px; margin-left: -4px; margin-right: -4px; }
+  table { font-size: 13px; } th { font-size: 12px; }
+  .num { white-space: nowrap; }
+}
+@media print { details > *:not(summary) { display: block; } details summary h2::after { content: ""; } }
 </style></head>
 <body><div class="wrap">
 {{BODY}}

@@ -25,6 +25,15 @@ async function boot(base) {
     py.FS.mkdirTree(dest.slice(0, dest.lastIndexOf('/')));
     py.FS.writeFile(dest, new Uint8Array(await r.arrayBuffer()));
   }));
+  // the chart and map libraries the report's interactive page needs, inlined into it (report.VENDOR = ui/vendor)
+  await Promise.all(['chart.umd.min.js', 'leaflet.js', 'leaflet.css'].map(async f => {
+    try {
+      const r = await fetch(base + 'vendor/' + f);
+      if (!r.ok) return;
+      py.FS.mkdirTree(app + '/ui/vendor');
+      py.FS.writeFile(app + '/ui/vendor/' + f, new Uint8Array(await r.arrayBuffer()));
+    } catch (err) { /* the report then explains a chart could not be drawn */ }
+  }));
   py.runPython(`import sys, os\nsys.path.insert(0, '${app}')\nos.chdir('${app}')`);
   py.runPython(new TextDecoder().decode(py.FS.readFile(app + '/web/webapp.py')), { globals: py.globals });
 }

@@ -164,4 +164,6 @@ def brief(key=None, text=None, area=None):
             'Use the data in the app first, then City open data and the other sources; compute every figure with calculate; '
             'include tables the office can reuse in Excel; give recommendations and an action plan that follow from the '
             'findings (only specific, data-backed ones the office would not already know; no routine or obvious steps), '
-            'and list every source.')
+            'and list every source. Write in plain, everyday language for a general reader; never mention the app, '
+            'a dashboard, a model or a list, and say where figures come from in the City\'s own words (City of Calgary data, '
+            'the City\'s population forecast, the property assessment roll); do not say who the report is prepared for.')

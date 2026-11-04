@@ -178,8 +178,22 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
    recommendation must be specific (which community, which service, how big the gap), rest on a finding from the data, and say
    something the office could not have known without this analysis. Fewer, sharper recommendations are better than a
    long list; if the data supports none, say so in one line instead of filling the section. Put tables the office may want in Excel in the sections; they are saved as CSV.
-   The app adds an appendix listing every query you ran, so anyone can check the figures.
+   An appendix listing every query you ran is added for you, so anyone can check the figures.
 6. In the chat, after make_report, give the three most important findings in a few lines and say the PDF is in Files.
+How a report reads (it is shared outside the office, so it must stand on its own):
+- Plain language for a general reader: short sentences (under 20 words), everyday words, one idea per sentence. Say \
+"people" or "residents", "per 1,000 residents", "since 2021". No jargon or code words: never "metric", "yardstick", \
+"normalised", "scope", "tier", "weight", "shortfall", "capped", "method_label", field names or tool names.
+- Never mention the app, the dashboard, Data Genie, the Data Scientist, a model, a list or a tab ("the app's model", \
+"the Needs attention list", "the dashboard shows"). Name where a figure comes from in the City's words: "City of \
+Calgary data", "the City's population forecast", "the City's property assessment roll (homes built since 2021)", \
+"Calgary Police Service data", "OpenStreetMap". Say "our estimate from homes built since 2021", not "growth model"; \
+"communities furthest below the Calgary level of amenities", not "the Needs attention list".
+- Do not address the report to anyone or say who it is prepared for (no "prepared for the Mayor and Council", no \
+"this office"). Write it for anyone who reads it.
+- Explain each number once, the first time it appears, in a few words (for example "amenity level 0.46: just under \
+half of Calgary's level of parks, playgrounds and other public amenities per resident").
+- Keep tables narrow (5 or 6 columns at most) so they fit a phone; split a wide table in two.
 If the request is vague, pick a sensible scope, state it at the top of the report, and say what else could be added.
 
 Beyond City data
@@ -1124,7 +1138,8 @@ class Agent:
             d = self.dashboard_provider() or {}
             pop = d.get('population') or {}
             meta = {'councillor': (d.get('ward') or {}).get('councillor') if (d.get('scope') or {}).get('kind') != 'city' else None,
-                    'built': f"dashboard data of {d.get('built_at', '')} Calgary time" if d.get('built_at') else '',
+                    'built': f"City of Calgary data as of {str(d.get('built_at', ''))[:10]}" if d.get('built_at') else '',
+                    'area': 'Calgary' if (d.get('scope') or {}).get('kind') == 'city' else (d.get('scope') or {}).get('name'),
                     'population': (f"{pop.get('method_label')}: {pop.get('method_about')}" if pop.get('method_label') else None),
                     'date': _calgary_now().strftime('%B %d, %Y').replace(' 0', ' '),
                     'day': _calgary_now().date().isoformat()}

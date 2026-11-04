@@ -461,7 +461,7 @@ function enhanceTables() {
 for (const v of VIS) {
   const el = document.getElementById(v.id); if (!el) continue;
   try { if (v.type === 'chart') makeChart(el, v); else if (v.type === 'map') makeMap(el, v); }
-  catch (err) { el.innerHTML = '<p class="verr">This picture could not be drawn here (' + esc(err.message || err) + '). The PDF has it.</p>'; }
+  catch (err) { el.innerHTML = '<p class="verr">This picture could not be drawn here (' + esc(err.message || err) + '). Its numbers are in the table and the Excel file.</p>'; }
 }
 enhanceTables();
 const help = mk('div', 'ihelp', '<b>Interactive version.</b> Hover over charts and maps for exact values. Click a legend item to hide or show it, switch between bars and a line, narrow the period with From and To, or show the numbers. On maps: click a community to zoom in, use the boxes top-right to change the background or hide layers. Click any table heading to sort.');
