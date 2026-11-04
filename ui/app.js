@@ -34,7 +34,8 @@ const popChip = () => ({ model: 'growth model', census2021: `${CY()} Census, no 
 // the federal Census the app counts from (2021 until the City publishes the 2026 Census by community)
 const CY = () => (D && D.census && D.census.year) || 2021;
 // what an answer or report cost, from the AI service's own usage figures (published prices, an estimate)
-const costWords = c => !isNum(c) ? '' : c === 0 ? 'cost nothing (free key)' : c < 0.01 ? 'cost less than 1 cent' : `cost about $${c.toFixed(2)}`;
+// the exact price of an answer (US dollars, from the tokens used and the model's price list)
+const costWords = c => !isNum(c) ? '' : c === 0 ? 'Price: $0 (free key)' : `Price: $${c < 0.01 ? c.toFixed(4) : c < 1 ? c.toFixed(3) : c.toFixed(2)} US`;
 const dayWord = n => `${fmt(n)} day${n === 1 ? '' : 's'}`;
 const longDate = d => { const p = ymdParts(d); return p ? `${p[2]} ${MON_SHORT[p[1] - 1]} ${p[0]}` : '–'; };
 // '2026-11-01 01:57' -> '1 Nov 2026, 1:57 a.m.'
@@ -1506,7 +1507,8 @@ async function ask(text) {
     } else {
       $('.answer', current).innerHTML = DOMPurify.sanitize(marked.parse(res.text));
       const tok = res.tokens || {};
-      $('.msg-meta', current).textContent = `${res.tier === 'smart' ? 'Thorough' : 'Fast'} answer${res.engine ? ' from ' + res.engine : ''}${isNum(tok.cost_usd) ? ' · ' + costWords(tok.cost_usd) : ''}${(res.skipped || []).length ? ' · skipped ' + res.skipped.map(x => `${x.service} (${x.why.replace(/ \(.*$/, '')})`).join(', ') : ''}`;
+      const tokWords = isNum(tok.input) ? ` · ${fmt((tok.input || 0) + (tok.cache_read || 0))} tokens in, ${fmt(tok.output || 0)} out` : '';
+      $('.msg-meta', current).textContent = `${res.tier === 'smart' ? 'Thorough' : 'Fast'} answer · Model: ${res.engine || res.model || 'unknown'}${isNum(tok.cost_usd) ? ' · ' + costWords(tok.cost_usd) : ''}${tokWords}${(res.skipped || []).length ? ' · skipped ' + res.skipped.map(x => `${x.service} (${x.why.replace(/ \(.*$/, '')})`).join(', ') : ''}`;
     }
   } catch (e) {
     $('[data-thinking]', current)?.remove();
