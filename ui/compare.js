@@ -8,7 +8,8 @@ const CMP_METRICS = [
   { g: 'People and growth', k: 'children_0_14', label: 'Children aged 0 to 14 (estimate)', d: 0, better: null },
   { g: '311', k: 'requests_per_1000', label: '311 requests per 1,000 residents a year', d: 0, better: null },
   { g: '311', k: 'infra_per_1000', label: 'Infrastructure reports per 1,000 residents a year', d: 1, better: null },
-  { g: '311', k: 'open_per_1000', label: 'Open requests per 1,000 residents', d: 1, better: 'low' },
+  // 311 counts are not scored better or worse: fewer reports can mean problems are not being reported (the 311 study)
+  { g: '311', k: 'open_per_1000', label: 'Open requests per 1,000 residents', d: 1, better: null },
   { g: '311', k: 'closed_7_days_pct', label: 'Requests closed within 7 days', d: 1, unit: '%', better: 'high' },
   { g: '311', k: 'app_share_pct', label: 'Requests made through the 311 app', d: 1, unit: '%', better: null },
   { g: 'Safety', k: 'crime_per_1000', label: 'Crimes per 1,000 residents a year', d: 1, better: 'low' },
@@ -117,7 +118,8 @@ function cmpVsCity(m, v, city) {
   if (!isNum(v) || !isNum(city) || city === 0) return { text: '–', cls: '' };
   if (CMP_COUNTS.has(m.k)) return { text: fmt(v / city * 100, 1) + '% of Calgary', cls: '' };
   const diff = m.unit === '%' ? v - city : (v / city - 1) * 100;
-  const text = m.unit === '%' ? signed(diff, 1, ' pts') : signed(diff, 0, '%');
+  const side = Math.abs(diff) < (m.unit === '%' ? 0.05 : 0.5) ? 'same as Calgary' : (diff > 0 ? 'above Calgary' : 'below Calgary');
+  const text = side === 'same as Calgary' ? side : m.unit === '%' ? `${fmt(Math.abs(diff), 1)} pts ${side}` : `${fmt(Math.abs(diff), 0)}% ${side}`;
   let cls = '';
   if (m.better && Math.abs(m.unit === '%' ? diff / Math.abs(city || 1) : diff / 100) >= .1) cls = ((diff > 0) === (m.better === 'high')) ? 'good' : 'bad';
   return { text, cls };
@@ -132,8 +134,9 @@ function renderCmpTable() {
     const rk = cmpRank(m, w);
     let cls = '';
     if (m.better && isNum(v) && isNum(city) && city !== 0 && Math.abs(v / city - 1) >= .1) cls = ((v > city) === (m.better === 'high')) ? 'good' : 'bad';
-    // its place among the wards (not against Calgary): "2nd best of 14 wards"
-    const rank = rk ? `<small class="cmp-rank" title="Place among the ${rk.of} wards${m.better ? ' (' + (m.better === 'low' ? 'lower' : 'higher') + ' is better)' : ''}">${m.better ? (rk.n === 1 ? 'best' : rk.n === rk.of ? 'worst' : ord(rk.n) + ' best') : (rk.n === 1 ? 'highest' : rk.n === rk.of ? 'lowest' : ord(rk.n) + ' highest')} of ${rk.of} wards</small>` : '';
+    // its place among the wards (not against Calgary), in plain order: "2nd lowest of 14 wards", never best or worst
+    const hi = rk ? (m.better === 'low' ? rk.of - rk.n + 1 : rk.n) : 0;           // 1 = the highest value
+    const rank = rk ? `<small class="cmp-rank" title="Place among the ${rk.of} wards, by value">${hi === 1 ? 'highest' : hi === rk.of ? 'lowest' : hi <= rk.of / 2 ? ord(hi) + ' highest' : ord(rk.of - hi + 1) + ' lowest'} of ${rk.of} wards</small>` : '';
     return `<td class="num ${main ? 'cmp-main' : ''} ${cls}">${cmpFmt(m, v)}${rank}</td>`;
   };
   $('#cmp-table thead').innerHTML = `<tr><th scope="col">Measure</th><th scope="col" class="num cmp-main">Ward ${CMP.main}<small>${esc((row(CMP.main) || {}).councillor || '')}</small></th>`
@@ -149,7 +152,7 @@ function renderCmpTable() {
       + cellFor(m, CMP.main, true, city) + `<td class="num cmp-vs ${vs.cls}">${vs.text}</td><td class="num cmp-city">${cmpFmt(m, city)}</td>`
       + others.map(w => cellFor(m, w, false, city)).join('') + '</tr>';
   }).join('');
-  $('#cmp-table-sub').innerHTML = `Two different comparisons. <b>Under each ward's figure: its place among the 14 wards</b> (for example "2nd best of 14 wards"). <b>"Against Calgary": how far it is from Calgary's own figure</b>, which is all 14 wards added together: every request and every resident in the city, so a big ward counts for more than a small one. A ward can be 2nd best of 14 and 32% better than Calgary at the same time: they measure different things. Green: better than Calgary by 10% or more; red: worse. Choose a measure to rank every ward. <button type="button" class="link-btn small" data-method="compare">How each measure is worked out</button>`;
+  $('#cmp-table-sub').innerHTML = `Two different comparisons. <b>Under each ward's figure: its place among the 14 wards</b> (for example "2nd lowest of 14 wards": a place, not a judgment; fewer 311 reports can mean problems are not being reported). <b>"Against Calgary": how far it is from Calgary's own figure</b>, which is all 14 wards added together: every request and every resident in the city, so a big ward counts for more than a small one. A ward can be 2nd lowest of 14 and 32% below Calgary at the same time: they measure different things. Green or red only where higher or lower is clearly better (crime, traffic incidents, requests closed within 7 days, amenities), and only when 10% or more from Calgary. Choose a measure to rank every ward. <button type="button" class="link-btn small" data-method="compare">How each measure is worked out</button>`;
   $('#cmp-note').textContent = `${ws.note || ''} Crime: ${ws.crime_period || 'the latest months published'}. Amenities: City assets in open data per 1,000 residents (playgrounds per 1,000 children); the amenity level averages them against the city.`;
 }
 
