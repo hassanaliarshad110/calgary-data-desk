@@ -618,7 +618,7 @@ function growthChecks() {
   const names = { city_pace: "City's total, one rate for all", city_actual: "City's total, shared by actual growth", model: 'Growth model (homes)' };
   const cur = popMethod();
   return `<div class="gap-scope growth-checks"><h3>How much has ${esc(W())} grown since ${CY()}? Checks against independent data</h3>
-    <p class="card-sub">Nobody has counted residents since the ${CY()} Census, so every figure today is an estimate. These checks use data the estimates do not rely on in the same way.</p>
+    <p class="card-sub">${CY() === 2021 ? 'The 2026 Census was taken in May 2026, but its counts are not published yet (population counts are due February 10, 2027), so' : 'Since the ' + CY() + ' Census,'} every figure today is an estimate. These checks use data the estimates do not rely on in the same way.</p>
     <div class="gc-list">${G.checks.map(c => `<div class="gc-item${c.key === 'homes_per_home' ? ' gc-key' : ''}"><div class="gc-top"><b>${esc(c.label)}</b><span class="gc-n">${signed(c.growth_pct, 1, '%')}${isNum(c.real_growth_pct) ? `<small>real growth ${signed(c.real_growth_pct, 1, '%')}</small>` : ''}</span></div><p>${esc(c.how)}</p></div>`).join('')}
       <div class="gc-item gc-range"><div class="gc-top"><b>Range of the checks</b><span class="gc-n">${signed(G.low, 1, '%')} to ${signed(G.high, 1, '%')}</span></div><p>Growth since the ${CY()} Census count, from the lowest check to the highest.</p></div></div>
     <h4 class="gc-h">Each way of counting residents against the checks</h4>

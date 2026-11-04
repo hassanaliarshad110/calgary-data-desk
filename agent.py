@@ -269,6 +269,9 @@ other accessory or under-construction units (A000, A006, A007). A home counts as
 year_of_construction, spread evenly through the year, so homes built this year and part of last year are not yet \
 counted. A rental apartment building is one roll account; the model swaps it for its number of units. To reconcile \
 the roll with homes_now, count the roll with those filters and by year_of_construction.
+- The 2026 Census: Statistics Canada took it in May 2026, but its results are not published yet (population and \
+dwelling counts are due February 10, 2027; ages May 5, 2027). Never write that nobody has counted people since 2021: \
+say the 2026 Census counts are not published yet, so figures after May 2021 are estimates until then.
 - Record numbers vs dataset IDs: a code like c2es-76ed or 4bsw-nn7w (four letters or digits, a dash, four more) is the \
 ID of a whole dataset, never a record. If the user gives one as if it were a permit or a property, say in one line \
 which dataset it is and where the record number is, then help: the Population build-up Excel (sheet "Rental \

@@ -172,7 +172,7 @@ METHODS = [
                   'existing homes and towers (more people per unit); "grown to the City\'s total" grows every community '
                   'at the same rate, so it undercounts communities where many homes were built (Ward 5: growth model '
                   '137,391, City\'s total 131,538).',
-                  'No one has counted Ward 5\'s people since 2021; every choice is an estimate except the 2021 Census itself.']},
+                  'The 2026 Census was taken in May 2026, but its counts are not published yet (population counts are due February 10, 2027); until then every choice is an estimate except the 2021 Census itself.']},
 
     {'key': 'population', 'name': 'Growth model (population today, every community)', 'dataset': '4bsw-nn7w, f9wk-wej9, msjx-5ygv',
      'publisher': 'City of Calgary', 'page': 'https://data.calgary.ca/d/4bsw-nn7w',
