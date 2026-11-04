@@ -909,6 +909,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='city_pace', live=F
             'code': code, 'name': names.get(code, code), 'residential': res,
             'residents': pop, 'census2021': pn.get('census2021') if res else None, 'growth_pct': pn.get('growth_pct') if res else None,
             'pop_method': pn.get('method'), 'homes_now': pn.get('homes_now'), 'homes_census': pn.get('homes_census'),
+            'households_2021': int(round(model.hh21.get(code) or 0)) if res else None,
             'growing': bool(res and (pn.get('growth_pct') is None or pn.get('growth_pct') > GROWING_PCT)),
             'requests12': all12, 'requests_prev': allprev, 'requests_change_pct': _pct(all12 * yr12, allprev * yrprev),
             'requests_per_1000': per1000(all12, pm.get('model'), yr12) if rated else None,
@@ -1658,6 +1659,9 @@ def ward_summaries(communities, comm_ward, pop_mid12, pop_midprev, yr12, yrprev,
             add(w, 'res_infra12', c.get('infra12'))
             add(w, 'res_infra_prev', c.get('infra_prev'))
             add(w, 'res_open', c.get('open'))
+            add(w, 'homes_now', c.get('homes_now'))           # homes lived in (population.py: the property roll)
+            add(w, 'homes_census', c.get('homes_census'))
+            add(w, 'households_2021', c.get('households_2021'))
     for r in R.get('close_by_comm') or []:
         w = comm_ward.get(r.get('comm_code'))
         add(w, 'closed', int(_num(r.get('n'))))
@@ -1706,6 +1710,8 @@ def ward_summaries(communities, comm_ward, pop_mid12, pop_midprev, yr12, yrprev,
     def finish(r):
         rate = lambda n, p, f: round(n / p * 1000 * f, 1) if p else None
         r['growth_pct'] = _pct(r.get('residents') or 0, r.get('census2021') or 0) if r.get('census2021') else None
+        r['homes_growth_pct'] = _pct(r.get('homes_now') or 0, r.get('homes_census') or 0) if r.get('homes_census') else None
+        r['people_per_home'] = round(r['residents'] / r['homes_now'], 2) if r.get('residents') and r.get('homes_now') else None
         r['requests_per_1000'] = rate(r.get('res_requests12', 0), r.get('mid12'), yr12)
         r['requests_per_1000_prev'] = rate(r.get('res_requests_prev', 0), r.get('midprev'), yrprev)
         r['infra_per_1000'] = rate(r.get('res_infra12', 0), r.get('mid12'), yr12)

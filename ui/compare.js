@@ -16,6 +16,11 @@ const CMP_METRICS = [
   { g: 'Safety', k: 'violent_change_pct', label: 'Change in violent crime', d: 1, unit: '%', signed: true, better: 'low' },
   { g: 'Traffic', k: 'traffic12', label: 'Traffic incidents reported', d: 0, better: null },
   { g: 'Traffic', k: 'traffic_per_1000', label: 'Traffic incidents per 1,000 residents a year', d: 1, better: 'low' },
+  { g: 'Homes', k: 'homes_now', label: 'Homes lived in today (City property roll)', d: 0, better: null },
+  { g: 'Homes', k: 'homes_census', get label() { return 'Homes lived in at the ' + CY() + ' Census (same count)'; }, d: 0, better: null },
+  { g: 'Homes', k: 'households_2021', get label() { return 'Households counted by the ' + CY() + ' Census (check)'; }, d: 0, better: null },
+  { g: 'Homes', k: 'homes_growth_pct', get label() { return 'Growth in homes since the ' + CY() + ' Census'; }, d: 1, unit: '%', better: null },
+  { g: 'Homes', k: 'people_per_home', get label() { return 'Residents per home (' + popChip() + ')'; }, d: 2, better: null },
   { g: 'Building', k: 'new_homes12', label: 'New homes in building permit applications', d: 0, better: null },
   { g: 'Building', k: 'dev_permits12', label: 'Development permit applications', d: 0, better: null },
   { g: 'Families', k: 'child_care_per_100_kids', label: 'Licensed child care spaces per 100 children (0 to 14)', d: 1, better: 'high' },
@@ -107,7 +112,7 @@ async function renderCompare() {
 }
 
 // the ward in focus against Calgary: points for percentages, share of Calgary for counts, difference for rates
-const CMP_COUNTS = new Set(['residents', 'children_0_14', 'traffic12', 'new_homes12', 'dev_permits12', 'schools', 'students']);
+const CMP_COUNTS = new Set(['homes_now', 'homes_census', 'households_2021', 'residents', 'children_0_14', 'traffic12', 'new_homes12', 'dev_permits12', 'schools', 'students']);
 function cmpVsCity(m, v, city) {
   if (!isNum(v) || !isNum(city) || city === 0) return { text: '–', cls: '' };
   if (CMP_COUNTS.has(m.k)) return { text: fmt(v / city * 100, 1) + '% of Calgary', cls: '' };

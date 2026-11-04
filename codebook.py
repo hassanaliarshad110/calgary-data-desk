@@ -17,6 +17,9 @@ MAX_CHARS = 12000
 TOPICS = {
     'needs_attention': {'what': 'Needs attention: score, tiers and the catch-up list',
                         'code': [('attention.py', '*'), ('dashboard.py', 'with_other'), ('dashboard.py', 'with_attention')]},
+    'homes': {'what': 'How homes are counted from the property roll (what is left out: commercial, vacant lots, parking stalls, storage)',
+              'code': [('population.py', 'HOMES_WHERE'), ('population.py', 'homes'), ('population.py', 'units'),
+                       ('population.py', 'homes_lived_in'), ('population.py', 'queries')]},
     'growth_checks': {'what': 'Is the growth believable? Homes, homes plus people per home, school enrolment',
                       'code': [('dashboard.py', 'growth_checks'), ('families.py', 'city_school_totals')]},
     'live_counter': {'what': 'The live population counter on the dashboard (forecast pace, reset each refresh)',

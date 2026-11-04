@@ -468,6 +468,38 @@ METHODS = [
                   'Counts, not size or condition.'],
      'code': 'attention.py (score, tier, catch_up, rank); inputs from dashboard.amenity_view and dashboard.with_attention'},
 
+    {'key': 'homes', 'name': 'Homes: how they are counted (each ward, each community)',
+     'dataset': '4bsw-nn7w (Current Year Property Assessments), msjx-5ygv (2021 Census households)',
+     'publisher': 'City of Calgary', 'page': 'https://data.calgary.ca/d/4bsw-nn7w', 'updated': 'Property roll: through the year',
+     'used_in': 'Compare wards (Homes), Growth vs amenities (growth checks), community details, the growth model',
+     'method': ['Start from every account on the City\'s property assessment roll.',
+                'Keep the residential class only (assessment_class RE): commercial and industrial property (NR) and '
+                'farm land (FL) are left out.',
+                'Keep land with a building only (property_type LI): vacant lots and land without a building (LO) are '
+                'left out.',
+                'Keep residential uses only (sub_property_use starting with R): detached houses (R110), semi-detached '
+                'and duplex homes (R120, R121), condo apartments in low-rise (R201, R202) and high-rise buildings (R301, '
+                'R302), townhouse and row units (R401, R402) and the other R codes. Condo parking stalls (A004, about '
+                '59,000 accounts, e.g. "60V 9449 19 ST SW", $10,000), storage lockers (A005, e.g. "119S") and other '
+                'non-home accounts (A codes) are separate accounts on the roll and are left out, so a condo with a stall '
+                'and a locker counts once.',
+                'Each home counts as lived in one year after its year of construction (homes added evenly through each '
+                'year).',
+                'Rental apartment buildings are one account for the whole building: the building is taken out and its '
+                'units are added from matching building permits (lived in 6 months after the permit is completed) or, '
+                'where there is none, estimated from its assessed value.',
+                'Homes on Census day are checked against the households the 2021 Census counted: Calgary 494,282 homes '
+                'against 500,990 households (1.3% fewer); Ward 5 29,568 against 29,585.',
+                'A ward\'s homes are the homes of its communities (the ward holding most of each community\'s area). '
+                'Residents per home = residents (the way chosen in Settings) / homes lived in today.'],
+     'excel': ['Download 4bsw-nn7w filtered to assessment_class = RE, property_type = LI and sub_property_use starting '
+               'with R, for the community codes of the ward; count the rows by year_of_construction.'],
+     'cautions': ['Homes, not people: a home holds more people where households are larger, and secondary suites in '
+                  'houses are not separate accounts, so a house with a basement suite counts as one home.',
+                  'Residents per home is a check on the way of counting: Ward 10 shows 3.82 under "one rate for all" on '
+                  'only 1.7% more homes since 2021, a sign that one rate for all overstates it.'],
+     'code': 'population.py: HOMES_WHERE, GrowthModel.homes, units, homes_lived_in; dashboard.py: ward_summaries'},
+
     {'key': 'growth_checks', 'name': 'Growth checks: is the population growth believable?',
      'dataset': '4bsw-nn7w (homes), City population outlook, Alberta student enrolment by school, fd9t-tdn2 (schools)',
      'publisher': 'City of Calgary; Government of Alberta', 'page': '', 'updated': 'With every refresh',
