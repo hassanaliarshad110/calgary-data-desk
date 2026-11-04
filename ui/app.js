@@ -33,9 +33,7 @@ const popShort = () => ({ model: 'Live growth model', census2021: `Counted as at
 const popChip = () => ({ model: 'growth model', census2021: `${CY()} Census, no growth`, city_pace: "City's total, one rate", city_actual: "City's total, actual growth" })[popMethod()];
 // the federal Census the app counts from (2021 until the City publishes the 2026 Census by community)
 const CY = () => (D && D.census && D.census.year) || 2021;
-// what an answer or report cost, from the AI service's own usage figures (published prices, an estimate)
 // the exact price of an answer (US dollars, from the tokens used and the model's price list)
-const costWords = c => !isNum(c) ? '' : c === 0 ? 'Price: $0 (free key)' : `Price: $${c < 0.01 ? c.toFixed(4) : c < 1 ? c.toFixed(3) : c.toFixed(2)} US`;
 const dayWord = n => `${fmt(n)} day${n === 1 ? '' : 's'}`;
 const longDate = d => { const p = ymdParts(d); return p ? `${p[2]} ${MON_SHORT[p[1] - 1]} ${p[0]}` : '–'; };
 // '2026-11-01 01:57' -> '1 Nov 2026, 1:57 a.m.'
@@ -1629,7 +1627,7 @@ function renderEngines(s) {
         <label class="eng-f eng-url"${e.provider === 'other' ? '' : ' hidden'}><span class="field-label">Chat address</span><input value="${esc(e.provider === 'other' ? e.url || '' : '')}" placeholder="https://…/v1/chat/completions"></label>
       </div>
       <div class="eng-foot">
-        <label class="check"><input type="checkbox" class="eng-free" ${e.free ? 'checked' : ''}> Free-tier key (show no cost)</label>
+        <label class="check"><input type="checkbox" class="eng-free" ${e.free ? 'checked' : ''}> Free-tier key</label>
         ${p.key_page ? `<button type="button" class="link-btn" data-page="${esc(p.key_page)}">Get a key ${icon('open')}</button>` : ''}
         <span class="eng-spacer"></span>
         <span class="eng-test-out" role="status"></span>

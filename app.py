@@ -379,7 +379,7 @@ class Api:
             res = auditor.run(entry, self._audit_agent, self._emit_audit, dashboard.calgary_now().date().isoformat(), DOWNLOADS)
             auditor.index(DATA_DIR, res)
             return {'ok': True, 'page': res['page'], 'findings': len(res['findings']), 'verdict': res['verdict'],
-                    'corrected': res.get('corrected'), 'cost_usd': res.get('cost_usd')}
+                    'corrected': res.get('corrected')}
         except agent_mod.AgentError as e:
             return {'ok': False, 'error': str(e)}
         except Exception as e:
