@@ -222,7 +222,7 @@ def render(spec, provenance=None, meta=None, interactive=False, printable=False)
     if spec.get('summary'):
         cards = ''.join(f'<li><b class="n">{i}</b><div>{_inline(x)}</div></li>'
                         for i, x in enumerate([x for x in spec['summary'] if str(x).strip()], 1))
-        parts.append(f'<section class="findings keep"><h2>Key findings</h2><ol class="cards">{cards}</ol></section>')
+        parts.append(f'<section class="findings"><h2>Key findings</h2><ol class="cards">{cards}</ol></section>')
     for i, sec in enumerate(spec.get('sections') or [], 1):
         body = [f'<h2><span class="sn">{i}</span>{e(sec.get("heading") or "")}</h2>', _paras(sec.get('text'))]
         body += [_figure(v, meta, interactive) for v in visuals if v['section'] == i]
@@ -241,9 +241,9 @@ def render(spec, provenance=None, meta=None, interactive=False, printable=False)
                      f'<th>Priority</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
     plan = [a for a in spec.get('action_plan') or [] if isinstance(a, dict)]
     if plan:
-        rows = ''.join(f'<tr><td>{_inline(a.get("action") or "")}</td><td>{e(a.get("owner"))}</td><td>{e(a.get("timeline"))}</td>'
+        rows = ''.join(f'<tr><td>{_inline(a.get("action") or "")}</td><td>{e(a.get("owner"))}</td>'
                        f'<td>{_inline(a.get("measure") or "")}</td></tr>' for a in plan)
-        parts.append(f'<section class="keep"><h2>Next steps</h2><div class="tbl"><table><thead><tr><th>Step</th><th>Who</th><th>When</th>'
+        parts.append(f'<section><h2>Next steps</h2><div class="tbl"><table><thead><tr><th>Step</th><th>Who</th>'
                      f'<th>How we will know</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
     if spec.get('method') or meta.get('population'):
         extra = f'<li>Residents: {e(meta["population"])}</li>' if meta.get('population') else ''
@@ -274,6 +274,7 @@ def render(spec, provenance=None, meta=None, interactive=False, printable=False)
   ({e(meta.get('built') or today)}). Check key figures against the sources before quoting them in public. Options are
   ideas to consider, not City policy.</footer>''')
     page = PAGE.replace('{{TITLE}}', e(title)).replace('{{BODY}}', '\n'.join(parts))
+    page = page.replace('</head>', _font_css() + '</head>', 1)
     bar = ('<div class="pdfbar"><button type="button" onclick="window.print()">Save as PDF</button>'
            '<span>Opens your browser\'s print window: choose "Save as PDF".</span></div>')
     auto = ('<script>if(location.hash==="#print"){addEventListener("load",function(){setTimeout(function(){'
@@ -318,6 +319,25 @@ th[data-dir=asc]::after{content:" \\25B2";font-size:9px}th[data-dir=desc]::after
 .pdfbar button{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border:0;border-radius:8px;background:#0F766E;color:#fff;cursor:pointer}
 @media print{.vtools,.ihelp,.tfilter,.leaflet-control-container,.pdfbar,.inote{display:none}}
 '''
+
+
+FONTS = (('fira-sans-regular.woff', 400), ('fira-sans-semibold.woff', 600), ('fira-sans-bold.woff', 700))
+
+
+def _font_css():
+    """Fira Sans (the app's own typeface, SIL Open Font License) embedded in the page, so every report looks the same
+    on any computer: Windows' Segoe UI draws a lowercase l as a plain bar that reads like a capital I or a 1."""
+    import base64
+    out = []
+    for name, weight in FONTS:
+        try:
+            with open(os.path.join(VENDOR, name), 'rb') as f:
+                data = base64.b64encode(f.read()).decode('ascii')
+            out.append(f"@font-face{{font-family:'Fira Sans';font-weight:{weight};font-style:normal;"
+                       f"src:url(data:font/woff;base64,{data}) format('woff')}}")
+        except OSError:
+            pass
+    return '<style>' + ''.join(out) + '</style>' if out else ''
 
 
 def _vendor_head():
@@ -380,8 +400,8 @@ def workbook_sheets(spec, provenance, meta):
                        [[i, r.get('title'), r.get('detail'), r.get('evidence'), r.get('priority')] for i, r in enumerate(recs, 1)]))
     plan = [a for a in spec.get('action_plan') or [] if isinstance(a, dict)]
     if plan:
-        sheets.append(('Action plan', [['Action', 'Who', 'When', 'How we will know']] +
-                       [[a.get('action'), a.get('owner'), a.get('timeline'), a.get('measure')] for a in plan]))
+        sheets.append(('Action plan', [['Action', 'Who', 'How we will know']] +
+                       [[a.get('action'), a.get('owner'), a.get('measure')] for a in plan]))
     srcs = [x for x in spec.get('data_sources') or [] if isinstance(x, dict)]
     if srcs:
         sheets.append(('Sources', [['Source', 'Dataset', 'Publisher', 'Period used', 'Link', 'Notes']] +
@@ -438,7 +458,7 @@ PAGE = '''<!doctype html>
 @page { size: Letter; margin: 14mm 14mm 16mm; }
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; -webkit-text-size-adjust: 100%; }
-body { margin: 0; font: 10.5pt/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #1F2937; background: #fff; }
+body { margin: 0; font: 10.5pt/1.6 "Fira Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #1F2937; background: #fff; }
 .wrap { max-width: 820px; margin: 0 auto; }
 .top { padding: 4px 0 14px; border-bottom: 1px solid #E5E7EB; margin-bottom: 16px; }
 .brand { margin: 0 0 10px; font-size: 8.5pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #0F766E; }
@@ -461,7 +481,7 @@ figure { margin: 10px 0 14px; padding: 12px 14px; border: 1px solid #E5E7EB; bor
 figure h4 { margin-top: 0; }
 figcaption { font-size: 8.5pt; color: #6B7280; margin-top: 4px; }
 .legend span { margin-right: 12px; white-space: nowrap; } .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
-svg.chart { width: 100%; height: auto; } svg .maplbl { font-size: 7pt; fill: #111827; paint-order: stroke; stroke: #fff; stroke-width: 2.5px; } svg .mapval { font-weight: 700; } svg .grid { stroke: #E5E7EB; } svg .ax { font: 8pt system-ui, "Segoe UI", Arial; fill: #6B7280; }
+svg.chart { width: 100%; height: auto; } svg .maplbl { font-size: 7pt; fill: #111827; paint-order: stroke; stroke: #fff; stroke-width: 2.5px; } svg .mapval { font-weight: 700; } svg .grid { stroke: #E5E7EB; } svg .ax { font: 8pt "Fira Sans", system-ui, "Segoe UI", Arial; fill: #6B7280; }
 svg .lbl { fill: #374151; } svg .val { fill: #111827; font-weight: 600; }
 .tbl { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 4px 0 10px; }
 table { width: 100%; border-collapse: collapse; font-size: 9pt; }

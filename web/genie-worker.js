@@ -26,7 +26,7 @@ async function boot(base) {
     py.FS.writeFile(dest, new Uint8Array(await r.arrayBuffer()));
   }));
   // the chart and map libraries the report's interactive page needs, inlined into it (report.VENDOR = ui/vendor)
-  await Promise.all(['chart.umd.min.js', 'leaflet.js', 'leaflet.css'].map(async f => {
+  await Promise.all(['chart.umd.min.js', 'leaflet.js', 'leaflet.css', 'fira-sans-regular.woff', 'fira-sans-semibold.woff', 'fira-sans-bold.woff'].map(async f => {
     try {
       const r = await fetch(base + 'vendor/' + f);
       if (!r.ok) return;

@@ -166,7 +166,7 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
 5. Report with make_report: a summary of 3 to 6 findings (each with its number), sections that each answer one part
    with a chart or table built from tool results, the method, every data source (name, dataset ID or link, publisher,
    period used), limits, recommendations that follow from the findings (each says which finding it rests on and a
-   priority), and an action plan (action, who in the office or which City service, when, how success will be measured).
+   priority), and an action plan (action, who in the office or which City service, how success will be measured). No timelines or deadlines anywhere in options or next steps (no "within 2 weeks", "next 3 months", dates to act by): the office sets its own timing.
    Show the evidence: give each section the visuals that make it clear: a line or area chart for any trend over time,
    bars to compare communities or with Calgary, horizontal bars for rankings, stacked bars for parts of a total, a
    scatter for how two measures relate, a map of the area's communities shaded by a rate (values by community) or with
@@ -587,10 +587,12 @@ TOOLS += [
              'url': {'type': 'string'}, 'period': {'type': 'string'}, 'notes': {'type': 'string'}}, 'required': ['name']}},
          'limitations': {'type': 'array', 'items': {'type': 'string'}},
          'recommendations': {'type': 'array', 'items': {'type': 'object', 'properties': {
-             'title': {'type': 'string'}, 'detail': {'type': 'string'}, 'evidence': {'type': 'string', 'description': 'The finding it rests on'},
+             'title': {'type': 'string'}, 'detail': {'type': 'string', 'description': 'No timelines or deadlines'},
+             'evidence': {'type': 'string', 'description': 'The finding it rests on'},
              'priority': {'type': 'string', 'enum': ['high', 'medium', 'low']}}, 'required': ['title', 'detail']}},
          'action_plan': {'type': 'array', 'items': {'type': 'object', 'properties': {
-             'action': {'type': 'string'}, 'owner': {'type': 'string'}, 'timeline': {'type': 'string'},
+             'action': {'type': 'string', 'description': 'No timelines or deadlines (no "within 2 weeks", "next 3 months")'},
+             'owner': {'type': 'string'},
              'measure': {'type': 'string', 'description': 'How the office will know it worked'}}, 'required': ['action']}},
          'file_name': {'type': 'string'}},
          'required': ['title', 'summary', 'sections', 'method', 'data_sources']}},
