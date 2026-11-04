@@ -16,6 +16,9 @@ import geo
 import osm
 
 KEEP_DAYS = 7
+OSM_RAW_DAYS = 30          # OpenStreetMap busy: the last copy read (up to this old) is used, matched again to today's City data
+OSM_RETRY_HOURS = 2        # counted without OpenStreetMap: try it again after this long
+RAW_PATH = None            # where load() keeps the last OpenStreetMap copy (set from the cache folder)
 COMMUNITIES = 'surr-xmvs'
 LIVE = "life_cycle_status in('ACTIVE','INSTALLED')"
 
@@ -129,10 +132,29 @@ def build():
     # with every one the City already lists taken out (osm.py has the matching rules)
     other = None
     try:
-        other = osm.build(osm.fetch(), mine, loc)
+        els = osm.fetch()
+        if RAW_PATH:                                 # keep this copy, for a day when OpenStreetMap is busy
+            try:
+                with open(RAW_PATH + '.tmp', 'w', encoding='utf-8') as f:
+                    json.dump({'read': time.strftime('%Y-%m-%d'), 'elements': els}, f)
+                os.replace(RAW_PATH + '.tmp', RAW_PATH)
+            except OSError:
+                pass
+        other = osm.build(els, mine, loc)
         other['counted'] = time.strftime('%Y-%m-%d')
     except Exception as e:                           # noqa: BLE001 - the City's counts stand on their own
-        errors.append(f'OpenStreetMap: {e}')
+        # OpenStreetMap busy: the last copy read (up to OSM_RAW_DAYS old), matched again to today's City data
+        if RAW_PATH and os.path.exists(RAW_PATH) and time.time() - os.path.getmtime(RAW_PATH) < OSM_RAW_DAYS * 86400:
+            try:
+                with open(RAW_PATH, encoding='utf-8') as f:
+                    raw = json.load(f)
+                other = osm.build(raw['elements'], mine, loc)
+                other['counted'] = raw.get('read') or time.strftime('%Y-%m-%d', time.localtime(os.path.getmtime(RAW_PATH)))
+                other['kept_from'] = other['counted']
+            except Exception as e2:                  # noqa: BLE001
+                errors.append(f'OpenStreetMap: {e}; the last copy could not be used ({e2})')
+        else:
+            errors.append(f'OpenStreetMap: {e}')
     return {'by_comm': by, 'totals': totals, 'errors': errors, 'kinds': kinds(), 'sources': SOURCES, 'other': other}
 
 
@@ -149,7 +171,9 @@ def kinds():
 
 def load(cache_dir, force=False):
     """Every community's assets, kept for a week (force: count again now)."""
+    global RAW_PATH
     path = os.path.join(cache_dir, 'assets_by_community.json')
+    RAW_PATH = os.path.join(cache_dir, 'osm_elements.json')
     if not force and os.path.exists(path) and time.time() - os.path.getmtime(path) < KEEP_DAYS * 86400:
         try:
             with open(path, encoding='utf-8') as f:
@@ -157,7 +181,7 @@ def load(cache_dir, force=False):
             # counted before OpenStreetMap was added, or OpenStreetMap could not be reached a day ago: count again
             # (version 2 keeps residents-only "private" ones apart; an older copy mixed them in: count again)
             if (kept.get('other') or {}).get('version') == 2 or (
-                    'other' in kept and not kept['other'] and time.time() - os.path.getmtime(path) < 86400):
+                    'other' in kept and not kept['other'] and time.time() - os.path.getmtime(path) < OSM_RETRY_HOURS * 3600):
                 return kept
         except (OSError, ValueError):
             pass

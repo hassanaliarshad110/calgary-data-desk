@@ -57,7 +57,7 @@ def query_text(bbox=BBOX):
             f'way["leisure"="park"]({b});relation["leisure"="park"]({b}););out tags geom;')
 
 
-def fetch(bbox=BBOX, timeout=200):
+def fetch(bbox=BBOX, timeout=120):
     """Every playground, fitness station, basketball court, dog park and park in the box, from OpenStreetMap."""
     body = urllib.parse.urlencode({'data': query_text(bbox)}).encode()
     last = None
