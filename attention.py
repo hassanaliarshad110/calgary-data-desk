@@ -1,7 +1,7 @@
-"""Needs attention: which communities most need new public amenities, and exactly how their score is worked out.
+"""Needs attention: which communities most need new public amenities, and exactly how they are ranked.
 
 This file IS the method. The app, the website and Data Genie all use these functions and numbers, so the screen,
-the code and any answer about the score can never disagree.
+the code and any answer about the ranking can never disagree.
 
 The inputs come from the amenity level (dashboard.amenity_view, method in methods.AMENITY_STEPS):
   level       a community's public amenities per resident as a share of Calgary's, averaged over the neighbourhood
@@ -9,17 +9,18 @@ The inputs come from the amenity level (dashboard.amenity_view, method in method
   growth_pct  growth in residents since the 2021 Census (the growth model: homes built since then)
   new         the community had no residents at the 2021 Census (all of it is growth)
 
-THE SCORE (0 to 100, higher = more urgent)
+AMENITY LEVEL, GROWTH COUNTED (the same scale as the amenity level: 1.00 = Calgary, lower = needs more)
   shortfall  = max(0, 1 - level)                       how far below Calgary: 0 at or above, 1 with nothing at all
-  weight     = how much growth adds to the urgency: 0.50 with no growth since 2021, rising with growth to 1.00 for a
+  weight     = how much growth adds to the need: 0.50 with no growth since 2021, rising with growth to 1.00 for a
                community that doubled or did not exist in 2021 (all of it new):
                weight = 0.5 + growth_pct / 200, with growth_pct held between 0 and 100; 1.00 for a new community
-  score      = round(100 * shortfall * weight)
+  level, growth counted = 1 - shortfall x weight      (rounded to 2 decimals)
 
-  So a gap counts in full where the population is new or doubled, and at half where nobody new has arrived: the same
-  shortfall is more urgent where demand is growing on it. Worked examples: Homestead (new since 2021), level 0.46 ->
-  100 x 0.54 x 1.00 = 54; a community at level 0.43 that grew 20% -> 100 x 0.57 x 0.60 = 34; a community at 0.43 that
-  did not grow -> 100 x 0.57 x 0.50 = 29.
+  So a gap counts in full where the population is new or doubled (the figure equals the amenity level), and at half
+  where nobody new has arrived (the figure sits halfway between the level and 1.00): the same gap matters more where
+  demand is growing on it. Worked examples: Homestead (new since 2021), level 0.46 -> 1 - 0.54 x 1.00 = 0.46; a
+  community at level 0.43 that grew 20% -> 1 - 0.57 x 0.60 = 0.66; a community at 0.43 that did not grow ->
+  1 - 0.57 x 0.50 = 0.72.
 
 TWO COUNTS
   The tab ranks communities twice: with the City's amenities only (attention_city), and with the City's plus the
@@ -36,7 +37,7 @@ THE TIER (decides whether a community is listed at all)
   High    level below 0.75 AND (new since 2021 OR grew more than 20%)   (the "not kept up with growth" flag)
   Watch   level below 0.75, slower growth
   Communities at 0.75 or above are not listed. Communities with fewer than 100 residents never get a level.
-  Order: Urgent, then High, then Watch; within a tier, highest score first, then more residents first.
+  Order: Urgent, then High, then Watch; within a tier, lowest "level, growth counted" first, then more residents first.
 
 WHAT IT WOULD TAKE (the catch-up list)
   For each neighbourhood amenity the community has less than 0.75 of the Calgary level of, the number to add to reach
@@ -68,11 +69,12 @@ def weight(growth_pct, new):
     return 0.5 + g / 200.0
 
 
-def score(level, growth_pct, new):
-    """The needs-attention score, 0 to 100 (higher = more urgent)."""
+def level_growth(level, growth_pct, new, digits=2):
+    """The amenity level with growth counted: 1 - shortfall x growth weight (1.00 = Calgary, lower = needs more)."""
     if level is None:
         return None
-    return round(100 * shortfall(level) * weight(growth_pct, new))
+    v = 1 - shortfall(level) * weight(growth_pct, new)
+    return round(v, digits) if digits is not None else v
 
 
 def fast_growth(growth_pct, new):
@@ -126,13 +128,16 @@ def rank(view, other=None, city_levels=None):
                      'children_0_14': r.get('children_0_14'), 'growth_pct': r.get('growth_pct'), 'new': r.get('new'),
                      'level': r.get('level'), 'tier': t,
                      'shortfall': round(shortfall(r['level']), 2), 'weight': round(weight(r.get('growth_pct'), r.get('new')), 2),
-                     'score': score(r['level'], r.get('growth_pct'), r.get('new')),
+                     'level_growth': level_growth(r['level'], r.get('growth_pct'), r.get('new')),
+                     '_order': level_growth(r['level'], r.get('growth_pct'), r.get('new')),   # as shown; ties: more residents first
                      'catch_up': [dict(c, have_other=(other.get(r['code']) or {}).get(c['kind'], 0)) for c in catch_up(r, view)],
                      **({'other': other.get(r['code']), 'level_city': city_levels.get(r['code']),
-                         # the same community's score on the City's amenities alone, so the screen can show the change
-                         'score_city': score(city_levels.get(r['code']), r.get('growth_pct'), r.get('new'))}
+                         # the same figure on the City's amenities alone, so the screen can show the change
+                         'level_growth_city': level_growth(city_levels.get(r['code']), r.get('growth_pct'), r.get('new'))}
                         if other or city_levels else {})})
-    rows.sort(key=lambda x: (TIERS.index(x['tier']), -x['score'], -(x['residents'] or 0)))
+    rows.sort(key=lambda x: (TIERS.index(x['tier']), x['_order'], -(x['residents'] or 0)))
+    for x in rows:
+        x.pop('_order', None)
     counts = {t: sum(1 for x in rows if x['tier'] == t) for t in TIERS}
     people = {t: sum(x['residents'] or 0 for x in rows if x['tier'] == t) for t in TIERS}
     return {'rows': rows, 'counts': counts, 'residents': people,
@@ -149,17 +154,18 @@ METHOD = [
     f'Growth weight = 0.5 + growth since 2021 / 200, with growth held between 0% and {GROWTH_CAP}% (so between 0.50 '
     f'and 1.00); a community with no residents in 2021 gets {NEW_WEIGHT:.2f}. A gap counts in full where the population '
     'is new or doubled and at half where nobody new has arrived. Growth is the growth model\'s (homes built).',
-    'Score = 100 x shortfall x growth weight, rounded: 0 to 100, higher is more urgent. Examples: Homestead (new), '
-    'level 0.46: 100 x 0.54 x 1.00 = 54. A community at level 0.43 that grew 20%: 100 x 0.57 x 0.60 = 34. (Levels move '
+    'Amenity level, growth counted = 1 - shortfall x growth weight, on the same scale as the amenity level (1.00 = '
+    'Calgary, lower = needs more). Examples: Homestead (new), level 0.46: 1 - 0.54 x 1.00 = 0.46. A community at level '
+    '0.43 that grew 20%: 1 - 0.57 x 0.60 = 0.66. One at 0.43 that did not grow: 1 - 0.57 x 0.50 = 0.72. (Levels move '
     'with the way of counting residents and with the non-City amenities; the dashboard has each community\'s own.)',
     f'Urgent: level below {URGENT_LEVEL:.2f} and new since 2021 or grew more than {GROWTH_PCT}%. High: level below '
     f'{LIST_LEVEL:.2f} and the same growth. Watch: level below {LIST_LEVEL:.2f} with slower growth. Communities at '
     f'{LIST_LEVEL:.2f} or above are not listed.',
-    'Order: Urgent, High, Watch; within each, highest score first, then most residents.',
+    'Order: Urgent, High, Watch; within each, the lowest "level, growth counted" first, then most residents.',
     f'What it would take: for each neighbourhood amenity below {LIST_LEVEL:.2f} of the Calgary level, Calgary per '
     '1,000 x the community\'s residents / 1,000 minus what it has (playgrounds per children aged 0 to 14), rounded '
     f'up; park space in hectares. The {CATCH_UP_KINDS} furthest behind are shown.',
-    'Residents are counted the way chosen in Settings, so the score follows that choice.',
+    'Residents are counted the way chosen in Settings, so the figures follow that choice.',
     'Amenities that are not the City\'s (developer and school playgrounds, parks, courts, fitness stations and dog '
     'parks open to everyone) come from OpenStreetMap; private, residents-only ones (homeowners\' association, condo) '
     'are left out unless the "include private ones" filter is on. They come from OpenStreetMap with every one that matches a City amenity '

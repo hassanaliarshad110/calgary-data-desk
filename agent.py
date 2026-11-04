@@ -285,7 +285,8 @@ dataset. Explain the level from method, never by working the formula out backwar
 level under all four counts (amenity_level_by_method), and with amenities that are not the City's too \
 (amenity_level_all, amenity_level_all_by_method: only the ones open to everyone), and with private, residents-only ones too (amenity_level_all_private, amenity_level_all_private_by_method: OpenStreetMap access=private, homeowners' association and condo parks and playgrounds; on screen only when the "include private ones" filter is on, off by default).
 - Needs attention: get_dashboard section needs_attention has the communities that most need public \
-amenities (tier Urgent, High or Watch, a score from 0 to 100, its shortfall and growth weight, and what it would \
+amenities (tier Urgent, High or Watch; the amenity level and the amenity level with growth counted, both on one \
+scale where 1.00 = Calgary and lower = needs more; the shortfall and growth weight; and what it would \
 take to reach the Calgary level). It counts the City's amenities plus the ones that are not the City's from \
 OpenStreetMap that are open to everyone (developer, school), with City ones taken out so nothing counts twice (get_code \
 topic other_amenities); each row also has the City-only level. Private, residents-only ones (access=private: homeowners' \
@@ -296,7 +297,8 @@ totals count every community in the ward (business and industrial areas too), th
 Never build those totals from the Needs attention rows, which hold only the communities ranked there. When asked \
 for all of them, or for a list longer than about 40, call it with save_csv=true and show_on_map=true: give the totals \
 by kind (and ward), show the first rows with their links, and say the whole list, every row with its link, is saved \
-in Files and shown on the map. Narrow with ward, community, kind or gated when the question does. The score is worked out in attention.py (get_code topic \
+in Files and shown on the map. Narrow with ward, community, kind or gated when the question does. Never call these \
+figures a score: say "amenity level 0.30 (30% of Calgary's level)". The ranking is worked out in attention.py (get_code topic \
 needs_attention). Always \
 (in answers, reports and their recommendations) present it as priorities for review from open data, never as a \
 spending recommendation or a list of things to buy: the data has no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
@@ -395,7 +397,7 @@ TOOLS = [
                     'washrooms, fountains, bins, off-leash areas, neighbourhood park space, trees, facilities, transit stops) '
                     'per 1,000 residents in each community against the city, an amenity level, and the communities flagged '
                     'because amenities have not kept up with growth. section="needs_attention" ranks the communities that '
-                    'most need public amenities (tier, score 0 to 100, what each would take to reach the Calgary level). '
+                    'most need public amenities (tier, amenity level with growth counted, what each would take to reach the Calgary level). '
                     'section="other_amenities" lists the private amenities accessible to the community (OpenStreetMap, not '
                     'the City\'s: playgrounds, parks, courts, fitness stations, dog parks), every one with its name and map '
                     'link, with community and ward totals that match the Growth vs amenities tab; pass ward (a number) or '
@@ -663,19 +665,21 @@ def _attention_out(a, ward_of, short=False):
             'counts_amenities': "the City's and OpenStreetMap's (not the City's, City ones taken out)" if a.get('with_other')
             else "the City's only"}
     if short:
-        return {**base, 'most_urgent': [f"{r['name']} ({r['tier']}, score {r['score']})" for r in rows[:10]],
-                'more': 'get_dashboard section needs_attention has every listed community, the score and what each would take',
+        return {**base, 'most_urgent': [f"{r['name']} ({r['tier']}, amenity level {r['level']}, growth counted {r['level_growth']})" for r in rows[:10]],
+                'more': 'get_dashboard section needs_attention has every listed community, its figures and what each would take',
                 'caution': 'Priorities for review from open data, never a spending recommendation.'}
     top = [r for r in rows if r['tier'] != 'Watch']
     watch = [r for r in rows if r['tier'] == 'Watch']
     keep = top + watch[:max(0, 45 - len(top))]
     return {**base, 'thresholds': a.get('thresholds'), 'method': a.get('method'),
-            'score_formula': 'score = round(100 * shortfall * weight); shortfall = max(0, 1 - level); '
-                             'weight = 1.0 if new since 2021 else 0.5 + min(max(growth_pct, 0), 100) / 200 (attention.py)',
+            'formula': 'level_growth (amenity level, growth counted) = 1 - shortfall * weight; shortfall = max(0, 1 - level); '
+                       'weight = 1.0 if new since 2021 else 0.5 + min(max(growth_pct, 0), 100) / 200 (attention.py). '
+                       'Same scale as the amenity level: 1.00 = Calgary, lower = needs more. There is no score: never '
+                       'call either figure a score or a mark out of 100.',
             'shown': 'every listed community' if len(keep) == len(rows) else
-                     f'every Urgent and High community and the {len(keep) - len(top)} highest-scoring Watch ones of {len(watch)}',
+                     f'every Urgent and High community and the {len(keep) - len(top)} lowest Watch ones of {len(watch)}',
             'growth_note': 'growth_since_2021_pct is the growth model\'s (homes built), whatever way residents are counted',
-            'rows': [{**{k: r.get(k) for k in ('name', 'tier', 'score', 'level', 'shortfall', 'weight', 'residents')},
+            'rows': [{**{k: r.get(k) for k in ('name', 'tier', 'level', 'level_growth', 'shortfall', 'weight', 'residents')},
                       'growth_since_2021_pct': r.get('growth_pct'),
                       **({'new_since_2021': True} if r.get('new') else {}), 'ward': ward_of.get(r.get('code')),
                       **({'level_city_only': r.get('level_city')} if r.get('level_city') is not None else {}),

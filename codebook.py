@@ -15,7 +15,7 @@ MAX_CHARS = 12000
 
 # where each figure is worked out: (file, name). A name is a function (nested ones too) or a constant.
 TOPICS = {
-    'needs_attention': {'what': 'Needs attention: score, tiers and the catch-up list',
+    'needs_attention': {'what': 'Needs attention: amenity level with growth counted, tiers and the catch-up list',
                         'code': [('attention.py', '*'), ('dashboard.py', 'with_other'), ('dashboard.py', 'with_attention')]},
     'homes': {'what': 'How homes are counted from the property roll (what is left out: commercial, vacant lots, parking stalls, storage)',
               'code': [('population.py', 'HOMES_WHERE'), ('population.py', 'homes'), ('population.py', 'units'),

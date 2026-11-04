@@ -1,5 +1,5 @@
-/* Needs attention: the communities that score lowest on public amenities, growth taken into account.
-   The score, tiers and catch-up list are worked out in attention.py (the build); this screen only shows them. */
+/* Needs attention: the communities furthest below Calgary on public amenities, growth taken into account.
+   The figures, tiers and catch-up list are worked out in attention.py (the build); this screen only shows them. */
 'use strict';
 let atTier = '', atWard = '', atCityOnly = false, atPrivate = false;   // atPrivate: residents-only ones too (off by default)
 // which ranking is on show: the City's amenities plus the ones that are not the City's (OpenStreetMap), or the City's only
@@ -45,12 +45,12 @@ function renderAttention(countOnly) {
   }
   const city = isCity(), th = a.thresholds || {}, other = D.amenity_gap.other, withOther = atOtherOn() && !atCityOnly;
   const withPriv = withOther && atPrivate && atHasPrivate();
-  const listed = (a.rows || []).length, moved = (a.rows || []).filter(r => isNum(r.score_city) && r.score_city !== r.score).length, none = (a.rows || []).filter(r => !r.other).length;
+  const listed = (a.rows || []).length, moved = (a.rows || []).filter(r => isNum(r.level_growth_city) && r.level_growth_city !== r.level_growth).length, none = (a.rows || []).filter(r => !r.other).length;
   const feats = {};
   ((other || {}).features || []).filter(f => withPriv || !f.private).forEach(f => { (feats[f.comm] = feats[f.comm] || []).push(f); });
   $('#at-sub').textContent = city
-    ? `Calgary communities that score lowest on public amenities, with growth since ${CY()} taken into account`
-    : `${W()} communities that score lowest on public amenities, with growth since ${CY()} taken into account`;
+    ? `Calgary communities furthest below Calgary on public amenities, with growth since ${CY()} taken into account`
+    : `${W()} communities furthest below Calgary on public amenities, with growth since ${CY()} taken into account`;
   const words = {
     Urgent: `below ${fmt(th.urgent_level, 2)} of the Calgary level and growing fast`,
     High: `below ${fmt(th.list_level, 2)} and growing fast`,
@@ -62,7 +62,7 @@ function renderAttention(countOnly) {
   $('#at-caveat').innerHTML = '<b>Priorities for review, not a spending recommendation.</b> The data has no costs. '
     + (withOther ? 'Private amenities accessible to the community (developer, school and other playgrounds, parks, courts, fitness stations and dog parks that are not the City\'s) are added from OpenStreetMap, with the City\'s own taken out so nothing counts twice. '
       + (withPriv ? 'Gated, residents-only ones (homeowners\' association, condo) are counted too, as chosen. ' : 'Gated, residents-only ones (homeowners\' association, condo) are left out unless you tick them. ')
-      + `This changes the score of ${fmt(moved)} of the ${fmt(listed)} communities listed (each card shows its City-only score). ${fmt(none)} have none mapped in OpenStreetMap yet, so their score is the City-only one: volunteers map it, and new communities are often missing. `
+      + `This changes the figures of ${fmt(moved)} of the ${fmt(listed)} communities listed (each card shows its City-only figure). ${fmt(none)} have none mapped in OpenStreetMap yet, so their figure is the City-only one: volunteers map it, and new communities are often missing. `
       : 'Only the City\'s own amenities are counted: private amenities accessible to the community (developer, school) are not. ')
     + 'Amenities just across a community boundary are not counted.';
 
@@ -81,29 +81,30 @@ function renderAttention(countOnly) {
       <div class="at-top">
         <span class="at-rank">#${r.rank}</span>
         <div class="at-name"><h3>${esc(titleCase(r.name))}</h3><span>${r.ward ? 'Ward ' + r.ward + ' · ' : ''}${fmt(r.residents)} residents · ${r.new ? 'new since ' + CY() : 'growth from homes built ' + signed(r.growth_pct, 1, '%') + ' since ' + CY()}</span></div>
-        <div class="at-score"><b>${fmt(r.score)}</b><span>score</span>${withOther && isNum(r.score_city) ? `<small class="at-was">${r.score_city === r.score ? 'same as City only' : 'City only ' + fmt(r.score_city)}</small>` : ''}</div>
+        <div class="at-score" title="Amenity level with growth counted: 1.00 = Calgary, lower needs more"><b>${fmt(r.level_growth, 2)}</b><span>level, growth counted</span>${withOther && isNum(r.level_growth_city) ? `<small class="at-was">${r.level_growth_city === r.level_growth ? 'same as City only' : 'City only ' + fmt(r.level_growth_city, 2)}</small>` : ''}</div>
       </div>
       <div class="at-mid"><span class="at-tier">${r.tier}</span>
         <span class="at-level">Amenity level ${gapMeter(r.level)} <b>${fmt(r.level, 2)}</b> <small>(Calgary = 1.00${withOther && isNum(r.level_city) ? `; City's only ${fmt(r.level_city, 2)}` : ''})</small></span></div>
-      ${withOther && !r.other ? `<p class="at-none">No private amenities accessible to the community are mapped here in OpenStreetMap, so the score is the City-only one.</p>` : ''}
+      ${withOther && !r.other ? `<p class="at-none">No private amenities accessible to the community are mapped here in OpenStreetMap, so the figures are the City-only ones.</p>` : ''}
       ${withOther && r.other ? `<details class="at-osm"><summary>Private amenities added: ${esc(atOtherText(r.other))} <small>(OpenStreetMap)</small></summary><ul>${(feats[r.code] || []).map(f => `<li>${esc((OSM_WORD[f.kind] || ['park'])[0])}${f.private ? ' (private, residents only)' : ''}${f.name ? ' · ' + esc(f.name) : ''}${f.ha ? ' · ' + fmt(f.ha, 2) + ' ha' : ''} <button type="button" class="link-btn small" data-open="https://www.openstreetmap.org/${esc(f.osm)}">see it on the map</button></li>`).join('')}</ul></details>` : ''}
-      <p class="at-calc"><code>100 × shortfall ${fmt(r.shortfall, 2)} × growth weight ${fmt(r.weight, 2)} = ${fmt(r.score)}</code></p>
+      <p class="at-calc"><code>growth counted = 1 − shortfall ${fmt(r.shortfall, 2)} × growth weight ${fmt(r.weight, 2)} = ${fmt(r.level_growth, 2)}</code> <small>(1.00 = Calgary; lower needs more)</small></p>
       ${(r.catch_up || []).length ? `<p class="at-need-h">To reach the Calgary level</p><ul class="at-need">${r.catch_up.map(c => `<li>${atNeed(c)}</li>`).join('')}</ul>` : ''}
     </article>`).join('') || `<p class="empty card">No ${atTier ? atTier.toLowerCase() + ' ' : ''}communities${atWard ? ' in Ward ' + atWard : ''}. Every lived-in community here is at ${fmt(th.list_level, 2)} of the Calgary amenity level or above.</p>`;
 
-  $('#at-method').innerHTML = `<summary>How the score is worked out</summary>
+  $('#at-method').innerHTML = `<summary>How the ranking is worked out</summary>
     <pre class="at-code"><code># attention.py
 shortfall = max(0, 1 - level)                 # 0 at the Calgary level, 1 with nothing
 weight    = ${fmt(th.new_weight, 2)} if new else 0.5 + min(max(growth_pct, 0), ${th.growth_cap}) / 200
                                               # 0.50 no growth ... 1.00 doubled or new
-score     = round(100 * shortfall * weight)   # 0 to 100
+growth_counted = 1 - shortfall * weight        # 1.00 = Calgary, lower needs more
+                                              # (equals the level when new or doubled)
 
 tier = "Urgent" if level &lt; ${fmt(th.urgent_level, 2)} and (new or growth_pct &gt; ${th.growth_pct})
        "High"   if level &lt; ${fmt(th.list_level, 2)} and (new or growth_pct &gt; ${th.growth_pct})
        "Watch"  if level &lt; ${fmt(th.list_level, 2)}
 need = calgary_per_1000 * residents / 1000 - has   # rounded up; playgrounds per children 0 to 14</code></pre>
     <ol>${(a.method || []).map(x => `<li>${esc(x)}</li>`).join('')}</ol>
-    <p class="card-note"><button type="button" class="link-btn small" data-method="needs_attention">Every formula the app uses</button> · Ask Data Genie "how is the needs attention score worked out?" and it reads the same code.</p>`;
+    <p class="card-note"><button type="button" class="link-btn small" data-method="needs_attention">Every formula the app uses</button> · Ask Data Genie "how is the needs attention ranking worked out?" and it reads the same code.</p>`;
   $('#at-notes').textContent = `Amenity counts: City of Calgary open data (parks seating, playground equipment, sport equipment, plumbing fixtures, garbage, off-leash areas, park sites, public trees, recreation facilities, community services, transit stops), counted ${D.amenity_gap.counted ? dmy(D.amenity_gap.counted) : ''}. Residents: ${popWords()}. Growth: the growth model (homes built since ${CY()}).${withOther ? ` Amenities that are not the City's: © OpenStreetMap contributors (Open Database Licence), read ${other.counted ? dmy(other.counted) : ''}${other.kept_from ? ' (last week\'s copy; OpenStreetMap could not be reached)' : ''}: ${Object.entries(other.stats || {}).map(([k, v]) => `${fmt(v.found)} ${k === 'local_park_ha' ? 'parks' : (OSM_WORD[k] || [k, k])[1]} mapped in the city, ${fmt(v.city)} the City's own, ${fmt(v.kept)} open to everyone counted${v.private ? `, ${fmt(v.private)} private (${withPriv ? 'included' : 'left out'})` : ''}`).join('; ')}.` : ''}`;
 }
 
@@ -120,12 +121,12 @@ $('#at-export').addEventListener('click', async e => {
   const button = e.currentTarget, rows = atRows();
   if (!rows.length) return;
   const r = await (await api()).save_csv(`Needs attention, ${W()}, ${(D.amenity_gap || {}).counted || ''}`,
-    ['Rank', 'Community', 'Ward', 'Tier', 'Score (0 to 100)', 'Amenity level (1.00 = Calgary)', 'Shortfall', 'Growth weight',
+    ['Rank', 'Community', 'Ward', 'Tier', 'Amenity level, growth counted (1.00 = Calgary)', 'Amenity level (1.00 = Calgary)', 'Shortfall', 'Growth weight',
       `Growth since ${CY()} (%)`, `New since ${CY()}`, 'Residents', 'Children 0 to 14', 'To reach the Calgary level',
-      'Amenity level, City only', 'Score, City only', 'Private amenities added (OpenStreetMap)'],
-    rows.map(x => [x.rank, titleCase(x.name), x.ward || '', x.tier, x.score, x.level, x.shortfall, x.weight, x.growth_pct ?? '', x.new ? 'yes' : '',
+      'Amenity level, City only', 'Growth counted, City only', 'Private amenities added (OpenStreetMap)'],
+    rows.map(x => [x.rank, titleCase(x.name), x.ward || '', x.tier, x.level_growth, x.level, x.shortfall, x.weight, x.growth_pct ?? '', x.new ? 'yes' : '',
       x.residents, x.children_0_14, (x.catch_up || []).map(c => `${c.label} +${c.need}${c.unit === 'ha' ? ' ha' : ''} (has ${c.have})`).join('; '),
-      x.level_city ?? '', x.score_city ?? '', atOtherText(x.other)]));
+      x.level_city ?? '', x.level_growth_city ?? '', atOtherText(x.other)]));
   if (r && r.ok) { const s = button.querySelector('span'); s.textContent = 'Saved'; setTimeout(() => { s.textContent = 'Save this list'; }, 2500); }
 });
 window.renderAttention = renderAttention;

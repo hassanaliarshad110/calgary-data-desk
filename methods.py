@@ -468,25 +468,25 @@ METHODS = [
                   'Counts, not size or condition: a small playground counts the same as a large one.',
                   'Amenities near a community\'s edge serve its neighbours too; the level treats each community on its own.']},
 
-    {'key': 'needs_attention', 'name': 'Needs attention: communities that most need public amenities (score and tiers)',
+    {'key': 'needs_attention', 'name': 'Needs attention: communities that most need public amenities (amenity level with growth counted, and tiers)',
      'dataset': 'Amenity level (see amenity_gap) + growth since 2021 (growth model) + OpenStreetMap (see other_amenities)',
      'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': 'https://data.calgary.ca/browse',
      'updated': 'With every refresh; assets counted again every week', 'used_in': 'Needs attention tab, Data Genie',
      'method': attention.METHOD,
      'excel': ['From the Growth vs amenities list saved to Excel: shortfall = MAX(0, 1 - level); weight = IF(new, 1, '
-               '0.5 + MIN(MAX(growth %, 0), 100) / 200); score = ROUND(100 * shortfall * weight, 0).',
+               '0.5 + MIN(MAX(growth %, 0), 100) / 200); level with growth counted = ROUND(1 - shortfall * weight, 2).',
                'What it would take for one amenity: Calgary per 1,000 x residents / 1,000 - the community\'s count, '
                'rounded up (playgrounds: children 0 to 14 instead of residents).'],
      'cautions': ['Priorities for review, not a spending recommendation: the City\'s open data has no costs.',
                   'Amenities that are not the City\'s come from OpenStreetMap, which volunteers edit: coverage is '
                   'uneven, and a missing playground may simply not be mapped yet.',
                   'New communities often have parks and playgrounds still to be built by the developer under their '
-                  'subdivision approval; a low score there is a question to ask, not necessarily a gap.',
+                  'subdivision approval; a low level there is a question to ask, not necessarily a gap.',
                   'Benches, picnic tables, washrooms, bins, trees and transit stops are the City\'s only (they are '
                   'too unevenly mapped in OpenStreetMap to add), and amenities just across a community boundary that '
                   'its residents use are not counted.',
                   'Counts, not size or condition.'],
-     'code': 'attention.py (score, tier, catch_up, rank); inputs from dashboard.amenity_view and dashboard.with_attention'},
+     'code': 'attention.py (level_growth, tier, catch_up, rank); inputs from dashboard.amenity_view and dashboard.with_attention'},
 
     {'key': 'homes', 'name': 'Homes: how they are counted (each ward, each community)',
      'dataset': '4bsw-nn7w (Current Year Property Assessments), msjx-5ygv (2021 Census households)',
@@ -580,7 +580,7 @@ METHODS = [
                 'Place each one left in the community holding its middle and count it: playgrounds, fitness stations and '
                 'dog parks 1 each; basketball courts their hoops tag (else 1); parks their area in hectares, added to '
                 'neighbourhood park space.',
-                'These are added to each community\'s City counts for the Needs attention score. Calgary\'s yardstick '
+                'These are added to each community\'s City counts for the Needs attention ranking. Calgary\'s yardstick '
                 '(per 1,000) stays the City\'s own, so they can only lift a community. The amenity level on Growth '
                 'vs amenities stays the City\'s only.'],
      'excel': ['Open overpass-turbo.eu, run the query for one kind (for example leisure=playground) over a community, '

@@ -1768,7 +1768,7 @@ def _sum_other(a, b):
 
 
 def with_attention(view, asset_data=None, scope_codes=None, all_codes=None, pop_all=None, kids_all=None, names=None):
-    """The amenity view with its Needs attention ranking (attention.py has the score and how it is worked out):
+    """The amenity view with its Needs attention ranking (attention.py has the ranking and how it is worked out):
     'attention' counts the City's amenities and the ones that are not the City's (OpenStreetMap), when that count is
     available; 'attention_city' counts the City's only."""
     if not view:
