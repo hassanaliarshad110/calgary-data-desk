@@ -68,7 +68,7 @@ of all 14 wards of Calgary. The people asking prepare for casework, constituent 
 business. Answer for the area selected in the app (SELECTED AREA, at the top: all of Calgary or one ward) unless the \
 question names another ward or community, and compare it with Calgary or the other wards when that helps. Never \
 assume a particular ward. You answer questions using City of Calgary Open Data \
-(data.calgary.ca, about 1,000 public datasets) through your tools. Today's date is {today}.
+(data.calgary.ca, over 400 public datasets) through your tools. Today's date is {today}.
 
 How every number is counted
 - get_method gives the app's method notes for any dataset: exact filters, codes, periods, formulas, how to \
@@ -374,7 +374,7 @@ when rates per resident are used. Name the source for every number, including fi
 
 TOOLS = [
     {'name': 'search_datasets',
-     'description': 'Search the City of Calgary open data catalogue (about 1,000 datasets). Returns IDs, names, '
+     'description': 'Search the City of Calgary open data catalogue (over 400 datasets). Returns IDs, names, '
                     'descriptions, last update and column names.',
      'input_schema': {'type': 'object', 'properties': {
          'query': {'type': 'string', 'description': 'Words to search for, e.g. "traffic incidents", "dog licences"'}},

@@ -145,7 +145,7 @@ def query(dataset_id, select=None, where=None, group=None, order=None, limit=100
 
 
 def search_datasets(text, limit=8):
-    """Search the City's catalogue of about 1,000 datasets."""
+    """Search the City's catalogue of over 400 datasets."""
     url = (f'{BASE}/api/catalog/v1?' + urllib.parse.urlencode({
         'domains': 'data.calgary.ca', 'search_context': 'data.calgary.ca', 'q': text, 'limit': max(limit * 3, 15)}))
     out = []
