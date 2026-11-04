@@ -100,12 +100,18 @@
   api.analyst_topics = async (n = 6) => {
     let all = [];
     try { all = await W.getJSON('analyst_topics.json'); } catch (e) { return []; }
-    const place = (((await api.load_dashboard(false, null, W.store.get('scope', 0))).data || {}).scope || {}).name || 'Ward 5';
-    const pool = all.slice().sort(() => Math.random() - 0.5), out = [], per = {};
+    const sc = (((await api.load_dashboard(false, null, W.store.get('scope', 0))).data || {}).scope || {});
+    const ward = sc.kind === 'city' ? 0 : (sc.ward || null);
+    const place = sc.kind === 'city' ? 'Calgary' : (sc.name || 'the selected area');
+    const ONLY = { blue_line: [0, 5] };            // as analyst.ONLY: topics that suit only some areas
+    const fill = v => typeof v !== 'string' ? v : v.split('{area}').join(place);   // {area}: the selected area
+    const pool = all.filter(t => ward === null || !(t.only || ONLY[t.key]) || (t.only || ONLY[t.key]).includes(ward))
+      .sort(() => Math.random() - 0.5);
+    const out = [], per = {};
     for (const t of pool) {
       if ((per[t.area] || 0) >= 2) continue;
       per[t.area] = (per[t.area] || 0) + 1;
-      out.push(Object.fromEntries(Object.entries(t).map(([k, v]) => [k, typeof v === 'string' && place !== 'Ward 5' ? v.split('Ward 5').join(place) : v])));
+      out.push(Object.fromEntries(Object.entries(t).map(([k, v]) => [k, k === 'area' ? v : fill(v)])));
       if (out.length >= n) break;
     }
     return out;

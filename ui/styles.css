@@ -1350,3 +1350,7 @@ table.gap-assets .cmp-city { background: color-mix(in srgb, #FBBF24 10%, transpa
 .at-osm ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 3px; }
 .at-ctl .at-other { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; }
 .at-ctl .at-other input { width: 18px; height: 18px; accent-color: var(--accent); }
+.live-pop { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-top: 6px; font-size: 12.5px; color: inherit; opacity: .92; }
+.live-pop-n { font: 700 15px var(--mono); font-variant-numeric: tabular-nums; }
+.live-pop small { opacity: .8; }
+.live-pop .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 0 3px rgba(34,197,94,.25); align-self: center; }

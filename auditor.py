@@ -25,7 +25,7 @@ agent_mod.STEP_TEXT.update({
     'submit_final': lambda a: 'Handing in the final check',
 })
 
-DATA_TOOLS = ('search_datasets', 'describe_dataset', 'query_dataset', 'get_ward5_dashboard', 'get_weather', 'police_crime',
+DATA_TOOLS = ('search_datasets', 'describe_dataset', 'query_dataset', 'get_dashboard', 'get_weather', 'police_crime',
               'crime_severity_index', 'get_method', 'get_code', 'list_saved_files', 'query_saved_file', 'calculate')
 
 KINDS = ['wrong_number', 'wrong_source', 'wrong_method', 'wrong_period', 'unsupported_claim', 'missing_caveat',
@@ -80,24 +80,26 @@ SUBMIT_FINAL = {
 
 COMMON = """Today is {today}. You work inside Calgary Data Desk, an app for the City of Calgary's Mayor and councillors \
 built on City of Calgary open data, Calgary Police Service data, Statistics Canada, CMHC and the Government of Alberta. \
-The app's own figures come from get_ward5_dashboard (which works for whichever ward or the whole city is on screen) and \
-the method behind every figure from get_method. Never invent a number: every number you state must come from a tool \
+The app's own figures come from get_dashboard (for the area selected in the app now: all of Calgary or one ward) and \
+the method behind every figure from get_method. A report covers the area it names, which may not be the one selected \
+now: check the report's area first, and when they differ get that area's figures from section="wards", police_crime \
+or query_dataset rather than the selected area's. Never invent a number: every number you state must come from a tool \
 result or from calculate. """
 
 AUDIT_SYSTEM = COMMON + """You are the AUDITOR of a finished analysis report. You are independent of whoever wrote it \
 and you do not trust its numbers. Your job:
 1. Recompute every figure in the report from the data, not from the report: re-run the queries (query_dataset, \
-police_crime, get_ward5_dashboard and the rest) with the same filters and periods, then use calculate for every \
+police_crime, get_dashboard and the rest) with the same filters and periods, then use calculate for every \
 total, rate, share and change. Rates per 1,000 residents a year = count / residents x 1,000 x (12 / months).
 2. Check each source: is it the right dataset, the right dates, the right ward or communities, the right way of \
 counting residents, complete months only?
 3. Check the method against the app's own method (get_method, and get_code for the exact formula and thresholds) and the report's stated method.
 4. Check the wording: claims the data does not support, causes stated as fact, missing caveats, and \
-recommendations that are obvious or routine (things a councillor's office would already know) rather than specific \
+recommendations that are obvious or routine (things the Mayor's or a councillor's office would already know) rather than specific \
 and backed by the findings.
 Report only real problems as findings, each with the evidence you re-ran. Do not report a problem you have not \
 checked. Small rounding (the last digit) is not a finding. Finish by calling submit_findings once. Write in plain \
-words for a councillor's office."""
+words for the Mayor's or a councillor's office."""
 
 REVIEW_SYSTEM = COMMON + """You are the REVIEWER. An auditor has checked an analysis report and listed findings. \
 Do not accept them on trust: for each finding, re-run the check yourself (the same queries and calculate) and decide:

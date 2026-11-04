@@ -307,16 +307,16 @@ class Api:
 
     # ---- Data Scientist: ready-made analysis topics ----
     def _place(self):
-        """The area on screen, as the reports name it ('Ward 5' unless another ward or the whole city is chosen)."""
+        """The area on screen, as the reports name it: 'Calgary' or the ward's name."""
         sc = (self._dash or {}).get('scope') or {}
-        return sc.get('name') or 'Ward 5'
+        return 'Calgary' if sc.get('kind') == 'city' else sc.get('name')
 
-    def _for_place(self, text):
-        place = self._place()
-        return text if place == 'Ward 5' or not isinstance(text, str) else text.replace('Ward 5', place)
+    def _ward(self):
+        sc = (self._dash or {}).get('scope') or {}
+        return 0 if sc.get('kind') == 'city' else sc.get('ward')
 
     def analyst_topics(self, n=6):
-        return [{k: self._for_place(v) for k, v in t.items()} for t in analyst.topics(int(n or 6))]
+        return analyst.topics(int(n or 6), area=self._place(), ward=self._ward())
 
     def analyst_run(self, key=None, text=None):
         """Run one analysis (a topic key, or the office's own words) to a full report. One at a time."""
@@ -327,7 +327,7 @@ class Api:
         self._analyst_busy = True
         try:
             self._analyst.reset()                 # each report starts fresh
-            res = self._analyst.ask(self._for_place(analyst.brief(key, text)), 'smart',
+            res = self._analyst.ask(analyst.brief(key, text, area=self._place()), 'smart',
                                     today=dashboard.calgary_now().date().isoformat())
             return {'ok': True, **res}
         except agent_mod.AgentError as e:

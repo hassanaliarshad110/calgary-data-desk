@@ -454,12 +454,15 @@ function renderAssets() {
     title = 'Assets in every ward and in Calgary';
     cols = ['Calgary', ...ws.wards.map(w => 'Ward ' + w.ward)];
     rows = keys.map(k => [kinds[k].label, ws.amenity_counts_city[k], ...ws.wards.map(w => (w.amenity_counts || {})[k])]);
+    if (ws.amenity_counts_other_city) Object.keys(ws.amenity_counts_other_city).forEach(k => { keys.push(k); rows.push([(kinds[k] || { label: k }).label + ", not the City's (OpenStreetMap)", ws.amenity_counts_other_city[k], ...ws.wards.map(w => (w.amenity_counts_other || {})[k] || 0)]); });
     sub = 'How many of each asset the City of Calgary lists in its open data, in each ward and in all of Calgary. Park space is in hectares.';
   } else {
     title = `Assets in ${W()}, community by community`;
     const comms = (g.by_comm || []).slice().sort((a, b) => String(a.name).localeCompare(String(b.name)));
     cols = [W(), 'Calgary', ...comms.map(c => titleCase(c.name))];
     rows = keys.map(k => [kinds[k].label, ((g.scope || {})[k] || {}).n, ((g.city || {})[k] || {}).n, ...comms.map(c => (c.n || {})[k])]);
+    const ob = (g.other || {}).by_comm || {}, cityOther = (D.wards_summary || {}).amenity_counts_other_city;
+    if (g.other) ['playgrounds', 'basketball', 'fitness', 'off_leash', 'local_park_ha'].forEach(k => { keys.push(k); rows.push([(kinds[k] || { label: k }).label + ", not the City's (OpenStreetMap)", comms.reduce((a, c) => a + ((ob[c.code] || {})[k] || 0), 0), cityOther ? cityOther[k] : null, ...comms.map(c => (ob[c.code] || {})[k] || 0)]); });
     sub = `How many of each asset the City of Calgary lists in each lived-in ${W()} community, in ${W()} and in all of Calgary. Park space is in hectares.`;
   }
   $('#gr-sub').textContent = 'Every public asset the City lists: benches, playgrounds, courts, washrooms, fountains, park space, trees, facilities and transit stops';
@@ -500,10 +503,11 @@ function renderGap() {
     ? 'Public amenities in every Calgary community against its residents and growth since ' + CY() + ''
     : 'Public amenities in each ' + W() + ' community against its residents and growth, compared with the city';
   const stats = [[fmt(flagged.length), `communities where amenities have not kept up with growth (grew over ${g.growth_pct_threshold}% since ${CY()} or are new, and sit below ${fmt(g.level_threshold, 2)})`]];
-  if (!city && isNum(scopeLevel)) stats.unshift([fmt(scopeLevel, 2), 'amenity level of ' + W() + ' (1.00 = the city level)']);
+  if (!city && isNum(scopeLevel)) stats.unshift([fmt(scopeLevel, 2), 'amenity level of ' + W() + ', City amenities only (1.00 = the city level)']);
+  if (!city && isNum(g.level_all)) stats.splice(1, 0, [fmt(g.level_all, 2), 'with amenities that are not the City\'s too (developer, condo, school; OpenStreetMap)']);
   if (city && D.wards_summary) {
     const low = [...D.wards_summary.wards].filter(w => isNum(w.amenity_level)).sort((a, b) => a.amenity_level - b.amenity_level)[0];
-    if (low) stats.push([`Ward ${low.ward}`, `lowest amenity level of the 14 wards (${fmt(low.amenity_level, 2)})`]);
+    if (low) stats.push([`Ward ${low.ward}`, `lowest amenity level of the 14 wards (${fmt(low.amenity_level, 2)} City only${isNum(low.amenity_level_all) ? ', ' + fmt(low.amenity_level_all, 2) + ' with non-City' : ''})`]);
   }
   $('#gr-stats').innerHTML = stats.map(([b, s]) => `<div class="istat"><b>${b}</b><span>${s}</span></div>`).join('');
 
@@ -531,7 +535,7 @@ function renderGap() {
   const wardCol = city ? '<th scope="col" class="num">Ward</th>' : '';
   const head = gapKind
     ? `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth since ${CY()}</th><th scope="col" class="num">${esc(kinds[gapKind].label)}</th><th scope="col" class="num">${unit(gapKind)}</th><th scope="col">Against the city</th></tr>`
-    : `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth since ${CY()}</th><th scope="col" class="num">Children 0 to 14</th><th scope="col">Amenity level</th><th scope="col">Furthest behind the city</th></tr>`;
+    : `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth since ${CY()}</th><th scope="col" class="num">Children 0 to 14</th><th scope="col">Amenity level, City only</th>${g.other ? '<th scope="col">With non-City (OpenStreetMap)</th>' : ''}<th scope="col">Furthest behind the city</th></tr>`;
   const body = rows.slice(0, 400).map(r => {
     const name = `${esc(r.name)}${r.flag ? '<span class="gap-flag">Not kept up</span>' : ''}`;
     const ward = city ? `<td class="num">${wardOf[r.code] ? wardOf[r.code] : '–'}</td>` : '';
@@ -542,7 +546,7 @@ function renderGap() {
         <td class="num">${kd(gapKind, (r.per_1000 || {})[gapKind])}</td><td>${gapMeter(v)}<span class="gap-level ${isNum(v) && v < g.level_threshold ? 'low' : ''}">${isNum(v) ? fmt(v * 100, 0) + '%' : '–'}</span></td></tr>`;
     }
     return `<tr><td>${name}</td>${ward}<td class="num">${fmt(r.residents)}</td>${grow}<td class="num">${fmt(r.children_0_14)}</td>
-      <td>${gapMeter(r.level)}<span class="gap-level ${isNum(r.level) ? (r.level < g.level_threshold ? 'low' : r.level >= 1 ? 'high' : '') : ''}">${fmt(r.level, 2)}</span></td><td class="wrap gap-short">${shortList(r) || '–'}</td></tr>`;
+      <td>${gapMeter(r.level)}<span class="gap-level ${isNum(r.level) ? (r.level < g.level_threshold ? 'low' : r.level >= 1 ? 'high' : '') : ''}">${fmt(r.level, 2)}</span></td>${g.other ? `<td>${gapMeter(r.level_all)}<span class="gap-level ${isNum(r.level_all) ? (r.level_all < g.level_threshold ? 'low' : r.level_all >= 1 ? 'high' : '') : ''}">${fmt(r.level_all, 2)}</span>${r.other ? `<small class="gap-short" title="Not the City's, from OpenStreetMap"> +${esc(Object.entries(r.other).map(([k, v]) => k === 'local_park_ha' ? fmt(v, 1) + ' ha park' : fmt(v) + ' ' + ((g.kinds[k] || {}).label || k).toLowerCase()).join(', '))}</small>` : ''}</td>` : ''}<td class="wrap gap-short">${shortList(r) || '–'}</td></tr>`;
   }).join('') || `<tr><td colspan="7" class="empty">No ${gapFlagged ? 'flagged ' : ''}communities to show.</td></tr>`;
 
   // the same levels under each way of counting residents
@@ -552,10 +556,10 @@ function renderGap() {
   if (city && D.wards_summary && mKeys.length) {
     const names = D.wards_summary.pop_methods || {};
     methodTable = `<div class="gap-scope"><h3>Every ward under each way of counting residents</h3>
-      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Growth since ${CY()}</th>${mKeys.map(k => `<th scope="col">Amenity level, ${esc(names[k] || BM[k].label)}</th>`).join('')}</tr></thead><tbody>
-      ${[...D.wards_summary.wards].sort((a, b) => (a.amenity_level ?? 9) - (b.amenity_level ?? 9)).map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${signed(r.growth_pct, 1, '%')}</td>${mKeys.map(k => `<td>${lv((r.amenity_level_by_method || {})[k])}</td>`).join('')}</tr>`).join('')}
-      <tr class="cmp-city-row"><td><b>Calgary</b></td><td></td><td class="num">${signed((D.wards_summary.city || {}).growth_pct, 1, '%')}</td>${mKeys.map(() => `<td>${lv(1)}</td>`).join('')}</tr>
-      </tbody></table></div><p class="card-note">Lowest first, by the count chosen in Settings. 1.00 = the Calgary level.</p></div>`;
+      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Growth since ${CY()}</th>${mKeys.map(k => `<th scope="col">Amenity level, ${esc(names[k] || BM[k].label)}</th>`).join('')}${g.other ? `<th scope="col">With non-City amenities, ${esc(popChip())}</th>` : ''}</tr></thead><tbody>
+      ${[...D.wards_summary.wards].sort((a, b) => (a.amenity_level ?? 9) - (b.amenity_level ?? 9)).map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${signed(r.growth_pct, 1, '%')}</td>${mKeys.map(k => `<td>${lv((r.amenity_level_by_method || {})[k])}</td>`).join('')}${g.other ? `<td>${lv(r.amenity_level_all)}</td>` : ''}</tr>`).join('')}
+      <tr class="cmp-city-row"><td><b>Calgary</b></td><td></td><td class="num">${signed((D.wards_summary.city || {}).growth_pct, 1, '%')}</td>${mKeys.map(() => `<td>${lv(1)}</td>`).join('')}${g.other ? `<td>${lv((D.wards_summary.city || {}).amenity_level_all)}</td>` : ''}</tr>
+      </tbody></table></div><p class="card-note">Lowest first, by the count chosen in Settings. 1.00 = the Calgary level of City amenities. "With non-City amenities" adds playgrounds, parks, courts, fitness stations and dog parks that are not the City's (OpenStreetMap, City ones taken out), measured against the same Calgary level, so Calgary itself reads above 1.00.</p></div>`;
   } else if (mKeys.length) {
     methodTable = `<div class="gap-scope"><h3>${esc(W())} under each way of counting residents</h3>
       <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Residents counted by</th><th scope="col" class="num">Residents</th><th scope="col">Amenity level of ${esc(W())}</th><th scope="col" class="num">Communities not kept up</th></tr></thead><tbody>
@@ -613,10 +617,10 @@ $('#gr-export').addEventListener('click', e => {
     const g = D.amenity_gap, keys = Object.keys(g.kinds || {});
     const wardOf = {}; (D.communities || []).forEach(c => { wardOf[c.code] = c.ward; });
     name = 'Amenity gap, ' + W() + ', ' + (g.counted || '');
-    cols = ['Community', 'Ward', 'Residents today', 'Growth since ' + CY() + ' (%)', 'New since ' + CY() + '', 'Children 0 to 14', 'Amenity level (1.00 = city)', 'Not kept up with growth',
+    cols = ['Community', 'Ward', 'Residents today', 'Growth since ' + CY() + ' (%)', 'New since ' + CY() + '', 'Children 0 to 14', 'Amenity level, City only (1.00 = city)', 'Amenity level with non-City (OpenStreetMap)', 'Not kept up with growth',
       ...keys.map(k => g.kinds[k].label + (g.kinds[k].per === 'children' ? ' per 1,000 children' : ' per 1,000 residents')),
       ...keys.map(k => g.kinds[k].label + ', against the city')];
-    rows = g.by_comm.map(r => [r.name, wardOf[r.code] || '', r.residents, r.growth_pct, r.new ? 'yes' : '', r.children_0_14, r.level, r.flag ? 'yes' : '',
+    rows = g.by_comm.map(r => [r.name, wardOf[r.code] || '', r.residents, r.growth_pct, r.new ? 'yes' : '', r.children_0_14, r.level, r.level_all ?? '', r.flag ? 'yes' : '',
       ...keys.map(k => (r.per_1000 || {})[k]), ...keys.map(k => (r.vs_city || {})[k])]);
   } else {
     name = 'Being built in ' + W() + ' ' + D.period;
@@ -683,7 +687,8 @@ function renderPopSeries() {
   $('#popm-note').textContent = popmView === 'res'
     ? ({ model: 'Each month is worked out with the growth model: homes on the City\'s property roll, counted as lived in one year after they are built, times ' + CY() + ' Census people per home, plus rental buildings. Diamonds mark the ' + CY() + ' Census counts.',
          census2021: 'Residents are counted as at the ' + CY() + ' Census (Settings), so the line stays flat. Switch to the growth model in Settings to see growth since ' + CY() + '.',
-         city_pace: 'Each month is the ' + CY() + ' Census grown at one rate for all of Calgary, so the whole city matches the City\'s own population estimate and forecast for that month. Diamonds mark the ' + CY() + ' Census counts.' })[popMethod()]
+         city_pace: 'Each month is the ' + CY() + ' Census grown at one rate for all of Calgary, so the whole city matches the City\'s own population estimate and forecast for that month. Diamonds mark the ' + CY() + ' Census counts.',
+         city_actual: 'Each month: every community\'s ' + CY() + ' Census count times one factor, plus the growth the growth model measured there (homes built), so growth lands where homes were built and the whole city matches the City\'s own estimate and forecast for that month. Diamonds mark the ' + CY() + ' Census counts.' })[popMethod()]
     : `Estimate, not a count: each community's ${CY()} Census children, plus children for residents added since ${CY()} at the share seen in ${W()}'s newest communities in 2021 (${fmt(ps.new_share_0_14, 1)}% aged 0 to 14, ${fmt(ps.new_share_0_4, 1)}% under 5). No public count of children by community exists after 2021.`;
 }
 
@@ -1056,7 +1061,7 @@ const SRC = {
   cityDisorder: cityDs('Social Disorder Statistics', '4evm-wx9a', 'Police-reported social disorder'),
   pop: () => { const st = stat('Population model'); const m = popMethod();
     if (m === 'census2021') return { name: '' + CY() + ' Census by Community', pub: 'City of Calgary (Statistics Canada)', url: 'https://data.calgary.ca/d/f9wk-wej9', to: 'counted on May 11, 2021, without growth (Settings)' };
-    if (m === 'city_pace') return { name: "" + CY() + " Census by Community, grown to the City's total", pub: 'City of Calgary', url: 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf', to: "City population estimates and forecast (Calgary and Region Economic Outlook 2026-2031, Table 4, page 19)" };
+    if (m === 'city_pace' || m === 'city_actual') return { name: "" + CY() + " Census by Community, grown to the City's total", pub: 'City of Calgary', url: 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf', to: "City population estimates and forecast (Calgary and Region Economic Outlook 2026-2031, Table 4, page 19)" };
     return { name: 'growth model: ' + CY() + ' Census by Community and Property Assessments', pub: 'City of Calgary',
     url: 'https://data.calgary.ca/d/4bsw-nn7w', to: `${CY()} Census (May ${CY()}), grown with the property roll${st.city_updated ? ` updated ${dmy(st.city_updated)}` : ''}` }; },
   police: () => { const c = D.crime || {}; return { name: 'Community safety data file' + (c.file ? ` (${c.file})` : ''), pub: 'Calgary Police Service', url: c.source || 'https://www.calgarypolice.ca/transparency-and-accountability/community-safety-dashboard---monthly-snapshot.html#dashdata',

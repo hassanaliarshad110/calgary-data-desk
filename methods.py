@@ -110,7 +110,7 @@ METHODS = [
      'updated': 'Census: 2021; property roll: through the year; City outlook: each spring',
      'used_in': 'Residents, every rate per 1,000, population charts, children estimates, newsletter, Data Genie',
      'method': [
-         'Grown to the City\'s total is the default (below). Growth model: each community\'s 2021 Census count grown with the homes on the property roll (see '
+         'Four choices. Grown to the City\'s total is the default (below). Growth model: each community\'s 2021 Census count grown with the homes on the property roll (see '
          '"Ward 5 growth model" below).',
          '2021 Census, no growth: each community\'s 2021 Census count (total_pop_household, f9wk-wej9), unchanged. The '
          'City\'s own 311 ward dashboard counts this way (it divides by 2021 Census households).',
@@ -127,12 +127,32 @@ METHODS = [
          'estimate was already 2.7% above the Census count (1,323,783 against 1,288,995); the City\'s own growth from '
          'May 2021 to November 2026 is 20.7%. So "growth since 2021" under this choice reads higher than real growth, '
          'and growth for amenity flags always uses the growth model.',
+         'City\'s total, shared by actual growth: all of Calgary still adds up to the City\'s own estimate for that '
+         'month, but growth is placed where homes were built. Each community = its 2021 Census count x f + the growth '
+         'the growth model measured there (growth model count - 2021 count; for a community built since 2021, all of '
+         'it). f = 1 + (the City\'s estimate - Calgary\'s growth model total) / Calgary\'s 2021 Census count. November '
+         '2026: 1 + (1,598,075 - 1,467,348) / 1,288,995 = 1.1014. So the City\'s growth the homes do not explain (more '
+         'people per home since 2021, seniors\' homes, residences, shelters, the Census undercount: 130,727 people) is '
+         'spread over every community as a share of its 2021 count, and the growth from homes built stays where they '
+         'were built. Ward 5: 106,185 x 1.1014 + (137,391 - 106,185) = 148,161 (+39.5%), against 131,538 when every '
+         'community grows at one rate. Children: each community\'s 2021 children x one factor + the children the growth '
+         'model adds for its new homes, the factor set so Calgary matches the City\'s forecast of children.',
+         'The largest community takes the person or two that rounding leaves over, so Calgary matches the City\'s figure '
+         'exactly under both City\'s-total choices.',
+         'Every figure that uses residents (rates per 1,000, children, amenity levels, Needs attention, Compare wards, '
+         'property tax and budget per resident, the briefing screen) is worked out again under the choice; the website '
+         'works all of them out under every choice each morning.',
          'Rates per 1,000 residents = count / residents in the middle of the period x 1,000 x (12 / months).'],
      'excel': ['2021 Census: filter f9wk-wej9 to the Ward 5 community codes and add up total_pop_household (106,185).',
+               'City\'s total, shared by actual growth: f = 1 + (City\'s estimate - the growth model total over every '
+               'residential community) / 1,288,995; each community = 2021 count x f + (growth model count - 2021 count).',
                'Grown to the City\'s total: subtract the growth model residents of communities with no 2021 count from the '
                'City\'s population for the date, divide by 1,288,995 (f9wk-wej9 total_pop_household added up over every '
                'residential community), and multiply each older community\'s 2021 count by the result.'],
-     'cautions': ['The growth model follows homes built, so it can undercount established areas that grew by filling '
+     'cautions': ['"Shared by actual growth" relies on the growth model\'s homes: where homes are missing from the '
+                  'property roll (some new towers until they are assessed), that community\'s growth is understated and '
+                  'every other community gets a little more of the factor.',
+                  'The growth model follows homes built, so it can undercount established areas that grew by filling '
                   'existing homes and towers (more people per unit); "grown to the City\'s total" grows every community '
                   'at the same rate, so it undercounts communities where many homes were built (Ward 5: growth model '
                   '137,391, City\'s total 131,538).',
@@ -447,6 +467,23 @@ METHODS = [
                   'its residents use are not counted.',
                   'Counts, not size or condition.'],
      'code': 'attention.py (score, tier, catch_up, rank); inputs from dashboard.amenity_view and dashboard.with_attention'},
+
+    {'key': 'live_counter', 'name': 'Live population counter (dashboard)', 'dataset': 'City population outlook + growth model',
+     'publisher': 'Calgary Data Desk', 'page': '', 'updated': 'Every second in the browser; its two anchor figures every refresh',
+     'used_in': 'Dashboard (Residents today tile)',
+     'method': ['Work out the selected area\'s residents on the first day of this month and of next month, the way of '
+                'counting chosen in Settings (the same calculation as every other figure).',
+                'Join them with a straight line: residents now = this month\'s figure + (next month\'s - this month\'s) x '
+                '(time since midnight on the 1st) / (time from the 1st to the 1st of next month), shown to 3 decimals.',
+                'Under the City\'s total the monthly figures sit on the City\'s straight line between April figures, so the '
+                'counter moves at the City\'s forecast pace: from April 2026 to April 2027, 1,583,200 to 1,608,700, about '
+                '70 people a day for Calgary. A ward moves at its own pace under the chosen count.',
+                'Each morning\'s refresh works the two figures out again and the counter carries on from there; at the end '
+                'of the month the next line starts exactly where this one ends. Under the 2021 Census count it stands still.'],
+     'excel': ['(Next month\'s figure - this month\'s) / days in the month = people a day; this month\'s figure + people a day '
+               'x days since the 1st = today\'s live figure.'],
+     'cautions': ['A forecast pace, not a count: nobody counts residents day by day.'],
+     'code': 'dashboard.py: population_live, _local_midnight_ms; ui/app.js: livePop'},
 
     {'key': 'other_amenities', 'name': 'Amenities that are not the City\'s (OpenStreetMap), without double counting',
      'dataset': 'OpenStreetMap: leisure=playground, fitness_station, pitch (sport=basketball), dog_park, park',

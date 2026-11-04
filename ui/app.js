@@ -28,9 +28,9 @@ const daysSince = d => {
 };
 // how residents are counted (Settings): words for labels and notes
 const popMethod = () => (D && D.population && D.population.method) || 'city_pace';
-const popWords = () => ({ model: 'the growth model', census2021: `the ${CY()} Census, without growth`, city_pace: `the ${CY()} Census grown to the City's total` })[popMethod()];
-const popShort = () => ({ model: 'Live growth model', census2021: `Counted as at the ${CY()} Census`, city_pace: `${CY()} Census grown to the City's total` })[popMethod()];
-const popChip = () => ({ model: 'growth model', census2021: `${CY()} Census, no growth`, city_pace: "City's total" })[popMethod()];
+const popWords = () => ({ model: 'the growth model', census2021: `the ${CY()} Census, without growth`, city_pace: `the ${CY()} Census grown to the City's total`, city_actual: "the City's total, shared by actual growth" })[popMethod()];
+const popShort = () => ({ model: 'Live growth model', census2021: `Counted as at the ${CY()} Census`, city_pace: `${CY()} Census grown to the City's total`, city_actual: "City's total, shared by actual growth (homes built)" })[popMethod()];
+const popChip = () => ({ model: 'growth model', census2021: `${CY()} Census, no growth`, city_pace: "City's total", city_actual: "City's total, actual growth" })[popMethod()];
 // the federal Census the app counts from (2021 until the City publishes the 2026 Census by community)
 const CY = () => (D && D.census && D.census.year) || 2021;
 // what an answer or report cost, from the AI service's own usage figures (published prices, an estimate)
@@ -389,7 +389,7 @@ function renderKpis() {
   ].filter(Boolean) : [];
   const items = [
     [popMethod() === 'census2021' ? 'Residents (' + CY() + ' Census)' : 'Residents today', fmt(w.residents), popMethod() === 'census2021' ? '' : chg(w.growth_pct, null, '%', 1, 'the ' + CY() + ' Census'),
-      `${CY()} Census: ${fmt(w.census2021)} (marker). ${popShort()}.${isCity() && D.population && D.population.city_now && popMethod() === 'model' ? ` The City's own estimate for Calgary is ${fmt(D.population.city_now)}: it also counts more people living in each home since ${CY()} and people in seniors' homes, residences and shelters, which the model can't see.` : ''}${popMethod() === 'city_pace' ? ` This is above the ${CY()} count partly because the Census counted people in private homes only; the City's total also includes people in seniors' homes, residences and shelters.` : ''}`, versus(w.residents, w.census2021), 'hero'],
+      `${CY()} Census: ${fmt(w.census2021)} (marker). ${popShort()}.${isCity() && D.population && D.population.city_now && popMethod() === 'model' ? ` The City's own estimate for Calgary is ${fmt(D.population.city_now)}: it also counts more people living in each home since ${CY()} and people in seniors' homes, residences and shelters, which the model can't see.` : ''}${['city_pace', 'city_actual'].includes(popMethod()) ? ` This is above the ${CY()} count partly because the Census counted people in private homes only; the City's total also includes people in seniors' homes, residences and shelters.` : ''}${popMethod() === 'city_actual' && D.population && D.population.actual_factor ? ` Each community: its ${CY()} count × ${fmt(D.population.actual_factor, 4)} + the growth measured from homes built there.` : ''}`, versus(w.residents, w.census2021), 'hero'],
     [`Open 311 requests as of ${asOf}`, fmt(s.open_now), '', `${fmt(s.open_over_90_days)} (${fmt(over90 * 100, 0)}%) open more than 90 days, whenever they were made`, meter(over90)],
     ...crime,
     [`311 requests, ${esc(D.period)}`, fmt(s.requests12), chg(s.requests_change_pct, null, '%', 1, cw),
@@ -412,7 +412,28 @@ function renderKpis() {
       <div class="kpi-foot">${change}<span title="${esc(foot.replace(/<[^>]+>/g, ''))}">${foot}</span></div>
       ${viz}
     </div>`).join('');
+  const hero = $('#kpis .kpi.hero');
+  if (hero && D.population && D.population.live && popMethod() !== 'census2021') {
+    hero.insertAdjacentHTML('beforeend', `<div class="live-pop" title="The City's forecast pace, second by second: the area's residents on the first of this month and of next month, worked out the same way as every figure here, joined by a straight line. Each morning's refresh carries on from there.">
+      <span class="live-dot" aria-hidden="true"></span><span class="live-pop-n" id="live-pop-n"></span><small id="live-pop-rate"></small></div>`);
+    tickPop();
+  }
 }
+// the live population counter (dashboard.population_live): a straight line between this month's and next month's figures
+function livePop(t = Date.now()) {
+  const L = D && D.population && D.population.live;
+  if (!L || !L.end_ms || L.end_ms <= L.start_ms) return null;
+  return L.from + (L.to - L.from) * (t - L.start_ms) / (L.end_ms - L.start_ms);
+}
+function tickPop() {
+  const n = $('#live-pop-n'), L = D && D.population && D.population.live;
+  if (!n || !L) return;
+  const v = livePop();
+  n.textContent = isNum(v) ? fmt(v, 3) : '';
+  const r = $('#live-pop-rate');
+  if (r && !r.textContent) r.textContent = ` live · ${L.per_day >= 0 ? '+' : '−'}${fmt(Math.abs(L.per_day), L.per_day < 10 ? 1 : 0)} a day`;
+}
+setInterval(tickPop, 1000);
 
 // ---------- map
 function scale() {

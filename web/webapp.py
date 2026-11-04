@@ -102,13 +102,14 @@ def _settings():
     return {'api_key': STATE['key'], 'models': {}}
 
 
+def _scope():
+    return (STATE['dash'] or {}).get('scope') or {}
+
+
 def _place():
-    return ((STATE['dash'] or {}).get('scope') or {}).get('name') or 'Ward 5'
-
-
-def _for_place(text):
-    place = _place()
-    return text if place == 'Ward 5' or not isinstance(text, str) else text.replace('Ward 5', place)
+    """The area selected on the website: 'Calgary' or a ward's name (None before the dashboard is sent)."""
+    sc = _scope()
+    return 'Calgary' if sc.get('kind') == 'city' else sc.get('name')
 
 
 def _make(who):
@@ -159,7 +160,7 @@ def handle(op, args_json):
             return json.dumps(True)
         if op == 'analyst_run':
             SCIENTIST.reset()
-            res = SCIENTIST.ask(_for_place(analyst.brief(a.get('key'), a.get('text'))), 'smart', today=_today())
+            res = SCIENTIST.ask(analyst.brief(a.get('key'), a.get('text'), area=_place()), 'smart', today=_today())
             return json.dumps({'ok': True, **res}, default=str)
         if op == 'analyst_reports':
             return json.dumps(_reports(), default=str)

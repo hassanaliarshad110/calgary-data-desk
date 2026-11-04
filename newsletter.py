@@ -50,6 +50,9 @@ POP_NOTE = {
     'city_pace': "Residents are the 2021 Census grown at one rate for all of Calgary (communities built since 2021 counted "
                  "from their homes), so the city adds up to the City's own population estimate and forecast. Communities "
                  "where many homes were built are likely undercounted.",
+    'city_actual': "Residents add up to the City's own population estimate and forecast, with growth placed where homes "
+                   "were actually built: each community's 2021 Census count times one factor, plus the growth the growth "
+                   "model measured there.",
 }
 
 

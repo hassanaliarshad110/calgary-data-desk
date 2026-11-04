@@ -182,7 +182,8 @@ def main():
     step('property tax', lambda: write(os.path.join(data, 'tax.json'), tax_payload(cache, year)))
     write(os.path.join(data, 'methods.json'), census.relabel(methods.METHODS, year))
     write(os.path.join(data, 'analyst_topics.json'),
-          [{'key': k, 'title': t, 'about': ab, 'area': ar} for k, t, ab, ar, _ in analyst.TOPICS])
+          [{'key': k, 'title': t, 'about': ab, 'area': ar, 'only': list(analyst.ONLY.get(k, ())) or None}
+           for k, t, ab, ar, _ in analyst.TOPICS])
     write(os.path.join(data, 'settings.json'), {
         'pop_methods': census.relabel([{'key': k, **v} for k, v in dashboard.POP_METHODS.items()], year),
         'census_year': year, 'wards': wards, 'methods': meths})

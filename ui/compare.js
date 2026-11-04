@@ -4,7 +4,7 @@
 // Each measure: where it is in a ward's row, how to show it, and which way is better (null: neither).
 const CMP_METRICS = [
   { g: 'People and growth', k: 'residents', get label() { return popMethod() === 'census2021' ? 'Residents (' + CY() + ' Census count)' : 'Residents today'; }, d: 0, better: null },
-  { g: 'People and growth', k: 'growth_pct', get label() { return popMethod() === 'city_pace' ? 'Above the ' + CY() + ' Census count (includes people the Census count left out)' : 'Growth since the ' + CY() + ' Census'; }, d: 1, unit: '%', better: null },
+  { g: 'People and growth', k: 'growth_pct', get label() { return ['city_pace', 'city_actual'].includes(popMethod()) ? 'Above the ' + CY() + ' Census count (includes people the Census count left out)' : 'Growth since the ' + CY() + ' Census'; }, d: 1, unit: '%', better: null },
   { g: 'People and growth', k: 'children_0_14', label: 'Children aged 0 to 14 (estimate)', d: 0, better: null },
   { g: '311', k: 'requests_per_1000', label: '311 requests per 1,000 residents a year', d: 0, better: null },
   { g: '311', k: 'infra_per_1000', label: 'Infrastructure reports per 1,000 residents a year', d: 1, better: null },
@@ -22,7 +22,10 @@ const CMP_METRICS = [
   { g: 'Families', k: 'daycare_per_100_0_4', label: 'Daycare and preschool spaces per 100 children under 5', d: 1, better: 'high' },
   { g: 'Families', k: 'schools', label: 'Schools', d: 0, better: null },
   { g: 'Families', k: 'students', label: 'Students enrolled', d: 0, better: null },
+  { g: 'Amenities', k: 'amenity_level', get label() { return 'Amenity level, City amenities only, residents: ' + popChip() + ' (1.00 = Calgary)'; }, d: 2, better: 'high' },
+  { g: 'Amenities', k: 'amenity_level_all', get label() { return "Amenity level, City and non-City amenities (OpenStreetMap), residents: " + popChip() + ' (1.00 = Calgary\'s City level)'; }, d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:city_pace', label: "Amenity level, residents grown to the City's total (1.00 = Calgary)", d: 2, better: 'high' },
+  { g: 'Amenities', k: 'alm:city_actual', label: "Amenity level, City's total shared by actual growth (1.00 = Calgary)", d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:model', label: 'Amenity level, residents by the growth model', d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:census2021', label: 'Amenity level, residents by the ' + CY() + ' Census', d: 2, better: 'high' },
 ];
@@ -32,7 +35,7 @@ const CMP_AMENITY = ['playgrounds', 'local_park_ha', 'benches', 'picnic_tables',
 let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'alm:city_pace', map: null, layer: null, loading: null };
 try {
   const saved = JSON.parse(localStorage.getItem('cdd-compare') || 'null');
-  if (saved) { CMP.main = saved.main; CMP.others = new Set((saved.others || []).filter(w => w >= 1 && w <= 14)); CMP.picked = !!saved.picked; CMP.metric = saved.metric === 'amenity_level' ? 'alm:model' : (saved.metric || CMP.metric); }
+  if (saved) { CMP.main = saved.main; CMP.others = new Set((saved.others || []).filter(w => w >= 1 && w <= 14)); CMP.picked = !!saved.picked; CMP.metric = saved.metric || CMP.metric; }
 } catch { /* storage off */ }
 const cmpSave = () => { try { localStorage.setItem('cdd-compare', JSON.stringify({ main: CMP.main, others: [...CMP.others], picked: CMP.picked, metric: CMP.metric })); } catch { /* storage off */ } };
 
@@ -47,7 +50,7 @@ function cmpMetrics() {
 }
 const cmpVal = (row, k) => !row ? null : k.startsWith('am:') ? ((row.amenities || {})[k.slice(3)] ?? null)
   : k.startsWith('alm:') ? ((row.amenity_level_by_method || {})[k.slice(4)] ?? (k === 'alm:model' ? row.amenity_level ?? null : null)) : (row[k] ?? null);
-const cmpCity = k => { const ws = CMP.data.wards_summary; if (k.startsWith('alm:')) return 1; return k.startsWith('am:') ? (ws.amenities_city || {})[k.slice(3)] ?? null : ws.city[k] ?? null; };
+const cmpCity = k => { const ws = CMP.data.wards_summary; if (k.startsWith('alm:') || k === 'amenity_level') return 1; return k.startsWith('am:') ? (ws.amenities_city || {})[k.slice(3)] ?? null : ws.city[k] ?? null; };
 const cmpFmt = (m, v) => !isNum(v) ? '–' : m.signed ? signed(v, m.d, m.unit || '') : fmt(v, m.d) + (m.unit || '');
 const ord = n => n + (['th', 'st', 'nd', 'rd'][(n % 100 - 20) % 10] || ['th', 'st', 'nd', 'rd'][n % 100] || 'th');
 

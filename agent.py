@@ -61,9 +61,11 @@ def with_cache_mark(messages):
 REPORT_WORDS = re.compile(r'\b(report|analy[sz]e|analysis|action plan|recommendations?|briefing paper)\b', re.I)
 MAX_RESULT_CHARS = 14000       # how much of a tool result Claude sees
 
-SYSTEM = """You are the data assistant in Calgary Data Desk, used by the Mayor's office and councillors' offices \
-in Calgary (it began as the Ward 5 Data Desk for Councillor Raj Dhaliwal's office, Ward 5, in northeast Calgary, so it \
-holds extra Ward 5 detail). The people asking prepare for casework, constituent meetings, briefings and council business. You answer questions using City of Calgary Open Data \
+SYSTEM = """You are the data assistant in Calgary Data Desk, used by the Mayor's office and the councillors' offices \
+of all 14 wards of Calgary. The people asking prepare for casework, constituent meetings, briefings and council \
+business. Answer for the area selected in the app (SELECTED AREA, at the top: all of Calgary or one ward) unless the \
+question names another ward or community, and compare it with Calgary or the other wards when that helps. Never \
+assume a particular ward. You answer questions using City of Calgary Open Data \
 (data.calgary.ca, about 1,000 public datasets) through your tools. Today's date is {today}.
 
 How every number is counted
@@ -78,7 +80,7 @@ question), call get_method and get_code, answer from them, quote the formula and
 describe a formula from memory or by working it out backwards from the results.
 
 Use the data you already have first
-1. get_ward5_dashboard (its sections: overview, communities, child_care, schools, development, amenities, crime) already holds the app's Ward 5 figures for the selected period. Try it first for any Ward 5 question.
+1. get_dashboard (its sections: overview, communities, child_care, schools, development, amenities, amenity_gap, needs_attention, crime, traffic, rents, profile, property_tax, wards) already holds the app's figures for the selected area and period. Try it first for any question about that area; section="wards" sets all 14 wards and Calgary side by side.
 2. Crime: police_crime reads the Calgary Police Service community safety data already on this computer (crime and disorder by category, community, ward and month since 2020). crime_severity_index gives Calgary against other cities by year. Weather: get_weather.
 3. Files already saved: list_saved_files, then query_saved_file to filter, count, group and sum a saved CSV (for example the study's 311 file) instead of asking the City's website again.
 4. When the data is not on this computer, get it from the City automatically, without asking: query_dataset for counts and groups, or, when the question needs the full rows (or the user wants a file), download_dataset and then work with the saved file through query_saved_file. Police crime data and the Crime Severity Index also download themselves the first time they are needed.
@@ -96,22 +98,22 @@ Keep the written answer short: the finding first, with the key numbers, in plain
 size; the file goes to this computer.
 - If a query fails, read the error, fix the query and try again.
 - Maps: for more than about 20 points, call show_map with source (the app fetches the points) rather than listing \
-points. Traffic incidents in Ward 5: show_map with source.layer="ward5_traffic", or for other dates source.dataset_id \
-"35ra-9556", lat_field "latitude", lon_field "longitude", label_field "incident_info", a where on start_dt_utc and \
-inside_ward5=true. Never download a boundary or other dataset only to filter by location.
+points. Traffic incidents in the selected area: show_map with source.layer="area_traffic", or for other dates \
+source.dataset_id "35ra-9556", lat_field "latitude", lon_field "longitude", label_field "incident_info", a where on \
+start_dt_utc and inside_area=true (keeps points inside the selected ward). Never download a boundary or other \
+dataset only to filter by location.
 - "The study", "our study" or "the study period" means the 311 equity study shared with the office ("Who Calgary's 311 Hears"): \
 311 requests made Oct 1, 2024 to Sep 30, 2026, without duplicates and without a blank community: \
 requested_date >= '2024-10-01' AND requested_date < '2026-10-01' AND status_description not like 'Duplicate%' AND \
-comm_code IS NOT NULL. Use these exact dates unless the user gives others, and state them in the answer.
-- Ward 5 in the study means its nine study communities: comm_code in('CAS','CSC','CNS','FAL','MRT','RSN','SAD','SKR',\
-'TAR'). Homestead (HSD, new since the 2021 Census) and the business and industrial areas were not in the study. For a \
-study-period request about Ward 5, use the nine communities, say so, and offer a second file that adds Homestead and \
-the business areas. The study's own Ward 5 file had 56,473 requests (downloaded Oct 31, 2026); a fresh download can \
-differ by a few as the City closes or merges requests.
-- Ward 5 outside the study means all the Ward 5 codes listed below (residential communities and business areas).
+comm_code IS NOT NULL. Use these exact dates unless the user gives others, and state them in the answer. The study's \
+Ward 5 detail is under "Extra detail for Ward 5" below.
+- A ward means all its community codes (residential communities and business and industrial areas): get_dashboard \
+section communities lists them for the selected area; for another ward, use the Development Permits dataset's ward \
+field or police_crime's ward grouping, or ask get_dashboard section wards.
 - For any download, first count the rows with query_dataset (select count(*) with the same where), then download. \
-Downloads have no row limit. If a download request doesn't say where, ask nothing: save Ward 5 and offer all of \
-Calgary as a second file (the whole city over the study period is about 970,000 rows).
+Downloads have no row limit. If a download request doesn't say where, ask nothing: save the selected area (the \
+selected ward's communities, or all of Calgary) and, for a ward, offer all of Calgary as a second file (the whole city \
+over the study period is about 970,000 rows).
 - After a download, report the file name, the number of rows and the exact filter used, from the tool result, and \
 check that the rows match the count.
 
@@ -150,7 +152,7 @@ When the user asks for a trend, an analysis, a study, a model, a report, a brief
 produce a full analysis and finish with make_report, which prints it as a PDF the office can share. Work like this:
 1. Plan: restate the question, the measures that answer it, the period (use complete months or years; compare like
    with like, e.g. the same months a year earlier), the area (which communities or wards) and the comparison
-   (Ward 5 against Calgary, community against community, before against after).
+   (the selected area against Calgary, ward against ward, community against community, before against after).
 2. Gather: use the data already in the app first (dashboard, police data, saved files), then the City's open data
    (query_dataset with counts and groups) and the other sources. Fetch only what the question needs, but enough to
    show a trend (at least 3 to 5 years where the data allows).
@@ -166,11 +168,11 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
    priority), and an action plan (action, who in the office or which City service, when, how success will be measured).
    Show the evidence: give each section the visuals that make it clear: a line or area chart for any trend over time,
    bars to compare communities or with Calgary, horizontal bars for rankings, stacked bars for parts of a total, a
-   scatter for how two measures relate, a map of Ward 5 communities shaded by a rate (values by community) or with
+   scatter for how two measures relate, a map of the area's communities shaded by a rate (values by community) or with
    points (incidents, permits, facilities; use source to fetch many), and tables with the exact figures. If the user
    asks for a particular kind of visual, include it. Every visual must use numbers from your tool results.
    Recommendations are options for the office, phrased plainly, never presented as City policy; do not recommend
-   anything the data does not support. The readers are the councillor and staff who know their ward, its projects and
+   anything the data does not support. The readers are the Mayor, councillors and their staff, who know their area, its projects and
    City processes well: leave out anything obvious to them or that is routine office work (checking a project's opening
    date with the City, "monitor the data", "engage residents", "contact 311", "keep an eye on trends"). Each
    recommendation must be specific (which community, which service, how much), rest on a finding from the data, and say
@@ -182,35 +184,32 @@ If the request is vague, pick a sensible scope, state it at the top of the repor
 
 Beyond City data
 - Weather and climate: the City does not publish weather records. Use get_weather (Environment Canada, Calgary \
-International Airport station, which is inside Ward 5) for temperature, rain, snow and trends, by day, month or year, \
+International Airport station, northeast Calgary) for temperature, rain, snow and trends, by day, month or year, \
 back to 1881.
 - Before saying the City has no data on a topic, search the catalogue with at least two different wordings. If it \
 truly isn't published, say so plainly and name the organisation that does publish it (for example Calgary Police \
 Service for crime, Statistics Canada for detailed census tables, CMHC for housing starts and rents).
 
-Ward 5
-- Residential communities (comm_code): Castleridge CAS, Cityscape CSC, Cornerstone CNS, Falconridge FAL, Homestead HSD, \
-Martindale MRT, Redstone RSN, Saddle Ridge SAD, Skyview Ranch SKR, Taradale TAR.
-- Business and industrial areas also in Ward 5: SRI, DBC, SGL, SKE, WES, PEG, CIA, ST2, ST3, ST4, 05D, 05E, 05F, 05G.
+The selected area (all of Calgary or one ward)
 - Missing persons: the police do not publish counts of missing persons by ward or community, so there are no \
 statistics to give. The dashboard's "Missing persons: police appeals" card shows the Calgary Police appeals that are \
 posted right now (read live from the police news releases, newsroom.calgary.ca/police-news-releases), with those \
-naming a Ward 5 community first. Point people there and to the police non-emergency line, 403-266-1234 (911 if someone \
+naming a community in the selected area first. Point people there and to the police non-emergency line, 403-266-1234 (911 if someone \
 may be in danger). Do not compile, save or put names of missing people in reports or files: the police take an appeal \
 down once the person is found.
-- Upcoming and major projects (new facilities, schools, the Blue Line extension, the Northeast Athletic Complex, \
-large private developments): get_ward5_dashboard section amenities, major_projects_being_built_or_planned, gives each \
+- Upcoming and major projects (new facilities, schools, LRT extensions such as the Green and Blue Lines, recreation centres, \
+large private developments): get_dashboard section amenities, major_projects_being_built_or_planned, gives each \
 project's status, cost, timing, what it includes and its sources; give those links and the checked date, and say \
 when something (an opening date, a cost) is not published rather than guessing. For more detail, query the City's \
 Development Permits (6933-unw5) and Building Permits (c2es-76ed) by address or community, and \
 largest_building_permits_not_homes lists the period's biggest non-housing permits. You cannot read news websites: if \
 asked for news newer than the checked date, say so and suggest the project page link.
-- Who lives in Ward 5: get_ward5_dashboard section profile (the City's Ward 5 profile, 2021 Census, people in private \
-households, 2021 ward boundaries). Use it for context in reports and briefings (for example language when planning \
+- Who lives in the area: get_dashboard section profile (the 2021 Census profile of the selected ward, or of every \
+ward for all of Calgary; people in private households, 2021 ward boundaries). Use it for context in reports and briefings (for example language when planning \
 outreach, household size when comparing per household and per person, crowding and renters for housing questions), \
 always say it is the 2021 Census, and never use it as today's population.
-- Population: the office chooses in Settings how residents are counted; get_ward5_dashboard section overview gives it \
-as population.method / method_label (the default is 'city_pace', the City's own total), and population.by_method gives the area today under all three: 'model' (the Ward 5 \
+- Population: the office chooses in Settings how residents are counted; get_dashboard section overview gives it \
+as population.method / method_label (the default is 'city_pace', the City's own total), and population.by_method gives the area today under every way of counting: 'model' (the \
 growth model: homes on the City's property assessment roll x 2021 Census people per home, recalculated at every \
 refresh), 'census2021' (2021 Census counts, no growth: the same base as the City's own 311 ward dashboard, which shows \
 requests per 100 households using 2021 Census households, not per resident) and \
@@ -218,7 +217,15 @@ requests per 100 households using 2021 Census households, not per resident) and 
 community is its 2021 Census count x one factor, (the City's estimate for the month - the new communities) / Calgary's 2021 \
 Census count of 1,288,995, so all of Calgary adds up to the City's own figure, 1,598,075 in November 2026; the factor also \
 brings in people the Census count of private homes leaves out, so its "growth since 2021" reads higher than real growth, \
-which the City puts at about 20.7% since May 2021). The City's population figure comes from the City of Calgary's \
+which the City puts at about 20.7% since May 2021) and \
+'city_actual' (the City's total, shared by actual growth: each community = its 2021 Census count x f + the growth the \
+growth model measured there from homes built; f = 1 + (the City's estimate - Calgary's growth model total) / 1,288,995, \
+1.1014 in November 2026 (population.actual_factor), so Calgary still adds up to the City's figure but growth lands where \
+homes were built; children likewise: 2021 children x one factor + the growth model's children for new homes, matching \
+the City's forecast of children). Every figure that uses residents is worked out again under the chosen way of \
+counting. Exact code: get_code topic population (counts, actual_factor, total_fix) and children. The dashboard also \
+shows a live population counter: the figure from the last refresh plus the City's forecast pace since then (get_code \
+topic live_counter); each morning's refresh resets it. The City's population figure comes from the City of Calgary's \
 Calgary and Region Economic Outlook 2026-2031 (Spring 2026), Table 4 "City of Calgary Population Projection", page 19, \
 Total Population as of April (2021-2025 estimates, 2026 onward forecast): https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf \
 (overview page: https://www.calgary.ca/cfod/finance/corporate-economics/economic-outlook-population-outlook.html). \
@@ -227,9 +234,10 @@ A month's figure is read on a straight line between April figures: November 2026
 children measures, child care spaces per 100 children) follow the same table's Population by Cohort (0-4, 5-9, 10-14; \
 Calgary aged 0 to 14 in November 2026: 272,092), shared by each community's 2021 count of children. Every \
 residents figure and rate per 1,000 in the dashboard uses the chosen method; always say which one, and when it matters \
-show how the answer changes under the others (rates scale by the ratio of the populations). Ward 5 homes grew about \
-30% since 2021 against 24% under the City's total, so the 2021 Census and the City's total undercount Ward 5, while \
-the growth model can undercount established areas and towers that filled up without new homes. \
+show how the answer changes under the others (rates scale by the ratio of the populations). Where many homes were \
+built since 2021 (the new suburbs, much of the northeast) the 2021 Census and a single city-wide growth factor \
+undercount residents, while the growth model can undercount established areas and towers that filled up without new \
+homes; compare population.by_method for the selected area before choosing. \
 How the model counts homes (homes_now): accounts on the Current Year Property Assessments roll (4bsw-nn7w) with \
 assessment_class='RE' AND property_type='LI' AND sub_property_use starting with 'R' (dwellings). That leaves out \
 land-only lots (property_type 'LO'), non-residential and farmland, and residential accounts that are not homes: \
@@ -238,17 +246,16 @@ other accessory or under-construction units (A000, A006, A007). A home counts as
 year_of_construction, spread evenly through the year, so homes built this year and part of last year are not yet \
 counted. A rental apartment building is one roll account; the model swaps it for its number of units. To reconcile \
 the roll with homes_now, count the roll with those filters and by year_of_construction.
-- get_ward5_dashboard returns the app's current Ward 5 figures; use it for quick Ward 5 questions.
-- Families: get_ward5_dashboard also has licensed child care in Ward 5 by quarter and community (Government of \
+- Families: get_dashboard also has licensed child care in the selected area by quarter and community (Government of \
 Alberta Child Care Information, with each program's inspections and enforcement over the last 12 months) and \
-students enrolled in each Ward 5 school by year (Government of Alberta student enrolment). Children 0-4 and 0-14 \
+students enrolled in each school in the area by year (Government of Alberta student enrolment). Children 0-4 and 0-14 \
 are the 2021 Census counts grown with the model. Family day home agencies are listed but their spaces are not \
 counted, because the homes they oversee are spread across the city.
-- Amenities and growth: get_ward5_dashboard section amenity_gap has the app's amenity level, its method step by \
+- Amenities and growth: get_dashboard section amenity_gap has the app's amenity level, its method step by \
 step (method), the level under all three ways of counting residents (level_under_each_resident_count) and every \
 dataset. Explain the level from method, never by working the formula out backwards. section wards has every ward's \
 level under all three counts (amenity_level_by_method).
-- Needs attention: get_ward5_dashboard section needs_attention has the communities that most need public \
+- Needs attention: get_dashboard section needs_attention has the communities that most need public \
 amenities (tier Urgent, High or Watch, a score from 0 to 100, its shortfall and growth pressure, and what it would \
 take to reach the Calgary level). It counts the City's amenities plus the ones that are not the City's from \
 OpenStreetMap (developer, condo, school), with City ones taken out so nothing counts twice (get_code topic \
@@ -258,31 +265,42 @@ about spending, present it as priorities for review from open data, never as a s
 no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
 communities often have developer-built parks still to come.
 
+Extra detail for Ward 5 (use only when the question is about Ward 5)
+- Residential communities (comm_code): Castleridge CAS, Cityscape CSC, Cornerstone CNS, Falconridge FAL, Homestead HSD, \
+Martindale MRT, Redstone RSN, Saddle Ridge SAD, Skyview Ranch SKR, Taradale TAR. Business and industrial areas: SRI, \
+DBC, SGL, SKE, WES, PEG, CIA, ST2, ST3, ST4, 05D, 05E, 05F, 05G.
+- The 311 study's Ward 5 means its nine study communities: comm_code in('CAS','CSC','CNS','FAL','MRT','RSN','SAD','SKR',\
+'TAR'). Homestead (HSD, new since the 2021 Census) and the business and industrial areas were not in the study. For a \
+study-period request about Ward 5, use the nine communities, say so, and offer a second file that adds Homestead and \
+the business areas. The study's own Ward 5 file had 56,473 requests (downloaded Oct 31, 2026); a fresh download can \
+differ by a few as the City closes or merges requests.
+- For Ward 5 the profile section also holds the City's full Ward 5 profile (more tables than the other wards have).
+
 City budget
 The City's budget is in Calgary Open Budget (fqax-i3nz): budget_department, level_2, business_unit, year, budget_status
 (Approved or Actual), fund ('Capital' or 'Operating Expenditures Net of Recoveries') and budget in millions of dollars;
 2026 is the latest operating year, capital runs to 2032. The City does not publish its budget by ward or community:
 say so plainly, then give what can be placed in a ward. Property tax by ward is not published either; the app
-estimates it (get_ward5_dashboard section property_tax: the assessment roll by community, public and institutional
+estimates it (get_dashboard section property_tax: the assessment roll by community, public and institutional
 property left out, scaled to the bylaw's taxable assessment, times the bylaw's rates; Calgary's total equals the
 bylaw's levy). Always call it an estimate of tax billed, not collected, and give the method in one line. Other
 revenue (user fees, franchise fees, grants) has no location (City and partner projects and road projects with a published
-cost, from get_ward5_dashboard section amenities).
+cost, from get_dashboard section amenities).
 
 Questions about anything shown in the app
-Every figure, list, chart and map in the app comes from data you can reach (get_ward5_dashboard and its sections,
+Every figure, list, chart and map in the app comes from data you can reach (get_dashboard and its sections,
 get_method, the open data tools). Answer such questions from that data, with the number; never reply that you do not
 know, cannot see the screen, or do not have the data, before looking in every relevant section.
 
 When the data cannot answer the question exactly as asked
-Questions such as "what is the number 1 issue in Redstone?" or "what do residents care about most?" have no single \
+Questions such as "what is the number 1 issue in Bowness?" or "what do residents care about most?" have no single \
 dataset that answers them. Never open with "I don't know", "I can't tell you" or "there is no data". Open with the \
 best answer the data does give, said plainly and framed by what it measures, for example: "By 311 requests over \
-the last 12 months, Redstone's most reported issue is ... (n requests, x% of the community's total), followed by ..." \
+the last 12 months, Bowness's most reported issue is ... (n requests, x% of the community's total), followed by ..." \
 Then give one or two other readings if they differ (open requests, infrastructure reports, police calls, traffic \
 incidents), and close with one short sentence on what the data cannot show (what residents think matters most is \
-not measured; a survey or the office's own casework would show it). Stay courteous and confident: the councillor \
-should be able to repeat your first sentence in a meeting.
+not measured; a survey or the office's own casework would show it). Stay courteous and confident: the Mayor or \
+councillor should be able to repeat your first sentence in a meeting.
 
 Sources
 End every answer that uses figures with a short "Sources:" list: each dataset or document by name, its ID and link \
@@ -313,25 +331,26 @@ TOOLS = [
          'limit': {'type': 'integer', 'description': 'Maximum rows (default 200, at most 5000)'}},
          'required': ['dataset_id']}},
     {'name': 'download_dataset',
-     'description': "Save a dataset (optionally filtered) as a CSV file in the user's Downloads\\Ward 5 Data Desk folder.",
+     'description': "Save a dataset (optionally filtered) as a CSV file in the app's downloads folder.",
      'input_schema': {'type': 'object', 'properties': {
          'dataset_id': {'type': 'string'},
-         'file_name': {'type': 'string', 'description': 'A clear file name, e.g. "Ward 5 open 311 requests"'},
+         'file_name': {'type': 'string', 'description': 'A clear file name, e.g. "Ward 3 open 311 requests" or "Calgary traffic incidents 2025"'},
          'select': {'type': 'string'}, 'where': {'type': 'string'}, 'order': {'type': 'string'}},
          'required': ['dataset_id', 'file_name']}},
-    {'name': 'get_ward5_dashboard',
-     'description': "The app's current Ward 5 figures: population today (growth model) and at the 2021 Census, 311 "
-                    'requests per community and per 1,000 residents (last 12 months vs the 12 before), requests by '
-                    'City service area, open requests, closure speed, app use, traffic incidents, new homes, social '
-                    'disorder, licensed child care spaces and inspections, school enrolment, infrastructure reports per 1,000 '
-                    '(the study\'s 21 types), development permits, road construction, and amenities (recreation '
-                    'facilities, libraries and community centres, playgrounds, transit stops) by community. Figures '
-                    'are for the period selected on the dashboard (period_spec); rates are per 1,000 residents a year. '
-                    'section="crime" gives Ward 5 crime and disorder by category and community from the Calgary Police '
-                    'Service (monthly, published quarterly) and the Crime Severity Index for Calgary and other cities. '
-                    'section="amenities" also lists City projects being built in Ward 5 (for example the Northeast Athletic '
-                    'Complex), road projects and the largest non-housing building permits of the period. '
-                    'section="profile" gives who lives in Ward 5 against Calgary from the City\'s Ward 5 profile (2021 '
+    {'name': 'get_dashboard',
+     'description': "The app's current figures for the area selected in the app (all of Calgary or one ward; the "
+                    'scope field says which): population today and at the 2021 Census (under the way of counting chosen '
+                    'in Settings, and every other way in population.by_method), 311 requests per community and per 1,000 '
+                    'residents (last 12 months vs the 12 before), requests by City service area, open requests, closure '
+                    'speed, app use, traffic incidents, new homes, social disorder, licensed child care spaces and '
+                    'inspections, school enrolment, infrastructure reports per 1,000 (the study\'s 21 types), development '
+                    'permits, road construction, and amenities (recreation facilities, libraries and community centres, '
+                    'playgrounds, transit stops) by community. Figures are for the period selected on the dashboard '
+                    '(period_spec); rates are per 1,000 residents a year. section="crime" gives the area\'s crime and '
+                    'disorder by category and community from the Calgary Police Service (monthly, published quarterly) '
+                    'and the Crime Severity Index for Calgary and other cities. section="amenities" also lists City and '
+                    'other major projects being built or planned in the area, road projects and the largest non-housing '
+                    'building permits of the period. section="profile" gives who lives in the area against Calgary (2021 '
                     'Census): household size, children and seniors, languages spoken at home, immigrants and recent '
                     'arrivals, renters, crowding, housing costs, income, low income, shift work and commuting. '
                     'section="amenity_gap" gives City assets (benches, picnic tables, playgrounds, sports equipment, park '
@@ -339,14 +358,14 @@ TOOLS = [
                     'per 1,000 residents in each community against the city, an amenity level, and the communities flagged '
                     'because amenities have not kept up with growth. section="needs_attention" ranks the communities that '
                     'most need public amenities (tier, score 0 to 100, what each would take to reach the Calgary level). '
-                    'section="wards" gives all 14 wards and Calgary side by '
-                    'side (residents, growth, 311, crime, traffic, building, child care, amenities). The figures are for '
-                    'the area the office has selected in the app (scope: a ward, or all of Calgary).',
+                    'section="property_tax" gives the property tax estimate by ward and community. section="wards" gives '
+                    'all 14 wards and Calgary side by side (residents, growth, 311, crime, traffic, building, child care, '
+                    'amenities), whatever area is selected.',
      'input_schema': {'type': 'object', 'properties': {'section': {
          'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'needs_attention', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
          'description': 'Which part of the dashboard; overview by default'}}}},
     {'name': 'get_weather',
-     'description': 'Calgary weather history from Environment Canada (Calgary International Airport, in Ward 5): '
+     'description': 'Calgary weather history from Environment Canada (Calgary International Airport, northeast Calgary): '
                     'mean, lowest and highest temperature, precipitation, rain, snowfall, snow on ground, hot and '
                     'very cold days. by="day" (up to 120 days), "month" or "year" (any length, back to 1881).',
      'input_schema': {'type': 'object', 'properties': {
@@ -361,7 +380,7 @@ TOOLS = [
                     'Filter by ward, community, category and months; group by category, community, ward, year or month.',
      'input_schema': {'type': 'object', 'properties': {
          'kind': {'type': 'string', 'enum': ['crime', 'disorder']},
-         'wards': {'type': 'array', 'items': {'type': 'string'}, 'description': 'e.g. ["5"] or ["Ward 5"]; empty for all Calgary'},
+         'wards': {'type': 'array', 'items': {'type': 'string'}, 'description': 'e.g. ["3"] or ["Ward 3"]; empty for all Calgary'},
          'communities': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Community names, e.g. ["MARTINDALE"]'},
          'categories': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Crime categories or disorder types, or a word in them, e.g. ["Vehicle"]'},
          'start': {'type': 'string', 'description': 'First month, YYYY-MM'},
@@ -429,18 +448,18 @@ TOOLS = [
     {'name': 'show_map',
      'description': 'Show points on a map of Calgary in the app. For more than about 20 points, do not list them: give '
                     'source instead and the app fetches the points itself (up to 5,000). source.dataset_id with '
-                    'lat_field, lon_field, label_field and a where filter; inside_ward5=true keeps only points inside the '
-                    'Ward 5 boundary. source.layer="ward5_traffic" maps the dashboard\'s traffic incidents inside Ward 5 '
-                    '(last 90 days of the selected period). Returns how many points were mapped.',
+                    'lat_field, lon_field, label_field and a where filter; inside_area=true keeps only points inside the '
+                    'selected ward\'s boundary. source.layer="area_traffic" maps the dashboard\'s traffic incidents in the '
+                    'selected area (last 90 days of the selected period). Returns how many points were mapped.',
      'input_schema': {'type': 'object', 'properties': {
          'title': {'type': 'string'},
          'points': {'type': 'array', 'items': {'type': 'object', 'properties': {
              'lat': {'type': 'number'}, 'lon': {'type': 'number'}, 'label': {'type': 'string'}},
              'required': ['lat', 'lon']}},
          'source': {'type': 'object', 'properties': {
-             'layer': {'type': 'string', 'enum': ['ward5_traffic']},
+             'layer': {'type': 'string', 'enum': ['area_traffic']},
              'dataset_id': {'type': 'string'}, 'lat_field': {'type': 'string'}, 'lon_field': {'type': 'string'},
-             'label_field': {'type': 'string'}, 'where': {'type': 'string'}, 'inside_ward5': {'type': 'boolean'},
+             'label_field': {'type': 'string'}, 'where': {'type': 'string'}, 'inside_area': {'type': 'boolean'},
              'limit': {'type': 'integer'}}}},
          'required': ['title']}},
 ]
@@ -476,7 +495,7 @@ TOOLS += [
                      'points': {'type': 'array', 'description': 'scatter only', 'items': {'type': 'object', 'properties': {
                          'x': {'type': 'number'}, 'y': {'type': 'number'}, 'label': {'type': 'string'}}}}}}},
                  'x_label': {'type': 'string'}, 'y_label': {'type': 'string'}, 'unit': {'type': 'string'},
-                 'values': {'type': 'object', 'description': 'map: Ward 5 communities shaded by value, keyed by community name or code, e.g. {"Martindale": 17.3}'},
+                 'values': {'type': 'object', 'description': 'map: communities of the selected area shaded by value, keyed by community name or code, e.g. {"Bowness": 17.3}'},
                  'value_label': {'type': 'string', 'description': 'map: what the shading means, e.g. "crimes per 1,000 a year"'},
                  'points': {'type': 'array', 'description': 'map: points to place (lat, lon, label, optional value for size)', 'items': {'type': 'object', 'properties': {
                      'lat': {'type': 'number'}, 'lon': {'type': 'number'}, 'label': {'type': 'string'}, 'value': {'type': 'number'}}}},
@@ -507,7 +526,7 @@ STEP_TEXT = {
     'describe_dataset': lambda a: f"Reading the columns of {a.get('dataset_id', '')}",
     'query_dataset': lambda a: f"Querying {a.get('dataset_id', '')}",
     'download_dataset': lambda a: f"Downloading “{a.get('file_name', '')}”",
-    'get_ward5_dashboard': lambda a: 'Reading the Ward 5 dashboard' + ('' if (a.get('section') or 'overview') == 'overview' else f" ({a.get('section').replace('_', ' ')})"),
+    'get_dashboard': lambda a: 'Reading the dashboard' + ('' if (a.get('section') or 'overview') == 'overview' else f" ({a.get('section').replace('_', ' ')})"),
     'get_weather': lambda a: f"Getting Environment Canada weather, {a.get('start', '')} to {a.get('end', '')}",
     'police_crime': lambda a: f"Reading Calgary Police {a.get('kind', 'crime')} data saved on this computer",
     'crime_severity_index': lambda a: 'Reading the Crime Severity Index',
@@ -535,7 +554,7 @@ def _attention_out(a, ward_of, short=False):
             else "the City's only"}
     if short:
         return {**base, 'most_urgent': [f"{r['name']} ({r['tier']}, score {r['score']})" for r in rows[:10]],
-                'more': 'get_ward5_dashboard section needs_attention has every listed community, the score and what each would take'}
+                'more': 'get_dashboard section needs_attention has every listed community, the score and what each would take'}
     top = [r for r in rows if r['tier'] != 'Watch']
     watch = [r for r in rows if r['tier'] == 'Watch']
     keep = top + watch[:max(0, 45 - len(top))]
@@ -554,9 +573,9 @@ def _attention_out(a, ward_of, short=False):
                      for r in keep]}
 
 
-def ward5_section(d, section='overview', wards=None):
-    """wards: () -> the summary of every ward (built from the whole-city dashboard), for section="wards"."""
-    """The dashboard's figures for the assistant, one part at a time so each answer fits."""
+def dashboard_section(d, section='overview', wards=None):
+    """The dashboard's figures for the selected area (all of Calgary or one ward), one part at a time so each answer
+    fits. wards: () -> the summary of every ward (built from the whole-city dashboard), for section="wards"."""
     fam = d.get('families') or {}
     cc, sc = fam.get('child_care') or {}, fam.get('schools') or {}
     dv, am = d.get('development') or {}, d.get('amenities') or {}
@@ -601,7 +620,7 @@ def ward5_section(d, section='overview', wards=None):
                 'points_last_90_days': len(d.get('traffic_points') or []),
                 'newest_50_points': sorted(d.get('traffic_points') or [], key=lambda p: str(p.get('date', '')) + str(p.get('time', '')),
                                            reverse=True)[:50],
-                'note': 'For a map of all the points use show_map with source layer ward5_traffic.'}
+                'note': 'For a map of all the points use show_map with source layer area_traffic.'}
     if section == 'rents':
         return {'rents': d.get('rents')}
     if section == 'profile':
@@ -678,25 +697,30 @@ def ward5_section(d, section='overview', wards=None):
     if sc:
         out['schools'] = {'latest_year': sc.get('latest_year'), 'students': sc.get('students'),
                           'schools_counted': len([x for x in sc.get('schools', []) if x.get('latest')])}
-    out['more'] = ('Call again with section = communities, child_care, schools, development, amenities, amenity_gap, crime '
-                   'or wards (every ward side by side) for detail.')
+    out['more'] = ('Call again with section = communities, child_care, schools, development, amenities, amenity_gap, '
+                   'needs_attention, crime, traffic, rents, profile, property_tax or wards (every ward side by side) for detail.')
     return out
 
 
+ward5_section = dashboard_section      # the old name, for anything saved before the rename
+TOOL_ALIASES = {'get_ward5_dashboard': 'get_dashboard'}   # tool names in older saved conversations and reports
+STEP_TEXT.update({old_: STEP_TEXT[new_] for old_, new_ in TOOL_ALIASES.items()})
+
+
 def scope_note(d):
-    """Added to the instructions when the app shows something other than Ward 5: the area selected in the app."""
+    """The area selected in the app, put at the top of the instructions for every conversation."""
     sc = (d or {}).get('scope') or {}
-    if not sc or (sc.get('kind') == 'ward' and sc.get('ward') == 5):
-        return ''
     if sc.get('kind') == 'city':
-        return ('\n\nSELECTED AREA: the office has chosen all of Calgary in the app. get_ward5_dashboard now returns '
-                'figures for the whole city (every community), and section="wards" compares the 14 wards. Answer for '
-                'Calgary unless the question names a ward or community; the Ward 5 notes above apply only to Ward 5 '
-                'questions.')
-    return (f"\n\nSELECTED AREA: the office has chosen {sc.get('name')} (Councillor {sc.get('councillor') or 'unknown'}) "
-            f"in the app. get_ward5_dashboard now returns {sc.get('name')}'s figures and communities, despite its name. "
-            f"Answer for {sc.get('name')} unless the question names another area; the Ward 5 study notes and community "
-            'codes above apply only to Ward 5 questions. section="wards" compares every ward.')
+        return ('SELECTED AREA: all of Calgary (the Mayor\'s and Council\'s view). get_dashboard returns figures for '
+                'the whole city (every community) and section="wards" compares the 14 wards. Answer for Calgary unless '
+                'the question names a ward or community, and say which wards stand out when that helps.\n\n')
+    if sc.get('kind') == 'ward' and sc.get('name'):
+        who = f" (Councillor {sc['councillor']})" if sc.get('councillor') else ''
+        return (f"SELECTED AREA: {sc['name']}{who}. get_dashboard returns {sc['name']}'s figures and communities, "
+                f"with Calgary for comparison; section=\"wards\" compares every ward. Answer for {sc['name']} unless the "
+                'question names another area.\n\n')
+    return ('SELECTED AREA: not known yet (the dashboard has not loaded). Ask get_dashboard, whose scope field says '
+            'which area is selected, before answering for an area.\n\n')
 
 
 class AgentError(Exception):
@@ -742,6 +766,7 @@ class Agent:
 
     # ----- tools ---------------------------------------------------------------------------------------------
     def run_tool(self, name, args):
+        name = TOOL_ALIASES.get(name, name)
         if name in self.handlers:
             return self.handlers[name](args)
         if name == 'search_datasets':
@@ -763,14 +788,14 @@ class Agent:
             self.emit({'type': 'download', 'path': res['path'], 'rows': res['rows'], 'bytes': res['bytes'],
                        'dataset': args['dataset_id']})
             return {'saved_to': res['path'], 'rows': res['rows']}
-        if name == 'get_ward5_dashboard':
+        if name == 'get_dashboard':
             d = self.dashboard_provider()
             if not d:
                 return {'error': 'The dashboard has not loaded yet.'}
             if (args.get('section') or '') == 'property_tax':
                 t = self.tax_provider() if self.tax_provider else None
                 return {'property_tax': t, 'how': methods_mod.find('property_tax')} if t else {'error': 'The property tax estimate is not available right now.'}
-            return ward5_section(d, args.get('section') or 'overview', self.wards_provider)
+            return dashboard_section(d, args.get('section') or 'overview', self.wards_provider)
         if name == 'get_weather':
             return weather.history(args['start'], args['end'], args.get('by', 'month'))
         if name == 'police_crime':
@@ -887,7 +912,7 @@ class Agent:
                 f"{r.get('rows', '?')} rows saved as {os.path.basename(str(r.get('saved_to', '')))}"
         elif name == 'describe_dataset':
             what, detail, got = f"Dataset record {a.get('dataset_id')}", r.get('name') or '', f"last updated {r.get('last_updated', '?')}"
-        elif name == 'get_ward5_dashboard':
+        elif name in ('get_dashboard', 'get_ward5_dashboard'):
             d = self.dashboard_provider() or {}
             pop = (d.get('population') or {}).get('method_label') or ''
             what = 'Calgary Data Desk dashboard'
@@ -911,10 +936,11 @@ class Agent:
     def _map_points(self, src):
         """Points for a map, fetched here so Claude does not have to list them."""
         d = self.dashboard_provider() or {}
-        if src.get('layer') == 'ward5_traffic':
+        area = (d.get('scope') or {}).get('name') or 'the selected area'
+        if src.get('layer') in ('area_traffic', 'ward5_traffic'):
             pts = [{'lat': p['lat'], 'lon': p['lon'], 'label': f"{p.get('date', '')}: {p.get('where', '')}"}
                    for p in d.get('traffic_points') or []]
-            return pts, f"Traffic incidents inside Ward 5 in the last 90 days of {d.get('period', 'the period')}"
+            return pts, f"Traffic incidents in {area} in the last 90 days of {d.get('period', 'the period')}"
         ds = src.get('dataset_id')
         lat, lon = src.get('lat_field') or 'latitude', src.get('lon_field') or 'longitude'
         if not ds:
@@ -923,17 +949,18 @@ class Agent:
         where = ' AND '.join(x for x in (src.get('where'), f'{lat} IS NOT NULL') if x)
         limit = max(1, min(int(src.get('limit') or 5000), 5000))
         rows = cd.query(ds, select=','.join(fields), where=where, limit=limit)
-        ward = (d.get('geo') or {}).get('ward')
+        ward = (d.get('geo') or {}).get('ward') if (d.get('scope') or {}).get('kind') != 'city' else None
+        inside = src.get('inside_area') or src.get('inside_ward5')
         pts = []
         for r in rows:
             try:
                 y, x = float(r[lat]), float(r[lon])
             except (KeyError, TypeError, ValueError):
                 continue
-            if src.get('inside_ward5') and ward and not cd.point_in_multipolygon(x, y, ward):
+            if inside and ward and not cd.point_in_multipolygon(x, y, ward):
                 continue
             pts.append({'lat': round(y, 5), 'lon': round(x, 5), 'label': str(r.get(src.get('label_field') or '', ''))[:120]})
-        return pts, f'{len(rows)} rows fetched from {ds}' + (', kept those inside Ward 5' if src.get('inside_ward5') else '')
+        return pts, f'{len(rows)} rows fetched from {ds}' + (f', kept those inside {area}' if inside and ward else '')
 
     # ----- one question -----------------------------------------------------------------------------------------
     def ask(self, question, model_choice='fast', today=''):
@@ -986,7 +1013,8 @@ class Agent:
     def _loop(self, chain, tier, today):
         dash = self.dashboard_provider()
         system = census_mod.relabel((self.system_text or SYSTEM).format(today=today),
-                                    int(((dash or {}).get('census') or {}).get('year') or 2021)) + scope_note(dash)
+                                    int(((dash or {}).get('census') or {}).get('year') or 2021))
+        system = scope_note(dash) + system
         used = {'input': 0, 'output': 0, 'cache_read': 0, 'cost_usd': 0.0}
         self.last_cost = used
         pos, skipped, services = 0, [], []
@@ -1035,7 +1063,7 @@ class Agent:
                     except Exception:             # noqa: BLE001 - the appendix must never stop an answer
                         pass
                     out = json.dumps(result, default=str)
-                    cap = 30000 if name == 'get_ward5_dashboard' else MAX_RESULT_CHARS
+                    cap = 30000 if name in ('get_dashboard', 'get_ward5_dashboard') else MAX_RESULT_CHARS
                     if len(out) > cap:
                         out = out[:cap] + '... [cut: ask for fewer rows or group the data]'
                     results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': out})
