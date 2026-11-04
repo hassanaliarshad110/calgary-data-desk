@@ -122,13 +122,17 @@ function renderChildCareCards() {
       scales: { x: { stacked: true, grid: { display: false }, ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 10 } },
                 y: { stacked: true, beginAtZero: true, grid: { color: cssv('--chart-grid') }, ticks: { callback: v => fmt(v) } } } }
   });
-  const rows = residential().map(c => ({ c, b: cc.by_comm[c.code] || {} })).sort((a, b) => (a.b.per_100_0_14 ?? -1) - (b.b.per_100_0_14 ?? -1));
+  // a rate per 100 children means nothing where almost nobody lives (business parks, the university campus, land not
+  // built yet): those are left out and named in the note
+  const all = residential().map(c => ({ c, b: cc.by_comm[c.code] || {} }));
+  const few = all.filter(r => (r.c.residents || 0) < 100 || (r.b.k0_14 || 0) < 20);
+  const rows = all.filter(r => !few.includes(r)).sort((a, b) => (a.b.per_100_0_14 ?? -1) - (b.b.per_100_0_14 ?? -1));
   const top = Math.max(...rows.map(r => r.b.per_100_0_14 || 0), 1);
   $('#cc-comm').innerHTML = `<ul class="hbars">${rows.map(({ c, b }) => `<li class="${(b.spaces || 0) === 0 ? 'zero' : ''}" title="${esc(c.name)}: ${fmt(b.spaces || 0)} spaces; about ${fmt(b.k0_14)} children aged 0 to 14 (${CY()} Census: ${b.k0_14_2021 ? fmt(b.k0_14_2021) : 'not built'})">
       <span class="lbl">${esc(c.name)}</span>
       <span class="track"><span style="width:${(b.per_100_0_14 || 0) / top * 100}%"></span></span>
       <span class="v">${b.spaces ? fmt(b.per_100_0_14, 1) : '<b class="none">None</b>'}<small>${fmt(b.spaces || 0)} spaces, ~${fmt(b.k0_14)} children</small></span></li>`).join('')}</ul>
-    <p class="card-note">Lowest first. ${W()} as a whole: ${fmt(cc.per_100_0_14, 1)}. ${esc(cc.children_note || '')} Family day home agencies are not counted.</p>`;
+    <p class="card-note">Lowest first. ${W()} as a whole: ${fmt(cc.per_100_0_14, 1)}. ${esc(cc.children_note || '')} Family day home agencies are not counted.${few.length ? ` Left out because almost no children live there (fewer than 20, or under 100 residents): ${esc(few.map(r => titleCase(r.c.name)).join(', '))}. Their spaces still count in the total.` : ''}${few.some(r => r.c.code === 'UOC') ? ' The University of Calgary campus is its own community with no homes counted by the Census; its child care centre (West Campus, 3820 24 Avenue NW) is placed by its address in University District, next door.' : ''}</p>`;
 }
 function renderSchoolCards() {
   const sc = fam().schools;
