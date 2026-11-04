@@ -1387,3 +1387,8 @@ tr.rc-rent td { background: color-mix(in srgb, #F59E0B 8%, transparent); }
 .check.big { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; cursor: pointer; }
 .check.big input { width: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: #16A34A; }
 .at-was { display: block; font-size: 11px; color: var(--muted-fg); margin-top: 2px; } .at-none { font-size: 12px; color: var(--muted-fg); margin: 4px 0 0; }
+/* compare wards: long measure names wrap, so the ward columns stay on screen */
+#cmp-table th[scope="row"] { white-space: normal; min-width: 200px; max-width: 300px; }
+#cmp-table th[scope="row"] .cmp-m { text-align: left; white-space: normal; line-height: 1.35; }
+#cmp-table thead th:first-child { min-width: 200px; }
+@media (max-width: 700px) { #cmp-table th[scope="row"], #cmp-table thead th:first-child { min-width: 120px; max-width: 150px; } }

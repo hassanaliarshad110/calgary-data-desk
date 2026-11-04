@@ -29,8 +29,8 @@ const CMP_METRICS = [
   { g: 'Families', k: 'schools', label: 'Schools', d: 0, better: null },
   { g: 'Families', k: 'students', label: 'Students enrolled', d: 0, better: null },
   { g: 'Amenities', k: 'amenity_level', get label() { return 'Amenity level, City amenities only, residents: ' + popChip() + ' (1.00 = Calgary)'; }, d: 2, better: 'high' },
-  { g: 'Amenities', k: 'amenity_level_all', get label() { return "Amenity level, City + private amenities accessible to the community (OpenStreetMap), residents: " + popChip() + ' (1.00 = Calgary\'s City level)'; }, d: 2, better: 'high' },
-  { g: 'Amenities', k: 'amenity_level_all_private', get label() { return "Amenity level, City + private accessible + gated residents-only amenities (OpenStreetMap), residents: " + popChip() + ' (1.00 = Calgary\'s City level)'; }, d: 2, better: 'high' },
+  { g: 'Amenities', k: 'amenity_level_all', get label() { return "Amenity level, City + private accessible amenities, residents: " + popChip() + ' (1.00 = Calgary\'s City level)'; }, d: 2, better: 'high' },
+  { g: 'Amenities', k: 'amenity_level_all_private', get label() { return "Amenity level, with gated residents-only ones too, residents: " + popChip() + ' (1.00 = Calgary\'s City level)'; }, d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:city_pace', label: "Amenity level, City's total, one rate for all (1.00 = Calgary)", d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:city_actual', label: "Amenity level, City's total shared by actual growth (1.00 = Calgary)", d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:model', label: 'Amenity level, residents by the growth model', d: 2, better: 'high' },
@@ -42,7 +42,7 @@ const CMP_AMENITY = ['playgrounds', 'local_park_ha', 'benches', 'picnic_tables',
 let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'amenity_level', map: null, layer: null, loading: null };
 try {
   const saved = JSON.parse(localStorage.getItem('cdd-compare') || 'null');
-  if (saved) { CMP.main = saved.main; CMP.others = new Set((saved.others || []).filter(w => w >= 1 && w <= 14)); CMP.picked = !!saved.picked; CMP.metric = saved.metric || CMP.metric; }
+  if (saved) { CMP.main = saved.main; CMP.others = new Set(saved.picked ? (saved.others || []).filter(w => w >= 1 && w <= 14) : []); CMP.picked = !!saved.picked; CMP.metric = saved.metric || CMP.metric; }
 } catch { /* storage off */ }
 const cmpSave = () => { try { localStorage.setItem('cdd-compare', JSON.stringify({ main: CMP.main, others: [...CMP.others], picked: CMP.picked, metric: CMP.metric })); } catch { /* storage off */ } };
 
@@ -103,8 +103,7 @@ async function renderCompare() {
   if (!CMP.data || !CMP.data.wards_summary) return;
   const ws = CMP.data.wards_summary;
   if (!CMP.main) CMP.main = SCOPE || 1;
-  if (!CMP.others.size && !CMP.picked) [...ws.wards].sort((a, b) => (b.residents || 0) - (a.residents || 0)).slice(0, 3)
-    .forEach(r => { if (r.ward !== CMP.main) CMP.others.add(r.ward); });
+  // by default the ward in focus against Calgary only; other wards are added from "Compare with"
   CMP.others.delete(CMP.main);
   const name = w => { const r = ws.wards.find(x => x.ward === w); return `Ward ${w}${r && r.councillor ? ' · ' + r.councillor : ''}`; };
   $('#cmp-sub').textContent = `${CMP.data.period} against ${CMP.data.prev_period}. All 14 wards from the same City data, with Calgary as a whole.`;

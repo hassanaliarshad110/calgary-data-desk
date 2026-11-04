@@ -907,13 +907,36 @@ const DATASETS_OF = () => [
     ask: ['How does Calgary\'s Crime Severity Index compare with Edmonton over the last 10 years?'] },
   { name: 'Daily climate data, Calgary airport', id: '', page: 'https://climate.weather.gc.ca/', pub: 'Environment and Climate Change Canada', what: 'Daily temperature, rain, snow and snow depth back to 1881. The airport station is inside ' + W() + '.', used: 'Data Genie',
     ask: ['How has Calgary\'s winter snowfall changed over the last 10 years?', 'Chart the hottest summers in Calgary since 2000'] },
+  // the rest of what the app reads, so every number on screen has its source listed here
+  { name: 'City population outlook', id: '', page: 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf', pub: 'City of Calgary (Corporate Economics)', what: 'The City\'s population estimate and forecast for Calgary (Calgary and Region Economic Outlook 2026-2031, Spring 2026, Table 4, page 19), and its forecast of children. A published report, not open data: its figures are kept with the app and updated with each new outlook.', used: 'Residents today (the default way of counting), live counter, children',
+    ask: ['How is the population of Martindale worked out today?'] },
+  { name: '2021 Census households by community', id: 'msjx-5ygv', pub: 'City of Calgary (Statistics Canada)', what: 'Private households by community in the 2021 Census.', used: 'Growth model (people per home)', ask: [] },
+  { name: '2021 Census by ward', id: 'k4pr-cznc', pub: 'City of Calgary (Statistics Canada)', what: 'Ages, households, families and work for every ward in the 2021 Census (with jzfi-qvb4 and b5q8-82zn, and the same tables for Calgary).', used: 'Who lives in each ward',
+    ask: ['How big are households in each ward?'] },
+  { name: 'Parks Seating', id: 'ikeb-n5bc', pub: 'City of Calgary', what: 'Park benches and picnic tables.', used: 'Growth vs amenities, Needs attention', ask: [] },
+  { name: 'Parks Sport Equipment', id: 'da6k-wpxb', pub: 'City of Calgary', what: 'Basketball hoops, sports field goal posts and disc golf baskets.', used: 'Growth vs amenities, Needs attention', ask: [] },
+  { name: 'Parks Plumbing Fixtures', id: 'jjkg-kv4n', pub: 'City of Calgary', what: 'Park washrooms and drinking fountains.', used: 'Growth vs amenities', ask: [] },
+  { name: 'Parks Wayfinder Garbage and Recycle', id: 'fwyk-8pth', pub: 'City of Calgary', what: 'Park garbage and recycling bins.', used: 'Growth vs amenities', ask: [] },
+  { name: 'Parks Off Leash Areas', id: 'enr4-crti', pub: 'City of Calgary', what: 'Off-leash dog areas (outlines).', used: 'Growth vs amenities, Needs attention', ask: [] },
+  { name: 'Parks Sites', id: 'kami-qbfh', pub: 'City of Calgary', what: 'Every City park site (outlines), for park space and neighbourhood park space.', used: 'Growth vs amenities, Needs attention', ask: [] },
+  { name: 'Public Trees', id: 'tfs4-3wwa', pub: 'City of Calgary', what: 'Every tree the City maintains.', used: 'Growth vs amenities', ask: [] },
+  { name: 'Community District Boundaries', id: 'surr-xmvs', pub: 'City of Calgary', what: 'Community outlines, for placing amenities and programs in a community.', used: 'Every community count', ask: [] },
+  { name: 'Amenities that are not the City\'s', id: '', page: 'https://www.openstreetmap.org/copyright', pub: 'OpenStreetMap contributors (Open Database Licence)', what: 'Playgrounds, parks, basketball courts, fitness stations and dog parks mapped by volunteers, read through the Overpass API every week; every one matching a City amenity is taken out.', used: 'Growth vs amenities, Needs attention (when ticked)',
+    ask: ['List the private amenities accessible to the community in Taradale with links'] },
+  { name: 'Calgary Open Budget', id: 'fqax-i3nz', pub: 'City of Calgary', what: 'Every line of the City\'s operating and capital budget, by department and business unit.', used: 'City budget',
+    ask: ['What is the City\'s 2026 operating budget by department?'] },
+  { name: 'Budget book: operating revenue by source', id: '', page: 'https://www.calgary.ca/our-finances/budget.html', pub: 'City of Calgary', what: 'Operating revenue by source (property tax, user fees, franchise fees and so on) from the 2026 Budget as approved, Budget Overview, page 24. A published book, not open data: kept with the app and updated with each budget.', used: 'City budget', ask: [] },
+  { name: '2026 Property Tax Bylaw', id: '', page: 'https://municipalaffairs.gov.ab.ca/cfml/FinancialTaxRateSearch/pdf/tr_bylaws/2026_Bylaw_CALGARY_0046.pdf', pub: 'City of Calgary (Alberta Municipal Affairs)', what: 'The 2026 tax rates and levy (Bylaw 9M2026), applied to the assessment roll (4bsw-nn7w) to estimate property tax by ward and community. A bylaw document: its rates are kept with the app.', used: 'City budget (property tax by ward)',
+    ask: ['How much property tax does each ward pay?'] },
+  { name: 'Missing-person appeals', id: '', page: 'https://newsroom.calgary.ca/police-news-releases/', pub: 'Calgary Police Service (City newsroom)', what: 'Missing-person news releases, read live from the City newsroom feed; nothing is saved, and an appeal disappears when the police take it down.', used: 'Dashboard', ask: [] },
 ];
 const srcPage = d => d.page || ('https://data.calgary.ca/d/' + d.id);
-const METHOD_KEY = { 'iahh-g8bj': '311', '35ra-9556': 'traffic', 'c2es-76ed': 'permits', '6933-unw5': 'dp', 'sizs-hgef': 'roads',
+const METHOD_KEY = { 'fqax-i3nz': 'budget', 'msjx-5ygv': 'population', 'k4pr-cznc': 'profile_wards', 'ikeb-n5bc': 'amenity_gap', 'da6k-wpxb': 'amenity_gap', 'jjkg-kv4n': 'amenity_gap', 'fwyk-8pth': 'amenity_gap', 'enr4-crti': 'amenity_gap', 'kami-qbfh': 'amenity_gap', 'tfs4-3wwa': 'amenity_gap', 'surr-xmvs': 'wards', 'iahh-g8bj': '311', '35ra-9556': 'traffic', 'c2es-76ed': 'permits', '6933-unw5': 'dp', 'sizs-hgef': 'roads',
   'hxfu-6d96': 'amenities', 'x34e-bcjz': 'amenities', 'bdu9-amk8': 'amenities', 'muzh-c9qc': 'amenities', 'k7p9-kppz': 'cameras',
   '4bsw-nn7w': 'population', 'f9wk-wej9': 'population', '4evm-wx9a': 'city_disorder', 'fd9t-tdn2': 'schools' };
 const methodKey = d => METHOD_KEY[d.id] || ({ 'Child Care Information': 'child_care', 'Student enrolment by school': 'schools',
-  'Daily climate data, Calgary airport': 'weather', 'Community safety data': 'police', 'Crime Severity Index': 'csi', 'Rental Market Survey': 'rents', ['Ward profile (' + CY() + ' Census)']: 'profile' })[d.name];
+  'Daily climate data, Calgary airport': 'weather', 'Community safety data': 'police', 'Crime Severity Index': 'csi', 'Rental Market Survey': 'rents', ['Ward profile (' + CY() + ' Census)']: 'profile',
+  'Amenities that are not the City\'s': 'other_amenities', '2026 Property Tax Bylaw': 'property_tax', 'City population outlook': 'population_choice' })[d.name];
 let METHODS = null;
 async function loadMethods() {
   if (METHODS) return METHODS;
