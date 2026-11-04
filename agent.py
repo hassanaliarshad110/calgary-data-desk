@@ -1224,7 +1224,7 @@ class Agent:
                         notes.append(note)
             res = report.make(args, self.provenance, self.downloads_dir, meta)
             entry = {'title': args.get('title', ''), 'question': args.get('question', ''), 'pdf': res['path'],
-                     'interactive': res['interactive'], 'xlsx': res['xlsx'], 'made': _calgary_now().strftime('%Y-%m-%d %H:%M'),
+                     'interactive': res['interactive'], 'xlsx': res['xlsx'], 'print': res.get('print'), 'made': _calgary_now().strftime('%Y-%m-%d %H:%M'),
                      'visuals': res['visuals']}
             # the report as written (its content and every query behind it), so the auditor can check it later
             spec_path = res['interactive'].replace(' (interactive).html', '') + '.report.json'

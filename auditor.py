@@ -164,7 +164,7 @@ def index(data_dir, a=None):
     if a:
         cor = a.get('corrected') or {}
         items = [{'title': a['title'], 'made': a['made'], 'page': a['page'], 'report': (a.get('report') or {}).get('pdf'),
-                  'corrected_pdf': cor.get('pdf'), 'corrected_interactive': cor.get('interactive'), 'corrected_xlsx': cor.get('xlsx'),
+                  'corrected_pdf': cor.get('pdf'), 'corrected_print': cor.get('print'), 'corrected_interactive': cor.get('interactive'), 'corrected_xlsx': cor.get('xlsx'),
                   'findings': len(a.get('findings') or []), 'verdict': a.get('verdict'),
                   'fixed': sum(1 for c in a.get('checks') or [] if c.get('status') == 'fixed'),
                   'open': sum(1 for c in a.get('checks') or [] if c.get('status') not in GOOD)}] + items

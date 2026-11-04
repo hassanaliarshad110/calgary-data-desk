@@ -143,7 +143,7 @@
       a.href = url + (print && type === 'text/html' ? '#print' : '');
       if (!/^(application\/pdf|text\/html)$/.test(type)) a.download = name; else a.target = '_blank';
       document.body.appendChild(a); a.click(); a.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 120000);
+      setTimeout(() => URL.revokeObjectURL(url), 30 * 60000);   // the tab may still be printing or saving it
       return true;
     } catch (e) { return false; }
   };

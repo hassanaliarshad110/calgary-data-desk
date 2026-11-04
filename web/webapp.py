@@ -146,7 +146,7 @@ def _reports():
         return []
     out = []
     for x in items:
-        ok = {k: x.get(k) if x.get(k) and os.path.exists(x[k]) else None for k in ('pdf', 'interactive', 'xlsx')}
+        ok = {k: x.get(k) if x.get(k) and os.path.exists(x[k]) else None for k in ('pdf', 'interactive', 'xlsx', 'print')}
         if any(ok.values()):
             out.append({**x, **ok})
     return out

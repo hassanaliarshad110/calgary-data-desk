@@ -206,7 +206,7 @@ def _figure(v, meta, interactive):
     return f'<figure class="keep">{head}{svg}<figcaption>{legend}{cap}</figcaption></figure>'
 
 
-def render(spec, provenance=None, meta=None, interactive=False):
+def render(spec, provenance=None, meta=None, interactive=False, printable=False):
     """The report page: for the PDF (fixed pictures), or interactive (live charts and zoomable maps)."""
     meta = meta or {}
     prov = provenance or []
@@ -274,17 +274,24 @@ def render(spec, provenance=None, meta=None, interactive=False):
   ({e(meta.get('built') or today)}). Check key figures against the sources before quoting them in public. Options are
   ideas to consider, not City policy.</footer>''')
     page = PAGE.replace('{{TITLE}}', e(title)).replace('{{BODY}}', '\n'.join(parts))
+    bar = ('<div class="pdfbar"><button type="button" onclick="window.print()">Save as PDF</button>'
+           '<span>Opens your browser\'s print window: choose "Save as PDF".</span></div>')
+    auto = ('<script>if(location.hash==="#print"){addEventListener("load",function(){setTimeout(function(){'
+            'window.print()},1500)})}</script>')
+    if printable and not interactive:            # the light print page (no live charts or maps), for browsers
+        page = page.replace('</head>', '<style>' + PRINT_BAR_CSS + '</style></head>', 1)
+        page = page.replace('<body><div class="wrap">', '<body><div class="wrap">' + bar, 1).replace('</body>', auto + '</body>')
     if interactive:
-        bar = ('<div class="pdfbar"><button type="button" onclick="window.print()">Save as PDF</button>'
-               '<span>Opens your browser\'s print window: choose "Save as PDF".</span></div>')
-        auto = ('<script>if(location.hash==="#print"){addEventListener("load",function(){setTimeout(function(){'
-                'window.print()},1500)})}</script>')
         page = page.replace('<body><div class="wrap">', '<body><div class="wrap">' + bar, 1).replace('</body>', auto + '</body>')
         page = page.replace('</head>', _vendor_head() + '</head>').replace(
             '</body>', '<script>' + viz.SCRIPT.replace('__DATA__', json.dumps(viz.interactive_data(
                 visuals, meta.get('geo'), meta.get('name_to_code') or {})).replace('</', '<\\/')) + '</script></body>')
     return page
 
+
+PRINT_BAR_CSS = ('.pdfbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-8px 0 16px;font-size:12.5px;color:#6B7280}'
+                 '.pdfbar button{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border:0;border-radius:8px;'
+                 'background:#0F766E;color:#fff;cursor:pointer}@media print{.pdfbar{display:none}}')
 
 INTERACTIVE_CSS = '''
 .ivis{width:100%;min-height:240px;margin:4px 0}
@@ -395,7 +402,7 @@ def make(spec, provenance, folder, meta=None, to_pdf=None):
     stem = safe_name(spec.get('file_name') or spec.get('title'))
     stem = f'{stem} ({meta.get("day") or dt.date.today().isoformat()})'
     base, n = os.path.join(folder, stem), 2
-    while any(os.path.exists(base + x) for x in ('.pdf', ' (interactive).html', '.xlsx')):
+    while any(os.path.exists(base + x) for x in ('.pdf', ' (interactive).html', ' (print).html', '.xlsx')):
         base = os.path.join(folder, f'{stem} ({n})')
         n += 1
     inter = base + ' (interactive).html'
@@ -406,13 +413,21 @@ def make(spec, provenance, folder, meta=None, to_pdf=None):
         xpath = xlsx.write(base + '.xlsx', workbook_sheets(spec, provenance, meta))
     except Exception:                             # noqa: BLE001 - the PDF and web page still stand
         xpath = None
-    pdf, warn = None, None
+    pdf, warn, printable = None, None, None
     try:
         pdf = (to_pdf or newsletter.to_pdf)(render(spec, provenance, meta), base + '.pdf')
-    except Exception as ex:                       # noqa: BLE001 - the interactive page is still there; say why
-        warn = f'The PDF could not be printed ({ex}); open the interactive version instead.'
-    path = pdf or inter
-    return {'path': path, 'name': os.path.basename(path), 'interactive': inter, 'xlsx': xpath,
+        if pdf and (not os.path.exists(pdf) or os.path.getsize(pdf) < 1000):
+            pdf = None                            # an empty file is no PDF
+    except Exception:                             # noqa: BLE001 - no browser here (the website): the print page below
+        pdf = None
+    if not pdf:
+        # the same report as a light page (charts and maps drawn in, nothing live), which the browser prints to PDF
+        # reliably; the interactive page, with its live charts and maps, is too heavy to print well
+        printable = base + ' (print).html'
+        with open(printable, 'w', encoding='utf-8') as f:
+            f.write(render(spec, provenance, meta, printable=True))
+    path = pdf or printable
+    return {'path': path, 'name': os.path.basename(path), 'interactive': inter, 'xlsx': xpath, 'print': printable,
             'visuals': len(collect(spec)), 'warning': warn}
 
 
