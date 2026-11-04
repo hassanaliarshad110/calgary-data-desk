@@ -1,6 +1,6 @@
 // ================================================================ REPORT AUDITOR (a tab of Data Scientist)
-// Opus audits a report (re-running every figure), Sonnet reviews each finding and makes the corrected report,
-// Opus checks only those findings were dealt with. The engine side is auditor.py.
+// Chinook audits a report (re-running every figure), Bow reviews each finding and makes the corrected report,
+// Rundle checks only those findings were dealt with (the names shown; the models are set in auditor.py). The engine side is auditor.py.
 let auBusy = false;
 wireSeg($('#ds-tabs'), v => {
   $('#ds-make').hidden = v !== 'make';
