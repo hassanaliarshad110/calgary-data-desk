@@ -1223,6 +1223,8 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         gap_pops[m_key] = (pm_, km_)
     if amenity_gap:
         amenity_gap['by_method'] = {}
+        merged_ = with_other(asset_data)
+        local_ = [k for k, v in (amenity_gap.get('kinds') or {}).items() if v.get('local')]
         for m_key, (pm_, km_) in gap_pops.items():
             sub = amenity_view(asset_data, RESIDENTIAL_CODES, ALL_RES, pm_, km_, names)
             amenity_gap['by_method'][m_key] = {
@@ -1230,6 +1232,11 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                 'residents': sum(r['residents'] or 0 for r in sub['by_comm']),
                 'communities': {r['code']: r['level'] for r in sub['by_comm']},
                 'flagged': [r['code'] for r in sub['by_comm'] if r['flag']]}
+            if merged_:                  # the same with amenities that are not the City's, against this count's City yardstick
+                both_ = amenity_view(merged_, RESIDENTIAL_CODES, ALL_RES, pm_, km_, names, local_kinds=local_,
+                                     yardstick=sub.get('city'))
+                amenity_gap['by_method'][m_key]['level_all'] = scope_level(both_)
+                amenity_gap['by_method'][m_key]['communities_all'] = {r['code']: r['level'] for r in both_['by_comm']}
         amenity_gap['level'] = scope_level(amenity_gap)
 
     # ---- population month by month since Census day, from the same growth model ----
@@ -1354,6 +1361,9 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         if amenity_gap:                        # amenities in each ward, against the city level
             merged_assets = with_other(asset_data)
             oth = (asset_data.get('other') or {}).get('by_comm') or {}
+            # each way of counting's own Calgary level (per 1,000), the yardstick for that count
+            yards_ = {m_key: amenity_view(asset_data, ALL_RES[:1], ALL_RES, pm_, km_, names)['city']
+                      for m_key, (pm_, km_) in gap_pops.items()} if merged_assets else {}
             for r in wards_summary['wards']:
                 codes_w = [c for c in ALL_RES if comm_ward.get(c) == r['ward']]
                 r['amenity_level_by_method'] = {m_key: scope_level(amenity_view(asset_data, codes_w, ALL_RES, pm_, km_, names))
@@ -1367,6 +1377,11 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                 r['amenities_vs_city'] = {k: v['vs_city'] for k, v in sub['scope'].items()}
                 r['amenity_level'] = scope_level(sub)
                 r['amenity_flagged'] = len(sub['flagged'])
+                if merged_assets:                  # under every way of counting, with the non-City amenities too
+                    r['amenity_level_all_by_method'] = {}
+                    for m_key, (pm_, km_) in gap_pops.items():
+                        r['amenity_level_all_by_method'][m_key] = scope_level(amenity_view(
+                            merged_assets, codes_w, ALL_RES, pm_, km_, names, yardstick=yards_[m_key]))
                 if merged_assets:                  # with amenities that are not the City's (OpenStreetMap), same yardstick
                     r['amenity_level_all'] = scope_level(amenity_view(merged_assets, codes_w, ALL_RES, pop_all, kids_all, names,
                                                                       yardstick=amenity_gap['city']))

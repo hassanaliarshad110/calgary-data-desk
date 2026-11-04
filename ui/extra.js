@@ -533,9 +533,12 @@ function renderGap() {
   const shortList = r => (r.short || []).filter(k => kinds[k]).sort((a, b) => (r.vs_city[a] ?? 1) - (r.vs_city[b] ?? 1)).slice(0, 4)
     .map(k => `${esc(kinds[k].label)} ${isNum(r.vs_city[k]) ? fmt(r.vs_city[k] * 100, 0) + '%' : ''}`).join(' · ');
   const wardCol = city ? '<th scope="col" class="num">Ward</th>' : '';
+  // the amenity level under every way of counting residents (and with amenities that are not the City's)
+  const mKeysC = Object.keys(g.by_method || {}).filter(k => (g.by_method[k] || {}).communities);
+  const mShort = { city_actual: "City's total, actual growth", city_pace: "City's total, one rate", model: 'growth model', census2021: CY() + ' Census' };
   const head = gapKind
     ? `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth since ${CY()}</th><th scope="col" class="num">${esc(kinds[gapKind].label)}</th><th scope="col" class="num">${unit(gapKind)}</th><th scope="col">Against the city</th></tr>`
-    : `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth since ${CY()}</th><th scope="col" class="num">Children 0 to 14</th><th scope="col">Amenity level, City only</th>${g.other ? '<th scope="col">With non-City (OpenStreetMap)</th>' : ''}<th scope="col">Furthest behind the city</th></tr>`;
+    : `<tr><th scope="col">Community</th>${wardCol}<th scope="col" class="num">Residents today</th><th scope="col" class="num">Growth since ${CY()}</th><th scope="col" class="num">Children 0 to 14</th>${(mKeysC.length ? mKeysC : ['']).map(k => `<th scope="col" class="${k === popMethod() ? 'gm-cur' : ''}">Amenity level${k ? ', ' + esc(mShort[k] || k) : ''}<small>City only${g.other ? ' · with non-City' : ''}</small></th>`).join('')}<th scope="col">Furthest behind the city</th></tr>`;
   const body = rows.slice(0, 400).map(r => {
     const name = `${esc(r.name)}${r.flag ? '<span class="gap-flag">Not kept up</span>' : ''}`;
     const ward = city ? `<td class="num">${wardOf[r.code] ? wardOf[r.code] : '–'}</td>` : '';
@@ -546,7 +549,9 @@ function renderGap() {
         <td class="num">${kd(gapKind, (r.per_1000 || {})[gapKind])}</td><td>${gapMeter(v)}<span class="gap-level ${isNum(v) && v < g.level_threshold ? 'low' : ''}">${isNum(v) ? fmt(v * 100, 0) + '%' : '–'}</span></td></tr>`;
     }
     return `<tr><td>${name}</td>${ward}<td class="num">${fmt(r.residents)}</td>${grow}<td class="num">${fmt(r.children_0_14)}</td>
-      <td>${gapMeter(r.level)}<span class="gap-level ${isNum(r.level) ? (r.level < g.level_threshold ? 'low' : r.level >= 1 ? 'high' : '') : ''}">${fmt(r.level, 2)}</span></td>${g.other ? `<td>${gapMeter(r.level_all)}<span class="gap-level ${isNum(r.level_all) ? (r.level_all < g.level_threshold ? 'low' : r.level_all >= 1 ? 'high' : '') : ''}">${fmt(r.level_all, 2)}</span>${r.other ? `<small class="gap-short" title="Not the City's, from OpenStreetMap"> +${esc(Object.entries(r.other).map(([k, v]) => k === 'local_park_ha' ? fmt(v, 1) + ' ha park' : fmt(v) + ' ' + ((g.kinds[k] || {}).label || k).toLowerCase()).join(', '))}</small>` : ''}</td>` : ''}<td class="wrap gap-short">${shortList(r) || '–'}</td></tr>`;
+      ${(mKeysC.length ? mKeysC : ['']).map(k => { const BMk = (g.by_method || {})[k] || {};
+        const v = k ? (BMk.communities || {})[r.code] : r.level, va = k ? (BMk.communities_all || {})[r.code] : r.level_all;
+        return `<td class="${k === popMethod() ? 'gm-cur' : ''}">${gapMeter(v)}<span class="gap-level ${isNum(v) ? (v < g.level_threshold ? 'low' : v >= 1 ? 'high' : '') : ''}">${fmt(v, 2)}</span>${g.other && isNum(va) ? `<small class="gap-all" title="With amenities that are not the City's (OpenStreetMap)"> · ${fmt(va, 2)}</small>` : ''}</td>`; }).join('')}<td class="wrap gap-short">${shortList(r) || '–'}</td></tr>`;
   }).join('') || `<tr><td colspan="7" class="empty">No ${gapFlagged ? 'flagged ' : ''}communities to show.</td></tr>`;
 
   // the same levels under each way of counting residents
@@ -557,13 +562,13 @@ function renderGap() {
     const names = D.wards_summary.pop_methods || {};
     methodTable = `<div class="gap-scope"><h3>Every ward under each way of counting residents</h3>
       <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Growth since ${CY()}</th>${mKeys.map(k => `<th scope="col">Amenity level, ${esc(names[k] || BM[k].label)}</th>`).join('')}${g.other ? `<th scope="col">With non-City amenities, ${esc(popChip())}</th>` : ''}</tr></thead><tbody>
-      ${[...D.wards_summary.wards].sort((a, b) => (a.amenity_level ?? 9) - (b.amenity_level ?? 9)).map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${signed(r.growth_pct, 1, '%')}</td>${mKeys.map(k => `<td>${lv((r.amenity_level_by_method || {})[k])}</td>`).join('')}${g.other ? `<td>${lv(r.amenity_level_all)}</td>` : ''}</tr>`).join('')}
+      ${[...D.wards_summary.wards].sort((a, b) => (a.amenity_level ?? 9) - (b.amenity_level ?? 9)).map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${signed(r.growth_pct, 1, '%')}</td>${mKeys.map(k => `<td>${lv((r.amenity_level_by_method || {})[k])}${g.other && isNum((r.amenity_level_all_by_method || {})[k]) ? `<small class="gap-all" title="With amenities that are not the City's (OpenStreetMap)"> · ${fmt(r.amenity_level_all_by_method[k], 2)}</small>` : ''}</td>`).join('')}${g.other ? `<td>${lv(r.amenity_level_all)}</td>` : ''}</tr>`).join('')}
       <tr class="cmp-city-row"><td><b>Calgary</b></td><td></td><td class="num">${signed((D.wards_summary.city || {}).growth_pct, 1, '%')}</td>${mKeys.map(() => `<td>${lv(1)}</td>`).join('')}${g.other ? `<td>${lv((D.wards_summary.city || {}).amenity_level_all)}</td>` : ''}</tr>
       </tbody></table></div><p class="card-note">Lowest first, by the count chosen in Settings. 1.00 = the Calgary level of City amenities. "With non-City amenities" adds playgrounds, parks, courts, fitness stations and dog parks that are not the City's (OpenStreetMap, City ones taken out), measured against the same Calgary level, so Calgary itself reads above 1.00.</p></div>`;
   } else if (mKeys.length) {
     methodTable = `<div class="gap-scope"><h3>${esc(W())} under each way of counting residents</h3>
-      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Residents counted by</th><th scope="col" class="num">Residents</th><th scope="col">Amenity level of ${esc(W())}</th><th scope="col" class="num">Communities not kept up</th></tr></thead><tbody>
-      ${mKeys.map(k => `<tr><td>${esc(BM[k].label)}</td><td class="num">${fmt(BM[k].residents)}</td><td>${lv(BM[k].level)}</td><td class="num">${fmt((BM[k].flagged || []).length)}</td></tr>`).join('')}
+      <div class="table-wrap"><table class="data" id="gap-methods"><thead><tr><th scope="col">Residents counted by</th><th scope="col" class="num">Residents</th><th scope="col">Amenity level of ${esc(W())}, City only</th>${g.other ? `<th scope="col">With non-City amenities</th>` : ''}<th scope="col" class="num">Communities not kept up</th></tr></thead><tbody>
+      ${mKeys.map(k => `<tr${k === popMethod() ? ' class="gc-cur"' : ''}><td>${esc(BM[k].label)}${k === popMethod() ? ' <small>(in use)</small>' : ''}</td><td class="num">${fmt(BM[k].residents)}</td><td>${lv(BM[k].level)}</td>${g.other ? `<td>${lv(BM[k].level_all)}</td>` : ''}<td class="num">${fmt((BM[k].flagged || []).length)}</td></tr>`).join('')}
       </tbody></table></div><p class="card-note">Calgary is 1.00 under every count. Fewer residents (the ${CY()} Census) means more amenities per resident, so fast-growing areas look better than they are; the growth model counts the people living there now.</p></div>`;
   }
   // the whole method, in plain words, with every dataset

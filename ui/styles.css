@@ -1367,3 +1367,6 @@ table.gap-assets .cmp-city { background: color-mix(in srgb, #FBBF24 10%, transpa
 .gc-n { font: 700 18px var(--mono); text-align: right; } .gc-n small { display: block; font: 500 11.5px var(--sans); color: var(--muted-fg); }
 .gc-item p { margin: 6px 0 0; font-size: 13px; line-height: 1.5; color: var(--fg-2); }
 .gc-h { margin: 14px 0 0; font-size: 14px; }
+th.gm-cur, td.gm-cur { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+th small { display: block; font-weight: 500; color: var(--muted-fg); font-size: 11px; }
+.gap-all { color: var(--muted-fg); font-family: var(--mono); }
