@@ -542,7 +542,7 @@ class Api:
         return sorted(out, key=lambda x: x['modified'], reverse=True)
 
     def open_path(self, path):
-        path = os.path.abspath(path)
+        path = os.path.abspath(str(path or '').removesuffix('#print'))   # "#print": the web page's save-as-PDF hint
         root = os.path.abspath(DOWNLOADS)
         try:
             inside = os.path.commonpath([path, root]) == root

@@ -29,7 +29,8 @@ async function loadAudits() {
   box.innerHTML = list.length ? `<div class="ds-rows">${list.map(x => `<div class="ds-row">
       <div class="ds-row-main"><b>${esc(x.title)}</b><small>${esc(x.made)} · ${fmt(x.findings)} finding${x.findings === 1 ? '' : 's'}, ${fmt(x.fixed)} fixed${x.open ? `, <span class="neg">${fmt(x.open)} still open</span>` : ''}</small></div>
       <div class="file-actions"><button class="btn primary" data-p="${esc(x.page)}">${icon('check')}<span>Audit findings</span></button>
-      ${x.corrected_pdf ? `<button class="btn" data-p="${esc(x.corrected_pdf)}">${icon('file')}<span>Corrected report</span></button>` : ''}
+      ${x.corrected_pdf ? `<button class="btn" data-p="${esc(x.corrected_pdf)}${/\.html?$/i.test(x.corrected_pdf) ? '#print' : ''}">${icon('file')}<span>Corrected report (PDF)</span></button>` : ''}
+      ${x.corrected_interactive ? `<button class="btn" data-p="${esc(x.corrected_interactive)}">${icon('open')}<span>Interactive</span></button>` : ''}
       ${x.corrected_xlsx ? `<button class="btn" data-p="${esc(x.corrected_xlsx)}">${icon('download')}<span>Excel</span></button>` : ''}</div></div>`).join('')}</div>`
     : '<p class="card-sub ds-empty">No audits yet.</p>';
   $$('[data-p]', box).forEach(b => b.addEventListener('click', () => a.open_path(b.dataset.p)));
@@ -60,7 +61,8 @@ async function runAudit(r) {
       $('#au-run-sub').textContent = `Done: ${res.findings} finding${res.findings === 1 ? '' : 's'}.`;
       $('#au-result').innerHTML = `<div class="answer"><p><b>Final check:</b> ${esc(res.verdict || '')}</p></div>
         <div class="file-actions"><button class="btn primary" data-p="${esc(res.page)}">${icon('check')}<span>Open the audit findings</span></button>
-        ${res.corrected && res.corrected.pdf ? `<button class="btn" data-p="${esc(res.corrected.pdf)}">${icon('file')}<span>Corrected report</span></button>` : ''}</div>`;
+        ${res.corrected && res.corrected.pdf ? `<button class="btn" data-p="${esc(res.corrected.pdf)}${/\.html?$/i.test(res.corrected.pdf) ? '#print' : ''}">${icon('file')}<span>Corrected report (PDF)</span></button>` : ''}
+        ${res.corrected && res.corrected.interactive ? `<button class="btn" data-p="${esc(res.corrected.interactive)}">${icon('open')}<span>Corrected report (interactive)</span></button>` : ''}</div>`;
       $$('#au-result [data-p]').forEach(b => b.addEventListener('click', async () => (await api()).open_path(b.dataset.p)));
     }
   } catch (e) {

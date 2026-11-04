@@ -191,7 +191,8 @@ def _figure(v, meta, interactive):
     if interactive:
         note = ('Tap a community to zoom in, a point for details' if typ == 'map' else
                 'Tap or hover for the exact numbers; tap a legend item to hide it')
-        cap = ' · '.join(e(x) for x in cap_bits + [note] if x)
+        cap = ' · '.join(e(x) for x in cap_bits if x)
+        cap += f'<span class="inote">{" · " if cap else ""}{e(note)}</span>'
         legend = ''
         if typ == 'map':
             got = viz.map_svg(sp, meta.get('geo'), meta.get('name_to_code') or {})
@@ -274,6 +275,11 @@ def render(spec, provenance=None, meta=None, interactive=False):
   ideas to consider, not City policy.</footer>''')
     page = PAGE.replace('{{TITLE}}', e(title)).replace('{{BODY}}', '\n'.join(parts))
     if interactive:
+        bar = ('<div class="pdfbar"><button type="button" onclick="window.print()">Save as PDF</button>'
+               '<span>Opens your browser\'s print window: choose "Save as PDF".</span></div>')
+        auto = ('<script>if(location.hash==="#print"){addEventListener("load",function(){setTimeout(function(){'
+                'window.print()},1500)})}</script>')
+        page = page.replace('<body><div class="wrap">', '<body><div class="wrap">' + bar, 1).replace('</body>', auto + '</body>')
         page = page.replace('</head>', _vendor_head() + '</head>').replace(
             '</body>', '<script>' + viz.SCRIPT.replace('__DATA__', json.dumps(viz.interactive_data(
                 visuals, meta.get('geo'), meta.get('name_to_code') or {})).replace('</', '<\\/')) + '</script></body>')
@@ -301,7 +307,9 @@ th.sortable{cursor:pointer;user-select:none}th.sortable:hover{color:#0B6BB5}
 th[data-dir=asc]::after{content:" \\25B2";font-size:9px}th[data-dir=desc]::after{content:" \\25BC";font-size:9px}
 .tfilter{display:block;width:100%;max-width:340px;margin:6px 0;padding:6px 10px;border:1px solid #CBD5E1;border-radius:6px;font:inherit;font-size:13px}
 .verr{color:#B91C1C;font-size:13px}
-@media print{.vtools,.ihelp,.tfilter,.leaflet-control-container{display:none}}
+.pdfbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-8px 0 16px;font-size:12.5px;color:#6B7280}
+.pdfbar button{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border:0;border-radius:8px;background:#0F766E;color:#fff;cursor:pointer}
+@media print{.vtools,.ihelp,.tfilter,.leaflet-control-container,.pdfbar,.inote{display:none}}
 '''
 
 

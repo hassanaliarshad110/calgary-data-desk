@@ -1329,7 +1329,7 @@ function reportCard(ev) {
   const pdf = ev.pdf || (/\.pdf$/i.test(ev.path || '') ? ev.path : null);
   const bits = [pdf ? 'PDF' : null, ev.interactive ? 'interactive version' : null, ev.xlsx ? 'Excel workbook' : null].filter(Boolean);
   card.innerHTML = `${icon('news')}<div><div class="file-name">${esc(ev.title || ev.name || 'Report')}</div><div class="file-sub">${esc(bits.join(', '))}${ev.visuals ? `, ${fmt(ev.visuals)} chart${ev.visuals === 1 ? '' : 's'}, maps and tables` : ''}. Saved in Files.${ev.warning ? ' ' + esc(ev.warning) : ''}</div></div>
-    <div class="file-actions">${pdf ? `<button class="btn primary" data-p="${esc(pdf)}">${icon('file')}<span>PDF</span></button>` : ''}${ev.interactive ? `<button class="btn" data-p="${esc(ev.interactive)}">${icon('open')}<span>Interactive</span></button>` : ''}${ev.xlsx ? `<button class="btn" data-p="${esc(ev.xlsx)}">${icon('download')}<span>Excel</span></button>` : ''}</div>`;
+    <div class="file-actions">${pdf ? `<button class="btn primary" data-p="${esc(pdf)}">${icon('file')}<span>PDF</span></button>` : ev.interactive ? `<button class="btn primary" data-p="${esc(ev.interactive)}#print">${icon('file')}<span>PDF</span></button>` : ''}${ev.interactive ? `<button class="btn" data-p="${esc(ev.interactive)}">${icon('open')}<span>Interactive</span></button>` : ''}${ev.xlsx ? `<button class="btn" data-p="${esc(ev.xlsx)}">${icon('download')}<span>Excel</span></button>` : ''}</div>`;
   $$('[data-p]', card).forEach(b => b.addEventListener('click', async () => (await api()).open_path(b.dataset.p)));
   return card;
 }
@@ -1361,7 +1361,7 @@ async function loadDsReports() {
   if (!list.length) { box.innerHTML = '<p class="card-sub ds-empty">No reports yet. Pick a topic above, or describe your own.</p>'; return; }
   box.innerHTML = `<div class="ds-rows">${list.slice(0, 40).map((r, i) => `<div class="ds-row">
       <div class="ds-row-main"><b>${esc(r.title || 'Report')}</b><small>${esc(stampText(r.made))}${r.question ? ' · ' + esc(String(r.question).replace(/^Data Scientist request:.*?Topic: /, '').slice(0, 140)) : ''}</small></div>
-      <div class="file-actions">${r.pdf ? `<button class="btn primary" data-p="${esc(r.pdf)}">${icon('file')}<span>PDF</span></button>` : ''}${r.interactive ? `<button class="btn" data-p="${esc(r.interactive)}">${icon('open')}<span>Interactive</span></button>` : ''}${r.xlsx ? `<button class="btn" data-p="${esc(r.xlsx)}">${icon('download')}<span>Excel</span></button>` : ''}</div></div>`).join('')}</div>`;
+      <div class="file-actions">${r.pdf ? `<button class="btn primary" data-p="${esc(r.pdf)}">${icon('file')}<span>PDF</span></button>` : r.interactive ? `<button class="btn primary" data-p="${esc(r.interactive)}#print">${icon('file')}<span>PDF</span></button>` : ''}${r.interactive ? `<button class="btn" data-p="${esc(r.interactive)}">${icon('open')}<span>Interactive</span></button>` : ''}${r.xlsx ? `<button class="btn" data-p="${esc(r.xlsx)}">${icon('download')}<span>Excel</span></button>` : ''}</div></div>`).join('')}</div>`;
   $$('[data-p]', box).forEach(b => b.addEventListener('click', async () => (await api()).open_path(b.dataset.p)));
 }
 // which stage a step belongs to, from the words the engine uses

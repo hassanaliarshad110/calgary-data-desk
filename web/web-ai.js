@@ -129,7 +129,8 @@
     return out;
   };
   const openPath = api.open_path;
-  api.open_path = async (p) => {
+  api.open_path = async (p0) => {
+    const print = String(p0 || '').endsWith('#print'), p = String(p0 || '').replace(/#print$/, '');
     if (!String(p || '').startsWith('/home/pyodide/')) return openPath(p);
     if (!worker) return false;
     try {
@@ -139,7 +140,7 @@
         : /\.xlsx$/i.test(name) ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' : 'application/octet-stream';
       const url = URL.createObjectURL(new Blob([data], { type }));
       const a = document.createElement('a');
-      a.href = url;
+      a.href = url + (print && type === 'text/html' ? '#print' : '');
       if (!/^(application\/pdf|text\/html)$/.test(type)) a.download = name; else a.target = '_blank';
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 120000);
