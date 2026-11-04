@@ -56,7 +56,7 @@
   // the dashboard on screen, every ward side by side and the property tax estimate, for the agent's tools
   let sent = '';
   async function context() {
-    const m = W.store.get('pop_method', 'city_pace'), w = W.store.get('scope', 0);
+    const m = W.store.get('pop_method', 'city_actual'), w = W.store.get('scope', 0);
     const tag = `${m}/${w}`;
     if (tag === sent) return;
     const [dash, city, tax] = await Promise.all([

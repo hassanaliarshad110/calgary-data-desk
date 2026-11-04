@@ -30,7 +30,7 @@ const CMP_METRICS = [
   { g: 'Families', k: 'students', label: 'Students enrolled', d: 0, better: null },
   { g: 'Amenities', k: 'amenity_level', get label() { return 'Amenity level, City amenities only, residents: ' + popChip() + ' (1.00 = Calgary)'; }, d: 2, better: 'high' },
   { g: 'Amenities', k: 'amenity_level_all', get label() { return "Amenity level, City and non-City amenities (OpenStreetMap), residents: " + popChip() + ' (1.00 = Calgary\'s City level)'; }, d: 2, better: 'high' },
-  { g: 'Amenities', k: 'alm:city_pace', label: "Amenity level, residents grown to the City's total (1.00 = Calgary)", d: 2, better: 'high' },
+  { g: 'Amenities', k: 'alm:city_pace', label: "Amenity level, City's total, one rate for all (1.00 = Calgary)", d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:city_actual', label: "Amenity level, City's total shared by actual growth (1.00 = Calgary)", d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:model', label: 'Amenity level, residents by the growth model', d: 2, better: 'high' },
   { g: 'Amenities', k: 'alm:census2021', label: 'Amenity level, residents by the ' + CY() + ' Census', d: 2, better: 'high' },
@@ -38,7 +38,7 @@ const CMP_METRICS = [
 const CMP_AMENITY = ['playgrounds', 'local_park_ha', 'benches', 'picnic_tables', 'basketball', 'goal_posts', 'washrooms',
   'off_leash', 'trees', 'rec_facilities', 'libraries', 'community_centres', 'transit_stops'];
 
-let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'alm:city_pace', map: null, layer: null, loading: null };
+let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'alm:city_actual', map: null, layer: null, loading: null };
 try {
   const saved = JSON.parse(localStorage.getItem('cdd-compare') || 'null');
   if (saved) { CMP.main = saved.main; CMP.others = new Set((saved.others || []).filter(w => w >= 1 && w <= 14)); CMP.picked = !!saved.picked; CMP.metric = saved.metric || CMP.metric; }

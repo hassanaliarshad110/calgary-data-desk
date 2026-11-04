@@ -209,7 +209,7 @@ ward for all of Calgary; people in private households, 2021 ward boundaries). Us
 outreach, household size when comparing per household and per person, crowding and renters for housing questions), \
 always say it is the 2021 Census, and never use it as today's population.
 - Population: the office chooses in Settings how residents are counted; get_dashboard section overview gives it \
-as population.method / method_label (the default is 'city_pace', the City's own total), and population.by_method gives the area today under every way of counting: 'model' (the \
+as population.method / method_label (the default is 'city_actual', the City's own total shared by actual growth; 'city_pace' is the City's total at one rate for all), and population.by_method gives the area today under every way of counting: 'model' (the \
 growth model: homes on the City's property assessment roll x 2021 Census people per home, recalculated at every \
 refresh), 'census2021' (2021 Census counts, no growth: the same base as the City's own 311 ward dashboard, which shows \
 requests per 100 households using 2021 Census households, not per resident) and \

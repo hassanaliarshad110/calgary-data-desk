@@ -413,12 +413,17 @@ class Api:
         return int(((self._dash or {}).get('census') or {}).get('year') or 2021)
 
     def _pop_method(self):
-        return dashboard.pop_method_ok(load_settings().get('pop_method'))
+        s = load_settings()
+        if s.get('pop_method_v', 0) < 2:          # November 2026: the default became the City's total shared by actual growth
+            s['pop_method'], s['pop_method_v'] = dashboard.DEFAULT_POP_METHOD, 2
+            save_settings(s)
+        return dashboard.pop_method_ok(s.get('pop_method'))
 
     def set_pop_method(self, method):
-        """How residents are counted: 'model', 'census2021' or 'city_pace' (grown to the City's total). The dashboard reloads after."""
+        """How residents are counted: 'city_actual' (the City's total shared by actual growth, the default), 'city_pace'
+        (the City's total, one rate for all), 'model' or 'census2021'. The dashboard reloads after."""
         s = load_settings()
-        s['pop_method'] = dashboard.pop_method_ok(method)
+        s['pop_method'], s['pop_method_v'] = dashboard.pop_method_ok(method), 2
         save_settings(s)
         return self.get_settings()
 

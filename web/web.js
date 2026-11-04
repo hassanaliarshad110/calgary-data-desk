@@ -9,13 +9,16 @@
     get(k, d) { try { const v = localStorage.getItem('cdd-web-' + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
     set(k, v) { try { localStorage.setItem('cdd-web-' + k, JSON.stringify(v)); } catch (e) { /* private window */ } },
   };
+  // November 2026: the default way of counting became the City's total shared by actual growth; a choice saved
+  // before then goes back to it once
+  if ((store.get('pop_v', 0) || 0) < 2) { store.set('pop_method', 'city_actual'); store.set('pop_v', 2); }
   const held = {};
   const getJSON = (path) => held[path] || (held[path] = fetch(DATA + path, { cache: 'no-cache' }).then(r => {
     if (!r.ok) throw new Error(r.status === 404 ? 'This view is not on the website yet.' : 'The website data could not be read (' + r.status + ').');
     return r.json();
   }).catch(e => { delete held[path]; throw e; }));
   const settingsFile = () => getJSON('settings.json');
-  const okMethod = async (m) => { const s = await settingsFile(); const all = s.methods || ['city_pace']; return all.includes(m) ? m : all[0]; };
+  const okMethod = async (m) => { const s = await settingsFile(); const all = s.methods || ['city_actual']; return all.includes(m) ? m : all[0]; };
   const fail = (e) => ({ ok: false, error: String((e && e.message) || e) });
   const today = () => new Date().toISOString().slice(0, 10);
 
@@ -26,7 +29,7 @@
       }
       try {
         const w = ward === null || ward === undefined ? store.get('scope', 0) : +ward;
-        const m = await okMethod(store.get('pop_method', 'city_pace'));
+        const m = await okMethod(store.get('pop_method', 'city_actual'));
         if (force) delete held[`${m}/w${w}.json`];
         const data = await getJSON(`${m}/w${w}.json`);
         store.set('scope', w);
@@ -36,7 +39,7 @@
     async set_scope(w) { store.set('scope', +w || 0); return +w || 0; },
     async compare_wards() {
       try {
-        const m = await okMethod(store.get('pop_method', 'city_pace'));
+        const m = await okMethod(store.get('pop_method', 'city_actual'));
         const c = await getJSON(`${m}/w0.json`);
         const pick = ['wards_summary', 'period', 'prev_period', 'period_spec', 'built_at', 'scope', 'population', 'stale'];
         return { ok: true, data: Object.fromEntries(pick.map(k => [k, c[k]])), wards_geo: (c.geo || {}).wards, city_geo: (c.geo || {}).city };
@@ -85,7 +88,7 @@
         has_key: false, key_hint: '', engines: [], max_engines: 0, providers: [], models: {}, downloads: 'your browser\'s downloads',
         theme: store.get('theme', 'system'), map_style: store.get('map_style', 'street'),
         has_google_key: false, google_key_hint: '', google_key: '',
-        pop_method: await okMethod(store.get('pop_method', 'city_pace')), scope: store.get('scope', 0),
+        pop_method: await okMethod(store.get('pop_method', 'city_actual')), scope: store.get('scope', 0),
         pop_methods: (s.pop_methods || []).filter(p => !s.methods || s.methods.includes(p.key)), web: true, built: s,
       };
     },

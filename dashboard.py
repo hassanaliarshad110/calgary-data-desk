@@ -72,7 +72,7 @@ class PeriodError(ValueError):
     """A period the user chose that can't be used (the message says why)."""
 
 
-DATA_VERSION = 15          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
+DATA_VERSION = 16          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
 # The City of Calgary's total population on April 1 (Calgary and Region Economic Outlook 2026-2031, spring 2026,
 # Table 4: 2021-2025 estimates, 2026 onward forecast). Used for city-wide crime rates, read at the middle of the
 # crime period so Calgary and Ward 5 are counted at the same date.
@@ -92,16 +92,9 @@ CITY_POP_SOURCE = {
            '(November 2026: 1,583,200 in April 2026 + 7/12 of the way to 1,608,700 in April 2027 = 1,598,075).'}
 
 
-DEFAULT_POP_METHOD = 'city_pace'   # the City's own total (its population forecast) unless the office chooses otherwise
+DEFAULT_POP_METHOD = 'city_actual'   # the City's own total, shared by actual growth, unless the office chooses otherwise
 # How residents are counted. Every per-1,000 rate, the population figures and the children estimates follow it.
 POP_METHODS = {
-    'city_pace': {'label': "2021 Census grown to the City's total",
-                  'short': "City's total",
-                  'about': "All of Calgary adds up to the City's own population estimate and forecast for that month. "
-                           "Communities built since 2021 keep their growth model count; every other community is its 2021 "
-                           "Census count grown by one factor, the same for all, so each keeps its 2021 share. The factor "
-                           "also brings in people the Census count of private homes leaves out (seniors' homes, residences, "
-                           "shelters), so its growth since 2021 reads about 3 points higher than real growth."},
     'city_actual': {'label': "City's total, shared by actual growth",
                     'short': "City's total, actual growth",
                     'about': "All of Calgary adds up to the City's own population estimate and forecast for that month, "
@@ -110,6 +103,13 @@ POP_METHODS = {
                              "only what homes do not explain (more people per home since 2021, people in seniors' homes, "
                              "residences and shelters, the Census undercount) over every community's 2021 count. Fast-"
                              "building areas get their real growth; built-out ones grow less."},
+    'city_pace': {'label': "City's total, one rate for all",
+                  'short': "City's total",
+                  'about': "All of Calgary adds up to the City's own population estimate and forecast for that month. "
+                           "Communities built since 2021 keep their growth model count; every other community is its 2021 "
+                           "Census count grown by one factor, the same for all, so each keeps its 2021 share. The factor "
+                           "also brings in people the Census count of private homes leaves out (seniors' homes, residences, "
+                           "shelters), so its growth since 2021 reads about 3 points higher than real growth."},
     'model': {'label': 'Growth model',
               'short': 'growth model',
               'about': "The 2021 Census for each community, grown with the homes on the City's current property "
@@ -561,7 +561,7 @@ def ward_lists(cache_dir, ward, live=False):
     return res, other, table
 
 
-def build(today=None, cache_dir=None, spec=None, pop_method='city_pace', live=False, ward=WARD):
+def build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD, live=False, ward=WARD):
     """The dashboard, counted from the newest federal Census the City has published (census.py checks weekly)."""
     cdir = cache_dir or os.path.join(os.path.expanduser('~'), '.ward5datadesk')
     try:
@@ -575,7 +575,7 @@ def build(today=None, cache_dir=None, spec=None, pop_method='city_pace', live=Fa
     return censusmod.relabel(data, int(info.get('year') or 2021))
 
 
-def _build(today=None, cache_dir=None, spec=None, pop_method='city_pace', live=False, ward=WARD, census=None):
+def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD, live=False, ward=WARD, census=None):
     """live: the office pressed Refresh, so every source is asked again now (no week-old saved copies).
     ward: any of Calgary's 14 wards (its communities come from the City's outlines), or 0 for the whole city:
     every community, with a summary of each ward for comparing them."""
@@ -1778,7 +1778,7 @@ def _write_json(path, data):
     os.replace(tmp, path)
 
 
-def cache_path(cache_file, spec=None, pop_method='city_pace', ward=WARD):
+def cache_path(cache_file, spec=None, pop_method=DEFAULT_POP_METHOD, ward=WARD):
     key = period_key(spec)
     pop_method = pop_method_ok(pop_method)
     ward = wardmap.ward_ok(ward)
@@ -1794,7 +1794,7 @@ def cache_path(cache_file, spec=None, pop_method='city_pace', ward=WARD):
     return f'{base}_{key}{ext}'
 
 
-def saved(cache_file, spec=None, pop_method='city_pace', ward=WARD):
+def saved(cache_file, spec=None, pop_method=DEFAULT_POP_METHOD, ward=WARD):
     """The last saved copy of a view, however old, and its age in hours (None, None if there is none).
     Shown at once when the office switches view, while a fresh copy is built behind it."""
     path = cache_path(cache_file, spec, pop_method, wardmap.ward_ok(ward))
@@ -1804,7 +1804,7 @@ def saved(cache_file, spec=None, pop_method='city_pace', ward=WARD):
     return (data, (time.time() - os.path.getmtime(path)) / 3600) if data else (None, None)
 
 
-def load(cache_file, max_age_hours=6, force=False, spec=None, pop_method='city_pace', ward=WARD):
+def load(cache_file, max_age_hours=6, force=False, spec=None, pop_method=DEFAULT_POP_METHOD, ward=WARD):
     """Return the dashboard from cache if fresh, otherwise rebuild it. Each ward, period and way of counting
     residents has its own saved copy."""
     ward = wardmap.ward_ok(ward)

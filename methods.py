@@ -29,7 +29,7 @@ AMENITY_STEPS = [
     'A community is flagged "not kept up with growth" when it grew more than 20% since the 2021 Census '
     '(or did not exist then) and its level is below 0.75.',
     'Communities with fewer than 100 residents are left out: per-resident figures mean nothing there.',
-    'Residents are counted the way chosen in Settings (the City\'s total, its population forecast, by default). The '
+    'Residents are counted the way chosen in Settings (the City\'s total shared by actual growth, by default). The '
     'levels under all three counts are shown together. With "grown to the City\'s total" every community counted in 2021 '
     'grows by the same factor (communities built since then come from the growth model), so its shares against the city '
     'are close to the 2021 Census ones; the growth model changes them most.',
@@ -110,7 +110,7 @@ METHODS = [
      'updated': 'Census: 2021; property roll: through the year; City outlook: each spring',
      'used_in': 'Residents, every rate per 1,000, population charts, children estimates, newsletter, Data Genie',
      'method': [
-         'Four choices. Grown to the City\'s total is the default (below). Growth model: each community\'s 2021 Census count grown with the homes on the property roll (see '
+         'Four choices. The City\'s total, shared by actual growth, is the default (below); its growth for Ward 5 falls inside the growth checks, where one rate for all falls below them. Growth model: each community\'s 2021 Census count grown with the homes on the property roll (see '
          '"Ward 5 growth model" below).',
          '2021 Census, no growth: each community\'s 2021 Census count (total_pop_household, f9wk-wej9), unchanged. The '
          'City\'s own 311 ward dashboard counts this way (it divides by 2021 Census households).',
