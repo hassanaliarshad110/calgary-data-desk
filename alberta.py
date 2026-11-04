@@ -118,6 +118,40 @@ def _col(header, *names):
     return None
 
 
+GROUP_FAMILY_MAX = 12      # from September 2026 the file says only "Home Based": a home of up to this many children is a
+                           # group family child care program; a larger one is a family day home agency (its capacity is
+                           # spread over day homes across the city, so it is not counted)
+
+
+def _yes(v):
+    """Y/N columns until 2026, TRUE/FALSE from September 2026."""
+    return str(v or '').strip().upper() in ('Y', 'YES', 'TRUE', '1')
+
+
+def _day(v):
+    """An inspection or remedy date as YYYY-MM-DD: ISO dates until 2026, Excel day numbers (45804) from September 2026."""
+    v = str(v or '').strip()
+    if re.fullmatch(r'\d{5}(\.0+)?', v):
+        import datetime as _dt
+        return (_dt.date(1899, 12, 30) + _dt.timedelta(days=int(float(v)))).isoformat()
+    return v[:10]
+
+
+def _program_type(t, cap):
+    """The program type in the older words, whichever file layout (September 2026 renamed and merged them)."""
+    t = (t or '').strip().upper()
+    if t == 'FACILITY BASED':
+        return 'FACILITY-BASED PROGRAM'
+    if t == 'HOME BASED':
+        return 'GROUP FAMILY CHILD CARE PROGRAM' if 0 < cap <= GROUP_FAMILY_MAX else 'FAMILY DAY HOME'
+    return t
+
+
+def program_key(p):
+    """The same program in every file: its name and address (the Program ID changed form in September 2026)."""
+    return re.sub(r'[^A-Z0-9]', '', p['name'].upper()) + '|' + re.sub(r'[^A-Z0-9]', '', p['address'].upper())
+
+
 def parse_child_care(data):
     """Programs (one per Program ID) and inspection rows from one quarterly file."""
     rows = list(csv.reader(io.StringIO(data.decode('utf-8-sig', 'replace'))))
@@ -125,7 +159,7 @@ def parse_child_care(data):
         return None                   # the September 2021 file is published broken
     h = rows[0]
     c = {k: _col(h, *v) for k, v in {
-        'id': ('Program ID',), 'name': ('Program Name',), 'address': ('Program Address',), 'city': ('Program City',),
+        'id': ('Program ID', 'Program_ID_hash'), 'name': ('Program Name',), 'address': ('Program Address',), 'city': ('Program City',),
         'postal': ('Postal Code',), 'phone': ('Phone Number',), 'type': ('Type of Program',),
         'daycare': ('Day Care Y/N',), 'osc': ('Out of School Care Y/N',), 'preschool': ('Preschool Y/N',),
         'capacity': ('Capacity',), 'date': ('Inspection Date',), 'reason': ('Inspection Reason',),
@@ -142,15 +176,17 @@ def parse_child_care(data):
             except ValueError:
                 cap = 0
             programs[pid] = {'id': pid, 'name': get(r, 'name'), 'address': get(r, 'address'), 'postal': get(r, 'postal').replace(' ', '').upper(),
-                             'phone': get(r, 'phone'), 'type': get(r, 'type').upper(), 'capacity': cap,
-                             'daycare': get(r, 'daycare').upper() == 'Y', 'osc': get(r, 'osc').upper() == 'Y',
-                             'preschool': get(r, 'preschool').upper() == 'Y'}
+                             'phone': get(r, 'phone'), 'type': _program_type(get(r, 'type'), cap), 'capacity': cap,
+                             'daycare': _yes(get(r, 'daycare')), 'osc': _yes(get(r, 'osc')),
+                             'preschool': _yes(get(r, 'preschool'))}
         d = get(r, 'date')
         if d and d.upper() != 'NULL':
             act = get(r, 'action')
-            inspections.append({'id': pid, 'date': d[:10], 'reason': get(r, 'reason'),
+            rem = get(r, 'remedy')
+            inspections.append({'id': pid, 'date': _day(d), 'reason': get(r, 'reason'),
                                 'noncompliance': get(r, 'noncompliance'),
-                                'action': '' if act.upper() == 'NULL' else act, 'remedy': get(r, 'remedy')})
+                                'action': '' if act.upper() == 'NULL' else act,
+                                'remedy': _day(rem) if rem and rem not in ('-',) and rem.upper() != 'NULL' else rem})
     return {'programs': list(programs.values()), 'inspections': inspections}
 
 

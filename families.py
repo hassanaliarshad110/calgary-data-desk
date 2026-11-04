@@ -224,7 +224,7 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
     first_seen = {}
     for lab, _, qq in quarters:
         for p in qq['programs']:
-            first_seen.setdefault(p['id'], lab)
+            first_seen.setdefault(alberta.program_key(p), lab)
     programs = []
     for p in q['programs']:
         h = in_ward(p)
@@ -238,7 +238,7 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
             'id': p['id'], 'name': p['name'].title(), 'kind': alberta.kind(p), 'type': p['type'].title(),
             'capacity': p['capacity'], 'counted': alberta.kind(p) != NOT_COUNTED,
             'address': p['address'], 'postal': p['postal'], 'phone': p['phone'], 'comm': h[1],
-            'lat': h[2][0] if h[2] else None, 'lon': h[2][1] if h[2] else None, 'since': first_seen.get(p['id']),
+            'lat': h[2][0] if h[2] else None, 'lon': h[2][1] if h[2] else None, 'since': first_seen.get(alberta.program_key(p)),
             'daycare': p['daycare'], 'osc': p['osc'], 'preschool': p['preschool'],
             'visits_12m': len(visits), 'last_visit': rec[-1]['date'] if rec else None,
             'noncompliance_12m': sum(1 for r in recent if r['noncompliance']),
