@@ -266,7 +266,10 @@ take to reach the Calgary level). It counts the City's amenities plus the ones t
 OpenStreetMap that are open to everyone (developer, school), with City ones taken out so nothing counts twice (get_code \
 topic other_amenities); each row also has the City-only level. Private, residents-only ones (access=private: homeowners' \
 association, condo) are left out by default and counted only when the screen's "include private ones" filter is on \
-(needs_attention_with_private). The score is worked out in attention.py (get_code topic \
+(needs_attention_with_private). For a list of these amenities, their counts or their links, use get_dashboard section \
+other_amenities (with ward or community): every feature is saved there with its name and OpenStreetMap link, and its \
+totals count every community in the ward (business and industrial areas too), the same as the Growth vs amenities tab. \
+Never build those totals from the Needs attention rows, which hold only the communities ranked there. The score is worked out in attention.py (get_code topic \
 needs_attention). Always \
 (in answers, reports and their recommendations) present it as priorities for review from open data, never as a \
 spending recommendation or a list of things to buy: the data has no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
@@ -365,12 +368,18 @@ TOOLS = [
                     'per 1,000 residents in each community against the city, an amenity level, and the communities flagged '
                     'because amenities have not kept up with growth. section="needs_attention" ranks the communities that '
                     'most need public amenities (tier, score 0 to 100, what each would take to reach the Calgary level). '
+                    'section="other_amenities" lists the private amenities accessible to the community (OpenStreetMap, not '
+                    'the City\'s: playgrounds, parks, courts, fitness stations, dog parks), every one with its name and map '
+                    'link, with community and ward totals that match the Growth vs amenities tab; pass ward (a number) or '
+                    'community (code or name) to narrow it. '
                     'section="property_tax" gives the property tax estimate by ward and community. section="wards" gives '
                     'all 14 wards and Calgary side by side (residents, growth, 311, crime, traffic, building, child care, '
                     'amenities), whatever area is selected.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'needs_attention', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
-         'description': 'Which part of the dashboard; overview by default'}}}},
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'needs_attention', 'other_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
+         'description': 'Which part of the dashboard; overview by default'},
+         'ward': {'type': 'integer', 'description': 'section other_amenities only: one ward of the city view'},
+         'community': {'type': 'string', 'description': 'section other_amenities only: one community (code or name)'}}}},
     {'name': 'get_weather',
      'description': 'Calgary weather history from Environment Canada (Calgary International Airport, northeast Calgary): '
                     'mean, lowest and highest temperature, precipitation, rain, snowfall, snow on ground, hot and '
@@ -638,6 +647,62 @@ def _attention_out(a, ward_of, short=False):
                      for r in keep]}
 
 
+OSM_KIND_WORD = {'playgrounds': 'playground', 'fitness': 'fitness station', 'basketball': 'basketball court',
+                 'off_leash': 'dog park', 'local_park_ha': 'park'}
+
+
+def _other_amenities_out(d, ward=None, community=None):
+    """Private amenities accessible to the community (OpenStreetMap, not the City's): every community's counts, the
+    ward and area totals (the same figures as Growth vs amenities > Assets) and every feature with its map link.
+    ward: a ward number to narrow the city view to; community: a community code or name."""
+    g = d.get('amenity_gap') or {}
+    o = g.get('other') or {}
+    if not o:
+        return {'error': 'The OpenStreetMap amenities are not in this refresh (OpenStreetMap could not be reached).'}
+    cs = {c['code']: c for c in d.get('communities') or []}
+    want = None
+    if community:
+        q = str(community).strip().upper()
+        want = {c for c, v in cs.items() if c == q or str(v.get('name', '')).upper() == q}
+    try:
+        w = int(ward) if ward not in (None, '', 0, '0') else None
+    except (TypeError, ValueError):
+        w = None
+    keep = lambda c: (want is None or c in want) and (w is None or (cs.get(c) or {}).get('ward') == w)
+    feats = [f for f in o.get('features') or [] if keep(f.get('comm'))]
+    kinds = list(OSM_KIND_WORD)
+
+    def tot(by):
+        return {k: round(sum((v or {}).get(k, 0) for c, v in by.items() if keep(c)), 2) for k in kinds}
+    rows = []
+    for c in sorted({f.get('comm') for f in feats}, key=lambda c: str((cs.get(c) or {}).get('name', c))):
+        rows.append({'community': (cs.get(c) or {}).get('name', c), 'code': c, 'ward': (cs.get(c) or {}).get('ward'),
+                     'residential': (cs.get(c) or {}).get('residential'),
+                     'accessible': (o.get('by_comm') or {}).get(c) or {},
+                     'gated_residents_only': (o.get('by_comm_private') or {}).get(c) or {}})
+    out_f = [{'kind': OSM_KIND_WORD.get(f.get('kind'), f.get('kind')), 'name': f.get('name') or '(no name mapped)',
+              'community': (cs.get(f.get('comm')) or {}).get('name', f.get('comm')), 'ward': (cs.get(f.get('comm')) or {}).get('ward'),
+              **({'hectares': f['ha']} if f.get('ha') is not None else {}),
+              'gated_residents_only': bool(f.get('private')),
+              'link': f"https://www.openstreetmap.org/{f.get('osm')}"} for f in feats]
+    limit = 250
+    return {'area': (f'Ward {w}' if w else 'the area on screen') + (f', {community}' if community else ''),
+            'totals_accessible': tot(o.get('by_comm') or {}),
+            'totals_gated_residents_only': tot(o.get('by_comm_private') or {}),
+            'by_community': rows, 'features': out_f[:limit], 'features_count': len(out_f),
+            **({'features_cut': f'Only the first {limit} of {len(out_f)} are listed: narrow by ward or community.'}
+               if len(out_f) > limit else {}),
+            'counted': o.get('counted'), 'source': '© OpenStreetMap contributors (Open Database Licence)',
+            'note': 'Private amenities accessible to the community: playgrounds, fitness stations, basketball courts, dog '
+                    'parks and parks mapped in OpenStreetMap that are not the City\'s (every one matching a City amenity is '
+                    'taken out; get_code topic other_amenities). Totals count every community in the area, business and '
+                    'industrial areas too, so they match Growth vs amenities > Assets and the wards section '
+                    '(amenity_counts_other); the Needs attention cards list only the communities ranked there. '
+                    'gated_residents_only (OpenStreetMap access=private: homeowners\' association, condo) are counted only '
+                    'when the screens\' "Also count gated, residents-only ones" box is ticked. Give the user the links: '
+                    'each opens that feature on the OpenStreetMap map.'}
+
+
 def dashboard_section(d, section='overview', wards=None):
     """The dashboard's figures for the selected area (all of Calgary or one ward), one part at a time so each answer
     fits. wards: () -> the summary of every ward (built from the whole-city dashboard), for section="wards"."""
@@ -705,6 +770,8 @@ def dashboard_section(d, section='overview', wards=None):
                         'then the step to the way of counting in use (residents). method "household size" rows use the 2021 '
                         'household size for the change in homes only. The screen Growth vs amenities > Population build-up '
                         'lists every property. Code: get_code topic population_recon.'}
+    if section == 'other_amenities':
+        return _other_amenities_out(d, wards)
     if section == 'needs_attention':
         g = d.get('amenity_gap') or {}
         ward_of = {c['code']: c.get('ward') for c in d.get('communities') or []}
@@ -880,6 +947,8 @@ class Agent:
             if (args.get('section') or '') == 'property_tax':
                 t = self.tax_provider() if self.tax_provider else None
                 return {'property_tax': t, 'how': methods_mod.find('property_tax')} if t else {'error': 'The property tax estimate is not available right now.'}
+            if (args.get('section') or '') == 'other_amenities':
+                return _other_amenities_out(d, args.get('ward'), args.get('community'))
             return dashboard_section(d, args.get('section') or 'overview', self.wards_provider)
         if name == 'get_weather':
             return weather.history(args['start'], args['end'], args.get('by', 'month'))

@@ -1433,6 +1433,15 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
     comm_ward = {c: v['ward'] for c, v in ((ward_table or {}).get('communities') or {}).items()}
     for c in communities:
         c['ward'] = comm_ward.get(c['code'], None if city else ward)
+    # every OpenStreetMap feature in the area's communities (business and industrial areas too), each with its link,
+    # so the lists and Data Genie add up to the ward and Calgary totals (which count every community)
+    if amenity_gap and amenity_gap.get('other') and (asset_data or {}).get('other'):
+        here_ = {c['code'] for c in communities}
+        src_ = asset_data['other']
+        amenity_gap['other']['features'] = [f for f in src_.get('features') or [] if f.get('comm') in here_]
+        amenity_gap['other']['by_comm'] = {c: v for c, v in (src_.get('by_comm') or {}).items() if c in here_ and v}
+        amenity_gap['other']['by_comm_private'] = {c: v for c, v in (src_.get('by_comm_private') or {}).items()
+                                                   if c in here_ and v}
     wards_summary = None
     if city:
         wards_summary = ward_summaries(communities, comm_ward, pop_mid12, pop_midprev, yr12, yrprev, R, O, t12, tprev,
