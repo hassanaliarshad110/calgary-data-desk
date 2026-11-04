@@ -35,6 +35,7 @@
     <symbol id="i-open" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
     <symbol id="i-bars" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></symbol>
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
     <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
@@ -82,13 +83,16 @@
     <img class="brand-mark" src="logo.svg" alt="" width="42" height="42">
     <div class="brand-text"><strong>Calgary Data Desk</strong><span>The city, ward by ward</span></div>
   </div>
+  <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="side-menu" aria-label="Menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
   <label class="scope-pick" for="scope-sel"><span>Viewing</span>
     <select id="scope-sel" aria-label="Show the whole city or one ward"><option value="0">Calgary: all wards</option></select>
   </label>
+  <div class="side-menu" id="side-menu">
   <div class="nav">
     <p class="nav-h">Overview</p>
     <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
     <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: where growth has outpaced amenities"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
+    <button class="tab tab-attn" data-view="attention" title="Needs attention: communities that score lowest on public amenities"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span>Needs attention</span><b class="tab-count" id="tab-attn-count"></b></button>
     <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
     <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
     <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
@@ -110,6 +114,7 @@
   <div class="side-foot">
     <button class="status" id="side-status" type="button" aria-haspopup="dialog" title="Data status"><span class="dot" aria-hidden="true"></span><span class="status-text">Connecting</span></button>
     <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg><span>Dark mode</span></button>
+  </div>
   </div>
 </nav>
 
@@ -446,6 +451,23 @@
   </section>
 
   <!-- ======================= GROWTH ======================= -->
+  <section id="view-attention" class="view" aria-labelledby="at-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="at-title">Needs attention</h1><p class="meta" id="at-sub">Communities that score lowest on public amenities, with growth taken into account</p></div>
+      <div class="topbar-actions">
+        <button class="btn" id="at-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="at-stats" id="at-stats"></div>
+      <div class="banner info at-caveat" id="at-caveat"></div>
+      <div class="at-ctl" id="at-ctl"></div>
+      <div class="at-list" id="at-list"></div>
+      <details class="card at-method" id="at-method"></details>
+      <p class="notes" id="at-notes"></p>
+    </div>
+  </section>
+
   <section id="view-growth" class="view" aria-labelledby="gr-title">
     <header class="topbar">
       <div class="topbar-title"><h1 id="gr-title">Growth vs amenities</h1><p class="meta" id="gr-sub">Development permits, amenities and what is being built in Ward 5</p></div>
@@ -889,5 +911,6 @@
 <script src="compare.js"></script>
 <script src="budget.js"></script>
 <script src="audit.js"></script>
+<script src="attention.js"></script>
 </body>
 </html>

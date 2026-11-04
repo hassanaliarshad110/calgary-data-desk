@@ -10,6 +10,7 @@ import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 
+import attention
 import calgary_data as cd
 import population as popmodel
 import families
@@ -70,7 +71,7 @@ class PeriodError(ValueError):
     """A period the user chose that can't be used (the message says why)."""
 
 
-DATA_VERSION = 13          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
+DATA_VERSION = 14          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
 # The City of Calgary's total population on April 1 (Calgary and Region Economic Outlook 2026-2031, spring 2026,
 # Table 4: 2021-2025 estimates, 2026 onward forecast). Used for city-wide crime rates, read at the middle of the
 # crime period so Calgary and Ward 5 are counted at the same date.
@@ -1015,7 +1016,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='city_pace', live=F
     kids_all = {c: kids_for(c, (pop_all.get(c) or {}).get('model') or 0, ref)[1] for c in ALL_RES}
     asset_data, asset_err = _safe(lambda: assetmap.load(cdir, force=False))
     # against the whole city: only when every community is known (without the ward table the "city" would be the ward)
-    amenity_gap = amenity_view(asset_data, RESIDENTIAL_CODES, ALL_RES, pop_all, kids_all, names, amenities) \
+    amenity_gap = with_attention(amenity_view(asset_data, RESIDENTIAL_CODES, ALL_RES, pop_all, kids_all, names, amenities)) \
         if asset_data and ward_table else None
     # the same amenity levels under each way of counting residents, so the office can see how much the count matters
     f_city = city_factor(ref)
@@ -1373,6 +1374,13 @@ def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, a
                      'with growth. Counts are City assets in open data; private, school and community association '
                      'facilities are not included.'),
             'method': AMENITY_METHOD}
+
+
+def with_attention(view):
+    """The amenity view with its Needs attention ranking (attention.py has the score and how it is worked out)."""
+    if view:
+        view['attention'] = attention.rank(view)
+    return view
 
 
 AMENITY_METHOD = methods.AMENITY_STEPS   # the method, step by step, shown on screen and to the Genie

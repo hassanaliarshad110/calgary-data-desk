@@ -126,6 +126,7 @@ function show(view) {
   if (view === 'cameras') renderCameraWall();
   if (view === 'families' && window.renderFamilies) renderFamilies();
   if (view === 'growth' && window.renderGrowth) renderGrowth();
+  if (view === 'attention' && window.renderAttention) renderAttention();
   if (view === 'compare' && window.renderCompare) renderCompare();
   if (view === 'sources' && window.renderSources) renderSources();
   if (view === 'methods' && window.renderMethods) renderMethods();
@@ -134,7 +135,18 @@ function show(view) {
   if (view === 'news' && window.initNews) initNews();
   if (view === 'ask') $('#question').focus();
 }
-$$('.tab').forEach(t => t.addEventListener('click', () => show(t.dataset.view)));
+$$('.tab').forEach(t => t.addEventListener('click', () => { if (t.dataset.view) show(t.dataset.view); setMenu(false); }));
+// phones: the sections sit behind a menu button at the top, so every page gets the full width
+function setMenu(open) {
+  const side = $('.side'), b = $('#menu-btn');
+  if (!side || !b) return;
+  side.classList.toggle('open', open);
+  b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  b.setAttribute('aria-label', open ? 'Close the menu' : 'Menu');
+}
+$('#menu-btn').addEventListener('click', () => setMenu(!$('.side').classList.contains('open')));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('.side').classList.contains('open')) { setMenu(false); $('#menu-btn').focus(); } });
+$('#brief-btn') && $('#brief-btn').addEventListener('click', () => setMenu(false));
 document.addEventListener('click', e => {
   const g = e.target.closest('[data-goto]');
   if (g) show(g.dataset.goto);
@@ -322,6 +334,7 @@ function renderDashboard() {
   if ($('#view-cameras').classList.contains('is-on')) renderCameraWall();
   if ($('#view-families').classList.contains('is-on') && window.renderFamilies) renderFamilies();   // the screen on show follows a new ward
   if ($('#view-growth').classList.contains('is-on') && window.renderGrowth) renderGrowth();
+  if (window.renderAttention) renderAttention(!$('#view-attention').classList.contains('is-on'));
   if (!$('#brief').hidden) renderBrief();
 }
 

@@ -14,6 +14,7 @@ import methods as methods_mod
 import context
 import engines
 import local_data
+import codebook
 import methods
 import police
 import report
@@ -70,6 +71,11 @@ How every number is counted
 reproduce a figure in Excel, and cautions. Call it before explaining, defending or reconciling any dashboard figure, \
 and whenever a file or another source gives a different number: then count step by step with the same filters and \
 show where the difference comes from. Never say you cannot explain a difference before doing that.
+- get_code gives the app's own Python code behind a figure: the exact formula, constants and thresholds. For any \
+question about how a figure, score, level, flag, rate or estimate is worked out (a formula or methodology \
+question), call get_method and get_code, answer from them, quote the formula and its numbers as written in the code \
+(with the file and function name), and work one real example through with the figures from the dashboard. Never \
+describe a formula from memory or by working it out backwards from the results.
 
 Use the data you already have first
 1. get_ward5_dashboard (its sections: overview, communities, child_care, schools, development, amenities, crime) already holds the app's Ward 5 figures for the selected period. Try it first for any Ward 5 question.
@@ -242,6 +248,12 @@ counted, because the homes they oversee are spread across the city.
 step (method), the level under all three ways of counting residents (level_under_each_resident_count) and every \
 dataset. Explain the level from method, never by working the formula out backwards. section wards has every ward's \
 level under all three counts (amenity_level_by_method).
+- Needs attention: get_ward5_dashboard section needs_attention has the communities that most need public \
+amenities (tier Urgent, High or Watch, a score from 0 to 100, its shortfall and growth pressure, and what it would \
+take to reach the Calgary level). The score is worked out in attention.py (get_code topic needs_attention). Asked \
+about spending, present it as priorities for review from open data, never as a spending recommendation: the data has \
+no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
+communities often have developer-built parks still to come.
 
 City budget
 The City's budget is in Calgary Open Budget (fqax-i3nz): budget_department, level_2, business_unit, year, budget_status
@@ -322,11 +334,13 @@ TOOLS = [
                     'section="amenity_gap" gives City assets (benches, picnic tables, playgrounds, sports equipment, park '
                     'washrooms, fountains, bins, off-leash areas, neighbourhood park space, trees, facilities, transit stops) '
                     'per 1,000 residents in each community against the city, an amenity level, and the communities flagged '
-                    'because amenities have not kept up with growth. section="wards" gives all 14 wards and Calgary side by '
+                    'because amenities have not kept up with growth. section="needs_attention" ranks the communities that '
+                    'most need public amenities (tier, score 0 to 100, what each would take to reach the Calgary level). '
+                    'section="wards" gives all 14 wards and Calgary side by '
                     'side (residents, growth, 311, crime, traffic, building, child care, amenities). The figures are for '
                     'the area the office has selected in the app (scope: a ward, or all of Calgary).',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'needs_attention', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
          'description': 'Which part of the dashboard; overview by default'}}}},
     {'name': 'get_weather',
      'description': 'Calgary weather history from Environment Canada (Calgary International Airport, in Ward 5): '
@@ -360,6 +374,14 @@ TOOLS = [
                     'topic: a key (311, population, children, permits, dp, traffic, police, csi, rents, child_care, schools, '
                     'amenities, roads, cameras, city_disorder, weather), a dataset ID or a word; empty lists the topics.',
      'input_schema': {'type': 'object', 'properties': {'topic': {'type': 'string'}}}},
+    {'name': 'get_code',
+     'description': "The app's own Python code behind any figure: the exact formula, constants and thresholds that "
+                    'produced it. topic (empty lists them): needs_attention, amenity_gap, assets, population, growth_model, '
+                    'children, rates, periods, property_tax, budget, crime, child_care, rents, wards, census, report_auditor. '
+                    'Or name: one function or constant (e.g. city_factor, scope_level, GAP_LEVEL), optionally with file. '
+                    'Or text with file: search a file (e.g. text "1,598", file "dashboard.py").',
+     'input_schema': {'type': 'object', 'properties': {
+         'topic': {'type': 'string'}, 'name': {'type': 'string'}, 'file': {'type': 'string'}, 'text': {'type': 'string'}}}},
     {'name': 'list_saved_files',
      'description': 'The CSV files already saved in the Files folder on this computer, with their columns and row counts.',
      'input_schema': {'type': 'object', 'properties': {}}},
@@ -488,6 +510,7 @@ STEP_TEXT = {
     'crime_severity_index': lambda a: 'Reading the Crime Severity Index',
     'list_saved_files': lambda a: 'Checking the files already saved',
     'get_method': lambda a: f"Reading how the app counts {a.get('topic') or 'its figures'}",
+    'get_code': lambda a: f"Reading the app's code for {a.get('topic') or a.get('name') or a.get('text') or 'its formulas'}",
     'query_saved_file': lambda a: f"Working with the saved file “{a.get('file_name', '')}”",
     'save_table': lambda a: f"Saving “{a.get('file_name', '')}”",
     'show_chart': lambda a: 'Drawing a chart',
@@ -496,6 +519,32 @@ STEP_TEXT = {
     'calculate': lambda a: f"Working out {len(a.get('calculations') or [])} figure{'s' if len(a.get('calculations') or []) != 1 else ''}",
     'make_report': lambda a: f"Writing the report “{a.get('title', '')}”: PDF, interactive version and Excel workbook",
 }
+
+
+def _attention_out(a, ward_of, short=False):
+    """The Needs attention ranking for the agent. short: the counts and the ten most urgent names (for amenity_gap);
+    otherwise every Urgent and High community and the Watch ones, most urgent first, with what each would take."""
+    if not a:
+        return None
+    rows = a.get('rows') or []
+    base = {'counts': a.get('counts'), 'residents': a.get('residents'), 'communities_checked': a.get('checked')}
+    if short:
+        return {**base, 'most_urgent': [f"{r['name']} ({r['tier']}, score {r['score']})" for r in rows[:10]],
+                'more': 'get_ward5_dashboard section needs_attention has every listed community, the score and what each would take'}
+    top = [r for r in rows if r['tier'] != 'Watch']
+    watch = [r for r in rows if r['tier'] == 'Watch']
+    keep = top + watch[:max(0, 45 - len(top))]
+    return {**base, 'thresholds': a.get('thresholds'), 'method': a.get('method'),
+            'score_formula': 'score = round(100 * shortfall * pressure / 2); shortfall = max(0, 1 - level); '
+                             'pressure = 2.0 if new else 1 + min(max(growth_pct, 0), 100) / 100 (attention.py)',
+            'shown': 'every listed community' if len(keep) == len(rows) else
+                     f'every Urgent and High community and the {len(keep) - len(top)} highest-scoring Watch ones of {len(watch)}',
+            'rows': [{**{k: r.get(k) for k in ('name', 'tier', 'score', 'level', 'shortfall', 'pressure', 'growth_pct',
+                                               'residents')},
+                      **({'new_since_2021': True} if r.get('new') else {}), 'ward': ward_of.get(r.get('code')),
+                      'to_reach_calgary_level': '; '.join(f"{c['label']} +{c['need']}{' ha' if c['unit'] == 'ha' else ''} (has {c['have']})"
+                                                          for c in r.get('catch_up') or [])}
+                     for r in keep]}
 
 
 def ward5_section(d, section='overview', wards=None):
@@ -552,6 +601,14 @@ def ward5_section(d, section='overview', wards=None):
         return {'ward_profile_2021_census': d.get('profile')}
     if section == 'crime':
         return {'ward_crime': d.get('crime'), 'crime_severity_index': d.get('safety')}
+    if section == 'needs_attention':
+        g = d.get('amenity_gap') or {}
+        ward_of = {c['code']: c.get('ward') for c in d.get('communities') or []}
+        return {'needs_attention': _attention_out(g.get('attention'), ward_of),
+                'caution': 'Priorities for review from open data, not a spending recommendation: no costs; school, private '
+                           'and community association amenities and those across a boundary are not counted; new '
+                           'communities often have developer-built parks still to come.'} if g.get('attention') else \
+            {'error': 'The amenity data is not available in this refresh.'}
     if section == 'amenity_gap':
         g = d.get('amenity_gap') or {}
         rows = g.get('by_comm') or []
@@ -569,6 +626,7 @@ def ward5_section(d, section='overview', wards=None):
                              if v.get('dataset')},
                 'kinds': {k: v.get('label') + (' (per 1,000 children 0 to 14)' if v.get('per') == 'children' else '')
                           for k, v in (g.get('kinds') or {}).items()},
+                'needs_attention': _attention_out(g.get('attention'), ward_of, short=True),
                 'communities_counted': len(rows), 'flagged_count': len(g.get('flagged') or []),
                 'by_comm': [dict({k: r.get(k) for k in keys}, ward=ward_of.get(r['code'])) for r in pick],
                 'shown': 'flagged communities and the 40 lowest of the rest' if many else 'every community'}
@@ -720,6 +778,8 @@ class Agent:
             return local_data.list_files(self.downloads_dir)
         if name == 'get_method':
             return methods.find(args.get('topic'))
+        if name == 'get_code':
+            return codebook.get(args.get('topic'), args.get('name'), args.get('file'), args.get('text'))
         if name == 'query_saved_file':
             return local_data.query_file(self.downloads_dir, args.get('file_name'), args.get('filters'),
                                          args.get('group_by'), args.get('sum_columns'), args.get('columns'),

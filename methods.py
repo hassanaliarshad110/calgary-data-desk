@@ -3,6 +3,7 @@
 One place for the method notes that Data Genie reads (get_method) and the Data sources tab shows ("How the app
 counts it"), so a person or the assistant can explain or reproduce any dashboard number, for example in Excel.
 """
+import attention
 
 W5_CODES = ('CAS, CSC, CNS, FAL, HSD, MRT, RSN, SAD, SKR, TAR (residential: Castleridge, Cityscape, Cornerstone, '
             'Falconridge, Homestead, Martindale, Redstone, Saddle Ridge, Skyview Ranch, Taradale) and SRI, DBC, SGL, '
@@ -28,9 +29,10 @@ AMENITY_STEPS = [
     'A community is flagged "not kept up with growth" when it grew more than 20% since the 2021 Census '
     '(or did not exist then) and its level is below 0.75.',
     'Communities with fewer than 100 residents are left out: per-resident figures mean nothing there.',
-    'Residents are counted the way chosen in Settings (growth model by default). The levels under all three counts are '
-    'shown together. With "grown to the City\'s total" every community grows by the same factor, so its shares against the city '
-    'are the same as with the 2021 Census; only the growth model changes them.',
+    'Residents are counted the way chosen in Settings (the City\'s total, its population forecast, by default). The '
+    'levels under all three counts are shown together. With "grown to the City\'s total" every community counted in 2021 '
+    'grows by the same factor (communities built since then come from the growth model), so its shares against the city '
+    'are close to the 2021 Census ones; the growth model changes them most.',
 ]
 
 
@@ -426,6 +428,23 @@ METHODS = [
                   'Counts, not size or condition: a small playground counts the same as a large one.',
                   'Amenities near a community\'s edge serve its neighbours too; the level treats each community on its own.']},
 
+    {'key': 'needs_attention', 'name': 'Needs attention: communities that most need public amenities (score and tiers)',
+     'dataset': 'Amenity level (see amenity_gap) + growth since 2021 (growth model)',
+     'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': 'https://data.calgary.ca/browse',
+     'updated': 'With every refresh; assets counted again every week', 'used_in': 'Needs attention tab, Data Genie',
+     'method': attention.METHOD,
+     'excel': ['From the Growth vs amenities list saved to Excel: shortfall = MAX(0, 1 - level); pressure = IF(new, 2, '
+               '1 + MIN(MAX(growth %, 0), 100) / 100); score = ROUND(100 * shortfall * pressure / 2, 0).',
+               'What it would take for one amenity: Calgary per 1,000 x residents / 1,000 - the community\'s count, '
+               'rounded up (playgrounds: children 0 to 14 instead of residents).'],
+     'cautions': ['Priorities for review, not a spending recommendation: the City\'s open data has no costs.',
+                  'New communities often have parks and playgrounds still to be built by the developer under their '
+                  'subdivision approval; a low score there is a question to ask, not necessarily a gap.',
+                  'School, private, condo and community association amenities are not counted, nor amenities just '
+                  'across a community boundary that its residents use.',
+                  'Counts, not size or condition.'],
+     'code': 'attention.py (score, tier, catch_up, rank); inputs from dashboard.amenity_view'},
+
     {'key': 'shading', 'name': 'Map shading, flags and colours', 'dataset': 'all', 'publisher': 'Calgary Data Desk',
      'page': '', 'updated': '', 'used_in': 'Maps, Compare wards, tiles',
      'method': [
@@ -529,6 +548,28 @@ METHODS = [
      'method': ['Daily temperature, rain, snow and snow on ground at the airport station (inside Ward 5), back to 1881; '
                 'grouped by month or year on request.'], 'excel': [], 'cautions': []},
 ]
+
+
+# where each method lives in the code (Data Genie's get_code reads it; the "How it's counted" screen names it)
+CODE_WHERE = {
+    'amenity_gap': 'dashboard.py: scope_level, amenity_view, GAP_LEVEL, GAP_GROWTH_PCT, GAP_KINDS; assets.py (counting)',
+    'amenities': 'dashboard.py: amenity_view; assets.py',
+    'population_choice': 'dashboard.py: POP_METHODS, city_population_at, city_factor, new_people, pace_fix, estimate',
+    'population': 'population.py (growth model); dashboard.py: estimate',
+    'children': 'dashboard.py: CITY_KIDS_APRIL, city_children_at, kids_at, kid_factors, kids_for',
+    'rates': 'dashboard.py: _pct, GROWING_PCT, ward_summaries',
+    'compare': 'dashboard.py: ward_summaries',
+    'police': 'police.py',
+    'property_tax': 'proptax.py',
+    'budget': 'budget.py',
+    'child_care': 'families.py',
+    'schools': 'families.py',
+    'rents': 'rents.py',
+    'wards': 'wards.py, geo.py',
+    'report_auditor': 'auditor.py',
+}
+for _m in METHODS:
+    _m.setdefault('code', CODE_WHERE.get(_m['key'], ''))
 
 
 def find(topic=None):

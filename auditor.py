@@ -26,7 +26,7 @@ agent_mod.STEP_TEXT.update({
 })
 
 DATA_TOOLS = ('search_datasets', 'describe_dataset', 'query_dataset', 'get_ward5_dashboard', 'get_weather', 'police_crime',
-              'crime_severity_index', 'get_method', 'list_saved_files', 'query_saved_file', 'calculate')
+              'crime_severity_index', 'get_method', 'get_code', 'list_saved_files', 'query_saved_file', 'calculate')
 
 KINDS = ['wrong_number', 'wrong_source', 'wrong_method', 'wrong_period', 'unsupported_claim', 'missing_caveat',
          'obvious_recommendation', 'unclear_wording', 'other']
@@ -91,7 +91,7 @@ police_crime, get_ward5_dashboard and the rest) with the same filters and period
 total, rate, share and change. Rates per 1,000 residents a year = count / residents x 1,000 x (12 / months).
 2. Check each source: is it the right dataset, the right dates, the right ward or communities, the right way of \
 counting residents, complete months only?
-3. Check the method against the app's own method (get_method) and the report's stated method.
+3. Check the method against the app's own method (get_method, and get_code for the exact formula and thresholds) and the report's stated method.
 4. Check the wording: claims the data does not support, causes stated as fact, missing caveats, and \
 recommendations that are obvious or routine (things a councillor's office would already know) rather than specific \
 and backed by the findings.
@@ -212,7 +212,7 @@ def run(entry, make_agent, emit, today, folder):
     checks, verdict = [], 'The auditor found nothing to correct.'
     if findings:
         cor = load_report(corrected) if corrected else {'content': '(no corrected report was made)'}
-        _, r3 = _stage(make_agent, 'final', FINAL_SYSTEM, [t for t in TOOLS if t['name'] in ('calculate', 'get_method')] + [SUBMIT_FINAL],
+        _, r3 = _stage(make_agent, 'final', FINAL_SYSTEM, [t for t in TOOLS if t['name'] in ('calculate', 'get_method', 'get_code')] + [SUBMIT_FINAL],
                        {'submit_final': keep('final')},
                        f"AUDITOR'S FINDINGS:\n{json.dumps(findings, indent=1)}\n\nREVIEWER'S DECISIONS:\n"
                        f"{json.dumps(decisions, indent=1)}\n\nCORRECTED REPORT:\n{cor['content']}",

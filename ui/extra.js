@@ -902,6 +902,7 @@ function renderMethods(openKey) {
       <p class="sm-h">How it is worked out</p>${list(m.method, 'ol')}
       ${m.excel && m.excel.length ? `<p class="sm-h">Check it yourself</p>${list(m.excel, 'ol')}` : ''}
       ${m.cautions && m.cautions.length ? `<p class="sm-h">Keep in mind</p>${list(m.cautions)}` : ''}
+      ${m.code ? `<p class="meth-meta"><b>In the code:</b> <code>${esc(m.code)}</code> (Data Genie can show it)</p>` : ''}
     </details>`).join('') || '<p class="card-sub">Nothing matches.</p>';
   if (openKey) { const el = document.getElementById('meth-' + openKey); if (el) setTimeout(() => el.scrollIntoView({ block: 'start' }), 50); }
 }
