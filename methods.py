@@ -213,8 +213,12 @@ METHODS = [
      'method': [
          'Each community keeps its 2021 Census children (pop_age_0_to_4, pop_age_0_to_14) for the residents it had '
          'in 2021.',
-         'Residents added since 2021 are given the share of children seen in 2021 in the communities that were newest '
-         'at the 2021 Census (Cityscape and Cornerstone): about 27.5% aged 0 to 14 and 12.8% under 5. (Growth model.)',
+         'Residents added since 2021 are given the share of children seen in 2021 in the communities that were new at '
+         'the Census, anywhere in Calgary: at least half of the homes lived in on Census day were first lived in during '
+         'the five years before, and at least 500 residents. With the City\'s roll that is about 15 communities in every '
+         'quadrant (for example Mahogany, Nolan Hill, Walden, Legacy, Livingston, Redstone, Cornerstone): about 25% aged '
+         '0 to 14 and 10% under 5. The exact list and shares are in the dashboard data (population: '
+         'new_share_communities, new_share_0_14, new_share_0_4). (Growth model.)',
          'City\'s total shared by actual growth (the default): each community\'s 2021 children x one factor + the children '
          'the growth model adds for the homes built there; the factor is set so Calgary matches the City\'s forecast of '
          'children (dashboard.kid_factors_actual, kid_added, kids_as).',
@@ -224,8 +228,9 @@ METHODS = [
          'above; every other community is its 2021 count of children x one factor, so all of Calgary adds up to the '
          'City\'s forecast. November 2026: aged 0 to 14 = 270,400 + 7/12 x (273,300 - 270,400) = 272,092; aged 0 to 4 '
          '= 86,542.'],
-     'excel': ['Take each community\'s 2021 Census children, then add (residents today - 2021 residents) x 27.5% '
-               '(0 to 14) or x 12.8% (under 5).'],
+     'excel': ['Share for new residents: add up pop_age_0_to_14 (and pop_age_0_to_4) of the communities above in '
+               'f9wk-wej9 and divide by their total_pop_household. Then each community\'s 2021 Census children + '
+               '(residents today - 2021 residents) x that share.'],
      'cautions': ['No public count of children by community exists after 2021.',
                   'The City\'s forecast is for all of Calgary, so each community keeps its 2021 share of the city\'s '
                   'children under "grown to the City\'s total".']},
@@ -253,6 +258,25 @@ METHODS = [
      'excel': ['Filter ward to the ward\'s number (no filter for Calgary) and applieddate to the period; count rows, '
                'or group by category.'],
      'cautions': ['"Change of use" includes new child care centres, schools, clinics and places of worship.']},
+
+    {'key': 'rezoning', 'name': 'Rezoning applications (land use redesignation, LOC numbers)', 'dataset': '33vi-ew4s',
+     'publisher': 'City of Calgary', 'page': 'https://data.calgary.ca/d/33vi-ew4s', 'updated': 'Daily',
+     'used_in': 'Growth vs amenities (Development and rezoning), map layer, Data Genie',
+     'method': [
+         'Land Use Redesignation Applications (33vi-ew4s): applications to change a property\'s land use district '
+         '(rezoning), often with an outline plan or road closure; numbers start with LOC. Council decides them at a '
+         'public hearing.',
+         'The dataset has no ward or community, so each application is placed by its map point: inside the ward\'s '
+         'boundary (Ward Boundaries, tz8z-hyaz) and in the community whose outline holds it.',
+         'Listed: every application with applieddate in the period, plus every one still open (status New, Submitted, '
+         'Under Review or Miscellaneous) made since 2020, because a rezoning can take a year or more. "Rezoning '
+         'applications" counts those made in the period; "still open" counts the open ones whenever made.',
+         'Proposed use = the current district (fromlud) to the proposed one (proposedlud), as the City writes them '
+         '(for example R-CG to DC).'],
+     'excel': ['Download 33vi-ew4s, filter applieddate to the period (or statuscurrent to the open ones) and keep the '
+               'rows whose latitude and longitude fall in the area (a map check; the app tests the boundary exactly).'],
+     'cautions': ['Public hearing dates are on Council agendas, not in the open data.',
+                  'A large application can list several districts at once, separated by commas, in the same order.']},
 
     {'key': 'traffic', 'name': 'Traffic Incidents', 'dataset': '35ra-9556', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/35ra-9556', 'updated': 'Continuously',

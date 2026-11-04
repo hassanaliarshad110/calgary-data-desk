@@ -393,25 +393,32 @@ function renderGrowth() {
   if (grView === 'dp') {
     const dv = D.development;
     if (!dv) { head.innerHTML = ''; body.innerHTML = '<tr><td class="empty">Development permit data is not available right now.</td></tr>'; $('#gr-stats').innerHTML = ''; return; }
+    const rz = dv.rezoning, dpOnly = dv.list.filter(p => !p.rezoning);
     const comms = [...new Set(dv.list.map(p => p.comm))].filter(Boolean).map(c => [c, commName(c)]).sort((a, b) => a[1].localeCompare(b[1]));
     $('#gr-comm').innerHTML = '<option value="">All of ' + W() + '</option>' + comms.map(([c, n]) => `<option value="${esc(c)}">${esc(n)}</option>`).join('');
     $('#gr-comm').value = grFilter.comm;
-    $('#gr-status').innerHTML = '<option value="">Any status</option>' + dv.by_status.map(s => `<option value="${esc(s.status)}">${esc(s.status)} (${fmt(s.n)})</option>`).join('');
-    $('#gr-type').innerHTML = `<option value="larger">Larger developments only (${fmt(dv.larger)})</option><option value="">All types (${fmt(dv.applied)})</option>` +
+    const rzStatus = {};
+    dv.list.filter(p => p.rezoning).forEach(p => { if (!dv.by_status.some(s => s.status === p.status)) rzStatus[p.status] = (rzStatus[p.status] || 0) + 1; });
+    $('#gr-status').innerHTML = '<option value="">Any status</option>' + dv.by_status.map(s => `<option value="${esc(s.status)}">${esc(s.status)} (${fmt(s.n)})</option>`).join('')
+      + Object.entries(rzStatus).map(([k, n]) => `<option value="${esc(k)}">${esc(k)} (rezoning, ${fmt(n)})</option>`).join('');
+    const rzN = dv.list.filter(p => p.rezoning).length;
+    $('#gr-type').innerHTML = `<option value="larger">Larger developments and rezonings (${fmt(dv.larger + rzN)})</option><option value="">All types (${fmt(dv.applied + rzN)})</option>` +
+      (rz ? `<option value="Rezoning (land use change)">Rezoning applications (LOC) (${fmt(rzN)})</option>` : '') +
       (dv.by_type || []).map(t => `<option value="${esc(t.type)}">${esc(t.type)} (${fmt(t.n)})</option>`).join('');
     $('#gr-type').value = grFilter.type;
     $('#gr-note').hidden = false;
-    $('#gr-note').innerHTML = `${icon('alert')}<div>${dv.list_complete === false ? `<strong>The list holds the newest ${fmt(dv.list.length)} of ${fmt(dv.applied)} applications</strong> (the counts above include all of them; choose a ward for its full list). ` : ''}<strong>What this list shows.</strong> Development permits are the City's approval of what can be built on a property or how it is used, before a building permit. ${grFilter.type === 'larger' ? 'Showing larger developments: new homes and apartment buildings, changes of use (including new child care centres, schools and clinics) and new commercial and industrial buildings. Choose "All types" in Type to include basement suites, signs, home businesses, small exceptions to the rules and renovations.' : 'Showing ' + (grFilter.type ? '"' + esc(grFilter.type) + '"' : 'every type, from basement suites to new buildings') + '.'}</div>`;
+    $('#gr-note').innerHTML = `${icon('alert')}<div>${dv.list_complete === false ? `<strong>The list holds the newest ${fmt(dpOnly.length)} of ${fmt(dv.applied)} development permit applications</strong> (the counts above include all of them; choose a ward for its full list). ` : ''}<strong>What this list shows.</strong> Development permits (DP numbers) are the City's approval of what can be built on a property or how it is used, before a building permit. ${rz ? 'Rezoning applications (LOC numbers) ask Council to change what a property may be used for and go to a public hearing; every one made in the period and every one still open is listed (hearing dates are on Council agendas, not in the open data). ' : ''}${grFilter.type === 'larger' ? 'Showing larger developments and rezonings: new homes and apartment buildings, changes of use (including new child care centres, schools and clinics), new commercial and industrial buildings, and rezoning applications. Choose "All types" in Type to include basement suites, signs, home businesses, small exceptions to the rules and renovations.' : 'Showing ' + (grFilter.type ? '"' + esc(grFilter.type) + '"' : 'every type, from basement suites to new buildings') + '.'}</div>`;
     $('#gr-status').value = grFilter.status;
-    $('#gr-sub').textContent = `Development permit applications in ${W()}, ${D.period}`;
-    $('#gr-stats').innerHTML = [[fmt(dv.applied), 'applications'], [fmt(dv.released), 'approved and released'], [fmt(dv.in_review), 'in review or on hold'],
-      [fmt(dv.refused), 'refused'], [fmt(dv.cancelled), 'cancelled']].map(([b, s]) => `<div class="istat"><b>${b}</b><span>${s}</span></div>`).join('');
+    $('#gr-sub').textContent = `Development permit and rezoning applications in ${W()}, ${D.period}`;
+    $('#gr-stats').innerHTML = [[fmt(dv.applied), 'development permit applications'], [fmt(dv.released), 'approved and released'], [fmt(dv.in_review), 'in review or on hold'],
+      [fmt(dv.refused), 'refused'], [fmt(dv.cancelled), 'cancelled'],
+      ...(rz ? [[fmt(rz.applied), 'rezoning applications'], [fmt(rz.open), 'rezonings still open']] : [])].map(([b, s]) => `<div class="istat"><b>${b}</b><span>${s}</span></div>`).join('');
     const rows = grRows();
     head.innerHTML = '<tr><th scope="col">Permit</th><th scope="col">Applied</th><th scope="col">Status</th><th scope="col">Type</th><th scope="col">Address</th><th scope="col">Community</th><th scope="col">Proposed use</th><th scope="col">Description</th><th scope="col">Decision</th></tr>';
     body.innerHTML = rows.slice(0, 600).map(p => `<tr><td class="mono">${esc(p.id)}</td><td>${esc(p.applied)}</td><td>${esc(p.status)}</td><td>${esc(p.type)}</td><td>${esc(p.address)}</td>
-      <td>${esc(p.comm ? commName(p.comm) : '–')}</td><td>${esc(titleCase(p.use || ''))}</td><td class="wrap">${esc(p.what)}</td><td>${esc(p.decision ? p.decision + (p.decided ? ', ' + p.decided : '') : '–')}</td></tr>`).join('')
+      <td>${esc(p.comm ? commName(p.comm) : '–')}</td><td>${esc(p.rezoning ? (p.use || '') : titleCase(p.use || ''))}</td><td class="wrap">${esc(p.what)}</td><td>${esc(p.decision ? p.decision + (p.decided ? ', ' + p.decided : '') : '–')}</td></tr>`).join('')
       || '<tr><td colspan="9" class="empty">No permits match these filters.</td></tr>';
-    $('#gr-notes').innerHTML = `Showing ${fmt(Math.min(rows.length, 600))} of ${fmt(rows.length)}. Source: City of Calgary, Development Permits open data. Each permit's full file is on the City's <button class="link-btn small" data-open="${esc(dv.page)}">Development Map (permit application search)</button>: search for the permit number.`;
+    $('#gr-notes').innerHTML = `Showing ${fmt(Math.min(rows.length, 600))} of ${fmt(rows.length)}. Sources: City of Calgary open data, Development Permits${rz ? ' and Land Use Redesignation Applications (rezonings, placed by their map point)' : ''}. Each permit's full file is on the City's <button class="link-btn small" data-open="${esc(dv.page)}">Development Map (permit application search)</button>: search for the permit number.`;
   } else if (grView === 'am') {
     const am = D.amenities;
     if (!am) { head.innerHTML = ''; body.innerHTML = '<tr><td class="empty">Amenity data is not available right now.</td></tr>'; $('#gr-stats').innerHTML = ''; return; }
@@ -431,7 +438,7 @@ function renderGrowth() {
         <td class="num">${a.playgrounds && k ? fmt(Math.round(k / a.playgrounds)) : '<span class="dash">–</span>'}</td><td class="num">${fmt(a.stops)}</td><td class="num">${fmt(a.stops_per_1000, 1)}</td>
         <td class="wrap">${fac.map(f => esc(f.name)).join('; ') || '<span class="dash">None listed</span>'}</td></tr>`;
     }).join('');
-    $('#gr-notes').textContent = 'Sources: City of Calgary open data: Recreation Facilities, Community Services (libraries, community centres), Playground Equipment (play structures) and Calgary Transit Stops (active stops). Facilities in business areas, like the Saddle Ridge community centre, are on the map but not in this table.';
+    $('#gr-notes').textContent = 'Sources: City of Calgary open data: Recreation Facilities, Community Services (libraries, community centres), Playground Equipment (play structures) and Calgary Transit Stops (active stops). Facilities in business and industrial areas are on the map but not in this table.';
   } else {
     const items = beingBuilt();
     const bp = D.big_permits;
@@ -730,7 +737,7 @@ function renderPopSeries() {
          census2021: 'Residents are counted as at the ' + CY() + ' Census (Settings), so the line stays flat. Switch to the growth model in Settings to see growth since ' + CY() + '.',
          city_pace: 'Each month is the ' + CY() + ' Census grown at one rate for all of Calgary, so the whole city matches the City\'s own population estimate and forecast for that month. Diamonds mark the ' + CY() + ' Census counts.',
          city_actual: 'Each month: every community\'s ' + CY() + ' Census count times one factor, plus the growth the growth model measured there (homes built), so growth lands where homes were built and the whole city matches the City\'s own estimate and forecast for that month. Diamonds mark the ' + CY() + ' Census counts.' })[popMethod()]
-    : `Estimate, not a count: each community's ${CY()} Census children, plus children for residents added since ${CY()} at the share seen in ${W()}'s newest communities in 2021 (${fmt(ps.new_share_0_14, 1)}% aged 0 to 14, ${fmt(ps.new_share_0_4, 1)}% under 5). No public count of children by community exists after 2021.`;
+    : `Estimate, not a count: each community's ${CY()} Census children, plus children for residents added since ${CY()} at the share seen in 2021 in the communities that were new at the Census across Calgary (${fmt(ps.new_share_0_14, 1)}% aged 0 to 14, ${fmt(ps.new_share_0_4, 1)}% under 5). No public count of children by community exists after 2021.`;
 }
 
 // ================================================================ CRIME AND SAFETY
@@ -874,6 +881,8 @@ const DATASETS_OF = () => [
     ask: ['How many new homes were approved in Cornerstone each year since 2020?', 'Download building permits issued in ' + W() + ' this year'] },
   { name: 'Development Permits', id: '6933-unw5', pub: 'City of Calgary', what: 'Development permit applications and decisions, with ward and community.', used: 'Growth vs amenities',
     ask: ['List new child care centres and schools applied for in ' + W() + ' this year', 'Download development permits for ' + W() + ' in the last 12 months'] },
+  { name: 'Land Use Redesignation Applications', id: '33vi-ew4s', pub: 'City of Calgary', what: 'Rezoning applications (LOC numbers): changes to what a property may be used for, decided by Council at a public hearing. Placed in a ward and community by their map point.', used: 'Growth vs amenities (Development and rezoning)',
+    ask: ['Which rezoning applications are still open in ' + W() + '?', 'Find rezoning application LOC2025-0257'] },
   { name: 'Road Construction Projects', id: 'sizs-hgef', pub: 'City of Calgary', what: 'The City\'s larger road projects, with budgets and timing.', used: 'Growth vs amenities, map',
     ask: ['What road construction is planned near ' + W() + '?'] },
   { name: 'Recreation Facilities', id: 'hxfu-6d96', pub: 'City of Calgary', what: 'Leisure centres, arenas, pools, sports fields and more.', used: 'Amenities',
@@ -935,7 +944,7 @@ const DATASETS_OF = () => [
   { name: 'Missing-person appeals', id: '', page: 'https://newsroom.calgary.ca/police-news-releases/', pub: 'Calgary Police Service (City newsroom)', what: 'Missing-person news releases, read live from the City newsroom feed; nothing is saved, and an appeal disappears when the police take it down.', used: 'Dashboard', ask: [] },
 ];
 const srcPage = d => d.page || ('https://data.calgary.ca/d/' + d.id);
-const METHOD_KEY = { 'fqax-i3nz': 'budget', 'msjx-5ygv': 'population', 'k4pr-cznc': 'profile_wards', 'ikeb-n5bc': 'amenity_gap', 'da6k-wpxb': 'amenity_gap', 'jjkg-kv4n': 'amenity_gap', 'fwyk-8pth': 'amenity_gap', 'enr4-crti': 'amenity_gap', 'kami-qbfh': 'amenity_gap', 'tfs4-3wwa': 'amenity_gap', 'surr-xmvs': 'wards', 'iahh-g8bj': '311', '35ra-9556': 'traffic', 'c2es-76ed': 'permits', '6933-unw5': 'dp', 'sizs-hgef': 'roads',
+const METHOD_KEY = { 'fqax-i3nz': 'budget', 'msjx-5ygv': 'population', 'k4pr-cznc': 'profile_wards', 'ikeb-n5bc': 'amenity_gap', 'da6k-wpxb': 'amenity_gap', 'jjkg-kv4n': 'amenity_gap', 'fwyk-8pth': 'amenity_gap', 'enr4-crti': 'amenity_gap', 'kami-qbfh': 'amenity_gap', 'tfs4-3wwa': 'amenity_gap', 'surr-xmvs': 'wards', 'iahh-g8bj': '311', '35ra-9556': 'traffic', 'c2es-76ed': 'permits', '6933-unw5': 'dp', '33vi-ew4s': 'rezoning', 'sizs-hgef': 'roads',
   'hxfu-6d96': 'amenities', 'x34e-bcjz': 'amenities', 'bdu9-amk8': 'amenities', 'muzh-c9qc': 'amenities', 'k7p9-kppz': 'cameras',
   '4bsw-nn7w': 'population', 'f9wk-wej9': 'population', '4evm-wx9a': 'city_disorder', 'fd9t-tdn2': 'schools' };
 const methodKey = d => METHOD_KEY[d.id] || ({ 'Child Care Information': 'child_care', 'Student enrolment by school': 'schools',

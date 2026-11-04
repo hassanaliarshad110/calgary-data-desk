@@ -284,7 +284,8 @@ say the 2026 Census counts are not published yet, so figures after May 2021 are 
 ID of a whole dataset, never a record. If the user gives one as if it were a permit or a property, say in one line \
 which dataset it is and where the record number is, then help: the Population build-up Excel (sheet "Rental \
 buildings") lists each building's address, roll number and building permit number(s). Building permit numbers look \
-like BP2016-08149 (development permits DP...): look one up with query on c2es-76ed where permitnum='BP2016-08149' and \
+like BP2016-08149 (development permits DP...; rezoning applications LOC..., in Land Use Redesignation \
+Applications 33vi-ew4s, with no ward field: get_dashboard section development lists them by area): look one up with query on c2es-76ed where permitnum='BP2016-08149' and \
 say what it is (address, community, permit type and class, description, housing units, status, applied, issued and \
 completed dates). A roll number (9 digits) is a property: look it up in 4bsw-nn7w by roll_number (try it with and \
 without the leading zero). For a rental building's units and the permits behind them, use get_dashboard section \
@@ -933,7 +934,9 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
     if section == 'development':
         return {**{k: v for k, v in dv.items() if k != 'list'},
                 'permits': [{k: p.get(k) for k in ('id', 'address', 'category', 'status', 'applied', 'decision', 'comm')}
-                            for p in dv.get('list', [])[:100]]}
+                            for p in dv.get('list', []) if not p.get('rezoning')][:100],
+                'rezonings': [{k: p.get(k) for k in ('id', 'address', 'what', 'use', 'status', 'applied', 'applicant', 'comm',
+                                                    'open')} for p in dv.get('list', []) if p.get('rezoning')][:150]}
     if section == 'amenities':
         return {'by_comm': am.get('by_comm'), 'facilities': am.get('facilities'),
                 'playgrounds_total': am.get('playgrounds_total'), 'stops_total': am.get('stops_total'),

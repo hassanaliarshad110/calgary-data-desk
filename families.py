@@ -284,8 +284,8 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
                  f"address is in Ward {ward} (Government of Alberta, Child Care Information). Family day home agencies are "
                  "listed but not counted, because the day homes they oversee are spread across the city."),
         'children_note': ("Children are estimated, not counted: each community's 2021 Census children, plus children "
-                          "for the residents added since 2021 at the share seen in Calgary's newest communities in 2021 "
-                          "(Cityscape and Cornerstone), where new homes filled mostly with young families. No public count "
+                          "for the residents added since 2021 at the share seen in 2021 in the communities that were new at the "
+                          "Census across Calgary (about 15, in every quadrant). No public count "
                           "of children by community exists after 2021."),
     }
 

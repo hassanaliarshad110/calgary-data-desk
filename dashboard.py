@@ -35,6 +35,8 @@ COMMUNITIES = 'surr-xmvs'
 MIN_RATE_RESIDENTS = 100      # communities with fewer residents get no rates per 1,000 (they are still counted in totals)
 COMMUNITY_REGIONS = 'kxmf-bzkv'
 DEV_PERMITS = '6933-unw5'
+LAND_USE = '33vi-ew4s'          # Land Use Redesignation Applications (LOC: land use, outline plan, road closure)
+LAND_USE_OPEN = ('New', 'Submitted', 'Under Review', 'Miscellaneous')
 ROADWORK = 'sizs-hgef'
 REC_FACILITIES = 'hxfu-6d96'
 TRANSIT_STOPS = 'muzh-c9qc'
@@ -59,7 +61,11 @@ INFRASTRUCTURE = [
 RESIDENTIAL_CODES = ['CAS', 'CSC', 'CNS', 'FAL', 'HSD', 'MRT', 'RSN', 'SAD', 'SKR', 'TAR']
 OTHER_AREAS = ['SRI', 'DBC', 'SGL', 'SKE', 'WES', 'PEG', 'CIA', 'ST2', 'ST3', 'ST4', '05D', '05E', '05F', '05G']
 ALL_CODES = RESIDENTIAL_CODES + OTHER_AREAS
-NEW_COMMUNITIES_2021 = ['CSC', 'CNS']    # Calgary's newest communities at the 2021 Census (both in Ward 5): their share of children is used for new homes in every ward
+NEW_COMMUNITIES_2021 = ['CSC', 'CNS']    # only a fallback if the city-wide rule below finds none
+# Communities that were new at the 2021 Census, anywhere in Calgary: at least half their homes lived in on Census day
+# were first lived in during the five years before, and at least 500 residents. Their 2021 share of children is the
+# share given to residents added since 2021 in every community.
+NEW_AT_CENSUS_SHARE, NEW_AT_CENSUS_YEARS, NEW_AT_CENSUS_MIN_POP = 0.5, 5, 500
 CAMERAS = 'k7p9-kppz'
 CAMERA_PAGE = 'https://www.calgary.ca/roads/conditions/traffic-cameras.html'
 # Service areas named by the first part of each 311 service name ("Roads - Pothole Maintenance" -> Roads)
@@ -72,7 +78,7 @@ class PeriodError(ValueError):
     """A period the user chose that can't be used (the message says why)."""
 
 
-DATA_VERSION = 19          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
+DATA_VERSION = 21          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
 # The City of Calgary's total population on April 1 (Calgary and Region Economic Outlook 2026-2031, spring 2026,
 # Table 4: 2021-2025 estimates, 2026 onward forecast). Used for city-wide crime rates, read at the middle of the
 # crime period so Calgary and Ward 5 are counted at the same date.
@@ -1145,6 +1151,49 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         development['counts_from'] = 'every application' if dp_cur is not None else 'the list (may be incomplete)'
         development['list_complete'] = len(development['list']) >= n_dp
 
+    # ---- rezoning (land use redesignation) applications: LOC numbers, a separate City dataset from development
+    # permits. It has no ward or community, so each application is placed by its map point. Listed: every one applied
+    # for in the period, plus every one still open (rezonings take months, and go to a Council public hearing). ----
+    def _rezoning():
+        rows = cd.query(LAND_USE, select=('permitnum,description,statuscurrent,applieddate,applicant,fromlud,proposedlud,'
+                                          'address,latitude,longitude'),
+                        where=(f"((applieddate>='{s}' AND applieddate<'{e}') OR (statuscurrent in("
+                               + ','.join(f"'{x}'" for x in LAND_USE_OPEN) + ") AND applieddate>='2020-01-01')) "
+                               f"AND within_box(multipoint,{y1},{x0},{y0},{x1})"),     # latitude is text here
+                        order='applieddate DESC', limit=5000)
+        out = []
+        for r in rows:
+            try:
+                lon, lat = float(r['longitude']), float(r['latitude'])
+            except (KeyError, TypeError, ValueError):
+                continue
+            if not inside(lon, lat):
+                continue
+            frm, to = (r.get('fromlud') or '').strip(), (r.get('proposedlud') or '').strip()
+            st_ = r.get('statuscurrent', '')
+            out.append({'id': r.get('permitnum'), 'address': r.get('address', ''), 'category': 'Land use redesignation',
+                        'type': 'Rezoning (land use change)', 'what': (r.get('description') or '')[:240],
+                        'use': f"{frm.replace(';', ', ')} to {to.replace(';', ', ')}" if frm or to else '', 'status': st_,
+                        'applied': (r.get('applieddate') or '')[:10], 'decision': '', 'decided': '',
+                        'comm': comm_of(lon, lat), 'applicant': r.get('applicant', ''), 'rezoning': True,
+                        'in_period': s <= (r.get('applieddate') or '')[:10] < e, 'open': st_ in LAND_USE_OPEN,
+                        'lat': round(lat, 5), 'lon': round(lon, 5)})
+        return out
+    rezoning, rz_err = _safe(_rezoning)
+    if development is not None and rezoning is not None:
+        development['rezoning'] = {
+            'applied': sum(1 for r in rezoning if r['in_period']), 'open': sum(1 for r in rezoning if r['open']),
+            'approved': sum(1 for r in rezoning if r['in_period'] and r['status'] == 'Approved'),
+            'refused': sum(1 for r in rezoning if r['in_period'] and r['status'] == 'Refused'),
+            'page': 'https://data.calgary.ca/d/' + LAND_USE,
+            'note': ('Rezoning (land use redesignation) applications, numbered LOC: a change to what a property may be '
+                     'used for, decided by Council at a public hearing. City of Calgary open data, Land Use Redesignation '
+                     'Applications (33vi-ew4s); placed in a ward or community by their map point. Listed: every '
+                     'application made in the period and every one still open. Hearing dates are on Council agendas, '
+                     'not in the open data.')}
+        development['list'] = rezoning + development['list']
+        development['larger_types'] = development['larger_types'] + ['Rezoning (land use change)']
+
     # ---- road construction: City projects in or near the ward ----
     rw, _ = O['roadwork']
     roadwork = None
@@ -1255,12 +1304,16 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
 
     # ---- families: child care and schools (Government of Alberta), children from the Census grown with the model ----
     # Children: each community keeps its 2021 share of children for the residents it had in 2021; residents added
-    # since then are counted at the share seen in 2021 in Ward 5's newest communities (Cityscape, Cornerstone), where
-    # new homes were filled mostly by young families. An estimate: no public count of children by community after 2021.
+    # since then are counted at the share seen in 2021 in the communities that were new at the Census, across all of
+    # Calgary (see NEW_AT_CENSUS_*). An estimate: no public count of children by community after 2021.
     k04 = {r.get('community_code'): float(r.get('pop_age_0_to_4') or 0) for r in R['census']}
     k014 = {r.get('community_code'): float(r.get('pop_age_0_to_14') or 0) for r in R['census']}
     p21 = {r.get('community_code'): float(r.get('total_pop_household') or 0) for r in R['census']}
-    new_comms = [c for c in NEW_COMMUNITIES_2021 if p21.get(c)]
+    def _new_at_census(c):
+        lived = model.homes(c, popmodel.CENSUS_T - popmodel.LAG)
+        before = model.homes(c, popmodel.CENSUS_T - popmodel.LAG - NEW_AT_CENSUS_YEARS)
+        return p21.get(c, 0) >= NEW_AT_CENSUS_MIN_POP and lived > 0 and (lived - before) / lived >= NEW_AT_CENSUS_SHARE
+    new_comms = sorted(c for c in set(ALL_RES) if _new_at_census(c)) or [c for c in NEW_COMMUNITIES_2021 if p21.get(c)]
     base = sum(p21[c] for c in new_comms) or 1
     new04 = sum(k04.get(c, 0) for c in new_comms) / base
     new014 = sum(k014.get(c, 0) for c in new_comms) / base
@@ -1400,7 +1453,9 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                   'census': {c: round(p21.get(c, 0)) for c in RESIDENTIAL_CODES},
                   'census_children_0_14': round(sum(k014.get(c, 0) for c in RESIDENTIAL_CODES)),
                   'census_children_0_4': round(sum(k04.get(c, 0) for c in RESIDENTIAL_CODES)),
-                  'new_share_0_14': round(new014 * 100, 1), 'new_share_0_4': round(new04 * 100, 1)}
+                  'new_share_0_14': round(new014 * 100, 1), 'new_share_0_4': round(new04 * 100, 1),
+                  'new_share_communities': [{'code': c, 'name': names.get(c, c),
+                                             'census2021': round(p21.get(c, 0))} for c in new_comms]}
     fam = families.build(cdir, ward_shape, full_shapes, kids, ref, ward=ward, names=names)
     school_city = _safe(lambda: families.city_school_totals(cdir))[0]
     school_city = (school_city or {}).get('years')
@@ -1442,7 +1497,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
            'city': _simplify(city_rows[0]['multipolygon'], 6) if city_rows and city_rows[0].get('multipolygon') else None}
 
     # ---- data status: when the City last updated each source, and whether this refresh got it ----
-    upd = _dataset_status([SERVICE_REQUESTS, TRAFFIC, PERMITS, DEV_PERMITS, ROADWORK, REC_FACILITIES, TRANSIT_STOPS,
+    upd = _dataset_status([SERVICE_REQUESTS, TRAFFIC, PERMITS, DEV_PERMITS, LAND_USE, ROADWORK, REC_FACILITIES, TRANSIT_STOPS,
                            PLAYGROUNDS, COMMUNITY_SERVICES,
                            CAMERAS, popmodel.HOMES_DATASET, DISORDER])
     def st(name, ids, ok=True, err=None, note=''):
@@ -1455,6 +1510,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         st('Traffic incidents', [TRAFFIC]),
         st('Building permits', [PERMITS]),
         st('Development permits', [DEV_PERMITS], err=dp_err),
+        st('Rezoning applications', [LAND_USE], err=rz_err),
         st('Road construction projects', [ROADWORK], err=O['roadwork'][1]),
         st('Recreation facilities', [REC_FACILITIES], err=rec_err),
         st('Transit stops', [TRANSIT_STOPS], err=stop_err),
@@ -1692,7 +1748,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
             'Calgary with other cities each year.',
         ],
         'sources': {'311 Service Requests': SERVICE_REQUESTS, 'Traffic Incidents': TRAFFIC, 'Building Permits': PERMITS,
-                    'Development Permits': DEV_PERMITS, 'Road Construction Projects': ROADWORK,
+                    'Development Permits': DEV_PERMITS, 'Land Use Redesignation Applications': LAND_USE, 'Road Construction Projects': ROADWORK,
                     'Recreation Facilities': REC_FACILITIES, 'Calgary Transit Stops': TRANSIT_STOPS,
                     'Playground Equipment': PLAYGROUNDS, 'Community Services': COMMUNITY_SERVICES,
                     'Social Disorder Statistics': DISORDER, 'Traffic Cameras': CAMERAS,
