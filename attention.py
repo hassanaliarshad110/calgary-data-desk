@@ -11,11 +11,15 @@ The inputs come from the amenity level (dashboard.amenity_view, method in method
 
 THE SCORE (0 to 100, higher = more urgent)
   shortfall  = max(0, 1 - level)                       how far below Calgary: 0 at or above, 1 with nothing at all
-  pressure   = 2.0 for a new community, otherwise 1 + growth_pct / 100, with growth_pct held between 0 and 100
-               (no growth = 1.0, doubled = 2.0); fast growth means demand is rising on what little there is
-  score      = round(100 * shortfall * pressure / 2)
+  weight     = how much growth adds to the urgency: 0.50 with no growth since 2021, rising with growth to 1.00 for a
+               community that doubled or did not exist in 2021 (all of it new):
+               weight = 0.5 + growth_pct / 200, with growth_pct held between 0 and 100; 1.00 for a new community
+  score      = round(100 * shortfall * weight)
 
-  Worked example: level 0.40, grew 50% since 2021 -> shortfall 0.60, pressure 1.50 -> 100 * 0.60 * 1.50 / 2 = 45.
+  So a gap counts in full where the population is new or doubled, and at half where nobody new has arrived: the same
+  shortfall is more urgent where demand is growing on it. Worked examples: Homestead (new since 2021), level 0.46 ->
+  100 x 0.54 x 1.00 = 54; Beltline, level 0.43, grew 20.6% -> 100 x 0.57 x 0.60 = 34 (34.3); a community at 0.43 that
+  did not grow -> 100 x 0.57 x 0.50 = 29.
 
 TWO COUNTS
   The tab ranks communities twice: with the City's amenities only (attention_city), and with the City's plus the
@@ -44,7 +48,7 @@ URGENT_LEVEL = 0.50          # below half the Calgary level ...
 LIST_LEVEL = 0.75            # ... below three quarters (the same line as the amenity gap flag)
 GROWTH_PCT = 20              # grew more than this since 2021 (or new) counts as fast growth
 GROWTH_CAP = 100             # growth above 100% weighs the same as 100%
-NEW_PRESSURE = 2.0           # a community built since 2021: all of it is growth
+NEW_WEIGHT = 1.0             # a community built since 2021: all of it is growth (the most a weight can be)
 CATCH_UP_KINDS = 5           # how many amenities to list in "what it would take"
 TIERS = ('Urgent', 'High', 'Watch')
 
@@ -54,19 +58,19 @@ def shortfall(level):
     return max(0.0, 1.0 - level)
 
 
-def pressure(growth_pct, new):
-    """Growth pressure: 1.0 with no growth, 2.0 for a doubled or brand-new community."""
+def weight(growth_pct, new):
+    """Growth weight: 0.50 with no growth since 2021, 1.00 for a community that doubled or is new since 2021."""
     if new:
-        return NEW_PRESSURE
+        return NEW_WEIGHT
     g = min(max(growth_pct or 0.0, 0.0), GROWTH_CAP)
-    return 1.0 + g / 100.0
+    return 0.5 + g / 200.0
 
 
 def score(level, growth_pct, new):
     """The needs-attention score, 0 to 100 (higher = more urgent)."""
     if level is None:
         return None
-    return round(100 * shortfall(level) * pressure(growth_pct, new) / 2)
+    return round(100 * shortfall(level) * weight(growth_pct, new))
 
 
 def fast_growth(growth_pct, new):
@@ -119,7 +123,7 @@ def rank(view, other=None, city_levels=None):
         rows.append({'code': r['code'], 'name': r['name'], 'residents': r.get('residents'),
                      'children_0_14': r.get('children_0_14'), 'growth_pct': r.get('growth_pct'), 'new': r.get('new'),
                      'level': r.get('level'), 'tier': t,
-                     'shortfall': round(shortfall(r['level']), 2), 'pressure': round(pressure(r.get('growth_pct'), r.get('new')), 2),
+                     'shortfall': round(shortfall(r['level']), 2), 'weight': round(weight(r.get('growth_pct'), r.get('new')), 2),
                      'score': score(r['level'], r.get('growth_pct'), r.get('new')),
                      'catch_up': [dict(c, have_other=(other.get(r['code']) or {}).get(c['kind'], 0)) for c in catch_up(r, view)],
                      **({'other': other.get(r['code']), 'level_city': city_levels.get(r['code'])} if other or city_levels else {})})
@@ -129,7 +133,7 @@ def rank(view, other=None, city_levels=None):
     return {'rows': rows, 'counts': counts, 'residents': people,
             'checked': sum(1 for r in (view or {}).get('by_comm') or [] if r.get('level') is not None),
             'thresholds': {'urgent_level': URGENT_LEVEL, 'list_level': LIST_LEVEL, 'growth_pct': GROWTH_PCT,
-                           'growth_cap': GROWTH_CAP, 'new_pressure': NEW_PRESSURE},
+                           'growth_cap': GROWTH_CAP, 'new_weight': NEW_WEIGHT},
             'with_other': bool(other), 'method': METHOD}
 
 
@@ -137,10 +141,11 @@ METHOD = [
     'Start from each community\'s amenity level: its public amenities per resident as a share of Calgary\'s, averaged '
     'over the neighbourhood amenities (1.00 = the Calgary level). See "Amenity level and the amenity gap".',
     'Shortfall = 1 - amenity level (0 at or above the Calgary level; 1 with nothing at all).',
-    f'Growth pressure = 1 + growth since 2021 / 100, with growth held between 0% and {GROWTH_CAP}% (so between 1.0 and '
-    f'2.0); a community with no residents in 2021 gets {NEW_PRESSURE:.1f}. Growth is the growth model\'s (homes built).',
-    'Score = 100 x shortfall x growth pressure / 2, rounded: 0 to 100, higher is more urgent. Example: level 0.40 '
-    'and 50% growth gives 100 x 0.60 x 1.50 / 2 = 45.',
+    f'Growth weight = 0.5 + growth since 2021 / 200, with growth held between 0% and {GROWTH_CAP}% (so between 0.50 '
+    f'and 1.00); a community with no residents in 2021 gets {NEW_WEIGHT:.2f}. A gap counts in full where the population '
+    'is new or doubled and at half where nobody new has arrived. Growth is the growth model\'s (homes built).',
+    'Score = 100 x shortfall x growth weight, rounded: 0 to 100, higher is more urgent. Examples: Homestead (new), '
+    'level 0.46: 100 x 0.54 x 1.00 = 54. Beltline, level 0.43, grew 20.6%: 100 x 0.57 x 0.60 = 34.',
     f'Urgent: level below {URGENT_LEVEL:.2f} and new since 2021 or grew more than {GROWTH_PCT}%. High: level below '
     f'{LIST_LEVEL:.2f} and the same growth. Watch: level below {LIST_LEVEL:.2f} with slower growth. Communities at '
     f'{LIST_LEVEL:.2f} or above are not listed.',

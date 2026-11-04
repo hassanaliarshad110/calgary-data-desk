@@ -574,7 +574,7 @@ function renderGap() {
       <td>${kinds[k].dataset ? `<button class="link-btn small" data-open="https://data.calgary.ca/d/${esc(kinds[k].dataset)}">${esc(kinds[k].dataset)}</button>` : ''}</td></tr>`; }).join('')}
     </tbody></table></div><p class="card-note"><button type="button" class="link-btn small" data-method="amenity_gap">Every formula the app uses</button> · Counted ${g.counted ? dmy(g.counted) : ''}; the City's asset files are read again every week. Communities and their residents: Community District Boundaries (surr-xmvs), the ${CY()} Census by community and the City's property assessment roll (the growth model).</p></details>`;
 
-  box.innerHTML = `${method}${methodTable}${scopeTable}
+  box.innerHTML = `${growthChecks()}${method}${methodTable}${scopeTable}
     <div class="gap-head"><h3>${city ? 'Every community' : 'Each community in ' + esc(W())}</h3>
       <div class="gap-ctl"><label class="field"><span>Show</span><select id="gap-kind"><option value="">Overall amenity level</option>${keys.map(k => `<option value="${k}" ${k === gapKind ? 'selected' : ''}>${esc(kinds[k].label)}</option>`).join('')}</select></label>
       <label class="check"><input type="checkbox" id="gap-flagged" ${gapFlagged ? 'checked' : ''}> Only communities that have not kept up</label></div></div>
@@ -586,6 +586,20 @@ function renderGap() {
     if (r && r.ok) sv.querySelector('span').textContent = 'Saved';
   });
   $('#gr-notes').textContent = `${g.note || ''} Counted ${g.counted ? dmy(g.counted) : ''}. Sources: City of Calgary open data: Parks Seating, Playground Equipment, Parks Sport Equipment, Parks Plumbing Fixtures, Parks Wayfinder Garbage and Recycle, Parks Off Leash Areas, Parks Sites, Public Trees, Recreation Facilities, Community Services and Calgary Transit Stops.`;
+}
+// is the area's growth since the Census believable? (dashboard.growth_checks: the code is the method)
+function growthChecks() {
+  const G = D && D.population && D.population.checks;
+  if (!G || !(G.checks || []).length) return '';
+  const names = { city_pace: "City's total, one rate for all", city_actual: "City's total, shared by actual growth", model: 'Growth model (homes)' };
+  const cur = popMethod();
+  return `<div class="gap-scope growth-checks"><h3>How much has ${esc(W())} grown since ${CY()}? Checks against independent data</h3>
+    <p class="card-sub">Nobody has counted residents since the ${CY()} Census, so every figure today is an estimate. These checks use data the estimates do not rely on in the same way.</p>
+    <div class="gc-list">${G.checks.map(c => `<div class="gc-item${c.key === 'homes_per_home' ? ' gc-key' : ''}"><div class="gc-top"><b>${esc(c.label)}</b><span class="gc-n">${signed(c.growth_pct, 1, '%')}${isNum(c.real_growth_pct) ? `<small>real growth ${signed(c.real_growth_pct, 1, '%')}</small>` : ''}</span></div><p>${esc(c.how)}</p></div>`).join('')}
+      <div class="gc-item gc-range"><div class="gc-top"><b>Range of the checks</b><span class="gc-n">${signed(G.low, 1, '%')} to ${signed(G.high, 1, '%')}</span></div><p>Growth since the ${CY()} Census count, from the lowest check to the highest.</p></div></div>
+    <h4 class="gc-h">Each way of counting residents against the checks</h4>
+    <div class="gc-list">${Object.entries(G.models || {}).filter(([k, v]) => isNum(v) && names[k]).map(([k, v]) => `<div class="gc-item gc-model${k === cur ? ' gc-cur' : ''}"><div class="gc-top"><b>${esc(names[k])}${k === cur ? ' <small>(in use)</small>' : ''}</b><span class="gc-n">${signed(v, 1, '%')}<small>${(G.verdict || {})[k] === 'within' ? 'within the range' : (isNum(G.low) && v < G.low ? 'below the range' : 'above the range')}</small></span></div></div>`).join('')}</div>
+    <p class="card-note">${esc(G.settles_it || '')} <button type="button" class="link-btn small" data-method="population_choice">How residents are counted</button></p></div>`;
 }
 function gapMeter(v) {
   if (!isNum(v)) return '<span class="gap-meter"></span>';

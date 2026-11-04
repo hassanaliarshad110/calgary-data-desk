@@ -256,7 +256,7 @@ step (method), the level under all three ways of counting residents (level_under
 dataset. Explain the level from method, never by working the formula out backwards. section wards has every ward's \
 level under all three counts (amenity_level_by_method).
 - Needs attention: get_dashboard section needs_attention has the communities that most need public \
-amenities (tier Urgent, High or Watch, a score from 0 to 100, its shortfall and growth pressure, and what it would \
+amenities (tier Urgent, High or Watch, a score from 0 to 100, its shortfall and growth weight, and what it would \
 take to reach the Calgary level). It counts the City's amenities plus the ones that are not the City's from \
 OpenStreetMap (developer, condo, school), with City ones taken out so nothing counts twice (get_code topic \
 other_amenities); each row also has the City-only level. The score is worked out in attention.py (get_code topic \
@@ -559,11 +559,11 @@ def _attention_out(a, ward_of, short=False):
     watch = [r for r in rows if r['tier'] == 'Watch']
     keep = top + watch[:max(0, 45 - len(top))]
     return {**base, 'thresholds': a.get('thresholds'), 'method': a.get('method'),
-            'score_formula': 'score = round(100 * shortfall * pressure / 2); shortfall = max(0, 1 - level); '
-                             'pressure = 2.0 if new else 1 + min(max(growth_pct, 0), 100) / 100 (attention.py)',
+            'score_formula': 'score = round(100 * shortfall * weight); shortfall = max(0, 1 - level); '
+                             'weight = 1.0 if new since 2021 else 0.5 + min(max(growth_pct, 0), 100) / 200 (attention.py)',
             'shown': 'every listed community' if len(keep) == len(rows) else
                      f'every Urgent and High community and the {len(keep) - len(top)} highest-scoring Watch ones of {len(watch)}',
-            'rows': [{**{k: r.get(k) for k in ('name', 'tier', 'score', 'level', 'shortfall', 'pressure', 'growth_pct',
+            'rows': [{**{k: r.get(k) for k in ('name', 'tier', 'score', 'level', 'shortfall', 'weight', 'growth_pct',
                                                'residents')},
                       **({'new_since_2021': True} if r.get('new') else {}), 'ward': ward_of.get(r.get('code')),
                       **({'level_city_only': r.get('level_city')} if r.get('level_city') is not None else {}),

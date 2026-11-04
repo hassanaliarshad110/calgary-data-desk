@@ -453,8 +453,8 @@ METHODS = [
      'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': 'https://data.calgary.ca/browse',
      'updated': 'With every refresh; assets counted again every week', 'used_in': 'Needs attention tab, Data Genie',
      'method': attention.METHOD,
-     'excel': ['From the Growth vs amenities list saved to Excel: shortfall = MAX(0, 1 - level); pressure = IF(new, 2, '
-               '1 + MIN(MAX(growth %, 0), 100) / 100); score = ROUND(100 * shortfall * pressure / 2, 0).',
+     'excel': ['From the Growth vs amenities list saved to Excel: shortfall = MAX(0, 1 - level); weight = IF(new, 1, '
+               '0.5 + MIN(MAX(growth %, 0), 100) / 200); score = ROUND(100 * shortfall * weight, 0).',
                'What it would take for one amenity: Calgary per 1,000 x residents / 1,000 - the community\'s count, '
                'rounded up (playgrounds: children 0 to 14 instead of residents).'],
      'cautions': ['Priorities for review, not a spending recommendation: the City\'s open data has no costs.',
@@ -467,6 +467,24 @@ METHODS = [
                   'its residents use are not counted.',
                   'Counts, not size or condition.'],
      'code': 'attention.py (score, tier, catch_up, rank); inputs from dashboard.amenity_view and dashboard.with_attention'},
+
+    {'key': 'growth_checks', 'name': 'Growth checks: is the population growth believable?',
+     'dataset': '4bsw-nn7w (homes), City population outlook, Alberta student enrolment by school, fd9t-tdn2 (schools)',
+     'publisher': 'City of Calgary; Government of Alberta', 'page': '', 'updated': 'With every refresh',
+     'used_in': 'Growth vs amenities (top), Data Genie',
+     'method': ['Homes alone: homes lived in on the property roll today / at the 2021 Census - 1 (the growth model, '
+                'people per home as in 2021: a floor).',
+                'Homes plus more people per home: Calgary\'s people per home change = (the City\'s estimate now / at the '
+                'Census) / (Calgary\'s homes now / at the Census) - 1, about +5.5% (20.7% more people on 14.4% more '
+                'homes). The area: (1 + its homes growth) x (1 + that change) - 1. Ward 5: 1.304 x 1.055 = about +38%.',
+                'School enrolment: students in the area\'s schools from 2021/2022 to the latest year, against every '
+                'Calgary school; Calgary\'s growth x (the area\'s enrolment growth / Calgary\'s).',
+                'The range runs from the lowest to the highest check; each way of counting is marked within or outside it.'],
+     'excel': ['Homes: sum homes_now and homes_census over the area\'s communities (the dashboard\'s community table).'],
+     'cautions': ['Each check assumes something: that homes filled up like Calgary\'s average, or that children moved '
+                  'with the population. Schools take students from outside the area, and a new school pulls students in.',
+                  'The 2026 Census (counted May 2026) settles it: population counts are released on February 10, 2027.'],
+     'code': 'dashboard.py: growth_checks; families.py: city_school_totals'},
 
     {'key': 'live_counter', 'name': 'Live population counter (dashboard)', 'dataset': 'City population outlook + growth model',
      'publisher': 'Calgary Data Desk', 'page': '', 'updated': 'Every second in the browser; its two anchor figures every refresh',

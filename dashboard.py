@@ -420,6 +420,74 @@ def _local_midnight_ms(day):
     return int(t.timestamp() * 1000)
 
 
+def growth_checks(area, census, homes_census, homes_now, city_then, city_now, city_homes_census, city_homes_now,
+                  school_area=None, school_city=None, by_method=None, census_year=2021, census_city=None):
+    """Is an area's growth since the Census believable? Independent checks, each from data the models do not use the
+    same way (the Growth vs amenities tab shows them; the code is the method).
+
+    1. Homes alone: growth in homes lived in on the City's property assessment roll since Census day.
+       homes_growth = homes_now / homes_census - 1. People per home as in 2021: this is the growth model, a floor.
+    2. Homes plus more people per home: Calgary's population (the City's estimate) grew faster than its homes, so each
+       home holds more people than in 2021. per_home = (city_now / city_then) / (city_homes_now / city_homes_census) - 1.
+       estimate = (1 + homes_growth) x (1 + per_home) - 1. Assumes the area's homes filled up like Calgary's average.
+    3. School enrolment: students in the schools inside the area, from the first school year after the Census to the
+       latest, against the same for every school in Calgary. estimate = Calgary's growth x (area's enrolment growth /
+       Calgary's enrolment growth). Assumes the area's share of children moved with its population. Schools take some
+       students from outside the area, and a new school can pull students in.
+    Checks 2 and 3 start from the City's estimate, which on Census day was already above the Census count (the Census
+    counted people in private homes only; the City's estimate also counts seniors' homes, residences, shelters and people
+    the Census missed): gap = city_then / Calgary's Census count (1.027). Like the ways of counting that add up to the
+    City's total, they are read against the 2021 Census count: (1 + estimate) x gap - 1. Check 1 (homes alone) is the
+    growth model, read against the Census count with no gap: the floor.
+    The range is the lowest to the highest check; each way of counting residents is set against it."""
+    pct = lambda a, b: round((a / b - 1) * 100, 1) if a and b else None
+    gap = city_then / census_city if city_then and census_city else 1.0
+    checks = []
+    hg = homes_now / homes_census - 1 if homes_now and homes_census else None
+    if hg is not None:
+        checks.append({'key': 'homes', 'label': 'Homes alone (people per home as in ' + str(census_year) + ')',
+                       'growth_pct': round(hg * 100, 1),
+                       'how': f'{homes_census:,} homes lived in at the {census_year} Census, {homes_now:,} today '
+                              f'(City property assessment roll)'})
+    ph = None
+    if city_now and city_then and city_homes_now and city_homes_census:
+        ph = (city_now / city_then) / (city_homes_now / city_homes_census) - 1
+        if hg is not None:
+            checks.append({'key': 'homes_per_home', 'label': 'Homes plus more people per home',
+                           'growth_pct': round(((1 + hg) * (1 + ph) * gap - 1) * 100, 1), 'per_home_pct': round(ph * 100, 1),
+                           'real_growth_pct': round(((1 + hg) * (1 + ph) - 1) * 100, 1),
+                           'how': f"Calgary's population grew {pct(city_now, city_then)}% (the City's estimate, "
+                                  f"{city_then:,} to {city_now:,}) on {pct(city_homes_now, city_homes_census)}% more homes "
+                                  f"({city_homes_census:,} to {city_homes_now:,}), so each home holds about {ph * 100:.1f}% "
+                                  f"more people. {area}: {1 + hg:.3f} x {1 + ph:.3f} = {((1 + hg) * (1 + ph) - 1) * 100:+.1f}% "
+                                  f"real growth; x {gap:.3f} for the people the Census count of private homes left out = "
+                                  f"{((1 + hg) * (1 + ph) * gap - 1) * 100:+.1f}% against the {census_year} Census count"})
+    if school_area and school_city and city_now and city_then:
+        first = next((r for r in school_area if int(r['year'][:4]) >= census_year and r.get('students')), None)
+        last = school_area[-1] if school_area else None
+        cmap = {r['year']: r['students'] for r in school_city}
+        if first and last and last['year'] != first['year'] and cmap.get(first['year']) and cmap.get(last['year']):
+            sa = last['students'] / first['students'] - 1
+            sc = cmap[last['year']] / cmap[first['year']] - 1
+            cg = city_now / city_then - 1
+            if sc > 0:
+                checks.append({'key': 'schools', 'label': 'School enrolment',
+                               'growth_pct': round(((1 + cg * sa / sc) * gap - 1) * 100, 1),
+                               'real_growth_pct': round(cg * sa / sc * 100, 1),
+                               'how': f"Students in {area}'s schools {first['students']:,} ({first['year']}) to "
+                                      f"{last['students']:,} ({last['year']}), {sa * 100:+.1f}%; every Calgary school "
+                                      f"{sc * 100:+.1f}%. {area} grew {sa / sc:.2f} times as fast; x Calgary's "
+                                      f"{cg * 100:.1f}% = {cg * sa / sc * 100:+.1f}% real growth; x {gap:.3f} = "
+                                      f"{((1 + cg * sa / sc) * gap - 1) * 100:+.1f}% against the {census_year} Census count"})
+    vals = [c['growth_pct'] for c in checks]
+    models = {k: pct(v, census) for k, v in (by_method or {}).items() if k != 'census2021'}
+    return {'checks': checks, 'low': min(vals) if vals else None, 'high': max(vals) if vals else None,
+            'models': models, 'census': census,
+            'verdict': {k: ('within' if vals and min(vals) - 1.0 <= v <= max(vals) + 1.0 else 'outside')
+                        for k, v in models.items() if v is not None},
+            'settles_it': 'The 2026 Census (counted May 2026): population counts are released on February 10, 2027.'}
+
+
 def population_live(start, end, at_start, at_end, method):
     """The live population counter.
 
@@ -1185,6 +1253,8 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='city_pace', live=F
                   'census_children_0_4': round(sum(k04.get(c, 0) for c in RESIDENTIAL_CODES)),
                   'new_share_0_14': round(new014 * 100, 1), 'new_share_0_4': round(new04 * 100, 1)}
     fam = families.build(cdir, ward_shape, full_shapes, kids, ref, ward=ward, names=names)
+    school_city = _safe(lambda: families.city_school_totals(cdir))[0]
+    school_city = (school_city or {}).get('years')
     # ---- crime: the Crime Severity Index (Statistics Canada, yearly, city level) ----
     safety, safety_err = _safe(lambda: context.csi(cdir, force=live))
     # ---- crime and disorder by community and ward (Calgary Police Service, monthly) ----
@@ -1356,6 +1426,14 @@ def _build(today=None, cache_dir=None, spec=None, pop_method='city_pace', live=F
                        'city_factor': round(city_factor(ref), 4),
                        'actual_factor': round(actual_factor(ref), 4) if actual_factor(ref) else None,
                        'live': live,
+                       'checks': _safe(lambda: growth_checks(
+                           'Calgary' if city else f'Ward {ward}', census_total, tot('homes_census', res), tot('homes_now', res),
+                           city_at_census, city_population_at(ref.year * 12 + ref.month - 1),
+                           sum(v.get('homes_census') or 0 for v in gm_all(ref).values()) if whole_city else None,
+                           sum(v.get('homes_now') or 0 for v in gm_all(ref).values()) if whole_city else None,
+                           ((fam or {}).get('schools') or {}).get('totals'), school_city,
+                           {m_: sum(counts(m_, ref, RESIDENTIAL_CODES).values()) for m_ in POP_METHODS},
+                           popmodel.CENSUS_DAY.year, census_all if whole_city else None))[0],
                        'growth_model_city': sum(v['model'] for v in gm_all(ref).values()) if whole_city else None, 'census_city': census_all,
                        'mid_period': mid12_total, 'mid_prev': midprev_total,
                        'homes_now': tot('homes_now', res), 'homes_census': tot('homes_census', res),

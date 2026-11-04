@@ -376,3 +376,49 @@ def build(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, names=Non
         errors.append(f'Schools: {e}')
     out['errors'] = errors
     return out
+
+
+def city_school_totals(cache_dir, keep_days=7):
+    """Students enrolled in every school inside Calgary, year by year (the same schools in every year): Calgary's side
+    of the growth checks. Counted once a week."""
+    path = os.path.join(cache_dir, 'school_totals_city.json')
+    try:
+        import time
+        if os.path.exists(path) and time.time() - os.path.getmtime(path) < keep_days * 86400:
+            with open(path, encoding='utf-8') as f:
+                return json.load(f)
+    except (OSError, ValueError):
+        pass
+    years = alberta.enrolment_years(os.path.join(cache_dir, 'alberta'))
+    if not years:
+        raise alberta.AlbertaError('No enrolment files could be read.')
+    comms = cd.query('surr-xmvs', select='comm_code,multipolygon', limit=5000)
+    loc = geo.Locator({c['comm_code']: c['multipolygon'] for c in comms if c.get('comm_code') and c.get('multipolygon')})
+    rows = cd.query(SCHOOLS, select='name,board,postsecond,point', limit=5000)
+    latest_year, latest = years[-1]
+    by_light = {}
+    light = lambda s: ' '.join(w for w in alberta.norm_name(s).split())
+    for code, s in latest.items():
+        by_light.setdefault(light(s['name']), []).append(code)
+    codes = set()
+    for r in rows:
+        if (r.get('postsecond') or '').upper() == 'Y' or not r.get('point'):
+            continue
+        lon, lat = r['point']['coordinates'][:2]
+        if loc.find(lon, lat) is None:
+            continue
+        cands = by_light.get(light(r.get('name')), [])
+        if len(cands) > 1:
+            board = alberta.norm_name(r.get('board'))
+            cands = [c for c in cands if alberta.norm_name(latest[c]['authority']) == board or
+                     'CALGARY' in latest[c]['authority'].upper()] or cands
+        if len(cands) == 1:
+            codes.add(cands[0])
+    out = {'years': [{'year': y, 'students': sum(d[c]['total'] for c in codes if c in d)} for y, d in years],
+           'schools': len(codes)}
+    try:
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(out, f)
+    except OSError:
+        pass
+    return out

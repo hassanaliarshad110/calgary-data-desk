@@ -79,15 +79,16 @@ function renderAttention(countOnly) {
       <div class="at-mid"><span class="at-tier">${r.tier}</span>
         <span class="at-level">Amenity level ${gapMeter(r.level)} <b>${fmt(r.level, 2)}</b> <small>(Calgary = 1.00${withOther && isNum(r.level_city) ? `; City's only ${fmt(r.level_city, 2)}` : ''})</small></span></div>
       ${withOther && r.other ? `<details class="at-osm"><summary>Not the City's: ${esc(atOtherText(r.other))} <small>(OpenStreetMap)</small></summary><ul>${(feats[r.code] || []).map(f => `<li>${esc((OSM_WORD[f.kind] || ['park'])[0])}${f.name ? ' · ' + esc(f.name) : ''}${f.ha ? ' · ' + fmt(f.ha, 2) + ' ha' : ''} <button type="button" class="link-btn small" data-open="https://www.openstreetmap.org/${esc(f.osm)}">see it on the map</button></li>`).join('')}</ul></details>` : ''}
-      <p class="at-calc"><code>100 × shortfall ${fmt(r.shortfall, 2)} × pressure ${fmt(r.pressure, 2)} ÷ 2 = ${fmt(r.score)}</code></p>
+      <p class="at-calc"><code>100 × shortfall ${fmt(r.shortfall, 2)} × growth weight ${fmt(r.weight, 2)} = ${fmt(r.score)}</code></p>
       ${(r.catch_up || []).length ? `<p class="at-need-h">To reach the Calgary level</p><ul class="at-need">${r.catch_up.map(c => `<li>${atNeed(c)}</li>`).join('')}</ul>` : ''}
     </article>`).join('') || `<p class="empty card">No ${atTier ? atTier.toLowerCase() + ' ' : ''}communities${atWard ? ' in Ward ' + atWard : ''}. Every lived-in community here is at ${fmt(th.list_level, 2)} of the Calgary amenity level or above.</p>`;
 
   $('#at-method').innerHTML = `<summary>How the score is worked out</summary>
     <pre class="at-code"><code># attention.py
 shortfall = max(0, 1 - level)                 # 0 at the Calgary level, 1 with nothing
-pressure  = ${fmt(th.new_pressure, 1)} if new else 1 + min(max(growth_pct, 0), ${th.growth_cap}) / 100
-score     = round(100 * shortfall * pressure / 2)   # 0 to 100
+weight    = ${fmt(th.new_weight, 2)} if new else 0.5 + min(max(growth_pct, 0), ${th.growth_cap}) / 200
+                                              # 0.50 no growth ... 1.00 doubled or new
+score     = round(100 * shortfall * weight)   # 0 to 100
 
 tier = "Urgent" if level &lt; ${fmt(th.urgent_level, 2)} and (new or growth_pct &gt; ${th.growth_pct})
        "High"   if level &lt; ${fmt(th.list_level, 2)} and (new or growth_pct &gt; ${th.growth_pct})
@@ -110,10 +111,10 @@ $('#at-export').addEventListener('click', async e => {
   const button = e.currentTarget, rows = atRows();
   if (!rows.length) return;
   const r = await (await api()).save_csv(`Needs attention, ${W()}, ${(D.amenity_gap || {}).counted || ''}`,
-    ['Rank', 'Community', 'Ward', 'Tier', 'Score (0 to 100)', 'Amenity level (1.00 = Calgary)', 'Shortfall', 'Growth pressure',
+    ['Rank', 'Community', 'Ward', 'Tier', 'Score (0 to 100)', 'Amenity level (1.00 = Calgary)', 'Shortfall', 'Growth weight',
       `Growth since ${CY()} (%)`, `New since ${CY()}`, 'Residents', 'Children 0 to 14', 'To reach the Calgary level',
       'Amenity level, City only', "Not the City's (OpenStreetMap)"],
-    rows.map(x => [x.rank, titleCase(x.name), x.ward || '', x.tier, x.score, x.level, x.shortfall, x.pressure, x.growth_pct ?? '', x.new ? 'yes' : '',
+    rows.map(x => [x.rank, titleCase(x.name), x.ward || '', x.tier, x.score, x.level, x.shortfall, x.weight, x.growth_pct ?? '', x.new ? 'yes' : '',
       x.residents, x.children_0_14, (x.catch_up || []).map(c => `${c.label} +${c.need}${c.unit === 'ha' ? ' ha' : ''} (has ${c.have})`).join('; '),
       x.level_city ?? '', atOtherText(x.other)]));
   if (r && r.ok) { const s = button.querySelector('span'); s.textContent = 'Saved'; setTimeout(() => { s.textContent = 'Save this list'; }, 2500); }
