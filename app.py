@@ -91,6 +91,7 @@ class Api:
         self._analyst = agent_mod.Agent(load_settings, self._emit_analyst, DOWNLOADS, lambda: self._dash, DATA_DIR,
                                         self._wards_summary)
         self._agent.tax_provider = self._analyst.tax_provider = self._tax_for_agent
+        self._analyst.who = 'The Data Scientist'
         self._analyst_busy = False
         self._cams = camfeed.CameraFeed(os.path.join(DATA_DIR, 'camera_replay'))
         self._cams.start()
@@ -360,6 +361,7 @@ class Api:
     def _audit_agent(self):
         a = agent_mod.Agent(load_settings, self._emit_audit, DOWNLOADS, lambda: self._dash, DATA_DIR, self._wards_summary)
         a.tax_provider = self._tax_for_agent
+        a.who = 'The report auditor'
         return a
 
     def audit_list(self):

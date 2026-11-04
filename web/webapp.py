@@ -64,18 +64,24 @@ def urlopen(req, data=None, timeout=None, **_):
     headers = dict(req.header_items())
     if host == 'api.anthropic.com':
         headers['anthropic-dangerous-direct-browser-access'] = 'true'
-    x = js.XMLHttpRequest.new()
-    x.open(req.get_method(), url, False)
-    x.responseType = 'arraybuffer'
-    for k, v in headers.items():
-        if k.lower() not in ('user-agent', 'host', 'connection', 'content-length', 'accept-encoding'):
-            x.setRequestHeader(k, v)
-    try:
-        x.send(to_js(bytes(body)) if body else None)
-    except Exception as e:                       # noqa: BLE001 - blocked, offline or refused by the site
-        raise urllib.error.URLError(f'could not reach {host} from this browser ({e})') from None
-    if not x.status:
-        raise urllib.error.URLError(f'could not reach {host} from this browser')
+    tries = 3 if host == 'api.anthropic.com' else 1       # a dropped phone connection: try the AI service again
+    for attempt in range(tries):
+        x = js.XMLHttpRequest.new()
+        x.open(req.get_method(), url, False)
+        x.responseType = 'arraybuffer'
+        for k, v in headers.items():
+            if k.lower() not in ('user-agent', 'host', 'connection', 'content-length', 'accept-encoding'):
+                x.setRequestHeader(k, v)
+        try:
+            x.send(to_js(bytes(body)) if body else None)
+        except Exception as e:                   # noqa: BLE001 - blocked, offline or refused by the site
+            if attempt + 1 < tries:
+                continue
+            raise urllib.error.URLError(f'could not reach {host} from this browser ({e})') from None
+        if x.status:
+            break
+        if attempt + 1 >= tries:
+            raise urllib.error.URLError(f'could not reach {host} from this browser')
     raw = bytes(js.Uint8Array.new(x.response).to_py()) if x.response else b''
     h = _headers(x.getAllResponseHeaders())
     if x.status >= 400:
@@ -112,6 +118,11 @@ def _place():
     return 'Calgary' if sc.get('kind') == 'city' else sc.get('name')
 
 
+def setattr_(o, k, v):
+    setattr(o, k, v)
+    return o
+
+
 def _make(who):
     a = agent_mod.Agent(_settings, lambda ev: _post(who, ev), DOWN, lambda: STATE['dash'], DATA, lambda: STATE['wards'])
     a.tax_provider = lambda: STATE['tax']
@@ -119,6 +130,7 @@ def _make(who):
 
 
 GENIE, SCIENTIST = _make('genie'), _make('scientist')
+SCIENTIST.who = 'The Data Scientist'
 
 
 def _today():
@@ -170,7 +182,7 @@ def handle(op, args_json):
             entry = next((r for r in _reports() if a.get('report') in (r.get('pdf'), r.get('interactive'))), None)
             if not entry:
                 return json.dumps({'ok': False, 'error': 'That report is not in this browser any more.'})
-            res = auditor.run(entry, lambda: _make('auditor'), lambda ev: _post('auditor', ev), _today(), DOWN)
+            res = auditor.run(entry, lambda: setattr_(_make('auditor'), 'who', 'The report auditor'), lambda ev: _post('auditor', ev), _today(), DOWN)
             auditor.index(DATA, res)
             return json.dumps({'ok': True, 'page': res['page'], 'findings': len(res['findings']), 'verdict': res['verdict'],
                                'corrected': res.get('corrected'), 'cost_usd': res.get('cost_usd')}, default=str)

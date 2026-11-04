@@ -1008,6 +1008,7 @@ class Agent:
         self.get_settings = get_settings          # () -> {'api_key':..., 'model':...}
         self.data_dir = data_dir or os.path.join(os.path.expanduser('~'), '.ward5datadesk')
         self.emit = emit                          # (event dict) -> None, sends to the app window
+        self.who = 'Data Genie'                   # how errors name it (the Data Scientist and the auditor set their own)
         self.downloads_dir = downloads_dir
         self.dashboard_provider = dashboard_provider
         self.wards_provider = wards_provider      # () -> every ward side by side (or None)
@@ -1294,14 +1295,19 @@ class Agent:
                     # what the user reads: Data Genie, never the AI company or model; the detail goes to the log
                     print('Data Genie: ' + '; '.join(f"{x['service']} ({x['model']}): {x['why']}" for x in skipped))
                     kinds_ = {x['kind'] for x in skipped}
+                    who = getattr(self, 'who', 'Data Genie')
                     if kinds_ <= {'key'}:
-                        msg = 'Data Genie could not answer: the AI key in Settings was not accepted. Check it in Settings.'
+                        msg = f'{who} could not answer: the AI key was not accepted. Check it in Settings.'
                     elif kinds_ <= {'credit', 'daily'}:
-                        msg = 'Data Genie could not answer: the AI key in Settings has run out of credit or reached its daily limit.'
+                        msg = f'{who} could not answer: the AI key has run out of credit or reached its daily limit.'
+                    elif kinds_ <= {'network'}:
+                        msg = (f'{who} could not reach the AI service. On a phone this happens when the screen turns off or '
+                               'you switch apps while it is working: keep this page open and on screen until it finishes '
+                               '(a report takes a few minutes), then try again.')
                     elif kinds_ <= {'rate', 'busy', 'network'}:
-                        msg = 'Data Genie could not answer just now (the AI service is busy or could not be reached). Try again in a minute.'
+                        msg = f'{who} could not answer just now: the AI service is busy. Try again in a minute.'
                     else:
-                        msg = 'Data Genie could not answer this question. Try again, or start a New chat if it keeps happening.'
+                        msg = f'{who} could not answer this. Try again, or start a New chat if it keeps happening.'
                     raise AgentError(msg) from None
                 self.emit({'type': 'step', 'text': f"The AI service was not available ({engines.WORDS.get(err.kind, err.kind)}). "
                                                    'Carrying on with the backup service'})

@@ -174,8 +174,91 @@ def _post(url, headers, body, timeout):
         raise EngineError('request', 'the reply was not readable') from None
 
 
+STREAM = True    # ask the AI service to stream its reply: bytes keep flowing while it works, so a long answer is not
+                 # cut off by a phone network or a router dropping a quiet connection (the reply is put back together)
+
+
+def from_stream(text):
+    """A streamed Messages reply (server-sent events) put back together as the usual reply {'content', 'stop_reason',
+    'usage', ...}."""
+    msg, blocks, partial = {}, {}, {}
+    for line in text.splitlines():
+        if not line.startswith('data:'):
+            continue
+        try:
+            ev = json.loads(line[5:].strip())
+        except ValueError:
+            continue
+        t = ev.get('type')
+        if t == 'message_start':
+            msg = dict(ev.get('message') or {})
+        elif t == 'content_block_start':
+            blocks[ev['index']] = dict(ev.get('content_block') or {})
+            if blocks[ev['index']].get('type') in ('tool_use', 'server_tool_use'):
+                partial[ev['index']] = ''
+        elif t == 'content_block_delta':
+            b, d = blocks.setdefault(ev['index'], {}), ev.get('delta') or {}
+            dt = d.get('type')
+            if dt == 'text_delta':
+                b['text'] = b.get('text', '') + d.get('text', '')
+            elif dt == 'input_json_delta':
+                partial[ev['index']] = partial.get(ev['index'], '') + d.get('partial_json', '')
+            elif dt == 'thinking_delta':
+                b['thinking'] = b.get('thinking', '') + d.get('thinking', '')
+            elif dt == 'signature_delta':
+                b['signature'] = b.get('signature', '') + d.get('signature', '')
+            elif dt == 'citations_delta':
+                b.setdefault('citations', []).append(d.get('citation'))
+        elif t == 'message_delta':
+            msg.update({k: v for k, v in (ev.get('delta') or {}).items() if v is not None})
+            u = dict(msg.get('usage') or {})
+            u.update(ev.get('usage') or {})
+            msg['usage'] = u
+        elif t == 'error':
+            err = ev.get('error') or {}
+            kind = err.get('type') or ''
+            code = 529 if 'overloaded' in kind else 429 if 'rate_limit' in kind else 500 if 'api_error' in kind else 400
+            raise EngineError(classify(code, err.get('message') or kind), f'{kind}: {(err.get("message") or "")[:200]}')
+    for i, raw in partial.items():
+        try:
+            blocks[i]['input'] = json.loads(raw) if raw.strip() else {}
+        except ValueError:
+            raise EngineError('request', 'the reply was cut off') from None
+    if not msg:
+        raise EngineError('request', 'the reply was not readable')
+    msg['content'] = [blocks[i] for i in sorted(blocks)]
+    return msg
+
+
 def post_anthropic(key, body, timeout=180):
-    return _post(PROVIDERS['claude']['url'], {'x-api-key': key, 'anthropic-version': ANTHROPIC_VERSION}, body, timeout)
+    headers = {'x-api-key': key, 'anthropic-version': ANTHROPIC_VERSION}
+    if not STREAM:
+        return _post(PROVIDERS['claude']['url'], headers, body, timeout)
+    req = urllib.request.Request(PROVIDERS['claude']['url'], data=json.dumps({**body, 'stream': True}).encode('utf-8'),
+                                 method='POST', headers={**headers, 'content-type': 'application/json'})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            text = r.read().decode('utf-8')
+    except urllib.error.HTTPError as e:
+        raw = ''
+        try:
+            raw = e.read().decode('utf-8', 'replace')
+            j = json.loads(raw)
+            err = j.get('error', {}) if isinstance(j, dict) else {}
+            msg = (err.get('message') if isinstance(err, dict) else str(err)) or raw
+        except (ValueError, AttributeError):
+            msg = raw
+        raise EngineError(classify(e.code, msg), f'{e.code}: {msg[:200]}') from None
+    except urllib.error.URLError as e:
+        raise EngineError('network', str(e.reason)) from None
+    except (TimeoutError, OSError) as e:
+        raise EngineError('network', str(e)) from None
+    if text.lstrip().startswith('{'):            # a plain reply after all
+        try:
+            return json.loads(text)
+        except ValueError:
+            raise EngineError('request', 'the reply was not readable') from None
+    return from_stream(text)
 
 
 def post_chat(url, key, body, timeout=180):

@@ -21,11 +21,23 @@
     } catch (e) { throw new Error('That access code is not right.'); }
   }
 
+  // while Data Genie, the Data Scientist or the auditor is working, keep a phone's screen on: a phone that sleeps
+  // cuts the page's connection to the AI service and the answer is lost
+  const LONG = new Set(['ask', 'analyst_run', 'audit_run']);
+  let lock = null, busy = 0;
+  async function holdScreen() {
+    try { if (!lock && navigator.wakeLock) { lock = await navigator.wakeLock.request('screen'); lock.addEventListener('release', () => { lock = null; }); } } catch (e) { /* not allowed here */ }
+  }
+  document.addEventListener('visibilitychange', () => { if (busy && document.visibilityState === 'visible') holdScreen(); });
   function call(op, args) {
+    const long = LONG.has(op);
+    if (long) { busy++; holdScreen(); }
     return new Promise((resolve, reject) => {
       const id = ++seq;
       waiting.set(id, { resolve, reject });
       worker.postMessage({ id, op, args });
+    }).finally(() => {
+      if (long && --busy <= 0) { busy = 0; if (lock) { lock.release().catch(() => {}); lock = null; } }
     });
   }
 
