@@ -4,6 +4,7 @@ Talks to the Claude Messages API over HTTPS (no extra library needed). Claude de
 search the City's catalogue, read a dataset's columns, run queries, save CSVs, and show charts, tables and
 maps in the app.
 """
+import datetime as dt
 import json
 import os
 import re
@@ -88,8 +89,12 @@ Use the data you already have first
 5. Never download the same data twice: call list_saved_files before download_dataset, and if a file with the same data is already saved, use it (say which file and when it was saved). Download again only if the user asks for fresher data. To give the user a table you have already worked out, use save_table instead of downloading.
 
 How to work
-- Never state a number you did not get from a tool in this conversation. If the data can't answer the question, say so \
-and say what data would.
+- Your first sentence is always an answer, with a number from the data. Never open with "The data can't", "I can't", \
+"I couldn't" or "I don't know", and don't label it "Short answer": answer every part the data can, and put what it cannot show in one short line at the end. \
+Before saying a part can't be answered, look for it in get_dashboard (its sections cover traffic hotspots inside the \
+exact ward boundary, traffic by month and traffic against snow).
+- Never state a number you did not get from a tool in this conversation. If the data can't answer a part of the \
+question, say so at the end and say what data would.
 - Find data with search_datasets, check columns with describe_dataset, then query_dataset. Prefer asking the API for \
 counts and sums ($select with count(*), sum(), avg(); $group) over pulling raw rows.
 - Say which dataset (name and ID) and which dates every answer is based on, in one short line at the end.
@@ -205,6 +210,9 @@ Beyond City data
 - Weather and climate: the City does not publish weather records. Use get_weather (Environment Canada, Calgary \
 International Airport station, northeast Calgary) for temperature, rain, snow and trends, by day, month or year, \
 back to 1881.
+- Weather forecast, today's weather or warnings: use get_weather_forecast (Environment Canada's public forecast for \
+Calgary, about 7 days ahead). Lead with the forecast for the day asked; add the usual weather for that date from \
+get_weather only if it helps.
 - Before saying the City has no data on a topic, search the catalogue with at least two different wordings. If it \
 truly isn't published, say so plainly and name the organisation that does publish it (for example Calgary Police \
 Service for crime, Statistics Canada for detailed census tables, CMHC for housing starts and rents).
@@ -449,9 +457,17 @@ TOOLS = [
          'end': {'type': 'string', 'description': 'Last date, YYYY-MM-DD'},
          'by': {'type': 'string', 'enum': ['day', 'month', 'year']}},
          'required': ['start', 'end', 'by']}},
+    {'name': 'get_weather_forecast',
+     'description': 'Environment Canada\'s current public forecast for Calgary: conditions now, the forecast for each '
+                    'day and night about 7 days ahead (summary, high, low, chance of precipitation) and any weather '
+                    'warnings in force. Use for any question about upcoming weather.',
+     'input_schema': {'type': 'object', 'properties': {}}},
     {'name': 'police_crime',
      'description': 'Crime or disorder counts from the Calgary Police Service community safety data already on this '
-                    'computer (by month since 2020; crime categories: assault, other violence, street and commercial '
+                    'computer. Describe the period exactly as the result\'s period.say_it_as gives it (a "12 months" '
+                    'period always covers 12 months; if the data ends earlier the tool moves the window back). '
+                    'Details: '
+                    '(by month since 2020; crime categories: assault, other violence, street and commercial '
                     'robbery, break and enter of homes, businesses and other premises, theft from and of vehicles). '
                     'Filter by ward, community, category and months; group by category, community, ward, year or month.',
      'input_schema': {'type': 'object', 'properties': {
@@ -608,6 +624,7 @@ STEP_TEXT = {
     'query_dataset': lambda a: f"Querying {a.get('dataset_id', '')}",
     'download_dataset': lambda a: f"Downloading “{a.get('file_name', '')}”",
     'get_dashboard': lambda a: 'Reading the dashboard' + ('' if (a.get('section') or 'overview') == 'overview' else f" ({a.get('section').replace('_', ' ')})"),
+    'get_weather_forecast': lambda a: 'Getting Environment Canada\'s forecast for Calgary',
     'get_weather': lambda a: f"Getting Environment Canada weather, {a.get('start', '')} to {a.get('end', '')}",
     'police_crime': lambda a: f"Reading Calgary Police {a.get('kind', 'crime')} data saved on this computer",
     'crime_severity_index': lambda a: 'Reading the Crime Severity Index',
@@ -788,6 +805,63 @@ def _other_amenities_out(d, ward=None, community=None, kind=None, gated=None, sa
                     'each opens that feature on the OpenStreetMap map.'}
 
 
+NEGATIVE_OPENING = re.compile(
+    r"^\W*(short answer\W*)?(i\s+((can'?t|cannot)|cannot|could\s*n[o']t|do\s*n[o']t\s+know|am\s+not\s+able|'m\s+not\s+able|"
+    r"have\s+no|don'?t\s+have|was\s+not\s+able|wasn'?t\s+able)|idk|unfortunately|sorry|"
+    r"(the\s+)?(data|tools?|dataset|records?)\s+((can'?t|cannot)|cannot|does\s*n[o']t|do\s*n[o']t|is\s*n[o']t|are\s*n[o']t|"
+    r"has\s+no|have\s+no)|there\s+(is|are)\s+no|no\s+(data|forecast|records?)|it'?s\s+not\s+possible|"
+    r"it\s+is\s+not\s+possible)", re.I)
+REWRITE_NOTE = ('Rewrite your answer. Its first sentence says what cannot be done; Data Genie never opens that way. '
+                'Open with the answer the data does give, with its number (use more tools first if you have not yet '
+                'looked: get_dashboard sections, get_weather_forecast, get_weather, police_crime, the open data). '
+                'Put any limit in one short sentence at the end. Do not mention this note.')
+
+
+def _first_sentence(text):
+    t = re.sub(r'[*_#>`]', '', (text or '').replace('\u2019', "'")).strip()
+    return re.split(r'(?<=[.!?])\s|\n', t, maxsplit=1)[0][:300]
+
+
+def _traffic_months(by_day):
+    out = {}
+    for day, n in (by_day or {}).items():
+        out[day[:7]] = out.get(day[:7], 0) + n
+    return [{'month': m, 'incidents': out[m]} for m in sorted(out)]
+
+
+def _traffic_weather(by_day):
+    """Traffic incidents a day against that day's weather (Calgary airport): fresh snow and snow on the ground."""
+    if not by_day:
+        return None
+    days = sorted(by_day)
+    try:
+        rows = weather.daily(dt.date.fromisoformat(days[0]), dt.date.fromisoformat(days[-1]))
+    except Exception as ex:                       # noqa: BLE001 - the rest of the section still stands
+        return {'error': f'Weather could not be read ({ex}).'}
+    num = lambda v: float(v) if v not in (None, '') else None
+    groups = {'no new snow, bare ground': [], 'no new snow, snow on the ground': [], 'light snow (0.2 to 4.9 cm)': [],
+              'heavy snow (5 cm or more)': []}
+    for r in rows:
+        day = str(r.get('LOCAL_DATE') or '')[:10]
+        snow, ground = num(r.get('TOTAL_SNOW')), num(r.get('SNOW_ON_GROUND'))
+        if snow is None:
+            continue
+        key = ('heavy snow (5 cm or more)' if snow >= 5 else 'light snow (0.2 to 4.9 cm)' if snow >= 0.2 else
+               'no new snow, snow on the ground' if (ground or 0) >= 1 else 'no new snow, bare ground')
+        groups[key].append(by_day.get(day, 0))
+    out = [{'days': k, 'number_of_days': len(v), 'incidents': sum(v),
+            'incidents_per_day': round(sum(v) / len(v), 2) if v else None} for k, v in groups.items()]
+    base = next((g['incidents_per_day'] for g in out if g['days'] == 'no new snow, bare ground'), None)
+    for g in out:
+        g['against_bare_ground_days'] = (f"{(g['incidents_per_day'] / base - 1) * 100:+.1f}%"
+                                         if base and g['incidents_per_day'] is not None else None)
+    worst = sorted(((by_day.get(str(r.get('LOCAL_DATE'))[:10], 0), str(r.get('LOCAL_DATE'))[:10], num(r.get('TOTAL_SNOW')))
+                    for r in rows), reverse=True)[:5]
+    return {'from': days[0], 'to': days[-1], 'by_snow': out,
+            'busiest_days': [{'date': dd, 'incidents': n, 'snowfall_cm': sn} for n, dd, sn in worst],
+            'source': weather.SOURCE}
+
+
 def find_rental_buildings(text, comm=None, limit=60):
     """Rental apartment buildings the population build-up counts (data/rentals_all.json, every community): find by
     building permit number (BP2016-08149), roll number (with or without the leading zero), address or community code.
@@ -871,12 +945,21 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                         'and the sources it was checked against, as of its checked date); largest_building_permits are '
                         'building permits issued in the period for non-housing work over $1 million.'}
     if section == 'traffic':
-        return {'period': d.get('period'), 'traffic12': (d.get('summary') or {}).get('traffic12'),
+        return {'period': d.get('period'), 'prev_period': d.get('prev_period'),
+                'traffic12': (d.get('summary') or {}).get('traffic12'),
                 'traffic_prev': (d.get('summary') or {}).get('traffic_prev'),
+                'hotspots': d.get('traffic_places'),
+                'by_month': _traffic_months(d.get('traffic_by_day')),
+                'weather': _traffic_weather(d.get('traffic_by_day')),
                 'points_last_90_days': len(d.get('traffic_points') or []),
                 'newest_50_points': sorted(d.get('traffic_points') or [], key=lambda p: str(p.get('date', '')) + str(p.get('time', '')),
                                            reverse=True)[:50],
-                'note': 'For a map of all the points use show_map with source layer area_traffic.'}
+                'note': 'Everything here is inside the selected area\'s exact boundary (the whole city, or one ward): '
+                        'hotspots = the places (the City\'s incident_info, usually a junction) with the most traffic '
+                        'incidents in the period, with the year before; by_month = incidents each month over both '
+                        'periods; weather = average incidents a day by the day\'s snowfall and snow on the ground '
+                        '(Environment Canada, Calgary airport). Use these to answer hotspot and weather questions '
+                        'directly. For a map of the last 90 days use show_map with source layer area_traffic.'}
     if section == 'rents':
         return {'rents': d.get('rents')}
     if section == 'profile':
@@ -1174,6 +1257,8 @@ class Agent:
                     if args.get('show_on_map') else None)
             return dashboard_section(d, args.get('section') or 'overview', self.wards_provider,
                                      {'community': args.get('community'), 'ward': args.get('ward'), 'find': args.get('find')})
+        if name == 'get_weather_forecast':
+            return weather.forecast()
         if name == 'get_weather':
             return weather.history(args['start'], args['end'], args.get('by', 'month'))
         if name == 'police_crime':
@@ -1302,6 +1387,8 @@ class Agent:
             what, detail, got = 'Calgary Police community safety data', '; '.join(parts), f"total {r.get('total', '?')} (latest month {r.get('latest_month', '?')})"
         elif name == 'crime_severity_index':
             what, detail, got = 'Statistics Canada table 35-10-0026-01', 'Crime Severity Index by city', f"latest year {r.get('latest_year', '?')}"
+        elif name == 'get_weather_forecast':
+            what, detail, got = 'Environment Canada public forecast for Calgary', 'conditions now and about 7 days ahead', f"issued {r.get('issued_utc', '')} UTC"
         elif name == 'get_weather':
             what, detail, got = 'Environment Canada daily climate, Calgary airport', f"{a.get('start')} to {a.get('end')} by {a.get('by')}", ''
         elif name == 'query_saved_file':
@@ -1409,6 +1496,7 @@ class Agent:
         used = {'input': 0, 'output': 0, 'cache_read': 0, 'cost_usd': 0.0}
         self.last_cost = used
         pos, skipped, services = 0, [], []
+        rewritten = None
         done = {'model': chain[0][tier], 'tier': tier, 'tokens': used, 'free': False, 'engine': '', 'skipped': skipped}
         for _ in range(MAX_STEPS):
             resp, pos = self._step(chain, pos, tier, system, skipped)
@@ -1440,6 +1528,12 @@ class Agent:
                     'engine': ' then '.join(f'{n} ({m})' for n, m, _ in services), 'skipped': skipped}
             if resp.get('stop_reason') != 'tool_use':
                 text = '\n\n'.join(b.get('text', '') for b in content if b.get('type') == 'text').strip()
+                if rewritten is None and NEGATIVE_OPENING.search(_first_sentence(text)):
+                    rewritten = len(self.history) - 1     # led with what can't be done: one rewrite, answer first
+                    self.history.append({'role': 'user', 'content': [{'type': 'text', 'text': REWRITE_NOTE}]})
+                    continue
+                if rewritten is not None:                 # keep only the rewritten answer in the conversation
+                    del self.history[rewritten:rewritten + 2]
                 return {'text': text or '(No answer.)', **done}
             results = []
             for block in content:

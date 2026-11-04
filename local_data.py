@@ -176,6 +176,15 @@ def police_query(data, kind='crime', wards=None, communities=None, categories=No
     groups = [g for g in (group_by or []) if g in keys]
     agg, total = {}, 0
     latest = max(r[3] * 12 + r[4] - 1 for r in rows)
+    lab = lambda k: f'{k // 12}-{k % 12 + 1:02d}'
+    shifted = None
+    if b is not None and b > latest:          # the police data ends earlier: keep the same number of months, ending
+        n = (b - a + 1) if a is not None else None    # at the latest month, so "12 months" stays 12 months
+        b = latest
+        if n:
+            a = latest - n + 1
+        shifted = (f'The police data ends at {lab(latest)}, so the period was moved to end there'
+                   + (f' and still covers {n} months.' if n else '.'))
     for r in rows:
         k = r[3] * 12 + r[4] - 1
         if (a is not None and k < a) or (b is not None and k > b):
@@ -194,7 +203,12 @@ def police_query(data, kind='crime', wards=None, communities=None, categories=No
     if {'month', 'year'} & set(groups):
         out.sort(key=lambda x: [str(x.get(g)) for g in groups])
     cats = sorted({r[0] for r in rows})
-    return {'kind': kind, 'total': total, 'latest_month': f'{latest // 12}-{latest % 12 + 1:02d}',
+    first_k = a if a is not None else min(r[3] * 12 + r[4] - 1 for r in rows)
+    last_k = b if b is not None else latest
+    return {'kind': kind, 'total': total, 'latest_month': lab(latest),
+            'period': {'from': lab(first_k), 'to': lab(last_k), 'months': last_k - first_k + 1,
+                       'say_it_as': f'{last_k - first_k + 1} months, {lab(first_k)} to {lab(last_k)}'},
+            **({'period_note': shifted} if shifted else {}),
             'first_month': '2020-01', 'groups': len(out), 'rows': out[:max(1, min(int(limit or 300), 2000))],
             'categories_available': cats,
             'source': 'https://www.calgarypolice.ca/transparency-and-accountability/community-safety-dashboard---monthly-snapshot.html#dashdata',

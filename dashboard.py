@@ -72,7 +72,7 @@ class PeriodError(ValueError):
     """A period the user chose that can't be used (the message says why)."""
 
 
-DATA_VERSION = 18          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
+DATA_VERSION = 19          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
 # The City of Calgary's total population on April 1 (Calgary and Region Economic Outlook 2026-2031, spring 2026,
 # Table 4: 2021-2025 estimates, 2026 onward forecast). Used for city-wide crime rates, read at the middle of the
 # crime period so Calgary and Ward 5 are counted at the same date.
@@ -933,6 +933,23 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                        'where': r.get('incident_info', ''),
                        'what': r.get('description', '')} for r in t12 if r['_day'] >= recent_from]
 
+    # every traffic incident of both periods, day by day, and the places with the most (inside the exact boundary),
+    # so Data Genie can relate incidents to weather and name the hotspots without asking the City again
+    def _place(r):
+        t = ' '.join(str(r.get('incident_info') or '').split()).strip(' .')
+        t = re.sub(r'\s+(approaching|at|near)\s+', ' and ', t, flags=re.I)   # one name per junction
+        return t or 'Location not given'
+    traffic_by_day = {}
+    for r in t12 + tprev:
+        traffic_by_day[r['_day']] = traffic_by_day.get(r['_day'], 0) + 1
+    _pl12, _plprev = {}, {}
+    for r in t12:
+        _pl12[_place(r)] = _pl12.get(_place(r), 0) + 1
+    for r in tprev:
+        _plprev[_place(r)] = _plprev.get(_place(r), 0) + 1
+    traffic_places = [{'place': k, 'incidents': v, 'year_before': _plprev.get(k, 0)}
+                      for k, v in sorted(_pl12.items(), key=lambda kv: -kv[1])[:40]]
+
     # ---- traffic cameras: those in the ward and within about 2 km of it ----
     near = lambda lon, lat: x0 - 0.03 < lon < x1 + 0.03 and y0 - 0.02 < lat < y1 + 0.02
     cameras = []
@@ -1657,6 +1674,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         'trend': {'months': months, 'all': [sum(v for (c, m), v in all_g.items() if m == mo) for mo in months],
                   'prev_months': cmonths, 'prev': [sum(v for (c, m), v in all_g.items() if m == mo) for mo in cmonths]},
         'traffic_points': traffic_points,
+        'traffic_by_day': traffic_by_day, 'traffic_places': traffic_places,
         'geo': geo_out,
         'notes': [
             'Residents are counted with ' + POP_METHODS[pop_method]['label'] + ' (chosen in Settings): '

@@ -121,3 +121,50 @@ def history(start, end, by='month'):
         data = summarize(rows, 'month' if by == 'month' else 'year')
     return {'source': SOURCE, 'from': s.isoformat(), 'to': e.isoformat(), 'by': by, 'rows': data,
             'note': 'Blank values are days the station did not report. Recent days can be missing for a few days.'}
+
+
+FORECAST_URL = 'https://api.weather.gc.ca/collections/citypageweather-realtime/items/ab-52?f=json&lang=en'
+FORECAST_SOURCE = ('Environment and Climate Change Canada, public forecast for Calgary (weather.gc.ca, '
+                   'citypageweather ab-52), api.weather.gc.ca')
+
+
+def _en(v):
+    return v.get('en') if isinstance(v, dict) and 'en' in v else v
+
+
+def forecast():
+    """Today's conditions, Environment Canada's 7-day forecast for Calgary and any weather warnings."""
+    p = json.loads(fetch(FORECAST_URL).decode('utf-8')).get('properties') or {}
+    cc = p.get('currentConditions') or {}
+    now = {'observed_at_utc': _en(cc.get('timestamp')), 'condition': _en(cc.get('condition')),
+           'temperature_c': _en((cc.get('temperature') or {}).get('value')),
+           'wind_chill': _en((cc.get('windChill') or {}).get('value')),
+           'humidity_pct': _en((cc.get('relativeHumidity') or {}).get('value')),
+           'wind_kmh': _en(((cc.get('wind') or {}).get('speed') or {}).get('value')),
+           'wind_direction': _en(((cc.get('wind') or {}).get('direction') or {}).get('value'))}
+    fg = p.get('forecastGroup') or {}
+    try:                                       # Calgary time: UTC-7 in winter, UTC-6 in summer (close enough for the date)
+        issued = dt.datetime.fromisoformat(str(_en(fg.get('timestamp'))).replace('Z', '+00:00'))
+        d0 = (issued - dt.timedelta(hours=7)).date()
+    except ValueError:
+        d0 = dt.date.today()
+    names = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    days = []
+    for f in fg.get('forecasts') or []:
+        per = f.get('period') or {}
+        temps = {_en(t.get('class')): _en(t.get('value')) for t in (f.get('temperatures') or {}).get('temperature') or []}
+        pop = _en(((f.get('abbreviatedForecast') or {}).get('pop') or {}).get('value'))
+        wd = str(_en(per.get('value')) or '').lower().replace(' night', '').strip()
+        date = next((d0 + dt.timedelta(days=i) for i in range(8) if wd in names and (d0 + dt.timedelta(days=i)).weekday()
+                     == names.index(wd)), None)
+        days.append({'period': _en(per.get('textForecastName')), 'date': date.isoformat() if date else None,
+                     'summary': _en(f.get('textSummary')), 'high_c': temps.get('high'), 'low_c': temps.get('low'),
+                     'chance_of_precipitation_pct': pop or None})
+    warn = [{'type': _en(w.get('type')), 'description': _en(w.get('description')),
+             'expires_utc': _en(w.get('expiryTime'))} for w in (p.get('warnings') or []) if isinstance(w, dict)]
+    return {'place': 'Calgary', 'issued_utc': _en(fg.get('timestamp')), 'now': now, 'forecast': days,
+            'normals': _en((fg.get('regionalNormals') or {}).get('textSummary')), 'warnings': warn,
+            'page': 'https://weather.gc.ca/en/location/index.html?coords=51.05,-114.07', 'source': FORECAST_SOURCE,
+            'note': 'Environment Canada forecasts reach about 6 to 7 days ahead. For a date further out, give what '
+                    'the forecast covers and the usual weather for that date from get_weather history.'}
+
