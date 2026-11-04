@@ -1370,3 +1370,6 @@ table.gap-assets .cmp-city { background: color-mix(in srgb, #FBBF24 10%, transpa
 th.gm-cur, td.gm-cur { background: color-mix(in srgb, var(--accent) 8%, transparent); }
 th small { display: block; font-weight: 500; color: var(--muted-fg); font-size: 11px; }
 .gap-all { color: var(--muted-fg); font-family: var(--mono); }
+.rc-table td.rc-step, .rc-table td.rc-how { min-width: 220px; font-size: 12px; color: var(--fg-2); }
+.rc-table tr.is-sel td { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+tr.rc-rent td { background: color-mix(in srgb, #F59E0B 8%, transparent); }

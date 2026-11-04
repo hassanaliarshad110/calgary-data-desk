@@ -152,6 +152,63 @@ class GrowthModel:
     def homes_lived_in(self, c, t):
         return self.homes(c, t - LAG) + self.units(c, t)
 
+    def recon(self, c, t):
+        """How the growth model arrives at community c's population at decimal year t, step by step (the Population
+        build-up screen shows this, and lists every property on the roll the same way, so anyone can add it up).
+
+        homes      homes on the property roll (residential, with a building, residential use; rental buildings taken out),
+                   each counted as lived in one year after its year of construction
+        units      rental units: from building permits (counted when the permit is completed), from the building's year
+                   of construction, or estimated from assessed value (scaled so homes on Census day do not exceed 2021
+                   Census households by more than 5%)
+        Three ways the model can use them (the 'method'):
+          people per home   population = k x homes + a x units, k = (2021 population - a x rental units on Census day)
+                            / homes on Census day, a = 2.0 people per rental unit (or the 2021 household size if smaller)
+          household size    where homes on Census day differ from Census households by more than 15%: population =
+                            2021 population + 2021 household size x (homes and units now - on Census day)
+          city average      no 2021 count (built since): population = Calgary's people per home x homes + 2.0 x units"""
+        p0 = self.pop21.get(c) or 0
+        ho0 = self.homes(c, CENSUS_T - LAG)
+        hh, size = self.hh21.get(c), self.hhsize.get(c)
+        ho, un = self.homes(c, t - LAG), self.units(c, t)
+        u_permit = self._units(c, t, LAG, ('permit',))
+        u_yoc = self._units(c, t, LAG, ('yoc',))
+        u_est_raw = self._units(c, t, LAG, ('estimated',))
+        sc = self.scale.get(c, 1.0)
+        pop, how = self.population(c, t)
+        out = {'code': c, 'census2021': round(p0), 'households_2021': round(hh or 0), 'household_size_2021': size,
+               'homes_census': round(ho0, 1), 'homes_now': round(ho, 1), 'units_census': round(self.units(c, CENSUS_T), 1),
+               'units_now': round(un, 1), 'units_permit': round(u_permit, 1), 'units_built': round(u_yoc, 1),
+               'units_estimated': round(u_est_raw * sc, 1), 'estimate_scale': round(sc, 3),
+               'method': how, 'population': round(pop)}
+        if how == 'people per home':
+            a = min(A, size) if size else A
+            k = max((p0 - a * self.units(c, CENSUS_T)) / ho0, 1.0)
+            out.update({'people_per_home': round(k, 4), 'people_per_unit': a,
+                        'people_in_homes': round(k * ho, 1), 'people_in_units': round(a * un, 1),
+                        'how': f'{k:.4f} people per home x {ho:,.1f} homes + {a:.2f} per rental unit x {un:,.1f} units'})
+        elif how == 'household size':
+            hs = size or 2.6
+            hc21 = ho0 + self.units(c, CENSUS_T)
+            out.update({'people_per_home': hs, 'people_per_unit': hs, 'homes_and_units_census': round(hc21, 1),
+                        'how': f'2021 population {p0:,.0f} + {hs:.2f} (2021 household size) x ({ho + un:,.1f} homes '
+                               f'and units now - {hc21:,.1f} on Census day); homes on Census day were more than 15% '
+                               f'off the Census household count ({hh:,.0f}), so only the change is used'})
+        else:
+            out.update({'people_per_home': self.kcity, 'people_per_unit': A,
+                        'people_in_homes': round(self.kcity * ho, 1), 'people_in_units': round(A * un, 1),
+                        'how': f'no 2021 count: {self.kcity:.2f} people per home (Calgary\'s) x {ho:,.1f} homes + '
+                               f'{A:.1f} per rental unit x {un:,.1f} units'})
+        return out
+
+    def home_share(self, year, t):
+        """The share of one home built in `year` that counts as lived in at decimal year t (the same rule as homes())."""
+        tt = t - LAG
+        y, f = int(math.floor(tt)), tt - math.floor(tt)
+        if y >= self.R:
+            return 1.0 if year <= self.R - 1 else 0.0
+        return 1.0 if year <= y - 1 else (f if year == y else 0.0)
+
 
 def queries(codes):
     """The three open data queries behind the model (dataset, select, where, group)."""

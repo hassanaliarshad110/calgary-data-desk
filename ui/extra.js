@@ -381,9 +381,10 @@ function renderGrowth() {
   $('#gr-filters').hidden = grView !== 'dp';
   $('#gr-note').hidden = grView !== 'dp';
   $('#gr-table').classList.toggle('bb', grView === 'rw');
-  $('#gr-gap').hidden = grView !== 'gap' && grView !== 'assets';
-  $('#gr-list').hidden = grView === 'gap' || grView === 'assets';
+  $('#gr-gap').hidden = !['gap', 'assets', 'recon'].includes(grView);
+  $('#gr-list').hidden = ['gap', 'assets', 'recon'].includes(grView);
   if (grView === 'gap') { renderGap(); return; }
+  if (grView === 'recon') { renderRecon(); return; }
   if (grView === 'assets') { renderAssets(); return; }
   if (grView === 'dp') {
     const dv = D.development;
@@ -624,6 +625,7 @@ $('#gr-export').addEventListener('click', e => {
   if (!D) return;
   let name, cols, rows;
   if (grView === 'assets') { const sv = $('#gap-assets-save'); if (sv) sv.click(); return; }
+  if (grView === 'recon') { const sv = $('#rc-save'); if (sv) sv.click(); return; }
   if (grView === 'dp' && D.development) {
     name = '' + W() + ' development permits ' + D.period;
     cols = ['Permit', 'Applied', 'Status', 'Type', 'Category', 'Address', 'Community', 'Proposed use', 'Description', 'Decision', 'Decision date'];
@@ -1167,6 +1169,116 @@ window.renderBriefSources = renderBriefSources;
 window.renderExtras = renderExtras;
 window.extraMapLayers = extraMapLayers;
 window.renderFamilies = renderFamilies;
+
+// ================================================================ POPULATION BUILD-UP (dashboard.population_recon, population.py)
+// Community by community: homes on the property roll x people per home + rental units x people per unit = the growth
+// model, then the step to the way of counting chosen in Settings. One community at a time, every property on the roll.
+const RC_TYPES = { R110: 'House (detached)', R111: 'House', R120: 'Semi-detached or duplex', R121: 'Semi-detached or duplex',
+  R201: 'Condo apartment, low-rise', R202: 'Condo apartment, low-rise', R301: 'Condo apartment, high-rise', R302: 'Condo apartment, high-rise',
+  R401: 'Townhouse or row unit', R402: 'Townhouse or row unit' };
+const rcType = c => RC_TYPES[c] || ('Other residential (' + c + ')');
+let rcComm = '', rcProps = null, rcLoading = false;
+function renderRecon() {
+  const R = D && D.population && D.population.recon, box = $('#gr-gap');
+  $('#gr-sub').textContent = 'How the population is built from the property roll: every home and rental unit, times people per home, adding up to the total';
+  if (!R) { $('#gr-stats').innerHTML = ''; box.innerHTML = '<p class="empty">The build-up is not available in this refresh.</p>'; return; }
+  const T = R.totals, m = popMethod();
+  $('#gr-stats').innerHTML = [[fmt(T.homes_now, 0), 'homes lived in on the property roll'], [fmt(T.units_now, 0), 'rental units (apartment buildings)'],
+    [fmt(T.population), 'residents by the growth model'], [fmt(T.residents), 'residents, ' + popChip() + ' (in use)']]
+    .map(([b, s]) => `<div class="istat"><b>${b}</b><span>${esc(s)}</span></div>`).join('');
+  const rows = [...R.rows].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+  const stepHead = { city_actual: "Step to the City's total, actual growth", city_pace: "Step to the City's total, one rate", census2021: 'Step to the ' + CY() + ' Census', model: 'Step' }[m] || 'Step';
+  rcComm = rcComm && rows.some(r => r.code === rcComm) ? rcComm : '';
+  box.innerHTML = `<div class="gap-scope"><h3>${esc(W())}: from homes to residents</h3>
+    <p class="card-sub">Read across each row: homes and rental units on the City's property roll, times people per home or per unit, give the growth model's residents; the last columns take it to the way of counting chosen in Settings (${esc(popWords())}). Choose a community to list every property behind its figure.</p>
+    <div class="table-wrap tall"><table class="data rc-table"><thead><tr><th scope="col">Community</th><th scope="col" class="num">${CY()} Census residents</th><th scope="col" class="num">${CY()} households</th>
+      <th scope="col" class="num">Homes on Census day</th><th scope="col" class="num">Homes today</th><th scope="col" class="num">People per home</th><th scope="col" class="num">People in homes</th>
+      <th scope="col" class="num">Rental units today</th><th scope="col" class="num">People per unit</th><th scope="col" class="num">People in rental units</th>
+      <th scope="col" class="num">Growth model</th><th scope="col">${esc(stepHead)}</th><th scope="col" class="num">Residents (in use)</th><th scope="col">How the model counted it</th></tr></thead><tbody>
+    ${rows.map(r => `<tr${r.code === rcComm ? ' class="is-sel"' : ''}><td><button type="button" class="link-btn rc-pick" data-c="${esc(r.code)}">${esc(titleCase(r.name))}</button></td>
+      <td class="num">${fmt(r.census2021)}</td><td class="num">${fmt(r.households_2021)}</td><td class="num">${fmt(r.homes_census, 1)}</td><td class="num">${fmt(r.homes_now, 1)}</td>
+      <td class="num">${fmt(r.people_per_home, 3)}</td><td class="num">${isNum(r.people_in_homes) ? fmt(r.people_in_homes, 1) : '–'}</td>
+      <td class="num">${fmt(r.units_now, 1)}</td><td class="num">${fmt(r.people_per_unit, 2)}</td><td class="num">${isNum(r.people_in_units) ? fmt(r.people_in_units, 1) : '–'}</td>
+      <td class="num"><b>${fmt(r.population)}</b></td><td class="wrap rc-step">${esc(r.step || '')}${r.rounding ? ` (rounding ${signed(r.rounding, 0, '')})` : ''}</td><td class="num"><b>${fmt(r.residents)}</b></td>
+      <td class="wrap rc-how">${esc(r.method === 'people per home' ? 'Per-home average' : r.method === 'household size' ? 'Household size (homes on Census day too far from Census households)' : "Calgary's average (built since " + CY() + ')')}: ${esc(r.how || '')}</td></tr>`).join('')}
+    <tr class="cmp-city-row"><td><b>${esc(W())}</b></td><td class="num"><b>${fmt(T.census2021)}</b></td><td></td><td class="num"><b>${fmt(T.homes_census, 0)}</b></td><td class="num"><b>${fmt(T.homes_now, 0)}</b></td><td></td><td class="num"><b>${fmt(T.people_in_homes, 0)}</b></td><td class="num"><b>${fmt(T.units_now, 0)}</b></td><td></td><td class="num"><b>${fmt(T.people_in_units, 0)}</b></td><td class="num"><b>${fmt(T.population)}</b></td><td></td><td class="num"><b>${fmt(T.residents)}</b></td><td></td></tr>
+    </tbody></table></div>
+    <p class="card-note">Homes: residential property with a building and a residential use on the City's property roll (4bsw-nn7w): commercial, vacant lots, parking stalls and storage lockers are left out; each home counts one year after its year of construction. People per home: ${CY()} Census residents (less the people in rental units) / homes on Census day, the same for every kind of home in a community; rental apartment buildings are one account on the roll, so their units come from building permits or, without one, from assessed value. Communities whose homes were more than 15% off the Census household count use the 2021 household size for the change only. <button type="button" class="link-btn small" data-method="homes">How homes are counted</button> <button type="button" class="link-btn small" data-method="population">The growth model</button></p></div>
+    <div class="gap-scope" id="rc-props"></div>`;
+  $$('.rc-pick', box).forEach(b => b.addEventListener('click', () => { rcComm = b.dataset.c; rcProps = null; renderRecon(); loadProps(); }));
+  renderProps();
+}
+async function loadProps() {
+  const R = D.population.recon, c = rcComm;
+  if (!c || rcLoading) return;
+  rcLoading = true; renderProps();
+  try {
+    const q = `https://data.calgary.ca/resource/4bsw-nn7w.json?$select=roll_number,address,sub_property_use,year_of_construction,assessed_value&$where=${encodeURIComponent(R.homes_where + " AND comm_code='" + c + "'")}&$order=address&$limit=50000`;
+    const r = await fetch(q);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    rcProps = { comm: c, rows: await r.json() };
+  } catch (e) { rcProps = { comm: c, error: String(e.message || e) }; }
+  rcLoading = false; renderProps();
+}
+function homeShare(R, year) {                               // population.GrowthModel.home_share
+  const tt = R.t - R.lag, y = Math.floor(tt), f = tt - y;
+  if (!isNum(year)) return 0;
+  if (y >= R.roll_year) return year <= R.roll_year - 1 ? 1 : 0;
+  return year <= y - 1 ? 1 : (year === y ? f : 0);
+}
+function propRows() {
+  const R = D.population.recon, row = R.rows.find(x => x.code === rcComm);
+  if (!rcProps || rcProps.comm !== rcComm || !rcProps.rows || !row) return null;
+  const rentRolls = new Set(R.rentals.filter(x => x.comm === rcComm).map(x => String(x.roll)));
+  const k = row.method === 'household size' ? null : row.people_per_home;
+  return rcProps.rows.map(p => {
+    const yr = p.year_of_construction ? Math.round(+p.year_of_construction) : null;
+    const rental = rentRolls.has(String(p.roll_number));
+    const share = rental ? 0 : homeShare(R, yr);
+    return { roll: p.roll_number, address: p.address, type: rental ? 'Rental apartment building (units listed below)' : rcType(p.sub_property_use), code: p.sub_property_use,
+      year: yr, value: +p.assessed_value || null, share, people: k !== null ? share * k : null,
+      note: rental ? 'Counted by its units, not as one home' : share === 0 ? 'Not lived in yet (built ' + (yr || '?') + ')' : share < 1 ? 'Part of the year: built ' + yr + ', counted ' + fmt(share * 100, 0) + '% lived in' : '' };
+  });
+}
+function renderProps() {
+  const el = $('#rc-props');
+  if (!el) return;
+  const R = D.population.recon, row = R.rows.find(x => x.code === rcComm);
+  if (!rcComm || !row) { el.innerHTML = '<p class="empty">Choose a community above to list every property behind its figure.</p>'; return; }
+  if (rcLoading) { el.innerHTML = `<p class="empty">Reading every property in ${esc(titleCase(row.name))} from the City's property roll…</p>`; return; }
+  if (rcProps && rcProps.error) { el.innerHTML = `<p class="empty">The City's property roll could not be read just now (${esc(rcProps.error)}). Try again in a minute.</p>`; return; }
+  const P = propRows();
+  if (!P) { el.innerHTML = ''; return; }
+  const rent = R.rentals.filter(x => x.comm === rcComm);
+  const homes = P.reduce((a, p) => a + p.share, 0), people = P.reduce((a, p) => a + (p.people || 0), 0);
+  const byType = {};
+  P.forEach(p => { const t = byType[p.type] || (byType[p.type] = { n: 0, homes: 0, people: 0 }); t.n++; t.homes += p.share; t.people += p.people || 0; });
+  const unitsPeople = rent.length ? (row.people_in_units ?? null) : 0;
+  const beyond = row.homes_now - homes;
+  const hs = row.method === 'household size';
+  el.innerHTML = `<div class="gap-assets-head"><h3>Every property in ${esc(titleCase(row.name))}</h3>
+      <button type="button" class="btn small" id="rc-save">${icon('download')}<span>Save every property</span></button></div>
+    <p class="card-sub">Read live from the City's property roll just now: ${fmt(P.length)} accounts that count as homes. People per home: ${fmt(row.people_per_home, 4)}${hs ? ' (2021 household size: this community uses the change in homes only, see the note)' : ''}.</p>
+    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Kind of home</th><th scope="col" class="num">Accounts</th><th scope="col" class="num">Homes lived in</th><th scope="col" class="num">People</th></tr></thead><tbody>
+      ${Object.entries(byType).sort((a, b) => b[1].n - a[1].n).map(([t, v]) => `<tr><td>${esc(t)}</td><td class="num">${fmt(v.n)}</td><td class="num">${fmt(v.homes, 1)}</td><td class="num">${hs ? '–' : fmt(v.people, 1)}</td></tr>`).join('')}
+      <tr><td>Rental units in ${fmt(rent.length)} apartment buildings (${fmt(row.units_permit, 0)} from building permits, ${fmt(row.units_built, 0)} by year built, ${fmt(row.units_estimated, 0)} estimated from assessed value)</td><td class="num">${fmt(rent.length)}</td><td class="num">${fmt(row.units_now, 1)} units</td><td class="num">${hs ? '–' : fmt(unitsPeople, 1)}</td></tr>
+      ${Math.abs(beyond) >= 0.5 ? `<tr><td>Difference from the roll read just now (homes added or removed since the morning refresh, or homes the model adds after the roll year at last year's pace)</td><td></td><td class="num">${fmt(beyond, 1)}</td><td class="num">${hs ? '–' : fmt(beyond * row.people_per_home, 1)}</td></tr>` : ''}
+      <tr class="cmp-city-row"><td><b>Growth model total</b></td><td></td><td class="num"><b>${fmt(row.homes_now + row.units_now, 1)}</b></td><td class="num"><b>${fmt(row.population)}</b>${hs ? '' : ` <small>(${fmt(people + (unitsPeople || 0) + (Math.abs(beyond) >= 0.5 ? beyond * row.people_per_home : 0), 1)} added up here)</small>`}</td></tr>
+      <tr><td>${esc(row.step || '')}</td><td></td><td></td><td class="num"><b>${fmt(row.residents)}</b> <small>${esc(popChip())}</small></td></tr>
+    </tbody></table></div>
+    <div class="table-wrap tall"><table class="data"><thead><tr><th scope="col">Address</th><th scope="col">Kind</th><th scope="col" class="num">Year built</th><th scope="col" class="num">Assessed value</th><th scope="col" class="num">Share lived in</th><th scope="col" class="num">People</th><th scope="col">Note</th></tr></thead><tbody>
+      ${P.slice(0, 600).map(p => `<tr><td>${esc(p.address || '')}</td><td>${esc(p.type)}</td><td class="num">${p.year || '–'}</td><td class="num">${p.value ? '$' + fmt(p.value) : '–'}</td><td class="num">${fmt(p.share, 2)}</td><td class="num">${isNum(p.people) ? fmt(p.people, 2) : '–'}</td><td class="wrap">${esc(p.note)}</td></tr>`).join('')}
+      ${rent.map(x => `<tr class="rc-rent"><td>Roll ${esc(x.roll)}</td><td>Rental apartment building</td><td class="num">${x.year_of_construction || '–'}</td><td></td><td class="num">${fmt(x.units)} units</td><td class="num">${hs ? '–' : fmt(x.units * row.people_per_unit, 1)}</td><td class="wrap">${x.source === 'permit' ? 'Units from its building permit' : x.source === 'estimated' ? 'Units estimated from assessed value' + (row.estimate_scale < 1 ? ` (scaled x ${fmt(row.estimate_scale, 3)})` : '') : 'Units by year built'}</td></tr>`).join('')}
+    </tbody></table></div>${P.length > 600 ? `<p class="card-note">The first 600 homes are shown; "Save every property" has all ${fmt(P.length)}.</p>` : ''}`;
+  $('#rc-save').addEventListener('click', async () => {
+    const r = await (await api()).save_csv(`Population build-up, ${titleCase(row.name)}`, ['Roll number', 'Address', 'Kind', 'Use code', 'Year built', 'Assessed value', 'Share lived in', 'People per home', 'People', 'Note'],
+      [...P.map(p => [p.roll, p.address, p.type, p.code, p.year, p.value, Math.round(p.share * 1e4) / 1e4, row.people_per_home, isNum(p.people) ? Math.round(p.people * 1e4) / 1e4 : '', p.note]),
+       ...rent.map(x => [x.roll, '', 'Rental apartment building', x.code, x.year_of_construction, '', '', row.people_per_unit, Math.round(x.units * row.people_per_unit * 100) / 100, `${x.units} units (${x.source})`]),
+       ['', '', 'Growth model total', '', '', '', '', '', row.population, row.how], ['', '', 'Residents in use', '', '', '', '', '', row.residents, row.step]]);
+    if (r && r.ok) $('#rc-save span').textContent = 'Saved';
+  });
+}
+
 window.renderGrowth = renderGrowth;
 
 

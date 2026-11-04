@@ -488,6 +488,46 @@ def growth_checks(area, census, homes_census, homes_now, city_then, city_now, ci
             'settles_it': 'The 2026 Census (counted May 2026): population counts are released on February 10, 2027.'}
 
 
+def population_recon(model, ref, codes, names, pop_now, method, f_pace, f_actual):
+    """The population build-up: for each community, homes and rental units on the property roll x people per home or
+    per unit = the growth model (population.GrowthModel.recon), then the step to the way of counting chosen in
+    Settings. Rental buildings are listed one by one. The screen also lists every property on the roll for one
+    community at a time (read live from the City), with its share lived in and its people, adding up to the same total."""
+    t = popmodel.decimal_year(ref)
+    rows = []
+    for c in codes:
+        r = model.recon(c, t)
+        r['name'] = names.get(c, c)
+        gm, p21 = r['population'], r['census2021']
+        res = (pop_now.get(c) or {}).get('model')
+        r['residents'] = res
+        if method == 'city_actual' and f_actual:
+            r['step'] = (f'+ {p21:,} (2021 count) x ({f_actual:.4f} - 1) = {p21 * (f_actual - 1):+,.0f}: the City\'s growth '
+                         f'that homes do not explain, spread over the 2021 count')
+        elif method == 'city_pace':
+            r['step'] = (f'replaced: {p21:,} (2021 count) x {f_pace:.4f} (one rate for all)' if p21 else
+                         'built since 2021: the growth model count is kept')
+        elif method == 'census2021':
+            r['step'] = 'replaced: the 2021 Census count, no growth'
+        else:
+            r['step'] = 'the growth model itself'
+        r['rounding'] = (res - round(gm + p21 * (f_actual - 1))) if method == 'city_actual' and f_actual and res is not None else 0
+        rows.append(r)
+    rentals = []
+    try:
+        with open(popmodel.RENTALS_FILE, encoding='utf-8') as f:
+            props = json.load(f).get('properties') or []
+        rentals = [dict(p_, name=names.get(p_['comm'], p_['comm'])) for p_ in props if p_.get('comm') in set(codes)]
+    except (OSError, ValueError):
+        pass
+    tot = lambda k: round(sum(r.get(k) or 0 for r in rows), 1)
+    return {'t': round(t, 4), 'lag': popmodel.LAG, 'roll_year': model.R, 'method': method,
+            'factor_actual': round(f_actual, 6) if f_actual else None, 'factor_pace': round(f_pace, 6) if f_pace else None,
+            'rows': rows, 'rentals': rentals, 'homes_where': popmodel.HOMES_WHERE,
+            'totals': {k: tot(k) for k in ('census2021', 'homes_census', 'homes_now', 'units_now', 'people_in_homes',
+                                           'people_in_units', 'population', 'residents')}}
+
+
 def population_live(start, end, at_start, at_end, method):
     """The live population counter.
 
@@ -1442,6 +1482,8 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                        'city_factor': round(city_factor(ref), 4),
                        'actual_factor': round(actual_factor(ref), 4) if actual_factor(ref) else None,
                        'live': live,
+                       'recon': _safe(lambda: population_recon(model, ref, RESIDENTIAL_CODES, names, pop_now, pop_method,
+                                                               city_factor(ref), actual_factor(ref)))[0],
                        'checks': _safe(lambda: growth_checks(
                            'Calgary' if city else f'Ward {ward}', census_total, tot('homes_census', res), tot('homes_now', res),
                            city_at_census, city_population_at(ref.year * 12 + ref.month - 1),

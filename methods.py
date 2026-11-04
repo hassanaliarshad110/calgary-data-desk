@@ -498,7 +498,8 @@ METHODS = [
                   'houses are not separate accounts, so a house with a basement suite counts as one home.',
                   'Residents per home is a check on the way of counting: Ward 10 shows 3.82 under "one rate for all" on '
                   'only 1.7% more homes since 2021, a sign that one rate for all overstates it.'],
-     'code': 'population.py: HOMES_WHERE, GrowthModel.homes, units, homes_lived_in; dashboard.py: ward_summaries'},
+     'code': 'population.py: HOMES_WHERE, GrowthModel.homes, units, homes_lived_in, recon; dashboard.py: ward_summaries, population_recon. '
+             'Growth vs amenities > Population build-up shows it community by community and lists every property'},
 
     {'key': 'growth_checks', 'name': 'Growth checks: is the population growth believable?',
      'dataset': '4bsw-nn7w (homes), City population outlook, Alberta student enrolment by school, fd9t-tdn2 (schools)',
