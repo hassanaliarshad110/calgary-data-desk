@@ -613,8 +613,9 @@ METHODS = [
          'questions; Calgary = its 26 divisions added up.',
          'Federal, 28 April 2025: Elections Canada\'s official voting results, tables 11 (electors, ballots, turnout) '
          'and 12 (candidates and votes) for Calgary\'s 11 districts; the members sitting today from the House of Commons.',
-         'Who represents a ward: a ward and a riding have different borders. Each community\'s area is split over the '
-         'ridings (a grid of points inside its outline; shares under 1% left out), and a ward\'s share in a riding = its '
+         'Who represents a ward: a ward and a provincial electoral division or federal electoral district have different '
+         'borders. Each community\'s area is split over the divisions and districts (a grid of points inside its outline; '
+         'shares under 1% left out), and a ward\'s share in one = its '
          'communities\' residents x their shares / its residents (the count chosen in Settings). The councillor and '
          'school trustees follow the ward.',
          'Nothing is ranked, scored or combined: results are shown as published, candidates in order of votes, with no '
@@ -622,8 +623,8 @@ METHODS = [
      'excel': ['Municipal: the open data table gqvk-p23x; filter officecategory = Mayor and ward = the ward number to add up '
                'a ward\'s election-day votes.',
                'Provincial: the Statement of Vote workbook, sheet = the division number, row "Total (All Voting Options)".'],
-     'cautions': ['Riding shares are by area within each community, not by where each home is: a community split by a '
-                  'riding border is split by area.',
+     'cautions': ['Shares of a ward in each electoral division or district are by area within each community, not by '
+                  'where each home is: a community split by a boundary is split by area.',
                   'Alberta\'s electoral boundaries are being redrawn for the general election on 18 October 2027; the '
                   'divisions here are those of the 2023 election.',
                   'Elections Calgary notes that its station-by-station results do not include special (mail-in) ballots.'],

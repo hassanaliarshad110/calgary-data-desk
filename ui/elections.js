@@ -58,7 +58,7 @@ function elWho() {
   const prov = elRidings('provincial', city ? 'Alberta: Calgary\'s MLAs' : 'Alberta: MLA', `Provincial divisions on the 2019 boundaries. Next provincial general election: ${esc(elDay((E.provincial || {}).next_election))}.`);
   const fed = elRidings('federal', city ? 'Canada: Calgary\'s MPs' : 'Canada: MP', 'Federal electoral districts from the 2023 representation order, first used on 28 April 2025.');
   return `<div class="el-who">${muni}${prov}${fed}</div>
-    <p class="card-note">${city ? '' : `A ward and a riding have different borders: where ${esc(W())} is split between ridings, each share is of its residents (communities placed by area). `}Shares are of valid votes; "ahead by" is the gap to the second candidate.</p>`;
+    <p class="card-note">${city ? '' : `A ward and an electoral division or district have different borders: where ${esc(W())} is split between them, each share is of its residents (communities placed by area). `}Shares are of valid votes; "ahead by" is the gap to the second candidate.</p>`;
 }
 
 function elRaceTable(race, caption) {

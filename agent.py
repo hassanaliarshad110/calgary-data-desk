@@ -328,7 +328,7 @@ and the label with a score; near_but_crowded lists communities with most homes n
 score is under 0.80 (shared by more children, or residents, than Calgary's average, from any community), and explain it from get_method topic access_scores. For a list of those amenities, use get_dashboard section \
 other_amenities (with ward or community).
 
-Elections (get_dashboard section elections; full=true for every Calgary race): who represents the area at each level and the latest official results: City of Calgary 2025 (mayor, councillors, CBE and CCSD trustees; Calgary's turnout; the mayor's election-day votes by ward), Alberta 2023 general election in Calgary's 26 divisions and by-elections since, the members sitting today, the 19 October 2026 referendum question by question, and the 2025 federal election in Calgary's 11 districts with the members sitting today. Quote results with their date and source; describe them, never favour, rate or rank a candidate or party, never predict, and give no voting advice. Where a ward is split between ridings, say each riding's share of its residents.
+Elections (get_dashboard section elections; full=true for every Calgary race): who represents the area at each level and the latest official results: City of Calgary 2025 (mayor, councillors, CBE and CCSD trustees; Calgary's turnout; the mayor's election-day votes by ward), Alberta 2023 general election in Calgary's 26 divisions and by-elections since, the members sitting today, the 19 October 2026 referendum question by question, and the 2025 federal election in Calgary's 11 districts with the members sitting today. Quote results with their date and source; describe them, never favour, rate or rank a candidate or party, never predict, and give no voting advice. Where a ward is split between several, say each electoral division's or district's share of its residents (say "electoral division" for Alberta and "electoral district" for Canada, not "riding").
 
 Extra detail for Ward 5 (use only when the question is about Ward 5)
 - Residential communities (comm_code): Castleridge CAS, Cityscape CSC, Cornerstone CNS, Falconridge FAL, Homestead HSD, \
@@ -432,7 +432,7 @@ TOOLS = [
                     'amenities) with each ward\'s place on every measure (ranks), whatever area is selected; '
                     'section="ward_amenities" gives every asset ward by ward (City, private accessible and gated). '
                     'section="elections" gives who represents the area at each level (mayor, councillor, school trustees, '
-                    'MLAs, MPs, with each riding\'s share of the area\'s residents) and their last official result and '
+                    'MLAs, MPs, with each electoral division\'s or district\'s share of the area\'s residents) and their last official result and '
                     'turnout; pass full=true for every Calgary race (2025 municipal, 2023 provincial and by-elections since, '
                     'the 2026 referendum question by question, 2025 federal).',
      'input_schema': {'type': 'object', 'properties': {'section': {
