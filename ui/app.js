@@ -1189,6 +1189,7 @@ function filteredIssues() {
 }
 function renderIssues(reset = true) {
   if (!D) return;
+  if (window.syncTrack311) syncTrack311();
   if (reset) issueShown = 150;
   issueRows = filteredIssues();
   if (isCity()) { renderCityIssues(); return; }

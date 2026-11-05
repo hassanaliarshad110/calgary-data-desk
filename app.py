@@ -211,6 +211,18 @@ class Api:
         return {k: d.get(k) for k in ('year', 'roll_year', 'city', 'by_ward', 'factors', 'rates', 'levy', 'bylaw', 'source')}
 
     # ---- the City budget ----
+    def track_311(self, request_id):
+        import re as _re
+        rid = (request_id or '').strip()
+        if not _re.fullmatch(r'[A-Za-z0-9-]{4,20}', rid):
+            return {'ok': False, 'error': 'Type the request number as the City gave it, e.g. 26-01234567.'}
+        try:
+            import calgary_data
+            return {'ok': True, 'rows': calgary_data.query('iahh-g8bj', where=f"service_request_id='{rid}'", limit=5)}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': f"The City's 311 data could not be read just now ({str(e)[:120]})."}
+
     def get_fedbudget(self):
         try:
             with open(os.path.join(HERE, 'ui', 'budget', 'budget2026.json'), encoding='utf-8') as f:

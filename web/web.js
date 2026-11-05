@@ -52,6 +52,14 @@
       catch (e) { return { ok: false, error: String(e.message || e), appeals: [] }; }
     },
     async get_budget() { try { return { ok: true, data: await getJSON('budget.json') }; } catch (e) { return fail(e); } },
+    async track_311(id) {
+      try {
+        if (!/^[A-Za-z0-9-]{4,20}$/.test(id || '')) return { ok: false, error: 'Type the request number as the City gave it, e.g. 26-01234567.' };
+        const r = await fetch('https://data.calgary.ca/resource/iahh-g8bj.json?service_request_id=' + encodeURIComponent(id), { cache: 'no-store' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return { ok: true, rows: await r.json() };
+      } catch (e) { return { ok: false, error: 'Could not reach the City\'s 311 data from this browser (' + (e.message || e) + ').' }; }
+    },
     async get_fedbudget() { try { const r = await fetch('budget/budget2026.json', { cache: 'no-cache' }); if (!r.ok) throw new Error('The federal budget file could not be read (' + r.status + ').'); return { ok: true, data: await r.json() }; } catch (e) { return fail(e); } },
     async get_elections() { try { return { ok: true, data: await getJSON('elections.json') }; } catch (e) { return fail(e); } },
     async get_property_tax() { try { return { ok: true, data: await getJSON('tax.json') }; } catch (e) { return fail(e); } },

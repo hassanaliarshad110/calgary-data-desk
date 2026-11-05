@@ -616,6 +616,33 @@ def calgary_now():
     return dt.datetime.strptime(_local(utc), '%Y-%m-%d %H:%M')
 
 
+def _dept_rows(rows):
+    out = []
+    for r in rows or []:
+        n = int(r.get('n') or 0)
+        if not n:
+            continue
+        c = int(r.get('closed') or 0)
+        d7, d30, d90 = (int(r.get(k) or 0) for k in ('d7', 'd30', 'd90'))
+        row = {'dept': r.get('agency_responsible') or 'Not stated', 'n': n, 'closed': c, 'open': n - c,
+               'within7': d7, 'within30': d30, 'within90': d90, 'over90': max(c - d7 - d30 - d90, 0),
+               'avg_days': round(float(r['avg_days']), 1) if r.get('avg_days') not in (None, '') else None}
+        if r.get('service_name'):
+            row['type'] = r['service_name']
+        out.append(row)
+    return sorted(out, key=lambda x: -x['n'])
+
+
+def dept_times(O, start, end):
+    """How quickly each City department closes 311 requests made in the period (Open or Closed only). A closed
+    request is one the department has closed in its system; it does not say the problem was fixed."""
+    area, err = O.get('dept_area') or (None, 'not read')
+    if area is None:
+        return {'error': err}
+    return {'start': start, 'end': end, 'area': _dept_rows(area), 'city': _dept_rows((O.get('dept_city') or (None,))[0]),
+            'types': _dept_rows((O.get('dept_types') or (None,))[0])}
+
+
 def _safe(fn):
     """Run an optional query; a failure there must not stop the dashboard. Returns (rows, error)."""
     try:
@@ -752,7 +779,21 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         'households': lambda: cd.query(pq['households'][0], select=pq['households'][1], where=pq['households'][2], limit=1000),
     }
     # optional layers: a failure shows in the data status panel instead of stopping the dashboard
+    closed_ = "status_description='Closed'"
+    oc = "status_description in('Open','Closed')"         # duplicates and records marked for deletion left out
+    dept_sel = (f"agency_responsible,count(*) as n,sum(case({closed_},1,true,0)) as closed,"
+                f"sum(case({closed_} AND {days}<=7,1,true,0)) as d7,"
+                f"sum(case({closed_} AND {days}>7 AND {days}<=30,1,true,0)) as d30,"
+                f"sum(case({closed_} AND {days}>30 AND {days}<=90,1,true,0)) as d90,"
+                f"avg({days}) as avg_days")
     optional = {
+        'dept_area': lambda: cd.query(SERVICE_REQUESTS, select=dept_sel, where=f'{cur} AND {oc} AND {codes}',
+                                      group='agency_responsible', limit=200),
+        'dept_city': lambda: cd.query(SERVICE_REQUESTS, select=dept_sel, where=f'{cur} AND {oc} AND comm_code IS NOT NULL',
+                                      group='agency_responsible', limit=200),
+        'dept_types': lambda: cd.query(SERVICE_REQUESTS, select='service_name,' + dept_sel,
+                                       where=f'{cur} AND {oc} AND {codes}', group='agency_responsible,service_name',
+                                       order='count(*) DESC', limit=60),
         'wards_all': lambda: cd.query(WARDS, select='ward_num,multipolygon', limit=50),
         'city': lambda: cd.query(CITY_BOUNDARY, select='multipolygon', limit=5),
         'dp_counts': lambda: cd.query(DEV_PERMITS, select='communitycode,statuscurrent,count(*) as n',
@@ -1718,6 +1759,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         'open_by_type': sorted(open_types.values(), key=lambda x: -x['n'])[:12],
         'service_areas': service_areas,
         'open_list': open_list,
+        'dept_times': dept_times(O, s, e),
         'newest': newest,
         'cameras': cameras,
         'camera_page': CAMERA_PAGE,

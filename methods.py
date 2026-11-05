@@ -90,6 +90,12 @@ METHODS = [
      'page': 'https://data.calgary.ca/d/iahh-g8bj', 'updated': 'Daily',
      'used_in': 'Status board, map, 311 charts, Open issues, community table, newsletter',
      'method': [
+         'How quickly departments close requests (Open issues): requests made in the period with status Open or Closed '
+         '(duplicates and records marked for deletion left out), by agency_responsible and by service_name; days to '
+         'close = closed_date minus requested_date, in bands (7 days or less, 8 to 30, 31 to 90, over 90) and on '
+         'average over closed requests. Track a request: the record with that service_request_id, read live. Closed is '
+         'the department closing the request in its system; the data does not say whether the problem was fixed, and '
+         'has no notes on what was done or when the department took it on.',
          'A ward = requests whose comm_code is one of the ward\'s communities (the communities section of the dashboard '
          'lists them; a community belongs to the ward holding most of its area); Calgary = every request.',
          'Requests in a period: requested_date from the first day of the first month to the last day of the last month. '
