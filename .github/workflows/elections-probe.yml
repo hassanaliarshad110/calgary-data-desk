@@ -1,0 +1,33 @@
+name: Elections probe
+on:
+  push:
+    branches: [elections-probe]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install openpyxl
+      - run: python probe/probe.py _probe
+      - run: |
+          python - <<'P'
+          import openpyxl, json
+          wb = openpyxl.load_workbook('_probe/ab_2023_sov.xlsx', read_only=True)
+          out = {}
+          for ws in wb.worksheets[:6]:
+              out[ws.title] = [[c for c in r] for r in ws.iter_rows(max_row=12, values_only=True)]
+          out['_sheets'] = wb.sheetnames
+          json.dump(out, open('_probe/ab_2023_sov_head.json', 'w'), default=str, indent=0)
+          P
+        continue-on-error: true
+      - run: |
+          cd _probe
+          git init -q -b elections-probe-out
+          git config user.name "Hassan Ali"
+          git config user.email "hassanaliarshad110@users.noreply.github.com"
+          git add -A && git commit -q -m "Elections probe output"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" elections-probe-out
