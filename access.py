@@ -52,7 +52,7 @@ import urllib.request
 
 import calgary_data as cd
 
-VERSION = 1
+VERSION = 2          # 2: crowding catchments for all six amenities and each amenity's group (the scores)
 REVISED = '2026-11-05'
 GROWTH_YEAR = 2021
 SITE = 'https://hassanaliarshad110.github.io/calgary-data-desk/'
@@ -612,7 +612,9 @@ def load(cache_dir, ward_of=None, force=False, features=None):
     fresh = os.path.exists(path) and time.time() - os.path.getmtime(path) < KEEP_DAYS * 86400
     if fresh and not force:
         with open(path, encoding='utf-8') as f:
-            return json.load(f)
+            kept = json.load(f)
+        if kept.get('version') == VERSION:      # a copy made by an earlier version of this file is worked out again
+            return kept
     try:
         _np()
         can_build = True
@@ -624,6 +626,8 @@ def load(cache_dir, ward_of=None, force=False, features=None):
         else:
             with urllib.request.urlopen(SITE + 'data/access_base.json', timeout=120) as r:
                 base = json.loads(r.read().decode('utf-8'))
+        if base.get('version') != VERSION:  # the website's copy is older than this file: show it, but do not keep it
+            return base
         _write(path, base)
         return base
     except Exception:                       # noqa: BLE001 - keep last week's copy rather than nothing
@@ -783,7 +787,11 @@ def view(base, pops, kids, method, scope_codes, ward_of, names, all_codes=None, 
             f, ppl, _ = cur[key][str(r)]
             a_, b_ = average(f, ppl, newer), average(f, ppl, rest)
             groups[f'{key}_{r}'] = {'newer': None if a_ is None else round(a_, 2), 'rest': None if b_ is None else round(b_, 2)}
-    sc = amenity_scores(base, methods_pops or {}, scope_codes, by_ward, method) if _variants is not None else None
+    try:                                                # the scores never take the rest of the tab down with them
+        sc = amenity_scores(base, methods_pops or {}, scope_codes, by_ward, method) if _variants is not None else None
+    except Exception as e:                              # noqa: BLE001
+        print('amenity scores not worked out:', repr(e))
+        sc = None
     return {'version': base.get('version'), 'revised': REVISED, 'crowding_groups': groups, 'scores': sc, 'revision': REVISION, 'counted': base.get('counted'),
             'built_at': base.get('built_at'), 'growth_year': base['growth_year'],
             'recent_from_year': base['recent_from_year'], 'rules': base['rules'], 'kinds': kinds,
@@ -851,7 +859,7 @@ def crowding_inputs(base, opts, by_ward, default='model'):
     for key in CROWD_ALL:
         if key not in (base.get('catch') or {}):
             continue
-        cr = kinds[key]['crowding_spec']
+        cr = KINDS[key]['crowding_spec']        # from this file, so an older saved copy cannot lack it
         by_option = {}
         for opt, (p, k) in opts.items():
             src = k if cr['people'] == 'children' else p
@@ -879,7 +887,9 @@ def amenity_scores(base, methods_pops, scope_codes, by_ward, method='model'):
     opts = {o: methods_pops[o] for o in dict.fromkeys((method, 'census2021')) if o in methods_pops}
     if not opts or not base.get('catch'):
         return None
-    kinds_cfg = {k: {'thresholds_m': v['thresholds_m'], 'group': v['group']} for k, v in base['kinds'].items()}
+    if any(k not in (base.get('catch') or {}) for k in CROWD_ALL):
+        return None                                     # an older copy without every amenity's catchment: no scores
+    kinds_cfg = {k: {'thresholds_m': KINDS[k]['thresholds_m'], 'group': KINDS[k]['group']} for k in base['kinds'] if k in KINDS}
     eligible = [c for c, v in base['comm'].items() if v['units'] >= RULES['min_units']]
     shown = set(scope_codes)
 
@@ -896,7 +906,7 @@ def amenity_scores(base, methods_pops, scope_codes, by_ward, method='model'):
                 'scenarios': res['scenarios'], 'groups': res['groups'], 'rules': res['rules']}
     out = one(base)
     out.update({'added': SCORES_ADDED, 'eligible_count': len(eligible),
-                'units': {k: v['crowding_spec']['unit'] for k, v in base['kinds'].items()},
+                'units': {k: KINDS[k]['crowding_spec']['unit'] for k in base['kinds'] if k in KINDS},
                 'people': {o: PEOPLE_LABEL.get(o, o) for o in opts}, 'default_people': method})
     out['with_other'] = {v: {f: x for f, x in one(with_variant(base, v)).items() if f in ('communities', 'wards', 'calgary')}
                          for v in (base.get('variants') or {})} or None
