@@ -6,7 +6,7 @@ EDITION.json: {"date": "YYYY-MM-DD", "articles": [article, ...]}  (at least 3 ar
 article: {"title", "dek", "body": [paragraphs with [n] citation markers], "key_facts": [..], "topics": [..],
           "wards": [ints, optional], "communities": [names, optional],
           "sources": [{"title", "outlet", "url", "published": "YYYY-MM-DD"}]}
-NEWS_DIR is a checkout of the `news` branch; this writes news/days/DATE.json, news/latest.json (last 60 days) and
+NEWS_DIR is a checkout of the `news` branch; a second edition on the same day is added to the first. This writes news/days/DATE.json, news/latest.json (last 60 days) and
 news/index.json (every day's headlines). The website, the laptop version and Data Genie read these files.
 The checks stop the publish when an article is not cited, a marker points at no source, or a quote runs long.
 """
@@ -96,8 +96,14 @@ def publish(ed, root):
         a['published_at'] = a.get('published_at') or now
         a['words'] = len(' '.join(a['body']).split())
         arts.append(a)
+    path = os.path.join(root, 'news', 'days', f'{date}.json')
+    if os.path.exists(path):                     # a second run the same day adds to the edition, never drops a story
+        with open(path, encoding='utf-8') as f:
+            before = json.load(f).get('articles') or []
+        ids = {a['id'] for a in arts}
+        arts = [a for a in before if a['id'] not in ids] + arts
     day = {'date': date, 'published_at': now, 'articles': arts}
-    with open(os.path.join(root, 'news', 'days', f'{date}.json'), 'w', encoding='utf-8') as f:
+    with open(path, 'w', encoding='utf-8') as f:
         json.dump(day, f, ensure_ascii=False, indent=1)
     days = sorted((f[:-5] for f in os.listdir(os.path.join(root, 'news', 'days')) if f.endswith('.json')), reverse=True)
     index, latest = [], []
