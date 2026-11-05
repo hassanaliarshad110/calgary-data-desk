@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calgary Data Desk</title>
+<link rel="icon" href="logo.svg">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="web.css">
+<meta name="description" content="Calgary Data Desk: every Calgary ward side by side, from City of Calgary open data, refreshed every morning.">
+</head>
+<body data-web="1">
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- Icon set (Lucide style, 24px grid, 2px stroke) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M22 17 13.5 8.5 8.5 13.5 2 7"/><path d="M16 17h6v-6"/></symbol>
+    <symbol id="i-flat" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="6" rx="6" ry="3"/><path d="M3 6v4c0 1.66 2.69 3 6 3s6-1.34 6-3V6"/><path d="M3 10v4c0 1.66 2.69 3 6 3 1 0 1.94-.12 2.77-.34"/><ellipse cx="16" cy="15" rx="5" ry="2.5"/><path d="M11 15v3.5c0 1.38 2.24 2.5 5 2.5s5-1.12 5-2.5V15"/></symbol>
+    <symbol id="i-sigma" viewBox="0 0 24 24"><path d="M18 7V4H6l6 8-6 8h12v-3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.38 2.63a2.12 2.12 0 1 1 3 3L12 15l-4 1 1-4Z"/></symbol>
+    <symbol id="i-open" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-bars" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="1.2"/><circle cx="17.5" cy="10.5" r="1.2"/><circle cx="8.5" cy="7.5" r="1.2"/><circle cx="6.5" cy="12.5" r="1.2"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.87a.5.5 0 0 0-.75-.43L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arr-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-arr-down" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .71-1.53l7-6a2 2 0 0 1 2.58 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+    <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 8v6M8 22l4-8 4 8M6 11h12"/></symbol>
+    <symbol id="i-school" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-budget" viewBox="0 0 24 24"><circle cx="8" cy="8" r="5.5"/><path d="M8 4.8v6.4"/><path d="M9.7 6.2c-.3-.5-.9-.8-1.7-.8-.9 0-1.7.5-1.7 1.2 0 1.7 3.4.8 3.4 2.5 0 .7-.8 1.2-1.7 1.2-.8 0-1.5-.3-1.8-.9"/><path d="M3 21h18"/><path d="M14 21v-5"/><path d="M17.5 21v-8"/><path d="M21 21V9"/></symbol>
+    <symbol id="i-ballot" viewBox="0 0 24 24"><path d="M4 21h16"/><path d="M6 21V11h12v10"/><path d="M9 11V4h6v7"/><path d="M10.5 7.5l1 1 2-2"/></symbol>
+    <symbol id="i-growth" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21v-6h4v6"/><path d="M11 21V11h4v10"/><path d="M17 21v-4h3v4"/><path d="m4 10 5-4 4 3 7-6"/><path d="M15 3h5v5"/></symbol>
+    <symbol id="i-crane" viewBox="0 0 24 24"><path d="M3 21h18M6 21V4h12M6 4l12 0 0 4M10 4v17"/></symbol>
+    <symbol id="i-cone" viewBox="0 0 24 24"><path d="M9 3h6l4 16H5z"/><path d="M3 21h18M7.5 11h9M6.5 15h11"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 2 5 12h4l-3 4h12l-3-4h4z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8" rx="1"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m6 3 14 9-14 9z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4h3v16H7zM14 4h3v16h-3z"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m10 9 5 3-5 3z"/></symbol>
+    <symbol id="i-news" viewBox="0 0 24 24"><path d="M4 22h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></symbol>
+    <symbol id="i-genie" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4M4 17v2M5 18H3"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h1.97a4 4 0 0 0 3.3-1.7l5.45-8.6a4 4 0 0 1 3.3-1.7H22"/><path d="M2 6h1.97a4 4 0 0 1 3.3 1.7l5.45 8.6a4 4 0 0 0 3.3 1.7H22"/></symbol>
+    <symbol id="i-scientist" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h5"/><path d="M7 16v-3"/><path d="M11 16V8"/><path d="M15 10V5"/><circle cx="17" cy="16" r="3.6"/><path d="m19.6 18.6 2.6 2.6"/><path d="M17 14.4v3.2M15.4 16h3.2"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-compare" viewBox="0 0 24 24"><path d="M3 20V10M9 20V4M15 20v-8M21 20V7"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  </defs>
+</svg>
+
+<nav class="side" aria-label="Sections">
+  <div class="brand">
+    <img class="brand-mark" src="logo.svg" alt="" width="42" height="42">
+    <div class="brand-text"><strong>Calgary Data Desk</strong><span>The city, ward by ward</span></div>
+  </div>
+  <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="side-menu" aria-label="Menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  <label class="scope-pick" for="scope-sel"><span>Viewing</span>
+    <select id="scope-sel" aria-label="Show the whole city or one ward"><option value="0">Calgary: all wards</option></select>
+  </label>
+  <div class="side-menu" id="side-menu">
+  <div class="nav">
+    <p class="nav-h">Overview</p>
+    <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
+    <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: how near homes are to everyday amenities, new homes against older ones"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
+    <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
+    <button class="tab" data-view="elections" title="Election Control Room: seats, leaders, constituencies and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-ballot"/></svg><span>Election Control Room</span></button>
+    <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
+    <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
+    <p class="nav-h">Topics</p>
+    <button class="tab" data-view="families" title="Families and schools"><svg class="ic" aria-hidden="true"><use href="#i-child"/></svg><span>Families and schools</span></button>
+    <button class="tab" data-view="cameras" title="Traffic cameras"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span>Traffic cameras</span></button>
+    <p class="nav-h">Ask the data</p>
+    <button class="tab tab-genie" data-view="ask" title="Data Genie: ask anything about the data"><svg class="ic" aria-hidden="true"><use href="#i-genie"/></svg><span>Data Genie</span></button>
+    <button class="tab tab-ds" data-view="scientist" title="Data Scientist: full analysis reports on the selected area"><svg class="ic" aria-hidden="true"><use href="#i-scientist"/></svg><span>Data Scientist</span></button>
+    <p class="nav-h">Publish</p>
+    <button class="tab" data-view="videos" title="Video briefs: short narrated videos on the data"><svg class="ic" aria-hidden="true"><use href="#i-film"/></svg><span>Video briefs</span></button>
+    <button class="tab" data-view="news" title="Newsletter"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><span>Newsletter</span></button>
+    <button class="tab brief-btn" id="brief-btn" title="Briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span>Briefing screen</span></button>
+    <p class="nav-h">Reference</p>
+    <button class="tab" data-view="methods" title="How every figure is worked out"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg><span>How it's counted</span></button>
+    <button class="tab" data-view="sources" title="Data sources"><svg class="ic" aria-hidden="true"><use href="#i-database"/></svg><span>Data sources</span></button>
+    <button class="tab" data-view="files" title="Files"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Files</span></button>
+    <button class="tab" data-view="settings" title="Settings"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span>Settings</span></button>
+  </div>
+  <div class="side-foot">
+    <button class="status" id="side-status" type="button" aria-haspopup="dialog" title="Data status"><span class="dot" aria-hidden="true"></span><span class="status-text">Connecting</span></button>
+    <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg><span>Dark mode</span></button>
+  </div>
+  </div>
+</nav>
+
+<main id="main">
+  <!-- ======================= DASHBOARD ======================= -->
+  <section id="view-dashboard" class="view is-on" aria-labelledby="dash-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="dash-title">Ward 5 overview</h1>
+        <p class="meta" id="dash-sub">Loading City of Calgary open data</p>
+      </div>
+      <div class="topbar-actions">
+        <span class="clock" id="clock" aria-label="Current time"></span>
+        <div class="period-wrap">
+          <button type="button" class="pill period-btn" id="period-pill" hidden aria-haspopup="true" aria-expanded="false" aria-controls="period-menu"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg><span id="period-text"></span></button>
+          <div class="period-menu" id="period-menu" hidden>
+            <p class="pm-title">Compare</p>
+            <div class="pm-quick" id="pm-quick">
+              <button type="button" data-kind="last12">Last 12 months against the 12 before</button>
+              <button type="button" data-kind="ytd">This year to date against the same months last year</button>
+              <button type="button" data-kind="last3">Last 3 months against the same months a year earlier</button>
+              <button type="button" data-kind="lastmonth">Last full month against the same month a year earlier</button>
+              <button type="button" data-kind="study">Study period: Oct 2025 to Sep 2026 against Oct 2024 to Sep 2025</button>
+            </div>
+            <p class="pm-title">Custom</p>
+            <div class="pm-custom">
+              <label><span>From</span><input type="month" id="pm-start"></label>
+              <label><span>To</span><input type="month" id="pm-end"></label>
+              <label class="pm-cmp-toggle"><input type="checkbox" id="pm-own"><span>Choose the comparison period myself</span></label>
+              <label class="pm-cmp" hidden><span>Compare from</span><input type="month" id="pm-cstart"></label>
+              <label class="pm-cmp" hidden><span>Compare to</span><input type="month" id="pm-cend"></label>
+              <button type="button" class="btn primary" id="pm-apply">Show this period</button>
+              <p class="field-hint" id="pm-msg">Whole months only. Otherwise the comparison is the same months a year earlier. A new period takes 20 to 30 seconds the first time.</p>
+            </div>
+          </div>
+        </div>
+        <span class="stamp" id="dash-stamp"></span>
+        <button class="btn" id="refresh" title="Ask every source again now: City open data, Calgary Police, CMHC, Statistics Canada and the Government of Alberta (about a minute)"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Refresh data</span></button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="banner error" id="dash-error" role="alert" hidden>
+        <svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>
+        <div><strong>The dashboard could not load.</strong> <span id="dash-error-text"></span></div>
+        <button class="btn" id="retry">Try again</button>
+      </div>
+
+      <div class="grid" id="dash-loading" aria-busy="true" aria-label="Loading dashboard">
+        <div class="sk span-12 h-board"></div>
+        <div class="sk span-8 h-map"></div><div class="sk span-4 h-map"></div>
+        <p class="sk-note span-12">Fetching 311 requests, traffic incidents, cameras, permits, property records and boundaries from data.calgary.ca, and estimating today's population. The first load of a ward takes about a minute; the whole city about five minutes the first time, then much less.</p>
+      </div>
+
+      <div class="grid" id="dash-body" hidden>
+        <!-- status board -->
+        <section class="board span-12" aria-label="Ward 5 status board">
+          <div class="board-head">
+            <div class="board-title">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>Live from City of Calgary and Calgary Police open data</span>
+            </div>
+            <span class="board-period" id="board-period"></span>
+          </div>
+          <div class="kpis" id="kpis" role="list" aria-label="Key figures"></div>
+        </section>
+
+        <!-- map + panel -->
+        <section class="card span-8 map-card" aria-labelledby="map-title">
+          <div class="card-head">
+            <div>
+              <h2 id="map-title">Ward 5 map</h2>
+              <p class="card-sub" id="map-sub"></p>
+            </div>
+            <div class="card-tools">
+              <div class="seg" role="radiogroup" aria-label="Shade the map by" id="metric-seg">
+                <button role="radio" aria-checked="true" data-metric="open_per_1000">Open per 1,000</button>
+                <button role="radio" aria-checked="false" data-metric="requests_per_1000">Requests per 1,000</button>
+                <button role="radio" aria-checked="false" data-metric="infra_per_1000">Infrastructure per 1,000</button>
+                <button role="radio" aria-checked="false" data-metric="requests_change_pct">Change in requests</button>
+                <button role="radio" aria-checked="false" data-metric="growth_pct">Growth since 2021</button>
+              </div>
+            </div>
+          </div>
+          <div class="layer-row">
+            <div class="seg small" role="radiogroup" aria-label="Background map" id="base-seg">
+              <button type="button" role="radio" aria-checked="true" data-base="street">Street</button>
+              <button type="button" role="radio" aria-checked="false" data-base="satellite">Satellite</button>
+              <button type="button" role="radio" aria-checked="false" data-base="grey">Plain</button>
+            </div>
+            <span class="base-note" id="base-note"></span>
+            <div class="layers-wrap">
+              <button type="button" class="btn" id="layers-btn" aria-expanded="false" aria-controls="layer-menu"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg><span>Map layers</span><b class="tab-count" id="layers-btn-n"></b></button>
+              <div class="layer-menu" id="layer-menu" hidden><div id="layer-list"></div></div>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <div id="map" role="region" aria-label="Map of Ward 5 communities. The ranked list beside it has the same figures."></div>
+            <div class="legend" id="legend"></div>
+          </div>
+        </section>
+        <aside class="card span-4 panel" id="panel" aria-live="polite" aria-label="Community details"></aside>
+
+        <!-- trend + newest -->
+        <section class="card span-8" aria-labelledby="trend-title">
+          <div class="card-head"><div><h2 id="trend-title">311 requests each month</h2><p class="card-sub" id="trend-sub"></p></div></div>
+          <div class="chart-holder tall"><canvas id="trend" aria-label="Line chart of monthly 311 requests in Ward 5" role="img"></canvas></div>
+        </section>
+        <section class="card span-4 feed-card" aria-labelledby="feed-title">
+          <div class="card-head"><div><h2 id="feed-title">Newest 311 reports</h2><p class="card-sub">The latest requests logged in Ward 5</p></div>
+            <button class="link-btn" data-goto="issues">All open issues</button></div>
+          <ol class="feed" id="feed"></ol>
+        </section>
+
+        <!-- crime and safety -->
+        <div class="section-head span-12" id="crime-head" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><h2>Crime and safety</h2></div>
+        <section class="card span-12" aria-labelledby="rep-title" id="rep-card" hidden>
+          <div class="card-head"><div><h2 id="rep-title">Who represents this area</h2><p class="card-sub">Elected at each level, with the last result and turnout</p></div><button class="btn" data-goto="elections"><span>Election Control Room</span></button></div>
+          <div id="rep-body"></div>
+        </section>
+        <section class="card span-12" aria-labelledby="crime-title" id="crime-card" hidden>
+          <div class="card-head"><div><h2 id="crime-title">Crime in Ward 5</h2><p class="card-sub" id="crime-sub"></p></div>
+            <div class="card-tools"><button class="btn primary" id="crime-dash" title="Opens the Calgary Police page at &quot;Dashboard data download&quot;, where &quot;Download Community Safety Data&quot; gives the spreadsheet these numbers come from"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>Source: police download page</span></button><button class="btn" id="crime-file" title="Download the police spreadsheet these numbers come from"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Download the file</span></button></div></div>
+          <div class="crime-grid">
+            <div class="crime-kpis" id="crime-kpis"></div>
+            <div><h3 class="crime-h">By type of crime <span class="crime-cmp"></span></h3><ul class="hbars crime-cats" id="crime-cats"></ul></div>
+            <div><h3 class="crime-h">By community <span class="crime-cmp"></span></h3><div id="crime-comms"></div></div>
+          </div>
+          <div class="chart-holder crime-chart"><canvas id="crime-chart" role="img" aria-label="Crimes in Ward 5 by month"></canvas></div>
+          <p class="card-note" id="crime-note"></p>
+        </section>
+        <section class="card span-12 mp-card" aria-labelledby="mp-title" id="mp-card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><div><h2 id="mp-title">Missing persons: police appeals</h2><p class="card-sub" id="mp-sub">Checking the Calgary Police news releases…</p></div></div>
+            <div class="card-tools"><button class="btn" id="mp-check"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Check again</span></button><button class="btn" id="mp-page"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>Police news releases</span></button></div></div>
+          <div id="mp-list" class="mp-list"></div>
+          <p class="card-note">Read live from the Calgary Police Service news releases each time and never saved. The police take an appeal down once the person is found, and it disappears here too. The police do not publish counts of missing persons by ward or community. Anyone with information should call the Calgary Police non-emergency line, 403-266-1234, or 911 if the person may be in danger.</p>
+        </section>
+        <section class="card span-12" aria-labelledby="csi-title" id="csi-card" hidden>
+          <div class="card-head"><div><h2 id="csi-title">Crime in Calgary compared with other cities</h2><p class="card-sub" id="csi-sub"></p></div>
+            <div class="seg" role="radiogroup" aria-label="Which index" id="csi-seg">
+              <button role="radio" aria-checked="true" class="is-on" data-v="csi">All crime</button>
+              <button role="radio" aria-checked="false" data-v="violent">Violent</button>
+              <button role="radio" aria-checked="false" data-v="non_violent">Non-violent</button></div></div>
+          <div class="csi-wrap"><div class="chart-holder"><canvas id="csi-chart" role="img" aria-label="Crime Severity Index by city and year"></canvas></div>
+            <div id="csi-side"></div></div>
+          <p class="card-note" id="csi-note"></p>
+        </section>
+
+
+        <section class="card span-12" aria-labelledby="rent-title" id="rent-card" hidden>
+          <div class="card-head"><div><h2 id="rent-title">Rents and vacancy near Ward 5</h2><p class="card-sub" id="rent-sub"></p></div></div>
+          <div class="rent-grid"><div id="rent-kpis" class="rent-kpis"></div><div id="rent-table"></div></div>
+        </section>
+
+        <section class="card span-12" aria-labelledby="prof-title" id="profile-card" hidden>
+          <div class="card-head"><div><h2 id="prof-title">Who lives in Ward 5</h2><p class="card-sub" id="prof-sub"></p></div>
+            <div class="seg" role="radiogroup" aria-label="Topic" id="prof-seg"></div></div>
+          <div id="prof-body"></div>
+        </section>
+
+        <!-- population + service areas -->
+        <section class="card span-6" aria-labelledby="pop-title">
+          <div class="card-head"><div><h2 id="pop-title">Population today against the 2021 Census</h2><p class="card-sub" id="pop-sub"></p></div></div>
+          <div id="popcmp"></div>
+        </section>
+        <section class="card span-6" aria-labelledby="areas-title">
+          <div class="card-head"><div><h2 id="areas-title">311 requests by City service</h2><p class="card-sub" id="areas-sub"></p></div></div>
+          <div id="areas"></div>
+        </section>
+
+        <!-- population month by month -->
+        <section class="card span-12" aria-labelledby="popm-title" id="popm-card">
+          <div class="card-head">
+            <div><h2 id="popm-title">Population month by month since the 2021 Census</h2><p class="card-sub" id="popm-sub"></p></div>
+            <div class="card-tools">
+              <div class="seg small" role="radiogroup" aria-label="Show" id="popm-seg">
+                <button type="button" role="radio" aria-checked="true" data-popm="res">Residents</button>
+                <button type="button" role="radio" aria-checked="false" data-popm="k14">Children 0 to 14</button>
+                <button type="button" role="radio" aria-checked="false" data-popm="k4">Children under 5</button>
+              </div>
+            </div>
+          </div>
+          <div class="chips" id="popm-chips" role="group" aria-label="Communities to show"></div>
+          <div class="chart-holder tall"><canvas id="popm-chart" role="img" aria-label="Ward 5 population by month since May 2021"></canvas></div>
+          <p class="card-note" id="popm-note"></p>
+        </section>
+
+        <!-- families and schools -->
+        <div class="section-head span-12"><svg class="ic" aria-hidden="true"><use href="#i-child"/></svg><h2>Families, schools, growth and amenities</h2></div>
+        <section class="card span-8" aria-labelledby="cc-title" id="cc-card">
+          <div class="card-head"><div><h2 id="cc-title">Licensed child care spaces</h2><p class="card-sub" id="cc-sub"></p></div>
+            <button class="link-btn" data-goto="families">All programs and schools</button></div>
+          <div class="cc-kpis" id="cc-kpis"></div>
+          <div class="chart-holder short"><canvas id="cc-chart" role="img" aria-label="Child care spaces in Ward 5 by quarter"></canvas></div>
+        </section>
+        <section class="card span-4" aria-labelledby="ccc-title" id="ccc-card">
+          <div class="card-head"><div><h2 id="ccc-title">Spaces per 100 children, by community</h2><p class="card-sub">Children aged 0 to 14</p></div></div>
+          <div id="cc-comm"></div>
+        </section>
+        <section class="card span-6" aria-labelledby="sc-title" id="sc-card">
+          <div class="card-head"><div><h2 id="sc-title">Students in Ward 5 schools</h2><p class="card-sub" id="sc-sub"></p></div></div>
+          <div class="chart-holder short"><canvas id="sc-chart" role="img" aria-label="Students enrolled in Ward 5 schools by school year"></canvas></div>
+        </section>
+        <section class="card span-6" aria-labelledby="scl-title" id="scl-card">
+          <div class="card-head"><div><h2 id="scl-title">Largest schools</h2><p class="card-sub" id="scl-sub"></p></div>
+            <button class="link-btn" data-goto="families">All schools</button></div>
+          <div id="sc-list"></div>
+        </section>
+
+        <!-- growth and amenities -->
+        <section class="card span-4" aria-labelledby="dp-title" id="dp-card">
+          <div class="card-head"><div><h2 id="dp-title">Development permits</h2><p class="card-sub" id="dp-sub"></p></div>
+            <button class="link-btn" data-goto="growth">All permits</button></div>
+          <div id="dp-sum"></div>
+        </section>
+        <section class="card span-4" aria-labelledby="rw-title" id="rw-card">
+          <div class="card-head"><div><h2 id="rw-title">Road construction</h2><p class="card-sub">City projects in and near Ward 5</p></div></div>
+          <div id="rw-list"></div>
+        </section>
+        <section class="card span-4" aria-labelledby="am-title" id="am-card">
+          <div class="card-head"><div><h2 id="am-title">Amenities by community</h2><p class="card-sub">Playgrounds and children per playground, by community</p></div>
+            <button class="link-btn" data-goto="growth">Details</button></div>
+          <div id="am-sum"></div>
+        </section>
+
+        <!-- cameras strip -->
+        <section class="card span-12" aria-labelledby="camstrip-title">
+          <div class="card-head"><div><h2 id="camstrip-title">Traffic cameras in Ward 5</h2><p class="card-sub">Each camera replays its last 30 minutes on a loop</p></div>
+            <div class="card-tools"><button class="link-btn" data-goto="cameras">Camera wall</button><button class="btn" data-url="camera_page"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>City camera page</span></button></div></div>
+          <div class="camstrip" id="camstrip"></div>
+        </section>
+
+        <!-- open by type, benchmarks, disorder -->
+        <section class="card span-4" aria-labelledby="open-title">
+          <div class="card-head"><div><h2 id="open-title">Open requests by type</h2><p class="card-sub">Most requests still open today</p></div></div>
+          <div class="chart-holder"><canvas id="open-types" aria-label="Bar chart of open requests by type" role="img"></canvas></div>
+        </section>
+        <section class="card span-4" aria-labelledby="bench-title">
+          <div class="card-head"><div><h2 id="bench-title">Ward 5 against Calgary</h2><p class="card-sub" id="bench-sub"></p></div></div>
+          <div id="bench"></div>
+        </section>
+        <section class="card span-4" aria-labelledby="dis-title">
+          <div class="card-head"><div><h2 id="dis-title">Police-reported social disorder</h2><p class="card-sub" id="dis-sub"></p></div></div>
+          <div id="disorder"></div>
+        </section>
+
+        <!-- table -->
+        <section class="card span-12 table-card" aria-labelledby="table-title">
+          <div class="card-head">
+            <div><h2 id="table-title">All communities</h2><p class="card-sub">Select a column heading to sort. Select a row to show it on the map.</p></div>
+            <div class="card-tools">
+              <div class="seg" role="radiogroup" aria-label="Which areas to list" id="area-seg">
+                <button role="radio" aria-checked="true" data-areas="res">Residential</button>
+                <button role="radio" aria-checked="false" data-areas="all">All areas</button>
+              </div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data" id="comm-table">
+              <thead><tr id="comm-head"></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="notes span-12" id="notes"></footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= OPEN ISSUES ======================= -->
+  <section id="view-issues" class="view" aria-labelledby="issues-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="issues-title">Open issues</h1>
+        <p class="meta" id="issues-sub">Every 311 request still open in Ward 5</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn" id="issues-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="issue-stats" id="issue-stats"></div>
+      <section class="card" id="issues-city" hidden></section>
+      <div class="filters card">
+        <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
+          <input id="f-text" type="search" placeholder="Search request number, type, address or department"></label>
+        <label><span>Community</span><select id="f-comm"></select></label>
+        <label><span>Service</span><select id="f-area"></select></label>
+        <label><span>Open for</span><select id="f-age">
+          <option value="0">Any time</option><option value="30">More than 30 days</option><option value="90">More than 90 days</option>
+          <option value="365">More than a year</option></select></label>
+        <label><span>Year made</span><select id="f-year"></select></label>
+        <label class="f-check"><input type="checkbox" id="f-nocontact"><span>Hide "311 Contact Us"</span></label>
+        <label><span>Sort</span><select id="f-sort">
+          <option value="old">Oldest first</option><option value="new">Newest first</option><option value="type">By type</option></select></label>
+      </div>
+      <section class="card issues-card">
+        <div class="table-wrap tall">
+          <table class="data" id="issues-table">
+            <thead><tr><th scope="col">Request</th><th scope="col">Opened</th><th scope="col" class="num">Days open</th><th scope="col">Type</th><th scope="col">Community</th><th scope="col">Department</th><th scope="col">Last update</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="issues-foot"><span id="issues-count"></span><button class="btn" id="issues-more" hidden>Show more</button></div>
+      </section>
+      <div class="banner info" id="issues-note">
+        <svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>
+        <div><strong>Many older requests are still marked open in the City's data, some for years.</strong> Some may be finished but never closed, especially "311 Contact Us" messages. The office can send 311 a list of request numbers to review: filter the list, then use "Save this list".</div>
+      </div>
+      <p class="notes">Request details come from the City's 311 open data, updated daily. The City publishes the community for each request, not its address, and its own status page shows a request only to the person who filed it.</p>
+    </div>
+    <aside class="drawer" id="drawer" aria-label="Issue details" hidden></aside>
+  </section>
+
+  <!-- ======================= FAMILIES ======================= -->
+  <section id="view-families" class="view" aria-labelledby="fam-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="fam-title">Families and schools</h1><p class="meta" id="fam-sub">Licensed child care and school enrolment in Ward 5, from Government of Alberta open data</p></div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Show" id="fam-seg">
+          <button type="button" role="radio" aria-checked="true" data-fam="cc">Child care</button>
+          <button type="button" role="radio" aria-checked="false" data-fam="sc">Schools</button>
+        </div>
+        <button class="btn" id="fam-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="filters card" id="fam-filters"></div>
+      <div class="issue-stats" id="fam-stats"></div>
+      <section class="card compare-card" id="fam-compare" hidden></section>
+      <section class="card issues-card">
+        <div class="table-wrap tall"><table class="data" id="fam-table"><thead></thead><tbody></tbody></table></div>
+      </section>
+      <p class="notes" id="fam-notes"></p>
+    </div>
+    <aside class="drawer" id="fam-drawer" aria-label="Details" hidden></aside>
+  </section>
+
+  <!-- ======================= GROWTH ======================= -->
+  <!-- What changed on Growth vs amenities (5 November 2026); reached from the tab's revision note -->
+  <section id="view-changes" class="view" aria-labelledby="chg-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="chg-title">What changed: Growth vs amenities</h1><p class="meta">Revised 5 November 2026: the earlier and the new method side by side, and what changed in the findings</p></div>
+      <div class="topbar-actions"><button class="btn" data-goto="growth"><span>Back to Growth vs amenities</span></button></div>
+    </header>
+    <div class="content narrow" id="chg-body"></div>
+  </section>
+
+  <section id="view-growth" class="view" aria-labelledby="gr-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="gr-title">Growth vs amenities</h1><p class="meta" id="gr-sub">How near homes are to everyday amenities, and how many people share the playgrounds and parks within reach</p></div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Show" id="gr-seg">
+          <button type="button" role="radio" aria-checked="true" data-gr="gap">Growth vs amenities</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="assets">Assets</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="recon">Population build-up</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="am">Amenities</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="rw">Being built</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="dp">Development and rezoning</button>
+        </div>
+        <button class="btn" id="gr-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="filters card" id="gr-filters">
+        <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
+          <input id="gr-text" type="search" placeholder="Search permit number, address or description"></label>
+        <label><span>Community</span><select id="gr-comm"></select></label>
+        <label><span>Type</span><select id="gr-type"></select></label>
+        <label><span>Status</span><select id="gr-status"></select></label>
+      </div>
+      <div class="banner info" id="gr-note" hidden></div>
+      <div class="issue-stats" id="gr-stats"></div>
+      <section class="card gap-card" id="gr-gap" hidden></section>
+      <section class="card issues-card" id="gr-list">
+        <div class="table-wrap tall"><table class="data" id="gr-table"><thead></thead><tbody></tbody></table></div>
+      </section>
+      <p class="notes" id="gr-notes"></p>
+    </div>
+  </section>
+
+  <!-- ======================= COMPARE WARDS ======================= -->
+  <section id="view-compare" class="view" aria-labelledby="cmp-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="cmp-title">Compare wards</h1><p class="meta" id="cmp-sub">Every ward side by side, from the same City data</p></div>
+      <div class="topbar-actions">
+        <button class="btn" id="cmp-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this table</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <section class="card cmp-pick">
+        <div class="cmp-row"><span class="cmp-lab">Ward in focus</span><div class="chips" id="cmp-main" role="radiogroup" aria-label="Ward in focus"></div></div>
+        <div class="cmp-row"><span class="cmp-lab">Add wards (pick any)</span><div class="chips" id="cmp-others" role="group" aria-label="Wards to compare with"></div>
+          <button type="button" class="link-btn small" id="cmp-all">All wards</button><button type="button" class="link-btn small" id="cmp-none">Clear</button></div>
+      </section>
+      <div class="banner info" id="cmp-loading" hidden>Building the whole-city figures from the City's live data. The first time takes about five minutes; after that, under a minute.</div>
+      <div class="banner warn" id="cmp-error" hidden></div>
+      <section class="card" id="cmp-table-card">
+        <div class="card-head"><div><h2>Side by side</h2><p class="card-sub" id="cmp-table-sub"></p></div></div>
+        <div class="table-wrap"><table class="data cmp-table" id="cmp-table"><thead></thead><tbody></tbody></table></div>
+        <p class="card-note" id="cmp-note"></p>
+      </section>
+      <div class="grid cmp-grid">
+        <section class="card span-7">
+          <div class="card-head"><div><h2 id="cmp-rank-title">Every ward ranked</h2><p class="card-sub" id="cmp-rank-sub"></p></div>
+            <label class="cmp-metric"><span class="sr">Measure</span><select id="cmp-metric"></select></label></div>
+          <div class="cmp-bars" id="cmp-bars"></div>
+        </section>
+        <section class="card span-5">
+          <div class="card-head"><div><h2>Map of wards</h2><p class="card-sub" id="cmp-map-sub"></p></div></div>
+          <div id="cmp-map" class="cmp-map" role="region" aria-label="Map of Calgary's wards shaded by the chosen measure"></div>
+          <div class="cmp-legend" id="cmp-legend"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= DATA SOURCES ======================= -->
+  <!-- ======================= CITY BUDGET ======================= -->
+  <section id="view-elections" class="view" aria-labelledby="el-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="el-title">Election Control Room</h1><p class="meta">Seats, leaders, constituencies and the latest official results: City of Calgary 2025, Alberta 2023 (with by-elections since and the 2026 referendum), Canada 2025</p></div>
+    </header>
+    <div class="content"><div class="grid" id="el-body"></div></div>
+  </section>
+
+  <section id="view-budget" class="view" aria-labelledby="bud-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="bud-title">City budget</h1><p class="meta" id="bud-sub">The City of Calgary's approved budget and spending, live from its open data</p></div>
+      <div class="topbar-actions">
+        <label class="bud-year"><span>Year</span><select id="bud-year"></select></label>
+        <button class="btn" id="bud-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this table</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="banner warn" id="bud-error" hidden></div>
+      <div class="issue-stats" id="bud-stats"></div>
+      <div class="grid">
+        <section class="card span-6"><div class="card-head"><div><h2 id="bud-op-title">Operating budget by department</h2><p class="card-sub">Net of recoveries, millions of dollars</p></div></div><div class="cmp-bars" id="bud-op"></div></section>
+        <section class="card span-6"><div class="card-head"><div><h2 id="bud-cap-title">Capital budget by department</h2><p class="card-sub">Millions of dollars</p></div></div><div class="cmp-bars" id="bud-cap"></div></section>
+        <section class="card span-12"><div class="card-head"><div><h2>Year by year</h2><p class="card-sub" id="bud-trend-sub"></p></div></div><div class="chart-holder"><canvas id="bud-trend" role="img" aria-label="Operating and capital budget by year"></canvas></div></section>
+        <section class="card span-12" id="bud-rev-card"><div class="card-head"><div><h2 id="bud-rev-title">Where the money comes from</h2><p class="card-sub" id="bud-rev-sub"></p></div></div><div class="bud-rev"><div class="cmp-bars" id="bud-rev"></div><div class="table-wrap"><table class="data" id="bud-rev-table"><thead></thead><tbody></tbody></table></div></div><p class="card-note" id="bud-rev-note"></p></section>
+        <section class="card span-12" id="bud-tax-card"><div class="card-head"><div><h2 id="bud-tax-title">Property tax by ward</h2><p class="card-sub" id="bud-tax-sub"></p></div><div class="card-tools"><button type="button" class="link-btn small" data-method="property_tax">How it's estimated</button></div></div><div id="bud-tax"></div></section>
+        <section class="card span-12" id="bud-ward-card"><div class="card-head"><div><h2 id="bud-ward-title">By ward</h2><p class="card-sub" id="bud-ward-sub"></p></div></div><div id="bud-ward"></div></section>
+        <section class="card span-12"><div class="card-head"><div><h2>Every service</h2><p class="card-sub" id="bud-table-sub"></p></div></div><div class="table-wrap tall"><table class="data" id="bud-table"><thead></thead><tbody></tbody></table></div></section>
+      </div>
+      <p class="notes" id="bud-notes"></p>
+    </div>
+  </section>
+
+  <!-- ======================= HOW IT'S COUNTED ======================= -->
+  <!-- ======================= VIDEO BRIEFS ======================= -->
+  <section id="view-videos" class="view" aria-labelledby="vid-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="vid-title">Video briefs</h1><p class="meta">Short narrated videos on what the data shows, with how it is measured. Newest first.</p></div>
+    </header>
+    <div class="content narrow">
+      <section class="card vid-card" id="vid-population">
+        <div class="card-head"><div><h2>How Calgary's population is shared across its communities</h2>
+          <p class="card-sub">Published <time datetime="2026-11-05">November 5, 2026</time> · 2 min 21 s · narrated, figures on screen</p></div></div>
+        <video controls preload="metadata" playsinline poster="video/population-shared.jpg">
+          <source src="video/population-shared.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/population-shared.mp4">Download it (MP4, 7 MB)</a>.
+        </video>
+        <p class="vid-desc">The dashboard starts from the City of Calgary's own population estimate (1,598,075 in November 2026) and places it community by community: each community's 2021 Census count, plus the people in homes built there since 2021 (from the City's property roll), plus an equal share of the rest of the City's growth, 10.0% of its 2021 count.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> How is Calgary&#x27;s population shared across its communities? It starts with one number: the City of Calgary&#x27;s own estimate, about one point six million people this November.</p><p><b>The City’s figure.</b> Step one. The City&#x27;s figure comes from its Spring 2026 Economic Outlook, with an estimate for each April. Between those, we draw a straight line, month by month. Right now, that line adds about seventy people a day.</p><p><b>The starting point.</b> Step two. Each community starts from its own count in the 2021 Census: about one point two nine million people in all. Since then, the City&#x27;s figure has added about three hundred and nine thousand.</p><p><b>Placing the growth.</b> Step three. Where do those people go? About one hundred and eighty thousand live in homes built since 2021, so they are placed in the community where those homes were built. The other one hundred and twenty nine thousand come from more people in each home, seniors&#x27; homes, residences, shelters, and people the Census missed. That part is shared by every community: ten percent on top of its 2021 count.</p><p><b>How new homes are counted.</b> New homes come from the City&#x27;s property roll. We keep residential accounts with a home on them, and leave out vacant lots, commercial property, parking stalls and storage lockers. A new home counts as lived in one year after it is built, and a rental building counts by its units.</p><p><b>The same rule for every community.</b> Step four. Every community follows the same rule: its 2021 count, times one point one, plus the people in its new homes. Abbeydale, with no new homes, grows to six thousand five hundred and twenty. Cornerstone, with about thirty two hundred new homes, reaches eighteen thousand one hundred and eighty five. Together, every community adds up to the City&#x27;s figure.</p><p><b>Where the new homes are.</b> This is where the new homes are. The most people in new homes are on the edges of the city: Cornerstone, Livingston, Mahogany, Carrington and Seton.</p><p><b>Close.</b> Calgary Data Desk, by Hassan Ali. When the 2026 Census counts arrive in February 2027, every community gets a new starting point.</p></details>
+        <p class="card-note">Figures as of November 5, 2026; the dashboard shows today's figures, which update with every data refresh. Sources: City of Calgary, Calgary and Region Economic Outlook 2026-2031 (Spring 2026), Table 4; City of Calgary Open Data (2021 Census by community, property assessments, building permits). How it is worked out: How it's counted, "How residents are counted (Settings)". <a href="video/population-shared.mp4" download>Download the video (MP4, 7 MB)</a></p>
+      </section>
+    </div>
+  </section>
+
+  <section id="view-methods" class="view" aria-labelledby="meth-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="meth-title">How every figure is worked out</h1><p class="meta">Every formula, filter and threshold the app uses, with its datasets, how to check it yourself, and what to keep in mind</p></div>
+    </header>
+    <div class="content">
+      <div class="filters card">
+        <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
+          <input id="meth-text" type="search" placeholder="Search: distance to a playground, crime per 1,000, growth model, closed within 7 days"></label>
+      </div>
+      <div class="meth-list" id="meth-list"></div>
+    </div>
+  </section>
+
+  <section id="view-sources" class="view" aria-labelledby="src-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="src-title">Data sources</h1><p class="meta">Every dataset this app uses, what it shows, and what you can ask for: download, analyze or chart</p></div>
+      <div class="topbar-actions"><button class="btn" id="src-catalogue"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>All City datasets</span></button></div>
+    </header>
+    <div class="content">
+      <section class="card live-card" id="live-card">
+        <div class="card-head"><div><h2>Live connections</h2><p class="card-sub">Each source asked directly now, with no saved copies: one small request each. Test one, or all of them together.</p></div>
+          <div class="card-tools"><span class="live-sum" id="live-sum"></span><button class="btn primary" id="live-all"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Test all</span></button></div></div>
+        <div class="table-wrap"><table class="data live-table" id="live-table"><thead><tr><th scope="col">Source</th><th scope="col">Publisher</th><th scope="col">Status</th><th scope="col" class="num">Time</th><th scope="col">Source last updated</th><th scope="col">What came back</th><th scope="col"></th></tr></thead><tbody></tbody></table></div>
+      </section>
+      <div class="filters card">
+        <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
+          <input id="src-text" type="search" placeholder="Search datasets: potholes, permits, schools, weather"></label>
+        <label><span>Publisher</span><select id="src-pub"></select></label>
+      </div>
+      <div class="src-grid" id="src-grid"></div>
+      <p class="notes">Data Genie can also find and use any of the City of Calgary's other open datasets (over 400, alongside data from Calgary Police, the Province of Alberta, Statistics Canada, CMHC, Environment Canada and OpenStreetMap): ask about a topic and it searches the catalogue. Downloads are saved as spreadsheet files (CSV) to the Files tab.</p>
+    </div>
+  </section>
+
+  <!-- ======================= NEWSLETTER ======================= -->
+  <section id="view-news" class="view" aria-labelledby="news-h">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="news-h">Newsletter</h1><p class="meta">A Ward 5 community update for the months you choose, saved as a PDF</p></div>
+      <div class="topbar-actions"><button class="btn" data-goto="files"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Saved newsletters</span></button></div>
+    </header>
+    <div class="content news-layout">
+      <section class="card news-form" aria-labelledby="news-form-h">
+        <h2 id="news-form-h" class="nf-h">1. Months</h2>
+        <div class="seg" role="radiogroup" aria-label="Quick choice of months" id="news-quick">
+          <button role="radio" aria-checked="true" class="is-on" data-v="lastmonth">Last month</button>
+          <button role="radio" aria-checked="false" data-v="last3">Last 3 months</button>
+          <button role="radio" aria-checked="false" data-v="ytd">This year</button>
+          <button role="radio" aria-checked="false" data-v="last12">Last 12 months</button></div>
+        <div class="nf-range">
+          <label><span>From</span><input type="month" id="news-from"></label>
+          <label><span>To</span><input type="month" id="news-to"></label>
+        </div>
+        <p class="card-note" id="news-range-note">Whole months, compared with the same months a year earlier.</p>
+        <h2 class="nf-h">2. Wording</h2>
+        <label class="nf-field"><span>Title</span><input id="news-title" value="Ward 5 Community Update" maxlength="80"></label>
+        <label class="nf-field"><span>Message from the Councillor (optional)</span>
+          <textarea id="news-msg" rows="5" placeholder="A few lines to open the newsletter. Leave empty to start with the figures."></textarea></label>
+        <label class="nf-check nf-good"><input type="checkbox" id="news-good" checked><span><b>Good news only</b><small>Leaves out figures that got worse, such as a rise in crime, traffic incidents or open requests. Untick for the full picture.</small></span></label>
+        <h2 class="nf-h">3. Sections</h2>
+        <div class="nf-sections" id="news-sections"></div>
+        <button class="btn primary nf-go" id="news-make"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><span>Create newsletter (PDF)</span></button>
+        <p class="nf-status" id="news-status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="card news-preview" aria-labelledby="news-prev-h">
+        <div class="card-head"><div><h2 id="news-prev-h">Preview</h2><p class="card-sub" id="news-prev-sub">Choose the months and select Create.</p></div>
+          <div class="card-tools">
+            <button class="btn" id="news-open" disabled><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>Open PDF</span></button>
+            <button class="btn" id="news-save" disabled><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save PDF with my edits</span></button></div></div>
+        <div class="news-frame-wrap"><iframe id="news-frame" title="Newsletter preview"></iframe>
+          <div class="news-empty" id="news-empty"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><p>The newsletter appears here. You can click any text in it to change the wording, then save it again.</p></div></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ======================= CAMERAS ======================= -->
+  <section id="view-cameras" class="view" aria-labelledby="cam-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="cam-title">Traffic cameras</h1>
+        <p class="meta" id="cam-sub">City of Calgary traffic cameras, each replaying its last 30 minutes</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Which cameras" id="cam-seg">
+          <button role="radio" aria-checked="true" data-cams="ward">Ward 5 and nearby</button>
+          <button role="radio" aria-checked="false" data-cams="all">All Calgary</button>
+        </div>
+        <button class="btn" data-url="camera_page"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>City camera page</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="camgrid" id="camgrid"></div>
+      <p class="notes">The City's cameras are for traffic monitoring only. Footage is not recorded, and cameras can be offline for maintenance or after collisions. Source: City of Calgary Open Data, Traffic Cameras (k7p9-kppz).</p>
+    </div>
+  </section>
+
+  <!-- ======================= DATA SCIENTIST ======================= -->
+  <section id="view-scientist" class="view" aria-labelledby="ds-title">
+    <div class="content ds-page">
+      <header class="ds-hero">
+        <div class="ds-hero-main">
+          <div class="ds-mark" aria-hidden="true"><svg class="ic"><use href="#i-scientist"/></svg></div>
+          <div>
+            <h1 id="ds-title">Data Scientist</h1>
+            <p>Full analysis reports on Calgary and any ward, built from live public data: every figure worked out and sourced, with charts, maps, recommendations and an action plan.</p>
+            <div class="ds-gets"><span><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg>PDF report</span><span><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Interactive charts and maps</span><span><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Excel workbook</span></div>
+          </div>
+        </div>
+        <div class="ds-hero-side">
+          <div><b>3 to 8 min</b><span>per report</span></div>
+        </div>
+      </header>
+      <div class="seg ds-tabs" role="radiogroup" aria-label="Data Scientist" id="ds-tabs">
+        <button type="button" role="radio" aria-checked="true" data-dstab="make">Make reports</button>
+        <button type="button" role="radio" aria-checked="false" data-dstab="audit">Report auditor</button>
+      </div>
+      <div class="banner warn" id="ds-nokey" hidden><svg class="ic" aria-hidden="true"><use href="#i-key"/></svg><div>Add an AI service key (Anthropic, Google Gemini or OpenAI) in Settings to make reports.</div></div>
+
+      <div id="ds-make">
+      <div class="ds-sec-head"><h2>Topics for today</h2><button class="btn" id="ds-shuffle"><svg class="ic" aria-hidden="true"><use href="#i-shuffle"/></svg><span>Show other topics</span></button></div>
+      <div class="ds-topics" id="ds-topics"></div>
+
+      <form class="card ds-own" id="ds-own">
+        <div class="ds-own-head"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><div><h2>Your own analysis</h2><p class="card-sub">Describe what you need in plain words. Add the visuals you want, or let the Data Scientist choose.</p></div></div>
+        <textarea id="ds-text" rows="4" placeholder="For example: how have potholes and sidewalk repairs changed in Taradale and Martindale since 2021, and how does that compare with Calgary?"></textarea>
+        <div class="ds-own-foot">
+          <div class="ds-chips" id="ds-chips" aria-label="Add to the request">
+            <button type="button" data-add="Include a chart of the trend by year.">+ Trend chart</button>
+            <button type="button" data-add="Include a map of Ward 5 communities shaded by the main measure.">+ Map by community</button>
+            <button type="button" data-add="Compare with Calgary as a whole.">+ Compare with Calgary</button>
+            <button type="button" data-add="Rank the communities in a table.">+ Ranking table</button>
+            <button type="button" data-add="Show where it happens as points on a map.">+ Points on a map</button>
+          </div>
+          <button type="submit" class="btn primary ds-go" id="ds-go"><svg class="ic" aria-hidden="true"><use href="#i-scientist"/></svg><span>Make the report</span></button>
+        </div>
+      </form>
+
+      <section class="card ds-run" id="ds-run" hidden>
+        <div class="card-head"><div><h2 id="ds-run-title"></h2><p class="card-sub" id="ds-run-sub"></p></div></div>
+        <ol class="ds-stages" id="ds-stages">
+          <li data-stage="0"><i></i><span>Gather the data</span></li>
+          <li data-stage="1"><i></i><span>Work out the figures</span></li>
+          <li data-stage="2"><i></i><span>Draw charts and maps</span></li>
+          <li data-stage="3"><i></i><span>Write the report</span></li>
+        </ol>
+        <details class="ds-log"><summary>What it is doing</summary><ol class="steps" id="ds-steps"></ol></details>
+        <div id="ds-result"></div>
+      </section>
+
+      <section class="card ds-lib">
+        <div class="card-head"><div><h2>Your reports</h2><p class="card-sub">Made here or in Data Genie, newest first. Every report is also in Files.</p></div></div>
+        <div id="ds-reports"></div>
+      </section>
+      </div>
+
+      <div id="ds-audit" hidden>
+        <section class="card">
+          <div class="card-head"><div><h2>Report auditor</h2><p class="card-sub">Three separate checks on a finished report. <b>Chinook</b> (the auditor) re-runs every figure from the data and lists what is wrong. <b>Bow</b> (the reviewer) re-checks each finding itself, accepts, revises or rejects it with its reasons, and makes the corrected report. <b>Rundle</b> (the final check) then looks only at those findings: fixed correctly, or rightly rejected. About 5 to 15 minutes a report.</p></div></div>
+          <div id="au-reports"></div>
+        </section>
+        <section class="card ds-run" id="au-run" hidden>
+          <div class="card-head"><div><h2 id="au-run-title"></h2><p class="card-sub" id="au-run-sub"></p></div></div>
+          <ol class="ds-stages" id="au-stages">
+            <li data-stage="0"><i></i><span>Chinook: re-runs every figure</span></li>
+            <li data-stage="1"><i></i><span>Bow: reviews each finding and fixes it</span></li>
+            <li data-stage="2"><i></i><span>Rundle: final check of the findings</span></li>
+          </ol>
+          <details class="ds-log"><summary>What it is doing</summary><ol class="steps" id="au-steps"></ol></details>
+          <div id="au-result"></div>
+        </section>
+        <section class="card ds-lib">
+          <div class="card-head"><div><h2>Audits</h2><p class="card-sub">Each audit page lists every finding, the reviewer's decision and the final check, with the corrected report.</p></div></div>
+          <div id="au-list"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= ASK ======================= -->
+  <section id="view-ask" class="view" aria-labelledby="ask-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="ask-title" class="with-genie"><svg class="ic" aria-hidden="true"><use href="#i-genie"/></svg>Data Genie</h1>
+        <p class="meta">Ask anything about Calgary's data: it finds the right datasets among over 400 from seven public sources, runs the numbers, and answers with charts, tables, maps, downloads and full analysis reports (PDF)</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Answer mode" id="mode-seg">
+          <button role="radio" aria-checked="true" data-mode="fast" title="Quick answers">Fast</button>
+          <button role="radio" aria-checked="false" data-mode="smart" title="For harder questions">Thorough</button>
+        </div>
+        <button class="btn" id="new-chat"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><span>New chat</span></button>
+      </div>
+    </header>
+    <div class="ask-shell">
+      <div class="thread" id="thread" aria-live="polite">
+        <div class="welcome" id="welcome">
+          <div class="welcome-mark genie" aria-hidden="true"><svg class="ic"><use href="#i-genie"/></svg></div>
+          <h2>What would you like to know?</h2>
+          <p>Ask about the area you have selected (all of Calgary or any ward) or anything the City publishes as open data: for casework, briefings or council meetings. Data Genie answers from the data already in this app first (the dashboard's figures, police crime data, files you have saved), and goes to the City's website only when it needs more.</p>
+          <div class="banner warn" id="no-key" hidden>
+            <svg class="ic" aria-hidden="true"><use href="#i-key"/></svg>
+            <div>Add an AI service key (Anthropic, Google Gemini or OpenAI) in Settings to start asking. The dashboard works without it.</div>
+            <button class="btn" id="go-settings">Open Settings</button>
+          </div>
+          <div class="suggest">
+            <button><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span>Which community here has the most open pothole requests?</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><span>Make a report: how have vehicle thefts and break-ins changed in each community here since 2021, with recommendations and an action plan</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span>Brief me on Taradale: open requests, the oldest ones and what changed this year</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Download all open 311 requests in Martindale and Taradale</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span>Which communities here had the most vehicle thefts this year, and how does that compare with last year?</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg><span>Compare Calgary's Crime Severity Index with Edmonton and Vancouver over 10 years</span></button>
+          </div>
+        </div>
+      </div>
+      <form class="composer" id="composer">
+        <label class="sr" for="question">Your question</label>
+        <textarea id="question" rows="3" placeholder="Ask a question about City of Calgary data, or ask for a full report with charts and maps"></textarea>
+        <button type="submit" class="send" id="send" aria-label="Ask"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></button>
+      </form>
+      <p class="composer-hint">Enter to ask. Shift and Enter for a new line. Answers come from the City's open data and show their sources.</p>
+    </div>
+  </section>
+
+  <!-- ======================= FILES ======================= -->
+  <section id="view-files" class="view" aria-labelledby="files-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="files-title">Files</h1>
+        <p class="meta" id="files-where">Data the assistant has saved</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn" id="open-folder"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Open folder</span></button>
+      </div>
+    </header>
+    <div class="content narrow">
+      <section class="card">
+        <table class="data files-table">
+          <thead><tr><th scope="col">File</th><th scope="col">Saved</th><th scope="col" class="num">Size</th><th scope="col"><span class="sr">Action</span></th></tr></thead>
+          <tbody id="files"></tbody>
+        </table>
+      </section>
+    </div>
+  </section>
+
+  <!-- ======================= SETTINGS ======================= -->
+  <section id="view-settings" class="view" aria-labelledby="settings-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="settings-title">Settings</h1><p class="meta">Saved only on this computer</p></div>
+    </header>
+    <div class="content narrow">
+      <form class="settings" id="settings-form">
+        <section class="card" id="pop-card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg><div><h2>How residents are counted</h2><p class="card-sub">Used for every "per 1,000 residents" figure, the population charts, the newsletter and Data Genie</p></div></div><span class="badge ok" id="pop-badge"></span></div>
+          <div class="pop-choices" role="radiogroup" aria-label="How residents are counted" id="pop-choices"></div>
+          <p class="field-hint" id="pop-hint">The choice is saved on this computer. The dashboard is worked out again with it (the first time takes about a minute).</p>
+        </section>
+        <section class="card" id="eng-card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-key"/></svg><div><h2>AI services, in order of use</h2><p class="card-sub">For Data Genie and the Data Scientist. The first one answers; if it runs out of credit, reaches its daily limit or is down, the next one carries on automatically.</p></div></div><span class="badge" id="key-badge">Not saved</span></div>
+          <ol class="eng-list" id="eng-list"></ol>
+          <div class="eng-add-row">
+            <button type="button" class="btn" id="eng-add"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg><span>Add a service</span></button>
+            <span class="field-hint" id="eng-count"></span>
+          </div>
+          <p class="field-hint">Keys are saved only on this computer. A free key gives quick answers at no cost, but long reports are most reliable with the Anthropic service, so keep a paid service first if reports matter and a free one after it as the backup.</p>
+        </section>
+        <section class="card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><div><h2>Google Maps key</h2><p class="card-sub">Optional: shows Google Maps on the dashboard</p></div></div><span class="badge" id="gkey-badge">Not saved</span></div>
+          <p class="field-hint" id="gkey-status">No key saved. The maps use OpenStreetMap, which is free.</p>
+          <label class="field-label" for="google-key">Paste a Google Maps key</label>
+          <input type="password" id="google-key" autocomplete="off" placeholder="AIza...">
+          <p class="field-hint">The key needs the Maps JavaScript API turned on in Google Cloud. Google may charge the key's owner for map use beyond its free allowance. Remove a personal key before giving this computer or app to someone else.</p>
+          <div class="row-actions"><button type="button" class="btn" id="remove-gkey">Remove Google key</button></div>
+        </section>
+        <section class="card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg><div><h2>Appearance</h2><p class="card-sub">Light, dark, or follow Windows</p></div></div></div>
+          <div class="seg" role="radiogroup" aria-label="Theme" id="theme-seg">
+            <button type="button" role="radio" aria-checked="true" data-theme-pref="system">Match Windows</button>
+            <button type="button" role="radio" aria-checked="false" data-theme-pref="light">Light</button>
+            <button type="button" role="radio" aria-checked="false" data-theme-pref="dark">Dark</button>
+          </div>
+        </section>
+        <div class="row-actions">
+          <button type="submit" class="btn primary">Save settings</button>
+          <p class="saved" id="saved-msg" role="status"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div class="brief" id="brief" hidden role="dialog" aria-modal="true" aria-label="Briefing screen">
+  <header class="brief-head">
+    <div class="brief-brand"><img src="logo.svg" alt="" width="44" height="44"><div><strong>Ward 5</strong><span id="brief-who"></span></div></div>
+    <div class="brief-clock"><span id="brief-time"></span><span id="brief-date"></span></div>
+    <button class="brief-close" id="brief-close" aria-label="Close the briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+  </header>
+  <div class="brief-body">
+    <div class="brief-kpis" id="brief-kpis"></div>
+    <div class="brief-cams" id="brief-cams"></div>
+    <div class="brief-side">
+      <h2>Newest 311 reports</h2>
+      <ol class="brief-feed" id="brief-feed"></ol>
+      <h2>Most open requests</h2>
+      <ol class="brief-types" id="brief-types"></ol>
+    </div>
+  </div>
+  <div class="brief-sources" id="brief-sources"></div>
+  <footer class="brief-foot" id="brief-foot"></footer>
+</div>
+
+<div class="status-dlg" id="status-dlg" hidden role="dialog" aria-modal="true" aria-labelledby="status-title">
+  <div class="status-box">
+    <div class="viewer-head"><strong id="status-title">Data status</strong><button class="brief-close" id="status-close" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+    <p class="card-sub" id="status-sub"></p>
+    <div class="table-wrap"><table class="data" id="status-table"><thead><tr><th scope="col">Source</th><th scope="col">Last updated by the publisher</th><th scope="col">Fetched by this app</th><th scope="col">Status</th></tr></thead><tbody></tbody></table></div>
+    <p class="field-hint">The app checks for new data every 15 minutes and rebuilds the dashboard at least every hour. Select a source to open its page.</p>
+  </div>
+</div>
+
+<div class="record" id="record" hidden role="dialog" aria-modal="true" aria-label="Request page"></div>
+
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Camera">
+  <div class="viewer-box" id="viewer-box"><div class="viewer-head"><strong id="viewer-name"></strong><button class="brief-close" id="viewer-close" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <div class="viewer-frame"><img id="viewer-img" alt=""><span class="live" data-stamp>Latest</span><span class="progress" aria-hidden="true"><i></i></span></div>
+  <div class="viewer-tools">
+    <button class="btn icon-only" id="viewer-prev" aria-label="Back one image" title="Back one image (left arrow)"><svg class="ic" aria-hidden="true"><use href="#i-prev"/></svg></button>
+    <button class="btn" id="viewer-play" title="Play or pause (space)"><svg class="ic" aria-hidden="true"><use href="#i-pause"/></svg><span>Pause</span></button>
+    <button class="btn icon-only" id="viewer-next" aria-label="Forward one image" title="Forward one image (right arrow)"><svg class="ic" aria-hidden="true"><use href="#i-next"/></svg></button>
+    <input type="range" id="viewer-range" min="0" max="0" value="0" aria-label="Position in the last 30 minutes">
+    <div class="seg small" role="radiogroup" aria-label="Playback speed" id="viewer-speed">
+      <button type="button" role="radio" aria-checked="true" data-speed="1">1×</button>
+      <button type="button" role="radio" aria-checked="false" data-speed="2">2×</button>
+      <button type="button" role="radio" aria-checked="false" data-speed="4">4×</button>
+    </div>
+    <button class="btn" id="viewer-latest">Newest image</button>
+  </div>
+  <p class="viewer-count" id="viewer-count"></p>
+  <p class="viewer-note" id="viewer-note"></p></div>
+</div>
+
+<script src="vendor/leaflet.js"></script>
+<script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/marked.min.js"></script>
+<script src="vendor/purify.min.js"></script>
+<script src="web.js"></script><script src="web-ai.js"></script><script src="app.js"></script>
+<script src="extra.js"></script>
+<script src="compare.js"></script>
+<script src="budget.js"></script>
+<script src="elections.js"></script>
+<script src="audit.js"></script>
+<script src="buses.js"></script>
+<script src="web-ui.js"></script>
+</body>
+</html>

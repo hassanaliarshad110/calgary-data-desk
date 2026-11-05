@@ -1,0 +1,377 @@
+{
+ "seconds": 431.9,
+ "homes": {
+  "records": 500028,
+  "units": 573451.0,
+  "units_estimated": 31970.0,
+  "not_in_a_community": 0,
+  "read": 502628,
+  "no_outline": 0,
+  "repeated": 2600,
+  "rental_buildings_listed": 2227,
+  "rental_buildings_found": 2224,
+  "rental_units_used": 75647.0
+ },
+ "amenities": {
+  "playground": {
+   "rows": 1115,
+   "placed": 1115
+  },
+  "park": {
+   "rows": 2955,
+   "placed": 2955
+  },
+  "transit_stop": {
+   "rows": 6213,
+   "placed": 6213
+  },
+  "community_centre": {
+   "rows": 109,
+   "placed": 109
+  },
+  "rec_centre": {
+   "rows": 27,
+   "placed": 27
+  },
+  "library": {
+   "rows": 21,
+   "placed": 21
+  }
+ },
+ "kinds": {
+  "playground": {
+   "this_build": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_1": 0.7116,
+    "share_2": 0.9719,
+    "share_records_1": 0.7332,
+    "share_new_1": 0.6839,
+    "share_old_1": 0.7189,
+    "median_m": 278
+   },
+   "canada_insight": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_primary": 0.8516,
+    "share_secondary": 0.9946,
+    "share_primary_records": 0.8706,
+    "share_new_primary": 0.7408,
+    "share_old_primary": 0.8666,
+    "median_m": 226
+   },
+   "ref_built_at": "2026-11-05T20:10:32Z",
+   "communities_differing_over_half_a_point": [
+    [
+     "RMT",
+     0.0,
+     0.9534,
+     451.0,
+     451.0
+    ],
+    [
+     "SHI",
+     0.08,
+     1.0,
+     175.0,
+     175.0
+    ],
+    [
+     "RID",
+     0.3288,
+     0.9973,
+     371.0,
+     371.0
+    ],
+    [
+     "09O",
+     0.0,
+     0.6667,
+     3.0,
+     3.0
+    ],
+    [
+     "GRI",
+     0.0,
+     0.6667,
+     3.0,
+     3.0
+    ],
+    [
+     "ACA",
+     0.3212,
+     0.9687,
+     4511.0,
+     4511.0
+    ],
+    [
+     "HAY",
+     0.3046,
+     0.9324,
+     3493.0,
+     3493.0
+    ],
+    [
+     "MAL",
+     0.2098,
+     0.8201,
+     2274.0,
+     2274.0
+    ],
+    [
+     "TEM",
+     0.3984,
+     0.9969,
+     3559.0,
+     3559.0
+    ],
+    [
+     "DAL",
+     0.3609,
+     0.9545,
+     3959.0,
+     3959.0
+    ],
+    [
+     "COL",
+     0.2952,
+     0.8744,
+     884.0,
+     884.0
+    ],
+    [
+     "HIW",
+     0.4068,
+     0.9814,
+     858.0,
+     858.0
+    ],
+    [
+     "RUN",
+     0.3999,
+     0.97,
+     3333.0,
+     3333.0
+    ],
+    [
+     "SSD",
+     0.4303,
+     0.9458,
+     2747.0,
+     2747.0
+    ],
+    [
+     "PAL",
+     0.5055,
+     1.0,
+     1456.0,
+     1456.0
+    ]
+   ],
+   "communities_differing_count": 166
+  },
+  "park": {
+   "this_build": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_1": 0.9887,
+    "share_2": 0.9997,
+    "share_records_1": 0.9901,
+    "share_new_1": 0.9672,
+    "share_old_1": 0.9919,
+    "median_m": 86
+   },
+   "canada_insight": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_primary": 0.9939,
+    "share_secondary": 0.9997,
+    "share_primary_records": 0.9946,
+    "share_new_primary": 0.9749,
+    "share_old_primary": 0.9968,
+    "median_m": 82
+   },
+   "ref_built_at": "2026-11-05T20:10:32Z",
+   "communities_differing_over_half_a_point": [
+    [
+     "GRI",
+     0.3333,
+     1.0,
+     3.0,
+     3.0
+    ],
+    [
+     "HAY",
+     0.7776,
+     1.0,
+     3493.0,
+     3493.0
+    ],
+    [
+     "12C",
+     0.5417,
+     0.7083,
+     24.0,
+     24.0
+    ],
+    [
+     "PCK",
+     0.8855,
+     1.0,
+     1756.0,
+     1756.0
+    ],
+    [
+     "RVW",
+     0.6036,
+     0.7093,
+     1930.0,
+     1930.0
+    ],
+    [
+     "01F",
+     0.505,
+     0.5941,
+     101.0,
+     101.0
+    ],
+    [
+     "BLN",
+     0.9248,
+     1.0,
+     21765.0,
+     21765.0
+    ],
+    [
+     "HPK",
+     0.9796,
+     1.0,
+     1814.0,
+     1814.0
+    ],
+    [
+     "RDL",
+     0.9082,
+     0.9197,
+     610.0,
+     610.0
+    ],
+    [
+     "ALP",
+     0.9879,
+     0.9972,
+     1077.0,
+     1077.0
+    ],
+    [
+     "RAM",
+     0.9919,
+     1.0,
+     991.0,
+     991.0
+    ]
+   ],
+   "communities_differing_count": 11
+  },
+  "transit_stop": {
+   "this_build": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_1": 0.9458,
+    "share_2": 0.9863,
+    "share_records_1": 0.9416,
+    "share_new_1": 0.6969,
+    "share_old_1": 0.9743,
+    "median_m": 148
+   },
+   "canada_insight": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_primary": 0.9458,
+    "share_secondary": 0.9863,
+    "share_primary_records": 0.9416,
+    "share_new_primary": 0.6969,
+    "share_old_primary": 0.9743,
+    "median_m": 148
+   },
+   "ref_built_at": "2026-11-05T20:10:32Z",
+   "communities_differing_over_half_a_point": [],
+   "communities_differing_count": 0
+  },
+  "community_centre": {
+   "this_build": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_1": 0.3903,
+    "share_2": 0.6753,
+    "share_records_1": 0.3803,
+    "share_new_1": 0.1834,
+    "share_old_1": 0.4143,
+    "median_m": 1040
+   },
+   "canada_insight": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_primary": 0.3903,
+    "share_secondary": 0.6753,
+    "share_primary_records": 0.3803,
+    "share_new_primary": 0.1834,
+    "share_old_primary": 0.4143,
+    "median_m": 1040
+   },
+   "ref_built_at": "2026-11-05T20:10:32Z",
+   "communities_differing_over_half_a_point": [],
+   "communities_differing_count": 0
+  },
+  "rec_centre": {
+   "this_build": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_1": 0.4993,
+    "share_2": 0.9518,
+    "share_records_1": 0.4831,
+    "share_new_1": 0.2969,
+    "share_old_1": 0.5201,
+    "median_m": 2043
+   },
+   "canada_insight": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_primary": 0.4993,
+    "share_secondary": 0.9518,
+    "share_primary_records": 0.4831,
+    "share_new_primary": 0.2969,
+    "share_old_primary": 0.5201,
+    "median_m": 2043
+   },
+   "ref_built_at": "2026-11-05T20:10:32Z",
+   "communities_differing_over_half_a_point": [],
+   "communities_differing_count": 0
+  },
+  "library": {
+   "this_build": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_1": 0.5089,
+    "share_2": 0.9742,
+    "share_records_1": 0.4838,
+    "share_new_1": 0.3289,
+    "share_old_1": 0.5293,
+    "median_m": 2052
+   },
+   "canada_insight": {
+    "units": 573451.0,
+    "records": 500028,
+    "share_primary": 0.5089,
+    "share_secondary": 0.9742,
+    "share_primary_records": 0.4838,
+    "share_new_primary": 0.3289,
+    "share_old_primary": 0.5293,
+    "median_m": 2052
+   },
+   "ref_built_at": "2026-11-05T20:10:32Z",
+   "communities_differing_over_half_a_point": [],
+   "communities_differing_count": 0
+  }
+ }
+}
