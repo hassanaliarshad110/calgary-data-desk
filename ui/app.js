@@ -117,6 +117,7 @@ function show(view) {
     on ? t.setAttribute('aria-current', 'page') : t.removeAttribute('aria-current');
   });
   $$('.view').forEach(v => v.classList.toggle('is-on', v.id === 'view-' + view));
+  if (view !== 'videos') $$('#view-videos video').forEach(v => v.pause());
   if (view === 'files') loadFiles();
   if (view === 'scientist' && window.renderScientist) renderScientist();
   if (view === 'settings') loadSettings();

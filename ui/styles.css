@@ -1417,3 +1417,10 @@ ul.pf li.now .pf-v { color: var(--accent); font-weight: 600; }
 .bus-find input { width: 52px; padding: 2px 5px; border: 1px solid var(--border-strong); border-radius: 6px; background: var(--card); color: var(--fg); font: inherit; }
 .bus-time { color: var(--muted-fg); } .bus-time.late { color: var(--danger-fg); }
 @media (max-width: 640px) { .bus-status { max-width: 220px; font-size: 11px; } }
+
+/* video briefs */
+.vid-card video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 10px; background: #0A1322; border: 1px solid var(--border); }
+.vid-desc { margin: 12px 0 0; font-size: 14px; line-height: 1.55; }
+.vid-trans { margin-top: 12px; font-size: 13.5px; line-height: 1.55; }
+.vid-trans summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+.vid-trans p { margin: 8px 0 0; }

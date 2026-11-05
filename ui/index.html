@@ -66,6 +66,7 @@
     <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4h3v16H7zM14 4h3v16h-3z"/></symbol>
     <symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
     <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m10 9 5 3-5 3z"/></symbol>
     <symbol id="i-news" viewBox="0 0 24 24"><path d="M4 22h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></symbol>
     <symbol id="i-genie" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4M4 17v2M5 18H3"/></symbol>
     <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></symbol>
@@ -103,6 +104,7 @@
     <button class="tab tab-genie" data-view="ask" title="Data Genie: ask anything about the data"><svg class="ic" aria-hidden="true"><use href="#i-genie"/></svg><span>Data Genie</span></button>
     <button class="tab tab-ds" data-view="scientist" title="Data Scientist: full analysis reports on the selected area"><svg class="ic" aria-hidden="true"><use href="#i-scientist"/></svg><span>Data Scientist</span></button>
     <p class="nav-h">Publish</p>
+    <button class="tab" data-view="videos" title="Video briefs: short narrated videos on the data"><svg class="ic" aria-hidden="true"><use href="#i-film"/></svg><span>Video briefs</span></button>
     <button class="tab" data-view="news" title="Newsletter"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><span>Newsletter</span></button>
     <button class="tab brief-btn" id="brief-btn" title="Briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span>Briefing screen</span></button>
     <p class="nav-h">Reference</p>
@@ -564,6 +566,26 @@
   </section>
 
   <!-- ======================= HOW IT'S COUNTED ======================= -->
+  <!-- ======================= VIDEO BRIEFS ======================= -->
+  <section id="view-videos" class="view" aria-labelledby="vid-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="vid-title">Video briefs</h1><p class="meta">Short narrated videos on what the data shows, with how it is measured. Newest first.</p></div>
+    </header>
+    <div class="content narrow">
+      <section class="card vid-card" id="vid-growth">
+        <div class="card-head"><div><h2>Growth vs amenities: have parks, playgrounds and transit kept up?</h2>
+          <p class="card-sub">Published <time datetime="2026-11-05">November 5, 2026</time> · 3 min · subtitles built in</p></div></div>
+        <video controls preload="metadata" playsinline poster="video/growth-amenities.jpg">
+          <source src="video/growth-amenities.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/growth-amenities.mp4">Download it (MP4, 13 MB)</a>.
+        </video>
+        <p class="vid-desc">Calgary's communities have added about 300,000 residents since the 2021 Census. The video compares the 45 communities that grew more than 20% (or are new since 2021) with the rest of the city on playgrounds, transit stops, park space and trees, explains how the amenity level is worked out, and shows the 23 communities flagged in the Growth vs amenities tab.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Calgary is growing fast. Since the 2021 Census, its communities have added about 300,000 residents. But have parks, playgrounds and transit stops kept up?</p><p><b>What is counted.</b> Calgary Data Desk counts the City’s own amenities in every community, from playgrounds and park space to trees and transit stops, and compares each one with the city as a whole.</p><p><b>How it is measured.</b> Here’s how it’s measured. Residents today come from the City’s own population estimate, shared out by where new homes were actually built since 2021, using the property assessment roll. Growth compares that with the 2021 Census. Each amenity is counted per 1,000 residents, and playgrounds per 1,000 children, then compared with the city as a whole. A community’s amenity level averages those comparisons: 1.00 is the city level, and no single amenity counts more than double. Libraries, recreation centres and park washrooms serve several communities, so they’re left out of a community’s level. A community is flagged when it grew more than 20%, or is new since 2021, and its amenity level is below 0.75.</p><p><b>Where Calgary grew.</b> 45 communities grew by more than 20%, or didn’t exist in 2021. Together they added about 166,000 people. That’s more than half of the city’s growth.</p><p><b>The comparison.</b> Per resident, those growing communities have less. About 2.7 playgrounds per 1,000 children, against 4.6 in the rest of Calgary. Two transit stops per 1,000 residents, against nearly four. About a quarter less local park space, and more than a third fewer trees.</p><p><b>Flagged communities.</b> 23 communities grew fast and sit below three-quarters of the city’s amenity level. They are home to about 230,000 people, including more than 45,000 children.</p><p><b>Examples.</b> The largest are the Beltline, Saddle Ridge, Mahogany, Skyview Ranch and Sage Hill. The fastest growing, Belmont, went from about 800 residents in 2021 to about 6,500 today.</p><p><b>Limits.</b> These counts include City assets only. School, private and community association amenities aren’t counted, and new communities often get parks and facilities in later phases.</p><p><b>Close.</b> Explore every community’s numbers on Calgary Data Desk.</p></details>
+        <p class="card-note">Figures as of the video's publishing date: amenities counted November 3, 2026; residents estimated November 4, 2026. The Growth vs amenities tab shows today's figures, which update with every data refresh. City assets only: school, private and community association amenities are not counted. <a href="video/growth-amenities.mp4" download>Download the video (MP4, 13 MB)</a></p>
+      </section>
+    </div>
+  </section>
+
   <section id="view-methods" class="view" aria-labelledby="meth-title">
     <header class="topbar">
       <div class="topbar-title"><h1 id="meth-title">How every figure is worked out</h1><p class="meta">Every formula, filter and threshold the app uses, with its datasets, how to check it yourself, and what to keep in mind</p></div>
