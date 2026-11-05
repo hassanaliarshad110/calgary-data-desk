@@ -595,7 +595,7 @@ METHODS = [
                   'Alberta; House of Commons; Government of Alberta (provincial boundaries)',
      'page': 'https://elections-prd.calgary.ca/results/2025-results.html',
      'updated': 'Read once a week; results change only with a new election, a by-election or a recount',
-     'used_in': 'Elections tab, Dashboard (Who represents this area), Data Genie',
+     'used_in': 'Election Control Room (Control room, Know your leaders, Know your constituency, Full results), Dashboard (Who represents this area), Data Genie',
      'method': [
          'Municipal, 20 October 2025: Elections Calgary\'s official results file (corrected after the 27 October 2025 '
          'mayoral recount): every candidate\'s votes for mayor, councillor in each ward, and public (CBE) and separate '
@@ -618,12 +618,26 @@ METHODS = [
          'shares under 1% left out), and a ward\'s share in one = its '
          'communities\' residents x their shares / its residents (the count chosen in Settings). The councillor and '
          'school trustees follow the ward.',
-         'Nothing is ranked, scored or combined: results are shown as published, candidates in order of votes, with no '
-         'colours by party.'],
+         'Seats: Calgary City Council (the mayor and 14 councillors by local political party, independents together), '
+         'Calgary\'s MLAs and MPs by the caucus of the member sitting today, and the whole Legislative Assembly (87 seats) '
+         'and House of Commons (343 seats) from their member lists; a seat with no sitting member is vacant. Each party '
+         'keeps one colour across the charts; they are not the parties\' own colours.',
+         'Know your constituency (a ward): electors are estimated, as Elections Calgary does not publish electors by '
+         'ward: each community\'s residents x the share of residents on the federal electors list in its electoral '
+         'district (Elections Canada 2025: electors / 2021 Census population), scaled so Calgary adds up to the City\'s '
+         'electors register (896,042). Estimated turnout = votes cast in the ward\'s councillor race / estimated electors. '
+         'The ward\'s provincial and federal turnout and its referendum shares average its electoral divisions or '
+         'districts by the share of its residents in each. The councillor race station by station is from the station '
+         'results (gqvk-p23x). Who lives here: the City\'s ward profile (2021 Census); what residents raise: open 311 '
+         'requests.',
+         'Nothing is ranked, scored or recommended: results are shown as published, candidates in order of votes. The '
+         'insights are facts worked out the same way for every race, for any candidate or campaign alike.'],
      'excel': ['Municipal: the open data table gqvk-p23x; filter officecategory = Mayor and ward = the ward number to add up '
                'a ward\'s election-day votes.',
                'Provincial: the Statement of Vote workbook, sheet = the division number, row "Total (All Voting Options)".'],
-     'cautions': ['Shares of a ward in each electoral division or district are by area within each community, not by '
+     'cautions': ['Ward electors and turnout are estimates (see the method); the City\'s register and the federal list '
+                  'differ, and people move.',
+                  'Shares of a ward in each electoral division or district are by area within each community, not by '
                   'where each home is: a community split by a boundary is split by area.',
                   'Alberta\'s electoral boundaries are being redrawn for the general election on 18 October 2027; the '
                   'divisions here are those of the 2023 election.',

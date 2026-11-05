@@ -95,7 +95,7 @@
     <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
     <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: how near homes are to everyday amenities, new homes against older ones"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
     <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
-    <button class="tab" data-view="elections" title="Elections: who represents the area picked, and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-ballot"/></svg><span>Elections</span></button>
+    <button class="tab" data-view="elections" title="Election Control Room: seats, leaders, constituencies and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-ballot"/></svg><span>Election Control Room</span></button>
     <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
     <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
     <p class="nav-h">Topics</p>
@@ -235,7 +235,7 @@
         <!-- crime and safety -->
         <div class="section-head span-12" id="crime-head" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><h2>Crime and safety</h2></div>
         <section class="card span-12" aria-labelledby="rep-title" id="rep-card" hidden>
-          <div class="card-head"><div><h2 id="rep-title">Who represents this area</h2><p class="card-sub">Elected at each level, with the last result and turnout</p></div><button class="btn" data-goto="elections"><span>All results</span></button></div>
+          <div class="card-head"><div><h2 id="rep-title">Who represents this area</h2><p class="card-sub">Elected at each level, with the last result and turnout</p></div><button class="btn" data-goto="elections"><span>Election Control Room</span></button></div>
           <div id="rep-body"></div>
         </section>
         <section class="card span-12" aria-labelledby="crime-title" id="crime-card" hidden>
@@ -540,7 +540,7 @@
   <!-- ======================= CITY BUDGET ======================= -->
   <section id="view-elections" class="view" aria-labelledby="el-title">
     <header class="topbar">
-      <div class="topbar-title"><h1 id="el-title">Elections</h1><p class="meta">Who represents the area picked, and the latest official results: City of Calgary 2025, Alberta 2023 (with by-elections since and the 2026 referendum), Canada 2025</p></div>
+      <div class="topbar-title"><h1 id="el-title">Election Control Room</h1><p class="meta">Seats, leaders, constituencies and the latest official results: City of Calgary 2025, Alberta 2023 (with by-elections since and the 2026 referendum), Canada 2025</p></div>
     </header>
     <div class="content"><div class="grid" id="el-body"></div></div>
   </section>

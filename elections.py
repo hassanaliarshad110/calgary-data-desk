@@ -209,6 +209,31 @@ def mayor_by_ward(rows):
     return {'by_ward': out, 'advance_total': sum(adv.values())}
 
 
+def councillor_stations(rows):
+    """Station rows (Councillor) -> {ward: [{'station', 'type', 'total', 'leading', 'shares': {candidate: share}}]},
+    largest first. Advance stations take votes from several wards; each ward's race is counted at each of them."""
+    by = {}
+    for r in rows:
+        w = _wards_in(r.get('officetype'))
+        if not w:
+            continue
+        key = (str(w[0]), (r.get('votingstation') or '').strip(), (r.get('votingstationtype') or '').strip())
+        by.setdefault(key, {})
+        name = person(r.get('candidatename'))
+        by[key][name] = by[key].get(name, 0) + (_int(r.get('votes')) or 0)
+    out = {}
+    for (w, st, typ), c in by.items():
+        tot = sum(c.values())
+        if not tot:
+            continue
+        lead = max(c, key=c.get)
+        out.setdefault(w, []).append({'station': st.title() if st.isupper() else st, 'type': typ, 'total': tot,
+                                      'leading': lead, 'shares': {k: round(v / tot, 4) for k, v in c.items()}})
+    for w in out:
+        out[w].sort(key=lambda x: -x['total'])
+    return out
+
+
 def municipal():
     page = ''
     try:
@@ -219,6 +244,13 @@ def municipal():
     rows = cd.query(CITY_STATIONS, select='ward,officecategory,candidatename,sum(votes) as votes',
                     where="officecategory='Mayor'", group='ward,officecategory,candidatename', limit=5000)
     out['mayor_by_ward'] = mayor_by_ward(rows)
+    try:
+        crows = cd.query(CITY_STATIONS, select='officetype,votingstation,votingstationtype,candidatename,sum(votes) as votes',
+                         where="officecategory='Councillor'", group='officetype,votingstation,votingstationtype,candidatename',
+                         limit=20000)
+        out['councillor_stations'] = councillor_stations(crows)
+    except Exception as e:                            # noqa: BLE001
+        print('elections: councillor stations not read:', e)
     out['sources'] = [{'name': 'Elections Calgary, 2025 General Election official results', 'url': CITY_PAGE},
                       {'name': 'City of Calgary open data: Official Results General Election Result - 2025 (gqvk-p23x)',
                        'url': 'https://data.calgary.ca/d/gqvk-p23x'}]
@@ -288,9 +320,27 @@ def parse_mlas(page_html):
         if not alt or len(cells) < 4:
             continue
         caucus, ed = cells[2], cells[3]
+        href = re.search(r'href="([^"]*member-information[^"]*)"', row)
         if ed.startswith('Calgary') and caucus:
-            out[ed] = {'name': html.unescape(alt.group(1)).strip(), 'caucus': {'UC': 'UCP'}.get(caucus, caucus)}
+            out[ed] = {'name': html.unescape(alt.group(1)).strip(), 'caucus': {'UC': 'UCP'}.get(caucus, caucus),
+                       'url': ('https://www.assembly.ab.ca' + html.unescape(href.group(1))) if href else None}
     return out
+
+
+AB_SEATS = 87
+COMMONS_SEATS = 343
+
+
+def parse_assembly(page_html):
+    """The whole Legislative Assembly by caucus (sitting members; a seat with no sitting member is vacant)."""
+    by = {}
+    for row in re.findall(r'(?s)<tr>(.*?)</tr>', page_html):
+        cells = [_strip(c) for c in re.findall(r'(?s)<td[^>]*>(.*?)</td>', row)]
+        if len(cells) >= 4 and cells[2] and cells[3] and re.search(r'alt="', row):
+            k = {'UC': 'UCP'}.get(cells[2], cells[2])
+            by[k] = by.get(k, 0) + 1
+    n = sum(by.values())
+    return {'seats': AB_SEATS, 'by_caucus': by, 'vacant': max(AB_SEATS - n, 0)} if n else None
 
 
 def _date(label):
@@ -399,7 +449,9 @@ def provincial():
                        {'name': 'Elections Alberta, official results', 'url': AB_RESULTS},
                        {'name': 'Legislative Assembly of Alberta, Members of the Legislative Assembly', 'url': AB_MLAS}]}
     try:
-        out['members'] = {k: v for k, v in parse_mlas(_text(_get(AB_MLAS))).items() if k in eds}
+        page = _text(_get(AB_MLAS))
+        out['members'] = {k: v for k, v in parse_mlas(page).items() if k in eds}
+        out['chamber'] = parse_assembly(page)
     except Exception as e:                            # noqa: BLE001
         print('elections: MLA list not read:', e)
     try:                                              # by-elections since the general election, Calgary divisions
@@ -478,8 +530,19 @@ def parse_hoc(xml_bytes):
         if g('ConstituencyProvinceTerritoryName') != 'Alberta':
             continue
         out[g('ConstituencyName')] = {'name': f"{g('PersonOfficialFirstName')} {g('PersonOfficialLastName')}".strip(),
-                                      'caucus': g('CaucusShortName'), 'since': g('FromDateTime')[:10] or None}
+                                      'caucus': g('CaucusShortName'), 'since': g('FromDateTime')[:10] or None,
+                                      'url': f"https://www.ourcommons.ca/members/en/{g('PersonId')}" if g('PersonId') else None}
     return out
+
+
+def parse_commons(xml_bytes):
+    """The whole House of Commons by caucus."""
+    by = {}
+    for m in ET.fromstring(xml_bytes).iter('MemberOfParliament'):
+        k = (m.findtext('CaucusShortName') or '').strip() or 'Unknown'
+        by[k] = by.get(k, 0) + 1
+    n = sum(by.values())
+    return {'seats': COMMONS_SEATS, 'by_caucus': by, 'vacant': max(COMMONS_SEATS - n, 0)} if n else None
 
 
 def _norm(s):
@@ -543,8 +606,10 @@ def federal():
            'sources': [{'name': 'Elections Canada, 45th General Election official voting results', 'url': EC_BASE + 'table1E.html'},
                        {'name': 'House of Commons, current Members of Parliament', 'url': 'https://www.ourcommons.ca/members/en'}]}
     try:
-        hoc = parse_hoc(_get(HOC))
+        raw = _get(HOC)
+        hoc = parse_hoc(raw)
         out['members'] = {n: hoc[k] for n in out['general'] for k in hoc if _norm(k) == _norm(n)}
+        out['chamber'] = parse_commons(raw)
     except Exception as e:                            # noqa: BLE001
         print('elections: House of Commons list not read:', e)
     return out
@@ -659,9 +724,100 @@ def _rep(race, member):
     return out
 
 
-def view(base, ward, codes, pops):
-    """Who represents a ward (or Calgary, ward 0) at each level, with the last results, for the dashboard tile and the
-    Elections tab. codes: the communities of the ward; pops: {community: residents} (the count chosen in Settings)."""
+def _electors_rate(general):
+    """Federal electors per resident of each district (Elections Canada: electors on the list / the district's 2021
+    Census population): the share of residents who are electors (adult citizens on the list)."""
+    return {n: r['electors'] / r['population'] for n, r in (general or {}).items()
+            if r.get('electors') and r.get('population')}
+
+
+def _mix_value(mix, values):
+    """A residents-weighted mean over the divisions or districts of a mix ({name: value})."""
+    num = sum(x['share'] * values[x['riding']] for x in mix if values.get(x['riding']) is not None)
+    den = sum(x['share'] for x in mix if values.get(x['riding']) is not None)
+    return num / den if den else None
+
+
+def constituency(base, ward, codes, pops, ward_of):
+    """Figures for a ward's campaign view, all from published results (estimates are marked as such):
+    estimated electors and municipal turnout, the councillor race, the mayor's vote in the ward against Calgary's, the
+    turnout of the overlapping provincial and federal areas, and the 2026 referendum there."""
+    m, p, f = base.get('municipal') or {}, base.get('provincial') or {}, base.get('federal') or {}
+    out = {}
+    rate = _electors_rate(f.get('general'))
+    fsh = f.get('community_shares') or {}
+    if rate and fsh and ward_of:
+        def electors(cs):
+            return sum(float(pops.get(c) or 0) * sum(s * rate.get(d, 0) for d, s in (fsh.get(c) or {}).items()) for c in cs)
+        allc = [c for c in pops if ward_of.get(c)]
+        calg = electors(allc)
+        reg = (m.get('turnout') or {}).get('electors')
+        scale = reg / calg if reg and calg else 1.0         # matched to the City's own electors register
+        by_ward = {}
+        for w in range(1, 15):
+            cs = [c for c in allc if ward_of.get(c) == w]
+            e = electors(cs) * scale
+            race = (m.get('councillors') or {}).get(str(w)) or {}
+            by_ward[str(w)] = {'electors_est': round(e), 'votes': race.get('total'),
+                               'turnout_est': round(race['total'] / e, 4) if e and race.get('total') else None}
+        out['wards'] = by_ward
+        out['electors_note'] = ('Estimated: each community\'s residents x the share of residents on the federal electors '
+                                'list in its electoral district (Elections Canada 2025), scaled so Calgary adds up to the '
+                                'City\'s electors register (896,042). Turnout = votes cast in the ward\'s councillor race / '
+                                'that estimate.')
+    if ward:
+        race = (m.get('councillors') or {}).get(str(ward))
+        if race:
+            c = race['candidates']
+            inc = next((x for x in c if x.get('incumbent')), None)
+            out['councillor_race'] = {
+                'candidates': len(c), 'total': race.get('total'), 'winner_share': c[0].get('share') if c else None,
+                'margin': race.get('margin'), 'margin_share': race.get('margin_share'),
+                'incumbent': inc and {'name': inc['name'], 'elected': inc.get('elected'), 'share': inc.get('share')},
+                'top2_share': round(sum(x.get('share') or 0 for x in c[:2]), 4)}
+        mw = ((m.get('mayor_by_ward') or {}).get('by_ward') or {}).get(str(ward))
+        city = {x['name']: x.get('share') for x in (m.get('mayor') or {}).get('candidates', [])}
+        if mw:
+            out['mayor_vs_city'] = [{'name': x['name'], 'ward': x['share'], 'calgary': city.get(x['name']),
+                                     'diff': round(x['share'] - city[x['name']], 4) if city.get(x['name']) is not None else None}
+                                    for x in mw['candidates'][:6]]
+        out['stations'] = (m.get('councillor_stations') or {}).get(str(ward), [])[:40]
+    for level, b in (('provincial', p), ('federal', f)):
+        mix = _ward_mix(b.get('community_shares') or {}, codes, pops)
+        if not mix:
+            continue
+        gen = b.get('general') or {}
+        out[level + '_turnout'] = _mix_value(mix, {n: r.get('turnout') for n, r in gen.items()})
+        out[level + '_closest'] = min(({'name': x['riding'], 'margin_share': (gen.get(x['riding']) or {}).get('margin_share')}
+                                       for x in mix if (gen.get(x['riding']) or {}).get('margin_share') is not None),
+                                      key=lambda y: y['margin_share'], default=None)
+        if level == 'provincial' and (b.get('referendum') or {}).get('questions'):
+            qs = []
+            for q in b['referendum']['questions']:
+                sh = [_mix_value(mix, {n: v['shares'][i] for n, v in q['by_ed'].items()}) for i in range(len(q['option_columns']))]
+                qs.append({'number': q['number'], 'question': q.get('question'), 'options': q['option_columns'],
+                           'area': [round(x, 4) if x is not None else None for x in sh],
+                           'calgary': q['calgary']['shares'], 'alberta': (q.get('alberta') or {}).get('shares'),
+                           'turnout': _mix_value(mix, {n: v.get('turnout') for n, v in q['by_ed'].items()})})
+            out['referendum'] = qs
+    return out
+
+
+def ward_splits(base, pops, ward_of):
+    """Every ward's residents split over provincial electoral divisions and federal electoral districts."""
+    out = {}
+    for w in range(1, 15):
+        cs = [c for c in pops if ward_of.get(c) == w]
+        out[str(w)] = {lvl: [{k: x[k] for k in ('riding', 'share', 'residents')}
+                             for x in _ward_mix((base.get(lvl) or {}).get('community_shares') or {}, cs, pops)]
+                       for lvl in ('provincial', 'federal')}
+    return out
+
+
+def view(base, ward, codes, pops, ward_of=None):
+    """Who represents a ward (or Calgary, ward 0) at each level, with the last results, for the Dashboard card and the
+    Election Control Room. codes: the communities of the ward (every lived-in one for Calgary); pops: {community:
+    residents} for every community (the count chosen in Settings); ward_of: {community: ward}."""
     if not base:
         return None
     out = {'version': base.get('version'), 'built_at': base.get('built_at'), 'dates': base.get('dates'),
@@ -688,7 +844,11 @@ def view(base, ward, codes, pops):
             r = _rep(race, (b.get('members') or {}).get(x['riding']))
             reps.append(dict(x, **(r or {}), last_election=(bye or {}).get('date') or b.get('date'),
                              by_election=bool(bye)))
-        out[level] = {'date': b.get('date'), 'ridings': reps, 'next_election': b.get('next_election')}
+        out[level] = {'date': b.get('date'), 'ridings': reps, 'next_election': b.get('next_election'),
+                      'chamber': b.get('chamber')}
         if level == 'provincial':
             out[level]['byelections'] = [e for e in b.get('byelections') or [] if e['ed'] in {x['riding'] for x in mix}]
+    if ward_of:
+        out['ward_splits'] = ward_splits(base, pops, ward_of)
+    out['constituency'] = constituency(base, ward, codes, pops, ward_of)
     return out

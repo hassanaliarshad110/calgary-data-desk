@@ -1,0 +1,49 @@
+name: Access preview
+
+on:
+  push:
+    branches: [access-preview]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: access-preview
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install cryptography numpy scipy openpyxl
+      - uses: actions/cache/restore@v4
+        with:
+          path: .site-cache
+          key: site-cache-preview-${{ github.run_id }}
+          restore-keys: site-cache-
+      - name: Reconcile the distance figures with canada-insight
+        env:
+          TZ: America/Edmonton
+          CDD_SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
+        run: python web/access_check.py _check --cache .site-cache
+      - name: Build Calgary and Ward 5 as the website would (not published)
+        env:
+          TZ: America/Edmonton
+          CDD_SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
+        run: python web/build_site.py _site --cache .site-cache --wards 0,5 --methods city_actual,model
+      - name: Keep the preview on the access-preview-out branch
+        run: |
+          cp _check/access_check.json _site/
+          cd _site
+          rm -rf py
+          git init -q -b access-preview-out
+          git config user.name "Hassan Ali"
+          git config user.email "hassanaliarshad110@users.noreply.github.com"
+          git add -A && git commit -q -m "Access preview site"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" access-preview-out
