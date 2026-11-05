@@ -215,10 +215,11 @@ METHODS = [
          'in 2021.',
          'Residents added since 2021 are given the share of children seen in 2021 in the communities that were new at '
          'the Census, anywhere in Calgary: at least half of the homes lived in on Census day were first lived in during '
-         'the five years before, and at least 500 residents. With the City\'s roll that is about 15 communities in every '
-         'quadrant (for example Mahogany, Nolan Hill, Walden, Legacy, Livingston, Redstone, Cornerstone): about 25% aged '
-         '0 to 14 and 10% under 5. The exact list and shares are in the dashboard data (population: '
-         'new_share_communities, new_share_0_14, new_share_0_4). (Growth model.)',
+         'the five years before, and at least 500 residents. With the City\'s roll in November 2026 that is 12 communities, in every '
+         'quadrant (Belmont, Carrington, Cityscape, Cornerstone, Greenwood/Greenbriar, Legacy, Livingston, Redstone, '
+         'Seton, University District, Walden, Yorkville): about 24% aged 0 to 14 and 11% under 5. The list is worked '
+         'out again at every update, so it can change; the current list and shares are in the dashboard data '
+         '(population: new_share_communities, new_share_0_14, new_share_0_4). (Growth model.)',
          'City\'s total shared by actual growth (the default): each community\'s 2021 children x one factor + the children '
          'the growth model adds for the homes built there; the factor is set so Calgary matches the City\'s forecast of '
          'children (dashboard.kid_factors_actual, kid_added, kids_as).',

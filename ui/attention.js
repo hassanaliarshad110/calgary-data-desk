@@ -81,7 +81,7 @@ function renderAttention(countOnly) {
       <div class="at-top">
         <span class="at-rank">#${r.rank}</span>
         <div class="at-name"><h3>${esc(titleCase(r.name))}</h3><span>${r.ward ? 'Ward ' + r.ward + ' · ' : ''}${fmt(r.residents)} residents · ${r.new ? 'new since ' + CY() : 'growth from homes built ' + signed(r.growth_pct, 1, '%') + ' since ' + CY()}</span></div>
-        <div class="at-score" title="Amenity level with growth counted: 1.00 = Calgary, lower needs more"><b>${fmt(r.level_growth, 2)}</b><span>level, growth counted</span>${withOther && isNum(r.level_growth_city) ? `<small class="at-was">${r.level_growth_city === r.level_growth ? 'same as City only' : 'City only ' + fmt(r.level_growth_city, 2)}</small>` : ''}</div>
+        <div class="at-score" title="Amenity level with growth counted: 1.00 = Calgary, lower needs more"><b>${fmt(r.level_growth, 2)}</b><span>level, growth counted</span>${withOther && isNum(r.level_growth_city) ? `<small class="at-was">${r.level_growth_city === r.level_growth ? (r.other ? 'same score without non-City amenities' : 'no non-City amenities found; score unchanged') : 'City amenities only: ' + fmt(r.level_growth_city, 2)}</small>` : ''}</div>
       </div>
       <div class="at-mid"><span class="at-tier">${r.tier}</span>
         <span class="at-level">Amenity level ${gapMeter(r.level)} <b>${fmt(r.level, 2)}</b> <small>(Calgary = 1.00${withOther && isNum(r.level_city) ? `; City's only ${fmt(r.level_city, 2)}` : ''})</small></span></div>

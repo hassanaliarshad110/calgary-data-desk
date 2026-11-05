@@ -150,6 +150,15 @@ def _where(lat, lon, ward_shape, comm_shapes):
     return True, loc.find(lon, lat)
 
 
+def children_note(new_count=None):
+    """How children are estimated, with the number of communities new at the Census when it is known."""
+    which = (f"{new_count} of them, spread across the city" if new_count
+             else "the list is in the population data")
+    return ("Children are estimated, not counted: each community's 2021 Census children, plus children "
+            "for the residents added since 2021 at the share seen in 2021 in the communities that were new at the "
+            f"Census across Calgary ({which}). No public count of children by community exists after 2021.")
+
+
 def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, names=None):
     quarters = alberta.child_care_quarters(os.path.join(cache_dir, 'alberta'))
     if not quarters:
@@ -283,10 +292,7 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
         'note': (f"Licensed spaces: how many children each licensed program may care for at once, for programs whose "
                  f"address is in Ward {ward} (Government of Alberta, Child Care Information). Family day home agencies are "
                  "listed but not counted, because the day homes they oversee are spread across the city."),
-        'children_note': ("Children are estimated, not counted: each community's 2021 Census children, plus children "
-                          "for the residents added since 2021 at the share seen in 2021 in the communities that were new at the "
-                          "Census across Calgary (about 15, in every quadrant). No public count "
-                          "of children by community exists after 2021."),
+        'children_note': children_note(),
     }
 
 

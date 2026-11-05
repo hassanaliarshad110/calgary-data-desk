@@ -78,7 +78,7 @@ class PeriodError(ValueError):
     """A period the user chose that can't be used (the message says why)."""
 
 
-DATA_VERSION = 21          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
+DATA_VERSION = 22          # bump when the dashboard's data layout changes, so old saved copies are rebuilt
 # The City of Calgary's total population on April 1 (Calgary and Region Economic Outlook 2026-2031, spring 2026,
 # Table 4: 2021-2025 estimates, 2026 onward forecast). Used for city-wide crime rates, read at the middle of the
 # crime period so Calgary and Ward 5 are counted at the same date.
@@ -1457,6 +1457,8 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                   'new_share_communities': [{'code': c, 'name': names.get(c, c),
                                              'census2021': round(p21.get(c, 0))} for c in new_comms]}
     fam = families.build(cdir, ward_shape, full_shapes, kids, ref, ward=ward, names=names)
+    if isinstance(fam, dict) and isinstance(fam.get('child_care'), dict):
+        fam['child_care']['children_note'] = families.children_note(len(new_comms))
     school_city = _safe(lambda: families.city_school_totals(cdir))[0]
     school_city = (school_city or {}).get('years')
     # ---- crime: the Crime Severity Index (Statistics Canada, yearly, city level) ----
