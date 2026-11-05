@@ -527,8 +527,7 @@ METHODS = [
                'SQRT(((lon2 - lon1) x 69,880)^2 + ((lat2 - lat1) x 111,132)^2) metres; count the homes at 400 m or '
                'less and divide by all the homes.'],
      'cautions': access.LIMITATIONS[:4] + [access.LIMITATIONS[5], access.LIMITATIONS[7], access.LIMITATIONS[8]],
-     'code': 'access.py (compute, summarise, reading, shares, distances_to_points, distances_to_polygons); a port of '
-             'canada-insight insight/indicators/access.py'},
+     'code': 'access.py (compute, summarise, reading, shares, distances_to_points, distances_to_polygons)'},
 
     {'key': 'access_crowding', 'name': 'Growth vs amenities: crowding at playgrounds and parks (two-step catchment, estimate)',
      'dataset': 'access (distance) + population model (children 0 to 14, residents)',

@@ -1600,8 +1600,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         ward_of = {c: w_ for c, w_ in comm_ward.items() if w_}
         shown = [c for c in base['comm'] if (city and c in set(ALL_RES)) or (not city and ward_of.get(c) == int(ward))] \
             if ward_of else list(RESIDENTIAL_CODES)
-        # people for crowding: communities with at least MIN_RATE_RESIDENTS residents, as canada-insight reads them
-        # (amenity_gap by_comm), so both sites share the same people
+        # people for crowding: communities with at least MIN_RATE_RESIDENTS residents (the ones amenity_gap by_comm lists)
         def people(pm, km):
             keep_ = {c for c, v in pm.items() if ((v or {}).get('model') or 0) >= MIN_RATE_RESIDENTS}
             return {c: pm[c].get('model') for c in keep_}, {c: km.get(c) for c in keep_}

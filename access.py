@@ -1,9 +1,7 @@
 """Growth vs amenities, revised 5 November 2026: how far homes are from everyday amenities, and how many children or
 residents share the playgrounds and parks within reach.
 
-This file is the method. methods.py explains it in words; tests/t_access.py checks it. The distance part is a port of
-canada-insight (insight/indicators/access.py, docs/methodology/access.md, cities/calgary/city.json), with the same
-data, filters and formulas, so both sites give the same figures.
+This file is the method. methods.py explains it in words; tests/t_access.py checks it.
 
 PART 1, DISTANCE (is it near?)
   Homes: every residential record on the City's property assessment roll (4bsw-nn7w: assessment_class='RE' AND
@@ -61,7 +59,7 @@ SITE = 'https://hassanaliarshad110.github.io/calgary-data-desk/'
 KEEP_DAYS = 7                   # amenities are read again every week
 HOMES_KEEP_DAYS = 30            # the roll changes about once a year
 RULES = {'gap_share': 0.5, 'min_units': 100, 'recent_years': 5, 'recent_share': 0.25}
-CENTRE_LAT = 51.045             # canada-insight's projection centre for Calgary
+CENTRE_LAT = 51.045             # the projection's centre for Calgary
 EDGE_SPACING = 20.0             # park edges sampled every 20 m (a distance can read up to 10 m long)
 PAGE = 50000
 
@@ -72,7 +70,7 @@ HOMES = {
 }
 RENTALS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'rentals_all.json')
 
-# the amenities, their filters and distances: canada-insight cities/calgary/city.json
+# the amenities, their filters and distances
 KINDS = {
     'playground': {
         'label': 'Playground', 'plural': 'playgrounds', 'dataset': 'bdu9-amk8', 'title': 'Playground Equipment',
@@ -156,7 +154,7 @@ REVISION = ('Revised 5 November 2026. This tab first counted amenities inside ea
 
 # ---------------------------------------------------------------------------------------------- geometry (pure Python)
 class Projection:
-    """Longitude/latitude to metres on a local equirectangular projection (canada-insight geo.Projection)."""
+    """Longitude/latitude to metres on a local equirectangular projection."""
     M_PER_DEG = 111_132.0
 
     def __init__(self, lat0=CENTRE_LAT):
@@ -187,7 +185,7 @@ def vertex_mean(ring):
 
 
 def densify(ring, spacing):
-    """Points along a ring every `spacing` metres, vertices included (canada-insight access.densify)."""
+    """Points along a ring every `spacing` metres, vertices included."""
     out = []
     for i in range(1, len(ring)):
         (ax, ay), (bx, by) = ring[i - 1], ring[i]

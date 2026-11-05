@@ -624,7 +624,7 @@ function renderGap() {
     <div class="gap-head"><h3>${city ? (acWard ? 'Ward ' + acWard + ', community by community' : 'Every community') : 'Each community in ' + esc(W())}: ${esc(K.label.toLowerCase())}</h3>${ctl}</div>
     ${mapBlock}${commTable}${lim}${growthChecks()}`;
   acDrawMap(A, rows, th, shareKey, ck);
-  $('#gr-notes').textContent = `Sources: City of Calgary open data: Current Year Property Assessments (4bsw-nn7w, homes), Playground Equipment (bdu9-amk8), Parks Sites (kami-qbfh), Calgary Transit Stops (muzh-c9qc), Community Services (x34e-bcjz: community centres, libraries), Recreation Facilities (hxfu-6d96); children and residents: the ${CY()} Census by community and the growth model (${popWords()}). Method ported from canada-insight so both give the same distance figures.`;
+  $('#gr-notes').textContent = `Sources: City of Calgary open data: Current Year Property Assessments (4bsw-nn7w, homes), Playground Equipment (bdu9-amk8), Parks Sites (kami-qbfh), Calgary Transit Stops (muzh-c9qc), Community Services (x34e-bcjz: community centres, libraries), Recreation Facilities (hxfu-6d96); children and residents: the ${CY()} Census by community and the growth model (${popWords()}).`;
 }
 const acMethodName = m => ({ city_actual: "City's total, actual growth", city_pace: "City's total, one rate", model: 'growth model', census2021: CY() + ' Census' })[m] || m;
 
