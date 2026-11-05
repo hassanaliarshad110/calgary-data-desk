@@ -69,7 +69,18 @@
    "id": "2026-11-05-federal-budget-names-calgary-projects-as-ottawa-projects-a-62-3-billio",
    "date": "2026-11-05",
    "published_at": "2026-11-05T23:25:36Z",
-   "words": 370
+   "words": 370,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Centre_Block_-_Parliament_Hill.jpg/1280px-Centre_Block_-_Parliament_Hill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Centre_Block_-_Parliament_Hill.jpg",
+    "credit": "Saffron Blaze",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "alt": "Centre Block - Parliament Hill",
+    "query": "Parliament Hill Ottawa Centre Block",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Parliament Hill Ottawa Centre Block"
   },
   {
    "title": "Committee backs a pause on large data centre applications; council to debate",
@@ -125,7 +136,18 @@
    "id": "2026-11-05-committee-backs-a-pause-on-large-data-centre-applications-council-to-d",
    "date": "2026-11-05",
    "published_at": "2026-11-05T23:25:36Z",
-   "words": 313
+   "words": 313,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Duga-1_radar_data_center_inside_empty_server_racks_2018.jpg/1280px-Duga-1_radar_data_center_inside_empty_server_racks_2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Duga-1_radar_data_center_inside_empty_server_racks_2018.jpg",
+    "credit": "Joël van der Loo",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "alt": "Duga-1 radar data center inside empty server racks 2018",
+    "query": "data center server racks",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "data center server racks"
   },
   {
    "title": "Stage 4 water restrictions in effect while crews connect the new Bearspaw feeder main",
@@ -171,7 +193,18 @@
    "id": "2026-11-05-stage-4-water-restrictions-in-effect-while-crews-connect-the-new-bears",
    "date": "2026-11-05",
    "published_at": "2026-11-05T23:25:36Z",
-   "words": 274
+   "words": 274,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/The_Glenmore_Reservoir_Dam%2C_Calgary%2C_Alberta%2C_Canada.jpg/1280px-The_Glenmore_Reservoir_Dam%2C_Calgary%2C_Alberta%2C_Canada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Glenmore_Reservoir_Dam,_Calgary,_Alberta,_Canada.jpg",
+    "credit": "Dwayne Reilander",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "alt": "The Glenmore Reservoir Dam, Calgary, Alberta, Canada",
+    "query": "Glenmore Reservoir Calgary",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Glenmore Reservoir Calgary"
   },
   {
    "title": "House fire and explosion near Okotoks closes a nearby high school",
@@ -215,7 +248,18 @@
    "id": "2026-11-05-house-fire-and-explosion-near-okotoks-closes-a-nearby-high-school",
    "date": "2026-11-05",
    "published_at": "2026-11-05T23:25:36Z",
-   "words": 186
+   "words": 186,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Okotoks2009.JPG/1280px-Okotoks2009.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Okotoks2009.JPG",
+    "credit": "Xz1303",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "alt": "Okotoks2009",
+    "query": "Okotoks Alberta",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Okotoks Alberta"
   }
  ]
 }
