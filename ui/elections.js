@@ -154,9 +154,9 @@ function elFederal() {
 // ================================================================ ELECTION CONTROL ROOM
 let elSub = 'room';
 const EL_SUBS = [['room', 'Control room'], ['leaders', 'Know your leaders'], ['area', 'Know your constituency'], ['results', 'Full results']];
-// fixed election days in law: Alberta's (Election Act s. 38.1), municipal (Local Authorities Election Act: third Monday of
-// October every four years) and federal (Canada Elections Act s. 56.1, unless an election is called earlier)
-const EL_NEXT = [['Alberta general election', '2027-10-18', 'Fixed date in law'], ['Calgary municipal election', '2029-10-15', 'Third Monday of October, every four years'],
+// election days: Alberta's (Election Act s. 38.1, Elections Alberta), municipal (Government of Alberta: 15 October 2029)
+// and federal (Canada Elections Act s. 56.1: 15 October 2029, unless an election is called earlier)
+const EL_NEXT = [['Alberta general election', '2027-10-18', 'Fixed date in law'], ['Calgary municipal election', '2029-10-15', 'Alberta\'s next municipal general election'],
   ['Federal general election', '2029-10-15', 'Fixed date in law, unless called earlier']];
 const EL_PALETTE = ['#0369A1', '#B45309', '#047857', '#7C3AED', '#BE123C', '#0F766E', '#4D7C0F', '#64748B'];
 // one colour per party name across every chart on the page (assigned in order of first use; not party colours)
@@ -343,7 +343,7 @@ function elArea() {
   const mv = (C.mayor_vs_city || []).slice(0, 5);
   const mayor = mv.length ? `<div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col">Mayoral candidate</th><th scope="col" class="num">${esc(W())}</th><th scope="col" class="num">Calgary</th><th scope="col" class="num">Difference</th></tr></thead><tbody>${mv.map(x => `<tr><th scope="row">${esc(x.name)}</th><td class="num">${elPct(x.ward)}</td><td class="num">${elPct(x.calgary)}</td><td class="num">${isNum(x.diff) ? (x.diff > 0 ? '+' : '') + fmt(x.diff * 100, 1) + ' pts' : '–'}</td></tr>`).join('')}</tbody></table></div><p class="card-note">Election-day votes in the ward; Calgary includes advance votes.</p>` : '';
   const st = (C.stations || []).slice(0, 15);
-  const stations = st.length ? `<div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col">Voting station</th><th scope="col">Type</th><th scope="col" class="num">Councillor votes</th><th scope="col">Leading</th><th scope="col" class="num">Share</th></tr></thead><tbody>${st.map(x => `<tr><th scope="row">${esc(x.station)}</th><td>${esc(x.type)}</td><td class="num">${fmt(x.total)}</td><td>${esc(x.leading)}</td><td class="num">${elPct(x.shares[x.leading])}</td></tr>`).join('')}</tbody></table></div><p class="card-note">The 15 busiest of ${(C.stations || []).length} stations for this race. Station results do not include special (mail-in) ballots.</p>` : '';
+  const stations = st.length ? `<div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col">Voting station</th><th scope="col" class="num">Votes</th><th scope="col">Leading</th><th scope="col" class="num">Share</th></tr></thead><tbody>${st.map(x => `<tr><th scope="row">${esc(x.station)}${/advance/i.test(x.type) ? ' <small>(advance)</small>' : ''}</th><td class="num">${fmt(x.total)}</td><td>${esc(x.leading)}</td><td class="num">${elPct(x.shares[x.leading])}</td></tr>`).join('')}</tbody></table></div><p class="card-note">The 15 busiest voting stations for this race; every station together adds up to the race's official total. Advance stations took votes from voters of several wards.</p>` : '';
   const prof = elProfileRows();
   const people = prof.length ? `<div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col"></th><th scope="col" class="num">${esc(W())}</th><th scope="col" class="num">Calgary</th></tr></thead><tbody>${prof.map(i => `<tr><th scope="row">${esc(i.label)}${i.label.startsWith('Non-permanent') ? ' <small>(not eligible to vote)</small>' : ''}</th><td class="num">${elVal(i.ward, i.unit, i.label)}</td><td class="num">${elVal(i.cal, i.unit, i.label)}</td></tr>`).join('')}</tbody></table></div><p class="card-note">${esc((D.profile.source || {}).name || '')}: 2021 Census, ${esc((D.profile.source || {}).published || '')}.</p>` : '';
   const issues = (D.open_by_type || []).filter(t => !/contact us/i.test(t.type)).slice(0, 8);
