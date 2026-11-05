@@ -1395,3 +1395,25 @@ tr.rc-rent td { background: color-mix(in srgb, #F59E0B 8%, transparent); }
 
 /* ward profile: today's counts (follow the population setting) */
 ul.pf li.now .pf-v { color: var(--accent); font-weight: 600; }
+
+/* Calgary Transit, live (buses.js) */
+.lyr-buses { background: #1D4ED8; border-radius: 3px; }
+.bus-mk { position: relative; min-width: 26px; height: 18px; padding: 0 5px; border-radius: 9px; background: #1D4ED8; color: #fff;
+  border: 1.5px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,.45); display: inline-flex; align-items: center; justify-content: center;
+  font: 700 11px/1 system-ui, sans-serif; white-space: nowrap; transition: transform .2s; }
+.bus-mk b { position: relative; z-index: 1; }
+.bus-mk.bus-none { background: #64748B; }
+.bus-mk.bus-red { background: #DC2626; } .bus-mk.bus-blue { background: #2563EB; } .bus-mk.bus-train { background: #0F172A; }
+.bus-dir { position: absolute; left: 50%; top: 50%; width: 0; height: 0; margin: -15px 0 0 -4px; transform-origin: 4px 15px;
+  border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 6px solid #0F172A; pointer-events: none; }
+.leaflet-marker-icon:hover .bus-mk { transform: scale(1.15); }
+.bus-status { background: var(--card); color: var(--fg); border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18); font-size: 12px; line-height: 1.45; max-width: 290px; }
+.bus-head { display: flex; align-items: center; gap: 6px; font-weight: 700; }
+.bus-live { width: 8px; height: 8px; border-radius: 50%; background: #16A34A; box-shadow: 0 0 0 0 rgba(22,163,74,.6); animation: bus-pulse 2s infinite; }
+@keyframes bus-pulse { 70% { box-shadow: 0 0 0 7px rgba(22,163,74,0); } 100% { box-shadow: 0 0 0 0 rgba(22,163,74,0); } }
+@media (prefers-reduced-motion: reduce) { .bus-live { animation: none; } }
+.bus-find { margin-left: auto; font-weight: 400; display: inline-flex; align-items: center; gap: 4px; }
+.bus-find input { width: 52px; padding: 2px 5px; border: 1px solid var(--border-strong); border-radius: 6px; background: var(--card); color: var(--fg); font: inherit; }
+.bus-time { color: var(--muted-fg); } .bus-time.late { color: var(--danger-fg); }
+@media (max-width: 640px) { .bus-status { max-width: 220px; font-size: 11px; } }

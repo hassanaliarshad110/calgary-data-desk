@@ -29,6 +29,7 @@ import methods                  # noqa: E402
 import livecheck                # noqa: E402
 import missing                  # noqa: E402
 import analyst                  # noqa: E402
+import transit                  # noqa: E402
 
 cd.KEEP_SECONDS = 6 * 3600      # one build reuses every City answer across wards and ways of counting
 cd.RETRIES, cd.RETRY_WAIT = 3, 10   # the City's portal sometimes drops connections from cloud servers: keep trying
@@ -188,6 +189,7 @@ def main():
     step('budget', lambda: write(os.path.join(data, 'budget.json'), budget.load(cache)))
     step('property tax', lambda: write(os.path.join(data, 'tax.json'), tax_payload(cache, year)))
     write(os.path.join(data, 'methods.json'), census.relabel(methods.METHODS, year))
+    step('transit timetable', lambda: write(os.path.join(data, 'transit.json'), transit.lookup(cache, force=True)))
     write(os.path.join(data, 'analyst_topics.json'),
           [{'key': k, 'title': t, 'about': ab, 'area': ar, 'only': list(analyst.ONLY.get(k, ())) or None}
            for k, t, ab, ar, _ in analyst.TOPICS])

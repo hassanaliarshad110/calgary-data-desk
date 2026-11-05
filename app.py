@@ -44,6 +44,7 @@ import analyst
 import auditor
 import engines
 import camfeed
+import transit
 import dashboard
 import census
 import budget
@@ -288,6 +289,13 @@ class Api:
     def cam_watch(self, urls):
         self._cams.set_watch(urls)
         return {'ok': True}
+
+    def transit_live(self):
+        """Every Calgary Transit bus and CTrain now, read straight from the City's portal (transit.py)."""
+        try:
+            return transit.live(DATA_DIR)
+        except Exception as e:
+            return {'ok': False, 'error': f'Calgary Transit\'s live feed could not be read ({e}).'}
 
     def cam_frames(self, seen=None):
         try:

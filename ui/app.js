@@ -552,6 +552,7 @@ const LAYERS = [
   ['amenities', 'Recreation, libraries, community centres', false],
   ['playgrounds', 'Playgrounds', false],
   ['stops', 'Transit stops', false],
+  ['buses', 'Buses and CTrains, live', false],
 ];
 const layerOn = {};
 LAYERS.forEach(([k, , on]) => { layerOn[k] = on; });

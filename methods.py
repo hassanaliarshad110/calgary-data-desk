@@ -399,6 +399,24 @@ METHODS = [
      'method': ['Cameras inside the ward or within about 2 km of it (every camera for the whole city). The app saves each new image and replays the last 30 minutes.'],
      'excel': [], 'cautions': ['The City keeps no recording; replays exist only while the app is open.']},
 
+    {'key': 'transit_live', 'name': 'Buses and CTrains, live (Calgary Transit)',
+     'dataset': 'am7c-qe3u (vehicle positions), gs4m-mdc2 (trip updates), npk7-z3bj (timetable)',
+     'publisher': 'City of Calgary (Calgary Transit)', 'page': 'https://data.calgary.ca/d/am7c-qe3u',
+     'updated': 'Positions about every 30 seconds; timetable each service season',
+     'used_in': 'Map layer "Buses and CTrains, live"',
+     'method': ['Every 30 seconds while the layer is on, read Calgary Transit\'s vehicle positions feed (GTFS Realtime): '
+                'each vehicle\'s fleet number, the trip it is running, where it is and which way it is heading.',
+                'Route number, route name and destination come from the trip, looked up in Calgary Transit\'s timetable '
+                '(trips.txt and routes.txt in the GTFS file). A trip that is not in the timetable (an extra trip added on '
+                'the day) takes its route number from the trip updates feed.',
+                'A vehicle with neither is shown grey as "Route not given": usually going to or from the garage.',
+                'The time shown is when Calgary Transit wrote the feed. Nothing is saved: the positions are read again each time.'],
+     'excel': [],
+     'cautions': ['Positions are where each vehicle last reported, not a prediction of where it is now.',
+                  'The website reads the feed through the City\'s portal, which can pass it on a few minutes late; the time '
+                  'on the map says how old the positions are. The desktop app reads it directly.',
+                  'The feed covers vehicles in service with a working locator; a few may be missing at any time.']},
+
     {'key': 'city_disorder', 'name': 'Social Disorder Statistics (City open data)', 'dataset': '4evm-wx9a',
      'publisher': 'City of Calgary (Calgary Police Service)', 'page': 'https://data.calgary.ca/d/4evm-wx9a',
      'updated': 'Ended July 2025', 'used_in': 'Disorder card only when the police file is not available',

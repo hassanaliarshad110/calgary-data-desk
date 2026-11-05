@@ -128,6 +128,42 @@
       return true;
     },
 
+    // Calgary Transit, live (transit.py does the same in the desktop app): every bus and CTrain read from the City's
+    // portal in this browser, given its route from the timetable the daily build wrote (data/transit.json)
+    async transit_live() {
+      try {
+        const T = window.CDD_TRANSIT || (window.CDD_TRANSIT = {});
+        const blob = async (id, fallback) => {
+          if (T[id]) return T[id];
+          try { const m = await fetch(`https://data.calgary.ca/api/views/${id}.json`).then(r => r.json()); T[id] = m.blobId || fallback; }
+          catch (e) { T[id] = fallback; }
+          return T[id];
+        };
+        const feed = async (id, fallback, name) => {
+          const r = await fetch(`https://data.calgary.ca/api/views/${id}/files/${await blob(id, fallback)}?filename=${name}`, { cache: 'no-store' });
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return new Uint8Array(await r.arrayBuffer());
+        };
+        const [vb, tb, look] = await Promise.all([
+          feed('am7c-qe3u', 'f3280048-d332-496c-bccb-7a44d8d257db', 'vehiclepositions.pb'),
+          feed('gs4m-mdc2', '6369d2eb-8f31-4261-b45f-69bd72fb1cc4', 'tripupdates.pb').catch(() => null),
+          getJSON('transit.json').catch(() => ({})),
+        ]);
+        const pb = gtfsRT();
+        const extra = tb ? pb.tripRoutes(tb) : {};
+        const routes = look.routes || [], to = look.to || [], trips = look.trips || {};
+        const byNum = Object.fromEntries(routes.map(r => [r[0], r]));
+        const vs = pb.vehicles(vb).map(v => {
+          const hit = trips[v.trip];
+          if (hit) { const r = routes[hit[0]]; return { ...v, route: r[0], name: r[1], kind: r[2], to: to[hit[1]] || '', how: 'timetable' }; }
+          if (extra[v.trip]) { const r = byNum[extra[v.trip]]; return { ...v, route: extra[v.trip], name: r ? r[1] : '', kind: r ? r[2] : 'bus', to: '', how: 'trip updates' }; }
+          return { ...v, route: '', name: '', kind: 'bus', to: '', how: '' };
+        });
+        return { ok: true, feed_time: pb.feedTime(vb), read_at: Math.floor(Date.now() / 1000), vehicles: vs,
+                 timetable_valid: look.valid || null, page: 'https://data.calgary.ca/d/am7c-qe3u' };
+      } catch (e) { return { ok: false, error: `Calgary Transit's live feed could not be read from this browser (${e.message || e}).` }; }
+    },
+
     // the desktop-only parts
     async cam_watch() { return { ok: true }; },
     async newsletter_make() { return { ok: false, error: 'The newsletter is made in the desktop app.' }; },
@@ -138,6 +174,54 @@
     async analyst_run() { return { ok: false, error: 'Data Scientist needs the access code.' }; },
     async analyst_reports() { return []; },
   };
+  // GTFS Realtime (Protocol Buffers), only the fields a vehicle map needs (transit.py has the same in Python)
+  function gtfsRT() {
+    const varint = (b, i) => { let v = 0, m = 1, x; do { x = b[i++]; v += (x & 127) * m; m *= 128; } while (x & 128); return [v, i]; };
+    const fields = (b, s = 0, e = b.length) => {
+      const out = []; let i = s;
+      while (i < e) {
+        let k; [k, i] = varint(b, i);
+        const n = Math.floor(k / 8), w = k & 7;
+        if (w === 0) { let v; [v, i] = varint(b, i); out.push([n, v]); }
+        else if (w === 2) { let l; [l, i] = varint(b, i); out.push([n, b.subarray(i, i + l)]); i += l; }
+        else if (w === 5) { out.push([n, new DataView(b.buffer, b.byteOffset + i, 4).getFloat32(0, true)]); i += 4; }
+        else if (w === 1) { out.push([n, new DataView(b.buffer, b.byteOffset + i, 8).getFloat64(0, true)]); i += 8; }
+        else break;
+      }
+      return out;
+    };
+    const first = (fs, n) => { const f = fs.find(x => x[0] === n); return f ? f[1] : undefined; };
+    const text = v => v instanceof Uint8Array ? new TextDecoder().decode(v) : (v === undefined ? '' : String(v));
+    return {
+      feedTime(b) { const h = first(fields(b), 1); return h ? first(fields(h), 3) || null : null; },
+      vehicles(b) {
+        const out = [];
+        for (const [n, ent] of fields(b)) {
+          if (n !== 2) continue;
+          const vp = first(fields(ent), 4); if (!vp) continue;
+          const f = fields(vp), trip = first(f, 1), pos = first(f, 2), veh = first(f, 8);
+          if (!pos) continue;
+          const p = fields(pos), lat = first(p, 1), lon = first(p, 2), brg = first(p, 3);
+          if (typeof lat !== 'number' || typeof lon !== 'number') continue;
+          const vf = veh ? fields(veh) : [];
+          out.push({ vehicle: text(first(vf, 2) || first(vf, 1)), trip: trip ? text(first(fields(trip), 1)) : '',
+                     lat: Math.round(lat * 1e5) / 1e5, lon: Math.round(lon * 1e5) / 1e5, bearing: typeof brg === 'number' ? Math.round(brg) : null });
+        }
+        return out;
+      },
+      tripRoutes(b) {
+        const out = {};
+        for (const [n, ent] of fields(b)) {
+          if (n !== 2) continue;
+          const tu = first(fields(ent), 3); if (!tu) continue;
+          const td = first(fields(tu), 1); if (!td) continue;
+          const t = fields(td), trip = text(first(t, 1)), route = text(first(t, 5));
+          if (trip && route) out[trip] = route;
+        }
+        return out;
+      },
+    };
+  }
   window.CDD_WEB = { store, getJSON, today };
   window.pywebview = { api };
 })();

@@ -211,6 +211,7 @@ function extraMapLayers(overlay, on) {
     L.circleMarker([p[0], p[1]], { radius: 3.5, color: '#fff', weight: 1, fillColor: '#16A34A', fillOpacity: .95 }).bindTooltip('Playground' + (p[2] ? ': ' + esc(p[2]) : '')))).addTo(map);
   if (on.stops && am && am.stops) overlay.stops = L.layerGroup(am.stops.map(p =>
     L.circleMarker([p[0], p[1]], { radius: 2.5, color: '#0F172A', weight: .5, fillColor: '#F59E0B', fillOpacity: .9 }).bindTooltip(esc(p[2] || 'Transit stop')))).addTo(map);
+  if (window.busLayer) busLayer(overlay, !!on.buses);
 }
 
 // ================================================================ FAMILIES TAB
