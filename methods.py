@@ -47,6 +47,32 @@ CROWDING_STEPS = [
     'counting residents, so the effect of the estimate shows.',
     'No tier and no combining with distance: the crowding figure stands beside Calgary\'s, in its own column.',
 ]
+SCORE_STEPS = [
+    'Crowding (two-step catchment, as for playgrounds and parks) for all six amenities: playgrounds per 1,000 '
+    'children; park hectares per 1,000 residents; transit stops per 1,000 residents; community centres, indoor '
+    'recreation centres and libraries per 100,000 residents. Each facility counts as one; a park as its hectares.',
+    'Amenity score = the community\'s crowding figure / Calgary\'s (1.00 = Calgary). Bands: under 0.50 well below; '
+    '0.50 to 0.80 below; 0.80 to under 1.25 around; 1.25 or more above.',
+    'Group scores, each amenity capped at 2.00 first: local = the mean of playground, park, transit stop and community '
+    'centre (each within a walk); district = the mean of indoor recreation centre and library (each within a drive or '
+    'a bus ride); all amenities = the mean of all six, with equal '
+    'weights or with local amenities two thirds and district facilities one third. A group score needs every amenity '
+    'in the group.',
+    'Every assumption: amenity and group scores are worked out 4 ways (each amenity\'s shorter and longer distance x '
+    'two counts of residents: the one chosen in Settings and the 2021 Census); the all-six score 8 ways (x the two '
+    'weightings). The figure shown is the shorter distance with the count chosen in Settings (and equal weights), with '
+    'the range from the lowest to the highest. Changing the count in Settings changes every score.',
+    '"Near, but crowded" (playgrounds and parks, and any amenity in the table): most homes are within the first distance '
+    '(the reading "Most homes within reach"), yet the amenity score is under 0.80: what is within reach is shared by '
+    'more people than Calgary\'s average. Crowding counts everyone who can reach an amenity, from any community, so '
+    'children from the next community who use the same playground share it too.',
+    'The local and district scores are the main figures. The all-six score is shown in each community\'s details only: '
+    'one average of six different amenities can hide a gap in one group.',
+    'Labels: consistent gap = below 0.80 in every way with a figure; depends on assumptions = below 0.80 in some; no '
+    'gap = never below. Communities with no 2021 Census count (built since) are scored fewer ways and marked.',
+    'A ward\'s score: its people-weighted crowding against Calgary\'s, worked out the same way. Communities with fewer '
+    'than 100 homes are not scored.',
+]
 OLD_METHOD = [
     'Counted City assets inside each community\'s boundary (benches, picnic tables, playgrounds, sports equipment, '
     'fitness equipment, bins, off-leash areas, neighbourhood park space, trees, transit stops) per 1,000 residents '
@@ -542,6 +568,24 @@ METHODS = [
      'cautions': [access.LIMITATIONS[6], 'Each playground counts as one, whatever its size; a park counts as its area.', access.LIMITATIONS[4],
                   'Straight-line distance, the City\'s inventory only.'],
      'code': 'access.py (crowding, average, view)'},
+
+    {'key': 'access_scores', 'name': 'Growth vs amenities: amenity scores under every assumption (added 5 November 2026)',
+     'dataset': 'access (distance), access_crowding, population model (growth model and 2021 Census)',
+     'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': '',
+     'updated': 'With every refresh', 'used_in': 'Growth vs amenities (scores), Data Genie',
+     'method': SCORE_STEPS,
+     'excel': ['From the community details: score = crowding / Calgary\'s crowding; MIN(score, 2) for each amenity; '
+               'local = AVERAGE of the three capped local scores; consistent gap when every one of the 4 (or 8) ways is '
+               'below 0.80.'],
+     'cautions': ['The comparison is with Calgary\'s own level, not a standard of adequate provision.',
+                  'The 0.80 line and the bands are choices, applied the same way to every community.',
+                  'Averaging unlike amenities (a transit stop, a library) is a choice too: the local and district scores '
+                  'are shown apart, and every amenity\'s own score is in the details.',
+                  'A transit stop per resident is not a service level: dense areas with frequent buses can score low.',
+                  'Community centre data needs checking (association halls may be missing from the City\'s list), which '
+                  'can lower district scores in newer communities.',
+                  access.LIMITATIONS[6]],
+     'code': 'scores.py; access.py (crowding_inputs, amenity_scores)'},
 
     {'key': 'access_revision', 'name': 'What changed on 5 November 2026 (Growth vs amenities)',
      'dataset': 'access, access_crowding', 'publisher': 'Calgary Data Desk', 'page': '',

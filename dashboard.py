@@ -1603,7 +1603,8 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         # people for crowding: communities with at least MIN_RATE_RESIDENTS residents (the ones amenity_gap by_comm lists)
         def people(pm, km):
             keep_ = {c for c, v in pm.items() if ((v or {}).get('model') or 0) >= MIN_RATE_RESIDENTS}
-            return {c: pm[c].get('model') for c in keep_}, {c: km.get(c) for c in keep_}
+            # whole numbers, as the published community figures give them (amenity_gap by_comm)
+            return {c: round(pm[c].get('model') or 0) for c in keep_}, {c: round(km.get(c) or 0) for c in keep_}
         p_, k_ = people(pop_all, kids_all)
         return access.view(base, p_, k_, pop_method, shown, ward_of, names,
                            methods_pops={m_key: people(pm_, km_) for m_key, (pm_, km_) in gap_pops.items()})

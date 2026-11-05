@@ -321,7 +321,11 @@ attention tiers were withdrawn on 5 November 2026 (get_method topic access_revis
 were replaced and why, and do not quote them. The main figures count the City's amenities only; section access also \
 has with_private_amenities: the playground and park figures with private amenities accessible to the community \
 (OpenStreetMap, osm) and with gated residents-only ones too (osm_private), as the screen shows when its "Count private \
-amenities" filter is ticked. Say which you use. For a list of those amenities, use get_dashboard section \
+amenities" filter is ticked. Say which you use. section access also has scores (added 5 November 2026): each \
+community's and ward's local and district score (and, secondary, an all-six score) (crowding against Calgary's, 1.00 = Calgary) with \
+its range over every assumption and a label (consistent gap, depends on assumptions, no gap); always give the range \
+and the label with a score; near_but_crowded lists communities with most homes near a playground (or park) whose \
+score is under 0.80 (shared by more children, or residents, than Calgary's average, from any community), and explain it from get_method topic access_scores. For a list of those amenities, use get_dashboard section \
 other_amenities (with ward or community).
 
 Extra detail for Ward 5 (use only when the question is about Ward 5)
@@ -689,6 +693,42 @@ def _fit(obj, cap):
     return o
 
 
+def _scores_out(sc, names, readings=None):
+    readings = readings or {}
+    """The amenity scores for Data Genie: every ward, and the communities by label (the default figure and range)."""
+    if not sc:
+        return None
+    pick = lambda x: None if not x else {k: x.get(k) for k in ('score', 'low', 'high', 'band', 'consistency', 'scenarios',
+                                                              'scenarios_possible')}
+    comm = sc.get('communities') or {}
+    near_crowded = {}                             # most homes within reach, but shared by more people than Calgary's average
+    for k in ('playground', 'park'):
+        near_crowded[k] = sorted([{'name': names.get(c, c), 'code': c, 'score': ((r.get('amenities') or {}).get(k) or {}).get('score'),
+                                   'consistency': ((r.get('amenities') or {}).get(k) or {}).get('consistency')}
+                                  for c, r in comm.items() if (readings.get(c) or {}).get(k) == 'no_gap'
+                                  and isinstance(((r.get('amenities') or {}).get(k) or {}).get('score'), (int, float))
+                                  and round(r['amenities'][k]['score'], 2) < 0.8], key=lambda x: x['score'])
+    by = lambda g, lab: sorted([{'name': names.get(c, c), 'code': c, 'score': ((r.get('overall') if g == 'overall' else
+                                (r.get('groups') or {}).get(g)) or {}).get('score')}
+                                for c, r in comm.items() if ((r.get('overall') if g == 'overall' else (r.get('groups') or {}).get(g))
+                                                            or {}).get('consistency') == lab],
+                               key=lambda x: (x['score'] is None, x['score']))
+    return {'added': sc.get('added'), 'units': sc.get('units'), 'scenarios': sc.get('scenarios'), 'rules': sc.get('rules'),
+            'groups': sc.get('groups'), 'people': sc.get('people'), 'default_people': sc.get('default_people'),
+            'wards': {w: {'local': pick((r.get('groups') or {}).get('local')), 'district': pick((r.get('groups') or {}).get('district')),
+                          'all_amenities': pick(r.get('overall'))} for w, r in (sc.get('wards') or {}).items()},
+            'consistent_gap': {g: by(g, 'consistent_gap') for g in ('local', 'district')},
+            'depends': {g: len(by(g, 'depends')) for g in ('local', 'district')},
+            'all_six_note': 'each community also has an all-six score (overall) in its details: one average of six '
+                            'different amenities that can hide a gap in one group; lead with local and district.',
+            'communities_scored': len(comm),
+            'near_but_crowded': near_crowded,
+            'how': 'score = the community\'s crowding / Calgary\'s (1.00 = Calgary); default way: shorter distance, the count '
+                   'of residents chosen in Settings (default_people), equal weights; low/high: the range over every way (4, or 8 for all amenities); consistency: '
+                   'consistent_gap (below 0.80 every way), depends (some ways), none. get_method topic access_scores. '
+                   'Present them as what the data shows, never as a ranking of need or a recommendation.'}
+
+
 def _access_out(a, community=None, withdrawn=False):
     """Growth vs amenities (revised 5 November 2026) for Data Genie: distance from every home and crowding."""
     if withdrawn:
@@ -710,7 +750,9 @@ def _access_out(a, community=None, withdrawn=False):
         r = next((x for x in rows if x['code'] == q or str(x.get('name', '')).upper() == q), None)
         if not r:
             return {**note, 'error': f'{community} is not one of the communities shown (choose its ward or all of Calgary).'}
+        sc_ = (a.get('scores') or {})
         return {**note, 'community': r['name'], 'code': r['code'], 'ward': r.get('ward'), 'units': r.get('units'),
+                'scores': (sc_.get('communities') or {}).get(r['code']), 'crowding_all_amenities': (sc_.get('crowding') or {}).get(r['code']),
                 'units_built_since_2021': r.get('units_new'), 'share_built_last_five_years': r.get('recent_share'),
                 'residents': r.get('residents'), 'children_0_14': r.get('children'),
                 'by_amenity': {k: trim(r.get(k) or {}) for k in kinds}, 'calgary': {k: trim((a.get('city') or {}).get(k) or {}) for k in kinds},
@@ -726,6 +768,8 @@ def _access_out(a, community=None, withdrawn=False):
             'communities_note': ('the whole city: playgrounds, parks and transit only; call with community for one '
                                  'community\'s every amenity') if many else 'every community shown',
             'crowding_under_each_resident_count': a.get('sensitivity'), 'checks': a.get('checks'),
+            'scores': _scores_out(a.get('scores'), {r['code']: r['name'] for r in rows},
+                                  {r['code']: {k: (r.get(k) or {}).get('reading') for k in ('playground', 'park')} for r in rows}),
             'with_private_amenities': {v: {'label': x.get('label'), 'added': x.get('added'),
                                            'calgary': {k: trim(y) for k, y in (x.get('city') or {}).items()},
                                            'wards': [{'ward': w['ward'], **{k: trim(w.get(k) or {}) for k in ('playground', 'park')}}

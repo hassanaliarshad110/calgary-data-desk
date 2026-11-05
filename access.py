@@ -73,6 +73,7 @@ RENTALS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'rent
 # the amenities, their filters and distances
 KINDS = {
     'playground': {
+        'group': 'local', 'crowding_spec': {'people': 'children', 'per': 1000, 'unit': 'playgrounds per 1,000 children within reach', 'short': 'Playgrounds per 1,000 children'},
         'label': 'Playground', 'plural': 'playgrounds', 'dataset': 'bdu9-amk8', 'title': 'Playground Equipment',
         'where': "type_description='MULTI PLAY COMPLEX' AND life_cycle_status in('ACTIVE','INSTALLED')",
         'geometry': 'point', 'field': 'point', 'thresholds_m': [400, 800], 'crowding': 'children',
@@ -81,6 +82,7 @@ KINDS = {
         'limits': 'City-maintained play structures only (multi-play complexes that are active or installed); school, '
                   'developer and condominium playgrounds that are not in the City\'s inventory are not counted.'},
     'park': {
+        'group': 'local', 'crowding_spec': {'people': 'residents', 'per': 1000, 'unit': 'park hectares per 1,000 residents within reach', 'short': 'Park ha per 1,000 residents'},
         'label': 'Public park', 'plural': 'parks', 'dataset': 'kami-qbfh', 'title': 'Parks Sites',
         'where': "planning_category not in('NON-PARK','PARKS DEPOT')",
         'geometry': 'polygon', 'field': 'the_geom', 'thresholds_m': [400, 800], 'crowding': 'residents',
@@ -89,6 +91,7 @@ KINDS = {
                   'along pathways. Parks in new communities may still be held by the developer and missing from the '
                   'City\'s inventory.'},
     'transit_stop': {
+        'group': 'local', 'crowding_spec': {'people': 'residents', 'per': 1000, 'unit': 'transit stops per 1,000 residents within reach', 'short': 'Stops per 1,000 residents'},
         'label': 'Transit stop', 'plural': 'transit stops', 'dataset': 'muzh-c9qc', 'title': 'Calgary Transit Stops',
         'where': "status='ACTIVE'", 'geometry': 'point', 'field': 'point', 'thresholds_m': [400, 800],
         'basis': '400 m: Calgary Transit Service Guidelines (May 2025) measure coverage as a 400-metre distance from a '
@@ -96,6 +99,7 @@ KINDS = {
         'basis_url': 'https://transit-prd.calgary.ca/content/dam/transit/plans---projects/Calgary%20Transit%20Service%20Guidelines%20May%202025.pdf',
         'limits': 'A stop is not a service level: how often buses come is not measured here.'},
     'community_centre': {
+        'group': 'local', 'crowding_spec': {'people': 'residents', 'per': 100000, 'unit': 'community centres per 100,000 residents within reach', 'short': 'Centres per 100,000 residents'},
         'label': 'Community centre', 'plural': 'community centres', 'dataset': 'x34e-bcjz',
         'title': 'Community Services', 'where': "type='Community Centre'", 'geometry': 'point', 'field': 'point',
         'thresholds_m': [800, 1600], 'basis': 'A choice, not a standard: 800 m and 1.6 km.',
@@ -103,6 +107,7 @@ KINDS = {
                   'no centre within 800 m, which may mean association halls are missing from the City\'s list: this '
                   'figure needs checking. Opening hours and programs are not measured.'},
     'rec_centre': {
+        'group': 'district', 'crowding_spec': {'people': 'residents', 'per': 100000, 'unit': 'indoor recreation centres per 100,000 residents within reach', 'short': 'Rec centres per 100,000 residents'},
         'label': 'Indoor recreation centre', 'plural': 'indoor recreation centres', 'dataset': 'hxfu-6d96',
         'title': 'Recreation Facilities',
         'where': "facility_type in('Leisure Centre','Leisure Centre - Municipal','Aquatic & Fitness Centre','Fieldhouse')",
@@ -112,12 +117,14 @@ KINDS = {
                   'outdoor pools, golf courses and other single-purpose sites are left out. Capacity and opening '
                   'hours are not measured.'},
     'library': {
+        'group': 'district', 'crowding_spec': {'people': 'residents', 'per': 100000, 'unit': 'libraries per 100,000 residents within reach', 'short': 'Libraries per 100,000 residents'},
         'label': 'Public library', 'plural': 'public libraries', 'dataset': 'x34e-bcjz', 'title': 'Community Services',
         'where': "type='Library'", 'geometry': 'point', 'field': 'point', 'thresholds_m': [2000, 5000],
         'basis': 'A choice, not a standard: 2 km and 5 km.',
         'limits': 'Library branches as the City lists them; hours and size are not measured.'},
 }
-CROWDING = ('playground', 'park')
+CROWDING = ('playground', 'park')        # shown in the first revision; the scores use all six (CROWD_ALL)
+CROWD_ALL = tuple(KINDS)
 NEWER_SHARE = 0.25         # "newer" communities for the crowding comparison: a quarter or more of homes built since 2021
 READINGS = {'too_few_homes': 'Too few homes', 'gap': 'Measured gap', 'gap_check': 'Check inventory',
             'no_gap': 'Most homes within reach'}
@@ -493,7 +500,8 @@ def compute(homes, ams, ward_of, today=None, other=None):
     out = {'version': VERSION, 'built_at': dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
            'counted': today.isoformat(), 'growth_year': GROWTH_YEAR, 'recent_from_year': recent_from,
            'rules': RULES, 'kinds': {k: {f: v.get(f) for f in ('label', 'plural', 'dataset', 'title', 'where', 'geometry',
-                                                             'thresholds_m', 'crowding', 'basis', 'basis_url', 'limits')}
+                                                             'thresholds_m', 'crowding', 'crowding_spec', 'group', 'basis',
+                                                             'basis_url', 'limits')}
                                      for k, v in KINDS.items()},
            'homes': {'records': int(len(w)), 'units': round(float(w.sum()), 1),
                      'units_estimated': round(float(sum(h[5] for h in homes if h[6] == 'estimate')), 1),
@@ -524,7 +532,7 @@ def compute(homes, ams, ward_of, today=None, other=None):
             out['comm'][c]['access'][key] = summarise(np, d[idx[c]], w[idx[c]], built[idx[c]], th, GROWTH_YEAR, recent_from)
         for wk, ii in widx.items():
             out['ward'][str(wk)]['access'][key] = summarise(np, d[ii], w[ii], built[ii], th, GROWTH_YEAR, recent_from)
-        if key not in CROWDING:
+        if key not in CROWD_ALL:
             continue
         out['catch'][key] = {}
         for r in th:
@@ -653,7 +661,7 @@ def shares(st, th):
             'median_beyond': bool(st.get('median_m') is None or st['median_m'] > th[1])}
 
 
-def crowding(rows, per_unit, units):
+def crowding(rows, per_unit, units, per=1000.0):
     """Two-step floating catchment from the base file's catchment rows.
 
     rows: [[size, {community: units within reach}], ...] for one kind at one distance;
@@ -672,8 +680,8 @@ def crowding(rows, per_unit, units):
         used_size += size
         for c, u in by.items():
             acc[c] = acc.get(c, 0.0) + size * u / people
-    fig = {c: (1000.0 * acc.get(c, 0.0) / units[c]) if units.get(c) else None for c in units}
     people_in = {c: per_unit.get(c, 0.0) * units[c] for c in units}
+    fig = {c: (per * acc.get(c, 0.0) / units[c]) if units.get(c) and people_in[c] > 0 else None for c in units}
     return fig, people_in, {'amenities_reached': int(used), 'size_reached': round(used_size, 2),
                             'people_near': near}
 
@@ -775,7 +783,8 @@ def view(base, pops, kids, method, scope_codes, ward_of, names, all_codes=None, 
             f, ppl, _ = cur[key][str(r)]
             a_, b_ = average(f, ppl, newer), average(f, ppl, rest)
             groups[f'{key}_{r}'] = {'newer': None if a_ is None else round(a_, 2), 'rest': None if b_ is None else round(b_, 2)}
-    return {'version': base.get('version'), 'revised': REVISED, 'crowding_groups': groups, 'revision': REVISION, 'counted': base.get('counted'),
+    sc = amenity_scores(base, methods_pops or {}, scope_codes, by_ward, method) if _variants is not None else None
+    return {'version': base.get('version'), 'revised': REVISED, 'crowding_groups': groups, 'scores': sc, 'revision': REVISION, 'counted': base.get('counted'),
             'built_at': base.get('built_at'), 'growth_year': base['growth_year'],
             'recent_from_year': base['recent_from_year'], 'rules': base['rules'], 'kinds': kinds,
             'readings': READINGS, 'homes': base['homes'], 'amenities': base['amenities'], 'method': method,
@@ -817,13 +826,80 @@ def other_views(base, *args, **kw):
     out = {}
     for v in (base.get('variants') or {}):
         b = with_variant(base, v)
-        r = view(b, *args, **kw, _variants=False)
+        r = view(b, *args, **kw, _variants=None)
         pick = lambda x: {k: x[k] for k in CROWDING if k in x}
         out[v] = {'label': VARIANTS.get(v, v), 'added': base['variants'][v].get('added'),
                   'city': pick(r['city']), 'wards': [{'ward': w['ward'], **pick(w)} for w in r['wards']],
                   'communities': [{'code': c['code'], **pick(c)} for c in r['communities']],
                   'crowding_groups': r['crowding_groups'], 'sensitivity': r['sensitivity'],
                   'findings': [f for f in r['findings'] if f['kind'] in CROWDING]}
+    return out
+
+
+PEOPLE_LABEL = {'city_actual': "City's total, shared by actual growth", 'city_pace': "City's total, one rate for all",
+                'model': 'Growth model', 'census2021': '2021 Census'}
+# the scores use two people counts: the one chosen in Settings (the default figure) and the 2021 Census (the range)
+SCORES_ADDED = '2026-11-05'
+
+
+def crowding_inputs(base, opts, by_ward, default='model'):
+    """Crowding for all six amenities, both distances and both people counts, rounded to 3 decimals, for every community, every ward ('W1'..'W14') and Calgary ('_all')."""
+    kinds, comm = base['kinds'], base['comm']
+    units = {c: v['units'] for c, v in comm.items()}
+    out = {'default': default, 'kinds': {}}
+    rnd = lambda v: None if v is None else round(v, 3)
+    for key in CROWD_ALL:
+        if key not in (base.get('catch') or {}):
+            continue
+        cr = kinds[key]['crowding_spec']
+        by_option = {}
+        for opt, (p, k) in opts.items():
+            src = k if cr['people'] == 'children' else p
+            per_unit = {c: float(src.get(c) or 0) / units[c] for c in units if units[c]}
+            vals = {}
+            for r in kinds[key]['thresholds_m']:
+                f, ppl, tot = crowding(base['catch'][key][str(r)], per_unit, units, float(cr['per']))
+                d = {c: rnd(v) for c, v in f.items()}
+                d['_all'] = rnd(average(f, ppl, list(units)))
+                for wk, codes in by_ward.items():
+                    d[f'W{wk}'] = rnd(average(f, ppl, codes))
+                d['_amenities_with_people'] = tot['amenities_reached']
+                vals[str(r)] = d
+            by_option[opt] = vals
+        out['kinds'][key] = {'people': cr['people'], 'unit': cr['unit'], 'short': cr.get('short'), 'per': cr['per'],
+                             'by_option': by_option}
+    return out
+
+
+def amenity_scores(base, methods_pops, scope_codes, by_ward, method='model'):
+    """Amenity, group and all-amenities scores with their ranges and labels (scores.py), for
+    the communities shown and every ward; and the same with the private amenities filter (playgrounds and parks)."""
+    import scores                                       # noqa: PLC0415
+    method = method if method in methods_pops else 'model'
+    opts = {o: methods_pops[o] for o in dict.fromkeys((method, 'census2021')) if o in methods_pops}
+    if not opts or not base.get('catch'):
+        return None
+    kinds_cfg = {k: {'thresholds_m': v['thresholds_m'], 'group': v['group']} for k, v in base['kinds'].items()}
+    eligible = [c for c, v in base['comm'].items() if v['units'] >= RULES['min_units']]
+    shown = set(scope_codes)
+
+    def one(b):
+        crowd = crowding_inputs(b, opts, by_ward, default=method)
+        res = scores.compute(crowd, kinds_cfg, eligible)
+        wres = scores.compute(crowd, kinds_cfg, [f'W{w}' for w in by_ward])
+        return {'communities': {c: v for c, v in res['areas'].items() if c in shown},
+                'wards': {w[1:]: v for w, v in wres['areas'].items()},
+                'calgary': {k: {o: {d: x.get('_all') for d, x in by.items()} for o, by in kc['by_option'].items()}
+                            for k, kc in crowd['kinds'].items()},
+                'crowding': {c: {k: {f'{o}|{d}': x.get(c) for o, by in kc['by_option'].items() for d, x in by.items()}
+                                 for k, kc in crowd['kinds'].items()} for c in shown if c in b['comm']},
+                'scenarios': res['scenarios'], 'groups': res['groups'], 'rules': res['rules']}
+    out = one(base)
+    out.update({'added': SCORES_ADDED, 'eligible_count': len(eligible),
+                'units': {k: v['crowding_spec']['unit'] for k, v in base['kinds'].items()},
+                'people': {o: PEOPLE_LABEL.get(o, o) for o in opts}, 'default_people': method})
+    out['with_other'] = {v: {f: x for f, x in one(with_variant(base, v)).items() if f in ('communities', 'wards', 'calgary')}
+                         for v in (base.get('variants') or {})} or None
     return out
 
 

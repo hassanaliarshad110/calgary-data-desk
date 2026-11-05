@@ -61,8 +61,10 @@ TOPICS = [
      'For {area}, Calgary and each residential community: the share of homes within reach of playgrounds, parks, transit '
      'stops, community centres, recreation centres and libraries (get_dashboard section access), homes built since 2021 '
      'against older homes, the communities read as a measured gap or check inventory, and the crowding estimate at '
-     'playgrounds and parks against Calgary\'s, with its limits. Present what the data shows; no ranking of need and no '
-     'recommendations.'),
+     'playgrounds and parks against Calgary\'s, with its limits; then the amenity scores (section access, scores): each '
+     'community\'s local and district score with its range and label (consistent gap, depends on assumptions, no gap), '
+     'and the communities near a playground or park whose score is under 0.80 (near, but crowded). Present what the '
+     'data shows; no ranking of need and no recommendations.'),
     ('child_care', 'Child care spaces for children in {area}',
      'Licensed spaces per child by community, and inspection results.', 'Families',
      'Licensed child care spaces in {area} against children aged 0 to 4 and 0 to 14 in each community, the trend since 2021, '

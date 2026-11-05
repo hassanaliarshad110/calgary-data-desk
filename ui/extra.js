@@ -574,7 +574,8 @@ function renderGap() {
     </tbody></table></div>
     <p class="card-note">Share of homes (dwelling units) within the distance of the nearest one, in any community, straight-line. ${fmt(A.homes.units)} homes on the City's property roll (${fmt(A.homes.records)} records; ${fmt(A.homes.units_estimated)} rental units estimated from assessed value). "Built since ${A.growth_year}": year of construction ${A.growth_year} or later; homes with no year are in neither group.</p>
     <h4 class="ac-h4">Crowding at playgrounds and parks <span class="ac-est">Estimate</span></h4>
-    <ul class="ac-crowd">${acCrowdWords(A).map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    <ul class="ac-crowd">${acCrowdWords(A).map(x => `<li>${esc(x)}</li>`).join('')}${acNearCrowdedWords(A).map(x => `<li class="ac-nc-line">${esc(x)}</li>`).join('')}</ul>
+    ${scData() ? `<p class="card-note">Crowding counts everyone who can reach a playground or park, from any community: children from the next community who use the same playground share it too. "Near, but crowded" uses the score below (the community's crowding against Calgary's).</p>` : ''}
     ${Object.keys(A.sensitivity || {}).length ? `<p class="card-note"><b>How much the estimate moves:</b> Calgary's playground figure (within ${acM(acTh(A, 'playground', false))}) under each way of counting residents: ${Object.entries(A.sensitivity).map(([m, v]) => `${esc(acMethodName(m))} ${fmt(((v.playground || {})[String(acTh(A, 'playground', false))]), 2)}${m === popMethod() ? ' (in use)' : ''}`).join(' · ')} playgrounds per 1,000 children.</p>` : ''}
     <p class="card-note">Crowding spreads the estimated children (0 to 14) and residents of each community evenly over its homes (the ${CY()} Census plus modelled growth, not counted), counts each playground as one whatever its size, and will be firmed up with the 2026 Census age data in 2027. It is shown beside Calgary's figure only: no tier, no combined score.</p></div>`;
 
@@ -597,16 +598,19 @@ function renderGap() {
   const ctl = `<div class="gap-ctl ac-ctl">
       <label class="field"><span>Amenity</span><select id="ac-kind">${kinds.map(k => `<option value="${k}" ${k === acKind ? 'selected' : ''}>${esc(A.kinds[k].label)}</option>`).join('')}</select></label>
       ${city && wardsHere.length > 1 ? `<label class="field"><span>Ward</span><select id="ac-ward"><option value="">All of Calgary</option>${wardsHere.map(w => `<option value="${w}" ${String(w) === String(acWard) ? 'selected' : ''}>Ward ${w}</option>`).join('')}</select></label>` : ''}
-      <div class="seg small" role="radiogroup" aria-label="Map shows" id="ac-mapmode"><button type="button" role="radio" aria-checked="${acMapMode === 'near'}" data-mm="near">Map: near</button>${crowd ? `<button type="button" role="radio" aria-checked="${acMapMode === 'crowding'}" data-mm="crowding">Map: crowding</button>` : ''}</div></div>`;
+      ${scData() ? `<label class="check"><input type="checkbox" id="ac-nearonly" ${acNearOnly ? 'checked' : ''}> Only near, but crowded</label>` : ''}
+      <div class="seg small" role="radiogroup" aria-label="Map shows" id="ac-mapmode"><button type="button" role="radio" aria-checked="${acMapMode === 'near'}" data-mm="near">Map: near</button>${crowd ? `<button type="button" role="radio" aria-checked="${acMapMode === 'crowding'}" data-mm="crowding">Map: crowding</button>` : ''}${scData() ? `<button type="button" role="radio" aria-checked="${acMapMode === 'score'}" data-mm="score">Map: score</button>` : ''}</div></div>`;
   const commTable = `<div class="table-wrap tall"><table class="data ac-comm" id="gap-table"><thead><tr><th scope="col">Community</th>${city ? '<th scope="col" class="num">Ward</th>' : ''}<th scope="col" class="num">Homes</th><th scope="col" class="num">New<small>built since ${A.growth_year}</small></th>
       <th scope="col">Within ${acM(th)}<small>Calgary ${acPct(cityVal[shareKey])}</small></th><th scope="col" class="num">New homes<small>within ${acM(acTh(A, acKind, false))}</small></th><th scope="col" class="num">Older homes<small>within ${acM(acTh(A, acKind, false))}</small></th><th scope="col" class="num">Median</th><th scope="col">Reading</th>
+      ${scData() ? `<th scope="col">Score<small>crowding against Calgary's, range</small></th>` : ''}
       ${crowd ? `<th scope="col" class="num">Crowding<small>${esc(acUnit(acKind))}, ${acM(th)}; Calgary ${fmt(cityVal[ck], acKind === 'park' ? 1 : 2)}</small></th>` : ''}</tr></thead><tbody>
-    ${rows.map(r => { const x = r[acKind] || {};
+    ${rows.filter(r => !acNearOnly || acNearCrowded(r, acKind)).map(r => { const x = r[acKind] || {}, sc = acScore(r.code, acKind), nc = acNearCrowded(r, acKind);
       return `<tr><td>${esc(r.name)}</td>${city ? `<td class="num">${r.ward || '–'}</td>` : ''}<td class="num">${fmt(r.units)}</td><td class="num">${r.units ? acPct(r.units_new / r.units) : '–'}</td>
-        <td>${acBar(x[shareKey])}<b>${acPct(x[shareKey])}</b></td><td class="num">${acPct(x.share_new_1)}</td><td class="num">${acPct(x.share_old_1)}</td><td class="num">${x.median_beyond ? 'over ' + acM(acTh(A, acKind, true)) : acM(x.median_m)}</td><td>${acTag(A, x.reading)}</td>
+        <td>${acBar(x[shareKey])}<b>${acPct(x[shareKey])}</b></td><td class="num">${acPct(x.share_new_1)}</td><td class="num">${acPct(x.share_old_1)}</td><td class="num">${x.median_beyond ? 'over ' + acM(acTh(A, acKind, true)) : acM(x.median_m)}</td><td>${acTag(A, x.reading)}${nc ? ' <span class="ac-tag ac-nc">Near, but crowded</span>' : ''}</td>
+        ${scData() ? `<td>${scCell(sc)} ${sc ? scTag(sc) : ''}</td>` : ''}
         ${crowd ? `<td class="num">${fmt(x[ck], acKind === 'park' ? 1 : 2)}</td>` : ''}</tr>`; }).join('') || '<tr><td colspan="10" class="empty">No communities to show.</td></tr>'}
     </tbody></table></div>
-    <p class="card-note"><b>Reading</b> (a stated rule for each community and amenity, not a score): <span class="ac-tag ac-ok">${esc(A.readings.no_gap)}</span> half or more of homes within ${acM(acTh(A, acKind, false))}; <span class="ac-tag ac-gap">${esc(A.readings.gap)}</span> fewer than half; <span class="ac-tag ac-check">${esc(A.readings.gap_check)}</span> a measured gap where ${fmt(A.rules.recent_share * 100)}% or more of homes were built since ${A.recent_from_year} (developer-built amenities may not be in the City's inventory yet); <span class="ac-tag ac-few">${esc(A.readings.too_few_homes)}</span> under ${fmt(A.rules.min_units)} homes. Readings are never combined across amenities. ${esc(K.basis || '')}</p>`;
+    <p class="card-note"><b>Reading</b> (a stated rule for each community and amenity, not a score): <span class="ac-tag ac-ok">${esc(A.readings.no_gap)}</span> half or more of homes within ${acM(acTh(A, acKind, false))}; <span class="ac-tag ac-gap">${esc(A.readings.gap)}</span> fewer than half; <span class="ac-tag ac-check">${esc(A.readings.gap_check)}</span> a measured gap where ${fmt(A.rules.recent_share * 100)}% or more of homes were built since ${A.recent_from_year} (developer-built amenities may not be in the City's inventory yet); <span class="ac-tag ac-few">${esc(A.readings.too_few_homes)}</span> under ${fmt(A.rules.min_units)} homes. Readings are never combined across amenities.${scData() ? ` <span class="ac-tag ac-nc">Near, but crowded</span> most homes within reach, but the score is under 0.80: what is within reach is shared by more people than Calgary's average.` : ''} ${esc(K.basis || '')}</p>`;
   const mapBlock = `<div class="ac-mapwrap"><div id="ac-map" class="ac-map" role="img" aria-label="Map of communities: ${esc(K.label)}, ${acMapMode === 'near' ? 'share of homes within ' + acM(th) : 'crowding'}"></div><div class="ac-legend" id="ac-legend"></div></div>`;
 
   // 4. limitations, method, sources
@@ -622,10 +626,100 @@ function renderGap() {
 
   box.innerHTML = `${rev}${otherSwitch}${head}${wardsTable}
     <div class="gap-head"><h3>${city ? (acWard ? 'Ward ' + acWard + ', community by community' : 'Every community') : 'Each community in ' + esc(W())}: ${esc(K.label.toLowerCase())}</h3>${ctl}</div>
-    ${mapBlock}${commTable}${lim}${growthChecks()}`;
+    ${mapBlock}${commTable}${scHtml(A)}${lim}${growthChecks()}`;
   acDrawMap(A, rows, th, shareKey, ck);
   $('#gr-notes').textContent = `Sources: City of Calgary open data: Current Year Property Assessments (4bsw-nn7w, homes), Playground Equipment (bdu9-amk8), Parks Sites (kami-qbfh), Calgary Transit Stops (muzh-c9qc), Community Services (x34e-bcjz: community centres, libraries), Recreation Facilities (hxfu-6d96); children and residents: the ${CY()} Census by community and the growth model (${popWords()}).`;
 }
+// ---------- amenity scores (added 5 November 2026): crowding against Calgary's, under every assumption (scores.py)
+let scGroup = 'local', scFilter = '', scOpen = null, acNearOnly = false;
+// a community's score for one amenity, and "near, but crowded": most homes within reach, yet each one within reach is
+// shared by more people than Calgary's average (score under 0.80), children and residents from any community counted
+const acScore = (code, k) => (((scData() || {}).communities || {})[code] || {}).amenities?.[k] || null;
+const acNearCrowded = (r, k) => { const x = (r || {})[k] || {}, sc = acScore(r.code, k); return x.reading === 'no_gap' && sc && isNum(sc.score) && Math.round(sc.score * 100) < 80 ? sc : null; };
+// the typical (median) community's score: shown when it sits under 0.80, as for parks, where a few very large parks lift Calgary's figure
+function acMedianNote(k) {
+  const v = Object.values((scData() || {}).communities || {}).map(r => ((r.amenities || {})[k] || {}).score).filter(isNum).sort((a, b) => a - b);
+  if (!v.length) return '';
+  const m = v.length % 2 ? v[(v.length - 1) / 2] : (v[v.length / 2 - 1] + v[v.length / 2]) / 2;
+  return Math.round(m * 100) < 80 ? ` The typical community scores ${fmt(m, 2)} for ${k === 'park' ? 'parks' : 'this amenity'}: Calgary's figure is an average over every resident and is lifted by the communities next to a few very large parks, so ${fmt(v.filter(x => Math.round(x * 100) < 80).length)} of ${fmt(v.length)} communities fall under 0.80.` : '';
+}
+function acNearCrowdedWords(A) {
+  if (!scData()) return [];
+  const out = [];
+  AC_CROWD.forEach(k => {
+    const rows = (A.communities || []).filter(r => acNearCrowded(r, k));
+    if (!rows.length) return;
+    const cons = rows.filter(r => acNearCrowded(r, k).consistency === 'consistent_gap').length;
+    out.push(`Near, but crowded (${k === 'playground' ? 'playgrounds' : 'parks'}): ${fmt(rows.length)} communities${isCity() ? '' : ' in ' + W()} have most homes within ${acM(acTh(A, k, false))} of ${k === 'playground' ? 'a playground' : 'a park'}, yet what is within reach is shared by more ${k === 'playground' ? 'children' : 'residents'} than Calgary's average (score under 0.80; ${fmt(cons)} of them under every assumption). Examples: ${rows.slice().sort((a, b) => acNearCrowded(a, k).score - acNearCrowded(b, k).score).slice(0, 5).map(r => r.name + ' ' + fmt(acNearCrowded(r, k).score, 2)).join(', ')}.${acMedianNote(k)}`);
+  });
+  return out;
+}
+const SC_GROUPS = { local: 'Local amenities', district: 'District facilities' };
+// the amenities in a group, in words, from the data (the groups are set with each amenity in access.py)
+function scGroupWords(S, g) {
+  const names = { playground: 'playground', park: 'park', transit_stop: 'transit stop', community_centre: 'community centre', rec_centre: 'indoor recreation centre', library: 'library' };
+  const ks = ((S.groups || {})[g] || []).map(k => names[k] || k);
+  return ks.length > 1 ? ks.slice(0, -1).join(', ') + ' and ' + ks[ks.length - 1] : (ks[0] || '');
+}
+const SC_ALL = 'All six amenities';
+const SC_BAND = { well_below: 'Well below', below: 'Below', around: 'Around', above: 'Above' };
+const SC_LABEL = { consistent_gap: 'Consistent gap', depends: 'Depends on assumptions', none: 'No gap' };
+const SC_TAG = { consistent_gap: 'ac-gap', depends: 'ac-check', none: 'ac-ok' };
+function scData() {           // the scores, with the private amenities filter's when it is on
+  const S = D && D.access && D.access.scores;
+  if (!S) return null;
+  if (!acOther || !S.with_other) return S;
+  const v = S.with_other[acPrivate && S.with_other.osm_private ? 'osm_private' : 'osm'];
+  return v ? { ...S, ...v } : S;
+}
+const scGet = (row, g) => !row ? null : g === 'overall' ? row.overall : (row.groups || {})[g];
+const scNum = v => isNum(v) ? fmt(v, 2) : '–';
+const scCell = x => !x || !isNum(x.score) ? '<span class="dash">–</span>'
+  : `<b>${scNum(x.score)}</b> <small class="sc-range">${scNum(x.low)} to ${scNum(x.high)}</small>${x.scenarios < x.scenarios_possible ? `<sup class="sc-fewer" title="Scored ${x.scenarios} of ${x.scenarios_possible} ways (no ${CY()} Census count)">${x.scenarios}/${x.scenarios_possible}</sup>` : ''}`;
+const scTag = x => x && x.consistency ? `<span class="ac-tag ${SC_TAG[x.consistency]}">${SC_LABEL[x.consistency]}</span>` : '';
+function scHtml(A) {
+  const S = scData();
+  if (!S) return '';
+  const city = isCity(), names = {}; (A.communities || []).forEach(r => { names[r.code] = r; });
+  const sw = (id, opts, cur) => `<div class="seg small" role="radiogroup" id="${id}">${opts.map(([k, l]) => `<button type="button" role="radio" aria-checked="${k === cur}" data-v="${k}">${esc(l)}</button>`).join('')}</div>`;
+  let rows = Object.entries(S.communities || {}).map(([code, r]) => ({ code, r, c: names[code] || { name: code }, x: scGet(r, scGroup) }))
+    .filter(o => !acWard || (o.c.ward === +acWard));
+  if (scFilter) rows = rows.filter(o => o.x && o.x.consistency === scFilter);
+  rows.sort((a, b) => ((a.x || {}).score ?? 9) - ((b.x || {}).score ?? 9));
+  const nCons = Object.values(S.communities || {}).filter(r => (scGet(r, scGroup) || {}).consistency === 'consistent_gap').length;
+  const nDep = Object.values(S.communities || {}).filter(r => (scGet(r, scGroup) || {}).consistency === 'depends').length;
+  const kinds = acKinds(A), pm = S.default_people || 'model';
+  const detail = o => `<tr class="sc-detail"><td colspan="${city ? 8 : 7}"><div class="sc-det">
+      <div class="sc-det-groups">${['local', 'district'].map(g => { const x = scGet(o.r, g); return `<div><b>${SC_GROUPS[g]}</b><span>${scCell(x)}</span><span>${x && x.band ? SC_BAND[x.band] + ' Calgary' : ''} ${scTag(x)}</span></div>`; }).join('')}
+        <div class="sc-all"><b>${SC_ALL}</b><span>${scCell(scGet(o.r, 'overall'))}</span><span>${scTag(scGet(o.r, 'overall'))}</span><small>One average of six different amenities (8 ways: also local two thirds, district one third). It can hide a gap in one group; read the local and district scores first.</small></div></div>
+      <div class="table-wrap-inner"><table class="data sc-am"><thead><tr><th scope="col">Amenity</th><th scope="col" class="num">Score<small>1.00 = Calgary</small></th><th scope="col">Range, 4 ways</th><th scope="col">Label</th><th scope="col" class="num">Crowding<small>count in Settings, shorter distance</small></th><th scope="col" class="num">Calgary</th></tr></thead><tbody>
+      ${kinds.map(k => { const x = (o.r.amenities || {})[k] || {}, cw = ((S.crowding || {})[o.code] || {})[k] || {}, d0 = String(acTh(A, k, false));
+        return `<tr><td>${esc(A.kinds[k].label)}</td><td class="num"><b>${scNum(x.score)}</b></td><td>${isNum(x.low) ? scNum(x.low) + ' to ' + scNum(x.high) : '–'}${x.scenarios < x.scenarios_possible ? ` <small>(${x.scenarios} of ${x.scenarios_possible} ways)</small>` : ''}</td><td>${scTag(x)}</td>
+          <td class="num">${scNum(cw[pm + '|' + d0])}</td><td class="num">${scNum((((S.calgary || {})[k] || {})[pm] || {})[d0])}</td></tr>`; }).join('')}
+      </tbody></table></div><p class="card-note">Crowding: playgrounds per 1,000 children; park hectares per 1,000 residents; transit stops per 1,000 residents; community centres, recreation centres and libraries per 100,000 residents; all within reach, an estimate.</p></div></td></tr>`;
+  const table = `<div class="table-wrap tall"><table class="data sc-table"><thead><tr><th scope="col">Community</th>${city ? '<th scope="col" class="num">Ward</th>' : ''}<th scope="col" class="num">Homes</th>
+      <th scope="col">Local amenities<small>score, range</small></th><th scope="col">Local: label</th><th scope="col">District facilities<small>score, range</small></th><th scope="col">District: label</th><th scope="col"></th></tr></thead><tbody>
+    ${rows.map(o => `<tr class="sc-row${scOpen === o.code ? ' open' : ''}" data-sc="${esc(o.code)}"><td>${esc(o.c.name)}</td>${city ? `<td class="num">${o.c.ward || '–'}</td>` : ''}<td class="num">${fmt(o.c.units)}</td>
+      <td>${scCell(scGet(o.r, 'local'))}</td><td>${scTag(scGet(o.r, 'local'))}</td><td>${scCell(scGet(o.r, 'district'))}</td><td>${scTag(scGet(o.r, 'district'))}</td><td><button type="button" class="link-btn small" data-sc-open="${esc(o.code)}">${scOpen === o.code ? 'Hide' : 'Details'}</button></td></tr>${scOpen === o.code ? detail(o) : ''}`).join('')
+      || `<tr><td colspan="8" class="empty">No communities to show.</td></tr>`}
+    </tbody></table></div>`;
+  const wards = Object.entries(S.wards || {}).sort((a, b) => +a[0] - +b[0]);
+  const curWard = city ? (acWard ? +acWard : null) : (D.ward || {}).number;
+  const wardTable = `<h4 class="ac-h4">Every ward, the same scores</h4><div class="table-wrap ac-full"><table class="data sc-wards"><thead><tr><th scope="col">Ward</th><th scope="col">Local amenities</th><th scope="col">Local: label</th><th scope="col">District facilities</th><th scope="col">District: label</th></tr></thead><tbody>
+    ${wards.map(([w, r]) => `<tr class="${+w === curWard ? 'ac-cur' : ''}"><td>Ward ${w}</td><td>${scCell(scGet(r, 'local'))}</td><td>${scTag(scGet(r, 'local'))}</td><td>${scCell(scGet(r, 'district'))}</td><td>${scTag(scGet(r, 'district'))}</td></tr>`).join('')}
+    </tbody></table></div><p class="card-note">Wards in number order. A ward's score is its people-weighted crowding against Calgary's, worked out the same way as a community's.</p>`;
+  return `<div class="gap-scope sc-card" id="acs-card"><h3>Where amenities fall behind, under every assumption <span class="ac-est">Added ${dmy(S.added)}</span></h3>
+    <p class="ac-lead">Each amenity's score is the community's crowding figure divided by Calgary's: 1.00 is Calgary's level of that amenity within reach, per person who shares it. Local amenities average ${scGroupWords(S, 'local')}; district facilities average ${scGroupWords(S, 'district')}. Each score is worked out 4 ways (2 distances x 2 counts of residents: ${esc((S.people || {})[S.default_people] || popChip())}, the count chosen in Settings, and the ${CY()} Census). The figure shown is the shorter distance with the count chosen in Settings; the range runs from the lowest to the highest of the 4.</p>
+    <p class="card-note"><b>Labels:</b> <span class="ac-tag ac-gap">Consistent gap</span> below 0.80 in every way with a figure; <span class="ac-tag ac-check">Depends on assumptions</span> below 0.80 in some ways; <span class="ac-tag ac-ok">No gap</span> never below 0.80. <b>Bands</b> of the figure shown: under 0.50 well below Calgary, 0.50 to 0.80 below, 0.80 to under 1.25 around, 1.25 or more above. Each amenity is capped at 2.00 before averaging; a group score needs every amenity in the group. Change the count of residents in Settings and every score follows. <sup class="sc-fewer">2/4</sup> scored fewer ways (no ${CY()} Census count: built since). ${acOther ? '<b>Private amenities counted</b> (the filter above): playground and park scores include them.' : ''}</p>
+    <div class="ac-row">${sw('sc-group', Object.entries(SC_GROUPS).map(([k, l]) => [k, 'Filter and sort by: ' + l]), scGroup)}${sw('sc-filter', [['', 'Every community'], ['consistent_gap', `Consistent gaps (${fmt(nCons)})`], ['depends', `Depends (${fmt(nDep)})`]], scFilter)}</div>
+    ${table}<p class="card-note">Lowest ${esc(SC_GROUPS[scGroup].toLowerCase())} score first. Communities with under ${fmt(A.rules.min_units)} homes are not scored. The 0.80 line and the bands are choices, applied the same way to every community; the comparison is with Calgary's own level, not a standard of adequate provision. <button type="button" class="link-btn small" data-method="access_scores">How the scores are worked out</button></p>
+    ${wardTable}</div>`;
+}
+document.addEventListener('click', e => {
+  const g = e.target.closest('#sc-group [data-v]'); if (g) { scGroup = g.dataset.v; renderGap(); return; }
+  const f = e.target.closest('#sc-filter [data-v]'); if (f) { scFilter = f.dataset.v; renderGap(); return; }
+  const o = e.target.closest('[data-sc-open]'); if (o) { scOpen = scOpen === o.dataset.scOpen ? null : o.dataset.scOpen; renderGap(); }
+});
 const acMethodName = m => ({ city_actual: "City's total, actual growth", city_pace: "City's total, one rate", model: 'growth model', census2021: CY() + ' Census' })[m] || m;
 
 function acDrawMap(A, rows, th, shareKey, ck) {
@@ -635,30 +729,33 @@ function acDrawMap(A, rows, th, shareKey, ck) {
   acMapObj = L.map(el, { zoomControl: true, attributionControl: true, scrollWheelZoom: false, zoomSnap: .25 });
   L.tileLayer(TILES[isDark() ? 'dark' : 'light'], { maxZoom: 18, attribution: 'Tiles &copy; Esri. Data: City of Calgary' }).addTo(acMapObj);
   const ramp = RAMPS.seq[isDark() ? 'dark' : 'light'];
-  const crowd = acMapMode === 'crowding';
-  const val = r => (r[acKind] || {})[crowd ? ck : shareKey];
+  const crowd = acMapMode === 'crowding', scoreMode = acMapMode === 'score' && scData();
+  const SCm = scoreMode ? (scData().communities || {}) : {};
+  const val = r => scoreMode ? ((SCm[r.code] || {}).amenities?.[acKind] || {}).score : (r[acKind] || {})[crowd ? ck : shareKey];
   // near: fixed steps of 20 points; crowding: five equal-sized groups of the communities shown (an estimate)
   let cuts;
-  if (crowd) {
+  if (scoreMode) cuts = [0.5, 0.8, 1.25, 1e9];
+  else if (crowd) {
     const vs = rows.filter(r => (r[acKind] || {}).reading !== 'too_few_homes').map(val).filter(isNum).sort((a, b) => a - b);
     cuts = vs.length ? [1, 2, 3, 4].map(i => vs[Math.floor(i * vs.length / 5)]) : [0, 0, 0, 0];
   } else cuts = [.2, .4, .6, .8];
-  const step = v => cuts.filter(c => v >= c).length;
+  const step = v => scoreMode ? [0.5, 0.8, 1.25].filter(c => Math.round(v * 100) / 100 >= c).length * 4 / 3 : cuts.filter(c => v >= c).length;
   const feats = rows.filter(r => D.geo.communities[r.code]).map(r => ({ type: 'Feature', properties: r, geometry: D.geo.communities[r.code] }));
   acLayer = L.geoJSON({ type: 'FeatureCollection', features: feats }, {
-    style: f => { const r = f.properties, v = val(r), few = (r[acKind] || {}).reading === 'too_few_homes';
+    style: f => { const r = f.properties, v = val(r), few = scoreMode ? !isNum(v) : (r[acKind] || {}).reading === 'too_few_homes';
       return few || !isNum(v) ? { color: cssv('--border-strong'), weight: 1, fillColor: cssv('--muted-2'), fillOpacity: .35, dashArray: '4 3' }
         : { color: cssv('--card'), weight: 1, fillColor: ramp[Math.min(ramp.length - 1, Math.round(step(v) * (ramp.length - 1) / 4))], fillOpacity: .78 }; },
     onEachFeature: (f, lay) => { const r = f.properties, x = r[acKind] || {};
+      if (scoreMode) { const x = (SCm[r.code] || {}).amenities?.[acKind]; lay.bindTooltip(`<b>${esc(r.name)}</b>${r.ward ? ' · Ward ' + r.ward : ''}<br>${esc(A.kinds[acKind].label)} score: ${x && isNum(x.score) ? scNum(x.score) + ' (' + scNum(x.low) + ' to ' + scNum(x.high) + ')' : 'not scored'}${x && x.consistency ? '<br>' + SC_LABEL[x.consistency] : ''}<br>${acPct((r[acKind] || {}).share_1)} of homes within ${acM(acTh(A, acKind, false))}${acNearCrowded(r, acKind) ? '<br><b>Near, but crowded</b>' : ''}`, { sticky: true, className: 'area-tip' }); return; }
       lay.bindTooltip(`<b>${esc(r.name)}</b>${r.ward ? ' · Ward ' + r.ward : ''}<br>${esc(A.kinds[acKind].label)}: ${acPct(x[shareKey])} of homes within ${acM(th)}` +
         (AC_CROWD.includes(acKind) ? `<br>Crowding (estimate): ${fmt(x[ck], acKind === 'park' ? 1 : 2)} ${esc(acUnit(acKind))}` : '') + `<br>${esc((A.readings || {})[x.reading] || '')}`, { sticky: true, className: 'area-tip' }); },
   }).addTo(acMapObj);
   const b = acLayer.getBounds();
   if (b.isValid()) acMapObj.fitBounds(b, { padding: [12, 12] }); else acMapObj.setView([51.045, -114.06], 10);
-  const lab = crowd ? [`under ${fmt(cuts[0], 2)}`, `${fmt(cuts[0], 2)} to ${fmt(cuts[1], 2)}`, `${fmt(cuts[1], 2)} to ${fmt(cuts[2], 2)}`, `${fmt(cuts[2], 2)} to ${fmt(cuts[3], 2)}`, `${fmt(cuts[3], 2)} or more`]
+  const lab = scoreMode ? ['under 0.50 (well below)', '0.50 to 0.80 (below)', '0.80 to under 1.25 (around)', '1.25 or more (above)'] : crowd ? [`under ${fmt(cuts[0], 2)}`, `${fmt(cuts[0], 2)} to ${fmt(cuts[1], 2)}`, `${fmt(cuts[1], 2)} to ${fmt(cuts[2], 2)}`, `${fmt(cuts[2], 2)} to ${fmt(cuts[3], 2)}`, `${fmt(cuts[3], 2)} or more`]
     : ['under 20%', '20 to 40%', '40 to 60%', '60 to 80%', '80% or more'];
-  $('#ac-legend').innerHTML = `<b>${crowd ? esc(acUnit(acKind)) + ' (estimate, five equal groups)' : 'Share of homes within ' + acM(th)}</b>` +
-    lab.map((t, i) => `<span><i style="background:${ramp[Math.round(i * (ramp.length - 1) / 4)]}"></i>${esc(t)}</span>`).join('') + `<span><i class="ac-few-sw"></i>${esc(A.readings.too_few_homes)}</span>`;
+  $('#ac-legend').innerHTML = `<b>${scoreMode ? esc(A.kinds[acKind].label) + ' score, 1.00 = Calgary (shorter distance, count in Settings)' : crowd ? esc(acUnit(acKind)) + ' (estimate, five equal groups)' : 'Share of homes within ' + acM(th)}</b>` +
+    lab.map((t, i) => `<span><i style="background:${ramp[Math.round((scoreMode ? i * 4 / 3 : i) * (ramp.length - 1) / 4)]}"></i>${esc(t)}</span>`).join('') + `<span><i class="ac-few-sw"></i>${esc(A.readings.too_few_homes)}</span>`;
 }
 
 // What changed (5 November 2026): the old and new method side by side, and what changed in the findings
@@ -693,6 +790,11 @@ function renderChanges() {
       <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Community</th><th scope="col" class="num">Homes</th>${kinds.map(k => `<th scope="col">${esc(A.kinds[k].label)}<small>within ${acM(acTh(A, k, false))}</small></th>`).join('')}</tr></thead><tbody>
       ${fl.slice().sort((a, b) => String(a.name).localeCompare(String(b.name))).map(r => `<tr><td>${esc(r.name)}</td><td class="num">${fmt(r.units)}</td>${kinds.map(k => `<td>${acPct((r[k] || {}).share_1)} ${acTag(A, (r[k] || {}).reading)}</td>`).join('')}</tr>`).join('')}
       </tbody></table></div></section>` : ''}
+    ${A && A.scores ? `<section class="card"><h2>Added amenity scores, ${dmy(A.scores.added)}</h2><ul>
+      <li>Crowding for all six amenities (transit stops per 1,000 residents; community centres, recreation centres and libraries per 100,000 residents), and a score for each: the community's crowding against Calgary's (1.00 = Calgary).</li>
+      <li>Local and district scores, each worked out 4 ways (2 distances x 2 counts of residents: the one chosen in Settings and the ${CY()} Census), shown as the figure for the count in use with its range. An all-six score is in each community's details only, since one average can hide a gap in one group.</li>
+      <li>Labels instead of a ranking: consistent gap, depends on assumptions, no gap. Local amenities: ${fmt(Object.values(A.scores.communities || {}).filter(r => ((r.groups || {}).local || {}).consistency === 'consistent_gap').length)} communities shown with a consistent gap, ${fmt(Object.values(A.scores.communities || {}).filter(r => ((r.groups || {}).local || {}).consistency === 'depends').length)} depending on the assumptions; district facilities: ${fmt(Object.values(A.scores.communities || {}).filter(r => ((r.groups || {}).district || {}).consistency === 'consistent_gap').length)} and ${fmt(Object.values(A.scores.communities || {}).filter(r => ((r.groups || {}).district || {}).consistency === 'depends').length)}.</li>
+</ul></section>` : ''}
     <section class="card"><h2>Also removed</h2><ul>
       <li>The amenity level and the "Needs attention" tab with its Urgent, High and Watch tiers, the growth weight and the "what it would take" list.</li>
       <li>Per-resident amenity counts as headline figures. The City's asset counts are still listed under Growth vs amenities, Assets.</li>
@@ -727,6 +829,7 @@ function gapMeter(v) {
 document.addEventListener('change', e => {
   if (e.target.id === 'ac-kind') { acKind = e.target.value; renderGap(); }
   if (e.target.id === 'ac-ward') { acWard = e.target.value; renderGap(); }
+  if (e.target.id === 'ac-nearonly') { acNearOnly = e.target.checked; renderGap(); }
   if (e.target.id === 'ac-other') { acOther = e.target.checked; if (!acOther) acPrivate = false; renderGap(); }
   if (e.target.id === 'ac-private') { acPrivate = e.target.checked; renderGap(); }
 });

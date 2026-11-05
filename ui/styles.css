@@ -1463,4 +1463,25 @@ ul.pf li.now .pf-v { color: var(--accent); font-weight: 600; }
 #view-changes .card { margin-bottom: 16px; }
 @media (max-width: 760px) { .chg-two { grid-template-columns: 1fr; } .ac-map { height: 340px; } .ac-bar { width: 40px; } }
 
+/* amenity scores (added 5 November 2026) */
+.sc-card { margin-top: 18px; }
+.sc-range { color: var(--muted-fg); margin-left: 4px; white-space: nowrap; }
+.sc-fewer { font-size: 10px; color: var(--warn); margin-left: 3px; font-weight: 600; }
+.sc-table th small, .sc-am th small { display: block; font-weight: 400; }
+.sc-row.open td { background: var(--accent-soft); }
+.sc-detail td { background: var(--muted); }
+.sc-detail > td { white-space: normal; max-width: 0; }   /* the details fit the table's width; text wraps */
+.sc-det .card-note, .sc-det-groups small { white-space: normal; }
+.sc-det .table-wrap-inner { overflow-x: auto; }
+.sc-det { padding: 6px 2px 2px; }
+.sc-det-groups { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 10px; margin-bottom: 10px; }
+.sc-all { opacity: .85; } .sc-all small { color: var(--muted-fg); line-height: 1.4; }
+.sc-det-groups > div { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+.sc-am { margin-top: 4px; }
+#acs-card .ac-row { margin: 10px 0; }
+@media (max-width: 760px) { .sc-det-groups { grid-template-columns: 1fr; } }
+
 .table-wrap.ac-full { max-height: none; }
+
+.ac-tag.ac-nc { background: color-mix(in srgb, var(--warn) 22%, transparent); color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, transparent); }
+.ac-nc-line { margin-top: 4px; }

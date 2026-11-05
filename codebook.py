@@ -16,8 +16,8 @@ MAX_CHARS = 12000
 # where each figure is worked out: (file, name). A name is a function (nested ones too) or a constant.
 TOPICS = {
     'access': {'what': 'Growth vs amenities (revised 5 November 2026): distance from every home to the nearest amenity in any '
-                       'community, the readings, and crowding at playgrounds and parks (two-step catchment)',
-               'code': [('access.py', '*'), ('dashboard.py', 'access_view')]},
+                       'community, the readings, crowding (two-step catchment) and the amenity scores (added 5 November 2026)',
+               'code': [('access.py', '*'), ('scores.py', '*'), ('dashboard.py', 'access_view')]},
     'homes': {'what': 'How homes are counted from the property roll (what is left out: commercial, vacant lots, parking stalls, storage)',
               'code': [('population.py', 'HOMES_WHERE'), ('population.py', 'homes'), ('population.py', 'units'),
                        ('population.py', 'homes_lived_in'), ('population.py', 'queries')]},
