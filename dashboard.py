@@ -1609,6 +1609,22 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         return access.view(base, p_, k_, pop_method, shown, ward_of, names,
                            methods_pops={m_key: people(pm_, km_) for m_key, (pm_, km_) in gap_pops.items()})
     access_out, access_err = _safe(access_view)
+
+    def elections_view():
+        import elections                                # noqa: PLC0415
+        base = elections.load(cdir, can_build=False)    # worked out by the website build; read here
+        if not base:
+            return None
+        ward_of_ = {c: w_ for c, w_ in comm_ward.items() if w_}
+        codes = [c for c in pop_all if (city or ward_of_.get(c) == int(ward)) and ((pop_all.get(c) or {}).get('model') or 0) > 0]
+        pops = {c: ((pop_all.get(c) or {}).get('model') or 0) for c in codes}
+        return elections.view(base, 0 if city else int(ward), codes, pops)
+    elections_out, elections_err = _safe(elections_view)
+    status.append({'name': 'Elections: 2025 municipal, 2023 provincial (and by-elections since), 2026 referendum, 2025 federal',
+                   'ids': ['gqvk-p23x', 'surr-xmvs'], 'fetched': (elections_out or {}).get('built_at'), 'city_updated': None,
+                   'ok': bool(elections_out), 'error': elections_err if not elections_out else None,
+                   'note': 'Read once a week from Elections Calgary, Elections Alberta, Elections Canada, the Legislative '
+                           'Assembly of Alberta and the House of Commons', 'page': 'https://elections-prd.calgary.ca/results/2025-results.html'})
     status.append({'name': 'Growth vs amenities: distance from every home to parks, playgrounds, transit stops and facilities',
                    'ids': ['4bsw-nn7w', 'bdu9-amk8', 'kami-qbfh', 'muzh-c9qc', 'x34e-bcjz', 'hxfu-6d96'],
                    'fetched': (access_out or {}).get('built_at'), 'city_updated': None, 'ok': bool(access_out),
@@ -1696,6 +1712,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         'amenities': amenities,
         'amenity_gap': amenity_gap,
         'access': access_out,
+        'elections': elections_out,
         'status': status,
         'communities': communities,
         'open_by_type': sorted(open_types.values(), key=lambda x: -x['n'])[:12],

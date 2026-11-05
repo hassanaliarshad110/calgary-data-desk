@@ -211,6 +211,14 @@ class Api:
         return {k: d.get(k) for k in ('year', 'roll_year', 'city', 'by_ward', 'factors', 'rates', 'levy', 'bylaw', 'source')}
 
     # ---- the City budget ----
+    def get_elections(self):
+        try:
+            import elections
+            return {'ok': True, 'data': elections.load(DATA_DIR, can_build=False)}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': str(e)}
+
     def get_budget(self, force=False):
         try:
             return {'ok': True, 'data': budget.load(DATA_DIR, force=bool(force))}

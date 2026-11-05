@@ -328,6 +328,8 @@ and the label with a score; near_but_crowded lists communities with most homes n
 score is under 0.80 (shared by more children, or residents, than Calgary's average, from any community), and explain it from get_method topic access_scores. For a list of those amenities, use get_dashboard section \
 other_amenities (with ward or community).
 
+Elections (get_dashboard section elections; full=true for every Calgary race): who represents the area at each level and the latest official results: City of Calgary 2025 (mayor, councillors, CBE and CCSD trustees; Calgary's turnout; the mayor's election-day votes by ward), Alberta 2023 general election in Calgary's 26 divisions and by-elections since, the members sitting today, the 19 October 2026 referendum question by question, and the 2025 federal election in Calgary's 11 districts with the members sitting today. Quote results with their date and source; describe them, never favour, rate or rank a candidate or party, never predict, and give no voting advice. Where a ward is split between ridings, say each riding's share of its residents.
+
 Extra detail for Ward 5 (use only when the question is about Ward 5)
 - Residential communities (comm_code): Castleridge CAS, Cityscape CSC, Cornerstone CNS, Falconridge FAL, Homestead HSD, \
 Martindale MRT, Redstone RSN, Saddle Ridge SAD, Skyview Ranch SKR, Taradale TAR. Business and industrial areas: SRI, \
@@ -428,9 +430,13 @@ TOOLS = [
                     'section="property_tax" gives the property tax estimate by ward and community. section="wards" gives '
                     'all 14 wards and Calgary side by side (residents, growth, 311, crime, traffic, building, child care, '
                     'amenities) with each ward\'s place on every measure (ranks), whatever area is selected; '
-                    'section="ward_amenities" gives every asset ward by ward (City, private accessible and gated).',
+                    'section="ward_amenities" gives every asset ward by ward (City, private accessible and gated). '
+                    'section="elections" gives who represents the area at each level (mayor, councillor, school trustees, '
+                    'MLAs, MPs, with each riding\'s share of the area\'s residents) and their last official result and '
+                    'turnout; pass full=true for every Calgary race (2025 municipal, 2023 provincial and by-elections since, '
+                    'the 2026 referendum question by question, 2025 federal).',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -441,6 +447,7 @@ TOOLS = [
          'save_csv': {'type': 'boolean', 'description': 'section other_amenities: also save the whole list, every row '
                                                         'with its map link, as a CSV in Files (use for "all" or long lists)'},
          'show_on_map': {'type': 'boolean', 'description': 'section other_amenities: also show every one on the map'},
+         'full': {'type': 'boolean', 'description': 'section elections: also every Calgary race and the referendum'},
          'community': {'type': 'string', 'description': 'sections other_amenities and access: one community (code '
                                                          'or name); access then gives its figures for every amenity; '
                                                          'population_recon: that community\'s rental buildings (code)'},
@@ -1042,6 +1049,18 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                         'or community.'}
     if section == 'other_amenities':
         return _other_amenities_out(d, wards)
+    if section == 'elections':
+        out = {'area': d.get('elections'), 'how': 'Official results as published (Elections Calgary, Elections Alberta, '
+               'Elections Canada); members today from the Legislative Assembly of Alberta and the House of Commons. '
+               'State results as facts with their source and date; never favour or rate a candidate or party, and '
+               'give no voting advice. get_method topic elections.'}
+        if (extra or {}).get('full'):
+            try:
+                import elections                        # noqa: PLC0415
+                out['all_calgary'] = elections.load((extra or {}).get('data_dir') or '.', can_build=False)
+            except Exception as e:                      # noqa: BLE001
+                out['all_calgary_error'] = str(e)
+        return out
     if section in ('access', 'amenity_gap', 'needs_attention'):
         return _access_out(d.get('access'), (extra or {}).get('community'),
                            withdrawn=section != 'access')
@@ -1245,7 +1264,8 @@ class Agent:
                                                                     '(OpenStreetMap)', 'points': pts}))
                     if args.get('show_on_map') else None)
             return dashboard_section(d, args.get('section') or 'overview', self.wards_provider,
-                                     {'community': args.get('community'), 'ward': args.get('ward'), 'find': args.get('find')})
+                                     {'community': args.get('community'), 'ward': args.get('ward'), 'find': args.get('find'),
+                                      'full': args.get('full'), 'data_dir': self.data_dir})
         if name == 'get_weather_forecast':
             return weather.forecast()
         if name == 'get_weather':

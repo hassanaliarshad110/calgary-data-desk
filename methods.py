@@ -587,6 +587,47 @@ METHODS = [
                   access.LIMITATIONS[6]],
      'code': 'scores.py; access.py (crowding_inputs, amenity_scores)'},
 
+    {'key': 'elections', 'name': 'Elections: who represents each area, and the latest official results',
+     'dataset': 'Elections Calgary results file; gqvk-p23x; Elections Alberta Statement of Vote 2023 and official results; '
+                'Elections Canada official voting results (45th general election); Legislative Assembly of Alberta; '
+                'House of Commons; surr-xmvs',
+     'publisher': 'Elections Calgary (City of Calgary); Elections Alberta; Elections Canada; Legislative Assembly of '
+                  'Alberta; House of Commons; Government of Alberta (provincial boundaries)',
+     'page': 'https://elections-prd.calgary.ca/results/2025-results.html',
+     'updated': 'Read once a week; results change only with a new election, a by-election or a recount',
+     'used_in': 'Elections tab, Dashboard (Who represents this area), Data Genie',
+     'method': [
+         'Municipal, 20 October 2025: Elections Calgary\'s official results file (corrected after the 27 October 2025 '
+         'mayoral recount): every candidate\'s votes for mayor, councillor in each ward, and public (CBE) and separate '
+         '(CCSD) school trustee for each pair of wards. A share is a candidate\'s votes / the votes cast in that race. '
+         'Calgary\'s turnout as Elections Calgary states it (voters / electors on the City of Calgary Permanent Electors '
+         'Register). Elections Calgary does not publish turnout by ward. Three CCSD trustees were elected by acclamation.',
+         'Mayor by ward: the station-by-station results (gqvk-p23x) added up by ward for election-day stations; advance '
+         'votes were cast at stations open to any ward, so they count for Calgary only.',
+         'Provincial, 29 May 2023: Elections Alberta\'s Statement of Vote, the "Total (All Voting Options)" row of each '
+         'Calgary division (2019 boundaries, divisions 01 to 26): each candidate\'s votes, names on the list, ballots '
+         'cast (valid + declined + rejected) and turnout (ballots / names on the list). By-elections since in Calgary '
+         'divisions (Calgary-Shaw, 14 September 2026) from Elections Alberta\'s official results, read the same way. '
+         'The member sitting today from the Legislative Assembly of Alberta\'s member list.',
+         'Referendum, 19 October 2026: Elections Alberta\'s official results by electoral division for each of the 10 '
+         'questions; Calgary = its 26 divisions added up.',
+         'Federal, 28 April 2025: Elections Canada\'s official voting results, tables 11 (electors, ballots, turnout) '
+         'and 12 (candidates and votes) for Calgary\'s 11 districts; the members sitting today from the House of Commons.',
+         'Who represents a ward: a ward and a riding have different borders. Each community\'s area is split over the '
+         'ridings (a grid of points inside its outline; shares under 1% left out), and a ward\'s share in a riding = its '
+         'communities\' residents x their shares / its residents (the count chosen in Settings). The councillor and '
+         'school trustees follow the ward.',
+         'Nothing is ranked, scored or combined: results are shown as published, candidates in order of votes, with no '
+         'colours by party.'],
+     'excel': ['Municipal: the open data table gqvk-p23x; filter officecategory = Mayor and ward = the ward number to add up '
+               'a ward\'s election-day votes.',
+               'Provincial: the Statement of Vote workbook, sheet = the division number, row "Total (All Voting Options)".'],
+     'cautions': ['Riding shares are by area within each community, not by where each home is: a community split by a '
+                  'riding border is split by area.',
+                  'Alberta\'s electoral boundaries are being redrawn for the general election on 18 October 2027; the '
+                  'divisions here are those of the 2023 election.',
+                  'Elections Calgary notes that its station-by-station results do not include special (mail-in) ballots.'],
+     'code': 'elections.py; dashboard.py: elections_view'},
     {'key': 'access_revision', 'name': 'What changed on 5 November 2026 (Growth vs amenities)',
      'dataset': 'access, access_crowding', 'publisher': 'Calgary Data Desk', 'page': '',
      'updated': 'Revised 5 November 2026', 'used_in': 'Growth vs amenities (What changed)',

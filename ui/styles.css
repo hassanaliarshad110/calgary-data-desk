@@ -1485,3 +1485,25 @@ ul.pf li.now .pf-v { color: var(--accent); font-weight: 600; }
 
 .ac-tag.ac-nc { background: color-mix(in srgb, var(--warn) 22%, transparent); color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, transparent); }
 .ac-nc-line { margin-top: 4px; }
+
+/* ---------- Elections (elections.js): neutral, no colours by party */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.el-who { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1000px) { .el-who { grid-template-columns: 1fr; } }
+.el-level { border: 1px solid var(--border); border-radius: var(--r-md, 10px); padding: 14px 16px; background: var(--card); }
+.el-level h3 { margin: 0 0 10px; font-size: 15px; }
+.el-person { padding: 8px 0; border-top: 1px solid var(--border); }
+.el-level .el-person:first-of-type, .el-riding:first-of-type .el-person { border-top: 0; }
+.el-riding + .el-riding .el-person { border-top: 1px solid var(--border); }
+.el-role { font-size: 12px; color: var(--muted-fg); text-transform: none; }
+.el-name { font-weight: 600; font-size: 16px; }
+.el-meta, .el-share { font-size: 13px; color: var(--fg-2); }
+.el-now { display: flex; gap: 6px; align-items: center; margin-top: 4px; font-size: 13px; }
+.el-now .ic { width: 14px; height: 14px; }
+table.el-race { max-width: 760px; }
+tr.el-win td, tr.el-win th { font-weight: 600; }
+tr.el-here th, tr.el-here td { background: var(--accent-soft); }
+.el-q { display: inline-flex; gap: 8px; align-items: center; margin: 4px 0 8px; }
+.el-question { font-weight: 600; margin: 4px 0; }
+.el-opts { margin: 4px 0 10px; padding-left: 18px; font-size: 14px; }
+.el-ref-sum { display: flex; gap: 32px; flex-wrap: wrap; margin: 8px 0 12px; font-size: 14px; }

@@ -131,6 +131,7 @@ function show(view) {
   if (view === 'sources' && window.renderSources) renderSources();
   if (view === 'methods' && window.renderMethods) renderMethods();
   if (view === 'budget' && window.renderBudget) renderBudget();
+  if (view === 'elections' && window.renderElections) renderElections();
   if (view === 'sources' && window.renderLive) renderLive();
   if (view === 'news' && window.initNews) initNews();
   if (view === 'ask') $('#question').focus();
@@ -329,12 +330,14 @@ function renderDashboard() {
   renderTable();
   renderNotes();
   if (window.renderExtras) renderExtras();
+  if (window.renderRepCard) renderRepCard();
   fillIssueFilters();
   if ($('#view-issues').classList.contains('is-on')) renderIssues();
   if ($('#view-cameras').classList.contains('is-on')) renderCameraWall();
   if ($('#view-families').classList.contains('is-on') && window.renderFamilies) renderFamilies();   // the screen on show follows a new ward
   if ($('#view-growth').classList.contains('is-on') && window.renderGrowth) renderGrowth();
   if ($('#view-changes') && $('#view-changes').classList.contains('is-on') && window.renderChanges) renderChanges();
+  if ($('#view-elections') && $('#view-elections').classList.contains('is-on') && window.renderElections) renderElections();
   if (!$('#brief').hidden) renderBrief();
 }
 

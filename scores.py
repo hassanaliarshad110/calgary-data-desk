@@ -29,7 +29,7 @@ WEIGHTS = {'equal': None, 'local_heavy': {'local': 2 / 3, 'district': 1 / 3}}
 def shown(v):
     """The score as it is shown (2 decimals): bands and labels are judged on it, so a score shown as 0.50 is never
     called 'under 0.50' and a range that reaches 0.80 is never called below 0.80 every way."""
-    return round(v + 0.0, 2)
+    return round(round(v, 3), 2)                        # the 3-decimal figure stored, as the screen rounds it
 
 
 def band(v):

@@ -174,6 +174,16 @@ def main():
             raise RuntimeError('the access figures could not be worked out')
         write(os.path.join(data, 'access_base.json'), base)    # the desktop app reads this copy
     step('growth vs amenities (distance from every home)', access_base)
+
+    def elections_base():
+        import elections
+        base = elections.load(cache, can_build=True)
+        if not base:
+            raise RuntimeError('the election results could not be read')
+        write(os.path.join(data, 'elections.json'), base)       # the Elections tab and the desktop app read this copy
+        if base.get('errors'):
+            print('elections: parts not read:', base['errors'])
+    step('elections (municipal, provincial, federal)', elections_base)
     names = {}
     for m in meths:                 # the default first, so a partial build still shows the usual view
         for w in wards:
