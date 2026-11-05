@@ -1,6 +1,6 @@
 {
  "date": "2026-11-05",
- "published_at": "2026-11-05T23:08:31Z",
+ "published_at": "2026-11-05T23:25:36Z",
  "articles": [
   {
    "title": "Federal budget names Calgary projects as Ottawa projects a $62.3-billion deficit",
@@ -64,9 +64,11 @@
      "published": ""
     }
    ],
+   "section": "Alberta and Canada",
+   "image_query": "Parliament Hill Ottawa Centre Block",
    "id": "2026-11-05-federal-budget-names-calgary-projects-as-ottawa-projects-a-62-3-billio",
    "date": "2026-11-05",
-   "published_at": "2026-11-05T23:08:31Z",
+   "published_at": "2026-11-05T23:25:36Z",
    "words": 370
   },
   {
@@ -118,9 +120,11 @@
      "published": "2026-11-03"
     }
    ],
+   "section": "City Hall",
+   "image_query": "data center server racks",
    "id": "2026-11-05-committee-backs-a-pause-on-large-data-centre-applications-council-to-d",
    "date": "2026-11-05",
-   "published_at": "2026-11-05T23:08:31Z",
+   "published_at": "2026-11-05T23:25:36Z",
    "words": 313
   },
   {
@@ -162,9 +166,11 @@
      "published": "2026-10-18"
     }
    ],
+   "section": "City Hall",
+   "image_query": "Glenmore Reservoir Calgary",
    "id": "2026-11-05-stage-4-water-restrictions-in-effect-while-crews-connect-the-new-bears",
    "date": "2026-11-05",
-   "published_at": "2026-11-05T23:08:31Z",
+   "published_at": "2026-11-05T23:25:36Z",
    "words": 274
   },
   {
@@ -204,9 +210,11 @@
      "published": "2026-11-05"
     }
    ],
+   "section": "Public safety",
+   "image_query": "Okotoks Alberta",
    "id": "2026-11-05-house-fire-and-explosion-near-okotoks-closes-a-nearby-high-school",
    "date": "2026-11-05",
-   "published_at": "2026-11-05T23:08:31Z",
+   "published_at": "2026-11-05T23:25:36Z",
    "words": 186
   }
  ]
