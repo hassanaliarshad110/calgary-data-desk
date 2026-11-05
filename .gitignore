@@ -7,3 +7,4 @@ tests/mock_v2.js
 tests/shots_v2/
 .site-cache/
 _site/
+startup-error.log
