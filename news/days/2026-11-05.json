@@ -80,7 +80,71 @@
     "query": "Parliament Hill Ottawa Centre Block",
     "via": "Wikimedia Commons"
    },
-   "image_tried": "Parliament Hill Ottawa Centre Block"
+   "image_tried": "Parliament Hill Ottawa Centre Block",
+   "charts": [
+    {
+     "title": "Federal budgetary balance, Budget 2026 projection",
+     "kind": "bar",
+     "labels": [
+      "2025-26",
+      "2026-27",
+      "2027-28",
+      "2028-29",
+      "2029-30",
+      "2030-31"
+     ],
+     "series": [
+      {
+       "name": "Budgetary balance",
+       "values": [
+        -39.3,
+        -62.3,
+        -62.5,
+        -57.6,
+        -53.4,
+        -52.9
+       ]
+      }
+     ],
+     "unit": "$B",
+     "source": 1
+    },
+    {
+     "title": "Major federal transfers to Alberta",
+     "kind": "bar",
+     "labels": [
+      "2017-18",
+      "2018-19",
+      "2019-20",
+      "2020-21",
+      "2021-22",
+      "2022-23",
+      "2023-24",
+      "2024-25",
+      "2025-26",
+      "2026-27"
+     ],
+     "series": [
+      {
+       "name": "Health and social transfers",
+       "values": [
+        5.91,
+        6.12,
+        6.38,
+        6.61,
+        6.81,
+        7.08,
+        7.69,
+        8.21,
+        8.71,
+        9.24
+       ]
+      }
+     ],
+     "unit": "$B",
+     "source": 6
+    }
+   ]
   },
   {
    "title": "Committee backs a pause on large data centre applications; council to debate",
@@ -147,7 +211,28 @@
     "query": "Wikimedia Foundation Servers",
     "via": "Wikimedia Commons"
    },
-   "image_tried": "Wikimedia Foundation Servers"
+   "image_tried": "Wikimedia Foundation Servers",
+   "charts": [
+    {
+     "title": "Executive committee vote on the notice of motion",
+     "kind": "hbar",
+     "labels": [
+      "For",
+      "Against"
+     ],
+     "series": [
+      {
+       "name": "Votes",
+       "values": [
+        10,
+        3
+       ]
+      }
+     ],
+     "unit": "votes",
+     "source": 1
+    }
+   ]
   },
   {
    "title": "Stage 4 water restrictions in effect while crews connect the new Bearspaw feeder main",
@@ -204,7 +289,28 @@
     "query": "Glenmore Reservoir Calgary",
     "via": "Wikimedia Commons"
    },
-   "image_tried": "Glenmore Reservoir Calgary"
+   "image_tried": "Glenmore Reservoir Calgary",
+   "charts": [
+    {
+     "title": "Where Calgary's water comes from during the work",
+     "kind": "hbar",
+     "labels": [
+      "Glenmore treatment plant",
+      "Bearspaw treatment plant"
+     ],
+     "series": [
+      {
+       "name": "Share",
+       "values": [
+        80,
+        20
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 1
+    }
+   ]
   },
   {
    "title": "House fire and explosion near Okotoks closes a nearby high school",

@@ -6,6 +6,8 @@ EDITION.json: {"date": "YYYY-MM-DD", "articles": [article, ...]}  (at least 3 ar
 article: {"title", "dek", "section" (one of SECTIONS), "body": [paragraphs with [n] citation markers], "key_facts": [..],
           "topics": [..], "image_query": "a place or object to illustrate it (never a person)",
           "location": {"lat", "lon", "label"} (optional, where it happened),
+          "charts": [{"title", "kind": "bar"|"line"|"hbar", "labels": [..], "series": [{"name", "values": [..]}],
+                      "unit", "source": n}] (optional, when the story has figures worth seeing),
           "wards": [ints, optional], "communities": [names, optional],
           "sources": [{"title", "outlet", "url", "published": "YYYY-MM-DD"}]}
 NEWS_DIR is a checkout of the `news` branch; a second edition on the same day is added to the first. This writes news/days/DATE.json, news/latest.json (last 60 days) and
@@ -57,6 +59,17 @@ def check(ed):
                 ok = False
             if not ok:
                 errs.append(f'{w}: location needs lat, lon (in Alberta) and label')
+        for c in a.get('charts') or []:
+            labs, ser = c.get('labels') or [], c.get('series') or []
+            if not c.get('title') or not labs or not ser or c.get('kind', 'bar') not in ('bar', 'line', 'hbar'):
+                errs.append(f'{w}: a chart needs title, labels, series and kind bar, line or hbar')
+                continue
+            for sr in ser:
+                vals = sr.get('values') or []
+                if len(vals) != len(labs) or not all(isinstance(v, (int, float)) or v is None for v in vals):
+                    errs.append(f'{w}: chart {c["title"]!r}: series {sr.get("name")!r} needs one number per label')
+            if not isinstance(c.get('source'), int) or not 1 <= c['source'] <= len(a.get('sources') or []):
+                errs.append(f'{w}: chart {c["title"]!r} needs "source": the number of the source its figures come from')
         for f in ('title', 'dek', 'body', 'sources', 'topics'):
             if not a.get(f):
                 errs.append(f'{w}: missing {f}')
