@@ -163,6 +163,21 @@ const EL_PALETTE = ['#0369A1', '#B45309', '#047857', '#7C3AED', '#BE123C', '#0F7
 const EL_COLOR = {};
 const elColor = label => { if (!EL_COLOR[label]) EL_COLOR[label] = EL_PALETTE[Object.keys(EL_COLOR).length % EL_PALETTE.length]; return EL_COLOR[label]; };
 const elDays = d => Math.round((new Date(d + 'T12:00:00') - new Date()) / 86400000);
+// live countdowns: to the start of election day, Calgary time (October is daylight time, UTC-6)
+const elStart = d => new Date(d + 'T00:00:00-06:00');
+const EL_SHORT = { 'Alberta general election': 'Provincial', 'Calgary municipal election': 'Municipal', 'Federal general election': 'Federal' };
+function elCountdown(d, big) {
+  return `<div class="el-cd${big ? ' el-cd-big' : ''}" data-el-cd="${esc(d)}" role="timer" aria-label="Time until ${esc(elDay(d))}">${['days', 'hrs', 'min', 'sec'].map(u => `<span class="el-cd-u"><b>–</b><i>${u}</i></span>`).join('')}</div>`;
+}
+function elTick() {
+  const now = Date.now();
+  document.querySelectorAll('[data-el-cd]').forEach(n => {
+    let t = Math.max(0, Math.floor((elStart(n.dataset.elCd) - now) / 1000));
+    const v = [Math.floor(t / 86400), Math.floor(t % 86400 / 3600), Math.floor(t % 3600 / 60), t % 60];
+    n.querySelectorAll('b').forEach((b, i) => { const x = i ? String(v[i]).padStart(2, '0') : fmt(v[0]); if (b.textContent !== x) b.textContent = x; });
+  });
+}
+setInterval(elTick, 1000);
 
 // a half-circle seat chart: seats in rows, filled left to right by group (largest first)
 function elHemicycle(groups, title, sub) {
@@ -284,13 +299,12 @@ function elBattle() {
 function elRoom() {
   const M = EL.municipal || {}, P = EL.provincial || {}, F = EL.federal || {};
   const A = P.chamber, C = F.chamber, CW = EL.constituency_wards || {};
-  const nx = EL_NEXT[0], days = elDays(nx[1]);
   const cal = elCouncilSeats(), mla = elCalgarySeats('provincial'), mp = elCalgarySeats('federal');
   const split = gs => { const t = gs.reduce((a, g) => a + g.n, 0); return `<div class="el-bar">${gs.map(g => `<span style="width:${g.n / t * 100}%;background:${elColor(g.label)}" title="${esc(g.label)} ${g.n}"></span>`).join('')}</div><div class="el-hero-sub">${gs.map(g => `${esc(g.label)} ${g.n}`).join(' · ')}</div>`; };
   const battle = elBattle(), closest = battle[0];
   const hero = `<section class="el-cr span-12">
     <div class="el-cr-top"><div><div class="el-cr-kicker">Calgary Data Desk</div><h2 class="el-cr-title">Election Control Room</h2><div class="el-cr-sub">${esc(W())} · official results and the members sitting today · read ${esc(elDay(EL.built_at))}</div></div>
-      <div class="el-cr-count"><div class="el-cr-kicker">${esc(nx[0])}</div><div class="el-cr-days">${fmt(days)}</div><div class="el-cr-sub">days · ${esc(elDay(nx[1]))}</div></div></div>
+      <div class="el-cr-counts">${EL_NEXT.map(([t, d]) => `<div class="el-cr-count"><div class="el-cr-kicker">${esc(EL_SHORT[t] || t)} · ${esc(elDay(d))}</div>${elCountdown(d, true)}</div>`).join('')}</div></div>
     <div class="el-cr-kpis">
       <div class="el-kpi"><div class="el-kpi-l">City Council</div><div class="el-kpi-n">15</div>${split(cal)}</div>
       <div class="el-kpi"><div class="el-kpi-l">Calgary's MLAs</div><div class="el-kpi-n">26</div>${split(mla)}</div>
@@ -314,7 +328,7 @@ function elRoom() {
   const big = [];
   if (A) big.push(elHemicycle(elGroups(A.by_caucus).concat(A.vacant ? [{ label: 'Vacant', n: A.vacant, color: '#CBD5E1' }] : []), `Legislative Assembly of Alberta, ${A.seats} seats`, `Calgary holds 26 of the ${A.seats} seats.`));
   if (C) big.push(elHemicycle(elGroups(C.by_caucus).concat(C.vacant ? [{ label: 'Vacant', n: C.vacant, color: '#CBD5E1' }] : []), `House of Commons, ${C.seats} seats`, `Calgary holds 11 of the ${C.seats} seats.`));
-  const next = `<div class="el-next">${EL_NEXT.map(([t, d, n]) => { const k2 = elDays(d); return `<div class="el-tile"><div class="el-role">${esc(t)}</div><div class="el-big">${esc(elDay(d))}</div><div class="el-meta">${k2 > 0 ? `in ${fmt(k2)} days` : ''} · ${esc(n)}</div></div>`; }).join('')}</div>`;
+  const next = `<div class="el-next">${EL_NEXT.map(([t, d, n]) => { const k2 = elDays(d); return `<div class="el-tile"><div class="el-role">${esc(t)}</div><div class="el-big">${esc(elDay(d))}</div>${k2 > 0 ? elCountdown(d) : ''}<div class="el-meta">${esc(n)}</div></div>`; }).join('')}</div><p class="card-note">Counting down to the start of election day, Calgary time. A federal election can be called earlier than the fixed date.</p>`;
   return `${hero}
     <section class="card span-7"><div class="card-head"><div><h2>Turnout across Calgary</h2><p class="card-sub">2025 municipal election, ward by ward (estimate${isCity() ? '' : `; ${esc(W())} outlined`})</p></div></div>${turnMap}</section>
     <section class="card span-5"><div class="card-head"><div><h2>Turnout ranking</h2><p class="card-sub">Votes for councillor / estimated electors</p></div></div>${bars}<p class="card-note">Estimates: Elections Calgary publishes turnout for Calgary only. How it's counted: "Elections".</p></section>
@@ -479,6 +493,7 @@ async function renderElections() {
   body.innerHTML = `<nav class="el-subtabs span-12" aria-label="Election Control Room sections">${EL_SUBS.map(([k, t]) => `<button type="button" class="el-subtab${k === elSub ? ' is-on' : ''}" data-elsub="${k}" ${k === elSub ? 'aria-current="page"' : ''}>${esc(t)}</button>`).join('')}</nav>
     ${page}
     <section class="card span-12"><p class="card-note">Official results as published by Elections Calgary, Elections Alberta and Elections Canada; members today from the Legislative Assembly of Alberta and the House of Commons. Read ${esc(elDay(EL.built_at))}. Facts only: nothing here rates, ranks or recommends any candidate, party or campaign. ${errs.length ? `Not read this time: ${esc(errs.join(', '))}.` : ''} <button type="button" class="link-btn small" data-method="elections">How these are read</button></p></section>`;
+  elTick();
   body.querySelectorAll('[data-elsub]').forEach(b => b.addEventListener('click', () => { elSub = b.dataset.elsub; renderElections(); }));
   const sel = $('#el-refq');
   if (sel) sel.addEventListener('change', () => { elRefQ = +sel.value; const y = window.scrollY; renderElections().then(() => window.scrollTo(0, y)); });

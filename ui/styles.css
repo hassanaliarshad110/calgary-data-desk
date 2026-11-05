@@ -1536,7 +1536,15 @@ table.el-split td { line-height: 1.6; }
 .el-cr-kicker { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; color: #7DD3FC; font-weight: 600; }
 .el-cr-title { font-size: 34px; margin: 4px 0 6px; color: #F8FAFC; letter-spacing: -.01em; }
 .el-cr-sub { color: #94A3B8; font-size: 14px; }
+.el-cr-counts { display: flex; flex-direction: column; gap: 10px; }
 .el-cr-count { text-align: right; }
+.el-cd { display: inline-flex; gap: 6px; font-variant-numeric: tabular-nums; margin: 4px 0; }
+.el-cd-u { display: flex; flex-direction: column; align-items: center; min-width: 40px; padding: 4px 6px; border-radius: 6px; background: var(--surface-2, rgba(100,116,139,.12)); }
+.el-cd-u b { font-size: 18px; font-weight: 800; line-height: 1.1; }
+.el-cd-u i { font-style: normal; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; opacity: .7; }
+.el-cd-big .el-cd-u { background: rgba(255,255,255,.08); min-width: 52px; }
+.el-cd-big .el-cd-u b { font-size: 28px; color: #FBBF24; }
+.el-cd-big .el-cd-u i { color: #CBD5E1; }
 .el-cr-days { font-size: 56px; font-weight: 800; line-height: 1; color: #FBBF24; font-variant-numeric: tabular-nums; }
 .el-cr-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-top: 22px; }
 .el-kpi { background: rgba(15, 23, 42, .65); border: 1px solid #1E3A5F; border-radius: 12px; padding: 14px 16px; }
@@ -1561,5 +1569,5 @@ table.el-split td { line-height: 1.6; }
 .el-mbar { width: 140px; }
 .el-mbar i { display: block; height: 8px; border-radius: 4px; background: #F59E0B; min-width: 3px; }
 .el-seats-big .el-hemi svg { max-width: 480px; }
-@media (max-width: 700px) { .el-cr { padding: 18px; } .el-cr-title { font-size: 26px; } .el-cr-days { font-size: 40px; } .el-cr-count { text-align: left; } }
+@media (max-width: 700px) { .el-cr { padding: 18px; } .el-cr-title { font-size: 26px; } .el-cr-days { font-size: 40px; } .el-cr-count { text-align: left; } .el-cd-big .el-cd-u { min-width: 44px; } .el-cd-big .el-cd-u b { font-size: 22px; } }
 .el-map { max-height: 640px; }
