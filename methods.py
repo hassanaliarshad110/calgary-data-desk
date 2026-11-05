@@ -630,6 +630,14 @@ METHODS = [
          'districts by the share of its residents in each. The councillor race station by station is from the station '
          'results (gqvk-p23x). Who lives here: the City\'s ward profile (2021 Census); what residents raise: open 311 '
          'requests.',
+         'Know your constituency also lists the languages spoken most often at home and where immigrants were born, from '
+         'the City\'s ward profile (2021 Census), for outreach and translated materials.',
+         'Since the election: the dashboard\'s period (the 12 complete months since the 20 October 2025 election) against '
+         'the 12 months before, for 311 requests, infrastructure reports, traffic incidents, crime, new homes, homes in '
+         'building permits and development permit applications, with Calgary\'s change (all 14 wards added up); the '
+         'major projects in the area and where each stands; large building permits issued since 20 October 2025. These '
+         'describe the area: City services, funding from all three governments, growth and outside factors move them, so '
+         'they are not a measure of one person\'s record.',
          'Nothing is ranked, scored or recommended: results are shown as published, candidates in order of votes. The '
          'insights are facts worked out the same way for every race, for any candidate or campaign alike.'],
      'excel': ['Municipal: the open data table gqvk-p23x; filter officecategory = Mayor and ward = the ward number to add up '

@@ -1528,3 +1528,38 @@ tr.el-here th, tr.el-here td { background: var(--accent-soft); }
 .el-avatar { flex: 0 0 44px; height: 44px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 700; }
 .el-link { font-size: 13px; color: var(--accent); }
 table.el-split td { line-height: 1.6; }
+.el-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0 24px; }
+
+/* Election Control Room: the briefing-room look (dark panel in both themes) */
+.el-cr { background: radial-gradient(1200px 400px at 10% -10%, #12345a 0%, #0A1626 55%, #060D18 100%); color: #E2E8F0; border-radius: 16px; padding: 24px 28px; border: 1px solid #1E3A5F; box-shadow: 0 10px 30px rgba(2, 6, 23, .35); }
+.el-cr-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+.el-cr-kicker { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; color: #7DD3FC; font-weight: 600; }
+.el-cr-title { font-size: 34px; margin: 4px 0 6px; color: #F8FAFC; letter-spacing: -.01em; }
+.el-cr-sub { color: #94A3B8; font-size: 14px; }
+.el-cr-count { text-align: right; }
+.el-cr-days { font-size: 56px; font-weight: 800; line-height: 1; color: #FBBF24; font-variant-numeric: tabular-nums; }
+.el-cr-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-top: 22px; }
+.el-kpi { background: rgba(15, 23, 42, .65); border: 1px solid #1E3A5F; border-radius: 12px; padding: 14px 16px; }
+.el-kpi-l { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: #93C5FD; }
+.el-kpi-n { font-size: 36px; font-weight: 800; color: #F8FAFC; margin: 4px 0 6px; font-variant-numeric: tabular-nums; }
+.el-hero-sub { font-size: 12.5px; color: #CBD5E1; margin-top: 4px; }
+.el-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: #1E293B; }
+.el-bar span { display: block; height: 100%; }
+.el-map { width: 100%; height: auto; display: block; }
+.el-map-w { font-size: 13px; font-weight: 800; fill: #F8FAFC; text-anchor: middle; paint-order: stroke; stroke: rgba(2,6,23,.55); stroke-width: 3px; }
+.el-map-v { font-size: 11px; font-weight: 600; fill: #E0F2FE; text-anchor: middle; paint-order: stroke; stroke: rgba(2,6,23,.55); stroke-width: 3px; }
+.el-map-key { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted-fg); margin-top: 8px; }
+.el-map-key i { width: 140px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, hsl(199,55%,22%), hsl(199,90%,60%)); }
+.el-hbars { display: grid; gap: 6px; }
+.el-hbar { display: grid; grid-template-columns: 70px 1fr 44px; gap: 8px; align-items: center; font-size: 13px; }
+.el-hbar-t { height: 14px; background: var(--muted); border-radius: 7px; overflow: hidden; }
+.el-hbar-t i { display: block; height: 100%; background: var(--accent); border-radius: 7px; }
+.el-hbar.is-on .el-hbar-t i { background: #F59E0B; }
+.el-hbar-cal { border-top: 1px dashed var(--border); padding-top: 6px; font-weight: 700; }
+.el-hbar-cal .el-hbar-t i { background: #64748B; }
+.el-hbar-v { text-align: right; font-variant-numeric: tabular-nums; }
+.el-mbar { width: 140px; }
+.el-mbar i { display: block; height: 8px; border-radius: 4px; background: #F59E0B; min-width: 3px; }
+.el-seats-big .el-hemi svg { max-width: 480px; }
+@media (max-width: 700px) { .el-cr { padding: 18px; } .el-cr-title { font-size: 26px; } .el-cr-days { font-size: 40px; } .el-cr-count { text-align: left; } }
+.el-map { max-height: 640px; }

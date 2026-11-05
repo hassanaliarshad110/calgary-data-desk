@@ -65,6 +65,27 @@ TOPICS = [
      'community\'s local and district score with its range and label (consistent gap, depends on assumptions, no gap), '
      'and the communities near a playground or park whose score is under 0.80 (near, but crowded). Present what the '
      'data shows; no ranking of need and no recommendations.'),
+    ('constituency', 'Know your constituency: {area}',
+     'The electorate, how it voted, who lives here and what residents raise.', 'Elections',
+     'For {area}: estimated electors and turnout in the 2025 municipal election against Calgary, the 2025 councillor and '
+     'mayoral results there (the mayor\'s vote in the area against Calgary\'s, the councillor race station by station), '
+     'the provincial electoral divisions and federal electoral districts it overlaps with their 2023 and 2025 results, '
+     'turnout and closest margins, the 2026 referendum in its divisions, who lives here from the ward profile (households, '
+     'housing, income, work, languages spoken at home and immigrants\' countries of birth), growth by community since '
+     '2021 and the issues residents raise through 311 (get_dashboard section elections, profile, communities). Facts for '
+     'any candidate or campaign alike: neutral between candidates and parties, no predictions.'),
+    ('election_landscape', 'The election landscape in {area}',
+     'Seats, margins and turnout at every level, and the closest races.', 'Elections',
+     'For {area}: who holds every seat (council, MLAs, MPs) and by what margin, the closest races at each level, turnout '
+     'at each level and how it varies across wards and divisions, the seats that changed since the general elections '
+     '(by-elections), and the 2026 referendum against Alberta (get_dashboard section elections with full=true). Neutral '
+     'between candidates and parties; no predictions.'),
+    ('since_election', 'Since the 2025 election: {area}',
+     'The first year of the council term: City services, growth and projects.', 'Elections',
+     'For {area}: the first 12 months after the 20 October 2025 election against the 12 months before: 311 requests and how '
+     'fast they were closed, infrastructure reports, traffic incidents, crime, new homes, building and development '
+     'permits, and the major projects started, under way or finished, with Calgary\'s change for comparison. Say plainly '
+     'that these describe the area and depend on many decisions and outside factors, not one person\'s record.'),
     ('child_care', 'Child care spaces for children in {area}',
      'Licensed spaces per child by community, and inspection results.', 'Families',
      'Licensed child care spaces in {area} against children aged 0 to 4 and 0 to 14 in each community, the trend since 2021, '
