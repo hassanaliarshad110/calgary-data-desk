@@ -33,7 +33,11 @@ def search(q):
               'iiurlwidth': 1200, 'cllimit': 'max', 'clshow': '!hidden'}
     with urllib.request.urlopen(urllib.request.Request(API + '?' + urllib.parse.urlencode(params), headers=UA), timeout=60) as r:
         pages = (json.loads(r.read()).get('query') or {}).get('pages') or {}
-    for p in sorted(pages.values(), key=lambda p: p.get('index', 99)):
+    words = [w for w in re.findall(r'[a-z]{3,}', q.lower())]
+    def score(p):                       # files whose name carries more of the query words first, then search order
+        t = p.get('title', '').lower()
+        return (-sum(w in t for w in words), p.get('index', 99))
+    for p in sorted(pages.values(), key=score):
         ii = (p.get('imageinfo') or [{}])[0]
         md = ii.get('extmetadata') or {}
         lic = (md.get('LicenseShortName') or {}).get('value', '')
@@ -42,7 +46,7 @@ def search(q):
             continue
         if not LICENCE.match(lic) or PEOPLE.search(cats) or PEOPLE.search(p.get('title', '')):
             continue
-        if (md.get('Restrictions') or {}).get('value'):
+        if (md.get('Restrictions') or {}).get('value') or re.search(r'abandon|ruin|derelict|disaster|wreck', p.get('title', ''), re.I):
             continue
         return {'url': ii.get('thumburl') or ii.get('url'), 'page': ii.get('descriptionurl'),
                 'credit': strip((md.get('Artist') or {}).get('value')) or 'Unknown author',
