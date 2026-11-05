@@ -28,18 +28,11 @@ const CMP_METRICS = [
   { g: 'Families', k: 'daycare_per_100_0_4', label: 'Daycare and preschool spaces per 100 children under 5', d: 1, better: 'high' },
   { g: 'Families', k: 'schools', label: 'Schools', d: 0, better: null },
   { g: 'Families', k: 'students', label: 'Students enrolled', d: 0, better: null },
-  { g: 'Amenities', k: 'amenity_level', get label() { return 'Amenity level, City amenities only, residents: ' + popChip() + ' (1.00 = Calgary)'; }, d: 2, better: 'high' },
-  { g: 'Amenities', k: 'amenity_level_all', get label() { return "Amenity level, City + private accessible amenities, residents: " + popChip() + ' (1.00 = Calgary\'s City level)'; }, d: 2, better: 'high' },
-  { g: 'Amenities', k: 'amenity_level_all_private', get label() { return "Amenity level, with gated residents-only ones too, residents: " + popChip() + ' (1.00 = Calgary\'s City level)'; }, d: 2, better: 'high' },
-  { g: 'Amenities', k: 'alm:city_pace', label: "Amenity level, City's total, one rate for all (1.00 = Calgary)", d: 2, better: 'high' },
-  { g: 'Amenities', k: 'alm:city_actual', label: "Amenity level, City's total shared by actual growth (1.00 = Calgary)", d: 2, better: 'high' },
-  { g: 'Amenities', k: 'alm:model', label: 'Amenity level, residents by the growth model', d: 2, better: 'high' },
-  { g: 'Amenities', k: 'alm:census2021', label: 'Amenity level, residents by the ' + CY() + ' Census', d: 2, better: 'high' },
 ];
 const CMP_AMENITY = ['playgrounds', 'local_park_ha', 'benches', 'picnic_tables', 'basketball', 'goal_posts', 'washrooms',
   'off_leash', 'trees', 'rec_facilities', 'libraries', 'community_centres', 'transit_stops'];
 
-let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'amenity_level', map: null, layer: null, loading: null };
+let CMP = { data: null, geo: null, forPeriod: undefined, main: null, others: new Set(), picked: false, metric: 'ac:playground', map: null, layer: null, loading: null };
 try {
   const saved = JSON.parse(localStorage.getItem('cdd-compare') || 'null');
   if (saved) { CMP.main = saved.main; CMP.others = new Set(saved.picked ? (saved.others || []).filter(w => w >= 1 && w <= 14) : []); CMP.picked = !!saved.picked; CMP.metric = saved.metric || CMP.metric; }
@@ -53,11 +46,19 @@ function cmpMetrics() {
     g: 'Amenities', k: 'am:' + k, d: k === 'trees' ? 0 : 2, better: 'high',
     label: kinds[k].per === 'children' ? `${kinds[k].label} per 1,000 children` : `${kinds[k].label} per 1,000 residents`,
   }));
-  return [...CMP_METRICS, ...am];
+  // Growth vs amenities (revised 5 November 2026): share of homes within the first distance, in any community
+  const A = (CMP.data || {}).access || {}, ak = A.kinds || {};
+  const ac = ['playground', 'park', 'transit_stop', 'community_centre', 'rec_centre', 'library'].filter(k => ak[k]).map(k => ({
+    g: 'Amenities', k: 'ac:' + k, d: 0, unit: '%', better: null,
+    label: `Homes within ${(ak[k].thresholds_m || [])[0] >= 1000 ? (ak[k].thresholds_m[0] / 1000) + ' km' : (ak[k].thresholds_m || [])[0] + ' m'} of ${ak[k].label === 'Public park' ? 'a public park' : 'a' + (/^[aeiou]/i.test(ak[k].label) ? 'n ' : ' ') + ak[k].label.toLowerCase()} (any community)`,
+  }));
+  return [...CMP_METRICS, ...ac, ...am];
 }
+const cmpAc = (ward, k) => { const w = (((CMP.data || {}).access || {}).wards || []).find(x => x.ward === ward); const v = w && (w[k] || {}).share_1; return isNum(v) ? v * 100 : null; };
 const cmpVal = (row, k) => !row ? null : k.startsWith('am:') ? ((row.amenities || {})[k.slice(3)] ?? null)
-  : k.startsWith('alm:') ? ((row.amenity_level_by_method || {})[k.slice(4)] ?? (k === 'alm:model' ? row.amenity_level ?? null : null)) : (row[k] ?? null);
-const cmpCity = k => { const ws = CMP.data.wards_summary; if (k.startsWith('alm:') || k === 'amenity_level') return 1; return k.startsWith('am:') ? (ws.amenities_city || {})[k.slice(3)] ?? null : ws.city[k] ?? null; };
+  : k.startsWith('ac:') ? cmpAc(row.ward, k.slice(3)) : (row[k] ?? null);
+const cmpCity = k => { const ws = CMP.data.wards_summary; if (k.startsWith('ac:')) { const v = ((((CMP.data.access || {}).city || {})[k.slice(3)]) || {}).share_1; return isNum(v) ? v * 100 : null; }
+  return k.startsWith('am:') ? (ws.amenities_city || {})[k.slice(3)] ?? null : ws.city[k] ?? null; };
 const cmpFmt = (m, v) => !isNum(v) ? '–' : m.signed ? signed(v, m.d, m.unit || '') : fmt(v, m.d) + (m.unit || '');
 const ord = n => n + (['th', 'st', 'nd', 'rd'][(n % 100 - 20) % 10] || ['th', 'st', 'nd', 'rd'][n % 100] || 'th');
 
@@ -155,7 +156,7 @@ function renderCmpTable() {
       + others.map(w => cellFor(m, w, false, city)).join('') + '</tr>';
   }).join('');
   $('#cmp-table-sub').innerHTML = `Two different comparisons. <b>Under each ward's figure: its place among the 14 wards</b> (for example "2nd lowest of 14 wards": a place, not a judgment; fewer 311 reports can mean problems are not being reported). <b>"Against Calgary": how far it is from Calgary's own figure</b>, which is all 14 wards added together: every request and every resident in the city, so a big ward counts for more than a small one. A ward can be 2nd lowest of 14 and 32% below Calgary at the same time: they measure different things. Green or red only where higher or lower is clearly better (crime, traffic incidents, requests closed within 7 days, amenities), and only when 10% or more from Calgary. Choose a measure to rank every ward. <button type="button" class="link-btn small" data-method="compare">How each measure is worked out</button>`;
-  $('#cmp-note').textContent = `${ws.note || ''} Crime: ${ws.crime_period || 'the latest months published'}. Amenities: City assets in open data per 1,000 residents (playgrounds per 1,000 children); the amenity level averages them against the city.`;
+  $('#cmp-note').textContent = `${ws.note || ''} Crime: ${ws.crime_period || 'the latest months published'}. Amenities: homes within reach of each amenity, in any community (Growth vs amenities); City assets in open data per 1,000 residents (playgrounds per 1,000 children) counted inside each ward.`;
 }
 
 function renderCmpRank() {

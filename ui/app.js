@@ -126,7 +126,7 @@ function show(view) {
   if (view === 'cameras') renderCameraWall();
   if (view === 'families' && window.renderFamilies) renderFamilies();
   if (view === 'growth' && window.renderGrowth) renderGrowth();
-  if (view === 'attention' && window.renderAttention) renderAttention();
+  if (view === 'changes' && window.renderChanges) renderChanges();
   if (view === 'compare' && window.renderCompare) renderCompare();
   if (view === 'sources' && window.renderSources) renderSources();
   if (view === 'methods' && window.renderMethods) renderMethods();
@@ -334,7 +334,7 @@ function renderDashboard() {
   if ($('#view-cameras').classList.contains('is-on')) renderCameraWall();
   if ($('#view-families').classList.contains('is-on') && window.renderFamilies) renderFamilies();   // the screen on show follows a new ward
   if ($('#view-growth').classList.contains('is-on') && window.renderGrowth) renderGrowth();
-  if (window.renderAttention) renderAttention(!$('#view-attention').classList.contains('is-on'));
+  if ($('#view-changes') && $('#view-changes').classList.contains('is-on') && window.renderChanges) renderChanges();
   if (!$('#brief').hidden) renderBrief();
 }
 

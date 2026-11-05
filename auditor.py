@@ -94,8 +94,8 @@ total, rate, share and change. Rates per 1,000 residents a year = count / reside
 2. Check each source: is it the right dataset, the right dates, the right ward or communities, the right way of \
 counting residents, complete months only?
 3. Check the method against the app's own method (get_method, and get_code for the exact formula and thresholds) and the report's stated method.
-4. Check the wording: claims the data does not support, causes stated as fact, missing caveats, amenity gaps or the \
-Needs attention list presented as spending recommendations rather than priorities for review (open data has no costs), and \
+4. Check the wording: claims the data does not support, causes stated as fact, missing caveats, distance or crowding \
+figures presented as spending recommendations or a ranking of need (open data has no costs), and \
 recommendations that are obvious or routine (things the Mayor's or a councillor's office would already know) rather than specific \
 and backed by the findings.
 Report only real problems as findings, each with the evidence you re-ran. Do not report a problem you have not \

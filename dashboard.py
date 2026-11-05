@@ -10,7 +10,7 @@ import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 
-import attention
+import access
 import calgary_data as cd
 import osm
 import population as popmodel
@@ -1393,10 +1393,11 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
     kids_all = {c: kids_for(c, (pop_all.get(c) or {}).get('model') or 0, ref)[1] for c in ALL_RES}
     asset_data, asset_err = _safe(lambda: assetmap.load(cdir, force=False))
     # against the whole city: only when every community is known (without the ward table the "city" would be the ward)
-    amenity_gap = with_attention(amenity_view(asset_data, RESIDENTIAL_CODES, ALL_RES, pop_all, kids_all, names, amenities),
-                                 asset_data, RESIDENTIAL_CODES, ALL_RES, pop_all, kids_all, names) \
-        if asset_data and ward_table else None
-    # the same amenity levels under each way of counting residents, so the office can see how much the count matters
+    # the City's asset counts in each community (the Assets list); the old amenity level and its tiers were removed
+    # on 5 November 2026 (Growth vs amenities now measures distance and crowding: access.py)
+    amenity_gap = inventory(amenity_view(asset_data, RESIDENTIAL_CODES, ALL_RES, pop_all, kids_all, names, amenities),
+                            asset_data, RESIDENTIAL_CODES) if asset_data and ward_table else None
+    # residents and children under each way of counting residents (the crowding sensitivity line and Compare wards)
     gap_pops = {}
     for m_key in POP_METHODS:
         n_ = counts(m_key, ref, ALL_RES)
@@ -1409,29 +1410,6 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
             pm_[c] = {'model': n_.get(c, 0), 'census2021': v.get('census2021'), 'growth_pct': g_, 'growth_model': mod}
             km_[c] = kids_as(m_key, c, n_.get(c, 0), ref)[1]
         gap_pops[m_key] = (pm_, km_)
-    if amenity_gap:
-        amenity_gap['by_method'] = {}
-        merged_ = with_other(asset_data)
-        merged_p_ = with_other(asset_data, private=True) if has_private(asset_data) else None
-        local_ = [k for k, v in (amenity_gap.get('kinds') or {}).items() if v.get('local')]
-        for m_key, (pm_, km_) in gap_pops.items():
-            sub = amenity_view(asset_data, RESIDENTIAL_CODES, ALL_RES, pm_, km_, names)
-            amenity_gap['by_method'][m_key] = {
-                'label': POP_METHODS[m_key]['label'], 'level': scope_level(sub),
-                'residents': sum(r['residents'] or 0 for r in sub['by_comm']),
-                'communities': {r['code']: r['level'] for r in sub['by_comm']},
-                'flagged': [r['code'] for r in sub['by_comm'] if r['flag']]}
-            if merged_:                  # the same with amenities that are not the City's, against this count's City yardstick
-                both_ = amenity_view(merged_, RESIDENTIAL_CODES, ALL_RES, pm_, km_, names, local_kinds=local_,
-                                     yardstick=sub.get('city'))
-                amenity_gap['by_method'][m_key]['level_all'] = scope_level(both_)
-                amenity_gap['by_method'][m_key]['communities_all'] = {r['code']: r['level'] for r in both_['by_comm']}
-            if merged_p_:                # and with the residents-only (private) ones too, for the private filter
-                bp_ = amenity_view(merged_p_, RESIDENTIAL_CODES, ALL_RES, pm_, km_, names, local_kinds=local_,
-                                   yardstick=sub.get('city'))
-                amenity_gap['by_method'][m_key]['level_all_private'] = scope_level(bp_)
-                amenity_gap['by_method'][m_key]['communities_all_private'] = {r['code']: r['level'] for r in bp_['by_comm']}
-        amenity_gap['level'] = scope_level(amenity_gap)
 
     # ---- population month by month since Census day, from the same growth model ----
     series_months, by_comm_series, kid14, kid04 = [], {c: [] for c in RESIDENTIAL_CODES}, [], []
@@ -1566,18 +1544,12 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                                        amenities, fam, pdata, P, city_population_at, ward_table,
                                        crime_residents_at=residents_at if pdata else None)
         open_list = []                         # the whole city's open requests are too many to list; each ward lists its own
-        if amenity_gap:                        # amenities in each ward, against the city level
-            merged_assets = with_other(asset_data)
-            merged_priv = with_other(asset_data, private=True) if has_private(asset_data) else None
+        if amenity_gap:                        # the City's asset counts in each ward (no levels: see access.py)
             oth = (asset_data.get('other') or {}).get('by_comm') or {}
             oth_p = (asset_data.get('other') or {}).get('by_comm_private') or {}
-            # each way of counting's own Calgary level (per 1,000), the yardstick for that count
-            yards_ = {m_key: amenity_view(asset_data, ALL_RES[:1], ALL_RES, pm_, km_, names)['city']
-                      for m_key, (pm_, km_) in gap_pops.items()} if merged_assets else {}
+            byc = asset_data.get('by_comm') or {}
             for r in wards_summary['wards']:
                 codes_w = [c for c in ALL_RES if comm_ward.get(c) == r['ward']]
-                r['amenity_level_by_method'] = {m_key: scope_level(amenity_view(asset_data, codes_w, ALL_RES, pm_, km_, names))
-                                                for m_key, (pm_, km_) in gap_pops.items()}
                 # growth since the Census under every way of counting: residents that way / the Census count - 1
                 c21_ = sum((pop_all.get(c) or {}).get('census2021') or 0 for c in codes_w)
                 r['growth_pct_by_method'] = {m_key: _pct(sum((pm_.get(c) or {}).get('model') or 0 for c in codes_w), c21_)
@@ -1585,33 +1557,17 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                 sub = amenity_view(asset_data, codes_w, ALL_RES, pop_all, kids_all, names)
                 r['amenities'] = {k: v['per_1000'] for k, v in sub['scope'].items()}
                 # every asset in the ward, counted over all its communities (parks in business areas too)
-                byc = asset_data.get('by_comm') or {}
                 r['amenity_counts'] = {k: round(sum((byc.get(c) or {}).get(k, 0) for c, w_ in comm_ward.items() if w_ == r['ward']), 1)
                                        for k in sub['scope']}
-                r['amenities_vs_city'] = {k: v['vs_city'] for k, v in sub['scope'].items()}
                 # one source for playgrounds everywhere: the City's asset count (Playground Equipment, play complexes)
                 if 'playgrounds' in r['amenity_counts']:
                     r['playgrounds'] = r['amenity_counts']['playgrounds']
                     r['playgrounds_per_1000_kids'] = (round(r['playgrounds'] / r['children_0_14'] * 1000, 2)
                                                       if r.get('children_0_14') else None)
-                r['amenity_level'] = scope_level(sub)
-                r['amenity_flagged'] = len(sub['flagged'])
-                if merged_assets:                  # under every way of counting, with the non-City amenities too
-                    r['amenity_level_all_by_method'] = {}
-                    for m_key, (pm_, km_) in gap_pops.items():
-                        r['amenity_level_all_by_method'][m_key] = scope_level(amenity_view(
-                            merged_assets, codes_w, ALL_RES, pm_, km_, names, yardstick=yards_[m_key]))
-                if merged_assets:                  # with amenities that are not the City's (OpenStreetMap), same yardstick
-                    r['amenity_level_all'] = scope_level(amenity_view(merged_assets, codes_w, ALL_RES, pop_all, kids_all, names,
-                                                                      yardstick=amenity_gap['city']))
+                if oth:
                     r['amenity_counts_other'] = {k: round(sum((oth.get(c) or {}).get(k, 0) for c, w_ in comm_ward.items()
                                                               if w_ == r['ward']), 1) for k in osm.KINDS}
-                if merged_priv:                    # the private filter: residents-only ones added too
-                    r['amenity_level_all_private'] = scope_level(amenity_view(merged_priv, codes_w, ALL_RES, pop_all, kids_all,
-                                                                              names, yardstick=amenity_gap['city']))
-                    r['amenity_level_all_private_by_method'] = {m_key: scope_level(amenity_view(
-                        merged_priv, codes_w, ALL_RES, pm_, km_, names, yardstick=yards_[m_key]))
-                        for m_key, (pm_, km_) in gap_pops.items()}
+                if oth_p:
                     r['amenity_counts_private'] = {k: round(sum((oth_p.get(c) or {}).get(k, 0) for c, w_ in comm_ward.items()
                                                                 if w_ == r['ward']), 1) for k in osm.KINDS}
             c21_all = sum((pop_all.get(c) or {}).get('census2021') or 0 for c in ALL_RES)
@@ -1620,8 +1576,8 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                 for m_key, (pm_, km_) in gap_pops.items()}
             wards_summary['amenity_kinds'] = amenity_gap['kinds']
             wards_summary['pop_methods'] = {k: v['label'] for k, v in POP_METHODS.items()}
-            wards_summary['amenities_city'] = {k: v['per_1000'] for k, v in amenity_gap['city'].items()}
-            byc = asset_data.get('by_comm') or {}
+            wards_summary['amenities_city'] = {k: v['per_1000'] for k, v in amenity_view(
+                asset_data, ALL_RES[:1], ALL_RES, pop_all, kids_all, names)['city'].items()}
             wards_summary['amenity_counts_city'] = {k: round(sum((v or {}).get(k, 0) for v in byc.values()), 1)
                                                     for k in amenity_gap['city']}
             cw_ = wards_summary.get('city') or {}
@@ -1629,16 +1585,35 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                 cw_['playgrounds'] = wards_summary['amenity_counts_city']['playgrounds']
                 cw_['playgrounds_per_1000_kids'] = (round(cw_['playgrounds'] / cw_['children_0_14'] * 1000, 2)
                                                     if cw_.get('children_0_14') else None)
-            if merged_assets:
+            if oth:
                 wards_summary['amenity_counts_other_city'] = {k: round(sum((v or {}).get(k, 0) for v in oth.values()), 1)
                                                               for k in osm.KINDS}
-                wards_summary['city']['amenity_level_all'] = scope_level(amenity_view(
-                    merged_assets, ALL_RES, ALL_RES, pop_all, kids_all, names, yardstick=amenity_gap['city']))
-            if merged_priv:
+            if oth_p:
                 wards_summary['amenity_counts_private_city'] = {k: round(sum((v or {}).get(k, 0) for v in oth_p.values()), 1)
                                                                 for k in osm.KINDS}
-                wards_summary['city']['amenity_level_all_private'] = scope_level(amenity_view(
-                    merged_priv, ALL_RES, ALL_RES, pop_all, kids_all, names, yardstick=amenity_gap['city']))
+
+    # ---- Growth vs amenities (revised 5 November 2026): distance from every home and crowding (access.py) ----
+    def access_view():
+        base = access.load(cdir)
+        if not base:
+            return None
+        ward_of = {c: w_ for c, w_ in comm_ward.items() if w_}
+        shown = [c for c in base['comm'] if (city and c in set(ALL_RES)) or (not city and ward_of.get(c) == int(ward))] \
+            if ward_of else list(RESIDENTIAL_CODES)
+        # people for crowding: communities with at least MIN_RATE_RESIDENTS residents, as canada-insight reads them
+        # (amenity_gap by_comm), so both sites share the same people
+        def people(pm, km):
+            keep_ = {c for c, v in pm.items() if ((v or {}).get('model') or 0) >= MIN_RATE_RESIDENTS}
+            return {c: pm[c].get('model') for c in keep_}, {c: km.get(c) for c in keep_}
+        p_, k_ = people(pop_all, kids_all)
+        return access.view(base, p_, k_, pop_method, shown, ward_of, names,
+                           methods_pops={m_key: people(pm_, km_) for m_key, (pm_, km_) in gap_pops.items()})
+    access_out, access_err = _safe(access_view)
+    status.append({'name': 'Growth vs amenities: distance from every home to parks, playgrounds, transit stops and facilities',
+                   'ids': ['4bsw-nn7w', 'bdu9-amk8', 'kami-qbfh', 'muzh-c9qc', 'x34e-bcjz', 'hxfu-6d96'],
+                   'fetched': (access_out or {}).get('built_at'), 'city_updated': None, 'ok': bool(access_out),
+                   'error': access_err if not access_out else None,
+                   'note': 'Worked out once a week (the property roll once a month)', 'page': DATASET_PAGE + '4bsw-nn7w'})
 
     sum_ = {
         'requests12': tot('requests12'), 'requests_prev': tot('requests_prev'),
@@ -1720,6 +1695,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         'big_permits': big_permits,
         'amenities': amenities,
         'amenity_gap': amenity_gap,
+        'access': access_out,
         'status': status,
         'communities': communities,
         'open_by_type': sorted(open_types.values(), key=lambda x: -x['n'])[:12],
@@ -1766,13 +1742,6 @@ GAP_LEVEL = 0.75             # ... and have fewer amenities per resident than th
 GAP_KINDS = ['playgrounds', 'benches', 'picnic_tables', 'basketball', 'goal_posts', 'fitness', 'washrooms', 'fountains',
              'garbage', 'off_leash', 'local_park_ha', 'trees', 'rec_facilities', 'libraries', 'community_centres',
              'transit_stops']
-
-
-def scope_level(view):
-    """An area's amenity level: its amenities per resident as a share of the city's, averaged over every kind (each
-    kind counts at most double). 1.00 = the city level."""
-    vals = [min(v['vs_city'], 2.0) for v in (view or {}).get('scope', {}).values() if v.get('vs_city') is not None]
-    return round(sum(vals) / len(vals), 2) if vals else None
 
 
 def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, amenities=None, local_kinds=None, yardstick=None):
@@ -1858,7 +1827,7 @@ def amenity_view(asset_data, scope_codes, all_codes, pop_all, kids_all, names, a
                      f'{GAP_GROWTH_PCT}% since 2021 (or are new since then) and sit below {GAP_LEVEL:.2f} are flagged: amenities have not kept up '
                      'with growth. Counts are City assets in open data; private, school and community association '
                      'facilities are not included.'),
-            'method': AMENITY_METHOD}
+}
 
 
 def with_other(asset_data, private=False):
@@ -1882,65 +1851,26 @@ def has_private(asset_data):
     return bool(((asset_data or {}).get('other') or {}).get('by_comm_private'))
 
 
-def _sum_other(a, b):
-    out = {k: dict(v) for k, v in (a or {}).items()}
-    for c, v in (b or {}).items():
-        d = out.setdefault(c, {})
-        for k, n in v.items():
-            d[k] = round(d.get(k, 0) + n, 2)
-    return out
-
-
-def with_attention(view, asset_data=None, scope_codes=None, all_codes=None, pop_all=None, kids_all=None, names=None):
-    """The amenity view with its Needs attention ranking (attention.py has the ranking and how it is worked out):
-    'attention' counts the City's amenities and the ones that are not the City's (OpenStreetMap), when that count is
-    available; 'attention_city' counts the City's only."""
+def inventory(view, asset_data=None, scope_codes=None):
+    """The City's asset counts in each community of the scope, in the ward and in Calgary, for the Assets list.
+    No per-resident levels, comparisons with the city, flags or tiers (removed 5 November 2026)."""
     if not view:
         return view
-    view['attention_city'] = attention.rank(view)
-    merged = with_other(asset_data)
-    if merged:
-        local = [k for k, v in (view.get('kinds') or {}).items() if v.get('local')]
-        # the City's own Calgary level stays the yardstick: amenities that are not the City's can only lift a community,
-        # and how well other parts of the city happen to be mapped in OpenStreetMap does not move it
-        both = amenity_view(merged, scope_codes, all_codes, pop_all, kids_all, names, local_kinds=local,
-                            yardstick=view.get('city'))
-        other = asset_data['other']
+    keep = ('code', 'name', 'residents', 'census2021', 'growth_pct', 'children_0_14', 'new', 'n')
+    out = {'kinds': {k: {f: v.get(f) for f in ('label', 'dataset', 'per', 'noun', 'local')} for k, v in view['kinds'].items()},
+           'city': {k: {'n': v.get('n')} for k, v in view['city'].items()},
+           'scope': {k: {'n': v.get('n')} for k, v in view['scope'].items()},
+           'by_comm': [{f: r.get(f) for f in keep} for r in view.get('by_comm') or []],
+           'counted': view.get('counted')}
+    other = (asset_data or {}).get('other')
+    if other and scope_codes:
         pub, priv = other.get('by_comm') or {}, other.get('by_comm_private') or {}
-        city_lv = {r['code']: r['level'] for r in view.get('by_comm') or []}
-        view['attention'] = attention.rank(both, other=pub, city_levels=city_lv)
-        # the amenity level on both counts, community by community: City only ('level') and with the others ('level_all')
-        lv = {r['code']: r['level'] for r in both.get('by_comm') or []}
-        for r in view.get('by_comm') or []:
-            r['level_all'] = lv.get(r['code'])
-            r['other'] = pub.get(r['code'])
-        view['level_all'] = scope_level(both)
-        view['scope_all'] = both.get('scope')
-        # with the residents-only (access=private) ones too: only when the "include private ones" filter is on
-        merged_p = with_other(asset_data, private=True) if priv else None
-        if merged_p:
-            both_p = amenity_view(merged_p, scope_codes, all_codes, pop_all, kids_all, names, local_kinds=local,
-                                  yardstick=view.get('city'))
-            view['attention_private'] = attention.rank(both_p, other=_sum_other(pub, priv), city_levels=city_lv)
-            lvp = {r['code']: r['level'] for r in both_p.get('by_comm') or []}
-            for r in view.get('by_comm') or []:
-                r['level_all_private'] = lvp.get(r['code'])
-                if priv.get(r['code']):
-                    r['other_private'] = priv.get(r['code'])
-            view['level_all_private'] = scope_level(both_p)
-            view['scope_all_private'] = both_p.get('scope')
-        view['other'] = {'source': other.get('source'), 'counted': other.get('counted'), 'kept_from': other.get('kept_from'),
-                         'stats': other.get('stats'), 'rules': other.get('rules'),
-                         'by_comm': {c: pub.get(c) for c in scope_codes if pub.get(c)},
-                         'by_comm_private': {c: priv.get(c) for c in scope_codes if priv.get(c)},
-                         'features': [f for f in other.get('features') or [] if f.get('comm') in set(scope_codes)],
-                         'level_with_other': scope_level(both)}
-    else:
-        view['attention'] = view['attention_city']
-    return view
-
-
-AMENITY_METHOD = methods.AMENITY_STEPS   # the method, step by step, shown on screen and to the Genie
+        out['other'] = {'source': other.get('source'), 'counted': other.get('counted'), 'kept_from': other.get('kept_from'),
+                        'stats': other.get('stats'), 'rules': other.get('rules'),
+                        'by_comm': {c: pub.get(c) for c in scope_codes if pub.get(c)},
+                        'by_comm_private': {c: priv.get(c) for c in scope_codes if priv.get(c)},
+                        'features': [f for f in other.get('features') or [] if f.get('comm') in set(scope_codes)]}
+    return out
 
 
 def ward_summaries(communities, comm_ward, pop_mid12, pop_midprev, yr12, yrprev, R, O, t12, tprev, amenities, fam,
@@ -2054,7 +1984,6 @@ def ward_summaries(communities, comm_ward, pop_mid12, pop_midprev, yr12, yrprev,
                                                                    '_per_1000_kids', '_per_100_kids', '_per_100_0_4')) and k != 'ward':
                 total[k] = total.get(k, 0) + v
     finish(total)
-    total['amenity_level'] = 1.0                    # the city is the yardstick
     return {'wards': rows, 'city': total, 'crime_period': (crime or {}).get('period'),
             'note': ('Each ward is its communities (the ward holding most of each community\'s area). Rates are per 1,000 '
                      'residents a year, using residents in the middle of the period, counted the way chosen in Settings. Traffic incidents '

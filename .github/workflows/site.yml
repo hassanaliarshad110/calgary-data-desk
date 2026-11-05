@@ -31,8 +31,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Tools for locking the Claude key
-        run: pip install cryptography
+      - name: Tools for locking the Claude key, and for the distance from every home (Growth vs amenities)
+        run: pip install cryptography numpy scipy
 
       # the weekly and daily copies (assessment roll, Census, police file) carry over between runs
       - uses: actions/cache/restore@v4

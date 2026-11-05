@@ -3,41 +3,59 @@
 One place for the method notes that Data Genie reads (get_method) and the Data sources tab shows ("How the app
 counts it"), so a person or the assistant can explain or reproduce any dashboard number, for example in Excel.
 """
-import attention
+import access
 
-# The amenity level, step by step (dashboard.py uses these numbers: GAP_GROWTH_PCT 20, GAP_LEVEL 0.75,
-# MIN_RATE_RESIDENTS 100; a test checks they match).
-AMENITY_STEPS = [
-    'Count every City asset of each kind in each community, from City of Calgary open data (the datasets are listed '
-    'with each kind). Point assets go to the community whose outline holds them; parks and off-leash areas go to the '
-    'community holding their middle; public trees use the City\'s own community code. Park space is in hectares.',
-    'Divide each count by the community\'s residents and multiply by 1,000. Playgrounds are divided by children aged '
-    '0 to 14 instead, since they are for children.',
-    'Do the same for Calgary as a whole (every residential community added together): Calgary per 1,000 = the count in '
-    'every community where people live / their residents x 1,000 (playgrounds: / children aged 0 to 14). With the '
-    'default way of counting, those residents add up to the City\'s own total for this month.',
-    'What Calgary\'s count leaves out, and why: assets in communities where nobody lives (industrial and business '
-    'areas, the airport, large parks with no homes), because no community\'s own figure includes them either, so '
-    'counting them for Calgary would set the bar above what any community could reach (for example 14 of the City\'s '
-    'playgrounds sit in such areas). Assets the City lists with no location, or whose location is outside every '
-    'community outline, cannot be placed and are not counted. Neighbourhood park space counts only sub-neighbourhood, '
-    'neighbourhood and community parks: regional parks and natural areas are left out. The dashboard keeps the number '
-    'left out for every kind (amenity_gap city: left_out_no_residents, left_out_where, not_placed, not_neighbourhood_parks).',
-    'Divide the community\'s figure by Calgary\'s for each kind: 1.00 means the same as the city, 0.50 half, 2.00 '
-    'double.',
-    'Cap each kind at 2.00, so having far more of one thing (say benches) cannot hide having none of another.',
-    'The amenity level is the plain average of those capped shares. For a community it uses the neighbourhood '
-    'amenities only (the kinds Calgary has enough of for at least one in every two communities, plus park space and '
-    'trees); park washrooms, drinking fountains, libraries, recreation facilities and community centres are too few to '
-    'expect one in every community, so they are left out of community levels and counted in ward and city levels.',
-    'A ward\'s level is worked out the same way from all its residential communities together, over every kind.',
-    'A community is flagged "not kept up with growth" when it grew more than 20% since the 2021 Census '
-    '(or did not exist then) and its level is below 0.75.',
-    'Communities with fewer than 100 residents are left out: per-resident figures mean nothing there.',
-    'Residents are counted the way chosen in Settings (the City\'s total shared by actual growth, by default). The '
-    'levels under all four counts are shown together. With "grown to the City\'s total" every community counted in 2021 '
-    'grows by the same factor (communities built since then come from the growth model), so its shares against the city '
-    'are close to the 2021 Census ones; the growth model changes them most.',
+# Growth vs amenities, revised 5 November 2026 (access.py has the formulas; tests/t_access.py checks them)
+ACCESS_STEPS = [
+    'Homes: every residential record on the City\'s property assessment roll (Current Year Property Assessments, '
+    '4bsw-nn7w, with assessment_class = RE, property_type = LI and a residential use code starting with R), each roll '
+    'number once, placed at the mean of its parcel outline\'s corners. A purpose-built rental building is one record on '
+    'the roll; it counts as its number of units (from a matching building permit, or estimated from assessed value).',
+    'Amenities, from the City\'s own inventory: playgrounds (Playground Equipment, bdu9-amk8, multi-play complexes '
+    'that are active or installed), public parks (Parks Sites, kami-qbfh, every site except non-park and parks depot), '
+    'transit stops (Calgary Transit Stops, muzh-c9qc, active), community centres and public libraries (Community '
+    'Services, x34e-bcjz) and indoor recreation centres (Recreation Facilities, hxfu-6d96: leisure centres, aquatic and '
+    'fitness centres and fieldhouses).',
+    'For every home and every kind: the straight-line distance in metres to the nearest one, in ANY community. Parks: '
+    'to the nearest point of the park\'s edge (sampled every 20 m), 0 for a home inside a park.',
+    'Distances: playgrounds, parks and transit stops 400 m and 800 m; community centres 800 m and 1.6 km; recreation '
+    'centres and libraries 2 km and 5 km. The 400 m for transit is the coverage distance in Calgary Transit\'s Service '
+    'Guidelines (May 2025); every other distance is a choice, published at two distances so the effect of the choice '
+    'shows.',
+    'For a community, a ward and Calgary, weighted by units: the share of homes within the first distance and within '
+    'the second; the same for homes built since 2021 and homes built before 2021 (homes with no year are in neither); '
+    'the median distance.',
+    'Reading for a community and an amenity, a stated rule, not a score: Too few homes (under 100 units); Measured gap '
+    '(under half of units within the first distance); Check inventory (a measured gap where 25% or more of units were '
+    'built in the last five years, because developer-built amenities may not be in the City\'s inventory yet); Most '
+    'homes within reach (otherwise). Readings are never combined across amenities and there is no overall score.',
+]
+CROWDING_STEPS = [
+    'Crowding asks how many people share the playgrounds and parks within reach. It is an estimate.',
+    'Children aged 0 to 14 and residents in each community come from the population model, counted the way chosen in '
+    'Settings, and are spread evenly over the community\'s homes: children per unit = the community\'s children / its '
+    'units.',
+    'Playgrounds, at 400 m and again at 800 m. Step 1, for each playground: the children of every home within the '
+    'distance; its share = 1 / those children (a playground with no children within reach is skipped). Step 2, for '
+    'each home: reach = 1,000 x the sum of the shares of the playgrounds within the distance (0 when none is).',
+    'A community, a ward or Calgary: the children-weighted average of reach over its homes, in playgrounds per 1,000 '
+    'children.',
+    'Parks: the same, with each park\'s area in hectares in place of 1 and residents in place of children: hectares per '
+    '1,000 residents. A home is within reach of a park when it is within the distance of the park\'s edge.',
+    'Calgary\'s figure is simply the playgrounds with children within reach x 1,000 / the children in homes: the measure '
+    'moves people between communities, it adds no playgrounds. The tab shows Calgary\'s figure under every way of '
+    'counting residents, so the effect of the estimate shows.',
+    'No tier and no combining with distance: the crowding figure stands beside Calgary\'s, in its own column.',
+]
+OLD_METHOD = [
+    'Counted City assets inside each community\'s boundary (benches, picnic tables, playgrounds, sports equipment, '
+    'fitness equipment, bins, off-leash areas, neighbourhood park space, trees, transit stops) per 1,000 residents '
+    '(playgrounds per 1,000 children).',
+    'Divided each by Calgary\'s figure, capped each at 2.00 and averaged them into an "amenity level" (1.00 = the city).',
+    'Flagged communities that grew more than 20% since 2021 (or were new) and sat below 0.75: 23 communities on '
+    '5 November 2026.',
+    'A "Needs attention" tab ranked communities Urgent, High or Watch with a growth weight (0.5 + growth % / 200) and '
+    'listed what each would take to reach the Calgary level.',
 ]
 
 
@@ -152,7 +170,7 @@ METHODS = [
          'model adds for its new homes, the factor set so Calgary matches the City\'s forecast of children.',
          'The largest community takes the person or two that rounding leaves over, so Calgary matches the City\'s figure '
          'exactly under both City\'s-total choices.',
-         'Every figure that uses residents (rates per 1,000, children, amenity levels, Needs attention, Compare wards, '
+         'Every figure that uses residents (rates per 1,000, children, crowding at playgrounds and parks, Compare wards, '
          'property tax and budget per resident, the briefing screen) is worked out again under the choice; the website '
          'works all of them out under every choice each morning.',
          'Rates per 1,000 residents = count / residents in the middle of the period x 1,000 x (12 / months).'],
@@ -489,7 +507,8 @@ METHODS = [
          'Child care spaces per 100 children: licensed spaces in the ward\'s communities (Government of Alberta, family '
          'day home agencies not counted) / children aged 0 to 14 x 100; daycare and preschool per 100 children under 5 '
          'likewise. Schools and students: schools located in the ward and their latest enrolment.',
-         'Amenity level: see "Amenity level and the amenity gap".',
+         'Amenities: the share of homes within reach of each amenity and the crowding at playgrounds and parks '
+         '(see "Growth vs amenities").',
          'Rank "nth of 14": wards ordered best first where one direction is better (lower crime, faster closing, more '
          'amenities), otherwise highest first. Green or red: at least 10% better or worse than Calgary.'],
      'excel': ['Save the table with "Save this table"; every ward\'s figure can be rebuilt from the datasets listed, '
@@ -497,37 +516,49 @@ METHODS = [
      'cautions': ['311 rates measure how much residents report, not how many problems there are: wards with more newcomers '
                   'or fewer app users can report less for the same problems.']},
 
-    {'key': 'amenity_gap', 'name': 'Amenity level and the amenity gap', 'dataset':
-        'ikeb-n5bc, bdu9-amk8, da6k-wpxb, jjkg-kv4n, fwyk-8pth, enr4-crti, kami-qbfh, tfs4-3wwa, hxfu-6d96, x34e-bcjz, muzh-c9qc',
-     'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': 'https://data.calgary.ca/browse',
-     'updated': 'Assets counted again every week', 'used_in': 'Growth vs amenities (Amenity gap), Compare wards, Data Genie',
-     'method': AMENITY_STEPS,
-     'excel': ['Download one asset dataset (for example Parks Seating, ikeb-n5bc, filtered to benches that are ACTIVE or '
-               'INSTALLED) and count the rows inside one community; divide by its residents x 1,000; do the same for all '
-               'of Calgary; divide the two.'],
-     'cautions': ['Only City assets in open data: school, private and community association facilities are not counted.',
-                  'Counts, not size or condition: a small playground counts the same as a large one.',
-                  'Amenities near a community\'s edge serve its neighbours too; the level treats each community on its own.']},
+    {'key': 'access', 'name': 'Growth vs amenities: how near homes are to amenities (distance from every home)',
+     'dataset': '4bsw-nn7w, bdu9-amk8, kami-qbfh, muzh-c9qc, x34e-bcjz, hxfu-6d96',
+     'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': 'https://data.calgary.ca/d/4bsw-nn7w',
+     'updated': 'Worked out again every week; the property roll every month',
+     'used_in': 'Growth vs amenities, Compare wards, Data Genie',
+     'method': ACCESS_STEPS,
+     'excel': ['Take one community\'s homes from the property roll (4bsw-nn7w, the filters above) and the City\'s '
+               'playgrounds (bdu9-amk8); for each home, the distance to the nearest playground = the smallest '
+               'SQRT(((lon2 - lon1) x 69,880)^2 + ((lat2 - lat1) x 111,132)^2) metres; count the homes at 400 m or '
+               'less and divide by all the homes.'],
+     'cautions': access.LIMITATIONS[:4] + [access.LIMITATIONS[5], access.LIMITATIONS[7], access.LIMITATIONS[8]],
+     'code': 'access.py (compute, summarise, reading, shares, distances_to_points, distances_to_polygons); a port of '
+             'canada-insight insight/indicators/access.py'},
 
-    {'key': 'needs_attention', 'name': 'Needs attention: communities that most need public amenities (amenity level with growth counted, and tiers)',
-     'dataset': 'Amenity level (see amenity_gap) + growth since 2021 (growth model) + OpenStreetMap (see other_amenities)',
-     'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': 'https://data.calgary.ca/browse',
-     'updated': 'With every refresh; assets counted again every week', 'used_in': 'Needs attention tab, Data Genie',
-     'method': attention.METHOD,
-     'excel': ['From the Growth vs amenities list saved to Excel: shortfall = MAX(0, 1 - level); weight = IF(new, 1, '
-               '0.5 + MIN(MAX(growth %, 0), 100) / 200); level with growth counted = ROUND(1 - shortfall * weight, 2).',
-               'What it would take for one amenity: Calgary per 1,000 x residents / 1,000 - the community\'s count, '
-               'rounded up (playgrounds: children 0 to 14 instead of residents).'],
-     'cautions': ['Priorities for review, not a spending recommendation: the City\'s open data has no costs.',
-                  'Amenities that are not the City\'s come from OpenStreetMap, which volunteers edit: coverage is '
-                  'uneven, and a missing playground may simply not be mapped yet.',
-                  'New communities often have parks and playgrounds still to be built by the developer under their '
-                  'subdivision approval; a low level there is a question to ask, not necessarily a gap.',
-                  'Benches, picnic tables, washrooms, bins, trees and transit stops are the City\'s only (they are '
-                  'too unevenly mapped in OpenStreetMap to add), and amenities just across a community boundary that '
-                  'its residents use are not counted.',
-                  'Counts, not size or condition.'],
-     'code': 'attention.py (level_growth, tier, catch_up, rank); inputs from dashboard.amenity_view and dashboard.with_attention'},
+    {'key': 'access_crowding', 'name': 'Growth vs amenities: crowding at playgrounds and parks (two-step catchment, estimate)',
+     'dataset': 'access (distance) + population model (children 0 to 14, residents)',
+     'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': '',
+     'updated': 'With every refresh (the population estimate changes monthly)',
+     'used_in': 'Growth vs amenities, Data Genie',
+     'method': CROWDING_STEPS,
+     'excel': ['Two playgrounds: 100 children live within 400 m of the first, 400 of the second, and no home reaches '
+               'both. Shares: 1/100 and 1/400. A home near the first: 1,000 x 1/100 = 10 playgrounds per 1,000 '
+               'children; near the second: 2.5. Calgary: (100 x 10 + 400 x 2.5) / 500 = 4 = 2 playgrounds x 1,000 / '
+               '500 children.'],
+     'cautions': [access.LIMITATIONS[6], 'Each playground counts as one, whatever its size; a park counts as its area.', access.LIMITATIONS[4],
+                  'Straight-line distance, the City\'s inventory only.'],
+     'code': 'access.py (crowding, average, view)'},
+
+    {'key': 'access_revision', 'name': 'What changed on 5 November 2026 (Growth vs amenities)',
+     'dataset': 'access, access_crowding', 'publisher': 'Calgary Data Desk', 'page': '',
+     'updated': 'Revised 5 November 2026', 'used_in': 'Growth vs amenities (What changed)',
+     'method': ['The earlier method, removed: ' + ' '.join(OLD_METHOD),
+                'Why: an audit on 5 November 2026 found that counting inside the boundary per resident misled. A '
+                'playground across the street in the next community counted as zero: North Haven Upper had no '
+                'playground inside its boundary, yet 96% of its homes are within 400 m of one. Across about 215 '
+                'communities the rank agreement between the two measures was about 0.45.',
+                'The method now: the distance from every home to the nearest amenity, in any community '
+                '(see "Growth vs amenities: how near homes are to amenities"), and for playgrounds and parks how many '
+                'children or residents share the ones within reach (see "crowding").',
+                'Removed with it: the amenity level, the Needs attention tab and its Urgent, High and Watch tiers, the '
+                'growth weight, the "what it would take" list and per-resident amenity counts as headline figures. The '
+                'earlier list of 23 communities is replaced.'],
+     'excel': [], 'cautions': [], 'code': 'access.py (REVISION, OLD_FLAGGED)'},
 
     {'key': 'homes', 'name': 'Homes: how they are counted (each ward, each community)',
      'dataset': '4bsw-nn7w (Current Year Property Assessments), msjx-5ygv (2021 Census households)',
@@ -604,7 +635,7 @@ METHODS = [
     {'key': 'other_amenities', 'name': 'Amenities that are not the City\'s (OpenStreetMap), without double counting',
      'dataset': 'OpenStreetMap: leisure=playground, fitness_station, pitch (sport=basketball), dog_park, park',
      'publisher': 'OpenStreetMap contributors (Open Database Licence)', 'page': 'https://www.openstreetmap.org/copyright',
-     'updated': 'Read again every week with the City\'s assets', 'used_in': 'Needs attention tab, Data Genie',
+     'updated': 'Read again every week with the City\'s assets', 'used_in': 'Growth vs amenities (the optional "Count private amenities" filter, playgrounds and parks), Assets list',
      'method': ['Ask OpenStreetMap (Overpass API) for every playground, fitness station, basketball court, dog park and '
                 'park inside a box around Calgary.',
                 'Take out every one the City already lists: a City playground (Playground Equipment) within 80 m of its '
@@ -621,9 +652,11 @@ METHODS = [
                 'Place each one left in the community holding its middle and count it: playgrounds, fitness stations and '
                 'dog parks 1 each; basketball courts their hoops tag (else 1); parks their area in hectares, added to '
                 'neighbourhood park space.',
-                'These are added to each community\'s City counts for the Needs attention ranking. Calgary\'s yardstick '
-                '(per 1,000) stays the City\'s own, so they can only lift a community. The amenity level on Growth '
-                'vs amenities stays the City\'s only.'],
+                'They are listed beside the City\'s counts in the Assets list. On Growth vs amenities they count only when '
+                'the "Count private amenities accessible to the community" filter is on (off by default), and then only '
+                'for playgrounds and parks: the distance to the nearest one and the crowding. An OpenStreetMap park is a '
+                'circle of its own area around its middle. Gated, residents-only ones count only when "Also count gated" '
+                'is ticked too.'],
      'excel': ['Open overpass-turbo.eu, run the query for one kind (for example leisure=playground) over a community, '
                'and compare each result with the City\'s Playground Equipment points (bdu9-amk8) on the same map.'],
      'cautions': ['Volunteer-edited: coverage is uneven; a missing feature means nobody has mapped it yet.',
@@ -741,7 +774,7 @@ METHODS = [
 
 # where each method lives in the code (Data Genie's get_code reads it; the "How it's counted" screen names it)
 CODE_WHERE = {
-    'amenity_gap': 'dashboard.py: scope_level, amenity_view, GAP_LEVEL, GAP_GROWTH_PCT, GAP_KINDS; assets.py (counting)',
+    'amenity_assets': 'dashboard.py: amenity_view, inventory; assets.py (counting)',
     'amenities': 'dashboard.py: amenity_view; assets.py',
     'population_choice': 'dashboard.py: POP_METHODS, DEFAULT_POP_METHOD, counts, _raw, actual_factor, city_factor, new_people, total_fix, estimate',
     'population': 'population.py (growth model); dashboard.py: estimate',

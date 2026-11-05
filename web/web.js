@@ -42,7 +42,9 @@
         const m = await okMethod(store.get('pop_method', 'city_actual'));
         const c = await getJSON(`${m}/w0.json`);
         const pick = ['wards_summary', 'period', 'prev_period', 'period_spec', 'built_at', 'scope', 'population', 'stale'];
-        return { ok: true, data: Object.fromEntries(pick.map(k => [k, c[k]])), wards_geo: (c.geo || {}).wards, city_geo: (c.geo || {}).city };
+        const data = Object.fromEntries(pick.map(k => [k, c[k]]));
+        data.access = c.access ? { kinds: c.access.kinds, city: c.access.city, wards: c.access.wards } : null;
+        return { ok: true, data, wards_geo: (c.geo || {}).wards, city_geo: (c.geo || {}).city };
       } catch (e) { return fail(e); }
     },
     async missing_persons() {

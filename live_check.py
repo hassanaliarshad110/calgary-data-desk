@@ -28,13 +28,13 @@ for w in [int(x) for x in sys.argv[1:] if x.isdigit()] or [0, 5, 10]:
         p(f"{sc.get('name')} ok in {time.time() - t:.0f} s: {d['ward'].get('residents'):,} residents, "
           f"{len([c for c in d['communities'] if c['residential']])} communities, {s.get('requests12'):,} requests, "
           f"{s.get('open_now'):,} open, crime {(d.get('crime') or {}).get('crimes')}")
-        g = d.get('amenity_gap') or {}
-        p(f"   amenity gap: {len(g.get('by_comm') or [])} communities, flagged {[r['name'] for r in g.get('by_comm') or [] if r.get('flag')][:12]}")
+        ac = (d.get('access') or {}).get('city') or {}
+        p('   homes within reach (Calgary): ' + ', '.join(f"{k} {round((v.get('share_1') or 0) * 100)}%" for k, v in ac.items()))
         cc = ((d.get('families') or {}).get('child_care') or {})
         p(f"   child care spaces {cc.get('spaces')}, schools {len(((d.get('families') or {}).get('schools') or {}).get('schools') or [])}")
         if d.get('wards_summary'):
             for r in d['wards_summary']['wards']:
-                p(f"   Ward {r['ward']:>2}: {r.get('residents'):>8,} residents, amenity level {r.get('amenity_level')}, "
+                p(f"   Ward {r['ward']:>2}: {r.get('residents'):>8,} residents, "
                   f"crime/1000 {r.get('crime_per_1000')}, open/1000 {r.get('open_per_1000')}")
         bad = [f"{x['name']}: {x.get('error')}" for x in d.get('status') or [] if not x.get('ok')]
         p('   problems:', bad or 'none')

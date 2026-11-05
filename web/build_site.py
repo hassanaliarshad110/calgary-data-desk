@@ -30,6 +30,7 @@ import livecheck                # noqa: E402
 import missing                  # noqa: E402
 import analyst                  # noqa: E402
 import transit                  # noqa: E402
+import access                   # noqa: E402
 
 cd.KEEP_SECONDS = 6 * 3600      # one build reuses every City answer across wards and ways of counting
 cd.RETRIES, cd.RETRY_WAIT = 3, 10   # the City's portal sometimes drops connections from cloud servers: keep trying
@@ -161,6 +162,18 @@ def main():
     year = int(info.get('year') or 2021)
     wards = [int(w) for w in a.wards.split(',') if w.strip()]
     meths = [m for m in a.methods.split(',') if m in dashboard.POP_METHODS]
+    def access_base():              # Growth vs amenities: distance from every home (numpy and scipy), once for every view
+        table = dashboard.wardmap.load(cache)
+        try:                        # private amenities that are not the City's (OpenStreetMap), for the optional filter
+            feats = ((dashboard.assetmap.load(cache) or {}).get('other') or {}).get('features')
+        except Exception:           # noqa: BLE001 - the filter is optional; the main figures do not need it
+            feats = None
+        base = access.load(cache, ward_of={c: v.get('ward') for c, v in (table.get('communities') or {}).items()},
+                           features=feats)
+        if not base:
+            raise RuntimeError('the access figures could not be worked out')
+        write(os.path.join(data, 'access_base.json'), base)    # the desktop app reads this copy
+    step('growth vs amenities (distance from every home)', access_base)
     names = {}
     for m in meths:                 # the default first, so a partial build still shows the usual view
         for w in wards:

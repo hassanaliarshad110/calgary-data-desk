@@ -8,15 +8,16 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-FILES = ['dashboard.py', 'attention.py', 'buildup.py', 'osm.py', 'population.py', 'census.py', 'assets.py', 'families.py', 'police.py',
+FILES = ['dashboard.py', 'access.py', 'buildup.py', 'osm.py', 'population.py', 'census.py', 'assets.py', 'families.py', 'police.py',
          'proptax.py', 'budget.py', 'rents.py', 'wards.py', 'geo.py', 'methods.py', 'calgary_data.py', 'auditor.py',
          'analyst.py', 'missing.py', 'profiles.py']
 MAX_CHARS = 12000
 
 # where each figure is worked out: (file, name). A name is a function (nested ones too) or a constant.
 TOPICS = {
-    'needs_attention': {'what': 'Needs attention: amenity level with growth counted, tiers and the catch-up list',
-                        'code': [('attention.py', '*'), ('dashboard.py', 'with_other'), ('dashboard.py', 'with_attention')]},
+    'access': {'what': 'Growth vs amenities (revised 5 November 2026): distance from every home to the nearest amenity in any '
+                       'community, the readings, and crowding at playgrounds and parks (two-step catchment)',
+               'code': [('access.py', '*'), ('dashboard.py', 'access_view')]},
     'homes': {'what': 'How homes are counted from the property roll (what is left out: commercial, vacant lots, parking stalls, storage)',
               'code': [('population.py', 'HOMES_WHERE'), ('population.py', 'homes'), ('population.py', 'units'),
                        ('population.py', 'homes_lived_in'), ('population.py', 'queries')]},
@@ -31,10 +32,6 @@ TOPICS = {
                               ('dashboard.py', 'city_population_at')]},
     'other_amenities': {'what': 'Amenities that are not the City\'s (OpenStreetMap) and how City ones are taken out',
                         'code': [('osm.py', '*')]},
-    'amenity_gap': {'what': 'Amenity level of a community, ward and Calgary; the "not kept up with growth" flag',
-                    'code': [('dashboard.py', 'GAP_GROWTH_PCT'), ('dashboard.py', 'GAP_LEVEL'), ('dashboard.py', 'GAP_KINDS'),
-                             ('dashboard.py', 'MIN_RATE_RESIDENTS'), ('dashboard.py', 'scope_level'),
-                             ('dashboard.py', 'amenity_view')]},
     'assets': {'what': 'Counting City assets (benches, playgrounds, trees, park space...) in each community',
                'code': [('assets.py', '*')]},
     'population': {'what': 'Residents today under each way of counting: the City\'s total shared by actual growth (default), the City\'s total at one rate for all, the growth model, the 2021 Census',

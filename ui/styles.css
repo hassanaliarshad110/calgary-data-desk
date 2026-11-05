@@ -1424,3 +1424,43 @@ ul.pf li.now .pf-v { color: var(--accent); font-weight: 600; }
 .vid-trans { margin-top: 12px; font-size: 13.5px; line-height: 1.55; }
 .vid-trans summary { cursor: pointer; font-weight: 600; color: var(--accent); }
 .vid-trans p { margin: 8px 0 0; }
+
+/* Growth vs amenities, revised 5 November 2026: distance and crowding */
+.ac-rev { margin-bottom: 14px; text-align: left; }
+.ac-head .ac-lead { font-size: 15px; line-height: 1.55; margin: 4px 0 12px; max-width: 70ch; }
+.ac-h4 { margin: 18px 0 6px; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.ac-est { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; padding: 2px 7px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); }
+.ac-crowd { margin: 0 0 8px; padding-left: 18px; line-height: 1.55; font-size: 14px; }
+.ac-bar { display: inline-block; vertical-align: middle; width: 64px; height: 6px; margin-right: 8px; background: var(--muted-2); border-radius: 999px; overflow: hidden; }
+.ac-bar > i { display: block; height: 100%; background: var(--border-strong); border-radius: 999px; }
+.ac-bar.new > i { background: var(--accent); }
+.ac-comm .ac-bar > i { background: var(--accent); }
+.ac-med { color: var(--muted-fg); margin-left: 4px; }
+.ac-tag { display: inline-block; white-space: nowrap; font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid transparent; }
+.ac-tag.ac-ok { background: var(--success-soft); color: var(--success); }
+.ac-tag.ac-gap { background: var(--danger-soft); color: var(--danger-fg); }
+.ac-tag.ac-check { background: var(--warn-soft); color: var(--warn); }
+.ac-tag.ac-few { background: var(--muted); color: var(--muted-fg); border-color: var(--border); }
+.ac-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.ac-wards tr.ac-cur td { background: var(--accent-soft); font-weight: 600; }
+.ac-ctl { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.ac-mapwrap { position: relative; margin: 8px 0 14px; }
+.ac-map { height: 440px; border-radius: 10px; border: 1px solid var(--border); background: var(--muted); }
+.ac-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 12px; margin-top: 8px; color: var(--muted-fg); }
+.ac-legend b { color: var(--fg); font-weight: 600; margin-right: 4px; }
+.ac-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.ac-legend i { width: 14px; height: 10px; border-radius: 3px; display: inline-block; }
+.ac-legend i.ac-few-sw { background: var(--muted-2); border: 1px dashed var(--border-strong); }
+.ac-lim ul { margin: 6px 0 8px; padding-left: 18px; line-height: 1.55; font-size: 13.5px; }
+.chg-table th[scope="row"] { text-align: left; vertical-align: top; }
+.chg-table { table-layout: fixed; width: 100%; }
+.chg-table th, .chg-table td { white-space: normal; vertical-align: top; line-height: 1.5; }
+.chg-table th[scope="row"] { width: 22%; }
+.ac-comm th small, .ac-wards th small { display: block; font-weight: 400; }
+.chg-two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.chg-two h3 { margin: 0 0 6px; font-size: 14px; }
+.chg-two ul { margin: 0; padding-left: 18px; line-height: 1.55; font-size: 14px; }
+#view-changes .card { margin-bottom: 16px; }
+@media (max-width: 760px) { .chg-two { grid-template-columns: 1fr; } .ac-map { height: 340px; } .ac-bar { width: 40px; } }
+
+.table-wrap.ac-full { max-height: none; }

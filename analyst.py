@@ -58,9 +58,11 @@ TOPICS = [
      'in the 2021 Census profile of {area}.'),
     ('growth_amenities', 'Growth against amenities',
      'Are playgrounds, transit stops and facilities keeping up with fast-growing communities?', 'Growth',
-     'For each residential community in {area}: residents now and growth since 2021, children 0 to 14, playgrounds and children '
-     'per playground, active transit stops per 1,000 residents, recreation facilities, and the projects being built. Rank '
-     'the gaps.'),
+     'For {area}, Calgary and each residential community: the share of homes within reach of playgrounds, parks, transit '
+     'stops, community centres, recreation centres and libraries (get_dashboard section access), homes built since 2021 '
+     'against older homes, the communities read as a measured gap or check inventory, and the crowding estimate at '
+     'playgrounds and parks against Calgary\'s, with its limits. Present what the data shows; no ranking of need and no '
+     'recommendations.'),
     ('child_care', 'Child care spaces for children in {area}',
      'Licensed spaces per child by community, and inspection results.', 'Families',
      'Licensed child care spaces in {area} against children aged 0 to 4 and 0 to 14 in each community, the trend since 2021, '

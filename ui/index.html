@@ -92,8 +92,7 @@
   <div class="nav">
     <p class="nav-h">Overview</p>
     <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
-    <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: where growth has outpaced amenities"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
-    <button class="tab tab-attn" data-view="attention" title="Needs attention: communities furthest below Calgary on public amenities"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span>Needs attention</span><b class="tab-count" id="tab-attn-count"></b></button>
+    <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: how near homes are to everyday amenities, new homes against older ones"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
     <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
     <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
     <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
@@ -453,26 +452,18 @@
   </section>
 
   <!-- ======================= GROWTH ======================= -->
-  <section id="view-attention" class="view" aria-labelledby="at-title">
+  <!-- What changed on Growth vs amenities (5 November 2026); reached from the tab's revision note -->
+  <section id="view-changes" class="view" aria-labelledby="chg-title">
     <header class="topbar">
-      <div class="topbar-title"><h1 id="at-title">Needs attention</h1><p class="meta" id="at-sub">Communities furthest below Calgary on public amenities, with growth taken into account</p></div>
-      <div class="topbar-actions">
-        <button class="btn" id="at-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
-      </div>
+      <div class="topbar-title"><h1 id="chg-title">What changed: Growth vs amenities</h1><p class="meta">Revised 5 November 2026: the earlier and the new method side by side, and what changed in the findings</p></div>
+      <div class="topbar-actions"><button class="btn" data-goto="growth"><span>Back to Growth vs amenities</span></button></div>
     </header>
-    <div class="content">
-      <div class="at-stats" id="at-stats"></div>
-      <div class="banner info at-caveat" id="at-caveat"></div>
-      <div class="at-ctl" id="at-ctl"></div>
-      <div class="at-list" id="at-list"></div>
-      <details class="card at-method" id="at-method"></details>
-      <p class="notes" id="at-notes"></p>
-    </div>
+    <div class="content narrow" id="chg-body"></div>
   </section>
 
   <section id="view-growth" class="view" aria-labelledby="gr-title">
     <header class="topbar">
-      <div class="topbar-title"><h1 id="gr-title">Growth vs amenities</h1><p class="meta" id="gr-sub">Development permits, amenities and what is being built in Ward 5</p></div>
+      <div class="topbar-title"><h1 id="gr-title">Growth vs amenities</h1><p class="meta" id="gr-sub">How near homes are to everyday amenities, and how many people share the playgrounds and parks within reach</p></div>
       <div class="topbar-actions">
         <div class="seg" role="radiogroup" aria-label="Show" id="gr-seg">
           <button type="button" role="radio" aria-checked="true" data-gr="gap">Growth vs amenities</button>
@@ -572,16 +563,8 @@
       <div class="topbar-title"><h1 id="vid-title">Video briefs</h1><p class="meta">Short narrated videos on what the data shows, with how it is measured. Newest first.</p></div>
     </header>
     <div class="content narrow">
-      <section class="card vid-card" id="vid-growth">
-        <div class="card-head"><div><h2>Growth vs amenities: have parks, playgrounds and transit kept up?</h2>
-          <p class="card-sub">Published <time datetime="2026-11-05">November 5, 2026</time> · 3 min · subtitles built in</p></div></div>
-        <video controls preload="metadata" playsinline poster="video/growth-amenities.jpg">
-          <source src="video/growth-amenities.mp4" type="video/mp4">
-          Your browser can't play this video. <a href="video/growth-amenities.mp4">Download it (MP4, 13 MB)</a>.
-        </video>
-        <p class="vid-desc">Calgary's communities have added about 300,000 residents since the 2021 Census. The video compares the 45 communities that grew more than 20% (or are new since 2021) with the rest of the city on playgrounds, transit stops, park space and trees, explains how the amenity level is worked out, and shows the 23 communities flagged in the Growth vs amenities tab.</p>
-        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Calgary is growing fast. Since the 2021 Census, its communities have added about 300,000 residents. But have parks, playgrounds and transit stops kept up?</p><p><b>What is counted.</b> Calgary Data Desk counts the City’s own amenities in every community, from playgrounds and park space to trees and transit stops, and compares each one with the city as a whole.</p><p><b>How it is measured.</b> Here’s how it’s measured. Residents today come from the City’s own population estimate, shared out by where new homes were actually built since 2021, using the property assessment roll. Growth compares that with the 2021 Census. Each amenity is counted per 1,000 residents, and playgrounds per 1,000 children, then compared with the city as a whole. A community’s amenity level averages those comparisons: 1.00 is the city level, and no single amenity counts more than double. Libraries, recreation centres and park washrooms serve several communities, so they’re left out of a community’s level. A community is flagged when it grew more than 20%, or is new since 2021, and its amenity level is below 0.75.</p><p><b>Where Calgary grew.</b> 45 communities grew by more than 20%, or didn’t exist in 2021. Together they added about 166,000 people. That’s more than half of the city’s growth.</p><p><b>The comparison.</b> Per resident, those growing communities have less. About 2.7 playgrounds per 1,000 children, against 4.6 in the rest of Calgary. Two transit stops per 1,000 residents, against nearly four. About a quarter less local park space, and more than a third fewer trees.</p><p><b>Flagged communities.</b> 23 communities grew fast and sit below three-quarters of the city’s amenity level. They are home to about 230,000 people, including more than 45,000 children.</p><p><b>Examples.</b> The largest are the Beltline, Saddle Ridge, Mahogany, Skyview Ranch and Sage Hill. The fastest growing, Belmont, went from about 800 residents in 2021 to about 6,500 today.</p><p><b>Limits.</b> These counts include City assets only. School, private and community association amenities aren’t counted, and new communities often get parks and facilities in later phases.</p><p><b>Close.</b> Explore every community’s numbers on Calgary Data Desk.</p></details>
-        <p class="card-note">Figures as of the video's publishing date: amenities counted November 3, 2026; residents estimated November 4, 2026. The Growth vs amenities tab shows today's figures, which update with every data refresh. City assets only: school, private and community association amenities are not counted. <a href="video/growth-amenities.mp4" download>Download the video (MP4, 13 MB)</a></p>
+      <section class="card vid-card" id="vid-none">
+        <p class="empty">New video briefs are coming soon.</p>
       </section>
     </div>
   </section>
@@ -593,7 +576,7 @@
     <div class="content">
       <div class="filters card">
         <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
-          <input id="meth-text" type="search" placeholder="Search: amenity level, crime per 1,000, growth model, closed within 7 days"></label>
+          <input id="meth-text" type="search" placeholder="Search: distance to a playground, crime per 1,000, growth model, closed within 7 days"></label>
       </div>
       <div class="meth-list" id="meth-list"></div>
     </div>
@@ -934,7 +917,6 @@
 <script src="compare.js"></script>
 <script src="budget.js"></script>
 <script src="audit.js"></script>
-<script src="attention.js"></script>
 <script src="buses.js"></script>
 </body>
 </html>

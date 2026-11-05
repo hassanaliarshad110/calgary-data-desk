@@ -82,7 +82,7 @@ question), call get_method and get_code, answer from them, quote the formula and
 describe a formula from memory or by working it out backwards from the results.
 
 Use the data you already have first
-1. get_dashboard (its sections: overview, communities, child_care, schools, development, amenities, amenity_gap, needs_attention, crime, traffic, rents, profile, property_tax, wards) already holds the app's figures for the selected area and period. Try it first for any question about that area; section="wards" sets all 14 wards and Calgary side by side.
+1. get_dashboard (its sections: overview, communities, child_care, schools, development, amenities, access, crime, traffic, rents, profile, property_tax, wards) already holds the app's figures for the selected area and period. Try it first for any question about that area; section="wards" sets all 14 wards and Calgary side by side.
 2. Crime: police_crime reads the Calgary Police Service community safety data already on this computer (crime and disorder by category, community, ward and month since 2020). crime_severity_index gives Calgary against other cities by year. Weather: get_weather.
 3. Files already saved: list_saved_files, then query_saved_file to filter, count, group and sum a saved CSV (for example the study's 311 file) instead of asking the City's website again.
 4. When the data is not on this computer, get it from the City automatically, without asking: query_dataset for counts and groups, or, when the question needs the full rows (or the user wants a file), download_dataset and then work with the saved file through query_saved_file. Police crime data and the Crime Severity Index also download themselves the first time they are needed.
@@ -191,14 +191,13 @@ How a report reads (it is shared outside the office, so it must stand on its own
 "people" or "residents", "per 1,000 residents", "since 2021". No jargon or code words: never "metric", "yardstick", \
 "normalised", "scope", "tier", "weight", "shortfall", "capped", "method_label", field names or tool names.
 - Never mention the app, the dashboard, Data Genie, the Data Scientist, a model, a list or a tab ("the app's model", \
-"the Needs attention list", "the dashboard shows"). Name where a figure comes from in the City's words: "City of \
+"the dashboard shows"). Name where a figure comes from in the City's words: "City of \
 Calgary data", "the City's population forecast", "the City's property assessment roll (homes built since 2021)", \
-"Calgary Police Service data", "OpenStreetMap". Say "our estimate from homes built since 2021", not "growth model"; \
-"communities furthest below the Calgary level of amenities", not "the Needs attention list".
+"Calgary Police Service data", "OpenStreetMap". Say "our estimate from homes built since 2021", not "growth model".
 - Do not address the report to anyone or say who it is prepared for (no "prepared for the Mayor and Council", no \
 "this office"). Write it for anyone who reads it.
-- Explain each number once, the first time it appears, in a few words (for example "amenity level 0.46: just under \
-half of Calgary's level of parks, playgrounds and other public amenities per resident").
+- Explain each number once, the first time it appears, in a few words (for example "70% of homes built since 2021 are \
+within 400 m of a transit stop, about a five-minute walk").
 - Keep tables narrow (5 or 6 columns at most) so they fit a phone; split a wide table in two.
 - Growth from a small 2021 base: when a community grew more than 100% since 2021 (it was only partly built at the \
 2021 Census), do not lead with the percentage. Say it plainly: "about 6,400 people now, up from 800 at the 2021 Census: \
@@ -304,30 +303,26 @@ especially when they move in opposite directions: "Ward 5's violent crime rose 1
 get_dashboard section wards, ranks[measure][ward] (1 = highest), never by reading the rows; and use the wards \
 section's ward figures (they count every community, so they add up to Calgary) instead of re-querying a dataset and \
 assigning wards yourself.
-- Amenities and growth: get_dashboard section amenity_gap has the app's amenity level, its method step by \
-step (method), the level under all four ways of counting residents (level_under_each_resident_count) and every \
-dataset. Explain the level from method, never by working the formula out backwards. section wards has every ward's \
-level under all four counts (amenity_level_by_method), and with amenities that are not the City's too \
-(amenity_level_all, amenity_level_all_by_method: only the ones open to everyone), and with private, residents-only ones too (amenity_level_all_private, amenity_level_all_private_by_method: OpenStreetMap access=private, homeowners' association and condo parks and playgrounds; on screen only when the "include private ones" filter is on, off by default).
-- Needs attention: get_dashboard section needs_attention has the communities that most need public \
-amenities (tier Urgent, High or Watch; the amenity level and the amenity level with growth counted, both on one \
-scale where 1.00 = Calgary and lower = needs more; the shortfall and growth weight; and what it would \
-take to reach the Calgary level). It counts the City's amenities plus the ones that are not the City's from \
-OpenStreetMap that are open to everyone (developer, school), with City ones taken out so nothing counts twice (get_code \
-topic other_amenities); each row also has the City-only level. Private, residents-only ones (access=private: homeowners' \
-association, condo) are left out by default and counted only when the screen's "include private ones" filter is on \
-(needs_attention_with_private). For a list of these amenities, their counts or their links, use get_dashboard section \
-other_amenities (with ward or community): every feature is saved there with its name and OpenStreetMap link, and its \
-totals count every community in the ward (business and industrial areas too), the same as the Growth vs amenities tab. \
-Never build those totals from the Needs attention rows, which hold only the communities ranked there. When asked \
-for all of them, or for a list longer than about 40, call it with save_csv=true and show_on_map=true: give the totals \
-by kind (and ward), show the first rows with their links, and say the whole list, every row with its link, is saved \
-in Files and shown on the map. Narrow with ward, community, kind or gated when the question does. Never call these \
-figures a score: say "amenity level 0.30 (30% of Calgary's level)". The ranking is worked out in attention.py (get_code topic \
-needs_attention). Always \
-(in answers, reports and their recommendations) present it as priorities for review from open data, never as a \
-spending recommendation or a list of things to buy: the data has no costs, misses school, private and community association facilities and amenities just across a boundary, and new \
-communities often have developer-built parks still to come.
+- Amenities and growth (Growth vs amenities, revised 5 November 2026): get_dashboard section access has, for Calgary, \
+every ward and each community, the share of homes within reach of playgrounds, parks, transit stops, community \
+centres, indoor recreation centres and libraries (share_1 at the first distance, share_2 at the second), the same for \
+homes built since 2021 (share_new_1) and before (share_old_1), the median distance, a reading for each community and \
+amenity (Too few homes, Measured gap, Check inventory, Most homes within reach: a stated rule, never a score), and \
+for playgrounds and parks the crowding estimate (crowding_400, crowding_800: playgrounds per 1,000 children, park \
+hectares per 1,000 residents, beside Calgary's). Explain them from get_method topics access and access_crowding and \
+get_code topic access. The distance is straight-line, to amenities in ANY community. Crowding is an ESTIMATE: \
+children and residents are spread evenly over each community's homes from the population estimate; say so whenever \
+you use it, and give Calgary's figure under each way of counting (sensitivity). Never combine amenities into one \
+figure, never rank communities by need, never call anything Urgent or a priority, and never recommend what the City or \
+an office should do: present what the data shows and its limits (City inventory only; a stop is not a service level; \
+size and condition not measured; new communities on the edge are farther from shared facilities, some planned for later \
+phases; community centre data needs checking). The earlier "amenity level", its 23 flagged communities and the Needs \
+attention tiers were withdrawn on 5 November 2026 (get_method topic access_revision): if asked about them, say they \
+were replaced and why, and do not quote them. The main figures count the City's amenities only; section access also \
+has with_private_amenities: the playground and park figures with private amenities accessible to the community \
+(OpenStreetMap, osm) and with gated residents-only ones too (osm_private), as the screen shows when its "Count private \
+amenities" filter is ticked. Say which you use. For a list of those amenities, use get_dashboard section \
+other_amenities (with ward or community).
 
 Extra detail for Ward 5 (use only when the question is about Ward 5)
 - Residential communities (comm_code): Castleridge CAS, Cityscape CSC, Cornerstone CNS, Falconridge FAL, Homestead HSD, \
@@ -418,11 +413,10 @@ TOOLS = [
                     'selected; Ward 5 has the full printed profile incl. immigrants and languages) gives who lives in the area against Calgary (2021 '
                     'Census): household size, children and seniors, languages spoken at home, immigrants and recent '
                     'arrivals, renters, crowding, housing costs, income, low income, shift work and commuting. '
-                    'section="amenity_gap" gives City assets (benches, picnic tables, playgrounds, sports equipment, park '
-                    'washrooms, fountains, bins, off-leash areas, neighbourhood park space, trees, facilities, transit stops) '
-                    'per 1,000 residents in each community against the city, an amenity level, and the communities flagged '
-                    'because amenities have not kept up with growth. section="needs_attention" ranks the communities that '
-                    'most need public amenities (tier, amenity level with growth counted, what each would take to reach the Calgary level). '
+                    'section="access" gives Growth vs amenities: for Calgary, every ward and each community, the share of '
+                    'homes within reach of playgrounds, parks, transit stops, community centres, recreation centres and '
+                    'libraries (homes built since 2021 against older homes), median distances, a reading per community and '
+                    'amenity, and for playgrounds and parks the crowding estimate; pass community for one community. '
                     'section="other_amenities" lists the private amenities accessible to the community (OpenStreetMap, not '
                     'the City\'s: playgrounds, parks, courts, fitness stations, dog parks), every one with its name and map '
                     'link, with community and ward totals that match the Growth vs amenities tab; pass ward (a number) or '
@@ -432,7 +426,7 @@ TOOLS = [
                     'amenities) with each ward\'s place on every measure (ranks), whatever area is selected; '
                     'section="ward_amenities" gives every asset ward by ward (City, private accessible and gated).',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'amenity_gap', 'needs_attention', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -443,8 +437,8 @@ TOOLS = [
          'save_csv': {'type': 'boolean', 'description': 'section other_amenities: also save the whole list, every row '
                                                         'with its map link, as a CSV in Files (use for "all" or long lists)'},
          'show_on_map': {'type': 'boolean', 'description': 'section other_amenities: also show every one on the map'},
-         'community': {'type': 'string', 'description': 'sections other_amenities and amenity_gap: one community (code '
-                                                         'or name); amenity_gap then gives its whole amenity-level working; '
+         'community': {'type': 'string', 'description': 'sections other_amenities and access: one community (code '
+                                                         'or name); access then gives its figures for every amenity; '
                                                          'population_recon: that community\'s rental buildings (code)'},
          'find': {'type': 'string', 'description': 'section population_recon: find a rental apartment building of the '
                                                    'Population build-up by building permit number (BP2016-08149), roll '
@@ -487,16 +481,16 @@ TOOLS = [
     {'name': 'get_method',
      'description': "How the app counts every figure, by dataset: filters, codes, formulas, Excel steps and cautions. "
                     'topic: a key (311, population_choice, population, children, homes, growth_checks, live_counter, '
-                    'needs_attention, other_amenities, amenity_gap, rates, compare, permits, dp, traffic, police, csi, '
+                    'access, access_crowding, access_revision, other_amenities, rates, compare, permits, dp, traffic, police, csi, '
                     'rents, child_care, schools, amenities, roads, cameras, city_disorder, budget, property_tax, weather), '
                     'a dataset ID or a word; empty lists the topics.',
      'input_schema': {'type': 'object', 'properties': {'topic': {'type': 'string'}}}},
     {'name': 'get_code',
      'description': "The app's own Python code behind any figure: the exact formula, constants and thresholds that "
-                    'produced it. topic (empty lists them): needs_attention, other_amenities, amenity_gap, assets, '
+                    'produced it. topic (empty lists them): access, other_amenities, assets, '
                     'population, population_recon, homes, growth_checks, live_counter, growth_model, '
                     'children, rates, periods, property_tax, budget, crime, child_care, rents, wards, census, report_auditor. '
-                    'Or name: one function or constant (e.g. city_factor, scope_level, GAP_LEVEL), optionally with file. '
+                    'Or name: one function or constant (e.g. city_factor, crowding, reading), optionally with file. '
                     'Or text with file: search a file (e.g. text "1,598", file "dashboard.py").',
      'input_schema': {'type': 'object', 'properties': {
          'topic': {'type': 'string'}, 'name': {'type': 'string'}, 'file': {'type': 'string'}, 'text': {'type': 'string'}}}},
@@ -695,38 +689,54 @@ def _fit(obj, cap):
     return o
 
 
-def _attention_out(a, ward_of, short=False):
-    """The Needs attention ranking for the agent. short: the counts and the ten most urgent names (for amenity_gap);
-    otherwise every Urgent and High community and the Watch ones, most urgent first, with what each would take."""
+def _access_out(a, community=None, withdrawn=False):
+    """Growth vs amenities (revised 5 November 2026) for Data Genie: distance from every home and crowding."""
+    if withdrawn:
+        note = {'withdrawn': 'The amenity level, its 23 flagged communities and the Needs attention tiers were withdrawn '
+                             'on 5 November 2026 and must not be quoted (get_method topic access_revision). These are the '
+                             'figures that replaced them.'}
+    else:
+        note = {}
     if not a:
-        return None
-    rows = a.get('rows') or []
-    base = {'counts': a.get('counts'), 'residents': a.get('residents'), 'communities_checked': a.get('checked'),
-            'counts_amenities': "the City's and OpenStreetMap's (not the City's, City ones taken out)" if a.get('with_other')
-            else "the City's only"}
-    if short:
-        return {**base, 'most_urgent': [f"{r['name']} ({r['tier']}, amenity level {r['level']}, growth counted {r['level_growth']})" for r in rows[:10]],
-                'more': 'get_dashboard section needs_attention has every listed community, its figures and what each would take',
-                'caution': 'Priorities for review from open data, never a spending recommendation.'}
-    top = [r for r in rows if r['tier'] != 'Watch']
-    watch = [r for r in rows if r['tier'] == 'Watch']
-    keep = top + watch[:max(0, 45 - len(top))]
-    return {**base, 'thresholds': a.get('thresholds'), 'method': a.get('method'),
-            'formula': 'level_growth (amenity level, growth counted) = 1 - shortfall * weight; shortfall = max(0, 1 - level); '
-                       'weight = 1.0 if new since 2021 else 0.5 + min(max(growth_pct, 0), 100) / 200 (attention.py). '
-                       'Same scale as the amenity level: 1.00 = Calgary, lower = needs more. There is no score: never '
-                       'call either figure a score or a mark out of 100.',
-            'shown': 'every listed community' if len(keep) == len(rows) else
-                     f'every Urgent and High community and the {len(keep) - len(top)} lowest Watch ones of {len(watch)}',
-            'growth_note': 'growth_since_2021_pct is the growth model\'s (homes built), whatever way residents are counted',
-            'rows': [{**{k: r.get(k) for k in ('name', 'tier', 'level', 'level_growth', 'shortfall', 'weight', 'residents')},
-                      'growth_since_2021_pct': r.get('growth_pct'),
-                      **({'new_since_2021': True} if r.get('new') else {}), 'ward': ward_of.get(r.get('code')),
-                      **({'level_city_only': r.get('level_city')} if r.get('level_city') is not None else {}),
-                      **({'not_city_openstreetmap': r.get('other')} if r.get('other') else {}),
-                      'to_reach_calgary_level': '; '.join(f"{c['label']} +{c['need']}{' ha' if c['unit'] == 'ha' else ''} (has {c['have']})"
-                                                          for c in r.get('catch_up') or [])}
-                     for r in keep]}
+        return {**note, 'error': 'The Growth vs amenities figures are not in this refresh.'}
+    kinds = a.get('kinds') or {}
+    km = {k: {'label': v.get('label'), 'distances_m': v.get('thresholds_m'), 'basis': v.get('basis'),
+              'limits': v.get('limits')} for k, v in kinds.items()}
+    pick = ('share_1', 'share_2', 'share_new_1', 'share_old_1', 'median_m', 'crowding_400', 'crowding_800', 'reading')
+    trim = lambda x: {f: x.get(f) for f in pick if x.get(f) is not None}
+    rows = a.get('communities') or []
+    if community:
+        q = str(community).strip().upper()
+        r = next((x for x in rows if x['code'] == q or str(x.get('name', '')).upper() == q), None)
+        if not r:
+            return {**note, 'error': f'{community} is not one of the communities shown (choose its ward or all of Calgary).'}
+        return {**note, 'community': r['name'], 'code': r['code'], 'ward': r.get('ward'), 'units': r.get('units'),
+                'units_built_since_2021': r.get('units_new'), 'share_built_last_five_years': r.get('recent_share'),
+                'residents': r.get('residents'), 'children_0_14': r.get('children'),
+                'by_amenity': {k: trim(r.get(k) or {}) for k in kinds}, 'calgary': {k: trim((a.get('city') or {}).get(k) or {}) for k in kinds},
+                'kinds': km, 'readings': a.get('readings'), 'limitations': a.get('limitations')}
+    many = len(rows) > 40
+    return {**note, 'revised': a.get('revision'), 'counted': a.get('counted'), 'kinds': km,
+            'calgary': {k: trim((a.get('city') or {}).get(k) or {}) for k in kinds},
+            'calgary_new_against_older_homes': a.get('findings'),
+            'wards': [{'ward': w['ward'], **{k: trim(w.get(k) or {}) for k in kinds}} for w in a.get('wards') or []],
+            'communities': [{'name': r['name'], 'code': r['code'], 'ward': r.get('ward'), 'units': r.get('units'),
+                             **{k: trim(r.get(k) or {}) for k in (('playground', 'park', 'transit_stop') if many else kinds)}}
+                            for r in rows][:250],
+            'communities_note': ('the whole city: playgrounds, parks and transit only; call with community for one '
+                                 'community\'s every amenity') if many else 'every community shown',
+            'crowding_under_each_resident_count': a.get('sensitivity'), 'checks': a.get('checks'),
+            'with_private_amenities': {v: {'label': x.get('label'), 'added': x.get('added'),
+                                           'calgary': {k: trim(y) for k, y in (x.get('city') or {}).items()},
+                                           'wards': [{'ward': w['ward'], **{k: trim(w.get(k) or {}) for k in ('playground', 'park')}}
+                                                     for w in x.get('wards') or []],
+                                           'crowding_groups': x.get('crowding_groups')}
+                                       for v, x in (a.get('with_other') or {}).items()} or None,
+            'readings': a.get('readings'), 'rules': a.get('rules'), 'limitations': a.get('limitations'),
+            'how': 'share_1 / share_2 = share of homes (units) within the first / second distance of the nearest one, '
+                   'in any community; share_new_1 / share_old_1 = the same for homes built since 2021 / before 2021; '
+                   'crowding = playgrounds per 1,000 children (parks: hectares per 1,000 residents) within reach, an '
+                   'estimate. Explain with get_method topics access and access_crowding.'}
 
 
 OSM_KIND_WORD = {'playgrounds': 'playground', 'fitness': 'fitness station', 'basketball': 'basketball court',
@@ -800,7 +810,7 @@ def _other_amenities_out(d, ward=None, community=None, kind=None, gated=None, sa
                     'parks and parks mapped in OpenStreetMap that are not the City\'s (every one matching a City amenity is '
                     'taken out; get_code topic other_amenities). Totals count every community in the area, business and '
                     'industrial areas too, so they match Growth vs amenities > Assets and the wards section '
-                    '(amenity_counts_other); the Needs attention cards list only the communities ranked there. '
+                    '(amenity_counts_other). '
                     'gated_residents_only (OpenStreetMap access=private: homeowners\' association, condo) are counted only '
                     'when the screens\' "Also count gated, residents-only ones" box is ticked. Give the user the links: '
                     'each opens that feature on the OpenStreetMap map.'}
@@ -988,76 +998,9 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                         'or community.'}
     if section == 'other_amenities':
         return _other_amenities_out(d, wards)
-    if section == 'needs_attention':
-        g = d.get('amenity_gap') or {}
-        ward_of = {c['code']: c.get('ward') for c in d.get('communities') or []}
-        return {'needs_attention': _attention_out(g.get('attention'), ward_of),
-                **({'needs_attention_with_private': _attention_out(g.get('attention_private'), ward_of, short=True),
-                    'private_note': 'needs_attention (the default) leaves out private, residents-only amenities '
-                                    '(OpenStreetMap access=private: homeowners\' association, condo); '
-                                    'needs_attention_with_private adds them, as the screen does when its "include '
-                                    'private ones" filter is on.'} if g.get('attention_private') else {}),
-                'caution': 'Priorities for review from open data, not a spending recommendation: no costs; school, private '
-                           'and community association amenities and those across a boundary are not counted; new '
-                           'communities often have developer-built parks still to come.'} if g.get('attention') else \
-            {'error': 'The amenity data is not available in this refresh.'}
-    if section == 'amenity_gap':
-        community = (extra or {}).get('community')
-        g = d.get('amenity_gap') or {}
-        rows = g.get('by_comm') or []
-        many = len(rows) > 40                     # the whole city: the flagged and the 40 lowest, without the detail
-        keys = ('code', 'name', 'residents', 'growth_pct', 'new', 'level', 'flag', 'short') if many else \
-            ('code', 'name', 'residents', 'growth_pct', 'new', 'children_0_14', 'level', 'flag', 'short', 'vs_city', 'n')
-        pick = [r for r in rows if r.get('flag')] + [r for r in rows if not r.get('flag')][:40 if many else len(rows)]
-        ward_of = {c['code']: c.get('ward') for c in d.get('communities') or []}
-        bm = {k: {'label': v.get('label'), 'level': v.get('level'), 'residents': v.get('residents'),
-                  'flagged_count': len(v.get('flagged') or [])} for k, v in (g.get('by_method') or {}).items()}
-        if community:                            # one community's whole working, kind by kind
-            q = str(community).strip().upper()
-            r = next((x for x in rows if x['code'] == q or str(x.get('name', '')).upper() == q), None)
-            if not r:
-                return {'error': f'{community} has no amenity level (fewer than 100 residents, or not a lived-in community).'}
-            kinds_ = g.get('kinds') or {}
-            local = [k for k, v in kinds_.items() if v.get('local')]
-            work = []
-            for k, v in (r.get('vs_city') or {}).items():
-                per_ch = (kinds_.get(k) or {}).get('per') == 'children'
-                work.append({'kind': (kinds_.get(k) or {}).get('label', k), 'count': (r.get('n') or {}).get(k),
-                             'divided_by': ('children 0 to 14: ' if per_ch else 'residents: ') +
-                                           str(r.get('children_0_14') if per_ch else r.get('residents')),
-                             'per_1000': (r.get('per_1000') or {}).get(k),
-                             'calgary_per_1000': ((g.get('city') or {}).get(k) or {}).get('per_1000'),
-                             'share_of_calgary': v, 'capped_at_2': min(v, 2.0),
-                             'in_the_level': k in local})
-            used = [w['capped_at_2'] for w in work if w['in_the_level']]
-            return {'community': r.get('name'), 'code': r['code'], 'residents': r.get('residents'),
-                    'children_0_14': r.get('children_0_14'), 'level': r.get('level'),
-                    'level_check': round(sum(used) / len(used), 2) if used else None,
-                    'working': work,
-                    'how': 'per_1000 = count / residents (playgrounds: / children 0 to 14) x 1,000; share = per_1000 / '
-                           'Calgary per_1000; each share capped at 2.00; the level = the average of the capped shares '
-                           'of the kinds in_the_level (neighbourhood amenities). level_check repeats that average.',
-                    'calgary_left_out': {k: {x: v.get(x) for x in ('n', 'left_out_no_residents', 'left_out_where',
-                                                                 'not_placed', 'not_neighbourhood_parks') if v.get(x)}
-                                         for k, v in (g.get('city') or {}).items()},
-                    'method': g.get('method')}
-        return {**{k: g.get(k) for k in ('city', 'scope', 'level', 'growth_pct_threshold', 'level_threshold', 'counted',
-                                         'note', 'method')},
-                'left_out_note': 'city[kind].n is Calgary\'s count used for the yardstick: every community where people '
-                                 'live. left_out_no_residents (with left_out_where) is what sits in communities with no '
-                                 'residents and is left out; not_placed is what the City lists with no location or outside '
-                                 'every community; not_neighbourhood_parks is park land that is not a neighbourhood park. '
-                                 'Mention these whenever you explain Calgary\'s figure or the yardstick. For one '
-                                 'community\'s full working, call this section with community.',
-                'level_under_each_resident_count': bm,
-                'datasets': {k: f"https://data.calgary.ca/d/{v.get('dataset')}" for k, v in (g.get('kinds') or {}).items()
-                             if v.get('dataset')},
-                'kinds': {k: v.get('label') + (' (per 1,000 children 0 to 14)' if v.get('per') == 'children' else '')
-                          for k, v in (g.get('kinds') or {}).items()},
-                'needs_attention': _attention_out(g.get('attention'), ward_of, short=True),
-                'communities_counted': len(rows), 'flagged_count': len(g.get('flagged') or []),
-                'by_comm': [dict({k: r.get(k) for k in keys}, ward=ward_of.get(r['code'])) for r in pick],
-                'shown': 'flagged communities and the 40 lowest of the rest' if many else 'every community'}
+    if section in ('access', 'amenity_gap', 'needs_attention'):
+        return _access_out(d.get('access'), (extra or {}).get('community'),
+                           withdrawn=section != 'access')
     if section in ('wards', 'ward_amenities'):
         ws = d.get('wards_summary') or (wards() if wards else None)
         if not ws:
@@ -1067,11 +1010,9 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                 'open_over_90_days', 'closed_7_days_pct', 'app_share_pct', 'crimes', 'crime_per_1000', 'crime_change_pct',
                 'violent', 'violent_change_pct', 'traffic12', 'traffic_per_1000', 'traffic_change_pct', 'new_homes12',
                 'new_homes_prev', 'new_homes_change_pct', 'issued_homes12', 'dev_permits12', 'growth_pct_by_method',
-                'amenity_level_all_private', 'amenity_counts_other', 'amenity_counts_private', 'child_care_spaces', 'child_care_per_100_kids', 'daycare_per_100_0_4', 'schools',
-                'students', 'facilities', 'playgrounds', 'stops', 'amenity_level', 'amenity_level_by_method',
-                'amenity_flagged', 'amenities_vs_city', 'amenity_counts', 'amenity_level_all', 'amenity_level_all_by_method',
-                'homes_now', 'homes_census', 'households_2021', 'homes_growth_pct', 'people_per_home')
-        detail = ('amenity_counts', 'amenities_vs_city', 'amenity_counts_other', 'amenity_counts_private')
+                'amenity_counts_other', 'amenity_counts_private', 'child_care_spaces', 'child_care_per_100_kids', 'daycare_per_100_0_4', 'schools',
+                'students', 'facilities', 'playgrounds', 'stops', 'amenity_counts', 'homes_now', 'homes_census', 'households_2021', 'homes_growth_pct', 'people_per_home')
+        detail = ('amenity_counts', 'amenity_counts_other', 'amenity_counts_private')
         rows_ = ws.get('wards') or []
         if section == 'ward_amenities':          # each asset, ward by ward (kept out of "wards" so that one fits)
             return {'wards': [{'ward': r['ward'], **{k: r.get(k) for k in detail if r.get(k) is not None}} for r in rows_],
@@ -1080,9 +1021,9 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                                 'amenity_counts_private': ws.get('amenity_counts_private_city')},
                     'kinds': {k: v.get('label') for k, v in (ws.get('amenity_kinds') or {}).items()},
                     'note': 'amenity_counts: how many of each City asset the ward has (every community in it); '
-                            'amenities_vs_city: per 1,000 residents (playgrounds per 1,000 children) against Calgary, '
-                            '1.00 = the Calgary level; amenity_counts_other: private amenities accessible to the '
-                            'community (OpenStreetMap); amenity_counts_private: gated, residents-only ones.'}
+                            'amenity_counts_other: private amenities accessible to the community (OpenStreetMap); '
+                            'amenity_counts_private: gated, residents-only ones. How near homes are to amenities, ward by '
+                            'ward: section access.'}
         keep = tuple(k for k in keep if k not in detail)
         fields = [k for k in keep if any(r.get(k) is not None for r in rows_)]
         # every ward's place on each measure (1 = the highest of the 14), worked out here so no answer ranks by eye
@@ -1097,7 +1038,8 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                 'calgary': {k: cw.get(k) for k in fields if cw.get(k) is not None},
                 'ranks': ranks,
                 'rows_note': 'wards: one row per ward, values in the order of fields. Each asset ward by ward '
-                             '(amenity_counts, amenities_vs_city, non-City counts): section ward_amenities.',
+                             '(amenity_counts, non-City counts): section ward_amenities. How near homes are to amenities, '
+                             'ward by ward: section access.',
                 'ranks_note': 'ranks[measure][ward] = the ward\'s place of 14, 1 = the highest value (ties share a place). '
                               'Use it for "highest", "lowest", "second" and so on; never rank wards by reading the rows. '
                               'Whether high is good depends on the measure (more 311 reports is not worse service). '
@@ -1106,8 +1048,8 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                               'industrial areas too, so they add up to Calgary: use them rather than re-querying a dataset '
                               'and assigning wards yourself.',
                 'crime_period': ws.get('crime_period'), 'how': ws.get('note'),
-                'note': 'One row per ward and one for Calgary, for the same period as the dashboard. amenity_level: '
-                        '1.00 = the city level. playgrounds: City playgrounds in the ward.'}
+                'note': 'One row per ward and one for Calgary, for the same period as the dashboard. playgrounds: '
+                        'City playgrounds in the ward.'}
     out = {k: d.get(k) for k in ('period', 'prev_period', 'period_spec', 'scope', 'ward', 'summary', 'disorder', 'roadwork')}
     # population without the community-by-community build-up (section population_recon has it)
     out['population'] = {k: v for k, v in (d.get('population') or {}).items() if k not in ('recon',)}
@@ -1132,8 +1074,8 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
     if sc:
         out['schools'] = {'latest_year': sc.get('latest_year'), 'students': sc.get('students'),
                           'schools_counted': len([x for x in sc.get('schools', []) if x.get('latest')])}
-    out['more'] = ('Call again with section = communities, child_care, schools, development, amenities, amenity_gap, '
-                   'needs_attention, population_recon, crime, traffic, rents, profile, property_tax or wards (every ward side by side) for detail.')
+    out['more'] = ('Call again with section = communities, child_care, schools, development, amenities, access, '
+                   'population_recon, crime, traffic, rents, profile, property_tax or wards (every ward side by side) for detail.')
     return out
 
 

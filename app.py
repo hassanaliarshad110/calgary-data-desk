@@ -157,8 +157,10 @@ class Api:
             with self._lock:
                 city = dashboard.load(DASHBOARD_CACHE, max_age_hours=6, force=bool(force), spec=spec,
                                       pop_method=self._pop_method(), ward=0)
-            return {'ok': True, 'data': {k: city.get(k) for k in ('wards_summary', 'period', 'prev_period', 'period_spec',
-                                                                  'built_at', 'scope', 'population', 'stale')},
+            data = {k: city.get(k) for k in ('wards_summary', 'period', 'prev_period', 'period_spec',
+                                             'built_at', 'scope', 'population', 'stale')}
+            data['access'] = {k: (city.get('access') or {}).get(k) for k in ('kinds', 'city', 'wards')} if city.get('access') else None
+            return {'ok': True, 'data': data,
                     'wards_geo': (city.get('geo') or {}).get('wards'), 'city_geo': (city.get('geo') or {}).get('city')}
         except dashboard.PeriodError as e:
             return {'ok': False, 'error': str(e), 'period_error': True}
