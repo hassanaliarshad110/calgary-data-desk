@@ -657,6 +657,30 @@ METHODS = [
                   'divisions here are those of the 2023 election.',
                   'Elections Calgary notes that its station-by-station results do not include special (mail-in) ballots.'],
      'code': 'elections.py; dashboard.py: elections_view'},
+    {'key': 'citynews', 'name': 'Calgary News: how the daily stories are found, written and checked',
+     'dataset': 'Published reports: City of Calgary, Government of Alberta, Government of Canada, Calgary news outlets',
+     'publisher': 'Calgary Data Desk (each article cites its sources)', 'page': '',
+     'updated': 'Every evening at about 6 p.m. Calgary time; at least three stories a day',
+     'used_in': 'Calgary News, Data Genie, Data Scientist',
+     'method': [
+         'Each evening the web is searched for the day\'s Calgary stories: City of Calgary news and council, provincial and '
+         'federal decisions that affect Calgary, public safety, transit, housing, business, weather and community. '
+         'A story is written up only when it can be supported by published reports, preferably from more than one '
+         'outlet or an official source; each article lists every report it draws on.',
+         'Articles are written automatically in plain words from those reports and checked against them: every '
+         'statement carries a marker [1], [2] for the source it comes from, a quotation is kept under 15 words, and '
+         'the publish step stops an article that cites nothing, lists a source it never uses, or has a marker with no '
+         'source. Stories already covered are updated only when something new has happened.',
+         'Facts only: no opinion, no endorsement of a candidate, party, business or cause, and nothing recommended. '
+         'Where reports disagree or a fact is unconfirmed, the article says so.',
+         'The articles are published to the site\'s repository (branch news) and read directly by the website, the '
+         'laptop version, Data Genie and the Data Scientist; the last 60 days are kept on the page and every day in the '
+         'archive.'],
+     'excel': ['news/latest.json in the repository\'s news branch holds the last 60 days; news/days/ holds each day.'],
+     'cautions': ['An article is a summary of other reports; for anything that matters, read the original sources.',
+                  'Reports published late in the day may appear the following evening.',
+                  'Developing stories can change after publication; a later article notes what changed.'],
+     'code': 'tools/news_publish.py; citynews.py; ui/citynews.js'},
     {'key': 'fedbudget', 'name': 'Federal Budget 2026: the numbers, every measure, and province by province',
      'dataset': 'Budget 2026 (budget.canada.ca/2026), all chapters and annexes; Finance Canada, Federal Support to '
                 'Provinces and Territories',

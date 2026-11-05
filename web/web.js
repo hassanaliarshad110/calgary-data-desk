@@ -52,6 +52,15 @@
       catch (e) { return { ok: false, error: String(e.message || e), appeals: [] }; }
     },
     async get_budget() { try { return { ok: true, data: await getJSON('budget.json') }; } catch (e) { return fail(e); } },
+    async get_city_news() {
+      try {
+        const r = await fetch('https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/news/news/latest.json', { cache: 'no-cache' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const d = await r.json();
+        d.articles = (d.articles || []).sort((a, b) => (b.date + (b.published_at || '')).localeCompare(a.date + (a.published_at || '')));
+        return { ok: true, data: d };
+      } catch (e) { return { ok: false, error: 'Could not reach the published news from this browser (' + (e.message || e) + ').' }; }
+    },
     async track_311(id) {
       try {
         if (!/^[A-Za-z0-9-]{4,20}$/.test(id || '')) return { ok: false, error: 'Type the request number as the City gave it, e.g. 26-01234567.' };

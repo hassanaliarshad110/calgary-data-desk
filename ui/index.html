@@ -56,6 +56,7 @@
     <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 8v6M8 22l4-8 4 8M6 11h12"/></symbol>
     <symbol id="i-school" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
     <symbol id="i-budget" viewBox="0 0 24 24"><circle cx="8" cy="8" r="5.5"/><path d="M8 4.8v6.4"/><path d="M9.7 6.2c-.3-.5-.9-.8-1.7-.8-.9 0-1.7.5-1.7 1.2 0 1.7 3.4.8 3.4 2.5 0 .7-.8 1.2-1.7 1.2-.8 0-1.5-.3-1.8-.9"/><path d="M3 21h18"/><path d="M14 21v-5"/><path d="M17.5 21v-8"/><path d="M21 21V9"/></symbol>
+    <symbol id="i-paper" viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 8h3v9a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12h7M7 15h4"/></symbol>
     <symbol id="i-maple" viewBox="0 0 24 24"><path d="M12 3l1.6 3.4 2.4-1-0.6 4 3.6-1.4-1 2.8 2 1.2-4.6 3.4 0.8 2.2-4.2-0.8V21h-0.4v-4.2l-4.2 0.8 0.8-2.2L3.6 12l2-1.2-1-2.8L8.2 9.4l-0.6-4 2.4 1z"/></symbol>
     <symbol id="i-ballot" viewBox="0 0 24 24"><path d="M4 21h16"/><path d="M6 21V11h12v10"/><path d="M9 11V4h6v7"/><path d="M10.5 7.5l1 1 2-2"/></symbol>
     <symbol id="i-growth" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21v-6h4v6"/><path d="M11 21V11h4v10"/><path d="M17 21v-4h3v4"/><path d="m4 10 5-4 4 3 7-6"/><path d="M15 3h5v5"/></symbol>
@@ -98,6 +99,7 @@
     <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
     <button class="tab" data-view="elections" title="Election Control Room: seats, leaders, constituencies and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-ballot"/></svg><span>Election Control Room</span></button>
     <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
+    <button class="tab" data-view="citynews" title="Calgary News: the day's Calgary stories, each with its sources"><svg class="ic" aria-hidden="true"><use href="#i-paper"/></svg><span>Calgary News</span></button>
     <button class="tab" data-view="fedbudget" title="Federal Budget 2026: headline numbers, every measure, province by province, Calgary and Alberta"><svg class="ic" aria-hidden="true"><use href="#i-maple"/></svg><span>Federal Budget 2026</span></button>
     <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
     <p class="nav-h">Topics</p>
@@ -549,6 +551,13 @@
     <div class="content"><div class="grid" id="el-body"></div></div>
   </section>
 
+  <section id="view-citynews" class="view" aria-labelledby="cn-h">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="cn-h">Calgary News</h1><p class="meta">The day's Calgary stories, new every evening, each written from the reports it cites</p></div>
+    </header>
+    <div class="content"><div class="grid" id="cn-body"></div></div>
+  </section>
+
   <section id="view-fedbudget" class="view" aria-labelledby="fb-title">
     <header class="topbar">
       <div class="topbar-title"><h1 id="fb-title">Federal Budget 2026</h1><p class="meta">The Government of Canada's budget, tabled 5 November 2026: headline numbers, every measure, province by province, Calgary and Alberta</p></div>
@@ -951,6 +960,7 @@
 <script src="elections.js"></script>
 <script src="fedbudget.js"></script>
 <script src="track311.js"></script>
+<script src="citynews.js"></script>
 <script src="audit.js"></script>
 <script src="buses.js"></script>
 </body>

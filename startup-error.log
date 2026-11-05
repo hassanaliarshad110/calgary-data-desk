@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import agent, citynews, app
+  File "/tmp/claude-0/-home-claude/68d6ee86-6ec0-5b56-844c-eeed72a8f163/scratchpad/v2/app.py", line 40, in <module>
+    import webview
+ModuleNotFoundError: No module named 'webview'

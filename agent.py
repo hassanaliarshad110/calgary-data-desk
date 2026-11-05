@@ -328,6 +328,7 @@ and the label with a score; near_but_crowded lists communities with most homes n
 score is under 0.80 (shared by more children, or residents, than Calgary's average, from any community), and explain it from get_method topic access_scores. For a list of those amenities, use get_dashboard section \
 other_amenities (with ward or community).
 
+Calgary News (get_dashboard section city_news): the daily Calgary stories published on the site each evening, each with the reports it was written from; use them for what happened recently in Calgary, and cite the original sources (outlet, title, link), not the article alone.
 Federal Budget 2026 (get_dashboard section federal_budget): Canada's budget tabled 5 November 2026, with every measure and its amounts, the budget's own text, the deficit, revenue and spending outlook, and province by province what it names and the federal transfers each receives; for Calgary and Alberta use part=province, province=AB. Quote figures with their table and units ($ millions for measures, $ billions for the fiscal tables); describe the budget, never rate it or a party.
 Election Control Room (get_dashboard section elections; full=true for every Calgary race): who represents the area at each level, the seats by party (Calgary's council, MLAs and MPs, the whole Legislature and House of Commons), a ward's constituency figures (constituency: estimated electors and turnout by ward, the councillor race and its stations, the mayor's vote in the ward against Calgary's, the referendum in the ward's divisions; say estimates are estimates), and the latest official results: City of Calgary 2025 (mayor, councillors, CBE and CCSD trustees; Calgary's turnout; the mayor's election-day votes by ward), Alberta 2023 general election in Calgary's 26 divisions and by-elections since, the members sitting today, the 19 October 2026 referendum question by question, and the 2025 federal election in Calgary's 11 districts with the members sitting today. Quote results with their date and source; describe them, never favour, rate or rank a candidate or party, never predict, and give no voting advice. Where a ward is split between several, say each electoral division's or district's share of its residents (say "electoral division" for Alberta and "electoral district" for Canada, not "riding").
 
@@ -453,9 +454,11 @@ TOOLS = [
                     'defence spending and transfers to every province; part="province" with province for everything the '
                     'budget names there (major projects, community projects, defence, every passage) and its federal '
                     'transfers over ten years; part="find" with find for measures on any subject, with their amounts and '
-                    'the budget\'s own text; part="chapter", "tables" or "tax" for the full tables.',
+                    'the budget\'s own text; part="chapter", "tables" or "tax" for the full tables. '
+                    'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
+                    'sources; narrow with find (words), days, topic or date.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'federal_budget'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'federal_budget', 'city_news'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -467,6 +470,9 @@ TOOLS = [
                                                         'with its map link, as a CSV in Files (use for "all" or long lists)'},
          'show_on_map': {'type': 'boolean', 'description': 'section other_amenities: also show every one on the map'},
          'full': {'type': 'boolean', 'description': 'section elections: also every Calgary race and the referendum'},
+         'days': {'type': 'integer', 'description': 'section city_news: only the last N days'},
+         'topic': {'type': 'string', 'description': 'section city_news: one topic, e.g. City Council, Transit, Water'},
+         'date': {'type': 'string', 'description': 'section city_news: one day\'s edition, YYYY-MM-DD'},
          'part': {'type': 'string', 'enum': ['summary', 'province', 'find', 'chapter', 'tables', 'tax'],
                   'description': 'section federal_budget: summary (default), province, find (search the measures and their '
                                  'text with find), chapter (every line item of one chapter), tables (Annex 1), tax'},
@@ -1253,6 +1259,9 @@ class Agent:
             self.emit({'type': 'download', 'path': res['path'], 'rows': res['rows'], 'bytes': res['bytes'],
                        'dataset': args['dataset_id']})
             return {'saved_to': res['path'], 'rows': res['rows']}
+        if name == 'get_dashboard' and (args.get('section') or '') == 'city_news':
+            import citynews                             # noqa: PLC0415
+            return citynews.find(args.get('find'), args.get('days'), args.get('topic'), args.get('date'))
         if name == 'get_dashboard' and (args.get('section') or '') == 'federal_budget':
             import fedbudget                            # noqa: PLC0415
             out = fedbudget.answer(args.get('part'), args.get('province'), args.get('find'), args.get('chapter'))

@@ -211,6 +211,14 @@ class Api:
         return {k: d.get(k) for k in ('year', 'roll_year', 'city', 'by_ward', 'factors', 'rates', 'levy', 'bylaw', 'source')}
 
     # ---- the City budget ----
+    def get_city_news(self):
+        try:
+            import citynews
+            return {'ok': True, 'data': citynews.latest()}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': f'Calgary News could not be read just now ({str(e)[:120]}).'}
+
     def track_311(self, request_id):
         import re as _re
         rid = (request_id or '').strip()

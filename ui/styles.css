@@ -1673,3 +1673,35 @@ table.data.dt-table tbody th[scope=row] { white-space: normal; position: static;
 table.data.dt-table tbody th small { display: block; color: var(--muted-fg); font-size: 11.5px; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .t311-warn { background: #422006; color: #FDE68A; border-color: #92400E; } }
 :root[data-theme="dark"] .t311-warn { background: #422006; color: #FDE68A; border-color: #92400E; }
+
+/* ---------- Calgary News */
+.cn-mast { border-bottom: 3px double var(--border-strong); padding: 4px 2px 12px; }
+.cn-mast-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.cn-mast-title { font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1; margin: 4px 0 6px; letter-spacing: -.01em; color: var(--fg); }
+.cn-mast .el-cr-kicker { color: var(--accent); }
+.cn-mast .el-cr-sub { color: var(--muted-fg); }
+.cn-tools { display: flex; gap: 8px; flex-wrap: wrap; }
+.cn-tools input, .cn-tools select { min-height: 36px; padding: 6px 10px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: var(--card); color: var(--fg); font: inherit; }
+.cn-tools input { width: 240px; max-width: 100%; }
+.cn-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.cn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.cn-card { border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; cursor: pointer; background: var(--card); transition: border-color var(--t), box-shadow var(--t); }
+.cn-card:hover, .cn-card:focus-visible { border-color: var(--accent); box-shadow: var(--shadow); }
+.cn-card h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 20px; line-height: 1.25; margin: 6px 0; }
+.cn-lead { grid-column: 1 / -1; padding: 20px 22px; border-left: 4px solid var(--accent); }
+.cn-lead h3 { font-size: 30px; }
+.cn-lead .cn-dek { font-size: 16px; }
+.cn-dek { color: var(--fg-2); margin: 0 0 8px; line-height: 1.45; }
+.cn-dek.big { font-size: 18px; }
+.cn-meta { font-size: 12px; color: var(--muted-fg); }
+.cn-topics { display: flex; gap: 6px; flex-wrap: wrap; }
+.cn-topics span { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); font-weight: 700; }
+.cn-reader { max-width: 860px; margin: 0 auto; }
+.cn-title { font-family: Georgia, 'Times New Roman', serif; font-size: 36px; line-height: 1.15; margin: 8px 0; }
+.cn-facts { background: var(--muted); border-radius: 10px; padding: 10px 14px 10px 30px; margin: 14px 0; font-size: 14px; }
+.cn-text p { font-size: 17px; line-height: 1.7; margin: 0 0 14px; font-family: Georgia, 'Times New Roman', serif; }
+.cn-cite { font-size: 12px; vertical-align: super; text-decoration: none; margin-left: 1px; font-family: var(--mono, monospace); }
+.cn-h3 { font-size: 15px; margin: 18px 0 6px; }
+.cn-sources { padding-left: 22px; display: grid; gap: 6px; font-size: 14px; }
+.cn-sources span { display: block; color: var(--muted-fg); font-size: 12px; }
+@media (max-width: 700px) { .cn-mast-title { font-size: 34px; } .cn-lead h3 { font-size: 24px; } .cn-title { font-size: 28px; } .cn-text p { font-size: 16px; } }

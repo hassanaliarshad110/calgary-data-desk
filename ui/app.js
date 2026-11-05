@@ -133,6 +133,7 @@ function show(view) {
   if (view === 'budget' && window.renderBudget) renderBudget();
   if (view === 'elections' && window.renderElections) renderElections();
   if (view === 'fedbudget' && window.renderFedBudget) renderFedBudget();
+  if (view === 'citynews' && window.renderCityNews) renderCityNews();
   if (view === 'sources' && window.renderLive) renderLive();
   if (view === 'news' && window.initNews) initNews();
   if (view === 'ask') $('#question').focus();
