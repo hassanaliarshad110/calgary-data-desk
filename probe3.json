@@ -1,0 +1,320 @@
+{
+ "city_json": {
+  "Election": "2025 Calgary General Election",
+  "ElectionDate": "Monday, October 20, 2025",
+  "ReportedAt": "2025-10-28T17:18:39.880Z",
+  "Results": [
+   {
+    "JurisdictionTitle": "Mayor results",
+    "Races": [
+     {
+      "RaceTitle": "...",
+      "NumberOfReportsReceived": "...",
+      "NumberOfReportsExpected": "...",
+      "TotalVotes": "...",
+      "BallotAccount": "..."
+     },
+     "len=1"
+    ]
+   },
+   "len=4"
+  ]
+ },
+ "ped": {
+  "layers": [
+   [
+    0,
+    "ATS v4_1 Alberta Provincial Boundary"
+   ],
+   [
+    1,
+    "Land Use Framework Planning Region"
+   ],
+   [
+    2,
+    "Northern Alberta Development Council (NADC) Area"
+   ],
+   [
+    3,
+    "Provincial Electoral Division - Current 2019"
+   ],
+   [
+    4,
+    "Provincial Electoral Division - Historical 2010"
+   ],
+   [
+    5,
+    "Provincial Electoral Division - Historical 2003"
+   ],
+   [
+    6,
+    "Community and Social Services Delivery Region Outline"
+   ],
+   [
+    7,
+    "Community and Social Services Delivery Region"
+   ]
+  ],
+  "3_Provincial Electoral Division - Current 2019": [
+   {
+    "attributes": {
+     "OBJECTID": 1,
+     "EDNUMBER": "72",
+     "EDNAME": "Lethbridge-West",
+     "EDPROV": "AB",
+     "MLA_TITLE": null,
+     "MLA_FNAME": null,
+     "MLA_LNAME": null,
+     "GlobalID": "{64AEAF6F-63EE-4163-B76B-209D39F34D1A}"
+    }
+   },
+   {
+    "attributes": {
+     "OBJECTID": 2,
+     "EDNUMBER": "71",
+     "EDNAME": "Lethbridge-East",
+     "EDPROV": "AB",
+     "MLA_TITLE": null,
+     "MLA_FNAME": null,
+     "MLA_LNAME": null,
+     "GlobalID": "{800CEB1C-4E7E-4D71-BFEA-B273FAE16BD3}"
+    }
+   },
+   {
+    "attributes": {
+     "OBJECTID": 3,
+     "EDNUMBER": "54",
+     "EDNAME": "Cardston-Siksika",
+     "EDPROV": "AB",
+     "MLA_TITLE": null,
+     "MLA_FNAME": null,
+     "MLA_LNAME": null,
+     "GlobalID": "{4F2CDC75-B296-440E-B701-4BCB4308C14A}"
+    }
+   }
+  ],
+  "4_Provincial Electoral Division - Historical 2010": [
+   {
+    "attributes": {
+     "OBJECTID": 1,
+     "EDNUMBER": "86",
+     "EDNAME": "Wetaskiwin-Camrose",
+     "EDPROV": "AB",
+     "MLA_TITLE": "Mr.",
+     "MLA_FNAME": "Bruce",
+     "MLA_LNAME": "Hinkley",
+     "GlobalID": "{EAE95083-9653-4E65-A406-7389D158FFF2}"
+    }
+   },
+   {
+    "attributes": {
+     "OBJECTID": 2,
+     "EDNUMBER": "53",
+     "EDNAME": "Cardston-Taber-Warner",
+     "EDPROV": "AB",
+     "MLA_TITLE": "Mr.",
+     "MLA_FNAME": "Grant",
+     "MLA_LNAME": "Hunter",
+     "GlobalID": "{02783646-FEC3-4170-8E1F-EC9B44F3D227}"
+    }
+   },
+   {
+    "attributes": {
+     "OBJECTID": 3,
+     "EDNUMBER": "72",
+     "EDNAME": "Medicine Hat",
+     "EDPROV": "AB",
+     "MLA_TITLE": "Honourable",
+     "MLA_FNAME": "Robert",
+     "MLA_LNAME": "Wanner",
+     "GlobalID": "{9564E253-0B34-4850-A565-DBCDA10629A6}"
+    }
+   }
+  ],
+  "5_Provincial Electoral Division - Historical 2003": [
+   {
+    "attributes": {
+     "OBJECTID": 1,
+     "EDNUMBER": "82",
+     "EDNAME": "Wetaskiwin-Camrose",
+     "EDPROV": "AB",
+     "MLA_TITLE": "Mr.",
+     "MLA_FNAME": "Verlyn",
+     "MLA_LNAME": "Olson",
+     "GlobalID": "{C16D5798-5284-4451-A07B-7209B53C5CE8}"
+    }
+   },
+   {
+    "attributes": {
+     "OBJECTID": 2,
+     "EDNUMBER": "70",
+     "EDNAME": "Peace River",
+     "EDPROV": "AB",
+     "MLA_TITLE": "Honourable",
+     "MLA_FNAME": "Frank",
+     "MLA_LNAME": "Oberle",
+     "GlobalID": "{50D54833-AF5C-40B6-910D-D4259B851674}"
+    }
+   },
+   {
+    "attributes": {
+     "OBJECTID": 3,
+     "EDNUMBER": "28",
+     "EDNAME": "Edmonton-Centre",
+     "EDPROV": "AB",
+     "MLA_TITLE": "Ms.",
+     "MLA_FNAME": "Laurie",
+     "MLA_LNAME": "Blakeman",
+     "GlobalID": "{330EA775-A3B6-4E64-82DB-9C7CE9340E57}"
+    }
+   }
+  ]
+ },
+ "fed": {
+  "bytes": 10301648,
+  "files": [
+   "SHP/FED_CA_2025_EN.cpg",
+   "SHP/FED_CA_2025_EN.dbf",
+   "SHP/FED_CA_2025_EN.prj",
+   "SHP/FED_CA_2025_EN.sbn",
+   "SHP/FED_CA_2025_EN.sbx",
+   "SHP/FED_CA_2025_EN.shp",
+   "SHP/FED_CA_2025_EN.shp.xml",
+   "SHP/FED_CA_2025_EN.shx",
+   "SHP/Data Dictionary.pdf"
+  ]
+ },
+ "events": {
+  "options": [
+   [
+    "orResultsPGE",
+    "Provincial Results"
+   ],
+   [
+    "orWinningCandidates",
+    "Winning Candidates"
+   ]
+  ],
+  "links": [
+   "orEDResultsReferendum2026.cfm?EventId=202610&MODE=exED",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=01",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=02",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=03",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=04",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=05",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=06",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=07",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=08",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=09",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=10",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=11",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=12",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=13",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=14",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=15",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=16",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=17",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=18",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=19",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=20",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=21",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=22",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=23",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=24",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=25",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=26",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=27",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=28",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=29",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=30",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=31",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=32",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=33",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=34",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=35",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=36",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=37",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=38",
+   "orPollResultsReferendum2026.cfm?EventID=202610&ED=39"
+  ]
+ },
+ "ref_xlsx": {
+  "Q10 - ED Results": [
+   [
+    "Official Electoral Division  Results",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "2026 Referendum Results",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Question 10: Should Alberta remain a province of Canada, or should the Government of Alberta commence the legal process required under the Canadian Constitution to hold a binding provincial referendum on whether or not Alberta should separate from Canada?",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Option 1 - Alberta should remain a province in Canada.",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "Option 2 - The Government of Alberta should commence the legal process required under the Canadian Constitution to hold a binding provincial referendum on whether or not Alberta should separate from Canada.",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   [
+    "ELECTORAL DIVISION NAME",
+    null,
+    "Voting Place /\nVoting Area",
+    "Number of\nElectors",
+    "Option 1",
+    "Option 2",
+    "Voter\nTurnout (%)"
+   ]
+  ],
+  "_sheets": [
+   "Q10 - ED Results"
+  ]
+ }
+}
