@@ -132,22 +132,11 @@
     }
    ],
    "section": "City Hall",
-   "image_query": "server racks in a data center",
+   "image_query": "Wikimedia Foundation Servers",
    "id": "2026-11-05-committee-backs-a-pause-on-large-data-centre-applications-council-to-d",
    "date": "2026-11-05",
    "published_at": "2026-11-05T23:25:36Z",
-   "words": 313,
-   "image": {
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Duga-1_radar_data_center_inside_empty_server_racks_2018.jpg/1280px-Duga-1_radar_data_center_inside_empty_server_racks_2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:Duga-1_radar_data_center_inside_empty_server_racks_2018.jpg",
-    "credit": "Joël van der Loo",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "alt": "Duga-1 radar data center inside empty server racks 2018",
-    "query": "server racks in a data center",
-    "via": "Wikimedia Commons"
-   },
-   "image_tried": "server racks in a data center"
+   "words": 313
   },
   {
    "title": "Stage 4 water restrictions in effect while crews connect the new Bearspaw feeder main",
