@@ -14,9 +14,6 @@ jobs:
       - run: pip install openpyxl
       - run: python probe/probe2.py _probe
       - run: |
-          python - <<'P'
-          import openpyxl, json
-      - run: |
           cd _probe
           git init -q -b elections-probe-out
           git config user.name "Hassan Ali"
