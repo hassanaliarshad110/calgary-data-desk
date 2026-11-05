@@ -1,0 +1,23 @@
+name: Narration
+on:
+  push:
+    branches: [narration-tts]
+permissions:
+  contents: write
+jobs:
+  speak:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: sudo apt-get update -q && sudo apt-get install -y -q espeak-ng
+      - run: pip install -q "kokoro>=0.9" soundfile
+      - run: python tts/speak.py af_heart am_michael bf_emma
+      - run: |
+          cd _tts
+          git init -q -b narration-tts-out
+          git config user.name "Hassan Ali"
+          git config user.email "hassanaliarshad110@users.noreply.github.com"
+          git add -A && git commit -q -m "Narration audio"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" narration-tts-out
