@@ -1,0 +1,22 @@
+name: Elections dev
+on:
+  push:
+    branches: [elections-dev]
+permissions:
+  contents: write
+jobs:
+  dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install openpyxl
+      - run: python devrun/run.py _dev
+      - run: |
+          cd _dev
+          git init -q -b elections-dev-out
+          git config user.name "Hassan Ali"
+          git config user.email "hassanaliarshad110@users.noreply.github.com"
+          git add -A && git commit -q -m "Elections dev output"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" elections-dev-out
