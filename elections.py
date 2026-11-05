@@ -50,6 +50,7 @@ AB_RESULTS = 'https://officialresults.elections.ab.ca/'
 AB_EVENT_PAGE = AB_RESULTS + 'orResultsPGE.cfm?EventId={event}'
 AB_REF_EXPORT = AB_RESULTS + 'orEDResultsReferendum2026.cfm?EventId={event}&MODE=exED'
 AB_REF_PAGE = AB_RESULTS + 'orEDResultsReferendum2026.cfm?EventId={event}'
+AB_BYE_PAGE = AB_RESULTS + 'orResultsED2026BE.cfm?EventId={event}&ED={ed}'
 AB_MLAS = 'https://www.assembly.ab.ca/members/members-of-the-legislative-assembly'
 AB_PED = ('https://geospatial.alberta.ca/titan/rest/services/boundary/goa_administrative_area_10tm_nad83_aep/'
           'MapServer/3/query')
@@ -68,6 +69,8 @@ AB_NEXT_DAY = '2027-10-18'            # the third Monday in October 2027 (Electi
 
 # Calgary's bounding box, a little wider than the city (for the riding outlines that touch it)
 BOX = (-114.35, 50.84, -113.85, 51.22)
+# renamed since the 2019 boundaries were drawn (the Government of Alberta's outline layer keeps the 2019 name)
+RENAMED = {'Calgary-McCall': 'Calgary-Bhullar-McCall'}
 
 
 # ------------------------------------------------------------------------------------------------- fetching
@@ -255,7 +258,8 @@ def ped_names():
     q = AB_PED + '?' + urllib.parse.urlencode({'where': '1=1', 'outFields': 'EDNUMBER,EDNAME', 'returnGeometry': 'false',
                                                 'f': 'json'})
     d = json.loads(_text(_get(q)))
-    return {str(f['attributes']['EDNUMBER']).zfill(2): f['attributes']['EDNAME'] for f in d.get('features', [])}
+    return {str(f['attributes']['EDNUMBER']).zfill(2): RENAMED.get(f['attributes']['EDNAME'], f['attributes']['EDNAME'])
+            for f in d.get('features', [])}
 
 
 def ped_shapes():
@@ -270,21 +274,57 @@ def ped_shapes():
         g, p = f.get('geometry') or {}, f.get('properties') or {}
         if g.get('type') == 'Polygon':
             g = {'type': 'MultiPolygon', 'coordinates': [g['coordinates']]}
-        out[str(p.get('EDNUMBER')).zfill(2)] = {'name': p.get('EDNAME'), 'geometry': g}
+        out[str(p.get('EDNUMBER')).zfill(2)] = {'name': RENAMED.get(p.get('EDNAME'), p.get('EDNAME')), 'geometry': g}
     return out
 
 
-def parse_mlas(page_text):
-    """'..., Member Diana (NDP) Calgary-Acadia ...' -> {'Calgary-Acadia': {'name': 'Diana Batten', 'caucus': 'NDP'}}."""
+def parse_mlas(page_html):
+    """The Assembly's member table -> {'Calgary-Acadia': {'name': 'Diana Batten', 'caucus': 'NDP'}} (sitting members
+    only: a former member's row has no caucus)."""
     out = {}
-    pat = re.compile(r"([A-Z][A-Za-z'.\- ]+?), ((?:[A-Z][A-Za-z.,]* )*?)([A-Z][A-Za-z'.\- ]+?) \(([A-Za-z]+)\) "
-                     r"(Calgary-[A-Za-z'\-]+)")
-    titles = {'Honourable', 'The', 'Member', 'Mr.', 'Mrs.', 'Ms', 'Ms.', 'Dr.', 'KC,', 'ECA,', 'Hon.'}
-    for m in pat.finditer(page_text):
-        last, first, caucus, ed = m.group(1).strip(), m.group(3).strip(), m.group(4), m.group(5)
-        first = ' '.join(w for w in first.split() if w not in titles)
-        out[ed] = {'name': f'{first} {last}'.strip(), 'caucus': {'UC': 'UCP'}.get(caucus, caucus)}
+    for row in re.findall(r'(?s)<tr>(.*?)</tr>', page_html):
+        alt = re.search(r'alt="([^"]+)"', row)
+        cells = [_strip(c) for c in re.findall(r'(?s)<td[^>]*>(.*?)</td>', row)]
+        if not alt or len(cells) < 4:
+            continue
+        caucus, ed = cells[2], cells[3]
+        if ed.startswith('Calgary') and caucus:
+            out[ed] = {'name': html.unescape(alt.group(1)).strip(), 'caucus': {'UC': 'UCP'}.get(caucus, caucus)}
     return out
+
+
+def _date(label):
+    try:
+        return dt.datetime.strptime(re.sub(r'^.*?([A-Z][a-z]+ \d{1,2}, \d{4}).*$', r'\1', label), '%B %d, %Y').date().isoformat()
+    except ValueError:
+        return None
+
+
+def parse_bye(page_html):
+    """A by-election division page -> candidates (name, party, votes), electors and turnout, read from its tables:
+    a row with a name, a party in brackets or its own cell, and a vote count."""
+    cands = []
+    for row in re.findall(r'(?s)<tr[^>]*>(.*?)</tr>', page_html):
+        cells = [_strip(c) for c in re.findall(r'(?s)<t[dh][^>]*>(.*?)</t[dh]>', row)]
+        nums = [c for c in cells if re.fullmatch(r'[\d,]+', c)]
+        words = [c for c in cells if c and not re.fullmatch(r'[\d,.%]+', c)]
+        if not nums or not words or len(words) > 3:
+            continue
+        name = words[0]
+        if re.search(r'total|ballot|elector|turnout|reject|spoil|declin|poll|voting', name, re.I):
+            continue
+        party = words[1] if len(words) > 1 else None
+        m = re.match(r'(.*?)\s*\(([^)]+)\)$', name)
+        if m:
+            name, party = m.group(1), party or m.group(2)
+        cands.append({'name': name, 'party': party, 'votes': _int(nums[0]) or 0})
+    if not cands:
+        return None
+    txt = _strip(page_html)
+    race = _race(cands)
+    m = re.search(r'Turnout[^\d]{0,40}([\d.]+)\s*%', txt, re.I)
+    race['turnout'] = round(float(m.group(1)) / 100, 4) if m else None
+    return race
 
 
 def parse_event_page(page_text, names):
@@ -310,24 +350,34 @@ def parse_referendum(xlsx_bytes, names):
     except StopIteration:
         return None
     opt_cols = list(range(e_col + 1, t_col))
-    by_ed, current = {}, None
+    by_ed = {}
     upper = {n.upper(): n for n in names.values()}
     for r in rows[hi + 1:]:
-        c0 = str(r[0] or '').strip()
-        if c0:
-            nm = re.sub(r'^\d+\s*-\s*', '', c0).strip().upper()
-            current = upper.get(nm, current if not nm else None)
-        label = str(r[2] or '').strip() if len(r) > 2 else ''
-        if not current or not current.startswith('Calgary') or not label.lower().startswith('total'):
+        if not r or not re.fullmatch(r'\d{1,2}', str(r[0] or '').strip()):
+            continue
+        name = upper.get(str(r[1] or '').strip().upper())
+        if not name or not name.startswith('Calgary'):
             continue
         votes = [_int(r[i]) or 0 for i in opt_cols]
         tot = sum(votes)
-        by_ed[current] = {'electors': _int(r[e_col]), 'votes': votes,
-                          'shares': [round(v / tot, 4) if tot else None for v in votes],
-                          'turnout': (round(float(r[t_col]) / (100 if float(r[t_col]) > 1 else 1), 4)
-                                      if r[t_col] not in (None, '') else None)}
+        turn = r[t_col]
+        by_ed[name] = {'electors': _int(r[e_col]), 'votes': votes,
+                       'shares': [round(v / tot, 4) if tot else None for v in votes],
+                       'turnout': round(float(turn) / 100, 4) if turn not in (None, '') else None}
+    total = next((r for r in rows if str(r[0] or '').strip().lower().startswith('total')), None)
+    alberta = None
+    if total:
+        votes = [_int(total[i]) or 0 for i in opt_cols]
+        alberta = {'electors': _int(total[e_col]), 'votes': votes,
+                   'shares': [round(v / sum(votes), 4) if sum(votes) else None for v in votes],
+                   'turnout': round(float(total[t_col]) / 100, 4) if total[t_col] not in (None, '') else None}
+    calg = [v for v in by_ed.values()]
+    cv = [sum(v['votes'][i] for v in calg) for i in range(len(opt_cols))]
+    ce = sum(v['electors'] or 0 for v in calg)
+    calgary = {'electors': ce, 'votes': cv, 'shares': [round(v / sum(cv), 4) if sum(cv) else None for v in cv],
+               'turnout': None, 'divisions': len(calg)}
     return {'question': question, 'options': options or [head[i] for i in opt_cols],
-            'option_columns': [head[i] for i in opt_cols], 'by_ed': by_ed}
+            'option_columns': [head[i] for i in opt_cols], 'by_ed': by_ed, 'calgary': calgary, 'alberta': alberta}
 
 
 def provincial():
@@ -348,7 +398,7 @@ def provincial():
                        {'name': 'Elections Alberta, official results', 'url': AB_RESULTS},
                        {'name': 'Legislative Assembly of Alberta, Members of the Legislative Assembly', 'url': AB_MLAS}]}
     try:
-        out['members'] = {k: v for k, v in parse_mlas(_strip(_text(_get(AB_MLAS)))).items() if k in eds}
+        out['members'] = {k: v for k, v in parse_mlas(_text(_get(AB_MLAS))).items() if k in eds}
     except Exception as e:                            # noqa: BLE001
         print('elections: MLA list not read:', e)
     try:                                              # by-elections since the general election, Calgary divisions
@@ -359,8 +409,15 @@ def provincial():
                 continue
             ev_text = _strip(_text(_get(AB_EVENT_PAGE.format(event=ev))))
             for ed in parse_event_page(ev_text, names):
-                out['byelections'].append({'event': ev, 'label': label, 'ed': ed,
-                                           'url': AB_EVENT_PAGE.format(event=ev)})
+                num = next((k for k, v in names.items() if v == ed), None)
+                url = AB_BYE_PAGE.format(event=ev, ed=num)
+                race = None
+                try:
+                    race = parse_bye(_text(_get(url)))
+                except Exception as e:                # noqa: BLE001
+                    print('elections: by-election results not read:', ed, e)
+                out['byelections'].append({'event': ev, 'label': label, 'ed': ed, 'date': _date(label),
+                                           'url': url, 'race': race})
     except Exception as e:                            # noqa: BLE001
         print('elections: by-elections not read:', e)
     qs = []
@@ -595,7 +652,8 @@ def _rep(race, member):
            'margin_share': race.get('margin_share'), 'turnout': race.get('turnout'), 'total': race.get('total')}
     if member:
         out['member'] = member
-        out['changed'] = bool(win) and _norm(member.get('name')) != _norm(win.get('name'))
+        last = lambda n: _norm(n).split(' ')[-1] if n else ''   # noqa: E731 - 'Shuv' and 'Shuvaloy' are one person
+        out['changed'] = bool(win) and last(member.get('name')) != last(win.get('name'))
     return out
 
 
