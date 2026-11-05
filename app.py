@@ -211,6 +211,14 @@ class Api:
         return {k: d.get(k) for k in ('year', 'roll_year', 'city', 'by_ward', 'factors', 'rates', 'levy', 'bylaw', 'source')}
 
     # ---- the City budget ----
+    def get_fedbudget(self):
+        try:
+            with open(os.path.join(HERE, 'ui', 'budget', 'budget2026.json'), encoding='utf-8') as f:
+                return {'ok': True, 'data': json.load(f)}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': str(e)}
+
     def get_elections(self):
         try:
             import elections

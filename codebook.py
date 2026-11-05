@@ -18,7 +18,9 @@ TOPICS = {
     'access': {'what': 'Growth vs amenities (revised 5 November 2026): distance from every home to the nearest amenity in any '
                        'community, the readings, crowding (two-step catchment) and the amenity scores (added 5 November 2026)',
                'code': [('access.py', '*'), ('scores.py', '*'), ('dashboard.py', 'access_view')]},
-    'elections': {'what': 'Elections: the official results read and who represents each ward (riding shares by area)',
+    'fedbudget': {'what': 'Federal Budget 2026: how the budget\'s tables, text and province lists are served to Data Genie',
+                  'code': [('fedbudget.py', '*')]},
+    'elections': {'what': 'Elections: the official results read and who represents each ward (electoral division and district shares by area)',
                   'code': [('elections.py', '*'), ('dashboard.py', 'elections_view')]},
     'homes': {'what': 'How homes are counted from the property roll (what is left out: commercial, vacant lots, parking stalls, storage)',
               'code': [('population.py', 'HOMES_WHERE'), ('population.py', 'homes'), ('population.py', 'units'),

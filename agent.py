@@ -328,6 +328,7 @@ and the label with a score; near_but_crowded lists communities with most homes n
 score is under 0.80 (shared by more children, or residents, than Calgary's average, from any community), and explain it from get_method topic access_scores. For a list of those amenities, use get_dashboard section \
 other_amenities (with ward or community).
 
+Federal Budget 2026 (get_dashboard section federal_budget): Canada's budget tabled 5 November 2026, with every measure and its amounts, the budget's own text, the deficit, revenue and spending outlook, and province by province what it names and the federal transfers each receives; for Calgary and Alberta use part=province, province=AB. Quote figures with their table and units ($ millions for measures, $ billions for the fiscal tables); describe the budget, never rate it or a party.
 Election Control Room (get_dashboard section elections; full=true for every Calgary race): who represents the area at each level, the seats by party (Calgary's council, MLAs and MPs, the whole Legislature and House of Commons), a ward's constituency figures (constituency: estimated electors and turnout by ward, the councillor race and its stations, the mayor's vote in the ward against Calgary's, the referendum in the ward's divisions; say estimates are estimates), and the latest official results: City of Calgary 2025 (mayor, councillors, CBE and CCSD trustees; Calgary's turnout; the mayor's election-day votes by ward), Alberta 2023 general election in Calgary's 26 divisions and by-elections since, the members sitting today, the 19 October 2026 referendum question by question, and the 2025 federal election in Calgary's 11 districts with the members sitting today. Quote results with their date and source; describe them, never favour, rate or rank a candidate or party, never predict, and give no voting advice. Where a ward is split between several, say each electoral division's or district's share of its residents (say "electoral division" for Alberta and "electoral district" for Canada, not "riding").
 
 Extra detail for Ward 5 (use only when the question is about Ward 5)
@@ -446,9 +447,15 @@ TOOLS = [
                     'section="elections" gives who represents the area at each level (mayor, councillor, school trustees, '
                     'MLAs, MPs, with each electoral division\'s or district\'s share of the area\'s residents) and their last official result and '
                     'turnout; pass full=true for every Calgary race (2025 municipal, 2023 provincial and by-elections since, '
-                    'the 2026 referendum question by question, 2025 federal).',
+                    'the 2026 referendum question by question, 2025 federal). '
+                    'section="federal_budget" gives the Government of Canada\'s Budget 2026 (tabled 5 November 2026): the '
+                    'fiscal summary, deficit, revenue and spending, new measures by chapter, the national strategies, '
+                    'defence spending and transfers to every province; part="province" with province for everything the '
+                    'budget names there (major projects, community projects, defence, every passage) and its federal '
+                    'transfers over ten years; part="find" with find for measures on any subject, with their amounts and '
+                    'the budget\'s own text; part="chapter", "tables" or "tax" for the full tables.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'federal_budget'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -460,6 +467,11 @@ TOOLS = [
                                                         'with its map link, as a CSV in Files (use for "all" or long lists)'},
          'show_on_map': {'type': 'boolean', 'description': 'section other_amenities: also show every one on the map'},
          'full': {'type': 'boolean', 'description': 'section elections: also every Calgary race and the referendum'},
+         'part': {'type': 'string', 'enum': ['summary', 'province', 'find', 'chapter', 'tables', 'tax'],
+                  'description': 'section federal_budget: summary (default), province, find (search the measures and their '
+                                 'text with find), chapter (every line item of one chapter), tables (Annex 1), tax'},
+         'province': {'type': 'string', 'description': 'section federal_budget, part province: a name or code (AB, ON...)'},
+         'chapter': {'type': 'integer', 'description': 'section federal_budget, part chapter: 1 to 6'},
          'community': {'type': 'string', 'description': 'sections other_amenities and access: one community (code '
                                                          'or name); access then gives its figures for every amenity; '
                                                          'population_recon: that community\'s rental buildings (code)'},
@@ -1241,6 +1253,14 @@ class Agent:
             self.emit({'type': 'download', 'path': res['path'], 'rows': res['rows'], 'bytes': res['bytes'],
                        'dataset': args['dataset_id']})
             return {'saved_to': res['path'], 'rows': res['rows']}
+        if name == 'get_dashboard' and (args.get('section') or '') == 'federal_budget':
+            import fedbudget                            # noqa: PLC0415
+            out = fedbudget.answer(args.get('part'), args.get('province'), args.get('find'), args.get('chapter'))
+            if isinstance(out, dict):
+                out['how'] = ('Budget 2026 as published (budget.canada.ca, tabled 5 November 2026) and Finance Canada\'s '
+                              'transfer tables. Projections are the government\'s own. Describe, never rate the budget, '
+                              'a party or a minister. get_method topic fedbudget.')
+            return out
         if name == 'get_dashboard':
             d = self.dashboard_provider()
             if not d:

@@ -651,6 +651,44 @@ METHODS = [
                   'divisions here are those of the 2023 election.',
                   'Elections Calgary notes that its station-by-station results do not include special (mail-in) ballots.'],
      'code': 'elections.py; dashboard.py: elections_view'},
+    {'key': 'fedbudget', 'name': 'Federal Budget 2026: the numbers, every measure, and province by province',
+     'dataset': 'Budget 2026 (budget.canada.ca/2026), all chapters and annexes; Finance Canada, Federal Support to '
+                'Provinces and Territories',
+     'publisher': 'Department of Finance Canada',
+     'page': 'https://budget.canada.ca/2026/home-accueil-en.html',
+     'updated': 'Read once, the day the budget was tabled (5 November 2026); transfers as Finance Canada publishes them',
+     'used_in': 'Federal Budget 2026 (Overview, Province by province, Calgary and Alberta, Every measure, Tax changes, '
+                'Fiscal tables), Data Genie',
+     'method': [
+         'Headline numbers: Annex 1, Table A1.8 (summary statement of transactions), for 2026-27 unless stated. The '
+         'deficit is the budgetary balance; spending is total expenses before net actuarial losses (gains); interest on '
+         'the debt is public debt charges. Revenue and spending by source and program: Tables A1.9 and A1.10. Fiscal '
+         'anchors: Table A1.6 (day-to-day operating balance) and Table A1.5 (capital investment). The comparison with '
+         'the Spring Economic Update 2026: the overview\'s Table 1.',
+         'New measures: the table at the end of each chapter, $ millions on an accrual basis, five years 2026-27 to '
+         '2030-31; "Less" lines (funds from existing resources, projected revenue or savings) are shown under the '
+         'measure they belong to. The net cost of all measures is the overview\'s "Subtotal - Budget 2026 measures", '
+         'which matches the six chapter totals added up. The text under a measure is the budget\'s own paragraphs under '
+         'the heading of the same name, or, failing that, the paragraphs in its chapter section that share most of its '
+         'words; for the "Additional investments" lines it is the table\'s own description.',
+         'Province by province: the budget\'s own lists (major projects referred to the Major Projects Office in the '
+         'Budget in brief; Build Communities Strong Fund projects, Chapter 3; defence investments by region, Figure 5.1; '
+         'festivals funded in 2026, Figure 4.1), and every paragraph that names the province or territory or one of '
+         'its cities. A regional entry (Prairies, Atlantic Canada, North/Arctic) is listed for each province or '
+         'territory in the region, and labelled as regional.',
+         'Federal transfers: Finance Canada\'s Federal Support to Provinces and Territories (Canada Health Transfer, '
+         'Canada Social Transfer, Equalization, offshore offsets and Territorial Formula Financing), $ millions, with its '
+         'per-person allocation, 2017-18 to 2026-27.',
+         'Nothing is rated or recommended: the figures are the government\'s own, including its projections.'],
+     'excel': ['Every table on the tab is the budget\'s own table, with its title; the Fiscal tables section reproduces '
+               'Annex 1 Tables A1.5, A1.6, A1.8, A1.9, A1.10 and A1.11.'],
+     'cautions': ['Projections for 2026-27 onward are the government\'s forecasts and change with the economy.',
+                  'Most national measures are not divided by province in the budget; the province pages list what the '
+                  'budget names there, not each province\'s share of national programs.',
+                  'Major transfers exclude other federal transfers (for example infrastructure or child care agreements).',
+                  'A mention of a city or province is found by its name; a passage about a region in general terms may '
+                  'not name it.'],
+     'code': 'fedbudget.py; ui/fedbudget.js'},
     {'key': 'access_revision', 'name': 'What changed on 5 November 2026 (Growth vs amenities)',
      'dataset': 'access, access_crowding', 'publisher': 'Calgary Data Desk', 'page': '',
      'updated': 'Revised 5 November 2026', 'used_in': 'Growth vs amenities (What changed)',

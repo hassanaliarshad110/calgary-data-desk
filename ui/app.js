@@ -132,6 +132,7 @@ function show(view) {
   if (view === 'methods' && window.renderMethods) renderMethods();
   if (view === 'budget' && window.renderBudget) renderBudget();
   if (view === 'elections' && window.renderElections) renderElections();
+  if (view === 'fedbudget' && window.renderFedBudget) renderFedBudget();
   if (view === 'sources' && window.renderLive) renderLive();
   if (view === 'news' && window.initNews) initNews();
   if (view === 'ask') $('#question').focus();

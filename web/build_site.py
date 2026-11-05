@@ -91,6 +91,11 @@ def python_files(out, cache):
                 os.makedirs(os.path.join(dest, d), exist_ok=True)
                 shutil.copy(os.path.join(ROOT, d, f), os.path.join(dest, d, f))
                 files.append(f'{d}/{f}')
+    fb = os.path.join(ROOT, 'ui', 'budget', 'budget2026.json')   # Federal Budget 2026 for Data Genie (fedbudget.py)
+    if os.path.exists(fb):
+        os.makedirs(os.path.join(dest, 'ui', 'budget'), exist_ok=True)
+        shutil.copy(fb, os.path.join(dest, 'ui', 'budget', 'budget2026.json'))
+        files.append('ui/budget/budget2026.json')
     kept = []
     for rel in ('police/community_safety.json', 'csi_35100026.json'):
         src = os.path.join(cache, rel)

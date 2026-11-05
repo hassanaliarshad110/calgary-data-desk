@@ -52,6 +52,7 @@
       catch (e) { return { ok: false, error: String(e.message || e), appeals: [] }; }
     },
     async get_budget() { try { return { ok: true, data: await getJSON('budget.json') }; } catch (e) { return fail(e); } },
+    async get_fedbudget() { try { const r = await fetch('budget/budget2026.json', { cache: 'no-cache' }); if (!r.ok) throw new Error('The federal budget file could not be read (' + r.status + ').'); return { ok: true, data: await r.json() }; } catch (e) { return fail(e); } },
     async get_elections() { try { return { ok: true, data: await getJSON('elections.json') }; } catch (e) { return fail(e); } },
     async get_property_tax() { try { return { ok: true, data: await getJSON('tax.json') }; } catch (e) { return fail(e); } },
     async get_methods() { try { return await getJSON('methods.json'); } catch (e) { return []; } },

@@ -1571,3 +1571,76 @@ table.el-split td { line-height: 1.6; }
 .el-seats-big .el-hemi svg { max-width: 480px; }
 @media (max-width: 700px) { .el-cr { padding: 18px; } .el-cr-title { font-size: 26px; } .el-cr-days { font-size: 40px; } .el-cr-count { text-align: left; } .el-cd-big .el-cd-u { min-width: 44px; } .el-cd-big .el-cd-u b { font-size: 22px; } }
 .el-map { max-height: 640px; }
+
+/* ---------- Federal Budget 2026 */
+.fb-hero .el-cr-days { font-size: 48px; }
+.fb-cols { width: 100%; height: auto; display: block; }
+.fb-cols .fb-axis { stroke: var(--border-strong); stroke-width: 1; }
+.fb-cols .fb-val { font-size: 11px; fill: var(--fg-2); font-variant-numeric: tabular-nums; }
+.fb-cols .fb-lab { font-size: 11px; fill: var(--muted-fg); }
+.fb-key { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--fg-2); margin-bottom: 4px; }
+.fb-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.fb-bars { display: grid; gap: 7px; }
+.fb-bar { display: grid; grid-template-columns: minmax(120px, 34%) 1fr 74px; gap: 10px; align-items: center; font-size: 13px; }
+.fb-bar-l { line-height: 1.25; }
+.fb-bar-l small { display: block; color: var(--muted-fg); font-size: 11.5px; }
+.fb-bar-t { height: 14px; background: var(--muted); border-radius: 7px; overflow: hidden; }
+.fb-bar-t i { display: block; height: 100%; background: var(--accent); border-radius: 7px; }
+.fb-bar-t i.neg { background: #047857; }
+.fb-bar.is-on .fb-bar-t i { background: #F59E0B; }
+.fb-bar.is-on .fb-bar-l { font-weight: 700; }
+.fb-bar-v { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.fb-strats { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.fb-strat { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; background: var(--card); }
+.fb-strat-n { font-size: 24px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; }
+.fb-strat-t { font-weight: 700; margin: 2px 0 6px; }
+.fb-strat ul { margin: 0; padding-left: 16px; font-size: 12.5px; color: var(--fg-2); }
+.fb-ptiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.fb-ptile { text-align: left; border: 1px solid var(--border-strong); background: var(--card); border-radius: 10px; padding: 9px 11px; cursor: pointer; color: var(--fg); display: flex; flex-direction: column; gap: 1px; font: inherit; }
+.fb-ptile b { font-size: 12px; color: var(--accent); letter-spacing: .06em; }
+.fb-ptile span { font-weight: 600; font-size: 13.5px; }
+.fb-ptile small { color: var(--muted-fg); font-size: 11.5px; }
+.fb-ptile:hover { border-color: var(--accent); }
+.fb-ptile.is-on { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 1px var(--accent); }
+.fb-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.fb-kpi { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; }
+.fb-kpi-l { font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted-fg); }
+.fb-kpi-n { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; margin: 2px 0; }
+.fb-kpi-s { font-size: 12px; color: var(--fg-2); }
+.fb-h3 { font-size: 14px; margin: 6px 0 8px; }
+.fb-h3 small { color: var(--muted-fg); font-weight: 500; margin-left: 4px; }
+.fb-lists { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.fb-lists.one { grid-template-columns: 1fr; }
+.fb-listcard { border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; }
+.fb-listcard ul { margin: 0; padding-left: 18px; font-size: 13px; display: grid; gap: 4px; }
+.fb-listcard .card-note { margin-top: 8px; padding-top: 6px; }
+.fb-mentions { margin: 0; padding-left: 22px; display: grid; gap: 12px; }
+.fb-mentions li p { margin: 3px 0 0; font-size: 13.5px; line-height: 1.5; }
+.fb-m-src { font-size: 12px; color: var(--muted-fg); }
+.fb-pill { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--fg-2); margin-left: 4px; white-space: nowrap; }
+.fb-pill.money { border-color: #0369A1; color: #0369A1; }
+.fb-pill.cap { border-color: #B45309; color: #B45309; }
+.fb-cal { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.fb-cal li { border-left: 3px solid #F59E0B; padding: 4px 0 4px 12px; }
+.fb-cal p { margin: 0 0 3px; font-size: 13.5px; line-height: 1.5; }
+.fb-cal small { color: var(--muted-fg); }
+.fb-tools { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+.fb-tools input[type=search] { flex: 1 1 320px; min-height: 36px; padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: var(--card); color: var(--fg); font: inherit; }
+.fb-sum { font-size: 13px; color: var(--fg-2); margin: 4px 0 8px; }
+.fb-mtable th[scope=row] { min-width: 260px; font-weight: 500; }
+.fb-mtable th[scope=row] small { display: block; color: var(--muted-fg); font-size: 11.5px; font-weight: 400; }
+.fb-mbtn { background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: var(--fg); text-align: left; cursor: pointer; }
+.fb-mbtn::before { content: '▸ '; color: var(--accent); }
+.fb-mrow.is-open .fb-mbtn::before { content: '▾ '; }
+.fb-mbtn:hover { color: var(--accent); }
+.fb-tot { font-weight: 700; }
+.fb-mtext td { background: var(--muted); font-size: 13px; line-height: 1.55; white-space: normal; }
+.fb-mtext p { margin: 0 0 8px; max-width: 90ch; }
+.fb-less { font-size: 12px; color: var(--muted-fg); margin-bottom: 6px; }
+.fb-less span { margin-left: 8px; font-variant-numeric: tabular-nums; }
+.fb-ftable tr.fb-head th { background: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+.fb-ftable tr.fb-total th, .fb-ftable tr.fb-total td { font-weight: 700; }
+@media (max-width: 700px) { .fb-bar { grid-template-columns: 104px 1fr 62px; font-size: 12px; } .fb-hero .el-cr-days { font-size: 36px; } .fb-mtable th[scope=row] { min-width: 180px; } }
+table.data tr.fb-mtext td { white-space: normal; height: auto; }
+table.data.fb-mtable tbody th[scope=row], table.data.fb-ftable tbody th[scope=row] { white-space: normal; position: static; background: var(--card); font-size: 13px; color: var(--fg); }
+table.data.fb-mtable tr.fb-mtext td { background: var(--muted); }
