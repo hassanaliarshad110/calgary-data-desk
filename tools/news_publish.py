@@ -3,7 +3,9 @@
     python tools/news_publish.py EDITION.json NEWS_DIR
 
 EDITION.json: {"date": "YYYY-MM-DD", "articles": [article, ...]}  (at least 3 articles)
-article: {"title", "dek", "body": [paragraphs with [n] citation markers], "key_facts": [..], "topics": [..],
+article: {"title", "dek", "section" (one of SECTIONS), "body": [paragraphs with [n] citation markers], "key_facts": [..],
+          "topics": [..], "image_query": "a place or object to illustrate it (never a person)",
+          "location": {"lat", "lon", "label"} (optional, where it happened),
           "wards": [ints, optional], "communities": [names, optional],
           "sources": [{"title", "outlet", "url", "published": "YYYY-MM-DD"}]}
 NEWS_DIR is a checkout of the `news` branch; a second edition on the same day is added to the first. This writes news/days/DATE.json, news/latest.json (last 60 days) and
@@ -17,6 +19,9 @@ import re
 import sys
 
 KEEP_DAYS = 60
+SECTIONS = ['City Hall', 'Public safety', 'Transit and roads', 'Housing and development', 'Business and economy',
+            'Community and events', 'Environment and weather', 'Alberta and Canada']
+PER_SECTION = 3
 TOPICS = {'City Council', 'City services', 'Transit', 'Roads and traffic', 'Housing', 'Development', 'Public safety',
           'Health', 'Education', 'Economy', 'Business', 'Energy', 'Environment', 'Weather', 'Parks and recreation',
           'Arts and culture', 'Sports', 'Community', 'Provincial', 'Federal', 'Courts', 'Water', 'Budget and taxes',
@@ -40,6 +45,18 @@ def check(ed):
     titles = set()
     for k, a in enumerate(arts, 1):
         w = f'article {k} ({(a.get("title") or "")[:50]!r})'
+        if a.get('section') not in SECTIONS:
+            errs.append(f'{w}: section must be one of {SECTIONS}')
+        if not (a.get('image') or len(str(a.get('image_query') or '').strip()) >= 3):
+            errs.append(f'{w}: give image_query (a place or object to illustrate it, never a person)')
+        loc = a.get('location')
+        if loc is not None:
+            try:
+                ok = 49.0 <= float(loc['lat']) <= 60.0 and -120.0 <= float(loc['lon']) <= -110.0 and loc.get('label')
+            except (KeyError, TypeError, ValueError):
+                ok = False
+            if not ok:
+                errs.append(f'{w}: location needs lat, lon (in Alberta) and label')
         for f in ('title', 'dek', 'body', 'sources', 'topics'):
             if not a.get(f):
                 errs.append(f'{w}: missing {f}')
@@ -81,6 +98,12 @@ def check(ed):
         for word in ('supersonic', 'nobody has counted'):
             if word in low:
                 errs.append(f'{w}: avoid the phrase {word!r}')
+    per = {}
+    for a in arts:
+        per[a.get('section')] = per.get(a.get('section'), 0) + 1
+    over = [k for k, v in per.items() if v > PER_SECTION]
+    if over:
+        errs.append(f'at most {PER_SECTION} stories per section in an edition: {over}')
     return errs
 
 
@@ -102,24 +125,38 @@ def publish(ed, root):
             before = json.load(f).get('articles') or []
         ids = {a['id'] for a in arts}
         arts = [a for a in before if a['id'] not in ids] + arts
+    per = {}
+    for a in arts:
+        per[a.get('section')] = per.get(a.get('section'), 0) + 1
+    over = [k for k, v in per.items() if k and v > PER_SECTION]
+    if over:
+        raise ValueError(f'with today\'s earlier stories, these sections would pass {PER_SECTION}: {over}; '
+                         'choose another section or story')
     day = {'date': date, 'published_at': now, 'articles': arts}
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(day, f, ensure_ascii=False, indent=1)
+    return len(arts), reindex(root)
+
+
+def reindex(root):
+    """Rewrite news/index.json and news/latest.json from news/days/."""
+    now = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     days = sorted((f[:-5] for f in os.listdir(os.path.join(root, 'news', 'days')) if f.endswith('.json')), reverse=True)
     index, latest = [], []
     cut = (dt.date.fromisoformat(days[0]) - dt.timedelta(days=KEEP_DAYS)).isoformat()
     for d in days:
         with open(os.path.join(root, 'news', 'days', f'{d}.json'), encoding='utf-8') as f:
             x = json.load(f)
-        index.append({'date': d, 'articles': [{'id': a['id'], 'title': a['title'], 'topics': a.get('topics', []),
-                                               'sources': len(a.get('sources', []))} for a in x['articles']]})
+        index.append({'date': d, 'articles': [{'id': a['id'], 'title': a['title'], 'section': a.get('section'),
+                                               'topics': a.get('topics', []), 'sources': len(a.get('sources', []))}
+                                              for a in x['articles']]})
         if d > cut:
             latest += x['articles']
     with open(os.path.join(root, 'news', 'index.json'), 'w', encoding='utf-8') as f:
         json.dump({'updated': now, 'days': index}, f, ensure_ascii=False)
     with open(os.path.join(root, 'news', 'latest.json'), 'w', encoding='utf-8') as f:
-        json.dump({'updated': now, 'keep_days': KEEP_DAYS, 'articles': latest}, f, ensure_ascii=False)
-    return len(arts), len(days)
+        json.dump({'updated': now, 'keep_days': KEEP_DAYS, 'sections': SECTIONS, 'articles': latest}, f, ensure_ascii=False)
+    return len(days)
 
 
 if __name__ == '__main__':
@@ -129,5 +166,9 @@ if __name__ == '__main__':
     if problems:
         print('NOT PUBLISHED. Fix these:\n- ' + '\n- '.join(problems))
         sys.exit(1)
-    n, d = publish(edition, sys.argv[2])
+    try:
+        n, d = publish(edition, sys.argv[2])
+    except ValueError as e:
+        print(f'NOT PUBLISHED. Fix these:\n- {e}')
+        sys.exit(1)
     print(f'published {n} articles for {edition["date"]}; {d} days on file')
