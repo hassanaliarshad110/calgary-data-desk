@@ -66,7 +66,7 @@ window.open = (url) => { if (/^https?:\/\//i.test(String(url || ''))) openUrl(St
 
 // ---------------------------------------------------------------- theme
 const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-let themePref = 'system';
+let themePref = window.CDD_DEFAULT_THEME || 'system';
 const isDark = () => document.documentElement.dataset.theme === 'dark';
 function applyTheme() {
   const dark = themePref === 'dark' || (themePref === 'system' && darkQuery.matches);
@@ -181,10 +181,11 @@ const isCity = () => (D && D.scope ? D.scope.kind === 'city' : SCOPE === 0);
 const SCOPE_NODES = [];
 function scopeTextInit() {
   const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  for (let n = walk.nextNode(); n; n = walk.nextNode()) if (/Ward 5|2021 Census|since 2021|May 2021/.test(n.nodeValue)) SCOPE_NODES.push([n, null, n.nodeValue]);
+  // published videos keep their own words: a video about Ward 5 stays about Ward 5 whichever area is picked
+  for (let n = walk.nextNode(); n; n = walk.nextNode()) if (/Ward 5|2021 Census|since 2021|May 2021/.test(n.nodeValue) && !(n.parentElement && n.parentElement.closest('#view-videos'))) SCOPE_NODES.push([n, null, n.nodeValue]);
   $$('[title],[aria-label],[data-add],input[value],[placeholder]').forEach(el => ['title', 'aria-label', 'data-add', 'value', 'placeholder'].forEach(a => {
     const v = el.getAttribute(a);
-    if (v && /Ward 5|2021 Census|since 2021|May 2021/.test(v)) SCOPE_NODES.push([el, a, v]);
+    if (v && /Ward 5|2021 Census|since 2021|May 2021/.test(v) && !el.closest('#view-videos')) SCOPE_NODES.push([el, a, v]);
   }));
 }
 function scopeText() {

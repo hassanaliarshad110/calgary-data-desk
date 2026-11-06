@@ -170,7 +170,7 @@ function renderBudgetWards() {
     const ws = (D.wards_summary || {}).wards || [];
     box.innerHTML = `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Projects with a published cost</th><th scope="col" class="num">Their cost</th><th scope="col" class="num">Per resident</th></tr></thead><tbody>
       ${ws.map(r => { const b = byW[r.ward] || { n: 0, sum: 0 }; return `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${fmt(b.n)}</td><td class="num">${b.n ? money(b.sum) : '–'}</td><td class="num">${b.n && r.residents ? '$' + fmt(b.sum * 1e6 / r.residents) : '–'}</td></tr>`; }).join('')}
-      </tbody></table></div><p class="card-note">Only projects listed in the app with a published cost and a location; a ward with none listed may still have City spending (maintenance, services and programs are budgeted city-wide).</p>`;
+      </tbody></table></div><p class="card-note">Only projects listed on the Data Desk with a published cost and a location; a ward with none listed may still have City spending (maintenance, services and programs are budgeted city-wide).</p>`;
     return;
   }
   box.innerHTML = withCost.length ? `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Project</th><th scope="col">Kind</th><th scope="col">Owner</th><th scope="col">Community</th><th scope="col" class="num">Published cost</th></tr></thead><tbody>

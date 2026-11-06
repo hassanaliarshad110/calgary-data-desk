@@ -1153,7 +1153,7 @@ function methodHtml(d) {
   const m = (METHODS || []).find(x => x.key === methodKey(d));
   if (!m) return '';
   const list = (xs, tag = 'ul') => xs && xs.length ? `<${tag}>${xs.map(x => `<li>${esc(x)}</li>`).join('')}</${tag}>` : '';
-  return `<details class="src-method"><summary>How the app counts it</summary>
+  return `<details class="src-method"><summary>How it is counted</summary>
     ${list(m.method)}
     ${m.excel && m.excel.length ? `<p class="sm-h">Check it yourself in Excel</p>${list(m.excel, 'ol')}` : ''}
     ${m.cautions && m.cautions.length ? `<p class="sm-h">Keep in mind</p>${list(m.cautions)}` : ''}
@@ -1219,7 +1219,7 @@ document.addEventListener('click', e => {
   q.focus();
 });
 function renderBriefSources() {
-  $('#brief-sources').innerHTML = `<span class="bs-title">Data in this app, ready to ask about, analyze or download</span>` +
+  $('#brief-sources').innerHTML = `<span class="bs-title">Data on the Data Desk, ready to ask about, analyze or download</span>` +
     DATASETS_OF().map(d => `<span class="bs-chip">${esc(d.name)}<small>${esc(d.pub.replace(/ \(.*\)$/, '').replace('City of Calgary', 'City').replace('Government of Alberta', 'Alberta').replace('Environment and Climate Change Canada', 'Env. Canada'))}</small></span>`).join('');
 }
 
@@ -1349,7 +1349,7 @@ const CARD_SOURCES = [
   ['[aria-labelledby="map-title"]', ['r311', 'pop', 'traffic', 'cams'], () => 'Most 311 requests are recorded at the community\'s centre point, not the exact address, so 311 is shaded by community. Traffic incidents: last 90 days of the period.'],
   ['[aria-labelledby="trend-title"]', ['r311'], () => `Requests by the month they were made, ${periodWords()}. Duplicates are left out.`],
   ['[aria-labelledby="feed-title"]', ['r311'], () => 'The newest requests the City has published; names and contact details are never published.'],
-  ['#profile-card', ['profile'], () => CY() === 2021 ? 'People in private households, 2021 ward boundaries, as of May 2021 (income: 2020). The app switches to the 2026 Census by itself when the City publishes it (expected 2027).' : `People in private households, as of May ${CY()}.`],
+  ['#profile-card', ['profile'], () => CY() === 2021 ? 'People in private households, 2021 ward boundaries, as of May 2021 (income: 2020). The Data Desk switches to the 2026 Census by itself when the City publishes it (expected 2027).' : `People in private households, as of May ${CY()}.`],
   ['#crime-card', ['police'], () => 'Every number here is in the police spreadsheet (link: police page, "Download Community Safety Data").'],
   ['#rent-card', ['cmhc'], () => 'Purpose-built rental apartments only; rents for ' + (isCity() ? 'Calgary as a whole' : (((D.rents || {}).areas || {}).ward5 ? 'the whole ' + W() + ' area' : 'the CMHC survey zone ' + W() + ' is in')) + ', not each community.'],
   ['#csi-card', ['csi'], () => 'City-wide only: no ward or community figures exist for this index.'],
@@ -1363,7 +1363,7 @@ const CARD_SOURCES = [
   ['#dp-card', ['dp'], () => `Applications made ${D ? D.period : ''}, by the permit's ward.`],
   ['#rw-card', ['roads'], () => 'The City\'s larger road projects only.'],
   ['#am-card', ['rec', 'stops', 'play', 'svc', 'pop'], () => 'Facilities as listed by the City today; rates use today\'s estimated residents.'],
-  ['[aria-labelledby="camstrip-title"]', ['cams'], () => 'The City posts a new still image about once a minute and keeps no recording; the app keeps the last 30 minutes.'],
+  ['[aria-labelledby="camstrip-title"]', ['cams'], () => 'The City posts a new still image about once a minute and keeps no recording.'],
   ['[aria-labelledby="open-title"]', ['r311'], () => `Requests still open at the last refresh (${D ? dmy(D.built_at) : ''}), whenever they were made.`],
   ['[aria-labelledby="bench-title"]', ['r311'], () => periodWords()],
   ['[aria-labelledby="dis-title"]', () => (D && D.crime && D.crime.disorder) ? ['police'] : ['cityDisorder'], () => (D && D.crime && D.crime.disorder) ? `Calls to police about disorder, ${D.crime.period}. The police changed what counts as disorder in 2025.` : 'The City\'s disorder data ends in July 2025.'],
@@ -1592,7 +1592,7 @@ async function runDs({ key, title, text }) {
   $('#ds-run').hidden = false;
   $('#ds-run').classList.remove('is-done');
   $('#ds-run-title').textContent = title || text;
-  $('#ds-run-sub').textContent = 'Working on it. This usually takes 3 to 8 minutes; you can use the rest of the app meanwhile.';
+  $('#ds-run-sub').textContent = 'Working on it. This usually takes 3 to 8 minutes; you can use the rest of the Data Desk meanwhile.';
   $('#ds-steps').innerHTML = '<li>Planning the analysis</li>';
   $('#ds-result').innerHTML = '';
   setStage(0);

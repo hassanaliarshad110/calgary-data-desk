@@ -25,7 +25,7 @@
   const api = {
     async load_dashboard(force, period, ward) {
       if (period && period.kind && period.kind !== 'last12') {
-        return { ok: false, period_error: true, error: 'The website shows the last 12 complete months, refreshed every morning. Other periods are in the desktop app.' };
+        return { ok: false, period_error: true, error: 'The website shows the last 12 complete months, refreshed every morning. Other periods are not on the website yet.' };
       }
       try {
         const w = ward === null || ward === undefined ? store.get('scope', 0) : +ward;
@@ -115,7 +115,7 @@
       try { s = await settingsFile(); } catch (e) { /* defaults */ }
       return {
         has_key: false, key_hint: '', engines: [], max_engines: 0, providers: [], models: {}, downloads: 'your browser\'s downloads',
-        theme: store.get('theme', 'system'), map_style: store.get('map_style', 'street'),
+        theme: store.get('theme', 'dark'), map_style: store.get('map_style', 'street'),
         has_google_key: false, google_key_hint: '', google_key: '',
         pop_method: await okMethod(store.get('pop_method', 'city_actual')), scope: store.get('scope', 0),
         pop_methods: (s.pop_methods || []).filter(p => !s.methods || s.methods.includes(p.key)), web: true, built: s,
@@ -195,8 +195,8 @@
 
     // the desktop-only parts
     async cam_watch() { return { ok: true }; },
-    async newsletter_make() { return { ok: false, error: 'The newsletter is made in the desktop app.' }; },
-    async newsletter_save() { return { ok: false, error: 'The newsletter is made in the desktop app.' }; },
+    async newsletter_make() { return { ok: false, error: 'The newsletter is not on the website.' }; },
+    async newsletter_save() { return { ok: false, error: 'The newsletter is not on the website.' }; },
     async ask() { return { ok: false, error: 'Data Genie needs the access code.' }; },
     async new_chat() { return true; },
     async analyst_topics() { return []; },
@@ -252,5 +252,8 @@
     };
   }
   window.CDD_WEB = { store, getJSON, today };
+  // the website opens in the dark theme unless the visitor chose another
+  window.CDD_DEFAULT_THEME = store.get('theme', 'dark');
+  document.documentElement.dataset.theme = window.CDD_DEFAULT_THEME === 'light' ? 'light' : window.CDD_DEFAULT_THEME === 'system' ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : 'dark';
   window.pywebview = { api };
 })();

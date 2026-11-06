@@ -30,7 +30,7 @@ function t311Card() {
         <span class="t311-st ${closed ? 'closed' : 'open'}">${esc(st || 'Unknown')}</span></div>
       <ol class="t311-steps">${steps.map(([t, d, n, on]) => `<li class="${on ? 'on' : ''}"><b>${esc(t)}</b>${d ? ` <span class="mono">${esc(String(d).slice(0, 10))}</span>` : ''}${n ? `<small>${esc(n)}</small>` : ''}</li>`).join('')}</ol>
       ${typical ? `<p class="t311-typ">${typical}</p>` : ''}
-      ${closed ? '<p class="t311-warn"><b>Closed is not the same as fixed.</b> If the problem is still there, call 311 or use the 311 Calgary app with this number and ask what was done.</p>' : ''}
+      ${closed ? '<p class="t311-warn"><b>Closed is not the same as fixed.</b> If the problem is still there, call 311 or contact 311 Calgary online with this number and ask what was done.</p>' : ''}
     </div>`;
   }).join('');
   return `<div class="card-head"><div><h2>Track a request</h2><p class="card-sub">Type a 311 request number to see which department has it, its status and its dates</p></div></div>

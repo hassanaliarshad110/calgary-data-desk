@@ -11,7 +11,7 @@ const CMP_METRICS = [
   // 311 counts are not scored better or worse: fewer reports can mean problems are not being reported (the 311 study)
   { g: '311', k: 'open_per_1000', label: 'Open requests per 1,000 residents (requests in residential communities)', d: 1, better: null },
   { g: '311', k: 'closed_7_days_pct', label: 'Requests closed within 7 days', d: 1, unit: '%', better: 'high' },
-  { g: '311', k: 'app_share_pct', label: 'Requests made through the 311 app', d: 1, unit: '%', better: null },
+  { g: '311', k: 'app_share_pct', label: 'Requests made on a phone (311 Calgary)', d: 1, unit: '%', better: null },
   { g: 'Safety', k: 'crime_per_1000', label: 'Crimes per 1,000 residents a year', d: 1, better: 'low' },
   { g: 'Safety', k: 'crime_change_pct', label: 'Change in crime from a year earlier', d: 1, unit: '%', signed: true, better: 'low' },
   { g: 'Safety', k: 'violent_change_pct', label: 'Change in violent crime', d: 1, unit: '%', signed: true, better: 'low' },

@@ -613,10 +613,10 @@
   <!-- ======================= VIDEO BRIEFS ======================= -->
   <section id="view-videos" class="view" aria-labelledby="vid-title">
     <header class="topbar">
-      <div class="topbar-title"><h1 id="vid-title">Video Explainers</h1><p class="meta">Short narrated videos on what the data shows, with how it is measured. Newest first.</p></div>
+      <div class="topbar-title"><h1 id="vid-title">Video Explainers</h1><p class="meta">Short narrated videos on what the data shows, with how it is measured. Pick a topic or an area, or search.</p></div>
     </header>
-    <div class="content narrow">
-      <section class="card vid-card" id="vid-parks">
+    <div class="content"><div class="vid-bar" id="vid-bar"></div><div class="vid-grid" id="vid-grid">
+      <section class="card vid-card" id="vid-parks" data-cat="Parks and amenities" data-area="Ward 5">
         <div class="card-head"><div><h2>Near, but crowded: parks and playgrounds against population in Ward 5</h2>
           <p class="card-sub">Published <time datetime="2026-11-05">November 5, 2026</time> · 2 min 9 s · narrated, figures on screen</p></div></div>
         <video controls preload="metadata" playsinline poster="video/parks-crowding.jpg">
@@ -627,7 +627,7 @@
         <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Ward 5 has public parks and playgrounds close to almost every home. But how many people share them? This is amenities against population, measured the same way for every ward in Calgary.</p><p><b>Distance.</b> First, distance. Ninety-nine percent of homes in Ward 5 are within four hundred metres of a public park, about the same as Calgary as a whole. And seventy-nine percent are within four hundred metres of a playground, more than Calgary&#x27;s seventy-one percent.</p><p><b>Park crowding.</b> Now, crowding. Take the park space within reach of each home, and share it among everyone who can reach it. Ward 5 has about two point nine hectares of park for every thousand residents. Calgary has five point nine. That is about half, and the second lowest of the fourteen wards.</p><p><b>Playgrounds.</b> Playgrounds tell the same story. Within four hundred metres, Ward 5 has about two playgrounds for every thousand children under fifteen, against four across Calgary. That is the lowest of any ward.</p><p><b>Why.</b> Why? Homes in Ward 5 are fuller. The 2021 Census counted three point six people per household, against two point six in Calgary, and three in ten residents were under twenty. The same parks are shared by more people, and more children.</p><p><b>Community by community.</b> Community by community, against Calgary&#x27;s level of one. Redstone, Saddle Ridge, Skyview Ranch and Taradale have well under half of Calgary&#x27;s park space per person. For playgrounds, Cityscape, Falconridge and Skyview Ranch are the most crowded.</p><p><b>How it is measured.</b> How it is measured: every park&#x27;s area is shared among the residents within four hundred metres of its edge, and every playground among the children nearby. Each home then adds up its shares. A score of one means the same as Calgary. Every ward and community is measured the same way on the Growth versus amenities screen.</p><p><b>Close.</b> Calgary Data Desk, by Hassan Ali. Near is not the same as enough.</p></details>
         <p class="card-note">Figures as of November 5, 2026, residents counted the dashboard's default way (the City's total shared by actual growth); the Growth vs amenities screen shows today's figures for every ward and community, under every way of counting. Sources: City of Calgary Open Data (parks, playgrounds, property assessments, 2021 Census by community). How it is worked out: How it's counted, "How crowding is worked out" and "How the scores are worked out". <a href="video/parks-crowding.mp4" download>Download the video (MP4, 7 MB)</a></p>
       </section>
-      <section class="card vid-card" id="vid-population">
+      <section class="card vid-card" id="vid-population" data-cat="Population and growth" data-area="All of Calgary">
         <div class="card-head"><div><h2>How Calgary's population is shared across its communities</h2>
           <p class="card-sub">Published <time datetime="2026-11-05">November 5, 2026</time> · 2 min 21 s · narrated, figures on screen</p></div></div>
         <video controls preload="metadata" playsinline poster="video/population-shared.jpg">
@@ -638,12 +638,12 @@
         <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> How is Calgary&#x27;s population shared across its communities? It starts with one number: the City of Calgary&#x27;s own estimate, about one point six million people this November.</p><p><b>The City’s figure.</b> Step one. The City&#x27;s figure comes from its Spring 2026 Economic Outlook, with an estimate for each April. Between those, we draw a straight line, month by month. Right now, that line adds about seventy people a day.</p><p><b>The starting point.</b> Step two. Each community starts from its own count in the 2021 Census: about one point two nine million people in all. Since then, the City&#x27;s figure has added about three hundred and nine thousand.</p><p><b>Placing the growth.</b> Step three. Where do those people go? About one hundred and eighty thousand live in homes built since 2021, so they are placed in the community where those homes were built. The other one hundred and twenty nine thousand come from more people in each home, seniors&#x27; homes, residences, shelters, and people the Census missed. That part is shared by every community: ten percent on top of its 2021 count.</p><p><b>How new homes are counted.</b> New homes come from the City&#x27;s property roll. We keep residential accounts with a home on them, and leave out vacant lots, commercial property, parking stalls and storage lockers. A new home counts as lived in one year after it is built, and a rental building counts by its units.</p><p><b>The same rule for every community.</b> Step four. Every community follows the same rule: its 2021 count, times one point one, plus the people in its new homes. Abbeydale, with no new homes, grows to six thousand five hundred and twenty. Cornerstone, with about thirty two hundred new homes, reaches eighteen thousand one hundred and eighty five. Together, every community adds up to the City&#x27;s figure.</p><p><b>Where the new homes are.</b> This is where the new homes are. The most people in new homes are on the edges of the city: Cornerstone, Livingston, Mahogany, Carrington and Seton.</p><p><b>Close.</b> Calgary Data Desk, by Hassan Ali. When the 2026 Census counts arrive in February 2027, every community gets a new starting point.</p></details>
         <p class="card-note">Figures as of November 5, 2026; the dashboard shows today's figures, which update with every data refresh. Sources: City of Calgary, Calgary and Region Economic Outlook 2026-2031 (Spring 2026), Table 4; City of Calgary Open Data (2021 Census by community, property assessments, building permits). How it is worked out: How it's counted, "How residents are counted (Settings)". <a href="video/population-shared.mp4" download>Download the video (MP4, 7 MB)</a></p>
       </section>
-    </div>
+    </div></div>
   </section>
 
   <section id="view-methods" class="view" aria-labelledby="meth-title">
     <header class="topbar">
-      <div class="topbar-title"><h1 id="meth-title">How every figure is worked out</h1><p class="meta">Every formula, filter and threshold the app uses, with its datasets, how to check it yourself, and what to keep in mind</p></div>
+      <div class="topbar-title"><h1 id="meth-title">How every figure is worked out</h1><p class="meta">Every formula, filter and threshold the Data Desk uses, with its datasets, how to check it yourself, and what to keep in mind</p></div>
     </header>
     <div class="content">
       <div class="filters card">
@@ -656,7 +656,7 @@
 
   <section id="view-sources" class="view" aria-labelledby="src-title">
     <header class="topbar">
-      <div class="topbar-title"><h1 id="src-title">Data sources</h1><p class="meta">Every dataset this app uses, what it shows, and what you can ask for: download, analyze or chart</p></div>
+      <div class="topbar-title"><h1 id="src-title">Data sources</h1><p class="meta">Every dataset the Data Desk uses, what it shows, and what you can ask for: download, analyze or chart</p></div>
       <div class="topbar-actions"><button class="btn" id="src-catalogue"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>All City datasets</span></button></div>
     </header>
     <div class="content">
@@ -954,8 +954,8 @@
   <div class="status-box">
     <div class="viewer-head"><strong id="status-title">Data status</strong><button class="brief-close" id="status-close" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></div>
     <p class="card-sub" id="status-sub"></p>
-    <div class="table-wrap"><table class="data" id="status-table"><thead><tr><th scope="col">Source</th><th scope="col">Last updated by the publisher</th><th scope="col">Fetched by this app</th><th scope="col">Status</th></tr></thead><tbody></tbody></table></div>
-    <p class="field-hint">The app checks for new data every 15 minutes and rebuilds the dashboard at least every hour. Select a source to open its page.</p>
+    <div class="table-wrap"><table class="data" id="status-table"><thead><tr><th scope="col">Source</th><th scope="col">Last updated by the publisher</th><th scope="col">Fetched by the Data Desk</th><th scope="col">Status</th></tr></thead><tbody></tbody></table></div>
+    <p class="field-hint">The Data Desk checks for new data every 15 minutes and rebuilds the dashboard at least every hour. Select a source to open its page.</p>
   </div>
 </div>
 
@@ -993,6 +993,7 @@
 <script src="fedbudget.js"></script>
 <script src="safety.js"></script>
 <script src="invest.js"></script>
+<script src="videos.js"></script>
 <script src="track311.js"></script>
 <script src="citynews.js"></script>
 <script src="elanalytics.js"></script>

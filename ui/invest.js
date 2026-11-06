@@ -165,7 +165,7 @@ function ivContact() {
       <label>I'm interested in<select name="want"><option>A business plan for a new location</option><option>Analysis of my existing business data</option><option>A passcode for the Business Economist</option><option>Something else</option></select></label>
       <label>Message<textarea name="msg" rows="4"></textarea></label>
       <button class="btn primary" type="submit">${to ? 'Send' : 'Prepare the message'}</button>
-      <p class="card-note" id="iv-formmsg" role="status">${to ? 'Opens your email app with the message ready to send. Nothing is sent until you press send there.' : 'The contact address is being set up; your message will be ready to copy.'}</p></form></section>`;
+      <p class="card-note" id="iv-formmsg" role="status">${to ? 'Opens your email with the message ready to send. Nothing is sent until you press send there.' : 'The contact address is being set up; your message will be ready to copy.'}</p></form></section>`;
 }
 function ivEconomist() {
   const locked = ivLocked();
@@ -309,7 +309,7 @@ async function renderInvest(keep) {
   const f = $('#iv-form');
   if (f) f.addEventListener('submit', e => { e.preventDefault(); const d = Object.fromEntries(new FormData(f).entries()), to = (window.CDD_CONTACT || '').trim();
     const text = `Name: ${d.name}\nBusiness or idea: ${d.business}\nEmail: ${d.email}\nPhone: ${d.phone}\nInterested in: ${d.want}\n\n${d.msg}`;
-    if (to) { location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent('Invest in Calgary: ' + d.want)}&body=${encodeURIComponent(text)}`; $('#iv-formmsg').textContent = 'Your email app should open with the message ready. Press send there.'; }
+    if (to) { location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent('Invest in Calgary: ' + d.want)}&body=${encodeURIComponent(text)}`; $('#iv-formmsg').textContent = 'Your email should open with the message ready. Press send there.'; }
     else { navigator.clipboard && navigator.clipboard.writeText(text).catch(() => {}); $('#iv-formmsg').textContent = 'The contact address is being set up. Your message is copied, ready to paste.'; } });
   const u = $('#iv-unlock');
   if (u) u.addEventListener('submit', async e => { e.preventDefault(); const msg = $('#iv-lockmsg'); msg.textContent = 'Checking';

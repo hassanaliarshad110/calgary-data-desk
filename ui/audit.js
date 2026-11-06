@@ -47,7 +47,7 @@ async function runAudit(r) {
   $('#au-run').hidden = false;
   $('#au-run').classList.remove('is-done');
   $('#au-run-title').textContent = 'Audit: ' + (r.title || 'Report');
-  $('#au-run-sub').textContent = 'Working on it. This usually takes 5 to 15 minutes; you can use the rest of the app meanwhile.';
+  $('#au-run-sub').textContent = 'Working on it. This usually takes 5 to 15 minutes; you can use the rest of the Data Desk meanwhile.';
   $('#au-steps').innerHTML = '';
   $('#au-result').innerHTML = '';
   auStage(0);

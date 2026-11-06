@@ -1812,3 +1812,66 @@ table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static
 #el-body .el-kpi { padding: 10px 12px; }
 #el-body .el-kpi-n { font-size: 26px; margin: 2px 0 4px; }
 #el-body .el-kpi-l { font-size: 11px; }
+
+/* every sidebar icon in its own colour (Growth vs amenities, City budget, Data Genie and Data Scientist keep theirs) */
+.tab[data-view="dashboard"] .ic { color: #60A5FA; }
+.tab[data-view="compare"] .ic { color: #A78BFA; }
+.tab[data-view="elections"] .ic { color: #FBBF24; }
+.tab[data-view="citynews"] .ic { color: #F472B6; }
+.tab[data-view="fedbudget"] .ic { color: #F87171; }
+.tab[data-view="invest"] .ic { color: #FACC15; }
+.tab[data-view="safety"] .ic { color: #4ADE80; }
+.tab[data-view="issues"] .ic { color: #FB7185; }
+.tab[data-view="families"] .ic { color: #C084FC; }
+.tab[data-view="cameras"] .ic { color: #22D3EE; }
+.tab[data-view="videos"] .ic { color: #F97316; }
+.tab#brief-btn .ic { color: #38BDF8; }
+.tab[data-view="methods"] .ic { color: #93C5FD; }
+.tab[data-view="sources"] .ic { color: #5EEAD4; }
+.tab[data-view="files"] .ic { color: #FDBA74; }
+.tab[data-view="settings"] .ic { color: #CBD5E1; }
+.tab.is-on[data-view] .ic { filter: brightness(1.2); }
+
+/* Control room figures: one line of six on a wide screen */
+#el-body .el-cr-kpis { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+#el-body .el-kpi { padding: 9px 10px; min-width: 0; }
+#el-body .el-kpi-n { font-size: 22px; }
+#el-body .el-kpi-l { font-size: 10.5px; letter-spacing: .06em; }
+#el-body .el-kpi .el-hero-sub, #el-body .el-kpi > div:last-child { font-size: 11.5px; line-height: 1.35; overflow-wrap: anywhere; }
+@media (max-width: 1100px) { #el-body .el-cr-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { #el-body .el-cr-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Dashboard figures: compact. Long notes show two lines; the full note is in the tooltip */
+.board { padding: 14px 16px; }
+.board .kpis { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.board .kpi { padding: 10px 12px; gap: 4px; }
+.board .kpi-label { font-size: 11.5px; min-height: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.board .kpi-value { font-size: 21px; }
+.board .kpi-foot { font-size: 11px; min-height: 0; }
+.board .kpi-foot > span:not(.chg) { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.board .kpi .spark { height: 20px; }
+.board-period { font-size: 11.5px; }
+/* every page's big dark header (Invest, safest cities, Federal Budget, Calgary News): smaller */
+.el-cr { padding: 16px 20px; }
+.el-cr-title { font-size: 26px; }
+.el-cr-sub { font-size: 13px; }
+.el-cr-kpis { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 14px; }
+.el-kpi { padding: 10px 12px; }
+.el-kpi-n { font-size: 24px; margin: 2px 0 4px; }
+.el-kpi-l { font-size: 10.5px; letter-spacing: .06em; }
+.el-cr-days, .fb-hero .el-cr-days { font-size: 34px; }
+
+/* Video Explainers: topics, areas and a two-column grid */
+.vid-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.vid-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.vid-chips .chip.is-on { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.vid-tools { display: flex; gap: 8px; flex-wrap: wrap; }
+.vid-tools input, .vid-tools select { min-height: 32px; padding: 4px 10px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: var(--card); color: var(--fg); font: inherit; }
+.vid-count { flex-basis: 100%; margin: 0; }
+.vid-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 14px; align-items: start; }
+.vid-grid .vid-card { margin: 0; }
+.vid-grid .vid-card video { width: 100%; height: auto; }
+.vid-grid .vid-desc { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.vid-tag { display: inline-block; margin-right: 6px; padding: 1px 8px; border-radius: 999px; background: rgba(56, 189, 248, .15); color: var(--accent); font-size: 11.5px; font-weight: 600; }
+.vid-tag.alt { background: rgba(250, 204, 21, .15); color: #CA8A04; }
+@media (max-width: 560px) { .vid-grid { grid-template-columns: 1fr; } }

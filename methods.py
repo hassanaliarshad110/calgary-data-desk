@@ -115,7 +115,7 @@ METHODS = [
          'Closed within 7 days: requests made in the period with status "Closed" whose closed_date is within 7 days of '
          'requested_date, as a share of the period\'s requests closed so far (requests still open are not counted, so a '
          'short or recent period looks faster than it will end up). Calgary uses every request with a community.',
-         'Made through the app: source = "App" as a share of the period\'s non-duplicate requests (Web and Other, '
+         'Made on a phone (311 Calgary): source = "App" as a share of the period\'s non-duplicate requests (Web and Other, '
          'mostly phone, are the rest).',
          'City service: the first part of service_name, before " - " (Roads, WATS = Water, WRS = Waste and '
          'Recycling, CT = Calgary Transit, Bylaw, Parks and so on).',
@@ -141,7 +141,7 @@ METHODS = [
      'updated': '2021 Census (published 2023, revised July 2025); next: 2026 Census results from early 2027',
      'used_in': 'Who lives here card, Data Genie reports',
      'method': ['Figures are copied from the City\'s printed ward profile, the ward next to Calgary, and kept with the '
-                'app (data/ward5_profile_2021.json, so far for one ward; every other ward uses "Who lives in each ward" '
+                'Data Desk (data/ward5_profile_2021.json, so far for one ward; every other ward uses "Who lives in each ward" '
                 'below). Nothing is estimated or grown: they describe May 2021.',
                 'People in private households only; 2021 ward boundaries; income is for 2020; work questions refer to '
                 'May 2021, during the pandemic.'],
@@ -325,7 +325,7 @@ METHODS = [
          'Proposed use = the current district (fromlud) to the proposed one (proposedlud), as the City writes them '
          '(for example R-CG to DC).'],
      'excel': ['Download 33vi-ew4s, filter applieddate to the period (or statuscurrent to the open ones) and keep the '
-               'rows whose latitude and longitude fall in the area (a map check; the app tests the boundary exactly).'],
+               'rows whose latitude and longitude fall in the area (a map check; the Data Desk tests the boundary exactly).'],
      'cautions': ['Public hearing dates are on Council agendas, not in the open data.',
                   'A large application can list several districts at once, separated by commas, in the same order.']},
 
@@ -334,9 +334,9 @@ METHODS = [
      'used_in': 'Traffic incidents (status board), map points',
      'method': ['Incidents with start_dt_utc in the period whose exact latitude and longitude fall inside the ward\'s '
                 'boundary (Ward Boundaries, tz8z-hyaz), or anywhere in Calgary for the whole city. The map shows the last 90 days of the period.'],
-     'excel': ['Filter start_dt_utc to the period, then keep rows inside the ward (a map check; the app does the '
+     'excel': ['Filter start_dt_utc to the period, then keep rows inside the ward (a map check; the Data Desk does the '
                'boundary test exactly).'],
-     'cautions': ['The City stores times in UTC; the app converts them to Calgary time and counts months by Calgary dates. '
+     'cautions': ['The City stores times in UTC; the Data Desk converts them to Calgary time and counts months by Calgary dates. '
                   'These are incidents the City reports for traffic, not every collision.']},
 
     {'key': 'police', 'name': 'Community safety data (crime and disorder)', 'dataset': 'Community-Safety-Data xlsx',
@@ -345,7 +345,7 @@ METHODS = [
      'updated': 'Every quarter (monthly figures)',
      'used_in': 'Crime tiles, Crime card, disorder card, Compare wards, newsletter, Data Genie',
      'method': [
-         'The spreadsheet linked as "Download Community Safety Data" on the police page; the app finds the current '
+         'The spreadsheet linked as "Download Community Safety Data" on the police page; the Data Desk finds the current '
          'link at each refresh and downloads it only when it changes.',
          'A ward = rows whose Ward column is that ward, e.g. "Ward 1" (the police assign each community to a ward, '
          'including the airport and business areas); Calgary = every row.',
@@ -367,8 +367,8 @@ METHODS = [
                'or nothing for Calgary; Year '
                'and Month; sum "Total Crime".',
                'When someone asks for the source, open the police page at "Dashboard data download" (link above) and click '
-               '"Download Community Safety Data": every crime number in the app can be found in that spreadsheet.'],
-     'cautions': ['Totals in the app always match the police file.',
+               '"Download Community Safety Data": every crime number on the Data Desk can be found in that spreadsheet.'],
+     'cautions': ['Totals on the Data Desk always match the police file.',
          'The police leave out unfounded reports and domestic violence, and '
          'leave out incidents with no location; they advise against comparing the file directly with their dashboard.',
          'Small communities swing a lot from year to year; compare with several years before quoting a change.',
@@ -446,8 +446,8 @@ METHODS = [
 
     {'key': 'cameras', 'name': 'Traffic Cameras', 'dataset': 'k7p9-kppz', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/k7p9-kppz', 'updated': 'Images about once a minute', 'used_in': 'Traffic cameras, Briefing screen',
-     'method': ['Cameras inside the ward or within about 2 km of it (every camera for the whole city). The app saves each new image and replays the last 30 minutes.'],
-     'excel': [], 'cautions': ['The City keeps no recording; replays exist only while the app is open.']},
+     'method': ['Cameras inside the ward or within about 2 km of it (every camera for the whole city). Each camera shows the City\'s latest image.'],
+     'excel': [], 'cautions': ['The City keeps no recording.']},
 
     {'key': 'transit_live', 'name': 'Buses and CTrains, live (Calgary Transit)',
      'dataset': 'am7c-qe3u (vehicle positions), gs4m-mdc2 (trip updates), npk7-z3bj (timetable)',
@@ -464,7 +464,7 @@ METHODS = [
      'excel': [],
      'cautions': ['Positions are where each vehicle last reported, not a prediction of where it is now.',
                   'The website reads the feed through the City\'s portal, which can pass it on a few minutes late; the time '
-                  'on the map says how old the positions are. The desktop app reads it directly.',
+                  'on the map says how old the positions are.',
                   'The feed covers vehicles in service with a working locator; a few may be missing at any time.']},
 
     {'key': 'city_disorder', 'name': 'Social Disorder Statistics (City open data)', 'dataset': '4evm-wx9a',
@@ -526,7 +526,7 @@ METHODS = [
          'Open requests per 1,000: requests still Open today in residential communities / residents today x 1,000.',
          'Requests closed within 7 days: requests made in the period and Closed, with closed_date - requested_date of 7 '
          'days or less, as a share of all closed ones.',
-         'Requests made through the 311 app: share of the period\'s requests (not duplicates) with source = "App".',
+         'Requests made on a phone (311 Calgary): share of the period\'s requests (not duplicates) with source = "App".',
          'Crimes per 1,000 a year: the police count for the ward (the Ward column of the Community Safety Data file) / '
          'the ward\'s residents at the middle month of the police period x 1,000 x (12 / months). Calgary = all crimes '
          'in the file / every residential community\'s residents counted the same way, so ward and city rates compare '
@@ -546,7 +546,7 @@ METHODS = [
      'excel': ['Save the table with "Save this table"; every ward\'s figure can be rebuilt from the datasets listed, '
                'using the ward\'s communities (see "Wards and their communities").'],
      'cautions': ['311 rates measure how much residents report, not how many problems there are: wards with more newcomers '
-                  'or fewer app users can report less for the same problems.']},
+                  'or fewer people reporting by phone can report less for the same problems.']},
 
     {'key': 'access', 'name': 'Growth vs amenities: how near homes are to amenities (distance from every home)',
      'dataset': '4bsw-nn7w, bdu9-amk8, kami-qbfh, muzh-c9qc, x34e-bcjz, hxfu-6d96',
@@ -940,7 +940,7 @@ METHODS = [
          'living alone / private households; one-parent families / census families; in the labour force / people 15+; '
          'unemployed and self-employed / the labour force.',
          'One ward also shows the City\'s printed ward profile (languages, newcomers, housing costs, income), kept with '
-         'the app (see "The City\'s printed ward profile").'],
+         'the Data Desk (see "The City\'s printed ward profile").'],
      'excel': ['Download the three ward tables and divide the columns named above.'],
      'cautions': ['2021 Census on the wards as they were in 2021; the 2026 Census replaces it when the City publishes it.']},
 
@@ -960,7 +960,7 @@ METHODS = [
                 'in millions of dollars, as the City publishes them.',
                 'Per resident = the budget / the City\'s population estimate for this month.',
                 'By ward: the City does not publish its budget by ward. The ward table adds up only the published costs of '
-                'City and partner projects and road projects listed in the app with a location in the ward (the largest '
+                'City and partner projects and road projects listed on the Data Desk with a location in the ward (the largest '
                 'dollar amount named in each project\'s cost).'],
      'excel': ['Download fqax-i3nz, filter year and fund, and sum budget by budget_department.'],
      'cautions': ['Project costs are often spread over several years and shared with other governments, so they do not '
