@@ -13,6 +13,7 @@ jobs:
         with: { python-version: '3.12' }
       - run: python probe/hqcheck2.py _b
       - run: |
+          mkdir -p _b && date -u > _b/ran_at.txt
           cd _b
           git init -q -b budget-probe-out
           git config user.name "Hassan Ali"
