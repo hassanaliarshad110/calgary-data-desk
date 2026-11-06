@@ -37,7 +37,7 @@ import geo
 
 VERSION = 2          # 2: voting-station and poll-by-poll results, community demographics (Election Analytics)
 KEEP_DAYS = 7
-SITE = 'https://hassanaliarshad110.github.io/calgary-data-desk/'
+SITE = 'https://calgaryinsight.ca/'
 UA = {'User-Agent': 'CalgaryInsight/1.0 (civic data dashboard)'}
 
 CITY_JSON = 'https://elections-prd.calgary.ca/content/dam/elections/results/2025/2025GeneralElectionResults.json'

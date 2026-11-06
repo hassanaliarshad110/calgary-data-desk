@@ -55,7 +55,7 @@ import calgary_data as cd
 VERSION = 2          # 2: crowding catchments for all six amenities and each amenity's group (the scores)
 REVISED = '2026-11-05'
 GROWTH_YEAR = 2021
-SITE = 'https://hassanaliarshad110.github.io/calgary-data-desk/'
+SITE = 'https://calgaryinsight.ca/'
 KEEP_DAYS = 7                   # amenities are read again every week
 HOMES_KEEP_DAYS = 30            # the roll changes about once a year
 RULES = {'gap_share': 0.5, 'min_units': 100, 'recent_years': 5, 'recent_share': 0.25}
