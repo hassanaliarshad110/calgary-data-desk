@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - run: python probe/hqcheck.py _b
+      - run: python probe/hqcheck2.py _b
       - run: |
           cd _b
           git init -q -b budget-probe-out
