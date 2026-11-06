@@ -209,6 +209,14 @@ def main():
         write(os.path.join(data, 'access_base.json'), base)    # the desktop app reads this copy
     step('growth vs amenities (distance from every home)', access_base)
 
+    def srg_base():                 # the City's Suburban Residential Growth forecast (srg.py), once for every view
+        import srg
+        raw = srg.load(cache, force=True)
+        if not raw:
+            raise RuntimeError('the SRG forecast could not be read')
+        write(os.path.join(data, 'srg_raw.json'), raw)          # the desktop app and Data Genie read this copy
+    step('suburban residential growth forecast', srg_base)
+
     def elections_base():
         import elections
         base = elections.load(cache, can_build=True)

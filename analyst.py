@@ -99,6 +99,15 @@ TOPICS = [
      'Residents today and at the 2021 Census in Cornerstone, Redstone, Cityscape, Skyview Ranch and Homestead; transit stops '
      'per 1,000 residents in each of those communities; transit and shift-work figures from the Ward 5 profile (2021 Census); schools and '
      'facilities being built. Make the evidence-based case for extending the Blue Line to Country Hills Boulevard.'),
+    ('growth_forecast', 'Growth to 2030: who grows, and will amenities keep up?',
+     'The City\'s new-community forecast for {area}, residents in 2030 and which communities get more crowded.', 'Growth',
+     'Use get_dashboard section growth_forecast. Show the City\'s Suburban Residential Growth forecast (the five forecast years '
+     'against the five years before, by sector and kind of home, with the City\'s low and high range), each new community '
+     'in {area} with its forecast homes and people, residents today and in 2030, and crowding and amenity scores today and in '
+     '2030 for playgrounds, parks, transit stops, community centres, recreation centres and libraries. Name the communities that '
+     'become crowded or more crowded, those far from amenities today and growing, and the neighbours affected; list the '
+     'water, sewer and road projects the growth needs in their area plans. State the limits (new communities only, today\'s '
+     'amenities, the sector-to-community sharing). Present what the data shows; do not rank by need or recommend.'),
     ('investment', 'Investment coming to {area}, and the gaps',
      'Every known project, its cost and stage, and what is still unfunded.', 'Growth',
      'All major projects being built or planned in {area} with cost, funding and timing, the largest building permits of '

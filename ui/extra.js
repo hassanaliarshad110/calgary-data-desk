@@ -387,9 +387,10 @@ function renderGrowth() {
   $('#gr-filters').hidden = grView !== 'dp';
   $('#gr-note').hidden = grView !== 'dp';
   $('#gr-table').classList.toggle('bb', grView === 'rw');
-  $('#gr-gap').hidden = !['gap', 'assets', 'recon'].includes(grView);
-  $('#gr-list').hidden = ['gap', 'assets', 'recon'].includes(grView);
+  $('#gr-gap').hidden = !['gap', 'assets', 'recon', 'srg'].includes(grView);
+  $('#gr-list').hidden = ['gap', 'assets', 'recon', 'srg'].includes(grView);
   if (grView === 'gap') { renderGap(); return; }
+  if (grView === 'srg') { renderForecast(); return; }
   if (grView === 'recon') { renderRecon(); return; }
   if (grView === 'assets') { renderAssets(); return; }
   if (grView === 'dp') {
@@ -864,6 +865,7 @@ $('#gr-export').addEventListener('click', e => {
   let name, cols, rows;
   if (grView === 'assets') { const sv = $('#gap-assets-save'); if (sv) sv.click(); return; }
   if (grView === 'recon') { const sv = $('#rc-save'); if (sv) sv.click(); return; }
+  if (grView === 'srg') { const x = forecastExport(); if (x) saveList(button, x.name, x.cols, x.rows); return; }
   if (grView === 'dp' && D.development) {
     name = '' + W() + ' development permits ' + D.period;
     cols = ['Permit', 'Applied', 'Status', 'Type', 'Category', 'Address', 'Community', 'Proposed use', 'Description', 'Decision', 'Decision date'];
@@ -1463,6 +1465,7 @@ function renderRecon() {
   box.innerHTML = `<div class="gap-scope"><h3>${esc(W())}: from homes to residents</h3>
     <p class="card-sub">Read across each row: <b>homes × people per home</b>, plus <b>rental units × people per unit</b>, gives the estimate from homes; the City forecast top-up then takes it to the residents shown in the app (${esc(popWords())}). Choose a community to list every property behind its figure.</p>
     <p class="card-sub"><b>Why rental units are listed apart:</b> a rented-out apartment building is one account (one roll number) on the City's property roll for the whole building, so it would count as one home. Its flats are counted instead, from the City's building permits or, where no permit was found, estimated from its assessed value. Condo flats are each their own account on the roll, so they are counted as homes directly.</p>
+    ${D.srg && D.srg.scope ? `<p class="card-note"><b>Looking ahead:</b> the City's Suburban Residential Growth forecast adds ${fmt(D.srg.scope.forecast_people)} people in ${esc(W())}'s new communities from ${D.srg.first_forecast_year} to ${D.srg.last_year}, taking these residents from ${fmt(D.srg.scope.residents_now)} to ${fmt(D.srg.scope.residents_2030)}. <button type="button" class="link-btn small" id="rc-fc">Forecast to ${D.srg.last_year}</button></p>` : ''}
     <p><button type="button" class="btn" id="rc-xlsx">${icon('download')}<span>Save the build-up as Excel</span></button> <small class="card-note">Homes × people per home = residents, community by community, with the sums as Excel formulas, and every rental building with where its number of units comes from.</small></p>
     <div class="table-wrap tall"><table class="data rc-table"><thead><tr><th scope="col">Community</th><th scope="col" class="num">${CY()} Census residents</th><th scope="col" class="num">${CY()} households</th>
       <th scope="col" class="num">Homes on Census day</th><th scope="col" class="num">Homes today</th><th scope="col" class="num">People per home</th><th scope="col" class="num">People in homes</th>
@@ -1479,6 +1482,7 @@ function renderRecon() {
     ${(() => { const hsr = rows.filter(r => r.method === 'household size'); return hsr.length ? `<p class="card-note">People in homes and in rental units are not split for the ${hsr.length} ${hsr.length === 1 ? 'community' : 'communities'} counted by household size (${esc(hsr.slice(0, 6).map(r => titleCase(r.name)).join(', '))}${hsr.length > 6 ? '…' : ''}): their residents are the ${CY()} count + the change in homes x the ${CY()} household size, so the two "people in" totals add up to ${fmt(T.people_in_homes + T.people_in_units, 0)}, and the other ${fmt(T.population - T.people_in_homes - T.people_in_units, 0)} come from those communities (and from any community kept at its ${CY()} count, see its note). "Homes on Census day" and "Homes today" leave out rental units, which are in their own column.</p>` : ''; })()}
     <p class="card-note">Homes: residential property with a building and a residential use on the City's property roll (4bsw-nn7w): commercial, vacant lots, parking stalls and storage lockers are left out; each home counts one year after its year of construction. People per home: ${CY()} Census residents (less the people in rental units) / homes on Census day, the same for every kind of home in a community; rental apartment buildings are one account on the roll, so their units come from building permits or, without one, from assessed value. Communities whose homes were more than 15% off the Census household count use the 2021 household size for the change only. <button type="button" class="link-btn small" data-method="homes">How homes are counted</button> <button type="button" class="link-btn small" data-method="population">The growth model</button></p></div>
     <div class="gap-scope" id="rc-props"></div>`;
+  const fcBtn = $('#rc-fc'); if (fcBtn) fcBtn.addEventListener('click', () => { const t = $('#gr-seg [data-gr="srg"]'); if (t) t.click(); });
   $$('.rc-pick', box).forEach(b => b.addEventListener('click', () => { rcComm = b.dataset.c; rcProps = null; renderRecon(); loadProps(); }));
   $('#rc-xlsx').addEventListener('click', async e => {
     const btn = e.currentTarget, sp = btn.querySelector('span'), a = await api();

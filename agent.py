@@ -328,6 +328,17 @@ its range over every assumption and a label (consistent gap, depends on assumpti
 and the label with a score; near_but_crowded lists communities with most homes near a playground (or park) whose \
 score is under 0.80 (shared by more children, or residents, than Calgary's average, from any community), and explain it from get_method topic access_scores. For a list of those amenities, use get_dashboard section \
 other_amenities (with ward or community).
+- The future (Forecast to 2030, added 6 November 2026): get_dashboard section growth_forecast has the City's Suburban \
+Residential Growth (SRG) forecast (new homes and people in new communities, by sector, kind of home and year, past and \
+forecast, with the City's range) and the app's step from it: each new community's share of its sector (by homes built \
+in the last five years), residents and children today and in 2030, crowding and local and district scores today and \
+in 2030 (both against Calgary today, today's amenities), the reading, and the projects the growth needs. Questions \
+about future population, 2030, the forecast, new communities, or whether amenities will keep up go there first. Say \
+that the City's sector figures are the City's and that the community split and 2030 crowding are the app's estimate, \
+with the limits listed (new communities only; today's amenities; the sharing rule). The same rules as amenities \
+apply: present what the data shows, never rank by need or recommend. What a column of e7ib-v9n4, szyj-edpn or \
+surr-xmvs means: part="fields" (describe_dataset also gives it). Explain from get_method topic growth_forecast and \
+get_code topic growth_forecast.
 
 Election Analytics (questions that start with [Election Analytics]): you are a nonpartisan election analyst for candidates, campaigns, elected members of every level (councillors, MLAs, MPs) and anyone who wants micro-level election detail, deep analysis and arithmetic models of how a candidate can win. Start with get_dashboard section election_analytics (when the area names riding="...", pass that riding for the MLA's division or MP's district), add other sections (communities, profile, wards, the 311 data) as needed, and do your own analysis: where turnout was low or high and who lives there (age, households, work, languages), how results varied by voting location and poll, how advance and election-day voting differed, which issues residents raise. Be concrete with numbers and say which are estimates. Projections are welcome when asked: build them as explicit mathematical models from the official results and the Census (for example uniform or proportional swing from the last result, turnout scenarios with electors and votes needed to win, vote-share thresholds by voting location or poll, the effect of growth since the last election), state every assumption and its source, show the arithmetic, give a range or several scenarios rather than one number, and say what would change the result. A question such as 'under what model can I win?' gets the conditions, as numbers, under which a candidate would come first. Nonpartisan means the same rigour for any candidate or party who asks, not avoiding the mathematics: never favour one, never present a projection as certain, and never suggest targeting, excluding or discouraging people by ethnicity, religion, language or any other personal trait; outreach suggestions stay general (where turnout was low, translated materials, accessible voting information). Answers in Election Analytics are thorough, not brief: give the figures, the tables and the arithmetic in full, with every assumption; when the question asks for a report, a briefing or a model, write a full report and finish with make_report (PDF, interactive report and Excel) so it can be audited.
 Business Economist (questions that start with [Business Economist]): you are an economist advising people who want to open, grow or invest in a business in Calgary. Start with get_dashboard section business (competition by community and category, new licences), then bring in every other figure that matters: residents now and growth (communities), incomes, households, languages and commuting (profile), transit, crime and disorder, 311 issues, new homes and development, rents, property tax and the weather. Work out the customers within reach, the competition and the gap against Calgary's average per resident, then the numbers: demand, revenue, costs as stated assumptions, break-even, and low, middle and high scenarios. Answers are thorough, with tables and arithmetic; for a full business plan finish with make_report so it can be audited. Say once that this is general information from public data, not financial, legal or investment advice. When the question includes the owner's own sales summary, analyse its trends, seasons and best days alongside the area's data.
@@ -472,10 +483,21 @@ TOOLS = [
                     '(the latest year and the year before): the 50 safest of every city of 10,000 people or more, '
                     'Calgary\'s rank this year and last, the large cities (100,000+) and the metropolitan areas; '
                     'find narrows to cities by name. '
+                    'section="growth_forecast" gives the City\'s Suburban Residential Growth (SRG) forecast put through '
+                    'the growth model and Growth vs amenities: new homes and people in new communities each year (the City\'s '
+                    'figures for each of the seven suburban sectors, what happened since 2018 and the five forecast years, '
+                    'by kind of home, with the City\'s low and high range), each new community\'s share of its sector\'s '
+                    'forecast, residents and children today and in 2030, crowding at today\'s six amenities today and in '
+                    '2030, local and district amenity scores today and in 2030 (against Calgary today), a reading '
+                    '(becomes crowded, more crowded, far from amenities and growing...), the growth-related water, sewer '
+                    'and road projects the City lists with the area plans they support, and the meaning of every field '
+                    'of the City\'s datasets (fields). Narrow with community (code or name), sector (North, Northeast, '
+                    'East, Southeast, South, West, Northwest) or part ("sectors", "communities", "infrastructure", '
+                    '"fields"). '
                     'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
                     'sources; narrow with find (words), days, topic or date.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'business'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'business', 'growth_forecast'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -492,11 +514,12 @@ TOOLS = [
          'days': {'type': 'integer', 'description': 'section city_news: only the last N days'},
          'topic': {'type': 'string', 'description': 'section city_news: one topic, e.g. City Council, Transit, Water'},
          'date': {'type': 'string', 'description': 'section city_news: one day\'s edition, YYYY-MM-DD'},
-         'part': {'type': 'string', 'enum': ['summary', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province'],
+         'part': {'type': 'string', 'enum': ['summary', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'fields'],
                   'description': 'section federal_budget: summary (default), revenue_by_province (federal revenue collected '
                                  'and spending in every province, Statistics Canada, with a 2026-27 estimate), province, find (search the measures and their '
                                  'text with find), chapter (every line item of one chapter), tables (Annex 1), tax'},
          'province': {'type': 'string', 'description': 'section federal_budget, part province: a name or code (AB, ON...)'},
+         'sector': {'type': 'string', 'description': 'section growth_forecast: one suburban planning sector (North, Northeast, East, Southeast, South, West, Northwest)'},
          'chapter': {'type': 'integer', 'description': 'section federal_budget, part chapter: 1 to 6'},
          'community': {'type': 'string', 'description': 'sections other_amenities and access: one community (code '
                                                          'or name); access then gives its figures for every amenity; '
@@ -1013,6 +1036,64 @@ def find_rental_buildings(text, comm=None, limit=60):
                     "not records."}
 
 
+def known_fields(desc):
+    """Fill in what each column means where the City's portal leaves it blank and the app knows (srg.FIELDS)."""
+    try:
+        import srg                                      # noqa: PLC0415
+        g = srg.FIELDS.get((desc or {}).get('id'))
+    except Exception:                                   # noqa: BLE001
+        g = None
+    if not g:
+        return desc
+    for c in desc.get('columns') or []:
+        if not c.get('about') and g.get(c.get('field')):
+            c['about'] = g[c['field']]
+    desc['in_the_app'] = ('Used by Growth vs amenities, Forecast to 2030: get_dashboard section growth_forecast gives the '
+                          'forecast as the app shows it, shared to communities; get_method topic growth_forecast explains it.')
+    return desc
+
+
+def growth_forecast_out(S, community=None, sector=None, part=None):
+    """The City's Suburban Residential Growth forecast as the app shows it (srg.py), narrowed for one answer."""
+    if not S:
+        return {'error': 'The City\'s Suburban Residential Growth forecast is not in this refresh of the dashboard.'}
+    head = {k: S.get(k) for k in ('edition', 'first_year', 'first_forecast_year', 'last_year', 'method', 'datasets', 'limits',
+                                  'readings', 'types', 'scope', 'counts', 'calgary_crowding', 'allocation_check')}
+    head['how'] = 'get_method topic growth_forecast; get_code topic growth_forecast'
+    secs = S.get('sectors') or []
+    if sector:
+        t = str(sector).strip().upper().replace(' ', '')
+        secs = [x for x in secs if x['sector'].replace(' ', '') == t or x['name'].upper() == t]
+    rows = S.get('communities') or []
+    if community:
+        t = str(community).strip().lower()
+        rows = [r for r in rows if r['code'].lower() == t or r['name'].lower() == t or t in r['name'].lower()]
+        if not rows:
+            return {**head, 'error': f'"{community}" is not among the communities the forecast changes in the area selected '
+                                     '(the forecast adds homes to new communities only; established ones are listed when '
+                                     'growing neighbours change their amenity reading). Choose all of Calgary to see every one.'}
+    if sector:
+        rows = [r for r in rows if (r.get('sector') or '').upper() in {x['sector'] for x in secs}]
+    if part == 'fields':
+        return {'fields': S.get('fields'), 'types': S.get('types'), 'readings': S.get('readings'), 'datasets': S.get('datasets')}
+    if part == 'infrastructure':
+        return {'infrastructure': S.get('infrastructure'), 'datasets': S.get('datasets'),
+                'field_meaning': (S.get('fields') or {}).get('szyj-edpn')}
+    if part == 'sectors':
+        return {**head, 'calgary': S.get('city'), 'sectors': secs, 'field_meaning': (S.get('fields') or {}).get('e7ib-v9n4')}
+    if part == 'communities' or community:
+        return {**head, 'communities': rows}
+    return {**head, 'calgary': {k: v for k, v in (S.get('city') or {}).items() if k != 'series'},
+            'calgary_by_year': (S.get('city') or {}).get('series'),
+            'sectors': [{k: v for k, v in x.items() if k != 'series'} for x in secs],
+            'communities': [{k: r.get(k) for k in ('code', 'name', 'ward', 'sector', 'srg', 'reading', 'forecast_homes',
+                                                   'forecast_people', 'residents_now', 'residents_2030', 'growth_pct',
+                                                   'scores', 'falls_below', 'far_from', 'in_forecast')} for r in rows],
+            'infrastructure_projects': len(((S.get('infrastructure') or {}).get('projects')) or []),
+            'more': 'part="communities" for every field of each community (crowding of all six amenities, children, '
+                    'ranges); part="infrastructure" for the projects; part="fields" for what every column means.'}
+
+
 def dashboard_section(d, section='overview', wards=None, extra=None):
     """The dashboard's figures for the selected area (all of Calgary or one ward), one part at a time so each answer
     fits. wards: () -> the summary of every ward (built from the whole-city dashboard), for section="wards"."""
@@ -1312,7 +1393,7 @@ class Agent:
         if name == 'search_datasets':
             return cd.search_datasets(args['query'])
         if name == 'describe_dataset':
-            return cd.describe_dataset(args['dataset_id'])
+            return known_fields(cd.describe_dataset(args['dataset_id']))
         if name == 'query_dataset':
             limit = max(1, min(int(args.get('limit') or 200), cd.MAX_QUERY_ROWS))
             rows = cd.query(args['dataset_id'], args.get('select'), args.get('where'), args.get('group'),
@@ -1373,6 +1454,8 @@ class Agent:
                     (lambda pts: self.emit({'type': 'map', 'title': 'Private amenities accessible to the community '
                                                                     '(OpenStreetMap)', 'points': pts}))
                     if args.get('show_on_map') else None)
+            if (args.get('section') or '') == 'growth_forecast':
+                return growth_forecast_out(d.get('srg'), args.get('community'), args.get('sector'), args.get('part'))
             return dashboard_section(d, args.get('section') or 'overview', self.wards_provider,
                                      {'community': args.get('community'), 'ward': args.get('ward'), 'find': args.get('find'), 'kind': args.get('kind'),
                                       'full': args.get('full'), 'riding': args.get('riding'), 'data_dir': self.data_dir})

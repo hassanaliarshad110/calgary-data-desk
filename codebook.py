@@ -8,7 +8,7 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-FILES = ['dashboard.py', 'access.py', 'buildup.py', 'osm.py', 'population.py', 'census.py', 'assets.py', 'families.py', 'police.py',
+FILES = ['dashboard.py', 'access.py', 'srg.py', 'scores.py', 'buildup.py', 'osm.py', 'population.py', 'census.py', 'assets.py', 'families.py', 'police.py',
          'proptax.py', 'budget.py', 'rents.py', 'wards.py', 'geo.py', 'methods.py', 'calgary_data.py', 'auditor.py',
          'analyst.py', 'missing.py', 'profiles.py']
 MAX_CHARS = 12000
@@ -18,6 +18,10 @@ TOPICS = {
     'access': {'what': 'Growth vs amenities (revised 5 November 2026): distance from every home to the nearest amenity in any '
                        'community, the readings, crowding (two-step catchment) and the amenity scores (added 5 November 2026)',
                'code': [('access.py', '*'), ('scores.py', '*'), ('dashboard.py', 'access_view')]},
+    'growth_forecast': {'what': 'Forecast to 2030: the City\'s Suburban Residential Growth forecast shared to new communities, '
+                                'residents and children in 2030, crowding and amenity scores today and in 2030, the readings, '
+                                'and what every field of the City\'s SRG datasets means',
+                        'code': [('srg.py', '*'), ('dashboard.py', 'srg_view')]},
     'fedbudget': {'what': 'Federal Budget 2026: how the budget\'s tables, text and province lists are served to Data Genie',
                   'code': [('fedbudget.py', '*')]},
     'elections': {'what': 'Elections: the official results read and who represents each ward (electoral division and district shares by area)',

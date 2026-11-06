@@ -1647,9 +1647,23 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
             # whole numbers, as the published community figures give them (amenity_gap by_comm)
             return {c: round(pm[c].get('model') or 0) for c in keep_}, {c: round(km.get(c) or 0) for c in keep_}
         p_, k_ = people(pop_all, kids_all)
+        acc_in.update(base=base, pops=p_, kids=k_, shown=shown, ward_of=ward_of)
         return access.view(base, p_, k_, pop_method, shown, ward_of, names,
                            methods_pops={m_key: people(pm_, km_) for m_key, (pm_, km_) in gap_pops.items()})
+    acc_in = {}
     access_out, access_err = _safe(access_view)
+
+    # ---- the City's Suburban Residential Growth forecast through the growth model and Growth vs amenities (srg.py) ----
+    def srg_view():
+        import srg                                      # noqa: PLC0415
+        raw = srg.load(cdir)
+        if not raw:
+            return None
+        nm = {**{c: (n or c).title() for c, n in ((r.get('comm_code'), r.get('name')) for r in raw.get('communities') or [])
+                 if c}, **names}
+        return srg.view(raw, acc_in.get('base'), acc_in.get('pops') or {}, acc_in.get('kids') or {},
+                        acc_in.get('shown') or [], acc_in.get('ward_of') or {}, nm, POP_METHODS[pop_method]['label'])
+    srg_out, srg_err = _safe(srg_view)
 
     def elections_view():
         import elections                                # noqa: PLC0415
@@ -1667,6 +1681,11 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                    'ok': bool(elections_out), 'error': elections_err if not elections_out else None,
                    'note': 'Read once a week from Elections Calgary, Elections Alberta, Elections Canada, the Legislative '
                            'Assembly of Alberta and the House of Commons', 'page': 'https://elections-prd.calgary.ca/results/2025-results.html'})
+    status.append({'name': "Suburban Residential Growth (SRG) forecast: new homes and people in new communities to 2030, and the projects they need",
+                   'ids': ['e7ib-v9n4', 'szyj-edpn', 'surr-xmvs'], 'fetched': (srg_out or {}).get('read_at'),
+                   'city_updated': (srg_out or {}).get('edition'), 'ok': bool(srg_out),
+                   'error': srg_err if not srg_out else None,
+                   'note': 'The City publishes it once a year; read once a week', 'page': DATASET_PAGE + 'e7ib-v9n4'})
     status.append({'name': 'Growth vs amenities: distance from every home to parks, playgrounds, transit stops and facilities',
                    'ids': ['4bsw-nn7w', 'bdu9-amk8', 'kami-qbfh', 'muzh-c9qc', 'x34e-bcjz', 'hxfu-6d96'],
                    'fetched': (access_out or {}).get('built_at'), 'city_updated': None, 'ok': bool(access_out),
@@ -1754,6 +1773,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         'amenities': amenities,
         'amenity_gap': amenity_gap,
         'access': access_out,
+        'srg': srg_out,
         'elections': elections_out,
         'status': status,
         'communities': communities,
@@ -1793,7 +1813,9 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                     'Property Assessments': popmodel.HOMES_DATASET, 'Parcel Address': families.PARCEL_ADDRESS,
                     'Schools': families.SCHOOLS, '2021 Census by Community': popmodel.CENSUS_POP_DATASET,
                     'Ward Boundaries': WARDS, 'City Boundary': CITY_BOUNDARY,
-                    'Community District Boundaries': COMMUNITIES},
+                    'Community District Boundaries': COMMUNITIES,
+                    'Suburban Residential Growth (SRG) Forecast': 'e7ib-v9n4',
+                    'Suburban Residential Growth (SRG) Policy Infrastructure Lines': 'szyj-edpn'},
     }
 
 

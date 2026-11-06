@@ -2121,3 +2121,20 @@ table.ca-reps th[scope="row"], .ca-budget th[scope="row"] { min-width: 180px; }
 /* the eight headline figures: four by two on a wide screen, two by four on a phone */
 #view-dashboard .board .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 640px) { #view-dashboard .board .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- Growth: Forecast to 2030 (forecast.js) ---------- */
+.fc-chart { position: relative; height: 260px; margin: 6px 0 14px; }
+.fc-chart-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 8px 16px; }
+.fc-chart-head h3 { margin: 0; }
+.fc-sel { display: flex; align-items: center; gap: 8px; }
+.fc-sel select { min-width: 180px; }
+.fc-key { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 8px 0 0; font-size: 12.5px; color: var(--muted-fg); }
+.fc-sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; }
+.fc-sw-past { background: var(--chart-bar); }
+.fc-sw-fc { background: color-mix(in srgb, var(--chart-bar) 35%, transparent); border: 1.5px solid var(--chart-bar); }
+.fc-to { color: var(--muted-fg); padding: 0 2px; }
+.fc-comm td, .fc-comm th { white-space: nowrap; }
+.fc-comm td.wrap { white-space: normal; min-width: 140px; }
+.fc-comm small, .fc-sec small { display: block; font-weight: 400; }
+.fc-comm td small.muted { display: inline; }
+@media (max-width: 640px) { .fc-chart { height: 220px; } .fc-sel select { min-width: 0; width: 100%; } .fc-sel { width: 100%; } }

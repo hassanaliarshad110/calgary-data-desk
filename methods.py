@@ -593,6 +593,44 @@ METHODS = [
                   access.LIMITATIONS[6]],
      'code': 'scores.py; access.py (crowding_inputs, amenity_scores)'},
 
+    {'key': 'growth_forecast', 'name': 'Growth vs amenities: Forecast to 2030 (the City\'s Suburban Residential Growth forecast, added 6 November 2026)',
+     'dataset': 'e7ib-v9n4 (SRG Forecast), szyj-edpn (SRG Policy Infrastructure Lines), surr-xmvs (sector and SRG class), '
+                'n4vp-3exq (the City\'s map of the forecast); 4bsw-nn7w (homes built in the last five years); access, population model',
+     'publisher': 'City of Calgary (Growth Analytics, City and Regional Planning); Calgary Insight', 'page': 'https://data.calgary.ca/d/e7ib-v9n4',
+     'updated': 'The City publishes the forecast once a year; read once a week', 'used_in': 'Growth vs amenities (Forecast to 2030), Population build-up, Data Genie, Data Scientist',
+     'method': ['The City publishes, for each of its seven suburban planning sectors and each year, the new homes taken up '
+                '("absorbed": built and lived in) in new communities, by kind of home (single and semi-detached, rows and '
+                'townhouses, apartments), and the people in them. Past years are what happened; the last five are the City\'s '
+                'forecast, with a low and a high yearly average for each kind of home. These are shown unchanged.',
+                'Each sector\'s forecast homes and people are shared among its new communities (SRG class developing, future '
+                'or complete in the City\'s community boundaries) in proportion to the homes built in each one in the last '
+                'five years on the property roll. The shares add up to the City\'s sector figure exactly (allocation_check).',
+                'Residents in 2030 = residents today (the count chosen in Settings) + the community\'s share of the forecast '
+                'people. Children 0 to 14 in 2030 = children today + new residents x the community\'s share of children today '
+                '(its sector\'s, under 500 residents today).',
+                'Growth vs amenities is worked out again with the 2030 residents and children and today\'s amenities: the same '
+                'two-step catchment crowding for all six amenities and the same amenity scores, at the shorter distance. Both '
+                'today\'s and the 2030 scores are against Calgary TODAY, so a score falls only where crowding itself gets worse.',
+                'Reading, from the local amenities score (playgrounds, parks, transit stops, community centres): becomes '
+                'crowded (around Calgary or above today, below 0.80 in 2030); already crowded, more so (below 0.80 today, and '
+                'a lower band or 10% lower in 2030); crowded today and in 2030; far from amenities and growing (under half of '
+                'homes within reach of a playground, park or transit stop today, and 10% or more growth); keeps up.',
+                'Communities the forecast adds no homes to are listed when they share amenities with growing ones enough to '
+                'change a band (neighbours).',
+                'Projects: the growth-related water, sanitary, storm and road projects the City lists, one row each with every '
+                'area structure plan it supports; length from the line on the map.'],
+     'excel': ['Community share = homes built in the last 5 years / the sum for the sector\'s new communities; forecast homes '
+               '= sector forecast x share; residents 2030 = residents today + sector forecast people x share; score = crowding / '
+               'Calgary\'s crowding today.'],
+     'cautions': ['The forecast covers new communities only; infill and redevelopment in established communities are not in it.',
+                  'The City forecasts by sector: sharing it by recent building gives more to communities building fast now '
+                  'and less to ones about to open up.',
+                  'Amenities are today\'s: anything that opens by 2030 is not added, so 2030 crowding is a "nothing new opens" case.',
+                  'New residents are spread over the community\'s homes like today\'s; homes on the growing edge are often farther '
+                  'from amenities, so crowding there may be worse than shown.',
+                  'The forecast\'s 2026 homes are added in full; some built early in 2026 may already be in today\'s count.'],
+     'code': 'srg.py (sectors, allocate, future_people, view); access.py (crowding, crowding_inputs); scores.py'},
+
     {'key': 'elections', 'name': 'Elections: who represents each area, and the latest official results',
      'dataset': 'Elections Calgary results file; gqvk-p23x; Elections Alberta Statement of Vote 2023 and official results; '
                 'Elections Canada official voting results (45th general election); Legislative Assembly of Alberta; '
