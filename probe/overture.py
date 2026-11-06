@@ -15,10 +15,11 @@ for batch in rdr:
         if isinstance(g, (bytes, bytearray)) and len(g) >= 21:
             bo = '<' if g[0] == 1 else '>'
             lon, lat = struct.unpack(bo + 'dd', g[5:21])
-        c = (r.get('categories') or {}).get('primary')
+        tx = r.get('taxonomy') or {}
+        c = tx.get('primary')
         bc = r.get('basic_category')
-        cats[(c, bc)] += 1
-        rows.append({'name': ((r.get('names') or {}).get('primary')), 'cat': c, 'basic': bc, 'alt': (r.get('categories') or {}).get('alternate'),
+        cats[(c, '>'.join(tx.get('hierarchy') or []))] += 1
+        rows.append({'name': ((r.get('names') or {}).get('primary')), 'cat': c, 'basic': bc, 'alt': tx.get('alternates'), 'hier': tx.get('hierarchy'),
                      'conf': r.get('confidence'), 'status': r.get('operating_status'), 'web': (r.get('websites') or [None])[0],
                      'phone': (r.get('phones') or [None])[0], 'addr': ((r.get('addresses') or [{}])[0] or {}).get('freeform'),
                      'brand': (((r.get('brand') or {}).get('names') or {}) or {}).get('primary'), 'lon': lon, 'lat': lat})
