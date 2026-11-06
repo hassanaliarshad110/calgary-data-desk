@@ -137,10 +137,44 @@ async function renderInfra() {
     <tbody>${cr.map(r => `<tr><th scope="row">${esc(r[0])}</th><td>${esc(r[1])}</td><td class="wrap">${esc(r[2])}</td><td class="wrap">${esc(r[3])}</td></tr>`).join('')}</tbody></table></div>
     <p class="card-note">Source: <a href="${esc(((ctx.critical || {}).source || {}).url || '#')}" target="_blank" rel="noopener">${esc(((ctx.critical || {}).source || {}).title || '')}</a>, City of Calgary, 2026.</p></section>`;
 
+  // ward by ward: every ward side by side (all of Calgary), or the chosen ward against Calgary
+  const allRows = ((city && city.communities) || []).filter(c => c.code && c.residential !== false && c.ward).map(c => infRow(c, today));
+  const agg = rs => {
+    const g = { res: 0, br12: 0, brPrev: 0, km: 0, oldKm: 0, ciKm: 0, pave: 0, both: 0, n: rs.length };
+    ['roads', 'side', 'lights', 'water'].forEach(k => { g[k] = [0, 0]; });
+    rs.forEach(r => { g.res += r.residents; g.br12 += r.br12; g.brPrev += r.brPrev; g.km += r.km; g.oldKm += r.oldKm; g.ciKm += r.ciKm; g.pave += r.paveNext + r.pave5; g.both += r.both ? 1 : 0;
+      ['roads', 'side', 'lights', 'water'].forEach(k => { g[k][0] += r[k][0]; g[k][1] += r[k][1]; }); });
+    g.oldShare = g.km ? g.oldKm / g.km : null; g.ciShare = g.km ? g.ciKm / g.km : null; g.brRate = g.km ? g.br12 / g.km * 100 : null;
+    g.roads1k = g.res ? g.roads[0] / g.res * 1000 : null;
+    return g;
+  };
+  const W = wards.map(w => ({ w, ...agg(allRows.filter(r => r.ward === w)) })), C = agg(allRows);
+  const wCells = g => `<td class="num">${fmt(g.res)}</td><td class="num"><b>${fmt(g.br12)}</b> <small class="muted">(${fmt(g.brPrev)})</small></td><td class="num">${isNum(g.brRate) ? fmt(g.brRate, 1) : '–'}</td><td class="num">${isNum(g.oldShare) ? fmt(g.oldShare * 100, 0) + '%' : '–'}</td><td class="num">${isNum(g.ciShare) ? fmt(g.ciShare * 100, 0) + '%' : '–'}</td>
+      ${['roads', 'side', 'lights', 'water'].map(k => `<td class="num">${fmt(g[k][0])} <small class="${infPct(g[k][0], g[k][1]) > 0 ? 'inf-up' : 'muted'}">${infChg(infPct(g[k][0], g[k][1]))}</small></td>`).join('')}
+      <td class="num">${isNum(g.roads1k) ? fmt(g.roads1k, 1) : '–'}</td><td class="num">${fmt(g.pave, 1)}</td><td class="num">${fmt(g.both)} <small class="muted">of ${fmt(g.n)}</small></td>`;
+  const wHead = `<tr><th scope="col">Ward</th><th class="num" scope="col">Residents</th><th class="num" scope="col">Water main breaks, 12 months</th><th class="num" scope="col">Per 100 km of main</th><th class="num" scope="col">Mains 50+ years old</th><th class="num" scope="col">Cast iron</th>
+      <th class="num" scope="col">311 roads and potholes</th><th class="num" scope="col">311 sidewalks</th><th class="num" scope="col">311 streetlights</th><th class="num" scope="col">311 water</th><th class="num" scope="col">Road requests per 1,000 residents</th><th class="num" scope="col">Paving planned (km)</th><th class="num" scope="col">Communities flagged</th></tr>`;
+  const chosenW = a.startsWith('w') ? +a.slice(1) : null;
+  const wardTable = `<section class="card span-12"><div class="card-head"><div><h2>Ward by ward</h2><p class="card-sub">${chosenW ? `Ward ${chosenW} against every other ward and all of Calgary.` : 'Every ward side by side.'} Tap a ward to look inside it. 311 columns: the last 12 months and the change on the 12 before.</p></div><div class="card-tools"><button class="btn" id="inf-wcsv">Download CSV</button></div></div>
+    <div class="table-wrap"><table class="data inf-table"><thead>${wHead}</thead><tbody>
+    ${W.map(g => `<tr class="${g.w === chosenW ? 'inf-chosen' : ''}"><th scope="row"><button type="button" class="link-btn" data-infw="${g.w}">Ward ${g.w}</button></th>${wCells(g)}</tr>`).join('')}
+    <tr class="inf-total"><th scope="row">All of Calgary</th>${wCells(C)}</tr></tbody></table></div>
+    <p class="card-note">Communities are placed in the ward holding most of their area. Flagged: communities showing both a condition signal and rising 311 requests (see the table below).</p></section>`;
+  const wBars = (title, sub, f, fmtv) => `<section class="card span-6"><div class="card-head"><div><h2>${title}</h2><p class="card-sub">${sub}</p></div></div>${ecBars(W.filter(g => isNum(f(g))).sort((x, y) => f(y) - f(x)).map(g => ({ label: `Ward ${g.w}`, v: f(g), on: g.w === chosenW })), fmtv)}</section>`;
+  const wardCharts = wBars('Ageing water mains, by ward', 'Share of the length of water main laid 50 or more years ago', g => g.oldShare === null ? null : g.oldShare * 100, v => fmt(v, 0) + '%')
+    + wBars('Road and pothole requests, by ward', 'Requests to 311 in the last 12 months, per 1,000 residents', g => g.roads1k, v => fmt(v, 1));
   const errs = Object.keys(INF.errors || {});
-  body.innerHTML = hero + table + breaksCard + reqCard + ageCard + paveCard + cityCard
+  body.innerHTML = hero + wardTable + wardCharts + table + breaksCard + reqCard + ageCard + paveCard + cityCard
     + `<section class="card span-12"><p class="card-note">${errs.length ? `Not read at this refresh: ${esc(errs.join(', '))}. ` : ''}Sources: ${(INF.sources || []).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.publisher)}: ${esc(s.title)}</a>`).join('; ')}. Read ${esc(String(INF.built_at || '').slice(0, 10))}. <button type="button" class="link-btn small" data-method="infra">How this is worked out</button></p></section>`;
   const s = $('#inf-area'); if (s) s.addEventListener('change', () => { infArea = s.value; renderInfra(); });
+  body.querySelectorAll('[data-infw]').forEach(b => b.addEventListener('click', () => { infArea = 'w' + b.dataset.infw; renderInfra().then(() => { const t = $('#inf-body .inf-table'); if (t) t.scrollIntoView({ block: 'start' }); }); }));
+  const wc = $('#inf-wcsv'); if (wc) wc.addEventListener('click', async () => {
+    const line = (name, g) => [name, g.res, g.br12, g.brPrev, isNum(g.brRate) ? +g.brRate.toFixed(2) : '', +g.km.toFixed(1), isNum(g.oldShare) ? +(g.oldShare * 100).toFixed(1) : '', isNum(g.ciShare) ? +(g.ciShare * 100).toFixed(1) : '',
+      g.roads[0], g.roads[1], g.side[0], g.side[1], g.lights[0], g.lights[1], g.water[0], g.water[1], isNum(g.roads1k) ? +g.roads1k.toFixed(2) : '', +g.pave.toFixed(2), g.both, g.n];
+    await (await api()).save_csv('Infrastructure condition by ward', ['Ward', 'Residents', 'Water main breaks, 12 months', 'Breaks, 12 months before', 'Breaks per 100 km', 'Water mains (km)', '50+ years old (%)', 'Cast iron (%)',
+      '311 roads, 12 months', '311 roads, before', '311 sidewalks, 12 months', '311 sidewalks, before', '311 streetlights, 12 months', '311 streetlights, before', '311 water, 12 months', '311 water, before', 'Road requests per 1,000 residents', 'Paving planned (km)', 'Communities flagged', 'Communities'],
+      [...W.map(g => line(`Ward ${g.w}`, g)), line('All of Calgary', C)]);
+  });
   const so = $('#inf-sort'); if (so) so.addEventListener('change', () => { infSort = so.value; renderInfra(); });
   const csv = $('#inf-csv'); if (csv) csv.addEventListener('click', async () => {
     await (await api()).save_csv(`Infrastructure condition - ${placeName}`, ['Community', 'Ward', 'Water main breaks, 12 months', 'Breaks, 12 months before', 'Breaks per 100 km', 'Water mains (km)', 'Middle year laid', '50+ years old (%)', 'Cast iron (%)',

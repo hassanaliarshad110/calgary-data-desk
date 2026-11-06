@@ -1913,3 +1913,4 @@ table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static
 .inf-pqi { display: flex; height: 30px; border-radius: 8px; overflow: hidden; font-size: 12px; font-weight: 600; margin: 4px 0 10px; }
 .inf-pqi span { display: flex; align-items: center; justify-content: center; color: #0B1220; white-space: nowrap; overflow: hidden; }
 .inf-pqi .g { background: #34D399; } .inf-pqi .f { background: #FBBF24; } .inf-pqi .p { background: #F87171; }
+.inf-chosen > * { background: rgba(56, 189, 248, .10) !important; } .inf-total > * { font-weight: 700; border-top: 2px solid var(--line, #1E293B); }
