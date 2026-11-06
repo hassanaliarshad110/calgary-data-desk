@@ -21,14 +21,16 @@ const fbPill = (t, cls = '') => `<span class="fb-pill ${cls}">${esc(t)}</span>`;
 // vertical bars with negatives allowed; series = [{name, color, v:[...]}]
 function fbColumns(cols, series, fmtFn, h = 190) {
   const all = series.flatMap(s => s.v).filter(isNum), max = Math.max(0, ...all), min = Math.min(0, ...all), span = (max - min) || 1;
-  const W = 640, top = 18, bot = 26, ih = h - top - bot, gw = W / cols.length, bw = Math.min(26, (gw - 14) / series.length);
+  const W = 640, top = min < 0 ? 22 : 18, bot = 26, ih = h - top - bot, gw = W / cols.length, bw = Math.min(26, (gw - 14) / series.length);
   const y = v => top + (max - v) / span * ih, y0 = y(0);
   let g = `<line x1="0" x2="${W}" y1="${y0}" y2="${y0}" class="fb-axis"/>`;
   cols.forEach((c, i) => {
     const x0 = i * gw + (gw - bw * series.length) / 2;
     series.forEach((s, k) => { const v = s.v[i]; if (!isNum(v)) return; const yy = Math.min(y(v), y0), hh = Math.max(1, Math.abs(y(v) - y0));
       g += `<rect x="${x0 + k * bw}" y="${yy}" width="${bw - 3}" height="${hh}" rx="2" fill="${s.color}"><title>${esc(s.name)} ${esc(fbYr(c))}: ${esc(fmtFn(v))}</title></rect>`;
-      if (k === series.length - 1 || series.length === 1) g += `<text x="${x0 + k * bw + (bw - 3) / 2}" y="${v < 0 ? y(v) + 12 : y(v) - 5}" class="fb-val" text-anchor="middle">${esc(fmtFn(v))}</text>`; });
+      if (k === series.length - 1 || series.length === 1) {   // a negative bar's value sits inside its end, clear of the year labels
+        g += `<text x="${x0 + k * bw + (bw - 3) / 2}" y="${v < 0 ? y0 - 5 : y(v) - 5}" class="fb-val" text-anchor="middle">${esc(fmtFn(v))}</text>`;
+      } });
     g += `<text x="${i * gw + gw / 2}" y="${h - 8}" class="fb-lab" text-anchor="middle">${esc(fbYr(c))}</text>`;
   });
   const key = series.length > 1 ? `<div class="fb-key">${series.map(s => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join('')}</div>` : '';

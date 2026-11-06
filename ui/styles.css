@@ -1747,3 +1747,4 @@ table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static
 @media (max-width: 800px) { .ea-two { grid-template-columns: 1fr; } }
 .cn-chart { margin: 18px 0; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
 .cn-chart figcaption { font-size: 15px; margin-bottom: 8px; }
+.fb-cols .fb-val.in { fill: #fff; font-weight: 700; font-size: 10px; }
