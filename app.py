@@ -260,6 +260,14 @@ class Api:
         except Exception as e:                     # noqa: BLE001
             return {'ok': False, 'error': str(e)}
 
+    def get_capmkt(self):
+        try:
+            import capmkt
+            d = capmkt.load(DATA_DIR)
+            return {'ok': True, 'data': d} if d else {'ok': False, 'error': 'The capital markets totals are not here yet.'}
+        except Exception as e:                     # noqa: BLE001
+            return {'ok': False, 'error': str(e)}
+
     def get_infra(self):
         try:
             import infra

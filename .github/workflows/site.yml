@@ -54,6 +54,7 @@ jobs:
           CDD_EA_CODE: ${{ secrets.ELECTION_ACCESS_CODE }}
           CDD_BIZ_CODE: ${{ secrets.BUSINESS_ACCESS_CODE }}
           CDD_CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
+          CDD_SEC_CONTACT: ${{ secrets.SEC_CONTACT }}
           CDD_SITE_URL: https://hassanaliarshad110.github.io/calgary-data-desk/
           CDD_SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
         run: python web/build_site.py _site --cache .site-cache --pyodide pyodide

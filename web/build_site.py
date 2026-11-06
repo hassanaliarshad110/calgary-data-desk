@@ -276,6 +276,19 @@ def main():
     if not os.path.exists(os.path.join(data, 'infra.json')) and a.previous:
         step('Infrastructure condition (yesterday\'s copy)', lambda: keep_previous(a.previous, 'infra.json', os.path.join(data, 'infra.json')))
 
+    def capital_markets():          # Calgary Capital Markets: TMX totals, ticker checks, SEC results (capmkt.py)
+        import capmkt
+        prev = None
+        if a.previous:
+            try:
+                import urllib.request
+                with urllib.request.urlopen(a.previous.rstrip('/') + '/data/capmkt.json', timeout=60) as r:
+                    prev = json.loads(r.read().decode('utf-8'))
+            except Exception:       # noqa: BLE001 - first build, or the site is down
+                prev = None
+        write(os.path.join(data, 'capmkt.json'), capmkt.build(prev))
+    step('Calgary Capital Markets', capital_markets)
+
     def civic():                    # Civic Accountability: council and Commons votes, bills, City measures (accountability.py)
         import accountability
         write(os.path.join(data, 'accountability.json'), accountability.build())

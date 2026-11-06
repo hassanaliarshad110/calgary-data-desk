@@ -749,6 +749,31 @@ METHODS = [
                   'the customers are all matter.', 'OpenStreetMap is not complete: some areas are mapped better than others.'],
      'excel': ['Download the business directory or the underserved index as CSV from the page; the City\'s licences are '
                'at data.calgary.ca (vdjc-pybd).']},
+    {'key': 'capmkt', 'name': 'Calgary Capital Markets: Calgary\'s public companies, their industries and value',
+     'dataset': 'TMX Group\'s monthly file of TSX and TSXV listed issuers; TMX\'s TSX and TSXV company directories; US SEC '
+                'company filings and financial data; a company list checked by hand (head office, group, industry)',
+     'publisher': 'TMX Group; US Securities and Exchange Commission; each company\'s website and filings',
+     'page': 'https://www.tsx.com/en/listings/current-market-statistics',
+     'updated': 'Every website refresh; TMX\'s file is monthly; the company list is re-checked each quarter',
+     'used_in': 'Calgary Capital Markets',
+     'method': [
+         'The company list: every company TMX lists with an Alberta head office, starting with the TSX, checked one by one '
+         'for its head office city (from its own website or filings, or Wikipedia where the website blocks automated '
+         'reading, marked as such). Groups kept apart: headquartered in Calgary; elsewhere with a Calgary office; in '
+         'Alberta outside Calgary; listed in Alberta by TMX but with an address elsewhere; not yet confirmed. Funds and '
+         'exchange-traded products are left out. Tickers are checked against TMX\'s directories at every refresh.',
+         'Totals: counts and market capitalization (quoted shares at the month-end price) from TMX\'s monthly file, by '
+         'exchange, industry, size and province. Only totals are published, because TMX does not allow its file to be '
+         'redistributed; a total over fewer than three companies shows a count only.',
+         'Size bands: large C$10 billion or more; mid C$2 to 10 billion; small C$300 million to 2 billion; micro under '
+         'C$300 million.',
+         'Financial results: revenue, net income and dividends per share by fiscal year from the annual reports '
+         'companies file with the US SEC, for those that also file there.'],
+     'limits': ['No share prices: no source is both open and licensed for publishing them; each company links to a '
+                'delayed quote.', 'TMX gives the head office by province only; the city comes from the hand check.',
+                'The Canadian Securities Exchange publishes no downloadable list; CSE companies are added by hand.',
+                'Head office moves can only be counted from the first month read onward.'],
+     'excel': ['Download the company list as CSV from the Company directory page.']},
     {'key': 'civic', 'name': 'Civic Accountability: promises, official records and results for Calgary\'s governments and elected members',
      'dataset': 'Council and Committee Votes (ruq3-99hx); the City\'s Progress Report - Performance Measures (the newest '
                 'quarter); House of Commons recorded divisions; LEGISinfo bills; party platforms, candidate platforms and '

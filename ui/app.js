@@ -137,6 +137,7 @@ function show(view) {
   if (view === 'safety' && window.renderSafety) renderSafety();
   if (view === 'invest' && window.renderInvest) renderInvest();
   if (view === 'infra' && window.renderInfra) renderInfra();
+  if (view === 'capmkt' && window.renderCapMkt) renderCapMkt();
   if (view === 'help' && window.renderHelp) renderHelp();
   if (view === 'citynews' && window.renderCityNews) renderCityNews();
   if (view === 'elanalytics' && window.renderElAnalytics) renderElAnalytics();

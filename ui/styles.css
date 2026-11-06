@@ -2080,3 +2080,21 @@ table.ca-reps th[scope="row"], .ca-budget th[scope="row"] { min-width: 180px; }
 .iv-dirlegend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 8px; font-size: 12px; color: var(--fg-2); }
 .iv-dirlegend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
 @media (max-width: 720px) { .iv-dirmap { height: 380px; } }
+
+/* ---- Calgary Capital Markets */
+.tab[data-view="capmkt"] .ic { color: #34D399; }
+.cm-kpi .cm-how { margin-top: 6px; }
+.cm-how summary { cursor: pointer; font-size: 11.5px; color: var(--muted-fg); }
+.cm-how p { font-size: 12px; color: var(--fg-2); margin: 6px 0 0; line-height: 1.45; }
+.cm-bars { display: grid; gap: 8px; }
+.cm-bar { display: grid; grid-template-columns: minmax(140px, 1.3fr) 2fr auto; gap: 10px; align-items: center; font-size: 13px; }
+.cm-bt { background: var(--muted); border-radius: 6px; height: 12px; overflow: hidden; }
+.cm-bt i { display: block; height: 100%; background: linear-gradient(90deg, #22D3EE, #34D399); border-radius: 6px; }
+.cm-bar b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cm-dir th[scope="row"] { min-width: 200px; white-space: normal; }
+.cm-links a { margin-right: 10px; white-space: nowrap; }
+.cm-warn { color: var(--warn); }
+.cm-co { border: 1px solid var(--border); border-radius: var(--r-card, 12px); padding: 10px 14px; margin-bottom: 8px; background: var(--muted); }
+.cm-co summary { cursor: pointer; }
+.cm-hist li { grid-template-columns: 160px 0 1fr; }
+@media (max-width: 720px) { .cm-bar { grid-template-columns: 1fr auto; } .cm-bt { grid-column: 1 / -1; order: 3; } }
