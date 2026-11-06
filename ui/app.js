@@ -111,6 +111,7 @@ function wireSeg(group, onChange) {
 
 // ---------------------------------------------------------------- navigation
 function show(view) {
+  if (!document.getElementById('view-' + view)) view = 'dashboard';   // a screen this version does not have
   $$('.tab').forEach(t => {
     const on = t.dataset.view === view;
     t.classList.toggle('is-on', on);

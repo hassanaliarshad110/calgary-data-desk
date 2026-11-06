@@ -49,14 +49,10 @@
     });
   }, 60000);
 
-  // the newsletter is made by the desktop app
-  const news = $('#view-news .content');
-  if (news) {
-    news.insertAdjacentHTML('beforebegin', '<div class="content"><p class="web-note"><b>The newsletter is made in the desktop app.</b> On the website, every figure it uses is on the dashboard, Compare wards and the topic screens.</p></div>');
-    news.hidden = true;
-    const saved = $('#view-news [data-goto="files"]');
-    if (saved) saved.hidden = true;
-  }
+  // the newsletter is made by the desktop app: not on the website at all
+  document.querySelectorAll('.tab[data-view="news"], [data-goto="news"]').forEach(el => el.remove());
+  const newsView = $('#view-news');
+  if (newsView) newsView.remove();
 
   // Data Genie and Data Scientist: locked until the access code is given (web-ai.js does the rest)
   const LOCKED = ['#view-ask', '#view-scientist'];
