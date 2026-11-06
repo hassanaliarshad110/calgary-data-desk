@@ -64,7 +64,9 @@ CHECK = r"""
       if (!seen.has(k)) { seen.add(k); issues.push({ kind: 'overlap', el: k, x: Math.round(x), y: Math.round(y) }); }
     }
   }
-  return { hscroll: document.documentElement.scrollWidth - innerWidth, issues: issues.slice(0, 40) };
+  const grouped = {};
+  for (const i of issues) { const k = i.kind + ' ' + i.el.replace(/ "[^"]*"/g, ''); (grouped[k] = grouped[k] || { ...i, n: 0 }).n += 1; }
+  return { hscroll: document.documentElement.scrollWidth - innerWidth, issues: Object.values(grouped).slice(0, 60) };
 }
 """
 report = []
@@ -75,10 +77,10 @@ with sync_playwright() as pw:
         errs = []
         p.on('pageerror', lambda e: errs.append(str(e)[:200]))
         p.goto(URL, wait_until='networkidle', timeout=180000); p.wait_for_timeout(5000)
-        views = p.evaluate("[...document.querySelectorAll('.tab[data-view]')].map(t => t.dataset.view)")
+        views = p.evaluate("[...document.querySelectorAll('section.view[id^=view-]')].map(s => s.id.slice(5))")
         for v in dict.fromkeys(views):
             try:
-                p.evaluate(f"document.querySelector('.tab[data-view=\"{v}\"]').click()"); p.wait_for_timeout(3500)
+                p.evaluate(f"(() => {{ const t = document.querySelector('.tab[data-view=\"{v}\"]'); if (t) t.click(); else show('{v}'); }})()"); p.wait_for_timeout(3500)
             except Exception as e:
                 report.append({'w': w, 'view': v, 'error': str(e)[:200]}); continue
             segs = p.evaluate(f"""[...document.querySelectorAll('#view-{v} .topbar [role=radiogroup] [role=radio], #view-{v} .topbar .seg button')].map((b, i) => i)""")
