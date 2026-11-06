@@ -1,0 +1,199 @@
+{
+ "note": "Major projects being built or planned in Ward 5 that the City's open data lists of facilities do not have yet. Each entry is checked against the owner's page or a news report (sources). When a project opens, the app marks it completed by itself once the City lists it: 'match' gives words of its name to look for in the City's recreation facilities and school lists, and a listed facility or school within 400 m of lat/lon also counts. 'expected_by' (YYYY-MM) flags a project that should have opened but is not listed yet. To mark one by hand, set \"state\": \"completed\" and \"opened\": \"YYYY-MM\".",
+ "checked": "2026-11-06",
+ "projects": [
+  {
+   "title": "Northeast Athletic Complex",
+   "kind": "City recreation facility",
+   "owner": "City of Calgary",
+   "amenity": true,
+   "status": "Under construction (started September 2026)",
+   "budget": "$170.4 million, fully funded (2026 budget, approved December 2025)",
+   "cost": 170400000,
+   "completion": "Opening to be confirmed",
+   "address": "Northwest corner of 80 Avenue NE and Metis Trail NE (34.6-acre site)",
+   "comm": "SAD",
+   "lat": 51.1271,
+   "lon": -113.9733,
+   "what": "Calgary's first competition-capable cricket field, four outdoor multi-use artificial turf fields, an indoor fieldhouse with an artificial turf field and indoor cricket batting nets, 16 team rooms, spectator seating, pathways, picnic areas and a playground, on a 35-acre site. More than 500 parking spaces. General contractor: Ledcor. Development permit approved by Calgary Planning Commission on April 30, 2026.",
+   "url": "https://www.calgary.ca/planning/parks-rec/northeast-athletic-complex.html",
+   "sources": [
+    "https://www.calgary.ca/planning/parks-rec/northeast-athletic-complex.html",
+    "https://dailyhive.com/calgary/calgary-northeast-athletic-complex-construction",
+    "https://engage.calgary.ca/NEAthleticComplex"
+   ],
+   "match": [
+    "Northeast Athletic",
+    "NE Athletic",
+    "North East Athletic"
+   ],
+   "known_nearby": [
+    "Green Dome Islamic School"
+   ]
+  },
+  {
+   "title": "Blue Line LRT extension to 88 Avenue NE",
+   "kind": "City transit project",
+   "owner": "City of Calgary",
+   "amenity": true,
+   "status": "Design (30% design due about end of 2026)",
+   "budget": "About $160 million (estimate). Design funded by the City and Alberta; Alberta announced $43.3M toward construction in 2024; the rest is not yet secured",
+   "cost": 160000000,
+   "completion": "Construction tentatively 2028 (2027 if other governments fund it sooner)",
+   "address": "Saddletowne Station to a new station at 88 Avenue NE and 60 Street NE (about 1 km)",
+   "comm": "SAD",
+   "what": "One new station serving Savanna and nearby communities, an interim end point for local bus routes and the starting point for a future airport connection. Extending on to Country Hills Boulevard (for Cityscape, Redstone and Cornerstone) is in the 10-year capital plan but unfunded. In the City's 2026 engagement nearly 90% of 724 respondents supported it; parking, safety and lighting were the main concerns.",
+   "url": "https://www.calgary.ca/major-projects/transit-blue-line-lrt-extension.html",
+   "sources": [
+    "https://www.calgary.ca/major-projects/transit-blue-line-lrt-extension.html",
+    "https://livewirecalgary.com/2026/08/19/blue-line-extension-saddletowne-country-hills/"
+   ],
+   "match": []
+  },
+  {
+   "title": "New high school in Cornerstone (Calgary Board of Education)",
+   "kind": "Provincial school project",
+   "owner": "Alberta Infrastructure for the Calgary School Division",
+   "amenity": true,
+   "status": "Under construction (Alberta active school projects, checked 6 November 2026)",
+   "budget": "$151.7 million (estimate)",
+   "cost": 151700000,
+   "completion": "Not yet scheduled",
+   "address": "Cornerstone",
+   "comm": "CNS",
+   "lat": 51.153752,
+   "lon": -113.941531,
+   "what": "Grades 10 to 12, 2,410 students. Architect: Stantec. Announced with a K-4 school in Redstone; together they will serve over 3,000 students.",
+   "url": "https://majorprojects.alberta.ca/details/New-High-School-in-Cornerstone/11436",
+   "sources": [
+    "https://majorprojects.alberta.ca/details/New-High-School-in-Cornerstone/11436",
+    "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx",
+    "https://www.alberta.ca/active-school-projects"
+   ],
+   "match": [
+    "Cornerstone High"
+   ],
+   "known_nearby": []
+  },
+  {
+   "title": "New grades 5 to 9 school in Saddle Ridge (Calgary Board of Education)",
+   "kind": "Provincial school project",
+   "owner": "Alberta Infrastructure for the Calgary School Division",
+   "amenity": true,
+   "status": "Proposed, in design",
+   "budget": "$6.8 million listed so far (design stage)",
+   "cost": 6800000,
+   "completion": "Not yet scheduled",
+   "address": "Saddle Ridge",
+   "comm": "SAD",
+   "lat": 51.135636,
+   "lon": -113.956327,
+   "what": "Grades 5 to 9, 1,225 students.",
+   "url": "https://majorprojects.alberta.ca/details/New-5-9-School-in-Saddle-Ridge/11437",
+   "sources": [
+    "https://majorprojects.alberta.ca/details/New-5-9-School-in-Saddle-Ridge/11437"
+   ],
+   "cost_partial": true,
+   "match": [],
+   "known_nearby": [
+    "Peter Lougheed School"
+   ]
+  },
+  {
+   "title": "New K-5 elementary school in Redstone (Calgary Board of Education)",
+   "kind": "Provincial school project",
+   "owner": "Alberta Infrastructure for the Calgary School Division",
+   "amenity": true,
+   "status": "Under construction (Alberta active school projects, checked 6 November 2026)",
+   "budget": "Not published",
+   "cost": null,
+   "completion": "Not yet scheduled",
+   "address": "Redstone",
+   "comm": "RSN",
+   "what": "Kindergarten to grade 4. Announced in 2025 with the Cornerstone high school.",
+   "url": "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx",
+   "sources": [
+    "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx",
+    "https://www.alberta.ca/active-school-projects"
+   ],
+   "match": []
+  },
+  {
+   "title": "New Catholic elementary school in Redstone (Calgary Catholic School District)",
+   "kind": "Provincial school project",
+   "owner": "Alberta Infrastructure for the Calgary Catholic School District",
+   "amenity": true,
+   "status": "Sod turned June 12, 2026; construction to follow",
+   "budget": "Not published",
+   "cost": null,
+   "completion": "Expected to open about 2028",
+   "address": "Redstone",
+   "comm": "RSN",
+   "what": "Kindergarten to grade 6, 340 students. Not yet named.",
+   "url": "https://livewirecalgary.com/2026/06/12/ccsd-turns-sod-and-blesses-ground-for-eventual-redstone-elementary-school/",
+   "sources": [
+    "https://livewirecalgary.com/2026/06/12/ccsd-turns-sod-and-blesses-ground-for-eventual-redstone-elementary-school/"
+   ],
+   "match": [],
+   "expected_by": "2028-09"
+  },
+  {
+   "title": "New schools in Cityscape (public elementary; public 6-9 for Cityscape or Redstone; Catholic elementary and junior high)",
+   "kind": "Provincial school project",
+   "owner": "Calgary School Division and Calgary Catholic School District",
+   "amenity": true,
+   "status": "Public 6-9 under construction; Catholic elementary/junior high in design; public elementary in planning (Alberta active school projects, checked 6 November 2026)",
+   "budget": "Not published",
+   "cost": null,
+   "completion": "Not yet scheduled",
+   "address": "Cityscape",
+   "comm": "CSC",
+   "what": "Two schools listed for Cityscape in Budget 2026.",
+   "url": "https://www.alberta.ca/system/files/ecc-approved-school-capital-list-2026.pdf",
+   "sources": [
+    "https://www.alberta.ca/system/files/ecc-approved-school-capital-list-2026.pdf",
+    "https://www.alberta.ca/active-school-projects"
+   ],
+   "match": []
+  },
+  {
+   "title": "Lufthansa Technik engine maintenance facility (YYC AeroNex)",
+   "kind": "Airport project",
+   "owner": "Calgary Airport Authority with Lufthansa Technik Canada",
+   "amenity": false,
+   "status": "Under construction (started 2025)",
+   "budget": "$120 million",
+   "cost": 120000000,
+   "completion": "Operational by 2027",
+   "address": "Calgary International Airport",
+   "comm": "CIA",
+   "what": "About 150,000 sq. ft. engine repair shop with a test cell for Boeing 737 MAX engines; at least 160 permanent jobs by 2030 and 170 construction jobs. Part of the YYC AeroNex aviation hub.",
+   "url": "https://www.renewcanada.net/yyc-calgary-airport-breaks-ground-for-new-engine-maintenance-facility/",
+   "sources": [
+    "https://www.renewcanada.net/yyc-calgary-airport-breaks-ground-for-new-engine-maintenance-facility/",
+    "https://yyc.com/en-us/media-centre/artmid/2328/articleid/147/yyc-to-build-120-million-lufthansa-technik-aircraft-engine-maintenance-facility-in-calgary"
+   ],
+   "match": [],
+   "expected_by": "2027-12"
+  },
+  {
+   "title": "Saddle Ridge Crossing (condos, shops and offices)",
+   "kind": "Private development",
+   "owner": "Creation Communities",
+   "amenity": false,
+   "status": "Phase one under construction (building permit for an office/retail building issued August 12, 2026)",
+   "budget": "Not published",
+   "cost": null,
+   "completion": "2026 to 2027 for phase one; more phases later",
+   "address": "Near Saddletowne Station, Saddle Ridge",
+   "comm": "SAD",
+   "what": "Over 600 condos and about 200,000 sq. ft. of shops, restaurants, medical and other offices at full build-out. Phase one: 120 condos in two six-storey buildings and about 83,000 sq. ft. of commercial space.",
+   "url": "https://majorprojects.alberta.ca/details/Saddle-Ridge-Crossing-Mixed-Use-Condos/12209",
+   "sources": [
+    "https://majorprojects.alberta.ca/details/Saddle-Ridge-Crossing-Mixed-Use-Condos/12209",
+    "https://dailyhive.com/calgary/calgary-saddle-ridge-crossing-development"
+   ],
+   "match": []
+  }
+ ]
+}
