@@ -1,4 +1,4 @@
-// Election Analytics: the micro-level picture of an area for anyone preparing for an election: who lives there
+// Election Analytics: micro-level election detail, deep analysis and arithmetic models of how a candidate can win: who lives there
 // (2021 Census by community), every provincial voting location and federal poll, and an analyst to ask questions.
 // The screens are open to everyone; asking the analyst needs the access code on the website (as Data Genie does).
 let eaBusy = false, eaThread = [], eaProvSel = 0, eaFedSel = 0;
@@ -84,48 +84,123 @@ function eaFederal(M) {
 }
 
 // ---- the analyst (chat)
-const EA_SUGGEST = ['Under what model could a candidate win the next race here? Show the assumptions and the arithmetic', 'Where in this area was turnout lowest, and who lives there?', 'Which age groups are largest here, and how does that compare with Calgary?',
+const EA_SUGGEST = ['Under what model could a candidate win the next race here? Show the assumptions and the arithmetic', 'Model three turnout scenarios for the next election here: votes needed to win in each', 'Where in this area was turnout lowest, and who lives there?', 'Which age groups are largest here, and how does that compare with Calgary?',
   'How did advance voting differ from election-day voting?', 'Which voting locations were closest between the top two parties?',
-  'What do residents raise most through 311, community by community?', 'Build a briefing on this area for an upcoming election'];
-function eaLocked() { return !!(window.CDD_AI && window.CDD_AI.unlocked && !window.CDD_AI.unlocked()); }
+  'What do residents raise most through 311, community by community?', 'Build a briefing on this area with the arithmetic of a win'];
+function eaLocked() { return !!(window.CDD_AI && window.CDD_AI.unlocked && !window.CDD_AI.unlocked('ea')); }
+function eaArea() {
+  const A = typeof ecArea === 'function' ? ecArea(ecKey()) : null;
+  return A ? `${A.name} (${ecLevel[A.level][0].toLowerCase()}; ${ecLevel[A.level][1]} ${(A.member || {}).name || ''}; riding="${A.name}")` : isCity() ? 'all of Calgary' : W();
+}
+// a finished report: PDF, interactive, Excel, and an audit of it
+function eaReportCard(ev) {
+  const pdf = ev.pdf || ev.print || (/\.pdf$/i.test(ev.path || '') ? ev.path : null), inter = ev.interactive;
+  const p = x => esc(x);
+  return `<div class="ea-report"><div><b>${esc(ev.title || ev.name || 'Election report')}</b><small>${[pdf || inter ? 'PDF' : '', inter ? 'interactive report' : '', ev.xlsx ? 'Excel workbook with every calculation' : ''].filter(Boolean).join(' · ')}</small></div>
+    <div class="file-actions">${pdf ? `<button class="btn primary" data-eap="${p(pdf)}${/\.html?$/i.test(pdf) ? '#print' : ''}">PDF</button>` : inter ? `<button class="btn primary" data-eap="${p(inter)}#print">PDF</button>` : ''}${inter ? `<button class="btn" data-eap="${p(inter)}">Interactive</button>` : ''}${ev.xlsx ? `<button class="btn" data-eap="${p(ev.xlsx)}">Excel</button>` : ''}${pdf || inter ? `<button class="btn" data-eaaudit="${p(pdf || inter)}">Audit this report</button>` : ''}</div></div>`;
+}
 function eaChat() {
   const locked = eaLocked();
   const msgs = eaThread.map(m => `<div class="ea-msg ${m.who}">${m.who === 'you' ? esc(m.text) : (m.html || esc(m.text || ''))}${m.cards ? `<div class="ea-cards">${m.cards}</div>` : ''}</div>`).join('');
-  return `<section class="card span-12 ea-chat"><div class="card-head"><div><h2>Ask the election analyst</h2><p class="card-sub">Advanced analysis of ${esc(W())} from every figure on this screen and the rest of the Data Desk. Nonpartisan: the same rigour for any candidate or campaign, including projections built on stated assumptions.</p></div></div>
-    ${locked ? `<div class="web-lock ea-lock"><h3>The analyst needs the access code</h3><p>The screens above are open to everyone. Asking the analyst uses an AI language model on the website owner's account, so it needs the access code (the same one as Data Genie).</p>
-      <form id="ea-unlock"><label class="sr-only" for="ea-code">Access code</label><input type="password" id="ea-code" autocomplete="off" placeholder="Access code"><button type="submit" class="btn primary">Unlock</button></form><p class="web-lock-msg" id="ea-lockmsg" role="status"></p></div>`
+  return `<section class="card span-12 ea-chat"><div class="card-head"><div><h2>Ask the election analyst</h2><p class="card-sub">Micro-level detail, deep analysis and arithmetic models of how a candidate can win in ${esc(eaPlace())}, from every figure on this page and the rest of the Data Desk. Ask a question for an answer here, or build a full report (PDF, interactive report and an Excel workbook with every calculation) that can be audited.</p></div></div>
+    ${locked ? `<div class="web-lock ea-lock"><h3>The election analyst needs its passcode</h3><p>Every chart and table on this page is open to everyone. Asking the analyst needs the Election Analytics passcode, which is separate from the Data Genie one. <b>To get a passcode, contact the developer.</b></p>
+      <form id="ea-unlock"><label class="sr-only" for="ea-code">Election Analytics passcode</label><input type="password" id="ea-code" autocomplete="off" placeholder="Election Analytics passcode"><button type="submit" class="btn primary">Unlock</button></form><p class="web-lock-msg" id="ea-lockmsg" role="status"></p></div>`
       : `<div class="ea-thread" id="ea-thread">${msgs || `<div class="ea-suggest">${EA_SUGGEST.map(s => `<button type="button" class="chip" data-easug="${esc(s)}">${esc(s)}</button>`).join('')}</div>`}</div>
-      <form class="ea-form" id="ea-form"><textarea id="ea-q" rows="2" placeholder="Ask about turnout, who lives here, voting locations, issues…" aria-label="Question for the election analyst"></textarea><button class="btn primary" type="submit" ${eaBusy ? 'disabled' : ''}>${eaBusy ? 'Working…' : 'Ask'}</button></form>`}
-    <p class="card-note">Answers use official results and the Census, and say which figures are estimates. It can build projections and win scenarios as mathematical models, with every assumption, the arithmetic and a range, never as certainties. It works the same for any candidate or party, and never suggests targeting or discouraging any group.</p></section>`;
+      <form class="ea-form" id="ea-form"><textarea id="ea-q" rows="2" placeholder="Ask about turnout, who lives here, voting locations, the arithmetic of a win…" aria-label="Question for the election analyst"></textarea>
+        <div class="ea-btns"><button class="btn primary" type="submit" ${eaBusy ? 'disabled' : ''}>${eaBusy ? 'Working…' : 'Ask'}</button><button class="btn" type="button" id="ea-report" ${eaBusy ? 'disabled' : ''} title="A full, auditable report: PDF, interactive report and Excel workbook. Takes 5 to 15 minutes.">Build full report</button></div></form>`}
+    <p class="card-note">Answers use official results and the Census, and say which figures are estimates. Projections and win scenarios are mathematical models, with every assumption, the arithmetic and a range, never certainties. The same rigour for any candidate or party; it never suggests targeting or discouraging any group.</p></section>`;
 }
-async function eaAsk(q) {
-  if (eaBusy || !q.trim()) return;
-  eaBusy = true;
-  const bot = { who: 'bot', text: 'Working on it…', steps: [] };
-  eaThread.push({ who: 'you', text: q }, bot);
-  renderElAnalytics(true);
-  const prev = window.onAgentEvent, cards = [];
-  window.onAgentEvent = ev => {
+function eaCatch(bot, cards) {
+  const prevA = window.onAgentEvent, prevS = window.onAnalystEvent;
+  const h = ev => {
     if (ev.type === 'step') { bot.text = ev.text + '…'; const t = $('#ea-thread .ea-msg.bot:last-child'); if (t) t.firstChild.textContent = bot.text; }
     else if (ev.type === 'table') cards.push(`<div class="card"><h4>${esc(ev.title)}</h4><div class="table-scroll"><table class="data"><thead><tr>${ev.columns.map(c => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead><tbody>${ev.rows.map(r => `<tr>${r.map(v => `<td>${typeof v === 'number' ? fmt(v, Number.isInteger(v) ? 0 : 1) : esc(v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`);
     else if (ev.type === 'chart') cards.push(`<div class="card"><h4>${esc(ev.title)}</h4>${eaBars((ev.labels || []).map((l, i) => ({ label: String(l), v: ((ev.series || [])[0] || { values: [] }).values[i] })), v => fmt(v, Number.isInteger(v) ? 0 : 1))}</div>`);
-    else if (prev) prev(ev);
+    else if (ev.type === 'report') cards.unshift(eaReportCard(ev));
   };
+  window.onAgentEvent = h; window.onAnalystEvent = h;
+  return () => { window.onAgentEvent = prevA; window.onAnalystEvent = prevS; };
+}
+async function eaAsk(q, full) {
+  if (eaBusy || !q.trim()) return;
+  eaBusy = true;
+  const bot = { who: 'bot', text: full ? 'Planning the report…' : 'Working on it…' };
+  eaThread.push({ who: 'you', text: full ? `Full report: ${q}` : q }, bot);
+  renderElAnalytics(true);
+  const cards = [], done = eaCatch(bot, cards);
   try {
-    const area = isCity() ? 'all of Calgary' : W();
-    const res = await (await api()).ask(`[Election Analytics] Area: ${area}. ${q}`, 'smart');
-    if (res && res.ok) { bot.html = (window.DOMPurify && window.marked) ? DOMPurify.sanitize(marked.parse(res.text)) : esc(res.text); bot.text = ''; }
+    const a = await api();
+    // the strongest model for every Election Analytics answer; a full report goes through the report writer
+    const res = full ? await a.election_report(q, eaArea()) : await a.ask(`[Election Analytics] Area: ${eaArea()}. ${q}`, 'audit');
+    if (res && res.ok) { bot.html = (window.DOMPurify && window.marked) ? DOMPurify.sanitize(marked.parse(res.text || '')) : esc(res.text || ''); bot.text = ''; if (res.report && !cards.some(c => c.includes('ea-report'))) cards.unshift(eaReportCard(typeof res.report === 'string' ? { pdf: res.report } : res.report)); }
     else bot.text = (res && res.error) || 'The analyst could not answer this time.';
   } catch (e) { bot.text = String(e.message || e); }
   bot.cards = cards.join('');
-  window.onAgentEvent = prev;
+  done();
   eaBusy = false;
   renderElAnalytics(true);
+}
+async function eaAudit(path) {
+  if (eaBusy) return;
+  eaBusy = true;
+  const bot = { who: 'bot', text: 'Auditing the report: every figure is worked out again from the data…' };
+  eaThread.push({ who: 'you', text: 'Audit this report' }, bot);
+  renderElAnalytics(true);
+  const prev = window.onAuditEvent;
+  window.onAuditEvent = ev => { if (ev.type === 'step') { bot.text = ev.text + '…'; const t = $('#ea-thread .ea-msg.bot:last-child'); if (t) t.firstChild.textContent = bot.text; } else if (prev) prev(ev); };
+  try {
+    const res = await (await api()).audit_run(path);
+    const cp = res && res.corrected ? (typeof res.corrected === 'string' ? res.corrected : (res.corrected.pdf || res.corrected.interactive || '')) : '';
+    if (res && res.ok) { bot.text = ''; bot.html = `<p><b>Audit finished.</b> ${esc(res.verdict || '')} ${fmt(res.findings || 0)} finding${res.findings === 1 ? '' : 's'}.</p>`; bot.cards = `<div class="ea-report"><div><b>Audit report</b><small>every finding with the reviewer's decision${cp ? '; a corrected report was made' : ''}</small></div><div class="file-actions">${res.page ? `<button class="btn primary" data-eap="${esc(res.page)}">Open the audit</button>` : ''}${cp ? `<button class="btn" data-eap="${esc(cp)}">Corrected report</button>` : ''}</div></div>`; }
+    else bot.text = (res && res.error) || 'The audit could not be finished.';
+  } catch (e) { bot.text = String(e.message || e); }
+  window.onAuditEvent = prev;
+  eaBusy = false;
+  renderElAnalytics(true);
+}
+
+function eaPlace() { const A = typeof ecArea === 'function' ? ecArea(ecKey()) : null; return A ? A.name : W(); }
+function eaBindAll(body) {
+  body.querySelectorAll('[data-easug]').forEach(b => b.addEventListener('click', () => eaAsk(b.dataset.easug)));
+  body.querySelectorAll('[data-eap]').forEach(b => b.addEventListener('click', async () => (await api()).open_path(b.dataset.eap)));
+  body.querySelectorAll('[data-eaaudit]').forEach(b => b.addEventListener('click', () => eaAudit(b.dataset.eaaudit)));
+  const rb = $('#ea-report');
+  if (rb) rb.addEventListener('click', () => { const t = $('#ea-q').value.trim(); eaAsk(t || `A complete election analysis of ${eaPlace()}: who lives here, how it voted, the arithmetic of the last result and at least three models of how a candidate can win the next race`, true); });
+  const f = $('#ea-form');
+  if (f) { f.addEventListener('submit', e => { e.preventDefault(); const t = $('#ea-q').value; eaAsk(t); });
+    $('#ea-q').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); f.requestSubmit(); } }); }
+  const u = $('#ea-unlock');
+  if (u) u.addEventListener('submit', async e => { e.preventDefault(); const msg = $('#ea-lockmsg'); msg.textContent = 'Checking';
+    try { await window.CDD_AI.unlock($('#ea-code').value, 'ea'); renderElAnalytics(true); } catch (err) { msg.textContent = String(err.message || err); } });
+  if (typeof ecBind === 'function') ecBind(body, () => renderElAnalytics(true));
+  if (typeof elTick === 'function') elTick();
+  const th = $('#ea-thread'); if (th) th.scrollTop = th.scrollHeight;
+}
+// an MLA's division or an MP's district: its own hero, the analyst and the full picture (constituency.js)
+function eaRiding(body, A, keepScroll, y) {
+  const r = A.last || {}, w = A.who || {}, lv = ecLevel[A.level], m = r.math || {};
+  const nx = (typeof EL_NEXT !== 'undefined' ? EL_NEXT : []).filter(([t]) => A.level === 'provincial' ? /alberta|provinc/i.test(t) : /canada|federal/i.test(t));
+  const hero = `<section class="el-cr span-12"><div class="el-cr-top"><div><div class="el-cr-kicker">Election Analytics · ${esc(lv[0])}</div><h2 class="el-cr-title">${esc(A.name)}</h2><div class="el-cr-sub">${esc(lv[1])}: ${esc((A.member || {}).name || '')}${(A.member || {}).caucus ? ` (${esc(A.member.caucus)})` : ''} · last result ${esc(elDay(A.last_date))}${A.by_election ? ' (by-election)' : ''}</div></div>
+      ${nx.length && typeof elCountdown === 'function' ? `<div class="el-cr-counts">${nx.slice(0, 1).map(([t, d]) => `<div class="el-cr-count"><div class="el-cr-kicker">${esc(t)} · ${esc(elDay(d))}</div>${elCountdown(d, true)}</div>`).join('')}</div>` : ''}</div>
+    <div class="el-cr-kpis">
+      <div class="el-kpi"><div class="el-kpi-l">Residents today</div><div class="el-kpi-n">${fmt(A.residents)}</div><div class="el-hero-sub">${esc(w.method || '')}</div></div>
+      <div class="el-kpi"><div class="el-kpi-l">Electors on the list</div><div class="el-kpi-n">${fmt(r.electors)}</div><div class="el-hero-sub">turnout ${EA_PCT(r.turnout, 1)}</div></div>
+      <div class="el-kpi"><div class="el-kpi-l">Votes between 1st and 2nd</div><div class="el-kpi-n">${fmt(m.gap_votes)}</div><div class="el-hero-sub">ahead by ${EA_PCT(r.margin_share, 1)}</div></div>
+      <div class="el-kpi"><div class="el-kpi-l">Swing that would tie it</div><div class="el-kpi-n">${isNum(m.swing_to_flip) ? fmt(m.swing_to_flip * 100, 1) : '–'}<small> pts</small></div><div class="el-hero-sub">uniform, winner to runner-up</div></div>
+      <div class="el-kpi"><div class="el-kpi-l">Did not vote</div><div class="el-kpi-n">${fmt(m.did_not_vote)}</div><div class="el-hero-sub">electors on the list</div></div>
+      <div class="el-kpi"><div class="el-kpi-l">Aged 65 and over</div><div class="el-kpi-n">${EA_PCT(w.age65)}</div><div class="el-hero-sub">under 20: ${EA_PCT(w.under20)}</div></div>
+    </div></section>`;
+  body.innerHTML = ecPicker() + hero + eaChat() + ecRiding(A);
+  eaBindAll(body);
+  if (keepScroll) window.scrollTo(0, y);
 }
 
 async function renderElAnalytics(keepScroll) {
   const body = $('#ea-body'); if (!body) return;
   const y = window.scrollY;
+  const key = typeof ecKey === 'function' ? ecKey() : 'ward', RA = typeof ecArea === 'function' ? ecArea(key) : null;
+  if (RA) return eaRiding(body, RA, keepScroll, y);
+  if (key === 'P' || key === 'F') { body.innerHTML = ecPicker() + eaChat() + ecAllSeats(key === 'P' ? 'provincial' : 'federal'); eaBindAll(body); if (keepScroll) window.scrollTo(0, y); return; }
   const M = D && D.elections && D.elections.micro;
   const C = (D && D.elections && D.elections.constituency) || {}, cw = ((C.wards || {})[String(SCOPE)]) || {};
   if (!M || M.error) { body.innerHTML = `<section class="card span-12"><p>Election Analytics is not ready for this area yet${M && M.error ? ` (${esc(M.error)})` : ''}. It appears after the next refresh of the election results.</p></section>`; return; }
@@ -142,19 +217,11 @@ async function renderElAnalytics(keepScroll) {
       <div class="el-kpi"><div class="el-kpi-l">Aged 65 and over</div><div class="el-kpi-n">${EA_PCT(w.age65)}</div><div class="el-hero-sub">under 20: ${EA_PCT(w.under20)}</div></div>
       <div class="el-kpi"><div class="el-kpi-l">People per household</div><div class="el-kpi-n">${isNum(w.avg_hh) ? fmt(w.avg_hh, 2) : '–'}</div><div class="el-hero-sub">${EA_PCT(w.big_hh)} of homes have 5 or more</div></div>
     </div></section>`;
-  body.innerHTML = hero + eaChat() + eaWho(M) + eaCommunities(M) + (isCity() ? `<section class="card span-12"><p class="muted">Choose a ward at the top to see every voting location and poll in it.</p></section>` : eaProvincial(M) + eaFederal(M))
+  body.innerHTML = (typeof ecPicker === 'function' ? ecPicker() : '') + hero + eaChat() + eaWho(M) + eaCommunities(M) + (isCity() ? `<section class="card span-12"><p class="muted">Choose a ward at the top to see every voting location and poll in it.</p></section>` : eaProvincial(M) + eaFederal(M))
     + `<section class="card span-12"><p class="card-note">${esc(M.notes || '')} Facts only: nothing here rates, ranks or recommends any candidate, party or campaign. <button type="button" class="link-btn small" data-method="elections">How these are read</button></p></section>`;
   body.querySelectorAll('[data-eaprov]').forEach(b => b.addEventListener('click', () => { eaProvSel = +b.dataset.eaprov; renderElAnalytics(true); }));
   body.querySelectorAll('[data-eafed]').forEach(b => b.addEventListener('click', () => { eaFedSel = +b.dataset.eafed; renderElAnalytics(true); }));
-  body.querySelectorAll('[data-easug]').forEach(b => b.addEventListener('click', () => eaAsk(b.dataset.easug)));
-  const f = $('#ea-form');
-  if (f) { f.addEventListener('submit', e => { e.preventDefault(); const t = $('#ea-q').value; eaAsk(t); });
-    $('#ea-q').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); f.requestSubmit(); } }); }
-  const u = $('#ea-unlock');
-  if (u) u.addEventListener('submit', async e => { e.preventDefault(); const msg = $('#ea-lockmsg'); msg.textContent = 'Checking';
-    try { await window.CDD_AI.unlock($('#ea-code').value); if (window.CDD_LOCK) window.CDD_LOCK.open(); renderElAnalytics(true); } catch (err) { msg.textContent = String(err.message || err); } });
-  if (typeof elTick === 'function') elTick();
-  const th = $('#ea-thread'); if (th) th.scrollTop = th.scrollHeight;
+  eaBindAll(body);
   if (keepScroll) window.scrollTo(0, y);
 }
 window.renderElAnalytics = renderElAnalytics;

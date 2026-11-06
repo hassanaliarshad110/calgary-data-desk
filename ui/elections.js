@@ -391,17 +391,27 @@ function elProfileRows(keys) {
 function elVal(v, unit, label) { return !isNum(v) ? '–' : unit === '%' ? `${fmt(v, Number.isInteger(v) ? 0 : 1)}%` : unit === '$' ? `$${fmt(v)}` : unit === 'x' && /ratio/i.test(label || '') ? `${fmt(v, 1)}x` : fmt(v, v < 10 && !Number.isInteger(v) ? 1 : 0); }
 
 function elArea() {
+  const ev = typeof ecView === 'function' ? ecView() : null;
+  if (ev) return ev;
+  const pick = typeof ecPicker === 'function' ? ecPicker() : '';
   const E = (D && D.elections) || {}, C = E.constituency || {}, M = EL.municipal || {};
   if (isCity()) {
     const ws = C.wards || {};
-    return `<section class="card span-12"><div class="card-head"><div><h2>Know your constituency</h2><p class="card-sub">Pick a ward at the top for its full picture. Here, every ward side by side.</p></div></div>
+    const keys = Object.keys(ws).sort((a, b) => a - b);
+    const row = w => ((D.wards_summary || {}).wards || []).find(x => x.ward === +w) || {};
+    return pick + `<section class="card span-12"><div class="card-head"><div><h2>Know your constituency: every ward</h2><p class="card-sub">Pick a ward at the top for its full picture, or an MLA's division or an MP's district above.</p></div></div>
+      <div class="ea-two"><div><h3 class="fb-h3">Council turnout by ward, 2025 (estimate)</h3>${ecBars(keys.map(w => ({ label: `Ward ${w}`, sub: ((M.councillors || {})[w] || { candidates: [{}] }).candidates[0].name || '', v: ws[w].turnout_est })).sort((a, b) => a.v - b.v), v => elPct(v, 0), 1)}</div>
+      <div><h3 class="fb-h3">How close each council race was</h3>${ecBars(keys.map(w => ({ label: `Ward ${w}`, sub: `${fmt(((M.councillors || {})[w] || {}).margin)} votes`, v: ((M.councillors || {})[w] || {}).margin_share })).sort((a, b) => a.v - b.v), v => elPct(v, 1))}</div></div>
       <div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Residents</th><th scope="col" class="num">Electors (estimate)</th><th scope="col" class="num">Votes for councillor</th><th scope="col" class="num">Turnout (estimate)</th><th scope="col" class="num">Winner's share</th><th scope="col" class="num">Ahead by</th></tr></thead><tbody>
-      ${Object.keys(ws).sort((a, b) => a - b).map(w => { const r = (M.councillors || {})[w] || { candidates: [{}] }; const ward = ((D.wards_summary || {}).wards || []).find(x => x.ward === +w) || {};
+      ${keys.map(w => { const r = (M.councillors || {})[w] || { candidates: [{}] }; const ward = row(w);
         return `<tr><th scope="row">Ward ${w}</th><td>${esc(r.candidates[0].name || '')}</td><td class="num">${fmt(ward.residents)}</td><td class="num">${fmt(ws[w].electors_est)}</td><td class="num">${fmt(ws[w].votes)}</td><td class="num">${elPct(ws[w].turnout_est, 0)}</td><td class="num">${elPct(r.candidates[0].share)}</td><td class="num">${elPct(r.margin_share)}</td></tr>`; }).join('')}
       </tbody></table></div><p class="card-note">${esc(C.electors_note || '')}</p></section>`;
   }
   const w = String(SCOPE), cw = (C.wards || {})[w] || {}, cr = C.councillor_race || {};
-  const ward = D.ward || {};
+  const ward = D.ward || {}, race = (M.councillors || {})[w] || {};
+  const cands = (race.candidates || []).map((c, i) => Object.assign({}, c, { elected: i === 0 }));
+  const raceObj = cands.length ? { candidates: cands, turnout: cw.turnout_est, total: race.total, margin: race.margin, margin_share: race.margin_share,
+    math: cands.length > 1 && cw.electors_est ? { gap_votes: race.margin, swing_to_flip: (race.margin_share || 0) / 2, did_not_vote: Math.max(0, cw.electors_est - (race.total || 0)), second_needs_from_new_voters: (race.margin || 0) + 1 } : null } : null;
   const tiles = [
     ['Residents', fmt(ward.residents), isNum(ward.growth_pct) ? `${ward.growth_pct > 0 ? '+' : ''}${fmt(ward.growth_pct, 1)}% since the 2021 Census` : ''],
     ['Electors (estimate)', fmt(cw.electors_est), 'Eligible voters, estimated (note below)'],
@@ -418,30 +428,36 @@ function elArea() {
   const growth = (D.communities || []).filter(c => c.residential && isNum(c.residents) && isNum(c.census2021)).map(c => ({ name: c.name, add: c.residents - c.census2021, res: c.residents, g: c.growth_pct, homes: (c.homes_now || 0) - (c.homes_census || 0), rq: c.requests_per_1000 })).sort((a, b) => b.add - a.add);
   const newRes = growth.reduce((a, c) => a + Math.max(c.add, 0), 0);
   if (growth.length) facts.push(`About ${fmt(Math.round(newRes / 100) * 100)} more residents than at the 2021 Census, most of them in ${growth.slice(0, 3).map(c => esc(c.name)).join(', ')}.`);
-  const mv = (C.mayor_vs_city || []).slice(0, 5);
-  const mayor = mv.length ? `<div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col">Mayoral candidate</th><th scope="col" class="num">${esc(W())}</th><th scope="col" class="num">Calgary</th><th scope="col" class="num">Difference</th></tr></thead><tbody>${mv.map(x => `<tr><th scope="row">${esc(x.name)}</th><td class="num">${elPct(x.ward)}</td><td class="num">${elPct(x.calgary)}</td><td class="num">${isNum(x.diff) ? (x.diff > 0 ? '+' : '') + fmt(x.diff * 100, 1) + ' pts' : '–'}</td></tr>`).join('')}</tbody></table></div><p class="card-note">Election-day votes in the ward; Calgary includes advance votes.</p>` : '';
-  const st = (C.stations || []).slice(0, 15);
-  const stations = st.length ? `<div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col">Voting station</th><th scope="col" class="num">Votes</th><th scope="col">Leading</th><th scope="col" class="num">Share</th></tr></thead><tbody>${st.map(x => `<tr><th scope="row">${esc(x.station)}${/advance/i.test(x.type) ? ' <small>(advance)</small>' : ''}</th><td class="num">${fmt(x.total)}</td><td>${esc(x.leading)}</td><td class="num">${elPct(x.shares[x.leading])}</td></tr>`).join('')}</tbody></table></div><p class="card-note">The 15 busiest voting stations for this race; every station together adds up to the race's official total. Advance stations took votes from voters of several wards.</p>` : '';
-  const prof = elProfileRows();
-  const people = prof.length ? `<div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col"></th><th scope="col" class="num">${esc(W())}</th><th scope="col" class="num">Calgary</th></tr></thead><tbody>${prof.map(i => `<tr><th scope="row">${esc(i.label)}${i.label.startsWith('Non-permanent') ? ' <small>(not eligible to vote)</small>' : ''}</th><td class="num">${elVal(i.ward, i.unit, i.label)}</td><td class="num">${elVal(i.cal, i.unit, i.label)}</td></tr>`).join('')}</tbody></table></div><p class="card-note">${esc((D.profile.source || {}).name || '')}: 2021 Census, ${esc((D.profile.source || {}).published || '')}.</p>` : '';
+  const mv = (C.mayor_vs_city || []).slice(0, 6);
+  const mayor = mv.length ? ecMulti(mv.map(x => ({ label: x.name, vals: [x.ward, x.calgary] })), [W(), 'Calgary'], v => elPct(v, 1)) + '<p class="card-note">Election-day votes in the ward; Calgary includes advance votes.</p>' : '';
+  const st = (C.stations || []).slice(0, 20);
+  const stations = st.length ? ecBars(st.map(x => ({ label: x.station + (/advance/i.test(x.type) ? ' (advance)' : ''), sub: `${x.leading} ${elPct(x.shares[x.leading])}`, v: x.total })), v => fmt(v)) + '<p class="card-note">The 20 busiest voting stations for this race, by votes cast; every station together adds up to the official total. Advance stations took votes from voters of several wards.</p>' : '';
+  const PG = ((D.profile || {}).groups || []).filter(g => (g.items || []).length);
+  const people = PG.length ? PG.map(g => { const pc = g.items.filter(i => i.unit === '%' && isNum(i.ward)), ot = g.items.filter(i => i.unit !== '%' && isNum(i.ward));
+    return `<h3 class="fb-h3">${esc(g.title || g.key)}</h3>${ot.length ? ecTiles(ot.map(i => [i.label, elVal(i.ward, i.unit, i.label), `Calgary ${elVal(i.cal, i.unit, i.label)}${i.note ? ' · ' + esc(i.note) : ''}`])) : ''}
+      ${pc.length ? ecMulti(pc.map(i => ({ label: i.label + (i.label.startsWith('Non-permanent') ? ' (not eligible to vote)' : ''), vals: [i.ward / 100, isNum(i.cal) ? i.cal / 100 : null] })), [W(), 'Calgary'], v => elPct(v, Number.isInteger(Math.round(v * 1000) / 10) ? 0 : 1)) : ''}`; }).join('')
+    + `<p class="card-note">${esc((D.profile.source || {}).name || '')}: 2021 Census, ${esc((D.profile.source || {}).published || '')}. ${esc((D.profile.source || {}).notes || '')}</p>` : '';
   const lists = ((D.profile || {}).groups || []).map(g => g.list).filter(l => l && (l.rows || []).length);
-  const origins = lists.length ? lists.map(l => `<h3 class="ac-h4">${esc(l.title)}</h3><div class="table-wrap ac-full"><table class="data"><tbody>${l.rows.map(r => `<tr><th scope="row">${esc(r[0])}</th><td class="num">${fmt(r[1])}</td><td class="num">${fmt(r[2])}%</td></tr>`).join('')}</tbody></table></div>${l.note ? `<p class="card-note">${esc(l.note)}</p>` : ''}`).join('') + `<p class="card-note">${esc(((D.profile || {}).source || {}).name || '')}, 2021 Census.</p>` : '';
-  const issues = (D.open_by_type || []).filter(t => !/contact us/i.test(t.type)).slice(0, 8);
-  const raise = issues.length ? `<ul class="el-insights">${issues.map(t => `<li>${esc(t.type)}: <b>${fmt(t.n)}</b> open</li>`).join('')}</ul><p class="card-note">Open 311 requests in ${esc(W())} today. ${fmt((D.summary || {}).requests_per_1000, 0)} requests per 1,000 residents in the last 12 months.</p>` : '';
-  const comms = growth.length ? `<div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col">Community</th><th scope="col" class="num">Residents</th><th scope="col" class="num">Added since 2021</th><th scope="col" class="num">Homes added</th><th scope="col" class="num">311 per 1,000</th></tr></thead><tbody>${growth.map(c => `<tr><th scope="row">${esc(c.name)}</th><td class="num">${fmt(c.res)}</td><td class="num">${fmt(c.add)}</td><td class="num">${fmt(c.homes)}</td><td class="num">${fmt(c.rq, 0)}</td></tr>`).join('')}</tbody></table></div>` : '';
-  const ref = (C.referendum || []);
-  const refT = ref.length ? `<div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col">Question</th><th scope="col" class="num">${esc(W())} (estimate)</th><th scope="col" class="num">Calgary</th><th scope="col" class="num">Alberta</th></tr></thead><tbody>${ref.map(q => `<tr><th scope="row" title="${esc(q.question || '')}">Q${q.number}: ${esc((q.question || '').replace(/^Question \d+:\s*/, '').slice(0, 90))}…</th><td class="num">${esc(q.options[0])} ${elPct(q.area[0])}</td><td class="num">${elPct(q.calgary[0])}</td><td class="num">${elPct((q.alberta || [])[0])}</td></tr>`).join('')}</tbody></table></div><p class="card-note">The share for the first option (Yes, or for question 10 "remain a province"). The ward's figure averages its electoral divisions by the share of its residents in each.</p>` : '';
-  return `<section class="card span-12"><div class="card-head"><div><h2>Know your constituency: ${esc(W())}</h2><p class="card-sub">The electorate, how it voted and who lives here: facts for any candidate or campaign alike.</p></div></div>
-      <div class="el-next">${tiles.map(([t, v, n]) => `<div class="el-tile"><div class="el-role">${esc(t)}</div><div class="el-big">${v}</div><div class="el-meta">${n}</div></div>`).join('')}</div>
+  const origins = lists.length ? lists.map(l => `<div><h3 class="fb-h3">${esc(l.title)}</h3>${ecBars(l.rows.slice(0, 10).map(r => ({ label: r[0], sub: `${fmt(r[1])} people`, v: r[2] })), v => fmt(v, 1) + '%')}${l.note ? `<p class="card-note">${esc(l.note)}</p>` : ''}</div>`).join('') : '';
+  const issues = (D.open_by_type || []).filter(t => !/contact us/i.test(t.type)).slice(0, 10);
+  const raise = issues.length ? ecBars(issues.map(t => ({ label: typeof niceType === 'function' ? niceType(t.type) : t.type, v: t.n })), v => fmt(v)) + `<p class="card-note">Open 311 requests in ${esc(W())} today. ${fmt((D.summary || {}).requests_per_1000, 0)} requests per 1,000 residents in the last 12 months.</p>` : '';
+  const comms = growth.length ? `${ecBars(growth.slice(0, 12).map(c => ({ label: c.name, sub: `${fmt(c.res)} residents · ${fmt(c.homes)} homes added`, v: c.add })), v => (v > 0 ? '+' : '') + fmt(v))}
+    <div class="table-wrap ac-full"><table class="data"><thead><tr><th scope="col">Community</th><th scope="col" class="num">Residents</th><th scope="col" class="num">Added since 2021</th><th scope="col" class="num">Homes added</th><th scope="col" class="num">311 per 1,000</th></tr></thead><tbody>${growth.map(c => `<tr><th scope="row">${esc(c.name)}</th><td class="num">${fmt(c.res)}</td><td class="num">${fmt(c.add)}</td><td class="num">${fmt(c.homes)}</td><td class="num">${fmt(c.rq, 0)}</td></tr>`).join('')}</tbody></table></div>` : '';
+  const MI = E.micro || {};
+  return pick + `<section class="card span-12"><div class="card-head"><div><h2>Know your constituency: ${esc(W())}</h2><p class="card-sub">Councillor ${esc(ecCouncillor(SCOPE))}. The electorate, how it voted and who lives here: facts for any candidate or campaign alike. Pick an MLA's division or an MP's district above for theirs.</p></div></div>
+      ${ecTiles(tiles)}
       <ul class="el-insights">${facts.map(f => `<li>${f}</li>`).join('')}</ul><p class="card-note">${esc(C.electors_note || '')}</p></section>
-    <section class="card span-6"><div class="card-head"><div><h2>How ${esc(W())} voted for mayor</h2></div></div>${mayor}</section>
-    <section class="card span-6"><div class="card-head"><div><h2>Councillor race, station by station</h2></div></div>${stations || '<p class="card-note">Station results are not in this copy of the data yet.</p>'}</section>
+    ${ecCard(6, 'Councillor race, 2025', 'Share of the vote', ecRace(raceObj))}
+    ${ecCard(6, 'The arithmetic of the council race', 'What separated first and second, against the electors who stayed home (estimate)', raceObj ? ecMath(raceObj, MI.who, null) : '')}
+    ${ecCard(6, `How ${esc(W())} voted for mayor`, '', mayor)}
+    ${ecCard(6, 'Councillor race, station by station', '', stations || '<p class="card-note">Station results are not in this copy of the data yet.</p>')}
+    ${MI.who ? ecWhoCards(MI.who, W()) : ''}
+    ${ecCard(12, `Who lives here: ${esc(W())} and Calgary`, '2021 Census ward profile', people)}
+    ${origins ? ecCard(12, 'Languages and countries of birth', 'For outreach and translated materials: what residents speak at home and where immigrants were born', `<div class="el-two">${origins}</div>`) : ''}
+    ${ecCard(6, 'What residents raise with the City', 'Open 311 requests by type', raise)}
     <section class="card span-12"><div class="card-head"><div><h2>Overlapping electoral areas</h2></div></div>${elWho()}</section>
-    <section class="card span-6"><div class="card-head"><div><h2>Who lives here</h2></div></div>${people}</section>
-    <section class="card span-6"><div class="card-head"><div><h2>What residents raise with the City</h2></div></div>${raise}</section>
-    ${origins ? `<section class="card span-12"><div class="card-head"><div><h2>Languages and countries of birth</h2><p class="card-sub">For outreach and translated materials: what residents speak at home and where immigrants were born</p></div></div><div class="el-two">${origins}</div></section>` : ''}
-    <section class="card span-12"><div class="card-head"><div><h2>Communities</h2><p class="card-sub">Largest growth first</p></div></div>${comms}</section>
-    <section class="card span-12"><div class="card-head"><div><h2>The 2026 referendum here</h2></div></div>${refT}</section>`;
+    ${ecCard(12, 'Communities', 'Largest growth since the 2021 Census first', comms)}
+    ${ecReferendum(C.referendum, W())}`;
 }
 
 // ---- Since the election: the first 12 months of the council term against the 12 months before (the dashboard's period)
@@ -494,6 +510,7 @@ async function renderElections() {
     ${page}
     <section class="card span-12"><p class="card-note">Official results as published by Elections Calgary, Elections Alberta and Elections Canada; members today from the Legislative Assembly of Alberta and the House of Commons. Read ${esc(elDay(EL.built_at))}. Facts only: nothing here rates, ranks or recommends any candidate, party or campaign. ${errs.length ? `Not read this time: ${esc(errs.join(', '))}.` : ''} <button type="button" class="link-btn small" data-method="elections">How these are read</button></p></section>`;
   elTick();
+  if (typeof ecBind === 'function') ecBind(body, renderElections);
   body.querySelectorAll('[data-elsub]').forEach(b => b.addEventListener('click', () => { elSub = b.dataset.elsub; renderElections(); }));
   const sel = $('#el-refq');
   if (sel) sel.addEventListener('change', () => { elRefQ = +sel.value; const y = window.scrollY; renderElections().then(() => window.scrollTo(0, y)); });

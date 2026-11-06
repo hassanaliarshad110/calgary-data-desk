@@ -239,6 +239,14 @@ class Api:
             traceback.print_exc()
             return {'ok': False, 'error': str(e)}
 
+    def get_safety_rank(self):
+        try:
+            import safety_rank
+            return {'ok': True, 'data': safety_rank.load(DATA_DIR)}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': str(e)}
+
     def get_elections(self):
         try:
             import elections
@@ -375,6 +383,24 @@ class Api:
         try:
             self._analyst.reset()                 # each report starts fresh
             res = self._analyst.ask(analyst.brief(key, text, area=self._place()), 'smart',
+                                    today=dashboard.calgary_now().date().isoformat())
+            return {'ok': True, **res}
+        except agent_mod.AgentError as e:
+            return {'ok': False, 'error': str(e)}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': f'The analysis stopped: {e}'}
+        finally:
+            self._analyst_busy = False
+
+    def election_report(self, text=None, area=None):
+        """Election Analytics: a full, auditable report on the strongest model. One at a time with the Data Scientist."""
+        if self._analyst_busy:
+            return {'ok': False, 'error': 'A report is already being written. It will finish in a few minutes.'}
+        self._analyst_busy = True
+        try:
+            self._analyst.reset()
+            res = self._analyst.ask(analyst.election_brief(text, area or self._place()), 'audit',
                                     today=dashboard.calgary_now().date().isoformat())
             return {'ok': True, **res}
         except agent_mod.AgentError as e:

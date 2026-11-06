@@ -638,6 +638,17 @@ METHODS = [
          'requests.',
          'Know your constituency also lists the languages spoken most often at home and where immigrants were born, from '
          'the City\'s ward profile (2021 Census), for outreach and translated materials.',
+         'Know your constituency for every elected member: besides the councillor\'s ward, each MLA\'s provincial '
+         'electoral division and each MP\'s federal electoral district. A community split by a boundary counts in each by '
+         'the share of its area inside (2019 provincial and 2023 federal boundaries); its residents today (the count '
+         'chosen in Settings) and its 2021 Census profile (age by 5-year band and sex, households, work, occupations, '
+         'industries) are scaled by that share. Divisions or districts with fewer than 2,000 Calgary residents (boundary '
+         'slivers) are left out. The last result is the official one (a by-election when there has been one), with its '
+         'arithmetic: votes between first and second, the uniform swing that would tie it (half the margin), electors '
+         'on the list who did not vote, and new votes the runner-up would need if every other vote stayed the same. '
+         'Potential new electors since 2021 = residents added since the 2021 Census x electors per resident today; an '
+         'estimate. Wards and the mayor\'s vote for a division or district are weighted by its residents in each ward. '
+         'This is arithmetic on official results, not a forecast.',
          'Since the election: the dashboard\'s period (the 12 complete months since the 20 October 2025 election) against '
          'the 12 months before, for 311 requests, infrastructure reports, traffic incidents, crime, new homes, homes in '
          'building permits and development permit applications, with Calgary\'s change (all 14 wards added up); the '
@@ -681,6 +692,34 @@ METHODS = [
                   'Reports published late in the day may appear the following evening.',
                   'Developing stories can change after publication; a later article notes what changed.'],
      'code': 'tools/news_publish.py; citynews.py; ui/citynews.js'},
+    {'key': 'safest_cities', 'name': 'Canada\'s safest cities: the Crime Severity Index for every city of 10,000 or more',
+     'dataset': 'Crime severity index and weighted clearance rates, police services (tables 35-10-0186 to 35-10-0190, '
+                '35-10-0061, 35-10-0063, 35-10-0064); population: 35-10-0077; metropolitan areas: 35-10-0026',
+     'publisher': 'Statistics Canada (Uniform Crime Reporting Survey; Police Administration Survey)',
+     'page': 'https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510019001',
+     'updated': 'Statistics Canada publishes each July for the year before; the website checks every day and downloads '
+                'again only after a new release',
+     'used_in': 'Canada\'s safest cities, Data Genie',
+     'method': [
+         'The Crime Severity Index weighs every crime reported to police by how serious it is (from the sentences '
+         'courts hand down), per resident, with Canada in 2006 set to 100. A lower index means less serious crime per '
+         'resident. The violent index counts violent crime only.',
+         'Cities: police services marked "municipal" (a city\'s own police or the RCMP under contract to the city), '
+         'serving 10,000 people or more (the population Statistics Canada gives for the police service; the latest '
+         'year on file when the current year is not). Regional police services (Halton, York, Peel and others) are '
+         'ranked as Statistics Canada reports them, as one service. Rank 1 = the lowest index; ties go alphabetically.',
+         'Last year\'s rank is the same ranking with last year\'s figures, so the number of cities can differ by a '
+         'few. Cities of 100,000 or more are also ranked among themselves. Metropolitan areas: Statistics Canada\'s '
+         'census metropolitan areas (the city with the towns around it).',
+         'Limits: the index counts crime reported to and recorded by police where it happened; unreported crime, and '
+         'how safe people feel, are not in it. Small cities move more from year to year because a few serious crimes '
+         'shift their index.'],
+     'cautions': ['A rank is a comparison, not a grade: cities close in the list differ by little, and a city can move '
+                  'down while its own index falls, when others fall faster.',
+                  'The index measures reported crime, not risk to any one person or how safe a neighbourhood feels.'],
+     'excel': ['Open table 35-10-0190 (Alberta), choose Crime severity index and the latest year, and sort from the '
+               'smallest; do the same for every province and keep the services marked municipal with 10,000 people or '
+               'more (table 35-10-0077, Population).']},
     {'key': 'fedbudget', 'name': 'Federal Budget 2026: the numbers, every measure, and province by province',
      'dataset': 'Budget 2026 (budget.canada.ca/2026), all chapters and annexes; Finance Canada, Federal Support to '
                 'Provinces and Territories',

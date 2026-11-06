@@ -134,6 +134,7 @@ function show(view) {
   if (view === 'budget' && window.renderBudget) renderBudget();
   if (view === 'elections' && window.renderElections) renderElections();
   if (view === 'fedbudget' && window.renderFedBudget) renderFedBudget();
+  if (view === 'safety' && window.renderSafety) renderSafety();
   if (view === 'citynews' && window.renderCityNews) renderCityNews();
   if (view === 'elanalytics' && window.renderElAnalytics) renderElAnalytics();
   if (view === 'sources' && window.renderLive) renderLive();

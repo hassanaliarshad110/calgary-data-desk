@@ -56,9 +56,9 @@
 
   // Data Genie and Data Scientist: locked until the access code is given (web-ai.js does the rest)
   const LOCKED = ['#view-ask', '#view-scientist'];
-  const html = (name, sel) => `<div class="web-lock"><h2>${name} needs the access code</h2>
-    <p>${name} runs on an AI language model linked to the website owner's personal API key, so it is open to people with an access code. Enter the access code you were given. It is kept in this browser until you close it.</p>
-    <form><label class="sr-only" for="code-${sel.slice(6)}">Access code</label><input type="password" id="code-${sel.slice(6)}" autocomplete="off" placeholder="Access code">
+  const html = (name, sel) => `<div class="web-lock"><h2>${name} needs a passcode</h2>
+    <p>${name} runs on an AI language model, so it needs a passcode. <b>To get a passcode, contact the developer.</b> Enter it below; it is kept in this browser until you close it.</p>
+    <form><label class="sr-only" for="code-${sel.slice(6)}">Passcode</label><input type="password" id="code-${sel.slice(6)}" autocomplete="off" placeholder="Passcode">
     <button type="submit" class="btn primary">Unlock</button></form><p class="web-lock-msg" role="status"></p></div>`;
   window.CDD_LOCK = {
     lock() {

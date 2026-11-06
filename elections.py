@@ -965,6 +965,10 @@ def view(base, ward, codes, pops, ward_of=None, method=None):
         out['micro'] = micro(base, ward, codes, pops, method)
     except Exception as e:                            # noqa: BLE001 - analytics never take the rest down
         out['micro'] = {'error': repr(e)[:200]}
+    try:
+        out['areas'] = areas(base, ward, codes, pops, ward_of, method)
+    except Exception as e:                            # noqa: BLE001
+        out['areas'] = {'error': repr(e)[:200]}
     return out
 
 
@@ -1003,7 +1007,7 @@ def _bands(xs, edges=(0.2, 0.3, 0.4, 0.5, 0.6, 0.7)):
     return {'labels': labels, 'counts': counts}
 
 
-def _who(demo, codes, pops, method=None):
+def _who(demo, codes, pops, method=None, weights=None):
     """Census 2021 by community for the area: age by 5-year band (men, women), households and work, and a row per
     community."""
     comms = (demo or {}).get('communities') or {}
@@ -1023,7 +1027,7 @@ def _who(demo, codes, pops, method=None):
         # each community's 2021 profile scaled to its residents today, counted the way chosen in Settings: the mix of
         # ages, households and work is the Census's, the numbers follow today's count
         f = now / sum(d['all']) if sum(d['all']) else 0
-        p21_tot += sum(d['all'])
+        p21_tot += sum(d['all']) * ((weights or {}).get(c, 1.0))
         for i in range(n):
             men[i] += (d['men'][i] if i < len(d['men']) else 0) * f
             women[i] += (d['women'][i] if i < len(d['women']) else 0) * f
@@ -1141,6 +1145,99 @@ def _fed_polls(race):
             'lowest_turnout': [{k: r[k] for k in ('poll', 'electors', 'ballots', 'turnout', 'lead')} for r in low],
             'closest': [{k: r[k] for k in ('poll', 'ballots', 'lead', 'lead_share', 'margin')} for r in close],
             'polls': [[r['poll'], r['electors'], r['ballots'], r['turnout'], r['lead'], r['lead_share']] for r in rows]}
+
+
+def _race_out(race):
+    if not race:
+        return None
+    c = race.get('candidates') or []
+    out = {k: race.get(k) for k in ('total', 'electors', 'ballots', 'turnout', 'margin', 'margin_share', 'acclaimed')}
+    out['candidates'] = [{k: x.get(k) for k in ('name', 'party', 'votes', 'share', 'elected', 'incumbent')} for x in c[:8]]
+    if len(c) >= 2 and race.get('electors'):
+        b = race.get('ballots') or race.get('total') or 0
+        out['math'] = {'gap_votes': (c[0].get('votes') or 0) - (c[1].get('votes') or 0),
+                       'swing_to_flip': round((race.get('margin_share') or 0) / 2, 4),   # uniform swing from 1st to 2nd
+                       'did_not_vote': race['electors'] - b,
+                       'second_needs_from_new_voters': (c[0].get('votes') or 0) - (c[1].get('votes') or 0) + 1}
+    return out
+
+
+def areas(base, ward, codes, pops, ward_of=None, method=None):
+    """Know your constituency for every elected member from Calgary, not only councillors: each provincial electoral
+    division (MLA) and federal electoral district (MP) covering the view (every one for all of Calgary), with its
+    member, the last result and its arithmetic, who lives there (each community's 2021 Census profile scaled to today's
+    residents, split by the share of the community inside it), voting locations or polls, the wards it overlaps,
+    the mayor's vote and the 2026 referendum there."""
+    demo = base.get('demographics')
+    m = base.get('municipal') or {}
+    mbw = (m.get('mayor_by_ward') or {}).get('by_ward') or {}
+    city_mayor = {x['name']: x.get('share') for x in (m.get('mayor') or {}).get('candidates', [])}
+    prov = base.get('provincial') or {}
+    out = {}
+    for level in ('provincial', 'federal'):
+        b = base.get(level) or {}
+        sh = b.get('community_shares') or {}
+        gen = b.get('general') or {}
+        if ward:
+            names = [x['riding'] for x in _ward_mix(sh, codes, pops) if x['share'] >= 0.03]
+        else:
+            names = sorted({r for c in pops for r in (sh.get(c) or {}) if float(pops.get(c) or 0) > 0})
+        byes = {e['ed']: e for e in sorted(b.get('byelections') or [], key=lambda e: e.get('date') or '') if e.get('race')}
+        items = {}
+        for n in names:
+            cw = {c: s[n] for c, s in sh.items() if n in s and float(pops.get(c) or 0) > 0}
+            ap = {c: float(pops.get(c) or 0) * s for c, s in cw.items()}
+            res = sum(ap.values())
+            if res < 2000:                              # a sliver of a boundary, not a Calgary seat
+                continue
+            who = _who(demo, list(cw), ap, method, weights=cw) if demo else None
+            if who:
+                for r in who['communities']:
+                    r['inside'] = round(cw.get(r['code'], 0), 3)
+            bye = byes.get(n)
+            a = {'name': n, 'level': level, 'residents': round(res), 'member': (b.get('members') or {}).get(n),
+                 'last': _race_out(bye['race'] if bye else gen.get(n)), 'last_date': (bye or {}).get('date') or b.get('date'),
+                 'by_election': bool(bye), 'general': _race_out(gen.get(n)) if bye else None, 'general_date': b.get('date'),
+                 'who': who}
+            if level == 'provincial':
+                st = _prov_stations(gen.get(n))
+                st['stations'] = [{k: x[k] for k in ('name', 'type', 'electors', 'ballots', 'turnout', 'lead', 'lead_share', 'margin')}
+                                  for x in st['stations'] if x['type'].lower().startswith('election day')]
+                a['stations'] = st
+            else:
+                fp = _fed_polls(gen.get(n))
+                fp.pop('polls', None)
+                a['polls'] = fp
+            if ward_of:
+                bw = {}
+                for c, v in ap.items():
+                    if ward_of.get(c):
+                        bw[ward_of[c]] = bw.get(ward_of[c], 0) + v
+                a['wards'] = sorted([{'ward': w_, 'residents': round(v), 'share': round(v / res, 3)} for w_, v in bw.items()
+                                     if v / res >= 0.005], key=lambda x: -x['share'])
+                tot_w = sum(x['share'] for x in a['wards'])
+                if mbw and tot_w:
+                    mv = {}
+                    for x in a['wards']:
+                        for cnd in (mbw.get(str(x['ward'])) or {}).get('candidates', []):
+                            mv[cnd['name']] = mv.get(cnd['name'], 0) + x['share'] / tot_w * (cnd.get('share') or 0)
+                    a['mayor'] = [{'name': k, 'area': round(v, 4), 'calgary': city_mayor.get(k)}
+                                  for k, v in sorted(mv.items(), key=lambda y: -y[1])[:5]]
+            ref = (prov.get('referendum') or {}).get('questions') or []
+            if ref:
+                pmix = [{'riding': n, 'share': 1.0}] if level == 'provincial' else _ward_mix(prov.get('community_shares') or {}, list(ap), ap)
+                a['referendum'] = [{'number': q['number'], 'question': q.get('question'), 'options': q['option_columns'],
+                                    'area': [(lambda v: round(v, 4) if v is not None else None)(_mix_value(pmix, {k: v['shares'][i] for k, v in q['by_ed'].items()}))
+                                             for i in range(len(q['option_columns']))],
+                                    'calgary': q['calgary']['shares'], 'alberta': (q.get('alberta') or {}).get('shares')}
+                                   for q in ref]
+            items[n] = a
+        out[level] = items
+    out['note'] = ('Residents and who lives here: each community\'s residents today (the count chosen in Settings) times the '
+                   'share of the community inside the division or district, with its 2021 Census mix. Wards, mayor and '
+                   'referendum figures for a district are residents-weighted estimates. Swing to flip: the uniform '
+                   'swing from the winner to the runner-up that would tie the last result (half the margin).')
+    return out
 
 
 def micro(base, ward, codes, pops, method=None):

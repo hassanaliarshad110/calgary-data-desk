@@ -328,7 +328,8 @@ and the label with a score; near_but_crowded lists communities with most homes n
 score is under 0.80 (shared by more children, or residents, than Calgary's average, from any community), and explain it from get_method topic access_scores. For a list of those amenities, use get_dashboard section \
 other_amenities (with ward or community).
 
-Election Analytics (questions that start with [Election Analytics]): you are a nonpartisan election analyst for candidates, campaigns and residents preparing for upcoming elections. Start with get_dashboard section election_analytics, add other sections (communities, profile, wards, the 311 data) as needed, and do your own analysis: where turnout was low or high and who lives there (age, households, work, languages), how results varied by voting location and poll, how advance and election-day voting differed, which issues residents raise. Be concrete with numbers and say which are estimates. Projections are welcome when asked: build them as explicit mathematical models from the official results and the Census (for example uniform or proportional swing from the last result, turnout scenarios with electors and votes needed to win, vote-share thresholds by voting location or poll, the effect of growth since the last election), state every assumption and its source, show the arithmetic, give a range or several scenarios rather than one number, and say what would change the result. A question such as 'under what model can I win?' gets the conditions, as numbers, under which a candidate would come first. Nonpartisan means the same rigour for any candidate or party who asks, not avoiding the mathematics: never favour one, never present a projection as certain, and never suggest targeting, excluding or discouraging people by ethnicity, religion, language or any other personal trait; outreach suggestions stay general (where turnout was low, translated materials, accessible voting information).
+Election Analytics (questions that start with [Election Analytics]): you are a nonpartisan election analyst for candidates, campaigns, elected members of every level (councillors, MLAs, MPs) and anyone who wants micro-level election detail, deep analysis and arithmetic models of how a candidate can win. Start with get_dashboard section election_analytics (when the area names riding="...", pass that riding for the MLA's division or MP's district), add other sections (communities, profile, wards, the 311 data) as needed, and do your own analysis: where turnout was low or high and who lives there (age, households, work, languages), how results varied by voting location and poll, how advance and election-day voting differed, which issues residents raise. Be concrete with numbers and say which are estimates. Projections are welcome when asked: build them as explicit mathematical models from the official results and the Census (for example uniform or proportional swing from the last result, turnout scenarios with electors and votes needed to win, vote-share thresholds by voting location or poll, the effect of growth since the last election), state every assumption and its source, show the arithmetic, give a range or several scenarios rather than one number, and say what would change the result. A question such as 'under what model can I win?' gets the conditions, as numbers, under which a candidate would come first. Nonpartisan means the same rigour for any candidate or party who asks, not avoiding the mathematics: never favour one, never present a projection as certain, and never suggest targeting, excluding or discouraging people by ethnicity, religion, language or any other personal trait; outreach suggestions stay general (where turnout was low, translated materials, accessible voting information). Answers in Election Analytics are thorough, not brief: give the figures, the tables and the arithmetic in full, with every assumption; when the question asks for a report, a briefing or a model, write a full report and finish with make_report (PDF, interactive report and Excel) so it can be audited.
+Canada's safest cities (get_dashboard section safest_cities): Statistics Canada's Crime Severity Index for every city of 10,000 people or more, the latest year and the year before; lower is safer. Say it is police-reported crime weighted by seriousness, not how safe people feel, give the year, and give Calgary's rank among all ranked cities and among large cities, with last year's.
 Calgary News (get_dashboard section city_news): the daily Calgary stories published on the site each evening, each with the reports it was written from; use them for what happened recently in Calgary, and cite the original sources (outlet, title, link), not the article alone.
 Federal Budget 2026 (get_dashboard section federal_budget): Canada's budget tabled 5 November 2026, with every measure and its amounts, the budget's own text, the deficit, revenue and spending outlook, and province by province what it names and the federal transfers each receives; for Calgary and Alberta use part=province, province=AB. Quote figures with their table and units ($ millions for measures, $ billions for the fiscal tables); describe the budget, never rate it or a party.
 Election Control Room (get_dashboard section elections; full=true for every Calgary race): who represents the area at each level, the seats by party (Calgary's council, MLAs and MPs, the whole Legislature and House of Commons), a ward's constituency figures (constituency: estimated electors and turnout by ward, the councillor race and its stations, the mayor's vote in the ward against Calgary's, the referendum in the ward's divisions; say estimates are estimates), and the latest official results: City of Calgary 2025 (mayor, councillors, CBE and CCSD trustees; Calgary's turnout; the mayor's election-day votes by ward), Alberta 2023 general election in Calgary's 26 divisions and by-elections since, the members sitting today, the 19 October 2026 referendum question by question, and the 2025 federal election in Calgary's 11 districts with the members sitting today. Quote results with their date and source; describe them, never favour, rate or rank a candidate or party, never predict, and give no voting advice. Where a ward is split between several, say each electoral division's or district's share of its residents (say "electoral division" for Alberta and "electoral district" for Canada, not "riding").
@@ -459,11 +460,16 @@ TOOLS = [
                     'section="election_analytics" gives the micro-level election picture of the selected area: 2021 '
                     'Census by community (age pyramid, households, work), every 2023 provincial voting location and '
                     'every 2025 federal poll in the divisions and districts covering it, estimated ward electors and '
-                    'turnout. '
+                    'turnout; with riding (an electoral division or district name) the same picture for that MLA\'s '
+                    'or MP\'s seat, with the arithmetic of its last result. '
+                    'section="safest_cities" gives Canada\'s safest cities by Statistics Canada\'s Crime Severity Index '
+                    '(the latest year and the year before): the 50 safest of every city of 10,000 people or more, '
+                    'Calgary\'s rank this year and last, the large cities (100,000+) and the metropolitan areas; '
+                    'find narrows to cities by name. '
                     'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
                     'sources; narrow with find (words), days, topic or date.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -475,6 +481,8 @@ TOOLS = [
                                                         'with its map link, as a CSV in Files (use for "all" or long lists)'},
          'show_on_map': {'type': 'boolean', 'description': 'section other_amenities: also show every one on the map'},
          'full': {'type': 'boolean', 'description': 'section elections: also every Calgary race and the referendum'},
+         'riding': {'type': 'string', 'description': 'section election_analytics: one provincial electoral division or federal '
+                                                     'electoral district by name (Calgary-Elbow, Calgary Centre)'},
          'days': {'type': 'integer', 'description': 'section city_news: only the last N days'},
          'topic': {'type': 'string', 'description': 'section city_news: one topic, e.g. City Council, Transit, Water'},
          'date': {'type': 'string', 'description': 'section city_news: one day\'s edition, YYYY-MM-DD'},
@@ -1084,11 +1092,38 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                         'or community.'}
     if section == 'other_amenities':
         return _other_amenities_out(d, wards)
+    if section == 'safest_cities':
+        import safety_rank                              # noqa: PLC0415
+        return safety_rank.summary(safety_rank.load((extra or {}).get('data_dir'), can_build=True), (extra or {}).get('find'))
     if section == 'election_analytics':
         el = d.get('elections') or {}
+        ar = el.get('areas') or {}
+        rid = str((extra or {}).get('riding') or '').strip()
+        if rid:
+            low = rid.lower().replace('–', '-')
+            for lvl in ('provincial', 'federal'):
+                for n, a in (ar.get(lvl) or {}).items():
+                    if n.lower().replace('–', '-') == low:
+                        return {'riding': a, 'note': ar.get('note'),
+                                'how': 'One provincial electoral division (MLA) or federal electoral district (MP): its member, '
+                                       'the last result with its arithmetic (math: votes between first and second, the '
+                                       'uniform swing that would tie it, electors who did not vote), who lives there '
+                                       '(each community\'s 2021 Census profile scaled to today\'s residents and to the share '
+                                       'of the community inside it), every 2023 voting location or the 2025 poll-by-poll '
+                                       'summary, the wards it overlaps, the mayor\'s vote and the 2026 referendum there. '
+                                       'Analyse for any candidate or campaign alike; projections are mathematical models '
+                                       'with stated assumptions and ranges.'}
+            names = sorted(list(ar.get('provincial') or {}) + list(ar.get('federal') or {}))
+            return {'error': f'{rid!r} is not covered by the area selected', 'available': names,
+                    'how': 'With all of Calgary selected every division and district is available.'}
         return {'micro': el.get('micro'), 'constituency': el.get('constituency'),
                 'provincial': el.get('provincial'), 'federal': el.get('federal'), 'municipal': el.get('municipal'),
                 'ward_profile_2021_census': d.get('profile'),
+                'divisions_and_districts': {lvl: [{'name': a['name'], 'member': (a.get('member') or {}).get('name'),
+                                                   'residents': a.get('residents'), 'turnout': (a.get('last') or {}).get('turnout'),
+                                                   'margin_share': (a.get('last') or {}).get('margin_share'),
+                                                   'math': (a.get('last') or {}).get('math')}
+                                                  for a in (ar.get(lvl) or {}).values()] for lvl in ('provincial', 'federal')},
                 'communities': [{k: c.get(k) for k in ('code', 'name', 'residents', 'growth_pct', 'requests_per_1000',
                                                        'open', 'open_top')} for c in d.get('communities') or []],
                 'how': 'Election Analytics. who: each community\'s 2021 Census profile (age in 5-year bands, households, '
@@ -1329,7 +1364,7 @@ class Agent:
                     if args.get('show_on_map') else None)
             return dashboard_section(d, args.get('section') or 'overview', self.wards_provider,
                                      {'community': args.get('community'), 'ward': args.get('ward'), 'find': args.get('find'),
-                                      'full': args.get('full'), 'data_dir': self.data_dir})
+                                      'full': args.get('full'), 'riding': args.get('riding'), 'data_dir': self.data_dir})
         if name == 'get_weather_forecast':
             return weather.forecast()
         if name == 'get_weather':

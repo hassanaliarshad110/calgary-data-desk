@@ -96,6 +96,11 @@ def python_files(out, cache):
         os.makedirs(os.path.join(dest, 'ui', 'budget'), exist_ok=True)
         shutil.copy(fb, os.path.join(dest, 'ui', 'budget', 'budget2026.json'))
         files.append('ui/budget/budget2026.json')
+    sr = os.path.join(out, 'data', 'safety_rank.json')          # Canada's safest cities for Data Genie (safety_rank.py)
+    if os.path.exists(sr):
+        os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
+        shutil.copy(sr, os.path.join(dest, 'data', 'safety_rank.json'))
+        files.append('data/safety_rank.json')
     kept = []
     for rel in ('police/community_safety.json', 'csi_35100026.json'):
         src = os.path.join(cache, rel)
@@ -124,6 +129,15 @@ def lock_key(out):
     b = lambda x: base64.b64encode(x).decode('ascii')
     write(path, {'v': 1, 'iter': iters, 'salt': b(salt), 'iv': b(iv), 'ct': b(ct)})
     print('Data Genie: key locked with the access code')
+    ea = os.environ.get('CDD_EA_CODE', '').strip()     # Election Analytics: its own passcode
+    if ea:
+        salt, iv = os.urandom(16), os.urandom(12)
+        k = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=iters).derive(ea.encode('utf-8'))
+        write(os.path.join(out, 'data', 'genie_ea.json'),
+              {'v': 1, 'iter': iters, 'salt': b(salt), 'iv': b(iv), 'ct': b(AESGCM(k).encrypt(iv, key.encode('utf-8'), None))})
+        print('Election Analytics: key locked with its own passcode')
+    else:
+        print('Election Analytics: no passcode set (ELECTION_ACCESS_CODE), so its analyst stays locked on the website')
 
 
 def keep_previous(site, rel, path):
@@ -215,6 +229,19 @@ def main():
             if not os.path.exists(path) and a.previous:
                 step(f'dashboard {m} ward {w} (yesterday\'s copy)', lambda m=m, w=w, path=path: keep_previous(a.previous, f'{m}/w{w}.json', path))
     step('budget', lambda: write(os.path.join(data, 'budget.json'), budget.load(cache)))
+
+    def safety():                   # Canada's safest cities (Statistics Canada), downloaded again only after a new release
+        import safety_rank
+        prev = None
+        if a.previous:
+            try:
+                import urllib.request
+                with urllib.request.urlopen(a.previous.rstrip('/') + '/data/safety_rank.json', timeout=60) as r:
+                    prev = json.loads(r.read().decode('utf-8'))
+            except Exception:       # noqa: BLE001 - first build, or the site is down
+                prev = None
+        write(os.path.join(data, 'safety_rank.json'), safety_rank.build(prev))
+    step('safest cities in Canada (crime severity index)', safety)
     step('property tax', lambda: write(os.path.join(data, 'tax.json'), tax_payload(cache, year)))
     write(os.path.join(data, 'methods.json'), census.relabel(methods.METHODS, year))
     step('transit timetable', lambda: write(os.path.join(data, 'transit.json'), transit.lookup(cache, force=True)))

@@ -192,3 +192,25 @@ def brief(key=None, text=None, area=None):
             'and list every source. Write in plain, everyday language for a general reader; never mention the app, '
             'a dashboard, a model or a list, and say where figures come from in the City\'s own words (City of Calgary data, '
             'the City\'s population forecast, the property assessment roll); do not say who the report is prepared for.')
+
+
+def election_brief(text, area=None):
+    """The request for a full Election Analytics report (an electoral division, district, ward or all of Calgary)."""
+    ask = (text or '').strip() or f'A complete election analysis of {area or DEFAULT_AREA}'
+    return ('[Election Analytics] Full report request: produce a comprehensive, auditable election analysis report and '
+            'finish with make_report (the reader will download the PDF, the interactive report and the Excel workbook). '
+            f'Area: {area or DEFAULT_AREA}. Question: {ask.rstrip(" .")}. '
+            'Start with get_dashboard section election_analytics (with riding="..." when the area is an electoral '
+            'division or district), then add every other figure that helps (communities, profile, growth, 311, the '
+            'referendum, the other levels\' results). The report must cover: who lives there (age by band, households, '
+            'languages and countries of birth, work, growth since the last election); the last results and how they '
+            'varied by voting location or poll, by way of voting and by turnout; the arithmetic of the last result (votes '
+            'between first and second, the uniform swing that ties it, electors who did not vote, new electors since); '
+            'and explicit mathematical models of the next race: at least three scenarios (for example uniform swing, '
+            'differential turnout by area, growth of the electorate) with every assumption and its source, the formula, '
+            'the votes needed to win in each, a range, and what would change the result. Compute every figure with '
+            'calculate, show the arithmetic in tables a reader can check in Excel, and list every source. Nonpartisan: '
+            'the same rigour for any candidate or party; never present a projection as certain; outreach suggestions stay '
+            'general (where turnout was low, translated materials, accessible voting information) and never target, '
+            'exclude or discourage anyone by ethnicity, religion, language or any other personal trait. Write in plain '
+            'language; never mention the app, a dashboard or a model of AI.')
