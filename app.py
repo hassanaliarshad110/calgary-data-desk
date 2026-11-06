@@ -252,6 +252,14 @@ class Api:
             traceback.print_exc()
             return {'ok': False, 'error': str(e)}
 
+    def get_accountability(self):
+        try:
+            import accountability
+            d = accountability.load(DATA_DIR)
+            return {'ok': True, 'data': d} if d else {'ok': False, 'error': 'The official records are not here yet.'}
+        except Exception as e:                     # noqa: BLE001
+            return {'ok': False, 'error': str(e)}
+
     def get_infra(self):
         try:
             import infra

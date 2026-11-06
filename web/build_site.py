@@ -276,6 +276,13 @@ def main():
     if not os.path.exists(os.path.join(data, 'infra.json')) and a.previous:
         step('Infrastructure condition (yesterday\'s copy)', lambda: keep_previous(a.previous, 'infra.json', os.path.join(data, 'infra.json')))
 
+    def civic():                    # Civic Accountability: council and Commons votes, bills, City measures (accountability.py)
+        import accountability
+        write(os.path.join(data, 'accountability.json'), accountability.build())
+    step('Civic Accountability records', civic)
+    if not os.path.exists(os.path.join(data, 'accountability.json')) and a.previous:
+        step('Civic Accountability records (yesterday\'s copy)', lambda: keep_previous(a.previous, 'accountability.json', os.path.join(data, 'accountability.json')))
+
     def safety():                   # Canada's safest cities (Statistics Canada), downloaded again only after a new release
         import safety_rank
         prev = None

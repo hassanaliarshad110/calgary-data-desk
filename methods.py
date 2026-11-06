@@ -745,6 +745,40 @@ METHODS = [
                   'the customers are all matter.', 'OpenStreetMap is not complete: some areas are mapped better than others.'],
      'excel': ['Download the business directory or the underserved index as CSV from the page; the City\'s licences are '
                'at data.calgary.ca (vdjc-pybd).']},
+    {'key': 'civic', 'name': 'Civic Accountability: promises, official records and results for Calgary\'s governments and elected members',
+     'dataset': 'Council and Committee Votes (ruq3-99hx); the City\'s Progress Report - Performance Measures (the newest '
+                'quarter); House of Commons recorded divisions; LEGISinfo bills; party platforms, candidate platforms and '
+                'government records for each commitment',
+     'publisher': 'City of Calgary open data; House of Commons; Library of Parliament; the parties, candidates and '
+                  'governments that made each commitment',
+     'page': 'https://data.calgary.ca/d/ruq3-99hx',
+     'updated': 'Official records every website refresh (daily); each commitment re-checked at least each quarter and '
+                'when news breaks',
+     'used_in': 'Election Data Centre: Civic Accountability',
+     'method': [
+         'Tracked: promises by the parties and candidates that won office (City council, the Alberta government, the '
+         'Government of Canada) and formal government commitments that affect Calgary, each labelled as a party '
+         'promise, a candidate promise or a government commitment. Promises of those who did not win office are '
+         'listed, not rated.',
+         'Every commitment carries its source document and date, the evidence for its status with links, the money '
+         'promised, allocated and spent where published, and a history of every change of status.',
+         'Statuses: Delivered; Delivered late; On track; In progress; Partly delivered; Stalled; Not started; Broken; '
+         'Not yet assessed. Evidence is an official record first (a law and its Royal Assent, a council decision, a '
+         'budget, a government or City report, a contract or a finished project); news reports only for the dates and '
+         'figures they quote from those records; opinion never. A disputed rating links the other view.',
+         'Council votes: every recorded vote by member; a vote is divided when at least one member voted for and one '
+         'against. House of Commons: each Calgary MP\'s vote on every recorded division this Parliament (yea, nay or '
+         'paired); recorded = the divisions with a vote recorded for that MP. Bills: those whose sponsor is a Calgary MP.',
+         'City performance measures: the City\'s own values, targets and explanations, from its newest quarterly '
+         'progress report.'],
+     'limits': ['Coverage starts with the largest, best-documented commitments and grows.',
+                'The Alberta Legislature publishes bills and Hansard but not members\' votes as open data, so MLA votes '
+                'are not counted.',
+                'Vote counts describe attendance and positions, not the quality of a member\'s work; most votes are '
+                'unanimous, and committee and constituency work is not in them.',
+                'A status describes a commitment, not a person, and the same rules apply to every party, person and '
+                'government.'],
+     'excel': ['The council votes are at data.calgary.ca (ruq3-99hx); the Commons votes at ourcommons.ca.']},
     {'key': 'infra', 'name': 'Infrastructure condition: where roads and pipes are wearing out, against 311 requests',
      'dataset': 'Water main breaks (dpcu-jr23); public water mains (w6h9-w33i); 311 service requests (iahh-g8bj); the '
                 'City\'s pavement rehabilitation plan (map service pub_Roads/PavementRehabPlan); community boundaries (surr-xmvs)',

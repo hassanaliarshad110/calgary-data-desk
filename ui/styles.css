@@ -1994,3 +1994,83 @@ table.data td.num, table.data th.num, .num { font-variant-numeric: tabular-nums;
   .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .card-tools { flex-wrap: wrap; }
 }
+
+/* ---- Civic Accountability (Election Data Centre) */
+.ca-embed > .grid { padding: 0; }
+.ca-nav { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; border: 1px solid var(--border); border-radius: var(--r-card, 12px); background: var(--card); }
+.ca-navb { display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent; background: transparent; color: var(--fg-2); border-radius: var(--r-ctl, 8px); padding: 7px 12px; font: inherit; font-weight: 600; font-size: 13px; cursor: pointer; min-height: 36px; }
+.ca-navb:hover { background: var(--muted); color: var(--fg); }
+.ca-navb.is-on { background: var(--accent-soft); border-color: var(--accent); color: var(--fg); }
+.ca-small { font-size: 18px !important; }
+.ca-status { display: inline-block; white-space: nowrap; border-radius: 999px; padding: 2px 9px; font-size: 12px; font-weight: 700; border: 1px solid transparent; }
+.ca-status.good { background: var(--success-soft); color: var(--success); border-color: var(--success); }
+.ca-status.mid { background: var(--warn-soft); color: var(--warn); border-color: var(--warn); }
+.ca-status.bad { background: rgba(248, 113, 113, .12); color: var(--danger-fg, #F87171); border-color: var(--danger, #EF4444); }
+.ca-status.none { background: var(--muted); color: var(--muted-fg); border-color: var(--border-strong); }
+.ca-tags { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.ca-tag { font-size: 11px; font-weight: 600; letter-spacing: .02em; color: var(--muted-fg); border: 1px solid var(--border-strong); border-radius: 6px; padding: 1px 6px; }
+.ca-tag.lvl-municipal { color: #38BDF8; border-color: rgba(56, 189, 248, .5); }
+.ca-tag.lvl-provincial { color: #A78BFA; border-color: rgba(167, 139, 250, .5); }
+.ca-tag.lvl-federal { color: #F472B6; border-color: rgba(244, 114, 182, .5); }
+.ca-sum { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 14px; }
+.ca-sumi { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); background: var(--muted); border-radius: var(--r-ctl, 8px); padding: 6px 10px; cursor: pointer; color: var(--fg); font: inherit; }
+.ca-sumi b { font-variant-numeric: tabular-nums; }
+.ca-list { display: grid; gap: 8px; }
+.ca-item { border: 1px solid var(--border); border-radius: var(--r-card, 12px); background: var(--muted); overflow: hidden; }
+.ca-item.is-open { border-color: var(--border-strong); }
+.ca-head { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; width: 100%; text-align: left; background: transparent; border: 0; color: var(--fg); padding: 12px 14px 4px; font: inherit; cursor: pointer; }
+.ca-title { font-weight: 700; font-size: 15px; }
+.ca-sub { color: var(--muted-fg); font-size: 12.5px; padding: 0 14px 10px; margin: 0; }
+.ca-doc .ca-sub { padding: 0; margin: 2px 0 6px; }
+.ca-missed { color: var(--warn); }
+.ca-disp { color: #F472B6; }
+.ca-body { padding: 4px 14px 14px; border-top: 1px solid var(--border); background: var(--card); }
+.ca-body p { margin: 10px 0 0; }
+.ca-disputed { border-left: 3px solid #F472B6; padding-left: 10px; }
+.ca-ev { margin: 6px 0 0; padding-left: 18px; }
+.ca-ev li { margin: 4px 0; }
+.ca-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.ca-docs { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.ca-doc { border: 1px solid var(--border); border-radius: var(--r-card, 12px); background: var(--muted); padding: 14px; }
+.ca-doc h3 { margin: 8px 0 0; font-size: 15px; }
+.ca-mini { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 6px; }
+.ca-mini li { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ca-reps td, .ca-reps th { vertical-align: top; }
+.ca-votes { max-height: 560px; overflow: auto; }
+.ca-votes thead th { position: sticky; top: 0; background: var(--card); z-index: 1; }
+.ca-vn { font-size: 11px; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; padding: 6px 2px !important; }
+.ca-v { text-align: center; font-size: 11.5px; font-weight: 700; color: var(--muted-fg); }
+.ca-v.y { color: var(--success); }
+.ca-v.n { color: var(--danger-fg, #F87171); }
+.ca-motion { min-width: 260px; max-width: 420px; font-size: 12.5px; }
+.ca-story { min-width: 260px; font-size: 12px; color: var(--fg-2); }
+.ca-hist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.ca-hist li { display: grid; grid-template-columns: 150px 150px 1fr; gap: 10px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--border); }
+.ca-hd { color: var(--muted-fg); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.ca-method h3 { margin: 18px 0 4px; font-size: 15px; }
+.ca-method h3:first-child { margin-top: 0; }
+.ca-method ul { padding-left: 0; list-style: none; display: grid; gap: 6px; }
+@media (max-width: 720px) {
+  .ca-head { grid-template-columns: 1fr; gap: 6px; }
+  .ca-hist li { grid-template-columns: 1fr; gap: 2px; }
+  .ca-navb { flex: 1 1 calc(50% - 6px); justify-content: flex-start; }
+}
+.ca-h3 { margin: 18px 0 2px; font-size: 15px; }
+.ca-repw { max-height: none; margin-top: 8px; }
+.ca-pcell div { margin: 2px 0 6px; }
+.ca-plink { border: 0; background: transparent; color: var(--accent); font: inherit; font-weight: 600; text-align: left; padding: 0; cursor: pointer; }
+.ca-plink:hover { text-decoration: underline; }
+.ca-hist .ca-plink { margin-right: 6px; }
+.ca-mini .ca-plink { font-weight: 600; }
+table.ca-reps th[scope="row"], .ca-budget th[scope="row"] { min-width: 180px; }
+.ca-budget td, .ca-budget th { white-space: normal; min-width: 120px; }
+.ca-meas td.num { white-space: nowrap; }
+.ca-meas th[scope="row"] { min-width: 260px; max-width: 420px; }
+.ca-grp th { background: var(--muted) !important; color: var(--accent); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+.ca-why { margin-top: 4px; font-weight: 400; }
+.ca-why summary { cursor: pointer; color: var(--muted-fg); font-size: 12px; }
+.ca-why p { font-size: 12.5px; color: var(--fg-2); margin: 6px 0 0; max-width: 560px; }
+.ca-motion .ca-why { margin: 0; }
+.ca-motion .ca-why summary { color: var(--fg); font-size: 12.5px; }
+.ca-meas th[scope="row"], .ca-reps th[scope="row"], .ca-reps td { white-space: normal; }
+@media (max-width: 720px) { .ca-head .ca-status { justify-self: start; } .ca-navb { text-align: left; } }
