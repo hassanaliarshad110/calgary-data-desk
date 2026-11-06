@@ -22,12 +22,11 @@ for p in plans:
     if p.get('name') not in WANT or not p.get('doc_name') or p.get('plan_type') != 'Area Structure Plan':
         continue
     name = re.sub(r'[^A-Za-z0-9]+', '_', p['name']).strip('_')
-    try:
-        b = get(p['doc_name'], 300)
-    except Exception as e:
-        print('FAIL', p['name'], e); continue
     pdf = f'{out}/asp/{name}.pdf'
-    open(pdf, 'wb').write(b)
+    r = subprocess.run(['curl', '-sSL', '-c', '/tmp/cj', '-b', '/tmp/cj', '-A', 'Mozilla/5.0', '--max-time', '300', '-o', pdf, p['doc_name']])
+    b = open(pdf, 'rb').read() if os.path.exists(pdf) else b''
+    if r.returncode or not b.startswith(b'%PDF'):
+        print('FAIL', p['name'], r.returncode, b[:80]); continue
     subprocess.run(['pdftotext', '-layout', pdf, f'{out}/asp/{name}.txt'])
     os.remove(pdf)
     try:
@@ -43,33 +42,3 @@ json.dump(summary, open(f'{out}/asp_summary.json', 'w'), indent=1)
 json.dump([{k: v for k, v in p.items() if k != 'multipolygon'} | {'geom': p.get('multipolygon')} for p in plans if p.get('plan_type') == 'Area Structure Plan'],
           open(f'{out}/asp_plans.json', 'w'))
 
-# ---- reserve land in the Land Use Bylaw that is not (yet) a City park
-from shapely.geometry import shape
-from shapely.ops import unary_union
-from shapely.strtree import STRtree
-lu = q('qe6k-p9nh', select='lu_code,label,description,multipolygon', where="lu_code in('S-SPR','S-UN','S-R','S-CS','S-CI')", limit=50000)
-parks = q('kami-qbfh', select='site_name,planning_category,the_geom', limit=50000)
-comms = q('surr-xmvs', select='comm_code,name,sector,srg,multipolygon', limit=1000)
-pg = [shape(r['the_geom']) for r in parks if r.get('the_geom')]
-pg = [g.buffer(0) for g in pg]
-tree = STRtree(pg)
-cg = [(c['comm_code'], c.get('srg'), shape(c['multipolygon']).buffer(0)) for c in comms if c.get('multipolygon')]
-ctree = STRtree([x[2] for x in cg])
-rows = []
-import math
-for r in lu:
-    if not r.get('multipolygon'):
-        continue
-    g = shape(r['multipolygon']).buffer(0)
-    near = [pg[i] for i in tree.query(g)]
-    cov = g.intersection(unary_union(near)).area / g.area if near and g.area else 0.0
-    ce = g.representative_point()
-    comm = None
-    for i in ctree.query(ce):
-        if cg[i][2].contains(ce):
-            comm = cg[i][0]; break
-    lat = ce.y
-    m2 = g.area * (111320 ** 2) * math.cos(math.radians(lat))
-    rows.append({'code': r['lu_code'], 'comm': comm, 'ha': round(m2 / 1e4, 3), 'in_parks': round(cov, 3), 'lat': round(ce.y, 6), 'lon': round(ce.x, 6)})
-json.dump(rows, open(f'{out}/reserve.json', 'w'))
-print('reserve polygons', len(rows))
