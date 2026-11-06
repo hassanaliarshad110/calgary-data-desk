@@ -1,0 +1,17 @@
+/* Calgary Insight on the web: hide what only the desktop app can do */
+body[data-web] [data-view="files"], body[data-web] #view-files, body[data-web] #eng-card,
+body[data-web] #settings-form .card:has(#google-key), body[data-web] #period-pill,
+body[data-web] #settings-form > .row-actions, body[data-web] #open-folder { display: none !important; }
+.web-note { margin: 0 0 16px; padding: 12px 14px; border: 1px solid var(--border); border-left: 4px solid var(--gold, #C8922B);
+  border-radius: 10px; background: var(--card); color: var(--fg-2); font-size: .9rem; line-height: 1.5; }
+.web-note b { color: var(--fg); }
+.web-foot { padding: 8px 4px 0; font-size: .72rem; line-height: 1.45; color: rgba(255,255,255,.62); }
+.web-foot a { color: rgba(255,255,255,.8); }
+.web-lock { max-width: min(560px, calc(100% - 32px)); box-sizing: border-box; margin: 24px auto; padding: 22px 24px; border: 1px solid var(--border); border-radius: 14px; background: var(--card); }
+.web-lock h2 { margin: 0 0 6px; font-size: 1.15rem; }
+.web-lock p { margin: 0 0 14px; color: var(--fg-2); line-height: 1.5; }
+.web-lock form { display: flex; gap: 8px; }
+.web-lock input { flex: 1; min-width: 0; }
+.web-lock .web-lock-msg { margin: 10px 0 0; font-size: .85rem; color: #B91C1C; min-height: 1.2em; }
+body[data-web] .view.web-locked > :not(.topbar):not(.web-lock) { display: none !important; }
+body[data-web] #view-news > .content[hidden] { display: none !important; }
