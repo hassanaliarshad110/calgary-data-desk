@@ -745,6 +745,39 @@ METHODS = [
                   'the customers are all matter.', 'OpenStreetMap is not complete: some areas are mapped better than others.'],
      'excel': ['Download the business directory or the underserved index as CSV from the page; the City\'s licences are '
                'at data.calgary.ca (vdjc-pybd).']},
+    {'key': 'infra', 'name': 'Infrastructure condition: where roads and pipes are wearing out, against 311 requests',
+     'dataset': 'Water main breaks (dpcu-jr23); public water mains (w6h9-w33i); 311 service requests (iahh-g8bj); the '
+                'City\'s pavement rehabilitation plan (map service pub_Roads/PavementRehabPlan); community boundaries (surr-xmvs)',
+     'publisher': 'City of Calgary open data and map services; City of Calgary reports for the condition figures',
+     'page': 'https://data.calgary.ca/d/dpcu-jr23',
+     'updated': 'Every website refresh (daily); the City\'s own condition figures when it publishes new ones',
+     'used_in': 'Infrastructure condition',
+     'method': [
+         'The City does not publish a condition score for each road or pipe as open data. Its own figures (the Pavement '
+         'Quality Index for the road network, the share of all its assets in poor or very poor condition, and the '
+         'critical assets in poor condition) are shown as published, with their sources.',
+         'Water main breaks: every recorded break, placed in the community whose boundary holds it; the last 12 months '
+         'against the 12 before, and Calgary by year. Per 100 km: breaks in the last 12 months / km of water main in '
+         'the community x 100.',
+         'Water mains: each main placed in the community holding its middle point. Middle year laid: the year by which '
+         'half the community\'s mains (by length) were in the ground. 50+ years old: length laid 50 or more years ago. '
+         'Cast iron: mains recorded as cast iron (CI), the material that breaks most.',
+         '311: requests about roads and potholes (pothole, roadway and back lane maintenance), sidewalks (sidewalk, curb '
+         'and gutter repair; pathway concerns), streetlights and signals, water mains and valves, sewers and catch '
+         'basins: the last 12 months against the 12 before, by community.',
+         'Paving planned: road length in the City\'s pavement rehabilitation plan for this year, next year and the '
+         'tentative five-year plan, by the community the City lists.',
+         'Signals for water: breaks rising (3 or more, more than the year before); ageing mains (the middle year laid 50 '
+         'or more years ago, or 40% or more of the length that old); much cast iron (25% or more); water requests to 311 '
+         'up 15% or more (at least 5). Both, for water: a condition signal and water requests up. Signals for roads: '
+         'road and pothole requests up 25% or more (at least 30); both, for roads: that, with no paving in this year\'s, '
+         'next year\'s or the five-year plan. Sidewalk and streetlight requests up 25% or more (at least 10) are shown too.'],
+     'limits': ['Breaks are recorded where the City repaired them; a few may sit just across a community line.',
+                'More 311 requests can mean more people reporting (new residents, the 311 app) as well as worse condition.',
+                'Pavement condition by road is not open data, so the roads are judged by the City\'s network figures, '
+                'its paving plan and 311 requests, not a score for each street.',
+                'The City\'s condition figures come from its reports, checked November 6, 2026.'],
+     'excel': ['Download the table as CSV from the page; the breaks and mains are at data.calgary.ca (dpcu-jr23, w6h9-w33i).']},
     {'key': 'safest_cities', 'name': 'Canada\'s safest cities: the Crime Severity Index for every city of 10,000 or more',
      'dataset': 'Crime severity index and weighted clearance rates, police services (tables 35-10-0186 to 35-10-0190, '
                 '35-10-0061, 35-10-0063, 35-10-0064); population: 35-10-0077; metropolitan areas: 35-10-0026',

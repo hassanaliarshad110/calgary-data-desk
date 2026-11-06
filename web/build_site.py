@@ -269,6 +269,13 @@ def main():
     if not os.path.exists(os.path.join(data, 'business.json')) and a.previous:
         step('Invest in Calgary (yesterday\'s copy)', lambda: keep_previous(a.previous, 'business.json', os.path.join(data, 'business.json')))
 
+    def infrastructure():           # Infrastructure condition: water main breaks, mains, the paving plan, 311 (infra.py)
+        import infra
+        write(os.path.join(data, 'infra.json'), infra.build())
+    step('Infrastructure condition', infrastructure)
+    if not os.path.exists(os.path.join(data, 'infra.json')) and a.previous:
+        step('Infrastructure condition (yesterday\'s copy)', lambda: keep_previous(a.previous, 'infra.json', os.path.join(data, 'infra.json')))
+
     def safety():                   # Canada's safest cities (Statistics Canada), downloaded again only after a new release
         import safety_rank
         prev = None

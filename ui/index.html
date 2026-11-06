@@ -80,6 +80,7 @@
     <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h1.97a4 4 0 0 0 3.3-1.7l5.45-8.6a4 4 0 0 1 3.3-1.7H22"/><path d="M2 6h1.97a4 4 0 0 1 3.3 1.7l5.45 8.6a4 4 0 0 0 3.3 1.7H22"/></symbol>
     <symbol id="i-scientist" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h5"/><path d="M7 16v-3"/><path d="M11 16V8"/><path d="M15 10V5"/><circle cx="17" cy="16" r="3.6"/><path d="m19.6 18.6 2.6 2.6"/><path d="M17 14.4v3.2M15.4 16h3.2"/></symbol>
     <symbol id="i-bus" viewBox="0 0 24 24"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></symbol>
+    <symbol id="i-cone" viewBox="0 0 24 24"><path d="M9.3 6.5h5.4M8.2 10.5h7.6M6.9 14.5h10.2M4 20h16M10.6 3h2.8l4.6 17H6L10.6 3z"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
     <symbol id="i-compare" viewBox="0 0 24 24"><path d="M3 20V10M9 20V4M15 20v-8M21 20V7"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
@@ -106,6 +107,7 @@
     <button class="tab" data-view="citynews" title="Calgary News: the day's Calgary stories, each with its sources"><svg class="ic" aria-hidden="true"><use href="#i-paper"/></svg><span>Calgary News</span></button>
     <button class="tab" data-view="fedbudget" title="Federal Budget 2026: headline numbers, every measure, province by province, Calgary and Alberta"><svg class="ic" aria-hidden="true"><use href="#i-maple"/></svg><span>Federal Budget 2026</span></button>
     <button class="tab" data-view="invest" title="Invest in Calgary: every business, where each kind is underserved, growth, and the Business Economist"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg><span>Invest in Calgary</span></button>
+    <button class="tab" data-view="infra" title="Infrastructure condition: water main breaks, the age of the water network, the paving plan and the City's own condition figures, against 311 requests"><svg class="ic" aria-hidden="true"><use href="#i-cone"/></svg><span>Infrastructure condition</span></button>
     <button class="tab" data-view="safety" title="Canada's safest cities: every city of 10,000 or more by Statistics Canada's Crime Severity Index, with Calgary's rank this year and last"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>Canada's safest cities</span></button>
     <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
     <p class="nav-h">Topics</p>
@@ -578,6 +580,13 @@
     <div class="content"><div class="grid" id="iv-body"></div></div>
   </section>
 
+  <section id="view-infra" class="view" aria-labelledby="inf-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="inf-title">Infrastructure condition</h1><p class="meta">Where roads and pipes are wearing out, and whether 311 requests about them are rising in the same places</p></div>
+    </header>
+    <div class="content"><div class="grid" id="inf-body"></div></div>
+  </section>
+
   <section id="view-safety" class="view" aria-labelledby="sr-title">
     <header class="topbar">
       <div class="topbar-title"><h1 id="sr-title">Canada's safest cities</h1><p class="meta">Statistics Canada's Crime Severity Index for every city of 10,000 people or more: the 50 safest, and where Calgary stands this year and last</p></div>
@@ -1016,6 +1025,7 @@
 <script src="constituency.js"></script>
 <script src="fedbudget.js"></script>
 <script src="safety.js"></script>
+<script src="infra.js"></script>
 <script src="invest.js"></script>
 <script src="videos.js"></script>
 <script src="track311.js"></script>
