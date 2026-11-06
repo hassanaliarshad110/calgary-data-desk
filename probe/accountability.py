@@ -80,7 +80,14 @@ def city_measures():
     cat = json.loads(_raw('https://data.calgary.ca/api/catalog/v1?' + urllib.parse.urlencode(
         {'q': 'Progress Report - Performance Measures', 'only': 'dataset', 'limit': 40, 'domains': 'data.calgary.ca'})))
     sets = [x['resource'] for x in cat.get('results', []) if 'Performance Measures' in x['resource']['name']]
-    sets.sort(key=lambda r: r.get('data_updated_at') or r.get('updatedAt') or '', reverse=True)
+
+    def rank(r):                                # the newest report by its name: year, then quarter
+        import re                               # noqa: PLC0415
+        m = re.search(r'(20\d\d)\s+(Q[1-4]|Mid-Year|Year-End)', r['name'])
+        if not m:
+            return 0
+        return int(m.group(1)) * 10 + {'Q1': 1, 'Mid-Year': 2, 'Q2': 2, 'Q3': 3, 'Year-End': 4, 'Q4': 4}[m.group(2)]
+    sets.sort(key=rank, reverse=True)
     if not sets:
         return None
     s = sets[0]
@@ -120,13 +127,17 @@ def hoc_votes(parl='45-1'):
     return {'parliament': parl, 'divisions': divs, 'mps': mps}
 
 
-def calgary_bills(parl='45-1'):
-    """Bills before Parliament sponsored by Calgary MPs."""
+def calgary_bills(parl='45-1', mps=None):
+    """Bills before Parliament sponsored by Calgary MPs (matched by the sponsor's riding, or name)."""
     bills = json.loads(_raw(LEGISINFO.format(ps=parl)))
+    names = {(m.get('name') or '').lower(): r for r, m in (mps or {}).items()}
     out = []
     for b in bills:
         riding = b.get('SponsorConstituencyNameEn') or b.get('SponsorConstituencyName') or ''
+        nm = (b.get('SponsorPersonName') or '').lower()
         if not riding.startswith('Calgary'):
+            riding = next((r for n, r in names.items() if n and (n == nm or n.split()[-1] in nm and n.split()[0][:3] in nm)), '')
+        if not riding:
             continue
         out.append({'bill': b.get('NumberCode'), 'title': b.get('ShortTitleEn') or b.get('LongTitleEn'), 'sponsor': b.get('SponsorPersonName'),
                     'riding': riding, 'government': b.get('IsGovernmentBill'), 'stage': b.get('LatestCompletedMajorStageNameWithChamberSuffix'),
@@ -138,7 +149,8 @@ def calgary_bills(parl='45-1'):
 def build(today=None):
     today = today or dt.date.today()
     out, errors = {'built_at': dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'today': today.isoformat()}, {}
-    for key, fn in (('council', council_votes), ('city_measures', city_measures), ('hoc', hoc_votes), ('bills', calgary_bills)):
+    for key, fn in (('council', council_votes), ('city_measures', city_measures), ('hoc', hoc_votes),
+                    ('bills', lambda: calgary_bills(mps=(out.get('hoc') or {}).get('mps')))):
         try:
             out[key] = fn()
         except Exception as e:                  # noqa: BLE001 - one source down leaves the others standing
