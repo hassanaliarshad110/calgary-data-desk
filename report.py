@@ -287,7 +287,41 @@ def render(spec, provenance=None, meta=None, interactive=False, printable=False)
         page = page.replace('</head>', _vendor_head() + '</head>').replace(
             '</body>', '<script>' + viz.SCRIPT.replace('__DATA__', json.dumps(viz.interactive_data(
                 visuals, meta.get('geo'), meta.get('name_to_code') or {})).replace('</', '<\\/')) + '</script></body>')
+    if meta.get('theme') == 'dark':              # the website's dark look (PDF and web page alike)
+        page = page.replace('</head>', '<style>' + DARK_CSS + '</style>'
+                            + ('<script>if(window.Chart){Chart.defaults.color="#CBD5E1";Chart.defaults.borderColor="rgba(148,163,184,.18)"}</script>'
+                               if interactive else '') + '</head>')
     return page
+
+
+DARK_CSS = '''
+html, body { background: #020617 !important; color: #CBD5E1; }
+.wrap { background: #0B1220 !important; box-shadow: none !important; border: 1px solid #1E293B; }
+@page { margin: 0; }
+@media print { html, body { margin: 0; } .wrap { border: 0; max-width: none; padding: 14mm 14mm 16mm; -webkit-box-decoration-break: clone; box-decoration-break: clone; } }
+.top { border-bottom-color: #1E293B; } .brand { color: #38BDF8; }
+.top h1, h2, b, .cards b { color: #F8FAFC; } h4 { color: #E2E8F0; }
+.sub { color: #94A3B8; } .facts { color: #64748B; } .facts span { color: #334155; }
+.ask { background: #0F172A; color: #CBD5E1; border: 1px solid #1E293B; } .ask span { color: #64748B; }
+.sn { background: #0C4A6E; color: #E0F2FE; }
+.cards li { background: #0F172A; border-color: #1E293B; } .cards .n { background: #0284C7; }
+figure { border-color: #1E293B; background: #0F172A; } figcaption, .note, .ev, footer { color: #94A3B8; }
+footer { border-top-color: #1E293B; }
+svg .grid { stroke: #1E293B; } svg .ax { fill: #94A3B8; } svg .lbl { fill: #CBD5E1; } svg .val { fill: #F8FAFC; }
+svg .maplbl { fill: #F8FAFC; stroke: #0B1220; }
+th { background: #111C30; color: #94A3B8; } td { border-bottom-color: #1E293B; }
+tbody tr:nth-child(even) td { background: #0E1729; } td.no { color: #64748B; }
+.pri { background: #1E293B; color: #CBD5E1; } .pri.high { background: #450A0A; color: #FCA5A5; }
+.pri.medium { background: #451A03; color: #FCD34D; } .pri.low { background: #052E16; color: #86EFAC; }
+.small { color: #CBD5E1; } .srcs a, a { color: #38BDF8; }
+.pdfbar { color: #94A3B8; } .pdfbar button { background: #0284C7; }
+.vtools button, .vtools select { background: #0F172A; color: #E2E8F0; border-color: #334155; }
+.vtools .seg button.on { background: #0284C7; border-color: #0284C7; color: #fff; }
+.ihelp { background: #0C1A33; border-color: #1E3A5F; color: #BFDBFE; }
+.maplegend, .mapbtn { background: #0F172A; color: #E2E8F0; border-color: #334155; }
+.vdata table, .vdata th, .vdata td { color: #CBD5E1; }
+details summary h2::after { color: #64748B; }
+'''
 
 
 PRINT_BAR_CSS = ('.pdfbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-8px 0 16px;font-size:12.5px;color:#6B7280}'

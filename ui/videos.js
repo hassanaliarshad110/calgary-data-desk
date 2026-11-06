@@ -25,3 +25,23 @@
   cards.forEach(c => { const h = c.querySelector('.card-sub'); if (h && c.dataset.cat) h.insertAdjacentHTML('afterbegin', `<span class="vid-tag">${esc(c.dataset.cat)}</span>${c.dataset.area ? `<span class="vid-tag alt">${esc(c.dataset.area)}</span>` : ''}`); });
   draw();
 })();
+
+// Sample reports, open to everyone, shown in the passcode-locked tools (Election Analytics, Business Economist),
+// each with its explainer video on the Video Explainers page.
+const SAMPLE_REPORTS = {
+  ea: { title: "Calgary's 26 electoral divisions: a field guide for the 2027 Alberta election", base: 'reports/election-analytics-sample-2027',
+    what: 'What a candidate in each electoral division can do in October 2027: the arithmetic of every seat, turnout, the 2026 referendum, social media, awareness and youth engagement, and a preview of all 26 Calgary divisions.', video: 'vid-ea2027' },
+  biz: { title: 'Calgary: a hub of innovation, leadership and future growth', base: 'reports/invest-in-calgary-sample',
+    what: 'For a new investor: the infrastructure to use, the ease of doing business, the resources available, how Calgary compares with other cities, where the openings are, and the risks.', video: 'vid-invest' },
+};
+function sampleReport(kind) {
+  const r = SAMPLE_REPORTS[kind]; if (!r) return '';
+  return `<section class="card span-12 sample-rep"><div class="sample-rep-in"><div><div class="sample-rep-k">Sample report · open to everyone</div><h3>${esc(r.title)}</h3><p>${esc(r.what)}</p></div>
+    <div class="file-actions"><a class="btn primary" href="${r.base}.pdf" target="_blank" rel="noopener">PDF</a><a class="btn" href="${r.base}.html" target="_blank" rel="noopener">Interactive report</a><a class="btn" href="${r.base}.xlsx" download>Excel</a><button type="button" class="btn" data-vidgo="${r.video}">▶ Watch the video</button></div></div></section>`;
+}
+window.sampleReport = sampleReport;
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-vidgo]'); if (!b) return;
+  show('videos');
+  setTimeout(() => { const c = document.getElementById(b.dataset.vidgo); if (c) { c.hidden = false; c.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }, 150);
+});

@@ -89,8 +89,9 @@ const EA_SUGGEST = ['Under what model could a candidate win the next race here? 
   'What do residents raise most through 311, community by community?', 'Build a briefing on this area with the arithmetic of a win'];
 function eaLocked() { return !!(window.CDD_AI && window.CDD_AI.unlocked && !window.CDD_AI.unlocked('ea')); }
 function eaArea() {
-  const A = typeof ecArea === 'function' ? ecArea(ecKey()) : null;
-  return A ? `${A.name} (${ecLevel[A.level][0].toLowerCase()}; ${ecLevel[A.level][1]} ${(A.member || {}).name || ''}; riding="${A.name}")` : isCity() ? 'all of Calgary' : W();
+  const key = ecKey(), A = ecArea(key), w = ecWardOf(key);
+  return A ? `${A.name} (${ecLevel[A.level][0].toLowerCase()}; ${ecLevel[A.level][1]} ${(A.member || {}).name || ''}; riding="${A.name}")`
+    : key === 'W' || w === 0 ? 'all of Calgary' : w ? `Ward ${w}` : (isCity() ? 'all of Calgary' : W());
 }
 // a finished report: PDF, interactive, Excel, and an audit of it
 function eaReportCard(ev) {
@@ -102,7 +103,7 @@ function eaReportCard(ev) {
 function eaChat() {
   const locked = eaLocked();
   const msgs = eaThread.map(m => `<div class="ea-msg ${m.who}">${m.who === 'you' ? esc(m.text) : (m.html || esc(m.text || ''))}${m.cards ? `<div class="ea-cards">${m.cards}</div>` : ''}</div>`).join('');
-  return `<section class="card span-12 ea-chat"><div class="card-head"><div><h2>Ask the election analyst</h2><p class="card-sub">Micro-level detail, deep analysis and arithmetic models of how a candidate can win in ${esc(eaPlace())}, from every figure on this page and the rest of the Data Desk. Ask a question for an answer here, or build a full report (PDF, interactive report and an Excel workbook with every calculation) that can be audited.</p></div></div>
+  return `${window.sampleReport ? sampleReport('ea') : ''}<section class="card span-12 ea-chat"><div class="card-head"><div><h2>Ask the election analyst</h2><p class="card-sub">Micro-level detail, deep analysis and arithmetic models of how a candidate can win in ${esc(eaPlace())}, from every figure on this page and the rest of the Data Desk. Ask a question for an answer here, or build a full report (PDF, interactive report and an Excel workbook with every calculation) that can be audited.</p></div></div>
     ${locked ? `<div class="web-lock ea-lock"><h3>The election analyst needs its passcode</h3><p>Every chart and table on this page is open to everyone. Asking the analyst needs the Election Analytics passcode, which is separate from the Data Genie one. <b>To get a passcode, contact the developer.</b></p>
       <form id="ea-unlock"><label class="sr-only" for="ea-code">Election Analytics passcode</label><input type="password" id="ea-code" autocomplete="off" placeholder="Election Analytics passcode"><button type="submit" class="btn primary">Unlock</button></form><p class="web-lock-msg" id="ea-lockmsg" role="status"></p></div>`
       : `<div class="ea-thread" id="ea-thread">${msgs || `<div class="ea-suggest">${EA_SUGGEST.map(s => `<button type="button" class="chip" data-easug="${esc(s)}">${esc(s)}</button>`).join('')}</div>`}</div>
@@ -159,7 +160,7 @@ async function eaAudit(path) {
   renderElAnalytics(true);
 }
 
-function eaPlace() { const A = typeof ecArea === 'function' ? ecArea(ecKey()) : null; return A ? A.name : W(); }
+function eaPlace() { const key = ecKey(), A = ecArea(key), w = ecWardOf(key); return A ? A.name : key === 'W' ? 'all of Calgary' : w ? `Ward ${w}` : W(); }
 function eaBindAll(body) {
   body.querySelectorAll('[data-easug]').forEach(b => b.addEventListener('click', () => eaAsk(b.dataset.easug)));
   body.querySelectorAll('[data-eap]').forEach(b => b.addEventListener('click', async () => (await api()).open_path(b.dataset.eap)));
@@ -198,9 +199,16 @@ function eaRiding(body, A, keepScroll, y) {
 async function renderElAnalytics(keepScroll) {
   const body = $('#ea-body'); if (!body) return;
   const y = window.scrollY;
-  const key = typeof ecKey === 'function' ? ecKey() : 'ward', RA = typeof ecArea === 'function' ? ecArea(key) : null;
+  await ecPrepare();
+  const key = ecKey(), RA = ecArea(key);
   if (RA) return eaRiding(body, RA, keepScroll, y);
   if (key === 'P' || key === 'F') { body.innerHTML = ecPicker() + eaChat() + ecAllSeats(key === 'P' ? 'provincial' : 'federal'); eaBindAll(body); if (keepScroll) window.scrollTo(0, y); return; }
+  // a ward, or all of Calgary: drawn with that area's own figures, whatever the sidebar shows
+  const wk = key === 'W' ? 0 : ecWardOf(key), view = wk === SCOPE ? D : PEEK[`${(D && D.population && D.population.method) || ''}/${wk}`];
+  const pick = ecPicker();
+  return withView(view || D, view ? wk : SCOPE, () => eaWardBody(body, keepScroll, y, pick));
+}
+function eaWardBody(body, keepScroll, y, pick) {
   const M = D && D.elections && D.elections.micro;
   const C = (D && D.elections && D.elections.constituency) || {}, cw = ((C.wards || {})[String(SCOPE)]) || {};
   if (!M || M.error) { body.innerHTML = `<section class="card span-12"><p>Election Analytics is not ready for this area yet${M && M.error ? ` (${esc(M.error)})` : ''}. It appears after the next refresh of the election results.</p></section>`; return; }
@@ -217,7 +225,7 @@ async function renderElAnalytics(keepScroll) {
       <div class="el-kpi"><div class="el-kpi-l">Aged 65 and over</div><div class="el-kpi-n">${EA_PCT(w.age65)}</div><div class="el-hero-sub">under 20: ${EA_PCT(w.under20)}</div></div>
       <div class="el-kpi"><div class="el-kpi-l">People per household</div><div class="el-kpi-n">${isNum(w.avg_hh) ? fmt(w.avg_hh, 2) : '–'}</div><div class="el-hero-sub">${EA_PCT(w.big_hh)} of homes have 5 or more</div></div>
     </div></section>`;
-  body.innerHTML = (typeof ecPicker === 'function' ? ecPicker() : '') + hero + eaChat() + eaWho(M) + eaCommunities(M) + (isCity() ? `<section class="card span-12"><p class="muted">Choose a ward at the top to see every voting location and poll in it.</p></section>` : eaProvincial(M) + eaFederal(M))
+  body.innerHTML = pick + hero + eaChat() + eaWho(M) + eaCommunities(M) + (isCity() ? `<section class="card span-12"><p class="muted">Choose a ward at the top to see every voting location and poll in it.</p></section>` : eaProvincial(M) + eaFederal(M))
     + `<section class="card span-12"><p class="card-note">${esc(M.notes || '')} Facts only: nothing here rates, ranks or recommends any candidate, party or campaign. <button type="button" class="link-btn small" data-method="elections">How these are read</button></p></section>`;
   body.querySelectorAll('[data-eaprov]').forEach(b => b.addEventListener('click', () => { eaProvSel = +b.dataset.eaprov; renderElAnalytics(true); }));
   body.querySelectorAll('[data-eafed]').forEach(b => b.addEventListener('click', () => { eaFedSel = +b.dataset.eafed; renderElAnalytics(true); }));

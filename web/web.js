@@ -36,6 +36,9 @@
         return { ok: true, data };
       } catch (e) { return fail(e); }
     },
+    async peek_view(ward) {           // another area's view, for a screen's own filter: the selected area stays as it is
+      try { const m = await okMethod(store.get('pop_method', 'city_actual')); return { ok: true, data: await getJSON(`${m}/w${+ward || 0}.json`) }; } catch (e) { return fail(e); }
+    },
     async set_scope(w) { store.set('scope', +w || 0); return +w || 0; },
     async compare_wards() {
       try {

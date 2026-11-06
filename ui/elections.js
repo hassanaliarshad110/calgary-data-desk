@@ -151,9 +151,9 @@ function elFederal() {
     <p class="card-note">Elections Canada official voting results; members today from the House of Commons.</p>`;
 }
 
-// ================================================================ ELECTION CONTROL ROOM
+// ================================================================ ELECTION DATA CENTRE
 let elSub = 'room';
-const EL_SUBS = [['room', 'Control room'], ['leaders', 'Know your leaders'], ['area', 'Know your constituency'], ['analytics', 'Election Analytics'], ['term', 'Since the election'], ['results', 'Full results']];
+const EL_SUBS = [['room', 'Overview'], ['leaders', 'Know your leaders'], ['area', 'Know your constituency'], ['analytics', 'Election Analytics'], ['term', 'Since the election'], ['results', 'Full results']];
 // election days: Alberta's (Election Act s. 38.1, Elections Alberta), municipal (Government of Alberta: 15 October 2029)
 // and federal (Canada Elections Act s. 56.1: 15 October 2029, unless an election is called earlier)
 const EL_NEXT = [['Alberta general election', '2027-10-18', 'Fixed date in law'], ['Calgary municipal election', '2029-10-15', 'Alberta\'s next municipal general election'],
@@ -303,7 +303,7 @@ function elRoom() {
   const split = gs => { const t = gs.reduce((a, g) => a + g.n, 0); return `<div class="el-bar">${gs.map(g => `<span style="width:${g.n / t * 100}%;background:${elColor(g.label)}" title="${esc(g.label)} ${g.n}"></span>`).join('')}</div><div class="el-hero-sub">${gs.map(g => `${esc(g.label)} ${g.n}`).join(' · ')}</div>`; };
   const battle = elBattle(), closest = battle[0];
   const hero = `<section class="el-cr span-12">
-    <div class="el-cr-top"><div><div class="el-cr-kicker">Calgary Data Desk</div><h2 class="el-cr-title">Election Control Room</h2><div class="el-cr-sub">${esc(W())} · official results and the members sitting today · read ${esc(elDay(EL.built_at))}</div></div>
+    <div class="el-cr-top"><div><div class="el-cr-kicker">Calgary Data Desk</div><h2 class="el-cr-title">Election Data Centre</h2><div class="el-cr-sub">${esc(W())} · official results and the members sitting today · read ${esc(elDay(EL.built_at))}</div></div>
       <div class="el-cr-counts">${EL_NEXT.map(([t, d]) => `<div class="el-cr-count"><div class="el-cr-kicker">${esc(EL_SHORT[t] || t)} · ${esc(elDay(d))}</div>${elCountdown(d, true)}</div>`).join('')}</div></div>
     <div class="el-cr-kpis">
       <div class="el-kpi"><div class="el-kpi-l">City Council</div><div class="el-kpi-n">15</div>${split(cal)}</div>
@@ -391,9 +391,16 @@ function elProfileRows(keys) {
 function elVal(v, unit, label) { return !isNum(v) ? '–' : unit === '%' ? `${fmt(v, Number.isInteger(v) ? 0 : 1)}%` : unit === '$' ? `$${fmt(v)}` : unit === 'x' && /ratio/i.test(label || '') ? `${fmt(v, 1)}x` : fmt(v, v < 10 && !Number.isInteger(v) ? 1 : 0); }
 
 function elArea() {
-  const ev = typeof ecView === 'function' ? ecView() : null;
+  const ev = ecView();
   if (ev) return ev;
-  const pick = typeof ecPicker === 'function' ? ecPicker() : '';
+  // a ward, or every ward side by side: drawn with that area's own figures, whatever the sidebar shows
+  const key = ecKey(), w = key === 'W' ? 0 : ecWardOf(key);
+  const view = w === SCOPE ? D : PEEK[`${(D && D.population && D.population.method) || ''}/${w}`];
+  const pick = ecPicker();
+  return pick + withView(view || D, view ? w : SCOPE, elAreaBody);
+}
+function elAreaBody() {
+  const pick = '';
   const E = (D && D.elections) || {}, C = E.constituency || {}, M = EL.municipal || {};
   if (isCity()) {
     const ws = C.wards || {};
@@ -501,13 +508,14 @@ async function renderElections() {
   if (!body) return;
   if (!EL) body.innerHTML = '<p class="card-note">Reading the election results…</p>';
   await loadElections();
-  $('#el-title').textContent = `Election Control Room: ${W()}`;
+  $('#el-title').textContent = `Election Data Centre: ${W()}`;
   if (!EL) { body.innerHTML = '<p class="card-note">The election results could not be read.</p>'; return; }
   EL.constituency_wards = (((D && D.elections) || {}).constituency || {}).wards;
   const errs = Object.keys(EL.errors || {});
+  if (elSub === 'area' || elSub === 'analytics') await ecPrepare();
   // Election Analytics lives here as a section of its own (elanalytics.js fills it)
   const page = elSub === 'analytics' ? '<div class="span-12 ea-embed"><div class="grid" id="ea-body"></div></div>' : elSub === 'leaders' ? elLeaders() : elSub === 'area' ? elArea() : elSub === 'term' ? elTerm() : elSub === 'results' ? elResults() : elRoom();
-  body.innerHTML = `<nav class="el-subtabs span-12" aria-label="Election Control Room sections">${EL_SUBS.map(([k, t]) => `<button type="button" class="el-subtab${k === elSub ? ' is-on' : ''}" data-elsub="${k}" ${k === elSub ? 'aria-current="page"' : ''}>${k === 'analytics' ? '<svg class="ic el-subic" aria-hidden="true"><use href="#i-analytics-solid"/></svg>' : ''}${esc(t)}</button>`).join('')}</nav>
+  body.innerHTML = `<nav class="el-subtabs span-12" aria-label="Election Data Centre sections">${EL_SUBS.map(([k, t]) => `<button type="button" class="el-subtab${k === elSub ? ' is-on' : ''}" data-elsub="${k}" ${k === elSub ? 'aria-current="page"' : ''}>${k === 'analytics' ? '<svg class="ic el-subic" aria-hidden="true"><use href="#i-analytics-solid"/></svg>' : ''}${esc(t)}</button>`).join('')}</nav>
     ${page}
     <section class="card span-12"><p class="card-note">Official results as published by Elections Calgary, Elections Alberta and Elections Canada; members today from the Legislative Assembly of Alberta and the House of Commons. Read ${esc(elDay(EL.built_at))}. Facts only: nothing here rates, ranks or recommends any candidate, party or campaign. ${errs.length ? `Not read this time: ${esc(errs.join(', '))}.` : ''} <button type="button" class="link-btn small" data-method="elections">How these are read</button></p></section>`;
   elTick();

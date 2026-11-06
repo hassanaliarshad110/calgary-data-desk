@@ -247,7 +247,17 @@ def main():
 
     def business_list():            # Invest in Calgary: every business (City licences and OpenStreetMap), by community
         import business
-        write(os.path.join(data, 'business.json'), business.build())
+        bz = business.build()
+        hp = os.path.join(cache, 'access', 'homes.json')        # every home, read for Growth vs amenities above
+        try:
+            if os.path.exists(hp):
+                with open(hp, encoding='utf-8') as f:
+                    bz['home_access'] = business.home_access(bz, json.load(f)['homes'])
+            else:
+                print('Invest in Calgary: no home list, so walking distance from homes is left out')
+        except Exception as e:      # noqa: BLE001 - the 1 to 3 km figures still stand
+            print('Invest in Calgary: walking distance from homes not worked out:', e)
+        write(os.path.join(data, 'business.json'), bz)
         people = {}
         for m in meths:             # residents of every community under every way of counting, for the underserved index
             p = os.path.join(data, m, 'w0.json')

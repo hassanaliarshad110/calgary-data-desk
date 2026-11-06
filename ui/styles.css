@@ -1508,7 +1508,7 @@ tr.el-here th, tr.el-here td { background: var(--accent-soft); }
 .el-opts { margin: 4px 0 10px; padding-left: 18px; font-size: 14px; }
 .el-ref-sum { display: flex; gap: 32px; flex-wrap: wrap; margin: 8px 0 12px; font-size: 14px; }
 
-/* Election Control Room */
+/* Election Data Centre */
 .el-subtabs { display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
 .el-subtab { border: 1px solid var(--border); background: var(--card); color: var(--fg); border-radius: 999px; padding: 7px 14px; font: inherit; font-weight: 600; cursor: pointer; }
 .el-subtab.is-on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
@@ -1530,7 +1530,7 @@ tr.el-here th, tr.el-here td { background: var(--accent-soft); }
 table.el-split td { line-height: 1.6; }
 .el-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0 24px; }
 
-/* Election Control Room: the briefing-room look (dark panel in both themes) */
+/* Election Data Centre: the briefing-room look (dark panel in both themes) */
 .el-cr { background: radial-gradient(1200px 400px at 10% -10%, #12345a 0%, #0A1626 55%, #060D18 100%); color: #E2E8F0; border-radius: 16px; padding: 24px 28px; border: 1px solid #1E3A5F; box-shadow: 0 10px 30px rgba(2, 6, 23, .35); }
 .el-cr-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
 .el-cr-kicker { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; color: #7DD3FC; font-weight: 600; }
@@ -1798,7 +1798,7 @@ table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static
 .el-subtab.is-on .el-subic { color: #FDE68A; }
 .ea-embed > .grid { padding: 0; }
 
-/* Election Control Room header: compact (countdowns side by side under the title, smaller figures) */
+/* Election Data Centre header: compact (countdowns side by side under the title, smaller figures) */
 #el-body .el-cr { padding: 16px 20px; }
 #el-body .el-cr-top { flex-direction: column; gap: 10px; }
 #el-body .el-cr-title { font-size: 26px; margin: 2px 0 4px; }
@@ -1832,7 +1832,7 @@ table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static
 .tab[data-view="settings"] .ic { color: #CBD5E1; }
 .tab.is-on[data-view] .ic { filter: brightness(1.2); }
 
-/* Control room figures: one line of six on a wide screen */
+/* Election Data Centre figures: one line of six on a wide screen */
 #el-body .el-cr-kpis { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
 #el-body .el-kpi { padding: 9px 10px; min-width: 0; }
 #el-body .el-kpi-n { font-size: 22px; }
@@ -1875,3 +1875,27 @@ table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static
 .vid-tag { display: inline-block; margin-right: 6px; padding: 1px 8px; border-radius: 999px; background: rgba(56, 189, 248, .15); color: var(--accent); font-size: 11.5px; font-weight: 600; }
 .vid-tag.alt { background: rgba(250, 204, 21, .15); color: #CA8A04; }
 @media (max-width: 560px) { .vid-grid { grid-template-columns: 1fr; } }
+.gr-area { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 16px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.gr-area .card-note { flex: 1 1 360px; margin: 0; }
+
+/* Invest in Calgary: the gaps, explained and listed */
+.iv-kpilink { all: unset; cursor: pointer; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.iv-kpilink:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 4px; }
+.iv-radnote { margin: 10px 0 0; font-size: 12.5px; line-height: 1.5; opacity: .85; max-width: 110ch; }
+.iv-gaps .iv-why { min-width: 280px; max-width: 520px; font-size: 12.5px; line-height: 1.45; white-space: normal; }
+@media (max-width: 700px) { .iv-gaps .iv-why { min-width: 220px; } }
+#iv-allgaps { scroll-margin-top: 96px; }
+.iv-radbox { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.iv-radhint { font-size: 11.5px; color: #94A3B8; }
+@media (max-width: 700px) { .iv-radbox { align-items: flex-start; } .iv-radbox .seg { flex-wrap: wrap; } }
+/* sample reports in the locked tools */
+.sample-rep { border-color: #1E3A5F; background: linear-gradient(135deg, rgba(14,165,233,.10), rgba(15,23,42,0) 60%), var(--card, #0F172A); }
+.sample-rep-in { display: flex; gap: 18px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.sample-rep-in > div:first-child { flex: 1 1 420px; min-width: 0; }
+.sample-rep-k { font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #38BDF8; }
+.sample-rep h3 { margin: 4px 0 6px; font-size: 17px; }
+.sample-rep p { margin: 0; font-size: 13.5px; color: var(--fg-2, #CBD5E1); }
+.sample-rep .file-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.vid-card { scroll-margin-top: 96px; }
+.iv-web { text-decoration: none; font-size: 12px; margin-left: 4px; } .iv-phone { font-weight: 400; font-size: 12px; color: var(--fg-2, #94A3B8); margin-top: 2px; }
+.sample-rep a.btn { text-decoration: none; }

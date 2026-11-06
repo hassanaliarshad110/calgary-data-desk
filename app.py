@@ -118,6 +118,19 @@ class Api:
         save_settings(s)
         return s['scope']
 
+    def peek_view(self, ward=0):
+        """Another area's view for a screen's own filter (Growth vs amenities, Know your constituency): the area
+        selected for the rest of the app stays as it is."""
+        try:
+            want = dashboard.wardmap.ward_ok(ward)
+            data, _age = dashboard.saved(DASHBOARD_CACHE, spec=None, pop_method=self._pop_method(), ward=want)
+            if not data:
+                data = dashboard.load(DASHBOARD_CACHE, max_age_hours=6, spec=None, pop_method=self._pop_method(), ward=want)
+            return {'ok': True, 'data': data}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': str(e)}
+
     def load_dashboard(self, force=False, period=None, ward=None, quick=False):
         """period: None for the last 12 months, or {'kind': ..., 'start': 'YYYY-MM', 'end': 'YYYY-MM', ...}.
         ward: 0 for the whole city, 1 to 14 for a ward, None for the view last chosen.

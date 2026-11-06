@@ -926,7 +926,7 @@ def ward_splits(base, pops, ward_of):
 
 def view(base, ward, codes, pops, ward_of=None, method=None):
     """Who represents a ward (or Calgary, ward 0) at each level, with the last results, for the Dashboard card and the
-    Election Control Room. codes: the communities of the ward (every lived-in one for Calgary); pops: {community:
+    Election Data Centre. codes: the communities of the ward (every lived-in one for Calgary); pops: {community:
     residents} for every community (the count chosen in Settings); ward_of: {community: ward}."""
     if not base:
         return None

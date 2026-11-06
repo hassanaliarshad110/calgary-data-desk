@@ -550,7 +550,26 @@ function acCrowdWords(A) {
   return out;
 }
 
+// the screen's own area filter: any ward or all of Calgary, whatever area the sidebar shows
+let grArea = null;
 function renderGap() {
+  const w = grArea === null ? SCOPE : grArea, box = $('#gr-gap');
+  const key = `${(D && D.population && D.population.method) || ''}/${w}`;
+  if (w !== SCOPE && !PEEK[key]) {
+    box.innerHTML = '<p class="muted">Reading that area…</p>';
+    peekView(w).then(() => renderGap()).catch(() => { grArea = null; renderGap(); });
+    return;
+  }
+  withView(w === SCOPE ? D : PEEK[key], w, renderGapInner);
+  const wards = ((D.wards_summary || {}).wards || []).map(x => x.ward).sort((a, b) => a - b);
+  const list = wards.length ? wards : Array.from({ length: 14 }, (_, i) => i + 1);
+  const meth = ((D.population || {}).method_label) || '';
+  box.insertAdjacentHTML('afterbegin', `<div class="gr-area"><label class="field"><span>Area on this screen</span><select id="gr-area"><option value="0" ${w === 0 ? 'selected' : ''}>All of Calgary</option>${list.map(n => `<option value="${n}" ${w === n ? 'selected' : ''}>Ward ${n}</option>`).join('')}</select></label>
+    <p class="card-note">${w !== SCOPE ? `Showing ${w ? 'Ward ' + w : 'all of Calgary'} here; the rest of the Data Desk still shows ${esc(W())}. ` : ''}Residents counted: <b>${esc(meth)}</b> (change it in Settings). Distances are measured from homes, so the shares of homes within reach stay the same under every way of counting; residents, children and crowding follow it.</p></div>`);
+  const sel = $('#gr-area');
+  if (sel) sel.addEventListener('change', () => { const v = +sel.value; grArea = v === SCOPE ? null : v; renderGap(); });
+}
+function renderGapInner() {
   const A = acData(), box = $('#gr-gap');
   if (!A || !A.city) {
     $('#gr-stats').innerHTML = ''; $('#gr-notes').textContent = '';
@@ -600,15 +619,15 @@ function renderGap() {
       ${city && wardsHere.length > 1 ? `<label class="field"><span>Ward</span><select id="ac-ward"><option value="">All of Calgary</option>${wardsHere.map(w => `<option value="${w}" ${String(w) === String(acWard) ? 'selected' : ''}>Ward ${w}</option>`).join('')}</select></label>` : ''}
       ${scData() ? `<label class="check"><input type="checkbox" id="ac-nearonly" ${acNearOnly ? 'checked' : ''}> Only near, but crowded</label>` : ''}
       <div class="seg small" role="radiogroup" aria-label="Map shows" id="ac-mapmode"><button type="button" role="radio" aria-checked="${acMapMode === 'near'}" data-mm="near">Map: near</button>${crowd ? `<button type="button" role="radio" aria-checked="${acMapMode === 'crowding'}" data-mm="crowding">Map: crowding</button>` : ''}${scData() ? `<button type="button" role="radio" aria-checked="${acMapMode === 'score'}" data-mm="score">Map: score</button>` : ''}</div></div>`;
-  const commTable = `<div class="table-wrap tall"><table class="data ac-comm" id="gap-table"><thead><tr><th scope="col">Community</th>${city ? '<th scope="col" class="num">Ward</th>' : ''}<th scope="col" class="num">Homes</th><th scope="col" class="num">New<small>built since ${A.growth_year}</small></th>
+  const commTable = `<div class="table-wrap tall"><table class="data ac-comm" id="gap-table"><thead><tr><th scope="col">Community</th>${city ? '<th scope="col" class="num">Ward</th>' : ''}<th scope="col" class="num">Homes</th><th scope="col" class="num">Residents<small>${esc(((D.population || {}).method_label || '').split(',')[0])}</small></th><th scope="col" class="num">Children 0 to 14</th><th scope="col" class="num">New<small>built since ${A.growth_year}</small></th>
       <th scope="col">Within ${acM(th)}<small>Calgary ${acPct(cityVal[shareKey])}</small></th><th scope="col" class="num">New homes<small>within ${acM(acTh(A, acKind, false))}</small></th><th scope="col" class="num">Older homes<small>within ${acM(acTh(A, acKind, false))}</small></th><th scope="col" class="num">Median</th><th scope="col">Reading</th>
       ${scData() ? `<th scope="col">Score<small>crowding against Calgary's, range</small></th>` : ''}
       ${crowd ? `<th scope="col" class="num">Crowding<small>${esc(acUnit(acKind))}, ${acM(th)}; Calgary ${fmt(cityVal[ck], acKind === 'park' ? 1 : 2)}</small></th>` : ''}</tr></thead><tbody>
     ${rows.filter(r => !acNearOnly || acNearCrowded(r, acKind)).map(r => { const x = r[acKind] || {}, sc = acScore(r.code, acKind), nc = acNearCrowded(r, acKind);
-      return `<tr><td>${esc(r.name)}</td>${city ? `<td class="num">${r.ward || '–'}</td>` : ''}<td class="num">${fmt(r.units)}</td><td class="num">${r.units ? acPct(r.units_new / r.units) : '–'}</td>
+      return `<tr><td>${esc(r.name)}</td>${city ? `<td class="num">${r.ward || '–'}</td>` : ''}<td class="num">${fmt(r.units)}</td><td class="num">${fmt(r.residents)}</td><td class="num">${fmt(r.children)}</td><td class="num">${r.units ? acPct(r.units_new / r.units) : '–'}</td>
         <td>${acBar(x[shareKey])}<b>${acPct(x[shareKey])}</b></td><td class="num">${acPct(x.share_new_1)}</td><td class="num">${acPct(x.share_old_1)}</td><td class="num">${x.median_beyond ? 'over ' + acM(acTh(A, acKind, true)) : acM(x.median_m)}</td><td>${acTag(A, x.reading)}${nc ? ' <span class="ac-tag ac-nc">Near, but crowded</span>' : ''}</td>
         ${scData() ? `<td>${scCell(sc)} ${sc ? scTag(sc) : ''}</td>` : ''}
-        ${crowd ? `<td class="num">${fmt(x[ck], acKind === 'park' ? 1 : 2)}</td>` : ''}</tr>`; }).join('') || '<tr><td colspan="10" class="empty">No communities to show.</td></tr>'}
+        ${crowd ? `<td class="num">${fmt(x[ck], acKind === 'park' ? 1 : 2)}</td>` : ''}</tr>`; }).join('') || '<tr><td colspan="12" class="empty">No communities to show.</td></tr>'}
     </tbody></table></div>
     <p class="card-note"><b>Reading</b> (a stated rule for each community and amenity, not a score): <span class="ac-tag ac-ok">${esc(A.readings.no_gap)}</span> half or more of homes within ${acM(acTh(A, acKind, false))}; <span class="ac-tag ac-gap">${esc(A.readings.gap)}</span> fewer than half; <span class="ac-tag ac-check">${esc(A.readings.gap_check)}</span> a measured gap where ${fmt(A.rules.recent_share * 100)}% or more of homes were built since ${A.recent_from_year} (developer-built amenities may not be in the City's inventory yet); <span class="ac-tag ac-few">${esc(A.readings.too_few_homes)}</span> under ${fmt(A.rules.min_units)} homes. Readings are never combined across amenities.${scData() ? ` <span class="ac-tag ac-nc">Near, but crowded</span> most homes within reach, but the score is under 0.80: what is within reach is shared by more people than Calgary's average.` : ''} ${esc(K.basis || '')}</p>`;
   const mapBlock = `<div class="ac-mapwrap"><div id="ac-map" class="ac-map" role="img" aria-label="Map of communities: ${esc(K.label)}, ${acMapMode === 'near' ? 'share of homes within ' + acM(th) : 'crowding'}"></div><div class="ac-legend" id="ac-legend"></div></div>`;
@@ -1114,7 +1133,7 @@ const DATASETS_OF = () => [
   { name: 'Daily climate data, Calgary airport', id: '', page: 'https://climate.weather.gc.ca/', pub: 'Environment and Climate Change Canada', what: 'Daily temperature, rain, snow and snow depth back to 1881. The airport station is inside ' + W() + '.', used: 'Data Genie',
     ask: ['How has Calgary\'s winter snowfall changed over the last 10 years?', 'Chart the hottest summers in Calgary since 2000'] },
   // the rest of what the app reads, so every number on screen has its source listed here
-  { name: 'City population outlook', id: '', page: 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf', pub: 'City of Calgary (Corporate Economics)', what: 'The City\'s population estimate and forecast for Calgary (Calgary and Region Economic Outlook 2026-2031, Spring 2026, Table 4, page 19), and its forecast of children. A published report, not open data: its figures are kept with the app and updated with each new outlook.', used: 'Residents today (the default way of counting), live counter, children',
+  { name: 'City population outlook', id: '', page: 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf', pub: 'City of Calgary (Corporate Economics)', what: 'The City\'s population estimate and forecast for Calgary (Calgary and Region Economic Outlook 2026-2031, Spring 2026, Table 4, page 19), and its forecast of children. A published report, not open data: its figures are kept with the Data Desk and updated with each new outlook.', used: 'Residents today (the default way of counting), live counter, children',
     ask: ['How is the population of Martindale worked out today?'] },
   { name: '2021 Census households by community', id: 'msjx-5ygv', pub: 'City of Calgary (Statistics Canada)', what: 'Private households by community in the 2021 Census.', used: 'Growth model (people per home)', ask: [] },
   { name: '2021 Census by ward', id: 'k4pr-cznc', pub: 'City of Calgary (Statistics Canada)', what: 'Ages, households, families and work for every ward in the 2021 Census (with jzfi-qvb4 and b5q8-82zn, and the same tables for Calgary).', used: 'Who lives in each ward',
@@ -1131,8 +1150,8 @@ const DATASETS_OF = () => [
     ask: ['List the private amenities accessible to the community in Taradale with links'] },
   { name: 'Calgary Open Budget', id: 'fqax-i3nz', pub: 'City of Calgary', what: 'Every line of the City\'s operating and capital budget, by department and business unit.', used: 'City budget',
     ask: ['What is the City\'s 2026 operating budget by department?'] },
-  { name: 'Budget book: operating revenue by source', id: '', page: 'https://www.calgary.ca/our-finances/budget.html', pub: 'City of Calgary', what: 'Operating revenue by source (property tax, user fees, franchise fees and so on) from the 2026 Budget as approved, Budget Overview, page 24. A published book, not open data: kept with the app and updated with each budget.', used: 'City budget', ask: [] },
-  { name: '2026 Property Tax Bylaw', id: '', page: 'https://municipalaffairs.gov.ab.ca/cfml/FinancialTaxRateSearch/pdf/tr_bylaws/2026_Bylaw_CALGARY_0046.pdf', pub: 'City of Calgary (Alberta Municipal Affairs)', what: 'The 2026 tax rates and levy (Bylaw 9M2026), applied to the assessment roll (4bsw-nn7w) to estimate property tax by ward and community. A bylaw document: its rates are kept with the app.', used: 'City budget (property tax by ward)',
+  { name: 'Budget book: operating revenue by source', id: '', page: 'https://www.calgary.ca/our-finances/budget.html', pub: 'City of Calgary', what: 'Operating revenue by source (property tax, user fees, franchise fees and so on) from the 2026 Budget as approved, Budget Overview, page 24. A published book, not open data: kept with the Data Desk and updated with each budget.', used: 'City budget', ask: [] },
+  { name: '2026 Property Tax Bylaw', id: '', page: 'https://municipalaffairs.gov.ab.ca/cfml/FinancialTaxRateSearch/pdf/tr_bylaws/2026_Bylaw_CALGARY_0046.pdf', pub: 'City of Calgary (Alberta Municipal Affairs)', what: 'The 2026 tax rates and levy (Bylaw 9M2026), applied to the assessment roll (4bsw-nn7w) to estimate property tax by ward and community. A bylaw document: its rates are kept with the Data Desk.', used: 'City budget (property tax by ward)',
     ask: ['How much property tax does each ward pay?'] },
   { name: 'Missing-person appeals', id: '', page: 'https://newsroom.calgary.ca/police-news-releases/', pub: 'Calgary Police Service (City newsroom)', what: 'Missing-person news releases, read live from the City newsroom feed; nothing is saved, and an appeal disappears when the police take it down.', used: 'Dashboard', ask: [] },
 ];
@@ -1199,7 +1218,7 @@ function renderSources() {
         <button class="btn icon-only" data-open="${esc(srcPage(d))}" aria-label="Open the ${esc(d.name)} page">${icon('open')}</button></div>
       <p>${esc(d.what)}</p>
       <p class="src-used"><b>Used in:</b> ${esc(d.used)}</p>
-      ${d.name === 'Community safety data' && D && D.crime && D.crime.link ? `<button type="button" class="btn src-dl" data-open="${esc(D.crime.link)}">${icon('download')}<span>Download the data file: Jan 2020 to ${esc(D.crime.latest)}</span></button><p class="card-note">"Open" goes to the police page at <b>Dashboard data download</b>; its <b>Download Community Safety Data</b> button gives this same file. Every crime number in the app can be checked in it (sheet Community Crime: filter Ward or Community, Year, Month; add up Total Crime).</p>` : ''}
+      ${d.name === 'Community safety data' && D && D.crime && D.crime.link ? `<button type="button" class="btn src-dl" data-open="${esc(D.crime.link)}">${icon('download')}<span>Download the data file: Jan 2020 to ${esc(D.crime.latest)}</span></button><p class="card-note">"Open" goes to the police page at <b>Dashboard data download</b>; its <b>Download Community Safety Data</b> button gives this same file. Every crime number on the Data Desk can be checked in it (sheet Community Crime: filter Ward or Community, Year, Month; add up Total Crime).</p>` : ''}
       ${methodHtml(d)}
       ${d.ask.length ? `<div class="src-ask">${d.ask.map(a => `<button type="button" class="ask-chip" data-ask="${esc(a)}">${icon(/^download/i.test(a) ? 'download' : /^chart|^map|^compare/i.test(a) ? 'bars' : 'chat')}<span>${esc(a)}</span></button>`).join('')}</div>` : ''}
     </article>`).join('') || '<p class="card-sub">No datasets match.</p>';

@@ -4,19 +4,30 @@
    the 2026 referendum. elections.py (areas) builds the figures. Facts only, the same way for every seat. */
 'use strict';
 
-let ecSel = { scope: null, key: 'ward' };
+// the screen's own filter: any ward (councillor), electoral division (MLA) or electoral district (MP), whatever area
+// the sidebar shows. Keys: 'w:5', 'p:Calgary-Elbow', 'f:Calgary Centre', or every one side by side: 'W', 'P', 'F'
+let ecSel = { key: null };
 const ecP = (v, d = 0) => isNum(v) ? `${fmt(v * 100, d)}%` : '–';
 const ecLevel = { provincial: ['Provincial electoral division', 'MLA', 'division'], federal: ['Federal electoral district', 'MP', 'district'] };
-
-function ecAreas() { return ((D && D.elections) || {}).areas || {}; }
+function ecCityView() { return SCOPE === 0 && D ? D : PEEK[`${(D && D.population && D.population.method) || ''}/0`]; }
+function ecAreas() { const v = ecCityView() || D; return ((v && v.elections) || {}).areas || {}; }
 function ecKey() {
-  if (ecSel.scope !== SCOPE) ecSel = { scope: SCOPE, key: isCity() ? 'all' : 'ward' };
+  if (!ecSel.key) ecSel.key = SCOPE ? `w:${SCOPE}` : 'W';
   return ecSel.key;
 }
+function ecWardOf(key) { const m = /^w:(\d+)$/.exec(key || ''); return m ? +m[1] : null; }
 function ecArea(key) {
   const m = /^([pf]):(.+)$/.exec(key || '');
   if (!m) return null;
   return ((ecAreas()[m[1] === 'p' ? 'provincial' : 'federal']) || {})[m[2]] || null;
+}
+// read what the chosen constituency needs: the whole city's figures for divisions and districts, a ward's own view
+async function ecPrepare() {
+  const key = ecKey(), w = ecWardOf(key);
+  try {
+    if (!ecCityView()) await peekView(0);
+    if (w !== null && w !== SCOPE) await peekView(w);
+  } catch (e) { ecSel.key = SCOPE ? `w:${SCOPE}` : 'W'; }
 }
 function ecCouncillor(w) { const r = ((EL || {}).municipal || {}).councillors || {}; return (((r[String(w)] || {}).candidates || [])[0] || {}).name || ''; }
 
@@ -148,25 +159,22 @@ function ecAllSeats(level) {
     <tbody>${rows.map(a => { const r = a.last || {}, w = a.who || {}, c = (r.candidates || [])[0] || {}; return `<tr><th scope="row"><button type="button" class="link-btn" data-ecsel="${level[0]}:${esc(a.name)}">${esc(a.name)}</button></th><td>${esc((a.member || {}).name || c.name || '')}</td><td class="num">${fmt(a.residents)}</td><td class="num">${fmt(r.electors)}</td><td class="num">${ecP(r.turnout)}</td><td class="num">${ecP(c.share, 1)}</td><td class="num">${fmt((r.math || {}).gap_votes)}</td><td class="num">${isNum((r.math || {}).swing_to_flip) ? fmt(r.math.swing_to_flip * 100, 1) + ' pts' : '–'}</td><td class="num">${ecP(w.age65)}</td><td class="num">${ecP(w.under20)}</td></tr>`; }).join('')}</tbody></table></div>`);
 }
 
-// the picker: whose constituency
+// the picker: whose constituency (three lists, any of them, on this screen only)
 function ecPicker() {
-  const key = ecKey(), A = ecAreas(), p = Object.keys(A.provincial || {}), f = Object.keys(A.federal || {});
-  if (isCity()) {
-    const lvl = key === 'all' ? 'all' : key[0].toLowerCase();
-    const names = lvl === 'p' ? p : lvl === 'f' ? f : [];
-    return `<div class="ec-pick span-12"><span class="ec-pick-l">Whose constituency</span><div class="seg small" role="radiogroup" aria-label="Level">
-      ${[['all', 'Councillors: all 14 wards'], ['P', `MLAs: ${p.length} divisions`], ['F', `MPs: ${f.length} districts`]].map(([k, t]) => `<button type="button" role="radio" aria-checked="${lvl === k.toLowerCase() || (k === 'all' && lvl === 'all')}" data-ecsel="${k}">${t}</button>`).join('')}</div>
-      ${names.length ? `<label class="sr-only" for="ec-name">${lvl === 'p' ? 'Electoral division' : 'Electoral district'}</label><select id="ec-name" class="select"><option value="${lvl.toUpperCase()}">All side by side</option>${names.map(n => `<option value="${lvl}:${esc(n)}" ${key === `${lvl}:${n}` ? 'selected' : ''}>${esc(n)}</option>`).join('')}</select>` : ''}
-      <span class="muted small">Pick a ward at the top for a councillor's ward.</span></div>`;
-  }
-  const btn = (k, t, s) => `<button type="button" role="radio" aria-checked="${key === k}" data-ecsel="${esc(k)}">${esc(t)}<small>${esc(s)}</small></button>`;
-  return `<div class="ec-pick span-12"><span class="ec-pick-l">Whose constituency</span><div class="seg small ec-seg" role="radiogroup" aria-label="Constituency">
-    ${btn('ward', W(), `Councillor ${ecCouncillor(SCOPE)}`)}
-    ${p.map(n => btn(`p:${n}`, n, `MLA ${((A.provincial[n].member) || {}).name || ''}`)).join('')}
-    ${f.map(n => btn(`f:${n}`, n, `MP ${((A.federal[n].member) || {}).name || ''}`)).join('')}</div></div>`;
+  const key = ecKey(), A = ecAreas(), p = Object.keys(A.provincial || {}).sort(), f = Object.keys(A.federal || {}).sort();
+  const C = ((EL || {}).municipal || {}).councillors || {};
+  const wards = Array.from({ length: 14 }, (_, i) => i + 1);
+  const w = ecWardOf(key);
+  const mem = (lvl, n) => (((A[lvl] || {})[n] || {}).member || {}).name || '';
+  const sel = (id, label, all, allKey, opts) => `<label class="ec-pf"><span>${label}</span><select id="${id}" class="select${opts.some(([k]) => k === key) || key === allKey ? ' is-on' : ''}"><option value="">Choose…</option><option value="${allKey}" ${key === allKey ? 'selected' : ''}>${all}</option>${opts.map(([k, t]) => `<option value="${esc(k)}" ${k === key ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select></label>`;
+  return `<div class="ec-pick span-12"><span class="ec-pick-l">Whose constituency</span>
+    ${sel('ec-w', 'Councillor', 'All 14 wards side by side', 'W', wards.map(n => [`w:${n}`, `Ward ${n}${((C[n] || {}).candidates || [{}])[0].name ? ' · ' + C[n].candidates[0].name : ''}`]))}
+    ${sel('ec-p', 'MLA', `All ${p.length} electoral divisions`, 'P', p.map(n => [`p:${n}`, `${n}${mem('provincial', n) ? ' · ' + mem('provincial', n) : ''}`]))}
+    ${sel('ec-f', 'MP', `All ${f.length} electoral districts`, 'F', f.map(n => [`f:${n}`, `${n}${mem('federal', n) ? ' · ' + mem('federal', n) : ''}`]))}
+    <span class="muted small">Only this screen changes${w !== null && w !== SCOPE ? `; the rest of the Data Desk still shows ${esc(W())}` : ''}.</span></div>`;
 }
 
-// the view for the Election Control Room's "Know your constituency" (null: the ward or all-wards view of elections.js)
+// the view for the Election Data Centre's "Know your constituency" (null: a ward, drawn by elections.js)
 function ecView() {
   const key = ecKey();
   if (key === 'P' || key === 'F') return ecPicker() + ecAllSeats(key === 'P' ? 'provincial' : 'federal');
@@ -174,8 +182,8 @@ function ecView() {
   return A ? ecPicker() + ecRiding(A) : null;
 }
 function ecBind(root, rerender) {
-  root.querySelectorAll('[data-ecsel]').forEach(b => b.addEventListener('click', () => { ecKey(); ecSel.key = b.dataset.ecsel; const y = window.scrollY; Promise.resolve(rerender()).then(() => window.scrollTo(0, y)); }));
-  const s = root.querySelector('#ec-name');
-  if (s) s.addEventListener('change', () => { ecSel.key = s.value; const y = window.scrollY; Promise.resolve(rerender()).then(() => window.scrollTo(0, y)); });
+  const go = v => { if (!v) return; ecSel.key = v; const y = window.scrollY; Promise.resolve(rerender()).then(() => window.scrollTo(0, y)); };
+  root.querySelectorAll('[data-ecsel]').forEach(b => b.addEventListener('click', () => go(b.dataset.ecsel)));
+  ['#ec-w', '#ec-p', '#ec-f'].forEach(id => { const s = root.querySelector(id); if (s) s.addEventListener('change', () => go(s.value)); });
 }
 window.ecView = ecView;

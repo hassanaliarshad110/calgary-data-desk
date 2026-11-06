@@ -177,6 +177,21 @@ setInterval(tick, 15000);
 let SCOPE = (() => { try { const v = localStorage.getItem('cdd-scope'); return v === null ? 0 : (+v || 0); } catch { return 0; } })();
 const W = () => (D && D.scope && D.scope.ward === SCOPE) ? D.scope.name : (SCOPE ? `Ward ${SCOPE}` : 'Calgary');
 const isCity = () => (D && D.scope ? D.scope.kind === 'city' : SCOPE === 0);
+// a screen's own area filter: another area's view (kept per way of counting), and drawing with it in place of the
+// selected one; the area chosen in the sidebar is left as it is
+const PEEK = {};
+async function peekView(w) {
+  const key = `${(D && D.population && D.population.method) || ''}/${w}`;
+  if (w === SCOPE && D) return D;
+  if (!PEEK[key]) { const r = await (await api()).peek_view(w); if (!r || !r.ok) throw new Error((r && r.error) || 'That area could not be read.'); PEEK[key] = r.data; }
+  return PEEK[key];
+}
+function withView(view, w, fn) {
+  if (!view || view === D) return fn();
+  const d0 = D, s0 = SCOPE;
+  D = view; SCOPE = w;
+  try { return fn(); } finally { D = d0; SCOPE = s0; }
+}
 // static words in the page that name the area: remembered once, written again whenever the view changes
 const SCOPE_NODES = [];
 function scopeTextInit() {

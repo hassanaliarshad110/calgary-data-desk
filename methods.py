@@ -601,7 +601,7 @@ METHODS = [
                   'Alberta; House of Commons; Government of Alberta (provincial boundaries)',
      'page': 'https://elections-prd.calgary.ca/results/2025-results.html',
      'updated': 'Read once a week; results change only with a new election, a by-election or a recount',
-     'used_in': 'Election Control Room (Control room, Know your leaders, Know your constituency, Full results), Dashboard (Who represents this area), Data Genie',
+     'used_in': 'Election Data Centre (Overview, Know your leaders, Know your constituency, Full results), Dashboard (Who represents this area), Data Genie',
      'method': [
          'Municipal, 20 October 2025: Elections Calgary\'s official results file (corrected after the 27 October 2025 '
          'mayoral recount): every candidate\'s votes for mayor, councillor in each ward, and public (CBE) and separate '
@@ -693,8 +693,8 @@ METHODS = [
                   'Developing stories can change after publication; a later article notes what changed.'],
      'code': 'tools/news_publish.py; citynews.py; ui/citynews.js'},
     {'key': 'invest', 'name': 'Invest in Calgary: every business, the underserved index and growth',
-     'dataset': 'Business licences (vdjc-pybd); OpenStreetMap shops and amenities (Overpass); community boundaries (surr-xmvs)',
-     'publisher': 'City of Calgary open data; OpenStreetMap contributors (ODbL)',
+     'dataset': 'Business licences (vdjc-pybd); OpenStreetMap shops and amenities (Overpass); Overture Maps places; community boundaries (surr-xmvs)',
+     'publisher': 'City of Calgary open data; OpenStreetMap contributors (ODbL); Overture Maps Foundation (CDLA Permissive 2.0)',
      'page': 'https://data.calgary.ca/d/vdjc-pybd',
      'updated': 'Every morning with the website',
      'used_in': 'Invest in Calgary, the Business Economist',
@@ -708,15 +708,35 @@ METHODS = [
          '"Personal service (fitness conditioning)" is a gym, not a salon; patios and alcohol sold on the side are '
          'extras). A mapped place goes by its shop, amenity, leisure, healthcare or tourism tag. Licences carry the '
          'community the City gives; mapped places are placed in the community whose boundary holds them.',
-         'Count by community and category: the larger of the two sources, because they overlap (a licensed restaurant '
-         'is usually also on the map), so adding them would count it twice. Home-based licences are listed but are not '
-         'storefronts.',
+         'Overture Maps places (Overture Maps Foundation, CDLA Permissive 2.0): open place data with names, categories, '
+         'addresses, websites and phone numbers; only places marked open with a confidence of 0.6 or more, in the '
+         'everyday, retail, service and trade kinds this page uses (offices, real estate, parks and places of worship '
+         'are left out).',
+         'One business, counted once: City licences first, then OpenStreetMap, then Overture Maps. A place with the same '
+         'name as one already kept within 80 m (names compared word by word, ignoring words such as Inc, Ltd and store '
+         'numbers), or an unnamed place of the same kind within 25 m, is the same business: it is kept once, with every '
+         'source it was found in and any address, website or phone number the first lacked. The count by community and '
+         'category adds the businesses left. Home-based licences are listed but are not storefronts.',
+         'Everything is measured from every home on the City\'s property roll (weighted by its units, as Growth vs '
+         'amenities does) to the businesses of each everyday kind around it, wherever they are, so a supermarket '
+         'across the community line counts. Walking distance (400 m and 800 m, the default 800 m): share of homes '
+         'with at least one within the distance; index = the community\'s share / Calgary\'s share x 100; a gap: '
+         'index under 60 and at least 1,000 residents without one, for kinds that at least a quarter of Calgary\'s '
+         'homes have that close. 1, 2 and 3 km: how many a typical home has within the distance (the middle home, a '
+         'weighted median, so homes downtown do not set the bar); index = the community\'s typical home / Calgary\'s '
+         'typical home x 100; a gap: index under 60, at least one business short, in a community of 1,000 or more, '
+         'for kinds a typical Calgary home has within the distance. Every community is judged the same way, whatever '
+         'its size. If the home list is not available, the page falls back to the community-centre method below.',
          'Underserved index: for each community, the people living within 1, 2 or 3 km of its centre (residents counted '
          'the way chosen in Settings, community centres to community centres) and the businesses of the category in '
          'those communities. At Calgary\'s rate = those people x (Calgary\'s businesses in the category / Calgary\'s '
          'residents). Index = businesses within reach / that figure x 100: 100 is Calgary\'s average, 50 is half. '
          'Missing = at Calgary\'s rate minus businesses within reach. The biggest gaps: index under 60, at least 15,000 '
-         'people within reach and at least 1.5 missing, in categories that serve a neighbourhood.',
+         'people within reach and at least 1.5 missing, in categories that serve a neighbourhood. A community with fewer '
+         'than 15,000 people within reach is not judged (too small a market to call anything missing), so a wider '
+         'distance judges more communities and can find more gaps in number, while the share of judged places that are '
+         'gaps falls; wider circles also overlap, so one short area can count for several neighbouring communities. '
+         'Every gap is listed, with what it means, under the dashboard.',
          'Growth: the month each business still licensed today was first licensed. Closed businesses leave the list, so '
          'older months count only survivors.',
          'Your own data: a CSV file is read in the browser and never sent; the summary (monthly totals, days of the '
