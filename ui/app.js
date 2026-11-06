@@ -137,6 +137,7 @@ function show(view) {
   if (view === 'safety' && window.renderSafety) renderSafety();
   if (view === 'invest' && window.renderInvest) renderInvest();
   if (view === 'infra' && window.renderInfra) renderInfra();
+  if (view === 'help' && window.renderHelp) renderHelp();
   if (view === 'citynews' && window.renderCityNews) renderCityNews();
   if (view === 'elanalytics' && window.renderElAnalytics) renderElAnalytics();
   if (view === 'sources' && window.renderLive) renderLive();
@@ -442,7 +443,7 @@ function renderKpis() {
   const hero = $('#kpis .kpi.hero');
   if (hero && D.population && D.population.live && popMethod() !== 'census2021') {
     hero.insertAdjacentHTML('beforeend', `<div class="live-pop" title="The City's forecast pace, second by second: the area's residents on the first of this month and of next month, worked out the same way as every figure here, joined by a straight line. Each morning's refresh carries on from there.">
-      <span class="live-dot" aria-hidden="true"></span><span class="live-pop-n" id="live-pop-n"></span><small id="live-pop-rate"></small></div>`);
+      <span class="live-dot" aria-hidden="true"></span><span class="live-tag">Modelled live estimate</span><span class="live-pop-n" id="live-pop-n"></span><small id="live-pop-rate"></small></div>`);
     tickPop();
   }
 }
@@ -458,7 +459,7 @@ function tickPop() {
   const v = livePop();
   n.textContent = isNum(v) ? fmt(v, Math.abs(L.per_day) < 20 ? 4 : 3) : '';      // a ward grows slowly: more decimals so it moves
   const r = $('#live-pop-rate');
-  if (r && !r.textContent) r.textContent = ` live, at the forecast pace · ${L.per_day >= 0 ? '+' : '−'}${fmt(Math.abs(L.per_day), Math.abs(L.per_day) < 10 ? 1 : 0)} a day (the figure above is this month's)`;
+  if (r && !r.textContent) r.textContent = ` a model, not a count: rising at the City's forecast pace · ${L.per_day >= 0 ? '+' : '−'}${fmt(Math.abs(L.per_day), Math.abs(L.per_day) < 10 ? 1 : 0)} a day (the figure above is this month's)`;
 }
 setInterval(tickPop, 1000);
 
