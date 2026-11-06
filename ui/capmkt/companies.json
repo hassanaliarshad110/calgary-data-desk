@@ -1,6 +1,6 @@
 {
  "checked": "2026-11-06",
- "coverage": "Companies listed on the Toronto Stock Exchange that TMX lists with an Alberta head office (TSX, September 2026), excluding funds and exchange-traded products. TSX Venture Exchange and Canadian Securities Exchange companies are being added.",
+ "coverage": "Companies listed on the Toronto Stock Exchange and the TSX Venture Exchange that TMX lists with an Alberta head office (September 2026), excluding funds, exchange-traded products and capital pool companies. Canadian Securities Exchange companies are being added.",
  "groups": {
   "calgary": "Headquartered in Calgary",
   "calgary_office": "Headquartered elsewhere, with an office in Calgary",
@@ -9,6 +9,19 @@
   "unconfirmed": "Head office city not yet confirmed"
  },
  "companies": [
+  {
+   "ticker": "AXE",
+   "exchange": "TSXV",
+   "name": "Acceleware Ltd.",
+   "industry": "Clean technology and renewable energy",
+   "sub": "Clean technology",
+   "industry_from": "exchange sector",
+   "website": "https://www.acceleware.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.acceleware.com/",
+   "hq_how": "Company website"
+  },
   {
    "ticker": "ACX",
    "exchange": "TSX",
@@ -31,6 +44,19 @@
    "city": "Calgary",
    "group": "calgary",
    "hq_source": "https://www.advantageog.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "AUTO",
+   "exchange": "TSXV",
+   "name": "Agereh Technologies Inc.",
+   "industry": "Technology",
+   "sub": "Technology",
+   "industry_from": "exchange sector",
+   "website": "https://agereh.com",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://agereh.com",
    "hq_how": "Company website"
   },
   {
@@ -70,6 +96,85 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "APN",
+   "exchange": "TSXV",
+   "name": "Altiplano Metals Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "ALV",
+   "exchange": "TSXV",
+   "name": "Alvopetro Energy Ltd.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "AMCO",
+   "exchange": "TSXV",
+   "name": "Americore Resources Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://americoreresources.com",
+   "city": "West Vancouver, British Columbia",
+   "group": "elsewhere",
+   "hq_source": "https://americoreresources.com/contact",
+   "hq_how": "Company website",
+   "note": "Listed by TMX with an Alberta head office; the company gives its address elsewhere"
+  },
+  {
+   "ticker": "ANK",
+   "exchange": "TSXV",
+   "name": "Angkor Resources Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "APL",
+   "exchange": "TSXV",
+   "name": "Appulse Corporation",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "AXL",
+   "exchange": "TSXV",
+   "name": "Arrow Exploration Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "ACO",
    "exchange": "TSX",
    "name": "Atco Ltd.",
@@ -92,6 +197,19 @@
    "group": "calgary",
    "hq_source": "https://www.atha.com",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "ATLE",
+   "exchange": "TSXV",
+   "name": "Atlas Energy Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "ACB",
@@ -166,6 +284,19 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "BGA",
+   "exchange": "TSXV",
+   "name": "BioNeutra Global Corporation",
+   "industry": "Healthcare and life sciences",
+   "sub": "Life sciences",
+   "industry_from": "exchange sector",
+   "website": "https://www.bioneutra.ca",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://www.bioneutra.ca",
+   "hq_how": "Company website"
+  },
+  {
    "ticker": "BIR",
    "exchange": "TSX",
    "name": "Birchcliff Energy Ltd.",
@@ -175,6 +306,19 @@
    "city": "Calgary",
    "group": "calgary",
    "hq_source": "https://www.birchcliffenergy.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "BTCW",
+   "exchange": "TSXV",
+   "name": "Bitcoin Well Inc.",
+   "industry": "Technology",
+   "sub": "Technology",
+   "industry_from": "exchange sector",
+   "website": "https://bitcoinwell.com/us",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://bitcoinwell.com/us",
    "hq_how": "Company website"
   },
   {
@@ -202,6 +346,19 @@
    "hq_how": "Wikipedia (the company website blocks automated reading); to be checked against the annual report"
   },
   {
+   "ticker": "BOCA",
+   "exchange": "TSXV",
+   "name": "Bocana Resources Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://bocanaresources.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://bocanaresources.com/contact",
+   "hq_how": "Company website"
+  },
+  {
    "ticker": "BNE",
    "exchange": "TSX",
    "name": "Bonterra Energy Corp.",
@@ -226,6 +383,19 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "BCF",
+   "exchange": "TSXV",
+   "name": "Builders Capital Mortgage Corp.",
+   "industry": "Financial services",
+   "sub": "Financial services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "CFW",
    "exchange": "TSX",
    "name": "Calfrac Well Services Ltd.",
@@ -236,6 +406,19 @@
    "group": "calgary",
    "hq_source": "https://calfrac.com/",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "CANB",
+   "exchange": "TSXV",
+   "name": "CanadaBis Capital Inc.",
+   "industry": "Healthcare and life sciences",
+   "sub": "Life sciences",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "CNQ",
@@ -262,6 +445,32 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "CPS",
+   "exchange": "TSXV",
+   "name": "Canadian Premium Sand Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "SPI",
+   "exchange": "TSXV",
+   "name": "Canadian Spirit Resources Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "CU",
    "exchange": "TSX",
    "name": "Canadian Utilities Limited",
@@ -272,6 +481,45 @@
    "group": "calgary",
    "hq_source": "https://en.wikipedia.org/wiki/Canadian_Utilities",
    "hq_how": "Wikipedia (the company website blocks automated reading); to be checked against the annual report"
+  },
+  {
+   "ticker": "CEC",
+   "exchange": "TSXV",
+   "name": "CanAsia Energy Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "CANX",
+   "exchange": "TSXV",
+   "name": "Canex Metals Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://canexmetals.ca:443",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://canexmetals.ca:443/contact/contact-us/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "CYF",
+   "exchange": "TSXV",
+   "name": "Canyon Creek Food Company Ltd.",
+   "industry": "Consumer and other",
+   "sub": "Consumer",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "CPX",
@@ -286,6 +534,19 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "CAI",
+   "exchange": "TSXV",
+   "name": "Capitan Investment Ltd.",
+   "industry": "Financial services",
+   "sub": "Financial services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "CJ",
    "exchange": "TSX",
    "name": "Cardinal Energy Ltd.",
@@ -296,6 +557,20 @@
    "group": "calgary",
    "hq_source": "https://cardinalenergy.ca/",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "GLDC",
+   "exchange": "TSXV",
+   "name": "Cassiar Gold Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://www.cassiargold.com",
+   "city": "Vancouver, British Columbia",
+   "group": "elsewhere",
+   "hq_source": "https://www.cassiargold.com",
+   "hq_how": "Company website",
+   "note": "Listed by TMX with an Alberta head office; the company gives its address elsewhere"
   },
   {
    "ticker": "CVVY",
@@ -334,6 +609,19 @@
    "hq_how": "Wikipedia (the company website blocks automated reading); to be checked against the annual report"
   },
   {
+   "ticker": "CTA",
+   "exchange": "TSXV",
+   "name": "Centaurus Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "CEU",
    "exchange": "TSX",
    "name": "CES Energy Solutions Corp.",
@@ -344,6 +632,58 @@
    "group": "calgary",
    "hq_source": "https://www.cesenergysolutions.com/contact/",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "CBA",
+   "exchange": "TSXV",
+   "name": "Champion Bear Resources Ltd.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://championbear.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://championbear.com/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "CTEK",
+   "exchange": "TSXV",
+   "name": "Cleantek Industries Inc.",
+   "industry": "Clean technology and renewable energy",
+   "sub": "Clean technology",
+   "industry_from": "exchange sector",
+   "website": "https://cleantekinc.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://cleantekinc.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "CEI",
+   "exchange": "TSXV",
+   "name": "Coelacanth Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://www.coelacanth.ca",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.coelacanth.ca/contact",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "CAG",
+   "exchange": "TSXV",
+   "name": "Composite Alliance Group Inc.",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "CMG",
@@ -370,6 +710,45 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "CUU",
+   "exchange": "TSXV",
+   "name": "Copper Fox Metals Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://www.copperfoxmetals.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.copperfoxmetals.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "CEQ",
+   "exchange": "TSXV",
+   "name": "Criterium Energy Ltd.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://www.criteriumenergy.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.criteriumenergy.com/contact/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "CRWN",
+   "exchange": "TSXV",
+   "name": "Crown Capital Partners Inc.",
+   "industry": "Financial services",
+   "sub": "Financial services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "CIU",
    "exchange": "TSX",
    "name": "CU Inc.",
@@ -380,6 +759,45 @@
    "group": "calgary",
    "hq_source": "https://en.wikipedia.org/wiki/Canadian_Utilities",
    "hq_how": "Subsidiary of Canadian Utilities; shares its head office (Wikipedia, checked against the parent)"
+  },
+  {
+   "ticker": "CVW",
+   "exchange": "TSXV",
+   "name": "CVW Sustainable Royalties Inc.",
+   "industry": "Clean technology and renewable energy",
+   "sub": "Clean technology",
+   "industry_from": "exchange sector",
+   "website": "https://cvwsustainableroyalties.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://cvwsustainableroyalties.com/contact/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "DB",
+   "exchange": "TSXV",
+   "name": "Decibel Cannabis Company Inc.",
+   "industry": "Consumer and other",
+   "sub": "Consumer",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "WCSB",
+   "exchange": "TSXV",
+   "name": "Decimus Oil Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://decimusoil.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://decimusoil.com/contact",
+   "hq_how": "Company website"
   },
   {
    "ticker": "DXT",
@@ -405,6 +823,45 @@
    "group": "calgary",
    "hq_source": "https://www.dirtt.com/contact-us/",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "DPF",
+   "exchange": "TSXV",
+   "name": "Dr. Phone Fix Canada Corporation",
+   "industry": "Consumer and other",
+   "sub": "Consumer",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "ETL",
+   "exchange": "TSXV",
+   "name": "E3 Lithium Ltd.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://www.e3lithium.ca",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.e3lithium.ca",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "EGT",
+   "exchange": "TSXV",
+   "name": "Eguana Technologies Inc.",
+   "industry": "Clean technology and renewable energy",
+   "sub": "Clean technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "ENB",
@@ -443,6 +900,19 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "EPF",
+   "exchange": "TSXV",
+   "name": "Everyday People Financial Corp.",
+   "industry": "Technology",
+   "sub": "Technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "E",
    "exchange": "TSX",
    "name": "Evolution PowerX Corp.",
@@ -453,6 +923,33 @@
    "group": "unconfirmed",
    "hq_source": null,
    "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "EXG",
+   "exchange": "TSXV",
+   "name": "ExGen Resources Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://exgeninc.com",
+   "city": "Vancouver, British Columbia",
+   "group": "elsewhere",
+   "hq_source": "https://exgeninc.com/contact/",
+   "hq_how": "Company website",
+   "note": "Listed by TMX with an Alberta head office; the company gives its address elsewhere"
+  },
+  {
+   "ticker": "FHR",
+   "exchange": "TSXV",
+   "name": "Fiddlehead Resources Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://www.fiddleheadresources.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.fiddleheadresources.com/contact",
+   "hq_how": "Company website"
   },
   {
    "ticker": "FLNT",
@@ -467,6 +964,19 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "FDR",
+   "exchange": "TSXV",
+   "name": "Founders Metals Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "FRU",
    "exchange": "TSX",
    "name": "Freehold Royalties Ltd.",
@@ -477,6 +987,20 @@
    "group": "calgary",
    "hq_source": "https://freeholdroyalties.com/",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "BEEP",
+   "exchange": "TSXV",
+   "name": "Geiger Energy Corporation",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://geigerenergy.com",
+   "city": "Toronto, Ontario",
+   "group": "elsewhere",
+   "hq_source": "https://geigerenergy.com",
+   "hq_how": "Company website",
+   "note": "Listed by TMX with an Alberta head office; the company gives its address elsewhere"
   },
   {
    "ticker": "GDC",
@@ -503,6 +1027,19 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "GFTA",
+   "exchange": "TSXV",
+   "name": "Grafta Nanotech Corp.",
+   "industry": "Clean technology and renewable energy",
+   "sub": "Clean technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "GTE",
    "exchange": "TSX",
    "name": "Gran Tierra Energy Inc.",
@@ -527,6 +1064,45 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "GZD",
+   "exchange": "TSXV",
+   "name": "Grizzly Discoveries Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://www.grizzlydiscoveries.com",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://www.grizzlydiscoveries.com/contact",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "GRD",
+   "exchange": "TSXV",
+   "name": "Grounded Lithium Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://groundedlithium.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://groundedlithium.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "GX",
+   "exchange": "TSXV",
+   "name": "Guardian Exploration Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "HWX",
    "exchange": "TSX",
    "name": "Headwater Exploration Inc.",
@@ -539,6 +1115,32 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "HEVI",
+   "exchange": "TSXV",
+   "name": "Helium Evolution Incorporated",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://www.heliumevolution.ca",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.heliumevolution.ca/contact/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "HEM",
+   "exchange": "TSXV",
+   "name": "Hemostemix Inc.",
+   "industry": "Healthcare and life sciences",
+   "sub": "Life sciences",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "HWO",
    "exchange": "TSX",
    "name": "High Arctic Energy Services Inc.",
@@ -548,6 +1150,84 @@
    "city": "Calgary",
    "group": "calgary",
    "hq_source": "https://haes.ca/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "HOH",
+   "exchange": "TSXV",
+   "name": "High Arctic Overseas Holdings Corp.",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": "https://higharctic.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://higharctic.com/contact/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "HITI",
+   "exchange": "TSXV",
+   "name": "High Tide Inc.",
+   "industry": "Consumer and other",
+   "sub": "Consumer",
+   "industry_from": "exchange sector",
+   "website": "https://hightideinc.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://hightideinc.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "HAM",
+   "exchange": "TSXV",
+   "name": "Highwood Asset Management Ltd.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "HPL",
+   "exchange": "TSXV",
+   "name": "Horizon Petroleum Ltd.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "IDL",
+   "exchange": "TSXV",
+   "name": "Imaging Dynamics Company Ltd.",
+   "industry": "Healthcare and life sciences",
+   "sub": "Life sciences",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "IEI",
+   "exchange": "TSXV",
+   "name": "Imperial Equities Inc.",
+   "industry": "Real estate",
+   "sub": "Real estate",
+   "industry_from": "exchange sector",
+   "website": "https://imperialequities.com",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://imperialequities.com",
    "hq_how": "Company website"
   },
   {
@@ -563,6 +1243,19 @@
    "hq_how": "Wikipedia (the company website blocks automated reading); to be checked against the annual report"
   },
   {
+   "ticker": "IOT",
+   "exchange": "TSXV",
+   "name": "Innovotech Inc.",
+   "industry": "Healthcare and life sciences",
+   "sub": "Life sciences",
+   "industry_from": "exchange sector",
+   "website": "https://innovotech.ca",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://innovotech.ca",
+   "hq_how": "Company website"
+  },
+  {
    "ticker": "IPO",
    "exchange": "TSX",
    "name": "InPlay Oil Corp.",
@@ -572,6 +1265,46 @@
    "city": "Calgary",
    "group": "calgary",
    "hq_source": "https://www.inplayoil.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "IFR",
+   "exchange": "TSXV",
+   "name": "International Frontier Resources Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "IVX",
+   "exchange": "TSXV",
+   "name": "Inventronics Limited",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": "https://www.inventronics.com",
+   "city": "Brandon, Manitoba",
+   "group": "elsewhere",
+   "hq_source": "https://www.inventronics.com",
+   "hq_how": "Company website",
+   "note": "Listed by TMX with an Alberta head office; the company gives its address elsewhere"
+  },
+  {
+   "ticker": "JADE",
+   "exchange": "TSXV",
+   "name": "Jade Leader Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://jadeleader.com:443",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://jadeleader.com:443/contact/contact-info/",
    "hq_how": "Company website"
   },
   {
@@ -587,6 +1320,19 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "JEC",
+   "exchange": "TSXV",
+   "name": "Jura Energy Corporation",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "KBL",
    "exchange": "TSX",
    "name": "K-Bro Linen Inc.",
@@ -597,6 +1343,19 @@
    "group": "alberta",
    "hq_source": "https://www.k-brolinen.com/contact/",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "KIRO",
+   "exchange": "TSXV",
+   "name": "Kairos Gold Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "KRN",
@@ -624,6 +1383,19 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "KGC",
+   "exchange": "TSXV",
+   "name": "Kestrel Gold Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "KEY",
    "exchange": "TSX",
    "name": "Keyera Corp.",
@@ -636,6 +1408,97 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "LTX",
+   "exchange": "TSXV",
+   "name": "Labrador Resources Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "LEGY",
+   "exchange": "TSXV",
+   "name": "Legacy Gold Mines Ltd.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "LITH",
+   "exchange": "TSXV",
+   "name": "Lithium Chile Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://lithiumchile.ca",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://lithiumchile.ca/contact/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "LGN",
+   "exchange": "TSXV",
+   "name": "Logan Energy Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "LTC",
+   "exchange": "TSXV",
+   "name": "Lotus Creek Exploration Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://www.lotuscreek.ca",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.lotuscreek.ca",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "LCX",
+   "exchange": "TSXV",
+   "name": "Lycos Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://lycosenergy.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://lycosenergy.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "MNC",
+   "exchange": "TSXV",
+   "name": "Magnetic North Acquisition Corp.",
+   "industry": "Financial services",
+   "sub": "Financial services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "MEQ",
    "exchange": "TSX",
    "name": "Mainstreet Equity Corp.",
@@ -646,6 +1509,32 @@
    "group": "calgary",
    "hq_source": "https://www.mainst.biz",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "MAH",
+   "exchange": "TSXV",
+   "name": "Marksmen Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://marksmenenergy.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://marksmenenergy.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "MRVL",
+   "exchange": "TSXV",
+   "name": "Marvel Biosciences Corp.",
+   "industry": "Healthcare and life sciences",
+   "sub": "Life sciences",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "MXG",
@@ -684,6 +1573,45 @@
    "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
+   "ticker": "MLO",
+   "exchange": "TSXV",
+   "name": "Metalero Mining Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://metaleromining.com",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://metaleromining.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "MIVO",
+   "exchange": "TSXV",
+   "name": "Miivo AI Inc.",
+   "industry": "Technology",
+   "sub": "Technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "MKA",
+   "exchange": "TSXV",
+   "name": "Mkango Magnetic Materials Limited",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "MTL",
    "exchange": "TSX",
    "name": "Mullen Group Ltd.",
@@ -694,6 +1622,58 @@
    "group": "alberta",
    "hq_source": "https://www.mullen-group.com",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "NSCI",
+   "exchange": "TSXV",
+   "name": "Nanalysis Scientific Corp.",
+   "industry": "Healthcare and life sciences",
+   "sub": "Life sciences",
+   "industry_from": "exchange sector",
+   "website": "https://www.nanalysis.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.nanalysis.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "NSE",
+   "exchange": "TSXV",
+   "name": "New Stratus Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "NGY",
+   "exchange": "TSXV",
+   "name": "Nexera Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "NPV",
+   "exchange": "TSXV",
+   "name": "Next Phase Ventures Ltd.",
+   "industry": "Clean technology and renewable energy",
+   "sub": "Clean technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "GASX",
@@ -744,12 +1724,38 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "OLV",
+   "exchange": "TSXV",
+   "name": "Olivut Resources Ltd.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://olivut.ca",
+   "city": "Hinton",
+   "group": "alberta",
+   "hq_source": "https://olivut.ca/contact-us/",
+   "hq_how": "Company website"
+  },
+  {
    "ticker": "OLY",
    "exchange": "TSX",
    "name": "Olympia Financial Group Inc.",
    "website": "https://www.olympiafinancial.com",
    "industry": "Financial services",
    "sub": "Financial services",
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "PNN",
+   "exchange": "TSXV",
+   "name": "Pambili Natural Resources Corporation",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
    "city": null,
    "group": "unconfirmed",
    "hq_source": null,
@@ -802,6 +1808,32 @@
    "group": "calgary",
    "hq_source": "https://en.wikipedia.org/wiki/Pembina_Pipeline",
    "hq_how": "Wikipedia (the company website blocks automated reading); to be checked against the annual report"
+  },
+  {
+   "ticker": "PFC",
+   "exchange": "TSXV",
+   "name": "PetroFrontier Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "PTC",
+   "exchange": "TSXV",
+   "name": "Petrox Resources Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "PRQ",
@@ -888,6 +1920,32 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "MKT",
+   "exchange": "TSXV",
+   "name": "Prospect Prediction Markets Inc.",
+   "industry": "Technology",
+   "sub": "Technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "PEI",
+   "exchange": "TSXV",
+   "name": "Prospera Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "PSD",
    "exchange": "TSX",
    "name": "Pulse Seismic Inc.",
@@ -897,6 +1955,19 @@
    "city": "Calgary",
    "group": "calgary",
    "hq_source": "https://pulseseismic.com/about/contact-us/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "QPT",
+   "exchange": "TSXV",
+   "name": "Quest Pharmatech Inc.",
+   "industry": "Healthcare and life sciences",
+   "sub": "Life sciences",
+   "industry_from": "exchange sector",
+   "website": "https://questpharmatech.com",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://questpharmatech.com",
    "hq_how": "Company website"
   },
   {
@@ -912,6 +1983,97 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "QST",
+   "exchange": "TSXV",
+   "name": "Questor Technology Inc.",
+   "industry": "Clean technology and renewable energy",
+   "sub": "Clean technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "RECO",
+   "exchange": "TSXV",
+   "name": "Reconnaissance Energy Africa Ltd.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "REC",
+   "exchange": "TSXV",
+   "name": "Record Resources Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "RFX",
+   "exchange": "TSXV",
+   "name": "Reeflex Solutions Inc.",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": "https://reeflex.ca",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://reeflex.ca/contact/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "RPP",
+   "exchange": "TSXV",
+   "name": "Regent Pacific Properties Inc.",
+   "industry": "Real estate",
+   "sub": "Real estate",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "REG",
+   "exchange": "TSXV",
+   "name": "Regulus Resources Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "RW",
+   "exchange": "TSXV",
+   "name": "RenoWorks Software Inc.",
+   "industry": "Technology",
+   "sub": "Technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "RVX",
    "exchange": "TSX",
    "name": "Resverlogix Corp.",
@@ -924,12 +2086,38 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "ROB",
+   "exchange": "TSXV",
+   "name": "Robinson Energy Limited",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "RGSI",
    "exchange": "TSX",
    "name": "Rockpoint Gas Storage Inc.",
    "website": "https://www.rgsi.com",
    "industry": "Pipelines, utilities and power",
    "sub": "Pipelines and midstream",
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "RUM",
+   "exchange": "TSXV",
+   "name": "Rocky Mountain Liquor Inc.",
+   "industry": "Consumer and other",
+   "sub": "Consumer",
+   "industry_from": "exchange sector",
+   "website": null,
    "city": null,
    "group": "unconfirmed",
    "hq_source": null,
@@ -948,6 +2136,97 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "RMB",
+   "exchange": "TSXV",
+   "name": "Rumbu Holdings Ltd.",
+   "industry": "Consumer and other",
+   "sub": "Consumer",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "SLG",
+   "exchange": "TSXV",
+   "name": "San Lorenzo Gold Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://www.sanlorenzogold.ca",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.sanlorenzogold.ca/",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "HASH",
+   "exchange": "TSXV",
+   "name": "Simply Solventless Concentrates Ltd.",
+   "industry": "Consumer and other",
+   "sub": "Consumer",
+   "industry_from": "exchange sector",
+   "website": "https://www.simplysolventless.ca",
+   "city": "Rocky View County",
+   "group": "alberta",
+   "hq_source": "https://www.simplysolventless.ca/contact",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "SEI",
+   "exchange": "TSXV",
+   "name": "Sintana Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "SSX",
+   "exchange": "TSXV",
+   "name": "Sleeping Giant Capital Corp.",
+   "industry": "Financial services",
+   "sub": "Financial services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "SNV",
+   "exchange": "TSXV",
+   "name": "Sonoro Energy Ltd.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://www.sonoroenergy.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.sonoroenergy.com/contact",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "SGO",
+   "exchange": "TSXV",
+   "name": "Sonoro Gold Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "SHLE",
    "exchange": "TSX",
    "name": "Source Energy Services Ltd.",
@@ -958,6 +2237,19 @@
    "group": "unconfirmed",
    "hq_source": null,
    "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "SRR",
+   "exchange": "TSXV",
+   "name": "Source Rock Royalties Ltd.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": "https://www.sourcerockroyalties.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.sourcerockroyalties.com",
+   "hq_how": "Company website"
   },
   {
    "ticker": "SOBO",
@@ -972,6 +2264,32 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "SOU",
+   "exchange": "TSXV",
+   "name": "Southern Energy Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "SAY",
+   "exchange": "TSXV",
+   "name": "Sparta Capital Ltd.",
+   "industry": "Financial services",
+   "sub": "Financial services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "SDE",
    "exchange": "TSX",
    "name": "Spartan Delta Corp.",
@@ -982,6 +2300,19 @@
    "group": "unconfirmed",
    "hq_source": null,
    "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "SDI",
+   "exchange": "TSXV",
+   "name": "Stampede Drilling Inc.",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": "https://stampededrilling.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://stampededrilling.com",
+   "hq_how": "Company website"
   },
   {
    "ticker": "STN",
@@ -1019,6 +2350,19 @@
    "group": "calgary",
    "hq_source": "https://www.strathconaresources.com/contact-us/",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "STUV",
+   "exchange": "TSXV",
+   "name": "Stuve Gold Corp.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "SU",
@@ -1129,6 +2473,19 @@
    "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
+   "ticker": "TLA",
+   "exchange": "TSXV",
+   "name": "Titan Logix Corp.",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": "https://titanlogix.com",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://titanlogix.com",
+   "hq_how": "Company website"
+  },
+  {
    "ticker": "TPZ",
    "exchange": "TSX",
    "name": "Topaz Energy Corp.",
@@ -1139,6 +2496,20 @@
    "group": "calgary",
    "hq_source": "https://www.topazenergy.ca/contact/",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "TMET",
+   "exchange": "TSXV",
+   "name": "Torr Metals Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://www.torrmetals.com",
+   "city": "Vancouver, British Columbia",
+   "group": "elsewhere",
+   "hq_source": "https://www.torrmetals.com",
+   "hq_how": "Company website",
+   "note": "Listed by TMX with an Alberta head office; the company gives its address elsewhere"
   },
   {
    "ticker": "TOT",
@@ -1201,6 +2572,45 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "TBIX",
+   "exchange": "TSXV",
+   "name": "TrustBIX Inc.",
+   "industry": "Technology",
+   "sub": "Technology",
+   "industry_from": "exchange sector",
+   "website": "https://www.trustbix.com",
+   "city": "Edmonton",
+   "group": "alberta",
+   "hq_source": "https://www.trustbix.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "TUK",
+   "exchange": "TSXV",
+   "name": "Tuktu Resources Ltd.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "TVI",
+   "exchange": "TSXV",
+   "name": "TVI Pacific Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://tvipacific.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://tvipacific.com/contact-us/",
+   "hq_how": "Company website"
+  },
+  {
    "ticker": "VET",
    "exchange": "TSX",
    "name": "Vermilion Energy Inc.",
@@ -1211,6 +2621,123 @@
    "group": "calgary",
    "hq_source": "https://www.vermilionenergy.com",
    "hq_how": "Company website"
+  },
+  {
+   "ticker": "VTX",
+   "exchange": "TSXV",
+   "name": "Vertex Resource Group Ltd.",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "VIS",
+   "exchange": "TSXV",
+   "name": "Visionstate Corp.",
+   "industry": "Technology",
+   "sub": "Technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "VUX",
+   "exchange": "TSXV",
+   "name": "Vital Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "VITA",
+   "exchange": "TSXV",
+   "name": "Vitalist Inc.",
+   "industry": "Technology",
+   "sub": "Technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "VCI",
+   "exchange": "TSXV",
+   "name": "Vitreous Glass Inc.",
+   "industry": "Clean technology and renewable energy",
+   "sub": "Clean technology",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "VCT",
+   "exchange": "TSXV",
+   "name": "Volt Carbon Technologies Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "VM",
+   "exchange": "TSXV",
+   "name": "Voyageur Pharmaceuticals Ltd.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": "https://voyageurpharmaceuticals.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://voyageurpharmaceuticals.com",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "WCE",
+   "exchange": "TSXV",
+   "name": "Wescan Energy Corp.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "WHY",
+   "exchange": "TSXV",
+   "name": "West High Yield (W.H.Y.) Resources Ltd.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
   },
   {
    "ticker": "WRG",
@@ -1225,6 +2752,32 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "WI",
+   "exchange": "TSXV",
+   "name": "Western Investment Company of Canada Limited (The)",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "WGT",
+   "exchange": "TSXV",
+   "name": "Westgate Energy Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "WCP",
    "exchange": "TSX",
    "name": "Whitecap Resources Inc.",
@@ -1237,6 +2790,32 @@
    "hq_how": "Company website"
   },
   {
+   "ticker": "WMK",
+   "exchange": "TSXV",
+   "name": "Whitemud Resources Inc.",
+   "industry": "Mining and minerals",
+   "sub": "Mineral exploration and mining",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "WIL",
+   "exchange": "TSXV",
+   "name": "Wilton Resources Inc.",
+   "industry": "Energy: oil and gas",
+   "sub": "Oil and gas",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
    "ticker": "YGR",
    "exchange": "TSX",
    "name": "Yangarra Resources Ltd.",
@@ -1246,6 +2825,32 @@
    "city": "Calgary",
    "group": "calgary",
    "hq_source": "https://www.yangarra.ca",
+   "hq_how": "Company website"
+  },
+  {
+   "ticker": "YEG",
+   "exchange": "TSXV",
+   "name": "Yorkton Equity Group Inc.",
+   "industry": "Real estate",
+   "sub": "Real estate",
+   "industry_from": "exchange sector",
+   "website": null,
+   "city": null,
+   "group": "unconfirmed",
+   "hq_source": null,
+   "hq_how": "Not yet confirmed: TMX lists an Alberta head office"
+  },
+  {
+   "ticker": "ZDC",
+   "exchange": "TSXV",
+   "name": "Zedcor Inc.",
+   "industry": "Industrial products and services",
+   "sub": "Industrial products and services",
+   "industry_from": "exchange sector",
+   "website": "https://www.zedcor.com",
+   "city": "Calgary",
+   "group": "calgary",
+   "hq_source": "https://www.zedcor.com",
    "hq_how": "Company website"
   }
  ]

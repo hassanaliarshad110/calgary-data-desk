@@ -1984,7 +1984,6 @@ table.data td.num, table.data th.num, .num { font-variant-numeric: tabular-nums;
 /* loading and empty states */
 #view-help .muted, .card > p.muted:only-child { padding: 6px 2px; }
 /* the live population figure: say plainly that it is a modelled estimate */
-.live-pop .live-tag { display: inline-block; margin-right: 8px; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; background: rgba(34, 197, 94, .14); color: #86EFAC; vertical-align: 2px; }
 /* sidebar: steadier icon column and clearer section rhythm */
 .tab .ic { flex: none; width: 18px; height: 18px; }
 .nav-h { margin-top: 16px; }
