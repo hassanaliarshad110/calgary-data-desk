@@ -28,6 +28,8 @@ CMA_TABLE = 35100026
 POLICE_TABLES = [35100186, 35100187, 35100188, 35100189, 35100061, 35100190, 35100063, 35100064]
 POP_TABLE = 35100077
 MIN_POP = 10_000
+METHOD = 2                  # 2: population from the last three years of the Police Administration Survey only
+POP_YEARS = 3
 PAGES = {t: f'https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid={t}01' for t in [CMA_TABLE, POP_TABLE] + POLICE_TABLES}
 PROVS = {'Newfoundland and Labrador': 'NL', 'Prince Edward Island': 'PE', 'Nova Scotia': 'NS', 'New Brunswick': 'NB',
          'Quebec': 'QC', 'Ontario': 'ON', 'Manitoba': 'MB', 'Saskatchewan': 'SK', 'Alberta': 'AB',
@@ -92,8 +94,10 @@ def build_from(police_rows, pop_rows, cma_rows, release=None):
             pops.setdefault(dg, {})[y] = v
 
     def pop_for(dg, y):
+        # the police service's population in the Police Administration Survey, the latest year up to y and no more than
+        # POP_YEARS before it: a service the survey no longer lists on its own (many rural contracts) is left out
         p = pops.get(dg) or {}
-        ys = sorted(k for k in p if k <= y) or sorted(p)
+        ys = sorted(k for k in p if str(int(y) - POP_YEARS) < k <= y)
         return p[ys[-1]] if ys else None
 
     serv = {}
@@ -151,7 +155,7 @@ def build_from(police_rows, pop_rows, cma_rows, release=None):
 
     cal = next((c for c in cities if c['name'] == 'Calgary' and c['prov'] == 'AB'), None)
     cal_cma = next((c for c in cmas if c['name'].startswith('Calgary')), None)
-    return {'year': int(year), 'prev_year': int(prev) if prev else None, 'release': release,
+    return {'year': int(year), 'prev_year': int(prev) if prev else None, 'release': release, 'method': METHOD,
             'cities_ranked': n, 'cities_ranked_prev': len(prev_u), 'min_population': MIN_POP, 'large_ranked': len(large),
             'top50': cities[:50], 'cities': cities, 'calgary': cal, 'calgary_cma': cal_cma, 'cmas': cmas,
             'canada': next((v for y, geo, dg, st, v in cma_rows if y == year and geo.startswith('Canada') and st == 'Crime severity index'), None),
@@ -172,7 +176,7 @@ def build_from(police_rows, pop_rows, cma_rows, release=None):
 def build(previous=None):
     """Download and rank. previous: the last output (skipped when Statistics Canada has released nothing new)."""
     rel = release_times()
-    if previous and previous.get('release') == rel and previous.get('top50'):
+    if previous and previous.get('release') == rel and previous.get('method') == METHOD and previous.get('top50'):
         return previous
     keep = set(STATS)
     police = []

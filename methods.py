@@ -738,8 +738,9 @@ METHODS = [
          'courts hand down), per resident, with Canada in 2006 set to 100. A lower index means less serious crime per '
          'resident. The violent index counts violent crime only.',
          'Cities: police services marked "municipal" (a city\'s own police or the RCMP under contract to the city), '
-         'serving 10,000 people or more (the population Statistics Canada gives for the police service; the latest '
-         'year on file when the current year is not). Regional police services (Halton, York, Peel and others) are '
+         'serving 10,000 people or more (the population the Police Administration Survey gives for the police '
+         'service, the latest of the last three years; services the survey no longer lists on their own, such as many '
+         'rural OPP and RCMP contracts, are left out). Regional police services (Halton, York, Peel and others) are '
          'ranked as Statistics Canada reports them, as one service. Rank 1 = the lowest index; ties go alphabetically.',
          'Last year\'s rank is the same ranking with last year\'s figures, so the number of cities can differ by a '
          'few. Cities of 100,000 or more are also ranked among themselves. Metropolitan areas: Statistics Canada\'s '
