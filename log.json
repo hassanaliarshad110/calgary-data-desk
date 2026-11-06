@@ -1,0 +1,56 @@
+{
+ "catalog": [
+  [
+   "tfs4-3wwa",
+   "Public Trees"
+  ],
+  [
+   "uwi9-9nzk",
+   "Urban Forest - Public Tree Locations"
+  ],
+  [
+   "yrm5-fijg",
+   "Number of public trees, by community"
+  ],
+  [
+   "qmxc-agq2",
+   "Heritage Trees in Calgary"
+  ],
+  [
+   "i3bh-4mvd",
+   "Deciduous and evergreen trees, by mature size"
+  ],
+  [
+   "i6pu-a35d",
+   "Calgary Equity Index - 2024"
+  ]
+ ],
+ "dataset": "tfs4-3wwa",
+ "sample": {
+  "species": "X",
+  "active_dt": "2024-06-05T00:00:00.000Z",
+  "asset_subtype": "Deciduous",
+  "hort_code": "POXAS",
+  "maintained_by": "CALGARY PARKS",
+  "tree_maintenance": "ESTABLISH TREE",
+  "asset_type": "TREE",
+  "site_element_type_description": "TITLED",
+  "tree_asset_cd": "CPF002",
+  "mature_size": "LARGE",
+  "tree_condition_rating_perc": "72",
+  "hardware": "N",
+  "genus": "POPULUS",
+  "heritage_trees": "N",
+  "rating": "80",
+  "location_detail": "26 COPPERSTONE GR SE",
+  "common_name": "POPLAR, ASSINIBOINE",
+  "appraised_value": "565.0",
+  "site_element_minortype": "MR - MUNICIPAL RESERVE",
+  "comm_code": "CPF",
+  "cultivar": "ASSINBOINE",
+  "dbh_cm": "9",
+  "modified_dt": "2025-10-24T16:14:58.000Z",
+  "wam_id": "T-51470768"
+ },
+ "trees": 581506
+}
