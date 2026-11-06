@@ -1,0 +1,443 @@
+{
+ "date": "2026-11-06",
+ "published_at": "2026-11-06T23:40:18Z",
+ "articles": [
+  {
+   "title": "Alberta's unemployment rate jumps to 7.3 per cent in October; Calgary's edges up to 6.6",
+   "dek": "New Labour Force Survey figures show Alberta lost 24,000 jobs last month, while Calgary's unemployment rate rose more modestly.",
+   "section": "Business and economy",
+   "body": [
+    "Alberta's unemployment rate climbed to 7.3 per cent in October, up from 6.4 per cent in September, according to Statistics Canada's monthly Labour Force Survey released on Friday, Nov. 6 [1].",
+    "The province lost 24,000 jobs in October after adding 23,000 in September [1]. Alberta's rate is now 0.6 percentage points above the national rate of 6.7 per cent [1].",
+    "In Calgary, the unemployment rate rose to 6.6 per cent from 6.3 per cent the month before, a smaller increase than in the province as a whole [1]. Calgary's employment rate, the share of working-age people who have a job, stood at 65.8 per cent, the highest among cities in its size group [1]. Across Canada, the average employment rate was 60.8 per cent [1].",
+    "Elsewhere in Alberta, the Wood Buffalo-Cold Lake region had the highest employment rate at 70.5 per cent, and Red Deer's was 66.1 per cent [1].",
+    "Charles St-Arnauld, chief economist at Servus Credit Union, said Alberta's economy is still performing better than the rest of the country, but cautioned that this is not a sign of a strengthening economy [1].",
+    "Busuyi Okeowo of Calgary Economic Development described the city's labour market as resilient while noting signs of softness in the near term [1]. He pointed to renewed investment in the energy sector and continued population growth as factors supporting the local economy [1]."
+   ],
+   "key_facts": [
+    "Alberta unemployment: 7.3% in October, up from 6.4%",
+    "Calgary unemployment: 6.6%, up from 6.3%",
+    "Alberta lost 24,000 jobs in October",
+    "Canada's rate: 6.7%"
+   ],
+   "topics": [
+    "Economy",
+    "Provincial"
+   ],
+   "image_query": "Calgary downtown skyline",
+   "charts": [
+    {
+     "title": "Unemployment rate, September vs October 2026",
+     "kind": "bar",
+     "labels": [
+      "Alberta",
+      "Calgary"
+     ],
+     "series": [
+      {
+       "name": "September",
+       "values": [
+        6.4,
+        6.3
+       ]
+      },
+      {
+       "name": "October",
+       "values": [
+        7.3,
+        6.6
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Unemployment up in Alberta and Calgary, but economist says province still doing better than rest of Canada",
+     "outlet": "CBC News (via Yahoo News Canada)",
+     "url": "https://ca.news.yahoo.com/unemployment-alberta-calgary-economist-says-224542084.html",
+     "published": "2026-11-06"
+    }
+   ],
+   "id": "2026-11-06-alberta-s-unemployment-rate-jumps-to-7-3-per-cent-in-october-calgary-s",
+   "date": "2026-11-06",
+   "published_at": "2026-11-06T23:40:18Z",
+   "words": 227
+  },
+  {
+   "title": "Calgary water use under 500 million litres for a second day as feeder main draining nears completion",
+   "dek": "The City says draining of the old Bearspaw South Feeder Main should finish this weekend, while road cutting begins on Parkdale Boulevard and 89 Street N.W.",
+   "section": "Environment and weather",
+   "updated_from": "2026-11-05-calgary-water-use-stays-in-the-green-zone-as-crews-start-draining-the-",
+   "body": [
+    "Calgarians used 490 million litres of water on Thursday, Nov. 5, the second day in a row that city-wide use stayed in the green zone below 500 million litres a day, the City of Calgary said on Friday [1]. On Wednesday, Nov. 4, the first day of the shutdown, use was also 490 million litres, which the City said was 24 million litres lower than the day before [2].",
+    "What changed since Thursday: the City says draining of the existing Bearspaw South Feeder Main, which began on Nov. 5, is expected to be finished over the weekend [1][2]. On Friday, crews set up equipment storage and traffic detours at 83 Street N.W., 89 Street N.W. and Parkdale Boulevard, worked with hydrovac equipment near Broadview Park, and were to begin cutting the road surface on Parkdale Boulevard and 89 Street N.W. [1]. The City has said it is looking at ways to ease rush-hour traffic on Parkdale Boulevard during the work [2].",
+    "Stage 4 outdoor water restrictions remain in effect city-wide, which means no outdoor water use, including flooding backyard skating rinks [2][3]. Fines for breaking the rules start at $3,000 [3]. The City is also asking residents to run only full loads in dishwashers and washing machines, flush only when needed and keep showers to three minutes or less [1].",
+    "The existing main is expected to be out of service for about four weeks while the new pipe is connected, with commissioning of the new pipe planned for December [3]. During the shutdown the Glenmore Water Treatment Plant is supplying about 80 per cent of the water for the city and region, and the Bearspaw plant about 20 per cent; normally Bearspaw supplies about 60 per cent [3]. The City says the two plants can supply 500 million litres a day, and use above that level could leave too little water for firefighting, lower water pressure or lead to a boil-water advisory [3].",
+    "A non-drinking river water pick-up station is open at the Ogden boat launch, 3303 Bow River Pathway, from 7 a.m. to 7 p.m. daily [3]."
+   ],
+   "key_facts": [
+    "Water use: 490 ML on Nov. 4 and Nov. 5, below the 500 ML limit",
+    "Draining of the old main expected to finish this weekend",
+    "Stage 4 restrictions: no outdoor water use; fines from $3,000",
+    "Glenmore plant supplying about 80% during the shutdown"
+   ],
+   "topics": [
+    "Water",
+    "City services"
+   ],
+   "image_query": "Glenmore Reservoir Calgary",
+   "communities": [
+    "Parkdale"
+   ],
+   "charts": [
+    {
+     "title": "Share of water supply by treatment plant during the shutdown",
+     "kind": "hbar",
+     "labels": [
+      "Glenmore plant",
+      "Bearspaw plant"
+     ],
+     "series": [
+      {
+       "name": "Share of supply",
+       "values": [
+        80,
+        20
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 3
+    }
+   ],
+   "sources": [
+    {
+     "title": "Water use stays in the green zone as Bearspaw South Feeder Main work progresses",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/water-use-stays-in-the-green-zone-as-bearspaw-south-feeder-main-work-progresses/",
+     "published": "2026-11-06"
+    },
+    {
+     "title": "Water savings off to a great start as Bearspaw South Feeder Main connection work moves ahead",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/water-savings-off-to-a-great-start-as-bearspaw-south-feeder-main-connection-work-moves-ahead/",
+     "published": "2026-11-05"
+    },
+    {
+     "title": "Stage 4 water restrictions in effect",
+     "outlet": "City of Calgary",
+     "url": "https://www.calgary.ca/planning/water/bearspaw-feeder-main/water-restrictions.html",
+     "published": "2026-11-04"
+    }
+   ],
+   "id": "2026-11-06-calgary-water-use-under-500-million-litres-for-a-second-day-as-feeder-",
+   "date": "2026-11-06",
+   "published_at": "2026-11-06T23:40:18Z",
+   "words": 348
+  },
+  {
+   "title": "Two men charged after a man was robbed, beaten and then struck by a car in Saddle Ridge",
+   "dek": "Police say the victim was left with life-threatening injuries in a parking lot on Saddletowne Circle N.E. in October.",
+   "section": "Public safety",
+   "body": [
+    "Calgary police have charged two men in connection with an October assault in the northeast community of Saddle Ridge that left a man with life-threatening injuries, the Calgary Police Service said on Friday, Nov. 6 [1][2].",
+    "Police say that at about 4:15 p.m. on Friday, Oct. 16, officers were called to a serious altercation involving three men in a parking lot at 218 Saddletowne Circle N.E. [1][2]. According to police, two men approached the victim to retrieve what the release describes as documented evidence from him [1]. Police allege the man was robbed and then assaulted several times, and was left lying in the parking lot [1].",
+    "An unrelated vehicle then struck the injured man [1][2]. Police say the driver of that vehicle did not see him [1]. The man suffered life-threatening injuries [1][2].",
+    "A 34-year-old man is charged with one count of robbery and is next scheduled to appear in court on Monday, Nov. 30 [1]. A 25-year-old man is charged with one count of aggravated assault and is next scheduled to appear in court on Tuesday, Nov. 17 [1]. The charges have not been tested in court.",
+    "Police are asking anyone with information about the incident to call the non-emergency line at 403-266-1234 [1]. Anonymous tips can be given to Crime Stoppers at 1-800-222-8477, online at calgarycrimestoppers.org, or through the P3 Tips app [1]."
+   ],
+   "key_facts": [
+    "Incident: Oct. 16, about 4:15 p.m., 218 Saddletowne Circle N.E.",
+    "Two men charged: one with robbery, one with aggravated assault",
+    "Victim was struck by an unrelated vehicle afterwards",
+    "Court dates: Nov. 17 and Nov. 30"
+   ],
+   "topics": [
+    "Public safety",
+    "Courts"
+   ],
+   "image_query": "Saddletowne Calgary",
+   "communities": [
+    "Saddle Ridge"
+   ],
+   "sources": [
+    {
+     "title": "Two men have been charged in northeast assault",
+     "outlet": "Calgary Police Service (City of Calgary Newsroom)",
+     "url": "https://newsroom.calgary.ca/two-men-have-been-charged-in-northeast-assault/",
+     "published": "2026-11-06"
+    },
+    {
+     "title": "Man robbed, assaulted and then hit by car: Calgary police",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/man-robbed-assaulted-and-then-hit-by-car-calgary-police/",
+     "published": "2026-11-06"
+    }
+   ],
+   "id": "2026-11-06-two-men-charged-after-a-man-was-robbed-beaten-and-then-struck-by-a-car",
+   "date": "2026-11-06",
+   "published_at": "2026-11-06T23:40:18Z",
+   "words": 226
+  },
+  {
+   "title": "Committee backs easing density rules for new hotels in the Beltline ahead of December hearing",
+   "dek": "A temporary pilot would leave part of a hotel's floor area out of density calculations near the BMO Centre, where Tourism Calgary says 3,000 more rooms are needed.",
+   "section": "Housing and development",
+   "body": [
+    "A City of Calgary committee has endorsed a proposal to exclude part of new hotel developments in the Beltline from the city's density rules, aiming to ease an expected shortage of hotel rooms near the Culture and Entertainment District [1][2]. The proposal went to the Infrastructure and Planning Committee on Nov. 4 for a recommendation to council, and a public hearing of council is expected on Dec. 8 [2].",
+    "The changes would amend the Beltline Area Redevelopment Plan and the Centre City sections of the Land Use Bylaw [2]. The first change is a temporary pilot: inside a defined hotel policy area, part of a hotel's floor area would not count toward its density limit, known as floor area ratio, when a development permit is reviewed [2]. The City says a cap on how much density can be excluded is still being evaluated [2].",
+    "The policy area runs along the CP Railway to 12 Avenue between 8 Street S.W. and 1 Street S.E., and between 1 Street and Macleod Trail S.E. west of 5 Street S.E., including part of Stampede Park [2]. A second change would let the City consider relaxing rules on building massing and separation case by case [2]. The City notes the changes would not guarantee approval of any development permit [2].",
+    "The City says hotel supply has become a key constraint on growth, citing Tourism Calgary's estimate that 3,000 more hotel rooms are needed near the BMO Centre [2]. Calgary had more than 10.5 million visitors in 2025, who spent $3.3 billion, and downtown hosted 159 conventions and events that generated $241 million in economic impact [2]. Hospitality officials say a shortage of rooms would slow tourism growth as the district is rebuilt, and several hotel projects have been announced near Victoria Park, with two under construction [1].",
+    "Public outreach on the proposal ran from July to Oct. 7 [2]."
+   ],
+   "key_facts": [
+    "Committee endorsed a hotel density exclusion pilot for the Beltline",
+    "Council public hearing expected Dec. 8",
+    "Tourism Calgary: 3,000 more rooms needed near the BMO Centre",
+    "2025: 10.5 million visitors spent $3.3 billion"
+   ],
+   "topics": [
+    "Development",
+    "City Council",
+    "Economy"
+   ],
+   "image_query": "BMO Centre Calgary",
+   "communities": [
+    "Beltline",
+    "Victoria Park"
+   ],
+   "sources": [
+    {
+     "title": "Development rule changes considered to alleviate Calgary's expected hotel room shortage",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/development-rule-changes-considered-to-alleviate-calgarys-expected-hotel-room-shortage/",
+     "published": "2026-11-04"
+    },
+    {
+     "title": "Downtown policy and regulation: policy amendments supporting the Culture and Entertainment District by enabling hotels",
+     "outlet": "City of Calgary",
+     "url": "https://www.calgary.ca/planning/downtown-strategy/policy-regulation/hotels.html",
+     "published": "2026-11-04"
+    }
+   ],
+   "id": "2026-11-06-committee-backs-easing-density-rules-for-new-hotels-in-the-beltline-ah",
+   "date": "2026-11-06",
+   "published_at": "2026-11-06T23:40:18Z",
+   "words": 314
+  },
+  {
+   "title": "City adds new snow-clearing equipment and will trial a multi-lane wing plow this winter",
+   "dek": "Glenmore Trail, Macleod Trail and Memorial Drive stay first in line under the council-approved Priority Snow Plan.",
+   "section": "Transit and roads",
+   "body": [
+    "The City of Calgary says its crews and contractors are ready to work around the clock this winter, and it has added new high-capacity snow-clearing equipment for the season [1].",
+    "Among the additions is a wing plow that can clear several lanes in a single pass, which the City says it will trial this year [1]. Chris Hewitt, the City's manager of mobility maintenance, said crews and contractors will be available 24 hours a day, seven days a week through the winter [1].",
+    "Snow clearing follows the Priority Snow Plan approved by council [1]. Under the plan, the busiest routes, including Glenmore Trail, Macleod Trail and Memorial Drive, are cleared first, along with City-maintained sidewalks, priority pathways and pedestrian overpasses [1]. Major transit routes and residential routes come next [1].",
+    "The City encourages residents to check its road conditions map at maps.calgary.ca/roadconditions before travelling, and to find information about snow clearing at calgary.ca/snow [1]. Residents can also learn about their own responsibility for clearing sidewalks next to their homes at calgary.ca/shovel [1].",
+    "The announcement did not include the number of crews or the snow-clearing budget for the season [1]."
+   ],
+   "key_facts": [
+    "New high-capacity equipment added for the season",
+    "A multi-lane wing plow will be trialled",
+    "Glenmore Trail, Macleod Trail and Memorial Drive cleared first",
+    "Crews available 24/7"
+   ],
+   "topics": [
+    "Roads and traffic",
+    "City services",
+    "Weather"
+   ],
+   "image_query": "snow plow Calgary",
+   "sources": [
+    {
+     "title": "City of Calgary ready for the winter season",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/city-of-calgary-ready-for-the-winter-season/",
+     "published": "2026-11-06"
+    }
+   ],
+   "id": "2026-11-06-city-adds-new-snow-clearing-equipment-and-will-trial-a-multi-lane-wing",
+   "date": "2026-11-06",
+   "published_at": "2026-11-06T23:40:18Z",
+   "words": 189
+  },
+  {
+   "title": "Fire badly damages garage behind vacant, boarded-up home in Montgomery",
+   "dek": "No one was hurt in the Thursday morning fire on Mackay Road N.W.; the cause is under investigation.",
+   "section": "Public safety",
+   "body": [
+    "A fire on Thursday morning, Nov. 5, caused severe structural damage to a detached garage behind a vacant home in the northwest community of Montgomery, the Calgary Fire Department said [1].",
+    "Crews were called at about 10 a.m. to the 2300 block of Mackay Road N.W. for a structure fire in a garage at the back of a single-storey residential property [1]. The department says the home was vacant, with its windows and doors boarded up and its utilities disconnected beforehand [1].",
+    "People in neighbouring homes left on their own, and no injuries were reported [1]. Firefighters kept the fire contained to the garage [1].",
+    "The cause of the fire is under investigation, and a fire watch crew has been assigned to the property [1].",
+    "The department noted that it is part of the city's Coordinated Safety Response Team, which works with the Calgary Police Service, Alberta Health Services and other City services [1]."
+   ],
+   "key_facts": [
+    "About 10 a.m. Nov. 5, 2300 block of Mackay Road N.W.",
+    "Garage behind a vacant, boarded-up home",
+    "No injuries; fire contained to the garage",
+    "Cause under investigation"
+   ],
+   "topics": [
+    "Public safety"
+   ],
+   "image_query": "fire truck",
+   "communities": [
+    "Montgomery"
+   ],
+   "sources": [
+    {
+     "title": "Calgary Fire Department Responds to Montgomery Garage Fire",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/calgary-fire-department-responds-to-montgomery-garage-fire/",
+     "published": "2026-11-05"
+    }
+   ],
+   "id": "2026-11-06-fire-badly-damages-garage-behind-vacant-boarded-up-home-in-montgomery",
+   "date": "2026-11-06",
+   "published_at": "2026-11-06T23:40:18Z",
+   "words": 154
+  },
+  {
+   "title": "City launches eighth Support Local holiday campaign with downtown winter promotions",
+   "dek": "The campaign, kicked off in Bowness and Montgomery, runs alongside a downtown winter campaign and a weekly parking-credit contest.",
+   "section": "Business and economy",
+   "body": [
+    "Mayor Jeromy Farkas launched the City of Calgary's 2026 Support Local holiday campaign on Friday, Nov. 6, during a visit to businesses in Bowness and Montgomery [1]. The campaign, now in its eighth year, encourages Calgarians to shop at independent local businesses during the holiday season [1].",
+    "The City works with 15 business improvement areas across Calgary [1]. The Mainstreet Bowness business improvement area represents more than 60 independent businesses, and the Montgomery business improvement area more than 115, according to their executive directors, Kellie Freeman and Jessica Lapuz [1]. Montgomery's Light Up Montgomery event is scheduled for Saturday, Nov. 14, from 5 to 8 p.m. in Montgomery Town Square [1].",
+    "The City also pointed to recent figures for downtown, saying international visitor spending there rose 15.6 per cent from a year earlier, with overseas visitor spending up 12.2 per cent [1]. A Chill Downtown this Winter campaign will run from Nov. 16 to March 31, 2027, and a Winter Parking Contest running from Nov. 4 to Dec. 22 is giving away seven weekly prizes of $150 in parking credit [1].",
+    "The City said its Farm Stand Program, which ran from May 1 to Oct. 14, had 29 stands run by seven farmers, and its webpage was viewed more than 26,000 times [1]. Erin Chrusch leads the City's business and local economy team, which runs the campaign [1]."
+   ],
+   "key_facts": [
+    "Eighth year of the Support Local holiday campaign",
+    "City partners with 15 business improvement areas",
+    "Downtown international visitor spending up 15.6%",
+    "Chill Downtown this Winter runs Nov. 16 to March 31"
+   ],
+   "topics": [
+    "Business",
+    "Economy",
+    "Community"
+   ],
+   "image_query": "Bowness Road Calgary",
+   "communities": [
+    "Bowness",
+    "Montgomery"
+   ],
+   "charts": [
+    {
+     "title": "Change in downtown visitor spending, year over year",
+     "kind": "bar",
+     "labels": [
+      "International visitors",
+      "Overseas visitors"
+     ],
+     "series": [
+      {
+       "name": "Change",
+       "values": [
+        15.6,
+        12.2
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Shop local, share the joy: Mayor highlights 2026 Support Local Holiday campaign in Bowness and Montgomery",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/shop-local-share-the-joy-mayor-highlights-2026-support-local-holiday-campaign-in-bowness-and-montgomery/",
+     "published": "2026-11-06"
+    }
+   ],
+   "id": "2026-11-06-city-launches-eighth-support-local-holiday-campaign-with-downtown-wint",
+   "date": "2026-11-06",
+   "published_at": "2026-11-06T23:40:18Z",
+   "words": 228
+  },
+  {
+   "title": "Weekend in Calgary: jazz festival wraps up, Christmas markets open and the Flames play twice",
+   "dek": "A justice film festival, a Telus Spark adults' night and the first holiday markets of the season are among the events from Nov. 6 to 8.",
+   "section": "Community and events",
+   "body": [
+    "The Canadian Jazz Festival wraps up its six nights of performances at venues across Calgary on Sunday, Nov. 8, with prices depending on the pass [1].",
+    "The 21st Calgary Justice Film Festival runs through Saturday, Nov. 7, at The Confluence Historic Site and Parkland, 750 9 Avenue S.E., with no charge for admission but registration required [1].",
+    "Holiday markets are starting up. The Bowness Christmas Market, with more than 80 vendors, runs Saturday from 10 a.m. to 4 p.m. at the Bowness Community Association, 7904 43 Avenue N.W., and admission costs nothing [1]. RockPointe Church on Lochend Road holds its second annual Christmas market on Friday from 4 to 8 p.m. [1].",
+    "Telus Spark Science Centre holds an adults-only Beakernight on Friday from 6 p.m. to midnight, with tickets starting at $39 [1]. The FILMharmonique Orchestra performs The Nightmare Before Christmas in concert at the Southern Alberta Jubilee Auditorium on Friday at 7:30 p.m. [1].",
+    "The Calgary Flames play two home games at the Scotiabank Saddledome: against the Anaheim Ducks on Friday and the Philadelphia Flyers on Sunday [1].",
+    "Music on Saturday includes SonReal at the Commonwealth Bar and Stage at 7 p.m., with tickets from $38.75, and Dean Brody with The Reklaws at the WinSport Events Centre at 7:30 p.m. [1]. The Taboo Show runs all weekend at the BMO Centre, with single-day passes from $37.99, and Bridal Expo YYC takes over the Telus Convention Centre on Sunday from 10 a.m. to 5 p.m. [1]."
+   ],
+   "key_facts": [
+    "Calgary Justice Film Festival through Nov. 7 at The Confluence",
+    "Bowness Christmas Market Saturday, 80+ vendors",
+    "Flames home games Friday and Sunday",
+    "Canadian Jazz Festival ends Nov. 8"
+   ],
+   "topics": [
+    "Events",
+    "Arts and culture",
+    "Community",
+    "Sports"
+   ],
+   "image_query": "Scotiabank Saddledome",
+   "sources": [
+    {
+     "title": "12 fantastic things to do in Calgary this weekend: Nov. 6 to 8",
+     "outlet": "Daily Hive",
+     "url": "https://dailyhive.com/calgary/calgary-things-to-do-weekend-nov-6-8",
+     "published": "2026-11-05"
+    }
+   ],
+   "id": "2026-11-06-weekend-in-calgary-jazz-festival-wraps-up-christmas-markets-open-and-t",
+   "date": "2026-11-06",
+   "published_at": "2026-11-06T23:40:18Z",
+   "words": 246
+  },
+  {
+   "title": "Province tables bills on campus neutrality, deepfakes and consumer protection",
+   "dek": "One bill would bar Alberta's post-secondary institutions from taking public positions on political and social issues; others target intimate deepfakes and defective vehicles.",
+   "section": "Alberta and Canada",
+   "body": [
+    "The Alberta government has introduced legislation that would prevent post-secondary institutions from taking public positions on political, social and ideological issues [1]. The bill was tabled in the legislature on Tuesday, Nov. 3, and would stop institutions from taking stances that depart from an academic purpose; it could affect codes of conduct for staff and students [1]. Further details, including the bill number, were not available at publication.",
+    "Other bills introduced this fall session were outlined in a newspaper column by Chantelle de Jonge, the MLA for Chestermere-Strathmore and parliamentary secretary for affordability and utilities, which presents the government's own description of the measures [2]. According to the column, one proposed law would require public institutions, including municipalities and post-secondary schools, to put merit first in hiring and promotion rather than quotas [2].",
+    "Another proposal would strengthen protections against non-consensual intimate deepfakes, including computer-generated images, video and audio, with fines of up to $10,000, up to two years in jail, or both [2]. A consumer protection package would include right-to-repair measures for farmers, car owners and consumers, lemon laws for defective vehicles, steps against credit fraud, clearer ticket pricing and a board to resolve property disputes [2].",
+    "The column also says the province is putting $25.8 million into six independent school projects in Calgary, Edmonton and central Alberta, creating more than 3,500 student spaces, and that new rules will require the Canadian and Alberta flags to fly outside school buildings starting Jan. 4, 2027 [2]. The column did not give bill numbers, and its descriptions are the government's own account [2]."
+   ],
+   "key_facts": [
+    "Bill would bar post-secondary institutions from public stances on political issues",
+    "Proposed deepfake penalties: up to $10,000 fine and two years in jail",
+    "Consumer package includes right to repair and lemon laws",
+    "$25.8M for six independent school projects"
+   ],
+   "topics": [
+    "Provincial",
+    "Education"
+   ],
+   "image_query": "Alberta Legislature Building",
+   "sources": [
+    {
+     "title": "Alberta bill introduces 'freedom of expression' policies",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/alberta-bill-introduces-freedom-of-expression-policies/",
+     "published": "2026-11-04"
+    },
+    {
+     "title": "Alberta introduces new legislation covering hiring, consumer rights and schools",
+     "outlet": "Strathmore Times (column by MLA Chantelle de Jonge)",
+     "url": "https://strathmoretimes.com/2026/alberta-introduces-new-legislation-covering-hiring-consumer-rights-and-schools/",
+     "published": "2026-11-04"
+    }
+   ],
+   "id": "2026-11-06-province-tables-bills-on-campus-neutrality-deepfakes-and-consumer-prot",
+   "date": "2026-11-06",
+   "published_at": "2026-11-06T23:40:18Z",
+   "words": 261
+  }
+ ]
+}
