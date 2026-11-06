@@ -712,11 +712,15 @@ METHODS = [
          'addresses, websites and phone numbers; only places marked open with a confidence of 0.6 or more, in the '
          'everyday, retail, service and trade kinds this page uses (offices, real estate, parks and places of worship '
          'are left out).',
-         'One business, counted once: City licences first, then OpenStreetMap, then Overture Maps. A place with the same '
-         'name as one already kept within 80 m (names compared word by word, ignoring words such as Inc, Ltd and store '
-         'numbers), or an unnamed place of the same kind within 25 m, is the same business: it is kept once, with every '
-         'source it was found in and any address, website or phone number the first lacked. The count by community and '
-         'category adds the businesses left. Home-based licences are listed but are not storefronts.',
+         'One business, counted once: City licences first, then OpenStreetMap, then Overture Maps. A place is the same '
+         'business as one already kept when it has the same name within 80 m (names compared word by word, ignoring '
+         'words such as Inc, Ltd and store numbers; the sources may file it under different kinds), nearly the same name '
+         'word for word within 200 m (one copy per source, so two branches of a chain stay two), or the same name at the '
+         'same street address; an unnamed place counts as the same when it is of the same kind within 25 m. A map source '
+         'listing one place twice (nearly the same name within 30 m) counts it once. The business is kept once, with every '
+         'source it was found in and any address, website, phone number or map point the first lacked. After this, the '
+         'pairs still left with nearly the same name within 200 m are counted at every refresh as a check. The count by '
+         'community and category adds the businesses left. Home-based licences are listed but are not storefronts.',
          'Everything is measured from every home on the City\'s property roll (weighted by its units, as Growth vs '
          'amenities does) to the businesses of each everyday kind around it, wherever they are, so a supermarket '
          'across the community line counts. Walking distance (400 m and 800 m, the default 800 m): share of homes '

@@ -2075,3 +2075,8 @@ table.ca-reps th[scope="row"], .ca-budget th[scope="row"] { min-width: 180px; }
 .ca-meas th[scope="row"], .ca-reps th[scope="row"], .ca-reps td { white-space: normal; }
 @media (max-width: 720px) { .ca-head .ca-status { justify-self: start; } .ca-navb { text-align: left; } }
 .bus-mk.bus-stale { opacity: .45; filter: grayscale(.7); }
+.iv-dirmapwrap { margin: 4px 0 14px; }
+.iv-dirmap { height: 520px; border-radius: var(--r-card, 12px); border: 1px solid var(--border); overflow: hidden; }
+.iv-dirlegend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 8px; font-size: 12px; color: var(--fg-2); }
+.iv-dirlegend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+@media (max-width: 720px) { .iv-dirmap { height: 380px; } }

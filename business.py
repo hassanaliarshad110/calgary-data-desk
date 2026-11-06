@@ -210,7 +210,7 @@ def build(today=None):
                        'osm_places': n_osm, 'osm_named': sum(1 for r in rows if r[9] == 'O' and r[0]),
                        'overture_places': n_ov, 'overture_error': ov_error,
                        'in_both': sum(1 for r in rows if len(r[9]) > 1), 'matched': matched,
-                       'unique': sum(1 for r in rows if r[9] != 'H')},
+                       'unique': sum(1 for r in rows if r[9] != 'H'), 'possible_duplicates': len(audit_duplicates(rows))},
             'sources': [{'title': 'Business licences', 'publisher': 'City of Calgary open data', 'url': 'https://data.calgary.ca/d/' + LICENCES},
                         {'title': 'Shops, restaurants, clinics and other places', 'publisher': 'OpenStreetMap contributors (ODbL)', 'url': 'https://www.openstreetmap.org/copyright'},
                         {'title': 'Places (names, websites, phone numbers)', 'publisher': 'Overture Maps Foundation (CDLA Permissive 2.0)', 'url': 'https://docs.overturemaps.org/attribution/'},
@@ -332,52 +332,85 @@ def same_name(a, b):
     return len(common) / len(ta | tb) >= 0.5 or ta <= tb or tb <= ta
 
 
-def dedupe(rows, near_m=80.0, unnamed_m=25.0):
+def _addr(a):
+    import re                                       # noqa: PLC0415
+    a = re.sub(r'[^a-z0-9 ]+', ' ', (a or '').lower())
+    a = re.sub(r'\b(street|st)\b', 'st', a); a = re.sub(r'\b(avenue|ave|av)\b', 'av', a)
+    a = re.sub(r'\b(road|rd)\b', 'rd', a); a = re.sub(r'\b(drive|dr)\b', 'dr', a)
+    a = re.sub(r'\b(boulevard|blvd)\b', 'blvd', a); a = re.sub(r'\b(trail|tr)\b', 'tr', a)
+    a = re.sub(r'\b(calgary|alberta|ab|canada)\b', ' ', a); a = re.sub(r'\bt\d[a-z]\s?\d[a-z]\d\b', ' ', a)
+    return ' '.join(a.split()[:5])
+
+
+def _strong(a, b):
+    """The same name, nearly word for word."""
+    ta, tb = _tokens(a), _tokens(b)
+    return bool(ta and tb) and len(ta & tb) / len(ta | tb) >= 0.8
+
+
+def dedupe(rows, near_m=80.0, unnamed_m=25.0, strong_m=200.0, self_m=30.0):
     """Count each business once across the sources: City licences (L) first, then OpenStreetMap (O), then Overture
-    Maps (V). A place is the same business as one already kept when it is within near_m metres with the same name (or,
-    for an unnamed place, within unnamed_m metres and of the same kind). The kept row takes the other source's letter
-    (source 'LO', 'LV', 'LOV', 'OV'), and any address, website or phone number it lacked; the copy is dropped.
-    rows: [name, category, type, community, address, first, status, lon, lat, source, website, phone]. Returns
-    (rows, matched)."""
+    Maps (V). A place is the same business as one already kept when:
+      - it has the same name within near_m metres (any kind: the sources classify the same shop differently);
+      - it has nearly the same name word for word within strong_m metres (a mall's map point can sit far from the
+        licence's parcel point);
+      - it has the same name and the same street address, wherever the points are (or a licence has no point);
+      - it is unnamed, within unnamed_m metres and of the same kind;
+      - for the two map sources, the same source lists it twice: nearly the same name within self_m metres.
+    The kept row takes the other source's letter (source 'LO', 'LV', 'LOV', 'OV'), and any address, website or phone
+    number it lacked; the copy is dropped. rows: [name, category, type, community, address, first, status, lon, lat,
+    source, website, phone]. Returns (rows, matched)."""
     import math                                     # noqa: PLC0415
     kx, ky = 111_132.0 * math.cos(math.radians(51.05)), 111_132.0
-    cell = near_m
-    grid = {}
-    group = {k: c[2] for k, c in CAT.items()}
+    cell = strong_m
+    grid, by_addr = {}, {}
     for r in rows:
         while len(r) < 12:
             r.append(None)
 
     def put(i):
         r = rows[i]
-        grid.setdefault((int(r[7] * kx // cell), int(r[8] * ky // cell)), []).append(i)
+        if r[7] is not None and r[8] is not None:
+            grid.setdefault((int(r[7] * kx // cell), int(r[8] * ky // cell)), []).append(i)
+        a = _addr(r[4])
+        if a and r[0]:
+            by_addr.setdefault(a, []).append(i)
 
-    keep = [i for i, r in enumerate(rows) if r[9] == 'L' and r[7] is not None and r[8] is not None]
-    for i in keep:
-        put(i)
-    out_idx = [i for i, r in enumerate(rows) if r[9] in ('L', 'H') or r[7] is None or r[8] is None]
+    out_idx = [i for i, r in enumerate(rows) if r[9] in ('L', 'H')]
+    for i in out_idx:
+        if rows[i][9] == 'L':
+            put(i)
     matched, used = 0, set()
     for letter in ('O', 'V'):
         for k, r in enumerate(rows):
-            if r[9] != letter or r[7] is None or r[8] is None:
+            if r[9] != letter:
                 continue
-            x, y = r[7] * kx, r[8] * ky
-            gx, gy = int(x // cell), int(y // cell)
             best = None
-            for dx in (-1, 0, 1):
-                for dy in (-1, 0, 1):
-                    for i in grid.get((gx + dx, gy + dy), []):
-                        K = rows[i]
-                        if letter in K[9]:
-                            continue            # two places from the same source are two places
-                        d = math.hypot(K[7] * kx - x, K[8] * ky - y)
-                        if r[0] and d <= near_m and same_name(r[0], K[0]):
-                            ok = True
-                        else:
-                            ok = (not r[0]) and d <= unnamed_m and K[1] == r[1] and (i, letter) not in used
-                        if ok and group.get(K[1]) in (group.get(r[1]), 'Other', 'Retail') and (best is None or d < best[0]):
-                            best = (d, i)
+            if r[7] is not None and r[8] is not None:
+                x, y = r[7] * kx, r[8] * ky
+                gx, gy = int(x // cell), int(y // cell)
+                for dx in (-1, 0, 1):
+                    for dy in (-1, 0, 1):
+                        for i in grid.get((gx + dx, gy + dy), []):
+                            K = rows[i]
+                            d = math.hypot(K[7] * kx - x, K[8] * ky - y)
+                            if letter in K[9]:      # the same source twice: only a near-identical name very close
+                                ok = bool(r[0]) and d <= self_m and _strong(r[0], K[0])
+                            elif r[0]:
+                                ok = (d <= near_m and same_name(r[0], K[0])) or (d <= strong_m and _strong(r[0], K[0]) and (i, letter) not in used)
+                                # beyond near_m, one copy per source only: two branches of a chain stay two
+                            else:
+                                ok = d <= unnamed_m and K[1] == r[1] and (i, letter) not in used
+                            if ok and (best is None or d < best[0]):
+                                best = (d, i)
+            if best is None and r[0]:
+                for i in by_addr.get(_addr(r[4]), []) if _addr(r[4]) else []:
+                    if letter not in rows[i][9] and same_name(r[0], rows[i][0]):
+                        best = (0, i)
+                        break
             if best is None:
+                if r[7] is None or r[8] is None:
+                    continue                        # a map place with no point cannot be shown or placed
                 out_idx.append(k)
                 put(k)
                 continue
@@ -388,9 +421,32 @@ def dedupe(rows, near_m=80.0, unnamed_m=25.0):
             for f in (4, 10, 11):
                 if not K[f] and r[f]:
                     K[f] = r[f]
+            if K[7] is None and r[7] is not None:
+                K[7], K[8] = r[7], r[8]
             if K[1] in ('other', 'general_retail') and r[1] not in ('other', 'general_retail'):
                 K[1] = r[1]                          # the map's kind is more exact than a general licence
     return [rows[i] for i in sorted(set(out_idx))], matched
+
+
+def audit_duplicates(rows, within_m=200.0):
+    """Pairs left after dedupe that may still be one business: nearly the same name within within_m metres."""
+    import math                                     # noqa: PLC0415
+    kx, ky = 111_132.0 * math.cos(math.radians(51.05)), 111_132.0
+    grid, pairs = {}, []
+    for i, r in enumerate(rows):
+        if r[0] and r[7] is not None and r[8] is not None:
+            grid.setdefault((int(r[7] * kx // within_m), int(r[8] * ky // within_m)), []).append(i)
+    for (gx, gy), idx in grid.items():
+        near = [j for dx in (-1, 0, 1) for dy in (-1, 0, 1) for j in grid.get((gx + dx, gy + dy), [])]
+        for i in idx:
+            for j in near:
+                if j <= i:
+                    continue
+                a, b = rows[i], rows[j]
+                if math.hypot((a[7] - b[7]) * kx, (a[8] - b[8]) * ky) <= within_m and _strong(a[0], b[0]):
+                    pairs.append((a[0], a[9], b[0], b[9], round(math.hypot((a[7] - b[7]) * kx, (a[8] - b[8]) * ky))))
+    return pairs
+
 
 def load(data_dir=None, can_build=False):
     """The website's copy (data/business.json next to this file) or the desktop app's in data_dir (built when a week old)."""

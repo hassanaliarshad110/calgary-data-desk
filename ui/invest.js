@@ -5,6 +5,7 @@
    residents counted the way chosen in Settings. */
 'use strict';
 
+let ivFSrc = '', ivDirMap = null, ivDirView = null, ivDirLayer = null;
 let IV = null, IVP = null, ivSub = 'opps', ivCat = 'grocery', ivRad = 2, ivQ = '', ivFCat = '', ivFComm = '', ivPage = 0, ivMap = null;
 let ivBusy = false, ivThread = [], ivOwn = null;
 const IV_SUBS = [['opps', 'Opportunities'], ['index', 'Underserved index'], ['list', 'Business directory'], ['growth', 'Growth'], ['economist', 'Business Economist']];
@@ -248,21 +249,73 @@ function ivDrawMap() {
 }
 
 // ---- Business directory
+// the directory's filters, shared by the table, the map and the CSV
+const IV_SRC = [['', 'Every source'], ['L', 'City licence'], ['O', 'OpenStreetMap'], ['V', 'Overture Maps'], ['multi', 'Found in more than one']];
+function ivDirRows() {
+  const q = ivQ.trim().toLowerCase();
+  return (IV.businesses || []).filter(r => (!ivFCat || r[1] === ivFCat) && (!ivFComm || r[3] === ivFComm)
+    && (!ivFSrc || (ivFSrc === 'multi' ? String(r[9] || '').replace('H', '').length > 1 : String(r[9] || '').replace('H', 'L').includes(ivFSrc)))
+    && (!q || (r[0] || '').toLowerCase().includes(q) || (r[2] || '').toLowerCase().includes(q) || (r[4] || '').toLowerCase().includes(q)));
+}
+const IV_GCOL = ['#38BDF8', '#F59E0B', '#22C55E', '#A78BFA', '#F472B6', '#EF4444', '#2DD4BF', '#FACC15', '#FFFFFF', '#FB923C', '#94A3B8', '#84CC16'];
+function ivGroups() { return [...new Set(ivCats().map(c => c.group))]; }
+function ivColor(cat) { const c = (IV.categories || []).find(x => x.key === cat); const g = ivGroups(); return IV_GCOL[Math.max(0, g.indexOf(c ? c.group : '')) % IV_GCOL.length]; }
+// every business as a dot, drawn on one canvas so tens of thousands stay quick; a tap finds the nearest dot
+function ivDirDraw(rows) {
+  const el = $('#iv-dirmap'); if (!el || typeof L === 'undefined') return;
+  if (ivDirMap) { try { ivDirView = { c: ivDirMap.getCenter(), z: ivDirMap.getZoom() }; ivDirMap.remove(); } catch (e) { /* gone */ } ivDirMap = null; }
+  const pts = rows.filter(r => isNum(r[7]) && isNum(r[8]));
+  const map = ivDirMap = L.map(el, { scrollWheelZoom: false, preferCanvas: true });
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+  const Dots = L.Layer.extend({
+    onAdd(m) { this._c = L.DomUtil.create('canvas', 'iv-dots leaflet-zoom-hide'); m.getPanes().overlayPane.appendChild(this._c); m.on('moveend zoomend resize', this._draw, this); this._draw(); },
+    onRemove(m) { L.DomUtil.remove(this._c); m.off('moveend zoomend resize', this._draw, this); },
+    _draw() {
+      const m = this._map, size = m.getSize(), c = this._c, dpr = window.devicePixelRatio || 1;
+      L.DomUtil.setPosition(c, m.containerPointToLayerPoint([0, 0]));
+      c.width = size.x * dpr; c.height = size.y * dpr; c.style.width = size.x + 'px'; c.style.height = size.y + 'px';
+      const g = c.getContext('2d'); g.scale(dpr, dpr);
+      const z = m.getZoom(), r = z >= 16 ? 5 : z >= 14 ? 3.5 : z >= 12 ? 2.4 : 1.6, b = m.getBounds().pad(0.05);
+      this._xy = [];
+      for (const p of pts) {
+        if (!b.contains([p[8], p[7]])) continue;
+        const q = m.latLngToContainerPoint([p[8], p[7]]);
+        g.beginPath(); g.arc(q.x, q.y, r, 0, 6.2832); g.fillStyle = ivColor(p[1]); g.globalAlpha = 0.85; g.fill();
+        if (z >= 15) { g.globalAlpha = 1; g.lineWidth = 1; g.strokeStyle = '#0B1220'; g.stroke(); }
+        this._xy.push([q.x, q.y, p]);
+      }
+    },
+  });
+  const dots = ivDirLayer = new Dots().addTo(map);
+  map.on('click', e => {
+    const q = e.containerPoint; let best = null;
+    for (const [x, y, p] of dots._xy || []) { const d = (x - q.x) ** 2 + (y - q.y) ** 2; if (d < 144 && (!best || d < best[0])) best = [d, p]; }
+    if (!best) return;
+    const p = best[1], web = ivUrl(p[10]);
+    L.popup().setLatLng([p[8], p[7]]).setContent(`<b>${esc(p[0] || '(no name)')}</b><br>${esc(ivLabel(p[1]))}${p[2] ? ` · ${esc(p[2])}` : ''}<br>${esc(p[4] || '')}${p[3] ? ` · ${esc(ivName(p[3]))}` : ''}<br><small>Found in: ${esc(ivSrc(p[9]))}</small>${web ? `<br><a href="${esc(web)}" target="_blank" rel="noopener nofollow">Website</a>` : ''}${p[11] ? `${web ? ' · ' : '<br>'}${esc(p[11])}` : ''}`).openOn(map);
+  });
+  if (ivFComm || !ivDirView) {
+    if (pts.length) map.fitBounds(L.latLngBounds(pts.map(p => [p[8], p[7]])).pad(0.05)); else map.setView([51.045, -114.06], 11);
+  } else map.setView(ivDirView.c, ivDirView.z);
+}
 function ivList() {
   const q = ivQ.trim().toLowerCase(), B = IV.businesses || [];
-  const rows = B.filter(r => (!ivFCat || r[1] === ivFCat) && (!ivFComm || r[3] === ivFComm) && (!q || (r[0] || '').toLowerCase().includes(q) || (r[2] || '').toLowerCase().includes(q) || (r[4] || '').toLowerCase().includes(q)));
+  const rows = ivDirRows();
   const per = 100, pages = Math.max(1, Math.ceil(rows.length / per)); ivPage = Math.min(ivPage, pages - 1);
   const comms = Object.keys(IV.communities || {}).sort((a, b) => ivName(a).localeCompare(ivName(b)));
   const src = ivSrc;
-  return `<section class="card span-12"><div class="card-head"><div><h2>Business directory</h2><p class="card-sub">${fmt(B.length)} businesses and places: City of Calgary business licences and OpenStreetMap. ${fmt(rows.length)} match.</p></div>
+  return `<section class="card span-12"><div class="card-head"><div><h2>Business directory</h2><p class="card-sub">${fmt(B.length)} businesses and places from City of Calgary business licences, OpenStreetMap and Overture Maps, each counted once. ${fmt(rows.length)} match the filters; ${fmt(rows.filter(r => isNum(r[7])).length)} of them are on the map.</p></div>
       <div class="card-tools sr-tools"><label class="sr-only" for="iv-q">Search</label><input id="iv-q" type="search" placeholder="Name, type or address" value="${esc(ivQ)}">
       <label class="sr-only" for="iv-fcat">Category</label><select id="iv-fcat" class="select"><option value="">Every category</option>${ivCats().map(c => `<option value="${c.key}" ${c.key === ivFCat ? 'selected' : ''}>${esc(c.label)}</option>`).join('')}</select>
+      <label class="sr-only" for="iv-fsrc">Found in</label><select id="iv-fsrc" class="select">${IV_SRC.map(([k, t]) => `<option value="${k}" ${k === ivFSrc ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>
       <label class="sr-only" for="iv-fcomm">Community</label><select id="iv-fcomm" class="select"><option value="">Every community</option>${comms.map(c => `<option value="${c}" ${c === ivFComm ? 'selected' : ''}>${esc(ivName(c))}</option>`).join('')}</select>
       <button class="btn" id="iv-listcsv">Download CSV</button></div></div>
+    <div class="iv-dirmapwrap"><div id="iv-dirmap" class="iv-dirmap" role="img" aria-label="Map of the businesses that match the filters"></div>
+      <div class="iv-dirlegend">${ivGroups().map((g, i) => `<span><i style="background:${IV_GCOL[i % IV_GCOL.length]}"></i>${esc(g)}</span>`).join('')}<span class="muted">Tap a dot for the business.</span></div></div>
     <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Business</th><th scope="col">Category</th><th scope="col">Type</th><th scope="col">Community</th><th scope="col">Address</th><th scope="col">First licensed</th><th scope="col">Source</th></tr></thead>
     <tbody>${rows.slice(ivPage * per, ivPage * per + per).map(r => `<tr><th scope="row">${esc(r[0] || '(no name)')}${ivUrl(r[10]) ? ` <a class="iv-web" href="${esc(ivUrl(r[10]))}" target="_blank" rel="noopener nofollow" title="Website">↗</a>` : ''}${r[11] ? `<div class="iv-phone">${esc(r[11])}</div>` : ''}</th><td>${esc(ivLabel(r[1]))}</td><td class="wrap">${esc(r[2] || '')}</td><td>${esc(ivName(r[3]))}</td><td>${esc(r[4] || '')}</td><td>${esc(r[5] || '')}</td><td>${esc(src(r[9]))}</td></tr>`).join('')}</tbody></table></div>
     <div class="iv-pager"><button class="btn" data-ivpage="-1" ${ivPage ? '' : 'disabled'}>Previous</button><span>Page ${ivPage + 1} of ${pages}</span><button class="btn" data-ivpage="1" ${ivPage < pages - 1 ? '' : 'disabled'}>Next</button></div>
-    <p class="card-note">Three open sources. The City licenses only some kinds of business (food, personal services, contractors, vehicle repair, liquor and others); most shops, clinics and offices need none, so they come from OpenStreetMap (mapped by volunteers) and Overture Maps (open place data with websites and phone numbers, from the Overture Maps Foundation). A business found in more than one source (same name within 80 m) is shown and counted once, with every source it was found in. Neither map source is complete, and a place listed may have closed.</p></section>`;
+    <p class="card-note">Three open sources. The City licenses only some kinds of business (food, personal services, contractors, vehicle repair, liquor and others); most shops, clinics and offices need none, so they come from OpenStreetMap (mapped by volunteers) and Overture Maps (open place data with websites and phone numbers, from the Overture Maps Foundation). A business found in more than one source is shown and counted once, with every source it was found in: the same name within 80 m, nearly the same name within 200 m, or the same name at the same address; a map source listing one place twice is counted once too. Two branches of a chain stay two. Neither map source is complete, and a place listed may have closed.</p></section>`;
 }
 
 // ---- Growth
@@ -443,11 +496,12 @@ async function renderInvest(keep) {
   const cs = $('#iv-cat'); if (cs) cs.addEventListener('change', () => { ivCat = cs.value; re(); });
   const fc = $('#iv-fcat'); if (fc) fc.addEventListener('change', () => { ivFCat = fc.value; ivPage = 0; re(); });
   const fm = $('#iv-fcomm'); if (fm) fm.addEventListener('change', () => { ivFComm = fm.value; ivPage = 0; re(); });
+  const fsr = $('#iv-fsrc'); if (fsr) fsr.addEventListener('change', () => { ivFSrc = fsr.value; ivPage = 0; re(); });
   const iq = $('#iv-q'); if (iq) { let t; iq.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { ivQ = iq.value; ivPage = 0; const p = iq.selectionStart; renderInvest(true).then(() => { const n = $('#iv-q'); if (n) { n.focus(); n.setSelectionRange(p, p); } }); }, 300); }); }
   const csv1 = $('#iv-csv'); if (csv1) csv1.addEventListener('click', async () => { const I = ivIndex(ivCat, ivRad);
     if (I.home && !I.walk) { await (await api()).save_csv(`Underserved index - ${ivLabel(ivCat)} - ${ivRad} km from home`, ['Community', 'Residents', 'In the community', `Homes with one within ${ivRad} km (%)`, 'Calgary (%)', `Within ${ivRad} km of a typical home`, "Calgary's typical home", 'Index', 'Short by'], I.rows.map(r => [r.name, r.residents, r.here, +(r.share * 100).toFixed(1), +((r.cityShare || 0) * 100).toFixed(1), r.avg, r.cityAvg, r.index && +(r.index * 100).toFixed(0), +r.short.toFixed(2)])); return; }
     if (I.home) { await (await api()).save_csv(`Underserved index - ${ivLabel(ivCat)} - ${ivRad} m from home`, ['Community', 'Residents', 'In the community', `Homes within ${ivRad} m (%)`, 'Calgary (%)', 'Index', 'Residents without one'], I.rows.map(r => [r.name, r.residents, r.here, +(r.share * 100).toFixed(1), +((r.cityShare || 0) * 100).toFixed(1), r.index && +(r.index * 100).toFixed(0), Math.round(r.without)])); return; } await (await api()).save_csv(`Underserved index - ${ivLabel(ivCat)} - ${ivRad} km`, ['Community', 'Residents', 'In the community', `People within ${ivRad} km`, `Within ${ivRad} km`, 'Per 10,000', "At Calgary's rate", 'Index', 'Missing'], I.rows.map(r => [r.name, r.residents, r.here, r.reach, r.biz, r.per10k && +r.per10k.toFixed(2), +r.expected.toFixed(2), r.index && +(r.index * 100).toFixed(0), +r.gap.toFixed(2)])); });
-  const csv2 = $('#iv-listcsv'); if (csv2) csv2.addEventListener('click', async () => { const q = ivQ.trim().toLowerCase(); const rows = (IV.businesses || []).filter(r => (!ivFCat || r[1] === ivFCat) && (!ivFComm || r[3] === ivFComm) && (!q || (r[0] || '').toLowerCase().includes(q) || (r[2] || '').toLowerCase().includes(q) || (r[4] || '').toLowerCase().includes(q))); await (await api()).save_csv('Calgary businesses', ['Business', 'Category', 'Type', 'Community', 'Address', 'First licensed', 'Status', 'Longitude', 'Latitude', 'Found in', 'Website', 'Phone'], rows.map(r => [r[0], ivLabel(r[1]), r[2], ivName(r[3]), r[4], r[5], r[6], r[7], r[8], ivSrc(r[9]), ivUrl(r[10]), r[11] || ''])); });
+  const csv2 = $('#iv-listcsv'); if (csv2) csv2.addEventListener('click', async () => { const rows = ivDirRows(); await (await api()).save_csv('Calgary businesses', ['Business', 'Category', 'Type', 'Community', 'Address', 'First licensed', 'Status', 'Longitude', 'Latitude', 'Found in', 'Website', 'Phone'], rows.map(r => [r[0], ivLabel(r[1]), r[2], ivName(r[3]), r[4], r[5], r[6], r[7], r[8], ivSrc(r[9]), ivUrl(r[10]), r[11] || ''])); });
   const f = $('#iv-form');
   if (f) f.addEventListener('submit', e => { e.preventDefault(); const d = Object.fromEntries(new FormData(f).entries()), to = (window.CDD_CONTACT || '').trim();
     const text = `Name: ${d.name}\nBusiness or idea: ${d.business}\nEmail: ${d.email}\nPhone: ${d.phone}\nInterested in: ${d.want}\n\n${d.msg}`;
@@ -463,6 +517,7 @@ async function renderInvest(keep) {
   const oa = $('#iv-ownask'); if (oa) oa.addEventListener('click', () => ivAsk(`${ivOwnSummary()} What are the trends, the seasons, my best days, and where can I grow?`));
   body.querySelectorAll('[data-eap]').forEach(b => b.addEventListener('click', async () => (await api()).open_path(b.dataset.eap)));
   if (ivSub === 'index') ivDrawMap();
+  if (ivSub === 'list') ivDirDraw(ivDirRows()); else if (ivDirMap) { try { ivDirMap.remove(); } catch (e) { /* gone */ } ivDirMap = null; ivDirView = null; }
   const th = $('#iv-thread'); if (th) th.scrollTop = th.scrollHeight;
   if (keep) window.scrollTo(0, y);
 }
