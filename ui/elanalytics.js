@@ -84,19 +84,19 @@ function eaFederal(M) {
 }
 
 // ---- the analyst (chat)
-const EA_SUGGEST = ['Where in this area was turnout lowest, and who lives there?', 'Which age groups are largest here, and how does that compare with Calgary?',
+const EA_SUGGEST = ['Under what model could a candidate win the next race here? Show the assumptions and the arithmetic', 'Where in this area was turnout lowest, and who lives there?', 'Which age groups are largest here, and how does that compare with Calgary?',
   'How did advance voting differ from election-day voting?', 'Which voting locations were closest between the top two parties?',
   'What do residents raise most through 311, community by community?', 'Build a briefing on this area for an upcoming election'];
 function eaLocked() { return !!(window.CDD_AI && window.CDD_AI.unlocked && !window.CDD_AI.unlocked()); }
 function eaChat() {
   const locked = eaLocked();
   const msgs = eaThread.map(m => `<div class="ea-msg ${m.who}">${m.who === 'you' ? esc(m.text) : (m.html || esc(m.text || ''))}${m.cards ? `<div class="ea-cards">${m.cards}</div>` : ''}</div>`).join('');
-  return `<section class="card span-12 ea-chat"><div class="card-head"><div><h2>Ask the election analyst</h2><p class="card-sub">Advanced analysis of ${esc(W())} from every figure on this screen and the rest of the Data Desk. Nonpartisan: the same for any candidate or campaign.</p></div></div>
+  return `<section class="card span-12 ea-chat"><div class="card-head"><div><h2>Ask the election analyst</h2><p class="card-sub">Advanced analysis of ${esc(W())} from every figure on this screen and the rest of the Data Desk. Nonpartisan: the same rigour for any candidate or campaign, including projections built on stated assumptions.</p></div></div>
     ${locked ? `<div class="web-lock ea-lock"><h3>The analyst needs the access code</h3><p>The screens above are open to everyone. Asking the analyst uses an AI language model on the website owner's account, so it needs the access code (the same one as Data Genie).</p>
       <form id="ea-unlock"><label class="sr-only" for="ea-code">Access code</label><input type="password" id="ea-code" autocomplete="off" placeholder="Access code"><button type="submit" class="btn primary">Unlock</button></form><p class="web-lock-msg" id="ea-lockmsg" role="status"></p></div>`
       : `<div class="ea-thread" id="ea-thread">${msgs || `<div class="ea-suggest">${EA_SUGGEST.map(s => `<button type="button" class="chip" data-easug="${esc(s)}">${esc(s)}</button>`).join('')}</div>`}</div>
       <form class="ea-form" id="ea-form"><textarea id="ea-q" rows="2" placeholder="Ask about turnout, who lives here, voting locations, issues…" aria-label="Question for the election analyst"></textarea><button class="btn primary" type="submit" ${eaBusy ? 'disabled' : ''}>${eaBusy ? 'Working…' : 'Ask'}</button></form>`}
-    <p class="card-note">Answers use official results and the Census, and say which figures are estimates. The analyst does not favour any candidate or party, predict results, or suggest targeting or discouraging any group.</p></section>`;
+    <p class="card-note">Answers use official results and the Census, and say which figures are estimates. It can build projections and win scenarios as mathematical models, with every assumption, the arithmetic and a range, never as certainties. It works the same for any candidate or party, and never suggests targeting or discouraging any group.</p></section>`;
 }
 async function eaAsk(q) {
   if (eaBusy || !q.trim()) return;
