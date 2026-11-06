@@ -1,4 +1,4 @@
-/* Calgary Data Desk: Calgary Capital Markets. Calgary's public companies, from official sources: a company list checked
+/* Calgary Insight: Calgary Capital Markets. Calgary's public companies, from official sources: a company list checked
    by hand (head office city and source for each, capmkt/companies.json) and totals worked out at every refresh from
    TMX's monthly listed-issuer file (capmkt.py). TMX does not allow its file to be redistributed, so only totals are
    shown from it, never one company's figures; a total over fewer than three companies shows a count only. No share

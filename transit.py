@@ -31,7 +31,7 @@ FEED_URL = PORTAL + '/download/{id}/application%2Foctet-stream'
 TIMETABLE_URL = PORTAL + '/download/' + TIMETABLE + '/application%2Fzip'
 PAGE = PORTAL + '/d/' + VEHICLES
 LOOKUP_DAYS = 7
-HEADERS = {'User-Agent': 'CalgaryDataDesk/2.0'}
+HEADERS = {'User-Agent': 'CalgaryInsight/2.0'}
 KIND = {'0': 'ctrain', '1': 'ctrain', '2': 'ctrain', '3': 'bus'}       # GTFS route_type
 
 

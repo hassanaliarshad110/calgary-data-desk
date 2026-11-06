@@ -1,4 +1,4 @@
-/* Calgary Data Desk on the web: hide what only the desktop app can do */
+/* Calgary Insight on the web: hide what only the desktop app can do */
 body[data-web] [data-view="files"], body[data-web] #view-files, body[data-web] #eng-card,
 body[data-web] #settings-form .card:has(#google-key), body[data-web] #period-pill,
 body[data-web] #settings-form > .row-actions, body[data-web] #open-folder { display: none !important; }

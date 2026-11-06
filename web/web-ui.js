@@ -1,4 +1,4 @@
-// Calgary Data Desk on the web: wording for a browser instead of a desktop app, the daily refresh time, and the
+// Calgary Insight on the web: wording for a browser instead of a desktop app, the daily refresh time, and the
 // access-code lock in front of the AI screens.
 (() => {
   'use strict';

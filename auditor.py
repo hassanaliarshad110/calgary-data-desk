@@ -78,7 +78,7 @@ SUBMIT_FINAL = {
             'required': ['id', 'status', 'note']}}},
         'required': ['verdict', 'checks']}}
 
-COMMON = """Today is {today}. You work inside Calgary Data Desk, an app for the City of Calgary's Mayor and councillors \
+COMMON = """Today is {today}. You work inside Calgary Insight, an app for the City of Calgary's Mayor and councillors \
 built on City of Calgary open data, Calgary Police Service data, Statistics Canada, CMHC and the Government of Alberta. \
 The app's own figures come from get_dashboard (for the area selected in the app now: all of Calgary or one ward) and \
 the method behind every figure from get_method. A report covers the area it names, which may not be the one selected \
@@ -278,7 +278,7 @@ td{{border-bottom:1px solid #E2E8F0;padding:8px 6px;vertical-align:top}}td p{{ma
 .sev{{font-size:11px;font-weight:700;padding:1px 7px;border-radius:9px;background:#F1F5F9}}.sev.high{{background:#FEE2E2;color:#991B1B}}.sev.medium{{background:#FEF3C7;color:#92400E}}.sev.low{{background:#DCFCE7;color:#166534}}
 .ok{{color:#166534}}.bad{{color:#B91C1C}}.box{{background:#F8FAFC;border-left:4px solid #0B6BB5;padding:8px 14px;border-radius:4px;margin:8px 0}}
 @media print{{body{{margin:0}}}}</style></head><body>
-<div class="band"><p class="kick">Calgary Data Desk · Report audit</p><h1>{e(a['title'])}</h1><p>Audited {e(a['made'])}: audit by Chinook, review and fixes by Bow, final check by Rundle</p></div>
+<div class="band"><p class="kick">Calgary Insight · Report audit</p><h1>{e(a['title'])}</h1><p>Audited {e(a['made'])}: audit by Chinook, review and fixes by Bow, final check by Rundle</p></div>
 <div class="stats"><div><b>{e(a.get('figures_checked'))}</b>figures re-run</div><div><b>{n}</b>findings</div><div><b>{fixed}</b>fixed</div><div><b>{rej}</b>rightly rejected</div><div><b class="{'bad' if bad else 'ok'}">{bad}</b>still open</div></div>
 <div class="box"><b>Final check:</b> {e(a.get('verdict'))}</div>
 <div class="box"><b>Auditor:</b> {e(a.get('audit_summary'))}</div>

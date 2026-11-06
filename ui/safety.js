@@ -1,4 +1,4 @@
-/* Calgary Data Desk: Canada's safest cities by Statistics Canada's Crime Severity Index, Calgary picked out, this year
+/* Calgary Insight: Canada's safest cities by Statistics Canada's Crime Severity Index, Calgary picked out, this year
    and last. safety_rank.py builds the figures; methods.py (topic "safest_cities") explains them. */
 'use strict';
 

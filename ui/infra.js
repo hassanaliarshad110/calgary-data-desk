@@ -1,4 +1,4 @@
-/* Calgary Data Desk: Infrastructure condition. Where roads and pipes are wearing out (water main breaks, the age and
+/* Calgary Insight: Infrastructure condition. Where roads and pipes are wearing out (water main breaks, the age and
    material of the water network, the City's paving plan, its own condition figures) and whether 311 requests about them
    are rising in the same places. infra.py builds the figures; methods.py (topic "infra") explains them. */
 'use strict';

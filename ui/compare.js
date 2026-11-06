@@ -1,4 +1,4 @@
-/* Calgary Data Desk: compare wards. Every ward side by side, from the whole-city figures for the same period. */
+/* Calgary Insight: compare wards. Every ward side by side, from the whole-city figures for the same period. */
 'use strict';
 
 // Each measure: where it is in a ward's row, how to show it, and which way is better (null: neither).

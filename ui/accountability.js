@@ -1,4 +1,4 @@
-/* Calgary Data Desk: Civic Accountability, a section of the Election Data Centre. Eight pages: the manifestos, promise
+/* Calgary Insight: Civic Accountability, a section of the Election Data Centre. Eight pages: the manifestos, promise
    against reality, each representative's documented record, voting records, government commitments, budgets and
    projects, the history of every assessment, and the method. Commitments are researched by hand with a source for every
    one (accountability/commitments.json); official records are read at every refresh (accountability.py). Nothing is

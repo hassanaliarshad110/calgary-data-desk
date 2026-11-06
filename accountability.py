@@ -26,7 +26,7 @@ import calgary_data as cd
 VOTES = 'ruq3-99hx'
 HOC = 'https://www.ourcommons.ca/members/en/votes'
 LEGISINFO = 'https://www.parl.ca/legisinfo/en/bills/json?parlsession={ps}'
-UA = {'User-Agent': 'Mozilla/5.0 (CalgaryDataDesk civic data dashboard)'}
+UA = {'User-Agent': 'Mozilla/5.0 (CalgaryInsight civic data dashboard)'}
 
 
 def _raw(url, timeout=120):

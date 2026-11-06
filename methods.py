@@ -140,8 +140,8 @@ METHODS = [
      'page': 'https://www.calgary.ca/communities/profiles/wards.html',
      'updated': '2021 Census (published 2023, revised July 2025); next: 2026 Census results from early 2027',
      'used_in': 'Who lives here card, Data Genie reports',
-     'method': ['Figures are copied from the City\'s printed ward profile, the ward next to Calgary, and kept with the '
-                'Data Desk (data/ward5_profile_2021.json, so far for one ward; every other ward uses "Who lives in each ward" '
+     'method': ['Figures are copied from the City\'s printed ward profile, the ward next to Calgary, and kept with '
+                'Calgary Insight (data/ward5_profile_2021.json, so far for one ward; every other ward uses "Who lives in each ward" '
                 'below). Nothing is estimated or grown: they describe May 2021.',
                 'People in private households only; 2021 ward boundaries; income is for 2020; work questions refer to '
                 'May 2021, during the pandemic.'],
@@ -325,7 +325,7 @@ METHODS = [
          'Proposed use = the current district (fromlud) to the proposed one (proposedlud), as the City writes them '
          '(for example R-CG to DC).'],
      'excel': ['Download 33vi-ew4s, filter applieddate to the period (or statuscurrent to the open ones) and keep the '
-               'rows whose latitude and longitude fall in the area (a map check; the Data Desk tests the boundary exactly).'],
+               'rows whose latitude and longitude fall in the area (a map check; Calgary Insight tests the boundary exactly).'],
      'cautions': ['Public hearing dates are on Council agendas, not in the open data.',
                   'A large application can list several districts at once, separated by commas, in the same order.']},
 
@@ -334,9 +334,9 @@ METHODS = [
      'used_in': 'Traffic incidents (status board), map points',
      'method': ['Incidents with start_dt_utc in the period whose exact latitude and longitude fall inside the ward\'s '
                 'boundary (Ward Boundaries, tz8z-hyaz), or anywhere in Calgary for the whole city. The map shows the last 90 days of the period.'],
-     'excel': ['Filter start_dt_utc to the period, then keep rows inside the ward (a map check; the Data Desk does the '
+     'excel': ['Filter start_dt_utc to the period, then keep rows inside the ward (a map check; Calgary Insight does the '
                'boundary test exactly).'],
-     'cautions': ['The City stores times in UTC; the Data Desk converts them to Calgary time and counts months by Calgary dates. '
+     'cautions': ['The City stores times in UTC; Calgary Insight converts them to Calgary time and counts months by Calgary dates. '
                   'These are incidents the City reports for traffic, not every collision.']},
 
     {'key': 'police', 'name': 'Community safety data (crime and disorder)', 'dataset': 'Community-Safety-Data xlsx',
@@ -345,7 +345,7 @@ METHODS = [
      'updated': 'Every quarter (monthly figures)',
      'used_in': 'Crime tiles, Crime card, disorder card, Compare wards, newsletter, Data Genie',
      'method': [
-         'The spreadsheet linked as "Download Community Safety Data" on the police page; the Data Desk finds the current '
+         'The spreadsheet linked as "Download Community Safety Data" on the police page; Calgary Insight finds the current '
          'link at each refresh and downloads it only when it changes.',
          'A ward = rows whose Ward column is that ward, e.g. "Ward 1" (the police assign each community to a ward, '
          'including the airport and business areas); Calgary = every row.',
@@ -367,8 +367,8 @@ METHODS = [
                'or nothing for Calgary; Year '
                'and Month; sum "Total Crime".',
                'When someone asks for the source, open the police page at "Dashboard data download" (link above) and click '
-               '"Download Community Safety Data": every crime number on the Data Desk can be found in that spreadsheet.'],
-     'cautions': ['Totals on the Data Desk always match the police file.',
+               '"Download Community Safety Data": every crime number on Calgary Insight can be found in that spreadsheet.'],
+     'cautions': ['Totals on Calgary Insight always match the police file.',
          'The police leave out unfounded reports and domestic violence, and '
          'leave out incidents with no location; they advise against comparing the file directly with their dashboard.',
          'Small communities swing a lot from year to year; compare with several years before quoting a change.',
@@ -492,7 +492,7 @@ METHODS = [
                   'community to one ward too).']},
 
     {'key': 'rates', 'name': 'Rates per 1,000 residents, growth, and the "Growing" flag', 'dataset': 'all',
-     'publisher': 'Calgary Data Desk', 'page': '', 'updated': 'At every refresh',
+     'publisher': 'Calgary Insight', 'page': '', 'updated': 'At every refresh',
      'used_in': 'Dashboard tiles, community table and map, Compare wards',
      'method': [
          'Per 1,000 residents a year = count / residents x 1,000 x (12 / months in the period). For a 12-month period '
@@ -515,7 +515,7 @@ METHODS = [
                   'rates look higher than they are.']},
 
     {'key': 'compare', 'name': 'Compare wards: every measure', 'dataset': 'iahh-g8bj, 35ra-9556, c2es-76ed, 6933-unw5, police file',
-     'publisher': 'Calgary Data Desk', 'page': '', 'updated': 'With the whole-city view (at most hourly)',
+     'publisher': 'Calgary Insight', 'page': '', 'updated': 'With the whole-city view (at most hourly)',
      'used_in': 'Compare wards, the city view\'s ward tables, Data Genie (section wards)',
      'method': [
          'Every ward is built from the same whole-city data for the same period, so the 14 wards and Calgary line up.',
@@ -550,7 +550,7 @@ METHODS = [
 
     {'key': 'access', 'name': 'Growth vs amenities: how near homes are to amenities (distance from every home)',
      'dataset': '4bsw-nn7w, bdu9-amk8, kami-qbfh, muzh-c9qc, x34e-bcjz, hxfu-6d96',
-     'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': 'https://data.calgary.ca/d/4bsw-nn7w',
+     'publisher': 'Calgary Insight (City of Calgary open data)', 'page': 'https://data.calgary.ca/d/4bsw-nn7w',
      'updated': 'Worked out again every week; the property roll every month',
      'used_in': 'Growth vs amenities, Compare wards, Data Genie',
      'method': ACCESS_STEPS,
@@ -563,7 +563,7 @@ METHODS = [
 
     {'key': 'access_crowding', 'name': 'Growth vs amenities: crowding at playgrounds and parks (two-step catchment, estimate)',
      'dataset': 'access (distance) + population model (children 0 to 14, residents)',
-     'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': '',
+     'publisher': 'Calgary Insight (City of Calgary open data)', 'page': '',
      'updated': 'With every refresh (the population estimate changes monthly)',
      'used_in': 'Growth vs amenities, Data Genie',
      'method': CROWDING_STEPS,
@@ -577,7 +577,7 @@ METHODS = [
 
     {'key': 'access_scores', 'name': 'Growth vs amenities: amenity scores under every assumption (added 5 November 2026)',
      'dataset': 'access (distance), access_crowding, population model (growth model and 2021 Census)',
-     'publisher': 'Calgary Data Desk (City of Calgary open data)', 'page': '',
+     'publisher': 'Calgary Insight (City of Calgary open data)', 'page': '',
      'updated': 'With every refresh', 'used_in': 'Growth vs amenities (scores), Data Genie',
      'method': SCORE_STEPS,
      'excel': ['From the community details: score = crowding / Calgary\'s crowding; MIN(score, 2) for each amenity; '
@@ -670,7 +670,7 @@ METHODS = [
      'code': 'elections.py; dashboard.py: elections_view'},
     {'key': 'citynews', 'name': 'Calgary News: how the daily stories are found, written and checked',
      'dataset': 'Published reports: City of Calgary, Government of Alberta, Government of Canada, Calgary news outlets',
-     'publisher': 'Calgary Data Desk (each article cites its sources)', 'page': '',
+     'publisher': 'Calgary Insight (each article cites its sources)', 'page': '',
      'updated': 'Every evening at about 6 p.m. Calgary time; at least three stories a day',
      'used_in': 'Calgary News, Data Genie, Data Scientist',
      'method': [
@@ -916,7 +916,7 @@ METHODS = [
                   'not name it.'],
      'code': 'fedbudget.py; ui/fedbudget.js'},
     {'key': 'access_revision', 'name': 'What changed on 5 November 2026 (Growth vs amenities)',
-     'dataset': 'access, access_crowding', 'publisher': 'Calgary Data Desk', 'page': '',
+     'dataset': 'access, access_crowding', 'publisher': 'Calgary Insight', 'page': '',
      'updated': 'Revised 5 November 2026', 'used_in': 'Growth vs amenities (What changed)',
      'method': ['The earlier method, removed: ' + ' '.join(OLD_METHOD),
                 'Why: an audit on 5 November 2026 found that counting inside the boundary per resident misled. A '
@@ -987,7 +987,7 @@ METHODS = [
      'code': 'dashboard.py: growth_checks; families.py: city_school_totals'},
 
     {'key': 'live_counter', 'name': 'Live population counter (dashboard)', 'dataset': 'City population outlook + growth model',
-     'publisher': 'Calgary Data Desk', 'page': '', 'updated': 'Every second in the browser; its two anchor figures every refresh',
+     'publisher': 'Calgary Insight', 'page': '', 'updated': 'Every second in the browser; its two anchor figures every refresh',
      'used_in': 'Dashboard (Residents today tile)',
      'method': ['Work out the selected area\'s residents on the first day of this month and of next month, the way of '
                 'counting chosen in Settings (the same calculation as every other figure).',
@@ -1035,7 +1035,7 @@ METHODS = [
                   'A fitness station may hold several pieces, the City counts each piece.'],
      'code': 'osm.py (fetch, build, MATCH_M, PARK_OVERLAP, SAME_M); assets.py builds both counts; dashboard.with_other'},
 
-    {'key': 'shading', 'name': 'Map shading, flags and colours', 'dataset': 'all', 'publisher': 'Calgary Data Desk',
+    {'key': 'shading', 'name': 'Map shading, flags and colours', 'dataset': 'all', 'publisher': 'Calgary Insight',
      'page': '', 'updated': '', 'used_in': 'Maps, Compare wards, tiles',
      'method': [
          'A ward map shades its communities in 5 equal steps from the lowest to the highest value.',
@@ -1057,7 +1057,7 @@ METHODS = [
          'living alone / private households; one-parent families / census families; in the labour force / people 15+; '
          'unemployed and self-employed / the labour force.',
          'One ward also shows the City\'s printed ward profile (languages, newcomers, housing costs, income), kept with '
-         'the Data Desk (see "The City\'s printed ward profile").'],
+         'Calgary Insight (see "The City\'s printed ward profile").'],
      'excel': ['Download the three ward tables and divide the columns named above.'],
      'cautions': ['2021 Census on the wards as they were in 2021; the 2026 Census replaces it when the City publishes it.']},
 
@@ -1077,7 +1077,7 @@ METHODS = [
                 'in millions of dollars, as the City publishes them.',
                 'Per resident = the budget / the City\'s population estimate for this month.',
                 'By ward: the City does not publish its budget by ward. The ward table adds up only the published costs of '
-                'City and partner projects and road projects listed on the Data Desk with a location in the ward (the largest '
+                'City and partner projects and road projects listed on Calgary Insight with a location in the ward (the largest '
                 'dollar amount named in each project\'s cost).'],
      'excel': ['Download fqax-i3nz, filter year and fund, and sum budget by budget_department.'],
      'cautions': ['Project costs are often spread over several years and shared with other governments, so they do not '
@@ -1115,7 +1115,7 @@ METHODS = [
                   'institutional land (Ward 7 downtown, industrial wards 9 and 10) carry the most uncertainty.']},
 
     {'key': 'report_auditor', 'name': 'Report auditor (Data Scientist)', 'dataset': 'The report and the queries behind it',
-     'publisher': 'Calgary Data Desk', 'page': 'https://github.com/hassanaliarshad110/calgary-data-desk', 'updated': 'Each audit',
+     'publisher': 'Calgary Insight', 'page': 'https://github.com/hassanaliarshad110/calgary-data-desk', 'updated': 'Each audit',
      'used_in': 'Data Scientist, Report auditor tab',
      'method': ['Step 1, audit by Chinook: reads the report and every query it ran, re-runs the queries with the same '
                 'filters and periods, recomputes every total, rate, share and change with the calculator, and checks the '

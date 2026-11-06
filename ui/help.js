@@ -1,4 +1,4 @@
-/* Calgary Data Desk: Find help near me. Shelters, meals, day spaces, health care and help lines, nearest first when the
+/* Calgary Insight: Find help near me. Shelters, meals, day spaces, health care and help lines, nearest first when the
    visitor shares their location. The location stays in the browser: it is used to sort and to draw "you are here", and
    is never sent anywhere. The list (help/help.json) comes from the Calgary Homeless Foundation's 2026 Supports and
    Resources Guide and Alberta's list of Calgary homeless shelters; shelters for people leaving abuse are listed by phone

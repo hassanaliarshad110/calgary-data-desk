@@ -1,7 +1,7 @@
-/* Calgary Data Desk: Invest in Calgary. Every business we can find in Calgary (City business licences and
+/* Calgary Insight: Invest in Calgary. Every business we can find in Calgary (City business licences and
    OpenStreetMap), grouped and searchable; where each kind of business is underserved for the people who live nearby;
    growth and new licences; and the Business Economist (behind its own passcode) that writes business
-   plans from all the data on the Data Desk. business.py builds the list; the index is worked out here with the
+   plans from all the data on Calgary Insight. business.py builds the list; the index is worked out here with the
    residents counted the way chosen in Settings. */
 'use strict';
 

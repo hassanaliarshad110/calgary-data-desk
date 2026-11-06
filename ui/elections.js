@@ -1,4 +1,4 @@
-/* Calgary Data Desk: Elections. Who represents the area picked at each level, and the latest official results:
+/* Calgary Insight: Elections. Who represents the area picked at each level, and the latest official results:
    municipal 2025 (Elections Calgary), provincial 2023 with by-elections since and the 2026 referendum (Elections
    Alberta), federal 2025 (Elections Canada). Results are shown as published: candidates by votes, no ranking,
    no colours by party. elections.py builds the figures; methods.py (topic "elections") explains them. */
@@ -303,7 +303,7 @@ function elRoom() {
   const split = gs => { const t = gs.reduce((a, g) => a + g.n, 0); return `<div class="el-bar">${gs.map(g => `<span style="width:${g.n / t * 100}%;background:${elColor(g.label)}" title="${esc(g.label)} ${g.n}"></span>`).join('')}</div><div class="el-hero-sub">${gs.map(g => `${esc(g.label)} ${g.n}`).join(' · ')}</div>`; };
   const battle = elBattle(), closest = battle[0];
   const hero = `<section class="el-cr span-12">
-    <div class="el-cr-top"><div><div class="el-cr-kicker">Calgary Data Desk</div><h2 class="el-cr-title">Election Data Centre</h2><div class="el-cr-sub">${esc(W())} · official results and the members sitting today · read ${esc(elDay(EL.built_at))}</div></div>
+    <div class="el-cr-top"><div><div class="el-cr-kicker">Calgary Insight</div><h2 class="el-cr-title">Election Data Centre</h2><div class="el-cr-sub">${esc(W())} · official results and the members sitting today · read ${esc(elDay(EL.built_at))}</div></div>
       <div class="el-cr-counts">${EL_NEXT.map(([t, d]) => `<div class="el-cr-count"><div class="el-cr-kicker">${esc(EL_SHORT[t] || t)} · ${esc(elDay(d))}</div>${elCountdown(d, true)}</div>`).join('')}</div></div>
     <div class="el-cr-kpis">
       <div class="el-kpi"><div class="el-kpi-l">City Council</div><div class="el-kpi-n">15</div>${split(cal)}</div>

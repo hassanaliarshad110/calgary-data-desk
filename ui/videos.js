@@ -1,4 +1,4 @@
-/* Calgary Data Desk: Video Explainers, sorted by topic and area so the page stays easy to use as videos are added.
+/* Calgary Insight: Video Explainers, sorted by topic and area so the page stays easy to use as videos are added.
    Each video card in index.html carries data-cat (its topic) and data-area (a ward or all of Calgary). */
 'use strict';
 (() => {

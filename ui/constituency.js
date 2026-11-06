@@ -1,4 +1,4 @@
-/* Calgary Data Desk: Know your constituency for every elected member from Calgary: the councillor's ward, each MLA's
+/* Calgary Insight: Know your constituency for every elected member from Calgary: the councillor's ward, each MLA's
    provincial electoral division and each MP's federal electoral district. Charts of who lives there (age, households,
    work, languages), the last result and its arithmetic, turnout by voting location or poll, the wards it overlaps and
    the 2026 referendum. elections.py (areas) builds the figures. Facts only, the same way for every seat. */
@@ -171,7 +171,7 @@ function ecPicker() {
     ${sel('ec-w', 'Councillor', 'All 14 wards side by side', 'W', wards.map(n => [`w:${n}`, `Ward ${n}${((C[n] || {}).candidates || [{}])[0].name ? ' · ' + C[n].candidates[0].name : ''}`]))}
     ${sel('ec-p', 'MLA', `All ${p.length} electoral divisions`, 'P', p.map(n => [`p:${n}`, `${n}${mem('provincial', n) ? ' · ' + mem('provincial', n) : ''}`]))}
     ${sel('ec-f', 'MP', `All ${f.length} electoral districts`, 'F', f.map(n => [`f:${n}`, `${n}${mem('federal', n) ? ' · ' + mem('federal', n) : ''}`]))}
-    <span class="muted small">Only this screen changes${w !== null && w !== SCOPE ? `; the rest of the Data Desk still shows ${esc(W())}` : ''}.</span></div>`;
+    <span class="muted small">Only this screen changes${w !== null && w !== SCOPE ? `; the rest of Calgary Insight still shows ${esc(W())}` : ''}.</span></div>`;
 }
 
 // the view for the Election Data Centre's "Know your constituency" (null: a ward, drawn by elections.js)

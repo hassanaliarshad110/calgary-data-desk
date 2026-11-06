@@ -117,7 +117,7 @@ def fetch_osm():
         for _ in range(2):
             try:
                 req = urllib.request.Request(url, data=urllib.parse.urlencode({'data': q}).encode(),
-                                             headers={'User-Agent': 'CalgaryDataDesk/1.0 (civic data dashboard)'})
+                                             headers={'User-Agent': 'CalgaryInsight/1.0 (civic data dashboard)'})
                 with urllib.request.urlopen(req, timeout=300) as r:
                     return json.loads(r.read().decode('utf-8')).get('elements') or []
             except Exception as ex:                      # noqa: BLE001

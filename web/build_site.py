@@ -1,4 +1,4 @@
-"""Build the Calgary Data Desk website: the desktop app's screens on top of data built once a day.
+"""Build the Calgary Insight website: the desktop app's screens on top of data built once a day.
 
     python web/build_site.py OUT_DIR [--cache DIR] [--wards 0,5] [--methods model]
 
@@ -66,7 +66,7 @@ def page(out):
     idx = idx.replace('<script src="app.js"></script>',
                       '<script src="web.js"></script><script src="web-ai.js"></script><script src="app.js"></script>', 1)
     idx = idx.replace('</body>', '<script src="web-ui.js"></script>\n</body>', 1)
-    idx = idx.replace('</head>', '<link rel="stylesheet" href="web.css">\n<meta name="description" content="Calgary Data Desk: '
+    idx = idx.replace('</head>', '<link rel="stylesheet" href="web.css">\n<meta name="description" content="Calgary Insight: '
                       'every Calgary ward side by side, from City of Calgary open data, refreshed every morning.">\n</head>', 1)
     idx = idx.replace('<body', '<body data-web="1"', 1)
     with open(os.path.join(out, 'index.html'), 'w', encoding='utf-8') as f:

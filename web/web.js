@@ -1,4 +1,4 @@
-// Calgary Data Desk on the web: stands in for the desktop app's Python bridge (window.pywebview.api).
+// Calgary Insight on the web: stands in for the desktop app's Python bridge (window.pywebview.api).
 // Every screen reads the data the daily build wrote to data/ (the same figures the desktop app builds), and
 // choices (ward, way of counting residents, theme, map style) are remembered in this browser only.
 (() => {

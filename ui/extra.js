@@ -566,7 +566,7 @@ function renderGap() {
   const list = wards.length ? wards : Array.from({ length: 14 }, (_, i) => i + 1);
   const meth = ((D.population || {}).method_label) || '';
   box.insertAdjacentHTML('afterbegin', `<div class="gr-area"><label class="field"><span>Area on this screen</span><select id="gr-area"><option value="0" ${w === 0 ? 'selected' : ''}>All of Calgary</option>${list.map(n => `<option value="${n}" ${w === n ? 'selected' : ''}>Ward ${n}</option>`).join('')}</select></label>
-    <p class="card-note">${w !== SCOPE ? `Showing ${w ? 'Ward ' + w : 'all of Calgary'} here; the rest of the Data Desk still shows ${esc(W())}. ` : ''}Residents counted: <b>${esc(meth)}</b> (change it in Settings). Distances are measured from homes, so the shares of homes within reach stay the same under every way of counting; residents, children and crowding follow it.</p></div>`);
+    <p class="card-note">${w !== SCOPE ? `Showing ${w ? 'Ward ' + w : 'all of Calgary'} here; the rest of Calgary Insight still shows ${esc(W())}. ` : ''}Residents counted: <b>${esc(meth)}</b> (change it in Settings). Distances are measured from homes, so the shares of homes within reach stay the same under every way of counting; residents, children and crowding follow it.</p></div>`);
   const sel = $('#gr-area');
   if (sel) sel.addEventListener('change', () => { const v = +sel.value; grArea = v === SCOPE ? null : v; renderGap(); });
 }
@@ -1137,7 +1137,7 @@ const DATASETS_OF = () => [
   { name: 'Daily climate data, Calgary airport', id: '', page: 'https://climate.weather.gc.ca/', pub: 'Environment and Climate Change Canada', what: 'Daily temperature, rain, snow and snow depth back to 1881. The airport station is inside ' + W() + '.', used: 'Data Genie',
     ask: ['How has Calgary\'s winter snowfall changed over the last 10 years?', 'Chart the hottest summers in Calgary since 2000'] },
   // the rest of what the app reads, so every number on screen has its source listed here
-  { name: 'City population outlook', id: '', page: 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf', pub: 'City of Calgary (Corporate Economics)', what: 'The City\'s population estimate and forecast for Calgary (Calgary and Region Economic Outlook 2026-2031, Spring 2026, Table 4, page 19), and its forecast of children. A published report, not open data: its figures are kept with the Data Desk and updated with each new outlook.', used: 'Residents today (the default way of counting), live counter, children',
+  { name: 'City population outlook', id: '', page: 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf', pub: 'City of Calgary (Corporate Economics)', what: 'The City\'s population estimate and forecast for Calgary (Calgary and Region Economic Outlook 2026-2031, Spring 2026, Table 4, page 19), and its forecast of children. A published report, not open data: its figures are kept with Calgary Insight and updated with each new outlook.', used: 'Residents today (the default way of counting), live counter, children',
     ask: ['How is the population of Martindale worked out today?'] },
   { name: '2021 Census households by community', id: 'msjx-5ygv', pub: 'City of Calgary (Statistics Canada)', what: 'Private households by community in the 2021 Census.', used: 'Growth model (people per home)', ask: [] },
   { name: '2021 Census by ward', id: 'k4pr-cznc', pub: 'City of Calgary (Statistics Canada)', what: 'Ages, households, families and work for every ward in the 2021 Census (with jzfi-qvb4 and b5q8-82zn, and the same tables for Calgary).', used: 'Who lives in each ward',
@@ -1154,8 +1154,8 @@ const DATASETS_OF = () => [
     ask: ['List the private amenities accessible to the community in Taradale with links'] },
   { name: 'Calgary Open Budget', id: 'fqax-i3nz', pub: 'City of Calgary', what: 'Every line of the City\'s operating and capital budget, by department and business unit.', used: 'City budget',
     ask: ['What is the City\'s 2026 operating budget by department?'] },
-  { name: 'Budget book: operating revenue by source', id: '', page: 'https://www.calgary.ca/our-finances/budget.html', pub: 'City of Calgary', what: 'Operating revenue by source (property tax, user fees, franchise fees and so on) from the 2026 Budget as approved, Budget Overview, page 24. A published book, not open data: kept with the Data Desk and updated with each budget.', used: 'City budget', ask: [] },
-  { name: '2026 Property Tax Bylaw', id: '', page: 'https://municipalaffairs.gov.ab.ca/cfml/FinancialTaxRateSearch/pdf/tr_bylaws/2026_Bylaw_CALGARY_0046.pdf', pub: 'City of Calgary (Alberta Municipal Affairs)', what: 'The 2026 tax rates and levy (Bylaw 9M2026), applied to the assessment roll (4bsw-nn7w) to estimate property tax by ward and community. A bylaw document: its rates are kept with the Data Desk.', used: 'City budget (property tax by ward)',
+  { name: 'Budget book: operating revenue by source', id: '', page: 'https://www.calgary.ca/our-finances/budget.html', pub: 'City of Calgary', what: 'Operating revenue by source (property tax, user fees, franchise fees and so on) from the 2026 Budget as approved, Budget Overview, page 24. A published book, not open data: kept with Calgary Insight and updated with each budget.', used: 'City budget', ask: [] },
+  { name: '2026 Property Tax Bylaw', id: '', page: 'https://municipalaffairs.gov.ab.ca/cfml/FinancialTaxRateSearch/pdf/tr_bylaws/2026_Bylaw_CALGARY_0046.pdf', pub: 'City of Calgary (Alberta Municipal Affairs)', what: 'The 2026 tax rates and levy (Bylaw 9M2026), applied to the assessment roll (4bsw-nn7w) to estimate property tax by ward and community. A bylaw document: its rates are kept with Calgary Insight.', used: 'City budget (property tax by ward)',
     ask: ['How much property tax does each ward pay?'] },
   { name: 'Missing-person appeals', id: '', page: 'https://newsroom.calgary.ca/police-news-releases/', pub: 'Calgary Police Service (City newsroom)', what: 'Missing-person news releases, read live from the City newsroom feed; nothing is saved, and an appeal disappears when the police take it down.', used: 'Dashboard', ask: [] },
 ];
@@ -1222,7 +1222,7 @@ function renderSources() {
         <button class="btn icon-only" data-open="${esc(srcPage(d))}" aria-label="Open the ${esc(d.name)} page">${icon('open')}</button></div>
       <p>${esc(d.what)}</p>
       <p class="src-used"><b>Used in:</b> ${esc(d.used)}</p>
-      ${d.name === 'Community safety data' && D && D.crime && D.crime.link ? `<button type="button" class="btn src-dl" data-open="${esc(D.crime.link)}">${icon('download')}<span>Download the data file: Jan 2020 to ${esc(D.crime.latest)}</span></button><p class="card-note">"Open" goes to the police page at <b>Dashboard data download</b>; its <b>Download Community Safety Data</b> button gives this same file. Every crime number on the Data Desk can be checked in it (sheet Community Crime: filter Ward or Community, Year, Month; add up Total Crime).</p>` : ''}
+      ${d.name === 'Community safety data' && D && D.crime && D.crime.link ? `<button type="button" class="btn src-dl" data-open="${esc(D.crime.link)}">${icon('download')}<span>Download the data file: Jan 2020 to ${esc(D.crime.latest)}</span></button><p class="card-note">"Open" goes to the police page at <b>Dashboard data download</b>; its <b>Download Community Safety Data</b> button gives this same file. Every crime number on Calgary Insight can be checked in it (sheet Community Crime: filter Ward or Community, Year, Month; add up Total Crime).</p>` : ''}
       ${methodHtml(d)}
       ${d.ask.length ? `<div class="src-ask">${d.ask.map(a => `<button type="button" class="ask-chip" data-ask="${esc(a)}">${icon(/^download/i.test(a) ? 'download' : /^chart|^map|^compare/i.test(a) ? 'bars' : 'chat')}<span>${esc(a)}</span></button>`).join('')}</div>` : ''}
     </article>`).join('') || '<p class="card-sub">No datasets match.</p>';
@@ -1242,7 +1242,7 @@ document.addEventListener('click', e => {
   q.focus();
 });
 function renderBriefSources() {
-  $('#brief-sources').innerHTML = `<span class="bs-title">Data on the Data Desk, ready to ask about, analyze or download</span>` +
+  $('#brief-sources').innerHTML = `<span class="bs-title">Data on Calgary Insight, ready to ask about, analyze or download</span>` +
     DATASETS_OF().map(d => `<span class="bs-chip">${esc(d.name)}<small>${esc(d.pub.replace(/ \(.*\)$/, '').replace('City of Calgary', 'City').replace('Government of Alberta', 'Alberta').replace('Environment and Climate Change Canada', 'Env. Canada'))}</small></span>`).join('');
 }
 
@@ -1372,7 +1372,7 @@ const CARD_SOURCES = [
   ['[aria-labelledby="map-title"]', ['r311', 'pop', 'traffic', 'cams'], () => 'Most 311 requests are recorded at the community\'s centre point, not the exact address, so 311 is shaded by community. Traffic incidents: last 90 days of the period.'],
   ['[aria-labelledby="trend-title"]', ['r311'], () => `Requests by the month they were made, ${periodWords()}. Duplicates are left out.`],
   ['[aria-labelledby="feed-title"]', ['r311'], () => 'The newest requests the City has published; names and contact details are never published.'],
-  ['#profile-card', ['profile'], () => CY() === 2021 ? 'People in private households, 2021 ward boundaries, as of May 2021 (income: 2020). The Data Desk switches to the 2026 Census by itself when the City publishes it (expected 2027).' : `People in private households, as of May ${CY()}.`],
+  ['#profile-card', ['profile'], () => CY() === 2021 ? 'People in private households, 2021 ward boundaries, as of May 2021 (income: 2020). Calgary Insight switches to the 2026 Census by itself when the City publishes it (expected 2027).' : `People in private households, as of May ${CY()}.`],
   ['#crime-card', ['police'], () => 'Every number here is in the police spreadsheet (link: police page, "Download Community Safety Data").'],
   ['#rent-card', ['cmhc'], () => 'Purpose-built rental apartments only; rents for ' + (isCity() ? 'Calgary as a whole' : (((D.rents || {}).areas || {}).ward5 ? 'the whole ' + W() + ' area' : 'the CMHC survey zone ' + W() + ' is in')) + ', not each community.'],
   ['#csi-card', ['csi'], () => 'City-wide only: no ward or community figures exist for this index.'],
@@ -1617,7 +1617,7 @@ async function runDs({ key, title, text }) {
   $('#ds-run').hidden = false;
   $('#ds-run').classList.remove('is-done');
   $('#ds-run-title').textContent = title || text;
-  $('#ds-run-sub').textContent = 'Working on it. This usually takes 3 to 8 minutes; you can use the rest of the Data Desk meanwhile.';
+  $('#ds-run-sub').textContent = 'Working on it. This usually takes 3 to 8 minutes; you can use the rest of Calgary Insight meanwhile.';
   $('#ds-steps').innerHTML = '<li>Planning the analysis</li>';
   $('#ds-result').innerHTML = '';
   setStage(0);

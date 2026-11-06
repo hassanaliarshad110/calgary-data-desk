@@ -64,7 +64,7 @@ def fetch(bbox=BBOX, timeout=120):
     for url in ENDPOINTS:
         for attempt in range(2):
             try:
-                req = urllib.request.Request(url, data=body, headers={'User-Agent': 'CalgaryDataDesk/2.0 (civic open data)'})
+                req = urllib.request.Request(url, data=body, headers={'User-Agent': 'CalgaryInsight/2.0 (civic open data)'})
                 with urllib.request.urlopen(req, timeout=timeout) as r:
                     return json.loads(r.read().decode('utf-8'))['elements']
             except Exception as e:                       # noqa: BLE001 - busy or down: wait, then the other server

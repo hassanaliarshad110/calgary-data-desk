@@ -9,7 +9,7 @@ The City does not publish a condition score for each road or pipe as open data, 
     paving, next year's, and the tentative five-year plan;
   - 311 service requests (iahh-g8bj) about roads, sidewalks, streetlights and water: the last 12 months against the 12
     before, by community;
-  - the City's own condition figures, which are not open data and are kept with the Data Desk (CITY_CONTEXT), with
+  - the City's own condition figures, which are not open data and are kept with Calgary Insight (CITY_CONTEXT), with
     their sources.
 The website build writes data/infra.json; the Infrastructure page works it out by community, ward or all of Calgary.
 
@@ -71,7 +71,7 @@ CAST_IRON = ('CI', 'CAST IRON', 'CAST_IRON', 'CIP')
 
 
 def _get(url, timeout=180):
-    req = urllib.request.Request(url, headers={'User-Agent': 'CalgaryDataDesk/1.0 (civic data dashboard)'})
+    req = urllib.request.Request(url, headers={'User-Agent': 'CalgaryInsight/1.0 (civic data dashboard)'})
     for i in range(3):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as r:

@@ -1,4 +1,4 @@
-/* Calgary Data Desk: the City budget (live from Calgary Open Budget), and live connection tests for every source. */
+/* Calgary Insight: the City budget (live from Calgary Open Budget), and live connection tests for every source. */
 'use strict';
 
 // ================================================================ CITY BUDGET
@@ -101,7 +101,7 @@ function renderRevenue() {
   const ch = l => { const n = l.values.length; return signed((l.values[n - 1] / l.values[n - 2] - 1) * 100, 0); };
   $('#bud-rev-table tbody').innerHTML = R.lines.map(l => `<tr><td title="${esc(l.note || '')}">${esc(l.name)}</td>${l.values.map(v => `<td class="num">${fmt(v)}</td>`).join('')}<td class="num">${ch(l)}</td></tr>`).join('')
     + `<tr class="cmp-city-row"><td><b>Total operating revenue</b></td>${R.total.map(v => `<td class="num"><b>${fmt(v)}</b></td>`).join('')}<td class="num">${signed((R.total[R.total.length - 1] / R.total[R.total.length - 2] - 1) * 100, 0)}</td></tr>`;
-  $('#bud-rev-note').innerHTML = `Source: ${esc(R.source)}. Figures are as the City published them, in millions, so a column can differ from its total by 1 through rounding. The City publishes revenue by source in its budget book, not in open data, so these figures are kept with the Data Desk and updated with each budget. Of these sources, only property tax can be placed by ward (below); user fees, franchise fees, investment income, grants and the ENMAX dividend have no location. <button class="link-btn small" data-open="${esc(R.page)}">The City's budget pages</button>`;
+  $('#bud-rev-note').innerHTML = `Source: ${esc(R.source)}. Figures are as the City published them, in millions, so a column can differ from its total by 1 through rounding. The City publishes revenue by source in its budget book, not in open data, so these figures are kept with Calgary Insight and updated with each budget. Of these sources, only property tax can be placed by ward (below); user fees, franchise fees, investment income, grants and the ENMAX dividend have no location. <button class="link-btn small" data-open="${esc(R.page)}">The City's budget pages</button>`;
 }
 
 // property tax by ward: an estimate from the assessment roll and the tax bylaw
@@ -170,7 +170,7 @@ function renderBudgetWards() {
     const ws = (D.wards_summary || {}).wards || [];
     box.innerHTML = `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Projects with a published cost</th><th scope="col" class="num">Their cost</th><th scope="col" class="num">Per resident</th></tr></thead><tbody>
       ${ws.map(r => { const b = byW[r.ward] || { n: 0, sum: 0 }; return `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${fmt(b.n)}</td><td class="num">${b.n ? money(b.sum) : '–'}</td><td class="num">${b.n && r.residents ? '$' + fmt(b.sum * 1e6 / r.residents) : '–'}</td></tr>`; }).join('')}
-      </tbody></table></div><p class="card-note">Only projects listed on the Data Desk with a published cost and a location; a ward with none listed may still have City spending (maintenance, services and programs are budgeted city-wide).</p>`;
+      </tbody></table></div><p class="card-note">Only projects listed on Calgary Insight with a published cost and a location; a ward with none listed may still have City spending (maintenance, services and programs are budgeted city-wide).</p>`;
     return;
   }
   box.innerHTML = withCost.length ? `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Project</th><th scope="col">Kind</th><th scope="col">Owner</th><th scope="col">Community</th><th scope="col" class="num">Published cost</th></tr></thead><tbody>

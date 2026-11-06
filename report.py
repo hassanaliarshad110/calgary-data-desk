@@ -210,11 +210,11 @@ def render(spec, provenance=None, meta=None, interactive=False, printable=False)
     """The report page: for the PDF (fixed pictures), or interactive (live charts and zoomable maps)."""
     meta = meta or {}
     prov = provenance or []
-    title = str(spec.get('title') or 'Calgary Data Desk analysis').strip()
+    title = str(spec.get('title') or 'Calgary Insight analysis').strip()
     today = meta.get('date') or dt.date.today().strftime('%B %d, %Y').replace(' 0', ' ')
     visuals = collect(spec)
     facts = [x for x in (meta.get('area'), today, meta.get('built')) if x]
-    parts = [f'''<header class="top"><p class="brand">Calgary Data Desk</p>
+    parts = [f'''<header class="top"><p class="brand">Calgary Insight</p>
   <h1>{e(title)}</h1>{f'<p class="sub">{e(spec.get("subtitle"))}</p>' if spec.get('subtitle') else ''}
   <p class="facts">{' <span>·</span> '.join(e(x) for x in facts)}</p></header>''']
     if spec.get('question'):

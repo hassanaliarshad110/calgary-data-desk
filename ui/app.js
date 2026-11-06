@@ -1,4 +1,4 @@
-/* Calgary Data Desk (formerly Ward 5 Data Desk) - interface */
+/* Calgary Insight (formerly Ward 5 Data Desk) - interface */
 'use strict';
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -214,7 +214,7 @@ function scopeText() {
     if (!a) n.nodeValue = v;
     else { n.setAttribute(a, v); if (a === 'value' && n.dataset.edited !== '1') n.value = v; }
   });
-  document.title = 'Calgary Data Desk' + (SCOPE ? ` · Ward ${SCOPE}` : '');
+  document.title = 'Calgary Insight' + (SCOPE ? ` · Ward ${SCOPE}` : '');
   const sel = $('#scope-sel');
   if (sel && +sel.value !== SCOPE) sel.value = String(SCOPE);
 }
@@ -1337,7 +1337,7 @@ function openRecordPage(r) {
   pg.innerHTML = `<div class="record-sheet">
     <div class="record-tools no-print"><button class="btn primary" id="rec-print">${icon('print')}<span>Print or save as PDF</span></button>
       <button class="btn" id="rec-close">${icon('x')}<span>Close</span></button></div>
-    <header class="record-head"><img src="logo.svg" alt="" width="40" height="40"><div><strong>Calgary Data Desk</strong><span>Office of Councillor ${esc(D.ward.councillor || '')}</span></div></header>
+    <header class="record-head"><img src="logo.svg" alt="" width="40" height="40"><div><strong>Calgary Insight</strong><span>Office of Councillor ${esc(D.ward.councillor || '')}</span></div></header>
     <p class="card-sub">311 service request</p>
     <h1 class="mono">${esc(r.id)}</h1>
     <h2>${esc(niceType(r.type))}</h2>
@@ -1507,7 +1507,7 @@ window.onAgentEvent = ev => {
   } else if (ev.type === 'download') {
     const card = document.createElement('div'); card.className = 'card file';
     const name = ev.path.split(/[\\/]/).pop();
-    card.innerHTML = `${icon('file')}<div><div class="file-name">${esc(name)}</div><div class="file-sub">${fmt(ev.rows)} rows saved to the Downloads folder, Calgary Data Desk</div></div>
+    card.innerHTML = `${icon('file')}<div><div class="file-name">${esc(name)}</div><div class="file-sub">${fmt(ev.rows)} rows saved to the Downloads folder, Calgary Insight</div></div>
       <button class="btn">${icon('open')}<span>Open file</span></button>`;
     $('button', card).addEventListener('click', async () => (await api()).open_path(ev.path));
     cards.appendChild(card);

@@ -51,7 +51,7 @@ function cnArticle(a) {
     <div class="cn-topics">${(a.topics || []).map(t => `<span>${esc(t)}</span>`).join('')}</div>
     <h2 class="cn-title">${esc(a.title)}</h2><p class="cn-dek big">${esc(a.dek)}</p>
     ${a.image && a.image.url ? `<figure class="cn-hero"><img src="${esc(a.image.url)}" alt="${esc(a.image.alt || '')}" referrerpolicy="no-referrer"><figcaption>${cnCredit(a.image)}. It shows the subject, not the event itself.</figcaption></figure>` : ''}
-    <div class="cn-meta">${esc(a.section || '')} · Calgary Data Desk · ${esc(CN_LONG(a.date))} · written from ${(a.sources || []).length} source${(a.sources || []).length === 1 ? '' : 's'}</div>
+    <div class="cn-meta">${esc(a.section || '')} · Calgary Insight · ${esc(CN_LONG(a.date))} · written from ${(a.sources || []).length} source${(a.sources || []).length === 1 ? '' : 's'}</div>
     ${(a.key_facts || []).length ? `<ul class="cn-facts">${a.key_facts.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
     <div class="cn-text">${cnBody(a)}</div>
     ${(a.charts || []).map(c => cnChart(a, c)).join('')}
@@ -83,7 +83,7 @@ async function renderCityNews() {
     && (!q || [a.title, a.dek, ...(a.body || []), ...(a.sources || []).map(s => s.outlet + ' ' + s.title)].join(' ').toLowerCase().includes(q)));
   const today = dates[0], filtered = cnTopic || q || cnDay;
   const todays = filtered ? list : list.filter(a => a.date === today), older = filtered ? [] : list.filter(a => a.date !== today);
-  const head = `<section class="cn-mast span-12"><div class="cn-mast-top"><div><div class="el-cr-kicker">Calgary Data Desk</div><h2 class="cn-mast-title">Calgary News</h2>
+  const head = `<section class="cn-mast span-12"><div class="cn-mast-top"><div><div class="el-cr-kicker">Calgary Insight</div><h2 class="cn-mast-title">Calgary News</h2>
       <div class="el-cr-sub">${esc(CN_LONG(today))}</div></div>
       <div class="cn-tools"><input type="search" id="cn-q" placeholder="Search the news" value="${esc(cnQ)}" aria-label="Search Calgary News">
         <select id="cn-day" aria-label="Day"><option value="">Every day</option>${dates.map(d => `<option value="${d}"${d === cnDay ? ' selected' : ''}>${esc(CN_DAY(d))}</option>`).join('')}</select></div></div>

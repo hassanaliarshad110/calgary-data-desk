@@ -27,7 +27,7 @@ TMX_DIR = 'https://www.tsx.com/json/company-directory/search/{ex}/%5E*'
 SEC_TICKERS = 'https://www.sec.gov/files/company_tickers_exchange.json'
 SEC_SUBS = 'https://data.sec.gov/submissions/CIK{cik:010d}.json'
 SEC_FACTS = 'https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json'
-UA = 'Mozilla/5.0 (CalgaryDataDesk civic data dashboard)'
+UA = 'Mozilla/5.0 (CalgaryInsight civic data dashboard)'
 MIN_GROUP = 3                              # a total over fewer companies would show a company's own figure
 FUNDS = ('ETP', 'Closed-End Funds')
 BANDS = [('Large (C$10 billion or more)', 10e9), ('Mid (C$2 to 10 billion)', 2e9), ('Small (C$300 million to 2 billion)', 3e8), ('Micro (under C$300 million)', 0)]
@@ -129,7 +129,7 @@ def totals(issuers, month, cos, today):
 def sec_financials(cos, contact):
     """Revenue, net income and dividends per share by fiscal year, from the SEC's XBRL data, for checked companies
     that also file in the United States (matched by name). Returns {ticker: {...}}."""
-    ua = f'CalgaryDataDesk {contact}'
+    ua = f'CalgaryInsight {contact}'
     tick = json.loads(_get(SEC_TICKERS, ua))
     norm = lambda s: ' '.join(re.sub(r'[^a-z0-9 ]', ' ', re.sub(r'\b(inc|ltd|limited|corp|corporation|co|company|the|plc)\b\.?', ' ', s.lower())).split())  # noqa: E731
     byname = {norm(dict(zip(tick['fields'], r))['name']): dict(zip(tick['fields'], r)) for r in tick['data']}

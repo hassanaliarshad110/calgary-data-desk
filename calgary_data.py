@@ -16,7 +16,7 @@ import urllib.parse
 import urllib.request
 
 BASE = 'https://data.calgary.ca'
-HEADERS = {'User-Agent': 'CalgaryDataDesk/2.0', 'Accept': 'application/json'}
+HEADERS = {'User-Agent': 'CalgaryInsight/2.0', 'Accept': 'application/json'}
 if os.environ.get('CDD_SOCRATA_TOKEN'):          # a free app token from data.calgary.ca raises the portal's request limits
     HEADERS['X-App-Token'] = os.environ['CDD_SOCRATA_TOKEN'].strip()
 MAX_QUERY_ROWS = 5000          # rows the agent may pull in one query

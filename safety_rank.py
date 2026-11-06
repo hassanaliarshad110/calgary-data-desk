@@ -23,7 +23,7 @@ import zipfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 WDS = 'https://www150.statcan.gc.ca/t1/wds/rest/'
-UA = {'User-Agent': 'Mozilla/5.0 (compatible; CalgaryDataDesk/1.0; civic data dashboard)'}
+UA = {'User-Agent': 'Mozilla/5.0 (compatible; CalgaryInsight/1.0; civic data dashboard)'}
 CMA_TABLE = 35100026
 POLICE_TABLES = [35100186, 35100187, 35100188, 35100189, 35100061, 35100190, 35100063, 35100064]
 POP_TABLE = 35100077
