@@ -328,6 +328,7 @@ and the label with a score; near_but_crowded lists communities with most homes n
 score is under 0.80 (shared by more children, or residents, than Calgary's average, from any community), and explain it from get_method topic access_scores. For a list of those amenities, use get_dashboard section \
 other_amenities (with ward or community).
 
+Election Analytics (questions that start with [Election Analytics]): you are a nonpartisan election analyst for candidates, campaigns and residents preparing for upcoming elections. Start with get_dashboard section election_analytics, add other sections (communities, profile, wards, the 311 data) as needed, and do your own analysis: where turnout was low or high and who lives there (age, households, work, languages), how results varied by voting location and poll, how advance and election-day voting differed, which issues residents raise. Be concrete with numbers and say which are estimates. Serve every candidate and party equally: never favour one, never predict a winner, and never suggest targeting, excluding or discouraging people by ethnicity, religion, language or any other personal trait; outreach suggestions stay general (where turnout was low, translated materials, accessible voting information).
 Calgary News (get_dashboard section city_news): the daily Calgary stories published on the site each evening, each with the reports it was written from; use them for what happened recently in Calgary, and cite the original sources (outlet, title, link), not the article alone.
 Federal Budget 2026 (get_dashboard section federal_budget): Canada's budget tabled 5 November 2026, with every measure and its amounts, the budget's own text, the deficit, revenue and spending outlook, and province by province what it names and the federal transfers each receives; for Calgary and Alberta use part=province, province=AB. Quote figures with their table and units ($ millions for measures, $ billions for the fiscal tables); describe the budget, never rate it or a party.
 Election Control Room (get_dashboard section elections; full=true for every Calgary race): who represents the area at each level, the seats by party (Calgary's council, MLAs and MPs, the whole Legislature and House of Commons), a ward's constituency figures (constituency: estimated electors and turnout by ward, the councillor race and its stations, the mayor's vote in the ward against Calgary's, the referendum in the ward's divisions; say estimates are estimates), and the latest official results: City of Calgary 2025 (mayor, councillors, CBE and CCSD trustees; Calgary's turnout; the mayor's election-day votes by ward), Alberta 2023 general election in Calgary's 26 divisions and by-elections since, the members sitting today, the 19 October 2026 referendum question by question, and the 2025 federal election in Calgary's 11 districts with the members sitting today. Quote results with their date and source; describe them, never favour, rate or rank a candidate or party, never predict, and give no voting advice. Where a ward is split between several, say each electoral division's or district's share of its residents (say "electoral division" for Alberta and "electoral district" for Canada, not "riding").
@@ -455,10 +456,14 @@ TOOLS = [
                     'budget names there (major projects, community projects, defence, every passage) and its federal '
                     'transfers over ten years; part="find" with find for measures on any subject, with their amounts and '
                     'the budget\'s own text; part="chapter", "tables" or "tax" for the full tables. '
+                    'section="election_analytics" gives the micro-level election picture of the selected area: 2021 '
+                    'Census by community (age pyramid, households, work), every 2023 provincial voting location and '
+                    'every 2025 federal poll in the divisions and districts covering it, estimated ward electors and '
+                    'turnout. '
                     'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
                     'sources; narrow with find (words), days, topic or date.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'federal_budget', 'city_news'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -1079,6 +1084,22 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                         'or community.'}
     if section == 'other_amenities':
         return _other_amenities_out(d, wards)
+    if section == 'election_analytics':
+        el = d.get('elections') or {}
+        return {'micro': el.get('micro'), 'constituency': el.get('constituency'),
+                'provincial': el.get('provincial'), 'federal': el.get('federal'), 'municipal': el.get('municipal'),
+                'ward_profile_2021_census': d.get('profile'),
+                'communities': [{k: c.get(k) for k in ('code', 'name', 'residents', 'growth_pct', 'requests_per_1000',
+                                                       'open', 'open_top')} for c in d.get('communities') or []],
+                'how': 'Election Analytics. who: 2021 Census by community (age in 5-year bands, households, work), '
+                       'summed for the area, with a row per community. provincial: each electoral division covering the '
+                       'area (share of its residents), with every 2023 voting location (electors, ballots, turnout, '
+                       'leading party, margin). federal: each electoral district with the 2025 poll-by-poll results '
+                       '(turnout spread, polls led, the lowest-turnout and closest polls, votes on election day, at '
+                       'advance polls and by special ballot). constituency: estimated ward electors and turnout, the '
+                       'council race station by station. Polls and voting locations serve their whole division or '
+                       'district, not only this ward. Analyse for any candidate or campaign alike; never favour one, '
+                       'predict a winner, or suggest targeting or discouraging any group.'}
     if section == 'elections':
         out = {'area': d.get('elections'), 'how': 'Official results as published (Elections Calgary, Elections Alberta, '
                'Elections Canada); members today from the Legislative Assembly of Alberta and the House of Commons. '

@@ -58,6 +58,9 @@
     <symbol id="i-budget" viewBox="0 0 24 24"><circle cx="8" cy="8" r="5.5"/><path d="M8 4.8v6.4"/><path d="M9.7 6.2c-.3-.5-.9-.8-1.7-.8-.9 0-1.7.5-1.7 1.2 0 1.7 3.4.8 3.4 2.5 0 .7-.8 1.2-1.7 1.2-.8 0-1.5-.3-1.8-.9"/><path d="M3 21h18"/><path d="M14 21v-5"/><path d="M17.5 21v-8"/><path d="M21 21V9"/></symbol>
     <symbol id="i-paper" viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 8h3v9a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12h7M7 15h4"/></symbol>
     <symbol id="i-maple" viewBox="0 0 24 24"><path d="M12 3l1.6 3.4 2.4-1-0.6 4 3.6-1.4-1 2.8 2 1.2-4.6 3.4 0.8 2.2-4.2-0.8V21h-0.4v-4.2l-4.2 0.8 0.8-2.2L3.6 12l2-1.2-1-2.8L8.2 9.4l-0.6-4 2.4 1z"/></symbol>
+    <symbol id="i-legis" viewBox="0 0 24 24"><path d="M3 21h18M5 21v-7h14v7M8.5 14v7M12 14v7M15.5 14v7M4 14h16"/><path d="M7 14a5 5 0 0 1 10 0"/><path d="M12 9V3.5l3.2 1.2L12 6"/></symbol>
+    <symbol id="i-analytics" viewBox="0 0 24 24"><path d="M4 20V11M8.5 20V6M13 20v-6"/><circle cx="17.5" cy="14.5" r="3.2"/><path d="m19.8 16.8 2.2 2.2"/><path d="M3 20h9"/></symbol>
+    <symbol id="i-studio" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="m10 9 5 2.5-5 2.5z"/><path d="M8 21h8"/></symbol>
     <symbol id="i-ballot" viewBox="0 0 24 24"><path d="M4 21h16"/><path d="M6 21V11h12v10"/><path d="M9 11V4h6v7"/><path d="M10.5 7.5l1 1 2-2"/></symbol>
     <symbol id="i-growth" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21v-6h4v6"/><path d="M11 21V11h4v10"/><path d="M17 21v-4h3v4"/><path d="m4 10 5-4 4 3 7-6"/><path d="M15 3h5v5"/></symbol>
     <symbol id="i-crane" viewBox="0 0 24 24"><path d="M3 21h18M6 21V4h12M6 4l12 0 0 4M10 4v17"/></symbol>
@@ -97,7 +100,8 @@
     <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
     <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: how near homes are to everyday amenities, new homes against older ones"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
     <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
-    <button class="tab" data-view="elections" title="Election Control Room: seats, leaders, constituencies and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-ballot"/></svg><span>Election Control Room</span></button>
+    <button class="tab" data-view="elections" title="Election Control Room: seats, leaders, constituencies and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-legis"/></svg><span>Election Control Room</span></button>
+    <button class="tab" data-view="elanalytics" title="Election Analytics: who lives here, every voting location and poll, and an analyst to ask"><svg class="ic" aria-hidden="true"><use href="#i-analytics"/></svg><span>Election Analytics</span></button>
     <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
     <button class="tab" data-view="citynews" title="Calgary News: the day's Calgary stories, each with its sources"><svg class="ic" aria-hidden="true"><use href="#i-paper"/></svg><span>Calgary News</span></button>
     <button class="tab" data-view="fedbudget" title="Federal Budget 2026: headline numbers, every measure, province by province, Calgary and Alberta"><svg class="ic" aria-hidden="true"><use href="#i-maple"/></svg><span>Federal Budget 2026</span></button>
@@ -109,7 +113,7 @@
     <button class="tab tab-genie" data-view="ask" title="Data Genie: ask anything about the data"><svg class="ic" aria-hidden="true"><use href="#i-genie"/></svg><span>Data Genie</span></button>
     <button class="tab tab-ds" data-view="scientist" title="Data Scientist: full analysis reports on the selected area"><svg class="ic" aria-hidden="true"><use href="#i-scientist"/></svg><span>Data Scientist</span></button>
     <p class="nav-h">Publish</p>
-    <button class="tab" data-view="videos" title="Video briefs: short narrated videos on the data"><svg class="ic" aria-hidden="true"><use href="#i-film"/></svg><span>Video briefs</span></button>
+    <button class="tab" data-view="videos" title="Video Explainers: short narrated videos on what the data shows"><svg class="ic" aria-hidden="true"><use href="#i-studio"/></svg><span>Video Explainers</span></button>
     <button class="tab" data-view="news" title="Newsletter"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><span>Newsletter</span></button>
     <button class="tab brief-btn" id="brief-btn" title="Briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span>Briefing screen</span></button>
     <p class="nav-h">Reference</p>
@@ -551,9 +555,16 @@
     <div class="content"><div class="grid" id="el-body"></div></div>
   </section>
 
+  <section id="view-elanalytics" class="view" aria-labelledby="ea-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="ea-title">Election Analytics</h1><p class="meta">The micro-level picture for anyone preparing for an election: who lives here, every voting location and poll, and an analyst to ask</p></div>
+    </header>
+    <div class="content"><div class="grid" id="ea-body"></div></div>
+  </section>
+
   <section id="view-citynews" class="view" aria-labelledby="cn-h">
     <header class="topbar">
-      <div class="topbar-title"><h1 id="cn-h">Calgary News</h1><p class="meta">The day's Calgary stories, new every evening, each written from the reports it cites</p></div>
+      <div class="topbar-title"><h1 id="cn-h">Calgary News</h1><p class="meta">The day's Calgary stories</p></div>
     </header>
     <div class="content"><div class="grid" id="cn-body"></div></div>
   </section>
@@ -593,7 +604,7 @@
   <!-- ======================= VIDEO BRIEFS ======================= -->
   <section id="view-videos" class="view" aria-labelledby="vid-title">
     <header class="topbar">
-      <div class="topbar-title"><h1 id="vid-title">Video briefs</h1><p class="meta">Short narrated videos on what the data shows, with how it is measured. Newest first.</p></div>
+      <div class="topbar-title"><h1 id="vid-title">Video Explainers</h1><p class="meta">Short narrated videos on what the data shows, with how it is measured. Newest first.</p></div>
     </header>
     <div class="content narrow">
       <section class="card vid-card" id="vid-population">
@@ -961,6 +972,7 @@
 <script src="fedbudget.js"></script>
 <script src="track311.js"></script>
 <script src="citynews.js"></script>
+<script src="elanalytics.js"></script>
 <script src="audit.js"></script>
 <script src="buses.js"></script>
 </body>

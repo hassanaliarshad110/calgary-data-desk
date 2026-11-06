@@ -134,6 +134,7 @@ function show(view) {
   if (view === 'elections' && window.renderElections) renderElections();
   if (view === 'fedbudget' && window.renderFedBudget) renderFedBudget();
   if (view === 'citynews' && window.renderCityNews) renderCityNews();
+  if (view === 'elanalytics' && window.renderElAnalytics) renderElAnalytics();
   if (view === 'sources' && window.renderLive) renderLive();
   if (view === 'news' && window.initNews) initNews();
   if (view === 'ask') $('#question').focus();
@@ -340,6 +341,7 @@ function renderDashboard() {
   if ($('#view-growth').classList.contains('is-on') && window.renderGrowth) renderGrowth();
   if ($('#view-changes') && $('#view-changes').classList.contains('is-on') && window.renderChanges) renderChanges();
   if ($('#view-elections') && $('#view-elections').classList.contains('is-on') && window.renderElections) renderElections();
+  if ($('#view-elanalytics') && $('#view-elanalytics').classList.contains('is-on') && window.renderElAnalytics) renderElAnalytics();
   if (!$('#brief').hidden) renderBrief();
 }
 

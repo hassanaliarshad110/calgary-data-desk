@@ -32,6 +32,20 @@ function cnCard(a, lead) {
     <h3>${esc(a.title)}</h3><p class="cn-dek">${esc(a.dek)}</p>
     <div class="cn-meta">${esc(CN_DAY(a.date))} · ${(a.sources || []).length} source${(a.sources || []).length === 1 ? '' : 's'}: ${esc(cnOutlets(a).slice(0, 3).join(', '))}${cnOutlets(a).length > 3 ? '…' : ''}</div></div></article>`;
 }
+const CN_PAL = ['#0369A1', '#B45309', '#047857', '#7C3AED', '#BE123C', '#0F766E'];
+function cnChart(a, c) {
+  const unit = c.unit || '', f = v => !isNum(v) ? '–' : (unit === '$B' ? (v < 0 ? '−' : '') + '$' + fmt(Math.abs(v), 1) + 'B' : unit === '%' ? fmt(v, 1) + '%' : fmt(v, Math.abs(v) < 10 && v % 1 ? 1 : 0) + (unit && unit !== '$B' ? ' ' + unit : ''));
+  const s = (a.sources || [])[c.source - 1];
+  let body;
+  if (c.kind === 'hbar') {
+    const vals = c.series[0].values, max = Math.max(...vals.map(v => Math.abs(v || 0)), 1e-9);
+    body = `<div class="fb-bars">${c.labels.map((l, i) => `<div class="fb-bar"><span class="fb-bar-l">${esc(l)}</span><span class="fb-bar-t"><i style="width:${Math.abs(vals[i] || 0) / max * 100}%"></i></span><span class="fb-bar-v">${esc(f(vals[i]))}</span></div>`).join('')}</div>`;
+  } else if (typeof fbColumns === 'function') {
+    body = fbColumns(c.labels, c.series.map((sr, i) => ({ name: sr.name, color: CN_PAL[i % CN_PAL.length], v: sr.values })), f);
+  } else body = '';
+  return `<figure class="cn-chart"><figcaption><b>${esc(c.title)}</b>${unit ? ` <span class="muted">(${esc(unit)})</span>` : ''}</figcaption>${body}
+    ${s ? `<p class="card-note">Source: <a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.outlet)}, ${esc(s.title)}</a> [${c.source}]</p>` : ''}</figure>`;
+}
 function cnArticle(a) {
   return `<section class="card span-12 cn-reader"><button type="button" class="link-btn small" id="cn-back">← All stories</button>
     <div class="cn-topics">${(a.topics || []).map(t => `<span>${esc(t)}</span>`).join('')}</div>
@@ -40,6 +54,7 @@ function cnArticle(a) {
     <div class="cn-meta">${esc(a.section || '')} · Calgary Data Desk · ${esc(CN_LONG(a.date))} · written from ${(a.sources || []).length} source${(a.sources || []).length === 1 ? '' : 's'}</div>
     ${(a.key_facts || []).length ? `<ul class="cn-facts">${a.key_facts.map(f => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
     <div class="cn-text">${cnBody(a)}</div>
+    ${(a.charts || []).map(c => cnChart(a, c)).join('')}
     ${a.location ? `<h3 class="cn-h3">Where</h3><div class="cn-map" id="cn-map"></div><p class="card-note">${esc(a.location.label)}</p>` : ''}
     <h3 class="cn-h3">Sources</h3>${cnSources(a)}
     <p class="card-note">Each statement is marked with the source it comes from; follow the link to read the original report. This article summarises those reports in its own words and adds no opinion.</p></section>`;
@@ -69,7 +84,7 @@ async function renderCityNews() {
   const today = dates[0], filtered = cnTopic || q || cnDay;
   const todays = filtered ? list : list.filter(a => a.date === today), older = filtered ? [] : list.filter(a => a.date !== today);
   const head = `<section class="cn-mast span-12"><div class="cn-mast-top"><div><div class="el-cr-kicker">Calgary Data Desk</div><h2 class="cn-mast-title">Calgary News</h2>
-      <div class="el-cr-sub">${esc(CN_LONG(today))} · new stories every evening at 6 · every article cites its sources</div></div>
+      <div class="el-cr-sub">${esc(CN_LONG(today))}</div></div>
       <div class="cn-tools"><input type="search" id="cn-q" placeholder="Search the news" value="${esc(cnQ)}" aria-label="Search Calgary News">
         <select id="cn-day" aria-label="Day"><option value="">Every day</option>${dates.map(d => `<option value="${d}"${d === cnDay ? ' selected' : ''}>${esc(CN_DAY(d))}</option>`).join('')}</select></div></div>
     <div class="cn-chips">${['', ...topics].map(t => `<button type="button" class="chip${t === cnTopic ? ' on' : ''}" data-cntopic="${esc(t)}">${esc(t || 'All topics')}</button>`).join('')}</div></section>`;
@@ -86,7 +101,7 @@ async function renderCityNews() {
       ${older.length ? `<section class="card span-12"><div class="card-head"><div><h2>Earlier</h2><p class="card-sub">The last ${fmt(CN.keep_days || 60)} days</p></div></div>${grid(older)}</section>` : ''}`;
   }
   body.innerHTML = head + page
-    + `<section class="card span-12"><p class="card-note">Pictures are reference images of the place or subject from Wikimedia Commons, credited under each story; they are not photos of the events. Each evening the day's Calgary stories are found in published reports (City of Calgary, news outlets, governments), written up in plain words, and checked against their sources; every statement is marked with the source it comes from. Facts only: no opinion and nothing recommended. Data Genie and the Data Scientist can read these articles. <button type="button" class="link-btn small" data-method="citynews">How the news is made</button></p></section>`;
+    + `<section class="card span-12"><p class="card-note">Pictures are reference images of the place or subject from Wikimedia Commons, credited under each story; they are not photos of the events. <button type="button" class="link-btn small" data-method="citynews">How the news is made</button></p></section>`;
   const open = el => { cnOpen = el.dataset.cn; renderCityNews(); };
   body.querySelectorAll('[data-cn]').forEach(el => { el.addEventListener('click', () => open(el)); el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el); } }); });
   body.querySelectorAll('[data-cntopic]').forEach(b => b.addEventListener('click', () => { cnTopic = b.dataset.cntopic; renderCityNews(); }));

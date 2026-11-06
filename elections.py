@@ -35,7 +35,7 @@ import xml.etree.ElementTree as ET
 import calgary_data as cd
 import geo
 
-VERSION = 1
+VERSION = 2          # 2: voting-station and poll-by-poll results, community demographics (Election Analytics)
 KEEP_DAYS = 7
 SITE = 'https://hassanaliarshad110.github.io/calgary-data-desk/'
 UA = {'User-Agent': 'CalgaryDataDesk/1.0 (civic data dashboard)'}
@@ -285,6 +285,30 @@ def parse_sov_sheet(rows):
     return race
 
 
+def parse_sov_stations(rows):
+    """Each voting location of a division's Statement of Vote sheet: name, type, voting areas, electors on the list,
+    ballots, turnout and each party's votes (parties in the header's order)."""
+    head = [str(c).strip() if c is not None else '' for c in rows[0]]
+    try:
+        a, b = head.index('Voting Areas Assigned') + 1, head.index('Names on List')
+    except ValueError:
+        return None
+    cols = [(i, _cand_header(head[i])) for i in range(a, b) if head[i]]
+    col = {h: i for i, h in enumerate(head)}
+    out = []
+    for r in rows[1:]:
+        if not r or not r[0] or (isinstance(r[0], str) and r[0].startswith('Total')) or any(
+                isinstance(c, str) and c.startswith('Total (All') for c in r[:3]):
+            continue
+        votes = [_int(r[i]) or 0 for i, _ in cols]
+        el, bal = _int(r[col['Names on List']]), _int(r[col['Total Ballots Cast']])
+        name = r[1] if len(r) > 1 and r[1] else ''
+        out.append({'loc': str(r[0]).strip(), 'name': str(name).strip(), 'type': str(r[2] or '').strip(),
+                    'areas': str(r[3] or '').strip(), 'electors': el, 'ballots': bal,
+                    'turnout': round(bal / el, 4) if el and bal else None, 'votes': votes})
+    return {'parties': [p or n for n, p in (c for _, c in cols)], 'names': [n for _, (n, _p) in cols], 'stations': out}
+
+
 def ped_names():
     """{'01': 'Calgary-Acadia', ...} for the 2019 boundaries (Government of Alberta)."""
     q = AB_PED + '?' + urllib.parse.urlencode({'where': '1=1', 'outFields': 'EDNUMBER,EDNAME', 'returnGeometry': 'false',
@@ -439,9 +463,14 @@ def provincial():
     for num, name in sorted(names.items()):
         if not name.startswith('Calgary') or num not in wb.sheetnames:
             continue
-        race = parse_sov_sheet([list(r) for r in wb[num].iter_rows(values_only=True)])
+        sheet = [list(r) for r in wb[num].iter_rows(values_only=True)]
+        race = parse_sov_sheet(sheet)
         if race:
             race.update({'number': num, 'name': name})
+            try:
+                race['stations'] = parse_sov_stations(sheet)
+            except Exception as e:                    # noqa: BLE001
+                print('elections: stations not read for', name, e)
             eds[name] = race
     out = {'date': DATES['provincial'], 'boundaries': 2019, 'general': eds, 'byelections': [], 'members': {},
            'referendum': None, 'next_election': AB_NEXT_DAY,
@@ -521,6 +550,28 @@ def split_names(district, header):
         c.pop('raw', None)
 
 
+def parse_ec_polls(raw):
+    """A poll-by-poll file -> {'names': [...candidates in file order], 'polls': [[number, electors, votes cast, rejected,
+    [votes...]], ...], 'groups': [...]} where groups are the advance, special-ballot and mail-in totals (no poll number)."""
+    rows = list(csv.reader(io.StringIO(raw.decode('utf-8-sig', 'replace'))))
+    head = rows[0]
+    names = [h.strip() for h in head[4:] if h and '/' not in h]
+    n = len(names)
+    polls, groups = [], []
+    for r in rows[1:]:
+        if len(r) < 4 + n + 2:
+            continue
+        votes = [_int(x) or 0 for x in r[4:4 + n]]
+        rej, tot = _int(r[4 + n]) or 0, _int(r[5 + n]) or 0
+        el = _int(r[6 + n]) if len(r) > 6 + n else None
+        num = (r[2] or '').strip()
+        if num:
+            polls.append([num, el, tot, rej, votes])
+        else:
+            groups.append([(r[3] or '').split('/')[0].strip(), el, tot, rej, votes])
+    return {'names': names, 'polls': polls, 'groups': groups}
+
+
 def parse_hoc(xml_bytes):
     """House of Commons members today -> {district name: {'name', 'caucus', 'since'}}."""
     root = ET.fromstring(xml_bytes)
@@ -597,10 +648,19 @@ def federal():
     eds = {k: v for k, v in eds.items() if v['name'].startswith('Calgary')}
     for code, d in eds.items():
         try:
-            head = next(csv.reader(io.StringIO(_get(EC_POLL.format(code=code)).decode('utf-8-sig', 'replace'))))
+            raw = _get(EC_POLL.format(code=code))
+            head = next(csv.reader(io.StringIO(raw.decode('utf-8-sig', 'replace'))))
         except Exception:                             # noqa: BLE001
-            head = []
+            raw, head = None, []
         split_names(d, head)
+        if raw:
+            try:
+                pp = parse_ec_polls(raw)
+                party = {c.get('name'): c.get('party') for c in d['candidates']}
+                pp['parties'] = [party.get(nm) or nm for nm in pp['names']]
+                d['polls'] = pp
+            except Exception as e:                    # noqa: BLE001
+                print('elections: polls not read for', code, e)
         d.update(_race(d['candidates'], d.get('valid')))
     out = {'date': DATES['federal'], 'general': {d['name']: d for d in eds.values()}, 'members': {},
            'sources': [{'name': 'Elections Canada, 45th General Election official voting results', 'url': EC_BASE + 'table1E.html'},
@@ -634,6 +694,51 @@ def communities():
     return {r['comm_code']: r['multipolygon'] for r in rows if r.get('comm_code') and r.get('multipolygon')}
 
 
+# ------------------------------------------------------------------------------------------------- who lives where
+CENSUS_COMM = {'age': 'f9wk-wej9', 'households': 'msjx-5ygv', 'work': 'isek-k4ja'}
+AGE_BANDS = ['0_to_4', '5_to_9', '10_to_14', '15_to_19', '20_to_24', '25_to_29', '30_to_34', '35_to_39', '40_to_44',
+             '45_to_49', '50_to_54', '55_to_59', '60_to_64', '65_to_69', '70_to_74', '75_to_79', '80_to_84', '85_to_89',
+             '90_to_94', '95_to_99', '100_and_over']
+HH_KEEP = ('total_private_households', 'avg_household_size', 'house_size_1_person', 'house_size_5_plus_persons',
+           'total_census_families', 'married_with_children', 'commonlaw_with_children', 'one_parent_families',
+           'mstatus_total_over_15', 'mstatus_never_married', 'mstatus_married_commonlaw', 'mstatus_widowed')
+WORK_KEEP = ('total_pop_over_15_household', 'in_labour_force', 'employed', 'self_employed', 'unemployed',
+             'labour_participation_rate', 'unemployment_rate_per', 'top_1_industry', 'top_1_industry_per',
+             'top_2_industry', 'top_2_industry_per', 'top_3_industry', 'top_3_industry_per', 'top_1_occupation',
+             'top_1_occupation_per', 'top_2_occupation', 'top_2_occupation_per')
+
+
+def _num(v):
+    try:
+        return float(v) if '.' in str(v) else int(v)
+    except (TypeError, ValueError):
+        return v
+
+
+def demographics():
+    """2021 Census by community (City of Calgary open data): age in 5-year bands for men and women, households and
+    families, and work. {community code: {...}}."""
+    out = {}
+    for r in cd.query(CENSUS_COMM['age'], limit=5000):
+        c = r.get('community_code')
+        if not c:
+            continue
+        out[c] = {'name': r.get('community_name'), 'pop': _num(r.get('total_pop_household')),
+                  'men': [_num(r.get('pop_men_' + b)) or 0 for b in AGE_BANDS],
+                  'women': [_num(r.get('pop_women_' + b)) or 0 for b in AGE_BANDS],
+                  'all': [_num(r.get('pop_age_' + b)) or 0 for b in AGE_BANDS]}
+    for key, keep in (('households', HH_KEEP), ('work', WORK_KEEP)):
+        try:
+            for r in cd.query(CENSUS_COMM[key], limit=5000):
+                c = r.get('community_code')
+                if c in out:
+                    out[c][key] = {k: _num(r.get(k)) for k in keep if r.get(k) not in (None, '')}
+        except Exception as e:                        # noqa: BLE001
+            print('elections: census', key, 'not read:', e)
+    return {'year': 2021, 'bands': AGE_BANDS, 'communities': out,
+            'sources': [{'name': '2021 Federal Census by Community (City of Calgary open data)', 'ids': list(CENSUS_COMM.values())}]}
+
+
 # ------------------------------------------------------------------------------------------------- build / load
 def build(cache_dir=None):
     started = time.time()
@@ -655,6 +760,11 @@ def build(cache_dir=None):
     except Exception as e:                            # noqa: BLE001
         out['errors']['ridings'] = repr(e)[:300]
         print('elections: riding outlines not read:', e)
+    try:
+        out['demographics'] = demographics()
+    except Exception as e:                            # noqa: BLE001
+        out['errors']['demographics'] = repr(e)[:300]
+        print('elections: census by community not read:', e)
     out['seconds'] = round(time.time() - started, 1)
     return out
 
@@ -851,4 +961,201 @@ def view(base, ward, codes, pops, ward_of=None):
     if ward_of:
         out['ward_splits'] = ward_splits(base, pops, ward_of)
     out['constituency'] = constituency(base, ward, codes, pops, ward_of)
+    try:
+        out['micro'] = micro(base, ward, codes, pops)
+    except Exception as e:                            # noqa: BLE001 - analytics never take the rest down
+        out['micro'] = {'error': repr(e)[:200]}
+    return out
+
+
+# ------------------------------------------------------------------------------------------------- Election Analytics
+def _pct(a, b):
+    return round(a / b, 4) if a and b else (0.0 if b else None)
+
+
+def _lead(parties, votes):
+    tot = sum(votes)
+    if not tot:
+        return None, None, None, None
+    order = sorted(range(len(votes)), key=lambda i: -votes[i])
+    a = order[0]
+    b = order[1] if len(order) > 1 else None
+    return parties[a], round(votes[a] / tot, 4), parties[b] if b is not None else None, \
+        round((votes[a] - (votes[b] if b is not None else 0)) / tot, 4)
+
+
+def _median(xs):
+    xs = sorted(x for x in xs if x is not None)
+    if not xs:
+        return None
+    m = len(xs) // 2
+    return xs[m] if len(xs) % 2 else round((xs[m - 1] + xs[m]) / 2, 4)
+
+
+def _bands(xs, edges=(0.2, 0.3, 0.4, 0.5, 0.6, 0.7)):
+    labels = [f'under {int(edges[0] * 100)}%'] + [f'{int(a * 100)}-{int(b * 100)}%' for a, b in zip(edges, edges[1:])] + [f'{int(edges[-1] * 100)}%+']
+    counts = [0] * len(labels)
+    for x in xs:
+        if x is None:
+            continue
+        i = sum(1 for e in edges if x >= e)
+        counts[i] += 1
+    return {'labels': labels, 'counts': counts}
+
+
+def _who(demo, codes, pops):
+    """Census 2021 by community for the area: age by 5-year band (men, women), households and work, and a row per
+    community."""
+    comms = (demo or {}).get('communities') or {}
+    bands = (demo or {}).get('bands') or AGE_BANDS
+    n = len(bands)
+    men, women, allp = [0] * n, [0] * n, [0] * n
+    hh, wk, rows = {}, {}, []
+    tot_now = sum(float(pops.get(c) or 0) for c in codes)
+    occ, ind = {}, {}
+    for c in codes:
+        d = comms.get(c)
+        if not d:
+            continue
+        for i in range(n):
+            men[i] += d['men'][i] if i < len(d['men']) else 0
+            women[i] += d['women'][i] if i < len(d['women']) else 0
+            allp[i] += d['all'][i] if i < len(d['all']) else 0
+        for k, v in (d.get('households') or {}).items():
+            if isinstance(v, (int, float)) and k != 'avg_household_size':
+                hh[k] = hh.get(k, 0) + v
+        w = d.get('work') or {}
+        for k in ('total_pop_over_15_household', 'in_labour_force', 'employed', 'self_employed', 'unemployed'):
+            if isinstance(w.get(k), (int, float)):
+                wk[k] = wk.get(k, 0) + w[k]
+        for j in (1, 2, 3):
+            nm, pc = w.get(f'top_{j}_occupation'), w.get(f'top_{j}_occupation_per')
+            if nm and isinstance(pc, (int, float)) and isinstance(w.get('employed'), (int, float)):
+                occ[nm] = occ.get(nm, 0) + pc / 100 * w['employed']
+            nm, pc = w.get(f'top_{j}_industry'), w.get(f'top_{j}_industry_per')
+            if nm and isinstance(pc, (int, float)) and isinstance(w.get('employed'), (int, float)):
+                ind[nm] = ind.get(nm, 0) + pc / 100 * w['employed']
+        a = d['all']
+        p = sum(a) or d.get('pop') or 0
+        h = d.get('households') or {}
+        fam = h.get('total_census_families') or 0
+        rows.append({'code': c, 'name': d.get('name'), 'census2021': d.get('pop'),
+                     'residents': round(float(pops.get(c) or 0)), 'share': _pct(float(pops.get(c) or 0), tot_now),
+                     'under20': _pct(sum(a[:4]), p), 'age20_64': _pct(sum(a[4:13]), p), 'age65': _pct(sum(a[13:]), p),
+                     'avg_hh': h.get('avg_household_size'),
+                     'families_kids': _pct((h.get('married_with_children') or 0) + (h.get('commonlaw_with_children') or 0)
+                                           + (h.get('one_parent_families') or 0), fam),
+                     'one_parent': _pct(h.get('one_parent_families') or 0, fam),
+                     'participation': (w.get('labour_participation_rate')), 'unemployment': w.get('unemployment_rate_per'),
+                     'top_occupation': w.get('top_1_occupation')})
+    pop = sum(allp)
+    fam = hh.get('total_census_families') or 0
+    return {'year': 2021, 'bands': [b.replace('_to_', '-').replace('_and_over', '+') for b in bands],
+            'men': men, 'women': women, 'all': allp, 'population': pop,
+            'under20': _pct(sum(allp[:4]), pop), 'age20_64': _pct(sum(allp[4:13]), pop), 'age65': _pct(sum(allp[13:]), pop),
+            'adults20': sum(allp[4:]),
+            'households': hh.get('total_private_households'),
+            'avg_hh': round(pop / hh['total_private_households'], 2) if hh.get('total_private_households') else None,
+            'one_person_hh': _pct(hh.get('house_size_1_person') or 0, hh.get('total_private_households')),
+            'big_hh': _pct(hh.get('house_size_5_plus_persons') or 0, hh.get('total_private_households')),
+            'families_kids': _pct((hh.get('married_with_children') or 0) + (hh.get('commonlaw_with_children') or 0)
+                                  + (hh.get('one_parent_families') or 0), fam),
+            'one_parent': _pct(hh.get('one_parent_families') or 0, fam),
+            'never_married': _pct(hh.get('mstatus_never_married') or 0, hh.get('mstatus_total_over_15')),
+            'participation': _pct(wk.get('in_labour_force') or 0, wk.get('total_pop_over_15_household')),
+            'unemployment': _pct(wk.get('unemployed') or 0, wk.get('in_labour_force')),
+            'self_employed': _pct(wk.get('self_employed') or 0, wk.get('employed')),
+            'top_occupations': [[k, round(v)] for k, v in sorted(occ.items(), key=lambda x: -x[1])[:5]],
+            'top_industries': [[k, round(v)] for k, v in sorted(ind.items(), key=lambda x: -x[1])[:5]],
+            'communities': sorted(rows, key=lambda r: -(r['residents'] or 0))}
+
+
+def _prov_stations(race):
+    st = (race or {}).get('stations') or {}
+    parties = st.get('parties') or []
+    out = []
+    for x in st.get('stations') or []:
+        lead, share, second, margin = _lead(parties, x.get('votes') or [])
+        out.append({'loc': x['loc'], 'name': x['name'], 'type': x['type'], 'areas': x.get('areas'),
+                    'electors': x.get('electors'), 'ballots': x.get('ballots'), 'turnout': x.get('turnout'),
+                    'lead': lead, 'lead_share': share, 'second': second, 'margin': margin})
+    day = [x for x in out if x['type'].lower().startswith('election day') and x['turnout'] is not None]
+    other = [x for x in out if not x['type'].lower().startswith('election day')]
+    tot_b = sum(x['ballots'] or 0 for x in out)
+    by_type = {}
+    for x in out:
+        by_type[x['type'] or 'Other'] = by_type.get(x['type'] or 'Other', 0) + (x['ballots'] or 0)
+    return {'parties': parties, 'stations': out,
+            'summary': {'election_day_stations': len(day), 'turnout_median': _median([x['turnout'] for x in day]),
+                        'turnout_low': min((x['turnout'] for x in day), default=None),
+                        'turnout_high': max((x['turnout'] for x in day), default=None),
+                        'ballots_by_type': {k: [v, _pct(v, tot_b)] for k, v in by_type.items()},
+                        'stations_led': {p: sum(1 for x in day if x['lead'] == p) for p in parties if any(x['lead'] == p for x in day)},
+                        'bands': _bands([x['turnout'] for x in day]), 'other_locations': len(other)}}
+
+
+def _fed_polls(race):
+    pp = (race or {}).get('polls') or {}
+    parties = pp.get('parties') or pp.get('names') or []
+    rows = []
+    for num, el, tot, rej, votes in pp.get('polls') or []:
+        lead, share, second, margin = _lead(parties, votes)
+        rows.append({'poll': num, 'electors': el, 'ballots': tot, 'turnout': _pct(tot, el) if el else None,
+                     'lead': lead, 'lead_share': share, 'margin': margin, 'votes': votes})
+    # polls with electors and at least one vote (a poll merged with another or not held shows 0); a poll can pass 100%
+    # when people register at the poll on election day
+    with_el = [r for r in rows if r['turnout'] is not None and r['electors'] and r['ballots']]
+    # Elections Canada numbers advance polls in the 600s, with no electors of their own
+    adv = [r for r in rows if not r['electors'] and re.match(r'^6\d\d', str(r['poll']).strip())]
+    day = [r for r in rows if r not in adv]
+    day_votes = [sum(r['votes'][i] for r in day) for i in range(len(parties))]
+    adv_votes = [sum(r['votes'][i] for r in adv) for i in range(len(parties))]
+    grp_votes = [sum(g[4][i] for g in pp.get('groups') or []) for i in range(len(parties))]
+    tot_day, tot_adv, tot_grp = sum(day_votes), sum(adv_votes), sum(grp_votes)
+    allv = tot_day + tot_adv + tot_grp
+    low = sorted(with_el, key=lambda r: r['turnout'])[:10]
+    close = sorted([r for r in day if r['margin'] is not None and (r['ballots'] or 0) >= 50], key=lambda r: r['margin'])[:10]
+    return {'parties': parties,
+            'summary': {'polls': len(rows), 'polls_with_electors': len(with_el),
+                        'turnout_median': _median([r['turnout'] for r in with_el]),
+                        'turnout_low': low[0]['turnout'] if low else None,
+                        'turnout_high': max((r['turnout'] for r in with_el), default=None),
+                        'bands': _bands([r['turnout'] for r in with_el]),
+                        'polls_led': {p: sum(1 for r in rows if r['lead'] == p) for p in parties if any(r['lead'] == p for r in rows)},
+                        'advance_polls': len(adv),
+                        'votes_by_way': {'election_day': tot_day, 'advance_polls': tot_adv, 'special_and_mail': tot_grp},
+                        'part_by_way': {'election_day': _pct(tot_day, allv), 'advance_polls': _pct(tot_adv, allv),
+                                        'special_and_mail': _pct(tot_grp, allv)},
+                        'party_share_by_way': {p: {'election_day': _pct(day_votes[i], tot_day),
+                                                   'advance_polls': _pct(adv_votes[i], tot_adv),
+                                                   'special_and_mail': _pct(grp_votes[i], tot_grp)} for i, p in enumerate(parties)}},
+            'lowest_turnout': [{k: r[k] for k in ('poll', 'electors', 'ballots', 'turnout', 'lead')} for r in low],
+            'closest': [{k: r[k] for k in ('poll', 'ballots', 'lead', 'lead_share', 'margin')} for r in close],
+            'polls': [[r['poll'], r['electors'], r['ballots'], r['turnout'], r['lead'], r['lead_share']] for r in rows]}
+
+
+def micro(base, ward, codes, pops):
+    """Election Analytics for a ward (or Calgary, ward 0): who lives there (2021 Census by community), and the last
+    provincial (voting location) and federal (poll by poll) results in the divisions and districts that cover it."""
+    out = {'who': _who(base.get('demographics'), codes, pops)}
+    for level, fn in (('provincial', _prov_stations), ('federal', _fed_polls)):
+        b = base.get(level) or {}
+        mix = _ward_mix(b.get('community_shares') or {}, codes, pops)
+        items = []
+        for x in mix:
+            if not ward and len(items) >= 30:
+                break
+            if ward and x['share'] < 0.03:
+                continue
+            race = (b.get('general') or {}).get(x['riding'])
+            d = fn(race)
+            if not ward:                                # all of Calgary: summaries only
+                d.pop('stations', None)
+                d.pop('polls', None)
+            items.append(dict(x, date=b.get('date'), turnout=(race or {}).get('turnout'), **d))
+        out[level] = items
+    out['notes'] = ('Provincial results are by voting location (2023, 2019 boundaries); a location serves voting areas '
+                    'that may extend beyond the ward. Federal results are by poll (2025); poll numbers are Elections '
+                    'Canada\'s and polls cover the whole district, so they are not all inside the ward. Advance, mail-in '
+                    'and special ballots are counted by district, not by poll. Census 2021 by community.')
     return out

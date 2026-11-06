@@ -1721,3 +1721,29 @@ table.data.dt-table tbody th small { display: block; color: var(--muted-fg); fon
 .cn-hero figcaption { font-size: 12px; color: var(--muted-fg); margin-top: 6px; }
 .cn-map { height: 280px; border-radius: 10px; border: 1px solid var(--border); }
 @media (max-width: 800px) { .cn-lead { grid-template-columns: 1fr; } .cn-lead .cn-pic { min-height: 0; aspect-ratio: 16 / 9; } }
+
+/* ---------- Election Analytics */
+.ea-pyr { width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto; }
+.ea-ax { font-size: 10px; fill: var(--muted-fg); }
+.ea-key { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--fg-2); margin: 4px 0 10px; }
+.ea-key i, .ea-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+.ea-two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 12px; }
+.ea-hist { display: flex; align-items: flex-end; gap: 6px; height: 170px; padding-top: 16px; }
+.ea-hcol { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+.ea-hcol i { display: block; width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px; }
+.ea-hn { font-size: 11px; color: var(--fg-2); }
+.ea-hl { font-size: 10.5px; color: var(--muted-fg); margin-top: 4px; white-space: nowrap; }
+table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static; background: var(--card); color: var(--fg); font-size: 13px; }
+.ea-chat .ea-thread { max-height: 520px; overflow: auto; display: grid; gap: 10px; margin-bottom: 10px; }
+.ea-msg { padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.55; max-width: 92%; }
+.ea-msg.you { justify-self: end; background: var(--accent); color: #fff; }
+.ea-msg.bot { justify-self: start; background: var(--muted); }
+.ea-msg.bot table { font-size: 12.5px; }
+.ea-cards { display: grid; gap: 10px; margin-top: 10px; }
+.ea-suggest { display: flex; flex-wrap: wrap; gap: 8px; }
+.ea-form { display: flex; gap: 8px; align-items: flex-end; }
+.ea-form textarea { flex: 1; min-height: 52px; padding: 8px 12px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: var(--card); color: var(--fg); font: inherit; resize: vertical; }
+.ea-lock { margin: 0; }
+@media (max-width: 800px) { .ea-two { grid-template-columns: 1fr; } }
+.cn-chart { margin: 18px 0; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+.cn-chart figcaption { font-size: 15px; margin-bottom: 8px; }
