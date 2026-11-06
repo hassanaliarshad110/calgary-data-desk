@@ -2097,3 +2097,27 @@ table.ca-reps th[scope="row"], .ca-budget th[scope="row"] { min-width: 180px; }
 .cm-co summary { cursor: pointer; }
 .cm-hist li { grid-template-columns: 160px 0 1fr; }
 @media (max-width: 720px) { .cm-bar { grid-template-columns: 1fr auto; } .cm-bt { grid-column: 1 / -1; order: 3; } }
+
+/* dashboard, kept short: lists that have their own page are not repeated here; long lists and source lines fold */
+.dash-off { display: none !important; }
+.dash-more { margin-top: 8px; font-size: 12.5px; }
+.dash-more > summary, .src-fold > summary { cursor: pointer; color: var(--accent); font-weight: 600; list-style-position: inside; }
+.dash-more[open] > summary { margin-bottom: 8px; }
+.src-fold > summary { font-size: 11.5px; }
+.src-fold[open] > summary { margin-bottom: 4px; }
+#view-dashboard .board-head { margin-bottom: 8px; }
+#view-dashboard .board-period { font-size: 11.5px; }
+@media (max-width: 760px) {
+  #view-dashboard .topbar h1 { font-size: 18px; }
+  #view-dashboard .topbar .meta { font-size: 12px; }
+}
+#view-dashboard .board-period { display: none; }
+@media (max-width: 760px) {
+  #view-dashboard .clock { display: none; }
+  #view-dashboard .topbar { gap: 6px; padding-bottom: 10px; }
+  #view-dashboard .topbar-actions { gap: 8px; }
+  #view-dashboard #refresh { padding: 5px 10px; font-size: 12.5px; }
+}
+/* the eight headline figures: four by two on a wide screen, two by four on a phone */
+#view-dashboard .board .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 640px) { #view-dashboard .board .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

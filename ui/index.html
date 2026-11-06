@@ -100,9 +100,9 @@
   </label>
   <div class="side-menu" id="side-menu">
   <div class="nav">
-    <button class="tab tab-help" data-view="help" title="Find help near me: a bed tonight, food, day spaces, health care and help lines, nearest to you first"><svg class="ic" aria-hidden="true"><use href="#i-helpheart"/></svg><span>Find help near me</span></button>
     <p class="nav-h">Overview</p>
     <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
+    <button class="tab tab-help" data-view="help" title="Find help near me: a bed tonight, food, day spaces, health care and help lines, nearest to you first"><svg class="ic" aria-hidden="true"><use href="#i-helpheart"/></svg><span>Find help near me</span></button>
     <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: how near homes are to everyday amenities, new homes against older ones"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
     <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
     <button class="tab" data-view="elections" title="Election Data Centre: seats, leaders, constituencies, Election Analytics and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-legis"/></svg><span>Election Data Centre</span></button>
@@ -194,7 +194,7 @@
           <div class="board-head">
             <div class="board-title">
               <span class="live-dot" aria-hidden="true"></span>
-              <span>Live from City of Calgary and Calgary Police open data</span>
+              <span>Live from City and Calgary Police open data</span>
             </div>
             <span class="board-period" id="board-period"></span>
           </div>
@@ -323,37 +323,37 @@
 
         <!-- families and schools -->
         <div class="section-head span-12"><svg class="ic" aria-hidden="true"><use href="#i-child"/></svg><h2>Families, schools, growth and amenities</h2></div>
-        <section class="card span-8" aria-labelledby="cc-title" id="cc-card">
+        <section class="card span-12" aria-labelledby="cc-title" id="cc-card">
           <div class="card-head"><div><h2 id="cc-title">Licensed child care spaces</h2><p class="card-sub" id="cc-sub"></p></div>
             <button class="link-btn" data-goto="families">All programs and schools</button></div>
           <div class="cc-kpis" id="cc-kpis"></div>
           <div class="chart-holder short"><canvas id="cc-chart" role="img" aria-label="Child care spaces in Ward 5 by quarter"></canvas></div>
         </section>
-        <section class="card span-4" aria-labelledby="ccc-title" id="ccc-card">
+        <section class="card span-4 dash-off" aria-labelledby="ccc-title" id="ccc-card">
           <div class="card-head"><div><h2 id="ccc-title">Spaces per 100 children, by community</h2><p class="card-sub">Children aged 0 to 14</p></div></div>
           <div id="cc-comm"></div>
         </section>
-        <section class="card span-6" aria-labelledby="sc-title" id="sc-card">
+        <section class="card span-12" aria-labelledby="sc-title" id="sc-card">
           <div class="card-head"><div><h2 id="sc-title">Students in Ward 5 schools</h2><p class="card-sub" id="sc-sub"></p></div></div>
           <div class="chart-holder short"><canvas id="sc-chart" role="img" aria-label="Students enrolled in Ward 5 schools by school year"></canvas></div>
         </section>
-        <section class="card span-6" aria-labelledby="scl-title" id="scl-card">
+        <section class="card span-6 dash-off" aria-labelledby="scl-title" id="scl-card">
           <div class="card-head"><div><h2 id="scl-title">Largest schools</h2><p class="card-sub" id="scl-sub"></p></div>
             <button class="link-btn" data-goto="families">All schools</button></div>
           <div id="sc-list"></div>
         </section>
 
         <!-- growth and amenities -->
-        <section class="card span-4" aria-labelledby="dp-title" id="dp-card">
+        <section class="card span-6" aria-labelledby="dp-title" id="dp-card">
           <div class="card-head"><div><h2 id="dp-title">Development permits</h2><p class="card-sub" id="dp-sub"></p></div>
             <button class="link-btn" data-goto="growth">All permits</button></div>
           <div id="dp-sum"></div>
         </section>
-        <section class="card span-4" aria-labelledby="rw-title" id="rw-card">
+        <section class="card span-6" aria-labelledby="rw-title" id="rw-card">
           <div class="card-head"><div><h2 id="rw-title">Road construction</h2><p class="card-sub">City projects in and near Ward 5</p></div></div>
           <div id="rw-list"></div>
         </section>
-        <section class="card span-4" aria-labelledby="am-title" id="am-card">
+        <section class="card span-4 dash-off" aria-labelledby="am-title" id="am-card">
           <div class="card-head"><div><h2 id="am-title">Amenities by community</h2><p class="card-sub">Playgrounds and children per playground, by community</p></div>
             <button class="link-btn" data-goto="growth">Details</button></div>
           <div id="am-sum"></div>
@@ -367,15 +367,15 @@
         </section>
 
         <!-- open by type, benchmarks, disorder -->
-        <section class="card span-4" aria-labelledby="open-title">
+        <section class="card span-4 bench-mate" aria-labelledby="open-title">
           <div class="card-head"><div><h2 id="open-title">Open requests by type</h2><p class="card-sub">Most requests still open today</p></div></div>
           <div class="chart-holder"><canvas id="open-types" aria-label="Bar chart of open requests by type" role="img"></canvas></div>
         </section>
-        <section class="card span-4" aria-labelledby="bench-title">
+        <section class="card span-4" aria-labelledby="bench-title" id="bench-card">
           <div class="card-head"><div><h2 id="bench-title">Ward 5 against Calgary</h2><p class="card-sub" id="bench-sub"></p></div></div>
           <div id="bench"></div>
         </section>
-        <section class="card span-4" aria-labelledby="dis-title">
+        <section class="card span-4 bench-mate" aria-labelledby="dis-title">
           <div class="card-head"><div><h2 id="dis-title">Police-reported social disorder</h2><p class="card-sub" id="dis-sub"></p></div></div>
           <div id="disorder"></div>
         </section>

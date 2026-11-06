@@ -170,9 +170,10 @@ function renderGrowthCards() {
       <p class="card-note">A development permit is the City's approval of what can be built on a property or how it is used, before a building permit. "Change of use" includes new child care centres, schools, clinics and places of worship. Source: City of Calgary Development Permits, by the permit's ward.</p>`;
   }
   if (rw) {
-    $('#rw-list').innerHTML = rw.length ? `<ul class="rw">${rw.map(r => `<li><div><strong>${esc(r.title)}</strong>
+    const rwItem = r => `<li><div><strong>${esc(r.title)}</strong>
         <small>${esc(r.type)}${r.completion ? '. Expected to finish: ' + esc(r.completion) : ''}${r.budget ? '. Budget: ' + esc(r.budget) : ''}${r.in_ward ? '' : '. Just outside ' + W() + ''}</small></div>
-        ${r.url ? `<button class="btn icon-only" data-open="${esc(r.url)}" aria-label="Project page for ${esc(r.title)}">${icon('open')}</button>` : ''}</li>`).join('')}</ul>
+        ${r.url ? `<button class="btn icon-only" data-open="${esc(r.url)}" aria-label="Project page for ${esc(r.title)}">${icon('open')}</button>` : ''}</li>`;
+    $('#rw-list').innerHTML = rw.length ? `<ul class="rw">${rw.slice(0, 5).map(rwItem).join('')}</ul>${rw.length > 5 ? `<details class="dash-more"><summary>${fmt(rw.length - 5)} more projects</summary><ul class="rw">${rw.slice(5).map(rwItem).join('')}</ul></details>` : ''}
         <p class="card-note">The City lists its larger road projects here; smaller repairs and utility work are not included.</p>`
       : '<p class="card-sub">No City road construction projects are listed in or near ' + W() + ' right now.</p>';
   }
@@ -902,8 +903,11 @@ function renderPopSeries() {
   if (xcharts.popm) xcharts.popm.destroy();
   const comms = residential();
   if (popmView !== 'res') { popmOn.clear(); popmOn.add('ward'); }
+  const chip = ([k, n], i) => `<button type="button" class="chip ${popmOn.has(k) ? 'on' : ''}" data-k="${k}" aria-pressed="${popmOn.has(k)}"><i style="background:${POP_COLORS[i % POP_COLORS.length]}"></i>${esc(n)}</button>`;
+  const all = [['ward', '' + W() + ''], ...comms.map(c => [c.code, c.name])].map((x, i) => chip(x, i));
+  const wasOpen = !!($('#popm-chips details') || {}).open;
   $('#popm-chips').innerHTML = popmView === 'res'
-    ? [['ward', '' + W() + ''], ...comms.map(c => [c.code, c.name])].map(([k, n], i) => `<button type="button" class="chip ${popmOn.has(k) ? 'on' : ''}" data-k="${k}" aria-pressed="${popmOn.has(k)}"><i style="background:${POP_COLORS[i % POP_COLORS.length]}"></i>${esc(n)}</button>`).join('')
+    ? (all.length > 16 ? all[0] + `<details class="dash-more"${wasOpen ? ' open' : ''}><summary>Add communities (${fmt(all.length - 1)})</summary><div class="chips">${all.slice(1).join('')}</div></details>` : all.join(''))
     : '<span class="card-sub">Children are shown for ' + W() + ' as a whole.</span>';
   $$('#popm-chips .chip').forEach(b => b.addEventListener('click', () => {
     popmOn.has(b.dataset.k) ? popmOn.delete(b.dataset.k) : popmOn.add(b.dataset.k);
@@ -1412,9 +1416,11 @@ function renderSourceNotes() {
   CARD_SOURCES.forEach(([sel, keys, note]) => {
     const host = $(sel);
     if (!host) return;
+    const fold = !!host.closest('#view-dashboard');
     let el = host.querySelector(':scope > .src-foot');
-    if (!el) { el = document.createElement('p'); el.className = 'src-foot'; host.appendChild(el); }
-    try { el.innerHTML = sourceFootHtml(keys, note()); } catch (e) { el.remove(); }
+    if (!el) { el = document.createElement(fold ? 'div' : 'p'); el.className = 'src-foot'; host.appendChild(el); }
+    try { const h = sourceFootHtml(keys, note());
+      el.innerHTML = fold ? `<details class="src-fold"${(el.querySelector('details') || {}).open ? ' open' : ''}><summary>Sources and how it's counted</summary>${h}</details>` : h; } catch (e) { el.remove(); }
   });
 }
 window.renderSourceNotes = renderSourceNotes;
@@ -1422,8 +1428,8 @@ window.renderSourceNotes = renderSourceNotes;
 const panelEl = $('#panel');
 if (panelEl) new MutationObserver(() => {
   if (!D || panelEl.querySelector(':scope > .src-foot') || !panelEl.children.length) return;
-  const el = document.createElement('p'); el.className = 'src-foot';
-  el.innerHTML = sourceFootHtml(['r311', 'pop', 'permits'], `311 and permits: ${periodWords()}. Residents: today's estimate.`);
+  const el = document.createElement('div'); el.className = 'src-foot';
+  el.innerHTML = `<details class="src-fold"><summary>Sources and how it's counted</summary>${sourceFootHtml(['r311', 'pop', 'permits'], `311 and permits: ${periodWords()}. Residents: today's estimate.`)}</details>`;
   panelEl.appendChild(el);
 }).observe(panelEl, { childList: true });
 

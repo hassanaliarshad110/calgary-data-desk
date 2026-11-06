@@ -409,12 +409,6 @@ function renderKpis() {
       `Calgary Police Service. ${fmt(c.crimes_prev)} a year before (marker). Calgary: ${signed(c.city_change_pct, 1)}`, versus(c.crimes, c.crimes_prev), 'crime'],
     ['Violent crimes', fmt(c.violent), chg(c.violent_change_pct, true, '%', 1, 'the same months a year before'),
       `Assault, robbery and other violence, not domestic. ${fmt(c.violent_prev)} a year before (marker)`, versus(c.violent, c.violent_prev), 'crime'],
-    isCity() ? ['Crimes per 1,000 residents a year', fmt(c.per_1000, 1), '',
-      'Calgary Police Service figures for the whole city. Each ward against Calgary is under Compare wards', '', 'crime'] :
-    ['Crimes per 1,000 residents a year', fmt(c.per_1000, 1), chg(c.per_1000 - c.city_per_1000, true, ' vs Calgary', 1, 'Calgary as a whole'),
-      `Calgary: ${fmt(c.city_per_1000, 1)} (marker), so ${W()} is ${fmt(Math.abs(c.per_1000 - c.city_per_1000), 1)} ${c.per_1000 >= c.city_per_1000 ? 'above' : 'below'} per 1,000. ${W()} has ${fmt(c.share_of_city_pct, 1)}% of Calgary's crime and ${fmt(c.residents_share_pct, 1)}% of its residents`, versus(c.per_1000, c.city_per_1000), 'crime'],
-    c.disorder ? ['Disorder calls to police', fmt(c.disorder.n), chg(c.disorder.change_pct, true, '%', 1, 'the same months a year before'),
-      `Disturbances, suspicious people, noise and more. ${fmt(c.disorder.prev)} a year before (marker)`, versus(c.disorder.n, c.disorder.prev), 'crime'] : null,
   ].filter(Boolean) : [];
   const items = [
     [popMethod() === 'census2021' ? 'Residents (' + CY() + ' Census)' : 'Residents today', fmt(w.residents), popMethod() === 'census2021' ? '' : chg(w.growth_pct, null, '%', 1, 'the ' + CY() + ' Census'),
@@ -423,16 +417,11 @@ function renderKpis() {
     ...crime,
     [`311 requests, ${esc(D.period)}`, fmt(s.requests12), chg(s.requests_change_pct, null, '%', 1, cw),
       `${fmt(s.requests_per_1000, 0)} per 1,000 residents a year`, spark(D.trend.all)],
-    ['Infrastructure reports per 1,000 a year', fmt(s.infra_per_1000, 1), chg(pct(s.infra_per_1000, s.infra_per_1000_prev), null, '%', 1, cw),
-      `Roads, water and sewer, parks: the study's 21 types. ${fmt(s.infra_per_1000_prev, 1)} in ${esc(cw)} (marker)`, versus(s.infra_per_1000, s.infra_per_1000_prev)],
     ['Closed within 7 days', fmt(s.closed_7_days_pct, 1) + '%', isCity() ? '' : chg(s.closed_7_days_pct - s.closed_7_days_pct_city, false, ' pts', 1, 'Calgary as a whole'),
       `Of the period's requests closed so far. Calgary: ${fmt(s.closed_7_days_pct_city, 1)}% (marker)`, meter(s.closed_7_days_pct / 100, s.closed_7_days_pct_city / 100, 'vs')],
     ['Traffic incidents', fmt(s.traffic12), chg(s.traffic_change_pct, true, '%', 1, cw), `${fmt(s.traffic_prev)} in ${esc(cw)} (marker)`, versus(s.traffic12, s.traffic_prev)],
     ['Homes in building permits issued', fmt(s.issued_homes12), chg(s.issued_homes_change_pct, null, '%', 1, cw),
       `${fmt(s.new_homes12)} applied for. Planned, not yet built. ${fmt(s.issued_homes_prev)} issued in ${esc(cw)} (marker)`, versus(s.issued_homes12, s.issued_homes_prev)],
-    dv ? ['Larger development applications', fmt(dv.larger), chg(dv.larger_change_pct, null, '%', 1, cw),
-      `New homes and apartments, changes of use, commercial and industrial. All development permit applications: ${fmt(dv.applied)} (most are basement suites, signs and home businesses)`, versus(dv.larger, dv.larger_prev)]
-      : ['Development permit applications', '–', '', 'Not available right now', ''],
   ];
   $('#kpis').innerHTML = items.map(([label, value, change, foot, viz, cls]) => `
     <div class="kpi ${cls || ''}" role="listitem">
@@ -876,7 +865,7 @@ function feedItems(n) {
   return D.newest.slice(0, n).map(r => ({ ...r, name: commName(r.comm) }));
 }
 function renderFeed() {
-  $('#feed').innerHTML = feedItems(14).map(r => `<li><span class="t">${esc(niceType(r.type))}</span>
+  $('#feed').innerHTML = feedItems(8).map(r => `<li><span class="t">${esc(niceType(r.type))}</span>
     <span class="status-tag ${r.status === 'Open' ? 'open' : 'closed'}">${esc(r.status)}</span>
     <span class="m">${esc(r.name)}, ${longDate(r.date)}. Request ${esc(r.id)}</span></li>`).join('');
 }
@@ -886,11 +875,13 @@ function renderPopulation() {
   const list = residential().slice().sort((a, b) => b.residents - a.residents);
   const top = Math.max(...list.map(c => Math.max(c.residents || 0, c.census2021 || 0)), 1);
   $('#pop-sub').textContent = `${W()}: ${fmt(D.ward.residents)} today, ${fmt(D.ward.census2021)} at the ${CY()} Census (${signed(D.ward.growth_pct, 1)}). Recalculated at every refresh.`;
-  $('#popcmp').innerHTML = `<div class="popcmp">${list.map(c => `<div class="prow">
+  const prow = c => `<div class="prow">
       <span class="lbl" title="${esc(c.name)}">${esc(c.name)}</span>
       <span class="ptrack" title="${fmt(c.residents)} today, ${fmt(c.census2021)} in 2021"><span class="m" style="width:${(c.residents / top * 100).toFixed(1)}%"></span>
         ${c.census2021 ? `<i class="c" style="left:calc(${(c.census2021 / top * 100).toFixed(1)}% - 1px)"></i>` : ''}</span>
-      <span class="v">${fmt(c.residents)}<small>${c.census2021 ? `2021: ${fmt(c.census2021)} (${signed(c.growth_pct, 0)})` : 'Built since ' + CY() + ''}</small></span></div>`).join('')}</div>
+      <span class="v">${fmt(c.residents)}<small>${c.census2021 ? `2021: ${fmt(c.census2021)} (${signed(c.growth_pct, 0)})` : 'Built since ' + CY() + ''}</small></span></div>`;
+  const SHOW = 10;
+  $('#popcmp').innerHTML = `<div class="popcmp">${list.slice(0, SHOW).map(prow).join('')}</div>${list.length > SHOW ? `<details class="dash-more"><summary>The other ${fmt(list.length - SHOW)} communities</summary><div class="popcmp">${list.slice(SHOW).map(prow).join('')}</div></details>` : ''}
     <div class="pop-legend"><span><i></i>Today, ${esc(popWords())}</span><span><i class="c"></i>${CY()} Census</span></div>`;
 }
 
@@ -1077,6 +1068,11 @@ setInterval(() => $$('img').forEach(img => {        // cameras with no replay ye
 // ---------- Ward 5 against Calgary
 function renderBench() {
   const s = D.summary;
+  // the whole city against itself says nothing: the card is for a single ward
+  const city = isCity();
+  $('#bench-card').hidden = city;
+  $$('.bench-mate').forEach(el => { el.classList.toggle('span-6', city); el.classList.toggle('span-4', !city); });
+  if (city) return;
   $('#bench-sub').textContent = D.period;
   const pair = (title, ward, city, higherIsGood) => {
     const top = Math.max(ward, city, 1);
@@ -1174,10 +1170,10 @@ function renderTable() {
 wireSeg($('#area-seg'), v => { areas = v; renderTable(); });
 
 function renderNotes() {
-  $('#notes').innerHTML = '<ul>' +
+  $('#notes').innerHTML = '<details class="src-fold"><summary>Notes on these figures</summary><ul>' +
     '<li>Growing: more than 30% more residents than at the ' + CY() + ' Census, or built since then.</li>' +
     D.notes.map(n => `<li>${esc(n)}</li>`).join('') +
-    `<li>Sources: City of Calgary Open Data. ${Object.entries(D.sources).map(([k, v]) => `${esc(k)} (${esc(v)})`).join(', ')}.</li></ul>`;
+    `<li>Sources: City of Calgary Open Data. ${Object.entries(D.sources).map(([k, v]) => `${esc(k)} (${esc(v)})`).join(', ')}.</li></ul></details>`;
 }
 
 // ================================================================ OPEN ISSUES
