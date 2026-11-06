@@ -1,6 +1,6 @@
 /* Calgary Data Desk: Invest in Calgary. Every business we can find in Calgary (City business licences and
    OpenStreetMap), grouped and searchable; where each kind of business is underserved for the people who live nearby;
-   growth and new licences; and the Business Economist (a paid service, behind its own passcode) that writes business
+   growth and new licences; and the Business Economist (behind its own passcode) that writes business
    plans from all the data on the Data Desk. business.py builds the list; the index is worked out here with the
    residents counted the way chosen in Settings. */
 'use strict';
@@ -8,6 +8,7 @@
 let IV = null, IVP = null, ivSub = 'opps', ivCat = 'grocery', ivRad = 2, ivQ = '', ivFCat = '', ivFComm = '', ivPage = 0, ivMap = null;
 let ivBusy = false, ivThread = [], ivOwn = null;
 const IV_SUBS = [['opps', 'Opportunities'], ['index', 'Underserved index'], ['list', 'Business directory'], ['growth', 'Growth'], ['economist', 'Business Economist']];
+const ivMon = ym => { const [y, m] = String(ym).split('-'); return `${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][+m - 1] || m} ${y}`; };
 const ivP = (v, d = 0) => isNum(v) ? `${fmt(v * 100, d)}%` : '–';
 
 async function loadInvest() {
@@ -59,7 +60,7 @@ function ivOpportunities(rad) {
 }
 
 function ivTabs() {
-  return `<nav class="el-subtabs span-12" aria-label="Invest in Calgary sections">${IV_SUBS.map(([k, t]) => `<button type="button" class="el-subtab${k === ivSub ? ' is-on' : ''}" data-ivsub="${k}" ${k === ivSub ? 'aria-current="page"' : ''}>${esc(t)}${k === 'economist' ? ' <span class="iv-paid">Paid</span>' : ''}</button>`).join('')}</nav>`;
+  return `<nav class="el-subtabs span-12" aria-label="Invest in Calgary sections">${IV_SUBS.map(([k, t]) => `<button type="button" class="el-subtab${k === ivSub ? ' is-on' : ''}" data-ivsub="${k}" ${k === ivSub ? 'aria-current="page"' : ''}>${esc(t)}${k === 'economist' ? ' <span class="iv-lockmark" aria-label="needs a passcode">🔒</span>' : ''}</button>`).join('')}</nav>`;
 }
 function ivKpis(list) { return `<div class="el-cr-kpis">${list.map(([l, n, s]) => `<div class="el-kpi"><div class="el-kpi-l">${esc(l)}</div><div class="el-kpi-n">${n}</div><div class="el-hero-sub">${esc(s || '')}</div></div>`).join('')}</div>`; }
 function ivCatSelect(id, local, val) {
@@ -145,13 +146,13 @@ function ivGrowth() {
   const gRows = groups.map(g => ({ label: g, v: sum(last12, g), sub: `${fmt(sum(prev12, g))} the 12 months before` })).sort((a, b) => b.v - a.v);
   const months = tr.slice(-24);
   return `<section class="card span-12"><div class="card-head"><div><h2>New business licences, month by month</h2><p class="card-sub">The month each business was first licensed by the City (businesses still licensed today)</p></div></div>
-      ${fbColumns(months.map(([m]) => m), [{ name: 'New licences', color: '#0369A1', v: months.map(([, v]) => Object.values(v).reduce((a, n) => a + n, 0)) }], v => fmt(v), 200)}
+      ${ecBars(months.map(([m, v]) => ({ label: ivMon(m), v: Object.values(v).reduce((a, n) => a + n, 0) })), v => fmt(v))}
       <p class="card-note">A business that closed is no longer in the City's list, so older months count only the businesses that survived: compare recent months with each other, not with years ago.</p></section>
     <section class="card span-6"><div class="card-head"><div><h2>By kind of business, last 12 complete months</h2></div></div>${ecBars(gRows, v => fmt(v))}</section>
     <section class="card span-6"><div class="card-head"><div><h2>By year</h2><p class="card-sub">Still licensed today, by year first licensed</p></div></div>${ecBars(ys.map(y => ({ label: y, v: Object.values(years[y]).reduce((a, n) => a + n, 0) })), v => fmt(v))}</section>`;
 }
 
-// ---- Business Economist (paid, its own passcode)
+// ---- Business Economist (its own passcode)
 function ivLocked() { return !!(window.CDD_AI && window.CDD_AI.unlocked && !window.CDD_AI.unlocked('biz')); }
 function ivContact() {
   const to = (window.CDD_CONTACT || '').trim();
@@ -169,13 +170,13 @@ function ivContact() {
 function ivEconomist() {
   const locked = ivLocked();
   const msgs = ivThread.map(m => `<div class="ea-msg ${m.who}">${m.who === 'you' ? esc(m.text) : (m.html || esc(m.text || ''))}${m.cards ? `<div class="ea-cards">${m.cards}</div>` : ''}</div>`).join('');
-  const pitch = `<section class="el-cr span-12"><div class="el-cr-top"><div><div class="el-cr-kicker">Paid service</div><h2 class="el-cr-title">The Business Economist</h2>
+  const pitch = `<section class="el-cr span-12"><div class="el-cr-top"><div><div class="el-cr-kicker">Invest in Calgary</div><h2 class="el-cr-title">The Business Economist</h2>
       <div class="el-cr-sub">A business plan built on Calgary's own data: who lives within reach and how fast it is growing, households and incomes, the competition street by street, transit stops nearby, crime and 311 issues, weather through the year, rents and new homes. Every figure sourced; the full plan comes as a PDF, an interactive report and an Excel workbook that can be audited.</div></div></div>
     <div class="iv-offer"><div><b>For a new business</b><span>Where to open, how many customers are within reach, the competition, the numbers to break even, and the risks.</span></div>
       <div><b>For an existing business</b><span>Share your own sales data (it stays in your browser) to find trends, seasons, your best days, and where to grow.</span></div>
       <div><b>For investors</b><span>Which kinds of business Calgary is short of, where, and how fast those areas are growing.</span></div></div></section>`;
   const chat = `<section class="card span-6 ea-chat"><div class="card-head"><div><h2>Ask the Business Economist</h2><p class="card-sub">Business plans, locations, competition and the numbers behind them</p></div></div>
-    ${locked ? `<div class="web-lock ea-lock"><h3>This is a paid service</h3><p>Everything else on Invest in Calgary is open to everyone. The Business Economist needs its own passcode. <b>To get a passcode, contact the developer</b> with the form on this page.</p>
+    ${locked ? `<div class="web-lock ea-lock"><h3>The Business Economist needs its passcode</h3><p>Everything else on Invest in Calgary is open to everyone. The Business Economist needs its own passcode. <b>To get a passcode, contact the developer</b> with the form on this page.</p>
       <form id="iv-unlock"><label class="sr-only" for="iv-code">Business Economist passcode</label><input type="password" id="iv-code" autocomplete="off" placeholder="Business Economist passcode"><button type="submit" class="btn primary">Unlock</button></form><p class="web-lock-msg" id="iv-lockmsg" role="status"></p></div>`
       : `<div class="ea-thread" id="iv-thread">${msgs || '<p class="muted">Describe the business and where you are thinking of opening, or ask which kinds of business a community is short of.</p>'}</div>
       <form class="ea-form" id="iv-ask"><textarea id="iv-text" rows="3" placeholder="For example: a halal grocery in northeast Calgary. Where, and what would it take to break even?" aria-label="Question for the Business Economist"></textarea>
@@ -202,31 +203,62 @@ function ivParseCsv(text) {
   row.push(cur.trim()); if (row.some(x => x)) rows.push(row);
   return rows;
 }
+// a date as the file writes it: 2025-03-07, 2025/03/07, 03/07/2025 (month first), 7 Mar 2025, with or without a time
+function ivDate(v) {
+  const t = String(v || '').trim();
+  let m = /^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/.exec(t);
+  if (m) return ivYmd(+m[1], +m[2], +m[3]);
+  m = /^(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})/.exec(t);
+  if (m) return +m[1] > 12 ? ivYmd(+m[3], +m[2], +m[1]) : ivYmd(+m[3], +m[1], +m[2]);
+  if (!/[a-z]{3}/i.test(t) || !/\d{4}/.test(t)) return null;     // "7 Mar 2025", "March 7, 2025"
+  const d = new Date(t);
+  return isNaN(d) ? null : ivYmd(d.getFullYear(), d.getMonth() + 1, d.getDate());
+}
+function ivYmd(y, mo, d) {
+  if (y < 1990 || y > 2100 || mo < 1 || mo > 12 || d < 1 || d > 31) return null;
+  return { ym: `${y}-${String(mo).padStart(2, '0')}`, dow: new Date(Date.UTC(y, mo - 1, d)).getUTCDay() };
+}
+function ivNum(v) {
+  let t = String(v ?? '').trim(); if (!t) return NaN;
+  const neg = /^\(.*\)$/.test(t) || /^-/.test(t.replace(/^[$\s]+/, ''));
+  t = t.replace(/[()$€£,\s]|CAD|USD/gi, '').replace(/^-/, '');
+  if (!/^\d*\.?\d+$/.test(t)) return NaN;
+  return (neg ? -1 : 1) * parseFloat(t);
+}
 function ivOwnAnalyse(rows) {
-  const head = rows[0], body = rows.slice(1);
-  const isDate = v => !isNaN(Date.parse(v)) && /\d/.test(v), num = v => parseFloat(String(v).replace(/[$,\s]/g, ''));
-  const di = head.findIndex((h, i) => body.slice(0, 30).filter(r => isDate(r[i])).length >= Math.min(20, body.length * 0.8));
-  const ni = head.findIndex((h, i) => i !== di && /amount|total|sales|revenue|price|net/i.test(h) && body.slice(0, 30).some(r => isNum(num(r[i]))));
-  const n2 = ni >= 0 ? ni : head.findIndex((h, i) => i !== di && body.slice(0, 30).filter(r => isFinite(num(r[i]))).length >= Math.min(20, body.length * 0.8));
-  if (di < 0 || n2 < 0) return { error: 'Could not find a date column and an amount column in this file.' };
-  const ci = head.findIndex((h, i) => i !== di && i !== n2 && /item|product|category|service|type/i.test(h));
+  if (!rows || rows.length < 3) return { error: 'The file has too few rows to analyse.' };
+  const head = rows[0].map(h => String(h || '').trim()), body = rows.slice(1), probe = body.slice(0, 50);
+  const share = (i, f) => probe.filter(r => f(r[i])).length / Math.max(1, probe.length);
+  const dateCols = head.map((h, i) => i).filter(i => share(i, v => ivDate(v)) >= 0.8);
+  const di = dateCols.find(i => /date|created|time|day|paid|order/i.test(head[i])) ?? dateCols[0];
+  const numCols = head.map((h, i) => i).filter(i => i !== di && share(i, v => isFinite(ivNum(v))) >= 0.8);
+  const rank = h => /^(total|net sales|net total|gross sales|sales|amount|revenue|total sales)$/i.test(h) ? 0 : /net sales|gross sales|total(?! ?qty)/i.test(h) && !/sub|tax|discount|ship|qty|quantity|count/i.test(h) ? 1
+    : /amount|sales|revenue|price|net/i.test(h) && !/tax|discount|ship|qty|quantity/i.test(h) ? 2 : 9;
+  const ni = numCols.slice().sort((a, b) => rank(head[a]) - rank(head[b]))[0];
+  if (di === undefined || ni === undefined) return { error: 'Could not find a date column and an amount column in this file. It needs one column of dates and one of amounts (sales, totals or revenue).' };
+  const ci = head.findIndex((h, i) => i !== di && i !== ni && /item|product|category|service|lineitem|description/i.test(h));
   const byM = {}, byW = [0, 0, 0, 0, 0, 0, 0], byC = {};
-  let total = 0, n = 0;
-  body.forEach(r => { const d = new Date(r[di]), v = num(r[n2]); if (isNaN(d) || !isFinite(v)) return;
-    const k = d.toISOString().slice(0, 7); byM[k] = (byM[k] || 0) + v; byW[d.getDay()] += v; total += v; n++;
-    if (ci >= 0) byC[r[ci]] = (byC[r[ci]] || 0) + v; });
-  const ms = Object.keys(byM).sort(), last = ms.slice(-12), prev = ms.slice(-24, -12);
-  const s = a => a.reduce((x, k) => x + byM[k], 0);
-  return { cols: [head[di], head[n2], ci >= 0 ? head[ci] : null], n, total, months: ms.map(k => [k, Math.round(byM[k])]), weekday: byW.map(Math.round),
-    last12: s(last), prev12: prev.length === 12 ? s(prev) : null, best: ms.slice().sort((a, b) => byM[b] - byM[a]).slice(0, 3),
+  let total = 0, n = 0, skipped = 0;
+  body.forEach(r => { const d = ivDate(r[di]), v = ivNum(r[ni]); if (!d || !isFinite(v)) { skipped++; return; }
+    byM[d.ym] = (byM[d.ym] || 0) + v; byW[d.dow] += v; total += v; n++;
+    if (ci >= 0 && r[ci]) byC[r[ci]] = (byC[r[ci]] || 0) + v; });
+  const keys = Object.keys(byM).sort(); if (!keys.length) return { error: 'No row had both a date and an amount.' };
+  // every calendar month from the first to the last, months with no sales as 0
+  const ms = []; let [y, mo] = keys[0].split('-').map(Number); const [y1, m1] = keys[keys.length - 1].split('-').map(Number);
+  while (y < y1 || (y === y1 && mo <= m1)) { ms.push(`${y}-${String(mo).padStart(2, '0')}`); mo++; if (mo > 12) { mo = 1; y++; } }
+  const now = new Date(), cur = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+  const full = ms[ms.length - 1] >= cur ? ms.filter(k => k < cur) : ms;          // this month is not over yet
+  const val = k => byM[k] || 0, last = full.slice(-12), prev = full.slice(-24, -12), s = a => a.reduce((x, k) => x + val(k), 0);
+  return { cols: [head[di], head[ni], ci >= 0 ? head[ci] : null], n, skipped, total, months: ms.map(k => [k, Math.round(val(k))]), weekday: byW.map(Math.round),
+    last12: s(last), prev12: prev.length === 12 ? s(prev) : null, partial: full.length < ms.length, from: ms[0], to: ms[ms.length - 1], best: full.slice().sort((a, b) => val(b) - val(a)).slice(0, 3).map(ivMon),
     top: Object.entries(byC).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([k, v]) => [k, Math.round(v)]) };
 }
 function ivOwnView() {
   const o = ivOwn;
   if (o.error) return `<p class="err">${esc(o.error)}</p>`;
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], m = o.months.slice(-24);
-  return `<div class="fb-kpis">${[['Rows read', fmt(o.n), `${o.cols[0]} and ${o.cols[1]}`], ['Total', '$' + fmt(o.total), `${o.months.length} months`], ['Last 12 months', '$' + fmt(o.last12), isNum(o.prev12) ? `${o.last12 >= o.prev12 ? '+' : ''}${fmt((o.last12 / o.prev12 - 1) * 100, 1)}% on the 12 before` : ''], ['Best months', esc(o.best.join(', ')), '']].map(([l, n, s]) => `<div class="fb-kpi"><div class="fb-kpi-l">${esc(l)}</div><div class="fb-kpi-n">${n}</div><div class="fb-kpi-s">${esc(s)}</div></div>`).join('')}</div>
-    <h3 class="fb-h3">Month by month</h3>${fbColumns(m.map(x => x[0]), [{ name: o.cols[1], color: '#0369A1', v: m.map(x => x[1]) }], v => '$' + fmt(v), 200)}
+  return `<div class="fb-kpis">${[['Rows read', fmt(o.n), `dates: "${o.cols[0]}", amounts: "${o.cols[1]}"${o.skipped ? `; ${fmt(o.skipped)} rows without both skipped` : ''}`], ['Total', '$' + fmt(o.total), `${o.from} to ${o.to}, ${o.months.length} months`], [o.partial ? 'Last 12 complete months' : 'Last 12 months in the file', '$' + fmt(o.last12), isNum(o.prev12) ? `${o.last12 >= o.prev12 ? '+' : ''}${fmt((o.last12 / o.prev12 - 1) * 100, 1)}% on the 12 before` : ''], ['Best months', esc(o.best.join(', ')), '']].map(([l, n, s]) => `<div class="fb-kpi"><div class="fb-kpi-l">${esc(l)}</div><div class="fb-kpi-n">${n}</div><div class="fb-kpi-s">${esc(s)}</div></div>`).join('')}</div>
+    <h3 class="fb-h3">Month by month <small>the last ${m.length} months${o.partial ? '; this month is not over' : ''}</small></h3>${ecBars(m.map(x => ({ label: ivMon(x[0]), v: x[1] })), v => '$' + fmt(v))}
     <div class="ea-two"><div><h3 class="fb-h3">By day of the week</h3>${ecBars(o.weekday.map((v, i) => ({ label: days[i], v })), v => '$' + fmt(v))}</div>
     ${o.top.length ? `<div><h3 class="fb-h3">Top ${esc(o.cols[2])}</h3>${ecBars(o.top.map(([k, v]) => ({ label: k, v })), v => '$' + fmt(v))}</div>` : ''}</div>
     ${ivLocked() ? '' : '<button class="btn primary" id="iv-ownask">Ask the Economist about these trends</button>'}`;

@@ -59,6 +59,7 @@
     <symbol id="i-paper" viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 8h3v9a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12h7M7 15h4"/></symbol>
     <symbol id="i-maple" viewBox="0 0 24 24"><path d="M12 3l1.6 3.4 2.4-1-0.6 4 3.6-1.4-1 2.8 2 1.2-4.6 3.4 0.8 2.2-4.2-0.8V21h-0.4v-4.2l-4.2 0.8 0.8-2.2L3.6 12l2-1.2-1-2.8L8.2 9.4l-0.6-4 2.4 1z"/></symbol>
     <symbol id="i-legis" viewBox="0 0 24 24"><path d="M3 21h18M5 21v-7h14v7M8.5 14v7M12 14v7M15.5 14v7M4 14h16"/><path d="M7 14a5 5 0 0 1 10 0"/><path d="M12 9V3.5l3.2 1.2L12 6"/></symbol>
+    <symbol id="i-analytics-solid" viewBox="0 0 24 24"><rect x="2.5" y="11" width="4" height="10" rx="1" fill="currentColor" stroke="none"/><rect x="8.5" y="5" width="4" height="16" rx="1" fill="currentColor" stroke="none"/><rect x="14.5" y="13" width="4" height="8" rx="1" fill="currentColor" stroke="none"/><circle cx="18" cy="6.5" r="4" fill="currentColor" stroke="none"/><path d="m16.2 6.6 1.3 1.3 2.5-2.6" stroke="var(--on-accent, #fff)" stroke-width="1.8" fill="none"/></symbol>
     <symbol id="i-analytics" viewBox="0 0 24 24"><path d="M4 20V11M8.5 20V6M13 20v-6"/><circle cx="17.5" cy="14.5" r="3.2"/><path d="m19.8 16.8 2.2 2.2"/><path d="M3 20h9"/></symbol>
     <symbol id="i-studio" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="m10 9 5 2.5-5 2.5z"/><path d="M8 21h8"/></symbol>
     <symbol id="i-ballot" viewBox="0 0 24 24"><path d="M4 21h16"/><path d="M6 21V11h12v10"/><path d="M9 11V4h6v7"/><path d="M10.5 7.5l1 1 2-2"/></symbol>
@@ -100,8 +101,7 @@
     <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
     <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: how near homes are to everyday amenities, new homes against older ones"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
     <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
-    <button class="tab" data-view="elections" title="Election Control Room: seats, leaders, constituencies and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-legis"/></svg><span>Election Control Room</span></button>
-    <button class="tab" data-view="elanalytics" title="Election Analytics: who lives here, every voting location and poll, and an analyst to ask"><svg class="ic" aria-hidden="true"><use href="#i-analytics"/></svg><span>Election Analytics</span></button>
+    <button class="tab" data-view="elections" title="Election Control Room: seats, leaders, constituencies, Election Analytics and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-legis"/></svg><span>Election Control Room</span></button>
     <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
     <button class="tab" data-view="citynews" title="Calgary News: the day's Calgary stories, each with its sources"><svg class="ic" aria-hidden="true"><use href="#i-paper"/></svg><span>Calgary News</span></button>
     <button class="tab" data-view="fedbudget" title="Federal Budget 2026: headline numbers, every measure, province by province, Calgary and Alberta"><svg class="ic" aria-hidden="true"><use href="#i-maple"/></svg><span>Federal Budget 2026</span></button>
@@ -555,13 +555,6 @@
       <div class="topbar-title"><h1 id="el-title">Election Control Room</h1><p class="meta">Seats, leaders, constituencies and the latest official results: City of Calgary 2025, Alberta 2023 (with by-elections since and the 2026 referendum), Canada 2025</p></div>
     </header>
     <div class="content"><div class="grid" id="el-body"></div></div>
-  </section>
-
-  <section id="view-elanalytics" class="view" aria-labelledby="ea-title">
-    <header class="topbar">
-      <div class="topbar-title"><h1 id="ea-title">Election Analytics</h1><p class="meta">Micro-level election detail, deep analysis and arithmetic models of how a candidate can win: who lives here, every voting location and poll, and an analyst to ask</p></div>
-    </header>
-    <div class="content"><div class="grid" id="ea-body"></div></div>
   </section>
 
   <section id="view-citynews" class="view" aria-labelledby="cn-h">

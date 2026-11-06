@@ -225,4 +225,4 @@ async function renderElAnalytics(keepScroll) {
   if (keepScroll) window.scrollTo(0, y);
 }
 window.renderElAnalytics = renderElAnalytics;
-document.addEventListener('cdd-unlocked', () => { if ($('#view-elanalytics') && $('#view-elanalytics').classList.contains('is-on')) renderElAnalytics(true); });
+document.addEventListener('cdd-unlocked', () => { if ($('#ea-body')) renderElAnalytics(true); });

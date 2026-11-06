@@ -153,7 +153,7 @@ function elFederal() {
 
 // ================================================================ ELECTION CONTROL ROOM
 let elSub = 'room';
-const EL_SUBS = [['room', 'Control room'], ['leaders', 'Know your leaders'], ['area', 'Know your constituency'], ['term', 'Since the election'], ['results', 'Full results']];
+const EL_SUBS = [['room', 'Control room'], ['leaders', 'Know your leaders'], ['area', 'Know your constituency'], ['analytics', 'Election Analytics'], ['term', 'Since the election'], ['results', 'Full results']];
 // election days: Alberta's (Election Act s. 38.1, Elections Alberta), municipal (Government of Alberta: 15 October 2029)
 // and federal (Canada Elections Act s. 56.1: 15 October 2029, unless an election is called earlier)
 const EL_NEXT = [['Alberta general election', '2027-10-18', 'Fixed date in law'], ['Calgary municipal election', '2029-10-15', 'Alberta\'s next municipal general election'],
@@ -505,12 +505,14 @@ async function renderElections() {
   if (!EL) { body.innerHTML = '<p class="card-note">The election results could not be read.</p>'; return; }
   EL.constituency_wards = (((D && D.elections) || {}).constituency || {}).wards;
   const errs = Object.keys(EL.errors || {});
-  const page = elSub === 'leaders' ? elLeaders() : elSub === 'area' ? elArea() : elSub === 'term' ? elTerm() : elSub === 'results' ? elResults() : elRoom();
-  body.innerHTML = `<nav class="el-subtabs span-12" aria-label="Election Control Room sections">${EL_SUBS.map(([k, t]) => `<button type="button" class="el-subtab${k === elSub ? ' is-on' : ''}" data-elsub="${k}" ${k === elSub ? 'aria-current="page"' : ''}>${esc(t)}</button>`).join('')}</nav>
+  // Election Analytics lives here as a section of its own (elanalytics.js fills it)
+  const page = elSub === 'analytics' ? '<div class="span-12 ea-embed"><div class="grid" id="ea-body"></div></div>' : elSub === 'leaders' ? elLeaders() : elSub === 'area' ? elArea() : elSub === 'term' ? elTerm() : elSub === 'results' ? elResults() : elRoom();
+  body.innerHTML = `<nav class="el-subtabs span-12" aria-label="Election Control Room sections">${EL_SUBS.map(([k, t]) => `<button type="button" class="el-subtab${k === elSub ? ' is-on' : ''}" data-elsub="${k}" ${k === elSub ? 'aria-current="page"' : ''}>${k === 'analytics' ? '<svg class="ic el-subic" aria-hidden="true"><use href="#i-analytics-solid"/></svg>' : ''}${esc(t)}</button>`).join('')}</nav>
     ${page}
     <section class="card span-12"><p class="card-note">Official results as published by Elections Calgary, Elections Alberta and Elections Canada; members today from the Legislative Assembly of Alberta and the House of Commons. Read ${esc(elDay(EL.built_at))}. Facts only: nothing here rates, ranks or recommends any candidate, party or campaign. ${errs.length ? `Not read this time: ${esc(errs.join(', '))}.` : ''} <button type="button" class="link-btn small" data-method="elections">How these are read</button></p></section>`;
   elTick();
   if (typeof ecBind === 'function') ecBind(body, renderElections);
+  if (elSub === 'analytics' && window.renderElAnalytics) await window.renderElAnalytics();
   body.querySelectorAll('[data-elsub]').forEach(b => b.addEventListener('click', () => { elSub = b.dataset.elsub; renderElections(); }));
   const sel = $('#el-refq');
   if (sel) sel.addEventListener('change', () => { elRefQ = +sel.value; const y = window.scrollY; renderElections().then(() => window.scrollTo(0, y)); });

@@ -1784,7 +1784,7 @@ table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static
 .table-wrap.sr-wrap { max-height: none; }
 
 /* Invest in Calgary (invest.js) */
-.iv-paid { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 6px; background: #F59E0B; color: #111827; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; vertical-align: 1px; }
+.iv-lockmark { margin-left: 4px; font-size: 11px; }
 .iv-map { height: 460px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 8px; }
 .iv-pager { display: flex; gap: 12px; align-items: center; justify-content: center; margin: 10px 0; }
 .iv-offer { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 14px; }
@@ -1793,3 +1793,22 @@ table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static
 .iv-form { display: grid; gap: 10px; }
 .iv-form label { display: grid; gap: 4px; font-size: 13px; color: var(--fg-2); }
 .iv-form input, .iv-form select, .iv-form textarea { padding: 8px 10px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: var(--card); color: var(--fg); font: inherit; }
+.el-subtab { display: inline-flex; align-items: center; gap: 6px; }
+.el-subic { width: 16px; height: 16px; color: #F59E0B; }
+.el-subtab.is-on .el-subic { color: #FDE68A; }
+.ea-embed > .grid { padding: 0; }
+
+/* Election Control Room header: compact (countdowns side by side under the title, smaller figures) */
+#el-body .el-cr { padding: 16px 20px; }
+#el-body .el-cr-top { flex-direction: column; gap: 10px; }
+#el-body .el-cr-title { font-size: 26px; margin: 2px 0 4px; }
+#el-body .el-cr-counts { flex-direction: row; flex-wrap: wrap; gap: 8px 18px; }
+#el-body .el-cr-count { text-align: left; padding: 6px 10px; border: 1px solid #1E3A5F; border-radius: 10px; background: rgba(15, 23, 42, .5); }
+#el-body .el-cr-count .el-cr-kicker { font-size: 11px; letter-spacing: .1em; }
+#el-body .el-cd-big .el-cd-u { min-width: 40px; padding: 3px 5px; }
+#el-body .el-cd-big .el-cd-u b { font-size: 20px; }
+#el-body .el-cd-big .el-cd-u small, #el-body .el-cd-big .el-cd-u span { font-size: 9px; }
+#el-body .el-cr-kpis { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 14px; }
+#el-body .el-kpi { padding: 10px 12px; }
+#el-body .el-kpi-n { font-size: 26px; margin: 2px 0 4px; }
+#el-body .el-kpi-l { font-size: 11px; }
