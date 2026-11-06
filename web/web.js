@@ -166,28 +166,35 @@
     // portal in this browser, given its route from the timetable the daily build wrote (data/transit.json)
     async transit_live() {
       try {
+        // The City writes a new file for each feed about every 30 seconds, under a new name (its blobId), so the name is
+        // read again every time: keeping the first one froze every vehicle where it was when the map opened.
         const T = window.CDD_TRANSIT || (window.CDD_TRANSIT = {});
-        const blob = async (id, fallback) => {
-          if (T[id]) return T[id];
-          try { const m = await fetch(`https://data.calgary.ca/api/views/${id}.json`).then(r => r.json()); T[id] = m.blobId || fallback; }
-          catch (e) { T[id] = fallback; }
+        const blob = async id => {
+          try { const m = await fetch(`https://data.calgary.ca/api/views/${id}.json?_=${Date.now()}`, { cache: 'no-store' }).then(r => r.json()); if (m.blobId) T[id] = m.blobId; }
+          catch (e) { /* use the last name read */ }
           return T[id];
         };
-        const feed = async (id, fallback, name) => {
-          const r = await fetch(`https://data.calgary.ca/api/views/${id}/files/${await blob(id, fallback)}?filename=${name}`, { cache: 'no-store' });
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return new Uint8Array(await r.arrayBuffer());
+        const feed = async (id, name) => {
+          const b = await blob(id);
+          const urls = [b ? `https://data.calgary.ca/api/views/${id}/files/${b}?filename=${name}` : null, `https://data.calgary.ca/download/${id}/application%2Foctet-stream?_=${Date.now()}`].filter(Boolean);
+          let err;
+          for (const u of urls) {
+            try { const r = await fetch(u, { cache: 'no-store' }); if (r.ok) return new Uint8Array(await r.arrayBuffer()); err = new Error('HTTP ' + r.status); }
+            catch (e) { err = e; }
+          }
+          throw err;
         };
         const [vb, tb, look] = await Promise.all([
-          feed('am7c-qe3u', 'f3280048-d332-496c-bccb-7a44d8d257db', 'vehiclepositions.pb'),
-          feed('gs4m-mdc2', '6369d2eb-8f31-4261-b45f-69bd72fb1cc4', 'tripupdates.pb').catch(() => null),
+          feed('am7c-qe3u', 'vehiclepositions.pb'),
+          feed('gs4m-mdc2', 'tripupdates.pb').catch(() => null),
           getJSON('transit.json').catch(() => ({})),
         ]);
         const pb = gtfsRT();
         const extra = tb ? pb.tripRoutes(tb) : {};
         const routes = look.routes || [], to = look.to || [], trips = look.trips || {};
         const byNum = Object.fromEntries(routes.map(r => [r[0], r]));
-        const vs = pb.vehicles(vb).map(v => {
+        const nowS = Date.now() / 1000;
+        const vs = pb.vehicles(vb).filter(v => !v.at || nowS - v.at < 600).map(v => {
           const hit = trips[v.trip];
           if (hit) { const r = routes[hit[0]]; return { ...v, route: r[0], name: r[1], kind: r[2], to: to[hit[1]] || '', how: 'timetable' }; }
           if (extra[v.trip]) { const r = byNum[extra[v.trip]]; return { ...v, route: extra[v.trip], name: r ? r[1] : '', kind: r ? r[2] : 'bus', to: '', how: 'trip updates' }; }
@@ -233,13 +240,13 @@
         for (const [n, ent] of fields(b)) {
           if (n !== 2) continue;
           const vp = first(fields(ent), 4); if (!vp) continue;
-          const f = fields(vp), trip = first(f, 1), pos = first(f, 2), veh = first(f, 8);
+          const f = fields(vp), trip = first(f, 1), pos = first(f, 2), veh = first(f, 8), ts = first(f, 5);
           if (!pos) continue;
           const p = fields(pos), lat = first(p, 1), lon = first(p, 2), brg = first(p, 3);
           if (typeof lat !== 'number' || typeof lon !== 'number') continue;
           const vf = veh ? fields(veh) : [];
           out.push({ vehicle: text(first(vf, 2) || first(vf, 1)), trip: trip ? text(first(fields(trip), 1)) : '',
-                     lat: Math.round(lat * 1e5) / 1e5, lon: Math.round(lon * 1e5) / 1e5, bearing: typeof brg === 'number' ? Math.round(brg) : null });
+                     lat: Math.round(lat * 1e5) / 1e5, lon: Math.round(lon * 1e5) / 1e5, bearing: typeof brg === 'number' ? Math.round(brg) : null, at: typeof ts === 'number' ? ts : null });
         }
         return out;
       },

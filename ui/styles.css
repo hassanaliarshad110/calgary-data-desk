@@ -2074,3 +2074,4 @@ table.ca-reps th[scope="row"], .ca-budget th[scope="row"] { min-width: 180px; }
 .ca-motion .ca-why summary { color: var(--fg); font-size: 12.5px; }
 .ca-meas th[scope="row"], .ca-reps th[scope="row"], .ca-reps td { white-space: normal; }
 @media (max-width: 720px) { .ca-head .ca-status { justify-self: start; } .ca-navb { text-align: left; } }
+.bus-mk.bus-stale { opacity: .45; filter: grayscale(.7); }

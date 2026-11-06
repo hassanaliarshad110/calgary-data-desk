@@ -13,7 +13,7 @@
   const label = v => isTrain(v) ? ({ red: 'Red', blue: 'Blue' }[lineOf(v)] || 'CTrain') : (v.route || '–');
 
   function busIcon(v) {
-    const cls = isTrain(v) ? 'bus-' + lineOf(v) : v.route ? '' : 'bus-none';
+    const cls = (isTrain(v) ? 'bus-' + lineOf(v) : v.route ? '' : 'bus-none') + (v.at && Date.now() / 1000 - v.at > 180 ? ' bus-stale' : '');
     const dir = Number.isFinite(v.bearing) ? `<i class="bus-dir" style="transform:rotate(${v.bearing}deg)"></i>` : '';
     return L.divIcon({ className: '', html: `<div class="bus-mk ${cls}">${dir}<b>${esc(label(v))}</b></div>`, iconSize: [34, 20], iconAnchor: [17, 10] });
   }
@@ -21,7 +21,8 @@
     const what = isTrain(v) ? 'CTrain' : 'Bus';
     const head = v.route ? `<strong>${isTrain(v) ? '' : 'Route '}${esc(isTrain(v) ? v.name || 'CTrain' : v.route)}</strong>${!isTrain(v) && v.name ? ' ' + esc(v.name) : ''}`
       : '<strong>Route not given</strong>';
-    return `${head}${v.to ? `<br>Toward ${esc(v.to)}` : ''}<br>${what} ${esc(v.vehicle || '')}` +
+    const rep = v.at ? Date.now() / 1000 - v.at : null;
+    return `${head}${v.to ? `<br>Toward ${esc(v.to)}` : ''}<br>${what} ${esc(v.vehicle || '')}${rep !== null ? ` &middot; reported ${ago(rep)}` : ''}${rep > 180 ? '<br><small>Not reported for a while: it may be stopped, or its locator may be off.</small>' : ''}` +
       (v.route ? '' : '<br><small>Not on a timetabled trip: usually going to or from the garage.</small>');
   }
   const shown = v => !B.route || v.route === B.route || label(v).toLowerCase() === B.route.toLowerCase();
@@ -30,10 +31,11 @@
     if (!B.group || !B.data) return;
     const seen = new Set();
     (B.data.vehicles || []).forEach(v => {
+      if (!v.at && v.time) v.at = v.time;            // the desktop app names it time
       const id = v.vehicle || (v.trip + v.lat);
       if (!shown(v)) return;
       seen.add(id);
-      const key = label(v) + '|' + v.kind + '|' + v.bearing;
+      const key = label(v) + '|' + v.kind + '|' + v.bearing + '|' + (v.at && Date.now() / 1000 - v.at > 180 ? 's' : '');
       let m = B.marks.get(id);
       if (!m) {
         m = L.marker([v.lat, v.lon], { icon: busIcon(v), keyboard: false, zIndexOffset: 500 }).bindTooltip(() => tip(m._v), { className: 'wrap-tip' });
