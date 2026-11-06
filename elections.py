@@ -924,7 +924,7 @@ def ward_splits(base, pops, ward_of):
     return out
 
 
-def view(base, ward, codes, pops, ward_of=None):
+def view(base, ward, codes, pops, ward_of=None, method=None):
     """Who represents a ward (or Calgary, ward 0) at each level, with the last results, for the Dashboard card and the
     Election Control Room. codes: the communities of the ward (every lived-in one for Calgary); pops: {community:
     residents} for every community (the count chosen in Settings); ward_of: {community: ward}."""
@@ -962,7 +962,7 @@ def view(base, ward, codes, pops, ward_of=None):
         out['ward_splits'] = ward_splits(base, pops, ward_of)
     out['constituency'] = constituency(base, ward, codes, pops, ward_of)
     try:
-        out['micro'] = micro(base, ward, codes, pops)
+        out['micro'] = micro(base, ward, codes, pops, method)
     except Exception as e:                            # noqa: BLE001 - analytics never take the rest down
         out['micro'] = {'error': repr(e)[:200]}
     return out
@@ -1003,7 +1003,7 @@ def _bands(xs, edges=(0.2, 0.3, 0.4, 0.5, 0.6, 0.7)):
     return {'labels': labels, 'counts': counts}
 
 
-def _who(demo, codes, pops):
+def _who(demo, codes, pops, method=None):
     """Census 2021 by community for the area: age by 5-year band (men, women), households and work, and a row per
     community."""
     comms = (demo or {}).get('communities') or {}
@@ -1013,28 +1013,35 @@ def _who(demo, codes, pops):
     hh, wk, rows = {}, {}, []
     tot_now = sum(float(pops.get(c) or 0) for c in codes)
     occ, ind = {}, {}
+    p21_tot, not_counted = 0, 0
     for c in codes:
         d = comms.get(c)
-        if not d:
+        now = float(pops.get(c) or 0)
+        if not d or not sum(d['all']):
+            not_counted += now                       # built since 2021: no Census profile yet
             continue
+        # each community's 2021 profile scaled to its residents today, counted the way chosen in Settings: the mix of
+        # ages, households and work is the Census's, the numbers follow today's count
+        f = now / sum(d['all']) if sum(d['all']) else 0
+        p21_tot += sum(d['all'])
         for i in range(n):
-            men[i] += d['men'][i] if i < len(d['men']) else 0
-            women[i] += d['women'][i] if i < len(d['women']) else 0
-            allp[i] += d['all'][i] if i < len(d['all']) else 0
+            men[i] += (d['men'][i] if i < len(d['men']) else 0) * f
+            women[i] += (d['women'][i] if i < len(d['women']) else 0) * f
+            allp[i] += (d['all'][i] if i < len(d['all']) else 0) * f
         for k, v in (d.get('households') or {}).items():
             if isinstance(v, (int, float)) and k != 'avg_household_size':
-                hh[k] = hh.get(k, 0) + v
+                hh[k] = hh.get(k, 0) + v * f
         w = d.get('work') or {}
         for k in ('total_pop_over_15_household', 'in_labour_force', 'employed', 'self_employed', 'unemployed'):
             if isinstance(w.get(k), (int, float)):
-                wk[k] = wk.get(k, 0) + w[k]
+                wk[k] = wk.get(k, 0) + w[k] * f
         for j in (1, 2, 3):
             nm, pc = w.get(f'top_{j}_occupation'), w.get(f'top_{j}_occupation_per')
             if nm and isinstance(pc, (int, float)) and isinstance(w.get('employed'), (int, float)):
-                occ[nm] = occ.get(nm, 0) + pc / 100 * w['employed']
+                occ[nm] = occ.get(nm, 0) + pc / 100 * w['employed'] * f
             nm, pc = w.get(f'top_{j}_industry'), w.get(f'top_{j}_industry_per')
             if nm and isinstance(pc, (int, float)) and isinstance(w.get('employed'), (int, float)):
-                ind[nm] = ind.get(nm, 0) + pc / 100 * w['employed']
+                ind[nm] = ind.get(nm, 0) + pc / 100 * w['employed'] * f
         a = d['all']
         p = sum(a) or d.get('pop') or 0
         h = d.get('households') or {}
@@ -1050,11 +1057,13 @@ def _who(demo, codes, pops):
                      'top_occupation': w.get('top_1_occupation')})
     pop = sum(allp)
     fam = hh.get('total_census_families') or 0
-    return {'year': 2021, 'bands': [b.replace('_to_', '-').replace('_and_over', '+') for b in bands],
-            'men': men, 'women': women, 'all': allp, 'population': pop,
+    return {'year': 2021, 'method': method, 'population_now': round(tot_now), 'population_2021': round(p21_tot),
+            'not_in_census': round(not_counted), 'scaled_to_today': True, 'bands': [b.replace('_to_', '-').replace('_and_over', '+') for b in bands],
+            'men': [round(x) for x in men], 'women': [round(x) for x in women], 'all': [round(x) for x in allp],
+            'population': round(pop),
             'under20': _pct(sum(allp[:4]), pop), 'age20_64': _pct(sum(allp[4:13]), pop), 'age65': _pct(sum(allp[13:]), pop),
-            'adults20': sum(allp[4:]),
-            'households': hh.get('total_private_households'),
+            'adults20': round(sum(allp[4:])),
+            'households': round(hh['total_private_households']) if hh.get('total_private_households') else None,
             'avg_hh': round(pop / hh['total_private_households'], 2) if hh.get('total_private_households') else None,
             'one_person_hh': _pct(hh.get('house_size_1_person') or 0, hh.get('total_private_households')),
             'big_hh': _pct(hh.get('house_size_5_plus_persons') or 0, hh.get('total_private_households')),
@@ -1134,10 +1143,10 @@ def _fed_polls(race):
             'polls': [[r['poll'], r['electors'], r['ballots'], r['turnout'], r['lead'], r['lead_share']] for r in rows]}
 
 
-def micro(base, ward, codes, pops):
+def micro(base, ward, codes, pops, method=None):
     """Election Analytics for a ward (or Calgary, ward 0): who lives there (2021 Census by community), and the last
     provincial (voting location) and federal (poll by poll) results in the divisions and districts that cover it."""
-    out = {'who': _who(base.get('demographics'), codes, pops)}
+    out = {'who': _who(base.get('demographics'), codes, pops, method)}
     for level, fn in (('provincial', _prov_stations), ('federal', _fed_polls)):
         b = base.get(level) or {}
         mix = _ward_mix(b.get('community_shares') or {}, codes, pops)
@@ -1157,5 +1166,7 @@ def micro(base, ward, codes, pops):
     out['notes'] = ('Provincial results are by voting location (2023, 2019 boundaries); a location serves voting areas '
                     'that may extend beyond the ward. Federal results are by poll (2025); poll numbers are Elections '
                     'Canada\'s and polls cover the whole district, so they are not all inside the ward. Advance, mail-in '
-                    'and special ballots are counted by district, not by poll. Census 2021 by community.')
+                    'and special ballots are counted by district, not by poll. Who lives here: each community\'s 2021 Census '
+                    'profile (ages, households, work) scaled to its residents today, counted the way chosen in Settings; '
+                    'communities built since 2021 have no Census profile yet.')
     return out

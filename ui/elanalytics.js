@@ -34,11 +34,11 @@ function eaHist(b, title) {
 function eaWho(M) {
   const w = M.who || {}, P = (D && D.profile) || {};
   const groups = (P.groups || []).map(g => g.list).filter(l => l && (l.rows || []).length);
-  const tiles = [['Residents (2021 Census)', fmt(w.population)], ['Under 20', EA_PCT(w.under20)], ['20 to 64', EA_PCT(w.age20_64)], ['65 and over', EA_PCT(w.age65)],
-    ['Households', fmt(w.households)], ['People per household', isNum(w.avg_hh) ? fmt(w.avg_hh, 2) : '–'], ['Families with children', EA_PCT(w.families_kids)], ['One-parent families', EA_PCT(w.one_parent)],
+  const tiles = [['Residents today', fmt(w.population_now || w.population)], ['Under 20', EA_PCT(w.under20)], ['20 to 64', EA_PCT(w.age20_64)], ['65 and over', EA_PCT(w.age65)],
+    ['Households (estimate)', fmt(w.households)], ['People per household', isNum(w.avg_hh) ? fmt(w.avg_hh, 2) : '–'], ['Families with children', EA_PCT(w.families_kids)], ['One-parent families', EA_PCT(w.one_parent)],
     ['In the labour force (15+)', EA_PCT(w.participation)], ['Unemployment', EA_PCT(w.unemployment, 1)], ['Self-employed', EA_PCT(w.self_employed)], ['Never married (15+)', EA_PCT(w.never_married)]];
-  return `<section class="card span-6"><div class="card-head"><div><h2>Age and sex</h2><p class="card-sub">Residents by 5-year age band, 2021 Census, communities of ${esc(W())}</p></div></div>${eaPyramid(w)}</section>
-    <section class="card span-6"><div class="card-head"><div><h2>Households and work</h2><p class="card-sub">2021 Census, added up over the area's communities</p></div></div>
+  return `<section class="card span-6"><div class="card-head"><div><h2>Age and sex</h2><p class="card-sub">Residents today by 5-year age band: each community's 2021 Census mix scaled to its residents now${w.method ? ` (${esc(w.method)})` : ''}</p></div></div>${eaPyramid(w)}</section>
+    <section class="card span-6"><div class="card-head"><div><h2>Households and work</h2><p class="card-sub">Today's residents with each community's 2021 Census mix; rates are the Census's${w.not_in_census ? `; ${fmt(w.not_in_census)} residents live in communities built since 2021, with no Census profile yet` : ''}</p></div></div>
       <div class="fb-kpis">${tiles.map(([l, n]) => `<div class="fb-kpi"><div class="fb-kpi-l">${esc(l)}</div><div class="fb-kpi-n">${esc(n)}</div></div>`).join('')}</div>
       ${(w.top_occupations || []).length ? `<h3 class="fb-h3">Most common occupations</h3>${eaBars(w.top_occupations.map(([k, v]) => ({ label: k, v })), v => fmt(v))}` : ''}
       ${groups.map(l => `<h3 class="fb-h3">${esc(l.title)}</h3>${eaBars(l.rows.slice(0, 6).map(r => ({ label: r[0], sub: fmt(r[1]) + ' people', v: r[2] })), v => fmt(v) + '%', 100)}${l.note ? `<p class="card-note">${esc(l.note)}</p>` : ''}`).join('')}</section>`;
@@ -135,7 +135,7 @@ async function renderElAnalytics(keepScroll) {
   const hero = `<section class="el-cr span-12"><div class="el-cr-top"><div><div class="el-cr-kicker">Election Analytics</div><h2 class="el-cr-title">${esc(W())}</h2><div class="el-cr-sub">Who lives here, how they voted, and where turnout was low: Census 2021 by community, 2023 provincial voting locations, 2025 federal polls, 2025 council race</div></div>
       ${nx.length && typeof elCountdown === 'function' ? `<div class="el-cr-counts">${nx.slice(0, 1).map(([t, d]) => `<div class="el-cr-count"><div class="el-cr-kicker">${esc(t)} · ${esc(typeof elDay === 'function' ? elDay(d) : d)}</div>${elCountdown(d, true)}</div>`).join('')}</div>` : ''}</div>
     <div class="el-cr-kpis">
-      <div class="el-kpi"><div class="el-kpi-l">Residents (2021)</div><div class="el-kpi-n">${fmt(w.population)}</div><div class="el-hero-sub">${fmt(w.adults20)} aged 20 and over</div></div>
+      <div class="el-kpi"><div class="el-kpi-l">Residents today</div><div class="el-kpi-n">${fmt(w.population_now || w.population)}</div><div class="el-hero-sub">${w.method ? esc(w.method) + ' · ' : ''}about ${fmt(w.adults20)} aged 20 and over</div></div>
       ${!isCity() && cw.electors_est ? `<div class="el-kpi"><div class="el-kpi-l">Electors (estimate)</div><div class="el-kpi-n">${fmt(cw.electors_est)}</div><div class="el-hero-sub">council turnout 2025 about ${EA_PCT(cw.turnout_est)}</div></div>` : ''}
       <div class="el-kpi"><div class="el-kpi-l">Provincial turnout 2023</div><div class="el-kpi-n">${EA_PCT(avg(prov))}</div><div class="el-hero-sub">divisions covering the area</div></div>
       <div class="el-kpi"><div class="el-kpi-l">Federal turnout 2025</div><div class="el-kpi-n">${EA_PCT(avg(fed))}</div><div class="el-hero-sub">districts covering the area</div></div>

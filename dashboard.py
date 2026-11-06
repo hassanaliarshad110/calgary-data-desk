@@ -1659,7 +1659,8 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         ward_of_ = {c: w_ for c, w_ in comm_ward.items() if w_}
         pops = {c: ((pop_all.get(c) or {}).get('model') or 0) for c in pop_all}
         codes = [c for c in pops if (city or ward_of_.get(c) == int(ward)) and pops[c] > 0]
-        return elections.view(base, 0 if city else int(ward), codes, pops, ward_of_)
+        return elections.view(base, 0 if city else int(ward), codes, pops, ward_of_,
+                              method=POP_METHODS[pop_method]['label'])
     elections_out, elections_err = _safe(elections_view)
     status.append({'name': 'Elections: 2025 municipal, 2023 provincial (and by-elections since), 2026 referendum, 2025 federal',
                    'ids': ['gqvk-p23x', 'surr-xmvs'], 'fetched': (elections_out or {}).get('built_at'), 'city_updated': None,

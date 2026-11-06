@@ -1091,8 +1091,9 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                 'ward_profile_2021_census': d.get('profile'),
                 'communities': [{k: c.get(k) for k in ('code', 'name', 'residents', 'growth_pct', 'requests_per_1000',
                                                        'open', 'open_top')} for c in d.get('communities') or []],
-                'how': 'Election Analytics. who: 2021 Census by community (age in 5-year bands, households, work), '
-                       'summed for the area, with a row per community. provincial: each electoral division covering the '
+                'how': 'Election Analytics. who: each community\'s 2021 Census profile (age in 5-year bands, households, '
+                       'work) scaled to its residents today, counted the way chosen in Settings (who.method), summed for '
+                       'the area, with a row per community; rates are the Census\'s. provincial: each electoral division covering the '
                        'area (share of its residents), with every 2023 voting location (electors, ballots, turnout, '
                        'leading party, margin). federal: each electoral district with the 2025 poll-by-poll results '
                        '(turnout spread, polls led, the lowest-turnout and closest polls, votes on election day, at '
