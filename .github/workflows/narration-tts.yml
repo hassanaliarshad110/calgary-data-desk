@@ -13,7 +13,7 @@ jobs:
         with: { python-version: '3.12' }
       - run: sudo apt-get update -q && sudo apt-get install -y -q espeak-ng
       - run: pip install -q "kokoro>=0.9" soundfile
-      - run: python tts/speak.py af_heart am_michael bf_emma
+      - run: python tts/speak.py af_heart
       - run: |
           cd _tts
           git init -q -b narration-tts-out
