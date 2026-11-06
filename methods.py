@@ -729,6 +729,13 @@ METHODS = [
      'used_in': 'Federal Budget 2026 (Overview, Province by province, Calgary and Alberta, Every measure, Tax changes, '
                 'Fiscal tables), Data Genie',
      'method': [
+         'Federal revenue and spending by province: the budget gives revenue for Canada only, so the split is Statistics '
+         'Canada\'s provincial and territorial economic accounts (table 36-10-0450-01, federal general government), by '
+         'calendar year: revenue collected from people and businesses in each province (personal and corporate income '
+         'tax, GST, excise taxes and duties, EI premiums and the rest) and federal spending there (benefits to residents, '
+         'transfers to its government, federal operations, an allocated share of debt interest). Per person: the '
+         'population on 1 July (17-10-0009-01). The 2026-27 figure is an estimate: the budget\'s budgetary revenue for '
+         '2026-27 (Table A1.8) times each province\'s share of federal revenue in the latest year.',
          'Headline numbers: Annex 1, Table A1.8 (summary statement of transactions), for 2026-27 unless stated. The '
          'deficit is the budgetary balance; spending is total expenses before net actuarial losses (gains); interest on '
          'the debt is public debt charges. Revenue and spending by source and program: Tables A1.9 and A1.10. Fiscal '

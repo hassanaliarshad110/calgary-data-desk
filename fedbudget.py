@@ -83,12 +83,38 @@ def province(name):
     out['transfers_millions'] = {'years': t.get('years'), 'rows': [[r['label']] + r['v'] for r in t.get('rows') or []],
                                  'note': t.get('note'), 'source': d['transfers_source']}
     out['passages'] = [{'where': d['docs'][m['doc']]['name'], 'topic': m['topic'], 'text': m['text']} for m in p['mentions']]
+    bp = d.get('by_province') or {}
+    if bp:
+        out['federal_revenue_and_spending_here'] = {
+            'unit': '$ millions, calendar years', 'by_year': {y: v.get(code) for y, v in bp['by_year'].items()},
+            'canada': {y: {k: (v.get('CA') or {}).get(k) for k in ('revenue', 'spending', 'balance', 'population')} for y, v in bp['by_year'].items()},
+            'estimate_2026_27_billions': ((bp.get('estimate_2026_27') or {}).get('by') or {}).get(code),
+            'estimate_how': (bp.get('estimate_2026_27') or {}).get('how'), 'labels': bp.get('labels'),
+            'how': bp.get('how'), 'source': bp.get('source')}
     if code == 'AB':
         out['calgary_passages'] = [m['text'] for m in d['calgary']]
     out['note'] = ('major_projects: projects referred to the Major Projects Office (Budget in brief); communities_fund: '
                    'Build Communities Strong Fund projects the budget proposes to support (Chapter 3); defence: Figure 5.1, '
                    'by region; passages: every paragraph of the budget that names the province or its cities.')
     return out
+
+
+def revenue_by_province():
+    """Federal revenue collected and spending in every province and territory (Statistics Canada), with the 2026-27
+    estimate from the budget's national revenue."""
+    bp = load().get('by_province') or {}
+    if not bp:
+        return {'error': 'Not in this copy of the budget data.'}
+    y = bp['years'][-1]
+    keep = ('name', 'revenue', 'spending', 'balance', 'share_of_revenue', 'population', 'revenue_per_person',
+            'spending_per_person', 'balance_per_person')
+    return {'latest_year': y, 'unit': '$ millions, calendar years',
+            'provinces': {c: {k: x.get(k) for k in keep} for c, x in bp['by_year'][y].items()},
+            'previous_years': {yy: {c: {k: x.get(k) for k in ('revenue', 'spending', 'balance')} for c, x in v.items()}
+                               for yy, v in bp['by_year'].items() if yy != y},
+            'estimate_2026_27_billions': bp.get('estimate_2026_27'), 'how': bp.get('how'), 'source': bp.get('source'),
+            'say': 'The budget publishes revenue for Canada only; these are Statistics Canada\'s provincial economic '
+                   'accounts. Give the year, the source, and that the 2026-27 split is an estimate.'}
 
 
 def find(words, limit=25):
@@ -140,6 +166,8 @@ def answer(part=None, province_=None, find_=None, chapter_=None):
             return chapter(chapter_)
         if part == 'tables':
             return tables()
+        if part == 'revenue_by_province':
+            return revenue_by_province()
         if part == 'tax':
             return tax()
         return summary()

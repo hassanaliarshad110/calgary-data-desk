@@ -106,6 +106,36 @@ function fbMentions(ms, max = 60) {
   return `<ol class="fb-mentions">${ms.slice(0, max).map(m => `<li><div class="fb-m-src"><a href="${esc(fbDoc(m.doc).url)}" target="_blank" rel="noopener">${esc(fbDoc(m.doc).name)}</a>${m.topic && /^[A-Z0-9]/.test(m.topic) ? ` · ${esc(m.topic)}` : ''}${(m.money || []).map(x => ' ' + fbPill(x, 'money')).join('')}</div><p>${esc(m.text)}</p></li>`).join('')}</ol>`;
 }
 const fbList = (title, items, note) => items && items.length ? `<div class="fb-listcard"><h3 class="fb-h3">${esc(title)} <small>${items.length}</small></h3><ul>${items.map(x => `<li>${esc(x)}</li>`).join('')}</ul>${note ? `<p class="card-note">${esc(note)}</p>` : ''}</div>` : '';
+
+// ---- federal revenue collected and spending in each province (Statistics Canada; the budget gives Canada only)
+function fbAccounts(code, full) {
+  const BP = FB.by_province; if (!BP) return '';
+  const ys = BP.years, Y = ys[ys.length - 1], all = BP.by_year[Y], x = all[code]; if (!x) return '';
+  const est = ((BP.estimate_2026_27 || {}).by || {})[code], L = BP.labels;
+  const pp = v => isNum(v) ? `${v < 0 ? '−' : ''}$${fmt(Math.abs(v))}` : '–';
+  const bal = x.balance, more = bal >= 0;
+  const kp = `<div class="fb-kpis">${[[`Federal revenue collected, ${Y}`, fbM(x.revenue), `${fmt((x.share_of_revenue || 0) * 100, 1)}% of all federal revenue`],
+    [`Federal spending there, ${Y}`, fbM(x.spending), `${pp(x.spending_per_person)} per person`],
+    ['Collected minus spent', fbM(bal, true), `${pp(x.balance_per_person)} per person · ${more ? 'more collected than spent' : 'more spent than collected'}`],
+    ['2026–27 revenue (estimate)', isNum(est) ? fbB(est) : '–', `Budget 2026's $${fmt(BP.estimate_2026_27.national_revenue_billions, 1)}B shared by ${Y} shares`]]
+    .map(([l, n, s]) => `<div class="fb-kpi"><div class="fb-kpi-l">${esc(l)}</div><div class="fb-kpi-n">${esc(n)}</div><div class="fb-kpi-s">${esc(s)}</div></div>`).join('')}</div>`;
+  const rev = L.rev.map(([k, l]) => ({ label: l, v: x.rev[k] })).filter(r => isNum(r.v) && r.v !== 0).sort((a, b) => b.v - a.v);
+  const sp = L.spend.filter(([k]) => !['defence', 'oas', 'ei_benefits', 'ccb', 'cht', 'cst'].includes(k)).map(([k, l]) => ({ label: l, v: x.spend[k],
+    sub: k === 'to_households' ? `OAS ${fbM(x.spend.oas)} · EI ${fbM(x.spend.ei_benefits)} · Canada Child Benefit ${fbM(x.spend.ccb)}` : k === 'to_provinces' ? `Canada Health Transfer ${fbM(x.spend.cht)} · Canada Social Transfer ${fbM(x.spend.cst)}` : k === 'goods_services' ? `defence ${fbM(x.spend.defence)}` : '' }))
+    .filter(r => isNum(r.v) && r.v !== 0).sort((a, b) => b.v - a.v);
+  const trend = fbColumns(ys, [{ name: 'Revenue collected', color: '#0369A1', v: ys.map(y => (BP.by_year[y][code] || {}).revenue) }, { name: 'Spending there', color: '#B45309', v: ys.map(y => (BP.by_year[y][code] || {}).spending) }], v => fbM(v), 190);
+  const one = `<section class="card span-12"><div class="card-head"><div><h2>Federal revenue and spending in ${esc(x.name)}</h2><p class="card-sub">The budget gives revenue for Canada only. Statistics Canada splits federal revenue and spending by province every year: this is ${esc(Y)}, the latest.</p></div></div>
+    ${kp}<div class="ea-two"><div><h3 class="fb-h3">Where the revenue comes from <small>${esc(Y)}</small></h3>${fbBars(rev, v => fbM(v))}</div><div><h3 class="fb-h3">What is spent there <small>${esc(Y)}</small></h3>${fbBars(sp, v => fbM(v))}</div></div>
+    <h3 class="fb-h3">${ys.length} years</h3>${trend}</section>`;
+  if (!full) return one;
+  const order = Object.entries(all).filter(([c]) => c !== 'CA').sort((a, b) => (b[1].balance || 0) - (a[1].balance || 0));
+  const table = `<div class="table-wrap sr-wrap"><table class="data"><thead><tr><th scope="col">Province or territory</th><th class="num" scope="col">Revenue collected</th><th class="num" scope="col">Share</th><th class="num" scope="col">Spending there</th><th class="num" scope="col">Collected minus spent</th><th class="num" scope="col">Per person</th><th class="num" scope="col">2026–27 revenue (estimate)</th></tr></thead>
+    <tbody>${order.map(([c, r]) => `<tr class="${c === code ? 'sr-cal' : ''}"><th scope="row">${esc(r.name)}</th><td class="num">${fbM(r.revenue)}</td><td class="num">${fmt((r.share_of_revenue || 0) * 100, 1)}%</td><td class="num">${fbM(r.spending)}</td><td class="num">${fbM(r.balance, true)}</td><td class="num">${pp(r.balance_per_person)}</td><td class="num">${isNum((BP.estimate_2026_27.by || {})[c]) ? fbB(BP.estimate_2026_27.by[c]) : '–'}</td></tr>`).join('')}
+    <tr><th scope="row">Canada</th><td class="num">${fbM(all.CA.revenue)}</td><td class="num">100%</td><td class="num">${fbM(all.CA.spending)}</td><td class="num">${fbM(all.CA.balance, true)}</td><td class="num">${pp(all.CA.balance_per_person)}</td><td class="num">${fbB(BP.estimate_2026_27.national_revenue_billions)}</td></tr></tbody></table></div>`;
+  return one + `<section class="card span-12"><div class="card-head"><div><h2>Every province and territory, ${esc(Y)}</h2><p class="card-sub">Federal revenue collected in each, federal spending there, and the difference per resident</p></div></div>
+    ${fbBars(order.filter(([c]) => c !== 'XX').sort((a, b) => (b[1].balance_per_person || 0) - (a[1].balance_per_person || 0)).map(([c, r]) => ({ label: r.name, v: r.balance_per_person, on: c === code, sub: `${fbM(r.revenue)} collected · ${fbM(r.spending)} spent` })), v => pp(v))}
+    ${table}<p class="card-note">${esc(BP.how)} ${esc((BP.estimate_2026_27 || {}).how || '')} Source: <a href="${esc(BP.source.url)}" target="_blank" rel="noopener">${esc(BP.source.publisher)}, ${esc(BP.source.title)}</a>; population: <a href="${esc(BP.source.population)}" target="_blank" rel="noopener">table 17-10-0009-01</a>.</p></section>`;
+}
 function fbProvinces() {
   const P = Object.fromEntries(FB.provinces.map(p => [p.code, p])), p = P[fbProv] || P.AB;
   const Y = p.transfers ? p.transfers.years.length - 1 : 0;
@@ -117,6 +147,7 @@ function fbProvinces() {
   const named = (p.major_projects || []).length + (p.communities_fund || []).length + (p.festivals || []).length + def.reduce((a, d) => a + d.items.length, 0);
   return `<section class="card span-12"><div class="card-head"><div><h2>Pick a province or territory</h2><p class="card-sub">Everything the budget names in each one, and the federal transfers it receives</p></div></div>${tiles}</section>
     <section class="el-cr fb-hero span-12"><div class="el-cr-top"><div><div class="el-cr-kicker">Budget 2026 · province by province</div><h2 class="el-cr-title">${esc(p.name)}</h2><div class="el-cr-sub">${named} projects and investments named · ${p.mentions.length} passages of the budget mention it</div></div></div></section>
+    ${fbAccounts(p.code, true)}
     <section class="card span-7"><div class="card-head"><div><h2>Federal transfers</h2><p class="card-sub">Major transfers to ${esc(p.name)}</p></div></div>${fbProvTransfers(p)}</section>
     <section class="card span-5"><div class="card-head"><div><h2>Transfers per person</h2><p class="card-sub">${esc(fbYr(p.transfers.years[Y]))}, dollars per resident</p></div></div>${fbBars(pcRows, v => '$' + fmt(v))}<p class="card-note">Equalization goes to provinces with less capacity to raise revenue, so per-person amounts differ widely.</p></section>
     <section class="card span-12"><div class="card-head"><div><h2>Named in the budget</h2><p class="card-sub">Projects and investments the budget lists for ${esc(p.name)}</p></div></div><div class="fb-lists">
@@ -138,6 +169,7 @@ function fbCalgary() {
   const t = AB.transfers, Y = t.years.length - 1, tot = t.rows.find(r => r.label.startsWith('Total'));
   return `<section class="el-cr fb-hero span-12"><div class="el-cr-top"><div><div class="el-cr-kicker">Budget 2026 · closer to home</div><h2 class="el-cr-title">Calgary and Alberta</h2><div class="el-cr-sub">What the federal budget names here, and the national measures every Calgary household can see</div></div>
     <div class="el-cr-count"><div class="el-cr-kicker">Major transfers to Alberta, ${esc(fbYr(t.years[Y]))}</div><div class="el-cr-days">${fbM(tot.v[Y])}</div><div class="el-cr-sub">$${fmt(t.rows.find(r => r.label.startsWith('Per Capita')).v[Y])} per Albertan</div></div></div></section>
+    ${fbAccounts('AB', false)}
     <section class="card span-6"><div class="card-head"><div><h2>Named for Calgary</h2><p class="card-sub">Places in Calgary the budget names</p></div></div><ul class="fb-cal">${cal.map(x => `<li><p>${esc(x.t)}</p><small>${esc(x.src)}</small></li>`).join('')}</ul></section>
     <section class="card span-6"><div class="card-head"><div><h2>Named for Alberta</h2><p class="card-sub">Major projects, community projects and defence work</p></div></div><div class="fb-lists one">${fbList('Major projects', AB.major_projects)}${fbList('Build Communities Strong Fund', AB.communities_fund)}${(AB.defence || []).filter(d => d.items.length).map(d => fbList(`Defence: ${d.region}`, d.items)).join('')}${fbList('Festivals funded in 2026', AB.festivals)}</div></section>
     <section class="card span-12"><div class="card-head"><div><h2>For households everywhere, Calgary included</h2><p class="card-sub">Chapter 3.1, "Delivering a boost today": the measures that reach people directly</p></div></div>${fbMeasureTable(hh, true)}</section>
