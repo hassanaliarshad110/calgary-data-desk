@@ -692,6 +692,39 @@ METHODS = [
                   'Reports published late in the day may appear the following evening.',
                   'Developing stories can change after publication; a later article notes what changed.'],
      'code': 'tools/news_publish.py; citynews.py; ui/citynews.js'},
+    {'key': 'invest', 'name': 'Invest in Calgary: every business, the underserved index and growth',
+     'dataset': 'Business licences (vdjc-pybd); OpenStreetMap shops and amenities (Overpass); community boundaries (surr-xmvs)',
+     'publisher': 'City of Calgary open data; OpenStreetMap contributors (ODbL)',
+     'page': 'https://data.calgary.ca/d/vdjc-pybd',
+     'updated': 'Every morning with the website',
+     'used_in': 'Invest in Calgary, the Business Economist',
+     'method': [
+         'Businesses: every City business licence that is not being closed, and every shop, restaurant, café, clinic, '
+         'dentist, pharmacy, bank, gym, child care centre, hotel and similar place mapped on OpenStreetMap inside '
+         'Calgary. The City licenses only some kinds of business (food service, personal services, contractors, vehicle '
+         'repair, liquor and cannabis, apartment buildings and others); most shops and clinics need no City licence, so '
+         'they come from OpenStreetMap, which volunteers map and is not complete.',
+         'Categories: a licence goes in the category of its main licence type (the longest matching beginning, so '
+         '"Personal service (fitness conditioning)" is a gym, not a salon; patios and alcohol sold on the side are '
+         'extras). A mapped place goes by its shop, amenity, leisure, healthcare or tourism tag. Licences carry the '
+         'community the City gives; mapped places are placed in the community whose boundary holds them.',
+         'Count by community and category: the larger of the two sources, because they overlap (a licensed restaurant '
+         'is usually also on the map), so adding them would count it twice. Home-based licences are listed but are not '
+         'storefronts.',
+         'Underserved index: for each community, the people living within 1, 2 or 3 km of its centre (residents counted '
+         'the way chosen in Settings, community centres to community centres) and the businesses of the category in '
+         'those communities. At Calgary\'s rate = those people x (Calgary\'s businesses in the category / Calgary\'s '
+         'residents). Index = businesses within reach / that figure x 100: 100 is Calgary\'s average, 50 is half. '
+         'Missing = at Calgary\'s rate minus businesses within reach. The biggest gaps: index under 60, at least 15,000 '
+         'people within reach and at least 1.5 missing, in categories that serve a neighbourhood.',
+         'Growth: the month each business still licensed today was first licensed. Closed businesses leave the list, so '
+         'older months count only survivors.',
+         'Your own data: a CSV file is read in the browser and never sent; the summary (monthly totals, days of the '
+         'week, top items) goes to the Business Economist only when asked.'],
+     'cautions': ['A gap is a lead, not a guarantee: a large store just past the radius, zoning, rents, parking and who '
+                  'the customers are all matter.', 'OpenStreetMap is not complete: some areas are mapped better than others.'],
+     'excel': ['Download the business directory or the underserved index as CSV from the page; the City\'s licences are '
+               'at data.calgary.ca (vdjc-pybd).']},
     {'key': 'safest_cities', 'name': 'Canada\'s safest cities: the Crime Severity Index for every city of 10,000 or more',
      'dataset': 'Crime severity index and weighted clearance rates, police services (tables 35-10-0186 to 35-10-0190, '
                 '35-10-0061, 35-10-0063, 35-10-0064); population: 35-10-0077; metropolitan areas: 35-10-0026',

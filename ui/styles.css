@@ -1782,3 +1782,14 @@ table.data.ea-ctable tbody th[scope=row] { white-space: normal; position: static
 .ea-report { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); color: var(--fg); }
 .ea-report small { display: block; color: var(--muted-fg); font-size: 12px; }
 .table-wrap.sr-wrap { max-height: none; }
+
+/* Invest in Calgary (invest.js) */
+.iv-paid { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 6px; background: #F59E0B; color: #111827; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; vertical-align: 1px; }
+.iv-map { height: 460px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 8px; }
+.iv-pager { display: flex; gap: 12px; align-items: center; justify-content: center; margin: 10px 0; }
+.iv-offer { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 14px; }
+.iv-offer > div { background: rgba(15, 23, 42, .65); border: 1px solid #1E3A5F; border-radius: 12px; padding: 12px 14px; color: #E2E8F0; }
+.iv-offer b { display: block; color: #F8FAFC; margin-bottom: 4px; } .iv-offer span { font-size: 13px; color: #CBD5E1; }
+.iv-form { display: grid; gap: 10px; }
+.iv-form label { display: grid; gap: 4px; font-size: 13px; color: var(--fg-2); }
+.iv-form input, .iv-form select, .iv-form textarea { padding: 8px 10px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: var(--card); color: var(--fg); font: inherit; }

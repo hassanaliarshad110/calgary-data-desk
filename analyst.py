@@ -214,3 +214,23 @@ def election_brief(text, area=None):
             'general (where turnout was low, translated materials, accessible voting information) and never target, '
             'exclude or discourage anyone by ethnicity, religion, language or any other personal trait. Write in plain '
             'language; never mention the app, a dashboard or a model of AI.')
+
+
+def business_brief(text, area=None):
+    """The request for a full Business Economist plan."""
+    ask = (text or '').strip() or 'Which kinds of business Calgary is short of, where, and a business plan for the strongest one'
+    return ('[Business Economist] Full business plan request: produce a comprehensive, auditable business plan and finish '
+            'with make_report (the reader will download the PDF, the interactive report and the Excel workbook). '
+            f'Area selected: {area or DEFAULT_AREA}. Request: {ask.rstrip(" .")}. '
+            'Start with get_dashboard section business (the businesses in each category by community, the newest licences, '
+            'and matching businesses), then use every other figure that helps: residents now and growth since 2021 '
+            '(communities), the ward profile (incomes, households, languages, renters, commuting), transit stops and '
+            'routes, crime and disorder, 311 issues, development and new homes, rents, property tax, and Environment '
+            'Canada weather through the year. Cover: the opportunity and the customers within reach (people, '
+            'households, incomes, growth); the competition by community with names where useful; the best location '
+            'and why; a demand estimate and revenue model with every assumption stated and sourced; start-up and running '
+            'costs as stated assumptions (say they must be confirmed with quotes); break-even arithmetic; three scenarios '
+            '(low, middle, high); risks; and next steps (licences and permits the City requires). Compute every figure with '
+            'calculate, put the arithmetic in tables a reader can check in Excel, and list every source. This is general '
+            'information from public data, not financial, legal or investment advice; say so once. Write in plain '
+            'language; never mention the app, a dashboard or a model of AI.')

@@ -70,6 +70,13 @@
       } catch (e) { return { ok: false, error: 'Could not reach the City\'s 311 data from this browser (' + (e.message || e) + ').' }; }
     },
     async get_fedbudget() { try { const r = await fetch('budget/budget2026.json', { cache: 'no-cache' }); if (!r.ok) throw new Error('The federal budget file could not be read (' + r.status + ').'); return { ok: true, data: await r.json() }; } catch (e) { return fail(e); } },
+    async get_business() {
+      try {
+        const [d, ppl] = await Promise.all([getJSON('business.json'), getJSON('business_people.json').catch(() => null)]);
+        const m = await okMethod(store.get('pop_method', 'city_actual'));
+        return { ok: true, data: d, people: ppl ? (ppl[m] || null) : null };
+      } catch (e) { return fail(e); }
+    },
     async get_safety_rank() { try { return { ok: true, data: await getJSON('safety_rank.json') }; } catch (e) { return fail(e); } },
     async get_elections() { try { return { ok: true, data: await getJSON('elections.json') }; } catch (e) { return fail(e); } },
     async get_property_tax() { try { return { ok: true, data: await getJSON('tax.json') }; } catch (e) { return fail(e); } },

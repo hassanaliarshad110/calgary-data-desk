@@ -49,6 +49,9 @@
     });
   }, 60000);
 
+  // the contact address for Invest in Calgary's form (set in the website build)
+  window.CDD_WEB.getJSON('settings.json').then(st => { window.CDD_CONTACT = (st && st.contact) || ''; }).catch(() => {});
+
   // the newsletter is made by the desktop app: not on the website at all
   document.querySelectorAll('.tab[data-view="news"], [data-goto="news"]').forEach(el => el.remove());
   const newsView = $('#view-news');

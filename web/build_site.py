@@ -96,6 +96,14 @@ def python_files(out, cache):
         os.makedirs(os.path.join(dest, 'ui', 'budget'), exist_ok=True)
         shutil.copy(fb, os.path.join(dest, 'ui', 'budget', 'budget2026.json'))
         files.append('ui/budget/budget2026.json')
+    bz = os.path.join(out, 'data', 'business.json')            # Invest in Calgary for the Business Economist (business.py)
+    if os.path.exists(bz):
+        with open(bz, encoding='utf-8') as f:
+            d = json.load(f)
+        d['businesses'] = [r[:6] + [None, None, None, r[9]] for r in d.get('businesses') or []]
+        os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
+        write(os.path.join(dest, 'data', 'business.json'), d)
+        files.append('data/business.json')
     sr = os.path.join(out, 'data', 'safety_rank.json')          # Canada's safest cities for Data Genie (safety_rank.py)
     if os.path.exists(sr):
         os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
@@ -129,6 +137,13 @@ def lock_key(out):
     b = lambda x: base64.b64encode(x).decode('ascii')
     write(path, {'v': 1, 'iter': iters, 'salt': b(salt), 'iv': b(iv), 'ct': b(ct)})
     print('Data Genie: key locked with the access code')
+    biz = os.environ.get('CDD_BIZ_CODE', '').strip()   # the Business Economist (Invest in Calgary): its own passcode
+    if biz:
+        salt, iv = os.urandom(16), os.urandom(12)
+        k = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=salt, iterations=iters).derive(biz.encode('utf-8'))
+        write(os.path.join(out, 'data', 'genie_biz.json'),
+              {'v': 1, 'iter': iters, 'salt': b(salt), 'iv': b(iv), 'ct': b(AESGCM(k).encrypt(iv, key.encode('utf-8'), None))})
+        print('Business Economist: key locked with its own passcode')
     ea = os.environ.get('CDD_EA_CODE', '').strip()     # Election Analytics: its own passcode
     if ea:
         salt, iv = os.urandom(16), os.urandom(12)
@@ -230,6 +245,20 @@ def main():
                 step(f'dashboard {m} ward {w} (yesterday\'s copy)', lambda m=m, w=w, path=path: keep_previous(a.previous, f'{m}/w{w}.json', path))
     step('budget', lambda: write(os.path.join(data, 'budget.json'), budget.load(cache)))
 
+    def business_list():            # Invest in Calgary: every business (City licences and OpenStreetMap), by community
+        import business
+        write(os.path.join(data, 'business.json'), business.build())
+        people = {}
+        for m in meths:             # residents of every community under every way of counting, for the underserved index
+            p = os.path.join(data, m, 'w0.json')
+            if os.path.exists(p):
+                with open(p, encoding='utf-8') as f:
+                    people[m] = {c['code']: [c.get('residents'), c.get('census2021')] for c in json.load(f).get('communities') or [] if c.get('code')}
+        write(os.path.join(data, 'business_people.json'), people)
+    step('Invest in Calgary: businesses', business_list)
+    if not os.path.exists(os.path.join(data, 'business.json')) and a.previous:
+        step('Invest in Calgary (yesterday\'s copy)', lambda: keep_previous(a.previous, 'business.json', os.path.join(data, 'business.json')))
+
     def safety():                   # Canada's safest cities (Statistics Canada), downloaded again only after a new release
         import safety_rank
         prev = None
@@ -250,7 +279,7 @@ def main():
            for k, t, ab, ar, _ in analyst.TOPICS])
     write(os.path.join(data, 'settings.json'), {
         'pop_methods': census.relabel([{'key': k, **v} for k, v in dashboard.POP_METHODS.items()], year),
-        'census_year': year, 'wards': wards, 'methods': meths})
+        'census_year': year, 'wards': wards, 'methods': meths, 'contact': os.environ.get('CDD_CONTACT_EMAIL', '').strip()})
 
     def live():
         res = []

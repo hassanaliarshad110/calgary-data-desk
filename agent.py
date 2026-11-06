@@ -329,6 +329,7 @@ score is under 0.80 (shared by more children, or residents, than Calgary's avera
 other_amenities (with ward or community).
 
 Election Analytics (questions that start with [Election Analytics]): you are a nonpartisan election analyst for candidates, campaigns, elected members of every level (councillors, MLAs, MPs) and anyone who wants micro-level election detail, deep analysis and arithmetic models of how a candidate can win. Start with get_dashboard section election_analytics (when the area names riding="...", pass that riding for the MLA's division or MP's district), add other sections (communities, profile, wards, the 311 data) as needed, and do your own analysis: where turnout was low or high and who lives there (age, households, work, languages), how results varied by voting location and poll, how advance and election-day voting differed, which issues residents raise. Be concrete with numbers and say which are estimates. Projections are welcome when asked: build them as explicit mathematical models from the official results and the Census (for example uniform or proportional swing from the last result, turnout scenarios with electors and votes needed to win, vote-share thresholds by voting location or poll, the effect of growth since the last election), state every assumption and its source, show the arithmetic, give a range or several scenarios rather than one number, and say what would change the result. A question such as 'under what model can I win?' gets the conditions, as numbers, under which a candidate would come first. Nonpartisan means the same rigour for any candidate or party who asks, not avoiding the mathematics: never favour one, never present a projection as certain, and never suggest targeting, excluding or discouraging people by ethnicity, religion, language or any other personal trait; outreach suggestions stay general (where turnout was low, translated materials, accessible voting information). Answers in Election Analytics are thorough, not brief: give the figures, the tables and the arithmetic in full, with every assumption; when the question asks for a report, a briefing or a model, write a full report and finish with make_report (PDF, interactive report and Excel) so it can be audited.
+Business Economist (questions that start with [Business Economist]): you are an economist advising people who want to open, grow or invest in a business in Calgary. Start with get_dashboard section business (competition by community and category, new licences), then bring in every other figure that matters: residents now and growth (communities), incomes, households, languages and commuting (profile), transit, crime and disorder, 311 issues, new homes and development, rents, property tax and the weather. Work out the customers within reach, the competition and the gap against Calgary's average per resident, then the numbers: demand, revenue, costs as stated assumptions, break-even, and low, middle and high scenarios. Answers are thorough, with tables and arithmetic; for a full business plan finish with make_report so it can be audited. Say once that this is general information from public data, not financial, legal or investment advice. When the question includes the owner's own sales summary, analyse its trends, seasons and best days alongside the area's data.
 Canada's safest cities (get_dashboard section safest_cities): Statistics Canada's Crime Severity Index for every city of 10,000 people or more, the latest year and the year before; lower is safer. Say it is police-reported crime weighted by seriousness, not how safe people feel, give the year, and give Calgary's rank among all ranked cities and among large cities, with last year's.
 Calgary News (get_dashboard section city_news): the daily Calgary stories published on the site each evening, each with the reports it was written from; use them for what happened recently in Calgary, and cite the original sources (outlet, title, link), not the article alone.
 Federal Budget 2026 (get_dashboard section federal_budget): Canada's budget tabled 5 November 2026, with every measure and its amounts, the budget's own text, the deficit, revenue and spending outlook, and province by province what it names and the federal transfers each receives; for Calgary and Alberta use part=province, province=AB. The budget gives revenue for Canada only; for revenue collected and federal spending in each province (and the balance, per person) use part=revenue_by_province (Statistics Canada's provincial economic accounts, calendar years) and say the 2026-27 split is an estimate. Quote figures with their table and units ($ millions for measures, $ billions for the fiscal tables); describe the budget, never rate it or a party.
@@ -462,6 +463,10 @@ TOOLS = [
                     'every 2025 federal poll in the divisions and districts covering it, estimated ward electors and '
                     'turnout; with riding (an electoral division or district name) the same picture for that MLA\'s '
                     'or MP\'s seat, with the arithmetic of its last result. '
+                    'section="business" gives Invest in Calgary: every business in Calgary from City business licences '
+                    'and OpenStreetMap, in categories, counted by community (with new licences in the last 12 months); '
+                    'community narrows to one community, kind to one category (counts by community), find searches '
+                    'business names and types. '
                     'section="safest_cities" gives Canada\'s safest cities by Statistics Canada\'s Crime Severity Index '
                     '(the latest year and the year before): the 50 safest of every city of 10,000 people or more, '
                     'Calgary\'s rank this year and last, the large cities (100,000+) and the metropolitan areas; '
@@ -469,7 +474,7 @@ TOOLS = [
                     'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
                     'sources; narrow with find (words), days, topic or date.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'business'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -1093,6 +1098,10 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                         'or community.'}
     if section == 'other_amenities':
         return _other_amenities_out(d, wards)
+    if section == 'business':
+        import business                                 # noqa: PLC0415
+        return business.summary(business.load((extra or {}).get('data_dir'), can_build=True), (extra or {}).get('community'),
+                                (extra or {}).get('kind'), (extra or {}).get('find'))
     if section == 'safest_cities':
         import safety_rank                              # noqa: PLC0415
         return safety_rank.summary(safety_rank.load((extra or {}).get('data_dir'), can_build=True), (extra or {}).get('find'))
@@ -1364,7 +1373,7 @@ class Agent:
                                                                     '(OpenStreetMap)', 'points': pts}))
                     if args.get('show_on_map') else None)
             return dashboard_section(d, args.get('section') or 'overview', self.wards_provider,
-                                     {'community': args.get('community'), 'ward': args.get('ward'), 'find': args.get('find'),
+                                     {'community': args.get('community'), 'ward': args.get('ward'), 'find': args.get('find'), 'kind': args.get('kind'),
                                       'full': args.get('full'), 'riding': args.get('riding'), 'data_dir': self.data_dir})
         if name == 'get_weather_forecast':
             return weather.forecast()

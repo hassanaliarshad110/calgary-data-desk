@@ -393,6 +393,37 @@ class Api:
         finally:
             self._analyst_busy = False
 
+    def get_business(self):
+        try:
+            import business
+            d = business.load(DATA_DIR, can_build=True)
+            people = None
+            dash = self._dash or {}
+            if (dash.get('scope') or {}).get('kind') == 'city':
+                people = {c['code']: [c.get('residents'), c.get('census2021')] for c in dash.get('communities') or [] if c.get('code')}
+            return {'ok': True, 'data': d, 'people': people}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': str(e)}
+
+    def business_report(self, text=None, area=None):
+        """Business Economist: a full, auditable business plan on the strongest model."""
+        if self._analyst_busy:
+            return {'ok': False, 'error': 'A report is already being written. It will finish in a few minutes.'}
+        self._analyst_busy = True
+        try:
+            self._analyst.reset()
+            res = self._analyst.ask(analyst.business_brief(text, area or self._place()), 'audit',
+                                    today=dashboard.calgary_now().date().isoformat())
+            return {'ok': True, **res}
+        except agent_mod.AgentError as e:
+            return {'ok': False, 'error': str(e)}
+        except Exception as e:
+            traceback.print_exc()
+            return {'ok': False, 'error': f'The analysis stopped: {e}'}
+        finally:
+            self._analyst_busy = False
+
     def election_report(self, text=None, area=None):
         """Election Analytics: a full, auditable report on the strongest model. One at a time with the Data Scientist."""
         if self._analyst_busy:

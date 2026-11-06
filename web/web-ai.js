@@ -4,15 +4,16 @@
 (() => {
   'use strict';
   const W = window.CDD_WEB, api = window.pywebview.api;
-  const CODE_KEY = 'cdd-web-code', EA_KEY = 'cdd-web-ea-code';
+  const CODE_KEY = 'cdd-web-code', EA_KEY = 'cdd-web-ea-code', BIZ_KEY = 'cdd-web-biz-code';
   let apiKey = '', worker = null, booting = null, seq = 0;
-  const open_ = { genie: false, ea: false };       // Data Genie and the Data Scientist; Election Analytics (its own passcode)
+  const open_ = { genie: false, ea: false, biz: false };   // Data Genie and the Data Scientist; Election Analytics; the Business Economist (each its own passcode)
   const waiting = new Map();
   const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 
   async function decrypt(code, which = 'genie') {
     let box;
-    const file = which === 'ea' ? 'genie_ea.json' : 'genie.json', off = which === 'ea' ? 'The election analyst\'s passcode is not set up on this website yet.' : 'Data Genie is not switched on for this website yet.';
+    const file = { ea: 'genie_ea.json', biz: 'genie_biz.json' }[which] || 'genie.json';
+    const off = which === 'ea' ? 'The election analyst\'s passcode is not set up on this website yet.' : which === 'biz' ? 'The Business Economist is not switched on yet. Contact the developer.' : 'Data Genie is not switched on for this website yet.';
     try { box = await W.getJSON(file); } catch (e) { throw new Error(off); }
     if (!box || !box.ct) throw new Error(off);
     const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(String(code || '').trim()), 'PBKDF2', false, ['deriveKey']);
@@ -25,7 +26,7 @@
 
   // while Data Genie, the Data Scientist or the auditor is working, keep a phone's screen on: a phone that sleeps
   // cuts the page's connection to the AI service and the answer is lost
-  const LONG = new Set(['ask', 'analyst_run', 'audit_run', 'election_report']);
+  const LONG = new Set(['ask', 'analyst_run', 'audit_run', 'election_report', 'business_report']);
   let lock = null, busy = 0;
   async function holdScreen() {
     try { if (!lock && navigator.wakeLock) { lock = await navigator.wakeLock.request('screen'); lock.addEventListener('release', () => { lock = null; }); } } catch (e) { /* not allowed here */ }
@@ -97,7 +98,7 @@
     async unlock(code, which = 'genie') {
       apiKey = await decrypt(code, which);
       open_[which] = true;
-      try { sessionStorage.setItem(which === 'ea' ? EA_KEY : CODE_KEY, String(code).trim()); } catch (e) { /* private window */ }
+      try { sessionStorage.setItem({ ea: EA_KEY, biz: BIZ_KEY }[which] || CODE_KEY, String(code).trim()); } catch (e) { /* private window */ }
       start().catch(() => {});                              // load the engine while the visitor reads the screen
       return true;
     },
@@ -110,6 +111,7 @@
   api.new_chat = async () => (worker ? call('new_chat', {}).catch(() => true) : true);
   api.analyst_run = (key, text) => run('analyst_run', { key, text });
   api.election_report = (text, area) => run('election_report', { text, area });
+  api.business_report = (text, area) => run('business_report', { text, area });
   api.audit_run = (report) => run('audit_run', { report });
   api.audit_list = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('audit_list', {}); } catch (e) { return []; } };
   api.analyst_reports = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('analyst_reports', {}); } catch (e) { return []; } };
@@ -165,8 +167,9 @@
   });
 
   // unlocked earlier in this browser session
-  let saved = '', savedEa = '';
-  try { saved = sessionStorage.getItem(CODE_KEY) || ''; savedEa = sessionStorage.getItem(EA_KEY) || ''; } catch (e) { /* none */ }
+  let saved = '', savedEa = '', savedBiz = '';
+  try { saved = sessionStorage.getItem(CODE_KEY) || ''; savedEa = sessionStorage.getItem(EA_KEY) || ''; savedBiz = sessionStorage.getItem(BIZ_KEY) || ''; } catch (e) { /* none */ }
+  if (savedBiz) decrypt(savedBiz, 'biz').then(k => { apiKey = k; open_.biz = true; if (window.renderInvest) window.renderInvest(true); }).catch(() => {});
   if (saved) decrypt(saved).then(k => { apiKey = k; open_.genie = true; if (window.CDD_LOCK) window.CDD_LOCK.open(); }).catch(() => {});
   if (savedEa) decrypt(savedEa, 'ea').then(k => { apiKey = k; open_.ea = true; if (window.renderElAnalytics) window.renderElAnalytics(true); }).catch(() => {});
 })();

@@ -174,6 +174,10 @@ def handle(op, args_json):
             SCIENTIST.reset()
             res = SCIENTIST.ask(analyst.brief(a.get('key'), a.get('text'), area=_place()), 'smart', today=_today())
             return json.dumps({'ok': True, **res}, default=str)
+        if op == 'business_report':
+            SCIENTIST.reset()
+            res = SCIENTIST.ask(analyst.business_brief(a.get('text'), a.get('area') or _place()), 'audit', today=_today())
+            return json.dumps({'ok': True, **res}, default=str)
         if op == 'election_report':
             SCIENTIST.reset()
             res = SCIENTIST.ask(analyst.election_brief(a.get('text'), a.get('area') or _place()), 'audit', today=_today())
