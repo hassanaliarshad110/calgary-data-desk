@@ -1,6 +1,6 @@
 {
  "date": "2026-11-05",
- "published_at": "2026-11-05T23:25:36Z",
+ "published_at": "2026-11-06T02:42:36Z",
  "articles": [
   {
    "title": "Federal budget names Calgary projects as Ottawa projects a $62.3-billion deficit",
@@ -366,6 +366,701 @@
     "via": "Wikimedia Commons"
    },
    "image_tried": "Okotoks Alberta"
+  },
+  {
+   "title": "Provincial inspection of Bearspaw feeder main finds long-standing weaknesses at the City",
+   "dek": "An independent inspector's report released Thursday makes 20 recommendations on how Calgary governs, funds and manages risk on major water infrastructure.",
+   "section": "City Hall",
+   "body": [
+    "The Government of Alberta on Thursday released an independent inspection report on the City of Calgary's handling of the Bearspaw South Feeder Main, the water pipe that failed on June 5, 2024 and again on Dec. 30, 2025 [1].",
+    "The report was written by David Goldie, an independent consultant and corporate director who chaired the Alberta Energy Regulator board from 2020 to 2024. He was appointed inspector in March under the Municipal Government Act and delivered his final report to the province in October [1].",
+    "According to the province, the report identifies long-standing, systemic weaknesses in the City's governance, management of infrastructure risk, accountability and delivery of capital projects. It makes 20 recommendations [1].",
+    "The inspection reaches back to events as early as 2004, including a 2015-16 financial review of the City's utilities by the firm Raftelis. The report finds that the then mayor, Naheed Nenshi, and his chief of staff were briefed in advance on a draft-final version of that review, but that the full report and most of its recommendations were never presented to council. Five of nine priority recommendations from that review never went to council, and the report says they are nearly identical to recommendations made by the 2024 independent review panel on the feeder main [1].",
+    "The report also points to spending patterns. From 2006 to 2024, the City's capital spending averaged about 35% below approved budgets, and from 2016 to 2020 capital spending by the water utility averaged 46% below the national average, according to the province's summary [1].",
+    "It says the City's governance did not consistently bring together information on infrastructure, finances and risk, and that risks flagged in earlier reviews were not consistently turned into inspections, funded work or corrective action [1].",
+    "The report acknowledges steps the City has taken, including starting a Water Utility Oversight Board and appointing an acting chief operating officer, and says their effectiveness is still to be judged [1].",
+    "Municipal Affairs Minister Dan Williams will review the findings and recommendations and decide whether to issue any directives. The province says releasing the report is not itself a decision on further action, and that day-to-day water operations remain the City's responsibility [1]. Williams said, \"I will give the report the careful consideration it deserves\" [1].",
+    "The report comes as Stage 4 water restrictions are in place across Calgary while crews connect the replacement feeder main. On Thursday the City said draining of the existing pipe was beginning [2]."
+   ],
+   "key_facts": [
+    "Inspector David Goldie's report makes 20 recommendations",
+    "City capital spending averaged about 35% below approved budgets, 2006-2024",
+    "Minister Dan Williams will decide on any directives",
+    "Feeder main failed June 5, 2024 and Dec. 30, 2025"
+   ],
+   "topics": [
+    "City services",
+    "Water",
+    "Provincial",
+    "City Council"
+   ],
+   "image_query": "Bearspaw Water Treatment Plant Calgary",
+   "charts": [
+    {
+     "title": "How far spending fell short, per the inspection report",
+     "kind": "hbar",
+     "labels": [
+      "City capital spending vs approved budgets (2006-2024 avg.)",
+      "Water utility capital spending vs national average (2016-2020 avg.)"
+     ],
+     "series": [
+      {
+       "name": "Below benchmark",
+       "values": [
+        35,
+        46
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Calgary inspection report released",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=98079BDE74C41-AD3E-9890-84DA332E03FC04CE",
+     "published": "2026-11-05"
+    },
+    {
+     "title": "Water savings off to a great start as Bearspaw South Feeder Main connection work moves ahead",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/water-savings-off-to-a-great-start-as-bearspaw-south-feeder-main-connection-work-moves-ahead/",
+     "published": "2026-11-05"
+    }
+   ],
+   "id": "2026-11-05-provincial-inspection-of-bearspaw-feeder-main-finds-long-standing-weak",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 410
+  },
+  {
+   "title": "Committee backs $511-million bus lane option for Centre Street as Green Line north stalls",
+   "dek": "Executive committee endorsed studying curbside bus-only lanes for the Max Green route and $16.6 million in Green Line extension planning; council still has to decide.",
+   "section": "Transit and roads",
+   "body": [
+    "City council's executive committee on Tuesday, Nov. 3, endorsed a push for faster improvements to the Max Green bus rapid transit route on Centre Street, after a city report put the cost of fully building it at no less than $511 million [1][2][3].",
+    "The report set out four scenarios. The lowest-cost one, about $511 million, would add curbside bus-only lanes from downtown to Keystone Hills, more Max stops, new terminals at 96 Avenue and 144 Avenue N., and a bus station in Crescent Heights. The most expensive, a fully separated transitway down the middle of Centre Street along the future Green Line alignment, is estimated at about $2.1 billion [1][3].",
+    "The report followed an amendment by Ward 3 Coun. Andrew Yule when council approved a revised downtown Green Line route in September [3]. Yule's motion, endorsed by committee, asks staff to report by mid-2027 on how curbside lanes would affect businesses, parking and loading, and on possible funding from other governments [2][3]. The Calgary Herald reported the committee vote as 9-2, with councillors Andre Chabot and Mike Jamieson opposed [3]. No money for the bus lanes has been approved, and the recommendation still needs a decision by full council [1][2].",
+    "Yule and Ward 4 Coun. DJ Kelly said the north leg of the Green Line LRT is unaffordable for now. Kelly cited high-level estimates of about $3 billion for a southeast extension to Seton and $4 billion for LRT north [1]. Yule said about 30,000 people use the Centre Street corridor each day [1][3]. \"I need service now,\" Yule said [3].",
+    "Sarah Huber, the City's director of project development, said some bus lane work, such as land purchases and utility relocation, would still help an eventual Green Line [1]. Mayor Jeromy Farkas said he preferred an option that could later be converted to LRT [1].",
+    "Separately, administration said it will ask for $16.6 million in the coming four-year budget to plan the Green Line's extensions: $4.1 million for the southeast leg from Shepard to Seton and about $12.4 million to $12.5 million for the north leg from downtown to 160 Avenue N. Global News and the Herald give slightly different figures for the north leg [2][3]. Huber said this is planning and preliminary design, not construction [3]. Council will decide on that funding during budget deliberations later this month [2].",
+    "The first phase of the Green Line, from Shepard to 10 Avenue S. in the Beltline, is under construction with a budget of about $6.2 billion to $6.25 billion and is expected to open by 2031 [2][3]."
+   ],
+   "key_facts": [
+    "Curbside Max Green bus lanes estimated at $511 million; full transitway about $2.1 billion",
+    "$16.6 million requested to plan Green Line extensions",
+    "Green Line phase one expected to open by 2031",
+    "Full council still has to decide"
+   ],
+   "topics": [
+    "Transit",
+    "City Council",
+    "Budget and taxes",
+    "Roads and traffic"
+   ],
+   "communities": [
+    "Crescent Heights",
+    "Keystone Hills",
+    "Seton"
+   ],
+   "wards": [
+    3,
+    4
+   ],
+   "image_query": "Centre Street Calgary bus",
+   "charts": [
+    {
+     "title": "High-level cost estimates for north and southeast transit options",
+     "kind": "hbar",
+     "labels": [
+      "Max Green curbside bus lanes",
+      "Centre Street transitway",
+      "Green Line Shepard to Seton",
+      "Green Line Eau Claire to 40 Ave. N.",
+      "Green Line phase one (budget)"
+     ],
+     "series": [
+      {
+       "name": "Estimate",
+       "values": [
+        0.511,
+        2.1,
+        3,
+        4,
+        6.25
+       ]
+      }
+     ],
+     "unit": "$B",
+     "source": 3
+    }
+   ],
+   "sources": [
+    {
+     "title": "'Dead' Green Line LRT north prompts push for expediency on Max Green BRT",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/03/dead-green-line-lrt-north-prompts-push-for-expediency-on-max-green-brt/",
+     "published": "2026-11-03"
+    },
+    {
+     "title": "Green Line LRT extension study proposed, north Calgary councillors seek bus service improvements",
+     "outlet": "Global News",
+     "url": "https://globalnews.ca/news/12135020/green-line-lrt-extension-study-proposed-north-calgary-councillors-seek-bus-service-improvements/",
+     "published": "2026-11-04"
+    },
+    {
+     "title": "Councillors propose $511-million for dedicated bus lanes up Centre Street",
+     "outlet": "Calgary Herald (via Yahoo News Canada)",
+     "url": "https://ca.news.yahoo.com/councillors-propose-511-million-dedicated-220032123.html",
+     "published": "2026-11-03"
+    }
+   ],
+   "id": "2026-11-05-committee-backs-511-million-bus-lane-option-for-centre-street-as-green",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 427
+  },
+  {
+   "title": "Fifth Safer Calgary operation leads to 10 people charged and 170 warrants executed",
+   "dek": "Police, peace officers, sheriffs and outreach workers ran a one-day operation on Wednesday in the downtown core, East Village and the Beltline.",
+   "section": "Public safety",
+   "body": [
+    "The Calgary Police Service says the fifth Safer Calgary Operation Order, carried out on Wednesday, Nov. 4, led to 10 people being charged with a total of 18 charges and 170 arrest warrants being executed [1].",
+    "The operation brought together the police service, Calgary Community Safety, Transit Public Safety, Alberta Sheriffs, Emergency Health Services Alberta and community agencies. Teams enforced laws and bylaws, executed warrants, spoke with businesses and residents, and connected people with services [1].",
+    "Police reported attending 320 calls, issuing 99 summonses, making 330 proactive community engagements and making 165 referrals to social supports and outreach [1].",
+    "Among the highlights listed by police: two people were arrested in East Village for robbery and possession of illegal cigarettes. In the west end of downtown, officers seized 44 cartons holding more than 8,000 cigarettes, and the suspect was referred to Community Court under Alberta's Tobacco Tax Act. In the Beltline, two people were arrested and charged with assault after officers witnessed an assault in progress [1].",
+    "At the City Hall CTrain station, transit peace officers detained a person for a bylaw offence who matched an RCMP missing-person report and had outstanding warrants. Police also said a pregnant woman who needed housing was given a bed at the Navigation Centre reserved for police referrals [1].",
+    "The release does not name anyone charged or give court dates [1].",
+    "The operation follows earlier efforts called Safer Calgary – Operation CERTainty and the recently concluded Operation Restore [1]. Police Chief Katie McLellan said \"simply accepting crime and social disorder is not an option\" [1]. Public Safety and Emergency Services Minister Mike Ellis and Mayor Jeromy Farkas also commented in the release [1]."
+   ],
+   "key_facts": [
+    "10 people charged with 18 charges",
+    "170 arrest warrants executed and 99 summonses issued",
+    "165 referrals to social supports and outreach",
+    "Fifth operation of its kind, held Nov. 4"
+   ],
+   "topics": [
+    "Public safety",
+    "Transit",
+    "Community"
+   ],
+   "communities": [
+    "Downtown Commercial Core",
+    "East Village",
+    "Beltline"
+   ],
+   "image_query": "Calgary Police Service car",
+   "charts": [
+    {
+     "title": "Results of the Nov. 4 Safer Calgary operation",
+     "kind": "hbar",
+     "labels": [
+      "Proactive community engagements",
+      "Calls attended",
+      "Arrest warrants executed",
+      "Social support referrals",
+      "Summonses issued",
+      "Charges laid",
+      "People charged"
+     ],
+     "series": [
+      {
+       "name": "Count",
+       "values": [
+        330,
+        320,
+        170,
+        165,
+        99,
+        18,
+        10
+       ]
+      }
+     ],
+     "unit": "",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Fifth Safer Calgary – Operation Order continues coordinated response to crime and social disorder",
+     "outlet": "Calgary Police Service / City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/fifth-safer-calgary--operation-order-continues-coordinated-response-to-crime-and-social-disorder/",
+     "published": "2026-11-05"
+    }
+   ],
+   "id": "2026-11-05-fifth-safer-calgary-operation-leads-to-10-people-charged-and-170-warra",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 278
+  },
+  {
+   "title": "Homicide unit lays murder charge in 2024 remand centre death and rules Skyview Ranch death a homicide",
+   "dek": "Police announced a second-degree murder charge in a death inside the Calgary Remand Centre, and said human remains found in Skyview Ranch were a homicide.",
+   "section": "Public safety",
+   "body": [
+    "The Calgary Police Service Homicide Unit announced developments in two separate investigations this week [1][2].",
+    "On Tuesday, Nov. 3, police said they had charged a man in the death of another man who was in custody at the Calgary Remand Centre. Staff found the man unresponsive in his cell at about 11:20 a.m. on May 8, 2024. Life-saving efforts failed and he was declared dead [1].",
+    "After an autopsy by the Office of the Chief Medical Examiner, investigators deemed the death a homicide. Donny Paul Mills, 38, is charged with one count of second-degree murder. Police say he was also in custody at the time. He remains in custody and is next scheduled to appear in court on Monday, Jan. 4, 2027 [1]. The charge has not been tested in court.",
+    "Also on Tuesday, police said a death in northeast Calgary has been ruled a homicide. Officers were called to a home in the 200 block of Skyview Ranch Road N.E. for a welfare check on Oct. 27, and a search found evidence consistent with human remains [2].",
+    "An autopsy by the medical examiner's office is complete and the death has been deemed a homicide. Police say the person has been identified and that efforts to notify next of kin are continuing. The investigation is ongoing [2]. The police update itself does not name anyone charged in that case [2].",
+    "Police ask anyone with information on either case to call 403-266-1234 or contact Crime Stoppers anonymously at 1-800-222-8477 [1][2]."
+   ],
+   "key_facts": [
+    "Second-degree murder charge laid in May 2024 remand centre death",
+    "Accused next due in court Jan. 4, 2027",
+    "Skyview Ranch remains found Oct. 27 ruled a homicide",
+    "Both investigations led by the CPS Homicide Unit"
+   ],
+   "topics": [
+    "Public safety",
+    "Courts"
+   ],
+   "communities": [
+    "Skyview Ranch"
+   ],
+   "image_query": "Calgary Police Service headquarters",
+   "sources": [
+    {
+     "title": "Charges laid in Calgary Remand Centre death",
+     "outlet": "Calgary Police Service / City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/charges-laid-in-calgary-remand-centre-death/",
+     "published": "2026-11-03"
+    },
+    {
+     "title": "Update: Human remains investigation deemed a homicide",
+     "outlet": "Calgary Police Service / City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/update-human-remains-investigation-deemed-a-homicide/",
+     "published": "2026-11-03"
+    }
+   ],
+   "id": "2026-11-05-homicide-unit-lays-murder-charge-in-2024-remand-centre-death-and-rules",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 249
+  },
+  {
+   "title": "Calgary home sales keep falling in October as condo prices slide further",
+   "dek": "The Calgary Real Estate Board's October figures show fewer sales, more supply in apartments and row homes, and a benchmark price of $564,200.",
+   "section": "Housing and development",
+   "body": [
+    "Calgary recorded 1,592 home sales in October, and sales so far this year are down nearly 11% from 2025, according to Calgary Real Estate Board (CREB) figures reported this week [1].",
+    "The Calgary Herald reported that October sales fell by more than 15% compared with October 2025, while new listings fell by more than 9% [2]. The two reports describe different measures: one compares the single month, the other the year to date [1][2].",
+    "Most of the decline came from apartment condominiums and row homes, though sales fell in every property type [1]. Inventory fell nearly 5% from a year earlier to 6,173 units, and months of supply sat just under four [1][2].",
+    "The overall benchmark price was $564,200, down less than 1% from October 2025 [1]. The apartment benchmark dropped 8% to $288,800, and REM reports it is now 15% below its August 2024 peak. Apartments have more than five months of supply [1][2]. The row home benchmark fell more than 5% to $407,500 with 4.4 months of supply [1][2].",
+    "Detached and semi-detached homes were close to balanced, with about three months of supply. The detached benchmark was $735,100 and the semi-detached benchmark $685,200, both little changed from a year earlier [1][2].",
+    "By district, prices rose in the City Centre and West, while the North East and East fell by about 6% [1][2]. CREB chief economist Ann-Marie Lurie said the downward pressure is mostly in \"oversupplied higher-density segments\" [2].",
+    "Nearby communities also saw lower benchmarks than a year ago. Cochrane's fell nearly 2% to $571,100 and Chestermere's more than 3% to $683,800, with both near six months of supply. Okotoks's benchmark eased to $600,100 [2]."
+   ],
+   "key_facts": [
+    "1,592 sales in October; year-to-date sales down nearly 11%",
+    "Benchmark price $564,200, down less than 1% from a year ago",
+    "Apartment benchmark down 8% to $288,800",
+    "Inventory down nearly 5% to 6,173 units"
+   ],
+   "topics": [
+    "Housing",
+    "Economy"
+   ],
+   "image_query": "Calgary skyline condominium towers",
+   "charts": [
+    {
+     "title": "October benchmark prices by home type",
+     "kind": "bar",
+     "labels": [
+      "Detached",
+      "Semi-detached",
+      "All homes",
+      "Row",
+      "Apartment"
+     ],
+     "series": [
+      {
+       "name": "Benchmark price",
+       "values": [
+        735100,
+        685200,
+        564200,
+        407500,
+        288800
+       ]
+      }
+     ],
+     "unit": "$",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Calgary home sales fall nearly 11% as condo prices continue to slide",
+     "outlet": "REM (Real Estate Magazine)",
+     "url": "https://realestatemagazine.ca/calgary-home-sales-fall-nearly-11-as-condo-prices-continue-to-slide/",
+     "published": "2026-11-04"
+    },
+    {
+     "title": "Calgary real estate market sees continued decline in sales, high-density housing prices drop",
+     "outlet": "Calgary Herald (via Yahoo News Canada)",
+     "url": "https://ca.news.yahoo.com/calgary-real-estate-market-sees-193936720.html",
+     "published": "2026-11-03"
+    }
+   ],
+   "id": "2026-11-05-calgary-home-sales-keep-falling-in-october-as-condo-prices-slide-furth",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 276
+  },
+  {
+   "title": "Council approves three new edge neighbourhoods; four more head to budget talks",
+   "dek": "The three approved communities are expected to hold about 3,965 homes, while four more would add 17,176 homes and need $377 million in capital in the coming budget.",
+   "section": "Housing and development",
+   "body": [
+    "Calgary city council has approved three new neighbourhoods on the city's edges, with four more applications to be considered during budget deliberations later in November, The Sprawl reported on Wednesday [1].",
+    "The three approved neighbourhoods are expected to hold about 3,965 homes combined. They do not need capital funding right away, but will need small operating amounts starting in 2028 and hundreds of millions of dollars in capital in future budget cycles [1].",
+    "On Oct. 27, council voted 9-6 to approve two Glacier Ridge applications on the city's northern edge. Mayor Jeromy Farkas and councillors Andrew Yule, John Pantazopoulos, Myke Atkinson, Nathaniel Schmidt and Harrison Clark voted against [1]. The Belvedere application on the eastern edge passed 11-4, with Farkas, Yule, Atkinson and Schmidt opposed [1].",
+    "Area councillor Jennifer Wyness pointed to a 22-kilometre feeder main under construction in north Calgary and a $24-million fire hall that was fast-tracked a year ago. Speaking about the risk of not following through on growth areas, she said, \"You're going to strand assets if these fail\" [1].",
+    "The four neighbourhoods still to come are expected to add 17,176 homes. City administration says they would need $377 million in capital in the upcoming four-year budget and nearly $1 billion more in later cycles [1].",
+    "The debate is tied to provincial Bill 28, which narrows what developers' off-site levies can pay for. Transit buses and fire trucks are now exempt, as are some fire hall costs beyond building code requirements. Administration confirmed that if developers do not cover those costs, property taxes make up the difference [1].",
+    "A committee directed administration to update council by Nov. 24 on Bill 28's estimated budget impacts. The City's proposed budget is to be released on Tuesday, Nov. 10, and the City plans to update its off-site levy bylaw in 2027 [1]."
+   ],
+   "key_facts": [
+    "Three approved neighbourhoods: about 3,965 homes",
+    "Four more proposed: 17,176 homes, $377 million in capital next budget",
+    "Glacier Ridge approved 9-6; Belvedere 11-4",
+    "Proposed City budget due Nov. 10"
+   ],
+   "topics": [
+    "Development",
+    "Housing",
+    "City Council",
+    "Budget and taxes",
+    "Provincial"
+   ],
+   "communities": [
+    "Glacier Ridge",
+    "Belvedere"
+   ],
+   "image_query": "Calgary suburban housing construction",
+   "charts": [
+    {
+     "title": "Council votes on new neighbourhoods",
+     "kind": "bar",
+     "labels": [
+      "Glacier Ridge (Oct. 27)",
+      "Belvedere"
+     ],
+     "series": [
+      {
+       "name": "For",
+       "values": [
+        9,
+        11
+       ]
+      },
+      {
+       "name": "Against",
+       "values": [
+        6,
+        4
+       ]
+      }
+     ],
+     "unit": "votes",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "City council approves 3 new neighbourhoods, 4 still to come",
+     "outlet": "The Sprawl",
+     "url": "https://www.sprawlcalgary.com/city-council-approves-3-new-neighbourhoods",
+     "published": "2026-11-04"
+    }
+   ],
+   "id": "2026-11-05-council-approves-three-new-edge-neighbourhoods-four-more-head-to-budge",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 303
+  },
+  {
+   "title": "Alberta gives local and Canadian firms priority on government purchases",
+   "dek": "A new provincial procurement policy, announced in response to tariffs, ranks qualified Alberta and Canadian businesses first for contracts under trade-agreement thresholds.",
+   "section": "Business and economy",
+   "body": [
+    "The Government of Alberta has announced a procurement policy that gives qualified Alberta and Canadian businesses a better chance at winning government contracts, citing the costs and uncertainty created by tariffs [1][2].",
+    "Under the policy, qualified Alberta businesses get priority consideration for purchases below the thresholds set by the New West Partnership Trade Agreement. Qualified Canadian businesses get priority for purchases at or above those thresholds but below the lowest applicable international trade agreement thresholds [1][2].",
+    "The measures apply to future purchases only, not to past contracts or work already under way. Existing vendor contracts will be reviewed before they are renewed or expire, to look for viable Alberta or Canadian alternatives [1][2]. The province says the rules will be applied within its legal and trade obligations [1].",
+    "The province buys about $7 billion a year in goods, services and construction. About 95% of that already goes to Canadian businesses, including 72% to businesses based in Alberta [1].",
+    "The release notes that the United States is Alberta's largest trading partner, with more than $152 billion in goods exported there in 2025. It says Alberta continues to oppose tariffs and retaliatory measures and will keep working with other provinces and Ottawa toward a return to trade without tariffs [1][2].",
+    "Premier Danielle Smith said the province is \"putting local businesses first, supporting Canadian suppliers\" [1]. The government also pointed businesses to a new page of tariff-related resources and encouraged private industry to follow a similar approach [1].",
+    "The provincial release is dated Nov. 4. A Black Press report said the announcement was made Nov. 3 [1][2]."
+   ],
+   "key_facts": [
+    "Alberta firms get priority below New West Partnership thresholds",
+    "Province buys about $7 billion a year in goods, services and construction",
+    "95% of that already goes to Canadian firms, 72% to Alberta firms",
+    "Applies to future purchases only"
+   ],
+   "topics": [
+    "Business",
+    "Economy",
+    "Provincial"
+   ],
+   "image_query": "Alberta Legislature Building",
+   "charts": [
+    {
+     "title": "Where Alberta's roughly $7B a year in purchases goes",
+     "kind": "hbar",
+     "labels": [
+      "Canadian businesses (all)",
+      "Alberta-based businesses"
+     ],
+     "series": [
+      {
+       "name": "Share of spending",
+       "values": [
+        95,
+        72
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Alberta's government is buying local",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=980708A458200-B3B1-D8C2-5C82893684A8E633",
+     "published": "2026-11-04"
+    },
+    {
+     "title": "Province to give Alberta, Canadian businesses greater opportunity to compete for government contracts",
+     "outlet": "Pipestone Flyer (Red Deer Advocate)",
+     "url": "https://pipestoneflyer.ca/2026/11/05/province-to-give-alberta-canadian-businesses-greater-opportunity-to-compete-for-government-contracts/",
+     "published": "2026-11-05"
+    }
+   ],
+   "id": "2026-11-05-alberta-gives-local-and-canadian-firms-priority-on-government-purchase",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 264
+  },
+  {
+   "title": "Mayor says proposed provincial electoral map shortchanges Calgary",
+   "dek": "A new advisory panel report would give Calgary 28 electoral divisions, but Mayor Jeromy Farkas and two dissenting panel members say the city should have more.",
+   "section": "Alberta and Canada",
+   "body": [
+    "Calgary Mayor Jeromy Farkas says a proposed new map of Alberta's provincial electoral divisions does not give Calgary fair representation, LiveWire Calgary reported on Wednesday [1].",
+    "On Nov. 2 the province released a report from an independent advisory panel to the legislature's select special committee on electoral boundaries. It came about seven months after the Alberta Electoral Boundaries Commission's first report [1].",
+    "Both reports would raise the number of Calgary electoral divisions from 26 to 28. The new report increases the number of hybrid divisions, combining city and rural areas, from four to six. Bearspaw would be added to Calgary North West, and north and south Springbank to Calgary Bow and Calgary West [1].",
+    "Under the new map, Calgary divisions would average 56,726 people, or 5.6% above the provincial average, compared with 2.6% above it in the earlier report. Calgary-McKenzie, at 62,772 people or 17% above average, would be the most populous division in the province [1].",
+    "Farkas told reporters on Tuesday that Calgary is 84,101 people above the provincial average in net terms and urged residents to contact their MLAs [1]. \"The current maps, as proposed, severely shortchange Calgarians,\" he said [1].",
+    "Two panel members, Gerard Kennedy and Brent Robinson, wrote a dissent that calls the map constitutionally fraught and predicts a court challenge. They also say changes to four northeast and east Calgary divisions seem unnecessary. Farkas and the dissenters both say Calgary should have about 1.5 more divisions [1]. Opposition NDP Leader Naheed Nenshi said Albertans should be concerned [1].",
+    "Elections Alberta has written to Speaker Ric McIver asking that the existing maps be used for the October 2027 election, or that the election be postponed. Justice Minister Mickey Amery said the government has no plans to change the date and hopes to approve new boundaries by the end of the fall sitting [1]."
+   ],
+   "key_facts": [
+    "Calgary would have 28 electoral divisions, up from 26",
+    "Calgary divisions would average 5.6% above the provincial average",
+    "Hybrid city-rural divisions rise from four to six",
+    "Province hopes to approve the map by the end of the fall sitting"
+   ],
+   "topics": [
+    "Elections",
+    "Provincial",
+    "City Council"
+   ],
+   "communities": [
+    "Bearspaw",
+    "Springbank"
+   ],
+   "image_query": "Alberta Legislature Building",
+   "charts": [
+    {
+     "title": "How far above the provincial average Calgary divisions would be",
+     "kind": "bar",
+     "labels": [
+      "Earlier commission report",
+      "New advisory panel report"
+     ],
+     "series": [
+      {
+       "name": "Above provincial average",
+       "values": [
+        2.6,
+        5.6
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Shortchanged: Mayor Farkas said new provincial electoral boundaries lack proper Calgary representation",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/04/shortchanged-mayor-farkas-provincial-electoral-boundaries-lack-proper-calgary-representation/",
+     "published": "2026-11-04"
+    }
+   ],
+   "id": "2026-11-05-mayor-says-proposed-provincial-electoral-map-shortchanges-calgary",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 307
+  },
+  {
+   "title": "Alberta drops parental income from student loan assessments for this school year",
+   "dek": "About 21,000 applications will be reassessed, and the change is expected to add about $118 million in provincial loans; student leaders welcome it but question the timing.",
+   "section": "Alberta and Canada",
+   "body": [
+    "The Government of Alberta says it will stop counting parents' income when it decides how much provincial student loan money a student gets for the 2026-27 academic year [1][2].",
+    "Alberta Student Aid will reassess about 21,000 applications where parental income reduced a student's award. Students do not need to reapply or send documents; those who qualify for more funding will be notified and directed to their student aid portal [1][2]. New applications are being assessed without parental income starting in early November [1].",
+    "The province expects the change to add about $118 million in provincial loan disbursements this year, which it says fits within the $887-million budget for loan disbursements [1]. About 126,000 full-time applications were submitted between June 3 and Oct. 14, compared with about 125,000 over the same period in 2025 [1].",
+    "Only the parental income rule changes; other eligibility rules stay the same [1]. LiveWire Calgary reports that spousal income is still a factor. Parental and spousal income were dropped from assessments in 2012 and brought back earlier this year [2].",
+    "Advanced Education Minister Myles McDougall said being accountable means listening to people and looking at how decisions affect them [1].",
+    "Noel Ormita, president of the Students' Association of Mount Royal University, welcomed the change but said it came nearly three months into the school year, after some students may have deferred studies or taken jobs [2]. He said the earlier policy \"would have created more financial barriers for students\" [2]. He also criticized the consultation process and the spring decision to double the minimum student contribution from $1,500 to $3,000 [2].",
+    "The University of Calgary Students' Union declined to comment, and the SAIT Students' Association did not respond to LiveWire by its deadline [2]."
+   ],
+   "key_facts": [
+    "About 21,000 applications to be reassessed automatically",
+    "Expected to add about $118 million in provincial loans",
+    "Loan disbursement budget is $887 million",
+    "Spousal income is still considered"
+   ],
+   "topics": [
+    "Education",
+    "Provincial"
+   ],
+   "image_query": "Mount Royal University Calgary",
+   "charts": [
+    {
+     "title": "Extra loan money from the change vs. the 2026-27 loan budget",
+     "kind": "bar",
+     "labels": [
+      "Added by dropping parental income",
+      "Total loan disbursement budget"
+     ],
+     "series": [
+      {
+       "name": "Amount",
+       "values": [
+        118,
+        887
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Alberta listens, acts on student aid",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=980645C56ACF3-F6C2-F14E-112939EBDF282761",
+     "published": "2026-11-03"
+    },
+    {
+     "title": "Student reps praise provincial backtrack on parent income for loan applications",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/04/student-reps-praise-provincial-backtrack-on-parent-income-for-loan-applications/",
+     "published": "2026-11-04"
+    }
+   ],
+   "id": "2026-11-05-alberta-drops-parental-income-from-student-loan-assessments-for-this-s",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 288
+  },
+  {
+   "title": "Calgary water use stays in the green zone as crews start draining the old feeder main",
+   "dek": "The city used 490 million litres on Wednesday, the first full day of Stage 4 restrictions, as work moved to draining the existing Bearspaw South Feeder Main.",
+   "section": "Environment and weather",
+   "updated_from": "2026-11-05-stage-4-water-restrictions-in-effect-while-crews-connect-the-new-bears",
+   "body": [
+    "Calgarians used 490 million litres of water on Wednesday, Nov. 4, keeping use in the City's green zone of less than 500 million litres a day, the City said Thursday [1].",
+    "That was 24 million litres less than the day before, according to the City [1]. Stage 4 restrictions took effect Wednesday while crews connect the new Bearspaw South Feeder Main to the system [1].",
+    "The City says crews began draining the existing feeder main on Thursday after setting up drainage sites, shutting down pumps and closing valves. Pathway users are asked to follow detours and stay clear of work sites [1].",
+    "Crews are also preparing for repairs on Parkdale Boulevard and near Broadview Park, and the City says it is looking at ways to improve traffic flow and reduce rush-hour delays on Parkdale Boulevard during the work [1].",
+    "To stay in the green zone, the City is asking everyone to stop all outdoor water use, including flooding backyard skating rinks, to run dishwashers and washing machines only with full loads, to flush toilets only when needed and to keep showers to three minutes or less. The restrictions apply to all residents and businesses [1].",
+    "On the same day, the province released an independent inspection report on the City's management of the feeder main, which failed in June 2024 and again in December 2025 [2]. More information on the restrictions is posted at calgary.ca/savewater [1]."
+   ],
+   "key_facts": [
+    "490 million litres used Nov. 4, under the 500-million-litre target",
+    "Use fell 24 million litres from the previous day",
+    "Draining of the existing feeder main began Nov. 5",
+    "Repairs planned on Parkdale Boulevard and near Broadview Park"
+   ],
+   "topics": [
+    "Water",
+    "City services",
+    "Environment"
+   ],
+   "communities": [
+    "Parkdale"
+   ],
+   "image_query": "Bow River Calgary",
+   "sources": [
+    {
+     "title": "Water savings off to a great start as Bearspaw South Feeder Main connection work moves ahead",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/water-savings-off-to-a-great-start-as-bearspaw-south-feeder-main-connection-work-moves-ahead/",
+     "published": "2026-11-05"
+    },
+    {
+     "title": "Calgary inspection report released",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=98079BDE74C41-AD3E-9890-84DA332E03FC04CE",
+     "published": "2026-11-05"
+    }
+   ],
+   "id": "2026-11-05-calgary-water-use-stays-in-the-green-zone-as-crews-start-draining-the-",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 235
+  },
+  {
+   "title": "City Sport Hub coach named captain of Canada's national cricket team",
+   "dek": "Hamza Tariq, who coaches young players through the City's Sport Hub program, was named Canada's cricket captain this fall.",
+   "section": "Community and events",
+   "body": [
+    "A coach with the City of Calgary's Sport Hub program has been named captain of Canada's national cricket team, the City said Thursday [1].",
+    "Hamza Tariq was named captain this fall. He also coaches through the Future Cricket Stars Academy, one of the local sport organizations that works with Sport Hub [1].",
+    "Sport Hub connects children and teens with qualified coaches from local sport organizations. It brings programs into schools and communities, provides equipment, and offers community lessons at little or no cost [1].",
+    "The coaches in Sport Hub come from local sport organizations that partner with the City, and Tariq is one of them through Future Cricket Stars Academy [1]. The City's announcement presents his appointment as bringing international experience to Calgary children and teens [1].",
+    "Tariq coached cricket during the Sport Hub pilot at Crossing Park School in the northeast community of Martindale, according to the City [1].",
+    "Brett Whittingham, a recreation programs leader with the City, said the program wants \"kids learning from people who know the sport\" [1].",
+    "The City says families can find programs and registration information at calgary.ca/SportHub [1]."
+   ],
+   "key_facts": [
+    "Hamza Tariq named Canada's cricket captain this fall",
+    "He coaches through Sport Hub and Future Cricket Stars Academy",
+    "Coached the Sport Hub pilot at Crossing Park School in Martindale"
+   ],
+   "topics": [
+    "Sports",
+    "Parks and recreation",
+    "Community"
+   ],
+   "communities": [
+    "Martindale"
+   ],
+   "image_query": "cricket bat and ball",
+   "sources": [
+    {
+     "title": "Sport Hub coach named captain of Canada's national cricket team: bringing international experience to Calgary kids and teens",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/sport-hub-coach-named-captain-of-canadas-national-cricket-team-bringing-international-experience-to-calgary-kids-and-teens/",
+     "published": "2026-11-05"
+    }
+   ],
+   "id": "2026-11-05-city-sport-hub-coach-named-captain-of-canada-s-national-cricket-team",
+   "date": "2026-11-05",
+   "published_at": "2026-11-06T02:42:36Z",
+   "words": 185
   }
  ]
 }
