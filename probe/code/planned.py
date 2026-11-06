@@ -7,7 +7,7 @@ Two kinds, the same way for every community:
      nature: natural areas) - that is not yet in the City's Parks Sites inventory. That is park and school land the
      developer has dedicated but not yet handed to the City as a finished park (or a school site not yet built).
      A reserve polygon counts when most of it (the share of sample points inside it) is not already a City park.
-  2. Facilities being built: a library, indoor recreation centre or community centre from the major projects lists
+  2. Facilities being built: a new library or indoor recreation centre from the major projects lists
      (majorprojects.py: the Alberta Major Projects inventory and the City facilities checked by hand) that is under
      construction or funded and due to open by the end of the forecast.
 For each, the homes within reach at the same distances as Growth vs amenities (access.py) are found, so the 2030
@@ -15,6 +15,7 @@ crowding can be worked out with them.
 """
 import json
 import os
+import re
 import time
 
 KEEP_DAYS = 7
@@ -24,7 +25,8 @@ RESERVE_CODES = {'S-SPR': 'School, park and community reserve', 'S-R': 'Recreati
 COMMUNITIES = 'surr-xmvs'
 NEW_CLASSES = ('DEVELOPING', 'FUTURE', 'COMPLETE')
 MIN_HA = 0.05
-PARK_SHARE = 0.5            # a reserve polygon is "not yet a park" when less than half of it is a City park
+PARK_SHARE = 0.5
+OLD_PLACE = re.compile(r'repair|upgrade|renovat|expansion|moderni[sz]|redevelop|replacement|addition|lifecycle', re.I)            # a reserve polygon is "not yet a park" when less than half of it is a City park
 
 
 def _samples(mp_xy, n=4):
@@ -138,21 +140,28 @@ def build(cache_dir, projects, last_year):
         ks = [ks] if isinstance(ks, str) else (ks or majorprojects.measured(p.get('title'), p.get('kind')))
         if p.get('lat') is None or p.get('lon') is None:
             continue
+        if p.get('amenity') is False or OLD_PLACE.search(p.get('title') or ''):
+            continue                                    # housing named after a library; work on a facility already counted
         for k in ks:
-            if k in ('library', 'rec_centre', 'community_centre'):
+            if k in ('library', 'rec_centre'):
                 facs.append((k, p))
     out_f = []
     for k, p in facs:
         opens = p.get('opens')
         if opens is None and p.get('expected_by'):
             opens = int(str(p['expected_by'])[:4])
-        building = 'construction' in (p.get('status') or '').lower() or bool(p.get('funded'))
+        if 'funded' in p:
+            building = bool(p['funded'])
+        else:
+            st = p.get('status') or ''
+            building = bool(re.search(r'under construction|construction (started|underway|began|is underway)', st, re.I)) \
+                and not re.search(r'not (yet )?funded|pending funding', st, re.I)
         if not building or (opens is not None and opens > last_year) or p.get('state') == 'completed':
             continue
         out_f.append({'title': p['title'], 'kind': k, 'comm': p.get('comm'), 'opens': opens, 'status': p.get('status'),
                       'url': p.get('url'), 'lat': p['lat'], 'lon': p['lon']})
     facs = out_f
-    for k in ('library', 'rec_centre', 'community_centre'):
+    for k in ('library', 'rec_centre'):
         pts = [proj.xy(f['lon'], f['lat']) for f in facs if f['kind'] == k]
         catch[k] = {}
         for rr in access.KINDS[k]['thresholds_m']:
