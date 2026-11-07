@@ -3,14 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Calgary Insight</title>
+<title>Calgary Insight: Calgary ward and community data, in plain words</title>
 <link rel="icon" href="logo.svg">
 <link rel="stylesheet" href="vendor/leaflet.css">
 <link rel="stylesheet" href="styles.css">
+<script>(function(){try{var q=new URLSearchParams(location.search).get('nav'),p=q==='top'||q==='side'?q:localStorage.getItem('nav-layout');if(p==='top')document.documentElement.classList.add('topnav');}catch(e){}})();</script>
 <link rel="stylesheet" href="web.css">
-<meta name="description" content="Calgary Insight: every Calgary ward side by side, from City of Calgary open data, refreshed every morning.">
+<meta name="description" content="Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections. From official public data, refreshed every morning. Independent and open source.">
+<link rel="canonical" href="https://calgaryinsight.ca/">
+<meta name="theme-color" content="#071226">
+<meta name="robots" content="index,follow">
+<link rel="apple-touch-icon" href="logo-512.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Calgary Insight">
+<meta property="og:title" content="Calgary Insight: Calgary ward and community data, in plain words">
+<meta property="og:description" content="Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections. From official public data, refreshed every morning. Independent and open source.">
+<meta property="og:url" content="https://calgaryinsight.ca/">
+<meta property="og:image" content="https://calgaryinsight.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Calgary Insight: the city, ward by ward">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calgary Insight: Calgary ward and community data, in plain words">
+<meta name="twitter:description" content="Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections. From official public data, refreshed every morning. Independent and open source.">
+<meta name="twitter:image" content="https://calgaryinsight.ca/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://calgaryinsight.ca/#site","name":"Calgary Insight","url":"https://calgaryinsight.ca/","description":"Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections. From official public data, refreshed every morning. Independent and open source.","inLanguage":"en-CA","publisher":{"@id":"https://calgaryinsight.ca/#hassan"}},{"@type":"Person","@id":"https://calgaryinsight.ca/#hassan","name":"Hassan Ali","url":"https://calgaryinsight.ca/about/","homeLocation":{"@type":"City","name":"Calgary"},"sameAs":["https://www.facebook.com/share/1GwiEvuSog/","https://www.instagram.com/calgaryinsight/"]},{"@type":"Dataset","name":"Calgary ward and community indicators","url":"https://calgaryinsight.ca/","description":"Population, growth, 311 requests, amenities, safety and development for every Calgary ward and community, compiled from City of Calgary open data and other public sources, refreshed daily.","creator":{"@id":"https://calgaryinsight.ca/#hassan"},"spatialCoverage":{"@type":"Place","name":"Calgary, Alberta, Canada"},"isAccessibleForFree":true,"license":"https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"}]}</script>
 </head>
 <body data-web="1">
+<noscript><div style="max-width:760px;margin:24px auto;padding:0 16px;font-family:sans-serif;color:#e2e8f0"><h1>Calgary Insight</h1><p>Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections. From official public data, refreshed every morning. Independent and open source.</p><ul><li><a href="?view=dashboard">Dashboard: every ward and community at a glance</a></li><li><a href="?view=growth">Growth vs amenities and the forecast to 2030</a></li><li><a href="?view=compare">Compare wards</a></li><li><a href="?view=elections">Election Data Centre</a></li><li><a href="?view=budget">City budget</a></li><li><a href="?view=citynews">Calgary News</a></li><li><a href="?view=fedbudget">Federal Budget 2026</a></li><li><a href="?view=invest">Invest in Calgary</a></li><li><a href="?view=infra">Infrastructure condition</a></li><li><a href="?view=safety">Canada's safest cities</a></li><li><a href="?view=issues">Open 311 issues</a></li><li><a href="?view=families">Families and schools</a></li><li><a href="?view=help">Find help near me</a></li><li><a href="?view=videos">Video explainers</a></li><li><a href="?view=methods">How it's counted</a></li><li><a href="?view=sources">Data sources and refresh schedule</a></li><li><a href="about/">About Calgary Insight</a></li></ul><p>Turn on JavaScript to use the interactive maps, tables and Data Genie.</p></div></noscript>
 <a class="skip" href="#main">Skip to main content</a>
 
 <!-- Icon set (Lucide style, 24px grid, 2px stroke) -->
@@ -65,6 +86,7 @@
     <symbol id="i-analytics" viewBox="0 0 24 24"><path d="M4 20V11M8.5 20V6M13 20v-6"/><circle cx="17.5" cy="14.5" r="3.2"/><path d="m19.8 16.8 2.2 2.2"/><path d="M3 20h9"/></symbol>
     <symbol id="i-studio" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="m10 9 5 2.5-5 2.5z"/><path d="M8 21h8"/></symbol>
     <symbol id="i-ballot" viewBox="0 0 24 24"><path d="M4 21h16"/><path d="M6 21V11h12v10"/><path d="M9 11V4h6v7"/><path d="M10.5 7.5l1 1 2-2"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 7.5v.5"/></symbol>
     <symbol id="i-growth" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21v-6h4v6"/><path d="M11 21V11h4v10"/><path d="M17 21v-4h3v4"/><path d="m4 10 5-4 4 3 7-6"/><path d="M15 3h5v5"/></symbol>
     <symbol id="i-crane" viewBox="0 0 24 24"><path d="M3 21h18M6 21V4h12M6 4l12 0 0 4M10 4v17"/></symbol>
     <symbol id="i-helpheart" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 9.5V20h13V9.5"/><path d="M12 17.2s-3.2-1.9-3.2-4a1.7 1.7 0 0 1 3.2-.8 1.7 1.7 0 0 1 3.2.8c0 2.1-3.2 4-3.2 4z"/></symbol>
@@ -87,6 +109,7 @@
     <symbol id="i-cone" viewBox="0 0 24 24"><path d="M9.3 6.5h5.4M8.2 10.5h7.6M6.9 14.5h10.2M4 20h16M10.6 3h2.8l4.6 17H6L10.6 3z"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
     <symbol id="i-compare" viewBox="0 0 24 24"><path d="M3 20V10M9 20V4M15 20v-8M21 20V7"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.3 5.7-5.7 2.3 2.3-5.7z"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
   </defs>
 </svg>
@@ -101,36 +124,73 @@
     <select id="scope-sel" aria-label="Show the whole city or one ward"><option value="0">Calgary: all wards</option></select>
   </label>
   <div class="side-menu" id="side-menu">
+  <div class="site-search" id="site-search">
+    <label class="sr" for="ss-q">Search Calgary Insight</label>
+    <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+    <input id="ss-q" type="search" placeholder="Search the site" autocomplete="off" aria-controls="ss-results" aria-expanded="false" aria-autocomplete="list" role="combobox">
+    <kbd class="ss-kbd" aria-hidden="true">Ctrl K</kbd>
+    <div class="ss-pop" id="ss-results" role="listbox" aria-label="Search results" hidden></div>
+  </div>
   <div class="nav">
-    <p class="nav-h">Overview</p>
-    <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
-    <button class="tab tab-help" data-view="help" title="Find help near me: a bed tonight, food, day spaces, health care and help lines, nearest to you first"><svg class="ic" aria-hidden="true"><use href="#i-helpheart"/></svg><span>Find help near me</span></button>
-    <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: how near homes are to everyday amenities, new homes against older ones"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
-    <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
-    <button class="tab" data-view="elections" title="Election Data Centre: seats, leaders, constituencies, Election Analytics and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-legis"/></svg><span>Election Data Centre</span></button>
-    <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
-    <button class="tab" data-view="citynews" title="Calgary News: the day's Calgary stories, each with its sources"><svg class="ic" aria-hidden="true"><use href="#i-paper"/></svg><span>Calgary News</span></button>
-    <button class="tab" data-view="fedbudget" title="Federal Budget 2026: headline numbers, every measure, province by province, Calgary and Alberta"><svg class="ic" aria-hidden="true"><use href="#i-maple"/></svg><span>Federal Budget 2026</span></button>
-    <button class="tab" data-view="invest" title="Invest in Calgary: every business, where each kind is underserved, growth, and the Business Economist"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg><span>Invest in Calgary</span></button>
-    <button class="tab" data-view="capmkt" title="Calgary Capital Markets: Calgary's public companies, their industries and value, and Calgary's place in Canada's stock markets"><svg class="ic" aria-hidden="true"><use href="#i-candles"/></svg><span>Calgary Capital Markets</span></button>
-    <button class="tab" data-view="infra" title="Infrastructure condition: water main breaks, the age of the water network, the paving plan and the City's own condition figures, against 311 requests"><svg class="ic" aria-hidden="true"><use href="#i-cone"/></svg><span>Infrastructure condition</span></button>
-    <button class="tab" data-view="safety" title="Canada's safest cities: every city of 10,000 or more by Statistics Canada's Crime Severity Index, with Calgary's rank this year and last"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>Canada's safest cities</span></button>
-    <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
-    <p class="nav-h">Topics</p>
-    <button class="tab" data-view="families" title="Families and schools"><svg class="ic" aria-hidden="true"><use href="#i-child"/></svg><span>Families and schools</span></button>
-    <button class="tab" data-view="cameras" title="Traffic cameras"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span>Traffic cameras</span></button>
-    <p class="nav-h">Ask the data</p>
-    <button class="tab tab-genie" data-view="ask" title="Data Genie: ask anything about the data"><svg class="ic" aria-hidden="true"><use href="#i-genie"/></svg><span>Data Genie</span></button>
-    <button class="tab tab-ds" data-view="scientist" title="Data Scientist: full analysis reports on the selected area"><svg class="ic" aria-hidden="true"><use href="#i-scientist"/></svg><span>Data Scientist</span></button>
-    <p class="nav-h">Publish</p>
-    <button class="tab" data-view="videos" title="Video Explainers: short narrated videos on what the data shows"><svg class="ic" aria-hidden="true"><use href="#i-studio"/></svg><span>Video Explainers</span></button>
-    <button class="tab" data-view="news" title="Newsletter"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><span>Newsletter</span></button>
-    <button class="tab brief-btn" id="brief-btn" title="Briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span>Briefing screen</span></button>
-    <p class="nav-h">Reference</p>
-    <button class="tab" data-view="methods" title="How every figure is worked out"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg><span>How it's counted</span></button>
-    <button class="tab" data-view="sources" title="Data sources"><svg class="ic" aria-hidden="true"><use href="#i-database"/></svg><span>Data sources</span></button>
-    <button class="tab" data-view="files" title="Files"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Files</span></button>
-    <button class="tab" data-view="settings" title="Settings"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span>Settings</span></button>
+    <div class="nav-g" data-group="home">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Home</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
+        <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
+        <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
+        <button class="tab" data-view="changes" title="What changed: the Growth vs amenities method before and after its revision"><svg class="ic" aria-hidden="true"><use href="#i-shuffle"/></svg><span>What changed</span></button>
+      </div>
+    </div>
+    <div class="nav-g" data-group="city">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Living here</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: how near homes are to everyday amenities, new homes against older ones, and the forecast to 2030"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
+        <button class="tab" data-view="families" title="Families and schools"><svg class="ic" aria-hidden="true"><use href="#i-child"/></svg><span>Families and schools</span></button>
+        <button class="tab" data-view="infra" title="Infrastructure condition: water main breaks, the age of the water network, the paving plan and the City's own condition figures, against 311 requests"><svg class="ic" aria-hidden="true"><use href="#i-cone"/></svg><span>Infrastructure condition</span></button>
+        <button class="tab" data-view="safety" title="Canada's safest cities: every city of 10,000 or more by Statistics Canada's Crime Severity Index, with Calgary's rank this year and last"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>Canada's safest cities</span></button>
+        <button class="tab" data-view="cameras" title="Traffic cameras"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span>Traffic cameras</span></button>
+        <button class="tab tab-help" data-view="help" title="Find help near me: a bed tonight, food, day spaces, health care and help lines, nearest to you first"><svg class="ic" aria-hidden="true"><use href="#i-helpheart"/></svg><span>Find help near me</span></button>
+      </div>
+    </div>
+    <div class="nav-g" data-group="money">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Money</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
+        <button class="tab" data-view="fedbudget" title="Federal Budget 2026: headline numbers, every measure, province by province, Calgary and Alberta"><svg class="ic" aria-hidden="true"><use href="#i-maple"/></svg><span>Federal Budget 2026</span></button>
+        <button class="tab" data-view="invest" title="Invest in Calgary: every business, where each kind is underserved, growth, and the Business Economist"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg><span>Invest in Calgary</span></button>
+        <button class="tab" data-view="capmkt" title="Calgary Capital Markets: Calgary's public companies, their industries and value, and Calgary's place in Canada's stock markets"><svg class="ic" aria-hidden="true"><use href="#i-candles"/></svg><span>Calgary Capital Markets</span></button>
+      </div>
+    </div>
+    <div class="nav-g" data-group="democracy">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Democracy</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab" data-view="elections" title="Election Data Centre: seats, leaders, constituencies, Election Analytics and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-legis"/></svg><span>Election Data Centre</span></button>
+        <button class="tab" data-view="citynews" title="Calgary News: the day's Calgary stories, each with its sources"><svg class="ic" aria-hidden="true"><use href="#i-paper"/></svg><span>Calgary News</span></button>
+      </div>
+    </div>
+    <div class="nav-g nav-g-one" data-group="visit">
+      <button class="tab tab-visit" data-view="visit" title="Visiting Calgary: what to see, where to stay, the weather by month and what suits it, getting around"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg><span>Visiting Calgary</span></button>
+    </div>
+    <div class="nav-g" data-group="ask">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Ask the data</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab tab-genie" data-view="ask" title="Data Genie: ask anything about the data"><svg class="ic" aria-hidden="true"><use href="#i-genie"/></svg><span>Data Genie</span></button>
+        <button class="tab tab-ds" data-view="scientist" title="Data Scientist: full analysis reports on the selected area"><svg class="ic" aria-hidden="true"><use href="#i-scientist"/></svg><span>Data Scientist</span></button>
+      </div>
+    </div>
+    <div class="nav-g" data-group="more">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">More</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab" data-view="videos" title="Video Explainers: short narrated videos on what the data shows"><svg class="ic" aria-hidden="true"><use href="#i-studio"/></svg><span>Video Explainers</span></button>
+        <button class="tab" data-view="news" title="Newsletter"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><span>Newsletter</span></button>
+        <button class="tab brief-btn" id="brief-btn" title="Briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span>Briefing screen</span></button>
+        <button class="tab" data-view="methods" title="How every figure is worked out"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg><span>How it's counted</span></button>
+        <button class="tab" data-view="sources" title="Data sources and the refresh schedule"><svg class="ic" aria-hidden="true"><use href="#i-database"/></svg><span>Data sources</span></button>
+        <button class="tab" data-view="files" title="Files"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Files</span></button>
+        <button class="tab" data-view="settings" title="Settings"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span>Settings</span></button>
+        <a class="tab tab-about" href="about/" title="About Calgary Insight: why it exists and who built it"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>About</span></a>
+      </div>
+    </div>
   </div>
   <div class="side-foot">
     <button class="status" id="side-status" type="button" aria-haspopup="dialog" title="Data status"><span class="dot" aria-hidden="true"></span><span class="status-text">Connecting</span></button>
@@ -144,7 +204,7 @@
   <section id="view-dashboard" class="view is-on" aria-labelledby="dash-title">
     <header class="topbar">
       <div class="topbar-title">
-        <h1 id="dash-title">Ward 5 overview</h1>
+        <h1 id="dash-title">Calgary overview</h1>
         <p class="meta" id="dash-sub">Loading City of Calgary open data</p>
       </div>
       <div class="topbar-actions">
@@ -237,7 +297,7 @@
             <div class="legend" id="legend"></div>
           </div>
         </section>
-        <aside class="card span-4 panel" id="panel" aria-live="polite" aria-label="Community details"></aside>
+        <section class="card span-4 panel" id="panel" aria-live="polite" aria-label="Community details"></section>
 
         <!-- trend + newest -->
         <section class="card span-8" aria-labelledby="trend-title">
@@ -607,6 +667,13 @@
     <div class="content"><div class="grid" id="inf-body"></div></div>
   </section>
 
+  <section id="view-visit" class="view" aria-labelledby="vi-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="vi-title">Visiting Calgary</h1><p class="meta">What to see, where to stay, the weather by month and over the years, what is on, and how to get around, from public data and the organisers' own pages</p></div>
+    </header>
+    <div class="content"><div class="grid" id="vi-body"></div></div>
+  </section>
+
   <section id="view-safety" class="view" aria-labelledby="sr-title">
     <header class="topbar">
       <div class="topbar-title"><h1 id="sr-title">Canada's safest cities</h1><p class="meta">Statistics Canada's Crime Severity Index for every city of 10,000 people or more: the 50 safest, and where Calgary stands this year and last</p></div>
@@ -648,7 +715,7 @@
       <section class="card vid-card" id="vid-fedbudget2026" data-cat="Budgets and spending" data-area="All of Calgary">
         <div class="card-head"><div><h2>Budget 2026: what&#x27;s in it for Alberta and Calgary</h2>
           <p class="card-sub">Published <time datetime="2026-11-06">November 6, 2026</time> · 2 min 47 s · animated, narrated, with sound</p></div></div>
-        <video controls preload="metadata" playsinline poster="video/budget-2026-alberta-calgary.jpg">
+        <video controls preload="none" playsinline data-poster="video/budget-2026-alberta-calgary.jpg">
           <source src="video/budget-2026-alberta-calgary.mp4" type="video/mp4">
           Your browser can't play this video. <a href="video/budget-2026-alberta-calgary.mp4">Download it (MP4, 8 MB)</a>.
         </video>
@@ -659,7 +726,7 @@
       <section class="card vid-card" id="vid-ea2027" data-cat="Elections" data-area="All of Calgary">
         <div class="card-head"><div><h2>Calgary&#x27;s 26 electoral divisions: a field guide for the 2027 Alberta election</h2>
           <p class="card-sub">Published <time datetime="2026-11-06">November 6, 2026</time> · 2 min 19 s · narrated, figures on screen</p></div></div>
-        <video controls preload="metadata" playsinline poster="video/election-field-guide-2027.jpg">
+        <video controls preload="none" playsinline data-poster="video/election-field-guide-2027.jpg">
           <source src="video/election-field-guide-2027.mp4" type="video/mp4">
           Your browser can't play this video. <a href="video/election-field-guide-2027.mp4">Download it (MP4, 5 MB)</a>.
         </video>
@@ -671,7 +738,7 @@
       <section class="card vid-card" id="vid-invest" data-cat="Business and investment" data-area="All of Calgary">
         <div class="card-head"><div><h2>Calgary: a hub of innovation, leadership and future growth</h2>
           <p class="card-sub">Published <time datetime="2026-11-06">November 6, 2026</time> · 2 min 6 s · narrated, figures on screen</p></div></div>
-        <video controls preload="metadata" playsinline poster="video/invest-in-calgary.jpg">
+        <video controls preload="none" playsinline data-poster="video/invest-in-calgary.jpg">
           <source src="video/invest-in-calgary.mp4" type="video/mp4">
           Your browser can't play this video. <a href="video/invest-in-calgary.mp4">Download it (MP4, 5 MB)</a>.
         </video>
@@ -683,7 +750,7 @@
       <section class="card vid-card" id="vid-parks" data-cat="Parks and amenities" data-area="Ward 5">
         <div class="card-head"><div><h2>Near, but crowded: parks and playgrounds against population in Ward 5</h2>
           <p class="card-sub">Published <time datetime="2026-11-05">November 5, 2026</time> · 2 min 9 s · narrated, figures on screen</p></div></div>
-        <video controls preload="metadata" playsinline poster="video/parks-crowding.jpg">
+        <video controls preload="none" playsinline data-poster="video/parks-crowding.jpg">
           <source src="video/parks-crowding.mp4" type="video/mp4">
           Your browser can't play this video. <a href="video/parks-crowding.mp4">Download it (MP4, 7 MB)</a>.
         </video>
@@ -694,7 +761,7 @@
       <section class="card vid-card" id="vid-population" data-cat="Population and growth" data-area="All of Calgary">
         <div class="card-head"><div><h2>How Calgary's population is shared across its communities</h2>
           <p class="card-sub">Published <time datetime="2026-11-05">November 5, 2026</time> · 2 min 21 s · narrated, figures on screen</p></div></div>
-        <video controls preload="metadata" playsinline poster="video/population-shared.jpg">
+        <video controls preload="none" playsinline data-poster="video/population-shared.jpg">
           <source src="video/population-shared.mp4" type="video/mp4">
           Your browser can't play this video. <a href="video/population-shared.mp4">Download it (MP4, 7 MB)</a>.
         </video>
@@ -739,7 +806,7 @@
       <section class="card live-card" id="live-card">
         <div class="card-head"><div><h2>Live connections</h2><p class="card-sub">Each source asked directly now, with no saved copies: one small request each. Test one, or all of them together.</p></div>
           <div class="card-tools"><span class="live-sum" id="live-sum"></span><button class="btn primary" id="live-all"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Test all</span></button></div></div>
-        <div class="table-wrap"><table class="data live-table" id="live-table"><thead><tr><th scope="col">Source</th><th scope="col">Publisher</th><th scope="col">Status</th><th scope="col" class="num">Time</th><th scope="col">Source last updated</th><th scope="col">What came back</th><th scope="col"></th></tr></thead><tbody></tbody></table></div>
+        <div class="table-wrap"><table class="data live-table" id="live-table"><thead><tr><th scope="col">Source</th><th scope="col">Publisher</th><th scope="col">Status</th><th scope="col" class="num">Time</th><th scope="col">Source last updated</th><th scope="col">What came back</th><th scope="col"><span class="sr">Link</span></th></tr></thead><tbody></tbody></table></div>
       </section>
       <div class="filters card">
         <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
@@ -979,14 +1046,14 @@
             <button type="button" class="btn" id="eng-add"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg><span>Add a service</span></button>
             <span class="field-hint" id="eng-count"></span>
           </div>
-          <p class="field-hint">Keys are saved only on this computer. A free key gives quick answers at no cost, but long reports are most reliable with the Anthropic service, so keep a paid service first if reports matter and a free one after it as the backup.</p>
+          <p class="field-hint">Keys are saved only on this computer. A no-cost key gives quick answers, but long reports are most reliable with the Anthropic service, so keep a paid service first if reports matter and a no-cost one after it as the backup.</p>
         </section>
         <section class="card">
           <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><div><h2>Google Maps key</h2><p class="card-sub">Optional: shows Google Maps on the dashboard</p></div></div><span class="badge" id="gkey-badge">Not saved</span></div>
-          <p class="field-hint" id="gkey-status">No key saved. The maps use OpenStreetMap, which is free.</p>
+          <p class="field-hint" id="gkey-status">No key saved. The maps use OpenStreetMap, which needs no key.</p>
           <label class="field-label" for="google-key">Paste a Google Maps key</label>
           <input type="password" id="google-key" autocomplete="off" placeholder="AIza...">
-          <p class="field-hint">The key needs the Maps JavaScript API turned on in Google Cloud. Google may charge the key's owner for map use beyond its free allowance. Remove a personal key before giving this computer or app to someone else.</p>
+          <p class="field-hint">The key needs the Maps JavaScript API turned on in Google Cloud. Google may charge the key's owner for map use beyond its no-charge allowance. Remove a personal key before giving this computer to someone else.</p>
           <div class="row-actions"><button type="button" class="btn" id="remove-gkey">Remove Google key</button></div>
         </section>
         <section class="card">
@@ -1060,26 +1127,6 @@
 <script src="vendor/chart.umd.min.js"></script>
 <script src="vendor/marked.min.js"></script>
 <script src="vendor/purify.min.js"></script>
-<script src="web.js"></script><script src="web-ai.js"></script><script src="app.js"></script>
-<script src="extra.js"></script>
-<script src="forecast.js"></script>
-<script src="compare.js"></script>
-<script src="budget.js"></script>
-<script src="elections.js"></script>
-<script src="constituency.js"></script>
-<script src="fedbudget.js"></script>
-<script src="safety.js"></script>
-<script src="infra.js"></script>
-<script src="help.js"></script>
-<script src="accountability.js"></script>
-<script src="capmkt.js"></script>
-<script src="invest.js"></script>
-<script src="videos.js"></script>
-<script src="track311.js"></script>
-<script src="citynews.js"></script>
-<script src="elanalytics.js"></script>
-<script src="audit.js"></script>
-<script src="buses.js"></script>
-<script src="web-ui.js"></script>
+<script src="site.962228f62c.js"></script>
 </body>
 </html>
