@@ -1483,13 +1483,29 @@ class Agent:
         self._report_pdf = None
         self._draft = {}                           # the report being written in parts (report_add)
         self.last_cost = {}
+        self._checkpoint = None                    # a report that stopped part-way: what it had done, so the same request carries on
+        self._strip_all = False                    # send no earlier thinking (set when the service refuses it)
         self.tools = TOOLS                        # the auditor gives its agents their own set
         self.system_text = None                   # ... and its own instructions
         self.handlers = {}                        # extra tools: name -> function(args) -> result
         self.last_report = None                   # the entry of the last report made (with its spec file)
 
     def reset(self):
-        self.history = []
+        self.history = []                          # (a stopped report's checkpoint is kept so the same request can carry on)
+
+    def _save_checkpoint(self, question, start):
+        """Keep what a stopped request had done (the data it read, the sections written) so asking again does not start over."""
+        msgs = self.history[start + 1:]
+        if len(msgs) < 4:
+            return
+        if msgs[-1]['role'] == 'assistant':                      # a tool call that never got its answer
+            ids = [b.get('id') for b in msgs[-1]['content'] if isinstance(b, dict) and b.get('type') == 'tool_use']
+            if ids:
+                msgs.append({'role': 'user', 'content': [{'type': 'tool_result', 'tool_use_id': i, 'is_error': True,
+                                                          'content': 'Error: interrupted before this finished; call it again if it is still needed.'} for i in ids]})
+            else:
+                return
+        self._checkpoint = {'question': question, 'messages': msgs, 'draft': dict(self._draft), 'provenance': list(self.provenance)}
 
     # ----- tools ---------------------------------------------------------------------------------------------
     def run_tool(self, name, args):
@@ -1803,13 +1819,26 @@ class Agent:
             e['audit'] = models['audit'] if e['provider'] == 'claude' else e['smart']
         start = len(self.history)
         self.provenance = []
-        self.history.append({'role': 'user', 'content': question})
         self._report_pdf = None
-        self._draft = {}
+        self._strip_all = False
+        cp, self._checkpoint = self._checkpoint, None
+        if cp and cp['question'] == question and cp['messages']:      # the same request again: carry on where it stopped
+            self.history.append({'role': 'user', 'content': question})
+            self.history.extend(cp['messages'])
+            self._draft = cp['draft']
+            self.provenance = cp['provenance']
+            self.emit({'type': 'step', 'text': f"Carrying on from where it stopped ({len(self._draft.get('sections') or [])} sections already written, "
+                                               f"{len(self.provenance)} data requests kept)"})
+        else:
+            self.history.append({'role': 'user', 'content': question})
+            self._draft = {}
         try:
             res = self._loop(chain, tier, today)
-        except Exception:
+        except Exception as err:
+            self._save_checkpoint(question, start)
             del self.history[start:]          # leave the conversation in a clean state for the next question
+            if self._checkpoint and isinstance(err, AgentError):
+                raise AgentError(str(err) + ' Your work so far is kept: start the same report again and it carries on from where it stopped.') from None
             raise
         if self._report_pdf:
             self._set_report_cost(self._report_pdf, res['tokens'].get('cost_usd'))
@@ -1827,6 +1856,9 @@ class Agent:
             except (engines.EngineError, AgentError) as err:
                 if not isinstance(err, engines.EngineError):
                     err = engines.EngineError('request', str(err))
+                if not self._strip_all and 'signature' in str(err).lower():
+                    self._strip_all = True            # the service refused earlier thinking: send none and try the same service again
+                    continue
                 engines.rest(e, err)
                 skipped.append({'service': engines.label(e), 'model': e[tier], 'why': str(err), 'kind': err.kind})
                 pos += 1
@@ -1940,12 +1972,17 @@ class Agent:
         cur = max([i for i, m in enumerate(hist) if m['role'] == 'user' and isinstance(m['content'], str)] or [0])
         out = []
         for i, m in enumerate(hist):
-            if i < cur and m['role'] == 'assistant' and isinstance(m['content'], list) and any(
+            if (i < cur or self._strip_all) and m['role'] == 'assistant' and isinstance(m['content'], list) and any(
                     b.get('type') in ('thinking', 'redacted_thinking') for b in m['content']):
                 kept = [b for b in m['content'] if b.get('type') not in ('thinking', 'redacted_thinking')]
                 m = {**m, 'content': kept or [{'type': 'text', 'text': '(thought)'}]}
             out.append(m)
-        return self._shrink_old_results(out)
+        shrunk = self._shrink_old_results(out)
+        if shrunk is not out and not self._strip_all:     # the earlier text was shortened, so the service would refuse its thinking
+            shrunk = [({**m, 'content': [b for b in m['content'] if b.get('type') not in ('thinking', 'redacted_thinking')]
+                        or [{'type': 'text', 'text': '(thought)'}]}
+                       if m['role'] == 'assistant' and isinstance(m['content'], list) else m) for m in shrunk]
+        return shrunk
 
     CONTEXT_CHARS = 400000           # about 100,000 tokens: a long report reads dozens of datasets and must keep fitting
 
