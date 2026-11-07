@@ -219,13 +219,16 @@ def from_stream(text):
             kind = err.get('type') or ''
             code = 529 if 'overloaded' in kind else 429 if 'rate_limit' in kind else 500 if 'api_error' in kind else 400
             raise EngineError(classify(code, err.get('message') or kind), f'{kind}: {(err.get("message") or "")[:200]}')
-    for i, raw in partial.items():
+    for i, raw in list(partial.items()):
         try:
             blocks[i]['input'] = json.loads(raw) if raw.strip() else {}
         except ValueError:
-            raise EngineError('request', 'the reply was cut off') from None
+            if msg.get('stop_reason') == 'max_tokens':    # too long to finish: the caller asks for it in smaller parts
+                blocks.pop(i, None)
+                continue
+            raise EngineError('network', 'the reply was cut off (the connection dropped before it finished)') from None
     if not msg:
-        raise EngineError('request', 'the reply was not readable')
+        raise EngineError('network', 'the reply was not readable (the connection dropped)')
     msg['content'] = [blocks[i] for i in sorted(blocks)]
     return msg
 

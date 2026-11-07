@@ -25,6 +25,11 @@ import weather
 
 MODELS = {'fast': 'claude-haiku-5-5', 'smart': 'claude-sonnet-5-5', 'audit': 'claude-opus-5-5'}
 MAX_STEPS = 100                # tool rounds per question (a long report gathers data, then is written in parts)
+GATHER_LIMIT = 45              # data requests per question: then the answer is written from what was gathered
+GATHER_TOOLS = frozenset({'search_datasets', 'describe_dataset', 'query_dataset', 'download_dataset', 'get_dashboard', 'get_weather',
+                          'get_weather_forecast', 'police_crime', 'crime_severity_index', 'read_source', 'get_method', 'get_code',
+                          'query_saved_file', 'list_sources'})
+TRANSIENT_TRIES = 3            # a dropped connection or a busy service is tried again before giving up
 MAX_OUTPUT = 16000
 # Published prices, US dollars per million tokens (input, output): for the cost shown with each answer. An estimate:
 # check the current price list. Cache reads cost a tenth of input, cache writes a quarter more than input.
@@ -198,7 +203,10 @@ three sections at a time (each with its visuals and tables) as many times as the
 saved with report_add is included. Before the first part, decide the chapter plan (headings, the argument that links them, \
 the terms and numbers every chapter must use the same way) and keep to it. Each report_add result returns story_so_far and \
 the ending of the last section: read them, open each new chapter by picking up where the last one ended, and never repeat or \
-contradict an earlier chapter. Work as a researcher: when the data is gathered and computed, and before any chapter, write \
+contradict an earlier chapter. Gather with a plan: decide first which sources answer which part, query each once and \
+group the data in the query (counts by community, by year) instead of fetching rows; never repeat a request whose answer you \
+already have, and when no dataset holds something, record that as a limitation and move on (there is a limit of 45 data \
+requests per question). Work as a researcher: when the data is gathered and computed, and before any chapter, write \
 the research notes (research_notes in report_add): every finding with its figures, what explains what, how the findings \
 connect, the main argument and any model, what is uncertain, and which chapter each finding belongs to. The notes come back \
 in full with every part, so each chapter is written knowing the whole picture. Send the chapter plan (plan) in the first report_add, and every figure you will rely on \
@@ -1503,6 +1511,7 @@ class Agent:
         self.provenance = []                      # every data request for the current question (report appendix)
         self._report_pdf = None
         self._draft = {}                           # the report being written in parts (report_add)
+        self._gathered, self._seen_calls = 0, {}   # data requests made for this question, and each exact request seen
         self.last_cost = {}
         self._checkpoint = None                    # a report that stopped part-way: what it had done, so the same request carries on
         self._strip_all = False                    # send no earlier thinking (set when the service refuses it)
@@ -1526,7 +1535,8 @@ class Agent:
                                                           'content': 'Error: interrupted before this finished; call it again if it is still needed.'} for i in ids]})
             else:
                 return
-        self._checkpoint = {'question': question, 'messages': msgs, 'draft': dict(self._draft), 'provenance': list(self.provenance)}
+        self._checkpoint = {'question': question, 'messages': msgs, 'draft': dict(self._draft), 'provenance': list(self.provenance),
+                            'gathered': getattr(self, '_gathered', 0), 'seen': dict(getattr(self, '_seen_calls', {}))}
 
     # ----- tools ---------------------------------------------------------------------------------------------
     def run_tool(self, name, args):
@@ -1920,12 +1930,14 @@ class Agent:
         self.provenance = []
         self._report_pdf = None
         self._strip_all = False
+        self._gathered, self._seen_calls = 0, {}
         cp, self._checkpoint = self._checkpoint, None
         if cp and cp['question'] == question and cp['messages']:      # the same request again: carry on where it stopped
             self.history.append({'role': 'user', 'content': question})
             self.history.extend(cp['messages'])
             self._draft = cp['draft']
             self.provenance = cp['provenance']
+            self._gathered, self._seen_calls = cp.get('gathered', 0), cp.get('seen', {})
             self.emit({'type': 'step', 'text': f"Carrying on from where it stopped ({len(self._draft.get('sections') or [])} sections already written, "
                                                f"{len(self.provenance)} data requests kept)"})
         else:
@@ -1949,15 +1961,24 @@ class Agent:
         while True:
             e = chain[pos]
             try:
-                return engines.call(e, e[tier], system, self.tools, self._trimmed_history(), MAX_OUTPUT,
-                                    anthropic_post=post_messages, chat_post=post_chat,
-                                    cache_mark=with_cache_mark), pos
+                r = engines.call(e, e[tier], system, self.tools, self._trimmed_history(), MAX_OUTPUT,
+                                 anthropic_post=post_messages, chat_post=post_chat, cache_mark=with_cache_mark)
+                self._tries = 0
+                return r, pos
             except (engines.EngineError, AgentError) as err:
                 if not isinstance(err, engines.EngineError):
                     err = engines.EngineError('request', str(err))
                 if not self._strip_all and 'signature' in str(err).lower():
                     self._strip_all = True            # the service refused earlier thinking: send none and try the same service again
                     continue
+                transient = err.kind in ('network', 'busy') or re.search(r'cut off|not readable|connection', str(err), re.I)
+                tries = getattr(self, '_tries', 0)
+                if transient and tries + 1 < TRANSIENT_TRIES:
+                    self._tries = tries + 1             # a dropped phone connection or a busy moment: the same request again
+                    self.emit({'type': 'step', 'text': 'The connection to the AI service dropped; trying that step again'})
+                    time.sleep(2 * self._tries)
+                    continue
+                self._tries = 0
                 engines.rest(e, err)
                 skipped.append({'service': engines.label(e), 'model': e[tier], 'why': str(err), 'kind': err.kind})
                 pos += 1
@@ -2042,6 +2063,10 @@ class Agent:
                 if block.get('type') != 'tool_use':
                     continue
                 name, args = block['name'], block.get('input') or {}
+                guard = self._gather_guard(name, args)
+                if guard:
+                    results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': guard, 'is_error': True})
+                    continue
                 self.emit({'type': 'step', 'text': STEP_TEXT.get(name, lambda a: name)(args)})
                 try:
                     result = self.run_tool(name, args)
@@ -2055,12 +2080,33 @@ class Agent:
                         out = json.dumps(_fit(result, cap), default=str)
                         if len(out) > cap:
                             out = out[:cap] + '... [cut: ask for fewer rows or group the data]'
+                    if name in GATHER_TOOLS and self._gathered in (GATHER_LIMIT - 10, GATHER_LIMIT - 3):
+                        out += (f' [Note: {self._gathered} of {GATHER_LIMIT} data requests used for this question. Finish '
+                                'gathering soon: then write the notes and the answer from what you have.]')
                     results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': out})
                 except Exception as e_:               # noqa: BLE001 - any tool failure goes back to the model to fix
                     results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': f'Error: {e_}',
                                     'is_error': True})
             self.history.append({'role': 'user', 'content': results})
         return {'text': 'I stopped after many steps without a final answer. Try a narrower question.', **done}
+
+    def _gather_guard(self, name, args):
+        """Stop the loop where a long report keeps fetching: the same exact request is not run a third time, and after
+        GATHER_LIMIT data requests the answer is written from what was gathered. Returns the reason, or None to go ahead."""
+        if name not in GATHER_TOOLS:
+            return None
+        key = name + json.dumps(args, sort_keys=True, default=str)
+        n = self._seen_calls.get(key, 0)
+        if n >= 2:
+            return ('Not run: this exact request was already made twice for this question. Use what it returned (and your key '
+                    'figures and notes); if that data does not hold what you need, say so and move on.')
+        if self._gathered >= GATHER_LIMIT:
+            return (f'Not run: data gathering is closed for this question ({GATHER_LIMIT} data requests made). Work with what you '
+                    'have: write the research notes, then the answer or report; name any data you could not get as a limitation.')
+        self._seen_calls[key] = n + 1
+        self._gathered += 1
+        self.emit({'type': 'gathered', 'n': self._gathered, 'limit': GATHER_LIMIT})
+        return None
 
     def _trimmed_history(self, keep_turns=8):
         """Keep the most recent questions so long chats stay affordable; never split a tool exchange."""
@@ -2110,7 +2156,7 @@ class Agent:
             blocks = []
             for b in msgs[i]['content']:
                 if b.get('type') == 'tool_result' and b.get('tool_use_id') not in keep and isinstance(b.get('content'), str) and len(b['content']) > 1500:
-                    b = {**b, 'content': b['content'][:1200] + ' ... [shortened: this result was already used; call the tool again for it]'}
+                    b = {**b, 'content': b['content'][:1200] + ' ... [shortened to save space: this result was already used. Its figures belong in your key figures and notes; request it again only if a figure you need is missing]'}
                 blocks.append(b)
             msgs[i] = {**msgs[i], 'content': blocks}
             if size(msgs) <= self.CONTEXT_CHARS:
