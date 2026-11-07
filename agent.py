@@ -198,11 +198,15 @@ three sections at a time (each with its visuals and tables) as many times as the
 saved with report_add is included. Before the first part, decide the chapter plan (headings, the argument that links them, \
 the terms and numbers every chapter must use the same way) and keep to it. Each report_add result returns story_so_far and \
 the ending of the last section: read them, open each new chapter by picking up where the last one ended, and never repeat or \
-contradict an earlier chapter. Send the chapter plan (plan) in the first report_add, and every figure you will rely on \
+contradict an earlier chapter. Work as a researcher: when the data is gathered and computed, and before any chapter, write \
+the research notes (research_notes in report_add): every finding with its figures, what explains what, how the findings \
+connect, the main argument and any model, what is uncertain, and which chapter each finding belongs to. The notes come back \
+in full with every part, so each chapter is written knowing the whole picture. Send the chapter plan (plan) in the first report_add, and every figure you will rely on \
 (key_figures, with unit, period and source) as soon as it is worked out: both are kept and returned with every call, so the \
 same numbers are used throughout even after older data has been put away. Every chapter ends by saying what it means for the \
 next one. When all chapters are written, write the conclusion (it says what each chapter showed, how they connect and what they \
-add up to), then the key findings from the whole report. If a call is cut off or fails, add the part again in a smaller piece.
+add up to), then the key findings from the whole report. Before the report is made you will be asked to review it once: \
+rewrite with report_revise any chapter, above all the opening ones, that no longer fits the story the report ended up telling. If a call is cut off or fails, add the part again in a smaller piece.
 6. In the chat, after make_report, give the three most important findings in a few lines and say the PDF is in Files.
 How a report reads (it is shared outside the office, so it must stand on its own):
 - Plain language for a general reader: short sentences (under 20 words), everyday words, one idea per sentence. Say \
@@ -747,7 +751,16 @@ TOOLS.insert(TOOLS.index(_MR), {
                    'title, subtitle, question and file_name are set. Returns the headings saved so far.',
     'input_schema': {'type': 'object', 'properties': {**{k: v for k, v in _MR['input_schema']['properties'].items()},
         'plan': {'type': 'array', 'items': {'type': 'string'}, 'description': 'The chapter plan, set in the first call: one line per chapter (heading, what it shows, how it leads to the next). Kept and returned with every call.'},
-        'key_figures': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Figures the report relies on, each with its unit, period and source, added as soon as they are worked out. Kept and returned with every call so every chapter and the conclusion use the same numbers.'}}}})
+        'key_figures': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Figures the report relies on, each with its unit, period and source, added as soon as they are worked out. Kept and returned with every call so every chapter and the conclusion use the same numbers.'},
+        'research_notes': {'type': 'string', 'description': 'The analysis written before any chapter, as a researcher writes notes: every finding with its figures, what explains what, how the findings connect, the main argument and any model or method, what is uncertain, and where each finding goes in the plan. Required before the first section; can be added to later. Kept and returned in full with every call.'}}}})
+TOOLS.insert(TOOLS.index(_MR), {
+    'name': 'report_revise',
+    'description': 'Rewrite, remove or insert a chapter of the report being written, by its number (1 = first chapter). Use it in the '
+                   'review before the report is made, so the opening chapters fit the story the later ones told.',
+    'input_schema': {'type': 'object', 'properties': {
+        'number': {'type': 'integer', 'description': 'The chapter number, as listed in story_so_far'},
+        'action': {'type': 'string', 'enum': ['replace', 'remove', 'insert_before'], 'description': 'replace (default) rewrites the chapter; insert_before adds a new chapter before it'},
+        'section': _MR['input_schema']['properties']['sections']['items']}, 'required': ['number']}})
 TOOLS[-1]['cache_control'] = {'type': 'ephemeral'}      # cache system prompt + tools between calls
 
 STEP_TEXT = {
@@ -771,7 +784,8 @@ STEP_TEXT = {
     'show_table': lambda a: 'Building a table',
     'show_map': lambda a: 'Placing points on a map',
     'calculate': lambda a: f"Working out {len(a.get('calculations') or [])} figure{'s' if len(a.get('calculations') or []) != 1 else ''}",
-    'report_add': lambda a: 'Writing the report, part by part' + (f" ({', '.join(str(x.get('heading', ''))[:40] for x in (a.get('sections') or [])[:2])})" if a.get('sections') else ''),
+    'report_revise': lambda a: f"Revising chapter {a.get('number', '')} to fit the whole report",
+    'report_add': lambda a: ('Writing the research notes' if a.get('research_notes') and not a.get('sections') else 'Writing the report, part by part') + (f" ({', '.join(str(x.get('heading', ''))[:40] for x in (a.get('sections') or [])[:2])})" if a.get('sections') else ''),
     'make_report': lambda a: f"Writing the report “{a.get('title', '')}”: PDF, interactive version and Excel workbook",
 }
 
@@ -1638,12 +1652,16 @@ class Agent:
             return report.calculate(args.get('calculations'))
         if name == 'report_add':
             return self._report_add(args)
+        if name == 'report_revise':
+            return self._report_revise(args)
         if name == 'make_report':
             args = self._merge_draft(args)
+            self._draft = dict(args)          # kept, so a make_report sent back for its conclusion or review needs only what changes
             miss = [k for k in ('summary', 'sections', 'data_sources') if not args.get(k)]
             if miss:
                 raise cd.DataError('The report is not complete: add ' + ', '.join(miss) + ' with report_add (or in this call), then call make_report again.')
             self._check_whole(args)
+            self._review(args)
             d = self.dashboard_provider() or {}
             pop = d.get('population') or {}
             meta = {'councillor': (d.get('ward') or {}).get('councillor') if (d.get('scope') or {}).get('kind') != 'city' else None,
@@ -1695,7 +1713,14 @@ class Agent:
     def _report_add(self, args):
         """Keep one more part of the report being written. The report is made by make_report, however many parts there are."""
         dr = self._draft
-        for k, v in (args or {}).items():
+        args = dict(args or {})
+        if args.get('research_notes'):
+            dr['research_notes'] = (str(dr.get('research_notes') or '') + '\n\n' + str(args.pop('research_notes'))).strip()
+        if args.get('sections') and not dr.get('research_notes'):
+            raise cd.DataError('Write the research notes first (research_notes in report_add, no sections yet): every finding with its '
+                               'figures, what explains what, how the findings connect, the main argument and any model, what is '
+                               'uncertain, and which chapter each finding belongs to. Then write the chapters from them.')
+        for k, v in args.items():
             if k in self.LIST_PARTS:
                 dr.setdefault(k, []).extend(v if isinstance(v, list) else [v])
             elif v:
@@ -1703,9 +1728,9 @@ class Agent:
         secs = dr.get('sections') or []
         words = sum(len(str(x.get('text') or '').split()) for x in secs)
         left = [p for p in dr.get('plan') or [] if not any(self._words(str(x.get('heading'))) & self._words(p) for x in secs)]
-        return {'saved': True, 'plan': dr.get('plan') or 'No chapter plan saved yet: send plan in this or the next report_add.',
+        return {'saved': True, 'research_notes': str(dr.get('research_notes') or '')[:16000], 'plan': dr.get('plan') or 'No chapter plan saved yet: send plan in this or the next report_add.',
                 'chapters_still_to_write': left, 'key_figures': dr.get('key_figures') or [],
-                'how_to_continue': 'Open the next chapter from the ending below and from the plan; use the key figures exactly as listed. '
+                'how_to_continue': 'Write the next chapter from the research notes and the plan, opening from the ending below; use the key figures exactly as listed. '
                                    'When every chapter is written, write the conclusion (it must draw on every chapter) and then the summary.',
                 'story_so_far': [{'heading': str(x.get('heading'))[:70], 'gist': self._gist(x.get('text'))} for x in secs],
                 'last_section_ending': str((secs[-1].get('text') if secs else '') or '')[-700:],
@@ -1743,12 +1768,44 @@ class Agent:
                                + '. Rewrite the conclusion so it ties every chapter together (name each one and what it showed), then '
                                'call make_report again. Chapters:\n' + '\n'.join(story))
 
+    def _report_revise(self, args):
+        secs = self._draft.setdefault('sections', [])
+        n, act, sec = int(args.get('number') or 0), args.get('action') or 'replace', args.get('section')
+        if not 1 <= n <= len(secs) + (act == 'insert_before'):
+            raise cd.DataError(f'There is no chapter {n}: the report has {len(secs)}.')
+        if act == 'remove':
+            secs.pop(n - 1)
+        elif not isinstance(sec, dict) or not sec.get('heading'):
+            raise cd.DataError('Send the chapter as section (heading, text and its visuals).')
+        elif act == 'insert_before':
+            secs.insert(n - 1, sec)
+        else:
+            secs[n - 1] = sec
+        return {'saved': True, 'chapters': [f"{i}. {str(x.get('heading'))[:70]}" for i, x in enumerate(secs, 1)]}
+
+    def _review(self, spec):
+        """Once, before a long report is made: read the whole thing as a researcher does at the end, and revise any chapter
+        (above all the opening ones) that no longer fits the story the report ended up telling."""
+        secs = [x for x in spec.get('sections') or [] if isinstance(x, dict)]
+        if len(secs) < 3 or self._draft.get('_reviewed'):
+            return
+        self._draft['_reviewed'] = True
+        story = [f"{i}. {str(x.get('heading'))[:80]}: {self._gist(x.get('text'), 220)}" for i, x in enumerate(secs, 1)]
+        raise cd.DataError('Not made yet: one review first. Read the whole report below with the conclusion and the research notes. '
+                           'Does every chapter fit the story the report ends up telling, in the same terms and figures, and does each '
+                           'one lead to the next? Rewrite any chapter that does not (above all the opening ones and the introduction) '
+                           'with report_revise by its number, and update the summary if needed. Then call make_report again with '
+                           'nothing new to send if all is well.\nConclusion: ' + self._gist(spec.get('conclusion'), 600)
+                           + '\nChapters:\n' + '\n'.join(story))
+
     def _merge_draft(self, args):
         """make_report's own arguments after the parts already saved: lists go after the saved ones, single values win."""
         out = dict(self._draft)
         for k, v in (args or {}).items():
             if k in self.LIST_PARTS:
-                out[k] = list(out.get(k) or []) + (v if isinstance(v, list) else [v])
+                seen = {json.dumps(x, sort_keys=True, default=str) for x in out.get(k) or []}
+                out[k] = list(out.get(k) or []) + [x for x in (v if isinstance(v, list) else [v])
+                                                   if json.dumps(x, sort_keys=True, default=str) not in seen]   # a resend adds nothing twice
             elif v:
                 out[k] = v
         return out
@@ -2048,7 +2105,7 @@ class Agent:
                 if size(msgs) <= self.CONTEXT_CHARS:
                     return msgs
         keep = {b.get('id') for m in msgs if m['role'] == 'assistant' and isinstance(m['content'], list)
-                for b in m['content'] if b.get('type') == 'tool_use' and b.get('name') in ('calculate', 'report_add')}
+                for b in m['content'] if b.get('type') == 'tool_use' and b.get('name') == 'calculate'}
         for i in idx[:-4]:
             blocks = []
             for b in msgs[i]['content']:
