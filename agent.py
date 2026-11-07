@@ -195,7 +195,10 @@ with dozens of tables and charts: never shorten, summarise or drop sections to m
 long. One tool call cannot hold a long report, so write it in parts: gather and compute first, then call report_add two or \
 three sections at a time (each with its visuals and tables) as many times as the report needs, and finish with make_report \
 (title, and any summary, method, data_sources, limitations, recommendations and action_plan not yet added). Everything \
-saved with report_add is included. If a call is cut off or fails, add the part again in a smaller piece.
+saved with report_add is included. Before the first part, decide the chapter plan (headings, the argument that links them, \
+the terms and numbers every chapter must use the same way) and keep to it. Each report_add result returns story_so_far and \
+the ending of the last section: read them, open each new chapter by picking up where the last one ended, and never repeat or \
+contradict an earlier chapter. If a call is cut off or fails, add the part again in a smaller piece.
 6. In the chat, after make_report, give the three most important findings in a few lines and say the PDF is in Files.
 How a report reads (it is shared outside the office, so it must stand on its own):
 - Plain language for a general reader: short sentences (under 20 words), everyday words, one idea per sentence. Say \
@@ -1659,6 +1662,12 @@ class Agent:
 
     LIST_PARTS = ('summary', 'sections', 'method', 'data_sources', 'limitations', 'recommendations', 'action_plan')
 
+    @staticmethod
+    def _gist(text, n=260):
+        """The opening and the close of a section: enough for the next chapter to pick up the thread."""
+        t = ' '.join(str(text or '').split())
+        return t if len(t) <= 2 * n else t[:n] + ' ... ' + t[-n:]
+
     def _report_add(self, args):
         """Keep one more part of the report being written. The report is made by make_report, however many parts there are."""
         dr = self._draft
@@ -1669,7 +1678,9 @@ class Agent:
                 dr[k] = v
         secs = dr.get('sections') or []
         words = sum(len(str(x.get('text') or '').split()) for x in secs)
-        return {'saved': True, 'sections_so_far': len(secs), 'words_so_far': words, 'headings': [str(x.get('heading'))[:70] for x in secs],
+        return {'saved': True, 'story_so_far': [{'heading': str(x.get('heading'))[:70], 'gist': self._gist(x.get('text'))} for x in secs],
+                'last_section_ending': str((secs[-1].get('text') if secs else '') or '')[-700:],
+                'sections_so_far': len(secs), 'words_so_far': words, 'headings': [str(x.get('heading'))[:70] for x in secs],
                 'visuals_so_far': sum(len(x.get('visuals') or []) for x in secs),
                 'still_needed_for_make_report': [k for k in ('title', 'summary', 'sections', 'data_sources') if not dr.get(k)],
                 'next': 'Add more sections with report_add, or finish with make_report (it includes everything saved).'}
@@ -1952,7 +1963,7 @@ class Agent:
             if m['role'] == 'assistant' and isinstance(m['content'], list) and any(
                     b.get('type') == 'tool_use' and b.get('name') == 'report_add' for b in m['content']):
                 msgs[i] = {**m, 'content': [
-                    {**b, 'input': {'sections': [{'heading': str(x.get('heading', ''))[:70], 'text': '(saved in the report draft)'}
+                    {**b, 'input': {'sections': [{'heading': str(x.get('heading', ''))[:70], 'text': self._gist(x.get('text'))}
                                                  for x in (b.get('input') or {}).get('sections') or []]}}
                     if b.get('type') == 'tool_use' and b.get('name') == 'report_add' else b for b in m['content']]}
                 if size(msgs) <= self.CONTEXT_CHARS:
