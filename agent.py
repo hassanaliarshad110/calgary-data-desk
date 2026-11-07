@@ -24,13 +24,16 @@ import report
 import weather
 
 MODELS = {'fast': 'claude-haiku-5-5', 'smart': 'claude-sonnet-5-5', 'audit': 'claude-opus-5-5'}
-MAX_STEPS = 100                # tool rounds per question (a long report gathers data, then is written in parts)
-GATHER_LIMIT = 45              # data requests per question: then the answer is written from what was gathered
+MAX_STEPS = 400                # a ceiling against a runaway loop (hours of work), not a working limit: a long report takes many rounds
 GATHER_TOOLS = frozenset({'search_datasets', 'describe_dataset', 'query_dataset', 'download_dataset', 'get_dashboard', 'get_weather',
                           'get_weather_forecast', 'police_crime', 'crime_severity_index', 'read_source', 'get_method', 'get_code',
-                          'query_saved_file', 'list_sources'})
+                          'query_saved_file', 'list_sources'})      # data requests: the same one is never sent to a source twice
 TRANSIENT_TRIES = 3            # a dropped connection or a busy service is tried again before giving up
-MAX_OUTPUT = 16000
+MAX_OUTPUT = 32000             # tokens per reply (the model's thinking counts too); a reply that runs over is salvaged and continued
+RECENT_FULL = 10               # steps kept word for word when the conversation is condensed; older ones are kept in brief
+PREFIX_CHARS = 150000          # how much of the earlier questions of a chat is sent with a new one
+CONTEXT_CHARS = {'claude': 700000, 'other': 300000}   # characters of one question's conversation before it is condensed
+BIND_BETA = 'thinking-binding-controls-2026-08-01'    # the service's own setting for dropping thinking it refuses
 # Published prices, US dollars per million tokens (input, output): for the cost shown with each answer. An estimate:
 # check the current price list. Cache reads cost a tenth of input, cache writes a quarter more than input.
 PRICES = {'claude-sonnet-5-5': (2.00, 10.00), 'claude-haiku-5-5': (0.10, 0.50), 'claude-opus-5-5': (5.00, 25.00),
@@ -195,26 +198,27 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
    something the office could not have known without this analysis. Fewer, sharper recommendations are better than a
    long list; if the data supports none, say so in one line instead of filling the section. Put tables the office may want in Excel in the sections; they are saved as CSV.
    An appendix listing every query you ran is added for you, so anyone can check the figures.
-   LENGTH: a report is as long as its subject needs. A full election analysis, business plan or study can run to 100 pages \
-with dozens of tables and charts: never shorten, summarise or drop sections to make it fit, and never refuse because it is \
-long. One tool call cannot hold a long report, so write it in parts: gather and compute first, then call report_add two or \
-three sections at a time (each with its visuals and tables) as many times as the report needs, and finish with make_report \
-(title, and any summary, method, data_sources, limitations, recommendations and action_plan not yet added). Everything \
-saved with report_add is included. Before the first part, decide the chapter plan (headings, the argument that links them, \
-the terms and numbers every chapter must use the same way) and keep to it. Each report_add result returns story_so_far and \
-the ending of the last section: read them, open each new chapter by picking up where the last one ended, and never repeat or \
-contradict an earlier chapter. Gather with a plan: decide first which sources answer which part, query each once and \
-group the data in the query (counts by community, by year) instead of fetching rows; never repeat a request whose answer you \
-already have, and when no dataset holds something, record that as a limitation and move on (there is a limit of 45 data \
-requests per question). Work as a researcher: when the data is gathered and computed, and before any chapter, write \
-the research notes (research_notes in report_add): every finding with its figures, what explains what, how the findings \
-connect, the main argument and any model, what is uncertain, and which chapter each finding belongs to. The notes come back \
-in full with every part, so each chapter is written knowing the whole picture. Send the chapter plan (plan) in the first report_add, and every figure you will rely on \
-(key_figures, with unit, period and source) as soon as it is worked out: both are kept and returned with every call, so the \
-same numbers are used throughout even after older data has been put away. Every chapter ends by saying what it means for the \
-next one. When all chapters are written, write the conclusion (it says what each chapter showed, how they connect and what they \
-add up to), then the key findings from the whole report. Before the report is made you will be asked to review it once: \
-rewrite with report_revise any chapter, above all the opening ones, that no longer fits the story the report ended up telling. If a call is cut off or fails, add the part again in a smaller piece.
+   LENGTH AND WORKING METHOD: a report is as long as its subject needs. A full election analysis, business plan or study \
+can run to 100 pages with dozens of tables and charts: never shorten, summarise or drop sections to make it fit, and never \
+refuse because it is long. Nothing limits how much data you gather or how many parts you write; work until it is complete. \
+Work as a researcher, in this order.
+   a. Gather with a plan: decide which sources answer which part, then query each once, grouped in the query (by community, \
+by year) rather than row by row. Every result carries its step number. The same request is never sent to a source twice (the \
+earlier result comes back). When the conversation grows long it is condensed, and every full result stays available with \
+recall_result by step number, so nothing you gathered is lost; still, save each figure you will rely on in key_figures as \
+soon as it is worked out.
+   b. Notes before chapters: when the data is gathered and computed, write the research notes (research_notes in report_add, \
+in two or three calls if they are long): every finding with its figures, what explains what, how the findings connect, the \
+main argument and any model, what is uncertain, and which chapter each finding belongs to. Send the chapter plan (plan) with \
+them. Notes, plan and key figures are kept with the draft and come back in full with every part you add.
+   c. Chapters in parts: report_add two or three sections at a time (each with its visuals and tables), as many calls as the \
+report needs; a long chapter can be a call of its own. Each result returns the notes, the plan, the chapters still to write, \
+story_so_far and the ending of the last section: open each chapter from where the last one ended, say at its end what it \
+means for the next, and never repeat or contradict an earlier chapter. A reply that runs over the length limit is not lost: \
+the complete parts in it are saved and you are told exactly what to send again.
+   d. Finish: the conclusion (what each chapter showed, how the chapters connect, what they add up to), then the key findings \
+for the whole report, then make_report with the title and whatever is not yet added. Before it is made you review it once and \
+may rewrite any chapter with report_revise so the opening fits the story the report ended up telling.
 6. In the chat, after make_report, give the three most important findings in a few lines and say the PDF is in Files.
 How a report reads (it is shared outside the office, so it must stand on its own):
 - Plain language for a general reader: short sentences (under 20 words), everyday words, one idea per sentence. Say \
@@ -751,12 +755,18 @@ _MR = next(t for t in TOOLS if t['name'] == 'make_report')
 _MR['description'] += (' Finish with this call. Anything already saved with report_add is included, so a report of any length '
                        'is made by report_add (a few sections at a time) and then make_report with the title and what is left.')
 TOOLS.insert(TOOLS.index(_MR), {
+    'name': 'recall_result',
+    'description': 'The full result of an earlier step of this question, by its step number (every result is marked [step N]; '
+                   'the condensed conversation lists them). Use it for figures from data you already fetched instead of fetching again.',
+    'input_schema': {'type': 'object', 'properties': {'step': {'type': 'integer'}}, 'required': ['step']}})
+TOOLS.insert(TOOLS.index(_MR), {
     'name': 'report_add',
     'description': 'Add parts to the report being written, without finishing it. A report may be as long as its subject needs (a full '
-                   'election analysis or business plan can run to 100 pages): never shorten it to fit. Write it in parts, a few sections '
-                   '(each with its charts, maps and tables) per call, as many calls as it takes; then call make_report. Sections are '
-                   'appended in order; summary, method, data_sources, limitations, recommendations and action_plan are appended too; '
-                   'title, subtitle, question and file_name are set. Returns the headings saved so far.',
+                   'election analysis or business plan can run to 100 pages): never shorten it to fit. Write it in parts: research_notes '
+                   'first (in two or three calls if long), then a few sections (each with its charts, maps and tables) per call, as many '
+                   'calls as it takes; then call make_report. Sections are appended in order; summary, method, data_sources, limitations, '
+                   'recommendations, action_plan and key_figures are appended too; title, subtitle, question, plan and file_name are set. '
+                   'Every call returns the notes, plan, key figures and the story so far.',
     'input_schema': {'type': 'object', 'properties': {**{k: v for k, v in _MR['input_schema']['properties'].items()},
         'plan': {'type': 'array', 'items': {'type': 'string'}, 'description': 'The chapter plan, set in the first call: one line per chapter (heading, what it shows, how it leads to the next). Kept and returned with every call.'},
         'key_figures': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Figures the report relies on, each with its unit, period and source, added as soon as they are worked out. Kept and returned with every call so every chapter and the conclusion use the same numbers.'},
@@ -793,6 +803,7 @@ STEP_TEXT = {
     'show_map': lambda a: 'Placing points on a map',
     'calculate': lambda a: f"Working out {len(a.get('calculations') or [])} figure{'s' if len(a.get('calculations') or []) != 1 else ''}",
     'report_revise': lambda a: f"Revising chapter {a.get('number', '')} to fit the whole report",
+    'recall_result': lambda a: f"Re-reading the result of step {a.get('step', '')}",
     'report_add': lambda a: ('Writing the research notes' if a.get('research_notes') and not a.get('sections') else 'Writing the report, part by part') + (f" ({', '.join(str(x.get('heading', ''))[:40] for x in (a.get('sections') or [])[:2])})" if a.get('sections') else ''),
     'make_report': lambda a: f"Writing the report “{a.get('title', '')}”: PDF, interactive version and Excel workbook",
 }
@@ -1511,10 +1522,9 @@ class Agent:
         self.provenance = []                      # every data request for the current question (report appendix)
         self._report_pdf = None
         self._draft = {}                           # the report being written in parts (report_add)
-        self._gathered, self._seen_calls = 0, {}   # data requests made for this question, and each exact request seen
         self.last_cost = {}
         self._checkpoint = None                    # a report that stopped part-way: what it had done, so the same request carries on
-        self._strip_all = False                    # send no earlier thinking (set when the service refuses it)
+        self._fresh()
         self.tools = TOOLS                        # the auditor gives its agents their own set
         self.system_text = None                   # ... and its own instructions
         self.handlers = {}                        # extra tools: name -> function(args) -> result
@@ -1523,20 +1533,45 @@ class Agent:
     def reset(self):
         self.history = []                          # (a stopped report's checkpoint is kept so the same request can carry on)
 
+    def _fresh(self):
+        """The working state of one question."""
+        self._q_start = len(self.history)          # where this question starts in the conversation
+        self._question = ''
+        self._prefix = []                          # the earlier questions as sent with this one (fixed for the whole question)
+        self._results = {}                         # step number -> the full text of that tool result (recall_result, condensing)
+        self._log = []                             # what happened since the conversation was last condensed, in order
+        self._recent = []                          # the steps the condensed conversation carries in full
+        self._ledger = []                          # the condensed conversation's lines for older steps
+        self._ledger_items = []                    # the steps those lines stand for (to shorten the lines again if needed)
+        self._step_no = 0
+        self._cache = {}                           # a data request -> (step, result): the same request is never sent to a source twice
+        self._compactions = 0
+        self._nudged = False
+        self._cut_text = ''                        # a written answer that ran over the length limit, continued in the next reply
+        self._strip_all = False                    # send no earlier thinking (after the service refused it)
+        self._bind_drop = False                    # ask the service to drop thinking it refuses (its own recovery setting)
+        self._budget = None                        # characters of this question's conversation before it is condensed (after
+                                                   # a service found it too long; otherwise CONTEXT_CHARS for the service)
+        self._budget_now = None                    # the budget in force at the last request
+        self._out_cap = None                       # a smaller reply limit, when a service refuses MAX_OUTPUT
+        self._tries = 0
+
     def _save_checkpoint(self, question, start):
         """Keep what a stopped request had done (the data it read, the sections written) so asking again does not start over."""
-        msgs = self.history[start + 1:]
-        if len(msgs) < 4:
-            return
-        if msgs[-1]['role'] == 'assistant':                      # a tool call that never got its answer
+        msgs = list(self.history[start:])
+        if msgs and msgs[-1]['role'] == 'assistant':                 # a tool call that never got its answer
             ids = [b.get('id') for b in msgs[-1]['content'] if isinstance(b, dict) and b.get('type') == 'tool_use']
             if ids:
                 msgs.append({'role': 'user', 'content': [{'type': 'tool_result', 'tool_use_id': i, 'is_error': True,
                                                           'content': 'Error: interrupted before this finished; call it again if it is still needed.'} for i in ids]})
             else:
-                return
+                msgs.pop()
+        if len(msgs) < 3 and not self._draft and not self._results:
+            return
         self._checkpoint = {'question': question, 'messages': msgs, 'draft': dict(self._draft), 'provenance': list(self.provenance),
-                            'gathered': getattr(self, '_gathered', 0), 'seen': dict(getattr(self, '_seen_calls', {}))}
+                            'results': dict(self._results), 'log': list(self._log), 'recent': list(self._recent),
+                            'ledger': list(self._ledger), 'ledger_items': list(self._ledger_items), 'step_no': self._step_no, 'cache': dict(self._cache),
+                            'compactions': self._compactions}
 
     # ----- tools ---------------------------------------------------------------------------------------------
     def run_tool(self, name, args):
@@ -1664,6 +1699,11 @@ class Agent:
             return self._report_add(args)
         if name == 'report_revise':
             return self._report_revise(args)
+        if name == 'recall_result':
+            n = int(args.get('step') or 0)
+            if n not in self._results:
+                raise cd.DataError(f'There is no step {n} with a result in this question (steps so far: 1 to {self._step_no}).')
+            return self._results[n]
         if name == 'make_report':
             args = self._merge_draft(args)
             self._draft = dict(args)          # kept, so a make_report sent back for its conclusion or review needs only what changes
@@ -1690,6 +1730,7 @@ class Agent:
                         pts, note = self._map_points(v['source'])
                         v['points'] = [{'lat': p['lat'], 'lon': p['lon'], 'label': p.get('label')} for p in pts]
                         notes.append(note)
+            args = {k: v for k, v in args.items() if not k.startswith('_')}
             res = report.make(args, self.provenance, self.downloads_dir, meta)
             entry = {'title': args.get('title', ''), 'question': args.get('question', ''), 'pdf': res['path'],
                      'interactive': res['interactive'], 'xlsx': res['xlsx'], 'print': res.get('print'), 'made': _calgary_now().strftime('%Y-%m-%d %H:%M'),
@@ -1727,9 +1768,10 @@ class Agent:
         if args.get('research_notes'):
             dr['research_notes'] = (str(dr.get('research_notes') or '') + '\n\n' + str(args.pop('research_notes'))).strip()
         if args.get('sections') and not dr.get('research_notes'):
-            raise cd.DataError('Write the research notes first (research_notes in report_add, no sections yet): every finding with its '
-                               'figures, what explains what, how the findings connect, the main argument and any model, what is '
-                               'uncertain, and which chapter each finding belongs to. Then write the chapters from them.')
+            raise cd.DataError('Write the research notes first (research_notes in report_add, with no sections in that call; in two '
+                               'or three calls if they are long): every finding with its figures, what explains what, how the findings '
+                               'connect, the main argument and any model, what is uncertain, and which chapter each finding belongs '
+                               'to. Then write the chapters from them.')
         for k, v in args.items():
             if k in self.LIST_PARTS:
                 dr.setdefault(k, []).extend(v if isinstance(v, list) else [v])
@@ -1929,20 +1971,22 @@ class Agent:
         start = len(self.history)
         self.provenance = []
         self._report_pdf = None
-        self._strip_all = False
-        self._gathered, self._seen_calls = 0, {}
         cp, self._checkpoint = self._checkpoint, None
+        self._fresh()
+        self._question = question
         if cp and cp['question'] == question and cp['messages']:      # the same request again: carry on where it stopped
-            self.history.append({'role': 'user', 'content': question})
-            self.history.extend(cp['messages'])
-            self._draft = cp['draft']
-            self.provenance = cp['provenance']
-            self._gathered, self._seen_calls = cp.get('gathered', 0), cp.get('seen', {})
+            # the earlier run's thinking was bound to that run's conversation, so it is left out (the service allows that)
+            self.history.extend(self._without_thinking(cp['messages']))
+            self._draft, self.provenance = cp['draft'], cp['provenance']
+            self._results, self._log, self._recent = cp['results'], cp['log'], cp['recent']
+            self._ledger, self._step_no, self._cache, self._compactions = cp['ledger'], cp['step_no'], cp['cache'], cp['compactions']
+            self._ledger_items = cp.get('ledger_items', [])
             self.emit({'type': 'step', 'text': f"Carrying on from where it stopped ({len(self._draft.get('sections') or [])} sections already written, "
-                                               f"{len(self.provenance)} data requests kept)"})
+                                               f"{self._step_no} steps of work kept)"})
         else:
             self.history.append({'role': 'user', 'content': question})
             self._draft = {}
+        self._prefix = self._reduce_previous(self.history[:start])
         try:
             res = self._loop(chain, tier, today)
         except Exception as err:
@@ -1956,25 +2000,195 @@ class Agent:
             res['report'] = self._report_pdf
         return res
 
+    # ----- what is sent to the service ---------------------------------------------------------------------------
+    # The service checks that nothing before a thinking block has changed since the block was written (its prefix check), so
+    # the conversation sent is append-only within a question: earlier questions are fixed when the question starts, and when
+    # the conversation grows too long it is condensed into one new message (dropping all thinking, which the service allows)
+    # rather than edited in place.
+    @staticmethod
+    def _without_thinking(msgs):
+        out = []
+        for m in msgs:
+            if m['role'] == 'assistant' and isinstance(m['content'], list) and any(
+                    b.get('type') in ('thinking', 'redacted_thinking') for b in m['content']):
+                kept = [b for b in m['content'] if b.get('type') not in ('thinking', 'redacted_thinking')]
+                m = {**m, 'content': kept or [{'type': 'text', 'text': '(thought)'}]}
+            out.append(m)
+        return out
+
+    def _reduce_previous(self, hist, keep_turns=8):
+        """The earlier questions of this chat as they are sent with a new one: the last few, each word for word when short,
+        otherwise just its question and written answer. Fixed for the whole of the new question."""
+        starts = [i for i, m in enumerate(hist) if m['role'] == 'user' and isinstance(m['content'], str)]
+        turns = [hist[a:b] for a, b in zip(starts, starts[1:] + [len(hist)])][-keep_turns:]
+        reduced = []
+        for t in turns:
+            t = self._without_thinking(t)
+            while t and t[-1]['role'] != 'assistant':                      # a turn ends with the assistant's answer
+                t = t[:-1]
+            if not t:
+                continue
+            if len(json.dumps(t, default=str)) > 40000:
+                answer = next(('\n\n'.join(b.get('text', '') for b in m['content'] if b.get('type') == 'text').strip()
+                               for m in reversed(t) if m['role'] == 'assistant' and isinstance(m['content'], list)
+                               and any(b.get('type') == 'text' and b.get('text') for b in m['content'])), '')
+                calls = sum(1 for m in t if m['role'] == 'assistant' and isinstance(m['content'], list)
+                            for b in m['content'] if b.get('type') == 'tool_use')
+                note = f'(worked out with {calls} tool calls, not repeated here)'
+                t = [t[0], {'role': 'assistant', 'content': [{'type': 'text', 'text': (answer + '\n\n' + note).strip()}]}]
+            reduced.append(t)
+        while reduced and sum(len(json.dumps(t, default=str)) for t in reduced) > PREFIX_CHARS:
+            reduced.pop(0)
+        return [m for t in reduced for m in t]
+
+    def _messages_to_send(self):
+        cur = self.history[self._q_start:]
+        if self._strip_all:
+            cur = self._without_thinking(cur)
+        return self._prefix + cur
+
+    def _size(self):
+        return len(json.dumps(self.history[self._q_start:], default=str))
+
+    def _options(self, e):
+        """Extra request fields for Claude: the service's own setting for dropping thinking its prefix check refuses."""
+        if e['provider'] == 'claude' and self._bind_drop:
+            return {'thinking': {'type': 'adaptive', 'block_binding': {'prefix_mismatch_behavior': 'drop_block'}},
+                    '_betas': [BIND_BETA]}
+        return None
+
+    # ----- condensing a long conversation ------------------------------------------------------------------------
+    @staticmethod
+    def _short(text, n):
+        t = str(text or '')
+        return t if len(t) <= n else t[:n] + ' …'
+
+    def _digest(self, x, tight=False):
+        """One line of the condensed conversation for one step (tight: as short as it can be)."""
+        n = 0.3 if tight else 1
+        if 'text' in x:
+            return 'You wrote: ' + self._short(' '.join(str(x['text']).split()), int(1500 * n))
+        if 'note' in x:
+            return 'Note: ' + self._short(' '.join(str(x['note']).split()), int(700 * n))
+        head = f"step {x['step']} · {x['name']} {self._short(json.dumps(x.get('args') or {}, default=str), int(300 * n))}"
+        r = str(x.get('result') or '')
+        if x['name'] == 'report_add':
+            return head + ' → saved to the report draft (see the draft below)'
+        if x['name'] == 'recall_result':
+            return head + ' → the result of that step again'
+        if x.get('error'):
+            return head + ' → ' + self._short(r, int(400 * n))
+        if x['name'] == 'calculate' or len(r) <= 700 * n:
+            return head + ' → ' + r
+        return head + ' → ' + r[:int(600 * n)] + f' … [{len(r):,} characters; the whole result: recall_result step={x["step"]}]'
+
+    def _draft_outline(self):
+        dr = self._draft
+        if not dr:
+            return 'Nothing saved to the report draft yet.'
+        lines = []
+        if dr.get('title'):
+            lines.append('Title: ' + str(dr['title']))
+        if dr.get('research_notes'):
+            lines.append('Research notes:\n' + str(dr['research_notes'])[:40000])
+        if dr.get('plan'):
+            lines.append('Chapter plan:\n' + '\n'.join(f'- {p}' for p in dr['plan']))
+        if dr.get('key_figures'):
+            lines.append('Key figures:\n' + '\n'.join(f'- {k}' for k in dr['key_figures']))
+        secs = dr.get('sections') or []
+        if secs:
+            lines.append('Chapters written:\n' + '\n'.join(f"{i}. {str(x.get('heading'))[:80]}: {self._gist(x.get('text'), 200)}"
+                                                           for i, x in enumerate(secs, 1)))
+        other = [f'{k} ({len(dr[k])} items)' for k in ('summary', 'method', 'data_sources', 'limitations', 'recommendations', 'action_plan') if dr.get(k)]
+        if dr.get('conclusion'):
+            other.append('conclusion')
+        if other:
+            lines.append('Also saved: ' + ', '.join(other))
+        return '\n'.join(lines)
+
+    def _compact(self, why=''):
+        """Condense this question's conversation into one message (the shape the service recommends): the request, every
+        step so far in brief, the last few steps in full, and the report draft. Thinking is dropped with the old messages,
+        which the service allows; every full result stays available with recall_result."""
+        budget = self._budget or self._budget_now or CONTEXT_CHARS['other']
+        items = self._recent + self._log
+        keep, tight = RECENT_FULL, False
+        while True:
+            recent, older = items[len(items) - keep:] if keep else [], items[:len(items) - keep] if keep else items
+            ledger = ([self._digest(x, True) for x in self._ledger_items] if tight else self._ledger) + [self._digest(x, tight) for x in older]
+            full = [(f"step {x['step']} · {x['name']} {json.dumps(x.get('args') or {}, default=str)}\n→ {x.get('result') or ''}"
+                     if 'step' in x else self._digest(x)) for x in recent]
+            text = ('[Condensed conversation: you are part-way through this request. Everything below is your own earlier work, '
+                    'condensed to save space. Carry on from the end; do not start over.]\n\n'
+                    'THE REQUEST\n' + self._question + '\n\n'
+                    f'WORK SO FAR ({self._step_no} steps; the whole result of any step: recall_result with its step number)\n'
+                    + ('\n'.join(ledger) if ledger else '(nothing before the steps below)') + '\n\n'
+                    'THE LAST STEPS IN FULL\n' + ('\n\n'.join(full) if full else '(none: every step is listed above)') + '\n\n'
+                    'THE REPORT DRAFT (kept with the draft; every report_add returns it)\n' + self._draft_outline() + '\n\n'
+                    'NEXT\nContinue from the last step above. Nothing needs to be fetched again: recall_result returns any '
+                    'earlier result in full. Keep saving the figures you rely on in key_figures.')
+            if len(text) <= budget * 0.7 or tight:
+                break
+            if keep:
+                keep = {RECENT_FULL: 4, 4: 1}.get(keep, 0)      # fewer steps in full, then none
+            else:
+                tight = True                                    # then every line as short as it can be
+        self._recent, self._log, self._ledger = recent, [], ledger
+        self._ledger_items += older
+        self.history[self._q_start:] = [{'role': 'user', 'content': text}]
+        self._compactions += 1
+        self._nudged = False
+        self.emit({'type': 'step', 'text': f'Condensing the conversation so far ({self._step_no} steps; every result stays available)'
+                                           + (f': {why}' if why else '')})
+
+    # ----- one request to the service ----------------------------------------------------------------------------
     def _step(self, chain, pos, tier, system, skipped):
         """One request, to the first service in the chain (from pos) that answers. Returns (reply, pos)."""
+        squeezes = 0
         while True:
             e = chain[pos]
+            budget = self._budget or CONTEXT_CHARS['claude' if e['provider'] == 'claude' else 'other']
+            self._budget_now = budget
+            if self._size() > budget:
+                self._compact()
             try:
-                r = engines.call(e, e[tier], system, self.tools, self._trimmed_history(), MAX_OUTPUT,
-                                 anthropic_post=post_messages, chat_post=post_chat, cache_mark=with_cache_mark)
+                r = engines.call(e, e[tier], system, self.tools, self._messages_to_send(), self._out_cap or MAX_OUTPUT,
+                                 anthropic_post=post_messages, chat_post=post_chat, cache_mark=with_cache_mark,
+                                 options=self._options(e))
                 self._tries = 0
                 return r, pos
             except (engines.EngineError, AgentError) as err:
                 if not isinstance(err, engines.EngineError):
                     err = engines.EngineError('request', str(err))
-                if not self._strip_all and 'signature' in str(err).lower():
-                    self._strip_all = True            # the service refused earlier thinking: send none and try the same service again
+                low = str(err).lower()
+                if 'signature' in low and 'thinking' in low:
+                    # the service's prefix check refused earlier thinking: first its own remedy (drop such blocks), then none at all
+                    if e['provider'] == 'claude' and not self._bind_drop and not self._strip_all:
+                        self._bind_drop = True
+                        self.emit({'type': 'step', 'text': 'The AI service refused part of its earlier reasoning; asking it to drop that part'})
+                        continue
+                    if not self._strip_all:
+                        self._bind_drop, self._strip_all = False, True
+                        self.emit({'type': 'step', 'text': 'Carrying on without the earlier reasoning'})
+                        continue
+                elif self._bind_drop and err.kind == 'request' and re.search(r'block_binding|beta|thinking', low):
+                    self._bind_drop, self._strip_all = False, True      # the remedy itself was refused: send no thinking
                     continue
-                transient = err.kind in ('network', 'busy') or re.search(r'cut off|not readable|connection', str(err), re.I)
-                tries = getattr(self, '_tries', 0)
-                if transient and tries + 1 < TRANSIENT_TRIES:
-                    self._tries = tries + 1             # a dropped phone connection or a busy moment: the same request again
+                if err.kind == 'request' and re.search(r'too long|too many tokens|context (length|window)|maximum context|'
+                                                       r'exceeds? the (model|context|maximum)|input (length|is too)', low):
+                    size = self._size()
+                    if size > 30000 and squeezes < 4:                        # condense harder, then try again
+                        squeezes += 1
+                        self._budget = max(int(size * 0.5), 30000)
+                        self._compact('the service found the conversation too long')
+                        continue
+                if err.kind == 'request' and re.search(r'max_tokens|max_completion_tokens|output tokens|completion tokens', low) \
+                        and (self._out_cap or MAX_OUTPUT) > 8000:
+                    self._out_cap = (self._out_cap or MAX_OUTPUT) // 2    # this service allows a shorter reply
+                    continue
+                transient = err.kind in ('network', 'busy') or re.search(r'cut off|not readable|connection', low)
+                if transient and self._tries + 1 < TRANSIENT_TRIES:
+                    self._tries += 1                                        # a dropped phone connection or a busy moment
                     self.emit({'type': 'step', 'text': 'The connection to the AI service dropped; trying that step again'})
                     time.sleep(2 * self._tries)
                     continue
@@ -2006,6 +2220,150 @@ class Agent:
                 self.emit({'type': 'step', 'text': f"The AI service was not available ({engines.WORDS.get(err.kind, err.kind)}). "
                                                    'Carrying on with the backup service'})
 
+    # ----- a reply that ran over the length limit ----------------------------------------------------------------
+    @staticmethod
+    def _lenient(raw):
+        """As much of a cut-off JSON text as is complete. Returns (value, partial): partial is the path of the value the
+        cut fell in ('' when none), with partial strings kept as far as they go."""
+        dec = json.JSONDecoder()
+        partial = []
+
+        def ws(i):
+            while i < len(raw) and raw[i] in ' \t\r\n':
+                i += 1
+            return i
+
+        def value(i, path):
+            i = ws(i)
+            if i >= len(raw):
+                raise EOFError
+            c = raw[i]
+            if c == '{':
+                obj, i = {}, i + 1
+                while True:
+                    i = ws(i)
+                    if i >= len(raw):
+                        partial.append(path); return obj, i
+                    if raw[i] == '}':
+                        return obj, i + 1
+                    if raw[i] == ',':
+                        i += 1; continue
+                    try:
+                        key, i = dec.raw_decode(raw, i)
+                    except ValueError:
+                        partial.append(path); return obj, len(raw)
+                    i = ws(i)
+                    if i >= len(raw) or raw[i] != ':':
+                        partial.append(path); return obj, len(raw)
+                    try:
+                        v, i = value(i + 1, path + '/' + str(key))
+                    except EOFError:
+                        partial.append(path); return obj, len(raw)
+                    obj[key] = v
+                    if i >= len(raw):                   # the text ends inside this object (innermost first)
+                        partial.append(path) if not partial else None
+                        return obj, i
+            if c == '[':
+                arr, i = [], i + 1
+                while True:
+                    i = ws(i)
+                    if i >= len(raw):
+                        partial.append(path); return arr, i
+                    if raw[i] == ']':
+                        return arr, i + 1
+                    if raw[i] == ',':
+                        i += 1; continue
+                    try:
+                        v, i = value(i, path + '/' + str(len(arr)))
+                    except EOFError:
+                        partial.append(path); return arr, len(raw)
+                    arr.append(v)
+                    if i >= len(raw):                   # the text ends inside this list (innermost first)
+                        partial.append(path) if not partial else None
+                        return arr, i
+            if c == '"':
+                try:
+                    return dec.raw_decode(raw, i)
+                except ValueError:
+                    partial.append(path)
+                    body = raw[i + 1:]
+                    body = re.sub(r'\\(?:u[0-9a-fA-F]{0,3})?$', '', body)       # a cut escape sequence
+                    try:
+                        return json.loads('"' + body + '"'), len(raw)
+                    except ValueError:
+                        return body.replace('\\n', '\n').replace('\\"', '"').replace('\\\\', '\\'), len(raw)
+            try:
+                return dec.raw_decode(raw, i)
+            except ValueError:
+                raise EOFError
+
+        try:
+            v, _ = value(0, '')
+        except EOFError:
+            return {}, ''
+        return v, (partial[0] if partial else '')
+
+    def _salvage(self, name, raw):
+        """What a cut-off tool call still gives. For report_add (or make_report), every complete part is saved to the draft
+        and the model is told exactly what to send again. Returns the note for the model."""
+        v, cut = self._lenient(raw)
+        if name not in ('report_add', 'make_report') or not isinstance(v, dict):
+            return (f'Your call to {name} ran over the reply length limit and was not run. Send it again in smaller pieces '
+                    '(fewer rows, points or expressions per call).')
+
+        def whole(k, items):
+            return [x for i, x in enumerate(items) if not (cut == f'/{k}/{i}' or cut.startswith(f'/{k}/{i}/'))]
+
+        parts, saved, redo = {}, [], []
+        for k, val in v.items():
+            if k == 'sections' and isinstance(val, list):
+                done = [x for x in whole(k, val) if isinstance(x, dict) and x.get('heading')]
+                if done:
+                    parts['sections'] = done
+                    saved.append(f"section{'s' if len(done) > 1 else ''} " + ', '.join(f"'{str(x.get('heading'))[:60]}'" for x in done))
+                for x in val:
+                    if isinstance(x, dict) and not any(x is d for d in done):
+                        redo.append(f"section '{str(x.get('heading') or '(no heading yet)')[:60]}' (cut off part-way: send it again, whole)")
+            elif isinstance(val, list):
+                keep = whole(k, val)
+                if keep:
+                    parts[k] = keep
+                    saved.append(f'{k} ({len(keep)})')
+                if cut.startswith(f'/{k}'):
+                    redo.append(f'the rest of {k}')
+            elif isinstance(val, str):
+                if not val.strip():
+                    continue
+                if cut != f'/{k}':
+                    parts[k] = val
+                    if k == 'research_notes':
+                        saved.append('research notes')
+                elif k == 'research_notes':
+                    parts[k] = val
+                    saved.append(f'research notes up to "…{" ".join(val.split())[-160:]}"')
+                    redo.append('the rest of the research notes, continuing from exactly that point (do not repeat what is saved)')
+                else:
+                    redo.append(f'{k} (cut off)')
+            elif val is not None:
+                parts[k] = val
+        if parts:
+            try:
+                self._report_add(parts)
+            except cd.DataError as err:
+                secs = parts.pop('sections', None)
+                if secs and parts:
+                    self._report_add(parts)
+                    saved = [x for x in saved if not x.startswith('section')]
+                    redo.insert(0, 'the research notes (they come before any section), then the sections')
+                else:
+                    return (f'Your reply ran over the length limit. Nothing from it could be saved: {err} '
+                            'Send the research notes first, in two or three calls if they are long, then the sections, two or three per call.')
+        return ('Your reply ran over the length limit ({:,} tokens). '.format(self._out_cap or MAX_OUTPUT)
+                + (f"Saved from it: {'; '.join(saved)}. " if saved else 'Nothing in it was complete enough to save. ')
+                + (f"Send again: {'; '.join(redo)}. " if redo else '')
+                + 'Then carry on. Keep each call to two or three sections, or one long chapter; the notes may come in several calls.')
+
+    # ----- the loop of one question -------------------------------------------------------------------------------
     def _loop(self, chain, tier, today):
         dash = self.dashboard_provider()
         system = census_mod.relabel((self.system_text or SYSTEM).format(today=today),
@@ -2035,15 +2393,9 @@ class Agent:
             used['cost_usd'] = None if c is None or used['cost_usd'] is None else round(used['cost_usd'] + c, 4)
             content = resp.get('content', [])
             if resp.get('stop_reason') == 'max_tokens':
-                # the reply was cut off (often a tool call with too much data); ask for a shorter one
-                self.history.append({'role': 'assistant', 'content': [b for b in content if b.get('type') == 'text'
-                                                                      and b.get('text')]
-                                     or [{'type': 'text', 'text': '(cut off)'}]})
-                self.history.append({'role': 'user', 'content': 'Your last reply was cut off because it was too long. '
-                                     'Do not shorten the content: if it is part of a report, save it in smaller parts '
-                                     'with report_add (two or three sections at a time) and finish with make_report. '
-                                     'For maps use a source instead of listing points, and group data instead of listing rows.'})
-                continue
+                content = self._over_length(content)
+                if content is None:
+                    continue
             content = [b for b in content if not (b.get('type') == 'text' and not b.get('text'))] or \
                 [{'type': 'text', 'text': '(No answer.)'}]
             self.history.append({'role': 'assistant', 'content': content})
@@ -2051,114 +2403,94 @@ class Agent:
                     'engine': ' then '.join(f'{n} ({m})' for n, m, _ in services), 'skipped': skipped}
             if resp.get('stop_reason') != 'tool_use':
                 text = '\n\n'.join(b.get('text', '') for b in content if b.get('type') == 'text').strip()
+                if self._cut_text:
+                    text = (self._cut_text + text).strip()
                 if rewritten is None and NEGATIVE_OPENING.search(_first_sentence(text)):
                     rewritten = len(self.history) - 1     # led with what can't be done: one rewrite, answer first
                     self.history.append({'role': 'user', 'content': [{'type': 'text', 'text': REWRITE_NOTE}]})
                     continue
-                if rewritten is not None:                 # keep only the rewritten answer in the conversation
-                    del self.history[rewritten:rewritten + 2]
+                if rewritten is not None and rewritten + 1 < len(self.history) and \
+                        self.history[rewritten + 1].get('content') == [{'type': 'text', 'text': REWRITE_NOTE}]:
+                    del self.history[rewritten:rewritten + 2]     # keep only the rewritten answer in the conversation
                 return {'text': text or '(No answer.)', **done}
-            results = []
-            for block in content:
-                if block.get('type') != 'tool_use':
-                    continue
-                name, args = block['name'], block.get('input') or {}
-                guard = self._gather_guard(name, args)
-                if guard:
-                    results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': guard, 'is_error': True})
-                    continue
-                self.emit({'type': 'step', 'text': STEP_TEXT.get(name, lambda a: name)(args)})
-                try:
+            for b in content:
+                if b.get('type') == 'text' and b.get('text'):
+                    self._log.append({'text': b['text']})
+            self.history.append({'role': 'user', 'content': self._run_calls(content)})
+        return {'text': 'I stopped after many steps without a final answer. Try a narrower question.', **done}
+
+    def _over_length(self, content):
+        """A reply that hit the length limit. Complete tool calls in it are run; a cut-off one is salvaged (report parts are
+        saved) and the model is told what to send again; cut-off text is kept and continued. Returns the content to keep as
+        the assistant's turn, or None when the exchange was recorded here."""
+        texts = [b for b in content if b.get('type') == 'text' and b.get('text')]
+        calls = [b for b in content if b.get('type') == 'tool_use']
+        whole = [b for b in calls if b.get('_partial') is None]
+        cut = [b for b in calls if b.get('_partial') is not None]
+        notes = [self._salvage(b['name'], b['_partial']) for b in cut]
+        if not calls:                                        # a written answer too long for one reply: continue it
+            self._cut_text += '\n\n'.join(b['text'] for b in texts)       # continued from exactly where it stopped
+            self.history.append({'role': 'assistant', 'content': texts or [{'type': 'text', 'text': '(cut off)'}]})
+            self.history.append({'role': 'user', 'content': [{'type': 'text', 'text':
+                ('Your reply ran over the length limit. Continue it from exactly where it stopped, without repeating what you '
+                 'already wrote. If it is a report, write it in parts with report_add instead.') if texts else
+                ('Your reply ran over the length limit before any answer or tool call was written. Reply now with the tool '
+                 'call or the answer, and keep the reasoning before it short.')}]})
+            self.emit({'type': 'step', 'text': 'The reply ran over the length limit; continuing it'})
+            return None
+        self.emit({'type': 'step', 'text': 'The reply ran over the length limit; keeping what was complete and continuing'})
+        # the assistant turn is kept without its thinking (removing the last turn's thinking is allowed) and without the cut call
+        self.history.append({'role': 'assistant', 'content': texts + whole or [{'type': 'text', 'text': '(cut off)'}]})
+        results = self._run_calls(whole) if whole else []
+        results.append({'type': 'text', 'text': ' '.join(notes) or 'Your reply ran over the length limit. Send the rest in smaller parts.'})
+        for n in notes:
+            self._log.append({'note': n})
+        self.history.append({'role': 'user', 'content': results})
+        return None
+
+    def _run_calls(self, content):
+        """Run the tool calls of one assistant turn and return their results (tool_result blocks, in order)."""
+        results = []
+        for block in content:
+            if block.get('type') != 'tool_use':
+                continue
+            name, args = block['name'], block.get('input') or {}
+            self._step_no += 1
+            n = self._step_no
+            self.emit({'type': 'step', 'text': STEP_TEXT.get(name, lambda a: name)(args)})
+            key = name + json.dumps(args, sort_keys=True, default=str) if name in GATHER_TOOLS else None
+            try:
+                hit = self._cache.get(key) if key else None
+                if hit:
+                    out = f'[Same request as step {hit[0]}; its result again] ' + hit[1]
+                else:
                     result = self.run_tool(name, args)
                     try:
                         self._record(name, args, result)
                     except Exception:             # noqa: BLE001 - the appendix must never stop an answer
                         pass
-                    out = json.dumps(result, default=str)
+                    out = result if isinstance(result, str) else json.dumps(result, default=str)
                     cap = 30000 if name in ('get_dashboard', 'get_ward5_dashboard') else MAX_RESULT_CHARS
                     if len(out) > cap:
                         out = json.dumps(_fit(result, cap), default=str)
                         if len(out) > cap:
                             out = out[:cap] + '... [cut: ask for fewer rows or group the data]'
-                    if name in GATHER_TOOLS and self._gathered in (GATHER_LIMIT - 10, GATHER_LIMIT - 3):
-                        out += (f' [Note: {self._gathered} of {GATHER_LIMIT} data requests used for this question. Finish '
-                                'gathering soon: then write the notes and the answer from what you have.]')
-                    results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': out})
-                except Exception as e_:               # noqa: BLE001 - any tool failure goes back to the model to fix
-                    results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': f'Error: {e_}',
-                                    'is_error': True})
-            self.history.append({'role': 'user', 'content': results})
-        return {'text': 'I stopped after many steps without a final answer. Try a narrower question.', **done}
+                    if key:
+                        self._cache[key] = (n, out)
+                self._results[n] = out
+                results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': f'[step {n}] ' + out + self._nudge()})
+                self._log.append({'step': n, 'name': name, 'args': args, 'result': out})
+            except Exception as e_:               # noqa: BLE001 - any tool failure goes back to the model to fix
+                results.append({'type': 'tool_result', 'tool_use_id': block['id'], 'content': f'Error: {e_}',
+                                'is_error': True})
+                self._log.append({'step': n, 'name': name, 'args': args, 'result': f'Error: {e_}', 'error': True})
+        return results
 
-    def _gather_guard(self, name, args):
-        """Stop the loop where a long report keeps fetching: the same exact request is not run a third time, and after
-        GATHER_LIMIT data requests the answer is written from what was gathered. Returns the reason, or None to go ahead."""
-        if name not in GATHER_TOOLS:
-            return None
-        key = name + json.dumps(args, sort_keys=True, default=str)
-        n = self._seen_calls.get(key, 0)
-        if n >= 2:
-            return ('Not run: this exact request was already made twice for this question. Use what it returned (and your key '
-                    'figures and notes); if that data does not hold what you need, say so and move on.')
-        if self._gathered >= GATHER_LIMIT:
-            return (f'Not run: data gathering is closed for this question ({GATHER_LIMIT} data requests made). Work with what you '
-                    'have: write the research notes, then the answer or report; name any data you could not get as a limitation.')
-        self._seen_calls[key] = n + 1
-        self._gathered += 1
-        self.emit({'type': 'gathered', 'n': self._gathered, 'limit': GATHER_LIMIT})
-        return None
-
-    def _trimmed_history(self, keep_turns=8):
-        """Keep the most recent questions so long chats stay affordable; never split a tool exchange."""
-        starts = [i for i, m in enumerate(self.history) if m['role'] == 'user' and isinstance(m['content'], str)]
-        hist = self.history if len(starts) <= keep_turns else self.history[starts[-keep_turns]:]
-        # thinking from earlier questions is not needed again, and once old questions are dropped the service refuses it
-        # (it is bound to the conversation it was written in), so only the current question's thinking is sent
-        cur = max([i for i, m in enumerate(hist) if m['role'] == 'user' and isinstance(m['content'], str)] or [0])
-        out = []
-        for i, m in enumerate(hist):
-            if (i < cur or self._strip_all) and m['role'] == 'assistant' and isinstance(m['content'], list) and any(
-                    b.get('type') in ('thinking', 'redacted_thinking') for b in m['content']):
-                kept = [b for b in m['content'] if b.get('type') not in ('thinking', 'redacted_thinking')]
-                m = {**m, 'content': kept or [{'type': 'text', 'text': '(thought)'}]}
-            out.append(m)
-        shrunk = self._shrink_old_results(out)
-        if shrunk is not out and not self._strip_all:     # the earlier text was shortened, so the service would refuse its thinking
-            shrunk = [({**m, 'content': [b for b in m['content'] if b.get('type') not in ('thinking', 'redacted_thinking')]
-                        or [{'type': 'text', 'text': '(thought)'}]}
-                       if m['role'] == 'assistant' and isinstance(m['content'], list) else m) for m in shrunk]
-        return shrunk
-
-    CONTEXT_CHARS = 400000           # about 100,000 tokens: a long report reads dozens of datasets and must keep fitting
-
-    def _shrink_old_results(self, msgs):
-        """A report makes dozens of tool calls and their results pile up until the request is refused as too long, usually
-        near the end. When the conversation is over the budget, the oldest tool results are cut short (their figures were
-        already used) until it fits; the latest few are always kept whole. The saved history is not changed."""
-        size = lambda ms: len(json.dumps(ms, default=str))
-        if size(msgs) <= self.CONTEXT_CHARS:
-            return msgs
-        idx = [i for i, m in enumerate(msgs) if m['role'] == 'user' and isinstance(m['content'], list)
-               and any(b.get('type') == 'tool_result' for b in m['content'])]
-        msgs = list(msgs)
-        for i, m in enumerate(msgs[:-6]):                  # what was saved with report_add is kept in the draft, not needed again here
-            if m['role'] == 'assistant' and isinstance(m['content'], list) and any(
-                    b.get('type') == 'tool_use' and b.get('name') == 'report_add' for b in m['content']):
-                msgs[i] = {**m, 'content': [
-                    {**b, 'input': {'sections': [{'heading': str(x.get('heading', ''))[:70], 'text': self._gist(x.get('text'))}
-                                                 for x in (b.get('input') or {}).get('sections') or []]}}
-                    if b.get('type') == 'tool_use' and b.get('name') == 'report_add' else b for b in m['content']]}
-                if size(msgs) <= self.CONTEXT_CHARS:
-                    return msgs
-        keep = {b.get('id') for m in msgs if m['role'] == 'assistant' and isinstance(m['content'], list)
-                for b in m['content'] if b.get('type') == 'tool_use' and b.get('name') == 'calculate'}
-        for i in idx[:-4]:
-            blocks = []
-            for b in msgs[i]['content']:
-                if b.get('type') == 'tool_result' and b.get('tool_use_id') not in keep and isinstance(b.get('content'), str) and len(b['content']) > 1500:
-                    b = {**b, 'content': b['content'][:1200] + ' ... [shortened to save space: this result was already used. Its figures belong in your key figures and notes; request it again only if a figure you need is missing]'}
-                blocks.append(b)
-            msgs[i] = {**msgs[i], 'content': blocks}
-            if size(msgs) <= self.CONTEXT_CHARS:
-                break
-        return msgs
+    def _nudge(self):
+        """Once per stretch, as the conversation nears the point where it is condensed: a reminder to save the figures."""
+        if self._nudged or self._size() < (self._budget_now or CONTEXT_CHARS['other']) * 0.6:
+            return ''
+        self._nudged = True
+        return (' [The conversation is getting long and will soon be condensed; every full result stays available with '
+                'recall_result. Before requesting more data, save the figures and findings you rely on so far with '
+                'report_add (key_figures, research_notes) if you have not already.]')

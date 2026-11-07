@@ -223,8 +223,9 @@ def from_stream(text):
         try:
             blocks[i]['input'] = json.loads(raw) if raw.strip() else {}
         except ValueError:
-            if msg.get('stop_reason') == 'max_tokens':    # too long to finish: the caller asks for it in smaller parts
-                blocks.pop(i, None)
+            if msg.get('stop_reason') == 'max_tokens':    # the reply ran over its length: the caller salvages what is complete
+                blocks[i]['input'] = {}
+                blocks[i]['_partial'] = raw
                 continue
             raise EngineError('network', 'the reply was cut off (the connection dropped before it finished)') from None
     if not msg:
@@ -234,7 +235,11 @@ def from_stream(text):
 
 
 def post_anthropic(key, body, timeout=180):
+    body = dict(body)
+    betas = body.pop('_betas', None)                  # beta features go in a header, not the body
     headers = {'x-api-key': key, 'anthropic-version': ANTHROPIC_VERSION}
+    if betas:
+        headers['anthropic-beta'] = ','.join(betas)
     if not STREAM:
         return _post(PROVIDERS['claude']['url'], headers, body, timeout)
     req = urllib.request.Request(PROVIDERS['claude']['url'], data=json.dumps({**body, 'stream': True}).encode('utf-8'),
@@ -371,22 +376,25 @@ def from_chat(resp):
         text = ''.join(p.get('text', '') for p in text if isinstance(p, dict))
     if text and str(text).strip():
         content.append({'type': 'text', 'text': str(text)})
+    fr = ch.get('finish_reason')
     for i, call in enumerate(msg.get('tool_calls') or []):
         fn = call.get('function') or {}
+        partial = None
         try:
             args = json.loads(fn.get('arguments') or '{}')
             if not isinstance(args, dict):
                 args = {}
         except ValueError:
-            args = {}
+            args, partial = {}, fn.get('arguments')        # cut off by the reply length: the caller salvages what it can
         cid = _SAFE_ID.sub('_', str(call.get('id') or ''))[:60] or f'call_{uuid.uuid4().hex[:12]}'
         block = {'type': 'tool_use', 'id': cid, 'name': fn.get('name', ''), 'input': args}
+        if partial is not None and fr == 'length':
+            block['_partial'] = partial
         if call.get('extra_content'):
             block['_extra'] = call['extra_content']
         content.append(block)
     has_tools = any(b['type'] == 'tool_use' for b in content)
-    fr = ch.get('finish_reason')
-    stop = 'tool_use' if has_tools else ('max_tokens' if fr == 'length' else 'end_turn')
+    stop = 'max_tokens' if fr == 'length' else ('tool_use' if has_tools else 'end_turn')
     u = resp.get('usage') or {}
     cached = ((u.get('prompt_tokens_details') or {}).get('cached_tokens') or 0)
     usage = {'input_tokens': max(0, (u.get('prompt_tokens') or 0) - cached), 'cache_read_input_tokens': cached,
@@ -396,13 +404,14 @@ def from_chat(resp):
     return {'content': content, 'stop_reason': stop, 'usage': usage}
 
 
-def call(e, model, system, tools, messages, max_tokens, anthropic_post=None, chat_post=None, cache_mark=None):
-    """One step with one service. Returns Claude-format {'content', 'stop_reason', 'usage'}; raises EngineError."""
+def call(e, model, system, tools, messages, max_tokens, anthropic_post=None, chat_post=None, cache_mark=None, options=None):
+    """One step with one service. Returns Claude-format {'content', 'stop_reason', 'usage'}; raises EngineError.
+    options: extra request fields for Claude (for example a thinking setting, or '_betas' for beta headers)."""
     if PROVIDERS[e['provider']]['kind'] == 'anthropic':
         msgs = for_anthropic(messages)
         body = {'model': model, 'max_tokens': max_tokens, 'tools': tools,
                 'system': [{'type': 'text', 'text': system, 'cache_control': {'type': 'ephemeral'}}],
-                'messages': cache_mark(msgs) if cache_mark else msgs}
+                'messages': cache_mark(msgs) if cache_mark else msgs, **(options or {})}
         resp = (anthropic_post or post_anthropic)(e['key'], body)
         if resp.get('type') == 'error':
             err = resp.get('error') or {}
