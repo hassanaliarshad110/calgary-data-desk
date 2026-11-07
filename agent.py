@@ -198,7 +198,11 @@ three sections at a time (each with its visuals and tables) as many times as the
 saved with report_add is included. Before the first part, decide the chapter plan (headings, the argument that links them, \
 the terms and numbers every chapter must use the same way) and keep to it. Each report_add result returns story_so_far and \
 the ending of the last section: read them, open each new chapter by picking up where the last one ended, and never repeat or \
-contradict an earlier chapter. If a call is cut off or fails, add the part again in a smaller piece.
+contradict an earlier chapter. Send the chapter plan (plan) in the first report_add, and every figure you will rely on \
+(key_figures, with unit, period and source) as soon as it is worked out: both are kept and returned with every call, so the \
+same numbers are used throughout even after older data has been put away. Every chapter ends by saying what it means for the \
+next one. When all chapters are written, write the conclusion (it says what each chapter showed, how they connect and what they \
+add up to), then the key findings from the whole report. If a call is cut off or fails, add the part again in a smaller piece.
 6. In the chat, after make_report, give the three most important findings in a few lines and say the PDF is in Files.
 How a report reads (it is shared outside the office, so it must stand on its own):
 - Plain language for a general reader: short sentences (under 20 words), everyday words, one idea per sentence. Say \
@@ -714,6 +718,7 @@ TOOLS += [
                  'rows': {'type': 'array', 'items': {'type': 'array', 'items': {}}, 'description': 'table'},
                  'source_note': {'type': 'string'}}, 'required': ['type']}},
              'note': {'type': 'string'}}, 'required': ['heading']}},
+         'conclusion': {'type': 'string', 'description': 'The closing chapter, written after every section: how the chapters connect and what they add up to, drawing on each one by name with its key figure. Paragraphs separated by a blank line.'},
          'method': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Steps: what was counted, filters, periods, formulas'},
          'data_sources': {'type': 'array', 'items': {'type': 'object', 'properties': {
              'name': {'type': 'string'}, 'publisher': {'type': 'string'}, 'dataset_id': {'type': 'string'},
@@ -740,7 +745,9 @@ TOOLS.insert(TOOLS.index(_MR), {
                    '(each with its charts, maps and tables) per call, as many calls as it takes; then call make_report. Sections are '
                    'appended in order; summary, method, data_sources, limitations, recommendations and action_plan are appended too; '
                    'title, subtitle, question and file_name are set. Returns the headings saved so far.',
-    'input_schema': {'type': 'object', 'properties': {k: v for k, v in _MR['input_schema']['properties'].items()}}})
+    'input_schema': {'type': 'object', 'properties': {**{k: v for k, v in _MR['input_schema']['properties'].items()},
+        'plan': {'type': 'array', 'items': {'type': 'string'}, 'description': 'The chapter plan, set in the first call: one line per chapter (heading, what it shows, how it leads to the next). Kept and returned with every call.'},
+        'key_figures': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Figures the report relies on, each with its unit, period and source, added as soon as they are worked out. Kept and returned with every call so every chapter and the conclusion use the same numbers.'}}}})
 TOOLS[-1]['cache_control'] = {'type': 'ephemeral'}      # cache system prompt + tools between calls
 
 STEP_TEXT = {
@@ -1636,6 +1643,7 @@ class Agent:
             miss = [k for k in ('summary', 'sections', 'data_sources') if not args.get(k)]
             if miss:
                 raise cd.DataError('The report is not complete: add ' + ', '.join(miss) + ' with report_add (or in this call), then call make_report again.')
+            self._check_whole(args)
             d = self.dashboard_provider() or {}
             pop = d.get('population') or {}
             meta = {'councillor': (d.get('ward') or {}).get('councillor') if (d.get('scope') or {}).get('kind') != 'city' else None,
@@ -1676,7 +1684,7 @@ class Agent:
                     'visuals_drawn': res['visuals'], 'map_points': notes, 'warning': res['warning']}
         raise cd.DataError(f'Unknown tool {name}')
 
-    LIST_PARTS = ('summary', 'sections', 'method', 'data_sources', 'limitations', 'recommendations', 'action_plan')
+    LIST_PARTS = ('summary', 'sections', 'method', 'data_sources', 'limitations', 'recommendations', 'action_plan', 'key_figures')
 
     @staticmethod
     def _gist(text, n=260):
@@ -1694,12 +1702,46 @@ class Agent:
                 dr[k] = v
         secs = dr.get('sections') or []
         words = sum(len(str(x.get('text') or '').split()) for x in secs)
-        return {'saved': True, 'story_so_far': [{'heading': str(x.get('heading'))[:70], 'gist': self._gist(x.get('text'))} for x in secs],
+        left = [p for p in dr.get('plan') or [] if not any(self._words(str(x.get('heading'))) & self._words(p) for x in secs)]
+        return {'saved': True, 'plan': dr.get('plan') or 'No chapter plan saved yet: send plan in this or the next report_add.',
+                'chapters_still_to_write': left, 'key_figures': dr.get('key_figures') or [],
+                'how_to_continue': 'Open the next chapter from the ending below and from the plan; use the key figures exactly as listed. '
+                                   'When every chapter is written, write the conclusion (it must draw on every chapter) and then the summary.',
+                'story_so_far': [{'heading': str(x.get('heading'))[:70], 'gist': self._gist(x.get('text'))} for x in secs],
                 'last_section_ending': str((secs[-1].get('text') if secs else '') or '')[-700:],
                 'sections_so_far': len(secs), 'words_so_far': words, 'headings': [str(x.get('heading'))[:70] for x in secs],
                 'visuals_so_far': sum(len(x.get('visuals') or []) for x in secs),
                 'still_needed_for_make_report': [k for k in ('title', 'summary', 'sections', 'data_sources') if not dr.get(k)],
                 'next': 'Add more sections with report_add, or finish with make_report (it includes everything saved).'}
+
+    STOP = frozenset('the and for with from that this what how why its are was were has have into over under than then their there '
+                     'about across between each per more less most least part chapter section calgary ward'.split())
+
+    @classmethod
+    def _words(cls, text):
+        return {w[:6] for w in re.findall(r'[a-z]{4,}', str(text or '').lower()) if w not in cls.STOP}
+
+    def _check_whole(self, spec):
+        """Before a long report is made: it needs a conclusion written after every chapter, and the conclusion and key findings
+        must draw on every chapter. Asked for at most twice, so a report is never held back for long."""
+        secs = [x for x in spec.get('sections') or [] if isinstance(x, dict)]
+        if len(secs) < 3 or self._draft.get('_checks', 0) >= 2:
+            return
+        self._draft['_checks'] = self._draft.get('_checks', 0) + 1
+        story = [f"{i}. {str(x.get('heading'))[:80]}: {self._gist(x.get('text'), 200)}" for i, x in enumerate(secs, 1)]
+        figs = spec.get('key_figures') or []
+        if not str(spec.get('conclusion') or '').strip():
+            raise cd.DataError('Not made yet: the report needs its conclusion. Write it now with every chapter in view (below): say what '
+                               'each chapter showed, with its key figure, how the chapters connect, and what they add up to. Check the '
+                               'key findings cover the whole report too. Then call make_report again (send conclusion, and summary if it '
+                               'changes). Chapters:\n' + '\n'.join(story) + ('\nKey figures:\n' + '\n'.join(map(str, figs)) if figs else ''))
+        said = self._words(spec.get('conclusion')) | self._words(' '.join(map(str, spec.get('summary') or [])))
+        missed = [f'{i}. {x.get("heading")}' for i, x in enumerate(secs, 1)
+                  if not (self._words(x.get('heading')) & said)]
+        if len(missed) > max(1, len(secs) // 5):
+            raise cd.DataError('Not made yet: the conclusion and key findings do not draw on these chapters: ' + '; '.join(missed)
+                               + '. Rewrite the conclusion so it ties every chapter together (name each one and what it showed), then '
+                               'call make_report again. Chapters:\n' + '\n'.join(story))
 
     def _merge_draft(self, args):
         """make_report's own arguments after the parts already saved: lists go after the saved ones, single values win."""
@@ -2005,10 +2047,12 @@ class Agent:
                     if b.get('type') == 'tool_use' and b.get('name') == 'report_add' else b for b in m['content']]}
                 if size(msgs) <= self.CONTEXT_CHARS:
                     return msgs
+        keep = {b.get('id') for m in msgs if m['role'] == 'assistant' and isinstance(m['content'], list)
+                for b in m['content'] if b.get('type') == 'tool_use' and b.get('name') in ('calculate', 'report_add')}
         for i in idx[:-4]:
             blocks = []
             for b in msgs[i]['content']:
-                if b.get('type') == 'tool_result' and isinstance(b.get('content'), str) and len(b['content']) > 1500:
+                if b.get('type') == 'tool_result' and b.get('tool_use_id') not in keep and isinstance(b.get('content'), str) and len(b['content']) > 1500:
                     b = {**b, 'content': b['content'][:1200] + ' ... [shortened: this result was already used; call the tool again for it]'}
                 blocks.append(b)
             msgs[i] = {**msgs[i], 'content': blocks}

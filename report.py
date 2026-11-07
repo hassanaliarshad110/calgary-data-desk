@@ -229,6 +229,8 @@ def render(spec, provenance=None, meta=None, interactive=False, printable=False)
         if sec.get('note'):
             body.append(f'<p class="note">{_inline(sec["note"])}</p>')
         parts.append(f'<section>{"".join(body)}</section>')
+    if str(spec.get('conclusion') or '').strip():
+        parts.append(f'<section class="conclusion"><h2>Conclusion</h2>{_paras(spec["conclusion"])}</section>')
     recs = [r for r in spec.get('recommendations') or [] if isinstance(r, dict)]
     if recs:
         def rec_row(i, r):
@@ -399,6 +401,8 @@ def workbook_sheets(spec, provenance, meta):
              ['Made', meta.get('date') or ''], ['Area', meta.get('area') or ''],
              ['Residents counted with', meta.get('population') or ''], ['Data', meta.get('built') or ''], [], ['Summary']]
     about += [['', x] for x in spec.get('summary') or []]
+    if str(spec.get('conclusion') or '').strip():
+        about += [[], ['Conclusion']] + [['', p.strip()] for p in str(spec['conclusion']).split('\n\n') if p.strip()]
     about += [[], ['How this was worked out']] + [['', x] for x in spec.get('method') or []]
     about += [[], ['Limits']] + [['', x] for x in spec.get('limitations') or []]
     about += [[], ['Made from public data (City of Calgary open data and the other sources listed); check key figures before quoting them.']]
