@@ -1781,7 +1781,10 @@ class Agent:
                     elif kinds_ <= {'rate', 'busy', 'network'}:
                         msg = f'{who} could not answer just now: the AI service is busy. Try again in a minute.'
                     else:
-                        msg = f'{who} could not answer this. Try again, or start a New chat if it keeps happening.'
+                        why_ = re.sub(r'(?i)\b(anthropic|claude|gemini|openai|gpt[-\w.]*|sonnet[-\w.]*|opus[-\w.]*|haiku[-\w.]*)\b', 'the AI service',
+                                      str(skipped[-1].get('why') or ''))[:160]
+                        msg = (f'{who} could not answer this. Try again, or start a New chat if it keeps happening.'
+                               + (f' (Reason given: {why_})' if why_ else ''))
                     raise AgentError(msg) from None
                 self.emit({'type': 'step', 'text': f"The AI service was not available ({engines.WORDS.get(err.kind, err.kind)}). "
                                                    'Carrying on with the backup service'})
@@ -1876,4 +1879,27 @@ class Agent:
                 kept = [b for b in m['content'] if b.get('type') not in ('thinking', 'redacted_thinking')]
                 m = {**m, 'content': kept or [{'type': 'text', 'text': '(thought)'}]}
             out.append(m)
-        return out
+        return self._shrink_old_results(out)
+
+    CONTEXT_CHARS = 400000           # about 100,000 tokens: a long report reads dozens of datasets and must keep fitting
+
+    def _shrink_old_results(self, msgs):
+        """A report makes dozens of tool calls and their results pile up until the request is refused as too long, usually
+        near the end. When the conversation is over the budget, the oldest tool results are cut short (their figures were
+        already used) until it fits; the latest few are always kept whole. The saved history is not changed."""
+        size = lambda ms: len(json.dumps(ms, default=str))
+        if size(msgs) <= self.CONTEXT_CHARS:
+            return msgs
+        idx = [i for i, m in enumerate(msgs) if m['role'] == 'user' and isinstance(m['content'], list)
+               and any(b.get('type') == 'tool_result' for b in m['content'])]
+        msgs = list(msgs)
+        for i in idx[:-4]:
+            blocks = []
+            for b in msgs[i]['content']:
+                if b.get('type') == 'tool_result' and isinstance(b.get('content'), str) and len(b['content']) > 1500:
+                    b = {**b, 'content': b['content'][:1200] + ' ... [shortened: this result was already used; call the tool again for it]'}
+                blocks.append(b)
+            msgs[i] = {**msgs[i], 'content': blocks}
+            if size(msgs) <= self.CONTEXT_CHARS:
+                break
+        return msgs
