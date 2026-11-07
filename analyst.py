@@ -179,6 +179,9 @@ ONLY = {'blue_line': (5,)}            # its brief rests on the Ward 5 profile
 DEFAULT_AREA = 'the selected area'
 
 
+LENGTH_RULE = (' Length: the report is as long as the subject needs, up to 100 pages; never shorten it, drop sections or summarise to make it '
+               'fit. Write it in parts with report_add (two or three sections at a time, each with its tables and charts) and '
+               'finish with make_report, so a long report is always delivered.')
 SOURCES_RULE = (' Sources: the master registry (list_sources, and the list in your instructions) names every page of the '
               'site and every dataset; before you say anything is not available, search it with list_sources and read the page '
               'with read_source or its get_dashboard section; only then, and only for what the registry lacks, say what is not covered.')
@@ -229,7 +232,7 @@ def brief(key=None, text=None, area=None):
             'findings (only specific, data-backed ones the office would not already know; no routine or obvious steps), '
             'and list every source. Write in plain, everyday language for a general reader; never mention the app, '
             'a dashboard, a model or a list, and say where figures come from in the City\'s own words (City of Calgary data, '
-            'the City\'s population forecast, the property assessment roll); do not say who the report is prepared for.' + SOURCES_RULE)
+            'the City\'s population forecast, the property assessment roll); do not say who the report is prepared for.' + SOURCES_RULE + LENGTH_RULE)
 
 
 def election_brief(text, area=None):
@@ -251,7 +254,7 @@ def election_brief(text, area=None):
             'the same rigour for any candidate or party; never present a projection as certain; outreach suggestions stay '
             'general (where turnout was low, translated materials, accessible voting information) and never target, '
             'exclude or discourage anyone by ethnicity, religion, language or any other personal trait. Write in plain '
-            'language; never mention the app, a dashboard or a model of AI.' + SOURCES_RULE)
+            'language; never mention the app, a dashboard or a model of AI.' + SOURCES_RULE + LENGTH_RULE)
 
 
 def business_brief(text, area=None):
@@ -271,4 +274,4 @@ def business_brief(text, area=None):
             '(low, middle, high); risks; and next steps (licences and permits the City requires). Compute every figure with '
             'calculate, put the arithmetic in tables a reader can check in Excel, and list every source. This is general '
             'information from public data, not financial, legal or investment advice; say so once. Write in plain '
-            'language; never mention the app, a dashboard or a model of AI.' + SOURCES_RULE)
+            'language; never mention the app, a dashboard or a model of AI.' + SOURCES_RULE + LENGTH_RULE)

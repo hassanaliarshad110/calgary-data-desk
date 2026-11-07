@@ -24,7 +24,7 @@ import report
 import weather
 
 MODELS = {'fast': 'claude-haiku-5-5', 'smart': 'claude-sonnet-5-5', 'audit': 'claude-opus-5-5'}
-MAX_STEPS = 30                 # tool rounds per question (an analysis report needs many)
+MAX_STEPS = 100                # tool rounds per question (a long report gathers data, then is written in parts)
 MAX_OUTPUT = 16000
 # Published prices, US dollars per million tokens (input, output): for the cost shown with each answer. An estimate:
 # check the current price list. Cache reads cost a tenth of input, cache writes a quarter more than input.
@@ -190,6 +190,12 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
    something the office could not have known without this analysis. Fewer, sharper recommendations are better than a
    long list; if the data supports none, say so in one line instead of filling the section. Put tables the office may want in Excel in the sections; they are saved as CSV.
    An appendix listing every query you ran is added for you, so anyone can check the figures.
+   LENGTH: a report is as long as its subject needs. A full election analysis, business plan or study can run to 100 pages \
+with dozens of tables and charts: never shorten, summarise or drop sections to make it fit, and never refuse because it is \
+long. One tool call cannot hold a long report, so write it in parts: gather and compute first, then call report_add two or \
+three sections at a time (each with its visuals and tables) as many times as the report needs, and finish with make_report \
+(title, and any summary, method, data_sources, limitations, recommendations and action_plan not yet added). Everything \
+saved with report_add is included. If a call is cut off or fails, add the part again in a smaller piece.
 6. In the chat, after make_report, give the three most important findings in a few lines and say the PDF is in Files.
 How a report reads (it is shared outside the office, so it must stand on its own):
 - Plain language for a general reader: short sentences (under 20 words), everyday words, one idea per sentence. Say \
@@ -719,8 +725,19 @@ TOOLS += [
              'owner': {'type': 'string'},
              'measure': {'type': 'string', 'description': 'How the office will know it worked'}}, 'required': ['action']}},
          'file_name': {'type': 'string'}},
-         'required': ['title', 'summary', 'sections', 'method', 'data_sources']}},
+         'required': ['title']}},
 ]
+_MR = next(t for t in TOOLS if t['name'] == 'make_report')
+_MR['description'] += (' Finish with this call. Anything already saved with report_add is included, so a report of any length '
+                       'is made by report_add (a few sections at a time) and then make_report with the title and what is left.')
+TOOLS.insert(TOOLS.index(_MR), {
+    'name': 'report_add',
+    'description': 'Add parts to the report being written, without finishing it. A report may be as long as its subject needs (a full '
+                   'election analysis or business plan can run to 100 pages): never shorten it to fit. Write it in parts, a few sections '
+                   '(each with its charts, maps and tables) per call, as many calls as it takes; then call make_report. Sections are '
+                   'appended in order; summary, method, data_sources, limitations, recommendations and action_plan are appended too; '
+                   'title, subtitle, question and file_name are set. Returns the headings saved so far.',
+    'input_schema': {'type': 'object', 'properties': {k: v for k, v in _MR['input_schema']['properties'].items()}}})
 TOOLS[-1]['cache_control'] = {'type': 'ephemeral'}      # cache system prompt + tools between calls
 
 STEP_TEXT = {
@@ -744,6 +761,7 @@ STEP_TEXT = {
     'show_table': lambda a: 'Building a table',
     'show_map': lambda a: 'Placing points on a map',
     'calculate': lambda a: f"Working out {len(a.get('calculations') or [])} figure{'s' if len(a.get('calculations') or []) != 1 else ''}",
+    'report_add': lambda a: 'Writing the report, part by part' + (f" ({', '.join(str(x.get('heading', ''))[:40] for x in (a.get('sections') or [])[:2])})" if a.get('sections') else ''),
     'make_report': lambda a: f"Writing the report “{a.get('title', '')}”: PDF, interactive version and Excel workbook",
 }
 
@@ -1460,6 +1478,7 @@ class Agent:
         self.usage = {'input': 0, 'output': 0, 'cache_read': 0}
         self.provenance = []                      # every data request for the current question (report appendix)
         self._report_pdf = None
+        self._draft = {}                           # the report being written in parts (report_add)
         self.last_cost = {}
         self.tools = TOOLS                        # the auditor gives its agents their own set
         self.system_text = None                   # ... and its own instructions
@@ -1591,7 +1610,13 @@ class Agent:
             return {'shown': True}
         if name == 'calculate':
             return report.calculate(args.get('calculations'))
+        if name == 'report_add':
+            return self._report_add(args)
         if name == 'make_report':
+            args = self._merge_draft(args)
+            miss = [k for k in ('summary', 'sections', 'data_sources') if not args.get(k)]
+            if miss:
+                raise cd.DataError('The report is not complete: add ' + ', '.join(miss) + ' with report_add (or in this call), then call make_report again.')
             d = self.dashboard_provider() or {}
             pop = d.get('population') or {}
             meta = {'councillor': (d.get('ward') or {}).get('councillor') if (d.get('scope') or {}).get('kind') != 'city' else None,
@@ -1626,10 +1651,38 @@ class Agent:
             self.last_report = entry
             self._index(entry)
             self._report_pdf = entry['pdf']
+            self._draft = {}
             self.emit({'type': 'report', **entry, 'name': res['name'], 'warning': res['warning'], 'path': res['path']})
             return {'saved_to': res['path'], 'interactive_version': res['interactive'], 'excel_workbook': res['xlsx'],
                     'visuals_drawn': res['visuals'], 'map_points': notes, 'warning': res['warning']}
         raise cd.DataError(f'Unknown tool {name}')
+
+    LIST_PARTS = ('summary', 'sections', 'method', 'data_sources', 'limitations', 'recommendations', 'action_plan')
+
+    def _report_add(self, args):
+        """Keep one more part of the report being written. The report is made by make_report, however many parts there are."""
+        dr = self._draft
+        for k, v in (args or {}).items():
+            if k in self.LIST_PARTS:
+                dr.setdefault(k, []).extend(v if isinstance(v, list) else [v])
+            elif v:
+                dr[k] = v
+        secs = dr.get('sections') or []
+        words = sum(len(str(x.get('text') or '').split()) for x in secs)
+        return {'saved': True, 'sections_so_far': len(secs), 'words_so_far': words, 'headings': [str(x.get('heading'))[:70] for x in secs],
+                'visuals_so_far': sum(len(x.get('visuals') or []) for x in secs),
+                'still_needed_for_make_report': [k for k in ('title', 'summary', 'sections', 'data_sources') if not dr.get(k)],
+                'next': 'Add more sections with report_add, or finish with make_report (it includes everything saved).'}
+
+    def _merge_draft(self, args):
+        """make_report's own arguments after the parts already saved: lists go after the saved ones, single values win."""
+        out = dict(self._draft)
+        for k, v in (args or {}).items():
+            if k in self.LIST_PARTS:
+                out[k] = list(out.get(k) or []) + (v if isinstance(v, list) else [v])
+            elif v:
+                out[k] = v
+        return out
 
     def _index(self, entry):
         """Keep a list of reports made (newest first) for the Data Scientist tab."""
@@ -1741,6 +1794,7 @@ class Agent:
         self.provenance = []
         self.history.append({'role': 'user', 'content': question})
         self._report_pdf = None
+        self._draft = {}
         try:
             res = self._loop(chain, tier, today)
         except Exception:
@@ -1823,8 +1877,9 @@ class Agent:
                                                                       and b.get('text')]
                                      or [{'type': 'text', 'text': '(cut off)'}]})
                 self.history.append({'role': 'user', 'content': 'Your last reply was cut off because it was too long. '
-                                     'Try again more briefly: for maps use show_map with source instead of listing '
-                                     'points, and group data instead of listing rows.'})
+                                     'Do not shorten the content: if it is part of a report, save it in smaller parts '
+                                     'with report_add (two or three sections at a time) and finish with make_report. '
+                                     'For maps use a source instead of listing points, and group data instead of listing rows.'})
                 continue
             content = [b for b in content if not (b.get('type') == 'text' and not b.get('text'))] or \
                 [{'type': 'text', 'text': '(No answer.)'}]
@@ -1893,6 +1948,15 @@ class Agent:
         idx = [i for i, m in enumerate(msgs) if m['role'] == 'user' and isinstance(m['content'], list)
                and any(b.get('type') == 'tool_result' for b in m['content'])]
         msgs = list(msgs)
+        for i, m in enumerate(msgs[:-6]):                  # what was saved with report_add is kept in the draft, not needed again here
+            if m['role'] == 'assistant' and isinstance(m['content'], list) and any(
+                    b.get('type') == 'tool_use' and b.get('name') == 'report_add' for b in m['content']):
+                msgs[i] = {**m, 'content': [
+                    {**b, 'input': {'sections': [{'heading': str(x.get('heading', ''))[:70], 'text': '(saved in the report draft)'}
+                                                 for x in (b.get('input') or {}).get('sections') or []]}}
+                    if b.get('type') == 'tool_use' and b.get('name') == 'report_add' else b for b in m['content']]}
+                if size(msgs) <= self.CONTEXT_CHARS:
+                    return msgs
         for i in idx[:-4]:
             blocks = []
             for b in msgs[i]['content']:

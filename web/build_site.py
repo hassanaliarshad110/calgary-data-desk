@@ -215,6 +215,18 @@ def python_files(out, cache):
                     shutil.copy(f, os.path.join(dest, 'data', name))
                     files.append(f'data/{name}')
                     shipped.append(name)
+    for e in registry.auto_files(out):                            # hand-picked and API data files no page claims (registry.auto_files)
+        name, src = e['files'][0]
+        if name in shipped or e['bytes'] > registry.MAX_SHIP:
+            continue
+        for base in (out, os.path.dirname(os.path.abspath(registry.__file__)), os.path.join(os.path.dirname(os.path.abspath(registry.__file__)), 'ui')):
+            f = os.path.join(base, src)
+            if os.path.exists(f):
+                os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
+                shutil.copy(f, os.path.join(dest, 'data', name))
+                files.append(f'data/{name}')
+                shipped.append(name)
+                break
     rg = os.path.join(out, 'data', 'registry.json')
     if os.path.exists(rg):
         os.makedirs(os.path.join(dest, 'data'), exist_ok=True)

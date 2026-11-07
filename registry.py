@@ -41,30 +41,31 @@ PAGES = [
     page('growth', 'Growth vs amenities', 'How near homes are to playgrounds, parks, transit stops, libraries and recreation centres, how crowded they '
          'are, the forecast to 2030, assets, the population build-up, major projects being built, development and rezoning.',
          'get_dashboard sections access, growth_forecast, other_amenities, ward_amenities, population_recon, amenities, development',
-         section='access', scientist='growth_forecast', keywords='amenities access distance crowding forecast 2030 parks playgrounds transit pathways bikeways projects being built'),
+         section='access', files=['srg_raw.json'], scientist='growth_forecast', keywords='amenities access distance crowding forecast 2030 parks playgrounds transit pathways bikeways projects being built'),
     page('families', 'Families and schools', 'Licensed child care spaces and inspections, schools and enrolment by community.',
          'get_dashboard sections child_care and schools', section='child_care', keywords='child care daycare schools enrolment'),
     page('infra', 'Infrastructure condition', 'Water main breaks, the age of the water network, the paving plan and the City\'s own condition figures, '
          'against 311 requests.', 'read_source key=infra (outline, then part or find); get_dashboard also has infrastructure 311 reports per 1,000',
          files=['infra.json'], keywords='water main breaks pipes paving roads sidewalks sewer'),
     page('safety', "Canada's safest cities", "Every city of 10,000 or more by Statistics Canada's Crime Severity Index, with Calgary's rank.",
-         'get_dashboard section=safest_cities (find narrows by city); crime_severity_index', section='safest_cities', keywords='crime severity index ranking'),
+         'get_dashboard section=safest_cities (find narrows by city); crime_severity_index', section='safest_cities', files=['safety_rank.json'], keywords='crime severity index ranking'),
     page('cameras', 'Traffic cameras', "The City's traffic cameras, shown live on the page.",
          'get_method topic=cameras (where the list comes from). The live pictures themselves cannot be read as data.', keywords='traffic cameras'),
     page('help', 'Find help near me', 'Shelters, meals, day spaces, health care and help lines, nearest first.',
          'read_source key=help (places by kind, address, hours, phone)', files=[['help.json', 'help/help.json']], keywords='shelter food bank help lines health'),
     page('budget', 'City budget', 'The 2026 budget by department and service, revenue, and property tax by ward and community.',
          'read_source key=budget (budget by department and service, revenue); get_dashboard section=property_tax for the tax by ward and community',
-         files=['budget.json'], section='property_tax', keywords='budget spending revenue property tax mill rate'),
+         files=['budget.json', 'tax.json'], section='property_tax', keywords='budget spending revenue property tax mill rate'),
     page('fedbudget', 'Federal Budget 2026', 'Headline numbers, every measure, province by province, Calgary and Alberta, tax changes and the fiscal tables.',
          'get_dashboard section=federal_budget (part summary, province, find, chapter, tables, tax, revenue_by_province)', section='federal_budget',
+         files=[['budget2026.json', 'budget/budget2026.json']],
          keywords='federal budget deficit measures tax'),
     page('invest', 'Invest in Calgary', 'Every business in Calgary by kind and community, where each kind is underserved, growth.',
-         'get_dashboard section=business (community, kind, find)', section='business', keywords='business licences underserved directory'),
+         'get_dashboard section=business (community, kind, find)', section='business', files=['business.json'], keywords='business licences underserved directory'),
     page('capmkt', 'Calgary Capital Markets', "Calgary's public companies, their industries and value, and Calgary's place in Canada's stock markets.",
          'read_source key=capmkt (outline, then part or find): the company directory (head office and source for each) and the totals', files=['capmkt.json', ['companies.json', 'capmkt/companies.json']], keywords='TSX TSXV stock market public companies market capitalization'),
     page('elections', 'Election Data Centre', 'Seats and leaders at every level, constituencies, every race and candidate, the latest official results.',
-         'get_dashboard section=elections (full=true for every Calgary race and the referendum)', section='elections', keywords='elections results turnout mayor councillor MLA MP'),
+         'get_dashboard section=elections (full=true for every Calgary race and the referendum)', section='elections', files=['elections.json'], keywords='elections results turnout mayor councillor MLA MP'),
     page('election_analytics', 'Election Analytics', 'The micro-level picture of an area or seat for the 2027 elections: Census by community, every voting location and poll.',
          'get_dashboard section=election_analytics (riding for one seat)', view='elections', section='election_analytics',
          keywords='election analytics polls voting locations turnout constituency'),
@@ -96,6 +97,76 @@ PAGES = [
 BY_KEY = {p['key']: p for p in PAGES}
 
 
+# What the hand-picked files that carry no note of their own hold (a file with a "note", "description" or "about" describes itself).
+DESCRIBE = {
+    'budget_revenue.json': 'The City of Calgary budget: revenue lines by year, taken from the budget document by hand.',
+    'rentals_all.json': 'Rental apartment buildings across Calgary (units, move-in, value per unit) used by the Population build-up.',
+    'ward5_rentals.json': 'Rental apartment buildings in Ward 5 used by the Population build-up.',
+    'tax_rates.json': 'The City\'s 2026 property tax rates by property class.',
+    'ward5_profile_2021.json': 'The 2021 Census profile of Ward 5 (households, languages, income, commuting), by hand from Statistics Canada.',
+    'analyst_topics.json': 'The ready-made analysis topics of the Data Scientist tab.',
+    'built.json': 'When the website was last built, how long each step took, and the Census year used.',
+    'business_people.json': 'Residents by community under each way of counting, used by Invest in Calgary.',
+    'live.json': 'The live connections the site checks (City open data, the City feeds, news) and when each last answered.',
+    'settings.json': 'The ways of counting residents, the wards, the methods and the contact details the site uses.',
+    'transit.json': 'The Calgary Transit timetable: routes, trips and the dates it is valid for.',
+}
+SKIP = {'registry.json', 'search.json', 'methods.json'}      # the registry itself, the site search and the method notes (get_method)
+MAX_SHIP = 1500000                                          # bytes: a bigger file is not sent to the browser with the assistants
+
+
+def _describe(name, d):
+    if name in DESCRIBE:
+        return DESCRIBE[name]
+    if isinstance(d, dict):
+        for k in ('note', 'description', 'about'):
+            if isinstance(d.get(k), str) and d[k].strip():
+                return d[k].strip()[:400]
+        if isinstance(d.get('source'), str):
+            return f"Data file {name} (source: {d['source'][:160]})."
+        return f"Data file {name} with {', '.join(list(d)[:8])}."
+    return f'Data file {name}.'
+
+
+def auto_files(out=None):
+    """An entry for every data file (hand-picked or built from an API) that no page entry claims, so a file added to data/,
+    to the site folders or to the build's data is known to the assistants the day it exists: no one has to list it."""
+    claimed = set()
+    for p in PAGES:
+        for name, src in p['files']:
+            claimed.add(name)
+            claimed.add(os.path.basename(src))
+    found = {}
+    roots = [(os.path.join(out, 'data') if out else None, 'data/'), (os.path.join(HERE, 'data'), 'data/')]
+    for root, prefix in roots:
+        if not root or not os.path.isdir(root):
+            continue
+        for f in sorted(os.listdir(root)):
+            if f.endswith('.json') and f not in SKIP and f not in claimed and f not in found:
+                found[f] = (os.path.join(root, f), prefix + f)
+    ui = os.path.join(HERE, 'ui')
+    for dp, dn, fn in os.walk(ui):
+        if 'vendor' in dp or 'video' in dp:
+            continue
+        for f in fn:
+            if f.endswith('.json') and f not in SKIP and f not in claimed and f not in found:
+                found[f] = (os.path.join(dp, f), os.path.relpath(os.path.join(dp, f), ui))
+    entries = []
+    for f, (path, src) in sorted(found.items()):
+        try:
+            size = os.path.getsize(path)
+            with open(path, encoding='utf-8') as fh:
+                d = json.load(fh)
+        except (OSError, ValueError):
+            continue
+        what = _describe(f, d)
+        entries.append({'key': 'data:' + f[:-5], 'view': None, 'title': f[:-5].replace('_', ' ').capitalize() + ' (data file)', 'what': what,
+                        'read': f'read_source key=data:{f[:-5]} (outline, then part or find)', 'files': [[f, src]], 'section': None,
+                        'scientist': None, 'keywords': f[:-5].replace('_', ' '), 'registered': True, 'auto': True, 'bytes': size,
+                        'described': f in DESCRIBE or (isinstance(d, dict) and any(isinstance(d.get(k), str) for k in ('note', 'description', 'about')))})
+    return entries
+
+
 def discover_tabs(html=None):
     """(view, title, tooltip) for every tab in ui/index.html, so a new screen is known the day it is added."""
     if html is None:
@@ -116,7 +187,7 @@ def discover_tabs(html=None):
     return out
 
 
-def pages(html=None, stored=None):
+def pages(html=None, stored=None, build_dir=None):
     """Every registered page, plus a plain entry for any tab in the site that has none yet (flagged registered=False)."""
     out = [dict(p, registered=True) for p in PAGES]
     have = {p['view'] for p in out}
@@ -130,12 +201,13 @@ def pages(html=None, stored=None):
                                 'for the subject, and say plainly that this page exists.',
                         'files': [], 'section': None, 'scientist': None, 'keywords': '', 'registered': False})
             have.add(view)
+    out += auto_files(build_dir)
     return out
 
 
 def write(out_dir, html=None):
     """The build's copy (data/registry.json), for Data Genie in the browser."""
-    reg = pages(html)
+    reg = pages(html, build_dir=out_dir)
     path = os.path.join(out_dir, 'data', 'registry.json')
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, 'w', encoding='utf-8') as f:
