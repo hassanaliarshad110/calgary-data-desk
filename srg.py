@@ -428,6 +428,7 @@ def view(raw, base, pops, kids, scope_codes, ward_of, names, method_label='', pl
         if c not in alloc:
             bands = lambda sc: {g: (((sc.get(c) or {}).get('groups') or {}).get(g) or {}).get('band') for g in ('local', 'district')}
             moved = bands(sc_now) != bands(sc_p if sc_p else sc_30)
+        p_now, p_then = pops.get(c) or 0, p30.get(c) or 0
         if c not in shown or (not a and not moved) or (a and a['homes'] < MIN_SHOWN and not moved and not p_now):
             continue
         st = (base['comm'].get(c) or {}).get('access') or {}
@@ -435,7 +436,6 @@ def view(raw, base, pops, kids, scope_codes, ward_of, names, method_label='', pl
         g_now, g_30 = (sc_now.get(c) or {}).get('groups') or {}, (sc_30.get(c) or {}).get('groups') or {}
         g_p = ((sc_p or {}).get(c) or {}).get('groups') or {}
         o, n = g_now.get('local'), (g_p if sc_p else g_30).get('local')   # the reading: local amenities, with what is planned
-        p_now, p_then = pops.get(c) or 0, p30.get(c) or 0
         growing = bool(a and p_now and a['people'] / max(p_now, 1) >= 0.10) or bool(a and not p_now and a['people'] > 0)
         crowd = {k: {'now': None if cr_now[k]['by'].get(c) is None else round(cr_now[k]['by'][c], 3),
                      'then': None if cr_30[k]['by'].get(c) is None else round(cr_30[k]['by'][c], 3),
