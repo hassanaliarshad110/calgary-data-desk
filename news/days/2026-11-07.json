@@ -67,7 +67,18 @@
    "id": "2026-11-07-former-mayor-rejects-blame-as-details-emerge-from-bearspaw-feeder-main",
    "date": "2026-11-07",
    "published_at": "2026-11-07T23:39:51Z",
-   "words": 524
+   "words": 524,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Calgary_Skyline_from_the_river.jpg/1280px-Calgary_Skyline_from_the_river.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Calgary_Skyline_from_the_river.jpg",
+    "credit": "Mule hollandaise",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "alt": "Calgary Skyline from the river",
+    "query": "Calgary skyline",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Bearspaw Water Treatment Plant Calgary"
   },
   {
    "title": "Chinook brings wind warning with gusts up to 100 km/h overnight",
@@ -109,7 +120,18 @@
    "id": "2026-11-07-chinook-brings-wind-warning-with-gusts-up-to-100-km-h-overnight",
    "date": "2026-11-07",
    "published_at": "2026-11-07T23:39:51Z",
-   "words": 299
+   "words": 299,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Chinook_Arch-Calgary.JPG/1280px-Chinook_Arch-Calgary.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Chinook_Arch-Calgary.JPG",
+    "credit": "Qyd (talk · contribs)",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "alt": "Chinook Arch-Calgary",
+    "query": "Calgary chinook arch skyline",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Calgary chinook arch skyline"
   },
   {
    "title": "Alberta's economy grew 3.3 per cent in 2025, outpacing the national rate, province says",
@@ -165,7 +187,18 @@
    "id": "2026-11-07-alberta-s-economy-grew-3-3-per-cent-in-2025-outpacing-the-national-rat",
    "date": "2026-11-07",
    "published_at": "2026-11-07T23:39:51Z",
-   "words": 235
+   "words": 235,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Downtown_Calgary_skyline.jpg/1280px-Downtown_Calgary_skyline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Downtown_Calgary_skyline.jpg",
+    "credit": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "alt": "Downtown Calgary skyline",
+    "query": "Calgary downtown skyline",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Calgary downtown skyline"
   }
  ]
 }
