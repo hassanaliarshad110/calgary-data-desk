@@ -606,7 +606,7 @@ function show(view) {
 }
 // a scrolling table or list can be reached with the keyboard (Tab, then the arrow keys)
 function markScrollables() {
-  $$('.table-wrap, .tall, .sr-wrap, .scroll-x, .table-scroll, .feed, .thread, .detail, .rank, .record, .status-box, #crime-comms, .brief-feed, .brief-types, .ea-thread, .inf-pave, .ca-votes, .viewer').forEach(el => {
+  $$('.table-wrap, .tall, .sr-wrap, .scroll-x, .table-scroll, .feed, .thread, .detail, .rank, .record, .status-box, #crime-comms, .brief-feed, .brief-types, .ea-thread, .inf-pave, .ca-votes, .viewer, .el-race, .el-scroll').forEach(el => {
     const scrolls = el.scrollHeight > el.clientHeight + 2 || el.scrollWidth > el.clientWidth + 2;
     if (scrolls && !el.hasAttribute('tabindex')) { el.tabIndex = 0; el.dataset.scrollable = '1'; }
     else if (!scrolls && el.dataset.scrollable) { el.removeAttribute('tabindex'); delete el.dataset.scrollable; }
@@ -2805,7 +2805,7 @@ function renderGapInner() {
       return `<tr><td>${esc(A.kinds[k].label)}</td><td>within ${acM(acTh(A, k, false))}</td><td>${acBar(c.share_new_1, 'new')}<b>${acPct(c.share_new_1)}</b></td><td>${acBar(c.share_old_1)}${acPct(c.share_old_1)}</td><td class="num">${isNum(d) ? signed(d, 0, ' pts') : '–'}</td><td>${acPct(c.share_1)} <small class="ac-med">median ${acM(c.median_m)}</small></td></tr>`; }).join('')}
     </tbody></table></div>
     <p class="card-note">Share of homes (dwelling units) within the distance of the nearest one, in any community, straight-line. ${fmt(A.homes.units)} homes on the City's property roll (${fmt(A.homes.records)} records; ${fmt(A.homes.units_estimated)} rental units estimated from assessed value). "Built since ${A.growth_year}": year of construction ${A.growth_year} or later; homes with no year are in neither group.</p>
-    <h4 class="ac-h4">Crowding at playgrounds and parks <span class="ac-est">Estimate</span></h4>
+    <h3 class="ac-h4">Crowding at playgrounds and parks <span class="ac-est">Estimate</span></h3>
     <ul class="ac-crowd">${acCrowdWords(A).map(x => `<li>${esc(x)}</li>`).join('')}${acNearCrowdedWords(A).map(x => `<li class="ac-nc-line">${esc(x)}</li>`).join('')}</ul>
     ${scData() ? `<p class="card-note">Crowding counts everyone who can reach a playground or park, from any community: children from the next community who use the same playground share it too. "Near, but crowded" uses the score below (the community's crowding against Calgary's).</p>` : ''}
     ${Object.keys(A.sensitivity || {}).length ? `<p class="card-note"><b>How much the estimate moves:</b> Calgary's playground figure (within ${acM(acTh(A, 'playground', false))}) under each way of counting residents: ${Object.entries(A.sensitivity).map(([m, v]) => `${esc(acMethodName(m))} ${fmt(((v.playground || {})[String(acTh(A, 'playground', false))]), 2)}${m === popMethod() ? ' (in use)' : ''}`).join(' · ')} playgrounds per 1,000 children.</p>` : ''}
@@ -2937,7 +2937,7 @@ function scHtml(A) {
     </tbody></table></div>`;
   const wards = Object.entries(S.wards || {}).sort((a, b) => +a[0] - +b[0]);
   const curWard = city ? (acWard ? +acWard : null) : (D.ward || {}).number;
-  const wardTable = `<h4 class="ac-h4">Every ward, the same scores</h4><div class="table-wrap ac-full"><table class="data sc-wards"><thead><tr><th scope="col">Ward</th><th scope="col">Local amenities</th><th scope="col">Local: label</th><th scope="col">District facilities</th><th scope="col">District: label</th></tr></thead><tbody>
+  const wardTable = `<h3 class="ac-h4">Every ward, the same scores</h3><div class="table-wrap ac-full"><table class="data sc-wards"><thead><tr><th scope="col">Ward</th><th scope="col">Local amenities</th><th scope="col">Local: label</th><th scope="col">District facilities</th><th scope="col">District: label</th></tr></thead><tbody>
     ${wards.map(([w, r]) => `<tr class="${+w === curWard ? 'ac-cur' : ''}"><td>Ward ${w}</td><td>${scCell(scGet(r, 'local'))}</td><td>${scTag(scGet(r, 'local'))}</td><td>${scCell(scGet(r, 'district'))}</td><td>${scTag(scGet(r, 'district'))}</td></tr>`).join('')}
     </tbody></table></div><p class="card-note">Wards in number order. A ward's score is its people-weighted crowding against Calgary's, worked out the same way as a community's.</p>`;
   return `<div class="gap-scope sc-card" id="acs-card"><h2 class="h3">Where amenities fall behind, under every assumption <span class="ac-est">Added ${dmy(S.added)}</span></h2>
@@ -3753,7 +3753,7 @@ function renderProps() {
   const unitsPeople = rent.length ? (row.people_in_units ?? null) : 0;
   const beyond = row.homes_now - homes;
   const hs = row.method === 'household size';
-  el.innerHTML = `<div class="gap-assets-head"><h3>Every property in ${esc(titleCase(row.name))}</h3>
+  el.innerHTML = `<div class="gap-assets-head"><h2 class="h3">Every property in ${esc(titleCase(row.name))}</h2>
       <button type="button" class="btn small" id="rc-save">${icon('download')}<span>Save every property</span></button></div>
     <p class="card-sub">Read live from the City's property roll just now: ${fmt(P.length)} accounts that count as homes. People per home: ${fmt(row.people_per_home, 4)}${hs ? ' (2021 household size: this community uses the change in homes only, see the note)' : ''}.</p>
     <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Kind of home</th><th scope="col" class="num">Accounts</th><th scope="col" class="num">Homes lived in</th><th scope="col" class="num">People</th></tr></thead><tbody>
@@ -4148,27 +4148,27 @@ function renderForecast() {
     ${P.map(p => `<tr><td class="wrap"><b>${esc(p.project)}</b></td><td>${esc(p.service)}</td><td>${esc(p.type)}</td><td class="wrap">${esc(p.plans.join('; '))}</td><td class="num">${isNum(p.km) ? fmt(p.km, 1) + ' km' : '–'}</td></tr>`).join('')}
     </tbody></table></div>`;
 
-  box.innerHTML = `<div class="gap-scope ac-head fc-head"><h3>The City's forecast to ${y1}, community by community <span class="ac-est">Estimate</span></h3>
+  box.innerHTML = `<div class="gap-scope ac-head fc-head"><h2 class="h3">The City's forecast to ${y1}, community by community <span class="ac-est">Estimate</span></h2>
       <p class="ac-lead">${esc(lead)}</p>
       <p class="card-note">From the City's Suburban Residential Growth (SRG) forecast, ${esc(dmy(S.edition))} edition: homes "absorbed" (built and lived in) in new communities each year, ${S.first_year} to ${y0 - 1}, and the City's forecast for ${y0} to ${y1}. The range is the City's own low and high yearly averages, by kind of home.</p></div>
-    <div class="gap-scope"><div class="fc-chart-head"><h3>New homes each year${fcSector ? ', ' + esc(secName(fcSector)) + ' sector' : ', all sectors'}</h3>${sel}</div>
+    <div class="gap-scope"><div class="fc-chart-head"><h2 class="h3">New homes each year${fcSector ? ', ' + esc(secName(fcSector)) + ' sector' : ', all sectors'}</h2>${sel}</div>
       <p class="fc-key"><span class="fc-sw fc-sw-past" aria-hidden="true"></span>Built and lived in <span class="fc-sw fc-sw-fc" aria-hidden="true"></span>City forecast</p>
       <div class="fc-chart"><canvas id="fc-canvas" role="img" aria-label="New homes in new communities each year, ${S.first_year} to ${y1}, the last five years the City's forecast"></canvas></div>
       ${secT}<p class="card-note">Homes and people as the City publishes them, sector by sector (e7ib-v9n4). People per home is the forecast's people over its homes: the City's own figure for each kind of home. The Centre sector has no new communities, so no rows.</p></div>
-    <div class="gap-scope"><h3>Who grows, and what it does to amenities nearby</h3>
+    <div class="gap-scope"><h2 class="h3">Who grows, and what it does to amenities nearby</h2>
       <p class="ac-lead">Each sector's forecast is shared among its new communities by the homes built in each one in the last five years. Residents in ${y1} are today's (${esc(S.method || popChip())}) plus that share of the forecast people; Growth vs amenities is then worked out again with today's amenities. Scores are against Calgary <b>today</b>, so a score falls only where crowding itself gets worse.</p>
       <div class="ac-row">${showSeg}</div>
       ${commT}
       <p class="card-note"><b>Readings</b> (local amenities score: playgrounds, parks, transit stops and community centres, in ${y1} with what is planned): ${fcTag(S, 'becomes_crowded')} from around Calgary's level or above to below 0.80; ${fcTag(S, 'more_crowded')} below 0.80 today and a lower band, or 10% lower, by ${y1}; ${fcTag(S, 'crowded')} below 0.80 today and about the same; ${fcTag(S, 'far_growing')} under half of homes within reach of a playground, park or transit stop and growing 10% or more; ${fcTag(S, 'keeps_up')} none of these. "Neighbour": a community the forecast adds no homes to, whose playgrounds, parks or centres are shared with growing ones enough to change its band. <button type="button" class="link-btn small" data-method="growth_forecast">How the forecast is worked out</button></p>
-      <h4 class="ac-h4">Calgary's amenities per person, today and in ${y1}</h4>${cgT}
+      <h3 class="ac-h4">Calgary's amenities per person, today and in ${y1}</h3>${cgT}
       <p class="card-note">Calgary's figure in ${y1} counts only the forecast's new-community growth; growth in established communities is not in the City's forecast.</p></div>
-    ${S.planned ? `<div class="gap-scope"><h3>What is already planned</h3>
+    ${S.planned ? `<div class="gap-scope"><h2 class="h3">What is already planned</h2>
       <p class="card-sub">Added to the ${y1} figures above ("with what is planned"). <b>Park land:</b> ${fmt(S.planned.park_ha, 0)} ha in ${fmt(S.planned.park_polygons)} parcels across Calgary's new communities${city ? '' : `, ${fmt(S.planned.park_ha_scope, 0)} ha of it in ${esc(W())}`}, zoned as reserve in the City's Land Use Bylaw but not yet in its parks inventory: ${Object.entries(S.planned.park_ha_by_zone || {}).map(([z, ha]) => `${esc((S.planned.zones || {})[z] || z)} (${z}) ${fmt(ha, 0)} ha`).join(', ')}. That is land the developer has set aside for parks, schools and natural areas and not yet handed over as a finished City park. <b>Facilities</b> being built or funded and due by ${y1}:</p>
       <div class="table-wrap"><table class="data fc-pl"><thead><tr><th scope="col">Facility</th><th scope="col">Adds</th><th scope="col">Opens</th><th scope="col">Stage</th></tr></thead><tbody>
       ${(S.planned.facilities || []).map(f => `<tr><td class="wrap">${f.url ? `<button class="link-btn" data-open="${esc(f.url)}">${esc(f.title)}</button>` : esc(f.title)}</td><td>${esc(K[f.kind] || f.kind)}</td><td>${f.opens ? esc(String(f.opens)) : 'Under construction, date not given'}</td><td class="wrap">${esc(f.status || '')}</td></tr>`).join('') || '<tr><td colspan="4" class="empty">None listed.</td></tr>'}
       </tbody></table></div>
       <p class="card-note">Not added because no published list has them: new playgrounds (developers build most of them with each phase) and new transit stops. Schools and fire stations being built are on "Being built", with every other major project in ${esc(W())}. Facilities planned in area structure plans but not funded are not counted.</p></div>` : ''}
-    <div class="gap-scope"><h3>Projects the new homes need</h3>
+    <div class="gap-scope"><h2 class="h3">Projects the new homes need</h2>
       <p class="card-sub">${fmt(P.length)} growth-related capital projects the City lists for future suburban homes (${Object.entries((S.infrastructure || {}).by_service || {}).map(([k, v]) => `${esc(k.toLowerCase())} ${fmt(v)}`).join(', ')}), each with the area structure plans it supports. Stage, cost and timing are not in this dataset.</p>
       ${infT}</div>`;
   $('#gr-notes').innerHTML = `What this cannot show: ${(S.limits || []).map(esc).join(' ')} Sources: City of Calgary open data: <button class="link-btn small" data-open="https://data.calgary.ca/d/e7ib-v9n4">Suburban Residential Growth (SRG) Forecast (e7ib-v9n4)</button>, <button class="link-btn small" data-open="https://data.calgary.ca/d/szyj-edpn">SRG Policy Infrastructure Lines (szyj-edpn)</button>, <button class="link-btn small" data-open="https://data.calgary.ca/d/surr-xmvs">Community District Boundaries (sector and SRG class, surr-xmvs)</button>; residents, homes and amenities as on the rest of Growth vs amenities.`;
