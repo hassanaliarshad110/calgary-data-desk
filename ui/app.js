@@ -118,7 +118,9 @@ function show(view) {
     on ? t.setAttribute('aria-current', 'page') : t.removeAttribute('aria-current');
   });
   $$('.view').forEach(v => v.classList.toggle('is-on', v.id === 'view-' + view));
+  $$('.nav-g').forEach(g => { g.classList.toggle('has-on', !!g.querySelector('.tab.is-on')); g.classList.remove('open'); g.querySelector('.nav-gt') && g.querySelector('.nav-gt').setAttribute('aria-expanded', 'false'); });
   if (view !== 'videos') $$('#view-videos video').forEach(v => v.pause());
+  else $$('#view-videos video[data-poster]').forEach(v => { v.poster = v.dataset.poster; v.removeAttribute('data-poster'); });   // posters load only when the page is opened
   if (view === 'files') loadFiles();
   if (view === 'scientist' && window.renderScientist) renderScientist();
   if (view === 'settings') loadSettings();
@@ -135,6 +137,7 @@ function show(view) {
   if (view === 'elections' && window.renderElections) renderElections();
   if (view === 'fedbudget' && window.renderFedBudget) renderFedBudget();
   if (view === 'safety' && window.renderSafety) renderSafety();
+  if (view === 'visit' && window.renderVisit) renderVisit();
   if (view === 'invest' && window.renderInvest) renderInvest();
   if (view === 'infra' && window.renderInfra) renderInfra();
   if (view === 'capmkt' && window.renderCapMkt) renderCapMkt();
@@ -144,7 +147,18 @@ function show(view) {
   if (view === 'sources' && window.renderLive) renderLive();
   if (view === 'news' && window.initNews) initNews();
   if (view === 'ask') $('#question').focus();
+  setTimeout(markScrollables, 400);
 }
+// a scrolling table or list can be reached with the keyboard (Tab, then the arrow keys)
+function markScrollables() {
+  $$('.table-wrap, .tall, .sr-wrap, .scroll-x, .table-scroll, .feed, .thread, .detail, .rank, .record, .status-box, #crime-comms, .brief-feed, .brief-types, .ea-thread, .inf-pave, .ca-votes, .viewer, .el-race, .el-scroll').forEach(el => {
+    const scrolls = el.scrollHeight > el.clientHeight + 2 || el.scrollWidth > el.clientWidth + 2;
+    if (scrolls && !el.hasAttribute('tabindex')) { el.tabIndex = 0; el.dataset.scrollable = '1'; }
+    else if (!scrolls && el.dataset.scrollable) { el.removeAttribute('tabindex'); delete el.dataset.scrollable; }
+  });
+}
+{ let t; new MutationObserver(() => { clearTimeout(t); t = setTimeout(markScrollables, 300); }).observe(document.getElementById('main'), { childList: true, subtree: true }); }
+window.addEventListener('resize', () => { clearTimeout(window.__msT); window.__msT = setTimeout(markScrollables, 300); });
 $$('.tab').forEach(t => t.addEventListener('click', () => { if (t.dataset.view) show(t.dataset.view); setMenu(false); }));
 // phones: the sections sit behind a menu button at the top, so every page gets the full width
 function setMenu(open) {
@@ -157,6 +171,27 @@ function setMenu(open) {
 $('#menu-btn').addEventListener('click', () => setMenu(!$('.side').classList.contains('open')));
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('.side').classList.contains('open')) { setMenu(false); $('#menu-btn').focus(); } });
 $('#brief-btn') && $('#brief-btn').addEventListener('click', () => setMenu(false));
+// navigation layout: the groups down the side, or across the top as menus (?nav=top or ?nav=side remembers the choice)
+{
+  const q = new URLSearchParams(location.search).get('nav');
+  let pref = 'top'; try { pref = q === 'top' || q === 'side' ? q : (localStorage.getItem('nav-layout') || 'top'); if (q === 'top' || q === 'side') localStorage.setItem('nav-layout', q); } catch (e) { pref = q || 'top'; }
+  document.documentElement.classList.toggle('topnav', pref !== 'side');
+}
+function closeGroups(except) { $$('.nav-g.open').forEach(g => { if (g !== except) { g.classList.remove('open'); g.querySelector('.nav-gt').setAttribute('aria-expanded', 'false'); } }); }
+$$('.nav-gt').forEach(b => b.addEventListener('click', () => {
+  if (!document.documentElement.classList.contains('topnav') || $('.side').classList.contains('open')) return;   // down the side the title is a heading
+  const g = b.closest('.nav-g'), open = !g.classList.contains('open');
+  closeGroups(g); g.classList.toggle('open', open); b.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (open) { const first = g.querySelector('.nav-gm .tab'); if (first && b.matches(':focus-visible')) first.focus(); }
+}));
+document.addEventListener('click', e => { if (!e.target.closest('.nav-g')) closeGroups(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('.nav-g.open')) { const g = $('.nav-g.open'); closeGroups(); g.querySelector('.nav-gt').focus(); } });
+$$('.nav-g').forEach(g => g.addEventListener('keydown', e => {
+  if (!g.classList.contains('open')) return;
+  const items = $$('.nav-gm .tab', g), i = items.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown') { e.preventDefault(); (items[i + 1] || items[0]).focus(); }
+  if (e.key === 'ArrowUp') { e.preventDefault(); (items[i - 1] || items[items.length - 1]).focus(); }
+}));
 document.addEventListener('click', e => {
   const g = e.target.closest('[data-goto]');
   if (g) show(g.dataset.goto);
@@ -552,7 +587,7 @@ function setBase() {
     if (++tileErrors === 6 && mapStyle === 'street' && !(googleKey && !googleFailed)) { tiles.remove(); tiles = BASES.street_esri().addTo(map); tiles.bringToBack(); }
   });
   $$('#base-seg button').forEach(b => b.setAttribute('aria-checked', String(b.dataset.base === mapStyle)));
-  $('#base-note').textContent = googleKey && !googleFailed && mapStyle !== 'grey' ? 'Google Maps' : googleFailed ? 'Google refused the key: free map shown' : '';
+  $('#base-note').textContent = googleKey && !googleFailed && mapStyle !== 'grey' ? 'Google Maps' : googleFailed ? 'Google refused the key: OpenStreetMap shown' : '';
 }
 function wardBounds() { return L.geoJSON(D.geo.ward).getBounds(); }
 function zoomToWard() { if (map && D) { map.invalidateSize(); map.fitBounds(wardBounds(), { padding: [16, 16] }); } }
@@ -1256,7 +1291,7 @@ function renderCityIssues() {
   box.hidden = false;
   const rows = ws ? [...ws.wards].sort((a, b) => (b.open_per_1000 || 0) - (a.open_per_1000 || 0)) : [];
   box.innerHTML = `<div class="card-head"><div><h2>Open requests in each ward</h2><p class="card-sub">Most open per 1,000 residents first. Choose a ward to list its requests one by one.</p></div></div>
-    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Still open</th><th scope="col" class="num">Open more than 90 days</th><th scope="col" class="num">Open per 1,000 residents</th><th scope="col"></th></tr></thead><tbody>
+    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Still open</th><th scope="col" class="num">Open more than 90 days</th><th scope="col" class="num">Open per 1,000 residents</th><th scope="col"><span class="sr">Open the ward</span></th></tr></thead><tbody>
     ${rows.map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${fmt(r.open)}</td><td class="num">${fmt(r.open_over_90_days)}</td><td class="num">${fmt(r.open_per_1000, 1)}</td>
       <td><button type="button" class="link-btn" data-scope-ward="${r.ward}">List Ward ${r.ward}'s requests</button></td></tr>`).join('')}</tbody></table></div>`;
   $('#issues-count').textContent = '';
@@ -1582,7 +1617,7 @@ async function loadSettings() {
   $('#key-badge').classList.toggle('ok', !!nk);
   $('#no-key') && ($('#no-key').hidden = s.has_key);
   renderEngines(s);
-  $('#gkey-status').textContent = s.has_google_key ? `A Google Maps key ending ${s.google_key_hint.slice(3)} is saved. The maps use Google. Remove it before giving the app to someone else.` : 'No key saved. The maps use OpenStreetMap, which is free.';
+  $('#gkey-status').textContent = s.has_google_key ? `A Google Maps key ending ${s.google_key_hint.slice(3)} is saved. The maps use Google. Remove it before giving this computer to someone else.` : 'No key saved. The maps use OpenStreetMap, which needs no key.';
   $('#gkey-badge').textContent = s.has_google_key ? 'Saved' : 'Not saved';
   $('#gkey-badge').classList.toggle('ok', !!s.has_google_key);
   $('#remove-gkey').disabled = !s.has_google_key;
@@ -1655,7 +1690,7 @@ function renderEngines(s) {
         <label class="eng-f eng-url"${e.provider === 'other' ? '' : ' hidden'}><span class="field-label">Chat address</span><input value="${esc(e.provider === 'other' ? e.url || '' : '')}" placeholder="https://…/v1/chat/completions"></label>
       </div>
       <div class="eng-foot">
-        <label class="check"><input type="checkbox" class="eng-free" ${e.free ? 'checked' : ''}> Free-tier key</label>
+        <label class="check"><input type="checkbox" class="eng-free" ${e.free ? 'checked' : ''}> No-cost key</label>
         ${p.key_page ? `<button type="button" class="link-btn" data-page="${esc(p.key_page)}">Get a key ${icon('open')}</button>` : ''}
         <span class="eng-spacer"></span>
         <span class="eng-test-out" role="status"></span>

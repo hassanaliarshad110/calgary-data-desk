@@ -110,7 +110,7 @@ async function renderInfra() {
     ${ecBars(yrs.map(y => ({ label: String(y), v: by.breaks_by_year[y] })), v => fmt(v))}</section>`;
   const rqY = by.requests_by_year || {}, ry = [...new Set(Object.values(rqY).flatMap(o => Object.keys(o).map(Number)))].filter(y => y < today).sort();
   const reqCard = `<section class="card span-6"><div class="card-head"><div><h2>311 requests about infrastructure, by year</h2><p class="card-sub">All of Calgary; ${today} so far is left out</p></div></div>
-    ${Object.entries(INF.requests || {}).map(([k, v]) => `<h4 class="inf-h4">${esc(v.label)}</h4>${ecBars(ry.slice(-5).map(y => ({ label: String(y), v: (rqY[k] || {})[y] || 0 })), x => fmt(x))}`).join('')}</section>`;
+    ${Object.entries(INF.requests || {}).map(([k, v]) => `<h3 class="inf-h4">${esc(v.label)}</h3>${ecBars(ry.slice(-5).map(y => ({ label: String(y), v: (rqY[k] || {})[y] || 0 })), x => fmt(x))}`).join('')}</section>`;
 
   // the oldest networks in the area
   const oldest = rows.filter(r => r.km >= 5 && r.medYear).sort((x, y) => x.medYear - y.medYear).slice(0, 15);
@@ -129,10 +129,10 @@ async function renderInfra() {
   const cr = (ctx.critical || {}).rows || [];
   const pqBar = `<div class="inf-pqi"><span style="width:${pq.good}%" class="g">${pq.good}% good</span><span style="width:${pq.fair}%" class="f">${pq.fair}% fair</span><span style="width:${pq.poor}%" class="p">${pq.poor}% poor</span></div>`;
   const cityCard = `<section class="card span-12"><div class="card-head"><div><h2>The City's own condition figures</h2><p class="card-sub">Not published as open data by road or pipe, so kept here with their sources</p></div></div>
-    <h4 class="inf-h4">Roads: ${esc(pq.scale || '')}</h4>${pqBar}
+    <h3 class="inf-h4">Roads: ${esc(pq.scale || '')}</h3>${pqBar}
     <p class="card-sub">Calgary, ${esc(pq.as_of || '')}. Canada's average: ${pq.canada_good}% good. The network is slipping by ${esc(pq.decline || '')}. The City's targets for roads in good condition or better: ${Object.entries(pq.targets || {}).map(([k, v]) => `${k.toLowerCase()} ${v}%`).join(', ')}. Inspected: ${esc(pq.inspected || '')}. <a href="${esc((pq.source || {}).url || '#')}" target="_blank" rel="noopener">${esc((pq.source || {}).publisher || '')}: ${esc((pq.source || {}).title || '')}</a></p>
     <p class="card-sub"><b>${(ctx.overall_poor || {}).pct}%</b> ${esc((ctx.overall_poor || {}).what || '')}. <a href="${esc(((ctx.overall_poor || {}).source || {}).url || '#')}" target="_blank" rel="noopener">${esc(((ctx.overall_poor || {}).source || {}).title || '')}</a></p>
-    <h4 class="inf-h4">Critical assets in poor or very poor condition</h4>
+    <h3 class="inf-h4">Critical assets in poor or very poor condition</h3>
     <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Asset</th><th scope="col">If it fails</th><th scope="col">Condition</th><th scope="col">Money set aside</th></tr></thead>
     <tbody>${cr.map(r => `<tr><th scope="row">${esc(r[0])}</th><td>${esc(r[1])}</td><td class="wrap">${esc(r[2])}</td><td class="wrap">${esc(r[3])}</td></tr>`).join('')}</tbody></table></div>
     <p class="card-note">Source: <a href="${esc(((ctx.critical || {}).source || {}).url || '#')}" target="_blank" rel="noopener">${esc(((ctx.critical || {}).source || {}).title || '')}</a>, City of Calgary, 2026.</p></section>`;

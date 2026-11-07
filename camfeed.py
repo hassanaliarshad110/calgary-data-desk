@@ -21,7 +21,7 @@ HOST = 'https://trafficcam.calgary.ca/'
 
 
 def _fetch(url):
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Ward5DataDesk/1.0', 'Cache-Control': 'no-cache'})
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) CalgaryInsight/1.0', 'Cache-Control': 'no-cache'})
     with urllib.request.urlopen(req, timeout=15) as r:
         return r.read()
 

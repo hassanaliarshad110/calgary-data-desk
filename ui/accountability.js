@@ -20,7 +20,8 @@ const caBadge = s => `<span class="ca-status ${CA_TONE[s] || 'none'}">${esc(s)}<
 const caSrc = e => e.url && e.url !== '#elections' ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.source || 'Source')}</a>` : e.url === '#elections' ? `<button type="button" class="link-btn" data-caelsub="results">${esc(e.source)}</button>` : esc(e.source || '');
 const caDate = d => { if (!d) return ''; const [y, m, dd] = String(d).split('-'); const M = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; return dd ? `${M[+m - 1]} ${+dd}, ${y}` : m ? `${M[+m - 1]} ${y}` : y; };
 function caFilters(list) {
-  const sel = (id, v, opts) => `<select id="${id}" class="select">${opts.map(([k, t]) => `<option value="${k}" ${k === v ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>`;
+  const LBL = { 'ca-level': 'Government', 'ca-type': 'Kind of record', 'ca-status': 'Status' };
+  const sel = (id, v, opts) => `<select id="${id}" class="select" aria-label="${LBL[id] || 'Filter'}">${opts.map(([k, t]) => `<option value="${k}" ${k === v ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>`;
   return `<div class="card-tools sr-tools">${sel('ca-level', caLevel, [['', 'Every government'], ...Object.entries(CA_LEVEL)])}${sel('ca-type', caType, [['', 'Every kind'], ...Object.entries(CA_TYPE)])}${list ? sel('ca-status', caStatus, [['', 'Every status'], ...Object.keys(CA.statuses || {}).map(s => [s, s])]) : ''}</div>`;
 }
 const caKeep = c => (!caLevel || c.level === caLevel) && (!caType || c.type === caType) && (!caStatus || c.status === caStatus);

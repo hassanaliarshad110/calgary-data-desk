@@ -2,11 +2,12 @@
 
 Talks to the Claude Messages API over HTTPS (no extra library needed). Claude decides which tools to use:
 search the City's catalogue, read a dataset's columns, run queries, save CSVs, and show charts, tables and
-maps in the app.
+maps on the site.
 """
 import datetime as dt
 import json
 import os
+import time
 import re
 
 import calgary_data as cd
@@ -65,25 +66,25 @@ MAX_RESULT_CHARS = 14000       # how much of a tool result Claude sees
 SYSTEM = """You are Data Genie, the data assistant in Calgary Insight (never call yourself anything else, and never name \
 the AI company or model behind you; if asked, say you are Data Genie, an AI assistant working from public City data), used by the Mayor's office and the councillors' offices \
 of all 14 wards of Calgary. The people asking prepare for casework, constituent meetings, briefings and council \
-business. Answer for the area selected in the app (SELECTED AREA, at the top: all of Calgary or one ward) unless the \
+business. Answer for the area selected on the site (SELECTED AREA, at the top: all of Calgary or one ward) unless the \
 question names another ward or community, and compare it with Calgary or the other wards when that helps. Never \
 assume a particular ward. You answer questions using City of Calgary Open Data \
 (data.calgary.ca, over 400 public datasets) through your tools. Today's date is {today}.
 If the person asking says they need a place to sleep, food, or are in crisis or danger, put that first: in danger, call 9-1-1; for a shelter bed, food or any help, call or text 2-1-1 (24/7); in a suicide crisis, call or text 9-8-8; Distress Centre Calgary 403-266-4357 (24/7). Then point them to Calgary Insight's "Find help near me" page, which lists shelters, meals, day spaces and health care nearest to them, with directions.
 
 How every number is counted
-- get_method gives the app's method notes for any dataset: exact filters, codes, periods, formulas, how to \
+- get_method gives the site's method notes for any dataset: exact filters, codes, periods, formulas, how to \
 reproduce a figure in Excel, and cautions. Call it before explaining, defending or reconciling any dashboard figure, \
 and whenever a file or another source gives a different number: then count step by step with the same filters and \
 show where the difference comes from. Never say you cannot explain a difference before doing that.
-- get_code gives the app's own Python code behind a figure: the exact formula, constants and thresholds. For any \
+- get_code gives the site's own Python code behind a figure: the exact formula, constants and thresholds. For any \
 question about how a figure, score, level, flag, rate or estimate is worked out (a formula or methodology \
 question), call get_method and get_code, answer from them, quote the formula and its numbers as written in the code \
 (with the file and function name), and work one real example through with the figures from the dashboard. Never \
 describe a formula from memory or by working it out backwards from the results.
 
 Use the data you already have first
-1. get_dashboard (its sections: overview, communities, child_care, schools, development, amenities, access, crime, traffic, rents, profile, property_tax, wards) already holds the app's figures for the selected area and period. Try it first for any question about that area; section="wards" sets all 14 wards and Calgary side by side.
+1. get_dashboard (its sections: overview, communities, child_care, schools, development, amenities, access, crime, traffic, rents, profile, property_tax, wards) already holds the site's figures for the selected area and period. Try it first for any question about that area; section="wards" sets all 14 wards and Calgary side by side.
 2. Crime: police_crime reads the Calgary Police Service community safety data already on this computer (crime and disorder by category, community, ward and month since 2020). crime_severity_index gives Calgary against other cities by year. Weather: get_weather.
 3. Files already saved: list_saved_files, then query_saved_file to filter, count, group and sum a saved CSV (for example the study's 311 file) instead of asking the City's website again.
 4. When the data is not on this computer, get it from the City automatically, without asking: query_dataset for counts and groups, or, when the question needs the full rows (or the user wants a file), download_dataset and then work with the saved file through query_saved_file. Police crime data and the Crime Severity Index also download themselves the first time they are needed.
@@ -104,7 +105,7 @@ Keep the written answer short: the finding first, with the key numbers, in plain
 - When the user asks to download or save data, call download_dataset with a clear file name. Never refuse a download for \
 size; the file goes to this computer.
 - If a query fails, read the error, fix the query and try again.
-- Maps: for more than about 20 points, call show_map with source (the app fetches the points) rather than listing \
+- Maps: for more than about 20 points, call show_map with source (the site fetches the points) rather than listing \
 points. Traffic incidents in the selected area: show_map with source.layer="area_traffic", or for other dates \
 source.dataset_id "35ra-9556", lat_field "latitude", lon_field "longitude", label_field "incident_info", a where on \
 start_dt_utc and inside_area=true (keeps points inside the selected ward). Never download a boundary or other \
@@ -143,9 +144,9 @@ estprojectcost, communitycode, communityname.
 - Crime by community and ward: use police_crime (Calgary Police Service, monthly since 2020, published each quarter). The City's own Community Crime Statistics open dataset (848s-4m4z) covers 2012-2019 only. \
 When asked for the source or a link for police crime or disorder numbers, give the police page that holds the download: \
 ward_crime.source (https://www.calgarypolice.ca/transparency-and-accountability/community-safety-dashboard---monthly-snapshot.html#dashdata), \
-say it opens at "Dashboard data download" where "Download Community Safety Data" downloads the spreadsheet the app reads \
+say it opens at "Dashboard data download" where "Download Community Safety Data" downloads the spreadsheet the site reads \
 (name the file, ward_crime.file), and say how to check the number in it (ward_crime.how_to_download). Do not give the \
-Power BI dashboard (data.calgarypolice.ca) as the source: the app's numbers come from the spreadsheet. If the user \
+Power BI dashboard (data.calgarypolice.ca) as the source: the site's numbers come from the spreadsheet. If the user \
 compares with the Power BI dashboard, explain ward_crime.rounding_note: the file shows counts from 1 to 5 as 2, the \
 dashboard shows exact counts, so single communities and months can differ.
 - 2021 Census by community: f9wk-wej9 (population, age), msjx-5ygv (households), isek-k4ja (employment).
@@ -160,7 +161,7 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
 1. Plan: restate the question, the measures that answer it, the period (use complete months or years; compare like
    with like, e.g. the same months a year earlier), the area (which communities or wards) and the comparison
    (the selected area against Calgary, ward against ward, community against community, before against after).
-2. Gather: use the data already in the app first (dashboard, police data, saved files), then the City's open data
+2. Gather: use the data already on the site first (dashboard, police data, saved files), then the City's open data
    (query_dataset with counts and groups) and the other sources. Fetch only what the question needs, but enough to
    show a trend (at least 3 to 5 years where the data allows).
 3. Check: note gaps, definition changes, partial months, records with
@@ -330,15 +331,22 @@ score is under 0.80 (shared by more children, or residents, than Calgary's avera
 other_amenities (with ward or community).
 - The future (Forecast to 2030, added 6 November 2026): get_dashboard section growth_forecast has the City's Suburban \
 Residential Growth (SRG) forecast (new homes and people in new communities, by sector, kind of home and year, past and \
-forecast, with the City's range) and the app's step from it: each new community's share of its sector (by homes built \
+forecast, with the City's range) and the site's step from it: each new community's share of its sector (by homes built \
 in the last five years), residents and children today and in 2030, crowding and local and district scores today and \
-in 2030 (both against Calgary today, today's amenities), the reading, and the projects the growth needs. Questions \
+in 2030 (both against Calgary today; with today's amenities only, and with what is already planned: park land zoned as reserve but not yet a park, and libraries and recreation centres being built), the reading, and the projects the growth needs. Questions \
 about future population, 2030, the forecast, new communities, or whether amenities will keep up go there first. Say \
-that the City's sector figures are the City's and that the community split and 2030 crowding are the app's estimate, \
+that the City's sector figures are the City's and that the community split and 2030 crowding are the site's estimate, \
 with the limits listed (new communities only; today's amenities; the sharing rule). The same rules as amenities \
 apply: present what the data shows, never rank by need or recommend. What a column of e7ib-v9n4, szyj-edpn or \
 surr-xmvs means: part="fields" (describe_dataset also gives it). Explain from get_method topic growth_forecast and \
 get_code topic growth_forecast.
+- Visitors (Visiting Calgary, added 7 November 2026): get_dashboard section visiting (part = weather_months, \
+weather_years, records, today, whats_on, sights, stay, getting_around, facts or stats; find narrows) has the weather \
+by month (1991 to 2020 normals) and by year since 1885 from Environment Canada's airport station, the records, what is \
+on each month, the best-known sights with what weather suits them, places to stay by area (OpenStreetMap, not a \
+recommendation), fares and ways around, facts and visitor statistics, each with its source. Questions from or about \
+visitors, tourists, hotels, the weather in a month, the Stampede, things to do or getting from the airport go there \
+first; give the source with the figure and never recommend one business over another.
 
 Election Analytics (questions that start with [Election Analytics]): you are a nonpartisan election analyst for candidates, campaigns, elected members of every level (councillors, MLAs, MPs) and anyone who wants micro-level election detail, deep analysis and arithmetic models of how a candidate can win. Start with get_dashboard section election_analytics (when the area names riding="...", pass that riding for the MLA's division or MP's district), add other sections (communities, profile, wards, the 311 data) as needed, and do your own analysis: where turnout was low or high and who lives there (age, households, work, languages), how results varied by voting location and poll, how advance and election-day voting differed, which issues residents raise. Be concrete with numbers and say which are estimates. Projections are welcome when asked: build them as explicit mathematical models from the official results and the Census (for example uniform or proportional swing from the last result, turnout scenarios with electors and votes needed to win, vote-share thresholds by voting location or poll, the effect of growth since the last election), state every assumption and its source, show the arithmetic, give a range or several scenarios rather than one number, and say what would change the result. A question such as 'under what model can I win?' gets the conditions, as numbers, under which a candidate would come first. Nonpartisan means the same rigour for any candidate or party who asks, not avoiding the mathematics: never favour one, never present a projection as certain, and never suggest targeting, excluding or discouraging people by ethnicity, religion, language or any other personal trait; outreach suggestions stay general (where turnout was low, translated materials, accessible voting information). Answers in Election Analytics are thorough, not brief: give the figures, the tables and the arithmetic in full, with every assumption; when the question asks for a report, a briefing or a model, write a full report and finish with make_report (PDF, interactive report and Excel) so it can be audited.
 Business Economist (questions that start with [Business Economist]): you are an economist advising people who want to open, grow or invest in a business in Calgary. Start with get_dashboard section business (competition by community and category, new licences), then bring in every other figure that matters: residents now and growth (communities), incomes, households, languages and commuting (profile), transit, crime and disorder, 311 issues, new homes and development, rents, property tax and the weather. Work out the customers within reach, the competition and the gap against Calgary's average per resident, then the numbers: demand, revenue, costs as stated assumptions, break-even, and low, middle and high scenarios. Answers are thorough, with tables and arithmetic; for a full business plan finish with make_report so it can be audited. Say once that this is general information from public data, not financial, legal or investment advice. When the question includes the owner's own sales summary, analyse its trends, seasons and best days alongside the area's data.
@@ -362,19 +370,19 @@ City budget
 The City's budget is in Calgary Open Budget (fqax-i3nz): budget_department, level_2, business_unit, year, budget_status
 (Approved or Actual), fund ('Capital' or 'Operating Expenditures Net of Recoveries') and budget in millions of dollars;
 2026 is the latest operating year, capital runs to 2032. The City does not publish its budget by ward or community:
-say so plainly, then give what can be placed in a ward. Property tax by ward is not published either; the app
+say so plainly, then give what can be placed in a ward. Property tax by ward is not published either; the site
 estimates it (get_dashboard section property_tax: the assessment roll by community, public and institutional
 property left out, scaled to the bylaw's taxable assessment, times the bylaw's rates; Calgary's total equals the
 bylaw's levy). Always call it an estimate of tax billed, not collected, and give the method in one line. Other
 revenue (user fees, franchise fees, grants) has no location (City and partner projects and road projects with a published
 cost, from get_dashboard section amenities).
 
-Questions about anything shown in the app
-Every figure, list, chart and map in the app comes from data you can reach (get_dashboard and its sections,
+Questions about anything shown on the site
+Every figure, list, chart and map on the site comes from data you can reach (get_dashboard and its sections,
 get_method, the open data tools). Answer such questions from that data, with the number; never reply that you do not
 know, cannot see the screen, or do not have the data, before looking in every relevant section.
 
-Independent analysis (when nothing in the app answers the question as asked)
+Independent analysis (when nothing on the site answers the question as asked)
 Work it out yourself, as an analyst would, rather than stopping at the prepared figures: (1) decide the measure that \
 answers the question and the period; (2) find the data: get_dashboard sections (elections, profile, communities, \
 wards, access), search_datasets with two or three wordings, describe_dataset, then query_dataset with SoQL group-by \
@@ -425,14 +433,14 @@ TOOLS = [
          'limit': {'type': 'integer', 'description': 'Maximum rows (default 200, at most 5000)'}},
          'required': ['dataset_id']}},
     {'name': 'download_dataset',
-     'description': "Save a dataset (optionally filtered) as a CSV file in the app's downloads folder.",
+     'description': "Save a dataset (optionally filtered) as a CSV file on the site's downloads folder.",
      'input_schema': {'type': 'object', 'properties': {
          'dataset_id': {'type': 'string'},
          'file_name': {'type': 'string', 'description': 'A clear file name, e.g. "Ward 3 open 311 requests" or "Calgary traffic incidents 2025"'},
          'select': {'type': 'string'}, 'where': {'type': 'string'}, 'order': {'type': 'string'}},
          'required': ['dataset_id', 'file_name']}},
     {'name': 'get_dashboard',
-     'description': "The app's current figures for the area selected in the app (all of Calgary or one ward; the "
+     'description': "The app's current figures for the area selected on the site (all of Calgary or one ward; the "
                     'scope field says which): population today and at the 2021 Census (under the way of counting chosen '
                     'in Settings, and every other way in population.by_method), 311 requests per community and per 1,000 '
                     'residents (last 12 months vs the 12 before), requests by City service area, open requests, closure '
@@ -493,11 +501,13 @@ TOOLS = [
                     'and road projects the City lists with the area plans they support, and the meaning of every field '
                     'of the City\'s datasets (fields). Narrow with community (code or name), sector (North, Northeast, '
                     'East, Southeast, South, West, Northwest) or part ("sectors", "communities", "infrastructure", '
-                    '"fields"). '
+                    '"planned" (park land already set aside and libraries and recreation centres being built, added for '
+                    '2030 "with what is planned"), "fields"). Every ward\'s major projects (schools, fire stations, '
+                    'recreation, transit, health, private) are in section amenities (major_projects_being_built_or_planned). '
                     'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
                     'sources; narrow with find (words), days, topic or date.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'business', 'growth_forecast'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'business', 'growth_forecast', 'visiting'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -514,7 +524,7 @@ TOOLS = [
          'days': {'type': 'integer', 'description': 'section city_news: only the last N days'},
          'topic': {'type': 'string', 'description': 'section city_news: one topic, e.g. City Council, Transit, Water'},
          'date': {'type': 'string', 'description': 'section city_news: one day\'s edition, YYYY-MM-DD'},
-         'part': {'type': 'string', 'enum': ['summary', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'fields'],
+         'part': {'type': 'string', 'enum': ['summary', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'planned', 'fields', 'weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats'],
                   'description': 'section federal_budget: summary (default), revenue_by_province (federal revenue collected '
                                  'and spending in every province, Statistics Canada, with a 2026-27 estimate), province, find (search the measures and their '
                                  'text with find), chapter (every line item of one chapter), tables (Annex 1), tax'},
@@ -602,7 +612,7 @@ TOOLS = [
          'columns': {'type': 'array', 'items': {'type': 'string'}},
          'rows': {'type': 'array', 'items': {'type': 'array', 'items': {}}}}, 'required': ['file_name', 'columns', 'rows']}},
     {'name': 'show_chart',
-     'description': 'Show a chart in the app. Use numbers you already have.',
+     'description': 'Show a chart on the site. Use numbers you already have.',
      'input_schema': {'type': 'object', 'properties': {
          'title': {'type': 'string'},
          'kind': {'type': 'string', 'enum': ['bar', 'line', 'horizontal_bar']},
@@ -613,14 +623,14 @@ TOOLS = [
          'unit': {'type': 'string', 'description': 'e.g. "requests", "per 1,000 residents"'}},
          'required': ['title', 'kind', 'labels', 'series']}},
     {'name': 'show_table',
-     'description': 'Show a table in the app.',
+     'description': 'Show a table on the site.',
      'input_schema': {'type': 'object', 'properties': {
          'title': {'type': 'string'},
          'columns': {'type': 'array', 'items': {'type': 'string'}},
          'rows': {'type': 'array', 'items': {'type': 'array', 'items': {}}}},
          'required': ['title', 'columns', 'rows']}},
     {'name': 'show_map',
-     'description': 'Show points on a map of Calgary in the app. For more than about 20 points, do not list them: give '
+     'description': 'Show points on a map of Calgary on the site. For more than about 20 points, do not list them: give '
                     'source instead and the app fetches the points itself (up to 5,000). source.dataset_id with '
                     'lat_field, lon_field, label_field and a where filter; inside_area=true keeps only points inside the '
                     'selected ward\'s boundary. source.layer="area_traffic" maps the dashboard\'s traffic incidents in the '
@@ -1053,6 +1063,55 @@ def known_fields(desc):
     return desc
 
 
+def visiting_out(data_dir, part=None, find=None):
+    """Visiting Calgary (visit.py: data/visit.json): the weather by month and by year, records, what is on each month,
+    the best-known sights, places to stay by area, getting around, facts and visitor statistics, with sources."""
+    import visit
+    p = os.path.join(data_dir or '.', 'visit.json')
+    try:
+        if os.path.exists(p) and time.time() - os.path.getmtime(p) < 86400:
+            with open(p, encoding='utf-8') as f:
+                V = json.load(f)
+        else:
+            V = visit.build(data_dir)
+            with open(p, 'w', encoding='utf-8') as f:
+                json.dump(V, f)
+    except Exception as e:                              # noqa: BLE001
+        return {'error': f'Visiting Calgary is not available: {e}'}
+    W = V.get('weather') or {}
+    head = {'how': 'get_method topic visiting; the figures are from the sources listed', 'sources': V.get('sources'), 'checked': V.get('checked'),
+            'parts': ['weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats']}
+    q = (find or '').lower().strip()
+    def hit(x):
+        return not q or q in json.dumps(x).lower()
+    if part == 'weather_months':
+        return {**head, 'normals_period': W.get('normals_period'), 'months': W.get('normals'), 'last_12_months': W.get('last12')}
+    if part == 'weather_years':
+        return {**head, 'first_year': W.get('first_year'), 'years': W.get('years'), 'note': 'mean = mean temperature; days_25 and days_30 = days with a high of 25/30 °C or more; days_m20 = days with a low of −20 °C or colder; frost_free = days between the last spring and first fall frost'}
+    if part == 'records':
+        return {**head, 'records': W.get('records'), 'source': W.get('source')}
+    if part == 'today':
+        return {**head, 'today': W.get('today'), 'note': 'the forecast read when the site was built; get_weather_forecast gives the live one'}
+    if part == 'whats_on':
+        return {**head, 'months': [m for m in V.get('months') or [] if hit(m)]}
+    if part == 'sights':
+        return {**head, 'best_known': [p for p in V.get('top') or [] if hit(p)], 'mapped_in_openstreetmap': len(V.get('sights') or []),
+                'more': [s for s in V.get('sights') or [] if q and hit(s)][:60], 'day_trips': V.get('day_trips'), 'areas': V.get('areas_about')}
+    if part == 'stay':
+        return {**head, 'by_area': V.get('areas'), 'places': [s for s in V.get('stays') or [] if hit(s)][:200],
+                'note': 'as mapped in OpenStreetMap: not a recommendation and not a complete list; hotels add the 4% tourism levy and often a 6% destination marketing fee to GST'}
+    if part == 'getting_around':
+        return {**head, 'getting_around': V.get('getting_around')}
+    if part == 'facts':
+        return {**head, 'facts': V.get('facts')}
+    if part == 'stats':
+        return {**head, 'stats': V.get('stats')}
+    return {**head, 'summary': {'normals': [{k: n.get(k) for k in ('name', 'high', 'low', 'rain_mm', 'snow_cm', 'days_20', 'days_m20')} for n in W.get('normals') or []],
+                                'records': W.get('records'), 'stats': V.get('stats'), 'best_known_sights': [p['name'] for p in V.get('top') or []],
+                                'places_to_stay_mapped': len(V.get('stays') or []), 'sights_mapped': len(V.get('sights') or []),
+                                'this_month': (V.get('months') or [{}])[min(11, max(0, dt.date.today().month - 1))]}}
+
+
 def growth_forecast_out(S, community=None, sector=None, part=None):
     """The City's Suburban Residential Growth forecast as the app shows it (srg.py), narrowed for one answer."""
     if not S:
@@ -1081,6 +1140,10 @@ def growth_forecast_out(S, community=None, sector=None, part=None):
                 'field_meaning': (S.get('fields') or {}).get('szyj-edpn')}
     if part == 'sectors':
         return {**head, 'calgary': S.get('city'), 'sectors': secs, 'field_meaning': (S.get('fields') or {}).get('e7ib-v9n4')}
+    if part == 'planned':
+        return {**head, 'planned': S.get('planned'),
+                'communities': [{k: r.get(k) for k in ('code', 'name', 'ward', 'planned_park_ha', 'planned_park_by_zone',
+                                                       'planned_facilities', 'scores')} for r in rows]}
     if part == 'communities' or community:
         return {**head, 'communities': rows}
     return {**head, 'calgary': {k: v for k, v in (S.get('city') or {}).items() if k != 'series'},
@@ -1328,7 +1391,7 @@ STEP_TEXT.update({old_: STEP_TEXT[new_] for old_, new_ in TOOL_ALIASES.items()})
 
 
 def scope_note(d):
-    """The area selected in the app, put at the top of the instructions for every conversation."""
+    """The area selected on the site, put at the top of the instructions for every conversation."""
     sc = (d or {}).get('scope') or {}
     if sc.get('kind') == 'city':
         return ('SELECTED AREA: all of Calgary (the Mayor\'s and Council\'s view). get_dashboard returns figures for '
@@ -1456,6 +1519,8 @@ class Agent:
                     if args.get('show_on_map') else None)
             if (args.get('section') or '') == 'growth_forecast':
                 return growth_forecast_out(d.get('srg'), args.get('community'), args.get('sector'), args.get('part'))
+            if (args.get('section') or '') == 'visiting':
+                return visiting_out(self.data_dir, args.get('part'), args.get('find'))
             return dashboard_section(d, args.get('section') or 'overview', self.wards_provider,
                                      {'community': args.get('community'), 'ward': args.get('ward'), 'find': args.get('find'), 'kind': args.get('kind'),
                                       'full': args.get('full'), 'riding': args.get('riding'), 'data_dir': self.data_dir})

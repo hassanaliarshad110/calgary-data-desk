@@ -27,10 +27,10 @@ function cnPic(a, big) {
   return `<figure class="cn-pic noimg${big ? ' big' : ''}" style="--tint:${tint}"><span class="cn-pic-sec" style="background:${tint}">${esc(a.section || '')}</span></figure>`;
 }
 function cnCard(a, lead) {
-  return `<article class="cn-card${lead ? ' cn-lead' : ''}" data-cn="${esc(a.id)}" tabindex="0" role="button" aria-label="Read: ${esc(a.title)}">
+  return `<div class="cn-card${lead ? ' cn-lead' : ''}" data-cn="${esc(a.id)}" tabindex="0" role="button" aria-label="Read: ${esc(a.title)}">
     ${cnPic(a, lead)}<div class="cn-card-t"><div class="cn-topics">${(a.topics || []).map(t => `<span>${esc(t)}</span>`).join('')}</div>
     <h3>${esc(a.title)}</h3><p class="cn-dek">${esc(a.dek)}</p>
-    <div class="cn-meta">${esc(CN_DAY(a.date))} · ${(a.sources || []).length} source${(a.sources || []).length === 1 ? '' : 's'}: ${esc(cnOutlets(a).slice(0, 3).join(', '))}${cnOutlets(a).length > 3 ? '…' : ''}</div></div></article>`;
+    <div class="cn-meta">${esc(CN_DAY(a.date))} · ${(a.sources || []).length} source${(a.sources || []).length === 1 ? '' : 's'}: ${esc(cnOutlets(a).slice(0, 3).join(', '))}${cnOutlets(a).length > 3 ? '…' : ''}</div></div></div>`;
 }
 const CN_PAL = ['#0369A1', '#B45309', '#047857', '#7C3AED', '#BE123C', '#0F766E'];
 function cnChart(a, c) {

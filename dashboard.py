@@ -33,6 +33,7 @@ DISORDER = '4evm-wx9a'
 WARDS = 'tz8z-hyaz'
 COMMUNITIES = 'surr-xmvs'
 MIN_RATE_RESIDENTS = 100      # communities with fewer residents get no rates per 1,000 (they are still counted in totals)
+SMALL_RATE_BASE = 500         # under this many residents a rate per 1,000 swings on a handful of requests, so none is shown (raised from 100 on 7 November 2026)
 COMMUNITY_REGIONS = 'kxmf-bzkv'
 DEV_PERMITS = '6933-unw5'
 LAND_USE = '33vi-ew4s'          # Land Use Redesignation Applications (LOC: land use, outline plan, road closure)
@@ -213,9 +214,30 @@ PROJECTS_FILE = os.path.join(DATA_DIR, 'ward5_projects.json')
 PROJECTS_ALL_FILE = os.path.join(DATA_DIR, 'ward_projects.json')
 
 
-def city_projects(ward=WARD):
-    """City projects being built in the ward that the open data lists of facilities don't have yet (checked by hand).
-    A list per ward in data/ward_projects.json; Ward 5's original list in data/ward5_projects.json."""
+def city_projects(ward=WARD, cache_dir=None, comm_ward=None):
+    """Major projects being built or planned in the ward (or all of Calgary, ward 0) that the open data lists of
+    facilities don't have yet: the lists checked by hand (data/ward_projects.json; Ward 5's original list in
+    data/ward5_projects.json) first, then City facilities checked by hand (data/civic_projects.json) and the Government
+    of Alberta's Major Projects inventory, read every week and placed by map point (majorprojects.py)."""
+    hand = _hand_projects(ward)
+    if cache_dir is None or not comm_ward:
+        return hand
+    try:
+        import majorprojects                            # noqa: PLC0415
+        raw = majorprojects.load(cache_dir)
+        hand_by = {w: _hand_projects(w) for w in sorted({int(x) for x in comm_ward.values() if x})}
+        lists = majorprojects.for_wards(raw, {c: int(w) for c, w in comm_ward.items() if w}, hand_by)
+        got = lists.get(int(ward))
+        if got is not None:
+            return [{**p, 'type': p.get('kind', 'City project'), 'in_ward': True,
+                     'checked': p.get('checked') or p.get('reviewed') or (raw or {}).get('read_at', '')[:10]} for p in got]
+    except Exception as e:                              # noqa: BLE001 - the hand-checked list still shows
+        print('major projects not read:', repr(e))
+    return hand
+
+
+def _hand_projects(ward):
+    """The list checked by hand for one ward."""
     d = None
     try:
         with open(PROJECTS_ALL_FILE, encoding='utf-8') as f:
@@ -265,7 +287,7 @@ def project_states(projects, amenities, fam, ref):
                 hit = (name, where)
                 break
             if (p.get('lat') is not None and lat is not None and lon is not None
-                    and p.get('kind', '').lower().startswith(('city recreation', 'provincial school'))
+                    and p.get('kind', '').lower().startswith(('city recreation', 'provincial school', 'school project', 'recreation facility', 'library', 'community centre'))
                     and not re.search(r'design|planning|proposed', p.get('status') or '', re.I)
                     and name not in (p.get('known_nearby') or [])          # already there when the project was checked
                     and _dist_m(p['lat'], p['lon'], lat, lon) <= 400):
@@ -275,8 +297,11 @@ def project_states(projects, amenities, fam, ref):
             p['state'] = 'completed'
             p['completed_note'] = f'Now listed by the City as open: "{hit[0]}" ({hit[1]}, found at this refresh)'
         else:
-            p['state'] = 'planned' if re.search(r'design|planning|proposed|approved', p.get('status') or '', re.I) \
-                and not re.search(r'construction', p.get('status') or '', re.I) else 'building'
+            st_ = p.get('status') or ''
+            building_ = re.search(r'under construction|construction (started|underway|began|is underway)|sod turned', st_, re.I) \
+                and not re.search(r'not (yet )?funded|pending funding', st_, re.I)
+            p['state'] = 'building' if building_ or not re.search(r'design|planning|proposed|approved|concept|planned', st_, re.I) \
+                else 'planned'
             if p.get('expected_by') and month > p['expected_by']:
                 p['overdue'] = True
                 p['overdue_note'] = (f"Expected by {p['expected_by']} but not yet listed by the City as open: check the "
@@ -1075,7 +1100,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
         i12, iprev = infra_g.get(code, (0, 0))
         opens = sorted(open_by_comm.get(code, []), key=lambda x: -x['n'])
         n_open = sum(o['n'] for o in opens)
-        rated = res and (pop or 0) >= MIN_RATE_RESIDENTS     # a handful of residents makes a rate per 1,000 meaningless
+        rated = res and (pop or 0) >= SMALL_RATE_BASE        # a handful of residents makes a rate per 1,000 meaningless
         communities.append({
             'code': code, 'name': names.get(code, code), 'residential': res,
             'residents': pop, 'census2021': pn.get('census2021') if res else None, 'growth_pct': pn.get('growth_pct') if res else None,
@@ -1661,8 +1686,15 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
             return None
         nm = {**{c: (n or c).title() for c, n in ((r.get('comm_code'), r.get('name')) for r in raw.get('communities') or [])
                  if c}, **names}
+        pl = None
+        try:                                            # what is already planned (planned.py); the forecast shows without it
+            import planned as planned_mod               # noqa: PLC0415
+            pl = planned_mod.load(cdir, city_projects(0, cdir, comm_ward), srg.sectors(raw)['last_year'])
+        except Exception as e_:                         # noqa: BLE001
+            print('planned amenities not read:', repr(e_))
         return srg.view(raw, acc_in.get('base'), acc_in.get('pops') or {}, acc_in.get('kids') or {},
-                        acc_in.get('shown') or [], acc_in.get('ward_of') or {}, nm, POP_METHODS[pop_method]['label'])
+                        acc_in.get('shown') or [], acc_in.get('ward_of') or {}, nm, POP_METHODS[pop_method]['label'],
+                        planned=pl)
     srg_out, srg_err = _safe(srg_view)
 
     def elections_view():
@@ -1768,7 +1800,7 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
             'method_label': POP_METHODS[pop_method]['label'], 'as_of_label': ref.strftime('%B %Y')})[0]),
         'development': development,
         'roadwork': roadwork,
-        'projects': project_states(city_projects(ward), amenities, fam, ref),
+        'projects': project_states(city_projects(0 if city else ward, cdir, comm_ward), amenities, fam, ref),
         'big_permits': big_permits,
         'amenities': amenities,
         'amenity_gap': amenity_gap,

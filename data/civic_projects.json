@@ -1,0 +1,152 @@
+{
+ "note": "City facilities being built or planned that the Government of Alberta's Major Projects inventory does not list (it covers $5 million and up, and misses some City projects), checked by hand against the City's or the library's own page. Each one is placed by its community (comm) and shown in that community's ward. 'measured' says which Growth vs amenities amenity it adds when it opens; 'opens' (YYYY) and 'funded' decide whether the Forecast to 2030 counts it. The weekly check reviews every entry.",
+ "checked": "2026-11-06",
+ "projects": [
+  {
+   "title": "Skyview Library",
+   "kind": "Library",
+   "owner": "Calgary Public Library",
+   "amenity": true,
+   "measured": "library",
+   "status": "Planned",
+   "budget": "Not published",
+   "cost": null,
+   "completion": "Planned to open in 2030",
+   "opens": 2030,
+   "funded": false,
+   "address": "Skyview Ranch",
+   "comm": "SKR",
+   "lat": 51.15651,
+   "lon": -113.95528,
+   "url": "https://libraryfoundation.ca/new-library-locations/",
+   "sources": [
+    "https://libraryfoundation.ca/new-library-locations/"
+   ],
+   "match": [
+    "Skyview Library",
+    "Skyview Ranch Library"
+   ]
+  },
+  {
+   "title": "Rockland Park temporary fire station",
+   "kind": "Fire station",
+   "owner": "Calgary Fire Department",
+   "amenity": true,
+   "status": "Design and development permit (October 2026)",
+   "budget": "$6.95 million (estimate)",
+   "cost": 6950000,
+   "completion": "Construction from Q1 2027, finished by about Q1 2028",
+   "opens": 2028,
+   "funded": true,
+   "expected_by": "2028-06",
+   "address": "644 to 656 Rowmont Boulevard NW (serves Rockland Park, Haskayne and nearby areas)",
+   "comm": "HSN",
+   "lat": 51.1203,
+   "lon": -114.2475,
+   "url": "https://www.calgary.ca/planning/projects/rockland-park-temporary-fire-station.html",
+   "sources": [
+    "https://www.calgary.ca/planning/projects/rockland-park-temporary-fire-station.html"
+   ],
+   "match": [
+    "Rockland Park Fire"
+   ]
+  },
+  {
+   "title": "Hotchkiss temporary fire station (Station 47)",
+   "kind": "Fire station",
+   "owner": "Calgary Fire Department",
+   "amenity": true,
+   "status": "Design; contractor selected",
+   "budget": "Not published",
+   "cost": null,
+   "completion": "Construction from Q1 2027, in service about 2028",
+   "opens": 2028,
+   "funded": true,
+   "expected_by": "2028-12",
+   "address": "176 Hotchkiss Manor SE (serves Hotchkiss and Sora)",
+   "comm": "HKS",
+   "lat": 50.91342,
+   "lon": -113.90237,
+   "url": "https://www.calgary.ca/planning/projects/hotchkiss-temporary-fire-station.html",
+   "sources": [
+    "https://www.calgary.ca/planning/projects/hotchkiss-temporary-fire-station.html"
+   ],
+   "match": [
+    "Hotchkiss Fire"
+   ]
+  },
+  {
+   "title": "Rocky Ridge Fieldhouse",
+   "kind": "Recreation facility",
+   "owner": "City of Calgary",
+   "amenity": true,
+   "measured": "rec_centre",
+   "status": "Design (funded through 2028); construction not yet funded",
+   "budget": "$7.5 million for design; construction to be considered in the 2027-2030 budget",
+   "cost": 7500000,
+   "completion": "Not yet scheduled",
+   "opens": null,
+   "funded": false,
+   "address": "Beside the Shane Homes YMCA at Rocky Ridge (the Rocky Ridge Athletic Park's two turf fields opened for booking in September 2026)",
+   "comm": "ROC",
+   "lat": 51.1486,
+   "lon": -114.2402,
+   "url": "https://www.calgary.ca/planning/parks-rec/rocky-ridge-athletic-complex.html",
+   "sources": [
+    "https://www.calgary.ca/planning/parks-rec/rocky-ridge-athletic-complex.html"
+   ],
+   "match": [
+    "Rocky Ridge Fieldhouse"
+   ]
+  },
+  {
+   "title": "Foothills Multisport Fieldhouse",
+   "kind": "Recreation facility",
+   "owner": "City of Calgary",
+   "amenity": true,
+   "measured": "rec_centre",
+   "status": "Concept (master plan 2025-2026); detailed design from 2027; construction pending funding",
+   "budget": "$109 million allocated for the master plan and initial design",
+   "cost": 109000000,
+   "completion": "About five years after full funding",
+   "opens": null,
+   "funded": false,
+   "address": "Foothills Athletic Park (24 Avenue NW, Crowchild Trail NW, University Drive NW, McMahon Stadium)",
+   "comm": "BNF",
+   "lat": 51.0735,
+   "lon": -114.1235,
+   "url": "https://www.calgary.ca/major-projects/foothills-fieldhouse.html",
+   "sources": [
+    "https://www.calgary.ca/major-projects/foothills-fieldhouse.html"
+   ],
+   "match": [
+    "Foothills Fieldhouse",
+    "Foothills Multisport"
+   ]
+  },
+  {
+   "title": "Glacier Ridge emergency response station (design)",
+   "kind": "Fire station",
+   "owner": "Calgary Fire Department",
+   "amenity": true,
+   "status": "Design funded in the December 2025 budget (Glacier A growth area)",
+   "budget": "Part of $24 million for the Glacier A growth area, paid for by off-site levies",
+   "cost": null,
+   "completion": "Not yet scheduled",
+   "opens": null,
+   "funded": false,
+   "address": "Site set aside in the Glacier Ridge Area Structure Plan",
+   "comm": "GLR",
+   "lat": 51.1909,
+   "lon": -114.14702,
+   "url": "https://livewirecalgary.com/2025/12/07/calgary-councillors-budget-new-investments/",
+   "sources": [
+    "https://livewirecalgary.com/2025/12/07/calgary-councillors-budget-new-investments/"
+   ],
+   "match": [
+    "Glacier Ridge Fire",
+    "Glacier Ridge Emergency"
+   ]
+  }
+ ]
+}

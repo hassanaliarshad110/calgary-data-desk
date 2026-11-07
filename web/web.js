@@ -84,6 +84,7 @@
     async get_capmkt() { try { return { ok: true, data: await getJSON('capmkt.json') }; } catch (e) { return fail(e); } },
     async get_infra() { try { return { ok: true, data: await getJSON('infra.json') }; } catch (e) { return fail(e); } },
     async get_safety_rank() { try { return { ok: true, data: await getJSON('safety_rank.json') }; } catch (e) { return fail(e); } },
+    async get_visit() { try { return { ok: true, data: await getJSON('visit.json') }; } catch (e) { return fail(e); } },
     async get_elections() { try { return { ok: true, data: await getJSON('elections.json') }; } catch (e) { return fail(e); } },
     async get_property_tax() { try { return { ok: true, data: await getJSON('tax.json') }; } catch (e) { return fail(e); } },
     async get_methods() { try { return await getJSON('methods.json'); } catch (e) { return []; } },

@@ -56,6 +56,70 @@ def tax_payload(cache, census_year):
             'wards': table.get('wards')}
 
 
+SITE_URL = 'https://calgaryinsight.ca/'
+SOCIAL = ['https://www.facebook.com/share/1GwiEvuSog/', 'https://www.instagram.com/calgaryinsight/']
+SEO = {'title': 'Calgary Insight: Calgary ward and community data, in plain words',
+       'description': 'Every Calgary ward and community side by side: population and growth, 311 requests, safety, '
+                      'parks and amenities, what is being built, budgets and elections, plus a visitor guide: the weather by month, '
+                      'what to see and where to stay. From official public data, refreshed every morning. Independent and open source.'}
+# what search engines and visitors without JavaScript read: the site in words, and links to the screens
+SCREENS = [('dashboard', 'Dashboard: every ward and community at a glance'), ('growth', 'Growth vs amenities and the forecast to 2030'),
+           ('compare', 'Compare wards'), ('elections', 'Election Data Centre'), ('budget', 'City budget'),
+           ('citynews', 'Calgary News'), ('fedbudget', 'Federal Budget 2026'), ('invest', 'Invest in Calgary'),
+           ('infra', 'Infrastructure condition'), ('safety', "Canada's safest cities"), ('issues', 'Open 311 issues'),
+           ('families', 'Families and schools'), ('help', 'Find help near me'), ('visit', 'Visiting Calgary: what to see, where to stay, the weather by month, getting around'),
+           ('videos', 'Video explainers'),
+           ('methods', "How it's counted"), ('sources', 'Data sources and refresh schedule')]
+NOSCRIPT = ('<noscript><div style="max-width:760px;margin:24px auto;padding:0 16px;font-family:sans-serif;color:#e2e8f0">'
+            '<h1>Calgary Insight</h1><p>' + SEO['description'] + '</p><ul>'
+            + ''.join(f'<li><a href="?view={k}">{t}</a></li>' for k, t in SCREENS)
+            + '<li><a href="about/">About Calgary Insight</a></li></ul><p>Turn on JavaScript to use the interactive maps, '
+              'tables and Data Genie.</p></div></noscript>')
+
+
+def seo_head():
+    ld = {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'WebSite', '@id': SITE_URL + '#site', 'name': 'Calgary Insight', 'url': SITE_URL,
+         'description': SEO['description'], 'inLanguage': 'en-CA', 'publisher': {'@id': SITE_URL + '#hassan'}},
+        {'@type': 'Person', '@id': SITE_URL + '#hassan', 'name': 'Hassan Ali', 'url': SITE_URL + 'about/',
+         'homeLocation': {'@type': 'City', 'name': 'Calgary'}, 'sameAs': SOCIAL},
+        {'@type': 'Dataset', 'name': 'Calgary ward and community indicators', 'url': SITE_URL,
+         'description': 'Population, growth, 311 requests, amenities, safety and development for every Calgary ward and '
+                        'community, compiled from City of Calgary open data and other public sources, refreshed daily.',
+         'creator': {'@id': SITE_URL + '#hassan'}, 'spatialCoverage': {'@type': 'Place', 'name': 'Calgary, Alberta, Canada'},
+         'isAccessibleForFree': True, 'license': 'https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa'}]}
+    tags = [
+        f'<meta name="description" content="{SEO["description"]}">',
+        f'<link rel="canonical" href="{SITE_URL}">',
+        '<meta name="theme-color" content="#071226">',
+        '<meta name="robots" content="index,follow">',
+        '<link rel="apple-touch-icon" href="logo-512.png">',
+        '<meta property="og:type" content="website">', '<meta property="og:site_name" content="Calgary Insight">',
+        f'<meta property="og:title" content="{SEO["title"]}">', f'<meta property="og:description" content="{SEO["description"]}">',
+        f'<meta property="og:url" content="{SITE_URL}">', f'<meta property="og:image" content="{SITE_URL}og-image.png">',
+        '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">',
+        '<meta property="og:image:alt" content="Calgary Insight: the city, ward by ward">', '<meta property="og:locale" content="en_CA">',
+        '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:title" content="{SEO["title"]}">',
+        f'<meta name="twitter:description" content="{SEO["description"]}">', f'<meta name="twitter:image" content="{SITE_URL}og-image.png">',
+        '<script type="application/ld+json">' + json.dumps(ld, separators=(',', ':')) + '</script>']
+    return '\n'.join(tags) + '\n'
+
+
+def robots_and_sitemap(out):
+    today = dt.date.today().isoformat()
+    with open(os.path.join(out, 'robots.txt'), 'w', encoding='utf-8') as f:
+        f.write(f'User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n')
+    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8')] + [(f'{SITE_URL}?view={k}', '0.7') for k, _ in SCREENS]
+    for rel in sorted(os.listdir(os.path.join(out, 'reports'))) if os.path.isdir(os.path.join(out, 'reports')) else []:
+        if rel.endswith('.html'):
+            urls.append((f'{SITE_URL}reports/{rel}', '0.5'))
+    body = ''.join(f'<url><loc>{u.replace("&", "&amp;")}</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq>'
+                   f'<priority>{p}</priority></url>' for u, p in urls)
+    with open(os.path.join(out, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+                + body + '</urlset>\n')
+
+
 def page(out):
     """The app's screens, with the website bridge loaded before the app."""
     shutil.copytree(os.path.join(ROOT, 'ui'), out, dirs_exist_ok=True,
@@ -66,12 +130,43 @@ def page(out):
     idx = idx.replace('<script src="app.js"></script>',
                       '<script src="web.js"></script><script src="web-ai.js"></script><script src="app.js"></script>', 1)
     idx = idx.replace('</body>', '<script src="web-ui.js"></script>\n</body>', 1)
-    idx = idx.replace('</head>', '<link rel="stylesheet" href="web.css">\n<meta name="description" content="Calgary Insight: '
-                      'every Calgary ward side by side, from City of Calgary open data, refreshed every morning.">\n</head>', 1)
+    idx = idx.replace('<title>Calgary Insight</title>', '<title>' + SEO['title'] + '</title>', 1)
+    idx = idx.replace('</head>', '<link rel="stylesheet" href="web.css">\n' + seo_head() + '</head>', 1)
+    idx = idx.replace('<a class="skip"', NOSCRIPT + '\n<a class="skip"', 1)
     idx = idx.replace('<body', '<body data-web="1"', 1)
+    idx = bundle_scripts(out, idx)
     with open(os.path.join(out, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(idx)
     open(os.path.join(out, '.nojekyll'), 'w').close()
+    robots_and_sitemap(out)
+
+
+def bundle_scripts(out, idx):
+    """The page's own scripts (not the vendor ones) joined into one file named by its content, so a visitor fetches
+    one script instead of two dozen and keeps it cached until it changes. The source files stay published for anyone
+    reading the code."""
+    import hashlib
+    import re
+    tags = re.findall(r'<script src="([^"]+\.js)"></script>\n?', idx)
+    own = [t for t in tags if not t.startswith('vendor/') and not t.startswith('http')]
+    if len(own) < 2:
+        return idx
+    parts = []
+    for t in own:
+        with open(os.path.join(out, t), encoding='utf-8') as f:
+            parts.append(f'// ---- {t}\n' + f.read().rstrip() + '\n')
+    code = '\n;\n'.join(parts)
+    name = f'site.{hashlib.sha256(code.encode("utf-8")).hexdigest()[:10]}.js'
+    with open(os.path.join(out, name), 'w', encoding='utf-8') as f:
+        f.write(code)
+    first = True
+    for t in own:
+        tag = f'<script src="{t}"></script>\n'
+        if tag not in idx:
+            tag = f'<script src="{t}"></script>'
+        idx = idx.replace(tag, f'<script src="{name}"></script>\n' if first else '', 1)
+        first = False
+    return idx
 
 
 def python_files(out, cache):
@@ -217,6 +312,22 @@ def main():
         write(os.path.join(data, 'srg_raw.json'), raw)          # the desktop app and Data Genie read this copy
     step('suburban residential growth forecast', srg_base)
 
+    def projects_and_planned():     # every ward's major projects (majorprojects.py) and the planned amenities (planned.py)
+        import majorprojects
+        import planned
+        import srg
+        mp = majorprojects.load(cache, force=True)
+        if mp:
+            write(os.path.join(data, 'majorprojects.json'), mp)
+        table = dashboard.wardmap.load(cache)
+        cw = {c: v.get('ward') for c, v in (table.get('communities') or {}).items()}
+        raw = srg.load(cache)
+        pl = planned.load(cache, dashboard.city_projects(0, cache, cw), srg.sectors(raw)['last_year'] if raw else 2030, force=True)
+        if not pl:
+            raise RuntimeError('the planned amenities could not be worked out')
+        write(os.path.join(data, 'planned.json'), {k: v for k, v in pl.items() if k != 'catch'})
+    step('major projects in every ward and the planned amenities', projects_and_planned)
+
     def elections_base():
         import elections
         base = elections.load(cache, can_build=True)
@@ -316,6 +427,12 @@ def main():
                 prev = None
         write(os.path.join(data, 'safety_rank.json'), safety_rank.build(prev))
     step('safest cities in Canada (crime severity index)', safety)
+    def visiting():                 # Visiting Calgary: the weather since 1885, OpenStreetMap sights and hotels, what is on (visit.py)
+        import visit
+        write(os.path.join(data, 'visit.json'), visit.build(cache))
+    step('Visiting Calgary (weather, places, what is on)', visiting)
+    if not os.path.exists(os.path.join(data, 'visit.json')) and a.previous:
+        step('Visiting Calgary (yesterday\'s copy)', lambda: keep_previous(a.previous, 'visit.json', os.path.join(data, 'visit.json')))
     step('property tax', lambda: write(os.path.join(data, 'tax.json'), tax_payload(cache, year)))
     write(os.path.join(data, 'methods.json'), census.relabel(methods.METHODS, year))
     step('transit timetable', lambda: write(os.path.join(data, 'transit.json'), transit.lookup(cache, force=True)))
@@ -333,6 +450,11 @@ def main():
         write(os.path.join(data, 'live.json'), {'sources': livecheck.listing(), 'results': res,
                                                   'checked': dashboard.calgary_now().strftime('%Y-%m-%d %H:%M')})
     step('live connections', live)
+
+    def search():                   # the site search index (search_index.py): screens, communities, wards, methods, datasets...
+        import search_index
+        write(os.path.join(data, 'search.json'), search_index.build(out, data, methods.METHODS, meths[0]))
+    step('site search index', search)
 
     def appeals():
         for w, ns in names.items():

@@ -13,6 +13,21 @@
   const sub = document.querySelector('#theme-seg') && document.querySelector('#theme-seg').closest('.card').querySelector('.card-sub');
   if (sub) sub.textContent = 'Light, dark, or follow this device';
 
+  // shareable addresses: calgaryinsight.ca/?view=growth opens that screen, and the address follows the screen shown
+  if (typeof window.show === 'function') {
+    const orig = window.show;
+    window.show = function (view) {
+      orig.apply(this, arguments);
+      try {
+        const u = new URL(location.href);
+        if (view && view !== 'dashboard') u.searchParams.set('view', view); else u.searchParams.delete('view');
+        history.replaceState(null, '', u.pathname + u.search + u.hash);
+      } catch (e) { /* the address stays as it was */ }
+    };
+    const first = new URLSearchParams(location.search).get('view');
+    if (first && document.getElementById('view-' + first)) setTimeout(() => window.show(first), 0);
+  }
+
   // when the data was refreshed, and whose it is
   const foot = document.createElement('div');
   foot.className = 'web-foot';
@@ -22,6 +37,7 @@
   window.CDD_WEB.getJSON('built.json').then(b => {
     const bad = (b.steps || []).filter(s => !s.ok).length;
     foot.innerHTML = `Data refreshed ${esc(b.built_at)} (Calgary time)${bad ? `, ${bad} source${bad > 1 ? 's' : ''} not reached` : ''}. From public data; not affiliated with The City of Calgary.`;
+    const st = $('#side-status'); if (st) st.title = foot.textContent;
   }).catch(() => {});
 
 

@@ -33,7 +33,7 @@ class RentsError(Exception):
 
 
 def _http_get(url, timeout=60):
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Ward5DataDesk/1.0'})
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) CalgaryInsight/1.0'})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.read().decode('utf-8', 'replace')

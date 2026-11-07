@@ -7,8 +7,14 @@ const FC_BAND = { well_below: 'Well below', below: 'Below', around: 'Around', ab
 const fcTag = (S, r) => `<span class="ac-tag ${FC_TAG[r] || ''}">${esc((S.readings || {})[r] || r)}</span>`;
 const fcN = (v, d = 0) => isNum(v) ? fmt(v, d) : '–';
 const fcArrow = (a, b, d = 2) => `${fcN(a, d)} <span class="fc-to" aria-label="to">→</span> <b>${fcN(b, d)}</b>`;
-const fcScore = x => !x || !isNum(x.now) ? '<span class="dash">–</span>'
-  : `${fcN(x.now, 2)} <span class="fc-to" aria-label="to">→</span> <b>${fcN(x.then, 2)}</b><small>${esc(FC_BAND[x.band_now] || '')} → ${esc(FC_BAND[x.band_then] || '')}</small>`;
+const fcScore = x => {
+  if (!x || !isNum(x.now)) return '<span class="dash">–</span>';
+  const pl = isNum(x.planned);
+  return `${fcN(x.now, 2)} <span class="fc-to" aria-label="to">→</span> <b>${fcN(pl ? x.planned : x.then, 2)}</b><small>${esc(FC_BAND[x.band_now] || '')} → ${esc(FC_BAND[pl ? x.band_planned : x.band_then] || '')}${pl ? ` · nothing new: ${fcN(x.then, 2)}` : ''}</small>`;
+};
+const fcCrowd = (c, d) => { c = c || {}; const pl = isNum(c.planned); return `${fcN(c.now, d)} <span class="fc-to" aria-label="to">→</span> <b>${fcN(pl ? c.planned : c.then, d)}</b>${pl && c.planned !== c.then ? `<small>nothing new: ${fcN(c.then, d)}</small>` : ''}`; };
+const fcPlanned = r => [isNum(r.planned_park_ha) && r.planned_park_ha >= 0.1 ? `${fmt(r.planned_park_ha, 1)} ha of park and school reserve` : '',
+  ...(r.planned_facilities || []).map(f => `${f.title}${f.opens ? ' (' + f.opens + ')' : ''}`)].filter(Boolean).join('; ');
 const fcKindWords = (S, ks) => (ks || []).map(k => ((S.kinds || {})[k] || k).toLowerCase()).join(', ');
 
 function fcRows(S) {
@@ -56,21 +62,21 @@ function renderForecast() {
   const cg = S.calgary_crowding || {};
   const commT = `<div class="table-wrap tall"><table class="data fc-comm"><thead><tr><th scope="col">Community</th>${city ? '<th scope="col" class="num">Ward</th>' : ''}<th scope="col">Sector</th><th scope="col">Reading</th>
       <th scope="col" class="num">Homes built, last 5 years</th><th scope="col" class="num">Forecast homes<small>${y0} to ${y1}</small></th><th scope="col" class="num">Residents<small>today → ${y1}</small></th><th scope="col" class="num">Growth</th>
-      <th scope="col">Local amenities score<small>today → ${y1}, 1.00 = Calgary today</small></th><th scope="col">District facilities score<small>today → ${y1}</small></th>
-      <th scope="col" class="num">Playgrounds per 1,000 children<small>within 400 m</small></th><th scope="col" class="num">Park ha per 1,000 residents<small>within 400 m</small></th><th scope="col">Falls below 0.80 by ${y1}</th><th scope="col">Far today<small>under half of homes within reach</small></th></tr></thead><tbody>
+      <th scope="col">Local amenities score<small>today → ${y1} with what is planned; 1.00 = Calgary today</small></th><th scope="col">District facilities score<small>today → ${y1} with what is planned</small></th>
+      <th scope="col" class="num">Playgrounds per 1,000 children<small>within 400 m</small></th><th scope="col" class="num">Park ha per 1,000 residents<small>within 400 m</small></th><th scope="col">Already planned<small>reserve land, facilities due by ${y1}</small></th><th scope="col">Falls below 0.80 by ${y1}</th><th scope="col">Far today<small>under half of homes within reach</small></th></tr></thead><tbody>
     ${rows.map(r => `<tr><td>${esc(r.name)}${r.in_forecast ? '' : ' <small class="muted">neighbour</small>'}</td>${city ? `<td class="num">${r.ward || '–'}</td>` : ''}<td>${esc(secName(r.sector))}<small class="muted"> ${esc(titleCase(r.srg || ''))}</small></td><td>${fcTag(S, r.reading)}</td>
       <td class="num">${fcN(r.recent_homes)}</td><td class="num"><b>${fcN(r.forecast_homes)}</b>${isNum(r.forecast_homes_low) && r.in_forecast ? `<small class="sc-range">${fcN(r.forecast_homes_low)} to ${fcN(r.forecast_homes_high)}</small>` : ''}</td>
       <td class="num">${fcArrow(r.residents_now, r.residents_2030, 0)}</td><td class="num">${isNum(r.growth_pct) ? signed(r.growth_pct, 0) : (r.residents_2030 ? 'new' : '–')}</td>
       <td>${fcScore((r.scores || {}).local)}</td><td>${fcScore((r.scores || {}).district)}</td>
-      <td class="num">${fcArrow(((r.crowding || {}).playground || {}).now, ((r.crowding || {}).playground || {}).then)}</td><td class="num">${fcArrow(((r.crowding || {}).park || {}).now, ((r.crowding || {}).park || {}).then, 1)}</td>
+      <td class="num">${fcCrowd((r.crowding || {}).playground, 2)}</td><td class="num">${fcCrowd((r.crowding || {}).park, 1)}</td><td class="wrap">${esc(fcPlanned(r)) || '<span class="dash">–</span>'}</td>
       <td class="wrap">${esc(fcKindWords(S, r.falls_below)) || '<span class="dash">–</span>'}</td><td class="wrap">${esc(fcKindWords(S, r.far_from)) || '<span class="dash">–</span>'}</td></tr>`).join('')
-      || `<tr><td colspan="${city ? 14 : 13}" class="empty">No communities match. ${(S.communities || []).length ? 'Choose another sector or "Every community".' : `The forecast adds no homes in ${esc(W())}: its communities are established, and none of them shares amenities with a growing one enough to change its reading.`}</td></tr>`}
+      || `<tr><td colspan="${city ? 15 : 14}" class="empty">No communities match. ${(S.communities || []).length ? 'Choose another sector or "Every community".' : `The forecast adds no homes in ${esc(W())}: its communities are established, and none of them shares amenities with a growing one enough to change its reading.`}</td></tr>`}
     </tbody></table></div>`;
   const shows = [['', 'Every community'], ['crowding', `More crowded by ${y1} (${fmt(worse)})`], ['far', 'Far from amenities today'], ['neighbours', 'Neighbours affected']];
   const showSeg = `<div class="seg small" role="radiogroup" id="fc-show">${shows.map(([k, l]) => `<button type="button" role="radio" aria-checked="${k === fcShow}" data-v="${k}">${esc(l)}</button>`).join('')}</div>`;
 
-  const cgT = `<div class="table-wrap ac-full"><table class="data fc-cg"><thead><tr><th scope="col">Amenity</th><th scope="col">Within</th><th scope="col">Measure</th><th scope="col" class="num">Calgary today</th><th scope="col" class="num">Calgary in ${y1}</th><th scope="col" class="num">Change</th></tr></thead><tbody>
-    ${Object.entries(cg).map(([k, v]) => `<tr><td>${esc(K[k] || k)}</td><td>${fmt(v.distance_m)} m</td><td>${esc(v.unit)}</td><td class="num">${fcN(v.now, 2)}</td><td class="num"><b>${fcN(v.then, 2)}</b></td><td class="num">${isNum(v.now) && v.now ? signed(100 * (v.then - v.now) / v.now, 0) : '–'}</td></tr>`).join('')}
+  const cgT = `<div class="table-wrap ac-full"><table class="data fc-cg"><thead><tr><th scope="col">Amenity</th><th scope="col">Within</th><th scope="col">Measure</th><th scope="col" class="num">Calgary today</th><th scope="col" class="num">${y1}, nothing new</th><th scope="col" class="num">${y1}, with what is planned</th><th scope="col" class="num">Change</th></tr></thead><tbody>
+    ${Object.entries(cg).map(([k, v]) => { const e = isNum(v.planned) ? v.planned : v.then; return `<tr><td>${esc(K[k] || k)}</td><td>${fmt(v.distance_m)} m</td><td>${esc(v.unit)}</td><td class="num">${fcN(v.now, 2)}</td><td class="num">${fcN(v.then, 2)}</td><td class="num"><b>${fcN(v.planned, 2)}</b></td><td class="num">${isNum(v.now) && v.now ? signed(100 * (e - v.now) / v.now, 0) : '–'}</td></tr>`; }).join('')}
     </tbody></table></div>`;
 
   // 3. the projects the growth needs
@@ -79,21 +85,27 @@ function renderForecast() {
     ${P.map(p => `<tr><td class="wrap"><b>${esc(p.project)}</b></td><td>${esc(p.service)}</td><td>${esc(p.type)}</td><td class="wrap">${esc(p.plans.join('; '))}</td><td class="num">${isNum(p.km) ? fmt(p.km, 1) + ' km' : '–'}</td></tr>`).join('')}
     </tbody></table></div>`;
 
-  box.innerHTML = `<div class="gap-scope ac-head fc-head"><h3>The City's forecast to ${y1}, community by community <span class="ac-est">Estimate</span></h3>
+  box.innerHTML = `<div class="gap-scope ac-head fc-head"><h2 class="h3">The City's forecast to ${y1}, community by community <span class="ac-est">Estimate</span></h2>
       <p class="ac-lead">${esc(lead)}</p>
       <p class="card-note">From the City's Suburban Residential Growth (SRG) forecast, ${esc(dmy(S.edition))} edition: homes "absorbed" (built and lived in) in new communities each year, ${S.first_year} to ${y0 - 1}, and the City's forecast for ${y0} to ${y1}. The range is the City's own low and high yearly averages, by kind of home.</p></div>
-    <div class="gap-scope"><div class="fc-chart-head"><h3>New homes each year${fcSector ? ', ' + esc(secName(fcSector)) + ' sector' : ', all sectors'}</h3>${sel}</div>
+    <div class="gap-scope"><div class="fc-chart-head"><h2 class="h3">New homes each year${fcSector ? ', ' + esc(secName(fcSector)) + ' sector' : ', all sectors'}</h2>${sel}</div>
       <p class="fc-key"><span class="fc-sw fc-sw-past" aria-hidden="true"></span>Built and lived in <span class="fc-sw fc-sw-fc" aria-hidden="true"></span>City forecast</p>
       <div class="fc-chart"><canvas id="fc-canvas" role="img" aria-label="New homes in new communities each year, ${S.first_year} to ${y1}, the last five years the City's forecast"></canvas></div>
       ${secT}<p class="card-note">Homes and people as the City publishes them, sector by sector (e7ib-v9n4). People per home is the forecast's people over its homes: the City's own figure for each kind of home. The Centre sector has no new communities, so no rows.</p></div>
-    <div class="gap-scope"><h3>Who grows, and what it does to amenities nearby</h3>
+    <div class="gap-scope"><h2 class="h3">Who grows, and what it does to amenities nearby</h2>
       <p class="ac-lead">Each sector's forecast is shared among its new communities by the homes built in each one in the last five years. Residents in ${y1} are today's (${esc(S.method || popChip())}) plus that share of the forecast people; Growth vs amenities is then worked out again with today's amenities. Scores are against Calgary <b>today</b>, so a score falls only where crowding itself gets worse.</p>
       <div class="ac-row">${showSeg}</div>
       ${commT}
-      <p class="card-note"><b>Readings</b> (local amenities score: playgrounds, parks, transit stops and community centres): ${fcTag(S, 'becomes_crowded')} from around Calgary's level or above to below 0.80; ${fcTag(S, 'more_crowded')} below 0.80 today and a lower band, or 10% lower, by ${y1}; ${fcTag(S, 'crowded')} below 0.80 today and about the same; ${fcTag(S, 'far_growing')} under half of homes within reach of a playground, park or transit stop and growing 10% or more; ${fcTag(S, 'keeps_up')} none of these. "Neighbour": a community the forecast adds no homes to, whose playgrounds, parks or centres are shared with growing ones enough to change its band. <button type="button" class="link-btn small" data-method="growth_forecast">How the forecast is worked out</button></p>
-      <h4 class="ac-h4">Calgary's amenities per person, today and in ${y1}</h4>${cgT}
+      <p class="card-note"><b>Readings</b> (local amenities score: playgrounds, parks, transit stops and community centres, in ${y1} with what is planned): ${fcTag(S, 'becomes_crowded')} from around Calgary's level or above to below 0.80; ${fcTag(S, 'more_crowded')} below 0.80 today and a lower band, or 10% lower, by ${y1}; ${fcTag(S, 'crowded')} below 0.80 today and about the same; ${fcTag(S, 'far_growing')} under half of homes within reach of a playground, park or transit stop and growing 10% or more; ${fcTag(S, 'keeps_up')} none of these. "Neighbour": a community the forecast adds no homes to, whose playgrounds, parks or centres are shared with growing ones enough to change its band. <button type="button" class="link-btn small" data-method="growth_forecast">How the forecast is worked out</button></p>
+      <h3 class="ac-h4">Calgary's amenities per person, today and in ${y1}</h3>${cgT}
       <p class="card-note">Calgary's figure in ${y1} counts only the forecast's new-community growth; growth in established communities is not in the City's forecast.</p></div>
-    <div class="gap-scope"><h3>Projects the new homes need</h3>
+    ${S.planned ? `<div class="gap-scope"><h2 class="h3">What is already planned</h2>
+      <p class="card-sub">Added to the ${y1} figures above ("with what is planned"). <b>Park land:</b> ${fmt(S.planned.park_ha, 0)} ha in ${fmt(S.planned.park_polygons)} parcels across Calgary's new communities${city ? '' : `, ${fmt(S.planned.park_ha_scope, 0)} ha of it in ${esc(W())}`}, zoned as reserve in the City's Land Use Bylaw but not yet in its parks inventory: ${Object.entries(S.planned.park_ha_by_zone || {}).map(([z, ha]) => `${esc((S.planned.zones || {})[z] || z)} (${z}) ${fmt(ha, 0)} ha`).join(', ')}. That is land the developer has set aside for parks, schools and natural areas and not yet handed over as a finished City park. <b>Facilities</b> being built or funded and due by ${y1}:</p>
+      <div class="table-wrap"><table class="data fc-pl"><thead><tr><th scope="col">Facility</th><th scope="col">Adds</th><th scope="col">Opens</th><th scope="col">Stage</th></tr></thead><tbody>
+      ${(S.planned.facilities || []).map(f => `<tr><td class="wrap">${f.url ? `<button class="link-btn" data-open="${esc(f.url)}">${esc(f.title)}</button>` : esc(f.title)}</td><td>${esc(K[f.kind] || f.kind)}</td><td>${f.opens ? esc(String(f.opens)) : 'Under construction, date not given'}</td><td class="wrap">${esc(f.status || '')}</td></tr>`).join('') || '<tr><td colspan="4" class="empty">None listed.</td></tr>'}
+      </tbody></table></div>
+      <p class="card-note">Not added because no published list has them: new playgrounds (developers build most of them with each phase) and new transit stops. Schools and fire stations being built are on "Being built", with every other major project in ${esc(W())}. Facilities planned in area structure plans but not funded are not counted.</p></div>` : ''}
+    <div class="gap-scope"><h2 class="h3">Projects the new homes need</h2>
       <p class="card-sub">${fmt(P.length)} growth-related capital projects the City lists for future suburban homes (${Object.entries((S.infrastructure || {}).by_service || {}).map(([k, v]) => `${esc(k.toLowerCase())} ${fmt(v)}`).join(', ')}), each with the area structure plans it supports. Stage, cost and timing are not in this dataset.</p>
       ${infT}</div>`;
   $('#gr-notes').innerHTML = `What this cannot show: ${(S.limits || []).map(esc).join(' ')} Sources: City of Calgary open data: <button class="link-btn small" data-open="https://data.calgary.ca/d/e7ib-v9n4">Suburban Residential Growth (SRG) Forecast (e7ib-v9n4)</button>, <button class="link-btn small" data-open="https://data.calgary.ca/d/szyj-edpn">SRG Policy Infrastructure Lines (szyj-edpn)</button>, <button class="link-btn small" data-open="https://data.calgary.ca/d/surr-xmvs">Community District Boundaries (sector and SRG class, surr-xmvs)</button>; residents, homes and amenities as on the rest of Growth vs amenities.`;
@@ -143,12 +155,14 @@ function forecastExport() {
     name: `Growth forecast to ${y1}, ${W()}`,
     cols: ['Community', 'Ward', 'Sector', 'SRG class', 'Reading', 'Homes built in the last 5 years', 'Share of the sector forecast',
       `Forecast homes ${S.first_forecast_year}-${y1}`, 'Forecast homes, low', 'Forecast homes, high', 'Forecast people', 'Residents today', `Residents ${y1}`, 'Growth %',
-      'Children 0-14 today', `Children 0-14 ${y1}`, 'Local amenities score today', `Local amenities score ${y1}`, 'District facilities score today', `District facilities score ${y1}`,
-      ...Object.keys(S.kinds || {}).flatMap(k => [`${S.kinds[k]} crowding today`, `${S.kinds[k]} crowding ${y1}`]), `Falls below 0.80 by ${y1}`, 'Far from today'],
+      'Children 0-14 today', `Children 0-14 ${y1}`, 'Local amenities score today', `Local amenities score ${y1}, nothing new`, `Local amenities score ${y1}, with what is planned`, 'District facilities score today', `District facilities score ${y1}, nothing new`, `District facilities score ${y1}, with what is planned`, 'Planned park and school reserve (ha)', 'Planned facilities',
+      ...Object.keys(S.kinds || {}).flatMap(k => [`${S.kinds[k]} crowding today`, `${S.kinds[k]} crowding ${y1}, nothing new`, `${S.kinds[k]} crowding ${y1}, with what is planned`]), `Falls below 0.80 by ${y1}`, 'Far from today'],
     rows: fcRows(S).map(r => [r.name, r.ward || '', titleCase(r.sector || ''), titleCase(r.srg || ''), (S.readings || {})[r.reading] || r.reading, r.recent_homes ?? '', r.share_of_sector ?? '',
       r.forecast_homes, r.forecast_homes_low ?? '', r.forecast_homes_high ?? '', r.forecast_people, r.residents_now, r.residents_2030, r.growth_pct ?? '', r.children_now, r.children_2030,
-      ((r.scores || {}).local || {}).now ?? '', ((r.scores || {}).local || {}).then ?? '', ((r.scores || {}).district || {}).now ?? '', ((r.scores || {}).district || {}).then ?? '',
-      ...Object.keys(S.kinds || {}).flatMap(k => [((r.crowding || {})[k] || {}).now ?? '', ((r.crowding || {})[k] || {}).then ?? '']),
+      ((r.scores || {}).local || {}).now ?? '', ((r.scores || {}).local || {}).then ?? '', ((r.scores || {}).local || {}).planned ?? '',
+      ((r.scores || {}).district || {}).now ?? '', ((r.scores || {}).district || {}).then ?? '', ((r.scores || {}).district || {}).planned ?? '',
+      r.planned_park_ha ?? '', (r.planned_facilities || []).map(f => f.title + (f.opens ? ' (' + f.opens + ')' : '')).join('; '),
+      ...Object.keys(S.kinds || {}).flatMap(k => [((r.crowding || {})[k] || {}).now ?? '', ((r.crowding || {})[k] || {}).then ?? '', ((r.crowding || {})[k] || {}).planned ?? '']),
       fcKindWords(S, r.falls_below), fcKindWords(S, r.far_from)]),
   };
 }

@@ -28,7 +28,7 @@ class WeatherError(Exception):
 
 
 def _http_get(url, timeout=120):
-    req = urllib.request.Request(url, headers={'User-Agent': 'Ward5DataDesk/1.0', 'Accept': 'application/json'})
+    req = urllib.request.Request(url, headers={'User-Agent': 'CalgaryInsight/1.0', 'Accept': 'application/json'})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.read()

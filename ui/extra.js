@@ -1,4 +1,4 @@
-/* Ward 5 Data Desk: period picker, data status, families and schools, growth and amenities.
+/* Calgary Insight: period picker, data status, families and schools, growth and amenities.
    Uses the helpers and state defined in app.js. */
 'use strict';
 
@@ -320,7 +320,7 @@ function renderCompare() {
   const kids21 = (ps.census_children_0_14 || 0) - (ps.census_children_0_4 || 0);
   const kidsNow = (cc.children_0_14 || 0) - (cc.children_0_4 || 0);
   $('#fam-compare').innerHTML = `<div class="card-head"><div><h2>School-age children against students</h2><p class="card-sub">Ages 5 to 14 living in ${W()}, against students in kindergarten to Grade 9 at ${W()} schools</p></div></div>
-    <table class="data compact"><thead><tr><th scope="col"></th><th scope="col" class="num">2021</th><th scope="col" class="num">Today</th><th scope="col" class="num">Growth</th></tr></thead><tbody>
+    <table class="data compact"><thead><tr><th scope="col"><span class="sr">Group</span></th><th scope="col" class="num">2021</th><th scope="col" class="num">Today</th><th scope="col" class="num">Growth</th></tr></thead><tbody>
       <tr><td>Children aged 5 to 14 living in ${W()}</td><td class="num">${fmt(kids21)} <small>(Census)</small></td><td class="num">${fmt(kidsNow)} <small>(estimate)</small></td><td class="num">${signed(pct(kidsNow, kids21), 0)}</td></tr>
       <tr><td>Students, kindergarten to Grade 9, at ${W()} schools</td><td class="num">${fmt(y21.k_to_9)} <small>(${esc(y21.year)})</small></td><td class="num">${fmt(yNow.k_to_9)} <small>(${esc(yNow.year)})</small></td><td class="num">${signed(pct(yNow.k_to_9, y21.k_to_9), 0)}</td></tr>
       <tr><td>Students as a share of children</td><td class="num">${fmt(y21.k_to_9 / kids21 * 100, 0)}%</td><td class="num">${fmt(yNow.k_to_9 / kidsNow * 100, 0)}%</td><td></td></tr>
@@ -483,7 +483,7 @@ function renderAssets() {
   }
   $('#gr-sub').textContent = 'Every public asset the City lists: benches, playgrounds, courts, washrooms, fountains, park space, trees, facilities and transit stops';
   $('#gr-stats').innerHTML = '';
-  box.innerHTML = `<div class="gap-scope" id="gap-assets"><div class="gap-assets-head"><h3>${esc(title)}</h3>
+  box.innerHTML = `<div class="gap-scope" id="gap-assets"><div class="gap-assets-head"><h2 class="h3">${esc(title)}</h2>
       <button type="button" class="btn small" id="gap-assets-save">${icon('download')}<span>Save this table</span></button></div>
     <p class="card-sub">${esc(sub)} Counted ${esc(g.counted ? dmy(g.counted) : '')}.</p>
     <div class="table-wrap tall"><table class="data gap-assets"><thead><tr><th scope="col">Asset</th>${cols.map((c, i) => `<th scope="col" class="num ${i < (city ? 1 : 2) ? 'cmp-city' : ''}">${esc(c)}</th>`).join('')}</tr></thead><tbody>
@@ -587,14 +587,14 @@ function renderGapInner() {
   $('#gr-stats').innerHTML = '';
 
   // 1. the headline: are new homes keeping up? (Calgary-wide, homes built since 2021 against older homes)
-  const head = `<div class="gap-scope ac-head"><h3>Are new homes keeping up?</h3>
+  const head = `<div class="gap-scope ac-head"><h2 class="h3">Are new homes keeping up?</h2>
     <p class="ac-lead">${esc(acHeadline(A))}</p>
     <div class="table-wrap ac-full"><table class="data ac-keep"><thead><tr><th scope="col">Amenity</th><th scope="col">Distance</th><th scope="col">Homes built since ${A.growth_year}</th><th scope="col">Homes built before ${A.growth_year}</th><th scope="col" class="num">Difference</th><th scope="col">All homes, Calgary</th></tr></thead><tbody>
     ${kinds.map(k => { const c = A.city[k] || {}, d = isNum(c.share_new_1) && isNum(c.share_old_1) ? Math.round((c.share_new_1 - c.share_old_1) * 100) : null;
       return `<tr><td>${esc(A.kinds[k].label)}</td><td>within ${acM(acTh(A, k, false))}</td><td>${acBar(c.share_new_1, 'new')}<b>${acPct(c.share_new_1)}</b></td><td>${acBar(c.share_old_1)}${acPct(c.share_old_1)}</td><td class="num">${isNum(d) ? signed(d, 0, ' pts') : '–'}</td><td>${acPct(c.share_1)} <small class="ac-med">median ${acM(c.median_m)}</small></td></tr>`; }).join('')}
     </tbody></table></div>
     <p class="card-note">Share of homes (dwelling units) within the distance of the nearest one, in any community, straight-line. ${fmt(A.homes.units)} homes on the City's property roll (${fmt(A.homes.records)} records; ${fmt(A.homes.units_estimated)} rental units estimated from assessed value). "Built since ${A.growth_year}": year of construction ${A.growth_year} or later; homes with no year are in neither group.</p>
-    <h4 class="ac-h4">Crowding at playgrounds and parks <span class="ac-est">Estimate</span></h4>
+    <h3 class="ac-h4">Crowding at playgrounds and parks <span class="ac-est">Estimate</span></h3>
     <ul class="ac-crowd">${acCrowdWords(A).map(x => `<li>${esc(x)}</li>`).join('')}${acNearCrowdedWords(A).map(x => `<li class="ac-nc-line">${esc(x)}</li>`).join('')}</ul>
     ${scData() ? `<p class="card-note">Crowding counts everyone who can reach a playground or park, from any community: children from the next community who use the same playground share it too. "Near, but crowded" uses the score below (the community's crowding against Calgary's).</p>` : ''}
     ${Object.keys(A.sensitivity || {}).length ? `<p class="card-note"><b>How much the estimate moves:</b> Calgary's playground figure (within ${acM(acTh(A, 'playground', false))}) under each way of counting residents: ${Object.entries(A.sensitivity).map(([m, v]) => `${esc(acMethodName(m))} ${fmt(((v.playground || {})[String(acTh(A, 'playground', false))]), 2)}${m === popMethod() ? ' (in use)' : ''}`).join(' · ')} playgrounds per 1,000 children.</p>` : ''}
@@ -603,7 +603,7 @@ function renderGapInner() {
   // 2. the 14 wards, the same measures, in ward order
   const wardRows = (A.wards || []).slice().sort((a, b) => a.ward - b.ward);
   const curWard = city ? (acWard ? +acWard : null) : (D.ward || {}).number;
-  const wardsTable = `<div class="gap-scope"><div class="ac-row"><h3>Every ward, the same measures</h3>
+  const wardsTable = `<div class="gap-scope"><div class="ac-row"><h2 class="h3">Every ward, the same measures</h2>
       <div class="seg small" role="radiogroup" aria-label="Distance" id="ac-far"><button type="button" role="radio" aria-checked="${!acFar}" data-far="0">First distance</button><button type="button" role="radio" aria-checked="${acFar}" data-far="1">Second distance</button></div></div>
     <div class="table-wrap ac-full"><table class="data ac-wards"><thead><tr><th scope="col">Ward</th>${kinds.map(k => `<th scope="col" class="num">${esc(A.kinds[k].label)}<small>within ${acM(acTh(A, k, acFar))}</small></th>`).join('')}${AC_CROWD.filter(k => A.kinds[k]).map(k => `<th scope="col" class="num">${k === 'playground' ? 'Playground crowding' : 'Park crowding'}<small>${k === 'playground' ? 'per 1,000 children' : 'ha per 1,000 residents'}, ${acM(acTh(A, k, acFar))}</small></th>`).join('')}</tr></thead><tbody>
     ${wardRows.map(w => `<tr class="${w.ward === curWard ? 'ac-cur' : ''}"><td>Ward ${w.ward}</td>${kinds.map(k => `<td class="num">${acPct((w[k] || {})[acFar ? 'share_2' : 'share_1'])}</td>`).join('')}${AC_CROWD.filter(k => A.kinds[k]).map(k => `<td class="num">${fmt((w[k] || {})[acCrowdKey(A, k, acFar)], k === 'park' ? 1 : 2)}</td>`).join('')}</tr>`).join('')}
@@ -632,10 +632,10 @@ function renderGapInner() {
         ${crowd ? `<td class="num">${fmt(x[ck], acKind === 'park' ? 1 : 2)}</td>` : ''}</tr>`; }).join('') || '<tr><td colspan="12" class="empty">No communities to show.</td></tr>'}
     </tbody></table></div>
     <p class="card-note"><b>Reading</b> (a stated rule for each community and amenity, not a score): <span class="ac-tag ac-ok">${esc(A.readings.no_gap)}</span> half or more of homes within ${acM(acTh(A, acKind, false))}; <span class="ac-tag ac-gap">${esc(A.readings.gap)}</span> fewer than half; <span class="ac-tag ac-check">${esc(A.readings.gap_check)}</span> a measured gap where ${fmt(A.rules.recent_share * 100)}% or more of homes were built since ${A.recent_from_year} (developer-built amenities may not be in the City's inventory yet); <span class="ac-tag ac-few">${esc(A.readings.too_few_homes)}</span> under ${fmt(A.rules.min_units)} homes. Readings are never combined across amenities.${scData() ? ` <span class="ac-tag ac-nc">Near, but crowded</span> most homes within reach, but the score is under 0.80: what is within reach is shared by more people than Calgary's average.` : ''} ${esc(K.basis || '')}</p>`;
-  const mapBlock = `<div class="ac-mapwrap"><div id="ac-map" class="ac-map" role="img" aria-label="Map of communities: ${esc(K.label)}, ${acMapMode === 'near' ? 'share of homes within ' + acM(th) : 'crowding'}"></div><div class="ac-legend" id="ac-legend"></div></div>`;
+  const mapBlock = `<div class="ac-mapwrap"><div id="ac-map" class="ac-map" role="region" aria-label="Map of communities: ${esc(K.label)}, ${acMapMode === 'near' ? 'share of homes within ' + acM(th) : 'crowding'}"></div><div class="ac-legend" id="ac-legend"></div></div>`;
 
   // 4. limitations, method, sources
-  const lim = `<div class="gap-scope ac-lim"><h3>What these figures do not measure</h3><ul>${(A.limitations || []).map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+  const lim = `<div class="gap-scope ac-lim"><h2 class="h3">What these figures do not measure</h2><ul>${(A.limitations || []).map(x => `<li>${esc(x)}</li>`).join('')}</ul>
     <p class="card-note"><button type="button" class="link-btn small" data-method="access">How the distances are worked out</button> · <button type="button" class="link-btn small" data-method="access_crowding">How crowding is worked out</button> · Worked out ${A.counted ? dmy(A.counted) : ''}; amenities are read again every week and the property roll every month.</p></div>`;
   const W0 = (D.access || {}).with_other || {};
   const otherSwitch = W0.osm ? `<div class="gap-scope gap-other-switch"><label class="check big"><input type="checkbox" id="ac-other" ${acOther ? 'checked' : ''}>
@@ -646,7 +646,7 @@ function renderGapInner() {
   const rev = `<div class="banner info ac-rev">${icon('alert')}<div><strong>${esc(A.revision.split('. ')[0])}.</strong> ${esc(A.revision.split('. ').slice(1).join('. '))} <button type="button" class="link-btn" data-goto="changes">What changed</button></div></div>`;
 
   box.innerHTML = `${rev}${otherSwitch}${head}${wardsTable}
-    <div class="gap-head"><h3>${city ? (acWard ? 'Ward ' + acWard + ', community by community' : 'Every community') : 'Each community in ' + esc(W())}: ${esc(K.label.toLowerCase())}</h3>${ctl}</div>
+    <div class="gap-head"><h2 class="h3">${city ? (acWard ? 'Ward ' + acWard + ', community by community' : 'Every community') : 'Each community in ' + esc(W())}: ${esc(K.label.toLowerCase())}</h2>${ctl}</div>
     ${mapBlock}${commTable}${scHtml(A)}${lim}${growthChecks()}`;
   acDrawMap(A, rows, th, shareKey, ck);
   $('#gr-notes').textContent = `Sources: City of Calgary open data: Current Year Property Assessments (4bsw-nn7w, homes), Playground Equipment (bdu9-amk8), Parks Sites (kami-qbfh), Calgary Transit Stops (muzh-c9qc), Community Services (x34e-bcjz: community centres, libraries), Recreation Facilities (hxfu-6d96); children and residents: the ${CY()} Census by community and the growth model (${popWords()}).`;
@@ -719,17 +719,17 @@ function scHtml(A) {
           <td class="num">${scNum(cw[pm + '|' + d0])}</td><td class="num">${scNum((((S.calgary || {})[k] || {})[pm] || {})[d0])}</td></tr>`; }).join('')}
       </tbody></table></div><p class="card-note">Crowding: playgrounds per 1,000 children; park hectares per 1,000 residents; transit stops per 1,000 residents; community centres, recreation centres and libraries per 100,000 residents; all within reach, an estimate.</p></div></td></tr>`;
   const table = `<div class="table-wrap tall"><table class="data sc-table"><thead><tr><th scope="col">Community</th>${city ? '<th scope="col" class="num">Ward</th>' : ''}<th scope="col" class="num">Homes</th>
-      <th scope="col">Local amenities<small>score, range</small></th><th scope="col">Local: label</th><th scope="col">District facilities<small>score, range</small></th><th scope="col">District: label</th><th scope="col"></th></tr></thead><tbody>
+      <th scope="col">Local amenities<small>score, range</small></th><th scope="col">Local: label</th><th scope="col">District facilities<small>score, range</small></th><th scope="col">District: label</th><th scope="col"><span class="sr">Details</span></th></tr></thead><tbody>
     ${rows.map(o => `<tr class="sc-row${scOpen === o.code ? ' open' : ''}" data-sc="${esc(o.code)}"><td>${esc(o.c.name)}</td>${city ? `<td class="num">${o.c.ward || '–'}</td>` : ''}<td class="num">${fmt(o.c.units)}</td>
       <td>${scCell(scGet(o.r, 'local'))}</td><td>${scTag(scGet(o.r, 'local'))}</td><td>${scCell(scGet(o.r, 'district'))}</td><td>${scTag(scGet(o.r, 'district'))}</td><td><button type="button" class="link-btn small" data-sc-open="${esc(o.code)}">${scOpen === o.code ? 'Hide' : 'Details'}</button></td></tr>${scOpen === o.code ? detail(o) : ''}`).join('')
       || `<tr><td colspan="8" class="empty">No communities to show.</td></tr>`}
     </tbody></table></div>`;
   const wards = Object.entries(S.wards || {}).sort((a, b) => +a[0] - +b[0]);
   const curWard = city ? (acWard ? +acWard : null) : (D.ward || {}).number;
-  const wardTable = `<h4 class="ac-h4">Every ward, the same scores</h4><div class="table-wrap ac-full"><table class="data sc-wards"><thead><tr><th scope="col">Ward</th><th scope="col">Local amenities</th><th scope="col">Local: label</th><th scope="col">District facilities</th><th scope="col">District: label</th></tr></thead><tbody>
+  const wardTable = `<h3 class="ac-h4">Every ward, the same scores</h3><div class="table-wrap ac-full"><table class="data sc-wards"><thead><tr><th scope="col">Ward</th><th scope="col">Local amenities</th><th scope="col">Local: label</th><th scope="col">District facilities</th><th scope="col">District: label</th></tr></thead><tbody>
     ${wards.map(([w, r]) => `<tr class="${+w === curWard ? 'ac-cur' : ''}"><td>Ward ${w}</td><td>${scCell(scGet(r, 'local'))}</td><td>${scTag(scGet(r, 'local'))}</td><td>${scCell(scGet(r, 'district'))}</td><td>${scTag(scGet(r, 'district'))}</td></tr>`).join('')}
     </tbody></table></div><p class="card-note">Wards in number order. A ward's score is its people-weighted crowding against Calgary's, worked out the same way as a community's.</p>`;
-  return `<div class="gap-scope sc-card" id="acs-card"><h3>Where amenities fall behind, under every assumption <span class="ac-est">Added ${dmy(S.added)}</span></h3>
+  return `<div class="gap-scope sc-card" id="acs-card"><h2 class="h3">Where amenities fall behind, under every assumption <span class="ac-est">Added ${dmy(S.added)}</span></h2>
     <p class="ac-lead">Each amenity's score is the community's crowding figure divided by Calgary's: 1.00 is Calgary's level of that amenity within reach, per person who shares it. Local amenities average ${scGroupWords(S, 'local')}; district facilities average ${scGroupWords(S, 'district')}. Each score is worked out 4 ways (2 distances x 2 counts of residents: ${esc((S.people || {})[S.default_people] || popChip())}, the count chosen in Settings, and the ${CY()} Census). The figure shown is the shorter distance with the count chosen in Settings; the range runs from the lowest to the highest of the 4.</p>
     <p class="card-note"><b>Labels:</b> <span class="ac-tag ac-gap">Consistent gap</span> below 0.80 in every way with a figure; <span class="ac-tag ac-check">Depends on assumptions</span> below 0.80 in some ways; <span class="ac-tag ac-ok">No gap</span> never below 0.80. <b>Bands</b> of the figure shown: under 0.50 well below Calgary, 0.50 to 0.80 below, 0.80 to under 1.25 around, 1.25 or more above. Each amenity is capped at 2.00 before averaging; a group score needs every amenity in the group. Change the count of residents in Settings and every score follows. <sup class="sc-fewer">2/4</sup> scored fewer ways (no ${CY()} Census count: built since). ${acOther ? '<b>Private amenities counted</b> (the filter above): playground and park scores include them.' : ''}</p>
     <div class="ac-row">${sw('sc-group', Object.entries(SC_GROUPS).map(([k, l]) => [k, 'Filter and sort by: ' + l]), scGroup)}${sw('sc-filter', [['', 'Every community'], ['consistent_gap', `Consistent gaps (${fmt(nCons)})`], ['depends', `Depends (${fmt(nDep)})`]], scFilter)}</div>
@@ -796,7 +796,7 @@ function renderChanges() {
   const kinds = A ? acKinds(A) : [];
   const cnt = k => fl.filter(r => (r[k] || {}).reading === 'no_gap').length;
   box.innerHTML = `<div class="banner info">${icon('alert')}<div><strong>Revised 5 November 2026.</strong> ${esc(A ? A.revision.split('. ').slice(1).join('. ') : '')}</div></div>
-    <section class="card"><h2>The method, before and after</h2><div class="table-wrap"><table class="data chg-table"><thead><tr><th scope="col"></th><th scope="col">Before (until 5 November 2026)</th><th scope="col">Now</th></tr></thead><tbody>
+    <section class="card"><h2>The method, before and after</h2><div class="table-wrap"><table class="data chg-table"><thead><tr><th scope="col"><span class="sr">Figure</span></th><th scope="col">Before (until 5 November 2026)</th><th scope="col">Now</th></tr></thead><tbody>
     ${old.map(([a, b, c]) => `<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td><td>${esc(c)}</td></tr>`).join('')}</tbody></table></div>
     <p class="card-note">Why: an audit on 5 November 2026 found the boundary count misled. North Haven Upper has no playground inside its boundary, yet 96% of its homes are within 400 m of one. Across about 215 communities, the rank agreement between the old playground figure and the share of homes within 400 m was about 0.45. <button type="button" class="link-btn small" data-method="access_revision">The full note</button></p></section>
     <section class="card"><h2>What changed in the findings</h2>
@@ -835,7 +835,7 @@ function growthChecks() {
   if (!G || !(G.checks || []).length) return '';
   const names = { city_pace: "City's total, one rate for all", city_actual: "City's total, shared by actual growth", model: 'Growth model (homes)' };
   const cur = popMethod();
-  return `<div class="gap-scope growth-checks"><h3>How much has ${esc(W())} grown since ${CY()}? Checks against independent data</h3>
+  return `<div class="gap-scope growth-checks"><h2 class="h3">How much has ${esc(W())} grown since ${CY()}? Checks against independent data</h2>
     <p class="card-sub">${CY() === 2021 ? 'The 2026 Census was taken in May 2026, but its counts are not published yet (population counts are due February 10, 2027), so' : 'Since the ' + CY() + ' Census,'} every figure today is an estimate. These checks use data the estimates do not rely on in the same way.</p>
     <div class="gc-list">${G.checks.map(c => `<div class="gc-item${c.key === 'homes_per_home' ? ' gc-key' : ''}"><div class="gc-top"><b>${esc(c.label)}</b><span class="gc-n">${signed(c.growth_pct, 1, '%')}${isNum(c.real_growth_pct) ? `<small>real growth ${signed(c.real_growth_pct, 1, '%')}</small>` : ''}</span></div><p>${esc(c.how)}</p></div>`).join('')}
       <div class="gc-item gc-range"><div class="gc-top"><b>Range of the checks</b><span class="gc-n">${signed(G.low, 1, '%')} to ${signed(G.high, 1, '%')}</span></div><p>Growth since the ${CY()} Census count, from the lowest check to the highest.</p></div></div>
@@ -1193,7 +1193,7 @@ function renderMethods(openKey) {
     ? `<button class="link-btn small" data-open="https://data.calgary.ca/d/${esc(x.trim())}">${esc(x.trim())}</button>` : esc(x.trim())).join(', ');
   const shown = METHODS.filter(m => !q || JSON.stringify(m).toLowerCase().includes(q));
   $('#meth-list').innerHTML = shown.map(m => `<details class="card meth" id="meth-${esc(m.key)}" ${m.key === openKey || (q && shown.length <= 3) ? 'open' : ''}>
-      <summary><h3>${esc(m.name)}</h3><span class="card-sub">${esc(m.publisher)}${m.updated ? ' · ' + esc(m.updated) : ''}</span></summary>
+      <summary><h2>${esc(m.name)}</h2><span class="card-sub">${esc(m.publisher)}${m.updated ? ' · ' + esc(m.updated) : ''}</span></summary>
       <p class="meth-meta"><b>Data:</b> ${ids(m.dataset)}${m.page ? ` · <button class="link-btn small" data-open="${esc(m.page)}">source page</button>` : ''}<br><b>Used in:</b> ${esc(m.used_in)}</p>
       <p class="sm-h">How it is worked out</p>${list(m.method, 'ol')}
       ${m.excel && m.excel.length ? `<p class="sm-h">Check it yourself</p>${list(m.excel, 'ol')}` : ''}
@@ -1462,8 +1462,8 @@ function renderRecon() {
   const rows = [...R.rows].sort((a, b) => String(a.name).localeCompare(String(b.name)));
   const stepHead = { city_actual: 'City forecast top-up (shared by actual growth)', city_pace: 'City forecast top-up (one rate for all)', census2021: 'Step to the ' + CY() + ' Census', model: 'Step' }[m] || 'Step';
   rcComm = rcComm && rows.some(r => r.code === rcComm) ? rcComm : '';
-  box.innerHTML = `<div class="gap-scope"><h3>${esc(W())}: from homes to residents</h3>
-    <p class="card-sub">Read across each row: <b>homes × people per home</b>, plus <b>rental units × people per unit</b>, gives the estimate from homes; the City forecast top-up then takes it to the residents shown in the app (${esc(popWords())}). Choose a community to list every property behind its figure.</p>
+  box.innerHTML = `<div class="gap-scope"><h2 class="h3">${esc(W())}: from homes to residents</h2>
+    <p class="card-sub">Read across each row: <b>homes × people per home</b>, plus <b>rental units × people per unit</b>, gives the estimate from homes; the City forecast top-up then takes it to the residents shown on the site (${esc(popWords())}). Choose a community to list every property behind its figure.</p>
     <p class="card-sub"><b>Why rental units are listed apart:</b> a rented-out apartment building is one account (one roll number) on the City's property roll for the whole building, so it would count as one home. Its flats are counted instead, from the City's building permits or, where no permit was found, estimated from its assessed value. Condo flats are each their own account on the roll, so they are counted as homes directly.</p>
     ${D.srg && D.srg.scope ? `<p class="card-note"><b>Looking ahead:</b> the City's Suburban Residential Growth forecast adds ${fmt(D.srg.scope.forecast_people)} people in ${esc(W())}'s new communities from ${D.srg.first_forecast_year} to ${D.srg.last_year}, taking these residents from ${fmt(D.srg.scope.residents_now)} to ${fmt(D.srg.scope.residents_2030)}. <button type="button" class="link-btn small" id="rc-fc">Forecast to ${D.srg.last_year}</button></p>` : ''}
     <p><button type="button" class="btn" id="rc-xlsx">${icon('download')}<span>Save the build-up as Excel</span></button> <small class="card-note">Homes × people per home = residents, community by community, with the sums as Excel formulas, and every rental building with where its number of units comes from.</small></p>
@@ -1542,7 +1542,7 @@ function renderProps() {
   const unitsPeople = rent.length ? (row.people_in_units ?? null) : 0;
   const beyond = row.homes_now - homes;
   const hs = row.method === 'household size';
-  el.innerHTML = `<div class="gap-assets-head"><h3>Every property in ${esc(titleCase(row.name))}</h3>
+  el.innerHTML = `<div class="gap-assets-head"><h2 class="h3">Every property in ${esc(titleCase(row.name))}</h2>
       <button type="button" class="btn small" id="rc-save">${icon('download')}<span>Save every property</span></button></div>
     <p class="card-sub">Read live from the City's property roll just now: ${fmt(P.length)} accounts that count as homes. People per home: ${fmt(row.people_per_home, 4)}${hs ? ' (2021 household size: this community uses the change in homes only, see the note)' : ''}.</p>
     <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Kind of home</th><th scope="col" class="num">Accounts</th><th scope="col" class="num">Homes lived in</th><th scope="col" class="num">People</th></tr></thead><tbody>

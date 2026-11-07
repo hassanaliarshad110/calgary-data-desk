@@ -34,7 +34,7 @@ class AlbertaError(Exception):
 
 
 def _http_get(url, timeout=180):
-    req = urllib.request.Request(url, headers={'User-Agent': 'Ward5DataDesk/1.0'})
+    req = urllib.request.Request(url, headers={'User-Agent': 'CalgaryInsight/1.0'})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.read()

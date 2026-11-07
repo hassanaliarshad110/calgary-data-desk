@@ -1,6 +1,6 @@
 {
  "note": "Major projects being built or planned in Ward 5 that the City's open data lists of facilities do not have yet. Each entry is checked against the owner's page or a news report (sources). When a project opens, the app marks it completed by itself once the City lists it: 'match' gives words of its name to look for in the City's recreation facilities and school lists, and a listed facility or school within 400 m of lat/lon also counts. 'expected_by' (YYYY-MM) flags a project that should have opened but is not listed yet. To mark one by hand, set \"state\": \"completed\" and \"opened\": \"YYYY-MM\".",
- "checked": "2026-11-01",
+ "checked": "2026-11-06",
  "projects": [
   {
    "title": "Northeast Athletic Complex",
@@ -55,7 +55,7 @@
    "kind": "Provincial school project",
    "owner": "Alberta Infrastructure for the Calgary School Division",
    "amenity": true,
-   "status": "Proposed, in design (public-private partnership)",
+   "status": "Under construction (Alberta active school projects, checked 6 November 2026)",
    "budget": "$151.7 million (estimate)",
    "cost": 151700000,
    "completion": "Not yet scheduled",
@@ -67,7 +67,8 @@
    "url": "https://majorprojects.alberta.ca/details/New-High-School-in-Cornerstone/11436",
    "sources": [
     "https://majorprojects.alberta.ca/details/New-High-School-in-Cornerstone/11436",
-    "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx"
+    "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx",
+    "https://www.alberta.ca/active-school-projects"
    ],
    "match": [
     "Cornerstone High"
@@ -99,11 +100,11 @@
    ]
   },
   {
-   "title": "New K-4 elementary school in Redstone (Calgary Board of Education)",
+   "title": "New K-5 elementary school in Redstone (Calgary Board of Education)",
    "kind": "Provincial school project",
    "owner": "Alberta Infrastructure for the Calgary School Division",
    "amenity": true,
-   "status": "Approved; contractor selection and design",
+   "status": "Under construction (Alberta active school projects, checked 6 November 2026)",
    "budget": "Not published",
    "cost": null,
    "completion": "Not yet scheduled",
@@ -112,7 +113,8 @@
    "what": "Kindergarten to grade 4. Announced in 2025 with the Cornerstone high school.",
    "url": "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx",
    "sources": [
-    "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx"
+    "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx",
+    "https://www.alberta.ca/active-school-projects"
    ],
    "match": []
   },
@@ -136,11 +138,11 @@
    "expected_by": "2028-09"
   },
   {
-   "title": "New schools in Cityscape (public elementary; Catholic elementary and junior high)",
+   "title": "New schools in Cityscape (public elementary; public 6-9 for Cityscape or Redstone; Catholic elementary and junior high)",
    "kind": "Provincial school project",
    "owner": "Calgary School Division and Calgary Catholic School District",
    "amenity": true,
-   "status": "In Alberta's 2026 school capital list: public elementary in planning, Catholic elementary/junior high in design",
+   "status": "Public 6-9 under construction; Catholic elementary/junior high in design; public elementary in planning (Alberta active school projects, checked 6 November 2026)",
    "budget": "Not published",
    "cost": null,
    "completion": "Not yet scheduled",
@@ -149,7 +151,8 @@
    "what": "Two schools listed for Cityscape in Budget 2026.",
    "url": "https://www.alberta.ca/system/files/ecc-approved-school-capital-list-2026.pdf",
    "sources": [
-    "https://www.alberta.ca/system/files/ecc-approved-school-capital-list-2026.pdf"
+    "https://www.alberta.ca/system/files/ecc-approved-school-capital-list-2026.pdf",
+    "https://www.alberta.ca/active-school-projects"
    ],
    "match": []
   },

@@ -62,7 +62,7 @@ async function renderHelp() {
     <div class="help-kinds" role="radiogroup" aria-label="What do you need">${HELP_KINDS.map(([k, t]) => `<button type="button" class="chip${k === helpKind ? ' is-on' : ''}" role="radio" aria-checked="${k === helpKind}" data-helpkind="${k}">${t}</button>`).join('')}</div>
     ${helpKind === 'shelter' ? `<div class="help-kinds small" role="radiogroup" aria-label="Who is it for">${HELP_WHO.map(([k, t]) => `<button type="button" class="chip${k === helpWho ? ' is-on' : ''}" role="radio" aria-checked="${k === helpWho}" data-helpwho="${k}">${t}</button>`).join('')}</div>` : ''}
     ${helpKind === 'safe' ? '<p class="card-sub help-safe">These shelters keep their addresses private so nobody can follow you there. Call: they will help you get there safely. If you are in danger now, call 9-1-1.</p>' : ''}
-    ${list.some(p => isNum(p.lat)) ? '<div id="help-map" class="help-map" role="img" aria-label="Map of the places listed"></div>' : ''}
+    ${list.some(p => isNum(p.lat)) ? '<div id="help-map" class="help-map" role="region" aria-label="Map of the places listed"></div>' : ''}
     <div class="help-list">${list.map(helpCard).join('') || '<p class="muted">Nothing listed here. Call or text 2-1-1 for help finding it.</p>'}</div></section>`;
   const more = `<section class="card span-12"><div class="card-head"><div><h2>More help lines</h2><p class="card-sub">Tap a number to call</p></div></div>
     <div class="help-lines">${lines.map(l => `<a class="help-line" href="tel:${helpTel(l.phone)}"><b>${esc(l.phone)}</b><span>${esc(l.name)}${l.note ? ` · ${esc(l.note)}` : ''}</span></a>`).join('')}</div>

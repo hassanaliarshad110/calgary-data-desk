@@ -255,7 +255,12 @@ METHODS = [
          'moving into existing homes, nor people in seniors\' homes, residences and shelters, so the Calgary total from the same '
          'method is 8.2% below the City\'s estimate (1,467,348 against 1,598,075, November 2026).',
          'Tested against the City\'s 2016 and 2019 civic census: typical error about 3% by community, 6% for '
-         'fast-growing ones. The 2026 Census by community (expected 2027) will allow a direct check.']},
+         'fast-growing ones. The 2026 Census by community (expected 2027) will allow a direct check.',
+         'It follows homes, so it never shows a community shrinking: an older community whose households are getting smaller '
+         'stays at its 2021 count until homes are added. No residential community is below its 2021 count in November 2026.',
+         'The 2021 Census for the City of Calgary is 1,306,784 (Statistics Canada); the 223 residential communities add up to '
+         '1,288,995. The 17,789 in between live in industrial, park and residual areas the City\'s community file places in no '
+         'community, and are not in any community or ward figure.']},
 
     {'key': 'children', 'name': 'Children (estimate)', 'dataset': 'f9wk-wej9 + growth model', 'publisher': 'City of Calgary',
      'page': 'https://data.calgary.ca/d/f9wk-wej9', 'updated': 'Census 2021, grown monthly',
@@ -503,8 +508,9 @@ METHODS = [
          'today\'s residents.',
          'A ward or city rate adds the counts of its residential communities and divides by their residents added '
          'together (not an average of community rates).',
-         'Communities with fewer than 100 residents get no rates ("too few residents for a rate"): one request would '
-         'read as 10 or more per 1,000. Their requests still count in ward and city totals.',
+         'Communities with fewer than 500 residents get no rates ("too few residents for a rate"): a handful of requests '
+         'would read as hundreds per 1,000, as it did for new communities with a few hundred people (raised from 100 on 7 November 2026). '
+         'Their requests still count in ward and city totals.',
          'Growth since the 2021 Census = residents today / 2021 Census residents - 1. "Growing" marks communities that '
          'grew more than 30% (or did not exist in 2021). "New since 2021" means the 2021 Census counted nobody there.',
          'Change against the year before = this period\'s count / the same months a year before - 1; counts are scaled '
@@ -618,7 +624,15 @@ METHODS = [
                 'Communities the forecast adds no homes to are listed when they share amenities with growing ones enough to '
                 'change a band (neighbours).',
                 'Projects: the growth-related water, sanitary, storm and road projects the City lists, one row each with every '
-                'area structure plan it supports; length from the line on the map.'],
+                'area structure plan it supports; length from the line on the map.',
+                'What is already planned (planned.py), added for "2030 with what is planned": (1) park land: in new '
+                'communities, land the Land Use Bylaw zones S-SPR (school, park and community reserve), S-R (recreation) or '
+                'S-UN (urban nature) that is not yet in the City\'s Parks Sites inventory (less than half of the parcel, by '
+                'sample points, is a City park), counted as park hectares within reach like any park; (2) new libraries and '
+                'indoor recreation centres that are under construction or funded and due by the end of the forecast, from '
+                'the Government of Alberta Major Projects inventory and the City facilities checked by hand. Work on '
+                'facilities that already exist (expansions, repairs) is not added. Planned playgrounds and transit stops '
+                'are in no published list and are not added.'],
      'excel': ['Community share = homes built in the last 5 years / the sum for the sector\'s new communities; forecast homes '
                '= sector forecast x share; residents 2030 = residents today + sector forecast people x share; score = crowding / '
                'Calgary\'s crowding today.'],
@@ -630,6 +644,51 @@ METHODS = [
                   'from amenities, so crowding there may be worse than shown.',
                   'The forecast\'s 2026 homes are added in full; some built early in 2026 may already be in today\'s count.'],
      'code': 'srg.py (sectors, allocate, future_people, view); access.py (crowding, crowding_inputs); scores.py'},
+
+    {'key': 'major_projects', 'name': 'Being built: major projects in every ward (added 6 November 2026)',
+     'dataset': 'Government of Alberta Major Projects inventory (majorprojects.alberta.ca); data/civic_projects.json and '
+                'data/ward5_projects.json (checked by hand); surr-xmvs (community boundaries)',
+     'publisher': 'Government of Alberta (Jobs, Economy and Trade); City of Calgary; Calgary Insight', 'page': 'https://majorprojects.alberta.ca/',
+     'updated': 'The inventory is read every week; the hand-checked lists every Monday', 'used_in': 'Growth vs amenities (Being built), Forecast to 2030, Data Genie',
+     'method': ['The Government of Alberta lists every project in Alberta worth $5 million or more, proposed or under '
+                'construction, with its sector, type, cost, schedule, developer and map point. Calgary\'s projects (completed '
+                'ones left out) are placed in a community by their map point, and so in a ward; a line project (a road, an '
+                'LRT line) is listed in every ward its line passes through. A school or facility whose name gives a '
+                'community but whose point lies elsewhere is placed in the community it names.',
+                'City facilities the inventory misses (fire stations, libraries, recreation) and each ward\'s hand-checked '
+                'list come first; a project listed twice is shown once.',
+                'A project is marked open when the City lists a facility or school of that name (or within 400 m), or when '
+                'it is marked by hand.'],
+     'excel': ['Projects in a ward = the inventory rows whose map point (or named community) falls in one of the ward\'s communities, plus the hand-checked lists, with duplicates (3 of 4 words of the shorter name in common) shown once.'],
+     'cautions': ['The inventory starts at $5 million; smaller projects are not in it.',
+                  'Stages and dates are the inventory\'s; a proposed project may not go ahead.'],
+     'code': 'majorprojects.py; dashboard.py (city_projects, project_states)'},
+
+    {'key': 'visiting', 'name': 'Visiting Calgary: the weather by month and by year, what is on, what to see, where to stay, getting around (added 7 November 2026)',
+     'dataset': 'Environment and Climate Change Canada daily climate data, Calgary International Airport (climate IDs 3031093 to 11 July 2012, 3031092 since); '
+                'ECCC public forecast for Calgary (citypageweather ab-52); OpenStreetMap tourism features (Overpass API); surr-xmvs (community boundaries); '
+                'Tourism Calgary 2025 annual report; Calgary Transit fares page; the organisers\' own pages',
+     'publisher': 'Environment and Climate Change Canada; OpenStreetMap contributors; City of Calgary; Tourism Calgary; Calgary Transit; Calgary Insight (checked by hand)',
+     'page': 'https://api.weather.gc.ca/collections/climate-daily',
+     'updated': 'The weather every morning (the current year\'s daily records and the forecast); OpenStreetMap every week; the facts, events, fares and statistics every Monday',
+     'used_in': 'Visiting Calgary, Data Genie',
+     'method': ['The weather by month is the 1991 to 2020 average of each month\'s figures from the daily records: the mean of the daily highs and lows, rain and snow totals, '
+                'days with a high of 20 °C or more, nights at or below 0 °C, days at or below −20 °C and days with 1 cm or more of snow on the ground.',
+                'Every year since 1885 with at least 330 days of temperature: the mean temperature, days of 25 °C and 30 °C or more, days of −20 °C or colder, snowfall, '
+                'precipitation and the frost-free season (days between the last spring and the first fall night at or below 0 °C). The ten-year line is the average of that year and the nine before it.',
+                'Records are the highest and lowest values in the daily records (the hottest and coldest day, the most snow or rain in a day, the deepest snow on the ground), '
+                'and the warmest and coldest full years.',
+                'Sights and places to stay are OpenStreetMap features tagged tourism (attraction, museum, gallery, zoo, theme park, viewpoint, aquarium, artwork; hotel, motel, hostel, guest house, apartment, resort) '
+                'whose point lies inside a City community boundary; each is placed in its community and area. The best-known sights are a hand-written list matched to OpenStreetMap by name for their position and website.',
+                '"What suits the weather" tags each best-known sight with the weather it suits (warm: a sunny day above about 18 °C; cool: 5 to 18 °C; cold: below freezing; wet: rain or snow); '
+                'the day\'s weather is taken from the forecast read when the site was built (wet if rain or snow is in the condition, otherwise by the day\'s high) and can be changed on the page.',
+                'What is on, fares, ways around, facts and visitor statistics are written by hand from the organisers\' and publishers\' own pages, each with its link and the date checked.'],
+     'excel': ['Download the daily records for a year from api.weather.gc.ca (collection climate-daily, CLIMATE_IDENTIFIER 3031092) as CSV; average MAX_TEMPERATURE for each month to get the daily high.',
+               'Count the rows with MAX_TEMPERATURE >= 25 in a year to get the hot days.'],
+     'cautions': ['The airport is 1,084 m up at the north edge of the city; downtown and the south are often a degree or two warmer by day.',
+                  'OpenStreetMap lists what volunteers have mapped: a hotel or sight that is missing has not been mapped, and listing is not a recommendation.',
+                  'Event dates are the organisers\' habit; the organiser\'s page has the year\'s dates. Fares change each January.'],
+     'code': 'visit.py; weather.py; ui/visit.js'},
 
     {'key': 'elections', 'name': 'Elections: who represents each area, and the latest official results',
      'dataset': 'Elections Calgary results file; gqvk-p23x; Elections Alberta Statement of Vote 2023 and official results; '
@@ -811,7 +870,10 @@ METHODS = [
                 'delayed quote.', 'TMX gives the head office by province only; the city comes from the hand check.',
                 'The Canadian Securities Exchange publishes no downloadable list; CSE companies are added by hand.',
                 'Head office moves can only be counted from the first month read onward.'],
-     'excel': ['Download the company list as CSV from the Company directory page.']},
+     'excel': ['Download the company list as CSV from the Company directory page.'],
+     'cautions': ['Head office cities come from each company\'s own website or filings and are checked by hand; a company that moves its head office shows the old city until the next check.',
+                  'Market capitalization uses the month-end price in TMX\'s file and can be weeks old; a company with no price that month is counted without a value.',
+                  'Financial results are only for companies that also file with the US SEC; Canadian-only filers show totals and listing details only.']},
     {'key': 'civic', 'name': 'Civic Accountability: promises, official records and results for Calgary\'s governments and elected members',
      'dataset': 'Council and Committee Votes (ruq3-99hx); the City\'s Progress Report - Performance Measures (the newest '
                 'quarter); House of Commons recorded divisions; LEGISinfo bills; party platforms, candidate platforms and '
@@ -845,7 +907,10 @@ METHODS = [
                 'unanimous, and committee and constituency work is not in them.',
                 'A status describes a commitment, not a person, and the same rules apply to every party, person and '
                 'government.'],
-     'excel': ['The council votes are at data.calgary.ca (ruq3-99hx); the Commons votes at ourcommons.ca.']},
+     'excel': ['The council votes are at data.calgary.ca (ruq3-99hx); the Commons votes at ourcommons.ca.'],
+     'cautions': ['A status is a reading of the evidence found, not an official finding; a commitment can be read as delivered or stalled by different people.',
+                  'Promises are tracked for the parties and candidates that won office; opposition promises are not tracked.',
+                  'A council vote counts as divided when any member voted against; a vote lost by one member is listed the same as a vote lost by many.']},
     {'key': 'infra', 'name': 'Infrastructure condition: where roads and pipes are wearing out, against 311 requests',
      'dataset': 'Water main breaks (dpcu-jr23); public water mains (w6h9-w33i); 311 service requests (iahh-g8bj); the '
                 'City\'s pavement rehabilitation plan (map service pub_Roads/PavementRehabPlan); community boundaries (surr-xmvs)',
@@ -878,7 +943,10 @@ METHODS = [
                 'Pavement condition by road is not open data, so the roads are judged by the City\'s network figures, '
                 'its paving plan and 311 requests, not a score for each street.',
                 'The City\'s condition figures come from its reports, checked November 6, 2026.'],
-     'excel': ['Download the table as CSV from the page; the breaks and mains are at data.calgary.ca (dpcu-jr23, w6h9-w33i).']},
+     'excel': ['Download the table as CSV from the page; the breaks and mains are at data.calgary.ca (dpcu-jr23, w6h9-w33i).'],
+     'cautions': ['Breaks and 311 requests are signals of condition, not a condition rating: a community with more pipes, more traffic or more people reporting shows more of both.',
+                  'A water main is placed in the community that holds its middle point, so a main running along a boundary is counted on one side only.',
+                  'The City\'s pavement plan is tentative beyond next year and changes with the budget.']},
     {'key': 'safest_cities', 'name': 'Canada\'s safest cities: the Crime Severity Index for every city of 10,000 or more',
      'dataset': 'Crime severity index and weighted clearance rates, police services (tables 35-10-0186 to 35-10-0190, '
                 '35-10-0061, 35-10-0063, 35-10-0064); population: 35-10-0077; metropolitan areas: 35-10-0026',

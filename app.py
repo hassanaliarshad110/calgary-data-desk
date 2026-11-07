@@ -33,6 +33,7 @@ import os
 import subprocess
 import sys
 import threading
+import time
 import traceback
 import csv
 import webbrowser
@@ -274,6 +275,21 @@ class Api:
             d = infra.load(DATA_DIR)
             return {'ok': True, 'data': d} if d else {'ok': False, 'error': 'The infrastructure figures are not here yet.'}
         except Exception as e:                     # noqa: BLE001
+            return {'ok': False, 'error': str(e)}
+
+    def get_visit(self):
+        try:
+            import visit
+            p = os.path.join(DATA_DIR, 'visit.json')
+            if os.path.exists(p) and time.time() - os.path.getmtime(p) < 86400:
+                with open(p, encoding='utf-8') as f:
+                    return {'ok': True, 'data': json.load(f)}
+            out = visit.build(DATA_DIR)
+            with open(p, 'w', encoding='utf-8') as f:
+                json.dump(out, f)
+            return {'ok': True, 'data': out}
+        except Exception as e:
+            traceback.print_exc()
             return {'ok': False, 'error': str(e)}
 
     def get_safety_rank(self):

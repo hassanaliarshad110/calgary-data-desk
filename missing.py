@@ -33,7 +33,7 @@ _held = {'at': 0.0, 'data': None}
 
 
 def _fetch(url, timeout=30):
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Ward5DataDesk/1.0',
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) CalgaryInsight/1.0',
                                                'Accept': 'application/rss+xml, application/xml, text/xml'})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return r.read()

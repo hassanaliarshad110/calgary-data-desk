@@ -42,6 +42,7 @@ KEEP_DAYS = 7
 VERSION = 1
 ADDED = '2026-11-06'
 NEW_CLASSES = ('DEVELOPING', 'FUTURE', 'COMPLETE')     # the communities the forecast is about (surr-xmvs srg field)
+MIN_SHOWN = 25              # a community with no residents yet is listed once the forecast gives it this many homes
 SMALL = 500                 # a community with fewer residents today takes its sector's share of children
 TYPES = {'ss': 'Single and semi-detached', 'rt': 'Rows and townhouses', 'ap': 'Apartments'}
 SECTOR_NAMES = {'NORTH': 'North', 'NORTHEAST': 'Northeast', 'EAST': 'East', 'SOUTHEAST': 'Southeast', 'SOUTH': 'South',
@@ -97,8 +98,10 @@ LIMITS = [
     'homes built there in the last five years: a community just opening up (or one about to run out of land) will get '
     'more (or less) than this share.',
     'The forecast\'s 2026 homes are added in full; homes built early in 2026 may already be in today\'s count.',
-    'Amenities are today\'s: playgrounds, parks, schools and centres that open by 2030 are not added, so crowding in '
-    '2030 is what it would be if nothing new opened.',
+    'Amenities in 2030 are shown two ways: today\'s only (nothing new opens), and today\'s plus what is already planned: '
+    'park land zoned as reserve in new communities that is not yet a City park, and libraries, recreation centres and '
+    'community centres being built and due by 2030. Planned playgrounds and new transit stops are not in any published '
+    'list, so they are not added; a reserve may hold a school as well as a park.',
     'New residents are spread over a community\'s homes like today\'s residents: new homes on the growing edge are often '
     'farther from amenities than the community\'s average, so 2030 crowding there may be worse than shown.',
     'Children: the community\'s share of children today, applied to its new residents.',
@@ -350,6 +353,17 @@ def _scores(base, pops, kids, by_ward, yardstick=None):
     return scores.compute(crowd, kinds_cfg, eligible)['areas'], crowd
 
 
+def with_planned(base, planned):
+    """The base figures with the planned park land and facilities added to the catchments (planned.py)."""
+    if not planned or not planned.get('catch'):
+        return None
+    catch = {}
+    for k, by in (base.get('catch') or {}).items():
+        extra = (planned['catch'].get(k) or {})
+        catch[k] = {r: list(rows) + list(extra.get(r) or []) for r, rows in by.items()}
+    return {**base, 'catch': catch}
+
+
 def reading(now, then, growing, far):
     """The plain reading for one community: the band of its local amenities score (playgrounds, parks, transit stops,
     community centres) today and in 2030, both against Calgary today."""
@@ -368,7 +382,7 @@ def reading(now, then, growing, far):
     return 'keeps_up'
 
 
-def view(raw, base, pops, kids, scope_codes, ward_of, names, method_label=''):
+def view(raw, base, pops, kids, scope_codes, ward_of, names, method_label='', planned=None):
     """Everything the Forecast to 2030 screen and Data Genie show, for one area (a ward, or Calgary)."""
     if not raw or not raw.get('rows'):
         return None
@@ -394,8 +408,14 @@ def view(raw, base, pops, kids, scope_codes, ward_of, names, method_label=''):
     cr_now, cr_30 = _crowd(base, pops, kids), _crowd(base, p30, k30)
     sc_now, yard = _scores(base, pops, kids, by_ward)
     sc_30, _ = _scores(base, p30, k30, by_ward, yardstick=yard)
+    base_p = with_planned(base, planned)
+    cr_p = _crowd(base_p, p30, k30) if base_p else None
+    sc_p = _scores(base_p, p30, k30, by_ward, yardstick=yard)[0] if base_p else None
+    pl_by = (planned or {}).get('parks_by_comm') or {}
+    pl_fac = (planned or {}).get('facilities') or []
     out['calgary_crowding'] = {k: {'now': None if v['calgary'] is None else round(v['calgary'], 3),
                                    'then': None if cr_30[k]['calgary'] is None else round(cr_30[k]['calgary'], 3),
+                                   'planned': None if not cr_p or cr_p[k]['calgary'] is None else round(cr_p[k]['calgary'], 3),
                                    'distance_m': v['distance_m'], 'unit': access.KINDS[k]['crowding_spec']['short']}
                                for k, v in cr_now.items()}
     out['kinds'] = {k: access.KINDS[k]['label'] for k in cr_now}
@@ -407,19 +427,22 @@ def view(raw, base, pops, kids, scope_codes, ward_of, names, method_label=''):
         moved = False
         if c not in alloc:
             bands = lambda sc: {g: (((sc.get(c) or {}).get('groups') or {}).get(g) or {}).get('band') for g in ('local', 'district')}
-            moved = bands(sc_now) != bands(sc_30)
-        if c not in shown or (not a and not moved) or (a and a['homes'] < 1 and not moved):
+            moved = bands(sc_now) != bands(sc_p if sc_p else sc_30)
+        if c not in shown or (not a and not moved) or (a and a['homes'] < MIN_SHOWN and not moved and not p_now):
             continue
         st = (base['comm'].get(c) or {}).get('access') or {}
         far = [k for k in local if k in st and st[k].get('units') and access.reading(st[k]) in ('gap', 'gap_check')]
         g_now, g_30 = (sc_now.get(c) or {}).get('groups') or {}, (sc_30.get(c) or {}).get('groups') or {}
-        o, n = g_now.get('local'), g_30.get('local')                # the reading: local amenities (scores.py groups)
+        g_p = ((sc_p or {}).get(c) or {}).get('groups') or {}
+        o, n = g_now.get('local'), (g_p if sc_p else g_30).get('local')   # the reading: local amenities, with what is planned
         p_now, p_then = pops.get(c) or 0, p30.get(c) or 0
         growing = bool(a and p_now and a['people'] / max(p_now, 1) >= 0.10) or bool(a and not p_now and a['people'] > 0)
         crowd = {k: {'now': None if cr_now[k]['by'].get(c) is None else round(cr_now[k]['by'][c], 3),
-                     'then': None if cr_30[k]['by'].get(c) is None else round(cr_30[k]['by'][c], 3)} for k in cr_now}
+                     'then': None if cr_30[k]['by'].get(c) is None else round(cr_30[k]['by'][c], 3),
+                     'planned': None if not cr_p or cr_p[k]['by'].get(c) is None else round(cr_p[k]['by'][c], 3)}
+                 for k in cr_now}
         am_now = (sc_now.get(c) or {}).get('amenities') or {}
-        am_30 = (sc_30.get(c) or {}).get('amenities') or {}
+        am_30 = ((sc_p if sc_p else sc_30).get(c) or {}).get('amenities') or {}
         falls = [k for k in am_30 if (am_30[k] or {}).get('band') in ('below', 'well_below')
                  and (am_now.get(k) or {}).get('band') not in ('below', 'well_below')]
         rows.append({'code': c, 'name': names.get(c, (info.get(c) or {}).get('name') or c), 'ward': ward_of.get(c),
@@ -437,14 +460,28 @@ def view(raw, base, pops, kids, scope_codes, ward_of, names, method_label=''):
                      'children_share_used': ratio.get(c),
                      'crowding': crowd,
                      'scores': {g: {'now': (g_now.get(g) or {}).get('score'), 'band_now': (g_now.get(g) or {}).get('band'),
-                                    'then': (g_30.get(g) or {}).get('score'), 'band_then': (g_30.get(g) or {}).get('band')}
+                                    'then': (g_30.get(g) or {}).get('score'), 'band_then': (g_30.get(g) or {}).get('band'),
+                                    'planned': (g_p.get(g) or {}).get('score') if sc_p else None,
+                                    'band_planned': (g_p.get(g) or {}).get('band') if sc_p else None}
                                 for g in ('local', 'district')},
+                     'planned_park_ha': (pl_by.get(c) or {}).get('reserve_ha'),
+                     'planned_park_by_zone': (pl_by.get(c) or {}).get('by_zone'),
+                     'planned_facilities': [{k: f[k] for k in ('title', 'kind', 'opens', 'url')} for f in pl_fac if f.get('comm') == c],
+                     'reading_nothing_new': reading(o, g_30.get('local'), growing, bool(far)) if sc_p else None,
                      'falls_below': falls, 'far_from': far,
                      'reading': reading(o, n, growing, bool(far))})
     rank = {'becomes_crowded': 0, 'more_crowded': 1, 'far_growing': 2, 'crowded': 3, 'keeps_up': 4, 'no_score': 5}
     rows.sort(key=lambda r: (rank.get(r['reading'], 9), -(r['forecast_people'] or 0)))
     out['communities'] = rows
     out['counts'] = {k: sum(1 for r in rows if r['reading'] == k) for k in READINGS}
+    if planned:
+        out['planned'] = {'built_at': planned.get('built_at'), 'zones': planned.get('zones'), 'rules': planned.get('rules'),
+                          'facilities': pl_fac,
+                          'park_ha': round(sum(p['ha'] for p in planned.get('parks') or []), 1),
+                          'park_ha_scope': round(sum((pl_by.get(c) or {}).get('reserve_ha') or 0 for c in shown), 1),
+                          'park_polygons': len(planned.get('parks') or []),
+                          'park_ha_by_zone': {z: round(sum(p['ha'] for p in planned.get('parks') or [] if p['zone'] == z), 1)
+                                              for z in (planned.get('zones') or {})}}
     scope_alloc = [c for c in alloc if c in shown]
     out['scope'] = {'forecast_homes': round(sum(alloc[c]['homes'] for c in scope_alloc)),
                     'forecast_people': round(sum(alloc[c]['people'] for c in scope_alloc)),

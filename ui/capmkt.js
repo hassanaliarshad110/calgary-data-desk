@@ -55,7 +55,8 @@ function cmDirectory() {
   const cos = cmCos(), rows = cmRows(), G = (CMC && CMC.groups) || {}, sec = (CMD && CMD.sec) || {}, tc = (CMD && CMD.ticker_check) || {};
   const inds = [...new Set(cos.map(c => c.industry))].sort();
   const per = 50, pages = Math.max(1, Math.ceil(rows.length / per)); cmPage = Math.min(cmPage, pages - 1);
-  const sel = (id, v, opts) => `<select id="${id}" class="select">${opts.map(([k, t]) => `<option value="${esc(k)}" ${k === v ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>`;
+  const LBL = { 'cm-grp': 'Group', 'cm-ex': 'Exchange', 'cm-ind': 'Industry' };
+  const sel = (id, v, opts) => `<select id="${id}" class="select" aria-label="${LBL[id] || 'Filter'}">${opts.map(([k, t]) => `<option value="${esc(k)}" ${k === v ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>`;
   return `<section class="card span-12"><div class="card-head"><div><h2>Company directory</h2><p class="card-sub">${esc(CMC ? CMC.coverage : '')} ${fmt(rows.length)} match.</p></div>
       <div class="card-tools sr-tools"><label class="sr-only" for="cm-q">Search</label><input id="cm-q" type="search" placeholder="Name, ticker or city" value="${esc(cmQ)}">
       ${sel('cm-grp', cmGrp, [['', 'Every group'], ...Object.entries(G)])}${sel('cm-ex', cmEx, [['', 'Every exchange'], ['TSX', 'TSX'], ['TSXV', 'TSXV']])}${sel('cm-ind', cmInd, [['', 'Every industry'], ...inds.map(i => [i, i])])}
