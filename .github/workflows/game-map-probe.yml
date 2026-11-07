@@ -15,7 +15,7 @@ jobs:
       - run: echo skip osmium
       - env:
           SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
-        run: python probe/game_parcels.py _out
+        run: python probe/game_codes.py _out && python -c "import shutil" 
       - run: |
           cd _out && ls -la
           git init -q -b game-map-probe-out
