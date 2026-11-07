@@ -1614,6 +1614,18 @@ const dsStage = t => /writing the report/i.test(t) ? 3 : /drawing|placing points
 function setStage(n, done = false) {
   $$('#ds-stages li').forEach(li => { const k = +li.dataset.stage; li.classList.toggle('done', done || k < n); li.classList.toggle('on', !done && k === n); });
 }
+let dsDepth = 'thorough';                       // Quick (the fast, cheaper model) or Thorough (the strongest model)
+try { dsDepth = localStorage.getItem('ds-depth') === 'quick' ? 'quick' : 'thorough'; } catch { /* storage off */ }
+function showDepth() {
+  $$('#ds-depth [data-depth]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.depth === dsDepth)));
+  $('#ds-depth-note').textContent = dsDepth === 'quick'
+    ? 'Quick uses the fast model: a full report in a few minutes, at about half the cost of Thorough.'
+    : 'Thorough uses the strongest model: deeper reasoning, longer reports, about twice the cost and time of Quick.';
+}
+$$('#ds-depth [data-depth]').forEach(b => b.addEventListener('click', () => {
+  dsDepth = b.dataset.depth; try { localStorage.setItem('ds-depth', dsDepth); } catch { /* storage off */ } showDepth();
+}));
+showDepth();
 async function runDs({ key, title, text }) {
   if (dsBusy) return;
   dsBusy = true;
@@ -1621,13 +1633,14 @@ async function runDs({ key, title, text }) {
   $('#ds-run').hidden = false;
   $('#ds-run').classList.remove('is-done');
   $('#ds-run-title').textContent = title || text;
-  $('#ds-run-sub').textContent = 'Working on it. This usually takes 3 to 8 minutes; you can use the rest of Calgary Insight meanwhile.';
+  $('#ds-run-sub').textContent = (dsDepth === 'quick' ? 'Working on it (Quick). This usually takes 3 to 8 minutes; a long report takes longer.'
+    : 'Working on it (Thorough, the strongest model). A short report takes 5 to 15 minutes; a long one can take an hour or more.') + ' You can use the rest of Calgary Insight meanwhile; keep this page open.';
   $('#ds-steps').innerHTML = '<li>Planning the analysis</li>';
   $('#ds-result').innerHTML = '';
   setStage(0);
   $('#ds-run').scrollIntoView({ behavior: 'smooth', block: 'start' });
   try {
-    const res = await (await api()).analyst_run(key || null, text || null);
+    const res = await (await api()).analyst_run(key || null, text || null, dsDepth);
     if (!res.ok) { $('#ds-result').innerHTML = `<div class="err">${esc(res.error)}</div>`; $('#ds-run-sub').textContent = 'The report could not be finished.'; setStage(-1); }
     else {
       setStage(4, true);

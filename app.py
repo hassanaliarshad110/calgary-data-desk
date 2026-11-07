@@ -426,7 +426,7 @@ class Api:
     def analyst_topics(self, n=6):
         return analyst.topics(int(n or 6), area=self._place(), ward=self._ward())
 
-    def analyst_run(self, key=None, text=None):
+    def analyst_run(self, key=None, text=None, depth=None):
         """Run one analysis (a topic key, or the office's own words) to a full report. One at a time."""
         if self._analyst_busy:
             return {'ok': False, 'error': 'An analysis is already running. It will finish in a few minutes.'}
@@ -435,7 +435,7 @@ class Api:
         self._analyst_busy = True
         try:
             self._analyst.reset()                 # each report starts fresh
-            res = self._analyst.ask(analyst.brief(key, text, area=self._place()), 'audit',
+            res = self._analyst.ask(analyst.brief(key, text, area=self._place()), 'smart' if depth == 'quick' else 'audit',
                                     today=dashboard.calgary_now().date().isoformat())
             return {'ok': True, **res}
         except agent_mod.AgentError as e:

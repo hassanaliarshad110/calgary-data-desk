@@ -880,6 +880,13 @@
       <div class="banner warn" id="ds-nokey" hidden><svg class="ic" aria-hidden="true"><use href="#i-key"/></svg><div>Add an AI service key (Anthropic, Google Gemini or OpenAI) in Settings to make reports.</div></div>
 
       <div id="ds-make">
+      <div class="ds-depth" id="ds-depth">
+        <div class="seg" role="radiogroup" aria-label="How thorough the report is">
+          <button type="button" role="radio" aria-checked="false" data-depth="quick">Quick</button>
+          <button type="button" role="radio" aria-checked="true" data-depth="thorough">Thorough</button>
+        </div>
+        <p class="card-sub" id="ds-depth-note">Thorough uses the strongest model: deeper reasoning, longer reports, about twice the cost and time of Quick.</p>
+      </div>
       <div class="ds-sec-head"><h2>Topics for today</h2><button class="btn" id="ds-shuffle"><svg class="ic" aria-hidden="true"><use href="#i-shuffle"/></svg><span>Show other topics</span></button></div>
       <div class="ds-topics" id="ds-topics"></div>
 

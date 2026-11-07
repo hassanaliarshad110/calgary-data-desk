@@ -933,6 +933,8 @@ tr.bb-done td { opacity: .85; }
 .ds-hero-side { display: grid; gap: 10px; align-content: center; min-width: 200px; }
 .ds-hero-side div { background: rgba(255,255,255,.06); border: 1px solid rgba(148,163,184,.2); border-radius: 10px; padding: 10px 14px; }
 .ds-hero-side b { display: block; color: #F8FAFC; font-size: 15px; } .ds-hero-side span { font-size: 12px; color: #94A3B8; }
+.ds-depth { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 0 0 16px; }
+.ds-depth .card-sub { margin: 0; flex: 1 1 260px; min-width: 0; }
 .ds-sec-head { display: flex; justify-content: space-between; align-items: center; margin: 4px 0 10px; }
 .ds-sec-head h2 { font-size: 16px; margin: 0; }
 .ds-topics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-bottom: 20px; }

@@ -109,7 +109,7 @@
   api.get_settings = async () => ({ ...(await getSettings()), has_key: !!apiKey && open_.genie });
   api.ask = (question, mode) => run('ask', { question, mode });
   api.new_chat = async () => (worker ? call('new_chat', {}).catch(() => true) : true);
-  api.analyst_run = (key, text) => run('analyst_run', { key, text });
+  api.analyst_run = (key, text, depth) => run('analyst_run', { key, text, depth });
   api.election_report = (text, area) => run('election_report', { text, area });
   api.business_report = (text, area) => run('business_report', { text, area });
   api.audit_run = (report) => run('audit_run', { report });
