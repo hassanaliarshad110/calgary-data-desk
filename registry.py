@@ -41,7 +41,7 @@ PAGES = [
     page('growth', 'Growth vs amenities', 'How near homes are to playgrounds, parks, transit stops, libraries and recreation centres, how crowded they '
          'are, the forecast to 2030, assets, the population build-up, major projects being built, development and rezoning.',
          'get_dashboard sections access, growth_forecast, other_amenities, ward_amenities, population_recon, amenities, development',
-         section='access', scientist='growth_forecast', keywords='amenities access distance crowding forecast 2030 parks playgrounds transit'),
+         section='access', scientist='growth_forecast', keywords='amenities access distance crowding forecast 2030 parks playgrounds transit pathways bikeways projects being built'),
     page('families', 'Families and schools', 'Licensed child care spaces and inspections, schools and enrolment by community.',
          'get_dashboard sections child_care and schools', section='child_care', keywords='child care daycare schools enrolment'),
     page('infra', 'Infrastructure condition', 'Water main breaks, the age of the water network, the paving plan and the City\'s own condition figures, '

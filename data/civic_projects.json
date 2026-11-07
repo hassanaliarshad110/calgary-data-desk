@@ -1,6 +1,6 @@
 {
- "note": "City facilities being built or planned that the Government of Alberta's Major Projects inventory does not list (it covers $5 million and up, and misses some City projects), checked by hand against the City's or the library's own page. Each one is placed by its community (comm) and shown in that community's ward. 'measured' says which Growth vs amenities amenity it adds when it opens; 'opens' (YYYY) and 'funded' decide whether the Forecast to 2030 counts it. The weekly check reviews every entry.",
- "checked": "2026-11-06",
+ "note": "City facilities and pathways being built or planned that the Government of Alberta's Major Projects inventory does not list (it covers $5 million and up, and misses some City projects), checked by hand against the City's or the library's own page. Each one is placed by its community (comm) and shown in that community's ward. 'measured' says which Growth vs amenities amenity it adds when it opens; 'opens' (YYYY) and 'funded' decide whether the Forecast to 2030 counts it. The weekly check reviews every entry.",
+ "checked": "2026-11-07",
  "projects": [
   {
    "title": "Skyview Library",
@@ -147,6 +147,124 @@
     "Glacier Ridge Fire",
     "Glacier Ridge Emergency"
    ]
+  },
+  {
+   "title": "Saddletowne Circle pathway",
+   "kind": "Pathway",
+   "owner": "City of Calgary",
+   "amenity": false,
+   "status": "Under construction",
+   "budget": "Part of $3.9 million for the first six pathways",
+   "cost": null,
+   "completion": "Expected mid-November 2026",
+   "funded": true,
+   "expected_by": "2026-11",
+   "address": "Saddletowne Circle NE, about 430 m (Saddle Ridge)",
+   "comm": "SAD",
+   "url": "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html",
+   "sources": [
+    "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html"
+   ],
+   "match": []
+  },
+  {
+   "title": "Martindale Drive to Genesis Centre pathway",
+   "kind": "Pathway",
+   "owner": "City of Calgary",
+   "amenity": false,
+   "status": "Planned: construction delayed to spring 2027",
+   "budget": "Part of $3.9 million for the first six pathways",
+   "cost": null,
+   "completion": "Delayed to spring 2027",
+   "funded": true,
+   "expected_by": "2027-05",
+   "address": "Martindale Drive NE to Genesis Centre, about 270 m",
+   "comm": "MRT",
+   "url": "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html",
+   "sources": [
+    "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html"
+   ],
+   "match": []
+  },
+  {
+   "title": "Castleridge Boulevard pathway",
+   "kind": "Pathway",
+   "owner": "City of Calgary",
+   "amenity": false,
+   "status": "Under construction",
+   "budget": "Part of $3.9 million for the first six pathways",
+   "cost": null,
+   "completion": "Expected end of November 2026",
+   "funded": true,
+   "expected_by": "2026-11",
+   "address": "Castleridge Boulevard NE, Westwinds Circle to Falconridge Boulevard, about 1.1 km",
+   "comm": "CAS",
+   "comms": [
+    "CAS",
+    "FAL"
+   ],
+   "url": "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html",
+   "sources": [
+    "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html"
+   ],
+   "match": []
+  },
+  {
+   "title": "Westwinds Drive pathway",
+   "kind": "Pathway",
+   "owner": "City of Calgary",
+   "amenity": false,
+   "status": "Under construction",
+   "budget": "Part of $3.9 million for the first six pathways",
+   "cost": null,
+   "completion": "Expected end of November 2026",
+   "funded": true,
+   "expected_by": "2026-11",
+   "address": "Westwinds Drive NE, 47 Street to Castleridge Boulevard, about 210 m",
+   "comm": "CAS",
+   "url": "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html",
+   "sources": [
+    "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html"
+   ],
+   "match": []
+  },
+  {
+   "title": "McKnight Boulevard pathway: 68 Street to Falconridge",
+   "kind": "Pathway",
+   "owner": "City of Calgary",
+   "amenity": false,
+   "status": "Under construction: paving complete; fencing, landscaping and a curb extension remain",
+   "budget": "Part of $3.9 million for the first six pathways",
+   "cost": null,
+   "completion": "Expected mid-November 2026",
+   "funded": true,
+   "expected_by": "2026-11",
+   "address": "McKnight Boulevard NE, 68 Street to Falconridge Boulevard, about 2.0 km",
+   "comm": "FAL",
+   "url": "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html",
+   "sources": [
+    "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html"
+   ],
+   "match": []
+  },
+  {
+   "title": "McKnight Boulevard to Falchurch Road pathway",
+   "kind": "Pathway",
+   "owner": "City of Calgary",
+   "amenity": false,
+   "status": "Under construction: paving complete; a curb extension is underway",
+   "budget": "Part of $3.9 million for the first six pathways",
+   "cost": null,
+   "completion": "Expected mid-November 2026",
+   "funded": true,
+   "expected_by": "2026-11",
+   "address": "McKnight Boulevard NE to Falchurch Road NE, about 770 m (Falconridge Drive NE closes 7 and 8 November)",
+   "comm": "FAL",
+   "url": "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html",
+   "sources": [
+    "https://www.calgary.ca/planning/transportation/pathway-bikeway-plan/ward-5-pathway-and-bikeway-connections.html"
+   ],
+   "match": []
   }
  ]
 }
