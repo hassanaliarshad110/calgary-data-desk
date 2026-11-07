@@ -435,7 +435,7 @@ class Api:
         self._analyst_busy = True
         try:
             self._analyst.reset()                 # each report starts fresh
-            res = self._analyst.ask(analyst.brief(key, text, area=self._place()), 'smart',
+            res = self._analyst.ask(analyst.brief(key, text, area=self._place()), 'audit',
                                     today=dashboard.calgary_now().date().isoformat())
             return {'ok': True, **res}
         except agent_mod.AgentError as e:
