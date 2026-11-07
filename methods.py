@@ -1221,7 +1221,7 @@ METHODS = [
                   'institutional land (Ward 7 downtown, industrial wards 9 and 10) carry the most uncertainty.']},
 
     {'key': 'report_auditor', 'name': 'Report auditor (Data Scientist)', 'dataset': 'The report and the queries behind it',
-     'publisher': 'Calgary Insight', 'page': 'https://github.com/hassanaliarshad110/calgary-data-desk', 'updated': 'Each audit',
+     'publisher': 'Calgary Insight', 'page': 'https://calgaryinsight.ca/', 'updated': 'Each audit',
      'used_in': 'Data Scientist, Report auditor tab',
      'method': ['Step 1, audit by Chinook: reads the report and every query it ran, re-runs the queries with the same '
                 'filters and periods, recomputes every total, rate, share and change with the calculator, and checks the '

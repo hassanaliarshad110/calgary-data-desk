@@ -19,6 +19,7 @@ import local_data
 import codebook
 import methods
 import police
+import registry
 import report
 import weather
 
@@ -93,10 +94,12 @@ Use the data you already have first
 How to work
 - Your first sentence is always an answer, with a number from the data. Never open with "The data can't", "I can't", \
 "I couldn't" or "I don't know", and don't label it "Short answer": answer every part the data can, and put what it cannot show in one short line at the end. \
-Before saying a part can't be answered, look for it in get_dashboard (its sections cover traffic hotspots inside the \
-exact ward boundary, traffic by month and traffic against snow).
-- Never state a number you did not get from a tool in this conversation. If the data can't answer a part of the \
-question, say so at the end and say what data would.
+Before saying a part can't be answered, look for it in the registry of sources (list_sources, and the list at the end of \
+these instructions): every page of the site and every dataset it reads is there, with how to read it (get_dashboard \
+sections, read_source for a page's own data, search_datasets for any other City dataset).
+- Never state a number you did not get from a tool in this conversation. A part of a question may be called unavailable only \
+after list_sources (with words about the subject) and the tool it points to have been tried and found nothing; then say \
+which source would hold it. Never write from memory that something "can't be shown": check first.
 - Find data with search_datasets, check columns with describe_dataset, then query_dataset. Prefer asking the API for \
 counts and sums ($select with count(*), sum(), avg(); $group) over pulling raw rows.
 - Say which dataset (name and ID) and which dates every answer is based on, in one short line at the end.
@@ -388,8 +391,7 @@ answers the question and the period; (2) find the data: get_dashboard sections (
 wards, access), search_datasets with two or three wordings, describe_dataset, then query_dataset with SoQL group-by \
 and aggregates over the raw records (download_dataset when you need every row); (3) combine sources where it helps \
 (for example 311 or permits by community with the elections constituency figures, the ward profile and growth); \
-(4) compute every figure with calculate and cross-check it a second way; (5) say how you worked it out and what it \
-cannot show. Campaign and constituency questions (where turnout was low, which communities grew most since the \
+(4) compute every figure with calculate and cross-check it a second way; (5) say how you worked it out and, only if the registry of sources has nothing on a part, what is not covered. Campaign and constituency questions (where turnout was low, which communities grew most since the \
 last election, what residents raise with the City, languages spoken at home for outreach, how a ward voted against \
 Calgary, the closest races) are answered this way, with the facts for the area; stay neutral between candidates and \
 parties, never predict results and give no voting advice. Offer a full report (make_report) when the answer is long.
@@ -400,8 +402,8 @@ dataset that answers them. Never open with "I don't know", "I can't tell you" or
 best answer the data does give, said plainly and framed by what it measures, for example: "By 311 requests over \
 the last 12 months, Bowness's most reported issue is ... (n requests, x% of the community's total), followed by ..." \
 Then give one or two other readings if they differ (open requests, infrastructure reports, police calls, traffic \
-incidents), and close with one short sentence on what the data cannot show (what residents think matters most is \
-not measured; a survey or the office's own casework would show it). Stay courteous and confident: the Mayor or \
+incidents), and, only when list_sources and the sources it names have no figure for it, close with one short sentence naming what \
+is not measured and which source would hold it. Stay courteous and confident: the Mayor or \
 councillor should be able to repeat your first sentence in a meeting.
 
 Sources
@@ -572,6 +574,20 @@ TOOLS = [
      'description': "Statistics Canada's Crime Severity Index (overall, violent, non-violent) by year for Calgary, "
                     'Edmonton, Vancouver, Toronto, Montreal, Winnipeg, Ottawa and Canada, last 11 years.',
      'input_schema': {'type': 'object', 'properties': {}}},
+    {'name': 'list_sources',
+     'description': "The master registry of everything you can use: every page of the site (each screen and each part of one, with what it "
+                    'holds and exactly how to read it) and every open dataset the site reads (with when it was read). find: words about '
+                    'the subject (votes, councillor, promises, budget, weather, hotels...). Call this BEFORE telling anyone that '
+                    'something is not available.',
+     'input_schema': {'type': 'object', 'properties': {'find': {'type': 'string'}}}},
+    {'name': 'read_source',
+     'description': "A site page's own data (the pages whose entry in list_sources says read_source: Civic Accountability's council and "
+                    'Commons votes and promises, Infrastructure condition, City budget, Calgary Capital Markets, Find help near me, Visiting '
+                    'Calgary). key: the page key from list_sources. With nothing else it gives the outline; part: a key or a path such as '
+                    'accountability.json/council/divided to read that section; find: words to search the whole file (a councillor or MP name, '
+                    'a subject).',
+     'input_schema': {'type': 'object', 'properties': {'key': {'type': 'string'}, 'part': {'type': 'string'}, 'find': {'type': 'string'}},
+                      'required': ['key']}},
     {'name': 'get_method',
      'description': "How the app counts every figure, by dataset: filters, codes, formulas, Excel steps and cautions. "
                     'topic: a key (311, population_choice, population, children, homes, growth_checks, live_counter, '
@@ -718,6 +734,8 @@ STEP_TEXT = {
     'police_crime': lambda a: f"Reading Calgary Police {a.get('kind', 'crime')} data saved on this computer",
     'crime_severity_index': lambda a: 'Reading the Crime Severity Index',
     'list_saved_files': lambda a: 'Checking the files already saved',
+    'list_sources': lambda a: 'Checking the list of sources' + (' for ' + a['find'] if a.get('find') else ''),
+    'read_source': lambda a: f"Reading {a.get('key', 'a page')}'s own data",
     'get_method': lambda a: f"Reading how the app counts {a.get('topic') or 'its figures'}",
     'get_code': lambda a: f"Reading the app's code for {a.get('topic') or a.get('name') or a.get('text') or 'its formulas'}",
     'query_saved_file': lambda a: f"Working with the saved file “{a.get('file_name', '')}”",
@@ -1068,8 +1086,11 @@ def visiting_out(data_dir, part=None, find=None):
     the best-known sights, places to stay by area, getting around, facts and visitor statistics, with sources."""
     import visit
     p = os.path.join(data_dir or '.', 'visit.json')
+    web = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'visit.json')      # the website's copy (registry.py)
+    if os.path.exists(web):
+        p = web
     try:
-        if os.path.exists(p) and time.time() - os.path.getmtime(p) < 86400:
+        if os.path.exists(p) and (p == web or time.time() - os.path.getmtime(p) < 86400):
             with open(p, encoding='utf-8') as f:
                 V = json.load(f)
         else:
@@ -1538,6 +1559,16 @@ class Agent:
                                           'calgary_change_pct', 'calgary_10yr_pct', 'canada')}
         if name == 'list_saved_files':
             return local_data.list_files(self.downloads_dir)
+        if name == 'list_sources':
+            reg = registry.load(self.data_dir)
+            dash = self.dashboard_provider() or {}
+            hits = registry.find(reg, args.get('find'))
+            return {'pages': [{k: p.get(k) for k in ('key', 'title', 'what', 'read', 'registered')} for p in hits],
+                    'datasets': registry.datasets(dash.get('status')),
+                    'note': 'Everything listed is available. Datasets not listed: search_datasets finds any City of Calgary open dataset.'
+                            + ('' if hits else ' No page matches those words: try one or two other words, then search_datasets.')}
+        if name == 'read_source':
+            return registry.read(args.get('key'), self.data_dir, args.get('part'), args.get('find'))
         if name == 'get_method':
             return methods.find(args.get('topic'))
         if name == 'get_code':
@@ -1759,6 +1790,10 @@ class Agent:
         dash = self.dashboard_provider()
         system = census_mod.relabel((self.system_text or SYSTEM).format(today=today),
                                     int(((dash or {}).get('census') or {}).get('year') or 2021))
+        try:
+            system = system + '\n\n' + registry.digest(registry.load(self.data_dir), (dash or {}).get('status'))
+        except Exception as e:                           # noqa: BLE001
+            print('registry digest not added:', repr(e))
         system = scope_note(dash) + system
         used = {'input': 0, 'output': 0, 'cache_read': 0, 'cost_usd': 0.0}
         self.last_cost = used

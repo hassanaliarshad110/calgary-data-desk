@@ -108,6 +108,12 @@ TOPICS = [
      'become crowded or more crowded, those far from amenities today and growing, and the neighbours affected; list the '
      'water, sewer and road projects the growth needs in their area plans. State the limits (new communities only, today\'s '
      'amenities, the sector-to-community sharing). Present what the data shows; do not rank by need or recommend.'),
+    ('council_votes', 'How City councillors vote: the record',
+     'Every recorded council and committee vote by member, where council divides, and the promises on the record.', 'Accountability',
+     'Use read_source key accountability: the City council and committee votes by member (how often each member voted, '
+     'for, against, absent), the divided votes in full with how each member voted, the period they cover, and the promises '
+     'tracker for the same members. For {area} name its councillor(s) first and set each against the others. Present the '
+     'recorded votes as facts with their dates; never rate a member or recommend how to vote.'),
     ('investment', 'Investment coming to {area}, and the gaps',
      'Every known project, its cost and stage, and what is still unfunded.', 'Growth',
      'All major projects being built or planned in {area} with cost, funding and timing, the largest building permits of '
@@ -149,10 +155,33 @@ TOPICS = [
      'with the 2021 Census profile of {area} on renters, housing costs and crowding, and basement suite applications.'),
 ]
 
+
+
+def registry_topics():
+    """A topic for every page in the master registry that has no hand-written one, so a tab added to the site appears
+    here, and in the analysis the assistants can do, without anyone editing this list."""
+    import registry
+    have = {t[0] for t in TOPICS} | {p['scientist'] for p in registry.load() if p.get('scientist')}
+    out = []
+    for p in registry.load():
+        if p['key'] in have or p.get('scientist') or not p.get('files'):
+            continue
+        out.append((f"page_{p['key']}", f"{p['title']}: what the data shows for {{area}}", p['what'], 'Pages',
+                    f"Use the page {p['title']} ({p['read']}) to show what its data says for {{area}} against Calgary, "
+                    f"with the figures, how they changed, and the sources."))
+    return out
+
+
+TOPICS += registry_topics()
 BY_KEY = {t[0]: t for t in TOPICS}
 # topics that only make sense for some areas (0 = all of Calgary): the Blue Line north extension is a northeast question
 ONLY = {'blue_line': (5,)}            # its brief rests on the Ward 5 profile
 DEFAULT_AREA = 'the selected area'
+
+
+SOURCES_RULE = (' Sources: the master registry (list_sources, and the list in your instructions) names every page of the '
+              'site and every dataset; before you say anything is not available, search it with list_sources and read the page '
+              'with read_source or its get_dashboard section; only then, and only for what the registry lacks, say what is not covered.')
 
 
 def fill(text, area=None):
@@ -200,7 +229,7 @@ def brief(key=None, text=None, area=None):
             'findings (only specific, data-backed ones the office would not already know; no routine or obvious steps), '
             'and list every source. Write in plain, everyday language for a general reader; never mention the app, '
             'a dashboard, a model or a list, and say where figures come from in the City\'s own words (City of Calgary data, '
-            'the City\'s population forecast, the property assessment roll); do not say who the report is prepared for.')
+            'the City\'s population forecast, the property assessment roll); do not say who the report is prepared for.' + SOURCES_RULE)
 
 
 def election_brief(text, area=None):
@@ -222,7 +251,7 @@ def election_brief(text, area=None):
             'the same rigour for any candidate or party; never present a projection as certain; outreach suggestions stay '
             'general (where turnout was low, translated materials, accessible voting information) and never target, '
             'exclude or discourage anyone by ethnicity, religion, language or any other personal trait. Write in plain '
-            'language; never mention the app, a dashboard or a model of AI.')
+            'language; never mention the app, a dashboard or a model of AI.' + SOURCES_RULE)
 
 
 def business_brief(text, area=None):
@@ -242,4 +271,4 @@ def business_brief(text, area=None):
             '(low, middle, high); risks; and next steps (licences and permits the City requires). Compute every figure with '
             'calculate, put the arithmetic in tables a reader can check in Excel, and list every source. This is general '
             'information from public data, not financial, legal or investment advice; say so once. Write in plain '
-            'language; never mention the app, a dashboard or a model of AI.')
+            'language; never mention the app, a dashboard or a model of AI.' + SOURCES_RULE)

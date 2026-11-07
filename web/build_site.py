@@ -61,7 +61,7 @@ SOCIAL = ['https://www.facebook.com/share/1GwiEvuSog/', 'https://www.instagram.c
 SEO = {'title': 'Calgary Insight: Calgary ward and community data, in plain words',
        'description': 'Every Calgary ward and community side by side: population and growth, 311 requests, safety, '
                       'parks and amenities, what is being built, budgets and elections, plus a visitor guide: the weather by month, '
-                      'what to see and where to stay. From official public data, refreshed every morning. Independent and open source.'}
+                      'what to see and where to stay. From official public data, refreshed every morning. Independent and non-partisan.'}
 # what search engines and visitors without JavaScript read: the site in words, and links to the screens
 SCREENS = [('dashboard', 'Dashboard: every ward and community at a glance'), ('growth', 'Growth vs amenities and the forecast to 2030'),
            ('compare', 'Compare wards'), ('elections', 'Election Data Centre'), ('budget', 'City budget'),
@@ -80,13 +80,13 @@ NOSCRIPT = ('<noscript><div style="max-width:760px;margin:24px auto;padding:0 16
 def seo_head():
     ld = {'@context': 'https://schema.org', '@graph': [
         {'@type': 'WebSite', '@id': SITE_URL + '#site', 'name': 'Calgary Insight', 'url': SITE_URL,
-         'description': SEO['description'], 'inLanguage': 'en-CA', 'publisher': {'@id': SITE_URL + '#hassan'}},
-        {'@type': 'Person', '@id': SITE_URL + '#hassan', 'name': 'Hassan Ali', 'url': SITE_URL + 'about/',
-         'homeLocation': {'@type': 'City', 'name': 'Calgary'}, 'sameAs': SOCIAL},
+         'description': SEO['description'], 'inLanguage': 'en-CA', 'publisher': {'@id': SITE_URL + '#org'}},
+        {'@type': 'Organization', '@id': SITE_URL + '#org', 'name': 'Calgary Insight', 'url': SITE_URL + 'about/', 'email': 'hello@calgaryinsight.ca',
+         'logo': SITE_URL + 'logo-512.png', 'areaServed': {'@type': 'City', 'name': 'Calgary'}, 'sameAs': SOCIAL},
         {'@type': 'Dataset', 'name': 'Calgary ward and community indicators', 'url': SITE_URL,
          'description': 'Population, growth, 311 requests, amenities, safety and development for every Calgary ward and '
                         'community, compiled from City of Calgary open data and other public sources, refreshed daily.',
-         'creator': {'@id': SITE_URL + '#hassan'}, 'spatialCoverage': {'@type': 'Place', 'name': 'Calgary, Alberta, Canada'},
+         'creator': {'@id': SITE_URL + '#org'}, 'spatialCoverage': {'@type': 'Place', 'name': 'Calgary, Alberta, Canada'},
          'isAccessibleForFree': True, 'license': 'https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa'}]}
     tags = [
         f'<meta name="description" content="{SEO["description"]}">',
@@ -204,6 +204,22 @@ def python_files(out, cache):
         os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
         shutil.copy(sr, os.path.join(dest, 'data', 'safety_rank.json'))
         files.append('data/safety_rank.json')
+    import registry
+    shipped = ['registry.json']
+    for p in registry.PAGES:                                     # the data file behind every registered page (registry.py)
+        for name, src in p.get('files') or []:
+            for base in (out,):
+                f = os.path.join(base, src)
+                if os.path.exists(f) and name not in shipped:
+                    os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
+                    shutil.copy(f, os.path.join(dest, 'data', name))
+                    files.append(f'data/{name}')
+                    shipped.append(name)
+    rg = os.path.join(out, 'data', 'registry.json')
+    if os.path.exists(rg):
+        os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
+        shutil.copy(rg, os.path.join(dest, 'data', 'registry.json'))
+        files.append('data/registry.json')
     kept = []
     for rel in ('police/community_safety.json', 'csi_35100026.json'):
         src = os.path.join(cache, rel)
@@ -450,6 +466,15 @@ def main():
         write(os.path.join(data, 'live.json'), {'sources': livecheck.listing(), 'results': res,
                                                   'checked': dashboard.calgary_now().strftime('%Y-%m-%d %H:%M')})
     step('live connections', live)
+
+    def registry_file():            # the master registry of sources the assistants read (registry.py)
+        import registry
+        reg = registry.write(out, open(os.path.join(out, 'index.html'), encoding='utf-8').read()
+                             if os.path.exists(os.path.join(out, 'index.html')) else None)
+        loose = [p['key'] for p in reg if not p.get('registered')]
+        if loose:
+            print('screens with no registry entry yet (add them to registry.PAGES):', ', '.join(loose))
+    step('master registry of sources', registry_file)
 
     def search():                   # the site search index (search_index.py): screens, communities, wards, methods, datasets...
         import search_index
