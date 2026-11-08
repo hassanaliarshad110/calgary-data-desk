@@ -15,6 +15,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.parse
 import urllib.request
 
@@ -69,18 +70,110 @@ def datasets():
         if r.get('type') not in ('dataset', 'file') or not r.get('id'):
             continue
         meta = {m.get('key'): m.get('value') for m in c.get('domain_metadata') or [] if isinstance(m, dict)}
-        cols = [f"{f}:{t}" for f, t in zip(r.get('columns_field_name') or [], r.get('columns_datatype') or []) if not f.startswith(':')]
+        cols = []
+        for f, label, t, desc in zip(r.get('columns_field_name') or [], r.get('columns_name') or [], r.get('columns_datatype') or [],
+                                     (r.get('columns_description') or []) + [''] * 400):
+            if f.startswith(':'):
+                continue
+            what = _text(desc)[:140] or (label if label and label.lower().replace(' ', '_') != f.lower() else '')
+            cols.append([f, t, what])
         out.append({'id': r['id'], 'name': (r.get('name') or '').strip(), 'type': r['type'],
                     'category': c.get('domain_category') or 'Other', 'tags': c.get('domain_tags') or [],
-                    'description': _text(r.get('description'))[:500],
+                    'description': _text(r.get('description'))[:600],
                     'updated': (r.get('data_updated_at') or r.get('updatedAt') or '')[:10],
                     'created': (r.get('createdAt') or '')[:10],
                     'business_unit': meta.get('Data-Supplier_Business-Unit') or None,
-                    'frequency': meta.get('Update-Frequency_Frequency') or meta.get('Data-Frequency_Update-Frequency') or None,
+                    'frequency': meta.get('Time/Date_Update-Frequency') or meta.get('Data-Workflow_Update-Frequency') or None,
+                    'period_stated': meta.get('Time/Date_Time-Period-Covered') or None,
+                    'how_collected': _text(meta.get('Time/Date_How-Data-is-Collected'))[:200] or None,
+                    'geography': geography(cols, r.get('columns_name') or []),
                     'columns': cols[:80], 'views_month': (r.get('page_views') or {}).get('page_views_last_month'),
                     'url': f"https://data.calgary.ca/d/{r['id']}", 'on_site': r['id'] in used})
     out.sort(key=lambda x: (x['category'], x['name']))
     return out
+
+
+GEO_WORDS = (('community', ('comm_code', 'comm_name', 'community', 'community_name', 'calgary communities')),
+             ('ward', ('ward', 'ward_num', 'ward boundaries')), ('quadrant', ('quadrant', 'city quadrants')))
+
+
+def geography(cols, labels=()):
+    """What a dataset can be mapped or grouped by: community, ward, quadrant, points, lines or areas."""
+    names = [c[0].lower() for c in cols] + [str(x).lower() for x in labels]
+    out = [g for g, keys in GEO_WORDS if any(n == k or n.startswith(k + '_') or k in n for n in names for k in keys)]
+    kinds = {c[1] for c in cols}
+    if kinds & {'Point', 'MultiPoint', 'Location'} or {'latitude', 'longitude'} <= set(names):
+        out.append('points')
+    if kinds & {'Line', 'MultiLine'}:
+        out.append('lines')
+    if kinds & {'Polygon', 'MultiPolygon'}:
+        out.append('areas')
+    return out
+
+
+DATE_TYPES = ('Calendar date', 'Date', 'Floating Timestamp', 'Fixed Timestamp')
+
+
+def profile(ds, budget_s=1500, workers=8, query=None):
+    """Each dataset's size and the period it covers, read from the data itself: rows, and the first and last value of its
+    main date column (one with 'date' in its name first). Fills 'rows', 'date_field', 'first', 'last' and 'about'."""
+    import concurrent.futures as cf
+    query = query or (lambda i, sel: _get(f"https://data.calgary.ca/resource/{i}.json?" + urllib.parse.urlencode({'$select': sel}), 90))
+    start = time.time()
+
+    def one(d):
+        if d.get('type') != 'dataset' or time.time() - start > budget_s:
+            return
+        dates = [c[0] for c in d.get('columns') or [] if c[1] in DATE_TYPES]
+        dates = sorted(dates, key=lambda f: 0 if 'date' in f else 1)     # stable: the first 'date' column, else the first
+        sel = 'count(*) as n' + (f', min(`{dates[0]}`) as a, max(`{dates[0]}`) as b' if dates else '')
+        try:
+            row = (query(d['id'], sel) or [{}])[0]
+        except Exception:                          # noqa: BLE001 - a dataset that will not answer keeps its catalogue entry
+            try:
+                row = (query(d['id'], 'count(*) as n') or [{}])[0]
+                dates = []
+            except Exception:                      # noqa: BLE001
+                return
+        try:
+            d['rows'] = int(float(row.get('n')))
+        except (TypeError, ValueError):
+            pass
+        if dates and row.get('a'):
+            d['date_field'], d['first'], d['last'] = dates[0], str(row['a'])[:10], str(row.get('b') or '')[:10]
+
+    with cf.ThreadPoolExecutor(workers) as ex:
+        list(ex.map(one, ds))
+    for d in ds:
+        d['about'] = about(d)
+    return ds
+
+
+def about(d):
+    """One plain sentence saying what a dataset holds, so an assistant knows what to expect before it opens it."""
+    parts = []
+    if d.get('rows') is not None:
+        parts.append(f"{d['rows']:,} row{'s' if d['rows'] != 1 else ''}")
+    elif d.get('type') == 'file':
+        parts.append('a file (not queryable: download it)')
+    if d.get('first'):
+        parts.append(f"{d['date_field']} from {d['first']} to {d['last']}")
+    elif d.get('period_stated'):
+        parts.append(f"covers {d['period_stated']}")
+    g = d.get('geography') or []
+    by = [x for x in g if x in ('community', 'ward', 'quadrant')]
+    if by:
+        parts.append('by ' + ', '.join(by))
+    shapes = [x for x in g if x in ('points', 'lines', 'areas')]
+    if shapes:
+        parts.append('mapped as ' + ' and '.join(shapes))
+    if d.get('frequency'):
+        parts.append(f"updated {str(d['frequency']).lower()}")
+    if d.get('updated'):
+        parts.append(f"last updated {d['updated']}")
+    if d.get('business_unit'):
+        parts.append(f"from {d['business_unit']}")
+    return f"{d.get('name')}: " + '; '.join(parts) + '.' if parts else d.get('name') or ''
 
 
 def map_layers():
@@ -116,6 +209,9 @@ def map_layers():
                 except Exception:                  # noqa: BLE001
                     pass
                 entry['on_site'] = 'PavementRehabPlan' in svc
+                entry['about'] = (f"{entry['name']} (City map layer {svc} layer {lay['id']}): "
+                                  + (f"{entry['features']:,} features" if isinstance(entry.get('features'), int) else 'size unknown')
+                                  + (f", {entry['geometry']}s" if entry.get('geometry') else '') + '; read with query_map_layer.')
                 out.append(entry)
 
     walk()
@@ -123,7 +219,7 @@ def map_layers():
 
 
 def build():
-    ds = datasets()
+    ds = profile(datasets())
     errors = {}
     try:
         layers = map_layers()
@@ -170,11 +266,18 @@ def _words(text):
     return [SAME.get(x, x) for x in w]
 
 
-def _brief(d, cols=True):
-    out = {k: d.get(k) for k in ('id', 'name', 'category', 'updated', 'on_site')}
+def _col(c):
+    return c if isinstance(c, list) else (c.split(':') + ['', ''])[:3]     # older copies kept "field:Type"
+
+
+def _brief(d, explain=False):
+    out = {k: d.get(k) for k in ('id', 'name', 'about', 'category', 'geography', 'on_site') if d.get(k) not in (None, [], '')}
     out['description'] = (d.get('description') or '')[:300]
-    if cols:
-        out['columns'] = [c.split(':')[0] for c in d.get('columns') or []][:40]
+    cols = [_col(c) for c in d.get('columns') or []]
+    if explain:                                   # the best matches: every column with what it means
+        out['columns'] = [f"{f} ({t}){': ' + w if w else ''}" for f, t, w in cols][:50]
+    else:
+        out['columns'] = [f for f, _, _ in cols][:40]
     return out
 
 
@@ -186,7 +289,8 @@ def search(cat, text, category=None, limit=15):
         if category and category.lower() not in (d.get('category') or '').lower():
             continue
         name, tags = set(_words(d.get('name'))), set(_words(' '.join(d.get('tags') or [])))
-        cols, desc = set(_words(' '.join(d.get('columns') or []).replace('_', ' '))), set(_words(d.get('description')))
+        cols = set(_words(' '.join(' '.join(map(str, _col(c))) for c in d.get('columns') or []).replace('_', ' ')))
+        desc = set(_words(d.get('description')))
         score = sum(5 * (w in name) + 3 * (w in tags) + 2 * (w in cols) + 1 * (w in desc) for w in q)
         if score or not q:
             rows.append((score + (0.5 if d.get('on_site') else 0), d))
@@ -198,7 +302,7 @@ def search(cat, text, category=None, limit=15):
         if s:
             layers.append((s, l))
     layers.sort(key=lambda x: -x[0])
-    return {'matches': len(rows), 'datasets': [_brief(d) for _, d in rows[:limit]],
+    return {'matches': len(rows), 'datasets': [_brief(d, explain=i < 3) for i, (_, d) in enumerate(rows[:limit])],
             'map_layers': [{k: l.get(k) for k in ('service', 'layer', 'name', 'features', 'geometry', 'fields')} for _, l in layers[:6]],
             'note': (f"{len(rows)} of the City's {len(cat.get('datasets') or [])} datasets match; the best {min(limit, len(rows))} are shown. "
                      'Search again with other words, or browse a category (search_datasets category=...), to find every dataset that bears on the subject.')}
@@ -213,7 +317,8 @@ def browse(cat, category=None):
                 'note': 'search_datasets category=<name> lists every dataset in a category.'}
     hit = [d for d in ds if category.lower() in (d.get('category') or '').lower()]
     return {'category': category, 'count': len(hit),
-            'datasets': [[d['id'], d['name'], d.get('updated'), 'on site' if d.get('on_site') else ''] for d in hit]}
+            'datasets': [f"{d['id']} - {(d.get('about') or d['name'])[:150]}{' (on site)' if d.get('on_site') else ''}" for d in hit[:70]],
+            **({'note': f'The first 70 of {len(hit)}; add words (search_datasets query=... category=...) to narrow.'} if len(hit) > 70 else {})}
 
 
 def _when(v):

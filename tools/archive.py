@@ -7,11 +7,13 @@ redrawn, yesterday's version is gone. Every day this keeps
     kept in the part that is overwritten (open 311 requests) or, for the rest, as a record of their size that day;
   - every data layer of the City's map server (roadwork, capital works, snow clearing, parking zones...) with up to
     LIMIT_FEATURES features;
-compressed, in one file a day (only what changed, so most days are small), with a manifest of what is in it. The GitHub
-workflow (.github/workflows/archive.yml) keeps each month's files in a release named archive-YYYY-MM and the running
-state (what was kept last) in the release archive-state.
+compressed, in one file a day (only what changed, so most days are small), with a manifest of what is in it. It runs
+on the owner's laptop every day (Windows Task Scheduler, set up by "Install daily archive.bat" next to it), and the
+files stay on the laptop.
 
-    python tools/archive.py --site SITE_DATA_DIR --state state.json --out OUT_DIR [--day YYYY-MM-DD]
+    python archive.py --state state.json --out OUT_DIR [--site SITE_DATA_DIR] [--day YYYY-MM-DD]
+
+Without --site the list of datasets and map layers comes from the website's own catalogue (CATALOG_URL).
 """
 import argparse
 import datetime as dt
@@ -33,6 +35,7 @@ LIMIT_FEATURES = 20000         # a map layer up to this size is kept whole each 
 PART = {                       # large datasets whose current state is overwritten: the part that changes is kept
     'iahh-g8bj': "status_description='Open'",          # 311 service requests: the requests still open today
 }
+CATALOG_URL = 'https://calgaryinsight.ca/data/catalog.json'
 HEADERS = {'User-Agent': 'CalgaryInsight/1.0 (civic data archive)'}
 if os.environ.get('CDD_SOCRATA_TOKEN'):
     HEADERS['X-App-Token'] = os.environ['CDD_SOCRATA_TOKEN'].strip()
@@ -105,6 +108,12 @@ def catalogue(site_dir):
         with open(p, encoding='utf-8') as f:
             c = json.load(f)
         return c.get('datasets') or [], c.get('map_layers') or []
+    try:                                       # the website's copy, rebuilt every night
+        c = get_json(CATALOG_URL, 120)
+        if c.get('datasets'):
+            return c['datasets'], c.get('map_layers') or []
+    except Exception:                          # noqa: BLE001 - not published yet: the City's own list
+        pass
     items, off = [], 0
     while True:
         d = get_json(DISCOVERY + '?' + urllib.parse.urlencode({'domains': 'data.calgary.ca', 'search_context': 'data.calgary.ca',

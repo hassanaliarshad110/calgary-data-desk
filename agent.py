@@ -501,8 +501,10 @@ when rates per resident are used. Name the source for every number, including fi
 TOOLS = [
     {'name': 'search_datasets',
      'description': "Search the City of Calgary's whole open data catalogue (every one of its 400+ datasets, kept with the site and "
-                    'rebuilt nightly) and the data layers of its map server. Returns, best match first, IDs, names, category, '
-                    'description, last update, column names and whether a page of the site already uses it, plus matching map '
+                    'rebuilt nightly) and the data layers of its map server. Returns, best match first, each dataset\'s ID, name and '
+                    '"about" (rows, the period its dates cover, whether it is by community or ward or mapped, how often it is '
+                    'updated, which City unit publishes it), its description and columns (for the best three, every column with its '
+                    'type and meaning), and whether a page of the site already uses it, plus matching map '
                     'layers (read with query_map_layer). category alone lists every dataset in a category; no query and no '
                     'category gives the categories and every map layer. For a report, search with several wordings and browse '
                     'the categories the subject falls in, so no dataset that bears on it is missed.',
