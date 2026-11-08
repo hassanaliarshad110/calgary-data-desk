@@ -95,7 +95,9 @@ for li, p in enumerate(rd):
             E[key].append((a, b))
     try: gmin = float(p.get('GRD_ELEV_MIN_Z') or p.get('grd_elev_min_z') or 0) - REF
     except Exception: gmin = 0
-    if not gmin: gmin = (min(v[2] for v in verts) / 10) - 3
+    zlo = min(v[2] for v in verts) / 10
+    if not gmin or not (zlo - 120 < gmin < zlo + 1): stats['bad_ground'] += 1; gmin = zlo - 3
+    cl = lambda v: max(-32768, min(32767, int(v)))
     gz_ = int(round((gmin - 0.4) * 10))
     W = []
     for key, occ in E.items():
@@ -122,7 +124,7 @@ for li, p in enumerate(rd):
         rec += struct.pack('<hhh', dx, dy, max(-32768, min(32767, v[2])))
     if not ok: stats['too_wide'] += 1; continue
     rec += struct.pack('<H', len(T)) + b''.join(struct.pack('<HHH', *t) for t in T)
-    rec += struct.pack('<H', len(W)) + b''.join(struct.pack('<HHhh', a, b, za, zb) for a, b, za, zb in W)
+    rec += struct.pack('<H', len(W)) + b''.join(struct.pack('<HHhh', a, b, cl(za), cl(zb)) for a, b, za, zb in W)
     k = f'{(ax // 10 + 30000) // 12000}_{(ay // 10 + 30000) // 12000}'
     out(k).write(rec); counts[k] += 1; stats['buildings'] += 1; stats['tris'] += len(T); stats['walls'] += len(W)
 for f in files.values(): f.close()
