@@ -337,7 +337,9 @@
       await script(SDK + 'firebase-app-compat.js');
       await Promise.all([script(SDK + 'firebase-auth-compat.js'), script(SDK + 'firebase-firestore-compat.js')]);
     }
-    fb = window.firebase; fb.initializeApp(fbConfig); db = fb.firestore();
+    const { googleClientId, ...cfg } = fbConfig;
+    fb = window.firebase; fb.initializeApp(cfg); db = fb.firestore();
+    if (googleClientId) gisUp(googleClientId).catch(() => {});
     // back from Google's sign-in page: say what happened if it did not work (the signed-in account arrives below)
     let back = false;
     try { back = !!sessionStorage.getItem('cdd-redirecting'); sessionStorage.removeItem('cdd-redirecting'); } catch (x) { /* ignore */ }
@@ -356,7 +358,34 @@
   // The Google window must open straight from the click: a browser blocks a window opened after a wait (loading the
   // sign-in code), and the old fall-back, a full-page redirect, comes back signed out in today's browsers because the
   // sign-in runs on another domain (firebaseapp.com). So the code is loaded ahead, and the window opens at once.
+  // Google Identity Services: Google's sign-in window hands the account straight back to calgaryinsight.ca, and
+  // Firebase signs in with it. (Firebase's own window hands it over through calgary-insight.firebaseapp.com, which
+  // browsers now keep apart from this site, so the account never arrived: back to the screen, signed out.)
+  let gis = null;
+  function gisUp(clientId) {
+    if (gis) return Promise.resolve(gis);
+    const go = () => {
+      gis = window.google.accounts.oauth2.initTokenClient({
+        client_id: clientId, scope: 'openid email profile',
+        callback: async r => {
+          if (!r || r.error || !r.access_token) { flash('Google sign-in did not finish' + (r && r.error ? ': ' + r.error : '.')); return; }
+          try { await fb.auth().signInWithCredential(fb.auth.GoogleAuthProvider.credential(null, r.access_token)); }
+          catch (e) { flash('Sign-in did not work: ' + (e.message || e)); }
+        },
+        error_callback: e => { if (e && e.type !== 'popup_closed') flash(e.type === 'popup_failed_to_open' ? 'Your browser blocked the Google sign-in window. Allow pop-ups for calgaryinsight.ca and try again.' : 'Google sign-in did not finish.'); },
+      });
+      return gis;
+    };
+    if (window.google && window.google.accounts && window.google.accounts.oauth2) return Promise.resolve(go());
+    return script('https://accounts.google.com/gsi/client').then(go);
+  }
   function signInGoogle() {
+    if (fb && gis) { gis.requestAccessToken({ prompt: 'select_account' }); return; }   // straight from the click
+    if (fb && fbConfig && fbConfig.googleClientId) {
+      flash('Getting Google sign-in ready…');
+      gisUp(fbConfig.googleClientId).then(() => flash('Ready: press Continue with Google again.')).catch(e => flash('Google sign-in could not load: ' + (e.message || e)));
+      return;
+    }
     if (!fb) {
       flash('Getting Google sign-in ready…');
       firebaseUp().then(() => flash('Ready: press Continue with Google again.')).catch(e => flash('Google sign-in could not load: ' + (e.message || e)));

@@ -169,6 +169,10 @@ def firebase_config():
         cfg = dict(re.findall(r'(\w+)\s*:\s*["\']([^"\']+)["\']', raw))    # pasted as the JavaScript object Firebase shows
     keep = ('apiKey', 'authDomain', 'projectId', 'storageBucket', 'messagingSenderId', 'appId')
     cfg = {k: str(cfg[k]) for k in keep if cfg.get(k)}
+    # the project's Google sign-in client (public): Google's own sign-in window runs on calgaryinsight.ca itself
+    cid = os.path.join(ROOT, 'web', 'google-client-id.txt')
+    if os.path.exists(cid):
+        cfg['googleClientId'] = open(cid, encoding='utf-8').read().strip()
     return cfg if cfg.get('apiKey') and cfg.get('projectId') else None
 
 
