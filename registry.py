@@ -44,9 +44,15 @@ PAGES = [
          section='access', files=['srg_raw.json'], scientist='growth_forecast', keywords='amenities access distance crowding forecast 2030 parks playgrounds transit pathways bikeways projects being built'),
     page('families', 'Families and schools', 'Licensed child care spaces and inspections, schools and enrolment by community.',
          'get_dashboard sections child_care and schools', section='child_care', keywords='child care daycare schools enrolment'),
-    page('infra', 'Infrastructure condition', 'Water main breaks, the age of the water network, the paving plan and the City\'s own condition figures, '
-         'against 311 requests.', 'read_source key=infra (outline, then part or find); get_dashboard also has infrastructure 311 reports per 1,000',
-         files=['infra.json'], keywords='water main breaks pipes paving roads sidewalks sewer'),
+    page('infra', 'Infrastructure condition', 'Water main breaks, the age of the water network, the age and material of every public sewer '
+         'connection (368,000 sanitary service lines) by community with the share past the low, typical and high benchmark service '
+         'lives for its material, the coming wave of sewers passing their expected life, relining by year, the paving plan and '
+         'the City\'s own condition figures, against 311 requests (sewer back-ups among them). Benchmark lives with their published '
+         'sources are in service_life (also data:service_life).',
+         'read_source key=infra (outline, then part or find: city.sanitary for the citywide sewer figures, by_comm for each '
+         'community\'s sanitary, mains, breaks and req, service_life for the benchmarks); get_dashboard also has infrastructure 311 '
+         'reports per 1,000', files=['infra.json'],
+         keywords='water main breaks pipes paving roads sidewalks sewer sewage sanitary wastewater back-up age service life benchmark clay cast iron'),
     page('safety', "Canada's safest cities", "Every city of 10,000 or more by Statistics Canada's Crime Severity Index, with Calgary's rank.",
          'get_dashboard section=safest_cities (find narrows by city); crime_severity_index', section='safest_cities', files=['safety_rank.json'], keywords='crime severity index ranking'),
     page('cameras', 'Traffic cameras', "The City's traffic cameras, shown live on the page.",
@@ -99,6 +105,7 @@ BY_KEY = {p['key']: p for p in PAGES}
 
 # What the hand-picked files that carry no note of their own hold (a file with a "note", "description" or "about" describes itself).
 DESCRIBE = {
+    'service_life.json': 'Benchmark service lives of sewer pipes by material (low, typical, high years) with the published source of each figure (Saanich 2023, Sydney Water and Halcrow 2007, Statistics Canada, DWA Germany, Canadian Infrastructure Council, ASCE 2025).',
     'budget_revenue.json': 'The City of Calgary budget: revenue lines by year, taken from the budget document by hand.',
     'rentals_all.json': 'Rental apartment buildings across Calgary (units, move-in, value per unit) used by the Population build-up.',
     'ward5_rentals.json': 'Rental apartment buildings in Ward 5 used by the Population build-up.',

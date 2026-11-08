@@ -34,6 +34,26 @@ RECENT_FULL = 10               # steps kept word for word when the conversation 
 PREFIX_CHARS = 150000          # how much of the earlier questions of a chat is sent with a new one
 CONTEXT_CHARS = {'claude': 700000, 'other': 300000}   # characters of one question's conversation before it is condensed
 BIND_BETA = 'thinking-binding-controls-2026-08-01'    # the service's own setting for dropping thinking it refuses
+# The internet, for the agents that have it (the Data Scientist): Anthropic's own search and page-reading tools, run on its
+# servers, so they work from the website as well as the app. Claude only; the other services answer without them.
+WEB_TOOLS = [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 8,
+              'user_location': {'type': 'approximate', 'city': 'Calgary', 'region': 'Alberta', 'country': 'CA',
+                                'timezone': 'America/Edmonton'}},
+             {'type': 'web_fetch_20250910', 'name': 'web_fetch', 'max_uses': 6, 'citations': {'enabled': True},
+              'max_content_tokens': 40000}]
+WEB_SEARCH_USD = 0.01          # each web search (reading a page costs only its tokens)
+WEB_NOTE = """
+
+THE INTERNET: you can search the web (web_search) and read a page or PDF it finds (web_fetch). Use them for what the City's \
+data and this site cannot give: benchmarks and standards (how long pipes, roads or buildings are expected to last, condition \
+grades, industry norms), other cities and countries for comparison, provincial and federal figures, research, and recent \
+news or City announcements. The City's data and this site come first: the web adds context or a benchmark and never \
+replaces a figure the data gives. Prefer primary, official sources (governments, statistics agencies, utilities, standards \
+bodies, peer-reviewed studies) over blogs and news summaries, and the most recent edition. Every figure taken from the web \
+names its source in the text (publisher and year, for example "Statistics Canada, 2022") and goes in data_sources with its \
+title, publisher and URL. Save each web figure you will rely on in key_figures as soon as you read it, with its source: \
+long pages are not kept once the conversation is condensed. Search with specific queries and never repeat one; each search \
+costs about a cent. Never put personal details in a query."""
 # Published prices, US dollars per million tokens (input, output): for the cost shown with each answer. An estimate:
 # check the current price list. Cache reads cost a tenth of input, cache writes a quarter more than input.
 PRICES = {'claude-sonnet-5-5': (2.00, 10.00), 'claude-haiku-5-5': (0.10, 0.50), 'claude-opus-5-5': (5.00, 25.00),
@@ -51,7 +71,8 @@ def call_cost(model, u):
     p_in, p_out = PRICES.get(model, PRICES['claude-sonnet-5-5'])
     if model.startswith('claude-haiku') and total_in > 100_000:
         p_in, p_out = HAIKU_LONG
-    return (u.get('input_tokens', 0) * p_in + u.get('cache_read_input_tokens', 0) * p_in * 0.1 +
+    searches = ((u.get('server_tool_use') or {}).get('web_search_requests') or 0) * WEB_SEARCH_USD
+    return searches + (u.get('input_tokens', 0) * p_in + u.get('cache_read_input_tokens', 0) * p_in * 0.1 +
             u.get('cache_creation_input_tokens', 0) * p_in * 1.25 + u.get('output_tokens', 0) * p_out) / 1e6
 
 
@@ -61,6 +82,17 @@ def with_cache_mark(messages):
     if not messages:
         return messages
     msgs = list(messages)
+    i = max((k for k, m in enumerate(msgs) if m['role'] == 'user'), default=len(msgs) - 1)
+    if i != len(msgs) - 1:              # a paused web-search turn ends the conversation: mark the request before it
+        msgs[i] = {**msgs[i], 'content': [dict(b) for b in msgs[i]['content']] if isinstance(msgs[i]['content'], list) else msgs[i]['content']}
+        last = dict(msgs[i])
+        content = last['content']
+        blocks = [{'type': 'text', 'text': content}] if isinstance(content, str) else content
+        if blocks:
+            blocks[-1] = {**blocks[-1], 'cache_control': {'type': 'ephemeral'}}
+        last['content'] = blocks
+        msgs[i] = last
+        return msgs
     last = dict(msgs[-1])
     content = last['content']
     blocks = [{'type': 'text', 'text': content}] if isinstance(content, str) else [dict(b) for b in content]
@@ -1513,6 +1545,7 @@ class Agent:
         self.data_dir = data_dir or os.path.join(os.path.expanduser('~'), '.ward5datadesk')
         self.emit = emit                          # (event dict) -> None, sends to the app window
         self.who = 'Data Genie'                   # how errors name it (the Data Scientist and the auditor set their own)
+        self.web = False                          # the internet (web search and reading pages): the Data Scientist has it
         self.downloads_dir = downloads_dir
         self.dashboard_provider = dashboard_provider
         self.wards_provider = wards_provider      # () -> every ward side by side (or None)
@@ -1540,6 +1573,7 @@ class Agent:
         self._prefix = []                          # the earlier questions as sent with this one (fixed for the whole question)
         self._results = {}                         # step number -> the full text of that tool result (recall_result, condensing)
         self._log = []                             # what happened since the conversation was last condensed, in order
+        self._paused = False                       # the last reply was a web search the service paused (continued next)
         self._recent = []                          # the steps the condensed conversation carries in full
         self._ledger = []                          # the condensed conversation's lines for older steps
         self._ledger_items = []                    # the steps those lines stand for (to shorten the lines again if needed)
@@ -2152,7 +2186,8 @@ class Agent:
             if self._size() > budget:
                 self._compact()
             try:
-                r = engines.call(e, e[tier], system, self.tools, self._messages_to_send(), self._out_cap or MAX_OUTPUT,
+                tools = self.tools + WEB_TOOLS if self.web and e['provider'] == 'claude' else self.tools
+                r = engines.call(e, e[tier], system, tools, self._messages_to_send(), self._out_cap or MAX_OUTPUT,
                                  anthropic_post=post_messages, chat_post=post_chat, cache_mark=with_cache_mark,
                                  options=self._options(e))
                 self._tries = 0
@@ -2373,6 +2408,8 @@ class Agent:
         except Exception as e:                           # noqa: BLE001
             print('registry digest not added:', repr(e))
         system = scope_note(dash) + system
+        if self.web:
+            system += WEB_NOTE
         used = {'input': 0, 'output': 0, 'cache_read': 0, 'cost_usd': 0.0}
         self.last_cost = used
         pos, skipped, services = 0, [], []
@@ -2398,7 +2435,15 @@ class Agent:
                     continue
             content = [b for b in content if not (b.get('type') == 'text' and not b.get('text'))] or \
                 [{'type': 'text', 'text': '(No answer.)'}]
-            self.history.append({'role': 'assistant', 'content': content})
+            self._log_web(content)
+            if self.history and self.history[-1]['role'] == 'assistant' and self._paused:
+                self.history[-1] = {'role': 'assistant', 'content': self.history[-1]['content'] + content}  # the paused turn, continued
+            else:
+                self.history.append({'role': 'assistant', 'content': content})
+            self._paused = resp.get('stop_reason') == 'pause_turn'
+            if self._paused:                      # a long web search: the service continues the same turn when it is sent back
+                continue
+            content = self.history[-1]['content']
             done = {'model': model, 'tier': tier, 'tokens': used, 'free': all(f for _, _, f in services),
                     'engine': ' then '.join(f'{n} ({m})' for n, m, _ in services), 'skipped': skipped}
             if resp.get('stop_reason') != 'tool_use':
@@ -2447,6 +2492,55 @@ class Agent:
             self._log.append({'note': n})
         self.history.append({'role': 'user', 'content': results})
         return None
+
+    def _log_web(self, content):
+        """Web searches and pages read inside one reply (the service runs them itself): numbered like the other steps and
+        kept in brief (titles, links, the passages quoted), so they survive when the conversation is condensed."""
+        asked = {b.get('id'): b for b in content if b.get('type') == 'server_tool_use'}
+        quoted = {}
+        for b in content:
+            for c in b.get('citations') or []:
+                if isinstance(c, dict) and c.get('url') and c.get('cited_text'):
+                    quoted.setdefault(c['url'], []).append(c['cited_text'])
+        for b in content:
+            kind = b.get('type')
+            if kind not in ('web_search_tool_result', 'web_fetch_tool_result'):
+                continue
+            call = asked.get(b.get('tool_use_id')) or {}
+            args = call.get('input') or {}
+            body = b.get('content')
+            if kind == 'web_search_tool_result':
+                name = 'web_search'
+                if isinstance(body, list):
+                    out = f'Web search "{args.get("query", "")}": ' + ('; '.join(
+                        f"{r.get('title', '')} ({r.get('url', '')}{', ' + r['page_age'] if r.get('page_age') else ''})"
+                        for r in body if isinstance(r, dict)) or 'no results')
+                else:
+                    out = f'Web search "{args.get("query", "")}" failed: {(body or {}).get("error_code", "error")}'
+                self.emit({'type': 'step', 'text': f'Searching the web: {args.get("query", "")}'[:120]})
+            else:
+                name = 'web_fetch'
+                body = body if isinstance(body, dict) else {}
+                doc = body.get('content') or {}
+                src = doc.get('source') or {}
+                url = body.get('url') or args.get('url', '')
+                if body.get('type') == 'web_fetch_result':
+                    text = src.get('data', '') if src.get('type') == 'text' else '(a PDF)'
+                    out = f"Read {doc.get('title') or url} ({url}, read {str(body.get('retrieved_at', ''))[:10]}): " + \
+                        self._short(' '.join(str(text).split()), 1500)
+                else:
+                    out = f"Could not read {url}: {body.get('error_code', 'error')}"
+                self.emit({'type': 'step', 'text': f'Reading {url}'[:120]})
+            if quoted:
+                out += ' | Quoted: ' + ' / '.join(f'"{self._short(t, 200)}" ({u})' for u, ts in quoted.items() for t in ts[:3])[:3000]
+                quoted = {}
+            self._step_no += 1
+            self._results[self._step_no] = out
+            self._log.append({'step': self._step_no, 'name': name, 'args': args, 'result': out})
+            if isinstance(getattr(self, 'provenance', None), list):          # the report appendix lists it with the queries
+                self.provenance.append({'what': 'Web search' if name == 'web_search' else 'Web page',
+                                        'detail': str(args.get('query') or args.get('url') or '')[:600],
+                                        'result': self._short(out, 300), 'at': _calgary_now().strftime('%H:%M')})
 
     def _run_calls(self, content):
         """Run the tool calls of one assistant turn and return their results (tool_result blocks, in order)."""

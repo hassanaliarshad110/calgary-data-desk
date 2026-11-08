@@ -314,6 +314,8 @@ def k_props_empty(s):
 def chat_tools(tools, gemini=False):
     out = []
     for t in tools:
+        if t.get('type'):                       # Claude's own server tools (web search, reading pages): Claude only
+            continue
         fn = {'name': t['name'], 'description': t.get('description', '')}
         params = _schema(t.get('input_schema') or {'type': 'object', 'properties': {}}, gemini)
         if not (gemini and params.get('type') == 'object' and not params.get('properties')):

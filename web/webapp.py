@@ -131,6 +131,7 @@ def _make(who):
 
 GENIE, SCIENTIST = _make('genie'), _make('scientist')
 SCIENTIST.who = 'The Data Scientist'
+SCIENTIST.web = True                     # the Data Scientist can search the web and read pages (Claude only)
 
 
 def _today():

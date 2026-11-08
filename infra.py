@@ -7,6 +7,9 @@ The City does not publish a condition score for each road or pipe as open data, 
     network and how much of it is cast iron (the material that breaks most);
   - the pavement rehabilitation plan (the City's road map service): roads repaved in the last two years, this year's
     paving, next year's, and the tentative five-year plan;
+  - sanitary sewer service lines (open data xesp-3jc3): every public sewer connection's install year, material and length,
+    placed in its community and set against the benchmark service lives in data/service_life.json (with their sources).
+    The City does not publish its sewer mains, so the connections are the best published guide to the network's age;
   - 311 service requests (iahh-g8bj) about roads, sidewalks, streetlights and water: the last 12 months against the 12
     before, by community;
   - the City's own condition figures, which are not open data and are kept with Calgary Insight (CITY_CONTEXT), with
@@ -30,6 +33,8 @@ import geo
 COMMUNITIES = 'surr-xmvs'
 BREAKS = 'dpcu-jr23'
 MAINS = 'w6h9-w33i'
+SANITARY = 'xesp-3jc3'
+LIFE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'service_life.json')
 SERVICE_REQUESTS = 'iahh-g8bj'
 GIS = 'https://gis.calgary.ca/arcgis/rest/services/pub_Roads/PavementRehabPlan/MapServer'
 PAVING_LAYERS = {0: 'recent', 1: 'this_year', 2: 'next_year', 3: 'five_year'}
@@ -157,6 +162,99 @@ def mains(loc, today):
     return out
 
 
+def _lives():
+    """Benchmark service lives by material code: code -> (material, low, typical, high), from data/service_life.json."""
+    with open(LIFE_FILE, encoding='utf-8') as f:
+        d = json.load(f)
+    out, unknown = {}, None
+    for m in d['materials']:
+        for code in m['codes']:
+            out[code] = (m['material'], m['low'], m['typical'], m['high'])
+        if '' in m['codes']:
+            unknown = (m['material'], m['low'], m['typical'], m['high'])
+    return out, unknown
+
+
+def _life_reference():
+    """The benchmark lives and their sources, carried with the data so every reader of infra.json has them."""
+    try:
+        with open(LIFE_FILE, encoding='utf-8') as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return None
+
+
+def _median(ys):
+    ys = sorted(ys)
+    return ys[len(ys) // 2] if ys else None
+
+
+def sanitary(loc, today):
+    """Sewer service lines by community and for the city: how many, how old, of what, and how many are past the low,
+    typical and high benchmark lives for their material; the citywide age by decade, materials, the coming wave of pipes
+    passing their typical life, and relining (CIPP) by year."""
+    lives, unknown = _lives()
+    rows = []                                   # (community, year, material, length in m)
+    for r in _pages(SANITARY, 'installed_date,material_type,pipe_length,multilinestring'):
+        y = _year(r.get('installed_date'))
+        if not y or y > today.year:
+            continue
+        c = None
+        try:
+            p = (r.get('multilinestring') or {})['coordinates'][0][0]
+            c = loc.find(p[0], p[1])
+        except (KeyError, IndexError, TypeError):
+            pass
+        try:
+            ln = float(r.get('pipe_length') or 0)
+        except ValueError:
+            ln = 0.0
+        rows.append((c, y, (r.get('material_type') or '').strip().upper(), ln))
+    life = lambda m: lives.get(m) or unknown            # noqa: E731
+
+    def summary(rs):
+        n = len(rs) or 1
+        mats = {}
+        for _, y, m, _ in rs:
+            g = life(m)[0]
+            mats[g] = mats.get(g, 0) + 1
+        ys = [y for _, y, _, _ in rs]
+        return {'n': len(rs), 'km': round(sum(ln for *_, ln in rs) / 1000, 1), 'median_year': _median(ys),
+                'median_age': today.year - _median(ys) if ys else None,
+                'over_50_pct': round(100 * sum(1 for y in ys if today.year - y > 50) / n, 1),
+                'past_low_pct': round(100 * sum(1 for _, y, m, _ in rs if today.year - y > life(m)[1]) / n, 1),
+                'past_typical_pct': round(100 * sum(1 for _, y, m, _ in rs if today.year - y > life(m)[2]) / n, 1),
+                'past_high_pct': round(100 * sum(1 for _, y, m, _ in rs if today.year - y > life(m)[3]) / n, 1),
+                'materials_pct': {g: round(100 * k / n, 1) for g, k in sorted(mats.items(), key=lambda kv: -kv[1])},
+                'relined': sum(1 for _, _, m, _ in rs if m == 'CIPP')}
+    by = {}
+    for r in rows:
+        if r[0]:
+            by.setdefault(r[0], []).append(r)
+    out = {c: summary(rs) for c, rs in by.items()}
+    city = summary(rows)
+    dec = {}
+    for _, y, _, _ in rows:
+        dec[f'{y // 10 * 10}s'] = dec.get(f'{y // 10 * 10}s', 0) + 1
+    city['by_decade'] = dict(sorted(dec.items()))
+    groups = {}
+    for _, y, m, _ in rows:
+        groups.setdefault(life(m), []).append(y)
+    city['materials'] = [{'material': g[0], 'n': len(ys), 'pct': round(100 * len(ys) / (len(rows) or 1), 1), 'median_year': _median(ys),
+                          'life_low': g[1], 'life_typical': g[2], 'life_high': g[3],
+                          'past_typical': sum(1 for y in ys if today.year - y > g[2])}
+                         for g, ys in sorted(groups.items(), key=lambda kv: -len(kv[1]))]
+    city['past_typical_by_year'] = {fy: sum(1 for _, y, m, _ in rows if fy - y > life(m)[2])
+                                    for fy in range(today.year, today.year + 51, 5)}
+    cipp = {}
+    for _, y, m, _ in rows:
+        if m == 'CIPP':
+            cipp[y] = cipp.get(y, 0) + 1
+    city['relined_by_year'] = dict(sorted(cipp.items()))
+    city['outside_communities'] = sum(1 for r in rows if not r[0])
+    return out, city
+
+
 def _sum_by(xs):
     d = {}
     for _, ln, m in xs:
@@ -225,7 +323,8 @@ def build(today=None):
     loc = geo.Locator(polys)
     errors, parts = {}, {}
     for key, fn in (('breaks', lambda: breaks(loc, today)), ('mains', lambda: mains(loc, today)),
-                    ('paving', lambda: paving({v.upper(): k for k, v in names.items()})), ('requests', lambda: requests_311(today))):
+                    ('paving', lambda: paving({v.upper(): k for k, v in names.items()})), ('requests', lambda: requests_311(today)),
+                    ('sanitary', lambda: sanitary(loc, today))):
         try:
             parts[key] = fn()
         except Exception as e:              # noqa: BLE001 - one source down leaves the others standing
@@ -235,9 +334,10 @@ def build(today=None):
     mn = parts['mains'] or {}
     pv, projects = parts['paving'] or ({}, [])
     rq, rq_years = parts['requests'] or ({}, {})
+    sn, sn_city = parts['sanitary'] or ({}, None)
     by_comm = {}
-    for c in set(br) | set(mn) | set(pv) | set(rq):
-        by_comm[c] = {'breaks': br.get(c), 'mains': mn.get(c), 'paving': pv.get(c), 'req': rq.get(c)}
+    for c in set(br) | set(mn) | set(pv) | set(rq) | set(sn):
+        by_comm[c] = {'breaks': br.get(c), 'mains': mn.get(c), 'paving': pv.get(c), 'req': rq.get(c), 'sanitary': sn.get(c)}
     city_breaks = {}
     for d in br.values():
         for y, n in d['years'].items():
@@ -247,11 +347,14 @@ def build(today=None):
             'city': {'breaks_by_year': dict(sorted(city_breaks.items())), 'requests_by_year': rq_years,
                      'breaks_n12': sum(d['n12'] for d in br.values()), 'breaks_nprev': sum(d['nprev'] for d in br.values()),
                      'mains_km': round(sum(d['km'] for d in mn.values()), 1), 'old_km': round(sum(d['old_km'] for d in mn.values()), 1),
-                     'cast_iron_km': round(sum(d['cast_iron_km'] for d in mn.values()), 1)},
+                     'cast_iron_km': round(sum(d['cast_iron_km'] for d in mn.values()), 1),
+                     'sanitary': sn_city},
+            'service_life': _life_reference(),
             'requests': {k: {'label': lab, 'types': ns} for k, (lab, ns) in REQUESTS.items()},
             'context': CITY_CONTEXT, 'errors': errors,
             'sources': [{'title': 'Water main breaks', 'publisher': 'City of Calgary open data', 'url': 'https://data.calgary.ca/d/' + BREAKS},
                         {'title': 'Public water mains', 'publisher': 'City of Calgary open data', 'url': 'https://data.calgary.ca/d/' + MAINS},
+                        {'title': 'Public sanitary service lines', 'publisher': 'City of Calgary open data', 'url': 'https://data.calgary.ca/d/' + SANITARY},
                         {'title': 'Pavement rehabilitation plan (map service)', 'publisher': 'City of Calgary', 'url': GIS},
                         {'title': '311 service requests', 'publisher': 'City of Calgary open data', 'url': 'https://data.calgary.ca/d/' + SERVICE_REQUESTS},
                         CITY_CONTEXT['pavement']['source'], CITY_CONTEXT['overall_poor']['source'], CITY_CONTEXT['critical']['source']]}

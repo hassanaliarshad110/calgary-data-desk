@@ -1,0 +1,169 @@
+{
+ "note": "Benchmark service lives for sewer pipes, by material, with their published sources: the reference for judging how old Calgary's sewers are against how long such pipes are expected to last. There is no single world figure: utilities set their own. \"low\" is the short end of published ranges, \"typical\" is a Canadian city's own figure (Saanich, 2023), \"high\" is the long end. Age is a guide where inspections are not published, not proof that a pipe has failed. Cite the sources listed with each figure.",
+ "unit": "years of expected service life",
+ "materials": [
+  {
+   "material": "PVC and other plastic",
+   "codes": [
+    "PVC",
+    "PLA",
+    "HDPE",
+    "PEX",
+    "PE"
+   ],
+   "low": 85,
+   "typical": 100,
+   "high": 150,
+   "evidence": "Saanich 100 (PVC, polyethylene); Sydney Water 85; Halcrow 100 to 150",
+   "sources": [
+    "saanich",
+    "halcrow"
+   ]
+  },
+  {
+   "material": "Clay tile (vitrified clay)",
+   "codes": [
+    "TIL",
+    "VC",
+    "CLAY"
+   ],
+   "low": 50,
+   "typical": 100,
+   "high": 130,
+   "evidence": "Saanich 100; Sydney Water 130; Halcrow 50 to 150",
+   "sources": [
+    "saanich",
+    "halcrow"
+   ]
+  },
+  {
+   "material": "Cast or ductile iron",
+   "codes": [
+    "CI",
+    "DI"
+   ],
+   "low": 30,
+   "typical": 60,
+   "high": 85,
+   "evidence": "Saanich 75 (ductile iron), 60 (cast-iron storm main); Sydney Water 85; Halcrow 30 to 100",
+   "sources": [
+    "saanich",
+    "halcrow"
+   ]
+  },
+  {
+   "material": "Concrete",
+   "codes": [
+    "CON",
+    "RC",
+    "CONC"
+   ],
+   "low": 45,
+   "typical": 75,
+   "high": 130,
+   "evidence": "Saanich 45 (unreinforced) to 100 (reinforced); Sydney Water 130; Halcrow 75 to 100",
+   "sources": [
+    "saanich",
+    "halcrow"
+   ]
+  },
+  {
+   "material": "Asbestos cement",
+   "codes": [
+    "AC"
+   ],
+   "low": 55,
+   "typical": 75,
+   "high": 100,
+   "evidence": "Saanich 75; Sydney Water 55; Halcrow 30 to 100",
+   "sources": [
+    "saanich",
+    "halcrow"
+   ]
+  },
+  {
+   "material": "Relined (cured-in-place liner, CIPP)",
+   "codes": [
+    "CIPP"
+   ],
+   "low": 45,
+   "typical": 50,
+   "high": 75,
+   "evidence": "Saanich 45 (liners); Halcrow 50 to 75 (relining)",
+   "sources": [
+    "saanich",
+    "halcrow"
+   ]
+  },
+  {
+   "material": "Unknown or not recorded",
+   "codes": [
+    "",
+    "OTHER",
+    "TP",
+    "UNK"
+   ],
+   "low": 45,
+   "typical": 45,
+   "high": 75,
+   "evidence": "Saanich 45 (unknown material)",
+   "sources": [
+    "saanich"
+   ]
+  }
+ ],
+ "context": [
+  {
+   "fact": "New water, sewer and stormwater pipes laid in Canada in 2020 were expected to last 50 to 73 years.",
+   "source": "statcan"
+  },
+  {
+   "fact": "Eight UK water companies used sewer lives from 40 to 200 years, most between 40 and 150.",
+   "source": "halcrow"
+  },
+  {
+   "fact": "Germany's public sewers averaged 39.8 years old (50 in cities over 250,000); about 1.1% of the network was renewed each year.",
+   "source": "dwa"
+  },
+  {
+   "fact": "In Canada, 13% of sewer pipes under 450 mm were in poor or very poor condition in 2022.",
+   "source": "cic"
+  },
+  {
+   "fact": "US wastewater infrastructure earned a D+ in the 2025 national report card.",
+   "source": "asce"
+  }
+ ],
+ "sources": {
+  "saanich": {
+   "title": "Asset Management Strategy, Appendix G: Useful Life Summary (v1, June 2023)",
+   "publisher": "District of Saanich, BC",
+   "url": "https://www.saanich.ca/assets/Local~Government/Documents/Engineering/AMStrategy-v1-AppG-UsefulLife.pdf"
+  },
+  "halcrow": {
+   "title": "Review of Sydney Water Corporation's asset lives and asset value estimates (November 2007)",
+   "publisher": "Halcrow Pacific for IPART (New South Wales)",
+   "url": "https://www.ipart.nsw.gov.au/sites/default/files/documents/review_of_sydney_water_corporations_asset_lives_and_asset_value_estimates_-_final_report_-_november_2007_-_halcrow_pacific.pdf"
+  },
+  "statcan": {
+   "title": "Canada's Core Public Infrastructure Survey: Water infrastructure, 2020",
+   "publisher": "Statistics Canada",
+   "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/220726/dq220726a-eng.htm"
+  },
+  "dwa": {
+   "title": "State of the Sewer System in Germany (DWA survey 2015)",
+   "publisher": "DWA (German Association for Water, Wastewater and Waste)",
+   "url": "https://de.dwa.de/files/_media/content/03_THEMEN/Entwaesserungssysteme/Kanalumfrage/State%20of%20the%20Sewer%20System%20in%20Germany.pdf"
+  },
+  "cic": {
+   "title": "State of Clean Water and Sanitation Systems in Canada (2025, data for 2022)",
+   "publisher": "Canadian Infrastructure Council",
+   "url": "https://canadianinfrastructurecouncil.ca/state-of-clean-water-and-wastewater-systems"
+  },
+  "asce": {
+   "title": "Wastewater earns D+ on ASCE 2025 Infrastructure Report Card",
+   "publisher": "Water & Wastes Digest (reporting ASCE)",
+   "url": "https://www.wwdmag.com/utility-management/news/55277011/wastewater-earns-d-on-asce-2025-infrastructure-report-card"
+  }
+ }
+}
