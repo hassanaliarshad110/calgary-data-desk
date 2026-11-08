@@ -36,9 +36,8 @@ for (lat, lon), ds in tiles.items():
     H[m] = v
 print('nan', int(np.isnan(H).sum()), 'range', np.nanmin(H), np.nanmax(H), flush=True)
 H = np.where(np.isnan(H), np.nanmean(H), H)
-G = ndimage.grey_opening(H, size=(4, 4))              # remove buildings and tree canopy (up to ~100 m across)
-G = ndimage.median_filter(G, size=5)
-G = ndimage.gaussian_filter(G, 1.6)
+G = ndimage.grey_opening(H, size=(5, 5))              # remove buildings and tree canopy (bumps up to ~150 m across); keeps hollows
+G = ndimage.gaussian_filter(G, 0.75)
 ref = float(G[(0 - Y0) // STEP, (0 - X0) // STEP])
 D = np.clip(np.round((G - ref) * 10), -32000, 32000).astype('<i2')
 D.tofile(os.path.join(OUT, 'dem.bin'))
