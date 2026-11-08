@@ -201,10 +201,19 @@
       catch (e) { flash(String(e.message || e)); }
       loadAdmin();
     }));
+    dlg.querySelectorAll('[data-edit]').forEach(b => b.addEventListener('click', () => {
+      const u = ((admin && admin.users) || []).find(x => x.email === b.dataset.edit);
+      if (!u) return;
+      q('[data-grant]').value = u.email; q('[data-grant-limit]').value = u.limit_usd == null ? '' : u.limit_usd;
+      dlg.querySelectorAll('[data-tool]').forEach(c => { c.checked = (u.tools || ['genie']).includes(c.dataset.tool); });
+      q('[data-grant]').focus();
+    }));
     q('[data-grant-add]')?.addEventListener('click', async () => {
       const email = q('[data-grant]').value.trim(), lim = q('[data-grant-limit]').value.trim();
       if (!email) return;
-      try { await gwFetch('/admin/users', { method: 'POST', body: JSON.stringify({ email, limit_usd: lim === '' ? null : Number(lim) }) }); flash(`${email} can now use the AI tools.`); }
+      const tools = [...dlg.querySelectorAll('[data-tool]')].filter(c => c.checked).map(c => c.dataset.tool);
+      if (!tools.length) { flash('Tick at least one AI tool.'); return; }
+      try { await gwFetch('/admin/users', { method: 'POST', body: JSON.stringify({ email, limit_usd: lim === '' ? null : Number(lim), tools }) }); flash(`${email} can now use the AI tools you ticked.`); }
       catch (e) { flash(String(e.message || e)); }
       loadAdmin();
     });
@@ -244,7 +253,11 @@
     try {
       const j = await gwFetch('/session', { method: 'POST' });
       ai = { ...j, session: undefined };
-      if (window.CDD_AI && window.CDD_AI.useAccount) { await window.CDD_AI.useAccount(j.session, gw); window.CDD_LOCK && window.CDD_LOCK.open(); }
+      if (window.CDD_AI && window.CDD_AI.useAccount) {
+        await window.CDD_AI.useAccount(j.session, gw, j.tools || ['genie']);
+        if ((j.tools || []).includes('genie')) window.CDD_LOCK && window.CDD_LOCK.open();
+        document.dispatchEvent(new CustomEvent('cdd-unlocked'));           // Election Analytics and the Business Economist redraw
+      }
       if (ai.owner) loadAdmin();
     } catch (e) { ai = { allowed: false, message: String(e.message || e) }; }
     renderAccount(); lockButtons();
@@ -257,18 +270,24 @@
     if (!user) return '<h3>AI tools</h3><p class="acct-small">Approved people can use Data Genie and the Data Scientist by signing in, with no passcode.</p>';
     if (!ai) return '<h3>AI tools</h3><p class="acct-small">Checking your access…</p>';
     if (!ai.allowed) return `<h3>AI tools</h3><p class="acct-small">${esc(ai.message || 'Your email is not approved for the AI tools yet.')} The passcode still works.</p>`;
-    let out = `<h3>AI tools</h3><p class="acct-small">On for ${esc(ai.email)}: Data Genie and the Data Scientist need no passcode. ${ai.owner ? 'As the owner you have no daily limit' : `Daily limit ${money(ai.limit_usd)}`}; used today ${money(ai.spent_usd)}.</p>`;
+    const names = { genie: 'Data Genie and the Data Scientist', election: 'Election Analytics', business: 'the Business Economist' };
+    const mine = (ai.tools || []).map(t => names[t]).filter(Boolean);
+    let out = `<h3>AI tools</h3><p class="acct-small">On for ${esc(ai.email)}: ${esc(mine.join(', ').replace(/, ([^,]*)$/, ' and $1'))} need${mine.length === 1 && !mine[0].includes(' and ') ? 's' : ''} no passcode. ${ai.owner ? 'As the owner you have no daily limit' : `Daily limit ${money(ai.limit_usd)}`}; used today ${money(ai.spent_usd)}.</p>`;
     if (ai.owner) {
       const users = (admin && admin.users) || [];
       out += `<h3>Manage access</h3><p class="acct-small">People who can use the AI tools by signing in with Google. A blank limit means the default (${money(admin && admin.default_limit_usd)} a day); removing someone stops them at once.</p>
-        <ul class="acct-notes">${admin && admin.error ? `<li class="acct-empty">${esc(admin.error)}</li>` : users.length ? users.map(u => `<li><span>${esc(u.email)} · ${u.limit_usd == null ? 'default limit' : money(u.limit_usd) + ' a day'} · ${money(u.spent_usd)} today</span><button type="button" data-revoke="${esc(u.email)}" aria-label="Remove ${esc(u.email)}">×</button></li>`).join('') : '<li class="acct-empty">Nobody else yet.</li>'}</ul>
-        <div class="acct-row"><input type="email" data-grant maxlength="200" placeholder="name@gmail.com" aria-label="Email to approve"><input type="number" data-grant-limit min="0" max="1000" step="1" placeholder="$/day" aria-label="Daily limit in dollars" style="max-width:90px"><button type="button" class="btn" data-grant-add>Approve</button></div>`;
+        <ul class="acct-notes">${admin && admin.error ? `<li class="acct-empty">${esc(admin.error)}</li>` : users.length ? users.map(u => `<li><button type="button" class="acct-user" data-edit="${esc(u.email)}" title="Change this person's tools or limit"><span>${esc(u.email)}</span><small>${esc((u.tools || ['genie']).map(t => ({ genie: 'Genie & Scientist', election: 'Elections', business: 'Business' })[t]).join(' · '))} · ${u.limit_usd == null ? 'default limit' : money(u.limit_usd) + ' a day'} · ${money(u.spent_usd)} today</small></button><button type="button" data-revoke="${esc(u.email)}" aria-label="Remove ${esc(u.email)}">×</button></li>`).join('') : '<li class="acct-empty">Nobody else yet.</li>'}</ul>
+        <div class="acct-row"><input type="email" data-grant maxlength="200" placeholder="name@gmail.com" aria-label="Email to approve"><input type="number" data-grant-limit min="0" max="1000" step="1" placeholder="$/day" aria-label="Daily limit in dollars" style="max-width:90px"></div>
+        <div class="acct-row acct-tools"><label><input type="checkbox" data-tool="genie" checked> Data Genie &amp; Data Scientist</label><label><input type="checkbox" data-tool="election"> Election Analytics</label><label><input type="checkbox" data-tool="business"> Business Economist</label></div>
+        <div class="acct-row"><button type="button" class="btn" data-grant-add>Approve</button><span class="acct-small">Click a name above to change it.</span></div>`;
     }
     return out;
   }
   function lockButtons() {           // the passcode screens also offer signing in
     if (!gw || !fbConfig) return;
-    document.querySelectorAll('.web-lock').forEach(l => {
+    const locks = [...document.querySelectorAll('.web-lock')];
+    for (const id of ['#ea-unlock', '#iv-unlock']) { const f = document.querySelector(id); if (f && f.parentElement) locks.push(f.parentElement); }
+    locks.forEach(l => {
       if (l.querySelector('.acct-lock')) return;
       const p = document.createElement('p'); p.className = 'acct-lock';
       p.innerHTML = user && ai && !ai.allowed

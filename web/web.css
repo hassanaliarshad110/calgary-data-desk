@@ -60,3 +60,8 @@ body[data-web] #view-news > .content[hidden] { display: none !important; }
 .acct-danger .btn { color: var(--danger-fg); }
 .acct-lock { margin-top: 12px; color: var(--muted-fg); }
 .acct-lock .btn { margin: 0 4px; }
+.acct-tools { flex-direction: column; gap: 4px; font-size: 14px; }
+.acct-tools label { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+.acct-user { flex: 1; min-width: 0; text-align: left; background: none; border: 0; color: inherit; font: inherit; cursor: pointer; display: flex; flex-direction: column; padding: 2px 0; }
+.acct-user small { color: var(--muted-fg); font-size: 12px; }
+.acct-user span { font-size: 14px; overflow: hidden; text-overflow: ellipsis; }

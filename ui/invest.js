@@ -522,3 +522,6 @@ async function renderInvest(keep) {
   if (keep) window.scrollTo(0, y);
 }
 window.renderInvest = renderInvest;
+
+// signed in with an approved email (web-account.js): the Business Economist unlocks without its passcode
+document.addEventListener('cdd-unlocked', () => { if ($('#iv-body') && $('#iv-unlock')) renderInvest(true); });

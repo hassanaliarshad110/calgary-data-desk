@@ -97,8 +97,11 @@
     unlocked: (which = 'genie') => !!apiKey && open_[which],
     // signed in with Google and approved by the owner (web-account.js): a gateway session in place of the passcode;
     // the Claude key stays on the gateway
-    async useAccount(session, url) {
-      apiKey = session; gateway = url; open_.genie = true;
+    async useAccount(session, url, tools = ['genie']) {
+      apiKey = session; gateway = url;
+      open_.genie = open_.genie || tools.includes('genie');
+      open_.ea = open_.ea || tools.includes('election');
+      open_.biz = open_.biz || tools.includes('business');
       if (worker && booting) { try { await booting; await call('key', { key: apiKey, gateway }); } catch (e) { /* set again at the next start */ } }
       start().catch(() => {});
       return true;

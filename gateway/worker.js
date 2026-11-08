@@ -20,6 +20,7 @@ const SESSION_HOURS = 12;
 const PRICES = { 'claude-haiku-5-5': [0.10, 0.50], 'claude-sonnet-5-5': [2.00, 10.00], 'claude-opus-5-5': [5.00, 25.00] };
 const DEAREST = [5.00, 25.00];
 const SEARCH_USD = 0.01;
+export const TOOLS = ['genie', 'election', 'business'];      // Data Genie and the Data Scientist; Election Analytics; the Business Economist
 
 const enc = new TextEncoder();
 const b64url = buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -104,7 +105,8 @@ export async function access(email, env) {
   const rec = owner ? {} : JSON.parse((await env.ACCESS.get('user:' + email)) || 'null');
   const spent = Number((await env.ACCESS.get(`spend:${today()}:${email}`)) || 0);
   const limit = owner ? null : (rec && rec.limit_usd != null ? Number(rec.limit_usd) : Number(env.DEFAULT_LIMIT_USD || 10));
-  return { email, owner, allowed: owner || !!rec, limit_usd: limit, spent_usd: Math.round(spent * 10000) / 10000, day: today() };
+  const tools = owner ? TOOLS : (rec ? (Array.isArray(rec.tools) && rec.tools.length ? rec.tools.filter(t => TOOLS.includes(t)) : ['genie']) : []);
+  return { email, owner, allowed: owner || !!rec, tools, limit_usd: limit, spent_usd: Math.round(spent * 10000) / 10000, day: today() };
 }
 
 async function addSpend(email, usd, env) {
@@ -168,7 +170,7 @@ export async function handle(req, env, ctx, fetcher = fetch) {
       const users = await Promise.all(list.keys.map(async k => {
         const email = k.name.slice(5);
         const rec = JSON.parse((await env.ACCESS.get(k.name)) || '{}');
-        return { email, limit_usd: rec.limit_usd ?? null, added: rec.added, spent_usd: (await access(email, env)).spent_usd };
+        return { email, limit_usd: rec.limit_usd ?? null, tools: rec.tools || ['genie'], added: rec.added, spent_usd: (await access(email, env)).spent_usd };
       }));
       return json({ owners: owners(env), default_limit_usd: Number(env.DEFAULT_LIMIT_USD || 10), users }, 200, h);
     }
@@ -180,8 +182,10 @@ export async function handle(req, env, ctx, fetcher = fetch) {
       if (b.remove) { await env.ACCESS.delete('user:' + email); return json({ ok: true, removed: email }, 200, h); }
       const limit = b.limit_usd === null || b.limit_usd === '' || b.limit_usd === undefined ? null : Number(b.limit_usd);
       if (limit !== null && !(limit >= 0 && limit <= 1000)) return fail(400, 'invalid_request_error', 'The daily limit must be between $0 and $1,000.', h);
-      await env.ACCESS.put('user:' + email, JSON.stringify({ limit_usd: limit, added: new Date().toISOString(), by: me.email }));
-      return json({ ok: true, email, limit_usd: limit }, 200, h);
+      const tools = Array.isArray(b.tools) ? b.tools.filter(t => TOOLS.includes(t)) : ['genie'];
+      if (!tools.length) return fail(400, 'invalid_request_error', 'Choose at least one AI tool, or remove the person.', h);
+      await env.ACCESS.put('user:' + email, JSON.stringify({ limit_usd: limit, tools, added: new Date().toISOString(), by: me.email }));
+      return json({ ok: true, email, limit_usd: limit, tools }, 200, h);
     }
     return fail(404, 'not_found_error', 'No such admin request.', h);
   }
