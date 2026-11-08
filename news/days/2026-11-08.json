@@ -84,7 +84,18 @@
    "id": "2026-11-08-wind-warning-for-calgary-as-gusts-reach-100-km-h-warm-dry-week-ahead",
    "date": "2026-11-08",
    "published_at": "2026-11-08T23:40:52Z",
-   "words": 344
+   "words": 344,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Chinook_Arch-Calgary.JPG/1280px-Chinook_Arch-Calgary.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Chinook_Arch-Calgary.JPG",
+    "credit": "Qyd (talk · contribs)",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "alt": "Chinook Arch-Calgary",
+    "query": "Calgary skyline chinook arch",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Calgary skyline chinook arch"
   },
   {
    "title": "City reports five fireworks incidents and three fines on first night of Diwali weekend",
@@ -127,7 +138,18 @@
    "id": "2026-11-08-city-reports-five-fireworks-incidents-and-three-fines-on-first-night-o",
    "date": "2026-11-08",
    "published_at": "2026-11-08T23:40:52Z",
-   "words": 299
+   "words": 299,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Diwali_Diyas.jpg/1280px-Diwali_Diyas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Diwali_Diyas.jpg",
+    "credit": "Praful Kharade",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "alt": "Diwali Diyas",
+    "query": "Diwali diya lamps",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Diwali diya lamps"
   },
   {
    "title": "Cavalry FC rallies past FC Supra du Québec to reach CPL final, will host Atlético Ottawa on Nov. 21",
@@ -204,7 +226,18 @@
    "id": "2026-11-08-cavalry-fc-rallies-past-fc-supra-du-qu-bec-to-reach-cpl-final-will-hos",
    "date": "2026-11-08",
    "published_at": "2026-11-08T23:40:52Z",
-   "words": 261
+   "words": 261,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Spruce_meadows_Calgary_Alberta_%2828973550343%29.jpg/1280px-Spruce_meadows_Calgary_Alberta_%2828973550343%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Spruce_meadows_Calgary_Alberta_(28973550343).jpg",
+    "credit": "Thank you for visiting my page from Canada",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "alt": "Spruce meadows Calgary Alberta (28973550343)",
+    "query": "Spruce Meadows Calgary",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Spruce Meadows Calgary"
   },
   {
    "title": "Physicians now triaging patients at six Alberta emergency rooms after months of delay, premier says",
@@ -245,7 +278,18 @@
    "id": "2026-11-08-physicians-now-triaging-patients-at-six-alberta-emergency-rooms-after-",
    "date": "2026-11-08",
    "published_at": "2026-11-08T23:40:52Z",
-   "words": 186
+   "words": 186,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/A_hospital_emergency_department_entrance_in_the_United_States.jpg/1280px-A_hospital_emergency_department_entrance_in_the_United_States.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:A_hospital_emergency_department_entrance_in_the_United_States.jpg",
+    "credit": "Harrison Keely",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "alt": "A hospital emergency department entrance in the United States",
+    "query": "hospital emergency department entrance",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "hospital emergency department entrance"
   }
  ]
 }
