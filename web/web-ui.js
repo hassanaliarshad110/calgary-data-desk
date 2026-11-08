@@ -224,6 +224,12 @@
       <div class="web-find-box"><input id="web-find" type="search" autocomplete="off" placeholder="Type a community, e.g. Martindale" aria-controls="web-find-list">
       <ul id="web-find-list" class="web-find-list" role="listbox" hidden></ul></div>
       <span class="web-find-all"><a id="web-ward-page" href="wards/" hidden></a><a href="communities/">All 270 communities</a><a href="wards/">All 14 wards</a><a href="311/">311</a><a href="crime/">Crime</a><a href="growth/">Growth</a></span></div>`);
+    // the game, right under the finder on the home screen
+    head.querySelector('.web-finder').insertAdjacentHTML('afterend', `<a class="web-game-promo" href="game/">
+      <img src="game/img/hero.jpg" alt="" width="1600" height="900" loading="lazy">
+      <span class="wgp-t"><span class="wgp-k">New · free game</span><b>YYC City Stories</b>
+      <span>Play the real map of Calgary as Ali, Natalia, Chris or Jean: 18 missions that teach City services, from the CTrain to recycling.</span></span>
+      <span class="wgp-go">Play ▸</span></a>`);
     const inp = $('#web-find'), list = $('#web-find-list');
     pagesP.then(p => { const n = $('.web-find-all a[href="communities/"]'); if (n && p.length) n.textContent = `All ${p.length} communities`; });
     const norm = t => String(t).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, ' ').trim();

@@ -122,3 +122,20 @@ dialog .acct-flash { position: sticky; left: auto; bottom: 0; transform: none; m
 .web-find-all a { white-space: nowrap; }
 .web-find-all a:not([hidden]) ~ a::before { content: ' · '; color: var(--muted-fg); display: inline-block; white-space: pre; text-decoration: none; }
 #web-ward-page { font-weight: 700; }
+
+/* the game, on the home screen */
+.web-game-promo { position: relative; display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; align-items: center; gap: 16px; margin: 0 0 16px; padding: 10px 18px 10px 10px; border-radius: var(--r); overflow: hidden; text-decoration: none; color: #F3F6FA; background: linear-gradient(110deg, #0D141C 0%, #3D0812 60%, #C8102E 140%); border: 1px solid rgba(255,255,255,.12); }
+.web-game-promo img { width: 180px; height: 100px; object-fit: cover; border-radius: 8px; display: block; }
+.web-game-promo .wgp-t { display: grid; gap: 2px; min-width: 0; }
+.web-game-promo .wgp-k { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #FFC400; }
+.web-game-promo b { font-size: 20px; line-height: 1.15; }
+.web-game-promo .wgp-t > span:last-child { color: #C9D2DD; font-size: 13.5px; }
+.web-game-promo .wgp-go { background: #C8102E; color: #fff; font-weight: 800; padding: 10px 18px; border-radius: 10px; white-space: nowrap; }
+.web-game-promo:hover .wgp-go, .web-game-promo:focus-visible .wgp-go { background: #E5243F; }
+@media (max-width: 640px) {
+  .web-game-promo { grid-template-columns: 96px minmax(0, 1fr); padding: 8px 12px 8px 8px; gap: 12px; }
+  .web-game-promo img { width: 96px; height: 72px; }
+  .web-game-promo b { font-size: 17px; }
+  .web-game-promo .wgp-t > span:last-child { display: none; }
+  .web-game-promo .wgp-go { grid-column: 1 / -1; text-align: center; padding: 8px; }
+}
