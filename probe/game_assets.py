@@ -26,16 +26,18 @@ files = {}; counts = collections.Counter(); stats = collections.Counter(); sampl
 def out(k):
     if k not in files: files[k] = gzip.open(os.path.join(OUT, f'b3d_{k}.bin.gz'), 'wb', compresslevel=9)
     return files[k]
-for line in open('/tmp/b3d.geojsonl'):
+dbg = open(os.path.join(OUT, 'b3d_sample.jsonl'), 'w')
+for li, line in enumerate(open('/tmp/b3d.geojsonl')):
+    if li < 30 or li % 20000 == 0: dbg.write(line[:20000])
     f = json.loads(line); g = f.get('geometry'); p = f.get('properties') or {}
     if sample is None: sample = {k: str(v)[:60] for k, v in p.items()}
     if not g or g['type'] != 'MultiPolygon': stats['skip_geom'] += 1; continue
     tris = []
     for poly in g['coordinates']:
         ring = poly[0]
-        if len(ring) < 4: continue
+        if len(ring) < 4: stats['short_ring'] += 1; continue
         pts = np.array(ring[:-1], dtype=np.float64)
-        if pts.shape[1] < 3: continue
+        if pts.ndim != 2 or pts.shape[1] < 3: stats['no_z'] += 1; continue
         # polygon normal (Newell)
         n = np.zeros(3)
         for i in range(len(pts)):
@@ -98,7 +100,7 @@ for line in open('/tmp/b3d.geojsonl'):
     k = f'{(ax // 10 + 30000) // 12000}_{(ay // 10 + 30000) // 12000}'
     out(k).write(rec); counts[k] += 1; stats['buildings'] += 1; stats['tris'] += len(T); stats['walls'] += len(W)
 for f in files.values(): f.close()
-rep['sample'] = sample; rep['stats'] = dict(stats); rep['counts'] = dict(counts)
+rep['sample'] = sample; dbg.close(); rep['stats'] = dict(stats); rep['counts'] = dict(counts)
 rep['files'] = {f: os.path.getsize(os.path.join(OUT, f)) for f in os.listdir(OUT)}
 json.dump(rep, open(os.path.join(OUT, 'b3d_report.json'), 'w'), indent=1)
 print(json.dumps(rep['stats']), flush=True)
