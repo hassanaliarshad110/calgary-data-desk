@@ -24,6 +24,7 @@ img{max-width:100%;display:block}
 .hero .wrap{position:relative;z-index:1;width:100%;padding-block:0 2.6rem}
 .crumb{position:absolute;z-index:2;top:max(14px,env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink);text-shadow:0 1px 6px #000}
 .kicker{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--glacier)}
+.hero .kicker{text-shadow:0 1px 10px rgba(0,0,0,.9),0 0 2px #000}
 .hero h1{font-size:clamp(3rem,11vw,7.5rem);margin:.5rem 0 0;text-shadow:0 4px 40px rgba(0,0,0,.5)}
 .intro{max-width:62ch;margin:2rem 0 0}
 .intro p{color:var(--mute);font-size:1.1rem;margin:0 0 1rem}
