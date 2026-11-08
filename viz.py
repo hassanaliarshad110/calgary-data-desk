@@ -9,6 +9,7 @@ Maps: shaded Ward 5 communities (values by community), points (lat/lon, optional
 import html
 import json
 import math
+import re
 
 PALETTE = ['#0B6BB5', '#F59E0B', '#64748B', '#16A34A', '#DC2626', '#7C3AED', '#0D9488', '#DB2777']
 RAMP = ['#DBEAFE', '#93C5FD', '#3B82F6', '#1D4ED8', '#1E3A8A']        # light to dark: low to high
@@ -264,25 +265,51 @@ def map_svg(mp, geo, name_to_code, w=680, h=440):
         out.append(f'<path d="{path(g)}" fill="{fill}" stroke="#fff" stroke-width="1"/>')
     if ward:
         out.append(f'<path d="{path(ward)}" fill="none" stroke="#0F172A" stroke-width="1.6"/>')
-    # labels at the middle of each shaded community's outline; a city-wide map of many small communities has none (they
-    # would overlap), and its figures go in a table beside it
-    show = set() if len(vals) > 40 else None
-    for code, g in comms.items():
-        r = max(_rings(g), key=len, default=None)
-        if not r or (vals and code not in vals) or (not vals and code not in code_name) or (show is not None and code not in show):
-            continue
-        cx = sum(x for x, _ in r) / len(r)
-        cy = sum(y for _, y in r) / len(r)
-        X, Y = P(cx, cy)
-        lab = code_name.get(code, code)
-        out.append(f'<text x="{X:.1f}" y="{Y:.1f}" class="ax lbl maplbl" text-anchor="middle">{e(lab[:24])}'
-                   + (f'<tspan x="{X:.1f}" dy="10" class="mapval">{fmt(vals[code], dec)}</tspan>' if code in vals else '') + '</text>')
+    # points first, labels on top. Labels are placed in order of importance (the largest values first) and any label that
+    # would overlap one already placed is left out, so a map never turns into a pile of names: a few small communities
+    # get named, a city-wide map names its leaders, and the figures for every place are in the table beside it.
     pv = [p['value'] for p in pts if isnum(p.get('value'))]
     vmax = max(pv) if pv else None
     for p in pts[:3000]:
         X, Y = P(p['lon'], p['lat'])
         rad = 3 + (7 * (p['value'] / vmax) ** .5 if vmax and isnum(p.get('value')) and vmax > 0 else 0)
         out.append(f'<circle cx="{X:.1f}" cy="{Y:.1f}" r="{rad:.1f}" fill="#DC2626" fill-opacity=".75" stroke="#fff" stroke-width=".6"/>')
+    cands = []                                    # (priority, x, y, name, value or None)
+    if pts and any(str(p.get('label') or '').strip() for p in pts):
+        if len(pts) <= 60:                        # named points: name the biggest ones
+            for p in pts:
+                lab = str(p.get('label') or '').strip()
+                if lab:
+                    X, Y = P(p['lon'], p['lat'])
+                    cands.append((p['value'] if isnum(p.get('value')) else 0, X, Y - 9, lab, None))
+    elif vals:                                    # shaded communities: name the highest values
+        for code, v in vals.items():
+            r = max(_rings(comms.get(code)), key=len, default=None)
+            if r:
+                X, Y = P(sum(x for x, _ in r) / len(r), sum(y for _, y in r) / len(r))
+                cands.append((v, X, Y, code_name.get(code, code), v))
+    elif len(comms) <= 40:                        # a small outline map with nothing on it: name its communities
+        for code, g in comms.items():
+            r = max(_rings(g), key=len, default=None)
+            if r and code in code_name:
+                X, Y = P(sum(x for x, _ in r) / len(r), sum(y for _, y in r) / len(r))
+                cands.append((0, X, Y, code_name[code], None))
+    taken, limit = [], 14 if len(cands) > 40 else 40
+    for pri, X, Y, lab, v in sorted(cands, key=lambda c: -c[0]):
+        lab = str(lab)[:24]
+        if re.fullmatch(r'[0-9]{2}[A-Z]{1,2}', lab.strip()):    # an unnamed area (02L, 13A): no name worth showing
+            continue
+        tw, th = max(len(lab), len(fmt(v, dec)) if v is not None else 0) * 4.6 + 4, 20 if v is not None else 11
+        box = (X - tw / 2, Y - 9, X + tw / 2, Y - 9 + th)
+        if box[0] < 0 or box[2] > w or box[1] < 0 or box[3] > h:
+            continue
+        if any(not (box[2] < t[0] or box[0] > t[2] or box[3] < t[1] or box[1] > t[3]) for t in taken):
+            continue
+        taken.append(box)
+        out.append(f'<text x="{X:.1f}" y="{Y:.1f}" class="ax lbl maplbl" text-anchor="middle">{e(lab)}'
+                   + (f'<tspan x="{X:.1f}" dy="10" class="mapval">{fmt(v, dec)}</tspan>' if v is not None else '') + '</text>')
+        if len(taken) >= limit:
+            break
     out.append('</svg>')
     leg = ''
     if bounds:
