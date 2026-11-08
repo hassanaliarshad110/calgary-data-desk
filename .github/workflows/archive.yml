@@ -1,0 +1,59 @@
+name: Daily archive
+
+# A copy of what changed today in Calgary's open data, the City's map layers and the website's own data, kept in this
+# repository's releases (one release a month, one file a day), so Calgary Insight keeps a history the City does not.
+# tools/archive.py says what is kept.
+
+on:
+  schedule:
+    - cron: '41 14 * * *'     # about 8:40 a.m. in Calgary, after the nightly website build
+  workflow_dispatch:
+
+permissions:
+  contents: write             # to keep the files in releases
+  actions: read               # to read the website's last build
+
+concurrency:
+  group: archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: The website's data from its last build
+        run: |
+          mkdir -p sitebuild
+          id=$(gh run list --workflow site.yml --status success -L 1 --json databaseId -q '.[0].databaseId')
+          if [ -n "$id" ] && gh run download "$id" -n github-pages -D sitebuild; then
+            tar -xf sitebuild/artifact.tar -C sitebuild ./data || echo "the build has no data folder"
+          else
+            echo "no website build to read today"
+          fi
+
+      - name: What the last archive kept
+        run: gh release download archive-state -p state.json -D . || echo "the first archive"
+
+      - name: Today's archive
+        env:
+          CDD_SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
+        run: python tools/archive.py --site sitebuild/data --state state.json --out out
+
+      - name: Keep it
+        run: |
+          month="archive-$(date -u +%Y-%m)"
+          gh release view "$month" >/dev/null 2>&1 || gh release create "$month" --title "Archive $(date -u '+%B %Y')" \
+            --notes "Daily copies of what changed in the City of Calgary's open data, its map layers and Calgary Insight's own data this month. One file a day; manifest.json in each says what it holds."
+          gh release upload "$month" out/*.tar.gz --clobber
+          gh release view archive-state >/dev/null 2>&1 || gh release create archive-state --title "Archive state" \
+            --notes "What the daily archive kept last, read by the next run. Not data."
+          gh release upload archive-state state.json --clobber
