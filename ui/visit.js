@@ -191,7 +191,9 @@ async function renderVisit() {
   if (!VI || VI.error) { body.innerHTML = `<section class="card span-12"><p>Visiting Calgary is not on the website yet. It appears after the next refresh.</p></section>`; return; }
   if (!viLiveTried && viSub === 'overview') viFetchLive().then(l => { if (l) { viWx = null; renderVisit(); } });
   const page = viSub === 'weather' ? viWeather() : viSub === 'whatson' ? viWhatsOn() : viSub === 'places' ? viPlaces() : viSub === 'stay' ? viStay() : viSub === 'around' ? viAround() : viOverview();
-  body.innerHTML = viTabs() + page + `<section class="card span-12"><p class="card-note">Sources: ${(VI.sources || []).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.publisher)}: ${esc(s.title)}</a>`).join('; ')}. Facts and events checked by hand on ${esc(VI.checked || '')}; the weather is read again every morning.</p></section>`;
+  // on the website: the door into Calgary, with the Calgary song (calgaryinsight.ca/visit/)
+  const door = document.body.dataset.web && viSub === 'overview' ? `<a class="card span-12 vi-door" href="visit/"><span class="vi-door-k">New · sound on</span><b>Step through the door</b><span>Welcome to Calgary: the city in pictures, with the chorus of the Calgary song, "Under One Sky"</span><span class="vi-door-go">Open the door →</span></a>` : '';
+  body.innerHTML = viTabs() + door + page + `<section class="card span-12"><p class="card-note">Sources: ${(VI.sources || []).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.publisher)}: ${esc(s.title)}</a>`).join('; ')}. Facts and events checked by hand on ${esc(VI.checked || '')}; the weather is read again every morning.</p></section>`;
   body.querySelectorAll('[data-visub]').forEach(b => b.addEventListener('click', () => { viSub = b.dataset.visub; renderVisit(); }));
   body.querySelectorAll('[data-vifit]').forEach(b => b.addEventListener('click', () => { viWx = b.dataset.vifit; renderVisit(); }));
   body.querySelectorAll('[data-viplace]').forEach(b => b.addEventListener('click', () => visitOpen({ place: b.dataset.viplace })));

@@ -85,6 +85,7 @@
     <symbol id="i-bus" viewBox="0 0 24 24"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></symbol>
     <symbol id="i-candles" viewBox="0 0 24 24"><path d="M6 3v3M6 14v7M12 2v6M12 16v6M18 5v4M18 15v5"/><rect x="4" y="6" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="8" rx="1"/><rect x="16" y="9" width="4" height="6" rx="1"/></symbol>
     <symbol id="i-cone" viewBox="0 0 24 24"><path d="M9.3 6.5h5.4M8.2 10.5h7.6M6.9 14.5h10.2M4 20h16M10.6 3h2.8l4.6 17H6L10.6 3z"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><path d="M19.07 4.93A10 10 0 1 0 22 12"/><path d="M16.24 7.76A6 6 0 1 0 18 12"/><circle cx="12" cy="12" r="2"/><path d="M12 12l7-7"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
     <symbol id="i-compare" viewBox="0 0 24 24"><path d="M3 20V10M9 20V4M15 20v-8M21 20V7"/></symbol>
     <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.3 5.7-5.7 2.3 2.3-5.7z"/></symbol>
@@ -126,6 +127,7 @@
         <button class="tab" data-view="families" title="Families and schools"><svg class="ic" aria-hidden="true"><use href="#i-child"/></svg><span>Families and schools</span></button>
         <button class="tab" data-view="infra" title="Infrastructure condition: water main breaks, the age of the water network, the paving plan and the City's own condition figures, against 311 requests"><svg class="ic" aria-hidden="true"><use href="#i-cone"/></svg><span>Infrastructure condition</span></button>
         <button class="tab" data-view="safety" title="Canada's safest cities: every city of 10,000 or more by Statistics Canada's Crime Severity Index, with Calgary's rank this year and last"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>Canada's safest cities</span></button>
+        <button class="tab" data-view="livemap" title="Live map: Calgary News stories where they happened, live traffic incidents, the newest 311 requests and police-reported crime by community"><svg class="ic" aria-hidden="true"><use href="#i-radar"/></svg><span>Live map</span></button>
         <button class="tab" data-view="cameras" title="Traffic cameras"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span>Traffic cameras</span></button>
         <button class="tab tab-help" data-view="help" title="Find help near me: a bed tonight, food, day spaces, health care and help lines, nearest to you first"><svg class="ic" aria-hidden="true"><use href="#i-helpheart"/></svg><span>Find help near me</span></button>
       </div>
@@ -602,6 +604,13 @@
       <div class="topbar-title"><h1 id="el-title">Election Data Centre</h1><p class="meta">Seats, leaders, constituencies and the latest official results: City of Calgary 2025, Alberta 2023 (with by-elections since and the 2026 referendum), Canada 2025</p></div>
     </header>
     <div class="content"><div class="grid" id="el-body"></div></div>
+  </section>
+
+  <section id="view-livemap" class="view" aria-labelledby="lm-h">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="lm-h">Live map</h1><p class="meta">Calgary News stories where they happened, traffic incidents as they are reported, the newest 311 requests and police-reported crime by community</p></div>
+    </header>
+    <div class="content"><div class="grid" id="lm-body"></div></div>
   </section>
 
   <section id="view-citynews" class="view" aria-labelledby="cn-h">
@@ -1131,6 +1140,7 @@
 <script src="videos.js"></script>
 <script src="track311.js"></script>
 <script src="citynews.js"></script>
+<script src="livemap.js"></script>
 <script src="elanalytics.js"></script>
 <script src="audit.js"></script>
 <script src="buses.js"></script>

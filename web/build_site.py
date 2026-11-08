@@ -65,7 +65,7 @@ SEO = {'title': 'Calgary Insight: Calgary ward and community data, in plain word
 # what search engines and visitors without JavaScript read: the site in words, and links to the screens
 SCREENS = [('dashboard', 'Dashboard: every ward and community at a glance'), ('growth', 'Growth vs amenities and the forecast to 2030'),
            ('compare', 'Compare wards'), ('elections', 'Election Data Centre'), ('budget', 'City budget'),
-           ('citynews', 'Calgary News'), ('fedbudget', 'Federal Budget 2026'), ('invest', 'Invest in Calgary'),
+           ('citynews', 'Calgary News'), ('livemap', 'Live map: news, traffic and crime'), ('fedbudget', 'Federal Budget 2026'), ('invest', 'Invest in Calgary'),
            ('infra', 'Infrastructure condition'), ('safety', "Canada's safest cities"), ('issues', 'Open 311 issues'),
            ('families', 'Families and schools'), ('help', 'Find help near me'), ('visit', 'Visiting Calgary: what to see, where to stay, the weather by month, getting around'),
            ('videos', 'Video explainers'),
@@ -109,7 +109,7 @@ def robots_and_sitemap(out):
     today = dt.date.today().isoformat()
     with open(os.path.join(out, 'robots.txt'), 'w', encoding='utf-8') as f:
         f.write(f'User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n')
-    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8')] + [(f'{SITE_URL}?view={k}', '0.7') for k, _ in SCREENS]
+    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8'), (SITE_URL + 'visit/', '0.8')] + [(f'{SITE_URL}?view={k}', '0.7') for k, _ in SCREENS]
     for rel in sorted(os.listdir(os.path.join(out, 'reports'))) if os.path.isdir(os.path.join(out, 'reports')) else []:
         if rel.endswith('.html'):
             urls.append((f'{SITE_URL}reports/{rel}', '0.5'))
@@ -126,6 +126,8 @@ def page(out):
                     ignore=shutil.ignore_patterns('_*.html', '*.bak'))
     for f in ('web.js', 'web.css', 'web-ui.js', 'web-ai.js', 'web-account.js', 'genie-worker.js'):
         shutil.copy(os.path.join(ROOT, 'web', f), os.path.join(out, f))
+    # the visitor's welcome: the door into Calgary with the Calgary song (calgaryinsight.ca/visit/)
+    shutil.copytree(os.path.join(ROOT, 'web', 'visit'), os.path.join(out, 'visit'), dirs_exist_ok=True)
     idx = open(os.path.join(ROOT, 'ui', 'index.html'), encoding='utf-8').read()
     idx = idx.replace('<script src="app.js"></script>',
                       '<script src="web.js"></script><script src="web-ai.js"></script><script src="app.js"></script>', 1)

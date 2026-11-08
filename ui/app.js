@@ -143,6 +143,7 @@ function show(view) {
   if (view === 'capmkt' && window.renderCapMkt) renderCapMkt();
   if (view === 'help' && window.renderHelp) renderHelp();
   if (view === 'citynews' && window.renderCityNews) renderCityNews();
+  if (view === 'livemap' && window.renderLiveMap) renderLiveMap();
   if (view === 'elanalytics' && window.renderElAnalytics) renderElAnalytics();
   if (view === 'sources' && window.renderLive) renderLive();
   if (view === 'news' && window.initNews) initNews();
@@ -288,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ================================================================ DASHBOARD
+window.CDD_DASH = () => D;                               // the area on screen, for the website's own scripts
 let D = null, map = null, tiles = null, areaLayer = null, labelLayer = null, trafficLayer = null, cameraLayer = null;
 let charts = {}, selected = null, styleArea = null, metric = 'open_per_1000', areas = 'res';
 let sortKey = 'requests12', sortDir = -1;
@@ -330,6 +332,7 @@ async function loadDashboard(force = false, quiet = false, quick = !force) {
     if (D.scope && D.scope.ward !== SCOPE) { SCOPE = D.scope.ward; try { localStorage.setItem('cdd-scope', String(SCOPE)); } catch { /* storage off */ } }
     scopeOptions(); scopeText(); loadLayers();
     renderDashboard();
+    document.dispatchEvent(new CustomEvent('cdd-dash'));          // other screens that show the area's figures
     if (res.needs_refresh) {      // a saved copy shown at once; the fresh one is built behind it and swapped in quietly
       setStatus('stale', `Updating (showing the copy from ${fmt(res.age_hours, 0)} h ago)`);
       setTimeout(async () => {

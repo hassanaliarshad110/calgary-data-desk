@@ -73,37 +73,110 @@
   const newsView = $('#view-news');
   if (newsView) newsView.remove();
 
-  // Data Genie and Data Scientist: locked until the access code is given (web-ai.js does the rest)
-  const LOCKED = ['#view-ask', '#view-scientist'];
-  const html = (name, sel) => `<div class="web-lock"><h2>${name} needs a passcode</h2>
-    <p>${name} runs on an AI language model, so it needs a passcode. <b>To get a passcode, contact the developer.</b> Enter it below; it is kept in this browser until you close it.</p>
+  // Data Genie and Data Scientist: open to everyone like Election Analytics (the figures, charts and ready-made questions),
+  // with the chat bar and the report buttons locked until an approved Google sign-in or the passcode (web-ai.js does the rest)
+  const NAME = { '#view-ask': 'Data Genie', '#view-scientist': 'The Data Scientist' };
+  let locked = true;
+  const bar = sel => `<div class="web-lock web-lock-bar" data-lockfor="${sel}"><div class="wlb-text"><b><svg class="ic" aria-hidden="true"><use href="#i-key"/></svg>${NAME[sel]} is locked</b>
+      <span>Sign in with an approved Google account, or enter the passcode.<span class="wlb-more"> ${sel === '#view-ask' ? 'Pick a question and it waits in the box below until you unlock.' : 'Every topic and figure is shown; making a report needs access.'} To get access, contact the developer.</span></span></div>
     <form><label class="sr-only" for="code-${sel.slice(6)}">Passcode</label><input type="password" id="code-${sel.slice(6)}" autocomplete="off" placeholder="Passcode">
     <button type="submit" class="btn primary">Unlock</button></form><p class="web-lock-msg" role="status"></p></div>`;
+  const nudge = (v, text) => {
+    const l = v && v.querySelector('.web-lock-bar'); if (!l) return;
+    l.classList.remove('wlb-flash'); void l.offsetWidth; l.classList.add('wlb-flash');
+    l.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    const m = l.querySelector('.web-lock-msg'); if (m && text) { m.textContent = text; m.classList.add('info'); }
+    const i = l.querySelector('input'); if (i) i.focus({ preventScroll: true });
+  };
+  // the figures for the selected area, from the dashboard already on screen
+  const n0 = v => v === null || v === undefined || Number.isNaN(+v) ? '–' : Math.round(+v).toLocaleString('en-CA');
+  const n1 = v => v === null || v === undefined || Number.isNaN(+v) ? '–' : (+v).toLocaleString('en-CA', { maximumFractionDigits: 1 });
+  const pc = v => v === null || v === undefined || Number.isNaN(+v) ? '' : `<small class="${+v > 0 ? 'up' : 'down'}">${+v > 0 ? '+' : ''}${n1(v)}% on the year before</small>`;
+  function bars(rows, fmtv) {
+    const max = Math.max(...rows.map(r => r.v || 0), 1e-9);
+    return `<div class="fb-bars">${rows.map(r => `<div class="fb-bar"><span class="fb-bar-l">${esc(r.label)}</span><span class="fb-bar-t"><i style="width:${(r.v || 0) / max * 100}%"></i></span><span class="fb-bar-v">${esc(fmtv(r.v))}</span></div>`).join('')}</div>`;
+  }
+  function months(t) {
+    const ms = t.months || [], vs = t.all || []; if (!vs.length) return '';
+    const max = Math.max(...vs, 1), W = 360, H = 140, gw = W / vs.length;
+    const lab = m => { const d = new Date(String(m).slice(0, 7) + '-15T12:00:00'); return isNaN(d) ? String(m) : d.toLocaleDateString('en-CA', { month: 'short' }); };
+    return `<svg class="wsn-cols" viewBox="0 0 ${W} ${H}" role="img" aria-label="311 requests by month">${vs.map((v, i) => { const h = v / max * (H - 36);
+      return `<rect x="${i * gw + 4}" y="${H - 20 - h}" width="${gw - 8}" height="${h}" rx="2"><title>${esc(ms[i])}: ${n0(v)}</title></rect><text x="${i * gw + gw / 2}" y="${H - 5}" text-anchor="middle">${esc(lab(ms[i]))}</text>`; }).join('')}</svg>`;
+  }
+  function snapshot(sel) {
+    const D = window.CDD_DASH && window.CDD_DASH();
+    if (!D || !D.summary) return '';
+    const S = D.summary, C = D.crime || {}, area = (D.scope && D.scope.name) || (D.ward && D.ward.number ? 'Ward ' + D.ward.number : 'Calgary');
+    const tiles = [['Residents', n0((D.ward || {}).residents), ''], ['311 requests, last 12 months', n0(S.requests12), pc(S.requests_change_pct)],
+      ['Open 311 requests now', n0(S.open_now), S.open_over_90_days ? `<small>${n0(S.open_over_90_days)} open over 90 days</small>` : ''],
+      ['Crimes per 1,000 residents', n1(C.per_1000), C.city_per_1000 ? `<small>Calgary ${n1(C.city_per_1000)}</small>` : ''],
+      ['Crimes reported to police', n0(C.crimes), pc(C.change_pct)], ['Closed within 7 days', S.closed_7_days_pct ? n1(S.closed_7_days_pct) + '%' : '–', '']];
+    const types = (D.open_by_type || []).filter(t => !/contact us/i.test(t.type || '')).slice(0, 6).map(t => ({ label: String(t.type || '').replace(/ - GIS$/, ''), v: t.n }));
+    const cats = (C.by_category || []).slice(0, 6).map(c => ({ label: c.label || c.category, v: c.n }));
+    return `<section class="card wsn" data-snap="${sel}"><div class="card-head"><div><h2>${esc(area)} in figures</h2><p class="card-sub">What ${sel === '#view-ask' ? 'Data Genie answers' : 'the Data Scientist builds reports'} from, among over 400 public datasets: the area selected on the dashboard${D.period ? `, ${esc(D.period)}` : ''}${C.period ? `; police figures ${esc(C.period)}` : ''}</p></div></div>
+      <div class="fb-kpis">${tiles.map(([l, v, x]) => `<div class="fb-kpi"><div class="fb-kpi-l">${esc(l)}</div><div class="fb-kpi-n">${v}</div>${x}</div>`).join('')}</div>
+      <div class="wsn-two">${(D.trend || {}).all ? `<div><h3 class="fb-h3">311 requests by month</h3>${months(D.trend)}</div>` : ''}
+        ${types.length ? `<div><h3 class="fb-h3">Most common open 311 requests</h3>${bars(types, n0)}</div>` : ''}
+        ${cats.length ? `<div><h3 class="fb-h3">Crimes by kind</h3>${bars(cats, n0)}</div>` : ''}</div></section>`;
+  }
+  function paintSnap() {
+    const ask = $('#welcome'), sug = ask && ask.querySelector('.suggest');
+    if (sug) { const old = ask.querySelector('.wsn'); if (old) old.remove(); sug.insertAdjacentHTML('beforebegin', snapshot('#view-ask')); }
+    const top = $('#ds-make .ds-sec-head');
+    if (top) { const old = $('#ds-make .wsn'); if (old) old.remove(); top.insertAdjacentHTML('beforebegin', snapshot('#view-scientist')); }
+  }
+  // a click or submit that needs the AI, while locked: keep the question and point at the lock
+  document.addEventListener('click', e => {
+    if (!locked) return;
+    const sug = e.target.closest('#view-ask .suggest button');
+    if (sug) { e.preventDefault(); e.stopPropagation(); const q = $('#question'); if (q) q.value = sug.textContent.trim(); nudge($('#view-ask'), 'Your question is ready: unlock to ask it.'); return; }
+    const ds = e.target.closest('#view-scientist .ds-topic, #view-scientist #ds-go, #view-scientist [data-audit], #view-scientist #au-reports button');
+    if (ds) { e.preventDefault(); e.stopPropagation(); if (ds.classList.contains('ds-topic')) { const t = $('#ds-text'), b = ds.querySelector('b'); if (t && b) t.value = b.textContent; }
+      nudge($('#view-scientist'), 'Unlock to make this report.'); }
+  }, true);
+  document.addEventListener('submit', e => {
+    if (!locked || !e.target.matches('#composer, #ds-own')) return;
+    e.preventDefault(); e.stopPropagation(); nudge(e.target.closest('.view'), 'Unlock to ask.');
+  }, true);
+  document.addEventListener('keydown', e => {
+    if (locked && e.key === 'Enter' && !e.shiftKey && e.target.id === 'question') { e.preventDefault(); e.stopPropagation(); nudge($('#view-ask'), 'Unlock to ask.'); }
+  }, true);
   window.CDD_LOCK = {
     lock() {
-      LOCKED.forEach(sel => {
+      locked = true;
+      Object.keys(NAME).forEach(sel => {
         const v = $(sel);
-        if (!v || v.querySelector('.web-lock')) return;
-        v.classList.add('web-locked');
-        const name = sel === '#view-ask' ? 'Data Genie' : 'Data Scientist';
-        const top = v.querySelector(':scope > .topbar');
-        top ? top.insertAdjacentHTML('afterend', html(name, sel)) : v.insertAdjacentHTML('afterbegin', html(name, sel));
-        v.querySelector('.web-lock form').addEventListener('submit', async e => {
-          e.preventDefault();
-          const msg = v.querySelector('.web-lock-msg');
-          msg.textContent = 'Checking';
+        if (!v || v.querySelector('.web-lock-bar')) return;
+        v.classList.add('web-chatlock');
+        const where = sel === '#view-ask' ? $('#composer') : $('#ds-tabs');
+        if (!where) return;
+        where.insertAdjacentHTML(sel === '#view-ask' ? 'beforebegin' : 'afterend', bar(sel));
+        v.querySelector('.web-lock-bar form').addEventListener('submit', async e => {
+          e.preventDefault(); e.stopPropagation();
+          const msg = v.querySelector('.web-lock-bar .web-lock-msg');
+          msg.classList.remove('info'); msg.textContent = 'Checking';
           try {
-            if (!window.CDD_AI) throw new Error('Data Genie is not switched on for this website yet.');
+            if (!window.CDD_AI) throw new Error(NAME[sel] + ' is not switched on for this website yet.');
             await window.CDD_AI.unlock(e.target.querySelector('input').value);
             window.CDD_LOCK.open();
           } catch (err) { msg.textContent = String(err.message || err); }
         });
       });
+      const q = $('#question'); if (q) q.placeholder = 'Locked: sign in or enter the passcode above to ask';
     },
     open() {
-      LOCKED.forEach(sel => { const v = $(sel); if (!v) return; v.classList.remove('web-locked'); const l = v.querySelector('.web-lock'); if (l) l.remove(); });
+      locked = false;
+      Object.keys(NAME).forEach(sel => { const v = $(sel); if (!v) return; v.classList.remove('web-chatlock', 'web-locked'); v.querySelectorAll('.web-lock-bar').forEach(l => l.remove()); });
+      const q = $('#question'); if (q) { q.placeholder = 'Ask a question about City of Calgary data, or ask for a full report with charts and maps'; if (q.value && $('#view-ask.is-on')) q.focus(); }
       document.dispatchEvent(new CustomEvent('cdd-unlocked'));
     },
+    get locked() { return locked; },
   };
+  // the figures follow the area and refresh whenever either screen is opened
+  if (typeof window.show === 'function') {
+    const prev = window.show;
+    window.show = function (view) { prev.apply(this, arguments); if (view === 'ask' || view === 'scientist') { try { paintSnap(); } catch (e) { /* figures optional */ } } };
+  }
+  document.addEventListener('cdd-dash', () => { try { paintSnap(); } catch (e) { /* figures optional */ } });
   if (window.CDD_AI && window.CDD_AI.unlocked && window.CDD_AI.unlocked()) window.CDD_LOCK.open(); else window.CDD_LOCK.lock();
 })();

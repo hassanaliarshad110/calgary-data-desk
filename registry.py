@@ -91,6 +91,11 @@ PAGES = [
          keywords='votes voting record motions council committee councillor member promises commitments manifesto commons MP accountability performance representative'),
     page('citynews', 'Calgary News', "The day's Calgary stories, each with its sources.", 'get_dashboard section=city_news (find, days, topic, date)',
          section='city_news', keywords='news stories headlines'),
+    page('livemap', 'Live map', 'Calgary News stories placed where they happened, live traffic incidents, the newest 311 requests and '
+         'crimes reported to police per 1,000 residents by community, on one map, with who to call.',
+         'get_dashboard section=city_news for the stories; query_open_data 35ra-9556 (traffic incidents) and iahh-g8bj (311) for the live layers; '
+         'get_dashboard section=crime for crime by community', section='city_news',
+         keywords='live map news crime police traffic incidents accidents 311 safety where happening tonight'),
     page('visit', 'Visiting Calgary', 'What to see, where to stay, the weather by month and over the years, what is on each month, getting around.',
          'get_dashboard section=visiting (part: weather_months, weather_years, records, today, whats_on, sights, stay, getting_around, facts, stats); get_weather_forecast',
          files=['visit.json'], section='visiting', keywords='tourism visit hotels attractions weather things to do'),
