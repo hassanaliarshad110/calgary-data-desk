@@ -124,7 +124,7 @@ def page(out):
     """The app's screens, with the website bridge loaded before the app."""
     shutil.copytree(os.path.join(ROOT, 'ui'), out, dirs_exist_ok=True,
                     ignore=shutil.ignore_patterns('_*.html', '*.bak'))
-    for f in ('web.js', 'web.css', 'web-ui.js', 'web-ai.js', 'web-account.js', 'genie-worker.js'):
+    for f in ('web.js', 'web.css', 'web-ui.js', 'web-ai.js', 'web-account.js', 'genie-worker.js', 'report-view.html'):
         shutil.copy(os.path.join(ROOT, 'web', f), os.path.join(out, f))
     # the visitor's welcome: the door into Calgary with the Calgary song (calgaryinsight.ca/visit/)
     shutil.copytree(os.path.join(ROOT, 'web', 'visit'), os.path.join(out, 'visit'), dirs_exist_ok=True)

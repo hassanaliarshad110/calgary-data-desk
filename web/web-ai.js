@@ -152,9 +152,24 @@
     const print = String(p0 || '').endsWith('#print'), p = String(p0 || '').replace(/#print$/, '');
     if (!String(p || '').startsWith('/home/pyodide/')) return openPath(p);
     if (!worker) return false;
+    // a web page (a report): opened at once, from the click, on the website's own report page, then filled in
+    const isHtml = /\.html?$/i.test(p);
+    const win = isHtml ? window.open('report-view.html' + (print ? '#print' : ''), '_blank') : null;
     try {
       const data = await call('read', { path: p });
       const name = String(p).split('/').pop();
+      if (win) {
+        const title = name.replace(/\.html?$/i, '').replace(/ \((print|interactive)\)/gi, '').replace(/[<>:"/\\|?*\u0000-\u001f]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 90) || 'Calgary Insight report';
+        const html = typeof data === 'string' ? data : new TextDecoder().decode(data);
+        let done = false;
+        const send = () => { if (!done) { try { win.postMessage({ type: 'cdd-report', html, title }, location.origin); } catch (e) { /* not ready */ } } };
+        const on = e => { if (e.source !== win || e.origin !== location.origin) return;
+          if (e.data && e.data.type === 'cdd-report-ready') send();
+          if (e.data && e.data.type === 'cdd-report-got') { done = true; removeEventListener('message', on); } };
+        addEventListener('message', on);
+        send(); setTimeout(() => removeEventListener('message', on), 60000);
+        return true;
+      }
       const type = /\.pdf$/i.test(name) ? 'application/pdf' : /\.html?$/i.test(name) ? 'text/html' : /\.csv$/i.test(name) ? 'text/csv'
         : /\.xlsx$/i.test(name) ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' : 'application/octet-stream';
       const url = URL.createObjectURL(new Blob([data], { type }));
@@ -164,7 +179,7 @@
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 30 * 60000);   // the tab may still be printing or saving it
       return true;
-    } catch (e) { return false; }
+    } catch (e) { if (win) try { win.close(); } catch (x) { /* already closed */ } return false; }
   };
 
   // the dashboard switched ward or way of counting: send the new one with the next question
