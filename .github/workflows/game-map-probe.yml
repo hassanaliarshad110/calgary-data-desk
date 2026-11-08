@@ -15,7 +15,7 @@ jobs:
       - run: pip install -q numpy rasterio pyproj
       - env:
           SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
-        run: python probe/game_lidar.py _out
+        run: python probe/game_assets.py _out
       - run: |
           cd _out && ls -la
           git init -q -b game-map-probe-out
