@@ -43,7 +43,7 @@ jobs:
 
       - name: Python for Data Genie in the browser (Pyodide)
         run: |
-          curl -fsSL -o pyodide.tar.bz2 "https://github.com/pyodide/pyodide/releases/download/${PYODIDE_VERSION}/pyodide-core-${PYODIDE_VERSION}.tar.bz2"
+          curl -fsSL --retry 6 --retry-delay 20 --retry-all-errors -o pyodide.tar.bz2 "https://github.com/pyodide/pyodide/releases/download/${PYODIDE_VERSION}/pyodide-core-${PYODIDE_VERSION}.tar.bz2"
           tar -xjf pyodide.tar.bz2
 
       - name: Build every ward from public data
