@@ -20,7 +20,7 @@ gdb = sh('find /tmp/b3d -maxdepth 3 -type d -name "*.gdb" | head -1').strip().sp
 rep['gdb'] = gdb
 rep['info'] = sh(f'ogrinfo -ro -so -al "{gdb}" | head -80')
 print(rep['info'], flush=True)
-rep['conv'] = sh(f'ogr2ogr -f CSV /tmp/b3d.csv "{gdb}" -nlt MULTIPOLYGON -dim XYZ -lco GEOMETRY=AS_WKT -select STRUCT_ID,GRD_ELEV_MIN_Z,ROOFTOP_ELEV_Z,STAGE && ls -la /tmp/b3d.csv && head -c 600 /tmp/b3d.csv')
+rep['conv'] = sh(f'ogr2ogr -f CSV /tmp/b3d.csv "{gdb}" -nlt MULTIPOLYGONZ -lco GEOMETRY=AS_WKT -lco GEOMETRY_NAME=WKT -select STRUCT_ID,GRD_ELEV_MIN_Z,ROOFTOP_ELEV_Z,STAGE && ls -la /tmp/b3d.csv && head -c 600 /tmp/b3d.csv')
 print(rep['conv'], flush=True)
 tr = Transformer.from_crs('+proj=tmerc +lat_0=0 +lon_0=-114 +k=0.9999 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs', 'EPSG:4326', always_xy=True)
 import csv, re
@@ -42,7 +42,7 @@ def parse_mp(w):
     return polys
 rd = csv.DictReader(open('/tmp/b3d.csv', newline=''))
 for li, p in enumerate(rd):
-    w = p.get('WKT') or ''
+    w = p.get('WKT') or p.get('Shape') or p.get('SHAPE') or ''
     if li < 5: dbg.write(json.dumps({k: (v[:3000] if isinstance(v, str) else v) for k, v in p.items()}) + '\n')
     if sample is None: sample = {k: str(v)[:60] for k, v in p.items() if k != 'WKT'}
     if not w.startswith('MULTIPOLYGON'): stats['skip_geom'] += 1; continue
