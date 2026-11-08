@@ -98,6 +98,7 @@ counting residents, complete months only?
 figures presented as spending recommendations or a ranking of need (open data has no costs), and \
 recommendations that are obvious or routine (things the Mayor's or a councillor's office would already know) rather than specific \
 and backed by the findings.
+5. In a business plan, check the costs: each cost counted once (a net lease's base rent, operating costs and property tax share are separate lines; a gross lease's rent already includes them, so a separate tax line would count it twice), the lease type stated, and every rate per square foot or per cent of sales stated and sourced.
 Report only real problems as findings, each with the evidence you re-ran. Do not report a problem you have not \
 checked. Small rounding (the last digit) is not a finding. Finish by calling submit_findings once. Write in plain \
 words for the Mayor's or a councillor's office."""

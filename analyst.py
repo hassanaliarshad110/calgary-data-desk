@@ -270,7 +270,7 @@ def business_brief(text, area=None):
             'Canada weather through the year. Cover: the opportunity and the customers within reach (people, '
             'households, incomes, growth); the competition by community with names where useful; the best location '
             'and why; a demand estimate and revenue model with every assumption stated and sourced; start-up and running '
-            'costs as stated assumptions (say they must be confirmed with quotes); break-even arithmetic; three scenarios '
+            'costs as stated assumptions (say they must be confirmed with quotes); ' + "Premises costs: say which kind of lease is assumed. Most Calgary shop, office and restaurant leases are net leases: the tenant pays base rent plus additional rent, which is its share of the building's operating costs and of its property tax (the landlord is billed by the City and passes it on; Calgary's separate business tax was folded into the non-residential property tax by 2019). So show base rent, operating costs and the property tax share as separate lines, each with its rate per square foot, and count each once; under a gross lease the rent already includes them and they get no line of their own. " + 'break-even arithmetic; three scenarios '
             '(low, middle, high); risks; and next steps (licences and permits the City requires). Compute every figure with '
             'calculate, put the arithmetic in tables a reader can check in Excel, and list every source. This is general '
             'information from public data, not financial, legal or investment advice; say so once. Write in plain '
