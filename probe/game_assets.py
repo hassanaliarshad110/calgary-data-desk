@@ -3,13 +3,14 @@ OUT = sys.argv[1]; os.makedirs(OUT, exist_ok=True); res = {}
 H = {'User-Agent': 'CalgaryGameMap/1.0'}
 if os.environ.get('SOCRATA_TOKEN'): H['X-App-Token'] = os.environ['SOCRATA_TOKEN']
 def get(u): return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=H), timeout=300).read())
-sig = get('https://data.calgary.ca/resource/qr97-4jvx.json?$limit=50000')
-json.dump(sig, open(os.path.join(OUT, 'signals.json'), 'w'))
-res['sig_types'] = collections.Counter(r.get('int_type') for r in sig).most_common()
-res['book'] = get('https://data.calgary.ca/resource/u6ce-yibw.json?$select=book_cd,blade_type,count(*),max(sign_txt)&$group=book_cd,blade_type&$order=count(*)%20DESC&$limit=120')
-res['facing'] = get('https://data.calgary.ca/resource/u6ce-yibw.json?$select=facing_cd,count(*)&$group=facing_cd&$limit=20')
-# stop and yield signs: guess by book code after seeing the list; fetch the likely ones now
-for cd in ['SG_14-001', 'SG_14-002', 'SG_14-101', 'SG_14-102', 'RA-1', 'RA-2']:
-    try: res['n ' + cd] = get(f"https://data.calgary.ca/resource/u6ce-yibw.json?$select=count(*)&$where=book_cd='{cd}'")
-    except Exception as e: res['n ' + cd] = str(e)[:100]
+res['status'] = get('https://data.calgary.ca/resource/u6ce-yibw.json?$select=sta_cd,sgn_sta_cd,count(*)&$group=sta_cd,sgn_sta_cd&$limit=50')
+rows = []; off = 0
+where = urllib.parse.quote("blade_type in('Stop','Yield','Playground','School','Speed','Pedestrian')")
+while True:
+    r = get(f'https://data.calgary.ca/resource/u6ce-yibw.json?$select=point,facing_cd,blade_type,book_cd,sign_txt,sta_cd,sgn_sta_cd&$where={where}&$limit=50000&$offset={off}&$order=:id')
+    rows += r; off += len(r)
+    if len(r) < 50000: break
+json.dump(rows, open(os.path.join(OUT, 'signs.json'), 'w'), separators=(',', ':'))
+res['n'] = len(rows); res['blade'] = collections.Counter(r.get('blade_type') for r in rows).most_common()
+res['sta'] = collections.Counter((r.get('sta_cd'), r.get('sgn_sta_cd')) for r in rows).most_common()
 json.dump(res, open(os.path.join(OUT, 'report.json'), 'w'), indent=1, default=str)
