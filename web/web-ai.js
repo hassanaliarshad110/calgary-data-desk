@@ -107,7 +107,7 @@
   // the bridge calls that need the engine
   const getSettings = api.get_settings;
   api.get_settings = async () => ({ ...(await getSettings()), has_key: !!apiKey && open_.genie });
-  api.ask = (question, mode) => run('ask', { question, mode });
+  api.ask = (question, mode, extra) => run('ask', { question, mode, ...(extra || {}) });   // extra: notes, a reopened chat (web-account.js)
   api.new_chat = async () => (worker ? call('new_chat', {}).catch(() => true) : true);
   api.analyst_run = (key, text, depth) => run('analyst_run', { key, text, depth });
   api.election_report = (text, area) => run('election_report', { text, area });

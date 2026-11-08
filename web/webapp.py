@@ -131,6 +131,7 @@ def _make(who):
 
 GENIE, SCIENTIST = _make('genie'), _make('scientist')
 SCIENTIST.who = 'The Data Scientist'
+GENIE.memory = True                       # Data Genie keeps the notes the visitor lets it (in their browser or account)
 SCIENTIST.web = True                     # the Data Scientist can search the web and read pages (Claude only)
 
 
@@ -166,6 +167,9 @@ def handle(op, args_json):
                     STATE[k] = a[k]
             return json.dumps({'ok': True})
         if op == 'ask':
+            if isinstance(a.get('restore'), list):          # a saved chat reopened: carry on from it
+                GENIE.restore(a['restore'])
+            GENIE.user_notes = str(a.get('notes') or '')
             res = GENIE.ask(a.get('question') or '', a.get('mode') or 'fast', today=_today())
             return json.dumps({'ok': True, **res}, default=str)
         if op == 'new_chat':

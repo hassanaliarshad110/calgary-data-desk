@@ -124,12 +124,12 @@ def page(out):
     """The app's screens, with the website bridge loaded before the app."""
     shutil.copytree(os.path.join(ROOT, 'ui'), out, dirs_exist_ok=True,
                     ignore=shutil.ignore_patterns('_*.html', '*.bak'))
-    for f in ('web.js', 'web.css', 'web-ui.js', 'web-ai.js', 'genie-worker.js'):
+    for f in ('web.js', 'web.css', 'web-ui.js', 'web-ai.js', 'web-account.js', 'genie-worker.js'):
         shutil.copy(os.path.join(ROOT, 'web', f), os.path.join(out, f))
     idx = open(os.path.join(ROOT, 'ui', 'index.html'), encoding='utf-8').read()
     idx = idx.replace('<script src="app.js"></script>',
                       '<script src="web.js"></script><script src="web-ai.js"></script><script src="app.js"></script>', 1)
-    idx = idx.replace('</body>', '<script src="web-ui.js"></script>\n</body>', 1)
+    idx = idx.replace('</body>', '<script src="web-ui.js"></script>\n<script src="web-account.js"></script>\n</body>', 1)
     idx = idx.replace('<title>Calgary Insight</title>', '<title>' + SEO['title'] + '</title>', 1)
     idx = idx.replace('</head>', '<link rel="stylesheet" href="web.css">\n' + seo_head() + '</head>', 1)
     idx = idx.replace('<a class="skip"', NOSCRIPT + '\n<a class="skip"', 1)
@@ -139,6 +139,23 @@ def page(out):
         f.write(idx)
     open(os.path.join(out, '.nojekyll'), 'w').close()
     robots_and_sitemap(out)
+
+
+def firebase_config():
+    """The site's Firebase web settings (repository variable FIREBASE_CONFIG: the JSON Firebase shows for a web app), for
+    the optional Google sign-in that keeps a visitor's Data Genie memory on every device. These settings are public by
+    design; the Firestore rules decide who may read what. None: sign-in stays off and memory stays in the browser."""
+    raw = os.environ.get('CDD_FIREBASE_CONFIG', '').strip()
+    if not raw:
+        return None
+    try:
+        cfg = json.loads(raw[raw.index('{'):raw.rindex('}') + 1])
+    except ValueError:
+        import re
+        cfg = dict(re.findall(r'(\w+)\s*:\s*["\']([^"\']+)["\']', raw))    # pasted as the JavaScript object Firebase shows
+    keep = ('apiKey', 'authDomain', 'projectId', 'storageBucket', 'messagingSenderId', 'appId')
+    cfg = {k: str(cfg[k]) for k in keep if cfg.get(k)}
+    return cfg if cfg.get('apiKey') and cfg.get('projectId') else None
 
 
 def bundle_scripts(out, idx):
@@ -476,7 +493,8 @@ def main():
            for k, t, ab, ar, _ in analyst.TOPICS])
     write(os.path.join(data, 'settings.json'), {
         'pop_methods': census.relabel([{'key': k, **v} for k, v in dashboard.POP_METHODS.items()], year),
-        'census_year': year, 'wards': wards, 'methods': meths, 'contact': os.environ.get('CDD_CONTACT_EMAIL', '').strip()})
+        'census_year': year, 'wards': wards, 'methods': meths, 'contact': os.environ.get('CDD_CONTACT_EMAIL', '').strip(),
+        'firebase': firebase_config()})
 
     def live():
         res = []

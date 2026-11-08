@@ -15,3 +15,46 @@ body[data-web] #settings-form > .row-actions, body[data-web] #open-folder { disp
 .web-lock .web-lock-msg { margin: 10px 0 0; font-size: .85rem; color: #B91C1C; min-height: 1.2em; }
 body[data-web] .view.web-locked > :not(.topbar):not(.web-lock) { display: none !important; }
 body[data-web] #view-news > .content[hidden] { display: none !important; }
+
+/* ---- Data Genie's memory and the optional sign-in (web-account.js) ---- */
+.acct-side { display: flex; align-items: center; gap: 8px; }
+.acct-side img { width: 20px; height: 20px; border-radius: 50%; }
+.acct-pop { position: absolute; top: calc(100% + 6px); right: 0; z-index: 60; width: min(380px, calc(100vw - 32px)); max-height: 60vh; overflow: auto;
+  background: var(--card); color: var(--fg); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--shadow-lg); padding: 8px; }
+.acct-pop-head { display: flex; flex-direction: column; gap: 2px; padding: 6px 8px 8px; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
+.acct-pop-head span, .acct-chat small, .acct-small { color: var(--muted-fg); font-size: 12.5px; }
+.acct-chat { display: flex; align-items: stretch; gap: 2px; }
+.acct-chat [data-open] { flex: 1; min-width: 0; text-align: left; background: none; border: 0; color: inherit; padding: 8px; border-radius: var(--r-sm); cursor: pointer;
+  display: flex; flex-direction: column; gap: 2px; font: inherit; }
+.acct-chat [data-open] span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acct-chat [data-open]:hover, .acct-chat [data-open]:focus-visible { background: var(--muted); }
+.acct-x, .acct-notes button, .acct-close { background: none; border: 0; color: var(--muted-fg); font-size: 18px; line-height: 1; padding: 4px 8px; border-radius: var(--r-sm); cursor: pointer; }
+.acct-x:hover, .acct-notes button:hover, .acct-close:hover { background: var(--danger-soft); color: var(--danger-fg); }
+.acct-empty { color: var(--muted-fg); padding: 8px; margin: 0; font-size: 13.5px; }
+.acct-pop-foot { border-top: 1px solid var(--border); margin-top: 4px; padding: 8px 4px 2px; }
+.acct-flash { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 90;
+  display: flex; gap: 12px; align-items: center; max-width: calc(100vw - 32px); background: var(--primary); color: var(--on-primary);
+  padding: 10px 14px; border-radius: var(--r); box-shadow: var(--shadow-lg); font-size: 14px; }
+.acct-flash button { background: none; border: 0; color: var(--accent-soft); font: inherit; font-weight: 600; cursor: pointer; text-decoration: underline; }
+.acct-dlg { border: 1px solid var(--border); border-radius: 12px; padding: 0; width: min(460px, calc(100vw - 32px)); background: var(--card); color: var(--fg); box-shadow: var(--shadow-lg); }
+.acct-dlg::backdrop { background: rgba(2, 6, 23, .45); }
+.acct-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; }
+.acct-body h2 { margin: 0; font-size: 19px; }
+.acct-body h3 { margin: 10px 0 0; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted-fg); }
+.acct-body p { margin: 0; line-height: 1.5; }
+.acct-head { display: flex; justify-content: space-between; align-items: center; }
+.acct-google { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 10px 14px; border-radius: var(--r);
+  border: 1px solid var(--border-strong); background: var(--card); color: var(--fg); font: inherit; font-weight: 600; cursor: pointer; }
+.acct-google:hover { background: var(--muted); }
+.acct-google svg { width: 20px; height: 20px; }
+.acct-who { display: flex; gap: 12px; align-items: center; }
+.acct-who img { width: 40px; height: 40px; border-radius: 50%; }
+.acct-who div { display: flex; flex-direction: column; min-width: 0; }
+.acct-who span { color: var(--muted-fg); font-size: 13px; overflow: hidden; text-overflow: ellipsis; }
+.acct-switch { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+.acct-notes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; max-height: 200px; overflow: auto; }
+.acct-notes li { display: flex; justify-content: space-between; align-items: center; gap: 8px; background: var(--muted); border-radius: var(--r-sm); padding: 4px 4px 4px 10px; font-size: 14px; }
+.acct-notes li.acct-empty { background: none; padding: 0; }
+.acct-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.acct-row input[type=text] { flex: 1; min-width: 0; padding: 8px 10px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: var(--card); color: var(--fg); font: inherit; }
+.acct-danger .btn { color: var(--danger-fg); }

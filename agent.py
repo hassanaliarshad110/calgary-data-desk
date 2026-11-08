@@ -42,6 +42,26 @@ WEB_TOOLS = [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': 8
                                 'timezone': 'America/Edmonton'}},
              {'type': 'web_fetch_20250910', 'name': 'web_fetch', 'max_uses': 6, 'citations': {'enabled': True},
               'max_content_tokens': 40000}]
+MEMORY_TOOLS = [
+    {'name': 'remember',
+     'description': "Save a short note about this visitor for later chats, kept in their own browser (and their account if they "
+                    'signed in). Only what they say about themselves or ask you to remember that will help later answers: their '
+                    'ward or community, their role (resident, councillor\'s office, journalist, business owner), what they follow, '
+                    'how they like answers. Never health, money, ID numbers, other people\'s details, or anything they did not say. '
+                    'One fact per note, in their words. They can see and delete every note.',
+     'input_schema': {'type': 'object', 'properties': {'note': {'type': 'string', 'description': 'e.g. "Lives in Bowness (Ward 1)"'}},
+                      'required': ['note']}},
+    {'name': 'forget',
+     'description': 'Remove saved notes about this visitor that match these words (when they ask you to forget something, or a note '
+                    'is no longer true).',
+     'input_schema': {'type': 'object', 'properties': {'words': {'type': 'string'}}, 'required': ['words']}}]
+MEMORY_NOTE = """
+
+WHAT THIS VISITOR HAS TOLD YOU (notes they let Data Genie keep; they can see and delete them):
+{notes}
+Use a note only where it changes the answer (their area, their role, what they follow); never list the notes back or say \
+"I remember" unless they ask what you know. When they tell you something durable about themselves that would help later \
+(their community, role, interests), save it with remember; when they ask you to forget something, use forget."""
 WEB_SEARCH_USD = 0.01          # each web search (reading a page costs only its tokens)
 WEB_NOTE = """
 
@@ -841,6 +861,8 @@ TOOLS[-1]['cache_control'] = {'type': 'ephemeral'}      # cache system prompt + 
 STEP_TEXT = {
     'search_datasets': lambda a: (f"Searching the City's datasets for “{a['query']}”" if a.get('query') else
                                   f"Listing the City's {a['category']} datasets" if a.get('category') else "Reading the City's data catalogue"),
+    'remember': lambda a: 'Noting that for later chats',
+    'forget': lambda a: 'Removing a saved note',
     'query_map_layer': lambda a: f"Reading the City's map layer {str(a.get('service', '')).split('/')[1] if '/' in str(a.get('service', '')) else a.get('service', '')}",
     'describe_dataset': lambda a: f"Reading the columns of {a.get('dataset_id', '')}",
     'query_dataset': lambda a: f"Querying {a.get('dataset_id', '')}",
@@ -1573,6 +1595,8 @@ class Agent:
         self.emit = emit                          # (event dict) -> None, sends to the app window
         self.who = 'Data Genie'                   # how errors name it (the Data Scientist and the auditor set their own)
         self.web = False                          # the internet (web search and reading pages): the Data Scientist has it
+        self.memory = False                       # notes the visitor lets it keep (Data Genie on the website)
+        self.user_notes = ''                      # those notes, sent with each question
         self.downloads_dir = downloads_dir
         self.dashboard_provider = dashboard_provider
         self.wards_provider = wards_provider      # () -> every ward side by side (or None)
@@ -1592,6 +1616,15 @@ class Agent:
 
     def reset(self):
         self.history = []                          # (a stopped report's checkpoint is kept so the same request can carry on)
+
+    def restore(self, turns):
+        """A saved chat reopened: its questions and written answers become the conversation again (charts and steps are
+        not kept, only the words)."""
+        self.reset()
+        for t in (turns or [])[-30:]:
+            q, a = str((t or {}).get('q') or '').strip(), str((t or {}).get('a') or '').strip()
+            if q and a:
+                self.history += [{'role': 'user', 'content': q}, {'role': 'assistant', 'content': [{'type': 'text', 'text': a[:12000]}]}]
 
     def _fresh(self):
         """The working state of one question."""
@@ -1647,6 +1680,12 @@ class Agent:
             if not q:
                 return catalog_mod.browse(cat, category or None)
             return catalog_mod.search(cat, q, category or None, max(1, min(int(args.get('limit') or 15), 60)))
+        if name in ('remember', 'forget') and self.memory:
+            text = str(args.get('note') if name == 'remember' else args.get('words') or '').strip()[:300]
+            if not text:
+                return {'error': 'Nothing to ' + name + '.'}
+            self.emit({'type': 'memory', 'op': 'add' if name == 'remember' else 'remove', 'text': text})
+            return {'ok': True, 'note': ('Saved for later chats.' if name == 'remember' else 'Notes matching it were removed.')}
         if name == 'query_map_layer':
             return catalog_mod.map_query(args.get('service'), args.get('layer') or 0, args.get('where'), args.get('fields'),
                                          args.get('group_by'), bool(args.get('count_only')), args.get('order'), args.get('limit') or 200)
@@ -2222,7 +2261,8 @@ class Agent:
             if self._size() > budget:
                 self._compact()
             try:
-                tools = self.tools + WEB_TOOLS if self.web and e['provider'] == 'claude' else self.tools
+                tools = self.tools + (MEMORY_TOOLS if self.memory else [])
+                tools = tools + WEB_TOOLS if self.web and e['provider'] == 'claude' else tools
                 r = engines.call(e, e[tier], system, tools, self._messages_to_send(), self._out_cap or MAX_OUTPUT,
                                  anthropic_post=post_messages, chat_post=post_chat, cache_mark=with_cache_mark,
                                  options=self._options(e))
@@ -2446,6 +2486,8 @@ class Agent:
         system = scope_note(dash) + system
         if self.web:
             system += WEB_NOTE
+        if self.memory:
+            system += MEMORY_NOTE.format(notes=self._short(self.user_notes, 4000) if (self.user_notes or '').strip() else '(none yet)')
         used = {'input': 0, 'output': 0, 'cache_read': 0, 'cost_usd': 0.0}
         self.last_cost = used
         pos, skipped, services = 0, [], []
