@@ -41,6 +41,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           set -e
+          # a key pasted with a space or line break around it is still the key
+          CLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"; export CLOUDFLARE_API_TOKEN
           W="npx --yes wrangler@3.99.0"
           # the storage for approvals and daily spend: made the first time, found by name after that
           id=$($W kv namespace list | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const a=JSON.parse(s.slice(s.indexOf('[')));const n=a.find(x=>x.title.endsWith('ACCESS'));console.log(n?n.id:'')})")
