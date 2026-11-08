@@ -4,7 +4,7 @@
 <meta name="description" content="Step through the door into Calgary: downtown, the Rockies, the Stampede, the Bow and the Chinook, with the Calgary song. A visitor's guide from Calgary Insight.">
 <link rel="canonical" href="https://calgaryinsight.ca/visit/">
 <meta property="og:title" content="Welcome to Calgary"><meta property="og:url" content="https://calgaryinsight.ca/visit/">
-<link rel="icon" href="../favicon.svg">
+<link rel="icon" href="../logo.svg">
 <title>Welcome to Calgary · Calgary Insight</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -82,6 +82,10 @@ section>h2{font-size:clamp(2rem,6vw,3.6rem);margin-bottom:1.6rem}
 .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(5,7,15,.88))}
 .tile div{position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:1}
 .tile h3{font-size:1.9rem}.tile p{margin:.35rem 0 0;font-size:.9rem;color:var(--mute)}
+a.tile{display:block;color:var(--ink);text-decoration:none}
+a.tile img{transition:transform .6s ease}
+a.tile:hover img,a.tile:focus-visible img{transform:scale(1.05)}
+.tile .go{display:block;margin-top:.45rem;color:var(--chinook);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 
 .song{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
 @media(max-width:760px){.song{grid-template-columns:1fr}}
@@ -196,9 +200,11 @@ header.top{position:relative}
     reel.appendChild(d);return d});
 
   /* ---- tiles ---- */
-  $('tiles').innerHTML=[['downtown','Downtown','Tower, Core, Stephen Ave'],['rockies','The mountains','Banff, Canmore, Kananaskis'],['stampede','Stampede','July. Plan a year ahead.'],['bow','River & pathways','Bow, Elbow, 1,000 km of trails'],['eat','Eat & drink','Kensington to Inglewood'],['alive','After dark','Music, hockey, patios']]
-   .map(function(a){return '<article class="tile"><img alt="" src="'+PH[a[0]].src+'"><div><h3>'+a[1]+'</h3><p>'+a[2]+'</p></div></article>'}).join('');
-  $('credits').innerHTML=Object.keys(PH).map(function(k){return '<li>'+k.charAt(0).toUpperCase()+k.slice(1)+': '+PH[k].credit+'</li>'}).join('');
+  /* each tile opens its guide (visit/<topic>/); three have their own photo: downtown at night, the Peace Bridge lit up, the market */
+  $('tiles').innerHTML=[['downtown','Downtown','Tower, Core, Stephen Ave','downtown','img/tile-downtown.jpg'],['rockies','The mountains','Banff, Canmore, Kananaskis','mountains'],['stampede','Stampede','July. Plan a year ahead.','stampede'],['bow','River & pathways','Bow, Elbow, 1,000 km of trails','river','img/tile-river.jpg'],['eat','Eat & drink','Kensington to Inglewood','eat','img/tile-eat.jpg'],['alive','After dark','Music, hockey, patios','after-dark']]
+   .map(function(a){return '<a class="tile" href="'+a[3]+'/"><img alt="" loading="lazy" src="'+(a[4]||PH[a[0]].src)+'"><div><h3>'+a[1]+'</h3><p>'+a[2]+' <span class="go">Read the guide \u2192</span></p></div></a>'}).join('');
+  $('credits').innerHTML=Object.keys(PH).map(function(k){return '<li>'+k.charAt(0).toUpperCase()+k.slice(1)+': '+PH[k].credit+'</li>'}).join('')
+  $('credits').innerHTML+='<li>Downtown at night (tile): Gorgo, public domain</li><li>Peace Bridge at night (tile): naserke, CC BY-SA 2.0</li><li>Calgary Farmers\u2019 Market (tile): Mack Male, CC BY-SA 2.0</li>';
 
   /* ---- intro sequence ---- */
   var timers=[], running=false;

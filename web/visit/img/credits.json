@@ -1,0 +1,402 @@
+{
+"tile-downtown": {
+"artist": "Gorgo",
+"lic": "Public domain",
+"licurl": "",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Downtown_night.jpg",
+"w": 900,
+"h": 675
+},
+"tile-river": {
+"artist": "naserke",
+"lic": "CC BY-SA 2.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Peace_Bridge_Calgary.jpg",
+"w": 900,
+"h": 598
+},
+"tile-eat": {
+"artist": "Mack Male from Edmonton, AB, Canada",
+"lic": "CC BY-SA 2.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Farmers_Market_(6143205078).jpg",
+"w": 900,
+"h": 675
+},
+"dt-hero": {
+"artist": "Bernard Spragg. NZ from Christchurch, New Zealand",
+"lic": "CC0",
+"licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_By_Night._(8956015340).jpg",
+"w": 1400,
+"h": 806
+},
+"dt-tower": {
+"artist": "User:Thivierr, cropped by Qyd (talk\u00a0\u00b7 contribs)",
+"lic": "CC BY-SA 3.0",
+"licurl": "http://creativecommons.org/licenses/by-sa/3.0/",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Tower_with_flame_1-cropped.jpg",
+"w": 1400,
+"h": 1135
+},
+"dt-stephen": {
+"artist": "Jan Mosimann from Cochrane, Canada",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Stephen_Avenue,_Calgary_2018_(27593229258).jpg",
+"w": 1400,
+"h": 933
+},
+"dt-library": {
+"artist": "Calgary Public Library",
+"lic": "CC0",
+"licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"page": "https://commons.wikimedia.org/wiki/File:Central_Library_-_Calgary_Public_Library.jpg",
+"w": 1400,
+"h": 933
+},
+"dt-studiobell": {
+"artist": "Daniel from Glasgow, United Kingdom",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Studio_Bell_in_Calgary_(48719528203).jpg",
+"w": 1400,
+"h": 933
+},
+"dt-devonian": {
+"artist": "Design148",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Devonian_Gardens-2969.jpg",
+"w": 1200,
+"h": 800
+},
+"dt-chinatown": {
+"artist": "Mike from Vancouver, Canada",
+"lic": "CC BY-SA 2.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Chinatown_(05)_(9520725785).jpg",
+"w": 1400,
+"h": 1120
+},
+"dt-olympic": {
+"artist": "DXR",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Olympic_Plaza,_Calgary,_south_view_20240818_1.jpg",
+"w": 1400,
+"h": 933
+},
+"mt-hero": {
+"artist": "Chensiyuan",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:1_moraine_lake_pano_2019.jpg",
+"w": 1400,
+"h": 747
+},
+"mt-louise": {
+"artist": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Banff_National_Park_(AB,_Canada),_Lake_Louise_--_2022_--_2197.jpg",
+"w": 1400,
+"h": 788
+},
+"mt-banff": {
+"artist": "InSapphoWeTrust from Los Angeles, California, USA",
+"lic": "CC BY-SA 2.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Banff_Avenue,_Banff_(7853823354).jpg",
+"w": 1400,
+"h": 907
+},
+"mt-gondola": {
+"artist": "Deror_avi",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Banff_Sulphur_Mountain_Gondola_IMG_4259.JPG",
+"w": 1400,
+"h": 933
+},
+"mt-canmore": {
+"artist": "Jakub Fry\u0161",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Three_Sisters_from_Police_Creek.jpg",
+"w": 1400,
+"h": 788
+},
+"mt-johnston": {
+"artist": "DXR",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Johnston_Canyon_20240822_6.jpg",
+"w": 1400,
+"h": 933
+},
+"mt-kananaskis": {
+"artist": "RAF-YYC from Calgary, Canada",
+"lic": "CC BY 2.5",
+"licurl": "https://creativecommons.org/licenses/by/2.5",
+"page": "https://commons.wikimedia.org/wiki/File:Kananaskis_aerial.jpg",
+"w": 1400,
+"h": 501
+},
+"mt-minnewanka": {
+"artist": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Banff_National_Park_(AB,_Canada),_Lake_Minnewanka_--_2022_--_2316.jpg",
+"w": 1400,
+"h": 933
+},
+"st-hero": {
+"artist": "Gnosis",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Stampede_Rodeo_final_day_17_-_2011.jpg",
+"w": 1400,
+"h": 971
+},
+"st-bronc": {
+"artist": "Gnosis",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Stampede_Rodeo_final_day_18_-_2011.jpg",
+"w": 1400,
+"h": 1066
+},
+"st-chuck": {
+"artist": "Resolute",
+"lic": "CC BY-SA 3.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+"page": "https://commons.wikimedia.org/wiki/File:Stampede_chuckwagon_race_start.JPG",
+"w": 1400,
+"h": 1050
+},
+"st-midway": {
+"artist": "jasonwoodhead23",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Stampede_2013_(9256151541).jpg",
+"w": 1400,
+"h": 1050
+},
+"st-breakfast": {
+"artist": "Calgary Reviews from Calgary, Canada",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Chinook_Breakfast_-_Pancake_Station_(5928204945).jpg",
+"w": 1400,
+"h": 1050
+},
+"st-elbowcamp": {
+"artist": "Jason Woodhead",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_stampede_2021_(51327120116).jpg",
+"w": 1400,
+"h": 1025
+},
+"st-grandstand": {
+"artist": "Saberwyn",
+"lic": "CC BY-SA 3.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+"page": "https://commons.wikimedia.org/wiki/File:Stampede_Stage.jpg",
+"w": 1400,
+"h": 1050
+},
+"st-parade": {
+"artist": "Gnosis",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Stampede_Parade_12_-_2012.jpg",
+"w": 1400,
+"h": 1045
+},
+"st-park": {
+"artist": "Quintin Soloviev",
+"lic": "CC BY 4.0",
+"licurl": "https://creativecommons.org/licenses/by/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:GMC_Stadium_(Calgary_Stampede).jpg",
+"w": 1400,
+"h": 933
+},
+"rv-hero": {
+"artist": "DXR",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Peace_Bridge,_Calgary,_north_view_20240818_1.jpg",
+"w": 1400,
+"h": 933
+},
+"rv-peace-night": {
+"artist": "Flickr user \u201cThank you for visiting my page\u201d",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:The_peace_bridge_Calgary_(10504576355).jpg",
+"w": 1400,
+"h": 933
+},
+"rv-princes": {
+"artist": "Scott5114",
+"lic": "Public domain",
+"licurl": "",
+"page": "https://commons.wikimedia.org/wiki/File:Prince%27sIsland.jpg",
+"w": 1400,
+"h": 1050
+},
+"rv-stpatricks": {
+"artist": "KatherineCraw 18",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:St._Patrick%27s_Island_Bridge.jpg",
+"w": 1400,
+"h": 1050
+},
+"rv-fishcreek": {
+"artist": "Bernard Spragg. NZ from Christchurch, New Zealand",
+"lic": "CC0",
+"licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"page": "https://commons.wikimedia.org/wiki/File:Fish_Creek_Provincial_Park._Calgary_(9426404094).jpg",
+"w": 1400,
+"h": 967
+},
+"rv-nosehill": {
+"artist": "Oceanflynn",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Nose_Hill_Park_YYC_02.jpg",
+"w": 1400,
+"h": 933
+},
+"rv-float": {
+"artist": "Flickr user \u201cThank you for visiting my page\u201d",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Enjoying_the_Bow_river_Calgary_(34678882941).jpg",
+"w": 1400,
+"h": 933
+},
+"rv-pathway": {
+"artist": "Flickr user \u201cThank you for visiting my page\u201d",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Bow_river_Pathway_Calgary_(14445097859).jpg",
+"w": 1400,
+"h": 933
+},
+"rv-edworthy": {
+"artist": "Daniel from Glasgow, United Kingdom",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Edworthy_Park,_Calgary_(48725369482).jpg",
+"w": 1400,
+"h": 933
+},
+"ea-hero": {
+"artist": "Mack Male from Edmonton, AB, Canada",
+"lic": "CC BY-SA 2.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Farmers%27_Market_(33931299798).jpg",
+"w": 1400,
+"h": 933
+},
+"ea-kensington": {
+"artist": "Flickr user \u201cThank you for visiting my page\u201d",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Kensington_Calgary_July_13th_2014_(14668592753).jpg",
+"w": 1400,
+"h": 933
+},
+"ea-inglewood": {
+"artist": "Flickr user \u201cThank you for visiting my page\u201d",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Inglewood_Calgary_A_walk_through_(13510852354).jpg",
+"w": 1400,
+"h": 933
+},
+"ea-17ave": {
+"artist": "Daniel from Glasgow, United Kingdom",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary,_October_2017_(4)_(36792550434).jpg",
+"w": 1400,
+"h": 933
+},
+"ea-brewery": {
+"artist": "RedBisonBrewery",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Red_Bison_Brewery.jpg",
+"w": 1400,
+"h": 1050
+},
+"ea-stephen": {
+"artist": "RG Anderson",
+"lic": "CC BY-SA 3.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Stephen_Avenue.jpg",
+"w": 1400,
+"h": 933
+},
+"ea-chinatown": {
+"artist": "Sharon Hahn Darlin",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary,_Canada_April_2022_-_Soluxe_Restaurant.jpg",
+"w": 1400,
+"h": 1050
+},
+"ad-hero": {
+"artist": "Calgary Reviews",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Downtown.jpg",
+"w": 1400,
+"h": 933
+},
+"ad-flames": {
+"artist": "Ani979 at English Wikipedia",
+"lic": "Public domain",
+"licurl": "",
+"page": "https://commons.wikimedia.org/wiki/File:Pengrowth_Saddledome_NHL_game.jpg",
+"w": 1400,
+"h": 1050
+},
+"ad-mcmahon": {
+"artist": "Daniel from Glasgow, United Kingdom",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Tiger-Cats_@_Stampeders_(35452251333).jpg",
+"w": 1400,
+"h": 788
+},
+"ad-arts": {
+"artist": "Chris Woodrich",
+"lic": "CC BY-SA 4.0",
+"licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+"page": "https://commons.wikimedia.org/wiki/File:Arts_Commons,_Calgary,_Alberta,_2025-07-14_01.jpg",
+"w": 1400,
+"h": 933
+},
+"ad-folk": {
+"artist": "JollyJamboree",
+"lic": "CC0",
+"licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_Folk_Festival_2023_main_stage_at_night.jpg",
+"w": 1400,
+"h": 1050
+},
+"ad-tower": {
+"artist": "Colby Stopa from Calgary, Canada",
+"lic": "CC BY 2.0",
+"licurl": "https://creativecommons.org/licenses/by/2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Calgary_(8473643800).jpg",
+"w": 1400,
+"h": 936
+}
+}
