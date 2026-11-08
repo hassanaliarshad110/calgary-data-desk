@@ -3,24 +3,13 @@ OUT = sys.argv[1]; os.makedirs(OUT, exist_ok=True); res = {}
 H = {'User-Agent': 'CalgaryGameMap/1.0'}
 if os.environ.get('SOCRATA_TOKEN'): H['X-App-Token'] = os.environ['SOCRATA_TOKEN']
 def get(u): return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=H), timeout=300).read())
-seen = {}
-for q in ['traffic signals', 'traffic signal', 'pedestrian crossing', 'flashing beacon', 'traffic signs', 'ward boundaries', 'councillor']:
-    try:
-        r = get('https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&limit=8&q=' + urllib.parse.quote(q))
-        res['q ' + q] = [x['resource']['id'] + ' ' + x['resource']['name'] + ' [' + x['resource']['type'] + ']' for x in r['results']]
-        for x in r['results']:
-            rs = x['resource']
-            if rs['type'] == 'dataset': seen[rs['id']] = {'name': rs['name'], 'cols': rs.get('columns_field_name', [])[:40]}
-    except Exception as e: res['q ' + q] = str(e)
-for ds, v in seen.items():
-    try:
-        v['count'] = get(f'https://data.calgary.ca/resource/{ds}.json?$select=count(*)')
-        v['sample'] = get(f'https://data.calgary.ca/resource/{ds}.json?$limit=2')
-    except Exception as e: v['err'] = str(e)[:200]
-res['datasets'] = seen
-# traffic signs: what kinds exist
-try:
-    res['signs_by_type'] = get('https://data.calgary.ca/resource/u6ce-yibw.json?$select=pl_ty,count(*)&$group=pl_ty&$order=count(*)%20DESC&$limit=60')
-    res['signs_text'] = get('https://data.calgary.ca/resource/u6ce-yibw.json?$select=sign_txt,count(*)&$group=sign_txt&$order=count(*)%20DESC&$limit=60')
-except Exception as e: res['signs_err'] = str(e)[:300]
+sig = get('https://data.calgary.ca/resource/qr97-4jvx.json?$limit=50000')
+json.dump(sig, open(os.path.join(OUT, 'signals.json'), 'w'))
+res['sig_types'] = collections.Counter(r.get('int_type') for r in sig).most_common()
+res['book'] = get('https://data.calgary.ca/resource/u6ce-yibw.json?$select=book_cd,blade_type,count(*),max(sign_txt)&$group=book_cd,blade_type&$order=count(*)%20DESC&$limit=120')
+res['facing'] = get('https://data.calgary.ca/resource/u6ce-yibw.json?$select=facing_cd,count(*)&$group=facing_cd&$limit=20')
+# stop and yield signs: guess by book code after seeing the list; fetch the likely ones now
+for cd in ['SG_14-001', 'SG_14-002', 'SG_14-101', 'SG_14-102', 'RA-1', 'RA-2']:
+    try: res['n ' + cd] = get(f"https://data.calgary.ca/resource/u6ce-yibw.json?$select=count(*)&$where=book_cd='{cd}'")
+    except Exception as e: res['n ' + cd] = str(e)[:100]
 json.dump(res, open(os.path.join(OUT, 'report.json'), 'w'), indent=1, default=str)
