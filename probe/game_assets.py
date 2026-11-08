@@ -5,6 +5,7 @@ heights in dm above the game reference (City Hall ground, ref_m):
 roof triangles only; walls = roof edges not shared with another roof triangle at the same height, from (za, zb) up to the roof."""
 import gzip, json, math, os, struct, subprocess, sys, collections
 import numpy as np
+import mapbox_earcut as earcut
 from pyproj import Transformer
 OUT = sys.argv[1]; os.makedirs(OUT, exist_ok=True); rep = {}
 LAT0, LON0 = 51.0453, -114.0581
@@ -19,25 +20,41 @@ gdb = sh('find /tmp/b3d -maxdepth 3 -type d -name "*.gdb" | head -1').strip().sp
 rep['gdb'] = gdb
 rep['info'] = sh(f'ogrinfo -ro -so -al "{gdb}" | head -80')
 print(rep['info'], flush=True)
-rep['conv'] = sh(f'ogr2ogr -f GeoJSONSeq /tmp/b3d.geojsonl "{gdb}" -nlt MULTIPOLYGON -dim XYZ -lco COORDINATE_PRECISION=3 && ls -la /tmp/b3d.geojsonl')
+rep['conv'] = sh(f'ogr2ogr -f CSV /tmp/b3d.csv "{gdb}" -nlt MULTIPOLYGON -dim XYZ -lco GEOMETRY=AS_WKT -select STRUCT_ID,GRD_ELEV_MIN_Z,ROOFTOP_ELEV_Z,STAGE && ls -la /tmp/b3d.csv && head -c 600 /tmp/b3d.csv')
 print(rep['conv'], flush=True)
-tr = Transformer.from_crs('EPSG:3776', 'EPSG:4326', always_xy=True)
+tr = Transformer.from_crs('+proj=tmerc +lat_0=0 +lon_0=-114 +k=0.9999 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs', 'EPSG:4326', always_xy=True)
+import csv, re
+csv.field_size_limit(1 << 30)
 files = {}; counts = collections.Counter(); stats = collections.Counter(); sample = None
 def out(k):
     if k not in files: files[k] = gzip.open(os.path.join(OUT, f'b3d_{k}.bin.gz'), 'wb', compresslevel=9)
     return files[k]
-dbg = open(os.path.join(OUT, 'b3d_sample.jsonl'), 'w')
-for li, line in enumerate(open('/tmp/b3d.geojsonl')):
-    if li < 30 or li % 20000 == 0: dbg.write(line[:20000])
-    f = json.loads(line); g = f.get('geometry'); p = f.get('properties') or {}
-    if sample is None: sample = {k: str(v)[:60] for k, v in p.items()}
-    if not g or g['type'] != 'MultiPolygon': stats['skip_geom'] += 1; continue
+dbg = open(os.path.join(OUT, 'b3d_sample.txt'), 'w')
+def parse_mp(w):
+    # MULTIPOLYGON Z (((x y z,x y z,...)),((...)))  -> list of polygons, each a list of rings of (x,y,z)
+    body = w[w.index('(') :]
+    polys = []
+    for ptxt in re.split(r'\)\)\s*,\s*\(\(', body.strip()[3:-3]):
+        rings = []
+        for rtxt in re.split(r'\)\s*,\s*\(', ptxt):
+            rings.append([tuple(map(float, q.split())) for q in rtxt.strip('() ').split(',') if q.strip()])
+        polys.append(rings)
+    return polys
+rd = csv.DictReader(open('/tmp/b3d.csv', newline=''))
+for li, p in enumerate(rd):
+    w = p.get('WKT') or ''
+    if li < 5: dbg.write(json.dumps({k: (v[:3000] if isinstance(v, str) else v) for k, v in p.items()}) + '\n')
+    if sample is None: sample = {k: str(v)[:60] for k, v in p.items() if k != 'WKT'}
+    if not w.startswith('MULTIPOLYGON'): stats['skip_geom'] += 1; continue
+    try: g = {'coordinates': parse_mp(w)}
+    except Exception as e: stats['parse_err'] += 1; continue
     tris = []
     for poly in g['coordinates']:
         ring = poly[0]
         if len(ring) < 4: stats['short_ring'] += 1; continue
         pts = np.array(ring[:-1], dtype=np.float64)
         if pts.ndim != 2 or pts.shape[1] < 3: stats['no_z'] += 1; continue
+        holes = [np.array(h[:-1], dtype=np.float64) for h in poly[1:] if len(h) >= 4]
         # polygon normal (Newell)
         n = np.zeros(3)
         for i in range(len(pts)):
@@ -45,7 +62,12 @@ for li, line in enumerate(open('/tmp/b3d.geojsonl')):
             n += [(a[1] - b[1]) * (a[2] + b[2]), (a[2] - b[2]) * (a[0] + b[0]), (a[0] - b[0]) * (a[1] + b[1])]
         L = np.linalg.norm(n)
         if L < 1e-6 or abs(n[2]) / L < 0.17: stats['wall_faces'] += 1; continue     # walls: rebuilt from the roof edges
-        for i in range(1, len(pts) - 1): tris.append((pts[0], pts[i], pts[i + 1]))     # roof faces are convex enough (fan)
+        allp = np.vstack([pts] + [h for h in holes if h.ndim == 2 and h.shape[1] >= 3]) if holes else pts
+        ends = np.cumsum([len(pts)] + [len(h) for h in holes if h.ndim == 2 and h.shape[1] >= 3]).astype(np.uint32)
+        try: idx = earcut.triangulate_float64(allp[:, :2], ends)
+        except Exception: stats['earcut_err'] += 1; idx = []
+        if len(idx) == 0 and len(pts) >= 3: idx = [j for i in range(1, len(pts) - 1) for j in (0, i, i + 1)]
+        for i in range(0, len(idx), 3): tris.append((allp[idx[i]], allp[idx[i + 1]], allp[idx[i + 2]]))
     if not tris: stats['no_roof'] += 1; continue
     P = np.array([v for t in tris for v in t])
     lon, lat = tr.transform(P[:, 0], P[:, 1])
