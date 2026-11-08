@@ -264,9 +264,12 @@ def map_svg(mp, geo, name_to_code, w=680, h=440):
         out.append(f'<path d="{path(g)}" fill="{fill}" stroke="#fff" stroke-width="1"/>')
     if ward:
         out.append(f'<path d="{path(ward)}" fill="none" stroke="#0F172A" stroke-width="1.6"/>')
-    for code, g in comms.items():           # labels at the middle of each shaded community's outline
+    # labels at the middle of each shaded community's outline; a city-wide map of many small communities has none (they
+    # would overlap), and its figures go in a table beside it
+    show = set() if len(vals) > 40 else None
+    for code, g in comms.items():
         r = max(_rings(g), key=len, default=None)
-        if not r or (vals and code not in vals) or (not vals and code not in code_name):
+        if not r or (vals and code not in vals) or (not vals and code not in code_name) or (show is not None and code not in show):
             continue
         cx = sum(x for x, _ in r) / len(r)
         cy = sum(y for _, y in r) / len(r)

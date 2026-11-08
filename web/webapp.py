@@ -177,15 +177,18 @@ def handle(op, args_json):
             return json.dumps(True)
         if op == 'analyst_run':
             SCIENTIST.reset()
+            SCIENTIST.earlier = a.get('research') or []      # earlier reports' research kept in the visitor's browser
             tier = 'smart' if a.get('depth') == 'quick' else 'audit'       # Quick: the fast model; Thorough: the strongest
             res = SCIENTIST.ask(analyst.brief(a.get('key'), a.get('text'), area=_place()), tier, today=_today())
             return json.dumps({'ok': True, **res}, default=str)
         if op == 'business_report':
             SCIENTIST.reset()
+            SCIENTIST.earlier = a.get('research') or []      # earlier reports' research kept in the visitor's browser
             res = SCIENTIST.ask(analyst.business_brief(a.get('text'), a.get('area') or _place()), 'audit', today=_today())
             return json.dumps({'ok': True, **res}, default=str)
         if op == 'election_report':
             SCIENTIST.reset()
+            SCIENTIST.earlier = a.get('research') or []      # earlier reports' research kept in the visitor's browser
             res = SCIENTIST.ask(analyst.election_brief(a.get('text'), a.get('area') or _place()), 'audit', today=_today())
             return json.dumps({'ok': True, **res}, default=str)
         if op == 'analyst_reports':

@@ -255,7 +255,9 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
 can run to 100 pages with dozens of tables and charts: never shorten, summarise or drop sections to make it fit, and never \
 refuse because it is long. Nothing limits how much data you gather or how many parts you write; work until it is complete. \
 Work as a researcher, in this order.
-   a. Gather with a plan: first find every source that bears on the subject. The City's whole open data catalogue is \
+   a. Gather with a plan: first call earlier_research for the subject; when an earlier report covers part of it, start \
+from its figures and fetch only what is newer than its data_as_of day or what it did not cover (say so in the method). \
+Then find every source that bears on the subject. The City's whole open data catalogue is \
 here (search_datasets): search it with several wordings and browse the categories the subject falls in, check the site's \
 pages (list_sources) and the map layers, and use every dataset that adds something, not only the obvious one. Then decide \
 which sources answer which part, and query each once, grouped in the query (by community, \
@@ -834,6 +836,13 @@ _MR = next(t for t in TOOLS if t['name'] == 'make_report')
 _MR['description'] += (' Finish with this call. Anything already saved with report_add is included, so a report of any length '
                        'is made by report_add (a few sections at a time) and then make_report with the title and what is left.')
 TOOLS.insert(TOOLS.index(_MR), {
+    'name': 'earlier_research',
+    'description': ('The research behind earlier reports (their question, key figures, research notes, conclusion, sources and the '
+                    'day their data was read), best match first. Call it at the start of every report: when an earlier report '
+                    'covers part of the subject, start from its figures and fetch only data newer than its data_as_of day, or what '
+                    'it did not cover, instead of gathering everything again.'),
+    'input_schema': {'type': 'object', 'properties': {'find': {'type': 'string', 'description': 'words about the subject, e.g. "sewer age back-ups"'}}}})
+TOOLS.insert(TOOLS.index(_MR), {
     'name': 'recall_result',
     'description': 'The full result of an earlier step of this question, by its step number (every result is marked [step N]; '
                    'the condensed conversation lists them). Use it for figures from data you already fetched instead of fetching again.',
@@ -864,6 +873,7 @@ STEP_TEXT = {
     'search_datasets': lambda a: (f"Searching the City's datasets for “{a['query']}”" if a.get('query') else
                                   f"Listing the City's {a['category']} datasets" if a.get('category') else "Reading the City's data catalogue"),
     'remember': lambda a: 'Noting that for later chats',
+    'earlier_research': lambda a: 'Reading earlier reports on this' + (f" ({a['find']})" if a.get('find') else ''),
     'forget': lambda a: 'Removing a saved note',
     'query_map_layer': lambda a: f"Reading the City's map layer {str(a.get('service', '')).split('/')[1] if '/' in str(a.get('service', '')) else a.get('service', '')}",
     'describe_dataset': lambda a: f"Reading the columns of {a.get('dataset_id', '')}",
@@ -1599,6 +1609,7 @@ class Agent:
         self.web = False                          # the internet (web search and reading pages): the Data Scientist has it
         self.memory = False                       # notes the visitor lets it keep (Data Genie on the website)
         self.user_notes = ''                      # those notes, sent with each question
+        self.earlier = []                         # earlier reports' research, sent by the page (the website keeps it per visitor)
         self.downloads_dir = downloads_dir
         self.dashboard_provider = dashboard_provider
         self.wards_provider = wards_provider      # () -> every ward side by side (or None)
@@ -1682,6 +1693,8 @@ class Agent:
             if not q:
                 return catalog_mod.browse(cat, category or None)
             return catalog_mod.search(cat, q, category or None, max(1, min(int(args.get('limit') or 15), 60)))
+        if name == 'earlier_research':
+            return self._earlier(args.get('find'))
         if name in ('remember', 'forget') and self.memory:
             text = str(args.get('note') if name == 'remember' else args.get('words') or '').strip()[:300]
             if not text:
@@ -1860,9 +1873,63 @@ class Agent:
             self._report_pdf = entry['pdf']
             self._draft = {}
             self.emit({'type': 'report', **entry, 'name': res['name'], 'warning': res['warning'], 'path': res['path']})
+            self._keep_research(args, meta)
             return {'saved_to': res['path'], 'interactive_version': res['interactive'], 'excel_workbook': res['xlsx'],
                     'visuals_drawn': res['visuals'], 'map_points': notes, 'warning': res['warning']}
         raise cd.DataError(f'Unknown tool {name}')
+
+    # ----- earlier research: a new report starts from what earlier ones found, and asks only for what is newer ------------
+    def _keep_research(self, args, meta):
+        """The research behind a finished report, kept for the next one: its question, key figures, notes, sources and the
+        day its data was read. On the website the page keeps it in the visitor's memory; here also in data/research."""
+        def plain(v):
+            return [x if isinstance(x, str) else json.dumps(x, default=str) for x in (v or [])] if isinstance(v, list) else ([v] if v else [])
+        rec = {'id': f"{meta.get('day')}-{re.sub(r'[^a-z0-9]+', '-', str(args.get('title', '')).lower()).strip('-')[:60]}",
+               'title': args.get('title', ''), 'question': self._short(self._question or args.get('question', ''), 600),
+               'made': meta.get('day'), 'data_as_of': meta.get('built') or meta.get('day'), 'area': meta.get('area'),
+               'key_figures': plain(args.get('key_figures'))[:60], 'summary': plain(args.get('summary'))[:12],
+               'notes': self._short(args.get('research_notes') or '', 8000),
+               'conclusion': self._short(args.get('conclusion') or '', 2000),
+               'sources': [{k: s.get(k) for k in ('name', 'dataset_id', 'publisher', 'period', 'url') if s.get(k)} if isinstance(s, dict) else {'name': str(s)}
+                           for s in (args.get('data_sources') or [])][:40],
+               'chapters': [x.get('heading') for x in args.get('sections') or [] if isinstance(x, dict)][:80]}
+        self.emit({'type': 'research', 'record': rec})
+        if self.data_dir:
+            try:
+                d = os.path.join(self.data_dir, 'research')
+                os.makedirs(d, exist_ok=True)
+                with open(os.path.join(d, rec['id'] + '.json'), 'w', encoding='utf-8') as f:
+                    json.dump(rec, f, default=str)
+            except OSError:
+                pass
+        return rec
+
+    def _earlier(self, find=None):
+        """Earlier reports' research (sent by the page, and kept on this computer), best match first."""
+        recs = {r.get('id') or r.get('title'): r for r in (self.earlier or []) if isinstance(r, dict)}
+        d = os.path.join(self.data_dir or '', 'research')
+        if self.data_dir and os.path.isdir(d):
+            for f in sorted(os.listdir(d))[-60:]:
+                try:
+                    with open(os.path.join(d, f), encoding='utf-8') as fh:
+                        r = json.load(fh)
+                    recs.setdefault(r.get('id') or f, r)
+                except (OSError, ValueError):
+                    pass
+        words = [w for w in re.findall(r'[a-z0-9]+', str(find or '').lower()) if len(w) > 2]
+        def score(r):
+            text = json.dumps({k: r.get(k) for k in ('title', 'question', 'chapters', 'key_figures', 'sources')}, default=str).lower()
+            return sum(text.count(w) for w in words)
+        ranked = sorted(recs.values(), key=lambda r: (score(r), str(r.get('made') or '')), reverse=True)   # best, then newest
+        if words:
+            ranked = [r for r in ranked if score(r)]
+        if not ranked:
+            return {'found': 0, 'note': 'No earlier report covers this. Gather the data in full.'}
+        top = ranked[:3]
+        return {'found': len(ranked), 'reports': top + [{'title': r.get('title'), 'made': r.get('made')} for r in ranked[3:10]],
+                'note': ('Start from these: reuse their figures for periods that ended before the day their data was read '
+                         '(data_as_of), and query only what is newer (for example requested_date after that day) or what they did '
+                         'not cover. Say in the method which figures were carried over from which earlier report and when.')}
 
     LIST_PARTS = ('summary', 'sections', 'method', 'data_sources', 'limitations', 'recommendations', 'action_plan', 'key_figures')
 

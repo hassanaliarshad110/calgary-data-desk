@@ -109,9 +109,10 @@
   api.get_settings = async () => ({ ...(await getSettings()), has_key: !!apiKey && open_.genie });
   api.ask = (question, mode, extra) => run('ask', { question, mode, ...(extra || {}) });   // extra: notes, a reopened chat (web-account.js)
   api.new_chat = async () => (worker ? call('new_chat', {}).catch(() => true) : true);
-  api.analyst_run = (key, text, depth) => run('analyst_run', { key, text, depth });
-  api.election_report = (text, area) => run('election_report', { text, area });
-  api.business_report = (text, area) => run('business_report', { text, area });
+  // extra: earlier reports' research kept in the visitor's memory (web-account.js)
+  api.analyst_run = (key, text, depth, extra) => run('analyst_run', { key, text, depth, ...(extra || {}) });
+  api.election_report = (text, area, extra) => run('election_report', { text, area, ...(extra || {}) });
+  api.business_report = (text, area, extra) => run('business_report', { text, area, ...(extra || {}) });
   api.audit_run = (report) => run('audit_run', { report });
   api.audit_list = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('audit_list', {}); } catch (e) { return []; } };
   api.analyst_reports = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('analyst_reports', {}); } catch (e) { return []; } };

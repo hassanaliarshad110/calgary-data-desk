@@ -7,7 +7,7 @@
   'use strict';
   const W = window.CDD_WEB, api = window.pywebview && window.pywebview.api;
   if (!W || !api) return;
-  const KEY = 'cdd-genie-memory-v1', MAX_CHATS = 60, MAX_TURNS = 40, MAX_ANSWER = 12000, MAX_NOTES = 60;
+  const KEY = 'cdd-genie-memory-v1', MAX_CHATS = 60, MAX_TURNS = 40, MAX_ANSWER = 12000, MAX_NOTES = 60, MAX_RESEARCH = 30;
   const SDK = 'https://www.gstatic.com/firebasejs/10.12.2/';
   const $ = (s, el = document) => el.querySelector(s);
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -18,12 +18,13 @@
   let mem = load();
   let chatId = null, restore = null, user = null, db = null, fb = null, cloudTimer = null;
   function load() {
-    try { const m = JSON.parse(localStorage.getItem(KEY) || 'null'); if (m && Array.isArray(m.chats)) return { on: true, notes: [], ...m }; } catch (e) { /* private window */ }
-    return { on: true, notes: [], chats: [] };
+    try { const m = JSON.parse(localStorage.getItem(KEY) || 'null'); if (m && Array.isArray(m.chats)) return { on: true, notes: [], research: [], ...m }; } catch (e) { /* private window */ }
+    return { on: true, notes: [], chats: [], research: [] };
   }
   function save(toCloud = true) {
     mem.chats = mem.chats.sort((a, b) => (b.updated || '').localeCompare(a.updated || '')).slice(0, MAX_CHATS);
     mem.notes = mem.notes.slice(-MAX_NOTES);
+    mem.research = (mem.research || []).slice(0, MAX_RESEARCH);
     try { localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) { /* full or blocked: the memory lasts this visit */ }
     if (toCloud && user && db) { clearTimeout(cloudTimer); cloudTimer = setTimeout(pushCloud, 800); }
     renderChats();
@@ -60,9 +61,24 @@
     return res;
   };
   function takeRestore() { const r = restore; restore = null; return r; }
+  // earlier reports' research: kept when a report is made, sent with the next one so it starts from it (only new data fetched)
+  function keepResearch(rec) {
+    if (!rec || !mem.on) return;
+    mem.research = [rec, ...(mem.research || []).filter(r => r.id !== rec.id)];
+    save();
+    if (user && db) db.collection('users').doc(user.uid).collection('research').doc(String(rec.id).slice(0, 140)).set(rec).catch(() => {});
+  }
+  const withResearch = fn => fn && ((...a) => { const n = fn.length - 1; /* the last parameter is extra */ const args = a.slice(0, n); while (args.length < n) args.push(undefined);
+    return fn(...args, { research: mem.on ? (mem.research || []) : [] }); });
+  api.analyst_run = withResearch(api.analyst_run);
+  api.election_report = withResearch(api.election_report);
+  api.business_report = withResearch(api.business_report);
+  const onAnalyst = window.onAnalystEvent;
+  window.onAnalystEvent = ev => { if (ev && ev.type === 'research') { keepResearch(ev.record); return; } if (onAnalyst) onAnalyst(ev); };
   const onEvent = window.onAgentEvent;
   window.onAgentEvent = ev => {
     if (ev && ev.type === 'memory') { ev.op === 'add' ? addNote(ev.text) : removeNotes(ev.text); return; }
+    if (ev && ev.type === 'research') { keepResearch(ev.record); return; }
     if (onEvent) onEvent(ev);
   };
   const newBtn = $('#new-chat');
@@ -169,10 +185,10 @@
       ${signIn}
       <h3>Data Genie's memory</h3>
       <label class="acct-switch"><input type="checkbox" data-on ${mem.on ? 'checked' : ''}><span>Remember my chats and what I tell Data Genie</span></label>
-      <p class="acct-small">${mem.chats.length} saved chat${mem.chats.length === 1 ? '' : 's'}. Notes Data Genie keeps about you (it uses them only where they change an answer):</p>
+      <p class="acct-small">${mem.chats.length} saved chat${mem.chats.length === 1 ? '' : 's'} and ${(mem.research || []).length} report${(mem.research || []).length === 1 ? '' : 's'}' research (a new report starts from it and fetches only newer data). Notes Data Genie keeps about you (it uses them only where they change an answer):</p>
       <ul class="acct-notes">${mem.notes.length ? mem.notes.map(n => `<li><span>${esc(n.text)}</span><button type="button" data-note="${n.id}" aria-label="Delete this note">×</button></li>`).join('') : '<li class="acct-empty">No notes yet. Tell Data Genie your community or what you follow, and it will remember.</li>'}</ul>
       <div class="acct-row"><input type="text" data-new maxlength="300" placeholder="Add a note, e.g. I live in Bowness" aria-label="Add a note"><button type="button" class="btn" data-add>Add</button></div>
-      <div class="acct-row acct-danger"><button type="button" class="btn" data-wipe>Delete all chats and notes${user ? ' (here and in my account)' : ''}</button></div>
+      <div class="acct-row acct-danger"><button type="button" class="btn" data-wipe>Delete all chats, notes and research${user ? ' (here and in my account)' : ''}</button></div>
     </form>`;
     const q = s => dlg.querySelector(s);
     q('[data-google]')?.addEventListener('click', signInGoogle);
@@ -186,10 +202,12 @@
     q('[data-wipe]').addEventListener('click', async e => {
       if (!armed) { armed = true; e.target.textContent = 'Press again to delete everything'; return; }
       const ids = mem.chats.map(c => c.id);
-      mem = { on: mem.on, notes: [], chats: [] }; chatId = null; save(false);
+      const rids = (mem.research || []).map(r => r.id);
+      mem = { on: mem.on, notes: [], chats: [], research: [] }; chatId = null; save(false);
       if (user && db) {
         const ref = db.collection('users').doc(user.uid);
         await Promise.all(ids.map(id => ref.collection('chats').doc(id).delete().catch(() => {})));
+        await Promise.all(rids.map(id => ref.collection('research').doc(String(id).slice(0, 140)).delete().catch(() => {})));
         await ref.set({ notes: [], on: mem.on, updated: now() }).catch(() => {});
       }
       renderAccount(); flash('All chats and notes deleted.');
@@ -222,14 +240,18 @@
   async function pullCloud() {          // the account's memory, joined with this browser's (newest copy of each chat wins)
     try {
       const ref = db.collection('users').doc(user.uid);
-      const [doc, chats] = await Promise.all([ref.get(), ref.collection('chats').orderBy('updated', 'desc').limit(MAX_CHATS).get()]);
+      const [doc, chats, research] = await Promise.all([ref.get(), ref.collection('chats').orderBy('updated', 'desc').limit(MAX_CHATS).get(),
+        ref.collection('research').limit(MAX_RESEARCH).get().catch(() => null)]);
       const d = doc.exists ? doc.data() : {};
       const notes = [...(d.notes || [])];
       for (const n of mem.notes) if (!notes.some(x => x.text.toLowerCase() === n.text.toLowerCase())) notes.push(n);
       const byId = new Map();
       chats.forEach(c => { const x = c.data(); byId.set(c.id, { ...x, _synced: x.updated }); });
       for (const c of mem.chats) if (!byId.has(c.id) || (byId.get(c.id).updated || '') < (c.updated || '')) byId.set(c.id, c);
-      mem = { on: d.on === undefined ? mem.on : d.on, notes, chats: [...byId.values()] };
+      const rs = new Map((mem.research || []).map(r => [r.id, r]));
+      if (research) research.forEach(r => { if (!rs.has(r.id)) rs.set(r.id, r.data()); });
+      mem = { on: d.on === undefined ? mem.on : d.on, notes, chats: [...byId.values()],
+              research: [...rs.values()].sort((a, b) => String(b.made || '').localeCompare(String(a.made || ''))) };
       save(true);
     } catch (e) { flash('Your account\'s memory could not be read just now; this browser\'s is used.'); }
   }
