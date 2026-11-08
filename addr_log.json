@@ -1,0 +1,38 @@
+{
+ "cols": [
+  "address",
+  "street_name",
+  "street_type",
+  "street_quad",
+  "house_number",
+  "house_alpha",
+  "address_type",
+  "longitude",
+  "latitude",
+  "location",
+  "point",
+  ":@computed_region_4a3i_ccfj",
+  ":@computed_region_4b54_tmc4",
+  ":@computed_region_kxmf_bzkv",
+  ":@computed_region_hq2j_w7j9",
+  ":@computed_region_p8tp_5dkv"
+ ],
+ "license": "See Terms of Use",
+ "rows": 1793887713,
+ "sample": {
+  "address": "2514 11 AV NW",
+  "street_name": "11",
+  "street_type": "AV",
+  "street_quad": "NW",
+  "house_number": "2514",
+  "address_type": "Parcel",
+  "longitude": "-114.12002991562856",
+  "latitude": "51.06120147901986",
+  "location": "{'latitude': '51.06120147901986', 'longitude': '-114.12002991562856', 'human_add",
+  "point": "{'type': 'Point', 'coordinates': [-114.12002991562856, 51.06120147901986]}"
+ },
+ "count": 420684,
+ "types": {
+  "Parcel": 420684
+ }
+}
