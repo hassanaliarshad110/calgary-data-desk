@@ -83,6 +83,10 @@ for li, p in enumerate(rd):
     if not T: stats['degenerate'] += 1; continue
     # roof edges keyed by 2D endpoints; each occurrence keeps its heights
     E = collections.defaultdict(list)
+    def ccw(t):      # counter-clockwise seen from above, so each edge has the roof on its left
+        A, B, C = verts[t[0]], verts[t[1]], verts[t[2]]
+        return t if (B[0] - A[0]) * (C[1] - A[1]) - (B[1] - A[1]) * (C[0] - A[0]) >= 0 else (t[0], t[2], t[1])
+    T = [ccw(t) for t in T]
     for t in T:
         for a, b in ((t[0], t[1]), (t[1], t[2]), (t[2], t[0])):
             ka, kb = verts[a][:2], verts[b][:2]
