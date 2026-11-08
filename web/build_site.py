@@ -423,6 +423,13 @@ def main():
     if not os.path.exists(os.path.join(data, 'infra.json')) and a.previous:
         step('Infrastructure condition (yesterday\'s copy)', lambda: keep_previous(a.previous, 'infra.json', os.path.join(data, 'infra.json')))
 
+    def city_catalog():             # the City's whole open data catalogue and map layers, for the assistants (catalog.py)
+        import catalog
+        write(os.path.join(data, 'catalog.json'), catalog.build())
+    step('City open data catalogue', city_catalog)
+    if not os.path.exists(os.path.join(data, 'catalog.json')) and a.previous:
+        step('City open data catalogue (yesterday\'s copy)', lambda: keep_previous(a.previous, 'catalog.json', os.path.join(data, 'catalog.json')))
+
     def capital_markets():          # Calgary Capital Markets: TMX totals, ticker checks, SEC results (capmkt.py)
         import capmkt
         prev = None

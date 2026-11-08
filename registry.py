@@ -53,6 +53,12 @@ PAGES = [
          'community\'s sanitary, mains, breaks and req, service_life for the benchmarks); get_dashboard also has infrastructure 311 '
          'reports per 1,000', files=['infra.json'],
          keywords='water main breaks pipes paving roads sidewalks sewer sewage sanitary wastewater back-up age service life benchmark clay cast iron'),
+    page('catalog', 'City open data catalogue', "Every dataset and data file the City of Calgary publishes (400+, with category, "
+         'description, last update and every column, marked when a page of the site already uses it) and every data layer of its '
+         'map server (capital works, roadwork permits, snow clearing, street sweeping, parking zones, flood hazard), rebuilt nightly.',
+         'search_datasets (query and/or category; no arguments for the categories and map layers); describe_dataset and '
+         'query_dataset for a dataset; query_map_layer for a map layer; read_source key=catalog for the whole list',
+         files=['catalog.json'], keywords='catalogue catalog open data datasets all city data map layers gis every dataset'),
     page('safety', "Canada's safest cities", "Every city of 10,000 or more by Statistics Canada's Crime Severity Index, with Calgary's rank.",
          'get_dashboard section=safest_cities (find narrows by city); crime_severity_index', section='safest_cities', files=['safety_rank.json'], keywords='crime severity index ranking'),
     page('cameras', 'Traffic cameras', "The City's traffic cameras, shown live on the page.",

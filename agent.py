@@ -16,6 +16,7 @@ import methods as methods_mod
 import context
 import engines
 import local_data
+import catalog as catalog_mod
 import codebook
 import methods
 import police
@@ -27,7 +28,7 @@ MODELS = {'fast': 'claude-haiku-5-5', 'smart': 'claude-sonnet-5-5', 'audit': 'cl
 MAX_STEPS = 400                # a ceiling against a runaway loop (hours of work), not a working limit: a long report takes many rounds
 GATHER_TOOLS = frozenset({'search_datasets', 'describe_dataset', 'query_dataset', 'download_dataset', 'get_dashboard', 'get_weather',
                           'get_weather_forecast', 'police_crime', 'crime_severity_index', 'read_source', 'get_method', 'get_code',
-                          'query_saved_file', 'list_sources'})      # data requests: the same one is never sent to a source twice
+                          'query_saved_file', 'list_sources', 'query_map_layer'})      # data requests: the same one is never sent to a source twice
 TRANSIENT_TRIES = 3            # a dropped connection or a busy service is tried again before giving up
 MAX_OUTPUT = 32000             # tokens per reply (the model's thinking counts too); a reply that runs over is salvaged and continued
 RECENT_FULL = 10               # steps kept word for word when the conversation is condensed; older ones are kept in brief
@@ -234,7 +235,10 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
 can run to 100 pages with dozens of tables and charts: never shorten, summarise or drop sections to make it fit, and never \
 refuse because it is long. Nothing limits how much data you gather or how many parts you write; work until it is complete. \
 Work as a researcher, in this order.
-   a. Gather with a plan: decide which sources answer which part, then query each once, grouped in the query (by community, \
+   a. Gather with a plan: first find every source that bears on the subject. The City's whole open data catalogue is \
+here (search_datasets): search it with several wordings and browse the categories the subject falls in, check the site's \
+pages (list_sources) and the map layers, and use every dataset that adds something, not only the obvious one. Then decide \
+which sources answer which part, and query each once, grouped in the query (by community, \
 by year) rather than row by row. Every result carries its step number. The same request is never sent to a source twice (the \
 earlier result comes back). When the conversation grows long it is condensed, and every full result stays available with \
 recall_result by step number, so nothing you gathered is lost; still, save each figure you will rely on in key_figures as \
@@ -476,11 +480,32 @@ when rates per resident are used. Name the source for every number, including fi
 
 TOOLS = [
     {'name': 'search_datasets',
-     'description': 'Search the City of Calgary open data catalogue (over 400 datasets). Returns IDs, names, '
-                    'descriptions, last update and column names.',
+     'description': "Search the City of Calgary's whole open data catalogue (every one of its 400+ datasets, kept with the site and "
+                    'rebuilt nightly) and the data layers of its map server. Returns, best match first, IDs, names, category, '
+                    'description, last update, column names and whether a page of the site already uses it, plus matching map '
+                    'layers (read with query_map_layer). category alone lists every dataset in a category; no query and no '
+                    'category gives the categories and every map layer. For a report, search with several wordings and browse '
+                    'the categories the subject falls in, so no dataset that bears on it is missed.',
      'input_schema': {'type': 'object', 'properties': {
-         'query': {'type': 'string', 'description': 'Words to search for, e.g. "traffic incidents", "dog licences"'}},
-         'required': ['query']}},
+         'query': {'type': 'string', 'description': 'Words to search for, e.g. "traffic incidents", "dog licences"'},
+         'category': {'type': 'string', 'description': 'A catalogue category, e.g. "Environment", "Transportation/Transit", '
+                                                       '"Government", "Demographics", "Health and Safety", "Services and Amenities"'},
+         'limit': {'type': 'integer', 'description': 'How many matches (default 15, up to 60)'}}}},
+    {'name': 'query_map_layer',
+     'description': "Read one data layer of the City's map server (gis.calgary.ca): capital works projects, roadwork and "
+                    'excavation permits for the next 10 days, snow clearing and street sweeping progress, residential parking '
+                    'zones, special events, the pavement plan, the 100-year flood hazard area and more (search_datasets lists '
+                    'them with their fields). group_by gives counts by field; count_only the number of features; otherwise rows.',
+     'input_schema': {'type': 'object', 'properties': {
+         'service': {'type': 'string', 'description': 'e.g. pub_Roads/Capital_Works/MapServer'},
+         'layer': {'type': 'integer', 'description': 'Layer number, e.g. 0'},
+         'where': {'type': 'string', 'description': "SQL filter, e.g. STATUS = 'ACTIVE' AND WARD = '7'"},
+         'fields': {'type': 'string', 'description': 'Comma-separated fields to return (default all)'},
+         'group_by': {'type': 'string', 'description': 'Field(s) to count by, e.g. WARD or PROJ_TYPE,STATUS'},
+         'count_only': {'type': 'boolean'},
+         'order': {'type': 'string', 'description': 'e.g. START_DT DESC'},
+         'limit': {'type': 'integer', 'description': 'Rows (default 200, up to 1000)'}},
+         'required': ['service', 'layer']}},
     {'name': 'describe_dataset',
      'description': 'Name, description, last update, every column (field name and type) and 3 sample rows of a dataset.',
      'input_schema': {'type': 'object', 'properties': {
@@ -814,7 +839,9 @@ TOOLS.insert(TOOLS.index(_MR), {
 TOOLS[-1]['cache_control'] = {'type': 'ephemeral'}      # cache system prompt + tools between calls
 
 STEP_TEXT = {
-    'search_datasets': lambda a: f"Searching the City's datasets for “{a.get('query', '')}”",
+    'search_datasets': lambda a: (f"Searching the City's datasets for “{a['query']}”" if a.get('query') else
+                                  f"Listing the City's {a['category']} datasets" if a.get('category') else "Reading the City's data catalogue"),
+    'query_map_layer': lambda a: f"Reading the City's map layer {str(a.get('service', '')).split('/')[1] if '/' in str(a.get('service', '')) else a.get('service', '')}",
     'describe_dataset': lambda a: f"Reading the columns of {a.get('dataset_id', '')}",
     'query_dataset': lambda a: f"Querying {a.get('dataset_id', '')}",
     'download_dataset': lambda a: f"Downloading “{a.get('file_name', '')}”",
@@ -1613,7 +1640,16 @@ class Agent:
         if name in self.handlers:
             return self.handlers[name](args)
         if name == 'search_datasets':
-            return cd.search_datasets(args['query'])
+            cat = catalog_mod.load(self.data_dir)
+            q, category = (args.get('query') or '').strip(), (args.get('category') or '').strip()
+            if cat is None:                       # the catalogue is not here yet: the City's own search
+                return cd.search_datasets(q or category or 'calgary', limit=min(int(args.get('limit') or 8), 20))
+            if not q:
+                return catalog_mod.browse(cat, category or None)
+            return catalog_mod.search(cat, q, category or None, max(1, min(int(args.get('limit') or 15), 60)))
+        if name == 'query_map_layer':
+            return catalog_mod.map_query(args.get('service'), args.get('layer') or 0, args.get('where'), args.get('fields'),
+                                         args.get('group_by'), bool(args.get('count_only')), args.get('order'), args.get('limit') or 200)
         if name == 'describe_dataset':
             return known_fields(cd.describe_dataset(args['dataset_id']))
         if name == 'query_dataset':
