@@ -104,7 +104,10 @@ def seo_head():
         '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:title" content="{SEO["title"]}">',
         f'<meta name="twitter:description" content="{SEO["description"]}">', f'<meta name="twitter:image" content="{SITE_URL}og-image.png">',
         '<script type="application/ld+json">' + json.dumps(ld, separators=(',', ':')) + '</script>']
-    g = re.sub(r'.*content="([^"]+)".*', r'\1', os.environ.get('CDD_GOOGLE_VERIFY', '').strip())   # the tag or just its code
+    raw = os.environ.get('CDD_GOOGLE_VERIFY', '').strip()      # repository variable GOOGLE_SITE_VERIFICATION, or the file
+    if not raw and os.path.exists(os.path.join(ROOT, 'web', 'google-verify.txt')):
+        raw = open(os.path.join(ROOT, 'web', 'google-verify.txt'), encoding='utf-8').read().strip()
+    g = re.sub(r'.*content="([^"]+)".*', r'\1', raw, flags=re.S)                # the whole tag, or just its code
     if g:
         tags.append(f'<meta name="google-site-verification" content="{g}">')
     return '\n'.join(tags) + '\n'
