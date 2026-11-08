@@ -58,6 +58,7 @@ jobs:
           CDD_SITE_URL: https://calgaryinsight.ca/
           CDD_SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
           CDD_FIREBASE_CONFIG: ${{ vars.FIREBASE_CONFIG }}     # optional Google sign-in for Data Genie's memory (public web settings)
+          CDD_AI_GATEWAY: ${{ vars.AI_GATEWAY_URL }}            # the AI gateway's address (gateway/), or gateway/url.txt
         run: python web/build_site.py _site --cache .site-cache --pyodide pyodide
 
       - uses: actions/cache/save@v4

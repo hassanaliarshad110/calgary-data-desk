@@ -1,0 +1,54 @@
+name: AI gateway
+
+# Deploys gateway/ (the Cloudflare Worker that holds the Claude key and checks who may use the AI tools).
+# Needs the repository secret CLOUDFLARE_API_TOKEN (an "Edit Cloudflare Workers" token); the Claude key comes from the
+# existing ANTHROPIC_API_KEY secret. Until the Cloudflare token is added this does nothing.
+
+on:
+  push:
+    branches: [main]
+    paths: ['gateway/**', '.github/workflows/gateway.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Waiting for Cloudflare to be connected
+        if: env.CLOUDFLARE_API_TOKEN == ''
+        run: echo "CLOUDFLARE_API_TOKEN is not set yet; nothing deployed."
+
+      - name: Test
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        run: node gateway/test.mjs
+
+      - name: Deploy
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        working-directory: gateway
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set -e
+          W="npx --yes wrangler@3.99.0"
+          # the storage for approvals and daily spend: made the first time, found by name after that
+          id=$($W kv namespace list | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const a=JSON.parse(s.slice(s.indexOf('[')));const n=a.find(x=>x.title.endsWith('ACCESS'));console.log(n?n.id:'')})")
+          if [ -z "$id" ]; then
+            $W kv namespace create ACCESS | tee kv.txt
+            id=$(grep -oE '[0-9a-f]{32}' kv.txt | head -1)
+          fi
+          sed -i "s/KV_ID/$id/" wrangler.toml
+          $W deploy | tee deploy.txt
+          printf '%s' "$ANTHROPIC_API_KEY" | $W secret put ANTHROPIC_API_KEY
+          echo "Gateway address:"; grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.txt | head -1

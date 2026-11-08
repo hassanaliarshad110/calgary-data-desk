@@ -17,6 +17,7 @@ import uuid
 
 MAX_ENGINES = 4
 ANTHROPIC_VERSION = '2023-06-01'
+GATEWAY_URL = ''           # the site's AI gateway (gateway/worker.js): a visitor's gateway session ('cis.…') goes there, not to Anthropic
 
 PROVIDERS = {
     'claude': {'label': 'Anthropic', 'company': 'Anthropic', 'kind': 'anthropic',
@@ -234,15 +235,23 @@ def from_stream(text):
     return msg
 
 
+def claude_target(key):
+    """Where a Claude request goes, and how it says who sent it: the site's gateway for a signed-in visitor's session
+    (the Claude key stays on the gateway), otherwise Anthropic with the key."""
+    if str(key or '').startswith('cis.') and GATEWAY_URL:
+        return GATEWAY_URL.rstrip('/') + '/v1/messages', {'authorization': 'Bearer ' + key, 'anthropic-version': ANTHROPIC_VERSION}
+    return PROVIDERS['claude']['url'], {'x-api-key': key, 'anthropic-version': ANTHROPIC_VERSION}
+
+
 def post_anthropic(key, body, timeout=180):
     body = dict(body)
     betas = body.pop('_betas', None)                  # beta features go in a header, not the body
-    headers = {'x-api-key': key, 'anthropic-version': ANTHROPIC_VERSION}
+    url, headers = claude_target(key)
     if betas:
         headers['anthropic-beta'] = ','.join(betas)
     if not STREAM:
-        return _post(PROVIDERS['claude']['url'], headers, body, timeout)
-    req = urllib.request.Request(PROVIDERS['claude']['url'], data=json.dumps({**body, 'stream': True}).encode('utf-8'),
+        return _post(url, headers, body, timeout)
+    req = urllib.request.Request(url, data=json.dumps({**body, 'stream': True}).encode('utf-8'),
                                  method='POST', headers={**headers, 'content-type': 'application/json'})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:

@@ -64,7 +64,8 @@ def urlopen(req, data=None, timeout=None, **_):
     headers = dict(req.header_items())
     if host == 'api.anthropic.com':
         headers['anthropic-dangerous-direct-browser-access'] = 'true'
-    tries = 3 if host == 'api.anthropic.com' else 1       # a dropped phone connection: try the AI service again
+    ai = host == 'api.anthropic.com' or bool(engines.GATEWAY_URL and url.startswith(engines.GATEWAY_URL))
+    tries = 3 if ai else 1                                 # a dropped phone connection: try the AI service again
     for attempt in range(tries):
         x = js.XMLHttpRequest.new()
         x.open(req.get_method(), url, False)
@@ -95,6 +96,7 @@ import agent as agent_mod                        # noqa: E402  (after the web is
 import analyst                                   # noqa: E402
 import auditor                                   # noqa: E402
 import census                                    # noqa: E402
+import engines                                   # noqa: E402  (the AI gateway setting)
 import methods                                   # noqa: E402
 
 STATE = {'key': '', 'dash': None, 'wards': None, 'tax': None}
@@ -160,6 +162,8 @@ def handle(op, args_json):
     try:
         if op == 'key':
             STATE['key'] = a.get('key') or ''
+            if a.get('gateway'):                    # signed in with Google: requests go through the site's AI gateway
+                engines.GATEWAY_URL = a['gateway']
             return json.dumps({'ok': True})
         if op == 'context':
             for k in ('dash', 'wards', 'tax'):

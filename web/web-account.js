@@ -168,6 +168,7 @@
     }
     renderAccount();
     dlg.showModal();
+    refreshMe();
   }
   function renderAccount() {
     if (!dlg) return;
@@ -183,6 +184,7 @@
     dlg.innerHTML = `<form method="dialog" class="acct-body">
       <div class="acct-head"><h2 id="acct-title">${user ? 'Your account' : 'Sign in (optional)'}</h2><button class="acct-close" aria-label="Close">×</button></div>
       ${signIn}
+      ${aiSection()}
       <h3>Data Genie's memory</h3>
       <label class="acct-switch"><input type="checkbox" data-on ${mem.on ? 'checked' : ''}><span>Remember my chats and what I tell Data Genie</span></label>
       <p class="acct-small">${mem.chats.length} saved chat${mem.chats.length === 1 ? '' : 's'} and ${(mem.research || []).length} report${(mem.research || []).length === 1 ? '' : 's'}' research (a new report starts from it and fetches only newer data). Notes Data Genie keeps about you (it uses them only where they change an answer):</p>
@@ -194,6 +196,18 @@
     q('[data-google]')?.addEventListener('click', signInGoogle);
     q('[data-out]')?.addEventListener('click', () => fb && fb.auth().signOut());
     q('[data-on]').addEventListener('change', e => { mem.on = e.target.checked; save(); });
+    dlg.querySelectorAll('[data-revoke]').forEach(b => b.addEventListener('click', async () => {
+      try { await gwFetch('/admin/users', { method: 'POST', body: JSON.stringify({ email: b.dataset.revoke, remove: true }) }); flash(`${b.dataset.revoke} removed.`); }
+      catch (e) { flash(String(e.message || e)); }
+      loadAdmin();
+    }));
+    q('[data-grant-add]')?.addEventListener('click', async () => {
+      const email = q('[data-grant]').value.trim(), lim = q('[data-grant-limit]').value.trim();
+      if (!email) return;
+      try { await gwFetch('/admin/users', { method: 'POST', body: JSON.stringify({ email, limit_usd: lim === '' ? null : Number(lim) }) }); flash(`${email} can now use the AI tools.`); }
+      catch (e) { flash(String(e.message || e)); }
+      loadAdmin();
+    });
     dlg.querySelectorAll('[data-note]').forEach(b => b.addEventListener('click', () => { mem.notes = mem.notes.filter(n => n.id !== b.dataset.note); save(); renderAccount(); }));
     const add = () => { const v = q('[data-new]').value.trim(); if (v) { mem.notes.push({ id: newId(), text: v, at: now() }); save(); renderAccount(); } };
     q('[data-add]').addEventListener('click', add);
@@ -214,19 +228,74 @@
     });
   }
 
+  // ---------------------------------------------------------------- the AI tools for approved people (gateway/worker.js)
+  // Signed in and approved by the owner: Data Genie and the Data Scientist unlock with a gateway session (the Claude key
+  // stays on the gateway, which also keeps each person's daily spending limit). The passcode still works as before.
+  let gw = '', ai = null, admin = null;
+  async function gwFetch(path, opts = {}) {
+    const t = await user.getIdToken();
+    const r = await fetch(gw + path, { ...opts, headers: { authorization: 'Bearer ' + t, 'content-type': 'application/json', ...(opts.headers || {}) } });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error((j.error && j.error.message) || `The AI gateway answered ${r.status}`);
+    return j;
+  }
+  async function aiAccess() {
+    if (!user || !gw) { ai = null; return; }
+    try {
+      const j = await gwFetch('/session', { method: 'POST' });
+      ai = { ...j, session: undefined };
+      if (window.CDD_AI && window.CDD_AI.useAccount) { await window.CDD_AI.useAccount(j.session, gw); window.CDD_LOCK && window.CDD_LOCK.open(); }
+      if (ai.owner) loadAdmin();
+    } catch (e) { ai = { allowed: false, message: String(e.message || e) }; }
+    renderAccount(); lockButtons();
+  }
+  async function refreshMe() { if (user && gw && ai && ai.allowed) { try { ai = { ...ai, ...(await gwFetch('/me')) }; renderAccount(); } catch (e) { /* keep the last */ } } }
+  async function loadAdmin() { try { admin = await gwFetch('/admin/users'); } catch (e) { admin = { error: String(e.message || e) }; } renderAccount(); }
+  const money = v => v == null ? 'no limit' : '$' + Number(v).toFixed(2);
+  function aiSection() {
+    if (!gw || !fbConfig) return '';
+    if (!user) return '<h3>AI tools</h3><p class="acct-small">Approved people can use Data Genie and the Data Scientist by signing in, with no passcode.</p>';
+    if (!ai) return '<h3>AI tools</h3><p class="acct-small">Checking your access…</p>';
+    if (!ai.allowed) return `<h3>AI tools</h3><p class="acct-small">${esc(ai.message || 'Your email is not approved for the AI tools yet.')} The passcode still works.</p>`;
+    let out = `<h3>AI tools</h3><p class="acct-small">On for ${esc(ai.email)}: Data Genie and the Data Scientist need no passcode. ${ai.owner ? 'As the owner you have no daily limit' : `Daily limit ${money(ai.limit_usd)}`}; used today ${money(ai.spent_usd)}.</p>`;
+    if (ai.owner) {
+      const users = (admin && admin.users) || [];
+      out += `<h3>Manage access</h3><p class="acct-small">People who can use the AI tools by signing in with Google. A blank limit means the default (${money(admin && admin.default_limit_usd)} a day); removing someone stops them at once.</p>
+        <ul class="acct-notes">${admin && admin.error ? `<li class="acct-empty">${esc(admin.error)}</li>` : users.length ? users.map(u => `<li><span>${esc(u.email)} · ${u.limit_usd == null ? 'default limit' : money(u.limit_usd) + ' a day'} · ${money(u.spent_usd)} today</span><button type="button" data-revoke="${esc(u.email)}" aria-label="Remove ${esc(u.email)}">×</button></li>`).join('') : '<li class="acct-empty">Nobody else yet.</li>'}</ul>
+        <div class="acct-row"><input type="email" data-grant maxlength="200" placeholder="name@gmail.com" aria-label="Email to approve"><input type="number" data-grant-limit min="0" max="1000" step="1" placeholder="$/day" aria-label="Daily limit in dollars" style="max-width:90px"><button type="button" class="btn" data-grant-add>Approve</button></div>`;
+    }
+    return out;
+  }
+  function lockButtons() {           // the passcode screens also offer signing in
+    if (!gw || !fbConfig) return;
+    document.querySelectorAll('.web-lock').forEach(l => {
+      if (l.querySelector('.acct-lock')) return;
+      const p = document.createElement('p'); p.className = 'acct-lock';
+      p.innerHTML = user && ai && !ai.allowed
+        ? `Signed in as ${esc(user.email)}, which is not approved yet: ask the developer to add it.`
+        : 'Or <button type="button" class="btn">sign in with Google</button> if the developer has approved your email.';
+      p.querySelector('button')?.addEventListener('click', () => signInGoogle());
+      l.appendChild(p);
+    });
+  }
+
   // ---------------------------------------------------------------- Google sign-in (Firebase), only when configured
   let fbConfig = null;
   const script = src => new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = () => no(new Error('could not load ' + src)); document.head.appendChild(s); });
   async function firebaseUp() {
     if (fb) return fb;
-    await script(SDK + 'firebase-app-compat.js');
-    await Promise.all([script(SDK + 'firebase-auth-compat.js'), script(SDK + 'firebase-firestore-compat.js')]);
+    if (!window.firebase) {
+      await script(SDK + 'firebase-app-compat.js');
+      await Promise.all([script(SDK + 'firebase-auth-compat.js'), script(SDK + 'firebase-firestore-compat.js')]);
+    }
     fb = window.firebase; fb.initializeApp(fbConfig); db = fb.firestore();
     fb.auth().onAuthStateChanged(async u => {
       user = u || null;
       try { user ? localStorage.setItem('cdd-signed-in', '1') : localStorage.removeItem('cdd-signed-in'); } catch (e) { /* ignore */ }
       if (user) await pullCloud();
       sideButton(); renderAccount(); renderChats();
+      document.querySelectorAll('.acct-lock').forEach(x => x.remove());
+      if (user) aiAccess(); else { ai = null; admin = null; lockButtons(); }
     });
     return fb;
   }
@@ -281,12 +350,13 @@
     b.innerHTML = user
       ? `${user.photoURL ? `<img src="${esc(user.photoURL)}" alt="" referrerpolicy="no-referrer">` : '<svg class="ic" aria-hidden="true"><use href="#i-users"/></svg>'}<span>${esc((user.displayName || 'Account').split(' ')[0])}</span>`
       : `<svg class="ic" aria-hidden="true"><use href="#i-users"/></svg><span>${fbConfig ? 'Sign in' : 'Memory'}</span>`;
+    lockButtons();
     b.title = user ? 'Your account and Data Genie\'s memory' : (fbConfig ? 'Sign in (optional) and Data Genie\'s memory' : 'Data Genie\'s memory');
   }
 
   (async () => {
-    try { fbConfig = ((await W.getJSON('settings.json')) || {}).firebase || null; } catch (e) { fbConfig = null; }
-    chatsButton(); sideButton();
+    try { const st = (await W.getJSON('settings.json')) || {}; fbConfig = st.firebase || null; gw = String(st.ai_gateway || '').replace(/\/+$/, ''); } catch (e) { fbConfig = null; }
+    chatsButton(); sideButton(); lockButtons();
     if (fbConfig) {                        // a returning visitor who signed in before is signed in again quietly
       try { if (localStorage.getItem('cdd-signed-in')) firebaseUp().catch(() => {}); } catch (e) { /* ignore */ }
     }

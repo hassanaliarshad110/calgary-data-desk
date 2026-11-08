@@ -5,7 +5,7 @@
   'use strict';
   const W = window.CDD_WEB, api = window.pywebview.api;
   const CODE_KEY = 'cdd-web-code', EA_KEY = 'cdd-web-ea-code', BIZ_KEY = 'cdd-web-biz-code';
-  let apiKey = '', worker = null, booting = null, seq = 0;
+  let apiKey = '', gateway = '', worker = null, booting = null, seq = 0;   // gateway: the site's AI gateway, for signed-in visitors
   const open_ = { genie: false, ea: false, biz: false };   // Data Genie and the Data Scientist; Election Analytics; the Business Economist (each its own passcode)
   const waiting = new Map();
   const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
@@ -63,7 +63,7 @@
       m.ok ? w.resolve(m.result) : w.reject(new Error(m.error));
     };
     const base = location.href.replace(/[#?].*$/, '').replace(/[^/]*$/, '');
-    booting = call('boot', { base }).then(() => call('key', { key: apiKey }));
+    booting = call('boot', { base }).then(() => call('key', { key: apiKey, gateway }));
     booting.catch(() => { booting = null; });
     return booting;
   }
@@ -95,6 +95,15 @@
 
   window.CDD_AI = {
     unlocked: (which = 'genie') => !!apiKey && open_[which],
+    // signed in with Google and approved by the owner (web-account.js): a gateway session in place of the passcode;
+    // the Claude key stays on the gateway
+    async useAccount(session, url) {
+      apiKey = session; gateway = url; open_.genie = true;
+      if (worker && booting) { try { await booting; await call('key', { key: apiKey, gateway }); } catch (e) { /* set again at the next start */ } }
+      start().catch(() => {});
+      return true;
+    },
+    viaAccount: () => apiKey.startsWith('cis.'),
     async unlock(code, which = 'genie') {
       apiKey = await decrypt(code, which);
       open_[which] = true;

@@ -158,6 +158,19 @@ def firebase_config():
     return cfg if cfg.get('apiKey') and cfg.get('projectId') else None
 
 
+def ai_gateway():
+    """The address of the site's AI gateway (gateway/worker.js): repository variable AI_GATEWAY_URL, or gateway/url.txt.
+    None: the AI tools unlock with the passcode only."""
+    url = os.environ.get('CDD_AI_GATEWAY', '').strip()
+    if not url:
+        try:
+            with open(os.path.join(ROOT, 'gateway', 'url.txt'), encoding='utf-8') as f:
+                url = f.read().strip()
+        except OSError:
+            url = ''
+    return url.rstrip('/') if url.startswith('https://') else None
+
+
 def bundle_scripts(out, idx):
     """The page's own scripts (not the vendor ones) joined into one file named by its content, so a visitor fetches
     one script instead of two dozen and keeps it cached until it changes. The source files stay published for anyone
@@ -494,7 +507,7 @@ def main():
     write(os.path.join(data, 'settings.json'), {
         'pop_methods': census.relabel([{'key': k, **v} for k, v in dashboard.POP_METHODS.items()], year),
         'census_year': year, 'wards': wards, 'methods': meths, 'contact': os.environ.get('CDD_CONTACT_EMAIL', '').strip(),
-        'firebase': firebase_config()})
+        'firebase': firebase_config(), 'ai_gateway': ai_gateway()})
 
     def live():
         res = []
