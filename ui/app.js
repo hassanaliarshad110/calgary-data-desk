@@ -485,9 +485,9 @@ function tickPop() {
   const n = $('#live-pop-n'), L = D && D.population && D.population.live;
   if (!n || !L) return;
   const v = livePop();
-  n.textContent = isNum(v) ? fmt(v, Math.abs(L.per_day) < 20 ? 4 : 3) : '';      // a ward grows slowly: more decimals so it moves
+  n.textContent = isNum(v) ? fmt(Math.round(v)) : '';      // whole people: it is an estimate along the forecast, not a count
   const r = $('#live-pop-rate');
-  if (r && !r.textContent) r.textContent = ` live, at the forecast pace · ${L.per_day >= 0 ? '+' : '−'}${fmt(Math.abs(L.per_day), Math.abs(L.per_day) < 10 ? 1 : 0)} a day (the figure above is this month's)`;
+  if (r && !r.textContent) r.textContent = ` estimate, moving at the forecast pace · ${L.per_day >= 0 ? '+' : '−'}${fmt(Math.abs(L.per_day), Math.abs(L.per_day) < 10 ? 1 : 0)} a day (the figure above is this month's)`;
 }
 setInterval(tickPop, 1000);
 
@@ -779,6 +779,7 @@ function select(code, zoom = false) {
 function renderPanel(code) {
   const p = $('#panel');
   selected = code;
+  if (window.onCommunityPanel) { try { window.onCommunityPanel(code); } catch (e) { /* the panel still shows */ } }
   if (areaLayer && styleArea) areaLayer.eachLayer(l => { if (l.feature && l.feature.properties.code) l.setStyle(styleArea(l.feature)); });
   if (!code) {
     const M = METRICS[metric], sc = scale();
@@ -819,6 +820,7 @@ function renderPanel(code) {
       <h3 class="sub-h">Most common open requests</h3>
       <ul class="open-list">${c.open_top.map(o => `<li><span>${esc(niceType(o.type))}</span><span class="n">${fmt(o.n)}</span><small>Oldest still open: ${esc(o.oldest)}</small></li>`).join('') || '<li><span>None open</span></li>'}</ul>
       ${c.open ? `<button class="btn" id="panel-issues" style="margin-top:12px">${icon('list')}<span>See all ${fmt(c.open)} open issues in ${esc(c.name)}</span></button>` : ''}
+      ${window.CDD_COMM_LINK ? window.CDD_COMM_LINK(c) : ''}
     </div>`;
   $('#panel-back').addEventListener('click', () => select(null, true));
   $('#panel-issues')?.addEventListener('click', () => { issueFilter.comm = c.code; $('#f-comm').value = c.code; show('issues'); });
@@ -1215,7 +1217,7 @@ function renderNotes() {
 }
 
 // ================================================================ OPEN ISSUES
-const issueFilter = { text: '', comm: '', area: '', age: 0, sort: 'old', year: '', nocontact: false };
+const issueFilter = { text: '', comm: '', area: '', age: 0, sort: 'new', year: '', nocontact: true };   // newest first; "311 Contact Us" messages counted above, listed only on request
 let issueShown = 150, issueRows = [], issueSel = null;
 const STUDY = ['2024-10-01', '2026-10-01'];
 function fillIssueFilters() {
@@ -1267,10 +1269,11 @@ function renderIssues(reset = true) {
   $('#issues-table tbody').innerHTML = issueRows.slice(0, issueShown).map((r, i) => {
     const age = daysSince(r.date);
     return `<tr class="pick ${r.id === issueSel ? 'is-sel' : ''}" data-i="${i}" tabindex="0" aria-label="Request ${esc(r.id)}, ${esc(niceType(r.type))}, show details">
-      <td class="mono">${esc(r.id)}</td><td>${esc(r.date)}</td><td class="num"><span class="age ${age > 365 ? 'old' : ''}">${fmt(age)}</span></td>
-      <td>${esc(niceType(r.type))}</td><td>${esc(commName(r.comm))}</td><td>${esc(r.agency)}</td><td>${esc(r.updated)}</td></tr>`;
+      <td class="mono" data-l="Request">${esc(r.id)}</td><td data-l="Opened">${esc(r.date)}</td><td class="num" data-l="Days open"><span class="age ${age > 365 ? 'old' : ''}">${fmt(age)}</span></td>
+      <td class="i-type" data-l="Type">${esc(niceType(r.type))}</td><td data-l="Community">${esc(commName(r.comm))}</td><td class="i-dept" data-l="Department">${esc(r.agency)}</td><td data-l="Last update">${esc(r.updated)}</td></tr>`;
   }).join('') || '<tr><td colspan="7" class="empty">No open issues match these filters.</td></tr>';
-  $('#issues-count').textContent = `Showing ${fmt(Math.min(issueShown, issueRows.length))} of ${fmt(issueRows.length)} matching open issues`;
+  $('#issues-count').textContent = `Showing ${fmt(Math.min(issueShown, issueRows.length))} of ${fmt(issueRows.length)} matching open issues`
+    + (issueFilter.nocontact && contact ? ` (${fmt(contact)} "311 Contact Us" messages left out: untick "Hide" to list them)` : '');
   $('#issues-more').hidden = issueShown >= issueRows.length;
   $$('#issues-table tbody tr.pick').forEach(tr => {
     const open = () => {
@@ -1287,15 +1290,15 @@ function renderCityIssues() {
   const s = D.summary || {}, ws = D.wards_summary;
   $('#issues-sub').textContent = `311 requests still open in Calgary as of the last refresh (${longDate(D.built_at)}). Choose a ward to list them.`;
   $('#issue-stats').innerHTML = [[fmt(s.open_now), 'still open as of today'], [fmt(s.open_over_90_days), 'open more than 90 days', 'bad'],
-    [fmt(s.open_per_1000, 1), 'open per 1,000 residents']].map(([b, t, cls]) => `<div class="istat ${cls || ''}"><b>${b}</b><span>${t}</span></div>`).join('');
+    [fmt(s.open_per_1000, 1), 'open per 1,000 residents (requests in residential communities only)']].map(([b, t, cls]) => `<div class="istat ${cls || ''}"><b>${b}</b><span>${t}</span></div>`).join('');
   $$('#view-issues .filters, #view-issues .issues-card').forEach(e => { e.hidden = true; });
   $('#issues-export').hidden = true;
   const box = $('#issues-city');
   box.hidden = false;
   const rows = ws ? [...ws.wards].sort((a, b) => (b.open_per_1000 || 0) - (a.open_per_1000 || 0)) : [];
-  box.innerHTML = `<div class="card-head"><div><h2>Open requests in each ward</h2><p class="card-sub">Most open per 1,000 residents first. Choose a ward to list its requests one by one.</p></div></div>
-    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Still open</th><th scope="col" class="num">Open more than 90 days</th><th scope="col" class="num">Open per 1,000 residents</th><th scope="col"><span class="sr">Open the ward</span></th></tr></thead><tbody>
-    ${rows.map(r => `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${fmt(r.open)}</td><td class="num">${fmt(r.open_over_90_days)}</td><td class="num">${fmt(r.open_per_1000, 1)}</td>
+  box.innerHTML = `<div class="card-head"><div><h2>Open requests in each ward</h2><p class="card-sub">Most open per 1,000 residents first. The rate counts requests in residential communities only, since business and industrial areas have almost no residents; "Still open" counts every request. Choose a ward to list its requests one by one.</p></div></div>
+    <div class="table-wrap"><table class="data ward-open"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Still open</th><th scope="col" class="num">Open more than 90 days</th><th scope="col" class="num">Open per 1,000 residents</th><th scope="col"><span class="sr">Open the ward</span></th></tr></thead><tbody>
+    ${rows.map(r => `<tr><td class="w-name" data-l="Ward">Ward ${r.ward}</td><td class="w-coun" data-l="Councillor">${esc(r.councillor || '')}</td><td class="num" data-l="Still open">${fmt(r.open)}</td><td class="num" data-l="Open over 90 days">${fmt(r.open_over_90_days)}</td><td class="num" data-l="Per 1,000 residents">${fmt(r.open_per_1000, 1)}</td>
       <td><button type="button" class="link-btn" data-scope-ward="${r.ward}">List Ward ${r.ward}'s requests</button></td></tr>`).join('')}</tbody></table></div>`;
   $('#issues-count').textContent = '';
   $('#issues-more').hidden = true;

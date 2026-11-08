@@ -120,7 +120,7 @@ def robots_and_sitemap(out, extra=()):
         f.write(f'User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n')
     # the app's screens (?view=...) all carry the home page's canonical address, so they are not listed separately;
     # the ward and community pages (seo_pages.py) are what search engines index
-    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8'), (SITE_URL + 'visit/', '0.8')] + [(SITE_URL + u, '0.8') for u in visit_pages.URLS] + [(SITE_URL + u, '0.9' if u.count('/') == 1 else '0.7') for u in extra]
+    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8'), (SITE_URL + 'visit/', '0.8'), (SITE_URL + 'game/', '0.8')] + [(SITE_URL + u, '0.8') for u in visit_pages.URLS] + [(SITE_URL + u, '0.9' if u.count('/') == 1 else '0.7') for u in extra]
     for rel in sorted(os.listdir(os.path.join(out, 'reports'))) if os.path.isdir(os.path.join(out, 'reports')) else []:
         if rel.endswith('.html'):
             urls.append((f'{SITE_URL}reports/{rel}', '0.5'))
@@ -567,7 +567,7 @@ def main():
         urls = seo_pages.build(out, data, meths[0])
         robots_and_sitemap(out, urls)
         with open(os.path.join(out, 'indexnow-urls.txt'), 'w', encoding='utf-8') as f:     # sent to IndexNow after the deploy
-            f.write('\n'.join([SITE_URL, SITE_URL + 'about/', SITE_URL + 'visit/'] + [SITE_URL + u for u in visit_pages.URLS + list(urls)]))
+            f.write('\n'.join([SITE_URL, SITE_URL + 'about/', SITE_URL + 'visit/', SITE_URL + 'game/'] + [SITE_URL + u for u in visit_pages.URLS + list(urls)]))
         print(f'pages for search engines: {len(urls)}')
     step('ward and community pages for search engines', search_pages)
     lock_key(out)

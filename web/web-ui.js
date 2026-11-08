@@ -31,7 +31,7 @@
   // when the data was refreshed, and whose it is
   const foot = document.createElement('div');
   foot.className = 'web-foot';
-  foot.innerHTML = 'Refreshed every morning from public data. Not affiliated with The City of Calgary. <a href="wards/">Wards</a> · <a href="communities/">Communities</a>';
+  foot.innerHTML = 'Refreshed every morning from public data. Not affiliated with The City of Calgary. <a href="wards/">Wards</a> · <a href="communities/">Communities</a> · <a href="game/">Game</a>';
   // ...and the community it names, once the ward's figures are on screen
   const wantComm = new URLSearchParams(location.search).get('community');
   if (wantComm) {
@@ -42,7 +42,7 @@
   if (side) side.appendChild(foot);
   window.CDD_WEB.getJSON('built.json').then(b => {
     const bad = (b.steps || []).filter(s => !s.ok).length;
-    foot.innerHTML = `Data refreshed ${esc(b.built_at)} (Calgary time)${bad ? `, ${bad} source${bad > 1 ? 's' : ''} not reached` : ''}. From public data; not affiliated with The City of Calgary. <a href="wards/">Wards</a> · <a href="communities/">Communities</a>`;
+    foot.innerHTML = `Data refreshed ${esc(b.built_at)} (Calgary time)${bad ? `, ${bad} source${bad > 1 ? 's' : ''} not reached` : ''}. From public data; not affiliated with The City of Calgary. <a href="wards/">Wards</a> · <a href="communities/">Communities</a> · <a href="game/">Game</a>`;
     const st = $('#side-status'); if (st) st.title = foot.textContent;
   }).catch(() => {});
 
@@ -178,6 +178,66 @@
     },
     get locked() { return locked; },
   };
+
+  // ---- links that keep what you picked: ?view=issues&ward=7&community=MAR opens the same screen, ward and community
+  const setParam = (k, v) => {
+    try {
+      const u = new URL(location.href);
+      if (v === null || v === undefined || v === '' || v === 0) u.searchParams.delete(k); else u.searchParams.set(k, v);
+      history.replaceState(null, '', u.pathname + u.search + u.hash);
+    } catch (e) { /* the address stays as it was */ }
+  };
+  let commPick = new URLSearchParams(location.search).get('community') || '';
+  window.onCommunityPanel = code => { commPick = code || ''; setParam('community', commPick); };
+  document.addEventListener('cdd-dash', () => {
+    const D = window.CDD_DASH && window.CDD_DASH();
+    if (!D) return;
+    const w = D.scope && D.scope.ward ? +D.scope.ward : 0;
+    setParam('ward', w);
+    if (commPick && !(D.communities || []).some(c => c.code === commPick)) { commPick = ''; setParam('community', ''); }
+    wardLink(w);
+  });
+
+  // ---- the game: its own page (calgaryinsight.ca/game/), linked from the side bar under Visiting Calgary
+  const vt = $('.tab-visit');
+  if (vt && !$('#web-game-tab')) vt.insertAdjacentHTML('afterend', '<a class="tab" id="web-game-tab" href="game/" title="YYC City Stories: a free game on the real map of Calgary, with four characters and 18 missions that teach City services"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg><span>Game: YYC City Stories</span></a>');
+
+  // ---- every community and ward has its own page (communities/<name>/, wards/<n>/): link to them from the dashboard
+  let pages = null;
+  const pagesP = fetch('communities/pages.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).then(p => (pages = p)).catch(() => (pages = []));
+  window.CDD_COMM_LINK = c => {
+    const p = (pages || []).find(x => x.code === c.code);
+    return p ? `<a class="btn web-comm-page" href="${esc(p.path)}">${esc(c.name)}'s own page: figures to share and print ↗</a>` : '';
+  };
+  pagesP.then(() => { const D = window.CDD_DASH && window.CDD_DASH(); if (D && commPick && typeof window.select === 'function' && $('#panel .detail')) window.select(commPick); });
+  function wardLink(w) {            // in the finder row: the page of the ward on screen
+    const a = $('#web-ward-page');
+    if (!a) return;
+    a.hidden = !w;
+    if (w) { a.href = `wards/${w}/`; a.textContent = `Ward ${w}'s page`; }
+  }
+  // a "find your community" box at the top of the overview
+  const head = $('#dash-body') && $('#dash-body').parentElement;
+  if (head) {
+    head.insertAdjacentHTML('afterbegin', `<div class="web-finder" role="search">
+      <label for="web-find">Find your community</label>
+      <div class="web-find-box"><input id="web-find" type="search" autocomplete="off" placeholder="Type a community, e.g. Martindale" aria-controls="web-find-list">
+      <ul id="web-find-list" class="web-find-list" role="listbox" hidden></ul></div>
+      <span class="web-find-all"><a id="web-ward-page" href="wards/" hidden></a><a href="communities/">All 270 communities</a><a href="wards/">All 14 wards</a><a href="311/">311</a><a href="crime/">Crime</a><a href="growth/">Growth</a></span></div>`);
+    const inp = $('#web-find'), list = $('#web-find-list');
+    pagesP.then(p => { const n = $('.web-find-all a[href="communities/"]'); if (n && p.length) n.textContent = `All ${p.length} communities`; });
+    const norm = t => String(t).toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, ' ').trim();
+    inp.addEventListener('input', () => {
+      const q = norm(inp.value);
+      if (!q || !pages) { list.hidden = true; return; }
+      const hits = pages.filter(p => norm(p.name).includes(q)).sort((a, b) => norm(a.name).indexOf(q) - norm(b.name).indexOf(q)).slice(0, 8);
+      list.innerHTML = hits.length ? hits.map(p => `<li role="option"><a href="${esc(p.path)}"><b>${esc(p.name)}</b><span>Ward ${esc(p.ward || '')}</span></a></li>`).join('')
+        : '<li class="none">No community by that name. <a href="communities/">See them all</a></li>';
+      list.hidden = false;
+    });
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter') { const a = list.querySelector('a'); if (a && !list.hidden) { e.preventDefault(); location.href = a.href; } } if (e.key === 'Escape') { list.hidden = true; } });
+    document.addEventListener('click', e => { if (!e.target.closest('.web-finder')) list.hidden = true; });
+  }
   // the figures follow the area and refresh whenever either screen is opened
   if (typeof window.show === 'function') {
     const prev = window.show;

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>YYC City Stories: a free game on the real map of Calgary · Calgary Insight</title>
+<meta name="description" content="YYC City Stories is a free game built on the real map of Calgary from City open data. Play as Ali, Natalia, Chris or Jean through 18 missions that teach City services: transit, 311, licences, seniors' programs, recycling, snow and more.">
+<link rel="canonical" href="https://calgaryinsight.ca/game/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Calgary Insight">
+<meta property="og:title" content="YYC City Stories: a free game on the real map of Calgary">
+<meta property="og:description" content="Four characters, 18 missions, every street and building the real Calgary. Learn City services by playing. Free, in your browser.">
+<meta property="og:url" content="https://calgaryinsight.ca/game/"><meta property="og:image" content="https://calgaryinsight.ca/game/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"YYC City Stories","url":"https://calgaryinsight.ca/game/","image":"https://calgaryinsight.ca/game/img/og.jpg","description":"A free game on the real map of Calgary. Play as a newcomer, a student, a senior or a resident and learn City services through 18 missions.","author":{"@type":"Person","name":"Hassan Ali"},"publisher":{"@type":"Organization","name":"Calgary Insight","url":"https://calgaryinsight.ca/"},"gamePlatform":["Web browser"],"applicationCategory":"Game","genre":["Open world","Educational"],"inLanguage":["en","fr","pa","ur","tl","ar"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"},"contentLocation":{"@type":"City","name":"Calgary"}}</script>
+<style>
+:root{--ink:#0d141c;--ink2:#141e29;--card:#18232f;--line:rgba(255,255,255,.12);--fg:#f3f6fa;--mute:#a7b3c2;--red:#c8102e;--red2:#e5243f;--gold:#ffc400;
+--display:'Archivo Black','Arial Black',Impact,sans-serif;--body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--body);font-size:16.5px;line-height:1.6}
+a{color:var(--gold)}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.pad{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto}
+h1,h2,h3{margin:0;line-height:1.05;text-wrap:balance}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,4.4vw,2.8rem);letter-spacing:-.01em}
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.top{position:absolute;z-index:3;top:max(12px,env(safe-area-inset-top,0px));left:0;right:0}
+.top .wrap{display:flex;justify-content:space-between;align-items:center}
+.top a{color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px;text-shadow:0 1px 6px #000}
+.top img{width:24px;height:24px}
+/* hero */
+.hero{position:relative;min-height:min(92vh,820px);display:flex;align-items:flex-end;overflow:hidden;background:#05080c}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,12,.6),rgba(5,8,12,.05) 30%,rgba(13,20,28,.35) 55%,var(--ink))}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-block:0 3.2rem}
+.logo{font-family:var(--display);font-size:clamp(3.2rem,12vw,7.6rem);line-height:.88;letter-spacing:-.02em;margin:.5rem 0 0}
+.logo span{color:var(--red);-webkit-text-stroke:2px #fff;paint-order:stroke fill}
+.tag{font-size:clamp(1.1rem,2.6vw,1.45rem);font-weight:600;margin:1rem 0 0;max-width:34ch}
+.by{color:var(--mute);margin:.4rem 0 0;font-size:.95rem}
+.play{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;background:var(--red);color:#fff;text-decoration:none;font-weight:800;font-size:1.15rem;padding:.95rem 1.7rem;border-radius:12px;box-shadow:0 10px 30px rgba(200,16,46,.35);transition:transform .15s,background .15s}
+.play:hover{background:var(--red2);transform:translateY(-1px)}
+.play svg{width:1.1em;height:1.1em}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1.2rem;color:var(--mute);font-size:.92rem}
+.facts b{color:var(--fg)}
+section{padding-block:clamp(3rem,7vw,5rem)}
+.lead{color:var(--mute);font-size:1.08rem;max-width:64ch;margin:.9rem 0 0}
+/* screenshots */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px;margin-top:2rem}
+.shots figure{margin:0;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.shots img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.shots figcaption{padding:.6rem .85rem;font-size:.88rem;color:var(--mute)}
+/* what's real */
+.real{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px;margin-top:2rem}
+.real div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem}
+.real b{display:block;font-size:1rem;margin-bottom:.25rem}
+.real p{margin:0;color:var(--mute);font-size:.92rem}
+.real i{font-style:normal;font-size:1.35rem;display:block;margin-bottom:.3rem}
+/* characters */
+.cast{display:grid;gap:16px;margin-top:2rem}
+.who{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.who .id{padding:1.4rem;background:linear-gradient(160deg,var(--c1),transparent 75%);border-right:1px solid var(--line)}
+.av{width:76px;height:76px;border-radius:50%;background:linear-gradient(180deg,var(--hair) 0 33%,var(--skin) 33% 66%,var(--shirt) 66%);border:3px solid rgba(255,255,255,.85);box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.who h3{font-family:var(--display);font-weight:400;font-size:2rem;margin:.8rem 0 .1rem}
+.role{color:var(--gold);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+.who .id p{color:var(--fg);opacity:.88;font-size:.95rem;margin:.7rem 0 0}
+.count{display:inline-block;margin-top:.9rem;font-size:.8rem;font-weight:700;background:rgba(255,255,255,.1);padding:.25rem .6rem;border-radius:999px}
+.who ol{list-style:none;margin:0;padding:1.1rem 1.3rem;display:grid;gap:.15rem;counter-reset:m}
+.who li{counter-increment:m;display:grid;grid-template-columns:2rem 1fr;gap:.2rem .6rem;padding:.55rem 0;border-bottom:1px solid var(--line)}
+.who li:last-child{border-bottom:0}
+.who li::before{content:counter(m,decimal-leading-zero);font-family:var(--display);color:var(--red2);font-size:1rem;padding-top:.05rem;grid-row:1 / span 2}
+.who li b,.who li span{grid-column:2;min-width:0}
+.who li b{display:block;font-size:.98rem}
+.who li span{color:var(--mute);font-size:.9rem}
+.who li em{font-style:normal;color:var(--gold);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:block;margin-top:.15rem}
+@media(max-width:760px){.who{grid-template-columns:1fr}.who .id{border-right:0;border-bottom:1px solid var(--line)}}
+/* how to play */
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:2rem}
+.how div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem}
+.how h3{font-size:1.05rem;margin-bottom:.5rem}
+.how ul{margin:0;padding-left:1.1rem;color:var(--mute);font-size:.93rem}
+kbd{font-family:var(--body);font-size:.8rem;font-weight:700;background:#26333f;border:1px solid #3a4a5a;border-bottom-width:2px;border-radius:5px;padding:.05rem .4rem;color:var(--fg)}
+.band{background:linear-gradient(135deg,#7d0a1d,var(--red) 55%,#e5243f);text-align:center}
+.band h2{color:#fff}
+.band p{color:rgba(255,255,255,.88);margin:.8rem auto 0;max-width:56ch}
+.band .play{background:#fff;color:var(--red);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.band .play:hover{background:#fff4f5}
+footer{padding-block:2.2rem 3rem;color:var(--mute);font-size:.82rem;border-top:1px solid var(--line)}
+footer ul{padding-left:1.1rem;margin:.6rem 0 1rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap pad"><a href="../"><img src="../logo.svg" alt="">Calgary Insight</a><a href="../visit/">Visiting Calgary ↗</a></div></div>
+
+<header class="hero">
+  <img src="img/hero.jpg" alt="YYC City Stories: the downtown Calgary skyline and the Calgary Tower at dusk, in the game" width="1600" height="900" fetchpriority="high">
+  <div class="wrap pad">
+    <div class="kicker">Calgary Insight presents</div>
+    <h1 class="logo">YYC <span>CITY</span><br>STORIES</h1>
+    <p class="tag">The real Calgary. Real City services. Your story.</p>
+    <p class="by">A free game by Hassan Ali</p>
+    <a class="play" href="../city-stories/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Play now, free</a>
+    <div class="facts"><span><b>4</b> characters</span><span><b>18</b> missions</span><span><b>6</b> languages</span><span>In your browser · no download, no account</span></div>
+  </div>
+</header>
+
+<main>
+  <section class="pad"><div class="wrap">
+    <div class="kicker">The game</div>
+    <h2>Calgary, built from the City's own open data</h2>
+    <p class="lead">YYC City Stories is an open-world game set on the real map of Calgary. Every street, building and park is where it is in real life, built from the City of Calgary's open data. You walk, drive and ride the CTrain through the city as one of four Calgarians, and every mission teaches a real City service: what it is, where to find it, and how to use it.</p>
+    <p class="lead">It was made for newcomers finding their feet, students, seniors and anyone who lives here, to show that help is closer than people think.</p>
+    <div class="shots" id="shots"></div>
+  </div></section>
+
+  <section class="pad" style="background:var(--ink2)"><div class="wrap">
+    <div class="kicker">What makes it real</div>
+    <h2>Not a city like Calgary. Calgary.</h2>
+    <div class="real">
+      <div><i>🏙️</i><b>Every building, its real shape</b><p>Building shapes come from the City's 3D models made from LiDAR, and the ground follows the City's real elevation model, hills, river valleys and all.</p></div>
+      <div><i>🏠</i><b>House numbers on every home</b><p>Every building carries its real address from the City's Parcel Address data. Type an address in the in-game phone and go there.</p></div>
+      <div><i>🏪</i><b>Real shops and businesses</b><p>Storefront signs on the right buildings, from the City's business licences. The phone's Nearby app finds them around you.</p></div>
+      <div><i>🚦</i><b>Real streets, signals and signs</b><p>Traffic lights stand at the City's real signalised intersections, with speed limits by street type and road signs from City data.</p></div>
+      <div><i>🚆</i><b>Calgary Transit</b><p>Real routes and stops from the Calgary Transit timetable. Walk onto any CTrain platform, pick your stop and ride.</p></div>
+      <div><i>🌳</i><b>Parks as they are</b><p>Benches, picnic tables, playgrounds and fountains each at their real spot, from City of Calgary Parks open data.</p></div>
+      <div><i>🗳️</i><b>Your ward and councillor</b><p>Welcome billboards where main roads enter each of the 14 wards, with a welcome from that ward's councillor.</p></div>
+      <div><i>📱</i><b>A phone with real City info</b><p>311, Transit, Find help and City facts, including the number of 311 requests open across Calgary right now, live from open data.</p></div>
+      <div><i>🎤</i><b>Day, night and a concert</b><p>The city lights up after dark, and a concert plays at the Scotiabank Saddledome every night to the title song, "Under One Sky".</p></div>
+      <div><i>🚗</i><b>Walk, drive or fly</b><p>Get in a car, hop on a motorbike or fly the helicopter over downtown and the Bow.</p></div>
+      <div><i>📷</i><b>See it for real</b><p>At mission places and landmarks, open the real street photo of the spot and compare it with the game.</p></div>
+      <div><i>🌐</i><b>Six languages</b><p>English, French, Punjabi, Urdu, Tagalog and Arabic: every mission, card and quiz.</p></div>
+    </div>
+  </div></section>
+
+  <section class="pad" id="characters"><div class="wrap">
+    <div class="kicker">Choose who you play</div>
+    <h2>Four Calgarians, four stories</h2>
+    <p class="lead">Each character has their own story, set in the parts of the city they live in. Every mission ends with a short card on the real service, with links to the official page, and a quick quiz.</p>
+    <div class="cast">
+
+      <article class="who" style="--c1:rgba(40,110,220,.32);--hair:#1b1410;--skin:#b07a52;--shirt:#2a72d8">
+        <div class="id"><div class="av" aria-hidden="true"></div><h3>Ali</h3><div class="role">New to Calgary</div>
+          <p>Ali just landed at YYC to start a new life. Find your way around, get your licence, a car and insurance, and meet your new community in the northeast.</p><span class="count">7 missions</span></div>
+        <ol>
+          <li><b>Welcome to YYC</b><span>Walk from the Domestic Terminal to the Airport Express bus and ride downtown, learning how to pay for the bus and the CTrain.<em>Calgary Transit</em></span></li>
+          <li><b>The Centre for Newcomers</b><span>Find the Centre for Newcomers on 36 Street NE, where settlement help is free.<em>Settling in</em></span></li>
+          <li><b>Your driver's licence</b><span>Go to a registry agent on Aviation Road NE and learn how an Alberta licence works.<em>Alberta registries</em></span></li>
+          <li><b>The road test</b><span>Drive four checkpoints without speeding or crashing to earn your Class 5 licence.<em>Rules of the road</em></span></li>
+          <li><b>A car and insurance</b><span>Get insurance quotes on 1 Street SE: insurance first, then registration.<em>Insurance</em></span></li>
+          <li><b>Meet your community</b><span>Visit the Genesis Centre and Saddletowne Library and learn about Fair Entry.<em>Your community</em></span></li>
+          <li><b>Ride the Blue Line</b><span>Walk to Saddletowne Station and learn Calgary's two CTrain lines.<em>CTrain</em></span></li>
+        </ol>
+      </article>
+
+      <article class="who" style="--c1:rgba(140,60,200,.32);--hair:#4a2e1a;--skin:#d8a77c;--shirt:#8a3fb8">
+        <div class="id"><div class="av" aria-hidden="true"></div><h3>Natalia</h3><div class="role">Student</div>
+          <p>Natalia goes to high school in the northeast. Stand up to bullies, help the younger kids and teach your school how to stop bullying.</p><span class="count">3 missions</span></div>
+        <ol>
+          <li><b>First day at school</b><span>Walk to Nelson Mandela High School and learn how students get around on transit.<em>Youth on transit</em></span></li>
+          <li><b>Stand up to the bullies</b><span>Older kids are picking on a Grade 7 student. Stay calm, get him to safety and find adults who can help.<em>Bullying</em></span></li>
+          <li><b>Teach the younger kids</b><span>The principal asks you to visit three groups around the school and share what you know.<em>Bullying</em></span></li>
+        </ol>
+      </article>
+
+      <article class="who" style="--c1:rgba(150,110,70,.34);--hair:#d9d6d0;--skin:#e7bc98;--shirt:#6b5a43">
+        <div class="id"><div class="av" aria-hidden="true"></div><h3>Chris</h3><div class="role">Senior</div>
+          <p>Chris is 72 and lives near downtown. Discover the programs, passes and health services that help Calgary seniors stay active and safe.</p><span class="count">4 missions</span></div>
+        <ol>
+          <li><b>The Kerby Centre</b><span>His daughter Linda sends him to the centre for older adults on 7 Avenue SW. Tai chi on Tuesdays?<em>Seniors</em></span></li>
+          <li><b>A senior transit pass</b><span>Ride the CTrain to City Hall and learn about the Senior Yearly Pass, Fair Entry and Calgary Transit Access.<em>Calgary Transit</em></span></li>
+          <li><b>Stay healthy</b><span>A daily walk on Prince's Island, and who to call with a health question at 2 a.m.<em>Health Link 811</em></span></li>
+          <li><b>Don't get scammed</b><span>"Grandpa, I'm in jail, send gift cards!" Spot the scam and know what to do.<em>Calgary Police</em></span></li>
+        </ol>
+      </article>
+
+      <article class="who" style="--c1:rgba(40,150,90,.32);--hair:#1a1410;--skin:#7a4e33;--shirt:#2e8b57">
+        <div class="id"><div class="av" aria-hidden="true"></div><h3>Jean</h3><div class="role">Calgary resident</div>
+          <p>Jean has lived in Martindale for years. Deliver food from local restaurants, sort your carts, clear your sidewalk and catch the concert at the Saddledome.</p><span class="count">4 missions</span></div>
+        <ol>
+          <li><b>Food delivery shift</b><span>Three orders: pick up from real local restaurants and deliver to real addresses, by car or on foot.<em>Shop local</em></span></li>
+          <li><b>Black, blue and green</b><span>Help neighbour Priya sort what goes in which cart before collection day.<em>Waste and recycling</em></span></li>
+          <li><b>Shovel your sidewalk</b><span>It snowed: clear your walk and your 80-year-old neighbour's within 24 hours.<em>Snow Angels</em></span></li>
+          <li><b>Concert night</b><span>Get to the Saddledome: pay for parking with your zone number, or take the CTrain.<em>Parking</em></span></li>
+        </ol>
+      </article>
+    </div>
+    <p style="margin-top:1.6rem"><a class="play" href="../city-stories/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Choose your character and play</a></p>
+  </div></section>
+
+  <section class="pad" style="background:var(--ink2)"><div class="wrap">
+    <div class="kicker">How to play</div>
+    <h2>Free, in your browser</h2>
+    <div class="how">
+      <div><h3>On a computer</h3><ul>
+        <li><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to move, drag the mouse to look around</li>
+        <li><kbd>Shift</kbd> to run or boost, <kbd>F</kbd> to get in or out of a car</li>
+        <li><kbd>E</kbd> to talk or use, <kbd>M</kbd> for the map, <kbd>P</kbd> for your phone</li></ul></div>
+      <div><h3>On a phone or tablet</h3><ul>
+        <li>On-screen joystick to move, drag to look around</li>
+        <li>Buttons for the phone, map, car and helicopter</li>
+        <li>Turn the phone sideways for the best view; a recent phone works best</li></ul></div>
+      <div><h3>Two ways to play</h3><ul>
+        <li><b>Story:</b> follow your character's missions in order</li>
+        <li><b>Free roam:</b> explore anywhere in Calgary, ride the CTrain, find landmarks</li>
+        <li>Your progress is saved in your browser</li></ul></div>
+    </div>
+  </div></section>
+
+  <section class="band pad"><div class="wrap">
+    <h2>Calgary is waiting</h2>
+    <p>Pick a character, choose your language and step into the city you know, or the one you are just getting to know.</p>
+    <a class="play" href="../city-stories/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Play YYC City Stories</a>
+  </div></section>
+</main>
+
+<footer class="pad"><div class="wrap">
+  <b>YYC City Stories, a game by Hassan Ali.</b> Presented by <a href="../">Calgary Insight</a>, independent and non-partisan; not affiliated with The City of Calgary.
+  <ul>
+    <li>Map data © OpenStreetMap contributors, Open Database Licence (ODbL)</li>
+    <li>Building shapes, ground heights, addresses, business licences, parks, traffic signals, wards and Calgary Transit routes and stops: City of Calgary open data, Open Government Licence – City of Calgary</li>
+    <li>Ground imagery: contains modified Copernicus Sentinel data 2024–2025; outside the city, Copernicus DEM GLO-30 (European Union, ESA)</li>
+    <li>Title song: "Under One Sky" by Hassan Ali</li>
+  </ul>
+  Something wrong in the game, or an idea for a mission? Write to <a href="mailto:hello@calgaryinsight.ca">hello@calgaryinsight.ca</a>.
+</div></footer>
+<script>
+// the screenshots, with what each shows
+(function () {
+  var S = [['saddledome-night', 'The downtown skyline and the Calgary Tower from the Beltline at dusk'], ['menu', 'Choose Ali, Natalia, Chris or Jean, in any of six languages'],
+           ['peace-bridge', 'Eau Claire, by the Bow River, as the lights come on'], ['downtown-day', '7 Avenue SW at midday: real buildings, a +15 skywalk and real shop signs'],
+           ['martindale-aerial', 'Martinbrook Link NE in Martindale, where Jean lives']];
+  var box = document.getElementById('shots');
+  box.innerHTML = S.map(function (s) { return '<figure><img src="img/' + s[0] + '.jpg" alt="' + s[1] + '" loading="lazy" width="1280" height="720" onerror="this.closest(\'figure\').remove()"><figcaption>' + s[1] + '</figcaption></figure>'; }).join('');
+})();
+</script>
+</body>
+</html>

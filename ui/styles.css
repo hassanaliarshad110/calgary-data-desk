@@ -2410,3 +2410,23 @@ html.topnav .side.open .nav-g.has-on .nav-gt { box-shadow: none; }
 .vi-door .vi-door-k { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: #F2A33A; }
 .vi-door .vi-door-go { color: #F2A33A; font-weight: 700; margin-top: 4px; }
 .vi-door:hover .vi-door-go, .vi-door:focus-visible .vi-door-go { text-decoration: underline; }
+
+/* phones: the open-requests tables become cards, so every figure and the "List requests" button stay on screen */
+@media (max-width: 640px) {
+  #issues-table thead, table.ward-open thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  #issues-table, #issues-table tbody, table.ward-open, table.ward-open tbody { display: block; width: 100%; }
+  #issues-table tr, table.ward-open tr { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 12px; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  #issues-table td, table.ward-open td { display: block; padding: 0; border: 0; text-align: left; min-width: 0; overflow-wrap: anywhere; font-size: 13px; }
+  #issues-table td::before, table.ward-open td::before { content: attr(data-l); display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted-fg); font-weight: 600; }
+  #issues-table td.i-type, table.ward-open td.w-name { grid-column: 1 / -1; font-weight: 700; font-size: 14.5px; }
+  #issues-table td.i-type::before, table.ward-open td.w-name::before, table.ward-open td:last-child::before { content: none; }
+  #issues-table td.i-type { order: -1; }
+  #issues-table td.i-dept { grid-column: 1 / -1; }
+  table.ward-open td.w-coun { grid-column: 1 / -1; color: var(--muted-fg); }
+  table.ward-open td:last-child { grid-column: 1 / -1; margin-top: 6px; }
+  table.ward-open td:last-child .link-btn { display: block; width: 100%; text-align: center; padding: 8px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); }
+  #issues-city .table-wrap, .issues-card .table-wrap.tall { max-height: none; overflow: visible; }
+}
+
+.vi-game { background: radial-gradient(120% 140% at 85% 20%, #4A0B16, #0D141C 70%); }
+.vi-game .vi-door-k, .vi-game .vi-door-go { color: #FFC400; }

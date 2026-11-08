@@ -298,4 +298,112 @@ def build(out, data_dir, method='city_actual'):
         f.write(page('communities/', 'Calgary communities: population, 311 requests and crime for every neighbourhood | Calgary Insight',
                      f'Every one of Calgary’s {len(comms)} communities: population and growth, 311 requests, crime per 1,000 residents and new homes, from public data refreshed daily.',
                      [('Calgary Insight', ''), ('Communities', 'communities/')], body, None, updated))
+    # ---- three topic pages with their own address and title (the dashboard screens all share the home page's)
+    urls += topic_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated)
+
+    # the list the dashboard uses to link each community to its page, and for its "find your community" box
+    with open(os.path.join(out, 'communities', 'pages.json'), 'w', encoding='utf-8') as f:
+        json.dump([{'code': c['code'], 'name': c['name'], 'ward': c.get('ward'), 'path': 'communities/' + slugs[c['code']] + '/'}
+                   for c in sorted(comms, key=lambda c: c['name'])], f, ensure_ascii=False, separators=(',', ':'))
     return ['wards/', 'communities/'] + urls
+
+
+def topic_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated):
+    """calgaryinsight.ca/311/, /crime/ and /growth/: city-wide figures, every ward, and the communities at the top."""
+    S, P = city.get('summary') or {}, city.get('population') or {}
+    ws = {r['ward']: r for r in ((city.get('wards_summary') or {}).get('wards') or [])}
+    lived = [c for c in comms if c.get('residential') and not c.get('few_residents') and (c.get('residents') or 0) >= 1000]   # rates need enough residents to mean something
+    out_urls = []
+
+    def write(path, title, desc, name, body):
+        os.makedirs(os.path.join(out, path), exist_ok=True)
+        with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
+            f.write(page(path, title, desc, [('Calgary Insight', ''), (name, path)], '\n'.join(body), None, updated))
+        out_urls.append(path)
+
+    def ward_table(cols):
+        head = ''.join(f'<th class="n">{e(h)}</th>' for h, _ in cols)
+        rows = ''.join(f'<tr><td><a href="../wards/{w}/">Ward {w}</a></td><td>{e(r.get("councillor") or "")}</td>' + ''.join(f'<td class="n">{g(r) or "–"}</td>' for _, g in cols) + '</tr>'
+                       for w, r in sorted(ws.items()))
+        return f'<div class="wrap"><table><thead><tr><th>Ward</th><th>Councillor</th>{head}</tr></thead><tbody>{rows}</tbody></table></div>'
+
+    def top(getter, fmt, n=10):
+        vals = sorted([(getter(c), c) for c in lived if getter(c) is not None], key=lambda t: -t[0])[:n]
+        return ''.join(f'<tr><td><a href="../communities/{slugs[c["code"]]}/">{e(c["name"])}</a></td><td>Ward {c.get("ward") or ""}</td><td class="n">{fmt(v)}</td></tr>' for v, c in vals)
+
+    # 311
+    types = [t for t in city.get('open_by_type') or [] if not re.search(r'contact us', str(t.get('type')), re.I)][:10]
+    body = ['<h1>311 in Calgary: requests, what is still open, and by ward</h1>',
+            f'<p class="lead">Calgarians made {num(S.get("requests12"))} 311 requests in {e(period)}'
+            + (f', {pct(S.get("requests_change_pct"))} on the year before' if S.get('requests_change_pct') is not None else '')
+            + f'. {num(S.get("open_now"))} requests are still marked open in the City’s data, {num(S.get("open_over_90_days"))} of them for more than 90 days. '
+            '“Still open” is how the City’s data marks them, not proof the work is undone: some older requests were finished but never closed.</p>',
+            '<div class="kpis">' + ''.join([
+                kpi('311 requests, 12 months', num(S.get('requests12')), f'{num(S.get("requests_per_1000"), 0)} per 1,000 residents a year'),
+                kpi('Still open today', num(S.get('open_now')), f'{num(S.get("open_over_90_days"))} open over 90 days'),
+                kpi('Open per 1,000 residents', num(S.get('open_per_1000'), 1), 'requests in residential communities only'),
+                kpi('Closed within 7 days', (num(S.get('closed_7_days_pct'), 1) + '%') if S.get('closed_7_days_pct') is not None else '–', 'of requests made'),
+                kpi('Made in the 311 app', (num(S.get('app_share_pct'), 1) + '%') if S.get('app_share_pct') is not None else '–', 'of requests')]) + '</div>',
+            '<h2>Every ward</h2>',
+            ward_table([('311 requests, 12 months', lambda r: num(r.get('requests12'))), ('Per 1,000 a year', lambda r: num(r.get('requests_per_1000'), 0)),
+                        ('Still open', lambda r: num(r.get('open'))), ('Open per 1,000', lambda r: num(r.get('open_per_1000'), 1)),
+                        ('Closed in 7 days', lambda r: (num(r.get('closed_7_days_pct'), 1) + '%') if r.get('closed_7_days_pct') is not None else None)]),
+            '<p>Rates per 1,000 residents count requests in residential communities only, since business and industrial areas have almost no residents.</p>']
+    if types:
+        body.append('<h2>The most common requests still open</h2><div class="wrap"><table><thead><tr><th>Request</th><th class="n">Open now</th></tr></thead><tbody>'
+                    + ''.join(f'<tr><td>{e(nice_type(t.get("type")))}</td><td class="n">{num(t.get("n"))}</td></tr>' for t in types) + '</tbody></table></div>')
+    body.append('<h2>Communities with the most 311 requests per resident</h2><p>Communities with at least 1,000 residents. Busy commercial areas get requests from far more people than live there.</p><div class="wrap"><table><thead><tr><th>Community</th><th>Ward</th><th class="n">Per 1,000 a year</th></tr></thead><tbody>'
+                + top(lambda c: c.get('requests_per_1000'), lambda v: num(v, 0)) + '</tbody></table></div>')
+    body += ['<a class="cta" href="../?view=issues">See every open request on the dashboard</a>',
+             '<p><a href="../crime/">Crime in Calgary</a> · <a href="../growth/">Growth and new homes</a> · <a href="../wards/">All wards</a> · <a href="../communities/">All communities</a></p>', sources_p(city)]
+    write('311/', 'Calgary 311 requests by ward and community: what is still open | Calgary Insight',
+          f'{num(S.get("requests12"))} Calgary 311 requests in 12 months and {num(S.get("open_now"))} still marked open, ward by ward and community by community, from City open data refreshed daily.',
+          '311 in Calgary', body)
+
+    # crime
+    cats = (crime.get('by_category') or [])[:10]
+    body = ['<h1>Crime in Calgary by ward and community</h1>',
+            f'<p class="lead">The Calgary Police Service recorded {num(crime.get("city_crimes") or crime.get("crimes"))} crimes in {e(cperiod)}'
+            + (f', {pct(crime.get("city_change_pct") if crime.get("city_change_pct") is not None else crime.get("change_pct"))} on the year before' if (crime.get('city_change_pct') if crime.get('city_change_pct') is not None else crime.get('change_pct')) is not None else '')
+            + f': {num(crime.get("city_per_1000") or crime.get("per_1000"), 1)} for every 1,000 residents.</p>',
+            '<div class="kpis">' + ''.join([
+                kpi('Crimes, latest 12 months', num(crime.get('city_crimes') or crime.get('crimes'))),
+                kpi('Per 1,000 residents a year', num(crime.get('city_per_1000') or crime.get('per_1000'), 1)),
+                kpi('Violent crimes', num(crime.get('violent')), (pct(crime.get('violent_change_pct')) + ' on the year before') if crime.get('violent_change_pct') is not None else '')]) + '</div>',
+            '<h2>Every ward</h2>',
+            ward_table([('Crimes', lambda r: num(r.get('crimes'))), ('Per 1,000 a year', lambda r: num(r.get('crime_per_1000'), 1)),
+                        ('Change', lambda r: pct(r.get('crime_change_pct')) if r.get('crime_change_pct') is not None else None)])]
+    if cats:
+        body.append(f'<h2>Crime by kind, {e(cperiod)}</h2><div class="wrap"><table><thead><tr><th>Kind</th><th class="n">Crimes</th><th class="n">Year before</th></tr></thead><tbody>'
+                    + ''.join(f'<tr><td>{e(x.get("label") or x.get("category"))}</td><td class="n">{num(x.get("n"))}</td><td class="n">{num(x.get("prev"))}</td></tr>' for x in cats) + '</tbody></table></div>')
+    body.append('<h2>Communities with the most crime per resident</h2><p>Communities with at least 1,000 residents. Downtown and busy shopping areas see crime from far more people than live there.</p>'
+                '<div class="wrap"><table><thead><tr><th>Community</th><th>Ward</th><th class="n">Per 1,000 a year</th></tr></thead><tbody>'
+                + top(lambda c: (byc.get(c['code']) or {}).get('per_1000'), lambda v: num(v, 1)) + '</tbody></table></div>')
+    body += ['<a class="cta" href="../?view=safety">Open crime on the dashboard</a>',
+             '<p><a href="../311/">311 in Calgary</a> · <a href="../growth/">Growth and new homes</a> · <a href="../wards/">All wards</a> · <a href="../communities/">All communities</a></p>', sources_p(city)]
+    write('crime/', 'Calgary crime by ward and community, per 1,000 residents | Calgary Insight',
+          f'Calgary crime from Calgary Police Service statistics: {num(crime.get("city_per_1000") or crime.get("per_1000"), 1)} per 1,000 residents a year, every ward and the communities with the highest rates, refreshed daily.',
+          'Crime in Calgary', body)
+
+    # growth
+    body = ['<h1>Calgary’s growth: population and new homes by ward</h1>',
+            f'<p class="lead">About {num(P.get("city_now"))} people live in Calgary today by the City’s estimate, against {num(P.get("census_city"))} at the 2021 Census. '
+            f'{num(S.get("new_homes12"))} new homes were applied for and {num(S.get("issued_homes12"))} approved in building permits in {e(period)}.</p>',
+            '<div class="kpis">' + ''.join([
+                kpi('Residents today (estimate)', num(P.get('city_now')), f'2021 Census: {num(P.get("census_city"))}'),
+                kpi('Homes today', num(P.get('homes_now')), f'2021: {num(P.get("homes_census"))}'),
+                kpi('Homes in permits applied for', num(S.get('new_homes12')), (pct(S.get('new_homes_change_pct')) + ' on the year before') if S.get('new_homes_change_pct') is not None else ''),
+                kpi('Homes in permits issued', num(S.get('issued_homes12')), (pct(S.get('issued_homes_change_pct')) + ' on the year before') if S.get('issued_homes_change_pct') is not None else '')]) + '</div>',
+            '<h2>Every ward</h2>',
+            ward_table([('Residents today', lambda r: num(r.get('residents'))), ('2021 Census', lambda r: num(r.get('census2021'))),
+                        ('Growth since 2021', lambda r: (num(r.get('growth_pct'), 1) + '%') if r.get('growth_pct') is not None else None),
+                        ('Homes applied for, 12 months', lambda r: num(r.get('new_homes12')))]),
+            '<h2>Fastest-growing communities since 2021</h2><div class="wrap"><table><thead><tr><th>Community</th><th>Ward</th><th class="n">Growth</th></tr></thead><tbody>'
+            + top(lambda c: c.get('growth_pct') if (c.get('census2021') or 0) >= 500 else None, lambda v: num(v, 1) + '%') + '</tbody></table></div>',
+            f'<p>Residents today: {e(P.get("method_label") or "the City’s population estimate")}. Estimates, rounded to whole people; the 2021 Census is the last full count.</p>',
+            '<a class="cta" href="../?view=growth">Open growth on the dashboard</a>',
+            '<p><a href="../311/">311 in Calgary</a> · <a href="../crime/">Crime in Calgary</a> · <a href="../wards/">All wards</a> · <a href="../communities/">All communities</a></p>', sources_p(city)]
+    write('growth/', 'Calgary population growth and new homes by ward and community | Calgary Insight',
+          f'Calgary’s population today (about {num(P.get("city_now"))}) against the 2021 Census, new homes in building permits, and growth in every ward and community, refreshed daily.',
+          'Growth in Calgary', body)
+    return out_urls

@@ -459,6 +459,10 @@
     </header>
     <div class="content">
       <div class="issue-stats" id="issue-stats"></div>
+      <div class="banner info" id="issues-note">
+        <svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>
+        <div><strong>"Still open" is how the City's data marks them, not proof the work is undone.</strong> Many older requests are still marked open, some for years: some may be finished but never closed, especially "311 Contact Us" messages, which the list below leaves out unless you untick the box. The office can send 311 a list of request numbers to review: filter the list, then use "Save this list".</div>
+      </div>
       <section class="card" id="track-card"></section>
       <section class="card" id="issues-city" hidden></section>
       <div class="filters card">
@@ -470,9 +474,9 @@
           <option value="0">Any time</option><option value="30">More than 30 days</option><option value="90">More than 90 days</option>
           <option value="365">More than a year</option></select></label>
         <label><span>Year made</span><select id="f-year"></select></label>
-        <label class="f-check"><input type="checkbox" id="f-nocontact"><span>Hide "311 Contact Us"</span></label>
+        <label class="f-check"><input type="checkbox" id="f-nocontact" checked><span>Hide "311 Contact Us"</span></label>
         <label><span>Sort</span><select id="f-sort">
-          <option value="old">Oldest first</option><option value="new">Newest first</option><option value="type">By type</option></select></label>
+          <option value="new" selected>Newest first</option><option value="old">Oldest first</option><option value="type">By type</option></select></label>
       </div>
       <section class="card issues-card">
         <div class="table-wrap tall">
@@ -484,10 +488,6 @@
         <div class="issues-foot"><span id="issues-count"></span><button class="btn" id="issues-more" hidden>Show more</button></div>
       </section>
       <section class="card" id="dept-card"></section>
-      <div class="banner info" id="issues-note">
-        <svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>
-        <div><strong>Many older requests are still marked open in the City's data, some for years.</strong> Some may be finished but never closed, especially "311 Contact Us" messages. The office can send 311 a list of request numbers to review: filter the list, then use "Save this list".</div>
-      </div>
       <p class="notes">Request details come from the City's 311 open data, updated daily. The City publishes the community for each request, not its address, and its own status page shows a request only to the person who filed it.</p>
     </div>
     <aside class="drawer" id="drawer" aria-label="Issue details" hidden></aside>
