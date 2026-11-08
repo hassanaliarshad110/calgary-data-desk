@@ -70,7 +70,7 @@ SCREENS = [('dashboard', 'Dashboard: every ward and community at a glance'), ('g
            ('compare', 'Compare wards'), ('elections', 'Election Data Centre'), ('budget', 'City budget'),
            ('citynews', 'Calgary News'), ('livemap', 'Live map: news, traffic and crime'), ('fedbudget', 'Federal Budget 2026'), ('invest', 'Invest in Calgary'),
            ('infra', 'Infrastructure condition'), ('safety', "Canada's safest cities"), ('issues', 'Open 311 issues'),
-           ('families', 'Families and schools'), ('help', 'Find help near me'), ('visit', 'Visiting Calgary: what to see, where to stay, the weather by month, getting around'),
+           ('families', 'Families and schools'), ('help', 'Find help near me'), ('game', 'YYC City Stories: learn City services in a game on the real map of Calgary'), ('visit', 'Visiting Calgary: what to see, where to stay, the weather by month, getting around'),
            ('videos', 'Video explainers'),
            ('methods', "How it's counted"), ('sources', 'Data sources and refresh schedule')]
 NOSCRIPT = ('<noscript><div style="max-width:760px;margin:24px auto;padding:0 16px;font-family:sans-serif;color:#e2e8f0">'

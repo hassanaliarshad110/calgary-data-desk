@@ -91,6 +91,9 @@ PAGES = [
          keywords='votes voting record motions council committee councillor member promises commitments manifesto commons MP accountability performance representative'),
     page('citynews', 'Calgary News', "The day's Calgary stories, each with its sources.", 'get_dashboard section=city_news (find, days, topic, date)',
          section='city_news', keywords='news stories headlines'),
+    page('game', 'YYC City Stories', 'A free learning game on the real map of Calgary, built from City open data: four residents and 18 missions '
+         'that teach City services, from transit fares and Fair Entry to recycling carts and the snow-clearing bylaw.',
+         'none: the game is introduced on this screen and opens at calgaryinsight.ca/city-stories/', keywords='game learn city services newcomers seniors students'),
     page('livemap', 'Live map', 'Calgary News stories placed where they happened, live traffic incidents, the newest 311 requests and '
          'crimes reported to police per 1,000 residents by community, on one map, with who to call.',
          'get_dashboard section=city_news for the stories; query_open_data 35ra-9556 (traffic incidents) and iahh-g8bj (311) for the live layers; '

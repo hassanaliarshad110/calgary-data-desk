@@ -129,6 +129,7 @@
         <button class="tab" data-view="safety" title="Canada's safest cities: every city of 10,000 or more by Statistics Canada's Crime Severity Index, with Calgary's rank this year and last"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>Canada's safest cities</span></button>
         <button class="tab" data-view="livemap" title="Live map: Calgary News stories where they happened, live traffic incidents, the newest 311 requests and police-reported crime by community"><svg class="ic" aria-hidden="true"><use href="#i-radar"/></svg><span>Live map</span></button>
         <button class="tab" data-view="cameras" title="Traffic cameras"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span>Traffic cameras</span></button>
+        <button class="tab" data-view="game" title="YYC City Stories: a free learning game on the real map of Calgary, built from City open data, that teaches City services"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg><span>Learn City services: the game</span></button>
         <button class="tab tab-help" data-view="help" title="Find help near me: a bed tonight, food, day spaces, health care and help lines, nearest to you first"><svg class="ic" aria-hidden="true"><use href="#i-helpheart"/></svg><span>Find help near me</span></button>
       </div>
     </div>
@@ -652,6 +653,37 @@
       <div class="topbar-title"><h1 id="inf-title">Infrastructure condition</h1><p class="meta">Where roads and pipes are wearing out, and whether 311 requests about them are rising in the same places</p></div>
     </header>
     <div class="content"><div class="grid" id="inf-body"></div></div>
+  </section>
+
+  <!-- YYC City Stories: the learning game, introduced here; the game itself opens on its own page -->
+  <section id="view-game" class="view" aria-labelledby="gm-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="gm-title">YYC City Stories</h1><p class="meta">A free learning game on the real map of Calgary, built from the City's open data, that teaches residents how to use City services</p></div>
+    </header>
+    <div class="content"><div class="grid">
+      <section class="card span-12 gm-intro">
+        <img class="gm-shot" src="game/img/hero.jpg" alt="The game's Calgary: the downtown skyline and the Calgary Tower at dusk" width="1600" height="900" loading="lazy">
+        <div class="gm-text">
+          <h2>Learn how the City works by living in it</h2>
+          <p>Players walk, drive and ride the CTrain through Calgary as a newcomer, a student, a senior or a long-time resident. Each mission is a real task, like getting settled, getting a driver's licence, finding a seniors' program or putting out the right cart, and ends with a short card on the real City service, the official link and a quick quiz.</p>
+          <p>Streets, buildings, addresses, businesses, parks, traffic signals, transit and ward boundaries all come from City of Calgary open data, so what players learn applies to the city they live in.</p>
+          <div class="gm-actions"><a class="btn primary" href="city-stories/">Play the game</a><a class="btn" href="game/">The game's own page: characters, missions and screenshots</a></div>
+          <p class="card-note">Free, in a web browser, with no account. English, French, Punjabi, Urdu, Tagalog and Arabic.</p>
+        </div>
+      </section>
+      <section class="card span-12">
+        <div class="card-head"><div><h2>What players learn</h2><p class="card-sub">Four characters, 18 missions, each one tied to a real City or public service</p></div></div>
+        <div class="gm-cast">
+          <div><b>Ali, new to Calgary</b><span>7 missions</span><ul><li>Paying for the bus and the CTrain</li><li>Free settlement help at the Centre for Newcomers</li><li>An Alberta driver's licence at a registry agent, and the road test</li><li>Insurance first, then registration</li><li>The Genesis Centre, the library and Fair Entry</li><li>Calgary's two CTrain lines</li></ul></div>
+          <div><b>Natalia, student</b><span>3 missions</span><ul><li>Getting to school on transit</li><li>Standing up to bullying safely, and who to tell</li><li>Teaching younger students what to do</li></ul></div>
+          <div><b>Chris, senior</b><span>4 missions</span><ul><li>A centre for older adults</li><li>The Senior Yearly Pass, Fair Entry and Calgary Transit Access</li><li>Health Link 811, day or night</li><li>Spotting phone scams</li></ul></div>
+          <div><b>Jean, resident</b><span>4 missions</span><ul><li>Shopping local with licensed neighbourhood businesses</li><li>Black, blue and green carts: what goes where</li><li>Clearing the sidewalk within 24 hours, and Snow Angels</li><li>Paying for parking by zone, or taking the CTrain</li></ul></div>
+        </div>
+      </section>
+      <section class="card span-12">
+        <p class="card-note">YYC City Stories is presented by Calgary Insight and is not affiliated with The City of Calgary. Map data © OpenStreetMap contributors (ODbL); City of Calgary open data under the Open Government Licence – City of Calgary. Ideas for a mission about a City service? Write to hello@calgaryinsight.ca.</p>
+      </section>
+    </div></div>
   </section>
 
   <section id="view-visit" class="view" aria-labelledby="vi-title">

@@ -2430,3 +2430,18 @@ html.topnav .side.open .nav-g.has-on .nav-gt { box-shadow: none; }
 
 .vi-game { background: radial-gradient(120% 140% at 85% 20%, #4A0B16, #0D141C 70%); }
 .vi-game .vi-door-k, .vi-game .vi-door-go { color: #FFC400; }
+
+/* YYC City Stories (the learning game) screen */
+.gm-intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 22px; align-items: center; }
+.gm-shot { width: 100%; height: auto !important; max-height: 380px; align-self: center; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--r-sm); display: block; }
+.gm-text h2 { margin: 0 0 8px; }
+.gm-text p { margin: 0 0 10px; color: var(--fg-2); }
+.gm-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 8px; }
+.gm-actions .btn { text-decoration: none; }
+.gm-cast { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.gm-cast > div { border: 1px solid var(--border); border-radius: var(--r-sm); padding: 12px 14px; }
+.gm-cast b { display: block; }
+.gm-cast span { font-size: 12px; color: var(--muted-fg); }
+.gm-cast ul { margin: 8px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--fg-2); }
+.gm-cast li { margin: 3px 0; }
+@media (max-width: 900px) { .gm-intro { grid-template-columns: 1fr; } }
