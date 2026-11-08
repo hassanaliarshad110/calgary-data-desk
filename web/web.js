@@ -12,6 +12,11 @@
   // November 2026: the default way of counting became the City's total shared by actual growth; a choice saved
   // before then goes back to it once
   if ((store.get('pop_v', 0) || 0) < 2) { store.set('pop_method', 'city_actual'); store.set('pop_v', 2); }
+  // a link from a ward or community page (calgaryinsight.ca/?ward=5&community=MAR): open that ward
+  try {
+    const qw = new URLSearchParams(location.search).get('ward');
+    if (qw !== null && /^\d{1,2}$/.test(qw) && +qw <= 14) { store.set('scope', +qw); localStorage.setItem('cdd-scope', String(+qw)); }
+  } catch (e) { /* the saved area stays */ }
   const held = {};
   const getJSON = (path) => held[path] || (held[path] = fetch(DATA + path, { cache: 'no-cache' }).then(r => {
     if (!r.ok) throw new Error(r.status === 404 ? 'This view is not on the website yet.' : 'The website data could not be read (' + r.status + ').');

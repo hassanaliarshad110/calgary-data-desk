@@ -11,6 +11,7 @@ Service, Government of Alberta, Statistics Canada, CMHC, Environment Canada), wi
 import argparse
 import datetime as dt
 import json
+import re
 import os
 import shutil
 import sys
@@ -57,6 +58,7 @@ def tax_payload(cache, census_year):
 
 
 SITE_URL = 'https://calgaryinsight.ca/'
+INDEXNOW_KEY = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'indexnow.txt'), encoding='utf-8').read().strip()
 SOCIAL = ['https://www.facebook.com/share/1GwiEvuSog/', 'https://www.instagram.com/calgaryinsight/']
 SEO = {'title': 'Calgary Insight: Calgary ward and community data, in plain words',
        'description': 'Every Calgary ward and community side by side: population and growth, 311 requests, safety, '
@@ -73,7 +75,7 @@ SCREENS = [('dashboard', 'Dashboard: every ward and community at a glance'), ('g
 NOSCRIPT = ('<noscript><div style="max-width:760px;margin:24px auto;padding:0 16px;font-family:sans-serif;color:#e2e8f0">'
             '<h1>Calgary Insight</h1><p>' + SEO['description'] + '</p><ul>'
             + ''.join(f'<li><a href="?view={k}">{t}</a></li>' for k, t in SCREENS)
-            + '<li><a href="about/">About Calgary Insight</a></li></ul><p>Turn on JavaScript to use the interactive maps, '
+            + '<li><a href="wards/">Calgary\'s 14 wards</a></li><li><a href="communities/">Every Calgary community</a></li><li><a href="about/">About Calgary Insight</a></li></ul><p>Turn on JavaScript to use the interactive maps, '
               'tables and Data Genie.</p></div></noscript>')
 
 
@@ -102,14 +104,19 @@ def seo_head():
         '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:title" content="{SEO["title"]}">',
         f'<meta name="twitter:description" content="{SEO["description"]}">', f'<meta name="twitter:image" content="{SITE_URL}og-image.png">',
         '<script type="application/ld+json">' + json.dumps(ld, separators=(',', ':')) + '</script>']
+    g = re.sub(r'.*content="([^"]+)".*', r'\1', os.environ.get('CDD_GOOGLE_VERIFY', '').strip())   # the tag or just its code
+    if g:
+        tags.append(f'<meta name="google-site-verification" content="{g}">')
     return '\n'.join(tags) + '\n'
 
 
-def robots_and_sitemap(out):
+def robots_and_sitemap(out, extra=()):
     today = dt.date.today().isoformat()
     with open(os.path.join(out, 'robots.txt'), 'w', encoding='utf-8') as f:
         f.write(f'User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n')
-    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8'), (SITE_URL + 'visit/', '0.8')] + [(f'{SITE_URL}?view={k}', '0.7') for k, _ in SCREENS]
+    # the app's screens (?view=...) all carry the home page's canonical address, so they are not listed separately;
+    # the ward and community pages (seo_pages.py) are what search engines index
+    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8'), (SITE_URL + 'visit/', '0.8')] + [(SITE_URL + u, '0.9' if u.count('/') == 1 else '0.7') for u in extra]
     for rel in sorted(os.listdir(os.path.join(out, 'reports'))) if os.path.isdir(os.path.join(out, 'reports')) else []:
         if rel.endswith('.html'):
             urls.append((f'{SITE_URL}reports/{rel}', '0.5'))
@@ -128,6 +135,8 @@ def page(out):
         shutil.copy(os.path.join(ROOT, 'web', f), os.path.join(out, f))
     # the visitor's welcome: the door into Calgary with the Calgary song (calgaryinsight.ca/visit/)
     shutil.copytree(os.path.join(ROOT, 'web', 'visit'), os.path.join(out, 'visit'), dirs_exist_ok=True)
+    # IndexNow (Bing, DuckDuckGo, Yandex and others): the site's key, at the address IndexNow checks
+    shutil.copy(os.path.join(ROOT, 'web', 'indexnow.txt'), os.path.join(out, INDEXNOW_KEY + '.txt'))
     idx = open(os.path.join(ROOT, 'ui', 'index.html'), encoding='utf-8').read()
     idx = idx.replace('<script src="app.js"></script>',
                       '<script src="web.js"></script><script src="web-ai.js"></script><script src="app.js"></script>', 1)
@@ -539,6 +548,15 @@ def main():
             write(os.path.join(data, 'missing', f'w{w}.json'), missing.current(ns, force=True))
     step('missing persons', appeals)
     step('Data Genie files', lambda: python_files(out, cache))
+
+    def search_pages():             # a plain page for every ward and community, for search engines (seo_pages.py)
+        import seo_pages
+        urls = seo_pages.build(out, data, meths[0])
+        robots_and_sitemap(out, urls)
+        with open(os.path.join(out, 'indexnow-urls.txt'), 'w', encoding='utf-8') as f:     # sent to IndexNow after the deploy
+            f.write('\n'.join([SITE_URL, SITE_URL + 'about/', SITE_URL + 'visit/'] + [SITE_URL + u for u in urls]))
+        print(f'pages for search engines: {len(urls)}')
+    step('ward and community pages for search engines', search_pages)
     lock_key(out)
     if a.pyodide:
         shutil.copytree(a.pyodide, os.path.join(out, 'pyodide'), dirs_exist_ok=True)

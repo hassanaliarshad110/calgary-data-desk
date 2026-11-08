@@ -31,12 +31,18 @@
   // when the data was refreshed, and whose it is
   const foot = document.createElement('div');
   foot.className = 'web-foot';
-  foot.innerHTML = 'Refreshed every morning from public data. Not affiliated with The City of Calgary.';
+  foot.innerHTML = 'Refreshed every morning from public data. Not affiliated with The City of Calgary. <a href="wards/">Wards</a> · <a href="communities/">Communities</a>';
+  // ...and the community it names, once the ward's figures are on screen
+  const wantComm = new URLSearchParams(location.search).get('community');
+  if (wantComm) {
+    const pick = () => { const D = window.CDD_DASH && window.CDD_DASH(); if (D && (D.communities || []).some(c => c.code === wantComm) && typeof window.select === 'function') { document.removeEventListener('cdd-dash', pick); setTimeout(() => window.select(wantComm, true), 300); } };
+    document.addEventListener('cdd-dash', pick);
+  }
   const side = $('.side-foot');
   if (side) side.appendChild(foot);
   window.CDD_WEB.getJSON('built.json').then(b => {
     const bad = (b.steps || []).filter(s => !s.ok).length;
-    foot.innerHTML = `Data refreshed ${esc(b.built_at)} (Calgary time)${bad ? `, ${bad} source${bad > 1 ? 's' : ''} not reached` : ''}. From public data; not affiliated with The City of Calgary.`;
+    foot.innerHTML = `Data refreshed ${esc(b.built_at)} (Calgary time)${bad ? `, ${bad} source${bad > 1 ? 's' : ''} not reached` : ''}. From public data; not affiliated with The City of Calgary. <a href="wards/">Wards</a> · <a href="communities/">Communities</a>`;
     const st = $('#side-status'); if (st) st.title = foot.textContent;
   }).catch(() => {});
 

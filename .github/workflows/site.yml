@@ -59,6 +59,7 @@ jobs:
           CDD_SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
           CDD_FIREBASE_CONFIG: ${{ vars.FIREBASE_CONFIG }}     # optional Google sign-in for Data Genie's memory (public web settings)
           CDD_AI_GATEWAY: ${{ vars.AI_GATEWAY_URL }}            # the AI gateway's address (gateway/), or gateway/url.txt
+          CDD_GOOGLE_VERIFY: ${{ vars.GOOGLE_SITE_VERIFICATION }}  # Google Search Console's verification tag (or its code)
         run: python web/build_site.py _site --cache .site-cache --pyodide pyodide
 
       - uses: actions/cache/save@v4
@@ -84,3 +85,23 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           timeout: 1800000     # GitHub's file sync can take more than the default 10 minutes
+
+      # tell IndexNow (Bing, DuckDuckGo, Yandex and others) the pages are new; Google reads the sitemap itself
+      - name: Tell search engines about the new pages
+        continue-on-error: true
+        run: |
+          sleep 60
+          curl -fsS https://calgaryinsight.ca/indexnow-urls.txt -o urls.txt
+          KEY=$(curl -fsS https://raw.githubusercontent.com/${{ github.repository }}/${{ github.sha }}/web/indexnow.txt)
+          python3 - "$KEY" <<'PY'
+          import json, sys, urllib.request
+          key = sys.argv[1].strip()
+          urls = [u.strip() for u in open('urls.txt') if u.strip()][:10000]
+          body = json.dumps({'host': 'calgaryinsight.ca', 'key': key, 'keyLocation': f'https://calgaryinsight.ca/{key}.txt', 'urlList': urls}).encode()
+          req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+          try:
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  print('IndexNow', r.status, len(urls), 'pages')
+          except Exception as e:
+              print('IndexNow not reached:', e)
+          PY
