@@ -43,7 +43,14 @@ jobs:
 
       - name: Python for Data Genie in the browser (Pyodide)
         run: |
-          curl -fsSL --retry 6 --retry-delay 20 --retry-all-errors -o pyodide.tar.bz2 "https://github.com/pyodide/pyodide/releases/download/${PYODIDE_VERSION}/pyodide-core-${PYODIDE_VERSION}.tar.bz2"
+          curl -fsSL --retry 3 --retry-delay 15 --retry-all-errors -o pyodide.tar.bz2 "https://github.com/pyodide/pyodide/releases/download/${PYODIDE_VERSION}/pyodide-core-${PYODIDE_VERSION}.tar.bz2" || {
+            echo "GitHub release download failed, using the jsDelivr copy"
+            mkdir -p pyodide
+            for f in pyodide.js pyodide.mjs pyodide.asm.js pyodide.asm.wasm python_stdlib.zip pyodide-lock.json package.json; do
+              curl -fsSL --retry 4 --retry-delay 10 --retry-all-errors -o "pyodide/$f" "https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/$f"
+            done
+            tar -cjf pyodide.tar.bz2 pyodide && rm -rf pyodide
+          }
           tar -xjf pyodide.tar.bz2
 
       - name: Build every ward from public data
