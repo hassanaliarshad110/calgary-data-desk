@@ -1,7 +1,7 @@
 name: Site check
 on:
   push:
-    branches: [site-check]
+    branches: [site-check-2]
 jobs:
   check:
     runs-on: ubuntu-latest
