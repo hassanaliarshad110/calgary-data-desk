@@ -179,7 +179,7 @@
            <div class="acct-row"><button type="button" class="btn" data-out>Sign out</button></div>`
         : `<p>An account is optional. Everything works without one; signing in only keeps your chats and notes on every device you use.</p>
            <button type="button" class="acct-google" data-google><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.7 1.2 9.2 3.6l6.9-6.9C35.9 2.4 30.4 0 24 0 14.6 0 6.6 5.4 2.7 13.2l8 6.2C12.6 13.5 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.7 6c4.5-4.2 6.9-10.3 6.9-17.7z"/><path fill="#FBBC05" d="M10.7 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-8-6.2C1 16.6 0 20.2 0 24s1 7.4 2.7 10.8l8-6.2z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.1 1.4-4.9 2.3-8.2 2.3-6.2 0-11.4-4-13.3-9.9l-8 6.2C6.6 42.6 14.6 48 24 48z"/></svg><span>Continue with Google</span></button>
-           <p class="acct-small">Google tells this site your name, email and picture. Nothing is posted anywhere.</p>`)
+           <p class="acct-small">Google tells this site your name, email and picture. Nothing is posted anywhere. The site's owner sees who has signed in (name, email and when), to approve people for the AI tools.</p>`)
       : '<p class="acct-small">Signing in is not switched on for this website yet. Your memory is kept in this browser.</p>';
     dlg.innerHTML = `<form method="dialog" class="acct-body">
       <div class="acct-head"><h2 id="acct-title">${user ? 'Your account' : 'Sign in (optional)'}</h2><button class="acct-close" aria-label="Close">×</button></div>
@@ -207,6 +207,13 @@
       q('[data-grant]').value = u.email; q('[data-grant-limit]').value = u.limit_usd == null ? '' : u.limit_usd;
       dlg.querySelectorAll('[data-tool]').forEach(c => { c.checked = (u.tools || ['genie']).includes(c.dataset.tool); });
       q('[data-grant]').focus();
+    }));
+    q('[data-csv]')?.addEventListener('click', peopleCsv);
+    dlg.querySelectorAll('[data-approve]').forEach(b => b.addEventListener('click', async () => {
+      b.disabled = true;
+      try { await gwFetch('/admin/users', { method: 'POST', body: JSON.stringify({ email: b.dataset.approve, limit_usd: null, tools: ['genie'] }) }); flash(`${b.dataset.approve} can now use Data Genie and the Data Scientist.`); }
+      catch (e) { flash(String(e.message || e)); }
+      loadAdmin();
     }));
     q('[data-grant-add]')?.addEventListener('click', async () => {
       const email = q('[data-grant]').value.trim(), lim = q('[data-grant-limit]').value.trim();
@@ -263,7 +270,30 @@
     renderAccount(); lockButtons();
   }
   async function refreshMe() { if (user && gw && ai && ai.allowed) { try { ai = { ...ai, ...(await gwFetch('/me')) }; renderAccount(); } catch (e) { /* keep the last */ } } }
-  async function loadAdmin() { try { admin = await gwFetch('/admin/users'); } catch (e) { admin = { error: String(e.message || e) }; } renderAccount(); }
+  async function loadAdmin() {
+    try { const [u, p] = await Promise.all([gwFetch('/admin/users'), gwFetch('/admin/seen').catch(e => ({ error: String(e.message || e) }))]); admin = { ...u, seen: p }; }
+    catch (e) { admin = { error: String(e.message || e) }; }
+    renderAccount();
+  }
+  const when = t => { if (!t) return ''; const d = new Date(t); return isNaN(d) ? String(t) : d.toLocaleString('en-CA', { timeZone: 'America/Edmonton', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }); };
+  function peopleCsv() {
+    const rows = [['Email', 'Name', 'First signed in', 'Last signed in', 'Days signed in', 'Approved for AI tools']]
+      .concat((((admin || {}).seen || {}).people || []).map(p => [p.email, p.name || '', p.first || '', p.last || '', p.days || '', p.owner ? 'owner' : p.approved ? 'yes' : 'no']));
+    const csv = rows.map(r => r.map(v => /[",\n]/.test(String(v)) ? '"' + String(v).replace(/"/g, '""') + '"' : String(v)).join(',')).join('\r\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv' }));
+    a.download = 'Calgary Insight sign-ins ' + new Date().toISOString().slice(0, 10) + '.csv';
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 60000);
+  }
+  function peopleSection() {
+    const S = (admin || {}).seen;
+    if (!S) return '';
+    if (S.error) return `<h3>People who signed in</h3><p class="acct-small">${esc(S.error)}</p>`;
+    const ppl = S.people || [];
+    return `<h3>People who signed in (${ppl.length})</h3><p class="acct-small">Everyone who has signed in with Google since this list began, newest first. Approve someone to give them Data Genie and the Data Scientist; click their name in the list above to change it.</p>
+      <ul class="acct-notes acct-people">${ppl.length ? ppl.map(p => `<li><div class="acct-user"><span>${esc(p.name ? p.name + ' · ' : '')}${esc(p.email)}</span><small>Last ${esc(when(p.last))} · first ${esc(when(p.first))} · ${p.days || 1} day${(p.days || 1) === 1 ? '' : 's'}</small></div>${p.owner ? '<b class="acct-tag">owner</b>' : p.approved ? '<b class="acct-tag ok">approved</b>' : `<button type="button" class="btn small" data-approve="${esc(p.email)}">Approve</button>`}</li>`).join('') : '<li class="acct-empty">Nobody yet.</li>'}</ul>
+      ${ppl.length ? '<div class="acct-row"><button type="button" class="btn" data-csv>Download the list (CSV)</button></div>' : ''}`;
+  }
   const money = v => v == null ? 'no limit' : '$' + Number(v).toFixed(2);
   function aiSection() {
     if (!gw || !fbConfig) return '';
@@ -279,7 +309,7 @@
         <ul class="acct-notes">${admin && admin.error ? `<li class="acct-empty">${esc(admin.error)}</li>` : users.length ? users.map(u => `<li><button type="button" class="acct-user" data-edit="${esc(u.email)}" title="Change this person's tools or limit"><span>${esc(u.email)}</span><small>${esc((u.tools || ['genie']).map(t => ({ genie: 'Genie & Scientist', election: 'Elections', business: 'Business' })[t]).join(' · '))} · ${u.limit_usd == null ? 'default limit' : money(u.limit_usd) + ' a day'} · ${money(u.spent_usd)} today</small></button><button type="button" data-revoke="${esc(u.email)}" aria-label="Remove ${esc(u.email)}">×</button></li>`).join('') : '<li class="acct-empty">Nobody else yet.</li>'}</ul>
         <div class="acct-row"><input type="email" data-grant maxlength="200" placeholder="name@gmail.com" aria-label="Email to approve"><input type="number" data-grant-limit min="0" max="1000" step="1" placeholder="$/day" aria-label="Daily limit in dollars" style="max-width:90px"></div>
         <div class="acct-row acct-tools"><label><input type="checkbox" data-tool="genie" checked> Data Genie &amp; Data Scientist</label><label><input type="checkbox" data-tool="election"> Election Analytics</label><label><input type="checkbox" data-tool="business"> Business Economist</label></div>
-        <div class="acct-row"><button type="button" class="btn" data-grant-add>Approve</button><span class="acct-small">Click a name above to change it.</span></div>`;
+        <div class="acct-row"><button type="button" class="btn" data-grant-add>Approve</button><span class="acct-small">Click a name above to change it.</span></div>` + peopleSection();
     }
     return out;
   }
@@ -318,12 +348,24 @@
     });
     return fb;
   }
-  async function signInGoogle() {
-    try {
-      await firebaseUp();
-      const p = new fb.auth.GoogleAuthProvider();
-      await fb.auth().signInWithPopup(p).catch(e => (e && /popup/i.test(e.code || '') ? fb.auth().signInWithRedirect(p) : Promise.reject(e)));
-    } catch (e) { flash('Sign-in did not work: ' + (e.message || e)); }
+  // The Google window must open straight from the click: a browser blocks a window opened after a wait (loading the
+  // sign-in code), and the old fall-back, a full-page redirect, comes back signed out in today's browsers because the
+  // sign-in runs on another domain (firebaseapp.com). So the code is loaded ahead, and the window opens at once.
+  function signInGoogle() {
+    if (!fb) {
+      flash('Getting Google sign-in ready…');
+      firebaseUp().then(() => flash('Ready: press Continue with Google again.')).catch(e => flash('Google sign-in could not load: ' + (e.message || e)));
+      return;
+    }
+    const p = new fb.auth.GoogleAuthProvider();
+    p.setCustomParameters({ prompt: 'select_account' });
+    fb.auth().signInWithPopup(p).catch(e => {
+      const c = (e && e.code) || '';
+      if (/popup-closed|cancelled-popup/.test(c)) return;
+      flash(/popup-blocked/.test(c) ? 'Your browser blocked the Google sign-in window. Allow pop-ups for calgaryinsight.ca and press Continue with Google again.'
+        : /unauthorized-domain/.test(c) ? 'Google sign-in is not switched on for this address yet (Firebase: Authentication, Settings, Authorized domains).'
+        : 'Sign-in did not work: ' + (e.message || e));
+    });
   }
   async function pullCloud() {          // the account's memory, joined with this browser's (newest copy of each chat wins)
     try {
@@ -377,7 +419,13 @@
     try { const st = (await W.getJSON('settings.json')) || {}; fbConfig = st.firebase || null; gw = String(st.ai_gateway || '').replace(/\/+$/, ''); } catch (e) { fbConfig = null; }
     chatsButton(); sideButton(); lockButtons();
     if (fbConfig) {                        // a returning visitor who signed in before is signed in again quietly
-      try { if (localStorage.getItem('cdd-signed-in')) firebaseUp().catch(() => {}); } catch (e) { /* ignore */ }
+      let back = false;
+      try { back = !!localStorage.getItem('cdd-signed-in'); } catch (e) { /* ignore */ }
+      if (back) firebaseUp().catch(() => {});
+      else {                               // everyone else: the sign-in code loads once the page is idle, so the button works at once
+        const later = () => firebaseUp().catch(() => {});
+        if ('requestIdleCallback' in window) requestIdleCallback(later, { timeout: 4000 }); else setTimeout(later, 2500);
+      }
     }
   })();
 })();

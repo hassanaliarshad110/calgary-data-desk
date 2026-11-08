@@ -116,6 +116,21 @@ async function addSpend(email, usd, env) {
   await env.ACCESS.put(k, String(was + usd), { expirationTtl: 3 * 86400 });
 }
 
+// ---------------------------------------------------------------- who has signed in
+// seen:<email> holds the first and last sign-in and how many days they came; the figures ride on the key's metadata, so
+// the owner's list is one read. Written at most once an hour per person, to stay inside the free KV write allowance.
+export async function seen(me, env, now = new Date()) {
+  const k = 'seen:' + me.email;
+  const was = JSON.parse((await env.ACCESS.get(k)) || 'null');
+  const iso = now.toISOString();
+  if (was && was.last && now - new Date(was.last) < 3600e3) return was;
+  const day = iso.slice(0, 10);
+  const m = { name: String(me.name || (was && was.name) || '').slice(0, 80), first: (was && was.first) || iso, last: iso,
+              days: ((was && was.days) || 0) + (!was || String(was.last).slice(0, 10) !== day ? 1 : 0) };
+  await env.ACCESS.put(k, JSON.stringify(m), { metadata: m });
+  return m;
+}
+
 // ---------------------------------------------------------------- counting a streamed reply's cost as it passes
 export function meter(model, onDone) {
   const usage = {};
@@ -157,6 +172,9 @@ export async function handle(req, env, ctx, fetcher = fetch) {
   try { me = await who(req, env, fetcher); } catch (e) { return fail(401, 'authentication_error', String(e.message || e), h); }
 
   if (url.pathname === '/session' && req.method === 'POST') {
+    // everyone who signs in on the website comes here first: kept for the owner's list of people who signed in
+    const rec = seen(me, env);
+    if (ctx && ctx.waitUntil) ctx.waitUntil(rec); else await rec;
     const a = await access(me.email, env);
     if (!a.allowed) return fail(403, 'permission_error', `${me.email} is not approved for the AI tools yet. Ask the site's owner to add it.`, h);
     return json({ session: await makeSession(me.email, env), hours: SESSION_HOURS, ...a }, 200, h);
@@ -173,6 +191,19 @@ export async function handle(req, env, ctx, fetcher = fetch) {
         return { email, limit_usd: rec.limit_usd ?? null, tools: rec.tools || ['genie'], added: rec.added, spent_usd: (await access(email, env)).spent_usd };
       }));
       return json({ owners: owners(env), default_limit_usd: Number(env.DEFAULT_LIMIT_USD || 10), users }, 200, h);
+    }
+    if (url.pathname === '/admin/seen' && req.method === 'GET') {
+      const out = [];
+      let cursor;
+      do {
+        const page = await env.ACCESS.list({ prefix: 'seen:', cursor });
+        for (const k of page.keys) out.push({ email: k.name.slice(5), ...(k.metadata || JSON.parse((await env.ACCESS.get(k.name)) || '{}')) });
+        cursor = page.list_complete === false ? page.cursor : null;
+      } while (cursor);
+      const approved = new Set((await env.ACCESS.list({ prefix: 'user:' })).keys.map(k => k.name.slice(5)));
+      out.forEach(p => { p.approved = owners(env).includes(p.email) || approved.has(p.email); p.owner = owners(env).includes(p.email); });
+      out.sort((a, b) => String(b.last).localeCompare(String(a.last)));
+      return json({ people: out, count: out.length }, 200, h);
     }
     if (url.pathname === '/admin/users' && req.method === 'POST') {
       let b;

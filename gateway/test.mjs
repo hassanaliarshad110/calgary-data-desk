@@ -17,8 +17,9 @@ async function idToken(claims, key = pair.privateKey) {
   return `${h}.${p}.${b64url(s)}`;
 }
 const store = new Map();
-const KV = { get: async k => store.get(k) ?? null, put: async (k, v) => { store.set(k, v); }, delete: async k => { store.delete(k); },
-             list: async ({ prefix }) => ({ keys: [...store.keys()].filter(k => k.startsWith(prefix)).map(name => ({ name })) }) };
+const meta = new Map();
+const KV = { get: async k => store.get(k) ?? null, put: async (k, v, o) => { store.set(k, v); if (o && o.metadata) meta.set(k, o.metadata); }, delete: async k => { store.delete(k); },
+             list: async ({ prefix }) => ({ list_complete: true, keys: [...store.keys()].filter(k => k.startsWith(prefix)).map(name => ({ name, metadata: meta.get(name) })) }) };
 const env = { FIREBASE_PROJECT: 'calgary-insight', OWNER_EMAILS: 'owner@gmail.com', ALLOWED_ORIGINS: 'https://calgaryinsight.ca', DEFAULT_LIMIT_USD: '10',
               ANTHROPIC_API_KEY: 'sk-ant-test', ACCESS: KV };
 const waits = [];
@@ -61,6 +62,14 @@ check('no sign-in, no entry', r.status === 401 && (await r.json()).error.message
 const guestTok = await idToken({ email: 'guest@gmail.com', sub: 'u2' });
 r = await call('/session', { token: guestTok, method: 'POST' });
 check('someone not approved gets no session', r.status === 403 && (await r.json()).error.message.includes('not approved'));
+await Promise.all(waits);
+check('a sign-in is kept for the owner even when not approved', !!meta.get('seen:guest@gmail.com') && meta.get('seen:guest@gmail.com').days === 1);
+r = await call('/session', { token: guestTok, method: 'POST' }); await Promise.all(waits);
+check('a second sign-in within the hour writes nothing new', meta.get('seen:guest@gmail.com').days === 1);
+const later = await gw.seen({ email: 'guest@gmail.com', name: 'Guest' }, env, new Date(Date.now() + 2 * 86400e3));
+check('a sign-in on another day counts a new day', later.days === 2 && later.first < later.last);
+r = await call('/admin/seen', { token: guestTok });
+check('only the owner sees who signed in', r.status === 403);
 r = await call('/v1/messages', { token: guestTok, method: 'POST', body: { model: 'claude-sonnet-5-5', max_tokens: 10, messages: [] } });
 check('nor any answer', r.status === 403 && sent.length === 0);
 r = await call('/admin/users', { token: guestTok, method: 'POST', body: { email: 'guest@gmail.com' } });
@@ -112,5 +121,8 @@ check('web searches are priced', Math.abs(gw.cost('claude-haiku-5-5', { server_t
 check('an unknown model is priced at the dearest', gw.cost('claude-new', { output_tokens: 1e6 }) === 25);
 check('the day is Calgary\'s', gw.today(new Date('2026-11-08T05:30:00Z')) === '2026-11-07');
 
+r = await call('/admin/seen', { token: ownerTok });
+const ppl = (await r.json()).people || [];
+check('the owner gets the list, with who is approved', r.status === 200 && ppl.some(p => p.email === 'guest@gmail.com' && p.days === 2));
 console.log('\n' + (fails.length ? `${fails.length} FAILED: ${fails.join(', ')}` : 'All checks passed.'));
 process.exit(fails.length ? 1 : 0);

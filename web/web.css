@@ -94,3 +94,9 @@ body[data-web] #view-news > .content[hidden] { display: none !important; }
 .acct-user { flex: 1; min-width: 0; text-align: left; background: none; border: 0; color: inherit; font: inherit; cursor: pointer; display: flex; flex-direction: column; padding: 2px 0; }
 .acct-user small { color: var(--muted-fg); font-size: 12px; }
 .acct-user span { font-size: 14px; overflow: hidden; text-overflow: ellipsis; }
+
+.acct-people li { align-items: center; }
+.acct-people .acct-user { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; padding: 6px 8px; }
+.acct-people .acct-user span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acct-tag { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted-fg); padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; }
+.acct-tag.ok { color: #047857; border-color: #6EE7B7; }
