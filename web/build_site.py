@@ -173,6 +173,9 @@ def firebase_config():
     cid = os.path.join(ROOT, 'web', 'google-client-id.txt')
     if os.path.exists(cid):
         cfg['googleClientId'] = open(cid, encoding='utf-8').read().strip()
+        # the site's address is registered as a return address: sign in with the whole page, which every phone browser handles
+        if os.path.exists(os.path.join(ROOT, 'web', 'google-redirect.txt')):
+            cfg['googleRedirect'] = True
     return cfg if cfg.get('apiKey') and cfg.get('projectId') else None
 
 

@@ -153,7 +153,8 @@
     flashEl.className = 'acct-flash'; flashEl.setAttribute('role', 'status');
     flashEl.innerHTML = `<span>${esc(text)}</span>${undo ? '<button type="button">Undo</button>' : ''}`;
     if (undo) flashEl.querySelector('button').addEventListener('click', () => { undo(); flashEl.remove(); });
-    document.body.appendChild(flashEl);
+    // inside the account window when it is open: a modal window sits above the page, so a message on the page is hidden
+    (dlg && dlg.open ? dlg : document.body).appendChild(flashEl);
     const el = flashEl; setTimeout(() => el.remove(), 7000);
   }
 
@@ -337,8 +338,9 @@
       await script(SDK + 'firebase-app-compat.js');
       await Promise.all([script(SDK + 'firebase-auth-compat.js'), script(SDK + 'firebase-firestore-compat.js')]);
     }
-    const { googleClientId, ...cfg } = fbConfig;
+    const { googleClientId, googleRedirect, ...cfg } = fbConfig;
     fb = window.firebase; fb.initializeApp(cfg); db = fb.firestore();
+    if (pendingToken) { const t = pendingToken; pendingToken = null; useToken(t); }
     if (googleClientId) gisUp(googleClientId).catch(() => {});
     // back from Google's sign-in page: say what happened if it did not work (the signed-in account arrives below)
     let back = false;
@@ -368,9 +370,10 @@
       gis = window.google.accounts.oauth2.initTokenClient({
         client_id: clientId, scope: 'openid email profile',
         callback: async r => {
-          if (!r || r.error || !r.access_token) { flash('Google sign-in did not finish' + (r && r.error ? ': ' + r.error : '.')); return; }
-          try { await fb.auth().signInWithCredential(fb.auth.GoogleAuthProvider.credential(null, r.access_token)); }
-          catch (e) { flash('Sign-in did not work: ' + (e.message || e)); }
+          if (!r || r.error || !r.access_token) { flash('Google sign-in did not finish' + (r && r.error ? ': ' + (r.error_description || r.error) : '.')); return; }
+          flash('Signing you in…');
+          try { await fb.auth().signInWithCredential(fb.auth.GoogleAuthProvider.credential(null, r.access_token)); flash('Signed in.'); }
+          catch (e) { flash('Sign-in did not work (' + (e.code || 'error') + '): ' + (e.message || e)); }
         },
         error_callback: e => { if (e && e.type !== 'popup_closed') flash(e.type === 'popup_failed_to_open' ? 'Your browser blocked the Google sign-in window. Allow pop-ups for calgaryinsight.ca and try again.' : 'Google sign-in did not finish.'); },
       });
@@ -379,7 +382,35 @@
     if (window.google && window.google.accounts && window.google.accounts.oauth2) return Promise.resolve(go());
     return script('https://accounts.google.com/gsi/client').then(go);
   }
+  // Whole-page sign-in: off to Google and straight back to this page with the account in the address (#access_token),
+  // which works in every phone browser. Switched on when the site's own address is a registered return address
+  // (settings: firebase.googleRedirect); otherwise Google's sign-in window is used.
+  const OAUTH_KEY = 'cdd-oauth-state';
+  function redirectSignIn(clientId) {
+    const state = Math.random().toString(36).slice(2) + Date.now().toString(36);
+    try { sessionStorage.setItem(OAUTH_KEY, JSON.stringify({ state, back: location.pathname + location.search })); } catch (e) { /* ignore */ }
+    const q = new URLSearchParams({ client_id: clientId, redirect_uri: location.origin + '/', response_type: 'token', scope: 'openid email profile',
+      state, prompt: 'select_account', include_granted_scopes: 'true' });
+    location.href = 'https://accounts.google.com/o/oauth2/v2/auth?' + q;
+  }
+  let pendingToken = null;
+  (function backFromGoogle() {
+    if (!/access_token=|error=/.test(location.hash)) return;
+    const h = new URLSearchParams(location.hash.slice(1));
+    let saved = null;
+    try { saved = JSON.parse(sessionStorage.getItem(OAUTH_KEY) || 'null'); sessionStorage.removeItem(OAUTH_KEY); } catch (e) { /* ignore */ }
+    if (!saved || saved.state !== h.get('state')) return;
+    history.replaceState(null, '', saved.back || '/');
+    if (h.get('access_token')) pendingToken = h.get('access_token');
+    else setTimeout(() => flash('Google sign-in did not finish: ' + (h.get('error_description') || h.get('error'))), 500);
+  })();
+  async function useToken(token) {
+    flash('Signing you in…');
+    try { await fb.auth().signInWithCredential(fb.auth.GoogleAuthProvider.credential(null, token)); flash('Signed in.'); }
+    catch (e) { flash('Sign-in did not work (' + (e.code || 'error') + '): ' + (e.message || e)); }
+  }
   function signInGoogle() {
+    if (fbConfig && fbConfig.googleClientId && fbConfig.googleRedirect) { redirectSignIn(fbConfig.googleClientId); return; }
     if (fb && gis) { gis.requestAccessToken({ prompt: 'select_account' }); return; }   // straight from the click
     if (fb && fbConfig && fbConfig.googleClientId) {
       flash('Getting Google sign-in ready…');
@@ -462,7 +493,7 @@
     if (fbConfig) {                        // a returning visitor who signed in before is signed in again quietly
       let back = false;
       try { back = !!localStorage.getItem('cdd-signed-in'); } catch (e) { /* ignore */ }
-      if (back) firebaseUp().catch(() => {});
+      if (back || pendingToken) firebaseUp().catch(() => {});
       else {                               // everyone else: the sign-in code loads once the page is idle, so the button works at once
         const later = () => firebaseUp().catch(() => {});
         if ('requestIdleCallback' in window) requestIdleCallback(later, { timeout: 4000 }); else setTimeout(later, 2500);

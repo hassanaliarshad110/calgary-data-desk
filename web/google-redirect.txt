@@ -1,0 +1,1 @@
+on: https://calgaryinsight.ca/ and https://www.calgaryinsight.ca/ are registered return addresses of the Google sign-in client
