@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - run: pip install -q numpy rasterio pyproj mapbox-earcut && sudo apt-get update -qq && sudo apt-get install -y -qq gdal-bin > /dev/null && ogrinfo --version
+      - run: pip install -q numpy rasterio pyproj pillow
       - env:
           SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
         run: python probe/game_assets.py _out
