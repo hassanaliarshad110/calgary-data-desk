@@ -338,6 +338,11 @@
       await Promise.all([script(SDK + 'firebase-auth-compat.js'), script(SDK + 'firebase-firestore-compat.js')]);
     }
     fb = window.firebase; fb.initializeApp(fbConfig); db = fb.firestore();
+    // back from Google's sign-in page: say what happened if it did not work (the signed-in account arrives below)
+    let back = false;
+    try { back = !!sessionStorage.getItem('cdd-redirecting'); sessionStorage.removeItem('cdd-redirecting'); } catch (x) { /* ignore */ }
+    fb.auth().getRedirectResult().then(r => { if (back && !(r && r.user)) flash('Google sign-in came back without an account. Press Continue with Google again; if it keeps happening, allow pop-ups for calgaryinsight.ca.'); })
+      .catch(e => flash('Sign-in did not work: ' + (e.message || e)));
     fb.auth().onAuthStateChanged(async u => {
       user = u || null;
       try { user ? localStorage.setItem('cdd-signed-in', '1') : localStorage.removeItem('cdd-signed-in'); } catch (e) { /* ignore */ }
@@ -362,8 +367,15 @@
     fb.auth().signInWithPopup(p).catch(e => {
       const c = (e && e.code) || '';
       if (/popup-closed|cancelled-popup/.test(c)) return;
-      flash(/popup-blocked/.test(c) ? 'Your browser blocked the Google sign-in window. Allow pop-ups for calgaryinsight.ca and press Continue with Google again.'
-        : /unauthorized-domain/.test(c) ? 'Google sign-in is not switched on for this address yet (Firebase: Authentication, Settings, Authorized domains).'
+      // no window (blocked, or a phone or app view that cannot open one): the whole page goes to Google and back;
+      // the sign-in code now starts on every visit, so the result is picked up when the page comes back
+      if (/popup-blocked|operation-not-supported|web-storage-unsupported/.test(c)) {
+        try { sessionStorage.setItem('cdd-redirecting', '1'); } catch (x) { /* ignore */ }
+        flash('Opening Google sign-in…');
+        fb.auth().signInWithRedirect(p).catch(x => flash('Sign-in did not work: ' + (x.message || x)));
+        return;
+      }
+      flash(/unauthorized-domain/.test(c) ? 'Google sign-in is not switched on for this address yet (Firebase: Authentication, Settings, Authorized domains).'
         : 'Sign-in did not work: ' + (e.message || e));
     });
   }
