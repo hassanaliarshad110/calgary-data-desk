@@ -15,7 +15,7 @@ jobs:
       - run: echo skip osmium
       - env:
           SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
-        run: pip install -q rasterio scipy numpy && python probe/game_dem.py _out
+        run: python probe/game_cat.py _out
       - run: |
           cd _out && ls -la
           git init -q -b game-map-probe-out
