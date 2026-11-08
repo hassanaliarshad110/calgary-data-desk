@@ -1,16 +1,5 @@
 {
  "v": [
-  "Calgary's public data is spread across many places. Calgary Insight brings it together in one.",
-  "A free, non-partisan website, made by a Calgarian, at calgary insight dot c a.",
-  "It pulls City data every day: three-one-one requests, traffic incidents, permits and more, for the whole city or any of its fourteen wards.",
-  "Put any ward next to the other thirteen.",
-  "See the twenty twenty-six City budget, where the money comes from, and property tax by ward.",
-  "See how close homes are to everyday amenities, and what condition the water mains and roads are in.",
-  "Election data, a business map, Canada's safest cities, daily Calgary news, and a guide for visitors.",
-  "Every figure shows its formula and its source, so anyone can check the work.",
-  "Two A I tools go further. Data Genie answers any question about the data. Data Scientist writes full analysis reports.",
-  "Both are behind a passcode. To get one, send a request to the developer, at hello at calgary insight dot c a.",
-  "Any report can go through a three-way audit. Chinook, the auditor, re-runs every figure. Bow, the reviewer, rules on each finding and writes the corrected report. Rundle, the final checker, confirms every finding was dealt with.",
-  "Calgary's open data, explained for everyone. Calgary Insight, by Hassan Ali."
+  "Calgary's open data, explained for everyone. Calgary Insight."
  ]
 }
