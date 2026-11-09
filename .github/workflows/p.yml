@@ -9,5 +9,5 @@ jobs:
         with: {python-version: '3.12'}
       - run: |
           mkdir -p c
-          python tourism.py t.json c > out.txt || cat out.txt
+
           python show2.py
