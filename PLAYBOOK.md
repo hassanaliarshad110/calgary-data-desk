@@ -40,15 +40,19 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
 - Voice `af_heart` is the house voice. Verify the WAVs with `ffprobe` and `volumedetect`.
 
 ## 5. Render (follow calgary-insight-video-explainer)
-- Quick insight and civic: **1080×1920 vertical**. Flagship: **1920×1080 widescreen**. 30 fps, H.264 `-crf 18 -preset veryfast`, one file per scene, concatenated with `-c copy`.
+- Quick insight and civic: **1080×1920 vertical**.
+- Flagship: **two versions from the same narration**, both rendered every time (YouTube Shorts accept up to 3 minutes, and flagships are always under 3):
+  1. `<slug>-short.mp4`: **1080×1920 vertical Short**, laid out natively for vertical (not cropped from the widescreen), with key content between y≈300 and y≈1420 and clear of the right-hand 120 px.
+  2. `<slug>-youtube.mp4`: **1920×1080 widescreen** for regular YouTube and the website.
+  Both versions get burned-in captions, the logo and the end card. Package section 12 (short-form promo) is still written as a separate 15-30 s teaser script. 30 fps, H.264 `-crf 18 -preset veryfast`, one file per scene, concatenated with `-c copy`.
 - Logo: `assets/logo.svg` in this branch, placed as the explainer skill specifies. Navy/gold, Fira Sans. Burned-in captions. Source and data period shown small on every data scene.
 - Before the full render, render the two busiest scenes plus the end card as stills and **look at them** (Read the image). Fix overlaps and clipped text.
 - After assembly: contact sheet of six frames (look at it), duration check, fade check, poster JPG. Aim for ≤ 10 MB.
 
 ## 6. Deliver
 - Video files go to the **`studio-videos`** branch (GitHub releases are blocked for these sessions). Keep it light; never clone it with history:
-  `git clone -q --depth 1 -b studio-videos https://github.com/hassanaliarshad110/calgary-data-desk /home/claude/sv`, copy `<slug>.mp4` and `<slug>.jpg` into `sv/<date>-<slot>/`, commit as Hassan Ali, then `git pull --rebase --depth 1` and push, retrying up to 3 times.
+  `git clone -q --depth 1 -b studio-videos https://github.com/hassanaliarshad110/calgary-data-desk /home/claude/sv`, copy the MP4(s) and poster JPG(s) into `sv/<date>-<slot>/` (flagships: both `-short` and `-youtube` files plus a poster for each), commit as Hassan Ali, then `git pull --rebase --depth 1` and push, retrying up to 3 times.
   Raw link (for Metricool later, once Hassan approves): `https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/<date>-<slot>/<slug>.mp4`
 - Append to `log.json`: `{date, slot, type, category, title, topic_used, changed_from_calendar (reason or null), central_figure, sources:[urls], length_s, video_path, status:"done"}`. If rendering failed, save the package anyway with status `"script-only"` and the reason.
 - Commit the package and log to `content-studio` as Hassan Ali, `git pull --rebase` then push, retrying up to 3 times.
-- Send the MP4 to Hassan with SendUserFile (display attach), then a SendUserMessage of at most 5 lines: title, length and format, the one key figure with its source, and the raw video link.
+- Send the MP4(s) to Hassan with SendUserFile (flagships: both versions) (display attach), then a SendUserMessage of at most 5 lines: title, length and format, the one key figure with its source, and the raw video link.
