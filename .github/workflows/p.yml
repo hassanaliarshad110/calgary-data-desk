@@ -10,6 +10,6 @@ jobs:
       - run: pip install pypdf
       - run: |
           mkdir -p c
-          python schooltax.py st.json c > out.txt || true
-          grep -i "skipped" out.txt || true
+
+
           python show.py
