@@ -1,0 +1,17 @@
+name: Probe 10
+on: {push: {branches: [site-check-10]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - run: |
+          npm i playwright@1.47.2 >/dev/null 2>&1 && npx playwright install --with-deps chromium >/dev/null 2>&1
+          mkdir -p out
+          node check.js > out/report.txt 2>&1 || true
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -b fetched-10
+          git add -f out && git commit -qm "Live check" && git push -f origin fetched-10
