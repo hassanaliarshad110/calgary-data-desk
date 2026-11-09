@@ -1,1 +1,26 @@
-[]
+[
+ {
+  "date": "2026-11-09",
+  "slot": "AM",
+  "type": "quick-insight",
+  "category": "Population",
+  "title": "Calgary's migration boom cooled fast",
+  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023–Mar 2024, est.) → 40,500 (Apr 2024–Mar 2025, est.) → 15,500 forecast (Apr 2025–Mar 2026, made Jan 2026)",
+  "changed_from_calendar": null,
+  "central_figure": "Net migration to the City of Calgary fell from about 80,200 (year to April 2024) to about 40,500 (year to April 2025), City estimates",
+  "sources": [
+   "https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf",
+   "https://www.calgary.ca/research/economic-outlook.html"
+  ],
+  "length_s": 31.9,
+  "video_path": "studio-videos/2026-11-09-AM/net-migration-cooling.mp4",
+  "package": "packages/2026-11-09-AM-net-migration-cooling.md",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 8,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-09-AM.md"
+  },
+  "status": "done"
+ }
+]
