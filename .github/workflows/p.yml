@@ -8,6 +8,5 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install pypdf
-      - run: python probe.py
-      - run: python probe2.py https://www.alberta.ca/system/files/ecc-projected-operational-funding-school-authorities.pdf
+      - run: python probe2.py https://open.alberta.ca/dataset/74aa70ca-c77e-46c0-8fd8-ee79b8c8b42a/resource/2c02aaa4-8b49-49db-854f-f394aba9b666/download/ma-education-property-tax-requisition-comparison-report-2026.pdf
       - run: python probe3.py
