@@ -1,10 +1,11 @@
-import json, urllib.request
-H={'User-Agent':'Mozilla/5.0 (compatible; CalgaryInsight/1.0)','Content-Type':'application/json'}
-for pid in (24100053, 24100055, 24100050, 23100253, 23100312):
-    req=urllib.request.Request('https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata',data=json.dumps([{'productId':pid}]).encode(),headers=H)
-    d=json.loads(urllib.request.urlopen(req,timeout=120).read())[0]['object']
-    print('CHK ==',pid,d['cubeTitleEn'][:90])
-    for dim in d['dimension']:
-        mem=[m['memberNameEn'] for m in dim['member']]
-        cal=[m for m in mem if 'Calgary' in m or 'Alberta' in m]
-        print('CHK   dim',dim['dimensionNameEn'],len(mem),mem[:8],'| calgary/alberta:',cal[:6])
+import json
+d=json.load(open('t.json'))
+print('CHK errors',d['errors'])
+a=d.get('arrivals') or {}
+print('CHK share',a.get('share_of_canada_pct'),'latest',a.get('latest_full_year'))
+for p,v in (a.get('ports') or {}).items(): print('CHK port',p,{y:v['overnight_by_year'][y] for y in sorted(v['overnight_by_year'])[-6:]},'ytd',v.get('year_to_date'))
+print('CHK cal months',a['ports']['Calgary']['average_by_month'] if a.get('ports') else None)
+print('CHK cal countries',[(r['country'],r['overnight'],r['year_before'],r['five_years_before']) for r in (a.get('by_country') or {}).get('Calgary',[])][:14])
+print('CHK sameday',{p:{y:v[y] for y in sorted(v)[-2:]} for p,v in (a.get('all_visitors_incl_same_day_by_year') or {}).items()})
+for c,x in (d.get('airports_annual') or {}).items(): print('CHK air',c,x['geo'],sorted(x['years'].items())[-2:])
+print('CHK monthly',{c:list(m.items())[-1] for c,m in (d.get('airports_monthly') or {}).items()})
