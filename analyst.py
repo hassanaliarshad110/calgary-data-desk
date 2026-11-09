@@ -101,7 +101,10 @@ TOPICS = [
      'against Vancouver, Toronto, Montreal and Edmonton by year since 2015 and to date this year, the share from the United '
      'States and overseas, the priority countries and their growth, and the months (the summer peak and the slow months). '
      'The gateway question: airport passengers by sector, connecting travellers, Banff\'s visitors, and what share Calgary '
-     'keeps for a night. What makes Calgary different, from the research file. Lessons from Iceland, Singapore, Dubai, New '
+     'keeps for a night. Calgary as a hub for day trips (research around_calgary): what lies within one, two, three and four '
+     'hours (Kananaskis, Banff, Canmore, Drumheller, Waterton, five UNESCO World Heritage Sites), visitors at each where '
+     'published, Banff\'s cap on new hotels, and what a stay-in-Calgary, see-the-region offer would need (rooms, shuttles '
+     'and tours, passes, rail). What makes Calgary different, from the research file. Lessons from Iceland, Singapore, Dubai, New '
      'York, Denver and airline stopovers, each with its result and what would or would not carry over. Then the options, '
      'with who would act, cost, the visitors and spending each could add under stated low, middle and high assumptions, '
      'and the trade-offs (crowding in Banff, housing and short-term rentals). Cite every figure\'s source.'),

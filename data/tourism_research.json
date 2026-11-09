@@ -1,100 +1,581 @@
 {
-  "about": "Tourism in Calgary: the figures Calgary's own tourism bodies publish, what makes Calgary different, what other destinations did to grow (with their results), and the incentives in use. Checked by hand in November 2026 from the sources given with each item; figures are as the source states them, with its date. Statistics Canada's arrivals and airport figures are in tourism.json (get_dashboard section tourism). Facts, not recommendations: the report draws its own options from them.",
-  "checked": "2026-11-09",
-  "calgary_2025": {
-    "visitors": 10500000,
-    "visitor_spending": 3300000000,
-    "spending_by_origin": {"alberta": 1000000000, "rest_of_canada": 1200000000, "united_states": 537900000, "overseas": 520700000},
-    "hotel_occupancy_pct": 67.5,
-    "short_term_rental_occupancy_pct": 62,
-    "international_room_nights": 164597,
-    "international_room_nights_change_pct": 11.5,
-    "meetings_and_conventions": {"hosted": 159, "hosted_2024": 122, "delegates": 75000, "economic_impact": 240000000},
-    "sport_culture_major_events": {"hosted": 62, "participants": 180000, "economic_impact": 122900000},
-    "tourism_and_hospitality_jobs": 84000,
-    "goal": "Double visitor spending to $6 billion by 2035 (about 6% a year)",
-    "priority_markets": ["United States", "United Kingdom", "Germany", "France", "Mexico", "Japan", "Australia", "South Korea", "China", "Netherlands", "Switzerland", "Brazil (added Q1 2026)"],
-    "q1_2026": "International visitor spending up 15.6% and international passengers at YYC up 9.6% on Q1 2025",
-    "source": {"title": "Tourism Calgary Annual Report 2025; Calgary Stopover Program release (June 2026)", "publisher": "Tourism Calgary", "url": "https://tourism-calgary-production.tor1.cdn.digitaloceanspaces.com/files/industry/tc-annual-report-2025.pdf"}
+ "about": "Tourism in Calgary: the figures Calgary's own tourism bodies publish, what makes Calgary different, what other destinations did to grow (with their results), and the incentives in use. Checked by hand in November 2026 from the sources given with each item; figures are as the source states them, with its date. Statistics Canada's arrivals and airport figures are in tourism.json (get_dashboard section tourism). Facts, not recommendations: the report draws its own options from them.",
+ "checked": "2026-11-09",
+ "calgary_2025": {
+  "visitors": 10500000,
+  "visitor_spending": 3300000000,
+  "spending_by_origin": {
+   "alberta": 1000000000,
+   "rest_of_canada": 1200000000,
+   "united_states": 537900000,
+   "overseas": 520700000
   },
-  "alberta_2025": {"visitor_spending": 15200000000, "note": "Alberta record; about 1 in 10 Albertans work in tourism", "source": {"title": "Tourism Calgary Annual Report 2025 (Travel Alberta figure)", "url": "https://tourism-calgary-production.tor1.cdn.digitaloceanspaces.com/files/industry/tc-annual-report-2025.pdf"}},
-  "airport": {
-    "passengers_2025": 19400000, "passengers_2024": 18900000, "destinations": 110, "new_routes_2025": 15,
-    "new_2026": ["Sao Paulo (WestJet), first non-stop to South America", "Abu Dhabi (Etihad), first non-stop to the Middle East"],
-    "connecting_international_travellers_a_year": 7000000,
-    "connecting_note": "More than seven million international travellers connect through Calgary each year without leaving the airport (Tourism Calgary, June 2026).",
-    "us_arrivals_april_2025": "US arrivals at YYC up 29% on April 2024 while US arrivals at Canada's major airports fell 6% (CBC, June 2025)",
-    "sources": [
-      {"title": "YYC welcomed 19.4 million passengers in 2025", "publisher": "Calgary Airport Authority", "url": "https://www.yyc.com/en-us/media-centre/artmid/2328/articleid/186/yyc-calgary-international-airport-welcomed-194-million-passengers-in-2025"},
-      {"title": "Tourism Calgary and WestJet launch Calgary Stopover Program", "publisher": "Tourism Calgary", "url": "https://www.visitcalgary.com/business/industry/news/calgary-announcements/tourism-calgary-and-westjet-launch-calgary-stopover-program"},
-      {"title": "Calgary 'bucking the trend' as U.S. visits surge", "publisher": "CBC News, 26 June 2025", "url": "https://www.cbc.ca/lite/story/1.7568793"}]
+  "hotel_occupancy_pct": 67.5,
+  "short_term_rental_occupancy_pct": 62,
+  "international_room_nights": 164597,
+  "international_room_nights_change_pct": 11.5,
+  "meetings_and_conventions": {
+   "hosted": 159,
+   "hosted_2024": 122,
+   "delegates": 75000,
+   "economic_impact": 240000000
   },
-  "calgary_stopover_program": {
-    "launched": "2026-06-10", "partners": ["Tourism Calgary", "WestJet", "YYC", "Calgary Hotel Association"],
-    "what": "A pilot: travellers on WestJet's London Heathrow and Edinburgh routes add a Calgary stay of up to seven days at no extra airfare, with 19 hotel offers and the Calgary Attractions Pass; more routes and markets planned.",
-    "source": {"title": "Tourism Calgary and WestJet launch Calgary Stopover Program", "url": "https://www.visitcalgary.com/business/industry/news/calgary-announcements/tourism-calgary-and-westjet-launch-calgary-stopover-program"}
+  "sport_culture_major_events": {
+   "hosted": 62,
+   "participants": 180000,
+   "economic_impact": 122900000
   },
-  "banff_gateway": {
-    "banff_national_park_visitors_2025_26": 4500000, "previous_high_2023_24": 4280000,
-    "note": "A record; Parks Canada counts April to March. The park manages crowding with shuttles to Lake Louise and Moraine Lake, Roam transit and paid parking pilots. Most visitors who fly in land at YYC, about 130 km away.",
-    "source": {"title": "Banff National Park sets new record with 4.5 million visitors (citing CBC)", "publisher": "Modern Campground, 4 April 2026", "url": "https://moderncampground.com/canada/banff-national-park-sets-new-record-with-4-5-million-visitors-in-2025-26/"}
-  },
-  "stampede": {
-    "economic_impact_alberta_2025": 721000000, "ten_day_event_output": 389000000, "change_since_2019_pct": 33,
-    "jobs": "1,200 year-round, 3,500 seasonal, 3,000 volunteers",
-    "source": {"title": "Calgary Stampede economic impact report shows 33 per cent jump in 6 years", "publisher": "LiveWire Calgary, 5 February 2026", "url": "https://livewirecalgary.com/2026/02/05/calgary-stampede-economic-impact-report-shows-33-per-cent-jump-in-6-years/"}
-  },
-  "levies": {
-    "alberta_tourism_levy_pct": 6,
-    "destination_marketing_fee": "Up to 6% of room revenue, charged by about 60 Calgary Hotel Association hotels; voluntary for guests today.",
-    "from_2027": "The Traveller Protection and Destination Development Act takes full effect 1 January 2027: the full price including the destination marketing fee shown at booking, the fee held by a third-party trustee, one approved fee and one destination marketing organization per community.",
-    "gst_pct": 5,
-    "short_term_rentals": "The 6% levy applies; platforms collect it; hosts need a City business licence.",
-    "source": {"title": "Hotel and lodging tax in Calgary 2026", "publisher": "RoomMaster (secondary source; check the Act and Alberta's levy page)", "url": "https://www.roommaster.com/hotel-tax/calgary"}
-  },
-  "rail": {
-    "status_june_2026": "Alberta's passenger rail master plan puts airport links for Calgary and Edmonton (LRT extensions) first, with $15 million over three years for planning; Calgary to Banff and Edmonton to Calgary high-speed rail are targets within about 30 years; full build-out at least $60 billion. A private proposal (Liricon Capital) for Calgary to Banff beside the CPKC line was not preferred in the plan.",
-    "source": {"title": "Alberta advances plans for passenger rail lines throughout the province", "publisher": "Calgary Journal, 8 June 2026", "url": "https://calgaryjournal.ca/2026/06/08/alberta-advances-plans-for-passenger-rail-lines-throughout-the-province/"}
-  },
-  "indigenous_tourism": {
-    "mou": "Tourism Calgary and Indigenous Tourism Alberta signed an MOU on 23 January 2025: $1 million over four years (with the Calgary Hotel Association) to develop and promote Indigenous experiences, and Tourism Calgary pays membership dues for Treaty 7 and Metis District businesses.",
-    "alberta_indigenous_tourism_gdp_2024": 133200000, "projected_2026": 143300000, "jobs_2024": 3900,
-    "demand": "One in three international visitors seek an authentic Indigenous experience; two in three meetings, conventions and major events coming to Calgary want one.",
-    "glenbow": "Glenbow reopens (2026 to 2027) as the JR Shaw Centre for Arts & Culture with permanent free admission (a $25 million endowment), a Blackfoot Gallery curated with Elders from four Blackfoot Nations, eight floors and 325,000 sq ft.",
-    "sources": [
-      {"title": "Indigenous Tourism Alberta and Tourism Calgary sign MOU", "url": "https://www.visitcalgary.com/press-releases/indigenous-tourism-alberta-and-tourism-calgary-sign-memorandum-of-understanding"},
-      {"title": "Glenbow reopening", "url": "https://www.glenbow.org/reopening/"}]
-  },
-  "uniqueness": [
-    {"item": "Gateway to the Rockies", "what": "Banff (about 130 km, 1.5 hours) had a record 4.5 million visitors in 2025-26; Calgary is the nearest international airport. No other Canadian city of a million people is this close to a world-famous mountain park.", "source": "Parks Canada via Modern Campground (April 2026)"},
-    {"item": "The Calgary Stampede", "what": "Since 1912; $721 million economic impact across Alberta in 2025, a western heritage brand known worldwide.", "source": "Calgary Stampede economic impact report (February 2026)"},
-    {"item": "Olympic legacy", "what": "Host of the 1988 Winter Olympics; WinSport (Canada Olympic Park) and the Olympic Oval still run sport, training and events.", "source": "General knowledge; check venue sites"},
-    {"item": "Sunshine and chinooks", "what": "One of Canada's sunniest large cities, with chinook winds that break winter cold. The popular '333 days of sunshine' claim has no published source; use Environment and Climate Change Canada's sunshine hours instead.", "source": "Environment and Climate Change Canada climate normals; University of Calgary student blog (April 2026) for the popular claim"},
-    {"item": "Indigenous culture on Treaty 7 land", "what": "Blackfoot Confederacy, Tsuut'ina and Stoney Nakoda Nations and Metis Region 3; Blackfoot Crossing (about 1.5 hours), the new Blackfoot Gallery at Glenbow, and an Indigenous tourism MOU.", "source": "Tourism Calgary; Glenbow"},
-    {"item": "Dinosaurs", "what": "The Royal Tyrrell Museum and the badlands of Drumheller are a day trip (about 1.5 hours).", "source": "General knowledge; check the museum site"},
-    {"item": "Free world-class culture", "what": "Glenbow will be the first major Canadian museum with permanently free admission; Studio Bell (National Music Centre), the Central Library, Heritage Park and the Calgary Zoo.", "source": "Glenbow; general knowledge"},
-    {"item": "A young, diverse, safe-feeling city", "what": "Ranked 5th in the EIU Global Liveability Index 2024 and 18th in 2025 (the drop from healthcare scores).", "source": "Daily Hive on EIU 2025"},
-    {"item": "Air links", "what": "110 non-stop destinations; WestJet's hub; new non-stops to Sao Paulo and Abu Dhabi in 2026.", "source": "Calgary Airport Authority"}
+  "tourism_and_hospitality_jobs": 84000,
+  "goal": "Double visitor spending to $6 billion by 2035 (about 6% a year)",
+  "priority_markets": [
+   "United States",
+   "United Kingdom",
+   "Germany",
+   "France",
+   "Mexico",
+   "Japan",
+   "Australia",
+   "South Korea",
+   "China",
+   "Netherlands",
+   "Switzerland",
+   "Brazil (added Q1 2026)"
   ],
-  "lessons_from_other_destinations": [
-    {"place": "Iceland (Icelandair stopover)", "what": "A free stopover of up to seven days on transatlantic tickets turned a connection point into a destination; Iceland's visitors roughly tripled from 2010 to 2016, with Icelandair's marketing a major driver. Later, crowding and pressure on housing became issues.", "fit_for_calgary": "The closest model to the Calgary Stopover pilot (WestJet as the hub airline, YYC as the connection point).", "sources": [{"title": "Icelandair layover travel", "publisher": "Fortune, 23 October 2016", "url": "https://fortune.com/2016/10/23/icelandair-layover-travel/"}]},
-    {"place": "Singapore (Free Singapore Tour)", "what": "Since 1987, transit passengers with 5.5 to 24 hours between flights get a free 2.5-hour city tour (Changi Airport, Singapore Airlines and the tourism board); over 80,000 took it in 2019, when transit passengers were about 30% of Changi's traffic.", "fit_for_calgary": "A short free tour (downtown, the river, the Peace Bridge, or a mountain-view drive) for long connections at YYC.", "sources": [{"title": "Free Singapore Tour returns", "publisher": "Singapore Tourism Board, April 2023", "url": "https://www.stb.gov.sg/about-stb/media-publications/media-centre/free-singapore-tour-for-transfer-and-transit-passengers-returns-from-3-april/"}]},
-    {"place": "Dubai", "what": "19.59 million international overnight visitors in 2025, a third record year, hotel occupancy 80.7% across 154,000 rooms; credited to a city economic plan (D33), year-round festivals (Shopping Festival, Summer Surprises, Fitness Challenge), visa policy, and marketing partnerships with hotel and payment brands.", "fit_for_calgary": "Signature festivals in the slow months, and partnerships with airlines, hotels and card brands.", "sources": [{"title": "Dubai tourism hits record 19.59m visitors in 2025", "publisher": "Khaleej Times, 9 February 2026", "url": "https://www.khaleejtimes.com/business/dubai-tourism-hits-record-1959m-visitors-in-2025-marking-third-year-of-growth"}]},
-    {"place": "Airline stopovers (Qatar, Emirates, Etihad, Turkish, TAP, Copa)", "what": "Hub airlines turn connections into stays: TAP free stopovers up to 10 days; Qatar discounted hotel packages for 12 to 96 hours; Emirates free hotel for 8 to 26 hour connections; Etihad and Turkish free hotel nights; Copa free 24-hour to 7-day stopovers.", "fit_for_calgary": "Calgary's stopover could add hotel or attraction value, not only free airfare, and extend beyond UK routes.", "sources": [{"title": "Guide to airline stopover programs", "publisher": "The Points Guy", "url": "https://thepointsguy.com/airline/guide-to-airline-stopover-programs/"}]},
-    {"place": "New York City", "what": "65 million visitors in 2025 (52.4 million domestic, 12.5 million international, down 3.2%), $84.7 billion economic impact, 397,000 jobs, hotel occupancy 84.2%; 1,515 meetings and events booked; the World Cup 2026 expected to bring 1.2 million visitors.", "fit_for_calgary": "Conventions and major events as a steady base; a city of Calgary's size can win events in their category.", "sources": [{"title": "NYC Tourism + Conventions annual report", "publisher": "NYC Tourism + Conventions, 24 March 2026", "url": "https://business.nyctourism.com/press-media/press-releases/NYC-Tourism-Annual-Report-March-2026"}]},
-    {"place": "Denver (another gateway to the Rockies)", "what": "37.6 million visitors and $10.5 billion in 2025; 42% of overnight visitors arrive by air; a measured ad campaign returned $219 in visitor spending per $1; record convention centre attendance; overnight visits spread evenly across the year (22 to 28% a quarter).", "fit_for_calgary": "Market the city as a destination in its own right, not only a road to the mountains; even seasonality is possible for a Rockies gateway.", "sources": [{"title": "Denver tourism sets records in 2025 with 37.6M visitors", "publisher": "Denver7, 21 May 2026", "url": "https://www.denver7.com/news/local-news/denver-tourism-sets-records-in-2025-with-37-6m-visitors"}]}
+  "q1_2026": "International visitor spending up 15.6% and international passengers at YYC up 9.6% on Q1 2025",
+  "source": {
+   "title": "Tourism Calgary Annual Report 2025; Calgary Stopover Program release (June 2026)",
+   "publisher": "Tourism Calgary",
+   "url": "https://tourism-calgary-production.tor1.cdn.digitaloceanspaces.com/files/industry/tc-annual-report-2025.pdf"
+  }
+ },
+ "alberta_2025": {
+  "visitor_spending": 15200000000,
+  "note": "Alberta record; about 1 in 10 Albertans work in tourism",
+  "source": {
+   "title": "Tourism Calgary Annual Report 2025 (Travel Alberta figure)",
+   "url": "https://tourism-calgary-production.tor1.cdn.digitaloceanspaces.com/files/industry/tc-annual-report-2025.pdf"
+  }
+ },
+ "airport": {
+  "passengers_2025": 19400000,
+  "passengers_2024": 18900000,
+  "destinations": 110,
+  "new_routes_2025": 15,
+  "new_2026": [
+   "Sao Paulo (WestJet), first non-stop to South America",
+   "Abu Dhabi (Etihad), first non-stop to the Middle East"
   ],
-  "incentives_in_use_or_proposed": [
-    {"name": "Calgary Stopover Program", "status": "Pilot since June 2026 (UK routes)"},
-    {"name": "Destination marketing fee", "status": "Up to 6% at about 60 hotels; regulated from 2027 under the new Act"},
-    {"name": "Indigenous tourism MOU", "status": "$1 million over four years from January 2025"},
-    {"name": "Event attraction (Tourism Calgary sport, culture and major events)", "status": "62 events in 2025; 75 secured for future years ($268 million projected)"},
-    {"name": "Calgary to Banff and airport rail", "status": "Planning; airport links first; Banff within about 30 years"}
-  ],
-  "cautions": [
-    "Tourism Calgary's visitor and spending figures are its own estimates (method in its reports); Statistics Canada's arrivals count where visitors enter Canada, not where they stay.",
-    "Seven million connecting travellers is Tourism Calgary's figure; the airport does not publish connecting traffic separately.",
-    "Lessons from other places depend on their own conditions (visa rules, hub airlines, climate, scale); say what would and would not carry over.",
-    "Growth has costs: crowding in Banff, housing pressure from short-term rentals; weigh them with the gains."
+  "connecting_international_travellers_a_year": 7000000,
+  "connecting_note": "More than seven million international travellers connect through Calgary each year without leaving the airport (Tourism Calgary, June 2026).",
+  "us_arrivals_april_2025": "US arrivals at YYC up 29% on April 2024 while US arrivals at Canada's major airports fell 6% (CBC, June 2025)",
+  "sources": [
+   {
+    "title": "YYC welcomed 19.4 million passengers in 2025",
+    "publisher": "Calgary Airport Authority",
+    "url": "https://www.yyc.com/en-us/media-centre/artmid/2328/articleid/186/yyc-calgary-international-airport-welcomed-194-million-passengers-in-2025"
+   },
+   {
+    "title": "Tourism Calgary and WestJet launch Calgary Stopover Program",
+    "publisher": "Tourism Calgary",
+    "url": "https://www.visitcalgary.com/business/industry/news/calgary-announcements/tourism-calgary-and-westjet-launch-calgary-stopover-program"
+   },
+   {
+    "title": "Calgary 'bucking the trend' as U.S. visits surge",
+    "publisher": "CBC News, 26 June 2025",
+    "url": "https://www.cbc.ca/lite/story/1.7568793"
+   }
   ]
+ },
+ "calgary_stopover_program": {
+  "launched": "2026-06-10",
+  "partners": [
+   "Tourism Calgary",
+   "WestJet",
+   "YYC",
+   "Calgary Hotel Association"
+  ],
+  "what": "A pilot: travellers on WestJet's London Heathrow and Edinburgh routes add a Calgary stay of up to seven days at no extra airfare, with 19 hotel offers and the Calgary Attractions Pass; more routes and markets planned.",
+  "source": {
+   "title": "Tourism Calgary and WestJet launch Calgary Stopover Program",
+   "url": "https://www.visitcalgary.com/business/industry/news/calgary-announcements/tourism-calgary-and-westjet-launch-calgary-stopover-program"
+  }
+ },
+ "banff_gateway": {
+  "banff_national_park_visitors_2025_26": 4500000,
+  "previous_high_2023_24": 4280000,
+  "note": "A record; Parks Canada counts April to March. The park manages crowding with shuttles to Lake Louise and Moraine Lake, Roam transit and paid parking pilots. Most visitors who fly in land at YYC, about 130 km away.",
+  "source": {
+   "title": "Banff National Park sets new record with 4.5 million visitors (citing CBC)",
+   "publisher": "Modern Campground, 4 April 2026",
+   "url": "https://moderncampground.com/canada/banff-national-park-sets-new-record-with-4-5-million-visitors-in-2025-26/"
+  }
+ },
+ "stampede": {
+  "economic_impact_alberta_2025": 721000000,
+  "ten_day_event_output": 389000000,
+  "change_since_2019_pct": 33,
+  "jobs": "1,200 year-round, 3,500 seasonal, 3,000 volunteers",
+  "source": {
+   "title": "Calgary Stampede economic impact report shows 33 per cent jump in 6 years",
+   "publisher": "LiveWire Calgary, 5 February 2026",
+   "url": "https://livewirecalgary.com/2026/02/05/calgary-stampede-economic-impact-report-shows-33-per-cent-jump-in-6-years/"
+  }
+ },
+ "levies": {
+  "alberta_tourism_levy_pct": 6,
+  "destination_marketing_fee": "Up to 6% of room revenue, charged by about 60 Calgary Hotel Association hotels; voluntary for guests today.",
+  "from_2027": "The Traveller Protection and Destination Development Act takes full effect 1 January 2027: the full price including the destination marketing fee shown at booking, the fee held by a third-party trustee, one approved fee and one destination marketing organization per community.",
+  "gst_pct": 5,
+  "short_term_rentals": "The 6% levy applies; platforms collect it; hosts need a City business licence.",
+  "source": {
+   "title": "Hotel and lodging tax in Calgary 2026",
+   "publisher": "RoomMaster (secondary source; check the Act and Alberta's levy page)",
+   "url": "https://www.roommaster.com/hotel-tax/calgary"
+  }
+ },
+ "rail": {
+  "status_june_2026": "Alberta's passenger rail master plan puts airport links for Calgary and Edmonton (LRT extensions) first, with $15 million over three years for planning; Calgary to Banff and Edmonton to Calgary high-speed rail are targets within about 30 years; full build-out at least $60 billion. A private proposal (Liricon Capital) for Calgary to Banff beside the CPKC line was not preferred in the plan.",
+  "source": {
+   "title": "Alberta advances plans for passenger rail lines throughout the province",
+   "publisher": "Calgary Journal, 8 June 2026",
+   "url": "https://calgaryjournal.ca/2026/06/08/alberta-advances-plans-for-passenger-rail-lines-throughout-the-province/"
+  }
+ },
+ "indigenous_tourism": {
+  "mou": "Tourism Calgary and Indigenous Tourism Alberta signed an MOU on 23 January 2025: $1 million over four years (with the Calgary Hotel Association) to develop and promote Indigenous experiences, and Tourism Calgary pays membership dues for Treaty 7 and Metis District businesses.",
+  "alberta_indigenous_tourism_gdp_2024": 133200000,
+  "projected_2026": 143300000,
+  "jobs_2024": 3900,
+  "demand": "One in three international visitors seek an authentic Indigenous experience; two in three meetings, conventions and major events coming to Calgary want one.",
+  "glenbow": "Glenbow reopens (2026 to 2027) as the JR Shaw Centre for Arts & Culture with permanent free admission (a $25 million endowment), a Blackfoot Gallery curated with Elders from four Blackfoot Nations, eight floors and 325,000 sq ft.",
+  "sources": [
+   {
+    "title": "Indigenous Tourism Alberta and Tourism Calgary sign MOU",
+    "url": "https://www.visitcalgary.com/press-releases/indigenous-tourism-alberta-and-tourism-calgary-sign-memorandum-of-understanding"
+   },
+   {
+    "title": "Glenbow reopening",
+    "url": "https://www.glenbow.org/reopening/"
+   }
+  ]
+ },
+ "uniqueness": [
+  {
+   "item": "Gateway to the Rockies",
+   "what": "Banff (about 130 km, 1.5 hours) had a record 4.5 million visitors in 2025-26; Calgary is the nearest international airport. No other Canadian city of a million people is this close to a world-famous mountain park.",
+   "source": "Parks Canada via Modern Campground (April 2026)"
+  },
+  {
+   "item": "A hub for day trips",
+   "what": "Mountains, lakes, badlands, dinosaurs, Blackfoot heritage and five UNESCO World Heritage Sites within a few hours, from one city with an international airport (around_calgary).",
+   "source": "Drive times from OpenStreetMap routing; UNESCO list via AFAR"
+  },
+  {
+   "item": "The Calgary Stampede",
+   "what": "Since 1912; $721 million economic impact across Alberta in 2025, a western heritage brand known worldwide.",
+   "source": "Calgary Stampede economic impact report (February 2026)"
+  },
+  {
+   "item": "Olympic legacy",
+   "what": "Host of the 1988 Winter Olympics; WinSport (Canada Olympic Park) and the Olympic Oval still run sport, training and events.",
+   "source": "General knowledge; check venue sites"
+  },
+  {
+   "item": "Sunshine and chinooks",
+   "what": "One of Canada's sunniest large cities, with chinook winds that break winter cold. The popular '333 days of sunshine' claim has no published source; use Environment and Climate Change Canada's sunshine hours instead.",
+   "source": "Environment and Climate Change Canada climate normals; University of Calgary student blog (April 2026) for the popular claim"
+  },
+  {
+   "item": "Indigenous culture on Treaty 7 land",
+   "what": "Blackfoot Confederacy, Tsuut'ina and Stoney Nakoda Nations and Metis Region 3; Blackfoot Crossing (about 1.5 hours), the new Blackfoot Gallery at Glenbow, and an Indigenous tourism MOU.",
+   "source": "Tourism Calgary; Glenbow"
+  },
+  {
+   "item": "Dinosaurs",
+   "what": "The Royal Tyrrell Museum and the badlands of Drumheller are a day trip (about 1.5 hours).",
+   "source": "General knowledge; check the museum site"
+  },
+  {
+   "item": "Free world-class culture",
+   "what": "Glenbow will be the first major Canadian museum with permanently free admission; Studio Bell (National Music Centre), the Central Library, Heritage Park and the Calgary Zoo.",
+   "source": "Glenbow; general knowledge"
+  },
+  {
+   "item": "A young, diverse, safe-feeling city",
+   "what": "Ranked 5th in the EIU Global Liveability Index 2024 and 18th in 2025 (the drop from healthcare scores).",
+   "source": "Daily Hive on EIU 2025"
+  },
+  {
+   "item": "Air links",
+   "what": "110 non-stop destinations; WestJet's hub; new non-stops to Sao Paulo and Abu Dhabi in 2026.",
+   "source": "Calgary Airport Authority"
+  }
+ ],
+ "lessons_from_other_destinations": [
+  {
+   "place": "Iceland (Icelandair stopover)",
+   "what": "A free stopover of up to seven days on transatlantic tickets turned a connection point into a destination; Iceland's visitors roughly tripled from 2010 to 2016, with Icelandair's marketing a major driver. Later, crowding and pressure on housing became issues.",
+   "fit_for_calgary": "The closest model to the Calgary Stopover pilot (WestJet as the hub airline, YYC as the connection point).",
+   "sources": [
+    {
+     "title": "Icelandair layover travel",
+     "publisher": "Fortune, 23 October 2016",
+     "url": "https://fortune.com/2016/10/23/icelandair-layover-travel/"
+    }
+   ]
+  },
+  {
+   "place": "Singapore (Free Singapore Tour)",
+   "what": "Since 1987, transit passengers with 5.5 to 24 hours between flights get a free 2.5-hour city tour (Changi Airport, Singapore Airlines and the tourism board); over 80,000 took it in 2019, when transit passengers were about 30% of Changi's traffic.",
+   "fit_for_calgary": "A short free tour (downtown, the river, the Peace Bridge, or a mountain-view drive) for long connections at YYC.",
+   "sources": [
+    {
+     "title": "Free Singapore Tour returns",
+     "publisher": "Singapore Tourism Board, April 2023",
+     "url": "https://www.stb.gov.sg/about-stb/media-publications/media-centre/free-singapore-tour-for-transfer-and-transit-passengers-returns-from-3-april/"
+    }
+   ]
+  },
+  {
+   "place": "Dubai",
+   "what": "19.59 million international overnight visitors in 2025, a third record year, hotel occupancy 80.7% across 154,000 rooms; credited to a city economic plan (D33), year-round festivals (Shopping Festival, Summer Surprises, Fitness Challenge), visa policy, and marketing partnerships with hotel and payment brands.",
+   "fit_for_calgary": "Signature festivals in the slow months, and partnerships with airlines, hotels and card brands.",
+   "sources": [
+    {
+     "title": "Dubai tourism hits record 19.59m visitors in 2025",
+     "publisher": "Khaleej Times, 9 February 2026",
+     "url": "https://www.khaleejtimes.com/business/dubai-tourism-hits-record-1959m-visitors-in-2025-marking-third-year-of-growth"
+    }
+   ]
+  },
+  {
+   "place": "Airline stopovers (Qatar, Emirates, Etihad, Turkish, TAP, Copa)",
+   "what": "Hub airlines turn connections into stays: TAP free stopovers up to 10 days; Qatar discounted hotel packages for 12 to 96 hours; Emirates free hotel for 8 to 26 hour connections; Etihad and Turkish free hotel nights; Copa free 24-hour to 7-day stopovers.",
+   "fit_for_calgary": "Calgary's stopover could add hotel or attraction value, not only free airfare, and extend beyond UK routes.",
+   "sources": [
+    {
+     "title": "Guide to airline stopover programs",
+     "publisher": "The Points Guy",
+     "url": "https://thepointsguy.com/airline/guide-to-airline-stopover-programs/"
+    }
+   ]
+  },
+  {
+   "place": "New York City",
+   "what": "65 million visitors in 2025 (52.4 million domestic, 12.5 million international, down 3.2%), $84.7 billion economic impact, 397,000 jobs, hotel occupancy 84.2%; 1,515 meetings and events booked; the World Cup 2026 expected to bring 1.2 million visitors.",
+   "fit_for_calgary": "Conventions and major events as a steady base; a city of Calgary's size can win events in their category.",
+   "sources": [
+    {
+     "title": "NYC Tourism + Conventions annual report",
+     "publisher": "NYC Tourism + Conventions, 24 March 2026",
+     "url": "https://business.nyctourism.com/press-media/press-releases/NYC-Tourism-Annual-Report-March-2026"
+    }
+   ]
+  },
+  {
+   "place": "Denver (another gateway to the Rockies)",
+   "what": "37.6 million visitors and $10.5 billion in 2025; 42% of overnight visitors arrive by air; a measured ad campaign returned $219 in visitor spending per $1; record convention centre attendance; overnight visits spread evenly across the year (22 to 28% a quarter).",
+   "fit_for_calgary": "Market the city as a destination in its own right, not only a road to the mountains; even seasonality is possible for a Rockies gateway.",
+   "sources": [
+    {
+     "title": "Denver tourism sets records in 2025 with 37.6M visitors",
+     "publisher": "Denver7, 21 May 2026",
+     "url": "https://www.denver7.com/news/local-news/denver-tourism-sets-records-in-2025-with-37-6m-visitors"
+    }
+   ]
+  }
+ ],
+ "incentives_in_use_or_proposed": [
+  {
+   "name": "Calgary Stopover Program",
+   "status": "Pilot since June 2026 (UK routes)"
+  },
+  {
+   "name": "Destination marketing fee",
+   "status": "Up to 6% at about 60 hotels; regulated from 2027 under the new Act"
+  },
+  {
+   "name": "Indigenous tourism MOU",
+   "status": "$1 million over four years from January 2025"
+  },
+  {
+   "name": "Event attraction (Tourism Calgary sport, culture and major events)",
+   "status": "62 events in 2025; 75 secured for future years ($268 million projected)"
+  },
+  {
+   "name": "Calgary to Banff and airport rail",
+   "status": "Planning; airport links first; Banff within about 30 years"
+  },
+  {
+   "name": "Day-trip connections from Calgary (shuttles, tours, multi-day passes)",
+   "status": "Private shuttles and tours run today; the province's rail plan puts Calgary to Banff about 30 years out"
+  }
+ ],
+ "cautions": [
+  "Tourism Calgary's visitor and spending figures are its own estimates (method in its reports); Statistics Canada's arrivals count where visitors enter Canada, not where they stay.",
+  "Seven million connecting travellers is Tourism Calgary's figure; the airport does not publish connecting traffic separately.",
+  "Lessons from other places depend on their own conditions (visa rules, hub airlines, climate, scale); say what would and would not carry over.",
+  "Growth has costs: crowding in Banff, housing pressure from short-term rentals; weigh them with the gains."
+ ],
+ "around_calgary": {
+  "about": "Calgary as a base for day trips: the main places within a few hours' drive of downtown, with road distance and drive time (OpenStreetMap routing from downtown Calgary at free-flowing speeds; real trips take longer in summer traffic and winter roads), UNESCO World Heritage status and visitors where published.",
+  "origin": "Downtown Calgary (51.0447, -114.0719)",
+  "route_source": {
+   "title": "OSRM routing on OpenStreetMap data",
+   "url": "https://project-osrm.org/",
+   "checked": "2026-11-09"
+  },
+  "places": [
+   {
+    "place": "Cochrane",
+    "what": "Town and ranching heritage, gateway to Big Hill Springs",
+    "road_km": 37,
+    "drive_minutes": 39
+   },
+   {
+    "place": "Big Hill Springs Provincial Park",
+    "what": "Waterfalls and springs, short walks",
+    "road_km": 43,
+    "drive_minutes": 43
+   },
+   {
+    "place": "Bragg Creek",
+    "what": "Hamlet and trails at the edge of Kananaskis",
+    "road_km": 45,
+    "drive_minutes": 45
+   },
+   {
+    "place": "Okotoks Big Rock erratic",
+    "what": "Glacial erratic, provincial historic site",
+    "road_km": 61,
+    "drive_minutes": 52
+   },
+   {
+    "place": "Forget-Me-Not Pond (Kananaskis)",
+    "what": "Turquoise pond in the Elbow valley, Kananaskis Country",
+    "road_km": 74,
+    "drive_minutes": 70
+   },
+   {
+    "place": "Kananaskis Village",
+    "what": "Kananaskis Country resort, Nordic spa, golf, trails",
+    "road_km": 100,
+    "drive_minutes": 84
+   },
+   {
+    "place": "Canmore",
+    "what": "Mountain town, Three Sisters, Grassi Lakes",
+    "road_km": 106,
+    "drive_minutes": 84
+   },
+   {
+    "place": "Horseshoe Canyon (Drumheller)",
+    "what": "Badlands viewpoint",
+    "road_km": 120,
+    "drive_minutes": 96
+   },
+   {
+    "place": "Blackfoot Crossing Historical Park",
+    "what": "Siksika Nation; site of Treaty 7 (1877)",
+    "road_km": 124,
+    "drive_minutes": 109
+   },
+   {
+    "place": "Banff (town)",
+    "what": "Banff National Park, hot springs, gondola; part of the Canadian Rocky Mountain Parks World Heritage Site (1984)",
+    "road_km": 128,
+    "drive_minutes": 104,
+    "unesco_world_heritage": "Canadian Rocky Mountain Parks (1984)"
+   },
+   {
+    "place": "Peter Lougheed Provincial Park",
+    "what": "Kananaskis lakes and high-country trails",
+    "road_km": 130,
+    "drive_minutes": 115
+   },
+   {
+    "place": "Royal Tyrrell Museum (Drumheller)",
+    "what": "Canada's dinosaur museum in the badlands",
+    "road_km": 143,
+    "drive_minutes": 119,
+    "visitors": {
+     "visitors": 522000,
+     "period": "2024-25",
+     "source": "Royal Tyrrell Museum Cooperating Society annual report 2025",
+     "url": "https://tyrrellmuseum.com/sites/default/files/media/RTMCS-Annual%20Report-2025.pdf"
+    }
+   },
+   {
+    "place": "Head-Smashed-In Buffalo Jump",
+    "what": "Blackfoot buffalo jump used for nearly 6,000 years",
+    "road_km": 181,
+    "drive_minutes": 143,
+    "unesco_world_heritage": "Head-Smashed-In Buffalo Jump (1981)"
+   },
+   {
+    "place": "Lake Louise (lake)",
+    "what": "Banff National Park",
+    "road_km": 187,
+    "drive_minutes": 154,
+    "unesco_world_heritage": "Canadian Rocky Mountain Parks (1984)"
+   },
+   {
+    "place": "Moraine Lake",
+    "what": "Banff National Park (shuttle access only)",
+    "road_km": 197,
+    "drive_minutes": 170,
+    "unesco_world_heritage": "Canadian Rocky Mountain Parks (1984)"
+   },
+   {
+    "place": "Yoho National Park (Field, BC)",
+    "what": "Emerald Lake, Takakkaw Falls, Burgess Shale",
+    "road_km": 209,
+    "drive_minutes": 170,
+    "unesco_world_heritage": "Canadian Rocky Mountain Parks (1984)"
+   },
+   {
+    "place": "Waterton Lakes National Park (townsite)",
+    "what": "Where the prairie meets the mountains; Waterton-Glacier International Peace Park",
+    "road_km": 271,
+    "drive_minutes": 210,
+    "unesco_world_heritage": "Waterton Glacier International Peace Park (1995)",
+    "visitors": {
+     "visitors": 500000,
+     "period": "2024 (second-highest on record)",
+     "source": "CTV News Calgary",
+     "url": "https://guelph.ctvnews.ca/calgary/article/2024-second-highest-visitation-season-for-waterton-lakes-national-park"
+    }
+   },
+   {
+    "place": "Dinosaur Provincial Park",
+    "what": "Badlands rich in dinosaur fossils",
+    "road_km": 224,
+    "drive_minutes": 183,
+    "unesco_world_heritage": "Dinosaur Provincial Park (1979)"
+   },
+   {
+    "place": "Glacier National Park, Montana (St. Mary)",
+    "what": "Across the border from Waterton",
+    "road_km": 291,
+    "drive_minutes": 223,
+    "unesco_world_heritage": "Waterton Glacier International Peace Park (1995)"
+   },
+   {
+    "place": "Kootenay National Park (Radium gate, BC)",
+    "what": "Radium Hot Springs, Marble Canyon",
+    "road_km": 262,
+    "drive_minutes": 226,
+    "unesco_world_heritage": "Canadian Rocky Mountain Parks (1984)"
+   },
+   {
+    "place": "Columbia Icefield Centre",
+    "what": "Athabasca Glacier on the Icefields Parkway",
+    "road_km": 311,
+    "drive_minutes": 259,
+    "unesco_world_heritage": "Canadian Rocky Mountain Parks (1984)"
+   },
+   {
+    "place": "Writing-on-Stone Provincial Park (Áísínai'pi)",
+    "what": "Blackfoot rock art in the Milk River valley",
+    "road_km": 340,
+    "drive_minutes": 262,
+    "unesco_world_heritage": "Writing-on-Stone / Áísínai'pi (2019)"
+   },
+   {
+    "place": "Jasper (town)",
+    "what": "Jasper National Park",
+    "road_km": 414,
+    "drive_minutes": 357,
+    "unesco_world_heritage": "Canadian Rocky Mountain Parks (1984)"
+   }
+  ],
+  "rings": {
+   "within 1 hour": [
+    "Cochrane",
+    "Big Hill Springs Provincial Park",
+    "Bragg Creek",
+    "Okotoks Big Rock erratic"
+   ],
+   "within 2 hours": [
+    "Cochrane",
+    "Big Hill Springs Provincial Park",
+    "Bragg Creek",
+    "Okotoks Big Rock erratic",
+    "Forget-Me-Not Pond (Kananaskis)",
+    "Kananaskis Village",
+    "Canmore",
+    "Horseshoe Canyon (Drumheller)",
+    "Blackfoot Crossing Historical Park",
+    "Banff (town)",
+    "Peter Lougheed Provincial Park",
+    "Royal Tyrrell Museum (Drumheller)"
+   ],
+   "within 3 hours": [
+    "Cochrane",
+    "Big Hill Springs Provincial Park",
+    "Bragg Creek",
+    "Okotoks Big Rock erratic",
+    "Forget-Me-Not Pond (Kananaskis)",
+    "Kananaskis Village",
+    "Canmore",
+    "Horseshoe Canyon (Drumheller)",
+    "Blackfoot Crossing Historical Park",
+    "Banff (town)",
+    "Peter Lougheed Provincial Park",
+    "Royal Tyrrell Museum (Drumheller)",
+    "Head-Smashed-In Buffalo Jump",
+    "Lake Louise (lake)",
+    "Moraine Lake",
+    "Yoho National Park (Field, BC)"
+   ],
+   "within 4 hours": [
+    "Cochrane",
+    "Big Hill Springs Provincial Park",
+    "Bragg Creek",
+    "Okotoks Big Rock erratic",
+    "Forget-Me-Not Pond (Kananaskis)",
+    "Kananaskis Village",
+    "Canmore",
+    "Horseshoe Canyon (Drumheller)",
+    "Blackfoot Crossing Historical Park",
+    "Banff (town)",
+    "Peter Lougheed Provincial Park",
+    "Royal Tyrrell Museum (Drumheller)",
+    "Head-Smashed-In Buffalo Jump",
+    "Lake Louise (lake)",
+    "Moraine Lake",
+    "Yoho National Park (Field, BC)",
+    "Waterton Lakes National Park (townsite)",
+    "Dinosaur Provincial Park",
+    "Glacier National Park, Montana (St. Mary)",
+    "Kootenay National Park (Radium gate, BC)"
+   ]
+  },
+  "unesco": "Alberta has six UNESCO World Heritage Sites, more than any other province; five are within about four and a half hours of Calgary: the Canadian Rocky Mountain Parks (Banff, Yoho, Kootenay, Jasper), Head-Smashed-In Buffalo Jump, Dinosaur Provincial Park, Waterton Glacier International Peace Park and Writing-on-Stone/Áísínai'pi. The sixth, Wood Buffalo, is in the far north.",
+  "unesco_source": {
+   "title": "Alberta has the most UNESCO sites in Canada",
+   "publisher": "AFAR",
+   "url": "https://www.afar.com/magazine/alberta-has-the-most-unesco-sites-in-canada"
+  },
+  "kananaskis": {
+   "visits_2024": 4900000,
+   "visits_2020_record": 5400000,
+   "visits_2015": 3600000,
+   "plans": "The province plans more campsites, trails and parking, a Highway 742 upgrade, and is exploring the All-Season Resorts Act for Kananaskis (its estimate: $2 billion a year in visitor spending); conservationists warn of crowding and wildlife impacts.",
+   "source": {
+    "title": "Province eyes big tourism growth in Kananaskis Country",
+    "publisher": "CBC News, 3 October 2025",
+    "url": "https://www.cbc.ca/lite/story/1.7645099"
+   }
+  },
+  "banff_cannot_grow_beds": {
+   "what": "Banff's commercial space is capped by federal law (350,000 sq ft of new commercial floor area set in 1998, all allocated by 2013); a 175-room hotel at 600 Banff Avenue may be the last new hotel in Banff. With Banff's visitors at a record 4.5 million, new beds for Rockies visitors have to come from Canmore (itself limited) or Calgary.",
+   "source": {
+    "title": "Banff close to reaching commercial build-out",
+    "publisher": "Rocky Mountain Outlook",
+    "url": "https://www.rmoutlook.com/banff/banff-close-to-reaching-commercial-build-out-1650069"
+   }
+  },
+  "hub_argument": "A visitor based in Calgary can reach mountains (Kananaskis in about an hour, Banff in under two), badlands and dinosaurs (Drumheller under two hours), Blackfoot history (Blackfoot Crossing, Head-Smashed-In) and Waterton, in day trips, with a city's hotel choice, prices, restaurants, events and airport. The study should test this: hotel supply and prices in Calgary against Banff and Canmore, the share of mountain visitors who sleep in Calgary, transport for visitors without a car (shuttles, tours, rail plans), and the risk of moving crowding rather than easing it."
+ }
 }
