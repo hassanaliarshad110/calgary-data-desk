@@ -98,8 +98,11 @@ TOPICS = [
      'What Calgary pays the province for schools against what comes back, set beside Edmonton and the rest of Alberta.', 'Families',
      'The education property tax Calgary pays the province (the requisition) each year since 2020 and its share of Alberta\'s '
      'total, against Calgary\'s share of Alberta\'s students; tax per student for Calgary, Edmonton and the rest of Alberta; '
-     'operating funding per student for the Calgary boards against Edmonton\'s and the provincial average; and school '
-     'projects being built against student growth (get_dashboard section school_tax). Then inside {area}: education tax by '
+     'tax per resident beside tax per student and students per 100 residents (how much of the gap is fewer children per '
+     'resident); business and industrial property and the municipalities that pay most per resident; operating funding, '
+     'audited spending and funding-profile grants per student for the Calgary boards against Edmonton\'s and the provincial '
+     'average; new schools approved per budget against student growth; the class size grant; and school projects being '
+     'built (get_dashboard section school_tax, every part, including factors). Then inside {area}: education tax by '
      'community (section property_tax) against children aged 0 to 14, school enrolment and school sites still empty. '
      'Explain every difference by how the system works, show where Calgary is treated the same or better as plainly as '
      'where it is not, note the 2027 standard rate, and end with options for the province, the City and the school '

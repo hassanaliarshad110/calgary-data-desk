@@ -969,7 +969,17 @@ METHODS = [
          'Funding per student: each board\'s operating funding for the school year in the enrolment file, divided by '
          'its students that year. The next year\'s budget is shown too, over the same students, for scale only.',
          'School projects: school projects of $5 million or more in the province\'s Major Projects inventory, not '
-         'completed, counted by the municipalities each lists.'],
+         'completed, counted by the municipalities each lists.',
+         'Residents: Statistics Canada\'s population estimate for each municipality (census subdivision, July 1, table '
+         '17-10-0155), the same count everywhere; tax per resident = requisition / residents. Students per 100 residents '
+         'shows how much of a per-student gap comes from fewer children per resident.',
+         'Audited spending: each board\'s expenses by program from Alberta Education\'s summary of the audited financial '
+         'statements, divided by its students that school year (instruction = ECS plus grades 1 to 12; buildings = '
+         'operations and maintenance).',
+         'Grants: each board\'s funding profile for the coming year, line by line, divided by its students in the latest '
+         'enrolment file. New schools: the projects each budget\'s approved school capital list gives for each city '
+         '(Budget 2025 on), against the growth in its two city boards over the same number of years. Class size grant: '
+         'teachers funded per 1,000 students.'],
      'cautions': ['The requisition pays about a third of school operating costs; general provincial revenue pays the '
                   'rest, and new schools are paid for separately. Tax per student alone is not money in against money '
                   'out: set it beside funding per student and school projects.',
@@ -978,7 +988,11 @@ METHODS = [
                   'Funding follows the province\'s formula and student needs (English learners, specialized learning, '
                   'rural schools, transportation), so a difference per student is not by itself unfair.',
                   'Requisitions are calendar years and enrolment school years; board students include some who live '
-                  'outside the city; the Major Projects inventory is not the whole school capital plan.'],
+                  'outside the city; the Major Projects inventory is not the whole school capital plan.',
+                  'Some money reaches students without passing through the boards: teacher pensions paid by the province, '
+                  'private schools and home education. Board figures understate it, most where private schools are many.',
+                  'Until 2024/25 funding followed a weighted moving average of enrolment that pays fast-growing boards for '
+                  'fewer students than they have; set funding beside growth.'],
      'excel': ['Open the requisition report PDF for the latest year and copy the City of Calgary, City of Edmonton and '
                'total rows; open the enrolment spreadsheet for the latest school year, filter School Authority Name, '
                'and add the Total column; divide.']},
