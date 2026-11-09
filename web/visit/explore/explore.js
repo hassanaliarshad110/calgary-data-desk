@@ -255,7 +255,7 @@
       if (showBeyond) D.beyond.places.filter(b => b.lat && (!q || b.place.toLowerCase().includes(q))).forEach(b => { nb++; L.marker([b.lat, b.lon], { icon: pinIcon('#5cc8c2', true), title: b.place }).addTo(layer).on('click', () => beyondDetail(b)); });
       if (showStations) D.stations.forEach(s => L.marker([s.lat, s.lon], { icon: L.divIcon({ className: '', html: '<div class="station"></div>', iconSize: [8, 8] }), title: s.name + ' CTrain' }).addTo(layer).bindTooltip(s.name + ' (CTrain)'));
       $('#cnt').textContent = `${ps.length} place${ps.length === 1 ? '' : 's'}${showBeyond ? ` + ${nb} beyond Calgary` : ''}`;
-      $('#maplist').innerHTML = ps.length ? ps.slice(0, 60).map(p => `<div class="row"><div><b data-id="${p.id}">${esc(p.name)}</b><p>${esc(p.kind || '')} · ${esc(p.area || '')}</p></div><span class="badge${p.cost === 'free' ? ' free' : ''}">${p.cost === 'free' ? 'Free' : p.cost === 'paid' ? 'Paid' : 'Varies'}</span></div>`).join('')
+      $('#maplist').innerHTML = ps.length ? ps.slice(0, 60).map(p => `<div class="row"><div><b data-id="${p.id}">${esc(p.name)}</b><p>${esc(p.kind || '')} · ${esc(p.area || '')}</p></div><span class="badge${p.cost === 'free' ? ' free' : ''}">${p.cost === 'free' ? 'No charge' : p.cost === 'paid' ? 'Paid' : 'Varies'}</span></div>`).join('')
         : '<p class="empty">Nothing matches. Clear a category or the search.</p>';
       $('#maplist').querySelectorAll('[data-id]').forEach(b => b.addEventListener('click', () => detail(P[b.dataset.id])));
       if (showBeyond && nb) m.fitBounds(D.beyond.places.filter(b => b.lat).map(b => [b.lat, b.lon]).concat([D.city.centre]), { padding: [20, 20] });
@@ -275,7 +275,7 @@
       const ps = c.places.map(i => P[i]).filter(Boolean);
       const bs = (c.beyond || []).map(n => D.beyond.places.find(x => x.place === n)).filter(Boolean);
       $('#main').innerHTML = `<p><a href="#collections">← All collections</a></p><h2 class="sec">${esc(c.title)}</h2><p class="lead">${esc(c.blurb)}</p>
-        <div class="split"><div class="list">${ps.map((p, i) => `<div class="row"><div><b data-id="${p.id}">${i + 1}. ${esc(p.name)}</b><p>${esc(p.what || '')}</p></div><span class="badge${p.cost === 'free' ? ' free' : ''}">${p.cost === 'free' ? 'Free' : p.cost === 'paid' ? 'Paid' : 'Varies'}</span></div>`).join('')}
+        <div class="split"><div class="list">${ps.map((p, i) => `<div class="row"><div><b data-id="${p.id}">${i + 1}. ${esc(p.name)}</b><p>${esc(p.what || '')}</p></div><span class="badge${p.cost === 'free' ? ' free' : ''}">${p.cost === 'free' ? 'No charge' : p.cost === 'paid' ? 'Paid' : 'Varies'}</span></div>`).join('')}
           ${bs.map(b => `<div class="row"><div><b data-beyond="${esc(b.place)}">${esc(b.place)}</b><p>${esc(b.what)}</p></div><span class="badge out">${mins(b.drive_minutes)} drive</span></div>`).join('')}
           ${c.tip ? `<p class="note">${esc(c.tip)}</p>` : ''}<div class="go"><button class="btn" id="planthis">Plan days from this collection</button>${c.guide ? `<a class="btn ghost" href="../${esc(c.guide)}/">Read the guide</a>` : ''}</div></div>
           <div><div class="map" id="cmap"></div></div></div>`;
@@ -320,7 +320,7 @@
       ps.forEach(p => L.marker(ll(p), { icon: pinIcon(CAT_COL[p.categories[0]]) }).addTo(m).on('click', () => detail(p)).bindTooltip(p.name));
       D.stations.filter(s => x.ctrain.includes(s.name)).forEach(s => L.marker([s.lat, s.lon], { icon: L.divIcon({ className: '', html: '<div class="station"></div>', iconSize: [8, 8] }) }).addTo(m).bindTooltip(s.name + ' (CTrain)'));
       m.fitBounds(ps.map(ll), { padding: [40, 40], maxZoom: 15 });
-      $('#alist').innerHTML = ps.map(p => `<div class="row"><div><b data-id="${p.id}">${esc(p.name)}</b><p>${esc(p.kind || '')}</p></div><span class="badge${p.cost === 'free' ? ' free' : ''}">${p.cost === 'free' ? 'Free' : p.cost === 'paid' ? 'Paid' : 'Varies'}</span></div>`).join('');
+      $('#alist').innerHTML = ps.map(p => `<div class="row"><div><b data-id="${p.id}">${esc(p.name)}</b><p>${esc(p.kind || '')}</p></div><span class="badge${p.cost === 'free' ? ' free' : ''}">${p.cost === 'free' ? 'No charge' : p.cost === 'paid' ? 'Paid' : 'Varies'}</span></div>`).join('');
       $('#alist').querySelectorAll('[data-id]').forEach(b => b.addEventListener('click', () => detail(P[b.dataset.id])));
     };
     show(a || A[0]);
