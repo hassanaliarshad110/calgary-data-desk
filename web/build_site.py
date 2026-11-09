@@ -256,6 +256,11 @@ def python_files(out, cache):
         os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
         write(os.path.join(dest, 'data', 'business.json'), d)
         files.append('data/business.json')
+    st = os.path.join(out, 'data', 'school_tax.json')           # School tax and school funding for Data Genie (schooltax.py)
+    if os.path.exists(st):
+        os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
+        shutil.copy(st, os.path.join(dest, 'data', 'school_tax.json'))
+        files.append('data/school_tax.json')
     sr = os.path.join(out, 'data', 'safety_rank.json')          # Canada's safest cities for Data Genie (safety_rank.py)
     if os.path.exists(sr):
         os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
@@ -519,6 +524,32 @@ def main():
                 prev = None
         write(os.path.join(data, 'safety_rank.json'), safety_rank.build(prev))
     step('safest cities in Canada (crime severity index)', safety)
+
+    def school_tax():               # School tax and school funding, Calgary against Alberta (schooltax.py)
+        import schooltax
+        import families
+        try:
+            cs = families.city_school_totals(cache)
+        except Exception as e:      # noqa: BLE001 - the comparison by board still stands
+            print('  Calgary schools not counted:', str(e)[:120])
+            cs = None
+        d = schooltax.build(cache, cs)
+        if a.previous:              # a part the province's sites could not hand over today: yesterday's, marked
+            try:
+                import urllib.request
+                with urllib.request.urlopen(a.previous.rstrip('/') + '/data/school_tax.json', timeout=60) as r:
+                    prev = json.loads(r.read().decode('utf-8'))
+                for k in ('requisition', 'students', 'tax_per_student', 'funding', 'school_projects'):
+                    if not d.get(k) and prev.get(k):
+                        d[k] = prev[k]
+                        d.setdefault('stale_parts', []).append(k)
+            except Exception:       # noqa: BLE001 - first build
+                pass
+        write(os.path.join(data, 'school_tax.json'), d)
+        t = d.get('tax_per_student') or {}
+        print(f"  school tax: requisition {((d.get('requisition') or {}).get('year'))}, Calgary ${t.get('calgary_all_city_schools')} "
+              f"a student, rest of Alberta ${t.get('rest_of_alberta')}; errors: {d.get('errors')}")
+    step('school tax and school funding (Alberta)', school_tax)
     def visiting():                 # Visiting Calgary: the weather since 1885, OpenStreetMap sights and hotels, what is on (visit.py)
         import visit
         write(os.path.join(data, 'visit.json'), visit.build(cache))

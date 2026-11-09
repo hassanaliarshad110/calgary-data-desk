@@ -32,7 +32,7 @@ jobs:
           python-version: '3.12'
 
       - name: Tools for locking the Claude key, and for the distance from every home (Growth vs amenities)
-        run: pip install cryptography numpy scipy openpyxl overturemaps
+        run: pip install cryptography numpy scipy openpyxl overturemaps pypdf
 
       # the weekly and daily copies (assessment roll, Census, police file) carry over between runs
       - uses: actions/cache/restore@v4

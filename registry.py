@@ -125,6 +125,7 @@ DESCRIBE = {
     'ward5_rentals.json': 'Rental apartment buildings in Ward 5 used by the Population build-up.',
     'tax_rates.json': 'The City\'s 2026 property tax rates by property class.',
     'ward5_profile_2021.json': 'The 2021 Census profile of Ward 5 (households, languages, income, commuting), by hand from Statistics Canada.',
+    'school_tax.json': 'School tax and school funding (Government of Alberta): every municipality\'s education property tax requisition each year since 2020, students by school board and in Calgary\'s schools, tax per student, every board\'s operating funding per student and school projects by municipality. Read with get_dashboard section school_tax.',
     'analyst_topics.json': 'The ready-made analysis topics of the Data Scientist tab.',
     'built.json': 'When the website was last built, how long each step took, and the Census year used.',
     'business_people.json': 'Residents by community under each way of counting, used by Invest in Calgary.',

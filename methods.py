@@ -947,6 +947,41 @@ METHODS = [
      'cautions': ['Breaks and 311 requests are signals of condition, not a condition rating: a community with more pipes, more traffic or more people reporting shows more of both.',
                   'A water main is placed in the community that holds its middle point, so a main running along a boundary is counted on one side only.',
                   'The City\'s pavement plan is tentative beyond next year and changes with the budget.']},
+    {'key': 'school_tax', 'name': 'School tax and school funding: Calgary against Edmonton and the rest of Alberta',
+     'dataset': 'Education property tax requisition comparison report (each year since 2020); Projected operational '
+                'funding for school authorities (Budget 2026); Student enrolment by school, authority and grade; Major '
+                'Projects inventory',
+     'publisher': 'Government of Alberta (Municipal Affairs; Education and Childcare)',
+     'page': 'https://open.alberta.ca/publications/education-property-tax-requisition-comparison-report',
+     'updated': 'The website reads them every day; the requisition report comes out each spring, funding with each '
+                'provincial budget, enrolment each school year',
+     'used_in': 'Data Genie and the Data Scientist (get_dashboard section school_tax)',
+     'method': [
+         'Requisition: the education property tax each municipality collects for the province, residential (with farm '
+         'land) and non-residential, as the province\'s comparison report gives it for the year and the year before. '
+         'Every report since 2021 is read, so the trend runs from 2020.',
+         'Students: every school in the province\'s enrolment file for the latest school year. Calgary: every school '
+         'inside the city (public, Catholic, francophone, charter and private), placed with the City\'s schools map. '
+         'The file does not give other schools\' municipality, so Edmonton is counted by its two city boards (Edmonton '
+         'Public and Edmonton Catholic) and Calgary is also shown the same way (CBE and Calgary Catholic), like with like.',
+         'Tax per student: the latest requisition divided by the latest school year\'s students. Rest of Alberta: '
+         'Alberta minus Calgary, for both. Calgary\'s share of the requisition is set beside its share of students.',
+         'Funding per student: each board\'s operating funding for the school year in the enrolment file, divided by '
+         'its students that year. The next year\'s budget is shown too, over the same students, for scale only.',
+         'School projects: school projects of $5 million or more in the province\'s Major Projects inventory, not '
+         'completed, counted by the municipalities each lists.'],
+     'cautions': ['The requisition pays about a third of school operating costs; general provincial revenue pays the '
+                  'rest, and new schools are paid for separately. Tax per student alone is not money in against money '
+                  'out: set it beside funding per student and school projects.',
+                  'The tax follows property values: one provincial rate on higher-valued property means more tax, '
+                  'whoever is in government. From 2027 the rate is the same in every municipality.',
+                  'Funding follows the province\'s formula and student needs (English learners, specialized learning, '
+                  'rural schools, transportation), so a difference per student is not by itself unfair.',
+                  'Requisitions are calendar years and enrolment school years; board students include some who live '
+                  'outside the city; the Major Projects inventory is not the whole school capital plan.'],
+     'excel': ['Open the requisition report PDF for the latest year and copy the City of Calgary, City of Edmonton and '
+               'total rows; open the enrolment spreadsheet for the latest school year, filter School Authority Name, '
+               'and add the Total column; divide.']},
     {'key': 'safest_cities', 'name': 'Canada\'s safest cities: the Crime Severity Index for every city of 10,000 or more',
      'dataset': 'Crime severity index and weighted clearance rates, police services (tables 35-10-0186 to 35-10-0190, '
                 '35-10-0061, 35-10-0063, 35-10-0064); population: 35-10-0077; metropolitan areas: 35-10-0026',

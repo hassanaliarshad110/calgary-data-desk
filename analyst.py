@@ -94,6 +94,16 @@ TOPICS = [
      'Which schools in {area} grew most, and the new schools coming.', 'Families',
      'Enrolment at each school in {area} over the last five school years, the biggest increases, against children in each '
      'community, and the schools being built or planned.'),
+    ('school_tax', 'School tax paid and school money received',
+     'What Calgary pays the province for schools against what comes back, set beside Edmonton and the rest of Alberta.', 'Families',
+     'The education property tax Calgary pays the province (the requisition) each year since 2020 and its share of Alberta\'s '
+     'total, against Calgary\'s share of Alberta\'s students; tax per student for Calgary, Edmonton and the rest of Alberta; '
+     'operating funding per student for the Calgary boards against Edmonton\'s and the provincial average; and school '
+     'projects being built against student growth (get_dashboard section school_tax). Then inside {area}: education tax by '
+     'community (section property_tax) against children aged 0 to 14, school enrolment and school sites still empty. '
+     'Explain every difference by how the system works, show where Calgary is treated the same or better as plainly as '
+     'where it is not, note the 2027 standard rate, and end with options for the province, the City and the school '
+     'boards, each with its trade-off. No blame of a party or government.'),
     ('blue_line', 'The case for more Blue Line stations',
      'Residents beyond the planned 88 Avenue station, transit gaps and destinations coming.', 'Transit',
      'Residents today and at the 2021 Census in Cornerstone, Redstone, Cityscape, Skyview Ranch and Homestead; transit stops '
