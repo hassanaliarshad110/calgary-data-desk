@@ -470,14 +470,19 @@ def parse_capital(lines, year, places=()):
     out = {'year': year, 'total': int(m.group(1)) if m else None}
     names = sorted({p for p in places if p} | {'Calgary', 'Edmonton'}, key=len, reverse=True)
     head = re.compile(r'^(' + '|'.join(re.escape(n) for n in names) + r')(?: \((\d+)\))?(?=\s|$)')
-    section, counted, given = None, {}, {}
+    section, counted, given, just_headed = None, {}, {}, False
     for ln in lines:
         t = ln.strip()
         h = head.match(t)
         if h and not re.match(r'^(Calgary|Edmonton) (Board|Catholic|Public|Roman)', t):
-            section = h.group(1)
+            section, just_headed = h.group(1), True
             if h.group(2):
                 given[section] = int(h.group(2))
+            continue
+        n = re.match(r'^\((\d+)\)$', t)
+        if n and just_headed and section not in given:      # "Edmonton" / "(10)": the count wrapped onto its own line
+            given[section] = int(n.group(1))
+        just_headed = False
         if section and re.search(r'\b(planning|design|construction)\s*$', t, re.I):
             counted[section] = counted.get(section, 0) + 1
     for city in ('Calgary', 'Edmonton'):
