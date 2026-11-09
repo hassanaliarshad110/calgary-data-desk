@@ -8,5 +8,6 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install pypdf
-      - run: python probe2.py https://open.alberta.ca/dataset/74aa70ca-c77e-46c0-8fd8-ee79b8c8b42a/resource/2c02aaa4-8b49-49db-854f-f394aba9b666/download/ma-education-property-tax-requisition-comparison-report-2026.pdf
+      - run: python probe2.py https://open.alberta.ca/dataset/74aa70ca-c77e-46c0-8fd8-ee79b8c8b42a/resource/2c02aaa4-8b49-49db-854f-f394aba9b666/download/ma-education-property-tax-requisition-comparison-report-2026.pdf https://www.alberta.ca/system/files/ma-education-property-tax-requisition-comparison-report-2026.pdf https://open.alberta.ca/dataset/74aa70ca-c77e-46c0-8fd8-ee79b8c8b42a/resource/3706ad4a-e6a3-4cc9-a866-011523bd39e6/download/ma-education-property-tax-requisition-comparison-report-2025.pdf
+        continue-on-error: true
       - run: python probe3.py
