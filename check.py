@@ -5,7 +5,13 @@ NEW=open('new-livemap.js',encoding='utf-8').read()
 with sync_playwright() as p:
     br=p.chromium.launch(); c=br.new_context(**p.devices['Pixel 7'])
     c.add_init_script("localStorage.setItem('lm-on', JSON.stringify({crime:false,traffic:false}))")  # as on Hassan's phone
-    c.route(re.compile(r'livemap\.js'), lambda r: r.fulfill(status=200, content_type='application/javascript', body=NEW))
+    def swap(route):
+        resp=route.fetch(); body=resp.text()
+        a=body.index('// ---- livemap.js\n'); b=body.find('\n;\n// ---- ',a)
+        body=body[:a]+'// ---- livemap.js\n'+NEW.rstrip()+'\n'+(body[b:] if b>0 else '')
+        print('CHK swapped', route.request.url[-30:], b>0)
+        route.fulfill(response=resp, body=body)
+    c.route(re.compile(r'/site\.[0-9a-f]+\.js'), swap)
     pg=c.new_page(); errs=[]
     pg.on("request", lambda r: print("CHK req", r.url[:120]) if "livemap" in r.url else None)
     pg.on('pageerror',lambda e: errs.append(str(e)))
