@@ -41,6 +41,14 @@ FUNDING_PDF = 'https://www.alberta.ca/system/files/ecc-projected-operational-fun
 FUNDING_PAGE = 'https://www.alberta.ca/education-projected-operational-funding'
 EPT_PAGE = 'https://www.alberta.ca/education-property-tax'
 MAJOR_API = 'https://majorprojects.alberta.ca/api/MajorProjects?years=1'
+# the reports as the catalogue listed them in November 2026, for a day the catalogue itself is down
+KNOWN_REPORTS = [
+    ('2c02aaa4-8b49-49db-854f-f394aba9b666', 'ma-education-property-tax-requisition-comparison-report-2026.pdf', '2026-02-26T22:26:26.624407'),
+    ('3706ad4a-e6a3-4cc9-a866-011523bd39e6', 'ma-education-property-tax-requisition-comparison-report-2025.pdf', '2025-02-27T22:48:33.316468'),
+    ('07a82809-7ca2-4436-bc15-0117f57801de', 'ma-education-property-tax-requisition-comparison-report-2024.pdf', '2024-04-16T17:44:26.376734'),
+    ('d9101832-4c4b-4bc5-89cc-a9554f43dc51', 'ma-education-property-tax-requisition-comparison-report-2023.pdf', '2023-02-28T22:56:32.196171'),
+    ('6484f3e4-051a-4335-a8f7-d76bb071bcd8', 'ma-education-property-tax-requisition-comparison-report-2022.pdf', '2022-02-24T23:02:16.343058'),
+    ('bcabca2f-ff9b-405a-85ca-0a63b487affd', 'ma-education-property-tax-requisition-comparison-report-2021.pdf', '2022-02-24T23:01:33.472800')]
 SITE_COPY = 'https://calgaryinsight.ca/data/school_tax.json'
 UA = {'User-Agent': 'Mozilla/5.0 (compatible; CalgaryInsight/1.0; civic data)'}
 CATEGORIES = ('City', 'Specialized Municipality', 'Municipal District', 'Town', 'Village', 'Summer Village',
@@ -134,7 +142,12 @@ def requisitions(cache_dir):
     import alberta                                    # noqa: PLC0415
     rdir = os.path.join(cache_dir, 'alberta')
     out = []
-    for r in alberta.resources(REQ_PKG, rdir):
+    try:
+        listed = alberta.resources(REQ_PKG, rdir)
+    except Exception:                                 # noqa: BLE001 - the catalogue answers 500 now and then
+        listed = [{'url': f'https://open.alberta.ca/dataset/{REQ_PKG}/resource/{rid}/download/{f}', 'modified': m}
+                  for rid, f, m in KNOWN_REPORTS]
+    for r in listed:
         if not r['url'].lower().endswith('.pdf'):
             continue
         try:
@@ -270,6 +283,50 @@ def school_projects():
     return out
 
 
+# ------------------------------------------------------------------ checks before new figures are accepted
+# A PDF whose layout changes can be read without an error but into the wrong columns. New figures are kept only when
+# they pass these; otherwise the build keeps the last good copy, marked as not refreshed, and the log says why.
+
+def check_report(rep):
+    """Problems with one parsed requisition report ([] when it looks right)."""
+    rows = [r for r in rep['rows'] if r['category'] != 'Total']
+    bad = []
+    if len(rows) < 250:
+        bad.append(f'{rep["year"]}: only {len(rows)} municipalities read (about 330 expected)')
+    for nm in ('City of Calgary', 'City of Edmonton'):
+        if not _find(rows, nm):
+            bad.append(f'{rep["year"]}: {nm} not found')
+    tot, prev = sum(r['total'] for r in rows), sum(r['total_prev'] for r in rows)
+    if not 1.5e9 <= tot <= 8e9:
+        bad.append(f'{rep["year"]}: Alberta total ${tot:,} is outside $1.5 to $8 billion')
+    if prev and not .7 <= tot / prev <= 1.4:
+        bad.append(f'{rep["year"]}: total moved {tot / prev - 1:+.0%} from the year before')
+    off = [r['name'] for r in rows if abs(r['res'] + r['nonres'] - r['total']) > max(5, r['total'] * .001)]
+    if len(off) > 3:
+        bad.append(f'{rep["year"]}: residential plus non-residential does not add to the total for {len(off)} municipalities')
+    cal = _find(rows, 'City of Calgary')
+    if cal and tot and not .2 <= cal['total'] / tot <= .5:
+        bad.append(f'{rep["year"]}: Calgary\'s share {cal["total"] / tot:.0%} is outside 20 to 50%')
+    return bad
+
+
+def check_funding(f):
+    rows = [r for r in f['rows'] if not re.match(r'(?i).*\btotal\b', r['name'])]
+    bad = []
+    if len(rows) < 50:
+        bad.append(f'only {len(rows)} school boards read (about 90 expected)')
+    names = ' '.join(norm(r['name']) for r in rows)
+    for b in CITY_BOARDS['Calgary'] + CITY_BOARDS['Edmonton']:
+        if b not in names:
+            bad.append(f'{b.title()} not found')
+    tot = sum(r['prev'] for r in rows)
+    if not 4e9 <= tot <= 20e9:
+        bad.append(f'operating funding total ${tot:,} is outside $4 to $20 billion')
+    if not all(f.get('years') or [None]):
+        bad.append('the school years in the heading were not found')
+    return bad
+
+
 # ------------------------------------------------------------------ putting it together
 
 def _per(a, b):
@@ -286,7 +343,17 @@ def build(cache_dir, calgary_students=None):
         {'name': 'Education property tax (rates, 2027 standard rate)', 'publisher': 'Government of Alberta', 'url': EPT_PAGE}]}
     req = enr = fund = proj = None
     try:
-        req = requisition_summary(requisitions(cache_dir))
+        reps = requisitions(cache_dir)
+        good = []
+        for rep in reps:
+            bad = check_report(rep)
+            if bad:
+                errors.append('Requisition report not used: ' + '; '.join(bad))
+            else:
+                good.append(rep)
+        if reps and reps[0] not in good:
+            raise RuntimeError('the newest report did not pass the checks, so yesterday\'s figures are kept')
+        req = requisition_summary(good)
     except Exception as e:                            # noqa: BLE001
         errors.append(f'Requisitions: {e}')
     try:
@@ -295,6 +362,10 @@ def build(cache_dir, calgary_students=None):
         errors.append(f'Enrolment: {e}')
     try:
         fund = funding()
+        bad = check_funding(fund)
+        if bad:
+            fund = None
+            raise RuntimeError('the funding table did not pass the checks (' + '; '.join(bad) + '), so yesterday\'s figures are kept')
     except Exception as e:                            # noqa: BLE001
         errors.append(f'Funding: {e}')
     try:
