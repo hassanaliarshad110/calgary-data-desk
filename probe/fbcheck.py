@@ -1,13 +1,13 @@
 import json, os, sys, re, urllib.request, urllib.parse
 out = sys.argv[1]; os.makedirs(out, exist_ok=True); R = {}
-def get(u, ua='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36'):
+def get(u, ua='Mozilla/5.0'):
     try:
         r = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': ua, 'Accept-Language': 'en-US,en'}), timeout=60)
         return r.status, r.geturl(), r.read().decode('utf-8', 'replace')
     except Exception as e: return str(e), '', ''
 post = 'https://www.facebook.com/1370614532809643/posts/1833265154551158'
 for name, u in [('post', post), ('embed', 'https://www.facebook.com/plugins/post.php?href=' + urllib.parse.quote(post, safe='') + '&show_text=true&width=500'),
-                ('page', 'https://www.facebook.com/1370614532809643'), ('old_post', 'https://www.facebook.com/1370614532809643/posts/2354812772013540'),
+                ('page', 'https://www.facebook.com/1370614532809643'), ('old_post', 'https://www.facebook.com/1370614532809643/posts/2354812772013540'), ('videos', 'https://www.facebook.com/1370614532809643/videos'),
                 ('old_embed', 'https://www.facebook.com/plugins/post.php?href=' + urllib.parse.quote('https://www.facebook.com/1370614532809643/posts/2354812772013540', safe='') + '&show_text=true&width=500')]:
     s, final, b = get(u)
     R[name] = {'status': s, 'final_url': final, 'len': len(b), 'title': (re.search(r'<title>([^<]*)</title>', b) or [None, None])[1] if b else None,
