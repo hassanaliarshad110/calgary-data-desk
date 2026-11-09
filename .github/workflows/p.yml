@@ -1,0 +1,13 @@
+name: Probe 8
+on: {push: {branches: [site-check-8]}}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install pypdf
+      - run: python probe.py
+      - run: python probe2.py https://www.alberta.ca/system/files/ecc-projected-operational-funding-school-authorities.pdf
+      - run: python probe3.py
