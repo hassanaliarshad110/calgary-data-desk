@@ -25,7 +25,21 @@ Every scheduled run follows this file exactly. One run = one video.
 ## 3. Write the package
 Write `packages/<date>-<slot>-<slug>.md` with **every** required output of the skill (topics/angles, hooks, verified evidence labelled fact / estimate / projection / interpretation, methodology and limitations where the skill asks for them, full narration, timestamped scene-by-scene storyboard, visual generation prompts, chart/map instructions with exact values and units, clickable sources with publication date and data period, captions / YouTube title and description, thumbnail concept, short-form version for flagships).
 - Narration: Canadian English, short sentences, **every number written in words as spoken**. It has to fit the runtime (about 2.5 words a second). End with a spoken close and the calgaryinsight.ca end card; never end abruptly.
+- The package ends with the claims table required by section 3b.
 - Visual generation prompts are kept for an optional paid cinematic version later. This run renders the free motion-graphics version only.
+
+## 3b. Fact audit: the gate (nothing is narrated or rendered until it passes)
+1. **Claims table.** At the end of the package, list every factual statement in the narration, on-screen text, captions, chart labels and descriptions: `# | claim as worded in the script | exact figure, unit, period, boundary | label (fact / estimate / projection / interpretation) | source URL | where in the source (page, table or section)`.
+2. **Independent auditor.** Spawn a fresh subagent (Agent tool, general-purpose) that did not draft the script. Give it **only** the narration, on-screen text and the claims table, not your research notes or reasoning. Its instructions:
+   - Open every source URL yourself and check each claim against what the page actually says: the number, unit, date, reference period, geographic boundary (city / CMA / ward / community) and attribution.
+   - Mark each claim **PASS**, **FAIL** (the source says something different, and give the correct wording), or **UNSUPPORTED** (the page doesn't say it, won't load, or isn't a credible source).
+   - Also flag: any factual sentence missing from the claims table; numbers in words that don't match the figure (for example "forty-two" vs 4.2); comparisons across mismatched periods or boundaries; estimates or projections stated as facts; correlation presented as cause; a hook the data doesn't pay off; anything partisan or unfair to a ward or person; any mention of Hassan's name.
+   - Return a table with one row per claim, plus a verdict: **APPROVED** only if every claim passes and nothing is flagged.
+3. **Fix and re-audit.** Correct or cut every FAIL and UNSUPPORTED claim, deal with every flag, and send the revised script to a **new** auditor subagent. Allow at most 3 rounds.
+4. **If it still isn't approved after round 3:** do not narrate or render. Save the package and audit report, log status `"blocked-by-audit"` with the reasons, and tell Hassan which claims couldn't be verified.
+5. If the Agent tool isn't available, run the audit yourself as a separate pass: re-fetch every URL fresh and apply the same checks, and label the report "self-audit".
+6. Save the final auditor report as `audits/<date>-<slot>.md` (every claim, its verdict and the source it was checked against). Record `audit: {rounds, claims_checked, verdict}` in the log.
+7. **After rendering,** confirm that the narration lines sent to Kokoro and the burned-in captions match the approved script word for word. Any change after approval needs a new audit round.
 
 ## 4. Narration (free, dedicated lane)
 Use the **`studio-probe`** branch, not `budget-probe` (that one is Hassan's own lane).
