@@ -54,5 +54,32 @@
    "report": "audits/2026-11-09-FLAGSHIP.md"
   },
   "status": "done"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "CIVIC",
+  "type": "civic",
+  "category": "Civic intelligence",
+  "title": "Calgary's 2027 budget: what the preliminary numbers say",
+  "topic_used": "Preliminary 2027–2030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2–5.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
+  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments … by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
+  "central_figure": "2027: $528M in new ongoing operating requests, $144M available funding, remaining $384M paired with a 15% property tax revenue increase (City of Calgary C2026-0749 Rev. Att. 1, slide 28, Sept 29, 2026)",
+  "sources": [
+   "https://www.calgary.ca/our-finances/2027-budget.html",
+   "https://livewirecalgary.com/wp-content/uploads/2026/09/RELEASED-Item-6.1-Revised-Attachment-1-C2026-0749.pdf",
+   "https://pub-calgary.escribemeetings.com/Meeting.aspx?Id=17d037e1-fd09-406b-b191-f0c5abd8b15b&Agenda=Agenda&lang=English",
+   "https://globalnews.ca/news/12044564/calgary-2027-budget-requests-property-tax-estimate/",
+   "https://ca.news.yahoo.com/real-fiscal-challenges-double-digit-172917918.html"
+  ],
+  "length_s": 59.5,
+  "video_path": "studio-videos/2026-11-09-CIVIC/budget-2027-preliminary.mp4",
+  "package": "packages/2026-11-09-CIVIC-budget-2027-preliminary.md",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 15,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-09-CIVIC.md"
+  },
+  "status": "done"
  }
 ]
