@@ -9,13 +9,18 @@ def get(u):
     raise err
 def pkg(n): return json.loads(get('https://open.alberta.ca/api/3/action/package_show?id='+n))['result']
 def pdftext(u): return [l for p in PdfReader(io.BytesIO(get(u))).pages for l in (p.extract_text() or '').splitlines()]
-pl=pkg('8dae0ffd-dbb7-46f7-89eb-efa64b2ce385'); print('CHK POP',pl['name'],[(r['name'],r['format'],r['url']) for r in pl['resources']][-4:])
-r=[x for x in pl['resources'] if x['format'].upper() in ('XLSX','CSV','XLS')]
+pl=pkg('8dae0ffd-dbb7-46f7-89eb-efa64b2ce385')
+print('CHK POPNAMES',[(x['name'],x['format']) for x in pl['resources']][:6])
+r=sorted([x for x in pl['resources'] if x['format'].upper() in ('XLSX','CSV')], key=lambda x: x['name'])
 if r:
-    b=get(r[-1]['url']); print('CHK POPFILE',r[-1]['url'][-60:],len(b))
-    if r[-1]['format'].upper()=='CSV': print('CHK POPCSV',b[:800])
-    else:
-        rows=alberta.read_xlsx(b); print('CHK POPROWS',len(rows)); [print('CHK POPR',x[:12]) for x in rows[:6]]; [print('CHK POPC',x[:12]) for x in rows if any('Calgary' in c for c in x[:4])][:3]
+    b=get(r[-1]['url']); print('CHK POPFILE',r[-1]['name'],r[-1]['url'][-60:],len(b))
+    try:
+        rows=alberta.read_xlsx(b)
+    except Exception as e:
+        print('CHK popxlsx err',e); rows=[]
+    print('CHK POPROWS',len(rows))
+    for x in rows[:6]: print('CHK POPR',x[:12])
+    for x in [x for x in rows if any('Calgary' in c for c in x[:4])][:3]: print('CHK POPC',x[:12])
 fp=pkg('projected-operational-funding-2026-2027-school-year-by-jurisdiction')['resources']
 for x in fp:
     if re.search(r'(calgary|edmonton)', x['url']) : print('CHK FPU',x['name'],x['url'])
