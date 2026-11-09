@@ -44,7 +44,8 @@ MAJOR_API = 'https://majorprojects.alberta.ca/api/MajorProjects?years=1'
 SITE_COPY = 'https://calgaryinsight.ca/data/school_tax.json'
 UA = {'User-Agent': 'Mozilla/5.0 (compatible; CalgaryInsight/1.0; civic data)'}
 CATEGORIES = ('City', 'Specialized Municipality', 'Municipal District', 'Town', 'Village', 'Summer Village',
-              'Improvement District', 'Metis Settlement', 'Métis Settlement', 'Special Area', 'Special Areas')
+              'Improvement District', 'Metis Settlement', 'Métis Settlement', 'Special Area', 'Special Areas', 'Townsite')
+NOT_NAME = re.compile(r'Requisition|% Change|^Municipality$|Classification|Equalized|subject to revision|^\d{4} \d{4}')
 MONEY = r'\(?-?\$?\s?[\d,]+\)?|-'
 CITY_BOARDS = {'Calgary': ('CALGARY SCHOOL DIVISION', 'CALGARY ROMAN CATHOLIC SEPARATE SCHOOL DIVISION'),
                'Edmonton': ('EDMONTON SCHOOL DIVISION', 'EDMONTON CATHOLIC SEPARATE SCHOOL DIVISION')}
@@ -94,27 +95,34 @@ def parse_requisitions(lines):
     year = prev = None
     for ln in lines[:40]:
         m = re.search(r'(\d{4}) Education Property Tax Requisition Comparison', ln)
-        if m:
+        if m and not year:
             year = int(m.group(1))
         m = re.match(r'^(\d{4}) (\d{4}) % Change', ln)
         if m and not prev:
             prev = int(m.group(1))
-    rows, cat = [], None
-    pat = re.compile(r'^(.*?[A-Za-z\.\)])\s+((?:(?:' + MONEY + r')\s+(?:' + MONEY + r')\s+(?:-?\d+%|n/a|N/A|-|)\s*){3})$')
+    rows, cat, pending = [], None, ''
+    pat = re.compile(r'^(.*?)\s*((?:(?:' + MONEY + r')\s+(?:' + MONEY + r')\s+(?:-?\d+%|n/a|N/A|-|)\s*){3})$')
     for ln in lines:
         s = ln.strip()
+        if not s:
+            continue
         if s in CATEGORIES:
-            cat = s
+            cat, pending = s, ''
             continue
         m = pat.match(s)
-        if not m:
+        vals = [v for v in re.findall(MONEY, re.sub(r'-?\d+%|n/a|N/A', ' ', m.group(2))) if v.strip()] if m else []
+        if not m or len(vals) != 6:
+            # a name the PDF wraps onto two lines ("... No." / "124 $...", "Jasper National" / "Park) $...")
+            pending = '' if NOT_NAME.search(s) or '$' in s else (pending + ' ' + s).strip()
             continue
-        vals = re.findall(MONEY, re.sub(r'-?\d+%|n/a|N/A', ' ', m.group(2)))
-        vals = [v for v in vals if v.strip()]
-        if len(vals) != 6:
+        name = m.group(1).strip()
+        if pending and (not re.search(r'[A-Za-z]', name) or not re.match(r'^[A-Z]', name) or len(name.split()) <= 2
+                        or not re.search(r'\b(of|County|District|Board|Society)\b', name)):
+            name = (pending + ' ' + name).strip()
+        pending = ''
+        if not re.search(r'[A-Za-z]', name):
             continue
         a = [_num(v) for v in vals]
-        name = m.group(1).strip()
         rows.append({'name': name, 'category': cat if not re.match(r'(?i)^(grand )?total', name) else 'Total',
                      'res_prev': a[0], 'res': a[1], 'nonres_prev': a[2], 'nonres': a[3], 'total_prev': a[4], 'total': a[5]})
     return year, prev or (year - 1 if year else None), rows
