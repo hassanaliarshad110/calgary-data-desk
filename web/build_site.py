@@ -256,6 +256,11 @@ def python_files(out, cache):
         os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
         write(os.path.join(dest, 'data', 'business.json'), d)
         files.append('data/business.json')
+    tj = os.path.join(out, 'data', 'tourism.json')              # Tourism for Data Genie (tourism.py; tourism_research.json ships with data/)
+    if os.path.exists(tj):
+        os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
+        shutil.copy(tj, os.path.join(dest, 'data', 'tourism.json'))
+        files.append('data/tourism.json')
     st = os.path.join(out, 'data', 'school_tax.json')           # School tax and school funding for Data Genie (schooltax.py)
     if os.path.exists(st):
         os.makedirs(os.path.join(dest, 'data'), exist_ok=True)
@@ -550,6 +555,25 @@ def main():
         print(f"  school tax: requisition {((d.get('requisition') or {}).get('year'))}, Calgary ${t.get('calgary_all_city_schools')} "
               f"a student, rest of Alberta ${t.get('rest_of_alberta')}; errors: {d.get('errors')}")
     step('school tax and school funding (Alberta)', school_tax)
+
+    def tourism_data():             # Tourism: arrivals by gateway and airport passengers (tourism.py)
+        import tourism
+        d = tourism.build(cache)
+        if a.previous:              # a part Statistics Canada could not hand over today: yesterday's, marked
+            try:
+                import urllib.request
+                with urllib.request.urlopen(a.previous.rstrip('/') + '/data/tourism.json', timeout=60) as r:
+                    prev = json.loads(r.read().decode('utf-8'))
+                for k in ('arrivals', 'airports_annual', 'airports_monthly'):
+                    if not d.get(k) and prev.get(k):
+                        d[k] = prev[k]
+                        d.setdefault('stale_parts', []).append(k)
+            except Exception:       # noqa: BLE001 - first build
+                pass
+        write(os.path.join(data, 'tourism.json'), d)
+        cal = (((d.get('arrivals') or {}).get('ports') or {}).get('Calgary') or {}).get('overnight_by_year') or {}
+        print(f"  tourism: Calgary overnight international arrivals {dict(sorted(cal.items())[-2:])}; errors: {d.get('errors')}")
+    step('tourism (Statistics Canada arrivals and airports)', tourism_data)
     def visiting():                 # Visiting Calgary: the weather since 1885, OpenStreetMap sights and hotels, what is on (visit.py)
         import visit
         write(os.path.join(data, 'visit.json'), visit.build(cache))

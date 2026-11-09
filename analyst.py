@@ -94,6 +94,17 @@ TOPICS = [
      'Which schools in {area} grew most, and the new schools coming.', 'Families',
      'Enrolment at each school in {area} over the last five school years, the biggest increases, against children in each '
      'community, and the schools being built or planned.'),
+    ('tourism', 'Tourism: Calgary\'s potential, international and local',
+     'Who visits Calgary and from where, against Canada\'s other gateways, what makes Calgary different, and how to grow.', 'Growth',
+     'Tourism in Calgary as an opportunity (get_dashboard section tourism, every part, and section visiting). Local against '
+     'international: Tourism Calgary\'s spending by origin; international overnight visitors entering by air at Calgary '
+     'against Vancouver, Toronto, Montreal and Edmonton by year since 2015 and to date this year, the share from the United '
+     'States and overseas, the priority countries and their growth, and the months (the summer peak and the slow months). '
+     'The gateway question: airport passengers by sector, connecting travellers, Banff\'s visitors, and what share Calgary '
+     'keeps for a night. What makes Calgary different, from the research file. Lessons from Iceland, Singapore, Dubai, New '
+     'York, Denver and airline stopovers, each with its result and what would or would not carry over. Then the options, '
+     'with who would act, cost, the visitors and spending each could add under stated low, middle and high assumptions, '
+     'and the trade-offs (crowding in Banff, housing and short-term rentals). Cite every figure\'s source.'),
     ('school_tax', 'School tax paid and school money received',
      'What Calgary pays the province for schools against what comes back, set beside Edmonton and the rest of Alberta.', 'Families',
      'The education property tax Calgary pays the province (the requisition) each year since 2020 and its share of Alberta\'s '

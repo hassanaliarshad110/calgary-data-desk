@@ -125,6 +125,8 @@ DESCRIBE = {
     'ward5_rentals.json': 'Rental apartment buildings in Ward 5 used by the Population build-up.',
     'tax_rates.json': 'The City\'s 2026 property tax rates by property class.',
     'ward5_profile_2021.json': 'The 2021 Census profile of Ward 5 (households, languages, income, commuting), by hand from Statistics Canada.',
+    'tourism.json': 'Tourism (Statistics Canada): international overnight visitors entering by air at Calgary and Canada\'s other big gateways by year, month and country, and airport passengers by sector. Read with get_dashboard section tourism.',
+    'tourism_research.json': 'Tourism research checked by hand: Tourism Calgary\'s 2025 figures, the airport, the stopover pilot, Banff, the Stampede, levies, rail, Indigenous tourism, what makes Calgary different, lessons from Iceland, Singapore, Dubai, New York, Denver and airline stopovers, with sources. Read with get_dashboard section tourism part=research.',
     'school_tax.json': 'School tax and school funding (Government of Alberta): every municipality\'s education property tax requisition each year since 2020, students by school board and in Calgary\'s schools, tax per student, every board\'s operating funding per student and school projects by municipality. Read with get_dashboard section school_tax.',
     'analyst_topics.json': 'The ready-made analysis topics of the Data Scientist tab.',
     'built.json': 'When the website was last built, how long each step took, and the Census year used.',

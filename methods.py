@@ -947,6 +947,33 @@ METHODS = [
      'cautions': ['Breaks and 311 requests are signals of condition, not a condition rating: a community with more pipes, more traffic or more people reporting shows more of both.',
                   'A water main is placed in the community that holds its middle point, so a main running along a boundary is counted on one side only.',
                   'The City\'s pavement plan is tentative beyond next year and changes with the budget.']},
+    {'key': 'tourism', 'name': 'Tourism: international arrivals by gateway, airport passengers, and the research behind recommendations',
+     'dataset': 'Statistics Canada 24-10-0055 (non-resident visitors entering Canada by port of entry, country, mode and '
+                'traveller type, monthly), 23-10-0253 (air passengers by airport and sector, annual), 23-10-0312 (screened '
+                'passengers, monthly); research file data/tourism_research.json (Tourism Calgary, Calgary Airport Authority, '
+                'Parks Canada and other sources, each cited)',
+     'publisher': 'Statistics Canada; the sources named in the research file',
+     'page': 'https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410005501',
+     'updated': 'Statistics Canada monthly (arrivals about seven weeks after the month); the research file checked by hand '
+                '(its date is in the file)',
+     'used_in': 'Data Genie and the Data Scientist (get_dashboard section tourism)',
+     'method': [
+         'Arrivals: non-resident visitors entering Canada by air at each port (Calgary = YYC, Toronto = Pearson, '
+         'Vancouver, Montreal, Edmonton; Canada and Alberta = every airport), overnight tourists, by month for the last '
+         'eleven years; a year is counted only when all twelve months are in, the current year is shown to date with '
+         'the same months a year before. Shares compare each port with Canada\'s air arrivals.',
+         'By country: the same count for each priority country. United States and all other countries are the '
+         'table\'s own totals.',
+         'Airports: passengers enplaned plus deplaned at each city\'s main international airport, by domestic, '
+         'transborder (United States) and other international sectors.'],
+     'cautions': ['A port of entry is where a visitor first enters Canada, not where they stay: visitors entering at '
+                  'Calgary include many bound for Banff, and visitors entering at Vancouver or Toronto who fly on to '
+                  'Calgary are counted there.',
+                  'Canadians travelling in Canada are not in these tables; Tourism Calgary\'s figures (research file) cover '
+                  'all visitors and are its own estimates.',
+                  'Airport passengers include residents, and a connecting passenger is counted twice.'],
+     'excel': ['Open table 24-10-0055, choose Geography = Calgary, Mode = Air, Arrival type = All arrivals, Traveller type '
+               '= Tourists (overnight), and add the twelve months of a year.']},
     {'key': 'school_tax', 'name': 'School tax and school funding: Calgary against Edmonton and the rest of Alberta',
      'dataset': 'Education property tax requisition comparison report (each year since 2020); Projected operational '
                 'funding for school authorities (Budget 2026); Student enrolment by school, authority and grade; Major '
