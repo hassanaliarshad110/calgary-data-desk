@@ -580,6 +580,11 @@ def main():
         cal = (((d.get('arrivals') or {}).get('ports') or {}).get('Calgary') or {}).get('overnight_by_year') or {}
         print(f"  tourism: Calgary overnight international arrivals {dict(sorted(cal.items())[-2:])}; errors: {d.get('errors')}")
     step('tourism (Statistics Canada arrivals and airports)', tourism_data)
+    if not os.path.exists(os.path.join(out, 'tourism-intelligence', 'index.html')):    # no figures today: the page still stands, from the research file
+        def tourism_page_only():
+            import tourism, tourism_page
+            tourism_page.build(out, None, tourism.research())
+        step('Tourism Intelligence page (research only)', tourism_page_only)
     def visiting():                 # Visiting Calgary: the weather since 1885, OpenStreetMap sights and hotels, what is on (visit.py)
         import visit
         vd = visit.build(cache)
