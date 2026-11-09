@@ -565,6 +565,13 @@ def main():
     def search_pages():             # a plain page for every ward and community, for search engines (seo_pages.py)
         import seo_pages
         urls = seo_pages.build(out, data, meths[0])
+        try:                        # Calgary News, a page per story, read from the published editions (news_pages.py)
+            import news_pages
+            cp_path = os.path.join(out, 'communities', 'pages.json')
+            cp = json.load(open(cp_path, encoding='utf-8')) if os.path.exists(cp_path) else []
+            urls = list(urls) + news_pages.build(out, cp)
+        except Exception as ex:     # the rest of the site still goes out
+            print('Calgary News pages skipped:', str(ex)[:160])
         robots_and_sitemap(out, urls)
         with open(os.path.join(out, 'indexnow-urls.txt'), 'w', encoding='utf-8') as f:     # sent to IndexNow after the deploy
             f.write('\n'.join([SITE_URL, SITE_URL + 'about/', SITE_URL + 'visit/', SITE_URL + 'game/'] + [SITE_URL + u for u in visit_pages.URLS + list(urls)]))

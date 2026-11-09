@@ -70,10 +70,27 @@ th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);font-
 .list{columns:3 200px;padding-left:18px}.list li{break-inside:avoid;margin:2px 0}
 .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none}.chips a{display:inline-block;background:var(--chip);padding:5px 11px;border-radius:999px;text-decoration:none;font-size:.92rem}
 footer{max-width:860px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left)) 40px;color:var(--mute);font-size:.85rem}
+
+.kicker{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+figure.hero{margin:18px 0}figure.hero img{width:100%;max-height:440px;object-fit:cover;border-radius:10px;display:block}
+figure.hero figcaption{font-size:.78rem;color:var(--mute);margin-top:4px}
+.facts{background:var(--chip);border-radius:10px;padding:4px 18px 10px;margin:18px 0}.facts h2{margin-top:12px;font-size:1.05rem}
+.facts ul{margin:0;padding-left:18px}.facts li{margin:4px 0}
+ol.srcs li{margin:6px 0}ol.srcs span{color:var(--mute);font-size:.9rem}
+ul.news{list-style:none;padding:0;margin:0 0 10px}ul.news li{padding:10px 0;border-bottom:1px solid var(--line)}
+ul.news a{font-weight:700;font-size:1.05rem}ul.news span{display:block;font-size:.8rem;color:var(--mute);margin-top:2px}
+ul.news p{margin:4px 0 0;color:var(--fg2);font-size:.95rem}
+.note{font-size:.85rem;color:var(--mute)}.pn{margin:22px 0;line-height:1.9}
+.qa{border:1px solid var(--line);border-radius:12px;padding:6px 18px 14px;margin:14px 0;background:var(--card)}
+.qa h3{margin:12px 0 6px;font-size:1.05rem}.qa h3::before{content:"Q. ";color:var(--accent)}
+.bars{display:grid;gap:5px;margin:8px 0}.bars div{display:grid;grid-template-columns:minmax(0,11rem) 1fr auto;gap:8px;align-items:center;font-size:.9rem}
+.bars i{display:block;height:12px;border-radius:0 4px 4px 0;background:var(--accent)}.bars b{font-variant-numeric:tabular-nums;font-weight:600}
+.steps{counter-reset:s;list-style:none;padding:0}.steps li{counter-increment:s;padding:8px 0 8px 2.4rem;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:7px;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--chip);color:var(--accent);font-weight:700;display:grid;place-items:center}
 """
 
 
-def page(path, title, desc, crumbs, body, ld_extra=None, updated=''):
+def page(path, title, desc, crumbs, body, ld_extra=None, updated='', og_type='website', image=None):
     url = SITE + path
     bc = {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': SITE + p}
                                                           for i, (n, p) in enumerate(crumbs)]}
@@ -87,9 +104,9 @@ def page(path, title, desc, crumbs, body, ld_extra=None, updated=''):
 <link rel="canonical" href="{e(url)}">
 <meta name="robots" content="index,follow">
 <link rel="icon" href="{up}logo.svg"><link rel="stylesheet" href="{up}seo.css">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Calgary Insight">
+<meta property="og:type" content="{og_type}"><meta property="og:site_name" content="Calgary Insight">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}">
-<meta property="og:url" content="{e(url)}"><meta property="og:image" content="{SITE}og-image.png"><meta property="og:locale" content="en_CA">
+<meta property="og:url" content="{e(url)}"><meta property="og:image" content="{e(image or SITE + "og-image.png")}"><meta property="og:locale" content="en_CA">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, separators=(',', ':'))}</script>
 </head><body>
@@ -300,6 +317,7 @@ def build(out, data_dir, method='city_actual'):
                      [('Calgary Insight', ''), ('Communities', 'communities/')], body, None, updated))
     # ---- three topic pages with their own address and title (the dashboard screens all share the home page's)
     urls += topic_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated)
+    urls += ai_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated)
 
     # the list the dashboard uses to link each community to its page, and for its "find your community" box
     with open(os.path.join(out, 'communities', 'pages.json'), 'w', encoding='utf-8') as f:
@@ -407,3 +425,129 @@ def topic_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, upd
           f'Calgary’s population today (about {num(P.get("city_now"))}) against the 2021 Census, new homes in building permits, and growth in every ward and community, refreshed daily.',
           'Growth in Calgary', body)
     return out_urls
+
+
+def bars(rows, fmt, link=None):
+    """A small bar chart in HTML: rows of (label, value[, href])."""
+    rows = [r for r in rows if r[1] is not None]
+    if not rows:
+        return ''
+    top = max(abs(r[1]) for r in rows) or 1
+    out = []
+    for r in rows:
+        lab = f'<a href="{e(r[2])}">{e(r[0])}</a>' if len(r) > 2 and r[2] else e(r[0])
+        out.append(f'<div><span>{lab}</span><i style="width:{max(2, round(100 * abs(r[1]) / top))}%"></i><b>{e(fmt(r[1]))}</b></div>')
+    return '<div class="bars">' + ''.join(out) + '</div>'
+
+
+def ai_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated):
+    """calgaryinsight.ca/ask/ (Data Genie) and /data-scientist/: what each does, with sample answers worked out from the same data."""
+    S, P = city.get('summary') or {}, city.get('population') or {}
+    ws = {r['ward']: r for r in ((city.get('wards_summary') or {}).get('wards') or [])}
+    lived = [c for c in comms if c.get('residential') and not c.get('few_residents') and (c.get('residents') or 0) >= 1000]
+    cp = lambda c: f'../communities/{slugs[c["code"]]}/' if c.get('code') in slugs else None
+    urls = []
+
+    def write(path, title, desc, name, body, ld):
+        os.makedirs(os.path.join(out, path), exist_ok=True)
+        with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
+            f.write(page(path, title, desc, [('Calgary Insight', ''), (name, path)], '\n'.join(body), ld, updated))
+        urls.append(path)
+
+    # sample answers, worked out here from the published figures
+    qa = []
+    most_open = sorted([c for c in comms if c.get('open')], key=lambda c: -c['open'])[:8]
+    if most_open:
+        qa.append(('Which Calgary communities have the most 311 requests still open?',
+                   f'{e(most_open[0]["name"])} has the most, with {num(most_open[0]["open"])} requests still marked open in the City’s data. The eight with the most:',
+                   bars([(c['name'], c['open'], cp(c)) for c in most_open], lambda v: num(v))))
+    wr = sorted([(w, r) for w, r in ws.items() if r.get('open_per_1000') is not None], key=lambda t: -t[1]['open_per_1000'])
+    if wr:
+        qa.append(('Which ward has the most open 311 requests for its population?',
+                   f'Ward {wr[0][0]}, with {num(wr[0][1]["open_per_1000"], 1)} open requests per 1,000 residents (requests in residential communities only). Every ward:',
+                   bars([(f'Ward {w}', r['open_per_1000'], f'../wards/{w}/') for w, r in wr], lambda v: num(v, 1))))
+    ch = crime.get('city_change_pct') if crime.get('city_change_pct') is not None else crime.get('change_pct')
+    cats = [x for x in (crime.get('by_category') or []) if x.get('n')][:8]
+    if cats:
+        qa.append(('Is crime going up or down in Calgary?',
+                   f'The Calgary Police Service recorded {num(crime.get("city_crimes") or crime.get("crimes"))} crimes in {e(cperiod)}'
+                   + (f', {pct(ch)} on the year before' if ch is not None else '') + f', or {num(crime.get("city_per_1000") or crime.get("per_1000"), 1)} for every 1,000 residents. By kind:',
+                   bars([(x.get('label') or x.get('category'), x['n']) for x in cats], lambda v: num(v))))
+    types = [t for t in city.get('open_by_type') or [] if not re.search(r'contact us', str(t.get('type')), re.I)][:8]
+    if types:
+        qa.append(('What do Calgarians most often report to 311 that is still open?',
+                   f'{e(nice_type(types[0].get("type")))} leads, with {num(types[0].get("n"))} open requests. The most common:',
+                   bars([(nice_type(t.get('type')), t.get('n')) for t in types], lambda v: num(v))))
+    grow = sorted([c for c in lived if c.get('growth_pct') is not None and (c.get('census2021') or 0) >= 500], key=lambda c: -c['growth_pct'])[:8]
+    if grow:
+        qa.append(('Which established communities have grown fastest since the 2021 Census?',
+                   f'{e(grow[0]["name"])}, up {num(grow[0]["growth_pct"], 1)}% by the City’s estimate. The eight fastest among communities with at least 500 people in 2021:',
+                   bars([(c['name'], c['growth_pct'], cp(c)) for c in grow], lambda v: num(v, 1) + '%')))
+    mrt = next((c for c in comms if c.get('name') == 'Martindale'), None)
+    if mrt:
+        b = byc.get(mrt.get('code')) or {}
+        qa.append(('Brief me on Martindale.',
+                   f'Martindale, in Ward {mrt.get("ward")}: about {num(mrt.get("residents"))} residents. {num(mrt.get("requests12"))} 311 requests in {e(period)}, '
+                   f'{num(mrt.get("open"))} still marked open. '
+                   + (f'{num(b.get("crimes"))} crimes recorded in {e(cperiod)}, {num(b.get("per_1000"), 1)} per 1,000 residents. ' if b.get('crimes') else '')
+                   + f'<a href="{e(cp(mrt) or "")}">Martindale’s full page</a>.', ''))
+    qa_html = ''.join(f'<div class="qa"><h3>{e(q)}</h3><p>{a}</p>{c}</div>' for q, a, c in qa)
+
+    body = ['<h1>Data Genie: ask Calgary’s open data in plain words</h1>',
+            '<p class="lead">Data Genie answers questions about Calgary from public data. It finds the right datasets among more than 400 from seven public sources, '
+            'including the City of Calgary’s open data and Calgary Police Service statistics, works out the figures, and answers with charts, tables, maps, '
+            'downloads and full reports. Every figure says where it comes from.</p>',
+            '<h2>Who it is for</h2><p>Councillors’ offices preparing casework, briefings and council meetings; community associations; journalists; researchers; and residents who want a straight answer about their part of the city.</p>',
+            '<h2>What it can answer</h2><ul><li>Open 311 requests in any community, the oldest ones and what changed this year</li><li>Crime by community and kind, against last year</li>'
+            '<li>Growth, building permits and new homes</li><li>Comparisons between communities, wards and the whole city</li><li>Lists to download, such as every open request in a community</li></ul>',
+            f'<h2>Sample answers</h2><p>These are worked out from the same public figures Data Genie uses, as of {e(updated)} (Calgary time). Ask your own on the dashboard.</p>',
+            qa_html,
+            '<h2>How to use it</h2><p>Data Genie is on the dashboard under <b>Ask the data</b>. Asking questions needs an approved account: sign in with Google, or use the passcode you were given. '
+            'The figures, charts and snapshots around it are open to everyone.</p>',
+            '<a class="cta" href="../?view=ask">Open Data Genie</a>',
+            '<p><a href="../data-scientist/">Data Scientist: full reports</a> · <a href="../311/">311 in Calgary</a> · <a href="../crime/">Crime</a> · <a href="../growth/">Growth</a> · <a href="../communities/">All communities</a></p>',
+            sources_p(city)]
+    ld = [{'@type': 'WebApplication', 'name': 'Data Genie', 'url': SITE + 'ask/', 'applicationCategory': 'BusinessApplication', 'operatingSystem': 'Web browser',
+           'description': 'Ask questions about Calgary’s open data in plain words and get answers with charts, tables, maps and reports.',
+           'publisher': {'@type': 'Organization', 'name': 'Calgary Insight', 'url': SITE}},
+          {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': re.sub('<[^>]+>', '', a)}} for q, a, _ in qa]}]
+    write('ask/', 'Data Genie: ask Calgary’s open data in plain words | Calgary Insight',
+          'An AI analyst for Calgary’s public data: ask about 311 requests, crime, growth and permits in any ward or community and get answers with charts, maps and sources.',
+          'Data Genie', body, ld)
+
+    # Data Scientist, with a short sample brief for Ward 5 worked out from the figures
+    r5 = ws.get(5) or {}
+    w5c = sorted([c for c in comms if c.get('ward') == 5 and c.get('open')], key=lambda c: -c['open'])[:6]
+    sample = ''
+    if r5:
+        sample = ('<div class="qa"><h3>Sample: Ward 5 in brief</h3>'
+                  f'<p>Ward 5 has {num(r5.get("residents"))} residents by the City’s estimate. It had {num(r5.get("requests12"))} 311 requests in {e(period)}, '
+                  f'{num(r5.get("requests_per_1000"), 0)} per 1,000 a year, and {num(r5.get("open"))} requests are still marked open, {num(r5.get("open_over_90_days"))} of them for over 90 days. '
+                  + (f'Police recorded {num(r5.get("crimes"))} crimes, {num(r5.get("crime_per_1000"), 1)} per 1,000 residents' + (f' ({pct(r5.get("crime_change_pct"))} on the year before)' if r5.get('crime_change_pct') is not None else '') + '. ' if r5.get('crimes') else '')
+                  + 'Communities with the most open requests:</p>'
+                  + bars([(c['name'], c['open'], cp(c)) for c in w5c], lambda v: num(v))
+                  + '<p class="note">A full report adds trends since 2021, maps by community, comparisons with Calgary, findings, recommendations and an action plan, as a PDF with an Excel workbook of every figure.</p></div>')
+    body = ['<h1>Data Scientist: full analysis reports on Calgary and any ward</h1>',
+            '<p class="lead">Data Scientist writes complete, sourced reports from live public data: every figure worked out from the data itself, with charts, maps, '
+            'findings, recommendations and an action plan. A second step, the report auditor, checks the figures and the reasoning before you read it.</p>',
+            '<h2>What you get</h2><ul><li>A report as a PDF, ready to print or send</li><li>Interactive charts and maps</li><li>An Excel workbook with every figure behind the report</li></ul>',
+            '<h2>How a report is made</h2><ol class="steps"><li><b>Gather the data:</b> the right public datasets for the question, for the area chosen</li>'
+            '<li><b>Work out the figures:</b> calculated from the records themselves, not estimated</li><li><b>Draw charts and maps</b></li>'
+            '<li><b>Write the report:</b> findings in plain words, each figure with its source</li><li><b>Audit:</b> a separate check of the numbers, the method and the conclusions</li></ol>',
+            '<h2>Reports it is built for</h2><ul><li>How have vehicle thefts and break-ins changed in each community since 2021, with recommendations</li>'
+            '<li>Where are 311 requests taking longest to close, and which kinds</li><li>A briefing on a community before a town hall or council meeting</li>'
+            '<li>Growth and new housing against services in a ward</li><li>Your own question, described in plain words, with the visuals you want</li></ul>',
+            sample,
+            '<h2>Who it is for</h2><p>Ward offices and City staff, community associations, journalists, non-profits and researchers. Reports take about 3 to 8 minutes.</p>',
+            '<h2>How to use it</h2><p>Data Scientist is on the dashboard under <b>Ask the data</b>. Making reports needs an approved account: sign in with Google, or use the passcode you were given. '
+            'To ask for access or a report, write to hello@calgaryinsight.ca.</p>',
+            '<a class="cta" href="../?view=scientist">Open Data Scientist</a>',
+            '<p><a href="../ask/">Data Genie: quick answers</a> · <a href="../wards/5/">Ward 5</a> · <a href="../wards/">All wards</a> · <a href="../communities/">All communities</a></p>',
+            sources_p(city)]
+    ld = [{'@type': 'WebApplication', 'name': 'Data Scientist', 'url': SITE + 'data-scientist/', 'applicationCategory': 'BusinessApplication', 'operatingSystem': 'Web browser',
+           'description': 'Full analysis reports on Calgary and any ward from live public data, with charts, maps, recommendations and an audit of every figure.',
+           'publisher': {'@type': 'Organization', 'name': 'Calgary Insight', 'url': SITE}}]
+    write('data-scientist/', 'Data Scientist: analysis reports on Calgary wards and communities | Calgary Insight',
+          'Sourced analysis reports on Calgary and any ward from live public data: 311, crime, growth and permits, with charts, maps, recommendations and an audited action plan.',
+          'Data Scientist', body, ld)
+    return urls

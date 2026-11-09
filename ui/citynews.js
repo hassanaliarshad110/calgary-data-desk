@@ -57,7 +57,8 @@ function cnArticle(a) {
     ${(a.charts || []).map(c => cnChart(a, c)).join('')}
     ${a.location ? `<h3 class="cn-h3">Where</h3><div class="cn-map" id="cn-map"></div><p class="card-note">${esc(a.location.label)}</p>` : ''}
     <h3 class="cn-h3">Sources</h3>${cnSources(a)}
-    <p class="card-note">Each statement is marked with the source it comes from; follow the link to read the original report. This article summarises those reports in its own words and adds no opinion.</p></section>`;
+    <p class="card-note">Each statement is marked with the source it comes from; follow the link to read the original report. This article summarises those reports in its own words and adds no opinion.</p>
+    ${document.body.dataset.web && a.id ? `<p class="card-note"><a href="news/${esc(a.id)}/">This story's own page, to share or bookmark ↗</a></p>` : ''}</section>`;
 }
 
 async function renderCityNews() {
