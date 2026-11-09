@@ -8,7 +8,4 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install pypdf
-      - run: mkdir -p c && python schooltax.py school_tax.json c
-      - run: python -c "import json;d=json.load(open('school_tax.json'));print('CHK keys',list(d));print('CHK req',json.dumps({k:v for k,v in (d.get('requisition') or {}).items() if k not in ('municipalities','cities')})[:1500]);print('CHK students',json.dumps(d.get('students'))[:1500]);print('CHK tps',json.dumps(d.get('tax_per_student')));f=d.get('funding') or {};print('CHK fund',f.get('years'),f.get('boards_matched'),f.get('boards_listed'),f.get('alberta_per_student_prev'));[print('CHK board',b['board'],b['students'],b['per_student_prev']) for b in f.get('boards',[])[:12]];print('CHK unmatched',[b['board'] for b in f.get('boards',[]) if not b['students']]);p=d.get('school_projects') or {};print('CHK proj',p.get('total'),json.dumps(p.get('by_municipality',[])[:8]));print('CHK errors',d.get('errors'))"
-      - uses: actions/upload-artifact@v4
-        with: {name: st, path: school_tax.json}
+      - run: mkdir -p c && python check.py
