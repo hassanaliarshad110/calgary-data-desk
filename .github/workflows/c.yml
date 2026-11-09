@@ -1,0 +1,7 @@
+name: DNS check
+on: {push: {branches: [site-check-7]}}
+jobs:
+  c:
+    runs-on: ubuntu-latest
+    steps:
+      - run: for t in A CNAME MX TXT; do echo "CHK $t:"; dig +short $t calgaryinsight.ca | sed 's/^/CHK   /'; done; echo "CHK www:"; dig +short www.calgaryinsight.ca | sed 's/^/CHK   /'
