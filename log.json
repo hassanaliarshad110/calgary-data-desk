@@ -22,5 +22,37 @@
    "report": "audits/2026-11-09-AM.md"
   },
   "status": "done"
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Documentary",
+  "title": "The Pipe Under the Bow",
+  "topic_used": "Bearspaw South Feeder Main: 2024 and 2025 breaks, Independent Review Panel finding that the risk was identified after the 2004 McKnight failure and inspections designated 2017/2020/2022 did not occur, and the new steel pipe (microtunnelled under the Bow) being connected under Stage 4 from Nov 4, 2026",
+  "changed_from_calendar": null,
+  "central_figure": "Risks behind the June 5, 2024 failure were identified twenty years earlier, after the 2004 McKnight feeder main failure (Independent Review Panel Final Report, Jan 6, 2026, p. 17); the pipe carries up to ~60% of Calgary's potable water",
+  "sources": [
+   "https://www.calgary.ca/content/dam/www/emergencies/files/feedermain-review-final-report.pdf",
+   "https://livewirecalgary.com/wp-content/uploads/2026/01/Water_Main_Review_-_Final_Report.pdf",
+   "https://www.calgary.ca/emergencies/feeder-main-repair/faq.html",
+   "https://www.calgary.ca/emergencies/feeder-main-repair.html",
+   "https://www.calgary.ca/employees/thank-you-operational-employees/feedermain.html",
+   "https://www.calgary.ca/planning/water/bearspaw-feeder-main/replacement-project.html",
+   "https://newsroom.calgary.ca/bearspaw-south-feeder-main-reaches-95-installation-construction-to-connect-the-new-feeder-main-and-stage-4-water-restrictions-begin-november-4/"
+  ],
+  "length_s": 117.6,
+  "video_path": [
+   "studio-videos/2026-11-09-FLAGSHIP/pipe-under-the-bow-short.mp4",
+   "studio-videos/2026-11-09-FLAGSHIP/pipe-under-the-bow-youtube.mp4"
+  ],
+  "package": "packages/2026-11-09-FLAGSHIP-pipe-under-the-bow.md",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 24,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-09-FLAGSHIP.md"
+  },
+  "status": "done"
  }
 ]
