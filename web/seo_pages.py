@@ -318,6 +318,7 @@ def build(out, data_dir, method='city_actual'):
     # ---- three topic pages with their own address and title (the dashboard screens all share the home page's)
     urls += topic_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated)
     urls += ai_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated)
+    urls += study_pages(out, updated)
 
     # the list the dashboard uses to link each community to its page, and for its "find your community" box
     with open(os.path.join(out, 'communities', 'pages.json'), 'w', encoding='utf-8') as f:
@@ -537,6 +538,10 @@ def ai_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, update
             '<h2>Reports it is built for</h2><ul><li>How have vehicle thefts and break-ins changed in each community since 2021, with recommendations</li>'
             '<li>Where are 311 requests taking longest to close, and which kinds</li><li>A briefing on a community before a town hall or council meeting</li>'
             '<li>Growth and new housing against services in a ward</li><li>Your own question, described in plain words, with the visuals you want</li></ul>',
+            '<div class="qa"><h3>Sample study: Who Calgary’s 311 Hears</h3><p>Two years of 311 requests across 195 communities show the City closes requests equally fast '
+            'everywhere, but hears about 23% fewer infrastructure reports where more residents don’t speak English, even comparing like with like. '
+            'The study sets out the findings, Ward 5 adjusted for growth, twelve recommendations and its limits.</p>'
+            '<p><a href="../studies/who-calgarys-311-hears/">Read the study in brief →</a></p></div>',
             sample,
             '<h2>Who it is for</h2><p>Ward offices and City staff, community associations, journalists, non-profits and researchers. Reports take about 3 to 8 minutes.</p>',
             '<h2>How to use it</h2><p>Data Scientist is on the dashboard under <b>Ask the data</b>. Making reports needs an approved account: sign in with Google, or use the passcode you were given. '
@@ -551,3 +556,80 @@ def ai_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, update
           'Sourced analysis reports on Calgary and any ward from live public data: 311, crime, growth and permits, with charts, maps, recommendations and an audited action plan.',
           'Data Scientist', body, ld)
     return urls
+
+
+STUDY = 'https://hassanaliarshad110.github.io/calgary-311/'
+
+
+def study_pages(out, updated):
+    """calgaryinsight.ca/studies/who-calgarys-311-hears/: the 311 equity study in brief, with links to the full study,
+    its report to the City, method and data. The sample of the kind of work the Data Scientist is built for."""
+    path = 'studies/who-calgarys-311-hears/'
+    recs = [('Measure who 311 hears', ['Make “reports per 1,000 residents” an official 311 measure', 'Refresh the gap analysis every year']),
+            ('Make reporting easier', ['Put 311 where people already are', 'Add photo-first reporting', 'Accept reports by text or WhatsApp', 'Close the loop']),
+            ('Reward and encourage reporting', ['Fix-It Points', 'Community Care Challenge', '311 Community Ambassadors', 'Bring in young people']),
+            ('Don’t rely on reports alone', ['Inspect proactively where reporting is low', 'Measure “fixed”, not just “closed”'])]
+    n = 0
+    rec_html = []
+    for g, items in recs:
+        lis = []
+        for it in items:
+            n += 1
+            lis.append(f'<li value="{n}">{e(it)}</li>')
+        rec_html.append(f'<h3>{e(g)}</h3><ol>{"".join(lis)}</ol>')
+    body = ['<p class="kicker">Independent study · Calgary 311 data, October 2024 to September 2026</p>',
+            '<h1>Who Calgary’s 311 Hears</h1>',
+            '<p class="lead">Calgary’s 311 system closes requests just as quickly in poorer neighbourhoods as in richer ones. But it hears far less from '
+            'neighbourhoods where many residents don’t speak English. For many problems, like a broken streetlight, a resident’s report is how the City finds out, '
+            'so communities that report less risk having problems missed.</p>',
+            '<div class="kpis">' + ''.join([
+                kpi('Communities studied', '195', '2 years of 311 requests'),
+                kpi('Fewer infrastructure reports', 'about 23%', 'like for like, where 5% vs 1% of residents don’t speak English (95% range 9% to 33%)'),
+                kpi('Closed within 7 days', 'within 1.5%', 'of expected, in every income and language group'),
+                kpi('Recommendations', '12', 'with a 12-month pilot plan')]) + '</div>',
+            '<h2>What the study found</h2>',
+            '<h3>1. Communities where more residents don’t speak English make far fewer infrastructure reports</h3>'
+            '<p>Communities were split into four equal groups by the share of residents with no knowledge of English (2021 Census), and reports about roads, '
+            'sidewalks, streetlights, water, sewers, parks and trees were counted per 1,000 residents. Comparing communities first settled in the same era, and then '
+            'allowing for income, renters, community age and distance from downtown, the gap remains: about 23% fewer reports. It holds outside northeast Calgary, '
+            'for roads, water and parks separately, in each year studied, and under 14 different models. Between the groups with the most and the fewest non-English '
+            'speakers, reports are lower in 20 of 21 request types, including streetlights (23% lower), potholes (35%) and sidewalks (40%).</p>',
+            '<h3>2. Once a request is made, the City closes it equally fast in every group</h3>'
+            '<p>Each community’s requests were compared with the citywide speed for the same type of request in the same year. Across income and language groups, '
+            'the share closed within 7 days is within 1.5% of expected, and within 0.6% at 30 days. Response is not the problem; the gap is in who reports.</p>',
+            '<h3>3. Fewer requests come through the 311 app in lower-income and non-English-speaking areas</h3>'
+            '<p>The share of requests made through the app is lower in these communities, which matters as the City adds languages to the 311 app.</p>',
+            '<p class="note">Lower 311 reporting is not automatically good news: it can mean problems go unreported. That is why the study does not score communities “best” or “worst”.</p>',
+            '<h2>Ward 5, adjusted for growth</h2>'
+            '<p>Northeast Calgary has grown faster than the 2021 Census shows, so the study models today’s population for Ward 5’s communities. Adjusted, Ward 5 makes '
+            '36.8 infrastructure reports per 1,000 residents a year, the lowest of the 14 wards (all study communities: 66.8), about 8% below similar communities; '
+            'Taradale is 32% below and Martindale 26% below. 78.3% of its requests close within 7 days, against 75.8% for all study communities.</p>',
+            '<h2>Twelve recommendations</h2><p>Most can be piloted within existing budgets.</p>' + ''.join(rec_html),
+            '<h2>How it was measured, and its limits</h2>'
+            '<p>Every non-duplicate 311 request from October 1, 2024 to September 30, 2026 (City of Calgary open data), across 30 common service types; 21 of them '
+            'count as infrastructure. Residents from the 2021 Census; community characteristics from the City’s Calgary Equity Index, Census households and '
+            'employment, property assessments and building permits. The like-for-like estimate is a population-weighted regression, with 13 alternative models and '
+            'a 1,000-draw bootstrap that resamples whole areas.</p>'
+            '<p>It shows a pattern, not its cause: fewer reports could partly reflect fewer problems, and the City finds some problems through its own inspections. '
+            'Language figures are for Census areas, not individual residents. The full method explains every choice.</p>',
+            '<h2>Read the full study</h2><ul>'
+            f'<li><a href="{STUDY}">The full study</a>: an interactive map, profiles of all 195 communities with 52 indicators each, and video briefs</li>'
+            f'<li><a href="{STUDY}downloads/Who-Calgarys-311-Hears_Report-to-the-City.pdf">Report to the City</a> (8-page PDF)</li>'
+            f'<li><a href="{STUDY}downloads/Who-Calgarys-311-Hears_Methodology.pdf">Methodology</a> (PDF)</li>'
+            f'<li><a href="{STUDY}downloads/calgary-311-community-indicators.csv">Community indicators</a> (CSV) and the <a href="{STUDY}downloads/Calgary-311-Study.zip">full study package</a> with source data and code</li>'
+            '</ul>',
+            '<p>This study is the kind of work the <a href="../../data-scientist/">Data Scientist</a> is built for: a question about Calgary answered from public data, '
+            'every figure worked out and sourced, with findings, recommendations and its limits stated.</p>',
+            '<a class="cta" href="../../data-scientist/">See the Data Scientist</a>',
+            '<p class="note">An independent study, not affiliated with The City of Calgary. Data: City of Calgary Open Data, Open Government Licence – City of Calgary. '
+            'Corrections and questions: hello@calgaryinsight.ca.</p>']
+    ld = [{'@type': 'Report', 'name': 'Who Calgary’s 311 Hears', 'url': SITE + path, 'about': 'Equity in Calgary 311 reporting and response',
+           'description': 'An independent study of who Calgary’s 311 system hears from, using two years of City of Calgary 311 open data across 195 communities.',
+           'temporalCoverage': '2024-10-01/2026-09-30', 'spatialCoverage': {'@type': 'City', 'name': 'Calgary'},
+           'sameAs': STUDY, 'isBasedOn': 'https://data.calgary.ca/', 'publisher': {'@type': 'Organization', 'name': 'Calgary Insight', 'url': SITE}}]
+    os.makedirs(os.path.join(out, path), exist_ok=True)
+    with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(page(path, 'Who Calgary’s 311 Hears: an independent study of equity in Calgary 311 | Calgary Insight',
+                     'Calgary’s 311 closes requests equally fast everywhere, but hears about 23% fewer infrastructure reports where more residents don’t speak English. Findings, Ward 5, 12 recommendations and the full method.',
+                     [('Calgary Insight', ''), ('Data Scientist', 'data-scientist/'), ('Who Calgary’s 311 Hears', path)], '\n'.join(body), ld, updated, og_type='article'))
+    return [path]
