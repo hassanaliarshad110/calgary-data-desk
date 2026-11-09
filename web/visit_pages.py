@@ -88,7 +88,7 @@ def page(p, credits):
     pics = [p['hero']] + [pl[0] for pl in p['places'] if pl[0]]
     hero = credits[p['hero']]
     url = SITE + 'visit/' + p['slug'] + '/'
-    nav = ''.join(f'<a href="../{q["slug"]}/"{" aria-current=page" if q is p else ""}>{e(q["tab"])}</a>' for q in V.PAGES)
+    nav = ''.join(f'<a href="../{q["slug"]}/"{" aria-current=page" if q is p else ""}>{e(q["tab"])}</a>' for q in V.PAGES) + '<a href="../explore/" style="color:var(--chinook)">Plan &amp; map →</a>'
     blocks = []
     for i, (key, name, where, offers, good, links) in enumerate(p['places'], 1):
         fig = ''

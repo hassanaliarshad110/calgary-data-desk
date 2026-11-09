@@ -85,6 +85,9 @@ section>h2{font-size:clamp(2rem,6vw,3.6rem);margin-bottom:1.6rem}
 a.tile{display:block;color:var(--ink);text-decoration:none}
 a.tile img{transition:transform .6s ease}
 a.tile:hover img,a.tile:focus-visible img{transform:scale(1.05)}
+.explore-cta{display:grid;gap:.3rem;margin-top:1rem;padding:1.2rem 1.4rem;border:1px solid var(--chinook);border-radius:3px;text-decoration:none;color:var(--ink);background:linear-gradient(120deg,rgba(242,163,58,.16),transparent 70%)}
+.explore-cta b{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:2rem;line-height:1}
+.explore-cta span:last-child{color:var(--mute)}.explore-cta i{font-style:normal;color:var(--chinook);white-space:nowrap}
 .tile .go{display:block;margin-top:.45rem;color:var(--chinook);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 
 .song{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center}
@@ -152,6 +155,7 @@ header.top{position:relative}
   <section>
     <h2>Pick a Calgary</h2>
     <div class="grid" id="tiles"></div>
+    <a class="explore-cta" href="explore/"><span class="kicker">New · free</span><b>Explore Calgary</b><span>Plan your days, filter a map of what to see, and find day trips to the Rockies and the badlands. <i>Open the planner &rarr;</i></span></a>
   </section>
 
   <section>

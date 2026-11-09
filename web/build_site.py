@@ -120,7 +120,7 @@ def robots_and_sitemap(out, extra=()):
         f.write(f'User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n')
     # the app's screens (?view=...) all carry the home page's canonical address, so they are not listed separately;
     # the ward and community pages (seo_pages.py) are what search engines index
-    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8'), (SITE_URL + 'visit/', '0.8'), (SITE_URL + 'game/', '0.8')] + [(SITE_URL + u, '0.8') for u in visit_pages.URLS] + [(SITE_URL + u, '0.9' if u.count('/') == 1 else '0.7') for u in extra]
+    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8'), (SITE_URL + 'visit/', '0.8'), (SITE_URL + 'visit/explore/', '0.9'), (SITE_URL + 'tourism-intelligence/', '0.8'), (SITE_URL + 'game/', '0.8')] + [(SITE_URL + u, '0.8') for u in visit_pages.URLS] + [(SITE_URL + u, '0.9' if u.count('/') == 1 else '0.7') for u in extra]
     for rel in sorted(os.listdir(os.path.join(out, 'reports'))) if os.path.isdir(os.path.join(out, 'reports')) else []:
         if rel.endswith('.html'):
             urls.append((f'{SITE_URL}reports/{rel}', '0.5'))
@@ -144,6 +144,10 @@ def page(out):
                     ignore=shutil.ignore_patterns('spec.json'))
     # and its six guides, one per tile (visit/downtown/, visit/mountains/, ...), from visit_content.py
     visit_pages.build(os.path.join(out, 'visit'))
+    # Explore Calgary's data (visit/explore/data/calgary.json), first from the checked places; again below once
+    # today's visit.json has OpenStreetMap's positions
+    import explore
+    explore.build(os.path.join(out, 'visit', 'explore'))
     # IndexNow (Bing, DuckDuckGo, Yandex and others): the site's key, at the address IndexNow checks
     shutil.copy(os.path.join(ROOT, 'web', 'indexnow.txt'), os.path.join(out, INDEXNOW_KEY + '.txt'))
     idx = open(os.path.join(ROOT, 'ui', 'index.html'), encoding='utf-8').read()
@@ -571,12 +575,17 @@ def main():
             except Exception:       # noqa: BLE001 - first build
                 pass
         write(os.path.join(data, 'tourism.json'), d)
+        import tourism_page             # calgaryinsight.ca/tourism-intelligence/, from the same data
+        tourism_page.build(out, d, tourism.research())
         cal = (((d.get('arrivals') or {}).get('ports') or {}).get('Calgary') or {}).get('overnight_by_year') or {}
         print(f"  tourism: Calgary overnight international arrivals {dict(sorted(cal.items())[-2:])}; errors: {d.get('errors')}")
     step('tourism (Statistics Canada arrivals and airports)', tourism_data)
     def visiting():                 # Visiting Calgary: the weather since 1885, OpenStreetMap sights and hotels, what is on (visit.py)
         import visit
-        write(os.path.join(data, 'visit.json'), visit.build(cache))
+        vd = visit.build(cache)
+        write(os.path.join(data, 'visit.json'), vd)
+        import explore
+        explore.build(os.path.join(out, 'visit', 'explore'), vd)
     step('Visiting Calgary (weather, places, what is on)', visiting)
     if not os.path.exists(os.path.join(data, 'visit.json')) and a.previous:
         step('Visiting Calgary (yesterday\'s copy)', lambda: keep_previous(a.previous, 'visit.json', os.path.join(data, 'visit.json')))
@@ -632,7 +641,7 @@ def main():
             print('Calgary News pages skipped:', str(ex)[:160])
         robots_and_sitemap(out, urls)
         with open(os.path.join(out, 'indexnow-urls.txt'), 'w', encoding='utf-8') as f:     # sent to IndexNow after the deploy
-            f.write('\n'.join([SITE_URL, SITE_URL + 'about/', SITE_URL + 'visit/', SITE_URL + 'game/'] + [SITE_URL + u for u in visit_pages.URLS + list(urls)]))
+            f.write('\n'.join([SITE_URL, SITE_URL + 'about/', SITE_URL + 'visit/', SITE_URL + 'visit/explore/', SITE_URL + 'tourism-intelligence/', SITE_URL + 'game/'] + [SITE_URL + u for u in visit_pages.URLS + list(urls)]))
         print(f'pages for search engines: {len(urls)}')
     step('ward and community pages for search engines', search_pages)
     lock_key(out)
