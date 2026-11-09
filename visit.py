@@ -90,7 +90,7 @@ TOP = [
     {'id': 'inglewood', 'name': 'Inglewood', 'kind': 'Neighbourhood', 'area': 'Inglewood, Ramsay and Bridgeland', 'lat': 51.0405, 'lon': -114.0330, 'indoor': False,
      'what': 'Calgary\'s first main street (9 Avenue SE, 1875): vintage shops, music venues, breweries and the Inglewood Bird Sanctuary on the river.', 'url': 'https://www.inglewoodyyc.ca/', 'fit': ['warm', 'cool', 'cold']},
     {'id': 'kensington', 'name': 'Kensington', 'kind': 'Neighbourhood', 'area': 'Kensington and Hillhurst', 'lat': 51.0523, 'lon': -114.0875, 'indoor': False,
-     'what': 'The café and shop district across the Peace Bridge from downtown, one CTrain stop from the core (Sunnyside).', 'url': 'https://visitkensington.com/', 'fit': ['warm', 'cool', 'cold']},
+     'what': 'The café and shop district across the Peace Bridge from downtown, one CTrain stop from the core (Sunnyside).', 'url': 'https://kensingtonyyc.com/', 'fit': ['warm', 'cool', 'cold']},
     {'id': 'seventeenth', 'name': '17 Avenue SW', 'kind': 'Street', 'area': 'Beltline and Stampede Park', 'lat': 51.0378, 'lon': -114.0810, 'indoor': False,
      'what': 'The Beltline\'s restaurant and patio street, "the Red Mile" when the Flames are in the playoffs.', 'url': 'https://17thave.ca/', 'fit': ['warm', 'cool', 'cold']},
     {'id': 'stampede', 'match': ['Stampede Park'], 'name': 'Stampede Park, GMC Stadium and the BMO Centre', 'kind': 'Venue', 'area': 'Beltline and Stampede Park', 'lat': 51.0375, 'lon': -114.0530, 'indoor': False,
@@ -116,9 +116,9 @@ TOP = [
     {'id': 'calaway', 'name': 'Calaway Park', 'kind': 'Theme park', 'area': 'West and northwest', 'lat': 51.08606, 'lon': -114.35856, 'indoor': False,
      'what': 'Western Canada\'s largest outdoor family amusement park, just west of the city on the Trans-Canada Highway, open from May to October.', 'url': 'https://www.calawaypark.com/', 'fit': ['warm']},
     {'id': 'lougheed', 'name': 'Lougheed House', 'kind': 'Historic site', 'area': 'Beltline and Stampede Park', 'lat': 51.0406, 'lon': -114.07717, 'indoor': True,
-     'what': 'The 1891 sandstone mansion of Senator James Lougheed in the Beltline, a National Historic Site with gardens and a restaurant.', 'url': 'https://www.lougheedhouse.com/', 'fit': ['cold', 'wet', 'cool', 'warm']},
+     'what': 'The 1891 sandstone mansion of Senator James Lougheed in the Beltline, a National Historic Site with gardens and a restaurant; the house is closed in January.', 'url': 'https://www.lougheedhouse.com/', 'fit': ['cold', 'wet', 'cool', 'warm']},
     {'id': 'farmers', 'name': "Calgary Farmers' Market", 'kind': 'Market', 'area': 'South', 'lat': 50.98512, 'lon': -114.05156, 'indoor': True,
-     'what': 'Indoor markets open all year, Thursday to Sunday: the South market on 77 Avenue SE and the West market at Greenbriar.', 'url': 'https://calgaryfarmersmarket.ca/', 'fit': ['cold', 'wet', 'cool']},
+     'what': 'Indoor markets open all year: the South market on 77 Avenue SE, Thursday to Sunday, and the West market at Greenbriar, Wednesday to Sunday.', 'url': 'https://calgaryfarmersmarket.ca/', 'fit': ['cold', 'wet', 'cool']},
     {'id': 'pathways', 'name': 'The Bow River pathway', 'kind': 'Pathway', 'area': 'Downtown', 'lat': 51.0500, 'lon': -114.0600, 'indoor': False,
      'what': 'Part of more than 1,000 km of pathways: along the Bow from Bowness to Fish Creek, past downtown, the zoo and Inglewood, with bike share and rentals downtown.', 'url': 'https://www.calgary.ca/bike-walk-roll/pathways.html', 'fit': ['warm', 'cool']},
 ]
@@ -159,18 +159,17 @@ MONTHS = [
     (8, 'August', 'Warm days and cool nights, fireworks over Elliston Park and the Fringe.',
      [('GlobalFest', 'The international fireworks competition and cultural pavilions at Elliston Park', 'https://www.globalfest.ca/'), ('Calgary Fringe Festival', 'Theatre in Inglewood, early August', 'https://www.calgaryfringe.ca/'),
       ('Taste of Calgary', 'The food festival downtown', 'https://tasteofcalgary.com/'), ('Calgary Pride', 'The parade and festival at the end of August into September', 'https://calgarypride.ca/')]),
-    (9, 'September', 'Often the finest weather of the year: warm, dry days; the Masters, Beakerhead and the film festival.',
-     [('Spruce Meadows Masters', 'The show jumping tournament in the first half of September', 'https://www.sprucemeadows.com/'), ('Beakerhead', 'Art, science and engineering spectacles across the city', 'https://www.sparkscience.ca/beakerhead'),
-      ('Calgary International Film Festival', 'Eleven days of films at the end of September', 'https://www.ciffcalgary.ca/'), ('Larch season', 'The larches turn gold in the mountains in the last two weeks', 'https://parks.canada.ca/pn-np/ab/banff')]),
+    (9, 'September', 'Often the finest weather of the year: warm, dry days; the Masters and the film festival.',
+     [('Spruce Meadows Masters', 'The show jumping tournament in the first half of September', 'https://www.sprucemeadows.com/'), ('Calgary International Film Festival', 'Eleven days of films at the end of September', 'https://www.ciffcalgary.ca/'), ('Larch season', 'The larches turn gold in the mountains in the last two weeks', 'https://parks.canada.ca/pn-np/ab/banff')]),
     (10, 'October', 'Crisp days, the first snow, hockey returns and Wordfest.',
      [('Flames opening night', 'The NHL season opens', 'https://www.nhl.com/flames'), ('Wordfest', 'The writers\' festival downtown', 'https://wordfest.com/'),
       ('Thanksgiving weekend', 'Heritage Park\'s last weekend of the summer season', 'https://heritagepark.ca/'), ('Halloween at the zoo and Heritage Park', 'Family events through the month', 'https://www.calgaryzoo.com/')]),
     (11, 'November', 'Winter sets in; the Christmas markets open and Zoolights begins.',
      [('Spruce Meadows International Christmas Market', 'Weekends from mid-November', 'https://www.sprucemeadows.com/'), ('Zoolights', 'From mid-November to early January', 'https://www.calgaryzoo.com/'),
-      ('Once Upon a Christmas', 'Heritage Park\'s Christmas weekends', 'https://heritagepark.ca/'), ('Grey Cup', 'If the Stampeders reach it, the CFL final in late November', 'https://stampeders.com/')]),
+      ('Grey Cup', 'If the Stampeders reach it, the CFL final in late November', 'https://stampeders.com/')]),
     (12, 'December', 'Short, bright days; lights, skating and the markets.',
      [('Zoolights', 'Every evening at the zoo', 'https://www.calgaryzoo.com/'), ('Skating opens', 'Bowness Park lagoon and the outdoor rinks when the ice is ready', 'https://www.calgary.ca/parks/activities/outdoor-skating-rinks.html'),
-      ('New Year\'s Eve', 'The City publishes the downtown plan each December', 'https://www.calgary.ca/events.html')]),
+      ('Once Upon a Christmas', 'Heritage Park\'s Christmas weekends in December', 'https://heritagepark.ca/'), ('New Year\'s Eve', 'The City publishes the downtown plan each December', 'https://www.calgary.ca/events.html')]),
 ]
 
 GETTING_AROUND = [
@@ -182,7 +181,7 @@ GETTING_AROUND = [
      'https://www.calgary.ca/home.html'),
     ('Downtown on foot', 'The Plus 15 walkways (86 bridges, more than 16 km) join most downtown buildings one floor up, open 6 am to 9 pm on weekdays and 9 am to 7 pm at weekends, so a winter day downtown needs no coat between buildings.',
      'https://www.calgary.ca/bike-walk-roll/plus-15-network.html'),
-    ('Bikes and pathways', 'More than 1,000 km of pathways, with the Bow River pathway through downtown; shared e-bikes and e-scooters are available downtown and in the inner city from spring to fall.',
+    ('Bikes and pathways', 'About 1,000 km of regional pathways, with the Bow River pathway through downtown; shared e-bikes and e-scooters are available downtown and in the inner city from spring to fall.',
      'https://www.calgary.ca/bike-walk-roll/pathways.html'),
     ('Driving and the mountains', 'Banff is 128 km west on the Trans-Canada Highway, about 90 minutes; winter tires or chains are required on some mountain highways from November to April. A Parks Canada pass is needed inside the national parks and a Kananaskis Conservation Pass to park in Kananaskis.',
      'https://511.alberta.ca/'),
@@ -474,5 +473,5 @@ def build(cache_dir, today=None, force=False):
     out['stats'] = [{'n': a, 'what': b, 'source': c} for a, b, c in STATS]
     out['areas_about'] = [{'area': a, 'about': b} for a, b, _ in AREAS]
     out['sources'] = SOURCES
-    out['checked'] = '2026-11-06'
+    out['checked'] = '2026-11-09'
     return out

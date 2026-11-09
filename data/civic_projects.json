@@ -1,6 +1,6 @@
 {
  "note": "City facilities and pathways being built or planned that the Government of Alberta's Major Projects inventory does not list (it covers $5 million and up, and misses some City projects), checked by hand against the City's or the library's own page. Each one is placed by its community (comm) and shown in that community's ward. 'measured' says which Growth vs amenities amenity it adds when it opens; 'opens' (YYYY) and 'funded' decide whether the Forecast to 2030 counts it. The weekly check reviews every entry.",
- "checked": "2026-11-07",
+ "checked": "2026-11-09",
  "projects": [
   {
    "title": "Skyview Library",
@@ -57,8 +57,8 @@
    "owner": "Calgary Fire Department",
    "amenity": true,
    "status": "Design; contractor selected",
-   "budget": "Not published",
-   "cost": null,
+   "budget": "$6.75 million (estimate)",
+   "cost": 6750000,
    "completion": "Construction from Q1 2027, in service about 2028",
    "opens": 2028,
    "funded": true,

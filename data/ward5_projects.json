@@ -1,6 +1,6 @@
 {
  "note": "Major projects being built or planned in Ward 5 that the City's open data lists of facilities do not have yet. Each entry is checked against the owner's page or a news report (sources). When a project opens, the app marks it completed by itself once the City lists it: 'match' gives words of its name to look for in the City's recreation facilities and school lists, and a listed facility or school within 400 m of lat/lon also counts. 'expected_by' (YYYY-MM) flags a project that should have opened but is not listed yet. To mark one by hand, set \"state\": \"completed\" and \"opened\": \"YYYY-MM\".",
- "checked": "2026-11-06",
+ "checked": "2026-11-09",
  "projects": [
   {
    "title": "Northeast Athletic Complex",
@@ -10,7 +10,7 @@
    "status": "Under construction (started September 2026)",
    "budget": "$170.4 million, fully funded (2026 budget, approved December 2025)",
    "cost": 170400000,
-   "completion": "Opening to be confirmed",
+   "completion": "Expected to open in early 2029 (groundbreaking October 29, 2026)",
    "address": "Northwest corner of 80 Avenue NE and Metis Trail NE (34.6-acre site)",
    "comm": "SAD",
    "lat": 51.1271,
@@ -20,7 +20,8 @@
    "sources": [
     "https://www.calgary.ca/planning/parks-rec/northeast-athletic-complex.html",
     "https://dailyhive.com/calgary/calgary-northeast-athletic-complex-construction",
-    "https://engage.calgary.ca/NEAthleticComplex"
+    "https://engage.calgary.ca/NEAthleticComplex",
+    "https://livewirecalgary.com/2026/10/29/earth-begins-moving-on-new-170m-northeast-athletic-complex/"
    ],
    "match": [
     "Northeast Athletic",
@@ -55,7 +56,7 @@
    "kind": "Provincial school project",
    "owner": "Alberta Infrastructure for the Calgary School Division",
    "amenity": true,
-   "status": "Under construction (Alberta active school projects, checked 6 November 2026)",
+   "status": "Under construction (Alberta active school projects, checked 9 November 2026)",
    "budget": "$151.7 million (estimate)",
    "cost": 151700000,
    "completion": "Not yet scheduled",
@@ -63,7 +64,7 @@
    "comm": "CNS",
    "lat": 51.153752,
    "lon": -113.941531,
-   "what": "Grades 10 to 12, 2,410 students. Architect: Stantec. Announced with a K-4 school in Redstone; together they will serve over 3,000 students.",
+   "what": "Grades 10 to 12, 2,410 students. Architect: Stantec. Announced with a K-5 school in Redstone; together they will serve over 3,000 students.",
    "url": "https://majorprojects.alberta.ca/details/New-High-School-in-Cornerstone/11436",
    "sources": [
     "https://majorprojects.alberta.ca/details/New-High-School-in-Cornerstone/11436",
@@ -104,13 +105,13 @@
    "kind": "Provincial school project",
    "owner": "Alberta Infrastructure for the Calgary School Division",
    "amenity": true,
-   "status": "Under construction (Alberta active school projects, checked 6 November 2026)",
+   "status": "Under construction (Alberta active school projects, checked 9 November 2026)",
    "budget": "Not published",
    "cost": null,
    "completion": "Not yet scheduled",
    "address": "Redstone",
    "comm": "RSN",
-   "what": "Kindergarten to grade 4. Announced in 2025 with the Cornerstone high school.",
+   "what": "Kindergarten to grade 5. Announced in 2025 with the Cornerstone high school.",
    "url": "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx",
    "sources": [
     "https://cbe.ab.ca/news-centre/Pages/two-new-schools-announced-for-ne-calgary-2025.aspx",
@@ -123,7 +124,7 @@
    "kind": "Provincial school project",
    "owner": "Alberta Infrastructure for the Calgary Catholic School District",
    "amenity": true,
-   "status": "Sod turned June 12, 2026; construction to follow",
+   "status": "Under construction (Alberta active school projects, checked 9 November 2026)",
    "budget": "Not published",
    "cost": null,
    "completion": "Expected to open about 2028",
@@ -132,7 +133,8 @@
    "what": "Kindergarten to grade 6, 340 students. Not yet named.",
    "url": "https://livewirecalgary.com/2026/06/12/ccsd-turns-sod-and-blesses-ground-for-eventual-redstone-elementary-school/",
    "sources": [
-    "https://livewirecalgary.com/2026/06/12/ccsd-turns-sod-and-blesses-ground-for-eventual-redstone-elementary-school/"
+    "https://livewirecalgary.com/2026/06/12/ccsd-turns-sod-and-blesses-ground-for-eventual-redstone-elementary-school/",
+    "https://www.alberta.ca/active-school-projects"
    ],
    "match": [],
    "expected_by": "2028-09"
@@ -142,7 +144,7 @@
    "kind": "Provincial school project",
    "owner": "Calgary School Division and Calgary Catholic School District",
    "amenity": true,
-   "status": "Public 6-9 under construction; Catholic elementary/junior high in design; public elementary in planning (Alberta active school projects, checked 6 November 2026)",
+   "status": "Public 6-9 under construction; Catholic elementary/junior high in design; public elementary in planning (Alberta active school projects, checked 9 November 2026)",
    "budget": "Not published",
    "cost": null,
    "completion": "Not yet scheduled",

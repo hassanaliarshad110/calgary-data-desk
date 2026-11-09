@@ -88,8 +88,8 @@ EXPLORE = {
 # places the guides and collections need that the checked list does not have, positioned with OpenStreetMap (Nominatim)
 EXTRA = [
     {'id': 'olympicplaza', 'osm': 'way/127943987', 'name': 'Olympic Plaza', 'kind': 'Public square', 'area': 'Downtown', 'lat': 51.04593, 'lon': -114.05909, 'indoor': False,
-     'what': 'The square where 1988 Winter Olympics medals were presented, beside City Hall; being rebuilt (check the City\'s page for progress).',
-     'url': None, 'fit': ['warm', 'cool'], 'closed_until': 'rebuilding'},
+     'what': 'The square where 1988 Winter Olympics medals were presented, beside City Hall; being rebuilt, and closed from January 2025 through to 2028.',
+     'url': 'https://calgary.ca/planning/projects/olympic-plaza-transformation.html', 'fit': ['warm', 'cool'], 'closed_until': '2028'},
     {'id': 'stpatricks', 'osm': 'way/541442153', 'name': "St. Patrick's Island Park", 'kind': 'Park', 'area': 'Inglewood, Ramsay and Bridgeland', 'lat': 51.04695, 'lon': -114.03953, 'indoor': False,
      'what': 'An island park in the Bow beside East Village, reached by a footbridge: a hill with skyline views, a pebble beach and play areas.',
      'url': None, 'fit': ['warm', 'cool']},
