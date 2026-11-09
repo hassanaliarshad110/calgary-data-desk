@@ -50,7 +50,18 @@
    "id": "2026-11-09-calgary-stays-under-water-use-limit-for-fifth-straight-day-about-three",
    "date": "2026-11-09",
    "published_at": "2026-11-09T23:40:59Z",
-   "words": 473
+   "words": 473,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Calgary_skyline_from_lynnwood_ridge.jpg/1280px-Calgary_skyline_from_lynnwood_ridge.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Calgary_skyline_from_lynnwood_ridge.jpg",
+    "credit": "Hotdoghead",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "alt": "Calgary skyline from lynnwood ridge",
+    "query": "Calgary skyline",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Bearspaw Water Treatment Plant Calgary"
   },
   {
    "title": "Calgary's living wage rises 40 cents to $26.90, the smallest increase in five years",
@@ -135,7 +146,18 @@
    "id": "2026-11-09-calgary-s-living-wage-rises-40-cents-to-26-90-the-smallest-increase-in",
    "date": "2026-11-09",
    "published_at": "2026-11-09T23:40:59Z",
-   "words": 297
+   "words": 297,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Downtown_Calgary_skyline.jpg/1280px-Downtown_Calgary_skyline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Downtown_Calgary_skyline.jpg",
+    "credit": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "alt": "Downtown Calgary skyline",
+    "query": "Calgary downtown skyline",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Calgary downtown skyline"
   },
   {
    "title": "Grey Cup arrives in Calgary as soldiers hurt in CFB Wainwright fire are honoured",
@@ -181,7 +203,18 @@
    "id": "2026-11-09-grey-cup-arrives-in-calgary-as-soldiers-hurt-in-cfb-wainwright-fire-ar",
    "date": "2026-11-09",
    "published_at": "2026-11-09T23:40:59Z",
-   "words": 205
+   "words": 205,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Calgary_AB_Mewata-Armoury_2022-09-27_%288%29.jpg/1280px-Calgary_AB_Mewata-Armoury_2022-09-27_%288%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Calgary_AB_Mewata-Armoury_2022-09-27_(8).jpg",
+    "credit": "Milan Suvajac",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "alt": "Calgary AB Mewata-Armoury 2022-09-27 (8)",
+    "query": "Mewata Armoury Calgary",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Mewata Armoury Calgary"
   },
   {
    "title": "October referendum projected to cost $84 million, Elections Alberta says",
@@ -240,7 +273,18 @@
    "id": "2026-11-09-october-referendum-projected-to-cost-84-million-elections-alberta-says",
    "date": "2026-11-09",
    "published_at": "2026-11-09T23:40:59Z",
-   "words": 252
+   "words": 252,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Alberta_Legislature_Building%2C_Edmonton%2C_Alberta%2C_2026-09-27_11.jpg/1280px-Alberta_Legislature_Building%2C_Edmonton%2C_Alberta%2C_2026-09-27_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Alberta_Legislature_Building,_Edmonton,_Alberta,_2026-09-27_11.jpg",
+    "credit": "Chris Woodrich",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "alt": "Alberta Legislature Building, Edmonton, Alberta, 2026-09-27 11",
+    "query": "Alberta Legislature Building",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Alberta Legislature Building"
   },
   {
    "title": "SAIT hospitality students attend international convention summit in Panama through new partnership",
@@ -275,7 +319,18 @@
    "id": "2026-11-09-sait-hospitality-students-attend-international-convention-summit-in-pa",
    "date": "2026-11-09",
    "published_at": "2026-11-09T23:40:59Z",
-   "words": 197
+   "words": 197,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Calgary_TELUS_Convention_Centre.jpg/1280px-Calgary_TELUS_Convention_Centre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Calgary_TELUS_Convention_Centre.jpg",
+    "credit": "Calgary Convention Centre",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "alt": "Calgary TELUS Convention Centre",
+    "query": "Calgary TELUS Convention Centre",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Calgary TELUS Convention Centre"
   }
  ]
 }
