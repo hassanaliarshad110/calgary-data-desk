@@ -8,4 +8,4 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install pypdf
-      - run: python find.py
+      - run: mkdir -p c && python schooltax.py st.json c > out.txt; tail -5 out.txt; python show.py

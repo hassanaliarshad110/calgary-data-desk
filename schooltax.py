@@ -283,6 +283,252 @@ def school_projects():
     return out
 
 
+# ------------------------------------------------------------------ the rest of the money back, and the factors behind it
+#   residents: Statistics Canada's population estimates by census subdivision (table 17-10-0155), the same count for
+#       every municipality, so tax per resident sits beside tax per student (the province's own population list still
+#       carries Calgary at its 2021 census count).
+#   spending: every board's audited revenues and expenses by program (Alberta Education's summary of the audited
+#       financial statements, each school year): what was actually spent per student on instruction, buildings
+#       (operations and maintenance), transportation and administration.
+#   approvals: the school projects each provincial budget approves (the approved school capital list, 2024 on).
+#   class size grant: the teachers the Class Size Reduction Grant pays for in each board (2026/27).
+#   grants: each board's funding profile, line by line (base instruction, specialized learning, English as an
+#       additional language, refugee students, socio-economic status, transportation, geographic, operations and
+#       maintenance, system administration...), the reasons funding per student differs between boards.
+
+POP_TABLE = 17100155
+WDS = 'https://www150.statcan.gc.ca/t1/wds/rest/'
+CKAN_SEARCH = 'https://open.alberta.ca/api/3/action/package_search?rows=40&q='
+CAPITAL_LISTS = [(2026, 'https://www.alberta.ca/system/files/ecc-approved-school-capital-list-2026.pdf'),
+                 (2025, 'https://www.alberta.ca/system/files/educ-approved-school-capital-list-2025.pdf'),
+                 (2024, 'https://www.alberta.ca/system/files/educ-approved-school-capital-list-2024.pdf')]
+CSR_PDF = 'https://www.alberta.ca/system/files/ecc-class-size-reduction-grant-2026-27-school-year-allocations.pdf'
+FACTORS = [
+    {'factor': 'Fewer students per resident in Calgary',
+     'what': 'Calgary has fewer school-age children per resident than the rest of Alberta, so the same tax per resident '
+             'is more per student. Compare tax per resident (residents) with tax per student before calling a gap unfair.'},
+    {'factor': 'Business and industrial property',
+     'what': 'The requisition includes non-residential property. Calgary\'s offices and shops pay part of it; in many rural '
+             'municipalities oil, gas and pipeline property pays most of it, so some rural places pay far more per '
+             'resident than Calgary (municipalities_per_resident).'},
+    {'factor': 'Funding lags enrolment growth',
+     'what': 'Until 2024/25 the province funded boards on a weighted moving average of enrolment (20% the year before, '
+             '30% this year, 50% next year\'s projection), which pays fast-growing boards such as Calgary\'s for fewer '
+             'students than they have; from 2025/26 it is 30% last year and 70% the projection, a smaller lag. A '
+             'supplemental growth grant pays part of the gap. Set funding per student beside each board\'s growth.'},
+    {'factor': 'Needs-based grants',
+     'what': 'Funding per student differs by need, not by city: rural boards get transportation, geographic and small-school '
+             'money; boards with many newcomers get English as an additional language and refugee grants; specialized '
+             'learning, First Nations, Métis and Inuit, and socio-economic status grants follow students (grants).'},
+    {'factor': 'Buildings: new schools and maintenance',
+     'what': 'New schools are approved in each budget (approvals) and built over several years; maintenance and renewal '
+             'money (IMR and CMR) is separate from operating funding. Operations and maintenance spending per student is in '
+             'spending.'},
+    {'factor': 'Money that does not pass through the boards',
+     'what': 'The province pays teachers\' pension costs directly, and funds private schools (about 70% of a public '
+             'student\'s base) and home education outside these board figures; Calgary has many private-school students, '
+             'so the board figures understate the money that reaches Calgary\'s students.'},
+    {'factor': 'Fees parents pay',
+     'what': 'Boards charge fees (transportation, lunch supervision, materials) that differ by board; they are in the '
+             'audited revenues, not in provincial funding.'},
+    {'factor': 'Timing and counting',
+     'what': 'Requisitions are calendar years, enrolment and funding school years; board students include some living '
+             'outside the city; the 2027 standard rate changes the rate but not the fact that more valuable property pays more.'}]
+
+
+def _cached_get(cache_dir, url, modified=None, keep_days=None):
+    """A file downloaded once and kept under cache_dir/alberta (again when the catalogue's date changes, or after keep_days)."""
+    rdir = os.path.join(cache_dir, 'alberta')
+    path = os.path.join(rdir, re.sub(r'[^\w.\-]', '_', url.rsplit('/', 1)[-1])[:150])
+    stamp = path + '.modified'
+    if os.path.exists(path):
+        fresh = (modified and os.path.exists(stamp) and open(stamp, encoding='utf-8').read() == modified) or \
+                (not modified and keep_days and time.time() - os.path.getmtime(path) < keep_days * 86400)
+        if fresh:
+            return open(path, 'rb').read()
+    try:
+        data = _get(url)
+    except Exception:
+        if os.path.exists(path):                      # the province's site is down: the last copy
+            return open(path, 'rb').read()
+        raise
+    os.makedirs(rdir, exist_ok=True)
+    open(path, 'wb').write(data)
+    open(stamp, 'w', encoding='utf-8').write(modified or '')
+    return data
+
+
+def _ckan(query):
+    return json.loads(_get(CKAN_SEARCH + urllib.request.quote(query)).decode('utf-8'))['result']['results']
+
+
+def residents(cache_dir):
+    """{year, alberta, places: {name (Statistics Canada's census subdivision, e.g. 'Calgary (CY)'): population}}."""
+    import csv                                         # noqa: PLC0415
+    import zipfile                                     # noqa: PLC0415
+    url = json.loads(_get(f'{WDS}getFullTableDownloadCSV/{POP_TABLE}/en').decode('utf-8'))['object']
+    z = zipfile.ZipFile(io.BytesIO(_cached_get(cache_dir, url, keep_days=20)))
+    name = next(n for n in z.namelist() if n.endswith('.csv') and 'MetaData' not in n)
+    rows = {}
+    with z.open(name) as f:
+        for r in csv.DictReader(io.TextIOWrapper(f, encoding='utf-8-sig')):
+            g = r['GEO']
+            if g == 'Alberta' or g.endswith(', Alberta'):
+                try:
+                    rows.setdefault(r['REF_DATE'][:4], {})[g.replace(', Alberta', '')] = int(float(r['VALUE']))
+                except (ValueError, TypeError):
+                    pass
+    year = max(y for y in rows if 'Alberta' in rows[y])
+    places = rows[year]
+    return {'year': int(year), 'alberta': places.pop('Alberta'), 'places': places}
+
+
+def _key(name):
+    """'County of Barrhead No. 11' and 'Barrhead County No. 11 (MD)' -> the same words."""
+    s = re.sub(r'\((CY|T|VL|SV|MD|SM|ID|SA|IRI|S-E|SNO|NO|MS|SC)\)', ' ', name or '')
+    s = norm(s)
+    s = re.sub(r'\b(CITY|TOWN|VILLAGE|SUMMER|OF|COUNTY|MUNICIPAL|DISTRICT|SPECIALIZED|MUNICIPALITY|REGIONAL|BOARD)\b', ' ', s)
+    return ' '.join(sorted(s.split()))
+
+
+def per_resident(req, pop):
+    """Every municipality's requisition per resident (where its name can be matched), with the non-residential share."""
+    if not req or not pop:
+        return None
+    keys = {}
+    for g, v in pop['places'].items():
+        keys.setdefault(_key(g), []).append((g, v))
+    rows, matched = [], 0
+    for name, cat, res, nonres, total, prev in req['municipalities']:
+        hit = keys.get(_key(name))
+        popn = hit[0][1] if hit and len(hit) == 1 else None
+        matched += 1 if popn else 0
+        rows.append({'name': name, 'category': cat, 'requisition': total, 'population': popn,
+                     'per_resident': _per(total, popn), 'non_residential_pct': round(nonres / total * 100) if total else None})
+    cal, edm = pop['places'].get('Calgary (CY)'), pop['places'].get('Edmonton (CY)')
+    ct, et, at = req['calgary'].get('total'), req['edmonton'].get('total'), req['alberta_total']
+    return {'population_year': pop['year'], 'requisition_year': req['year'],
+            'calgary': {'population': cal, 'per_resident': _per(ct, cal)},
+            'edmonton': {'population': edm, 'per_resident': _per(et, edm)},
+            'alberta': {'population': pop['alberta'], 'per_resident': _per(at, pop['alberta'])},
+            'rest_of_alberta': {'population': pop['alberta'] - cal if cal else None,
+                                'per_resident': _per(at - ct, pop['alberta'] - cal) if cal else None},
+            'calgary_share_of_population_pct': round(cal / pop['alberta'] * 100, 1) if cal else None,
+            'municipalities_matched': matched, 'municipalities': sorted(rows, key=lambda r: -(r['per_resident'] or 0)),
+            'how': 'Requisition divided by Statistics Canada\'s population estimate for the municipality (July 1, census '
+                   'subdivision). Names are matched between the two lists; a municipality whose name could not be matched '
+                   'has no population here.'}
+
+
+def parse_afs(lines):
+    """Alberta Education's summary of audited revenues or expenses by program -> [{code, board, ecs, grades, om,
+    transport, admin, external, total, total_prev}]."""
+    out = []
+    for ln in lines:
+        m = re.match(r'^\s*(\d{4})\s+(.*?)\s+(?=(?:-|\d[\d,]*)\s*\$?\s)', ln)
+        if not m:
+            continue
+        rest = ln[m.end():]
+        vals = re.findall(r'(?<![\w,.])(-|\d[\d,]*)(?![\w])', rest)
+        if len(vals) != 8:
+            continue
+        name = re.sub(r'(\w{3,}) (\w)(?=\s|$)', r'\1\2', m.group(2)).strip()
+        a = [_num(v) for v in vals]
+        out.append({'code': m.group(1), 'board': name, 'ecs': a[0], 'grades': a[1], 'om': a[2], 'transport': a[3],
+                    'admin': a[4], 'external': a[5], 'total': a[6], 'total_prev': a[7]})
+    return out
+
+
+def spending(cache_dir):
+    """The newest audited year: {year, expenses: [...], revenues: [...]}."""
+    pk = [p for p in _ckan('school authorities audited financial statements summary reports')
+          if re.match(r'^\d{4}-\d{4}-school-authorities-audited-financial-statements-summary-reports$', p['name'])]
+    pk.sort(key=lambda p: p['name'], reverse=True)
+    for p in pk[:2]:
+        res = {r.get('name', '').lower(): r for r in p.get('resources') or []}
+        ex = next((r for n, r in res.items() if 'expenses' in n), None)
+        rv = next((r for n, r in res.items() if 'revenues' in n), None)
+        if not ex:
+            continue
+        e = parse_afs(_pdf_lines(_cached_get(cache_dir, ex['url'], ex.get('last_modified') or ex.get('created'))))
+        r = parse_afs(_pdf_lines(_cached_get(cache_dir, rv['url'], rv.get('last_modified') or rv.get('created')))) if rv else []
+        if len(e) >= 40:
+            y = p['name'][:9]
+            return {'year': y.replace('-', '/'), 'expenses': e, 'revenues': r, 'url': ex['url']}
+    raise RuntimeError('no audited summary could be read')
+
+
+def parse_capital(lines, year):
+    text = '\n'.join(lines)
+    m = re.search(r'total of (\d+) (?:new )?school projects', text)
+    out = {'year': year, 'total': int(m.group(1)) if m else None}
+    for city in ('Calgary', 'Edmonton'):
+        n = None
+        for ln in lines:
+            mm = re.match(rf'^{city} \((\d+)\)', ln.strip())
+            if mm:
+                n = int(mm.group(1))
+                break
+        if n is None:
+            n = sum(1 for ln in lines if re.match(rf'^{city} ', ln.strip()) and
+                    re.search(r'\b(new|modernization|replacement|addition|consolidation)\b', ln, re.I)) or None
+        out[city.lower()] = n
+    return out
+
+
+def approvals(cache_dir):
+    out = []
+    for y, u in CAPITAL_LISTS:
+        try:
+            out.append(parse_capital(_pdf_lines(_cached_get(cache_dir, u, keep_days=30)), y))
+        except Exception as e:                        # noqa: BLE001
+            print('  capital list skipped:', y, str(e)[:80])
+    return out
+
+
+def class_size(cache_dir):
+    rows = []
+    for ln in _pdf_lines(_cached_get(cache_dir, CSR_PDF, keep_days=30)):
+        m = re.match(r'^(The .+?)\s+(\d+)\s+([\d,]+)\s*$', ln.strip())
+        if m:
+            rows.append({'board': m.group(1), 'teachers': int(m.group(2)), 'dollars': _num(m.group(3))})
+    return {'year': '2026/27', 'boards': rows, 'url': CSR_PDF}
+
+
+def parse_profile(lines):
+    out = {}
+    for ln in lines:
+        m = re.match(r'^(?:[A-F](?: = [A-Z +/-]+)?\s+)?(.+?)\s+(-?\$[\d,]+)\s*$', ln.strip())
+        if m:
+            k = re.sub(r'\s*[\d²¹]+$', '', m.group(1)).strip()
+            out[k] = _num(m.group(2).replace('$', ''))
+    return out
+
+
+def grants(cache_dir):
+    """Every board's funding profile for the newest budget: {year, boards: {name: {line: dollars}}}."""
+    from concurrent.futures import ThreadPoolExecutor  # noqa: PLC0415
+    pk = [p for p in _ckan('projected operational funding school year by jurisdiction')
+          if re.match(r'^projected-operational-funding-\d{4}-\d{4}-school-year-by-jurisdiction$', p['name'])]
+    if not pk:
+        raise RuntimeError('no funding profiles listed')
+    p = max(pk, key=lambda p: p['name'])
+
+    def one(r):
+        try:
+            return r.get('name', '').strip(), parse_profile(_pdf_lines(_cached_get(cache_dir, r['url'], r.get('last_modified') or r.get('created'))))
+        except Exception:                             # noqa: BLE001
+            return r.get('name', '').strip(), None
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        got = dict(x for x in pool.map(one, [r for r in p.get('resources') or [] if r['url'].lower().endswith('.pdf')]) if x[1])
+    return {'year': re.search(r'(\d{4}-\d{4})', p['name']).group(1).replace('-', '/'), 'boards': got, 'listed': len(p.get('resources') or [])}
+
+
+GRANT_LINES = ['Specialized Learning Support', 'English as an Additional Language', 'Refugee Student', 'Socio-Economic Status',
+               'First Nations, Métis, and Inuit Education', 'Transportation', 'Geographic', 'Rural Small Schools',
+               'Operations & Maintenance Grant', 'System Administration', 'Classroom complexity']
+
+
 # ------------------------------------------------------------------ checks before new figures are accepted
 # A PDF whose layout changes can be read without an error but into the wrong columns. New figures are kept only when
 # they pass these; otherwise the build keeps the last good copy, marked as not refreshed, and the log says why.
@@ -453,6 +699,113 @@ def build(cache_dir, calgary_students=None):
                                   'how': 'School projects of $5 million or more in the province\'s Major Projects inventory that '
                                          'are proposed, planned or under construction (completed ones left out). The inventory '
                                          'is not the province\'s full school capital plan: check announcements for the latest.'}
+    # residents: tax per resident beside tax per student
+    try:
+        pop = residents(cache_dir)
+        if not 3_000_000 <= pop['alberta'] <= 8_000_000 or not pop['places'].get('Calgary (CY)'):
+            raise RuntimeError(f'population figures look wrong (Alberta {pop["alberta"]:,})')
+        out['residents'] = per_resident(req, pop)
+        if out['residents'] and out.get('tax_per_student') and out['students'].get('calgary_city_schools'):
+            cs_ = out['students']['calgary_city_schools'].get('students')
+            cal_pop = out['residents']['calgary']['population']
+            rest_pop = out['residents']['rest_of_alberta']['population']
+            out['residents']['students_per_100_residents'] = {
+                'calgary': round(cs_ / cal_pop * 100, 1) if cs_ and cal_pop else None,
+                'rest_of_alberta': round((latest['alberta'] - cs_) / rest_pop * 100, 1) if cs_ and rest_pop else None,
+                'alberta': round(latest['alberta'] / pop['alberta'] * 100, 1)}
+    except Exception as e:                            # noqa: BLE001
+        errors.append(f'Residents: {e}')
+    # what boards actually spent (audited), per student
+    try:
+        sp = spending(cache_dir)
+        ey = next((x for x in (enr or []) if x['year'] == sp['year']), None)
+        if len(sp['expenses']) < 50 or not any('Calgary School' in r['board'] for r in sp['expenses']):
+            raise RuntimeError(f'only {len(sp["expenses"])} boards read from the audited summary')
+        rows = []
+        for r in sp['expenses']:
+            b = _match(r['board'], ey['boards']) if ey else None
+            n = b['students'] if b else None
+            rev = next((x for x in sp['revenues'] if x['code'] == r['code']), None)
+            rows.append({'board': r['board'], 'students': n, 'spent': r['total'], 'spent_prev_year': r['total_prev'],
+                         'revenue': rev['total'] if rev else None, 'per_student': _per(r['total'], n),
+                         'instruction_per_student': _per(r['ecs'] + r['grades'], n), 'buildings_per_student': _per(r['om'], n),
+                         'transportation_per_student': _per(r['transport'], n), 'administration_per_student': _per(r['admin'], n)})
+        ok = [r for r in rows if r['students']]
+        tot = lambda k: sum(r[k] for r in ok)
+        out['spending'] = {'school_year': sp['year'], 'enrolment_year': ey['year'] if ey else None, 'source_url': sp['url'],
+                           'boards': sorted(rows, key=lambda r: -r['spent']), 'boards_matched': len(ok),
+                           'alberta_per_student': _per(tot('spent'), tot('students')),
+                           'how': 'Each board\'s audited expenses for the school year (all sources of money, not only the province\'s), '
+                                  'divided by its students that year. Instruction is ECS plus grades 1 to 12; buildings is '
+                                  'operations and maintenance. Capital (new schools) is not an operating expense.'}
+    except Exception as e:                            # noqa: BLE001
+        errors.append(f'Audited spending: {e}')
+    # new schools approved in each budget, against student growth
+    try:
+        ap = [a for a in approvals(cache_dir) if a.get('total')]
+        if ap:
+            st_tr = (out.get('students') or {}).get('trend') or []
+            grow = lambda c: (st_tr[-1][c] - st_tr[-4][c]) if len(st_tr) >= 4 else None
+            cal_n, edm_n = sum(a.get('calgary') or 0 for a in ap), sum(a.get('edmonton') or 0 for a in ap)
+            gc, ge = grow('Calgary'), grow('Edmonton')
+            out['approvals'] = {'budgets': ap, 'calgary_total': cal_n, 'edmonton_total': edm_n, 'alberta_total': sum(a['total'] for a in ap),
+                                'calgary_board_growth_3yr': gc, 'edmonton_board_growth_3yr': ge,
+                                'calgary_per_1000_new_students': round(cal_n / gc * 1000, 1) if gc else None,
+                                'edmonton_per_1000_new_students': round(edm_n / ge * 1000, 1) if ge else None,
+                                'calgary_share_pct': round(cal_n / sum(a['total'] for a in ap) * 100, 1),
+                                'how': 'School projects each provincial budget approves (new, replacement, modernization, addition, '
+                                       'charter), from the approved school capital lists online (2024 on), counted by the community '
+                                       'the list gives. Most are approved for planning or design first, so an approval is not yet a '
+                                       'building. Growth: students in the two city boards over the last three school years.'}
+    except Exception as e:                            # noqa: BLE001
+        errors.append(f'School approvals: {e}')
+    # class size reduction grant: teachers per 1,000 students
+    try:
+        cz = class_size(cache_dir)
+        if len(cz['boards']) < 30:
+            raise RuntimeError(f'only {len(cz["boards"])} boards read')
+        for r in cz['boards']:
+            b = _match(r['board'], latest['boards']) if latest else None
+            r['students'] = b['students'] if b else None
+            r['teachers_per_1000_students'] = round(r['teachers'] / r['students'] * 1000, 2) if r['students'] else None
+        out['class_size_grant'] = cz
+    except Exception as e:                            # noqa: BLE001
+        errors.append(f'Class size grant: {e}')
+    # each board's grants, line by line
+    try:
+        gr = grants(cache_dir)
+        if len(gr['boards']) < 40:
+            raise RuntimeError(f'only {len(gr["boards"])} of {gr["listed"]} funding profiles read')
+        sel, tot_st, tot = {}, 0, {}
+        for name, lines in gr['boards'].items():
+            b = _match(name, latest['boards']) if latest else None
+            n = b['students'] if b else None
+            if not n:
+                continue
+            tot_st += n
+            for k in GRANT_LINES:
+                tot[k] = tot.get(k, 0) + lines.get(k, 0)
+            if any(w in name for w in ('Calgary School Division', 'Calgary Roman Catholic', 'Edmonton School Division', 'Edmonton Catholic',
+                                       'Rocky View', 'Lethbridge School', 'Red Deer School', 'Northland', 'Fort Vermilion')):
+                sel[name] = {'students': n, **{k: _per(lines.get(k, 0), n) for k in GRANT_LINES}}
+        out['grants'] = {'budget_year': gr['year'], 'enrolment_year': latest['year'] if latest else None, 'profiles_read': len(gr['boards']),
+                         'per_student_selected_boards': sel, 'per_student_alberta': {k: _per(v, tot_st) for k, v in tot.items()},
+                         'all_boards': gr['boards'],
+                         'how': 'Each board\'s funding profile for the coming school year, line by line, divided by its students in '
+                                'the latest enrolment file (for scale: the profile counts projected students).'}
+    except Exception as e:                            # noqa: BLE001
+        errors.append(f'Funding profiles: {e}')
+    out['factors'] = FACTORS
+    out['sources'] += [
+        {'name': 'Population estimates, July 1, by census subdivision (17-10-0155)', 'publisher': 'Statistics Canada',
+         'url': 'https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710015501'},
+        {'name': 'School authorities audited financial statements: summary reports', 'publisher': 'Government of Alberta',
+         'url': 'https://open.alberta.ca/dataset/2024-2025-school-authorities-audited-financial-statements-summary-reports'},
+        {'name': 'Approved school capital lists (Budgets 2024 to 2026)', 'publisher': 'Government of Alberta',
+         'url': 'https://www.alberta.ca/planning-and-building-schools'},
+        {'name': 'Class Size Reduction Grant, 2026/27 allocations', 'publisher': 'Government of Alberta', 'url': CSR_PDF},
+        {'name': 'Projected operational funding by school jurisdiction (funding profiles)', 'publisher': 'Government of Alberta',
+         'url': 'https://open.alberta.ca/dataset/projected-operational-funding-2026-2027-school-year-by-jurisdiction'}]
     out['rates'] = {'2026_residential_per_1000': 2.84, '2026_non_residential_per_1000': 4.17,
                     'calgary_2026_residential_per_1000': 2.7593,
                     '2027_standard_residential_per_1000': 2.65, '2027_standard_non_residential_per_1000': 3.98,
@@ -505,6 +858,27 @@ def summary(d, part=None, find=None):
         p = d.get('school_projects') or {}
         rows = p.get('calgary', []) + [x for x in p.get('edmonton', []) if 'Calgary' not in x['municipalities']]
         return {**head, **p, 'found': [x for x in rows if find.lower() in x['name'].lower()] if find else None}
+    if part.startswith('res'):
+        r = d.get('residents') or {}
+        rows = r.get('municipalities') or []
+        if find:
+            rows = [x for x in rows if find.lower() in x['name'].lower()]
+        return {**head, **{k: v for k, v in r.items() if k != 'municipalities'}, 'municipalities': rows}
+    if part.startswith('spend'):
+        sp = d.get('spending') or {}
+        rows = sp.get('boards') or []
+        if find:
+            rows = [x for x in rows if find.lower() in x['board'].lower()]
+        return {**head, **{k: v for k, v in sp.items() if k != 'boards'}, 'boards': rows}
+    if part.startswith('grant'):
+        g = d.get('grants') or {}
+        allb = g.get('all_boards') or {}
+        return {**head, **{k: v for k, v in g.items() if k != 'all_boards'},
+                'found': {k: v for k, v in allb.items() if find.lower() in k.lower()} if find else None}
+    if part.startswith('appro') or part.startswith('capit') or part.startswith('class'):
+        return {**head, 'approvals': d.get('approvals'), 'class_size_grant': d.get('class_size_grant')}
+    if part.startswith('fact'):
+        return {**head, 'factors': d.get('factors')}
     f = d.get('funding') or {}
     pick = [r for r in f.get('boards') or [] if any(w in r['board'] for w in ('Calgary', 'Edmonton', 'Rocky View', 'Foothills', 'Red Deer', 'Lethbridge', 'Elk Island', 'Golden Hills'))]
     return {**head, 'requisition': {k: v for k, v in req.items() if k not in ('municipalities', 'municipalities_columns')},
@@ -513,8 +887,21 @@ def summary(d, part=None, find=None):
             'school_projects': {k: v for k, v in (d.get('school_projects') or {}).items() if k in ('total', 'how')}
                                | {'top_municipalities': ((d.get('school_projects') or {}).get('by_municipality') or [])[:15],
                                   'calgary': (d.get('school_projects') or {}).get('calgary')},
-            'more': 'part=municipalities (every municipality\'s requisition, find narrows), part=boards (every school board\'s '
-                    'funding per student), part=projects (school projects). Method: get_method topic school_tax.'}
+            'residents': {k: v for k, v in (d.get('residents') or {}).items() if k != 'municipalities'}
+                         | {'highest_per_resident': ((d.get('residents') or {}).get('municipalities') or [])[:10]},
+            'spending': {k: v for k, v in (d.get('spending') or {}).items() if k != 'boards'}
+                        | {'selected_boards': [r for r in (d.get('spending') or {}).get('boards') or []
+                                               if any(w in r['board'] for w in ('Calgary', 'Edmonton', 'Rocky View', 'Red Deer', 'Lethbridge'))]},
+            'approvals': d.get('approvals'),
+            'class_size_grant': {'year': (d.get('class_size_grant') or {}).get('year'),
+                                 'boards': ((d.get('class_size_grant') or {}).get('boards') or [])[:8]},
+            'grants': {k: v for k, v in (d.get('grants') or {}).items() if k != 'all_boards'},
+            'factors': d.get('factors'),
+            'more': 'part=municipalities (every municipality\'s requisition), residents (tax per resident, every municipality), '
+                    'boards (operating funding per student), spending (audited spending per student, every board), grants '
+                    '(funding profile lines; find a board for its whole profile), approvals (new schools by budget and the class '
+                    'size grant), projects (Major Projects), factors (what else explains a difference); find narrows. '
+                    'Method: get_method topic school_tax.'}
 
 
 if __name__ == '__main__':
