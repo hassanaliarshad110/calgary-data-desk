@@ -319,6 +319,7 @@ def build(out, data_dir, method='city_actual'):
     urls += topic_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated)
     urls += ai_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated)
     urls += study_pages(out, updated)
+    urls += sewer_page(out, updated)
 
     # the list the dashboard uses to link each community to its page, and for its "find your community" box
     with open(os.path.join(out, 'communities', 'pages.json'), 'w', encoding='utf-8') as f:
@@ -542,6 +543,10 @@ def ai_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, update
             'everywhere, but hears about 23% fewer infrastructure reports where more residents don’t speak English, even comparing like with like. '
             'The study sets out the findings, Ward 5 adjusted for growth, twelve recommendations and its limits.</p>'
             '<p><a href="../studies/who-calgarys-311-hears/">Read the study in brief →</a></p></div>',
+            '<div class="qa"><h3>Sample report: Calgary’s ageing sewers, and how long sewer pipes last around the world</h3><p>Made by the Data Scientist from the City’s '
+            'open data on all 368,085 public sanitary service connections: how old they are, what they are made of, how that compares with service lives used by utilities in '
+            'Canada, Australia, the UK and Germany, where back-ups happen most, and what renewal would take. The full 18-page report, as published, with its charts, map and workbook.</p>'
+            '<p><a href="../studies/calgary-sewers/">Read the report →</a></p></div>',
             sample,
             '<h2>Who it is for</h2><p>Ward offices and City staff, community associations, journalists, non-profits and researchers. Reports take about 3 to 8 minutes.</p>',
             '<h2>How to use it</h2><p>Data Scientist is on the dashboard under <b>Ask the data</b>. Making reports needs an approved account: sign in with Google, or use the passcode you were given. '
@@ -632,4 +637,70 @@ def study_pages(out, updated):
         f.write(page(path, 'Who Calgary’s 311 Hears: an independent study of equity in Calgary 311 | Calgary Insight',
                      'Calgary’s 311 closes requests equally fast everywhere, but hears about 23% fewer infrastructure reports where more residents don’t speak English. Findings, Ward 5, 12 recommendations and the full method.',
                      [('Calgary Insight', ''), ('Data Scientist', 'data-scientist/'), ('Who Calgary’s 311 Hears', path)], '\n'.join(body), ld, updated, og_type='article'))
+    return [path]
+
+
+def _md(t):
+    """The report's light markdown (**bold**) as HTML."""
+    return re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', e(t))
+
+
+def _paras(t):
+    out, lst = [], []
+    for block in re.split(r'\n\s*\n', t or ''):
+        lines = [l for l in block.split('\n') if l.strip()]
+        if lines and all(l.lstrip().startswith('- ') for l in lines):
+            out.append('<ul>' + ''.join(f'<li>{_md(l.lstrip()[2:])}</li>' for l in lines) + '</ul>')
+        elif lines:
+            out.append(f'<p>{_md(" ".join(lines))}</p>')
+    return ''.join(out)
+
+
+def sewer_page(out, updated):
+    """calgaryinsight.ca/studies/calgary-sewers/: a Data Scientist report, published in full as a sample, with the PDF,
+    the interactive version and the workbook beside it (web/studies/calgary-sewers/, copied by build_site)."""
+    here = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'studies', 'calgary-sewers', 'spec.json')
+    if not os.path.exists(here):
+        return []
+    with open(here, encoding='utf-8') as f:
+        r = json.load(f)
+    path = 'studies/calgary-sewers/'
+    body = ['<p class="kicker">Sample report · made by the Data Scientist · November 7, 2026</p>',
+            f'<h1>{e(r["title"])}</h1>', f'<p class="lead">{e(r.get("subtitle") or "")}</p>',
+            '<p><a class="cta" href="calgary-sewer-ageing-report.pdf">The full report (PDF, 18 pages)</a></p>'
+            '<p><a href="report.html">Interactive version with charts and the community map</a> · <a href="calgary-sewer-ageing-figures.xlsx">Every figure (Excel)</a></p>',
+            '<div class="facts"><h2>In short</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r.get('summary') or []) + '</ul></div>']
+    for i, sec in enumerate(r.get('sections') or [], 1):
+        body.append(f'<h2>{i}. {e(sec.get("heading") or "")}</h2>{_paras(sec.get("text"))}')
+    if r.get('conclusion'):
+        body.append('<h2>Conclusion</h2>' + _paras(r['conclusion']))
+    recs = r.get('recommendations') or []
+    if recs:
+        body.append('<h2>Recommendations</h2><ol>' + ''.join(
+            f'<li><b>{e(x.get("title") or "")}</b> <span class="note">({e(x.get("priority") or "")} priority)</span><br>{e(x.get("detail") or "")}</li>' for x in recs) + '</ol>')
+    ap = r.get('action_plan') or []
+    if ap:
+        body.append('<h2>Action plan</h2><div class="wrap"><table><thead><tr><th>Action</th><th>Who</th><th>How we would know</th></tr></thead><tbody>'
+                    + ''.join(f'<tr><td>{e(x.get("action") or "")}</td><td>{e(x.get("owner") or "")}</td><td>{e(x.get("measure") or "")}</td></tr>' for x in ap) + '</tbody></table></div>')
+    if r.get('method'):
+        body.append('<h2>Method</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r['method']) + '</ul>')
+    if r.get('limitations'):
+        body.append('<h2>Limits</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r['limitations']) + '</ul>')
+    if r.get('data_sources'):
+        body.append('<h2>Data sources</h2><ul>' + ''.join(
+            f'<li><a href="{e(x.get("url") or "")}">{e(x.get("name") or "")}</a>, {e(x.get("publisher") or "")}{(" (" + e(x["period"]) + ")") if x.get("period") else ""}</li>'
+            for x in r['data_sources']) + '</ul>')
+    body += ['<p>This report was made by the <a href="../../data-scientist/">Data Scientist</a> from the question: '
+             f'<i>“{e(r.get("question") or "")}”</i> Every figure is worked out from the City’s open data and checked by the report auditor.</p>',
+             '<a class="cta" href="../../data-scientist/">See the Data Scientist</a>',
+             '<p><a href="../who-calgarys-311-hears/">Who Calgary’s 311 Hears</a> · <a href="../../ask/">Data Genie</a> · <a href="../../communities/">All communities</a></p>',
+             '<p class="note">Not affiliated with The City of Calgary. Data: City of Calgary Open Data, Open Government Licence – City of Calgary. Corrections: hello@calgaryinsight.ca.</p>']
+    ld = [{'@type': 'Report', 'name': r['title'], 'url': SITE + path, 'description': r.get('subtitle') or '', 'datePublished': '2026-11-07',
+           'spatialCoverage': {'@type': 'City', 'name': 'Calgary'}, 'encoding': [{'@type': 'MediaObject', 'contentUrl': SITE + path + 'calgary-sewer-ageing-report.pdf', 'encodingFormat': 'application/pdf'}],
+           'publisher': {'@type': 'Organization', 'name': 'Calgary Insight', 'url': SITE}}]
+    desc = re.sub(r'\*\*', '', ' '.join((r.get('summary') or [])[:2]))[:300]
+    os.makedirs(os.path.join(out, path), exist_ok=True)
+    with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(page(path, 'Calgary’s ageing sewers: how old the pipes are and how long sewer pipes last | Calgary Insight', desc,
+                     [('Calgary Insight', ''), ('Data Scientist', 'data-scientist/'), ('Calgary’s ageing sewers', path)], '\n'.join(body), ld, updated, og_type='article'))
     return [path]

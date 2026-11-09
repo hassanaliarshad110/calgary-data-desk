@@ -139,6 +139,9 @@ def page(out):
         shutil.copy(os.path.join(ROOT, 'web', f), os.path.join(out, f))
     # the visitor's welcome: the door into Calgary with the Calgary song (calgaryinsight.ca/visit/)
     shutil.copytree(os.path.join(ROOT, 'web', 'visit'), os.path.join(out, 'visit'), dirs_exist_ok=True)
+    # sample reports published in full (studies/<name>/): the PDF, the interactive version and the workbook; the page itself is made by seo_pages
+    shutil.copytree(os.path.join(ROOT, 'web', 'studies'), os.path.join(out, 'studies'), dirs_exist_ok=True,
+                    ignore=shutil.ignore_patterns('spec.json'))
     # and its six guides, one per tile (visit/downtown/, visit/mountains/, ...), from visit_content.py
     visit_pages.build(os.path.join(out, 'visit'))
     # IndexNow (Bing, DuckDuckGo, Yandex and others): the site's key, at the address IndexNow checks
