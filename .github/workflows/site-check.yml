@@ -1,5 +1,5 @@
-name: Site check 4
-on: {push: {branches: [site-check-4]}}
+name: Site check 5
+on: {push: {branches: [site-check-5]}}
 jobs:
   c:
     runs-on: ubuntu-latest
