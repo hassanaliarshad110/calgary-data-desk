@@ -1,12 +1,13 @@
-import json
+import json, re
 from playwright.sync_api import sync_playwright
 B='https://calgaryinsight.ca/'
 NEW=open('new-livemap.js',encoding='utf-8').read()
 with sync_playwright() as p:
     br=p.chromium.launch(); c=br.new_context(**p.devices['Pixel 7'])
     c.add_init_script("localStorage.setItem('lm-on', JSON.stringify({crime:false,traffic:false}))")  # as on Hassan's phone
-    c.route('**/livemap.js', lambda r: r.fulfill(status=200, content_type='application/javascript', body=NEW))
+    c.route(re.compile(r'livemap\.js'), lambda r: r.fulfill(status=200, content_type='application/javascript', body=NEW))
     pg=c.new_page(); errs=[]
+    pg.on("request", lambda r: print("CHK req", r.url[:120]) if "livemap" in r.url else None)
     pg.on('pageerror',lambda e: errs.append(str(e)))
     pg.goto(B+'?view=livemap',wait_until='domcontentloaded',timeout=90000)
     for t in (4,10,25,45):
