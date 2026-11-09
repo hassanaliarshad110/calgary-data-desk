@@ -1,5 +1,6 @@
 name: Probe 8
 on: {push: {branches: [site-check-8]}}
+permissions: {contents: write}
 jobs:
   p:
     runs-on: ubuntu-latest
@@ -8,6 +9,8 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: |
-          mkdir -p c
-
-          python show2.py
+          python fetch.py
+          mkdir -p out && mv live_visit.json ctrain.json geocoded.json out/
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -b fetched-8
+          git add out && git commit -qm "Fetched visit data" && git push -f origin fetched-8
