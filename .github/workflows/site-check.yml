@@ -1,0 +1,4 @@
+name: Site check 3
+on: {push: {branches: [site-check-3]}}
+jobs:
+  c: {runs-on: ubuntu-latest, steps: [{uses: actions/checkout@v4}, {run: python3 check.py}]}
