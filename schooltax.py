@@ -166,6 +166,9 @@ def requisitions(cache_dir):
         except Exception as e:                        # noqa: BLE001
             print('  requisition report skipped:', r['url'].rsplit('/', 1)[-1], str(e)[:100])
     out.sort(key=lambda x: -x['year'])
+    listed_years = [int(m.group(1)) for r in listed for m in [re.search(r'(20\d\d)', r['url'].rsplit('/', 1)[-1])] if m]
+    if out and listed_years and max(listed_years) > out[0]['year']:
+        raise RuntimeError(f'the {max(listed_years)} report is listed but could not be read today, so yesterday\'s figures are kept')
     return out
 
 
@@ -458,29 +461,37 @@ def spending(cache_dir):
     raise RuntimeError('no audited summary could be read')
 
 
-def parse_capital(lines, year):
+def parse_capital(lines, year, places=()):
+    """One budget's approved school capital list -> {year, total, calgary, edmonton}. The list runs community by
+    community ("Calgary (14) Calgary Board of Education", or "Edmonton" on a line of its own); each project ends with its
+    funding stage (planning, design, construction), so a city's projects are the stage endings in its section."""
     text = '\n'.join(lines)
     m = re.search(r'total of (\d+) (?:new )?school projects', text)
     out = {'year': year, 'total': int(m.group(1)) if m else None}
+    names = sorted({p for p in places if p} | {'Calgary', 'Edmonton'}, key=len, reverse=True)
+    head = re.compile(r'^(' + '|'.join(re.escape(n) for n in names) + r')(?: \((\d+)\))?(?=\s|$)')
+    section, counted, given = None, {}, {}
+    for ln in lines:
+        t = ln.strip()
+        h = head.match(t)
+        if h and not re.match(r'^(Calgary|Edmonton) (Board|Catholic|Public|Roman)', t):
+            section = h.group(1)
+            if h.group(2):
+                given[section] = int(h.group(2))
+        if section and re.search(r'\b(planning|design|construction)\s*$', t, re.I):
+            counted[section] = counted.get(section, 0) + 1
     for city in ('Calgary', 'Edmonton'):
-        n = None
-        for ln in lines:
-            mm = re.match(rf'^{city} \((\d+)\)', ln.strip())
-            if mm:
-                n = int(mm.group(1))
-                break
-        if n is None:
-            n = sum(1 for ln in lines if re.match(rf'^{city} ', ln.strip()) and
-                    re.search(r'\b(new|modernization|replacement|addition|consolidation)\b', ln, re.I)) or None
-        out[city.lower()] = n
+        out[city.lower()] = given.get(city) or counted.get(city)
     return out
 
 
-def approvals(cache_dir):
+def approvals(cache_dir, places=()):
     out = []
     for y, u in CAPITAL_LISTS:
         try:
-            out.append(parse_capital(_pdf_lines(_cached_get(cache_dir, u, keep_days=30)), y))
+            a = parse_capital(_pdf_lines(_cached_get(cache_dir, u, keep_days=30)), y, places)
+            if a.get('total'):
+                out.append(a)
         except Exception as e:                        # noqa: BLE001
             print('  capital list skipped:', y, str(e)[:80])
     return out
@@ -742,21 +753,25 @@ def build(cache_dir, calgary_students=None):
         errors.append(f'Audited spending: {e}')
     # new schools approved in each budget, against student growth
     try:
-        ap = [a for a in approvals(cache_dir) if a.get('total')]
+        short = [re.sub(r'^(City|Town|Village|Summer Village) of ', '', r[0]) for r in (req or {}).get('municipalities') or []]
+        ap = approvals(cache_dir, short)
         if ap:
             st_tr = (out.get('students') or {}).get('trend') or []
-            grow = lambda c: (st_tr[-1][c] - st_tr[-4][c]) if len(st_tr) >= 4 else None
+            k = len(ap)
+            grow = lambda c: (st_tr[-1][c] - st_tr[-1 - k][c]) if len(st_tr) > k else None
             cal_n, edm_n = sum(a.get('calgary') or 0 for a in ap), sum(a.get('edmonton') or 0 for a in ap)
             gc, ge = grow('Calgary'), grow('Edmonton')
             out['approvals'] = {'budgets': ap, 'calgary_total': cal_n, 'edmonton_total': edm_n, 'alberta_total': sum(a['total'] for a in ap),
-                                'calgary_board_growth_3yr': gc, 'edmonton_board_growth_3yr': ge,
+                                'board_growth_years': k, 'calgary_board_growth': gc, 'edmonton_board_growth': ge,
                                 'calgary_per_1000_new_students': round(cal_n / gc * 1000, 1) if gc else None,
                                 'edmonton_per_1000_new_students': round(edm_n / ge * 1000, 1) if ge else None,
                                 'calgary_share_pct': round(cal_n / sum(a['total'] for a in ap) * 100, 1),
                                 'how': 'School projects each provincial budget approves (new, replacement, modernization, addition, '
-                                       'charter), from the approved school capital lists online (2024 on), counted by the community '
-                                       'the list gives. Most are approved for planning or design first, so an approval is not yet a '
-                                       'building. Growth: students in the two city boards over the last three school years.'}
+                                       'charter), from the approved school capital lists (Budget 2025 on; the 2024 list is laid out '
+                                       'differently and mixes new approvals with projects moving to their next stage, so it is not '
+                                       'counted), counted by the community the list gives. Most are approved for planning or design '
+                                       'first, so an approval is not yet a building. Growth: students in each city\'s two city boards '
+                                       'over as many school years as budgets counted.'}
     except Exception as e:                            # noqa: BLE001
         errors.append(f'School approvals: {e}')
     # class size reduction grant: teachers per 1,000 students
@@ -888,7 +903,8 @@ def summary(d, part=None, find=None):
                                | {'top_municipalities': ((d.get('school_projects') or {}).get('by_municipality') or [])[:15],
                                   'calgary': (d.get('school_projects') or {}).get('calgary')},
             'residents': {k: v for k, v in (d.get('residents') or {}).items() if k != 'municipalities'}
-                         | {'highest_per_resident': ((d.get('residents') or {}).get('municipalities') or [])[:10]},
+                         | {'highest_per_resident_5000_plus': [m for m in (d.get('residents') or {}).get('municipalities') or []
+                                                             if (m.get('population') or 0) >= 5000][:12]},
             'spending': {k: v for k, v in (d.get('spending') or {}).items() if k != 'boards'}
                         | {'selected_boards': [r for r in (d.get('spending') or {}).get('boards') or []
                                                if any(w in r['board'] for w in ('Calgary', 'Edmonton', 'Rocky View', 'Red Deer', 'Lethbridge'))]},
