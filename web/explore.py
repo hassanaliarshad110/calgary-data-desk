@@ -1,5 +1,5 @@
 """Explore Calgary (calgaryinsight.ca/visit/explore/): the data behind the trip planner, the experience map, the
-collections, the neighbourhood explorer, what's on, Beyond Calgary and local offers, in one file per city
+collections, the neighbourhood explorer, what's on and Beyond Calgary, in one file per city
 (visit/explore/data/calgary.json), so another city can be added with its own file.
 
 Everything comes from what the site already checks:
@@ -115,7 +115,7 @@ EXTRA = [
      'what': 'The escarpment park above the Bow north of downtown, with one of the city\'s classic views of the skyline and the river.',
      'url': None, 'fit': ['warm', 'cool', 'cold']},
     {'id': 'scotsmans', 'osm': 'node/4365625291', 'name': "Scotsman's Hill", 'kind': 'Viewpoint', 'area': 'Inglewood, Ramsay and Bridgeland', 'lat': 51.0365, 'lon': -114.04762, 'indoor': False,
-     'what': 'The hillside in Ramsay that looks over Stampede Park to the downtown towers; a popular free spot during Stampede fireworks.',
+     'what': 'The hillside in Ramsay that looks over Stampede Park to the downtown towers; a popular spot during Stampede fireworks.',
      'url': None, 'fit': ['warm', 'cool', 'cold']},
     {'id': 'cityhall', 'osm': 'way/37829977', 'name': 'Historic City Hall', 'kind': 'Historic building', 'area': 'Downtown', 'lat': 51.04607, 'lon': -114.05736, 'indoor': False,
      'what': 'The sandstone City Hall of 1911, a National Historic Site, beside the 1985 municipal building on Macleod Trail.',
@@ -138,10 +138,10 @@ GUIDE_MATCH = {'Calgary Tower': 'tower', 'Stephen Avenue': 'stephen', 'Central L
 
 COLLECTIONS = [
     {'id': '24-hours', 'title': 'Calgary in 24 hours', 'blurb': 'The Tower and Stephen Avenue in the morning, East Village\'s library and music centre, the river and the Peace Bridge, then Kensington or 17 Avenue for dinner.',
-     'places': ['tower', 'stephen', 'library', 'studiobell', 'princes', 'peace', 'kensington', 'seventeenth'], 'tip': 'CTrain rides on 7 Avenue downtown are free, and everything here is within a 45-minute walk of the Tower.'},
-    {'id': 'free', 'title': 'The best free things to do', 'blurb': 'Places that cost nothing to get into: parks, viewpoints, the library and the indoor garden.',
+     'places': ['tower', 'stephen', 'library', 'studiobell', 'princes', 'peace', 'kensington', 'seventeenth'], 'tip': 'CTrain rides on 7 Avenue downtown cost nothing, and everything here is within a 45-minute walk of the Tower.'},
+    {'id': 'no-charge', 'title': 'The best things to do at no charge', 'blurb': 'Places that cost nothing to get into: parks, viewpoints, the library and the indoor garden.',
      'places': ['library', 'devonian', 'plus15', 'stephen', 'peace', 'princes', 'stpatricks', 'crescentheights', 'nosehill', 'fishcreek', 'birdsanctuary', 'bowness', 'chinatown', 'cityhall'],
-     'tip': 'Entry is free; activities inside some of them (rentals, programs) are not.'},
+     'tip': 'Entry costs nothing; activities inside some of them (rentals, programs) are not.'},
     {'id': 'first-visit', 'title': 'Calgary for first-time visitors', 'blurb': 'The landmarks most visitors want to see, across two or three days.',
      'places': ['tower', 'stephen', 'studiobell', 'zoo', 'heritage', 'peace', 'kensington', 'inglewood', 'stampede'], 'beyond': ['Banff (town)'],
      'tip': 'Add a day in Banff or Kananaskis: see Beyond Calgary.'},
@@ -169,9 +169,9 @@ COLLECTIONS = [
     {'id': 'indigenous', 'title': 'Indigenous culture', 'blurb': 'Treaty 7 land: places to learn from the Blackfoot Confederacy, the Tsuut\'ina and the Stoney Nakoda.',
      'places': ['confluence', 'stampede', 'glenbow'], 'beyond': ['Blackfoot Crossing Historical Park', 'Head-Smashed-In Buffalo Jump', 'Writing-on-Stone Provincial Park (Áísínai\'pi)'],
      'tip': 'Elbow River Camp at the Stampede is open during Stampede; Glenbow\'s Blackfoot Gallery opens with the museum.'},
-    {'id': 'budget', 'title': 'Calgary on a budget', 'blurb': 'Free entry, free transit downtown, and markets for an inexpensive lunch.',
+    {'id': 'budget', 'title': 'Calgary on a budget', 'blurb': 'Places that cost nothing to enter, CTrain rides downtown at no charge, and markets for an inexpensive lunch.',
      'places': ['library', 'stephen', 'princes', 'peace', 'nosehill', 'fishcreek', 'bowness', 'farmers', 'kensington', 'chinatown'],
-     'tip': 'A Calgary Transit day pass is $12.65 in 2026; the 7 Avenue stretch downtown is free.'},
+     'tip': 'A Calgary Transit day pass is $12.65 in 2026; CTrain rides on the 7 Avenue stretch downtown cost nothing.'},
 ]
 
 BEYOND_SEASON = {  # what is plainly so about the season, from Parks Canada and the operators' own pages
@@ -210,7 +210,7 @@ def places(visit_data=None):
     for p in list(visit.TOP) + EXTRA:
         q = dict(p, **{k: v for k, v in (top.get(p['id']) or {}).items() if k in ('lat', 'lon', 'community', 'osm')})
         prof = EXPLORE.get(p['id'])
-        if not prof:
+        if not prof or p.get('closed_until'):    # closed or being rebuilt: left out until the weekly check marks it open
             continue
         cats, ints, cost, mins, eve, fam, win = prof
         g = gp.get(p['id']) or {}
@@ -296,10 +296,12 @@ def build(out_dir, visit_data=None, research=None):
         if ll:
             p['lat'], p['lon'] = ll
     ids = {p['id'] for p in pl}
+    cols = []
     for c in COLLECTIONS:
-        bad = [i for i in c['places'] if i not in ids]
+        bad = [i for i in c['places'] if i not in EXPLORE]
         if bad:
             raise ValueError(f'collection {c["id"]} names unknown places {bad}')
+        cols.append(dict(c, places=[i for i in c['places'] if i in ids]))     # a closed place drops out
     vd = visit_data or {}
     months = vd.get('months') or [{'n': n, 'name': name, 'about': about, 'events': [{'name': a, 'what': b, 'url': c} for a, b, c in evs]}
                                   for n, name, about, evs in visit.MONTHS]
@@ -313,13 +315,9 @@ def build(out_dir, visit_data=None, research=None):
                   'timezone': 'America/Edmonton'},
          'checked': (vd.get('checked') or CHECKED), 'built': vd.get('built_at'),
          'categories': [{'id': a, 'label': b} for a, b in CATEGORIES], 'interests': INTERESTS,
-         'places': pl, 'collections': COLLECTIONS, 'neighbourhoods': neighbourhoods(pl, st), 'stations': st,
+         'places': pl, 'collections': cols, 'neighbourhoods': neighbourhoods(pl, st), 'stations': st,
          'months': months, 'beyond': by, 'getting_around': [{'title': a, 'what': b, 'url': c} for a, b, c in visit.GETTING_AROUND],
          'photo_credits': {k: v for k, v in credits.items() if any(p.get('photo') == k for p in pl)},
-         'offers': {'listings': [], 'schema': {'id': 'string', 'business': 'string', 'title': 'string', 'kind': 'experience | tour | workshop | food | outdoor | attraction | package',
-                                               'what': 'string', 'url': 'string', 'lat': 'number', 'lon': 'number', 'sponsored': 'boolean (shown as Sponsored)',
-                                               'valid_from': 'YYYY-MM-DD', 'valid_to': 'YYYY-MM-DD', 'submitted': 'YYYY-MM-DD', 'verified_by': 'string'},
-                    'note': 'No business offers are listed yet. Calgary Insight is independent and has no paid partners; any future sponsored listing will be labelled.'},
          'sources': [{'name': 'Places checked by hand by Calgary Insight', 'what': 'descriptions, official links, the weather each suits'},
                      {'name': 'OpenStreetMap contributors (ODbL)', 'what': 'positions of places and CTrain stations; drive times (OSRM)', 'url': 'https://www.openstreetmap.org/copyright'},
                      {'name': 'Wikimedia Commons', 'what': 'photos, each with its credit and licence'},

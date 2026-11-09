@@ -116,7 +116,7 @@ def build(out, tourism=None, research=None):
                  f'<p>{e(ac.get("unesco"))} Banff National Park had {_n((R.get("banff_gateway") or {}).get("banff_national_park_visitors_2025_26"))} visitors in 2025-26 {TAG["count"]}; '
                  f'Kananaskis Country about {_n(k.get("visits_2024"))} visits in 2024 {TAG["estimate"]}. {e((ac.get("banff_cannot_grow_beds") or {}).get("what"))}</p>',
                  f'<div class="wrap"><table><thead><tr><th>Place</th><th class="n">Drive from downtown</th><th>UNESCO</th><th class="n">Visitors</th></tr></thead><tbody>{rows}</tbody></table></div>',
-                 f'<p class="src">Drive times: OpenStreetMap routing at free-flowing speeds (estimates). {_src((R.get("banff_gateway") or {}).get("source"))} {_src(k.get("source"))} '
+                 f'<p class="src">Drive times: OpenStreetMap routing without traffic (estimates). {_src((R.get("banff_gateway") or {}).get("source"))} {_src(k.get("source"))} '
                  f'{_src((ac.get("banff_cannot_grow_beds") or {}).get("source"))}</p>']
     # 5. infrastructure, incentives and investment
     lv, rl, ind, sp_ = R.get('levies') or {}, R.get('rail') or {}, R.get('indigenous_tourism') or {}, R.get('calgary_stopover_program') or {}

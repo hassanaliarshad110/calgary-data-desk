@@ -1,5 +1,5 @@
 /* Explore Calgary: the trip planner, the experience map, collections, neighbourhoods, what's on, Beyond Calgary and
-   local offers, all from one city file (data/<city>.json, written by web/explore.py from the places the site checks).
+   all from one city file (data/<city>.json, written by web/explore.py from the places the site checks).
    The planner works by rules on that data, in the browser: it never invents a place, a price or an opening hour.
    Distances are straight lines between places; travel times are estimates at typical speeds and say so. */
 'use strict';
@@ -14,7 +14,7 @@
   const CAT_COL = { attractions: '#f2a33a', parks: '#9bc47a', views: '#5cc8c2', walks: '#7fb0e0', museums: '#c79bf2', food: '#f28b5a', shopping: '#e8c86a',
                     night: '#e2738c', family: '#f5d76e', history: '#d9a679', culture: '#b48cf0', winter: '#a8d8f0', photo: '#ffffff' };
   const DAY_COL = ['#f2a33a', '#5cc8c2', '#e2738c', '#9bc47a', '#c79bf2', '#7fb0e0', '#f5d76e'];
-  const COST = { free: ['Free entry', 'free'], paid: ['Paid entry: see the official site', ''], varies: ['Free or paid, by event', ''] };
+  const COST = { free: ['No entry charge', 'free'], paid: ['Paid entry: see the official site', ''], varies: ['Depends on the event', ''] };
   const FIT = { warm: 'warm days', cool: 'cool days', cold: 'cold days', wet: 'rain or snow' };
   let D = null, P = {}, tab = 'plan', maps = {}, detailFor = null;
 
@@ -45,10 +45,10 @@
 
   function route() {
     const h = (location.hash || '#plan').slice(1).split('/');
-    tab = ['plan', 'map', 'collections', 'neighbourhoods', 'whatson', 'beyond', 'offers'].includes(h[0]) ? h[0] : 'plan';
+    tab = ['plan', 'map', 'collections', 'neighbourhoods', 'whatson', 'beyond'].includes(h[0]) ? h[0] : 'plan';
     document.querySelectorAll('#tabs a').forEach(a => a.toggleAttribute('aria-current', a.dataset.tab === tab));
     Object.values(maps).forEach(m => m.remove()); maps = {};
-    ({ plan: viewPlan, map: viewMap, collections: viewCollections, neighbourhoods: viewAreas, whatson: viewWhatsOn, beyond: viewBeyond, offers: viewOffers })[tab](h[1]);
+    ({ plan: viewPlan, map: viewMap, collections: viewCollections, neighbourhoods: viewAreas, whatson: viewWhatsOn, beyond: viewBeyond })[tab](h[1]);
   }
 
   function baseMap(el, centre, zoom) {
@@ -80,14 +80,14 @@
         <div class="field"><span>How long</span>${seg('days', [[1, '1 day'], [2, '2 days'], [3, '3 days'], [5, '5 days'], [7, '7 days']])}</div>
         <div class="field"><span>What you like (any number)</span>${seg('interests', I, true)}</div>
         <div class="cols">
-          <div class="field"><span>Budget</span>${seg('budget', [['free', 'Free'], ['low', 'Low-cost'], ['moderate', 'Moderate'], ['premium', 'Premium']])}</div>
+          <div class="field"><span>Budget</span>${seg('budget', [['free', 'No cost'], ['low', 'Low-cost'], ['moderate', 'Moderate'], ['premium', 'Premium']])}</div>
           <div class="field"><span>Pace</span>${seg('style', [['relaxed', 'Relaxed'], ['balanced', 'Balanced'], ['packed', 'Packed']])}</div>
         </div>
         <div class="cols">
           <div class="field"><span>Getting around</span>${seg('transport', [['walking', 'Walking'], ['transit', 'Transit'], ['cycling', 'Cycling'], ['driving', 'Driving']])}</div>
           <div class="field"><span>Season</span>${seg('season', [['spring', 'Spring'], ['summer', 'Summer'], ['autumn', 'Autumn'], ['winter', 'Winter']])}</div>
         </div>
-        <div class="go"><button class="btn" id="build">${trip ? 'Build a new plan' : 'Build my plan'}</button>${trip ? '<button class="btn ghost" id="again">Shuffle</button>' : ''}<span class="note">Free and private: your plan is saved in this browser only.</span></div>
+        <div class="go"><button class="btn" id="build">${trip ? 'Build a new plan' : 'Build my plan'}</button>${trip ? '<button class="btn ghost" id="again">Shuffle</button>' : ''}<span class="note">Private: your plan is saved in this browser only.</span></div>
       </div>
       <div id="tripout"></div>`;
     $('#main').querySelectorAll('[data-f]').forEach(g => g.addEventListener('click', e => {
@@ -300,7 +300,7 @@
     }
     $('#main').innerHTML = `<h2 class="sec">Collections</h2><p class="lead">Ways into the city, each made of real places with their official pages. Open one to see it on the map or turn it into a plan.</p>
       <div class="grid">${D.collections.map(c => { const ph = c.places.map(i => P[i]).find(p => p && p.photo);
-        return `<article class="card"><div class="ph">${ph ? `<img src="../img/${esc(ph.photo)}.jpg" alt="" loading="lazy">` : `<span>${esc(c.title)}</span>`}</div>
+        return `<article class="card">${ph ? `<div class="ph"><img src="../img/${esc(ph.photo)}.jpg" alt="" loading="lazy"></div>` : ''}
         <div class="bd"><h3>${esc(c.title)}</h3><p>${esc(c.blurb)}</p><p class="note">${c.places.length + (c.beyond || []).length} places</p>
         <div class="act"><a class="btn small" href="#collections/${c.id}">Open</a></div></div></article>`; }).join('')}</div>`;
   }
@@ -310,7 +310,7 @@
     const A = D.neighbourhoods, a = sel && A.find(x => slug(x.area) === sel);
     $('#main').innerHTML = `<h2 class="sec">Neighbourhoods</h2><p class="lead">Calgary's visitor districts: what is there, the CTrain stations nearby, and roughly how long to give each one.</p>
       <div class="split"><div class="list">${A.map(x => `<div class="row" ${a === x ? 'style="border-color:var(--chinook)"' : ''}><div><b data-a="${slug(x.area)}">${esc(x.area)}</b><p>${esc(x.about)}</p>
-        <p>${x.places.length} places · ${x.free} free · ${x.ctrain.length ? 'CTrain: ' + esc(x.ctrain.slice(0, 4).join(', ')) : 'Best by car or bus'}</p></div><span class="t">${esc(x.time)}</span></div>`).join('')}
+        <p>${x.places.length} places · ${x.free} at no charge · ${x.ctrain.length ? 'CTrain: ' + esc(x.ctrain.slice(0, 4).join(', ')) : 'Best by car or bus'}</p></div><span class="t">${esc(x.time)}</span></div>`).join('')}
         <p class="note">Time to give each district is a rough guide from the suggested time at its places.</p></div>
         <div><div class="map" id="amap"></div><div class="list" id="alist" style="margin-top:.8rem"></div></div></div>`;
     const m = maps.a = baseMap($('#amap'));
@@ -343,7 +343,7 @@
   function viewBeyond() {
     const B = D.beyond, R = { all: 'All', 60: 'Within 1 hour', 120: 'Within 2 hours', 180: 'Within 3 hours', 240: 'Within 4 hours' };
     const ps = B.places.filter(b => ring === 'all' || b.drive_minutes <= +ring).sort((a, b) => a.drive_minutes - b.drive_minutes);
-    $('#main').innerHTML = `<h2 class="sec">Beyond Calgary</h2><p class="lead">Calgary is a base for the mountains, the badlands and five UNESCO World Heritage Sites. These places are <b>outside the city</b>; drive times are from downtown Calgary at free-flowing speeds (OpenStreetMap routing), so allow longer on summer weekends and winter roads.</p>
+    $('#main').innerHTML = `<h2 class="sec">Beyond Calgary</h2><p class="lead">Calgary is a base for the mountains, the badlands and five UNESCO World Heritage Sites. These places are <b>outside the city</b>; drive times are from downtown Calgary without traffic (OpenStreetMap routing), so allow longer on summer weekends and winter roads.</p>
       <div class="rings">${Object.entries(R).map(([k, t]) => `<button class="btn ${k === String(ring) ? '' : 'ghost'} small" data-r="${k}">${t}</button>`).join('')}</div>
       <div class="split"><div class="list">${ps.map(b => `<div class="row"><div><b data-beyond="${esc(b.place)}">${esc(b.place)}</b><p>${esc(b.what)}</p>
           <p>${b.unesco_world_heritage ? `<span class="badge unesco">UNESCO: ${esc(b.unesco_world_heritage)}</span>` : ''}${b.visitors ? `<span class="badge">${(b.visitors.visitors / 1000).toFixed(0)}k visitors (${esc(b.visitors.period)})</span>` : ''}${b.season ? `<span class="badge">${esc(b.season.split(':')[0])}</span>` : ''}</p></div>
@@ -356,14 +356,6 @@
     if (ps.length) m.fitBounds(ps.filter(b => b.lat).map(b => [b.lat, b.lon]).concat([D.city.centre]), { padding: [24, 24] });
     $('#main').querySelectorAll('[data-r]').forEach(b => b.addEventListener('click', () => { ring = b.dataset.r; viewBeyond(); }));
     $('#main').querySelectorAll('[data-beyond]').forEach(b => b.addEventListener('click', () => beyondDetail(B.places.find(x => x.place === b.dataset.beyond))));
-  }
-
-  // ---------------------------------------------------------------- local offers (no listings yet)
-  function viewOffers() {
-    const o = D.offers || {};
-    $('#main').innerHTML = `<h2 class="sec">Local offers</h2>
-      ${(o.listings || []).length ? '' : `<div class="offers"><p><b>No local offers yet.</b></p><p class="lead">${esc(o.note || '')}</p>
-        <p>Run a tour, a workshop, a food experience or an attraction in or around Calgary? Write to <b>hello@calgaryinsight.ca</b> with what you offer, where, and its official page. Listings are reviewed before they appear, and any paid or sponsored placement will always be labelled <span class="badge">Sponsored</span>.</p></div>`}`;
   }
 
   // ---------------------------------------------------------------- the detail panel
@@ -396,7 +388,7 @@
       <p>${esc(b.what)}</p>${b.season ? `<p class="note">${esc(b.season)}</p>` : ''}
       ${b.visitors ? `<p class="note">${Number(b.visitors.visitors).toLocaleString('en-CA')} visitors (${esc(b.visitors.period)}). Source: <a href="${esc(b.visitors.url)}" rel="noopener">${esc(b.visitors.source)}</a></p>` : ''}
       <div class="links">${b.lat ? `<a href="https://www.openstreetmap.org/directions?to=${b.lat}%2C${b.lon}" rel="noopener">Directions ↗</a>` : ''}</div>
-      <p class="note">Drive time from downtown Calgary, OpenStreetMap routing at free-flowing speeds.</p></div>`;
+      <p class="note">Drive time from downtown Calgary, OpenStreetMap routing without traffic.</p></div>`;
     openPanel();
   }
   function openPanel() {

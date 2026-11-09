@@ -120,7 +120,7 @@ def robots_and_sitemap(out, extra=()):
         f.write(f'User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n')
     # the app's screens (?view=...) all carry the home page's canonical address, so they are not listed separately;
     # the ward and community pages (seo_pages.py) are what search engines index
-    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8'), (SITE_URL + 'visit/', '0.8'), (SITE_URL + 'visit/explore/', '0.9'), (SITE_URL + 'tourism-intelligence/', '0.8'), (SITE_URL + 'game/', '0.8')] + [(SITE_URL + u, '0.8') for u in visit_pages.URLS] + [(SITE_URL + u, '0.9' if u.count('/') == 1 else '0.7') for u in extra]
+    urls = [(SITE_URL, '1.0'), (SITE_URL + 'about/', '0.8'), (SITE_URL + 'visit/', '0.8'), (SITE_URL + 'game/', '0.8')] + [(SITE_URL + u, w) for u, w in (('visit/explore/', '0.9'), ('tourism-intelligence/', '0.8')) if os.path.exists(os.path.join(out, u, 'index.html'))] + [(SITE_URL + u, '0.8') for u in visit_pages.URLS] + [(SITE_URL + u, '0.9' if u.count('/') == 1 else '0.7') for u in extra]
     for rel in sorted(os.listdir(os.path.join(out, 'reports'))) if os.path.isdir(os.path.join(out, 'reports')) else []:
         if rel.endswith('.html'):
             urls.append((f'{SITE_URL}reports/{rel}', '0.5'))
@@ -580,11 +580,17 @@ def main():
         cal = (((d.get('arrivals') or {}).get('ports') or {}).get('Calgary') or {}).get('overnight_by_year') or {}
         print(f"  tourism: Calgary overnight international arrivals {dict(sorted(cal.items())[-2:])}; errors: {d.get('errors')}")
     step('tourism (Statistics Canada arrivals and airports)', tourism_data)
-    if not os.path.exists(os.path.join(out, 'tourism-intelligence', 'index.html')):    # no figures today: the page still stands, from the research file
-        def tourism_page_only():
+    if not os.path.exists(os.path.join(out, 'tourism-intelligence', 'index.html')) and a.previous:
+        def tourism_page_yesterday():   # no figures today: yesterday's complete figures, never a half-empty page
             import tourism, tourism_page
-            tourism_page.build(out, None, tourism.research())
-        step('Tourism Intelligence page (research only)', tourism_page_only)
+            p = os.path.join(data, 'tourism.json')
+            keep_previous(a.previous, 'tourism.json', p)
+            with open(p, encoding='utf-8') as f:
+                d = json.load(f)
+            if not (d.get('arrivals') or {}).get('ports'):
+                raise ValueError('yesterday\'s copy has no arrivals either')
+            tourism_page.build(out, d, tourism.research())
+        step('Tourism Intelligence page (yesterday\'s figures)', tourism_page_yesterday)
     def visiting():                 # Visiting Calgary: the weather since 1885, OpenStreetMap sights and hotels, what is on (visit.py)
         import visit
         vd = visit.build(cache)
@@ -646,7 +652,7 @@ def main():
             print('Calgary News pages skipped:', str(ex)[:160])
         robots_and_sitemap(out, urls)
         with open(os.path.join(out, 'indexnow-urls.txt'), 'w', encoding='utf-8') as f:     # sent to IndexNow after the deploy
-            f.write('\n'.join([SITE_URL, SITE_URL + 'about/', SITE_URL + 'visit/', SITE_URL + 'visit/explore/', SITE_URL + 'tourism-intelligence/', SITE_URL + 'game/'] + [SITE_URL + u for u in visit_pages.URLS + list(urls)]))
+            f.write('\n'.join([SITE_URL, SITE_URL + 'about/', SITE_URL + 'visit/', SITE_URL + 'game/'] + [SITE_URL + u for u in ('visit/explore/', 'tourism-intelligence/') if os.path.exists(os.path.join(out, u, 'index.html'))] + [SITE_URL + u for u in visit_pages.URLS + list(urls)]))
         print(f'pages for search engines: {len(urls)}')
     step('ward and community pages for search engines', search_pages)
     lock_key(out)
