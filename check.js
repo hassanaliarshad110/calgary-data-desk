@@ -19,7 +19,7 @@ const t=async u=>{try{const r=await fetch(B+u+'?t='+Date.now());return [r.status
   const x=await b.newContext(ctx),p=await x.newPage(),errs=[];p.on('pageerror',e=>errs.push(String(e)));
   for(const h of ['plan','map','collections','collections/no-charge','neighbourhoods','whatson','beyond','offers']){
    await p.goto(B+'visit/explore/#'+h,{waitUntil:'networkidle'}).catch(e=>errs.push(String(e)));await p.waitForTimeout(800);
-   const r=await p.evaluate(()=>({sw:document.documentElement.scrollWidth,vw:innerWidth,tabs:[...document.querySelectorAll('#tabs a')].map(a=>a.textContent).join('|'),cur:(document.querySelector('#tabs a[aria-current]')||{}).textContent,free:[...document.body.innerText.matchAll(/.{50}\bfree\b.{30}/gi)].map(m=>m[0].replace(/\n/g,' ')).slice(0,4),loading:!!document.querySelector('.loading'),markers:document.querySelectorAll('.leaflet-marker-icon').length,cards:document.querySelectorAll('.card').length}));
+   const r=await p.evaluate(()=>({sw:document.documentElement.scrollWidth,vw:innerWidth,tabs:[...document.querySelectorAll('#tabs a')].map(a=>a.textContent).join('|'),cur:(document.querySelector('#tabs a[aria-current]')||{}).textContent,free:[...document.body.innerText.matchAll(/[^\n]{0,60}\bfree\b[^\n]{0,40}/gi)].map(m=>m[0].replace(/\n/g,' ')).slice(0,4),loading:!!document.querySelector('.loading'),markers:document.querySelectorAll('.leaflet-marker-icon').length,cards:document.querySelectorAll('.card').length}));
    console.log(n,h,JSON.stringify(r));
   }
   // plan
