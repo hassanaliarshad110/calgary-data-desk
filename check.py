@@ -1,7 +1,7 @@
 import schooltax as st, alberta, collections, re
-rs=[r for r in alberta.resources(st.REQ_PKG,'c/alberta') if '2026' in r['url']]
+U='https://open.alberta.ca/dataset/74aa70ca-c77e-46c0-8fd8-ee79b8c8b42a/resource/2c02aaa4-8b49-49db-854f-f394aba9b666/download/ma-education-property-tax-requisition-comparison-report-2026.pdf'
 import os
-data=st._get(rs[0]['url'])
+data=st._get(U)
 lines=st._pdf_lines(data)
 y,p,rows=st.parse_requisitions(lines)
 print('CHK rows',len(rows), collections.Counter(r['category'] for r in rows))
