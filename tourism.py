@@ -31,7 +31,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 WDS = 'https://www150.statcan.gc.ca/t1/wds/rest/'
 UA = {'User-Agent': 'Mozilla/5.0 (compatible; CalgaryInsight/1.0; civic data)'}
 ARRIVALS, AIR_ANNUAL, AIR_MONTHLY = 24100055, 23100253, 23100312
-PORTS = ['Canada', 'Alberta', 'Calgary', 'Edmonton', 'Vancouver', 'Toronto', 'Montréal']
+PORTS = {'Canada': 'Canada', 'Alberta': 'Alberta', 'Calgary': 'Calgary', 'Edmonton': 'Edmonton', 'Vancouver': 'Vancouver',
+         'Toronto': 'Toronto Pearson International Airport', 'Montréal': 'Montreal'}   # label: Statistics Canada's name
 COUNTRIES = ['Non-resident visitors entering Canada', 'United States of America residents entering Canada',
              'Residents of countries other than the United States of America entering Canada',
              'United Kingdom', 'Germany', 'France', 'Netherlands', 'Switzerland', 'Italy', 'Spain', 'Ireland',
@@ -42,7 +43,10 @@ AIRPORTS = ['Calgary', 'Vancouver', 'Toronto', 'Montréal', 'Edmonton', 'Ottawa'
 
 def _city(geo):
     """'Toronto/Lester B Pearson International, Ontario' -> 'Toronto' when it is one of AIRPORTS."""
-    c = (geo or '').split(',')[0].split('/')[0].strip()
+    g = (geo or '').split(',')[0]
+    if 'International' not in g or re.search(r'Mirabel|Billy Bishop|Springbank|Josephburg|Villeneuve|Boundary Bay|Buttonville|Hubert', g):
+        return None                                        # the city's main international airport only
+    c = re.sub(r'\s+International.*$', '', g.split('/')[0]).strip()
     return c if c in AIRPORTS else None
 RESEARCH = os.path.join(HERE, 'data', 'tourism_research.json')
 SITE_COPY = 'https://calgaryinsight.ca/data/tourism.json'
@@ -110,10 +114,10 @@ def arrivals(months=132):
     meta = _post('getCubeMetadata', [{'productId': ARRIVALS}])[0]['object']
     dims = {d['dimensionNameEn']: d for d in meta['dimension']}
     order = [d['dimensionNameEn'] for d in meta['dimension']]
-    fixed = {'Mode of transportation': _member(dims['Mode of transportation'], 'All modes of transportation'),
+    fixed = {'Mode of transportation': _member(dims['Mode of transportation'], 'Air'),           # air only: like with like
              'Arrival type': _member(dims['Arrival type'], 'All arrivals')}
     types = {'tourists': _member(dims['Traveller type'], 'Tourists (overnight)'), 'visitors': _member(dims['Traveller type'], 'Visitors')}
-    ports = {p: _member(dims['Geography'], p) for p in PORTS}
+    ports = {p: _member(dims['Geography'], n) for p, n in PORTS.items()}
     countries = {c: _member(dims['Country of residence'], c) for c in COUNTRIES}
     reqs, keys = [], []
     for p, pid in ports.items():
@@ -127,13 +131,17 @@ def arrivals(months=132):
                 coord = '.'.join(str(ids[d]) for d in order) + '.0' * (10 - len(order))
                 reqs.append({'productId': ARRIVALS, 'coordinate': coord, 'latestN': months})
                 keys.append((p, c, t))
+    by_coord = {r['coordinate']: k for r, k in zip(reqs, keys)}
     out = {'tourists': {}, 'visitors': {}}
     for i in range(0, len(reqs), 100):
         res = _post('getDataFromCubePidCoordAndLatestNPeriods', reqs[i:i + 100])
-        for (p, c, t), r in zip(keys[i:i + 100], res):
-            if r.get('status') != 'SUCCESS':
+        for r in res:                                      # the answers do not come back in the order asked
+            o = r.get('object') or {}
+            k = by_coord.get(o.get('coordinate'))
+            if r.get('status') != 'SUCCESS' or not k:
                 continue
-            pts = r['object'].get('vectorDataPoint') or []
+            p, c, t = k
+            pts = o.get('vectorDataPoint') or []
             out[t].setdefault(p, {})[c] = {d['refPer'][:7]: d['value'] for d in pts if d.get('value') is not None}
     return {'months': months, 'ports_found': {p: bool(v) for p, v in ports.items()},
             'countries_found': [c for c, v in countries.items() if v], **out}
@@ -197,9 +205,9 @@ def arrivals_summary(a):
         same_day[p] = full
     return {'latest_full_year': lastfull, 'ports': ports, 'share_of_canada_pct': share, 'by_country': countries,
             'all_visitors_incl_same_day_by_year': same_day,
-            'how': 'Non-resident visitors entering Canada at each port of entry (Statistics Canada 24-10-0055): overnight '
-                   'tourists by year and month, by country of residence. A port of entry is where a visitor first enters '
-                   'Canada, not where they stay. Calgary = visitors entering at Calgary (almost all by air at YYC).'}
+            'how': 'Non-resident visitors entering Canada by air at each port of entry (Statistics Canada 24-10-0055): '
+                   'overnight tourists by year and month, by country of residence. A port of entry is where a visitor first '
+                   'enters Canada, not where they stay. Calgary = YYC; Toronto = Pearson; Canada and Alberta = every airport.'}
 
 
 # ------------------------------------------------------------------ airports
