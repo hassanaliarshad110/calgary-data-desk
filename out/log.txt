@@ -1,0 +1,103 @@
+{
+ "errors": [],
+ "share": {
+  "Canada": null,
+  "Alberta": 10.9,
+  "Calgary": 9.7,
+  "Edmonton": 1.2,
+  "Vancouver": 24.7,
+  "Toronto": 38.4,
+  "Montr\u00e9al": 19.5
+ },
+ "calgary": {
+  "2016": 711584,
+  "2017": 756695,
+  "2018": 761360,
+  "2019": 800631,
+  "2020": 115079,
+  "2021": 104921,
+  "2022": 538550,
+  "2023": 836555,
+  "2024": 910962,
+  "2025": 1065396
+ },
+ "airports": {
+  "Halifax": [
+   "2025",
+   {
+    "total": 4020914,
+    "domestic": 3153633
+   }
+  ],
+  "Montr\u00e9al": [
+   "2025",
+   {
+    "total": 21531258,
+    "domestic": 6378969,
+    "transborder": 4595778,
+    "international": 10556511
+   }
+  ],
+  "Ottawa": [
+   "2025",
+   {
+    "total": 4732563,
+    "domestic": 3532971,
+    "transborder": 728454,
+    "international": 471138
+   }
+  ],
+  "Toronto": [
+   "2025",
+   {
+    "total": 45998881,
+    "domestic": 16439411,
+    "transborder": 11475159,
+    "international": 18084311
+   }
+  ],
+  "Winnipeg": [
+   "2025",
+   {
+    "total": 4274502,
+    "domestic": 3637440,
+    "transborder": 420768,
+    "international": 216294
+   }
+  ],
+  "Calgary": [
+   "2025",
+   {
+    "total": 18803183,
+    "domestic": 12605805,
+    "transborder": 3667113,
+    "international": 2530265
+   }
+  ],
+  "Edmonton": [
+   "2025",
+   {
+    "total": 7658691,
+    "domestic": 6322811,
+    "transborder": 817210,
+    "international": 518670
+   }
+  ],
+  "Vancouver": [
+   "2025",
+   {
+    "total": 26013167,
+    "domestic": 12832129,
+    "transborder": 6055261,
+    "international": 7125777
+   }
+  ],
+  "Victoria": [
+   "2025",
+   {
+    "total": 1931201,
+    "domestic": 1745519
+   }
+  ]
+ }
+}
