@@ -3,7 +3,8 @@
 // again every few minutes while the page is open; the news comes from the published editions (citynews.js).
 const LM = { map: null, groups: {}, on: { news: true, traffic: true, r311: false, crime: true }, newsDays: 7, safetyOnly: false,
   traffic: null, r311: null, city: null, read: {}, timer: null, tick: null, err: {} };
-try { Object.assign(LM.on, JSON.parse(localStorage.getItem('lm-on') || '{}')); } catch { /* storage off */ }
+// every visit opens with the layers on: a layer switched off last time stayed hidden and looked broken
+try { localStorage.removeItem('lm-on'); } catch { /* storage off */ }
 const LM_CITY = 'https://data.calgary.ca/resource/';
 const LM_RAMP = { light: ['#FEF3C7', '#FCD34D', '#F59E0B', '#D97706', '#92400E'], dark: ['#3B2A0B', '#6B4510', '#A16207', '#D97706', '#FCD34D'] };
 const lmDark = () => (typeof isDark === 'function' ? isDark() : document.documentElement.dataset.theme === 'dark');
@@ -11,7 +12,7 @@ const lmAgo = t => { if (!t) return ''; const m = Math.round((Date.now() - t) / 
 const lmUtc = h => new Date(Date.now() - h * 3600e3).toISOString().slice(0, 19);
 // Calgary local date and time from a floating timestamp the City publishes
 const lmWhen = (s, utc) => { if (!s) return ''; const d = new Date(utc ? s + 'Z' : s); return isNaN(d) ? s : d.toLocaleString('en-CA', { timeZone: 'America/Edmonton', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }); };
-const lmSave = () => { try { localStorage.setItem('lm-on', JSON.stringify(LM.on)); } catch { /* storage off */ } };
+const lmSave = () => {};
 
 async function lmGet(id, q) {
   const r = await fetch(LM_CITY + id + '.json?' + new URLSearchParams(q), { cache: 'no-store' });
@@ -38,8 +39,37 @@ async function lmCity() {
   try { const r = await (await api()).peek_view(0); if (r && r.ok) LM.city = r.data; else LM.err.crime = (r && r.error) || 'not read'; }
   catch (e) { LM.err.crime = String(e.message || e); }
 }
+// the middle of a community or ward shape, for a story that names the place but gives no exact point
+function lmMid(g) {
+  if (!g || !g.coordinates) return null;
+  const ring = g.type === 'MultiPolygon' ? g.coordinates.map(p => p[0]).sort((a, b) => b.length - a.length)[0] : g.type === 'Polygon' ? g.coordinates[0] : null;
+  if (!ring || !ring.length) return null;
+  const n = ring.length; return [ring.reduce((t, c) => t + c[1], 0) / n, ring.reduce((t, c) => t + c[0], 0) / n];
+}
+function lmPlace(a) {
+  if (a.location && isFinite(+a.location.lat) && isFinite(+a.location.lon) && +a.location.lat) return { ...a };
+  const C = LM.city; if (!C || !C.geo) return null;
+  const geo = C.geo.communities || {};
+  for (const c of a.communities || []) {
+    const k = String(c).trim().toUpperCase();
+    const row = (C.communities || []).find(r => r.code === k || String(r.name || '').toUpperCase() === k);
+    const ll = row && lmMid(geo[row.code]);
+    if (ll) return { ...a, location: { lat: ll[0], lon: ll[1], label: row.name } };
+  }
+  const wg = C.geo.wards || {};
+  for (const w of a.wards || []) {
+    const g = wg[w] || wg[String(w)] || (Array.isArray(wg) ? wg[+w] : null);
+    const ll = lmMid(g && g.geometry ? g.geometry : g);
+    if (ll) return { ...a, location: { lat: ll[0], lon: ll[1], label: 'Ward ' + w } };
+  }
+  return null;
+}
 function lmNews() {
-  const all = ((typeof CN !== 'undefined' && CN && CN.articles) || []).filter(a => a.location && isFinite(+a.location.lat) && isFinite(+a.location.lon));
+  const all = ((typeof CN !== 'undefined' && CN && CN.articles) || []).map(lmPlace).filter(Boolean);
+  // stories placed on the same spot are spread a little so each pin can be tapped
+  const seen = {};
+  all.forEach(a => { const k = (+a.location.lat).toFixed(4) + ',' + (+a.location.lon).toFixed(4); const i = seen[k] = (seen[k] || 0) + 1;
+    if (i > 1) a.location = { ...a.location, lat: +a.location.lat + .0035 * Math.sin(i * 2.4), lon: +a.location.lon + .0055 * Math.cos(i * 2.4) }; });
   const dates = [...new Set(all.map(a => a.date))].sort().reverse();
   const newest = dates[0] || '';
   const from = newest ? new Date(new Date(newest + 'T12:00:00') - (LM.newsDays - 1) * 864e5).toISOString().slice(0, 10) : '';
@@ -157,8 +187,8 @@ async function renderLiveMap() {
     $('#lm-safety').addEventListener('change', e => { LM.safetyOnly = e.target.checked; lmDraw(); });
   } else setTimeout(() => LM.map.invalidateSize(), 60);
   lmStamp();
-  await Promise.all([loadCityNews(), lmCity(), lmTraffic(), LM.on.r311 ? lm311() : null]);
-  lmDraw();
+  // each layer is drawn as soon as its data arrives, so a slow file never holds the others back
+  await Promise.all([loadCityNews(), lmCity(), lmTraffic(), LM.on.r311 ? lm311() : null].map(p => Promise.resolve(p).catch(() => null).then(() => lmDraw())));
   // live: traffic every 2 minutes, 311 every 10, only while this page is on screen
   clearInterval(LM.timer); clearInterval(LM.tick);
   const here = () => !document.hidden && $('#view-livemap') && $('#view-livemap').classList.contains('is-on');
