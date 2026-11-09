@@ -8,4 +8,4 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install pypdf
-      - run: mkdir -p c && python schooltax.py st.json c > out.txt; python -c "import json;d=json.load(open('st.json'));print('CHK errors',d['errors']);print('CHK trend',d['requisition']['trend']);print('CHK tps',{k:v for k,v in d['tax_per_student'].items() if k!='how'});print('CHK fund',d['funding']['boards_matched'],d['funding']['alberta_per_student_prev'])"
+      - run: python find.py
