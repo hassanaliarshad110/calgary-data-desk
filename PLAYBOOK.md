@@ -46,8 +46,9 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
 - After assembly: contact sheet of six frames (look at it), duration check, fade check, poster JPG. Aim for ≤ 10 MB.
 
 ## 6. Deliver
-- Create a **draft** release (drafts stay private on this public repo), one per video:
-  `gh release create studio-<date>-<slot> --repo hassanaliarshad110/calgary-data-desk --draft --target content-studio --title "<date> <slot> · <title>" --notes-file <short notes: type, length, caption, sources> <slug>.mp4 <slug>.jpg packages/<file>.md`
-- Append to `log.json`: `{date, slot, type, category, title, topic_used, changed_from_calendar (reason or null), central_figure, sources:[urls], length_s, release_tag, status:"done"}`. If rendering failed, save the package anyway with status `"script-only"` and the reason.
+- Video files go to the **`studio-videos`** branch (GitHub releases are blocked for these sessions). Keep it light; never clone it with history:
+  `git clone -q --depth 1 -b studio-videos https://github.com/hassanaliarshad110/calgary-data-desk /home/claude/sv`, copy `<slug>.mp4` and `<slug>.jpg` into `sv/<date>-<slot>/`, commit as Hassan Ali, then `git pull --rebase --depth 1` and push, retrying up to 3 times.
+  Raw link (for Metricool later, once Hassan approves): `https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/<date>-<slot>/<slug>.mp4`
+- Append to `log.json`: `{date, slot, type, category, title, topic_used, changed_from_calendar (reason or null), central_figure, sources:[urls], length_s, video_path, status:"done"}`. If rendering failed, save the package anyway with status `"script-only"` and the reason.
 - Commit the package and log to `content-studio` as Hassan Ali, `git pull --rebase` then push, retrying up to 3 times.
-- Send the MP4 to Hassan with SendUserFile (display attach), then a SendUserMessage of at most 5 lines: title, length and format, the one key figure with its source, and the draft release name.
+- Send the MP4 to Hassan with SendUserFile (display attach), then a SendUserMessage of at most 5 lines: title, length and format, the one key figure with its source, and the raw video link.
