@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>YYC City Stories: a free game on the real map of Calgary · Calgary Insight</title>
-<meta name="description" content="YYC City Stories is a free game built on the real map of Calgary from City open data. Play as Ali, Natalia, Chris or Jean through 18 missions that teach City services: transit, 311, licences, seniors' programs, recycling, snow and more.">
+<meta name="description" content="YYC City Stories is a free game built on the real map of Calgary from City open data. Play as Ali, Natalia, Chris, Jean or Leo through 27 missions that teach City services: transit, 311, licences, seniors' programs, bullying, recycling, snow and visiting the city at Stampede time.">
 <link rel="canonical" href="https://calgaryinsight.ca/game/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Calgary Insight">
 <meta property="og:title" content="YYC City Stories: a free game on the real map of Calgary">
-<meta property="og:description" content="Four characters, 18 missions, every street and building the real Calgary. Learn City services by playing. Free, in your browser.">
+<meta property="og:description" content="Five characters, 27 missions, every street and building the real Calgary. Learn City services by playing. Free, in your browser.">
 <meta property="og:url" content="https://calgaryinsight.ca/game/"><meta property="og:image" content="https://calgaryinsight.ca/game/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"YYC City Stories","url":"https://calgaryinsight.ca/game/","image":"https://calgaryinsight.ca/game/img/og.jpg","description":"A free game on the real map of Calgary. Play as a newcomer, a student, a senior or a resident and learn City services through 18 missions.","author":{"@type":"Person","name":"Hassan Ali"},"publisher":{"@type":"Organization","name":"Calgary Insight","url":"https://calgaryinsight.ca/"},"gamePlatform":["Web browser"],"applicationCategory":"Game","genre":["Open world","Educational"],"inLanguage":["en","fr","pa","ur","tl","ar"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"},"contentLocation":{"@type":"City","name":"Calgary"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"YYC City Stories","url":"https://calgaryinsight.ca/game/","image":"https://calgaryinsight.ca/game/img/og.jpg","description":"A free game on the real map of Calgary. Play as a newcomer, a student, a senior, a resident or a visitor and learn City services through 27 missions.","publisher":{"@type":"Organization","name":"Calgary Insight","url":"https://calgaryinsight.ca/"},"gamePlatform":["Web browser"],"applicationCategory":"Game","genre":["Open world","Educational"],"inLanguage":["en","fr","pa","ur","tl","ar"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"},"contentLocation":{"@type":"City","name":"Calgary"}}</script>
 <style>
 :root{--ink:#0d141c;--ink2:#141e29;--card:#18232f;--line:rgba(255,255,255,.12);--fg:#f3f6fa;--mute:#a7b3c2;--red:#c8102e;--red2:#e5243f;--gold:#ffc400;
 --display:'Archivo Black','Arial Black',Impact,sans-serif;--body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:dark}
@@ -102,9 +102,9 @@ footer ul{padding-left:1.1rem;margin:.6rem 0 1rem}
     <div class="kicker">Calgary Insight presents</div>
     <h1 class="logo">YYC <span>CITY</span><br>STORIES</h1>
     <p class="tag">The real Calgary. Real City services. Your story.</p>
-    <p class="by">A free game by Hassan Ali</p>
+    <p class="by">Free to play, in six languages</p>
     <a class="play" href="../city-stories/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Play now, free</a>
-    <div class="facts"><span><b>4</b> characters</span><span><b>18</b> missions</span><span><b>6</b> languages</span><span>In your browser · no download, no account</span></div>
+    <div class="facts"><span><b>5</b> characters</span><span><b>27</b> missions</span><span><b>6</b> languages</span><span>In your browser · no download, no account</span></div>
   </div>
 </header>
 
@@ -112,7 +112,7 @@ footer ul{padding-left:1.1rem;margin:.6rem 0 1rem}
   <section class="pad"><div class="wrap">
     <div class="kicker">The game</div>
     <h2>Calgary, built from the City's own open data</h2>
-    <p class="lead">YYC City Stories is an open-world game set on the real map of Calgary. Every street, building and park is where it is in real life, built from the City of Calgary's open data. You walk, drive and ride the CTrain through the city as one of four Calgarians, and every mission teaches a real City service: what it is, where to find it, and how to use it.</p>
+    <p class="lead">YYC City Stories is an open-world game set on the real map of Calgary. Every street, building and park is where it is in real life, built from the City of Calgary's open data. You walk, drive, take the bus and ride the CTrain through the city as one of five characters, and every mission teaches a real City service: what it is, where to find it, and how to use it.</p>
     <p class="lead">It was made for newcomers finding their feet, students, seniors and anyone who lives here, to show that help is closer than people think.</p>
     <div class="shots" id="shots"></div>
   </div></section>
@@ -125,11 +125,15 @@ footer ul{padding-left:1.1rem;margin:.6rem 0 1rem}
       <div><i>🏠</i><b>House numbers on every home</b><p>Every building carries its real address from the City's Parcel Address data. Type an address in the in-game phone and go there.</p></div>
       <div><i>🏪</i><b>Real shops and businesses</b><p>Storefront signs on the right buildings, from the City's business licences. The phone's Nearby app finds them around you.</p></div>
       <div><i>🚦</i><b>Real streets, signals and signs</b><p>Traffic lights stand at the City's real signalised intersections, with speed limits by street type and road signs from City data.</p></div>
-      <div><i>🚆</i><b>Calgary Transit</b><p>Real routes and stops from the Calgary Transit timetable. Walk onto any CTrain platform, pick your stop and ride.</p></div>
+      <div><i>🚆</i><b>Calgary Transit</b><p>Buses on their real routes and CTrains on both lines, with real stops and shelters from the Calgary Transit timetable. Pay the real fare ($4.00 adult, good for 90 minutes) and ride.</p></div>
+      <div><i>🧭</i><b>Directions by transit</b><p>Pick a place on the map and follow the GPS route, or tap "Guide me by transit" for step-by-step directions: walk to this stop, take this bus, change here.</p></div>
       <div><i>🌳</i><b>Parks as they are</b><p>Benches, picnic tables, playgrounds and fountains each at their real spot, from City of Calgary Parks open data.</p></div>
+      <div><i>🏏</i><b>Real sports fields</b><p>More than 1,300 soccer, football, rugby and cricket fields from the City's sports field data, with their lines, goals, posts, boundary ropes and cricket pitches, and on the map.</p></div>
+      <div><i>🤠</i><b>It's Stampede time</b><p>Stampede Park is in full swing: a midway with a Ferris wheel and rides, the Grandstand Show with fireworks every night, a country stage, crowds in cowboy hats and a street party at Olympic Plaza.</p></div>
       <div><i>🗳️</i><b>Your ward and councillor</b><p>Welcome billboards where main roads enter each of the 14 wards, with a welcome from that ward's councillor.</p></div>
       <div><i>📱</i><b>A phone with real City info</b><p>311, Transit, Find help and City facts, including the number of 311 requests open across Calgary right now, live from open data.</p></div>
-      <div><i>🎤</i><b>Day, night and a concert</b><p>The city lights up after dark, and a concert plays at the Scotiabank Saddledome every night to the title song, "Under One Sky".</p></div>
+      <div><i>🎤</i><b>Day, night and concerts</b><p>The city lights up after dark. Walk up to a stage to hear the title song, "Under One Sky", with the lyrics on screen to sing along.</p></div>
+      <div><i>🗣️</i><b>Voiced stories</b><p>Story dialogue is spoken in all six languages, and Natalia's story ends with a music video, "Beyond the Mask".</p></div>
       <div><i>🚗</i><b>Walk, drive or fly</b><p>Get in a car, hop on a motorbike or fly the helicopter over downtown and the Bow.</p></div>
       <div><i>📷</i><b>See it for real</b><p>At mission places and landmarks, open the real street photo of the spot and compare it with the game.</p></div>
       <div><i>🌐</i><b>Six languages</b><p>English, French, Punjabi, Urdu, Tagalog and Arabic: every mission, card and quiz.</p></div>
@@ -138,7 +142,7 @@ footer ul{padding-left:1.1rem;margin:.6rem 0 1rem}
 
   <section class="pad" id="characters"><div class="wrap">
     <div class="kicker">Choose who you play</div>
-    <h2>Four Calgarians, four stories</h2>
+    <h2>Five characters, five stories</h2>
     <p class="lead">Each character has their own story, set in the parts of the city they live in. Every mission ends with a short card on the real service, with links to the official page, and a quick quiz.</p>
     <div class="cast">
 
@@ -158,11 +162,14 @@ footer ul{padding-left:1.1rem;margin:.6rem 0 1rem}
 
       <article class="who" style="--c1:rgba(140,60,200,.32);--hair:#4a2e1a;--skin:#d8a77c;--shirt:#8a3fb8">
         <div class="id"><div class="av" aria-hidden="true"></div><h3>Natalia</h3><div class="role">Student</div>
-          <p>Natalia goes to high school in the northeast. Stand up to bullies, help the younger kids and teach your school how to stop bullying.</p><span class="count">3 missions</span></div>
+          <p>Natalia goes to high school in the northeast. Stand up to bullies, make sure nobody eats alone, stop an online pile-on and speak up in front of the whole school. You choose what to say; then watch it play out.</p><span class="count">6 missions</span></div>
         <ol>
           <li><b>First day at school</b><span>Walk to Nelson Mandela High School and learn how students get around on transit.<em>Youth on transit</em></span></li>
           <li><b>Stand up to the bullies</b><span>Older kids are picking on a Grade 7 student. Stay calm, get him to safety and find adults who can help.<em>Bullying</em></span></li>
+          <li><b>Nobody eats alone</b><span>A new student is sitting by herself at lunch. Leaving people out is bullying too.<em>Bullying</em></span></li>
+          <li><b>The group chat</b><span>A photo is going around the class chat. Don't share it, save the proof and report it.<em>Cyberbullying</em></span></li>
           <li><b>Teach the younger kids</b><span>The principal asks you to visit three groups around the school and share what you know.<em>Bullying</em></span></li>
+          <li><b>Speak up at the assembly</b><span>Tell the whole school what to do about bullying, then the story ends with the music video "Beyond the Mask".<em>Bullying</em></span></li>
         </ol>
       </article>
 
@@ -187,6 +194,19 @@ footer ul{padding-left:1.1rem;margin:.6rem 0 1rem}
           <li><b>Concert night</b><span>Get to the Saddledome: pay for parking with your zone number, or take the CTrain.<em>Parking</em></span></li>
         </ol>
       </article>
+
+      <article class="who" style="--c1:rgba(220,150,40,.32);--hair:#2a1d14;--skin:#c69373;--shirt:#e0a020">
+        <div class="id"><div class="av" aria-hidden="true"></div><h3>Leo</h3><div class="role">Visiting Calgary</div>
+          <p>Leo is in Calgary for the first time, right in the middle of the Stampede. Get your white hat, ride the CTrain, see the sights and plan day trips.</p><span class="count">6 missions</span></div>
+        <ol>
+          <li><b>Stampede time!</b><span>Sofia gives you a white hat. Take the CTrain Red Line to Stampede Park, walk the midway and watch the Grandstand Show and fireworks.<em>Visiting Calgary</em></span></li>
+          <li><b>The best view in town</b><span>Go up the Calgary Tower and see the city, all the way to the mountains.<em>Visiting Calgary</em></span></li>
+          <li><b>Getting around downtown</b><span>Walk Stephen Avenue, learn the Plus 15 and how visitors use transit.<em>Calgary Transit</em></span></li>
+          <li><b>Walk the river</b><span>Follow the Bow River pathway to the Peace Bridge, with shared e-scooters and e-bikes.<em>Pathways</em></span></li>
+          <li><b>East Village and Stampede Park</b><span>The Central Library, Studio Bell and Fort Calgary, where the city began.<em>History</em></span></li>
+          <li><b>Plan your trip</b><span>Banff, Kananaskis and more to explore beyond the city.<em>Visiting Calgary</em></span></li>
+        </ol>
+      </article>
     </div>
     <p style="margin-top:1.6rem"><a class="play" href="../city-stories/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Choose your character and play</a></p>
   </div></section>
@@ -198,10 +218,12 @@ footer ul{padding-left:1.1rem;margin:.6rem 0 1rem}
       <div><h3>On a computer</h3><ul>
         <li><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> to move, drag the mouse to look around</li>
         <li><kbd>Shift</kbd> to run or boost, <kbd>F</kbd> to get in or out of a car</li>
-        <li><kbd>E</kbd> to talk or use, <kbd>M</kbd> for the map, <kbd>P</kbd> for your phone</li></ul></div>
+        <li><kbd>E</kbd> to talk or use, <kbd>M</kbd> for the map, <kbd>P</kbd> for your phone</li>
+        <li>Mouse wheel or <kbd>+</kbd> <kbd>−</kbd> to zoom the camera</li></ul></div>
       <div><h3>On a phone or tablet</h3><ul>
         <li>On-screen joystick to move, drag to look around</li>
         <li>Buttons for the phone, map, car and helicopter</li>
+        <li>Pinch with two fingers, or tap + and −, to zoom</li>
         <li>Turn the phone sideways for the best view; a recent phone works best</li></ul></div>
       <div><h3>Two ways to play</h3><ul>
         <li><b>Story:</b> follow your character's missions in order</li>
@@ -218,19 +240,21 @@ footer ul{padding-left:1.1rem;margin:.6rem 0 1rem}
 </main>
 
 <footer class="pad"><div class="wrap">
-  <b>YYC City Stories, a game by Hassan Ali.</b> Presented by <a href="../">Calgary Insight</a>, independent and non-partisan; not affiliated with The City of Calgary.
+  <b>YYC City Stories.</b> Presented by <a href="../">Calgary Insight</a>, independent and non-partisan; not affiliated with The City of Calgary.
   <ul>
     <li>Map data © OpenStreetMap contributors, Open Database Licence (ODbL)</li>
-    <li>Building shapes, ground heights, addresses, business licences, parks, traffic signals, wards and Calgary Transit routes and stops: City of Calgary open data, Open Government Licence – City of Calgary</li>
+    <li>Building shapes, ground heights, addresses, business licences, parks, sports fields, traffic signals, wards and Calgary Transit routes and stops: City of Calgary open data, Open Government Licence – City of Calgary</li>
     <li>Ground imagery: contains modified Copernicus Sentinel data 2024–2025; outside the city, Copernicus DEM GLO-30 (European Union, ESA)</li>
-    <li>Title song: "Under One Sky" by Hassan Ali</li>
+    <li>Songs: "Under One Sky" (title song) and "Beyond the Mask"</li>
+    <li>Dialogue voices: Kokoro (Apache License 2.0) and Meta MMS-TTS (CC BY-NC 4.0, non-commercial use)</li>
+    <li>Stampede Park, its concerts and the midway are a game re-creation, not affiliated with the Calgary Stampede</li>
   </ul>
   Something wrong in the game, or an idea for a mission? Write to <a href="mailto:hello@calgaryinsight.ca">hello@calgaryinsight.ca</a>.
 </div></footer>
 <script>
 // the screenshots, with what each shows
 (function () {
-  var S = [['saddledome-night', 'The downtown skyline and the Calgary Tower from the Beltline at dusk'], ['menu', 'Choose Ali, Natalia, Chris or Jean, in any of six languages'],
+  var S = [['saddledome-night', 'The downtown skyline and the Calgary Tower from the Beltline at dusk'], ['menu', 'Choose Ali, Natalia, Chris, Jean or Leo, in any of six languages'],
            ['peace-bridge', 'Eau Claire, by the Bow River, as the lights come on'], ['downtown-day', '7 Avenue SW at midday: real buildings, a +15 skywalk and real shop signs'],
            ['martindale-aerial', 'Martinbrook Link NE in Martindale, where Jean lives']];
   var box = document.getElementById('shots');
