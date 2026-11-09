@@ -19,15 +19,15 @@ const t=async u=>{try{const r=await fetch(B+u+'?t='+Date.now());return [r.status
   const x=await b.newContext(ctx),p=await x.newPage(),errs=[];p.on('pageerror',e=>errs.push(String(e)));
   for(const h of ['plan','map','collections','collections/no-charge','neighbourhoods','whatson','beyond','offers']){
    await p.goto(B+'visit/explore/#'+h,{waitUntil:'networkidle'}).catch(e=>errs.push(String(e)));await p.waitForTimeout(800);
-   const r=await p.evaluate(()=>({sw:document.documentElement.scrollWidth,vw:innerWidth,tabs:[...document.querySelectorAll('#tabs a')].map(a=>a.textContent).join('|'),cur:(document.querySelector('#tabs a[aria-current]')||{}).textContent,free:/\bfree\b/i.test(document.body.innerText),loading:!!document.querySelector('.loading'),markers:document.querySelectorAll('.leaflet-marker-icon').length,cards:document.querySelectorAll('.card').length}));
+   const r=await p.evaluate(()=>({sw:document.documentElement.scrollWidth,vw:innerWidth,tabs:[...document.querySelectorAll('#tabs a')].map(a=>a.textContent).join('|'),cur:(document.querySelector('#tabs a[aria-current]')||{}).textContent,free:[...document.body.innerText.matchAll(/.{50}\bfree\b.{30}/gi)].map(m=>m[0].replace(/\n/g,' ')).slice(0,4),loading:!!document.querySelector('.loading'),markers:document.querySelectorAll('.leaflet-marker-icon').length,cards:document.querySelectorAll('.card').length}));
    console.log(n,h,JSON.stringify(r));
   }
   // plan
   await p.goto(B+'visit/explore/#plan',{waitUntil:'networkidle'});await p.waitForTimeout(500);
-  const btn=await p.$('text=Plan my days'); if(btn){await btn.click();await p.waitForTimeout(800);console.log(n,'plan days',await p.$$eval('.day',d=>d.length),'stops',await p.$$eval('.stop',d=>d.length));} else console.log(n,'no plan button');
+  const btn=await p.$('text=Build my plan'); if(btn){await btn.click();await p.waitForTimeout(800);console.log(n,'plan days',await p.$$eval('.day',d=>d.length),'stops',await p.$$eval('.stop',d=>d.length));} else console.log(n,'no plan button');
   await p.screenshot({path:`out/${n}-plan.png`,fullPage:false});
   await p.goto(B+'visit/explore/#map',{waitUntil:'networkidle'});await p.waitForTimeout(1500);await p.screenshot({path:`out/${n}-map.png`});
-  const gp=await x.newPage();await gp.goto(B+'visit/history/',{waitUntil:'domcontentloaded'}).catch(()=>{});console.log(n,'guide Plan&map link',await gp.evaluate(()=>!![...document.querySelectorAll('a')].find(a=>a.getAttribute('href')==='../explore/')));
+  const gp=await x.newPage();await gp.goto(B+'visit/downtown/',{waitUntil:'domcontentloaded'}).catch(()=>{});console.log(n,'guide Plan&map link',await gp.evaluate(()=>!![...document.querySelectorAll('a')].find(a=>a.getAttribute('href')==='../explore/')));
   console.log(n,'errors',JSON.stringify(errs));
   await x.close();
  }
