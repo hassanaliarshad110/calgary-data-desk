@@ -1,0 +1,22 @@
+name: Sewer probe
+on:
+  push:
+    branches: [sewer-probe]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python probe/sewer_fetch.py _b
+      - run: |
+          mkdir -p _b && date -u > _b/ran_at.txt
+          cd _b
+          git init -q -b sewer-probe-out
+          git config user.name "Hassan Ali"
+          git config user.email "hassanaliarshad110@users.noreply.github.com"
+          git add -A && git commit -q -m "Sewer probe"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" sewer-probe-out
