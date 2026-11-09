@@ -1,0 +1,125 @@
+{
+ "Olympic Plaza": {
+  "lat": 51.0459295,
+  "lon": -114.0590933,
+  "display": "Olympic Plaza, 228, Downtown Commercial Core, Calgary, Alberta, Canada",
+  "osm": "way/127943987"
+ },
+ "Banff Gondola": {
+  "lat": 51.1479016,
+  "lon": -115.5554466,
+  "display": "Banff Gondola Lower Terminal, 1, Mountain Avenue, Sulphur Mountain District, Banff, Improvement District No. 9, Alberta,",
+  "osm": "way/764291471"
+ },
+ "Johnston Canyon": {
+  "lat": 51.2536117,
+  "lon": -115.8379548,
+  "display": "Johnston Canyon, Improvement District No. 9, Alberta, Canada",
+  "osm": "way/1137488348"
+ },
+ "Lake Minnewanka": {
+  "lat": 51.2562171,
+  "lon": -115.460925,
+  "display": "Lake Minnewanka, Improvement District No. 9, Alberta, Canada",
+  "osm": "relation/2048785"
+ },
+ "St. Patrick's Island Park": {
+  "lat": 51.0469458,
+  "lon": -114.0395333,
+  "display": "Saint Patrick's Island, Bridgeland/Riverside, Calgary, Alberta, Canada",
+  "osm": "way/541442153"
+ },
+ "Edworthy Park": {
+  "lat": 51.0592583,
+  "lon": -114.1605573,
+  "display": "Edworthy Park, 5050, Wildwood, Calgary, Alberta, Canada",
+  "osm": "way/10584822"
+ },
+ "Scotiabank Saddledome": {
+  "lat": 51.0374124,
+  "lon": -114.0519642,
+  "display": "Scotiabank Saddledome, 555, Saddledome Rise SE, Beltline, Calgary, Alberta, T2G 2W1, Canada",
+  "osm": "way/4397328"
+ },
+ "McMahon Stadium": {
+  "lat": 51.0704233,
+  "lon": -114.1214899,
+  "display": "McMahon Stadium, University Drive NW, University of Calgary, Calgary, Alberta, T2N 3Y6, Canada",
+  "osm": "way/427304042"
+ },
+ "Arts Commons": {
+  "lat": 51.0449628,
+  "lon": -114.0594915,
+  "display": "Werklund Centre, 205, 8 Avenue SE, Downtown Commercial Core, Calgary, Alberta, T2G 0K9, Canada",
+  "osm": "way/218779998"
+ },
+ "Elbow River Camp": null,
+ "Douglas Fir Trail": {
+  "lat": 51.0560343,
+  "lon": -114.146374,
+  "display": "Douglas Fir Trail, Wildwood, Calgary, Alberta, T3C 1Y1, Canada",
+  "osm": "way/24924890"
+ },
+ "Bow Valley Ranche": {
+  "lat": 50.90944,
+  "lon": -114.0179255,
+  "display": "Fish Creek Park, Bow Valley Ranche, Parkridge Drive SE, Parkland, Calgary, Alberta, T2J 5E8, Canada",
+  "osm": "way/18753677"
+ },
+ "Inglewood Bird Sanctuary": {
+  "lat": 51.0278952,
+  "lon": -114.0069574,
+  "display": "Inglewood Bird Sanctuary and Nature Centre, 2425, Inglewood, Calgary, Alberta, Canada",
+  "osm": "way/52466592"
+ },
+ "Reader Rock Garden": {
+  "lat": 51.0300668,
+  "lon": -114.0564675,
+  "display": "Reader Rock Garden, 325, Manchester Industrial, Calgary, Alberta, Canada",
+  "osm": "way/496765923"
+ },
+ "Riley Park": {
+  "lat": 51.0595372,
+  "lon": -114.0865555,
+  "display": "Riley Park, 800, Hillhurst, Calgary, Alberta, Canada",
+  "osm": "way/23647318"
+ },
+ "Central Memorial Park": {
+  "lat": 51.0411215,
+  "lon": -114.0699024,
+  "display": "Central Memorial Park, Beltline, Calgary, Alberta, Canada",
+  "osm": "way/170774007"
+ },
+ "Crescent Heights Park": {
+  "lat": 51.0617486,
+  "lon": -114.0687367,
+  "display": "Crescent Heights Park, Crescent Heights, Calgary, Alberta, T2M 2V7, Canada",
+  "osm": "way/23647361"
+ },
+ "Scotsman's Hill": {
+  "lat": 51.0365004,
+  "lon": -114.0476171,
+  "display": "Scotsman's Hill, Salisbury Street SE, Ramsay, Calgary, Alberta, T2G 4K1, Canada",
+  "osm": "node/4365625291"
+ },
+ "Ralph Klein Park": {
+  "lat": 50.9409983,
+  "lon": -113.9003028,
+  "display": "Ralph Klein Park, 12350, Shepard, Calgary, Alberta, Canada",
+  "osm": "way/221519142"
+ },
+ "River Park": {
+  "lat": 51.0143511,
+  "lon": -114.0953171,
+  "display": "River Park, 4500, Altadore, Calgary, Alberta, Canada",
+  "osm": "way/490455206"
+ },
+ "Calgary City Hall": {
+  "lat": 51.0460685,
+  "lon": -114.0573632,
+  "display": "Calgary City Hall, 716, Macleod Trail SE, Downtown Commercial Core, Calgary, Alberta, T2G 2M3, Canada",
+  "osm": "way/37829977"
+ },
+ "The Bow tower": null,
+ "Wonderland sculpture": null
+}

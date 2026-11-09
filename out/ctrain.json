@@ -1,0 +1,1014 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-09T11:43:16Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 2637733856,
+  "lat": 51.0399531,
+  "lon": -114.1365332,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Westbrook",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q7987165",
+    "wikipedia": "en:Westbrook station (Calgary)"
+  }
+},
+{
+  "type": "node",
+  "id": 3167127887,
+  "lat": 51.0709277,
+  "lon": -114.1155185,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Banff Trail",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q3791261",
+    "wikipedia": "en:Banff Trail station"
+  }
+},
+{
+  "type": "node",
+  "id": 3185972587,
+  "lat": 51.0650448,
+  "lon": -114.1033521,
+  "tags": {
+    "departures_board": "realtime",
+    "departures_board:speech_output": "no",
+    "light_rail": "yes",
+    "name": "Lions Park",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q4253207",
+    "wikipedia": "en:Lions Park station"
+  }
+},
+{
+  "type": "node",
+  "id": 3185974854,
+  "lat": 51.0559641,
+  "lon": -114.0844141,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Sunnyside",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q4407805",
+    "wikipedia": "en:Sunnyside station (Calgary)"
+  }
+},
+{
+  "type": "node",
+  "id": 3684428765,
+  "lat": 50.9106156,
+  "lon": -114.0705997,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Shawnessy",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q3791116",
+    "wikipedia": "en:Shawnessy station"
+  }
+},
+{
+  "type": "node",
+  "id": 4232063301,
+  "lat": 51.0471918,
+  "lon": -114.0873533,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Downtown West–Kerby",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q5303609",
+    "wikipedia": "en:Downtown West – Kerby"
+  }
+},
+{
+  "type": "node",
+  "id": 5319519499,
+  "lat": 51.0379869,
+  "lon": -114.1543052,
+  "tags": {
+    "light_rail": "yes",
+    "name": "45 Street",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 5319519500,
+  "lat": 51.0384643,
+  "lon": -114.1688924,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Sirocco",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q7530529",
+    "wikipedia": "en:Sirocco (CTrain)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575440356,
+  "lat": 51.0467885,
+  "lon": -114.0750235,
+  "tags": {
+    "light_rail": "yes",
+    "name": "6 Street Southwest",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "short_name": "6 St SW",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q16653157",
+    "wikipedia": "en:6 Street Southwest station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575466744,
+  "lat": 51.0463194,
+  "lon": -114.0567906,
+  "tags": {
+    "departures_board": "realtime",
+    "departures_board:speech_output": "no",
+    "light_rail": "yes",
+    "name": "City Hall/Bow Valley College",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "old_name": "City Hall",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q4333894",
+    "wikipedia": "en:City Hall station (Calgary)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575466745,
+  "lat": 51.0464027,
+  "lon": -114.0617840,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Centre Street",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q21651957",
+    "wikipedia": "en:Centre Street station (Calgary)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575466746,
+  "lat": 51.0465822,
+  "lon": -114.0642370,
+  "tags": {
+    "light_rail": "yes",
+    "name": "1 Street Southwest",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "ref": "6823",
+    "short_name": "1 St SW",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q4186411",
+    "wikipedia": "en:1 Street Southwest station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575466755,
+  "lat": 51.0466043,
+  "lon": -114.0691581,
+  "tags": {
+    "light_rail": "yes",
+    "name": "3 Street Southwest",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "short_name": "3 St SW",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q16653155",
+    "wikipedia": "en:3 Street Southwest station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575466756,
+  "lat": 51.0468372,
+  "lon": -114.0725609,
+  "tags": {
+    "light_rail": "yes",
+    "name": "4 Street Southwest",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "short_name": "4 St SW",
+    "station": "light_rail",
+    "wikidata": "Q3791433",
+    "wikipedia": "en:4 Street Southwest station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575497065,
+  "lat": 51.0416857,
+  "lon": -114.1251795,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Shaganappi Point",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "limited",
+    "wikidata": "Q7461159",
+    "wikipedia": "en:Shaganappi Point (CTrain)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575504166,
+  "lat": 51.0475878,
+  "lon": -113.9938157,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Franklin",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikipedia": "en:Franklin station (Calgary)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575504167,
+  "lat": 51.0581991,
+  "lon": -113.9817070,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Marlborough",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q4279381",
+    "wikipedia": "en:Marlborough station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575504168,
+  "lat": 51.0759081,
+  "lon": -113.9817327,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Rundle",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q4389885",
+    "wikipedia": "en:Rundle station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575522464,
+  "lat": 51.0316742,
+  "lon": -114.0589663,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Erlton/Stampede",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikipedia": "en:Erlton/Stampede station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575523316,
+  "lat": 51.0376441,
+  "lon": -114.1876226,
+  "tags": {
+    "light_rail": "yes",
+    "name": "69 Street",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6575529216,
+  "lat": 51.1256917,
+  "lon": -113.9481904,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Saddletowne",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q7397772",
+    "wikipedia": "en:Saddletowne station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575547071,
+  "lat": 51.0865701,
+  "lon": -113.9817376,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Whitehorn",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q4468462",
+    "wikipedia": "en:Whitehorn station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575547072,
+  "lat": 51.1092069,
+  "lon": -113.9756659,
+  "tags": {
+    "light_rail": "yes",
+    "name": "McKnight-Westwinds",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q4275855",
+    "wikipedia": "en:McKnight–Westwinds station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575547074,
+  "lat": 51.1177154,
+  "lon": -113.9678886,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Martindale",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q6777075",
+    "wikipedia": "en:Martindale station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575549333,
+  "lat": 51.0386666,
+  "lon": -114.0582258,
+  "tags": {
+    "departures_board": "realtime",
+    "departures_board:speech_output": "no",
+    "light_rail": "yes",
+    "name": "Victoria Park/Stampede",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "limited",
+    "wikipedia": "en:Victoria Park/Stampede station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575573990,
+  "lat": 51.0175722,
+  "lon": -114.0613877,
+  "tags": {
+    "light_rail": "yes",
+    "name": "39 Avenue",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q4463017",
+    "wikipedia": "en:39 Avenue (CTrain)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575588313,
+  "lat": 50.9970881,
+  "lon": -114.0657610,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Chinook",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q4524084",
+    "wikipedia": "en:Chinook station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575588314,
+  "lat": 50.9781243,
+  "lon": -114.0742526,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Heritage",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q4532475",
+    "wikipedia": "en:Heritage station (Calgary)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575591757,
+  "lat": 51.0800072,
+  "lon": -114.1229570,
+  "tags": {
+    "light_rail": "yes",
+    "name": "University",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 6575591953,
+  "lat": 50.9634836,
+  "lon": -114.0765725,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Southland",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q4409172",
+    "wikipedia": "en:Southland (CTrain)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575591954,
+  "lat": 50.9551160,
+  "lon": -114.0746917,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Anderson",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q3791097",
+    "wikipedia": "en:Anderson (CTrain)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575593129,
+  "lat": 51.1226383,
+  "lon": -114.2069775,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Crowfoot",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q3791327",
+    "wikipedia": "en:Crowfoot station"
+  }
+},
+{
+  "type": "node",
+  "id": 6575595186,
+  "lat": 50.9356312,
+  "lon": -114.0698749,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Canyon Meadows",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q4251131",
+    "wikipedia": "en:Canyon Meadows (CTrain)"
+  }
+},
+{
+  "type": "node",
+  "id": 6575604646,
+  "lat": 51.0630970,
+  "lon": -114.0912640,
+  "tags": {
+    "light_rail": "yes",
+    "name": "SAIT/AUArts/Jubilee",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6575607872,
+  "lat": 50.8991837,
+  "lon": -114.0690450,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Somerset–Bridlewood",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q3791108",
+    "wikipedia": "en:Somerset – Bridlewood"
+  }
+},
+{
+  "type": "node",
+  "id": 6575616772,
+  "lat": 51.1033849,
+  "lon": -114.1607313,
+  "tags": {
+    "internet_access": "wlan",
+    "light_rail": "yes",
+    "name": "Dalhousie",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6575621430,
+  "lat": 51.1345155,
+  "lon": -114.2356780,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Tuscany",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6575665571,
+  "lat": 51.0868407,
+  "lon": -114.1314822,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Brentwood",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6712140298,
+  "lat": 50.9230139,
+  "lon": -114.0730702,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Fish Creek–Lacombe",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q3791132",
+    "wikipedia": "en:Fish Creek–Lacombe station"
+  }
+},
+{
+  "type": "node",
+  "id": 7061611328,
+  "lat": 51.0491285,
+  "lon": -114.0410285,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Bridgeland/Memorial",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q4096465",
+    "wikipedia": "en:Bridgeland/Memorial station"
+  }
+},
+{
+  "type": "node",
+  "id": 7061611330,
+  "lat": 51.0473574,
+  "lon": -114.0249761,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Zoo",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q4193885",
+    "wikipedia": "en:Zoo station (Calgary)"
+  }
+},
+{
+  "type": "node",
+  "id": 7061611332,
+  "lat": 51.0456366,
+  "lon": -114.0073504,
+  "tags": {
+    "light_rail": "yes",
+    "name": "Barlow/Max Bell",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail",
+    "wikidata": "Q4078337",
+    "wikipedia": "en:Barlow/Max Bell station"
+  }
+},
+{
+  "type": "node",
+  "id": 8017899203,
+  "lat": 50.9359909,
+  "lon": -113.9651871,
+  "tags": {
+    "construction:railway": "station",
+    "light_rail": "yes",
+    "name": "Shepard",
+    "network": "CTrain",
+    "operator": "Calgary Transit",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 8589911889,
+  "lat": 51.0469775,
+  "lon": -114.0775089,
+  "tags": {
+    "light_rail": "yes",
+    "name": "7 Street Southwest",
+    "network": "CT",
+    "public_transport": "station",
+    "railway": "station",
+    "short_name": "7 St SW",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q3816899",
+    "wikipedia": "en:7 Street Southwest station"
+  }
+},
+{
+  "type": "node",
+  "id": 8589911890,
+  "lat": 51.0469096,
+  "lon": -114.0799351,
+  "tags": {
+    "light_rail": "yes",
+    "name": "8 Street Southwest",
+    "network": "CTrain",
+    "network:wikidata": "Q1022321",
+    "operator": "Calgary Transit",
+    "operator:wikidata": "Q143630",
+    "public_transport": "station",
+    "railway": "station",
+    "short_name": "8 St SW",
+    "station": "light_rail",
+    "wheelchair": "yes",
+    "wikidata": "Q3816899",
+    "wikipedia": "en:7 Street Southwest station"
+  }
+},
+{
+  "type": "node",
+  "id": 13505344037,
+  "lat": 51.0388296,
+  "lon": -114.0368404,
+  "tags": {
+    "construction:railway": "station",
+    "light_rail": "yes",
+    "name": "Inglewood / Ramsay",
+    "network": "CTrain",
+    "operator": "Calgary Transit",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 13505344038,
+  "lat": 51.0296222,
+  "lon": -114.0363498,
+  "tags": {
+    "construction:railway": "station",
+    "light_rail": "yes",
+    "name": "26 Avenue SE",
+    "network": "CTrain",
+    "operator": "Calgary Transit",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 13505344039,
+  "lat": 51.0200449,
+  "lon": -114.0325191,
+  "tags": {
+    "construction:railway": "station",
+    "light_rail": "yes",
+    "name": "Highfield",
+    "network": "CTrain",
+    "operator": "Calgary Transit",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 13505344040,
+  "lat": 50.9998686,
+  "lon": -114.0101475,
+  "tags": {
+    "construction:railway": "station",
+    "light_rail": "yes",
+    "name": "Lynnwood/Millican",
+    "network": "CTrain",
+    "operator": "Calgary Transit",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 13505344041,
+  "lat": 50.9890607,
+  "lon": -113.9991488,
+  "tags": {
+    "construction:railway": "station",
+    "light_rail": "yes",
+    "name": "Ogden",
+    "network": "CTrain",
+    "operator": "Calgary Transit",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 13505344042,
+  "lat": 50.9776513,
+  "lon": -113.9939379,
+  "tags": {
+    "construction:railway": "station",
+    "light_rail": "yes",
+    "name": "South Hill",
+    "network": "CTrain",
+    "operator": "Calgary Transit",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 13505344043,
+  "lat": 50.9637118,
+  "lon": -114.0013482,
+  "tags": {
+    "construction:railway": "station",
+    "light_rail": "yes",
+    "name": "Quarry Park",
+    "network": "CTrain",
+    "operator": "Calgary Transit",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+},
+{
+  "type": "node",
+  "id": 13505344044,
+  "lat": 50.9520446,
+  "lon": -113.9966847,
+  "tags": {
+    "construction:railway": "station",
+    "light_rail": "yes",
+    "name": "Douglas Glen",
+    "network": "CTrain",
+    "operator": "Calgary Transit",
+    "public_transport": "station",
+    "railway": "station",
+    "station": "light_rail"
+  }
+}
+
+  ]
+}
