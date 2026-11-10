@@ -124,5 +124,26 @@ check('the day is Calgary\'s', gw.today(new Date('2026-11-08T05:30:00Z')) === '2
 r = await call('/admin/seen', { token: ownerTok });
 const ppl = (await r.json()).people || [];
 check('the owner gets the list, with who is approved', r.status === 200 && ppl.some(p => p.email === 'guest@gmail.com' && p.days === 2));
+// visits counted anonymously
+const dstore = new Map();
+const DS = { get: async k => dstore.get(k), put: async (k, v) => { dstore.set(k, structuredClone(v)); }, delete: async ks => { [].concat(ks).forEach(k => dstore.delete(k)); },
+             list: async ({ prefix, reverse, limit }) => { let ks = [...dstore.keys()].filter(k => k.startsWith(prefix)).sort(); if (reverse) ks.reverse(); return new Map(ks.slice(0, limit || 1e9).map(k => [k, dstore.get(k)])); } };
+const tobj = new gw.Traffic({ storage: DS });
+env.TRAFFIC = { idFromName: n => n, get: () => ({ fetch: (u, init) => tobj.fetch(new Request(u, init)) }) };
+const hit = (p, ip, extra = {}) => gw.handle(new Request('https://gw/hit', { method: 'POST', headers: { origin: extra.origin || 'https://calgaryinsight.ca', 'cf-connecting-ip': ip, 'user-agent': extra.ua || 'Mozilla/5.0 Firefox' }, body: JSON.stringify({ p, r: extra.r || '' }) }), env, undefined, fetch);
+r = await hit('/', '1.1.1.1', { r: 'www.google.com' });
+await hit('/visit/explore/?x=1', '1.1.1.1');
+await hit('/', '2.2.2.2', { r: 'calgaryinsight.ca' });
+await hit('/', '3.3.3.3', { origin: 'https://elsewhere.example' });
+await hit('/', '4.4.4.4', { ua: 'Googlebot/2.1' });
+check('a page view needs no sign-in', r.status === 204);
+r = await call('/admin/traffic', { token: ownerTok });
+const tr = await r.json();
+check('views and visitors are counted, other sites and robots are not', r.status === 200 && tr.today.views === 3 && tr.today.visitors === 2 && tr.last7.views === 3 && tr.yesterday.views === 0, JSON.stringify(tr.today));
+check('pages without their query, sources without the site itself', tr.pages[0].name === '/' && tr.pages[0].count === 2 && tr.pages.some(x => x.name === '/visit/explore/') && tr.sources.some(x => x.name === 'google.com') && !tr.sources.some(x => /calgaryinsight/.test(x.name)), JSON.stringify([tr.pages, tr.sources]));
+check('no address is kept', ![...dstore.entries()].some(([k, v]) => /1\.1\.1\.1/.test(k + JSON.stringify(v))));
+await tobj.hit({ p: '/', ip: '1.1.1.1', ua: 'x' }, new Date(Date.now() + 2 * 864e5));
+check('earlier days\' visitor marks are deleted', [...dstore.keys()].filter(k => k.startsWith('v:')).length === 1 && [...dstore.keys()].filter(k => k.startsWith('salt:')).length === 1);
+check('only the owner sees the traffic', (await call('/admin/traffic', { token: await idToken({ email: 'guest@gmail.com' }) })).status === 403);
 console.log('\n' + (fails.length ? `${fails.length} FAILED: ${fails.join(', ')}` : 'All checks passed.'));
 process.exit(fails.length ? 1 : 0);

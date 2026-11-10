@@ -202,6 +202,35 @@ def ai_gateway():
     return url.rstrip('/') if url.startswith('https://') else None
 
 
+def count_visits(out):
+    """Every page tells the gateway it was viewed (gateway/worker.js, POST /hit), so the owner can see how many people
+    visit: the page's path and the site the visitor came from, no cookie, nothing kept on the visitor's device."""
+    gw = ai_gateway()
+    if not gw:
+        return 0
+    with open(os.path.join(out, 'hit.js'), 'w', encoding='utf-8') as f:
+        f.write("(function(){try{if(navigator.webdriver||!/^https?:$/.test(location.protocol))return;var r='';"
+                "try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}"
+                "var u=%s,d=JSON.stringify({p:location.pathname,r:r});"
+                "if(navigator.sendBeacon)navigator.sendBeacon(u,d);else fetch(u,{method:'POST',body:d,keepalive:true,mode:'no-cors'})"
+                "}catch(e){}})();\n" % json.dumps(gw + '/hit'))
+    tag = '<script async src="/hit.js"></script>\n</body>'
+    n = 0
+    for root, dirs, files in os.walk(out):
+        dirs[:] = [d for d in dirs if d not in ('pyodide', 'vendor', 'reports')]
+        for name in files:
+            if not name.endswith('.html') or name in ('report.html', 'report-view.html'):
+                continue
+            path = os.path.join(root, name)
+            with open(path, encoding='utf-8') as f:
+                s = f.read()
+            if '</body>' in s and '/hit.js' not in s:
+                with open(path, 'w', encoding='utf-8') as f:
+                    f.write(s.replace('</body>', tag, 1))
+                n += 1
+    return n
+
+
 def bundle_scripts(out, idx):
     """The page's own scripts (not the vendor ones) joined into one file named by its content, so a visitor fetches
     one script instead of two dozen and keeps it cached until it changes. The source files stay published for anyone
@@ -655,6 +684,7 @@ def main():
             f.write('\n'.join([SITE_URL, SITE_URL + 'about/', SITE_URL + 'visit/', SITE_URL + 'game/'] + [SITE_URL + u for u in ('visit/explore/', 'tourism-intelligence/') if os.path.exists(os.path.join(out, u, 'index.html'))] + [SITE_URL + u for u in visit_pages.URLS + list(urls)]))
         print(f'pages for search engines: {len(urls)}')
     step('ward and community pages for search engines', search_pages)
+    step('visit counter on every page', lambda: print('pages counted:', count_visits(out)))
     lock_key(out)
     if a.pyodide:
         shutil.copytree(a.pyodide, os.path.join(out, 'pyodide'), dirs_exist_ok=True)

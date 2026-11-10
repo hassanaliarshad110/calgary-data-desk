@@ -13,3 +13,12 @@ DEFAULT_LIMIT_USD = "10"
 [[kv_namespaces]]
 binding = "ACCESS"
 id = "KV_ID"
+
+# visits to the site, counted anonymously (the Traffic class in worker.js)
+[[durable_objects.bindings]]
+name = "TRAFFIC"
+class_name = "Traffic"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Traffic"]

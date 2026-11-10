@@ -62,7 +62,7 @@ h2.sec{font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 .3rem}
 .mapbar{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.8rem}
 .mapbar input[type=search]{flex:1 1 220px;min-width:0;background:var(--night2);border:1px solid var(--line);border-radius:3px;padding:.5rem .7rem}
 .count{font-size:.85rem;color:var(--mute)}
-.leaflet-container{font-family:var(--body);background:#121726}
+.leaflet-container{font-family:var(--body);background:#dfe5ea}
 .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--night2);color:var(--ink)}
 .pin{width:14px;height:14px;border-radius:50%;border:2px solid #0c1020;box-shadow:0 0 0 1px rgba(255,255,255,.5)}
 .pin.out{border-radius:3px;transform:rotate(45deg)}

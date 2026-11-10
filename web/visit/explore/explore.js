@@ -9,8 +9,10 @@
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const store = { get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
                   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private window */ } } };
-  const TILE = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}';
-  const ATTR = 'Tiles © Esri · Places © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · Calgary Insight';
+  // a street map with roads, rivers and names (the plain dark canvas showed almost nothing at city scale)
+  const TILE = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+  const TILE2 = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+  const ATTR = 'Map © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · Calgary Insight';
   const CAT_COL = { attractions: '#f2a33a', parks: '#9bc47a', views: '#5cc8c2', walks: '#7fb0e0', museums: '#c79bf2', food: '#f28b5a', shopping: '#e8c86a',
                     night: '#e2738c', family: '#f5d76e', history: '#d9a679', culture: '#b48cf0', winter: '#a8d8f0', photo: '#ffffff' };
   const DAY_COL = ['#f2a33a', '#5cc8c2', '#e2738c', '#9bc47a', '#c79bf2', '#7fb0e0', '#f5d76e'];
@@ -53,7 +55,9 @@
 
   function baseMap(el, centre, zoom) {
     const m = L.map(el, { scrollWheelZoom: false, zoomControl: true }).setView(centre || D.city.centre, zoom || D.city.zoom);
-    L.tileLayer(TILE, { maxZoom: 18, attribution: ATTR }).addTo(m);
+    const base = L.tileLayer(TILE, { maxZoom: 19, attribution: ATTR }).addTo(m);
+    let bad = 0;                   // OpenStreetMap unreachable: Esri's street map instead
+    base.on('tileerror', () => { if (++bad === 4) { m.removeLayer(base); L.tileLayer(TILE2, { maxNativeZoom: 18, maxZoom: 19, attribution: 'Tiles © Esri · Calgary Insight' }).addTo(m).bringToBack(); } });
     m.on('click focus', () => m.scrollWheelZoom.enable());
     setTimeout(() => m.invalidateSize(), 50);
     return m;

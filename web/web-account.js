@@ -272,7 +272,7 @@
   }
   async function refreshMe() { if (user && gw && ai && ai.allowed) { try { ai = { ...ai, ...(await gwFetch('/me')) }; renderAccount(); } catch (e) { /* keep the last */ } } }
   async function loadAdmin() {
-    try { const [u, p] = await Promise.all([gwFetch('/admin/users'), gwFetch('/admin/seen').catch(e => ({ error: String(e.message || e) }))]); admin = { ...u, seen: p }; }
+    try { const [u, p, t] = await Promise.all([gwFetch('/admin/users'), gwFetch('/admin/seen').catch(e => ({ error: String(e.message || e) })), gwFetch('/admin/traffic').catch(e => ({ error: String(e.message || e) }))]); admin = { ...u, seen: p, traffic: t }; }
     catch (e) { admin = { error: String(e.message || e) }; }
     renderAccount();
   }
@@ -285,6 +285,24 @@
     a.href = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv' }));
     a.download = 'Calgary Insight sign-ins ' + new Date().toISOString().slice(0, 10) + '.csv';
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 60000);
+  }
+  function trafficSection() {
+    const T = (admin || {}).traffic;
+    if (!T) return '';
+    if (T.error) return `<h3>Website traffic</h3><p class="acct-small">${esc(T.error)}</p>`;
+    const n = v => Number(v || 0).toLocaleString('en-CA');
+    const tile = (label, d) => `<div class="acct-stat"><b>${n(d.visitors)}</b><span>${label}</span><small>${n(d.views)} page views</small></div>`;
+    const days = T.days || [], max = Math.max(1, ...days.map(d => d.visitors));
+    const short = d => new Date(d + 'T12:00:00').toLocaleDateString('en-CA', { month: 'short', day: 'numeric' });
+    const list = (rows, name) => rows && rows.length ? `<ul class="acct-notes acct-traffic">${rows.map(r => `<li><span>${esc(name ? name(r.name) : r.name)}</span><b>${n(r.count)}</b></li>`).join('')}</ul>` : '<p class="acct-small">Nothing counted yet.</p>';
+    let country = c => c;
+    try { const dn = new Intl.DisplayNames(['en'], { type: 'region' }); country = c => dn.of(c) || c; } catch (e) { /* the code is shown */ }
+    return `<h3>Website traffic</h3><p class="acct-small">Visitors to calgaryinsight.ca${T.since ? `, counted since ${esc(short(T.since))}` : ''}. A visitor is one browser in one day, so the 7 and 30 day figures add up each day's visitors. Counted anonymously, with no cookies; search engine robots are left out.</p>
+      <div class="acct-stats">${tile('Today', T.today)}${tile('Yesterday', T.yesterday)}${tile('Last 7 days', T.last7)}${tile('Last 30 days', T.last30)}</div>
+      ${days.length > 1 ? `<div class="acct-bars" role="img" aria-label="Visitors per day, last 30 days">${days.map(d => `<i style="height:${Math.max(3, Math.round(d.visitors / max * 100))}%" title="${esc(short(d.day))}: ${n(d.visitors)} visitors, ${n(d.views)} page views"></i>`).join('')}</div><p class="acct-small">Visitors per day, ${esc(short(days[0].day))} to ${esc(short(days[days.length - 1].day))}.</p>` : ''}
+      <h4>Most viewed pages (30 days, page views)</h4>${list(T.pages)}
+      <h4>Where visitors came from (30 days)</h4>${list(T.sources)}
+      <h4>Countries (30 days, visitors)</h4>${list(T.countries, country)}`;
   }
   function peopleSection() {
     const S = (admin || {}).seen;
@@ -310,7 +328,7 @@
         <ul class="acct-notes">${admin && admin.error ? `<li class="acct-empty">${esc(admin.error)}</li>` : users.length ? users.map(u => `<li><button type="button" class="acct-user" data-edit="${esc(u.email)}" title="Change this person's tools or limit"><span>${esc(u.email)}</span><small>${esc((u.tools || ['genie']).map(t => ({ genie: 'Genie & Scientist', election: 'Elections', business: 'Business' })[t]).join(' · '))} · ${u.limit_usd == null ? 'default limit' : money(u.limit_usd) + ' a day'} · ${money(u.spent_usd)} today</small></button><button type="button" data-revoke="${esc(u.email)}" aria-label="Remove ${esc(u.email)}">×</button></li>`).join('') : '<li class="acct-empty">Nobody else yet.</li>'}</ul>
         <div class="acct-row"><input type="email" data-grant maxlength="200" placeholder="name@gmail.com" aria-label="Email to approve"><input type="number" data-grant-limit min="0" max="1000" step="1" placeholder="$/day" aria-label="Daily limit in dollars" style="max-width:90px"></div>
         <div class="acct-row acct-tools"><label><input type="checkbox" data-tool="genie" checked> Data Genie &amp; Data Scientist</label><label><input type="checkbox" data-tool="election"> Election Analytics</label><label><input type="checkbox" data-tool="business"> Business Economist</label></div>
-        <div class="acct-row"><button type="button" class="btn" data-grant-add>Approve</button><span class="acct-small">Click a name above to change it.</span></div>` + peopleSection();
+        <div class="acct-row"><button type="button" class="btn" data-grant-add>Approve</button><span class="acct-small">Click a name above to change it.</span></div>` + trafficSection() + peopleSection();
     }
     return out;
   }

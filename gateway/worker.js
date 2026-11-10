@@ -8,6 +8,8 @@
 //   POST /v1/messages      the Anthropic Messages API, for approved people (streams through; the cost is counted)
 //   GET  /admin/users      (owner) everyone approved, with today's spend
 //   POST /admin/users      (owner) {email, limit_usd?, remove?}
+//   POST /hit              (no sign-in) one page view from the site, counted anonymously (the Traffic object below)
+//   GET  /admin/traffic    (owner) visitors and page views by day, top pages, where visits came from
 //
 // Settings (wrangler.toml [vars]): FIREBASE_PROJECT, OWNER_EMAILS, ALLOWED_ORIGINS, DEFAULT_LIMIT_USD.
 // Secret: ANTHROPIC_API_KEY. KV namespace: ACCESS (approved people, daily spend).
@@ -168,6 +170,20 @@ export async function handle(req, env, ctx, fetcher = fetch) {
   const url = new URL(req.url);
   const h = cors(req, env);
   if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: h });
+  if (url.pathname === '/hit') {                 // a page view: no sign-in, nothing kept about the visitor (see Traffic)
+    if (req.method === 'POST' && h['access-control-allow-origin'] && env.TRAFFIC) {
+      try {
+        const b = JSON.parse((await req.text()).slice(0, 600));
+        const ua = req.headers.get('user-agent') || '';
+        if (!/bot|crawl|spider|headless|preview|monitor/i.test(ua)) {
+          const hit = { p: b.p, r: b.r, ip: req.headers.get('cf-connecting-ip') || '', ua, c: (req.cf && req.cf.country) || '' };
+          const job = trafficObj(env).fetch('https://traffic/hit', { method: 'POST', body: JSON.stringify(hit) });
+          if (ctx && ctx.waitUntil) ctx.waitUntil(job); else await job;
+        }
+      } catch (e) { /* a malformed beacon is ignored */ }
+    }
+    return new Response(null, { status: 204, headers: h });
+  }
   let me;
   try { me = await who(req, env, fetcher); } catch (e) { return fail(401, 'authentication_error', String(e.message || e), h); }
 
@@ -191,6 +207,11 @@ export async function handle(req, env, ctx, fetcher = fetch) {
         return { email, limit_usd: rec.limit_usd ?? null, tools: rec.tools || ['genie'], added: rec.added, spent_usd: (await access(email, env)).spent_usd };
       }));
       return json({ owners: owners(env), default_limit_usd: Number(env.DEFAULT_LIMIT_USD || 10), users }, 200, h);
+    }
+    if (url.pathname === '/admin/traffic' && req.method === 'GET') {
+      if (!env.TRAFFIC) return fail(503, 'api_error', 'Visit counting is not switched on yet.', h);
+      const r = await trafficObj(env).fetch('https://traffic/stats');
+      return new Response(await r.text(), { status: r.status, headers: { ...h, 'content-type': 'application/json' } });
     }
     if (url.pathname === '/admin/seen' && req.method === 'GET') {
       const out = [];
@@ -246,6 +267,73 @@ export async function handle(req, env, ctx, fetcher = fetch) {
     return new Response(up.body.pipeThrough(m), { status: up.status, headers: out });
   }
   return fail(404, 'not_found_error', 'No such request.', h);
+}
+
+// ---------------------------------------------------------------- visits to the site, counted anonymously
+// One Durable Object keeps a small record per Calgary day: page views, visitors, views per page, where visits came from
+// and the visitor's country. A visitor is told apart only within one day, by a hash of the network address and browser
+// with a random salt that is thrown away the next day: no cookie, nothing stored on the visitor's device, and no
+// address or name is kept.
+const trafficObj = env => env.TRAFFIC.get(env.TRAFFIC.idFromName('site'));
+const bump = (map, key, cap) => { if (key in map || Object.keys(map).length < cap) map[key] = (map[key] || 0) + 1; else map['(other)'] = (map['(other)'] || 0) + 1; };
+
+export class Traffic {
+  constructor(state) { this.s = state.storage; }
+  async fetch(req) {
+    const url = new URL(req.url);
+    if (url.pathname === '/hit') { await this.hit(await req.json()); return new Response('ok'); }
+    return json(await this.stats());
+  }
+  async hit(b, now = new Date()) {
+    const day = today(now);
+    let path = String(b.p || '/').split(/[?#]/)[0].slice(0, 120);
+    if (!path.startsWith('/')) path = '/';
+    let ref = String(b.r || '').toLowerCase().replace(/^www\./, '').slice(0, 80);
+    if (!/^[a-z0-9.-]+$/.test(ref) || /(^|\.)calgaryinsight\.ca$/.test(ref)) ref = '';
+    let salt = await this.s.get('salt:' + day);
+    if (!salt) {
+      salt = b64url(crypto.getRandomValues(new Uint8Array(16)));
+      await this.s.put('salt:' + day, salt);
+      await this.forget(day);
+    }
+    const id = b64url(await crypto.subtle.digest('SHA-256', enc.encode(salt + '|' + b.ip + '|' + b.ua))).slice(0, 16);
+    const rec = (await this.s.get('day:' + day)) || { views: 0, visitors: 0, pages: {}, refs: {}, countries: {} };
+    rec.views += 1;
+    bump(rec.pages, path, 300);
+    if (!(await this.s.get(`v:${day}:${id}`))) {            // this visitor's first page today
+      await this.s.put(`v:${day}:${id}`, 1);
+      rec.visitors += 1;
+      bump(rec.refs, ref || '(direct or unknown)', 100);
+      if (/^[A-Z]{2}$/.test(b.c || '')) bump(rec.countries, b.c, 250);
+    }
+    await this.s.put('day:' + day, rec);
+  }
+  async forget(day) {                                       // earlier days' salts and visitor marks are deleted
+    for (const prefix of ['v:', 'salt:']) {
+      for (;;) {
+        const old = [...(await this.s.list({ prefix, limit: 500 })).keys()].filter(k => !k.startsWith(prefix + day));
+        if (!old.length) break;
+        for (let i = 0; i < old.length; i += 128) await this.s.delete(old.slice(i, i + 128));
+        if (old.length < 500) break;
+      }
+    }
+  }
+  async stats(now = new Date()) {
+    const got = await this.s.list({ prefix: 'day:', reverse: true, limit: 90 });
+    const days = [...got].map(([k, v]) => ({ day: k.slice(4), ...v })).sort((a, b) => a.day.localeCompare(b.day));
+    const t = today(now);
+    const since = n => today(new Date(now.getTime() - (n - 1) * 864e5));
+    const sum = from => days.filter(d => d.day >= from && d.day <= t).reduce((a, d) => ({ views: a.views + d.views, visitors: a.visitors + d.visitors }), { views: 0, visitors: 0 });
+    const top = (field, from, n) => {
+      const m = {};
+      days.filter(d => d.day >= from).forEach(d => Object.entries(d[field] || {}).forEach(([k, v]) => { m[k] = (m[k] || 0) + v; }));
+      return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, n).map(([name, count]) => ({ name, count }));
+    };
+    const one = d => { const r = days.find(x => x.day === d); return { views: r ? r.views : 0, visitors: r ? r.visitors : 0 }; };
+    return { today: one(t), yesterday: one(since(2)), last7: sum(since(7)), last30: sum(since(30)), since: days.length ? days[0].day : null,
+             days: days.filter(d => d.day >= since(30)).map(d => ({ day: d.day, views: d.views, visitors: d.visitors })),
+             pages: top('pages', since(30), 25), sources: top('refs', since(30), 15), countries: top('countries', since(30), 15) };
+  }
 }
 
 export default { fetch: (req, env, ctx) => handle(req, env, ctx) };
