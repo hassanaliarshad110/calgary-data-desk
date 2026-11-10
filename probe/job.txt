@@ -1,1 +1,1 @@
-rot3d.sh
+fetch3d.sh
