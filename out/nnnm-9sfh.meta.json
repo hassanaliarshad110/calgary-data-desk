@@ -1,0 +1,459 @@
+{
+  "id" : "nnnm-9sfh",
+  "name" : "2027–2030 Budget",
+  "assetType" : "dataset",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Government",
+  "createdAt" : 1793907757,
+  "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed information for the 2027–2030 Budget. <a href=\"https://data.calgary.ca/Government/2027-Budget/m5bi-n8x4\">View the 2027 budget here</a>",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 5,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 42738450,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1793908614,
+  "publicationGroup" : 20710183,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1794324377,
+  "rowsUpdatedBy" : "ikwz-m2v4",
+  "tableId" : 20710189,
+  "totalTimesRated" : 0,
+  "viewCount" : 66,
+  "viewLastModified" : 1794324376,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1794325787,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 7855425,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1794325787,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1794325787,
+      "failureCount" : 0,
+      "startedAt" : 1794325787,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "ikwz-m2v4",
+      "displayName" : "Open Data Administrator SE"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 651047696,
+    "name" : "Budget Department",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "budget_department",
+    "position" : 1,
+    "renderTypeName" : "text",
+    "tableColumnId" : 173555054,
+    "cachedContents" : {
+      "non_null" : "1392",
+      "largest" : "Planning & Development Services",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Infrastructure Services",
+        "count" : "467"
+      }, {
+        "item" : "Operational Services",
+        "count" : "349"
+      }, {
+        "item" : "Corporate Services",
+        "count" : "229"
+      }, {
+        "item" : "Community Services",
+        "count" : "181"
+      }, {
+        "item" : "Planning & Development Services",
+        "count" : "93"
+      }, {
+        "item" : "Civic Partners",
+        "count" : "31"
+      }, {
+        "item" : "Calgary Police Service",
+        "count" : "22"
+      }, {
+        "item" : "Council",
+        "count" : "16"
+      }, {
+        "item" : "Corporate Program",
+        "count" : "4"
+      } ],
+      "smallest" : "Calgary Police Service",
+      "count" : "1392",
+      "cardinality" : "1392"
+    },
+    "format" : { }
+  }, {
+    "id" : 651047690,
+    "name" : "Department",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "department",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 173555039,
+    "cachedContents" : {
+      "non_null" : "1392",
+      "largest" : "Planning & Development Services",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Infrastructure Services",
+        "count" : "467"
+      }, {
+        "item" : "Operational Services",
+        "count" : "349"
+      }, {
+        "item" : "Community Services",
+        "count" : "181"
+      }, {
+        "item" : "People & Corporate Services",
+        "count" : "137"
+      }, {
+        "item" : "Planning & Development Services",
+        "count" : "93"
+      }, {
+        "item" : "Law, Legislative Services & Security",
+        "count" : "50"
+      }, {
+        "item" : "Civic Partners",
+        "count" : "31"
+      }, {
+        "item" : "Corporate Planning & Financial Services",
+        "count" : "30"
+      }, {
+        "item" : "Calgary Police Service",
+        "count" : "22"
+      }, {
+        "item" : "Council",
+        "count" : "16"
+      }, {
+        "item" : "Chief Operating Office",
+        "count" : "8"
+      }, {
+        "item" : "Corporate Programs",
+        "count" : "4"
+      }, {
+        "item" : "Chief Administrator's Office",
+        "count" : "4"
+      } ],
+      "smallest" : "Calgary Police Service",
+      "count" : "1392",
+      "cardinality" : "1392"
+    },
+    "format" : { }
+  }, {
+    "id" : 651047691,
+    "name" : "BU",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "bu",
+    "position" : 3,
+    "renderTypeName" : "text",
+    "tableColumnId" : 173555040,
+    "cachedContents" : {
+      "non_null" : "1392",
+      "largest" : "Water Services",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Public Spaces Delivery",
+        "count" : "246"
+      }, {
+        "item" : "Mobility",
+        "count" : "116"
+      }, {
+        "item" : "Information Technology",
+        "count" : "94"
+      }, {
+        "item" : "Calgary Transit",
+        "count" : "94"
+      }, {
+        "item" : "Real Estate & Development Services",
+        "count" : "74"
+      }, {
+        "item" : "Emergency Management & Community Safety",
+        "count" : "57"
+      }, {
+        "item" : "Facilities",
+        "count" : "53"
+      }, {
+        "item" : "Calgary Fire",
+        "count" : "53"
+      }, {
+        "item" : "Project Development",
+        "count" : "51"
+      }, {
+        "item" : "Utilities Delivery",
+        "count" : "46"
+      }, {
+        "item" : "Fleet & Inventory",
+        "count" : "40"
+      }, {
+        "item" : "Environmental Risk & Resilience",
+        "count" : "35"
+      }, {
+        "item" : "Capital Planning & Business Services",
+        "count" : "34"
+      }, {
+        "item" : "Civic Partners",
+        "count" : "31"
+      }, {
+        "item" : "Chief Housing Office",
+        "count" : "29"
+      }, {
+        "item" : "Parks and Open Spaces",
+        "count" : "28"
+      }, {
+        "item" : "GM - Planning & Development Services",
+        "count" : "24"
+      }, {
+        "item" : "Calgary Police Service",
+        "count" : "22"
+      }, {
+        "item" : "Recreation & Social Programs",
+        "count" : "17"
+      }, {
+        "item" : "Partnerships",
+        "count" : "17"
+      } ],
+      "smallest" : "311 & Insights",
+      "count" : "1392",
+      "cardinality" : "1392"
+    },
+    "format" : { }
+  }, {
+    "id" : 651047692,
+    "name" : "Year",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "year",
+    "position" : 4,
+    "renderTypeName" : "number",
+    "tableColumnId" : 173555043,
+    "cachedContents" : {
+      "non_null" : "1392",
+      "largest" : "2032",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2028",
+        "count" : "379"
+      }, {
+        "item" : "2027",
+        "count" : "352"
+      }, {
+        "item" : "2029",
+        "count" : "340"
+      }, {
+        "item" : "2030",
+        "count" : "316"
+      }, {
+        "item" : "2031",
+        "count" : "4"
+      }, {
+        "item" : "2032",
+        "count" : "1"
+      } ],
+      "smallest" : "2027",
+      "count" : "1392",
+      "cardinality" : "1392"
+    },
+    "format" : {
+      "decimalSeparator" : ".",
+      "noCommas" : "true",
+      "align" : "right"
+    }
+  }, {
+    "id" : 651047693,
+    "name" : "Budget Status",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "budget_status",
+    "position" : 5,
+    "renderTypeName" : "text",
+    "tableColumnId" : 173555041,
+    "cachedContents" : {
+      "non_null" : "1392",
+      "largest" : "Proposed",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Proposed",
+        "count" : "1174"
+      }, {
+        "item" : "Approved",
+        "count" : "218"
+      } ],
+      "smallest" : "Approved",
+      "count" : "1392",
+      "cardinality" : "1392"
+    },
+    "format" : { }
+  }, {
+    "id" : 651047694,
+    "name" : "Fund",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "fund",
+    "position" : 6,
+    "renderTypeName" : "text",
+    "tableColumnId" : 173555042,
+    "cachedContents" : {
+      "non_null" : "1392",
+      "largest" : "Operating Expenditures Net of Recoveries",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Capital",
+        "count" : "1180"
+      }, {
+        "item" : "Operating Expenditures Net of Recoveries",
+        "count" : "212"
+      } ],
+      "smallest" : "Capital",
+      "count" : "1392",
+      "cardinality" : "1392"
+    },
+    "format" : { }
+  }, {
+    "id" : 651047695,
+    "name" : "Budget($millions)",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "budget_millions",
+    "position" : 7,
+    "renderTypeName" : "number",
+    "tableColumnId" : 173555044,
+    "cachedContents" : {
+      "non_null" : "1392",
+      "largest" : "1965.3",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0.1",
+        "count" : "60"
+      }, {
+        "item" : "0.3",
+        "count" : "57"
+      }, {
+        "item" : "0.5",
+        "count" : "44"
+      }, {
+        "item" : "0.2",
+        "count" : "41"
+      }, {
+        "item" : "1.0",
+        "count" : "34"
+      }, {
+        "item" : "0.8",
+        "count" : "34"
+      }, {
+        "item" : "0.7",
+        "count" : "31"
+      }, {
+        "item" : "2.0",
+        "count" : "26"
+      }, {
+        "item" : "0.4",
+        "count" : "25"
+      }, {
+        "item" : "1.5",
+        "count" : "22"
+      }, {
+        "item" : "5.0",
+        "count" : "21"
+      }, {
+        "item" : "2.5",
+        "count" : "20"
+      }, {
+        "item" : "0.6",
+        "count" : "20"
+      }, {
+        "item" : "1.1",
+        "count" : "20"
+      }, {
+        "item" : "1.2",
+        "count" : "19"
+      }, {
+        "item" : "1.6",
+        "count" : "18"
+      }, {
+        "item" : "1.7",
+        "count" : "18"
+      }, {
+        "item" : "0.9",
+        "count" : "17"
+      }, {
+        "item" : "2.4",
+        "count" : "16"
+      }, {
+        "item" : "3.1",
+        "count" : "13"
+      } ],
+      "smallest" : "-13.5",
+      "count" : "1392",
+      "cardinality" : "1392"
+    },
+    "format" : {
+      "decimalSeparator" : ".",
+      "noCommas" : "true",
+      "precision" : "2",
+      "align" : "right"
+    }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "metadata" : {
+    "custom_fields" : {
+      "License/Attribution" : {
+        "License URL" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Data Supplier" : {
+        "Department" : [ "Corporate Planning & Financial Services" ],
+        "Organization" : "The City of Calgary",
+        "Business Unit" : "Finance-Director"
+      },
+      "Time/Date" : {
+        "Update Frequency" : "Irregular"
+      },
+      "Geospatial Information" : {
+        "Dataset contains geospatial information" : "No"
+      }
+    },
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "ikwz-m2v4",
+    "displayName" : "Open Data Administrator SE",
+    "screenName" : "Open Data Administrator SE",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "ikwz-m2v4",
+    "displayName" : "Open Data Administrator SE",
+    "screenName" : "Open Data Administrator SE",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

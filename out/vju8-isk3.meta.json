@@ -1,0 +1,275 @@
+{
+  "id" : "vju8-isk3",
+  "name" : "2027–2030 operating budget",
+  "assetType" : "chart",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Government",
+  "createdAt" : 1793912792,
+  "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed information for the 2027–2030 Budget. <a href=\"https://data.calgary.ca/Government/2027-2030-Budget-breakdown/m5bi-n8x4\">View the 2027 budget here</a>",
+  "diciBackend" : false,
+  "displayType" : "visualization_canvas_chart",
+  "downloadCount" : 0,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "locked" : false,
+  "modifyingViewUid" : "nnnm-9sfh",
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 42746949,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1794258415,
+  "publicationGroup" : 20710183,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1794324377,
+  "rowsUpdatedBy" : "ikwz-m2v4",
+  "tableId" : 20710189,
+  "totalTimesRated" : 0,
+  "viewCount" : 32,
+  "viewLastModified" : 1794258415,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1794325818,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 7855427,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1794325818,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1794325818,
+      "failureCount" : 0,
+      "startedAt" : 1794325818,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "ikwz-m2v4",
+      "displayName" : "Open Data Administrator SE"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ ],
+  "displayFormat" : {
+    "visualizationCanvasMetadata" : {
+      "vifs" : [ {
+        "configuration" : {
+          "viewSourceDataLink" : true,
+          "showOtherCategory" : true,
+          "showValueLabelsAsPercent" : true,
+          "showValueLabels" : true
+        },
+        "series" : [ {
+          "color" : {
+            "secondary" : "#e55100",
+            "highlight" : "#cccccc",
+            "primary" : "#3f51b5"
+          },
+          "showLegend" : true,
+          "type" : "pieChart",
+          "dataSource" : {
+            "measure" : {
+              "aggregationFunction" : "sum",
+              "columnName" : "budget_millions"
+            },
+            "limit" : 12,
+            "orderBy" : {
+              "parameter" : "measure",
+              "sort" : "desc"
+            },
+            "filters" : [ {
+              "dataTypeName" : "number",
+              "columns" : [ {
+                "fieldName" : "year",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : ">=",
+              "arguments" : {
+                "includeNullValues" : true,
+                "value" : "2027"
+              },
+              "isDrilldown" : true,
+              "isHidden" : false
+            }, {
+              "dataTypeName" : "text",
+              "columns" : [ {
+                "fieldName" : "budget_department",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : true,
+              "isHidden" : false
+            }, {
+              "dataTypeName" : "text",
+              "columns" : [ {
+                "fieldName" : "department",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : true,
+              "isHidden" : false
+            }, {
+              "dataTypeName" : "text",
+              "columns" : [ {
+                "fieldName" : "bu",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : true,
+              "isHidden" : false
+            }, {
+              "dataTypeName" : "text",
+              "columns" : [ {
+                "fieldName" : "fund",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "joinOn" : "OR",
+              "function" : "binaryOperator",
+              "arguments" : [ {
+                "operator" : "=",
+                "operand" : "Operating Expenditures Net of Recoveries"
+              } ],
+              "isDrilldown" : false,
+              "reactKey" : "12",
+              "isHidden" : false
+            }, {
+              "dataTypeName" : "text",
+              "columns" : [ {
+                "fieldName" : "budget_status",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : false,
+              "reactKey" : "14",
+              "isHidden" : false
+            } ],
+            "type" : "socrata.soql",
+            "datasetUid" : "nnnm-9sfh",
+            "dimension" : {
+              "drilldowns" : [ {
+                "columnName" : "budget_department"
+              }, {
+                "columnName" : "department"
+              }, {
+                "columnName" : "bu"
+              } ],
+              "currentDrilldownColumnName" : "budget_department",
+              "columnName" : "year"
+            }
+          }
+        } ],
+        "format" : {
+          "type" : "visualization_interchange_format",
+          "version" : 10
+        },
+        "description" : "",
+        "id" : "17bc42f2-d000-4cf6-acc7-91cc1642a5fd",
+        "title" : ""
+      } ],
+      "filters" : [ {
+        "dataTypeName" : "number",
+        "columns" : [ {
+          "fieldName" : "year",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : ">=",
+        "arguments" : {
+          "includeNullValues" : true,
+          "value" : "2027"
+        },
+        "isDrilldown" : true,
+        "reactKey" : "1",
+        "isHidden" : false
+      }, {
+        "dataTypeName" : "text",
+        "columns" : [ {
+          "fieldName" : "budget_department",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : true,
+        "reactKey" : "2",
+        "isHidden" : false
+      }, {
+        "dataTypeName" : "text",
+        "columns" : [ {
+          "fieldName" : "department",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : true,
+        "reactKey" : "3",
+        "isHidden" : false
+      }, {
+        "dataTypeName" : "text",
+        "columns" : [ {
+          "fieldName" : "bu",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : true,
+        "reactKey" : "4",
+        "isHidden" : false
+      }, {
+        "dataTypeName" : "text",
+        "columns" : [ {
+          "fieldName" : "fund",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "joinOn" : "OR",
+        "function" : "binaryOperator",
+        "arguments" : [ {
+          "operator" : "=",
+          "operand" : "Operating Expenditures Net of Recoveries"
+        } ],
+        "isDrilldown" : false,
+        "reactKey" : "5",
+        "isHidden" : false
+      }, {
+        "dataTypeName" : "text",
+        "columns" : [ {
+          "fieldName" : "budget_status",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : false,
+        "reactKey" : "6",
+        "isHidden" : false
+      } ],
+      "version" : 1
+    }
+  },
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "metadata" : {
+    "availableDisplayTypes" : [ "visualization" ]
+  },
+  "owner" : {
+    "id" : "ikwz-m2v4",
+    "displayName" : "Open Data Administrator SE",
+    "screenName" : "Open Data Administrator SE",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "ikwz-m2v4",
+    "displayName" : "Open Data Administrator SE",
+    "screenName" : "Open Data Administrator SE",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "flags" : [ "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}
