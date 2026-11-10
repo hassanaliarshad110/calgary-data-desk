@@ -2,7 +2,7 @@
 # Two test players join the online room, see each other move and chat, then leave.
 OUT=$1; mkdir -p $OUT
 npm i -s --no-save ws@8 >/dev/null 2>&1
-cat > /tmp/mp.mjs <<'JS'
+cat > ./mpt.mjs <<'JS'
 import WebSocket from 'ws';
 const URL = 'wss://yyc-city-stories-mp.hasssanaliarshad.workers.dev/room/test-room';
 const log = [], open = (name) => new Promise((res, rej) => { const w = new WebSocket(URL, { headers: { Origin: 'https://hassanaliarshad110.github.io' } }); w.on('message', d => log.push(name + ' <- ' + d.toString().slice(0, 160))); w.on('open', () => res(w)); w.on('error', rej); });
@@ -19,4 +19,4 @@ try {
 } catch (e) { log.push('ERROR ' + e.message); }
 console.log(log.join('\n'));
 JS
-node /tmp/mp.mjs | tee $OUT/mptest.txt
+node ./mpt.mjs | tee $OUT/mptest.txt
