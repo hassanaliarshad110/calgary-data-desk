@@ -1,0 +1,11 @@
+403 van_flat 689
+403 van_metered 689
+403 van_garbage 689
+403 van_taxrates 689
+403 van_0pct 689
+404 ott_taxrates 775
+200 ott_tax 1421
+404 ott_budget 775
+200 ott_water 2096
+98100058 ['REF_DATE', 'GEO', 'DGUID', 'Household size (7)', 'Household type including census family structure  (11)', 'Coordinate', 'Household income statistics (6):Number of households (2021)[1]', 'Symbol', 'Household income statistics (6):Number of households (2016)[2]', 'Symbol', 'Household income statistics (6):Median household total income (2020) (2020 constant dollars)[3]', 'Symbol', 'Household income statistics (6):Median household total income (2015) (2020 constant dollars)[4]', 'Symbol', 'Household income statistics (6):Median household after-tax income (2020) (2020 constant dollars)[5]', 'Symbol', 'Household income statistics (6):Median household after-tax income (2015) (2020 constant dollars)[6]', 'Symbol'] 0
+98100057 ['REF_DATE', 'GEO', 'DGUID', 'Household size (7)', 'Household type including census family structure  (11)', 'Coordinate', 'Household income statistics (6):Number of households (2021)[1]', 'Symbol', 'Household income statistics (6):Number of households (2016)[2]', 'Symbol', 'Household income statistics (6):Median household total income (2020) (2020 constant dollars)[3]', 'Symbol', 'Household income statistics (6):Median household total income (2015) (2020 constant dollars)[4]', 'Symbol', 'Household income statistics (6):Median household after-tax income (2020) (2020 constant dollars)[5]', 'Symbol', 'Household income statistics (6):Median household after-tax income (2015) (2020 constant dollars)[6]', 'Symbol'] 616
