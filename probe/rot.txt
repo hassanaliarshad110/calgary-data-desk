@@ -1,11 +1,1 @@
-natalia https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_090545_41d9722f-a5ec-4b71-8e10-4cb8c09c3656.glb
-chris https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091310_e1aedbcc-911a-440a-90b9-cd89d507e9df.glb
-jean https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091312_fa19af91-e582-492d-a784-a967e5e1628c.glb
-leo https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091314_71b43251-1f66-4b5c-baef-5074eabb6365.glb
-sofia https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091316_dd566091-69d0-4ae2-bb89-b8be2edce56f.glb
-npc_suit https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091319_108e21be-01ed-4411-8b10-e788d9a5c5e5.glb
-npc_dress https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091321_8e4897b6-eaf1-408a-b5df-2c5194e1d2a2.glb
-npc_cowboy https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091323_34c41586-89f3-4e2c-b1f2-e6dcc1189695.glb
-npc_sikh https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091324_863d219a-a301-453d-b2ff-b7b1bbec4c57.glb
-npc_hijab https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091326_65207d34-e2c1-457d-84c9-cf7c816df423.glb
-npc_teen https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091329_3c8e1b34-e364-4e6a-8366-d45f6a16b5fa.glb
+leo https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_093825_5bdcbd98-3882-458d-8588-f68e27e36b44.glb
