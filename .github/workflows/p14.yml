@@ -1,0 +1,15 @@
+name: Probe 14
+on: {push: {branches: [site-check-14]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p out
+          pip install -q requests pdfplumber
+          python3 probe.py > out/log.txt 2>&1 || true
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -b fetched-14
+          git add -f out && git commit -qm "Budget 2027 fetch" && git push -f origin fetched-14
