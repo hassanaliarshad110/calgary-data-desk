@@ -1,1 +1,1 @@
-mptest.sh
+fetch3d.sh
