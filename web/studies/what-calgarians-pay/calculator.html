@@ -65,22 +65,22 @@ tr.tot td{font-weight:700}
 <dl><dt>2026, a month</dt><dd class="big" id="m26"></dd><dt>2027 proposed, a month</dt><dd class="big" id="m27"></dd><dt>Change in 2027</dt><dd id="d27"></dd><dt>2030 estimate, a month</dt><dd id="m30"></dd><dt>2030 against 2026, a year</dt><dd id="d30"></dd></dl>
 </section></div>
 <section class="card" style="margin-top:16px" aria-labelledby="yy"><h2 id="yy">Year by year, a month</h2><div class="scroll"><table id="tbl"></table></div>
-<p class="hint">2026 and 2027 use the City's tax rate and water rates. <span class="est">2028 to 2030 are estimates</span>: the property tax increases reported in the news (10%, 7.7%, 6%) and the water bill rising 74% above 2026 by 2030, spread evenly; waste held at 2027. They assume your assessment moves with the typical home after 2027.</p></section>
-<div class="warn"><b>How this is worked out.</b> 2026 City tax: your assessed value times the final 2026 municipal residential rate (0.0038906); on the median $706,000 that is $228.90, a little below the $229.32 the City estimated when it approved the 2026 budget. 2027: your 2027 value times the rate that gives the City's own 2027 figure for the median home ($266 a month on $688,000), an estimate until Council sets the 2027 tax rate in spring 2027. Water: the City's 2026 and 2027 rates for a 15 mm meter; wastewater is charged on 88% of the water you use. Figures change if Council amends the budget.</div>
+<p class="hint">2026 and 2027 use the City's tax rate and water rates. <span class="est">2028 to 2030 are estimates</span>: the property tax increases reported in the news (10%, 7.7%, 6%) and the approved water rates ($206.94 a month by 2030 for 19 m³, spread evenly from 2027) and the cart fees the City proposed in October 2026 (+$1.45 a year, to $26.31). They assume your assessment moves with the typical home after 2027.</p></section>
+<div class="warn"><b>How this is worked out.</b> 2026 City tax: your assessed value times the final 2026 municipal residential rate (0.0038906); on the median $706,000 that is $228.90, a little below the $229.32 the City estimated when it approved the 2026 budget. 2027: your 2027 value times the rate that gives the City's own 2027 figure for the median home ($266 a month on $688,000), an estimate until Council sets the 2027 tax rate in spring 2027. Water: the City's 2026 and 2027 rates for a 15 mm meter; wastewater is charged on 88% of the water you use. Every input, source and formula is in the calculation workbook. Figures change if Council amends the budget.</div>
 <footer>Part of <a href="./">What Calgarians pay</a>, an independent study by Calgary Insight. Sources: The City of Calgary, 2027 Budget, 2026 and 2027 water rates, residential waste rates, 2026 property tax bylaw. Every input, source and formula: <a href="what-calgarians-pay-calculations.xlsx">the calculation workbook</a>.</footer>
 </div>
 <script>
 const $=s=>document.querySelector(s), fm=(x,d=0)=>'$'+x.toLocaleString('en-CA',{minimumFractionDigits:d,maximumFractionDigits:d});
-const R26=0.0038906, R27=266*12/688000, PATH=[1.10,1.077,1.06], G=Math.pow(119.21*1.74/133.71,1/3);
+const R26=0.0038906, R27=266*12/688000, PATH=[1.10,1.077,1.06], G=Math.pow(206.94/133.71,1/3), WST={2026:20.51,2027:21.96,2028:23.41,2029:24.86,2030:26.31};
 function water(u,y){ return y===2026 ? 1.7409*u+13.83 + 1.9050*u*0.88+23.45 + 17.00 : 1.9903*u+13.83 + 2.4292*u*0.88+23.45 + 17.99; }
 function calc(){
   const v=Math.max(0,+$('#val').value||0), c=+$('#chg').value, u=+$('#use').value, w=+$('#waste').value;
   $('#chgO').textContent=(c>0?'+':'')+(Math.round(c*10)/10)+'%'; $('#useO').textContent=u+' m³';
   const yrs=[2026,2027,2028,2029,2030], rows={};
-  let tax=v*R26/12; rows[2026]={tax,water:water(u,2026),waste:w?20.51:0};
-  tax=v*(1+c/100)*R27/12; rows[2027]={tax,water:water(u,2027),waste:w?22.29:0};
+  let tax=v*R26/12; rows[2026]={tax,water:water(u,2026),waste:w?WST[2026]:0};
+  tax=v*(1+c/100)*R27/12; rows[2027]={tax,water:water(u,2027),waste:w?WST[2027]:0};
   let wt=rows[2027].water;
-  PATH.forEach((p,i)=>{ tax*=p; wt*=G; rows[2028+i]={tax,water:wt,waste:rows[2027].waste}; });
+  PATH.forEach((p,i)=>{ tax*=p; wt*=G; rows[2028+i]={tax,water:wt,waste:w?WST[2028+i]:0}; });
   yrs.forEach(y=>rows[y].total=rows[y].tax+rows[y].water+rows[y].waste);
   $('#m26').textContent=fm(rows[2026].total); $('#m27').textContent=fm(rows[2027].total);
   const d=rows[2027].total-rows[2026].total; $('#d27').textContent=(d>=0?'+':'-')+fm(Math.abs(d))+' a month';

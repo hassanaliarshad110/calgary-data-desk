@@ -147,33 +147,33 @@
   "2027": {
    "tax": 266,
    "water": 133.71,
-   "waste": 22.289999999999992,
-   "total": 422.0
+   "waste": 21.96,
+   "total": 421.67
   },
   "2028": {
    "tax": 292.6,
-   "water": 154.78536820826557,
-   "waste": 22.289999999999992,
-   "total": 469.6753682082656
+   "water": 154.66453520741578,
+   "waste": 23.41,
+   "total": 470.67453520741583
   },
   "2029": {
    "tax": 315.1302,
-   "water": 179.1826356395808,
-   "waste": 22.289999999999992,
-   "total": 516.6028356395808
+   "water": 178.90298744241986,
+   "waste": 24.86,
+   "total": 518.8931874424198
   },
   "2030": {
    "tax": 334.03801200000004,
-   "water": 207.42540000000002,
-   "waste": 22.289999999999992,
-   "total": 563.753412
+   "water": 206.94000000000003,
+   "waste": 26.31,
+   "total": 567.2880120000001
   }
  },
  "next": {
   "Calgary": {
    "tax_pct": 15.0,
    "tax_m": 266,
-   "util_m": 156,
+   "util_m": 155.67000000000002,
    "status": "proposed (City)",
    "src": "cgy_budget"
   },
@@ -236,6 +236,14 @@
   "cgy_water4": [
    "CTV News, typical Calgary water bill could rise nearly 74% by 2030",
    "https://www.ctvnews.ca/calgary/article/typical-calgary-water-bill-could-rise-nearly-74-by-2030/"
+  ],
+  "cgy_water30": [
+   "LiveWire Calgary, committee recommends near 75 per cent increase to water rates ($119.21 to $206.94 a month) (Oct. 6, 2026)",
+   "https://livewirecalgary.com/2026/10/06/calgary-committee-recommends-near-75-per-cent-increase-to-water-rates/"
+  ],
+  "cgy_waste4": [
+   "Residential waste collection fees could go up nearly $6 by 2030 (the City's administrative report: +$1.45 a year to $26.31) (Oct. 2, 2026)",
+   "https://ca.news.yahoo.com/residential-waste-collection-fees-could-180635918.html"
   ],
   "edm_2026": [
    "City of Edmonton, 2026 Budget Highlights and Where your taxes go",
