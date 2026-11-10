@@ -1,0 +1,8 @@
+health 200 OK
+A <- {"t":"welcome","id":"e33bf299","players":[]}
+B <- {"t":"welcome","id":"519afada","players":[]}
+A <- {"t":"join","id":"519afada","name":"Tester B","look":"leo"}
+A <- {"t":"chat","id":"519afada","name":"Tester B","text":"Hello from B"}
+B <- {"t":"pos","id":"e33bf299","name":"Tester A","look":"ali","p":[10,20,1,0.5,"foot","walk"]}
+B <- {"t":"leave","id":"e33bf299"}
+bad origin: Unexpected server response: 403
