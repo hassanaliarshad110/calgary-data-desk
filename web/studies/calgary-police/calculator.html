@@ -85,7 +85,7 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
 </section>
 </div>
 
-<div class="warn"><b>Read this before quoting the crime figures.</b> They are not a forecast for Calgary. They apply the range found in studies of police numbers elsewhere: a 10% rise in officers per resident went with 1.7% to 3% less property crime (Chalfin and McCrary, 242 US cities, 1960 to 2010; Bradford's review for the UK police inspectorate, 2011) and between no change and 3.4% less violent crime, where the evidence is weaker. Crime has many causes; the effect depends on what officers do; it may differ for cuts and increases; and Calgary's own crime severity fell from 2019 to 2025 while its officers per resident also fell. Use the range to understand the research, not to predict next year.</div>
+<div class="warn"><b>Read this before quoting the crime figures.</b> They are not a forecast for Calgary. They apply the range found in studies of police numbers elsewhere: a 10% rise in officers per resident went with 1.7% to 3% less property crime (Chalfin and McCrary, 242 US cities, 1960 to 2010; Bradford's review for the UK police inspectorate, 2011) and about 3.4% less violent crime (Chalfin and McCrary; some other studies found a smaller effect on violent crime, or none). Crime has many causes; the effect depends on what officers do; it may differ for cuts and increases; and Calgary's own crime severity fell from 2019 to 2025 while its officers per resident also fell. Use the range to understand the research, not to predict next year.</div>
 
 <section class="card" style="margin-top:16px" aria-labelledby="yr">
 <h2 id="yr">Year by year</h2>
@@ -102,7 +102,7 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
 (function () {
   var B26 = 684.5, PLAN = {2026: 684.5, 2027: 741.1, 2028: 771.5, 2029: 795.5, 2030: 816.7};
   var POP = {2026: 1583200, 2030: 1689400}, OFF = 2304, CIV = 946.5, RATIO_NOW = OFF / POP[2026] * 1e5;
-  var EL = {prop: [-0.17, -0.30], viol: [0, -0.34]};
+  var EL = {prop: [-0.17, -0.30], viol: [-0.34, -0.34]};
   var REQ = (PLAN[2030] / B26 - 1) * 100, NONE = (Math.pow(1.02, 4) - 1) * 100;
   var PRESETS = {request: {inc: REQ, g: 2, cost: 145, mix: 59}, none: {inc: NONE, g: 2, cost: 145, mix: 59}, half: {inc: (REQ + NONE) / 2, g: 2, cost: 145, mix: 59}};
   var $ = function (id) { return document.getElementById(id); };
@@ -114,7 +114,7 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
     var fmt = function (x) { return Math.abs(x) < 0.05 ? 'no change' : Math.abs(x).toFixed(1) + (x < 0 ? '% less' : '% more'); };
     if (Math.abs(v[1]) < 0.05) return '<span>no change</span>';
     var cls = v[1] < 0 ? 'down' : 'up';
-    return '<span class="' + cls + '">' + (fmt(v[0]) === fmt(v[1]) ? fmt(v[1]) : 'between ' + fmt(v[0]) + ' and ' + fmt(v[1])) + '</span>';
+    return '<span class="' + cls + '">' + (fmt(v[0]) === fmt(v[1]) ? 'about ' + fmt(v[1]) : 'between ' + fmt(v[0]) + ' and ' + fmt(v[1])) + '</span>';
   }
   function run() {
     var inc = +$('inc').value / 100, g = +$('g').value / 100, cost = +$('cost').value * 1000, mix = +$('mix').value / 100;
