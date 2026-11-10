@@ -193,9 +193,15 @@
      "facebook",
      "youtube"
     ],
-    "publish_at": "2026-11-10T12:25"
+    "publish_at": "2026-11-10T12:25",
+    "status": "PUBLISHED",
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/Dfki92pFRpk/",
+     "facebook": "https://facebook.com/reel/1187773927255834",
+     "youtube": "https://www.youtube.com/shorts/mgBxtbyLM-o"
+    }
    }
   ],
-  "post_note": "Scheduled 12:25 (about 18 min after creation) to avoid landing 2 min before an existing 12:20 post; publish status pending confirmation."
+  "post_note": "Scheduled 12:25 (about 18 min after creation) to avoid landing 2 min before an existing 12:20 post; confirmed PUBLISHED on all three at 12:28."
  }
 ]
