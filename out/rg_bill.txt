@@ -1,0 +1,91 @@
+(Hover over number for description)
+Questions?
+2
+Service Regina 306-777-7000 Weekdays: 8:00 a.m. - 4:45 p.m.
+or visit us at Regina.ca
+Moving?
+Visit us at expressaddress.com
+Account Summary
+Account Number: Balance from Previous Bill $87.48
+3
+155273 - 353809 Total Payments -$87.48
+1
+FIRST NAME LAST NAME Balance Forward $0.00
+321 SERVICE ADDRESS Total New Charges $115.72
+Bill issued: 22-JAN-2023
+Total Due $115.72
+Bill Cycle: 009
+Important Messages 5
+Details of New Charges
+4
+PAYMENT DUE UPON RECEIPT OF BILL Water Charges (Service #1)
+Late Payment Charges of 1.25% will be Daily Base Charge: $0.96 x 31 days $29.76
+assessed after 22-FEB-2023 on current charges. Consumption Charge: $2.31 x 8.906 M3 $20.57
+Water Affordability Surcharge $0.01 x 31 days $0.31
+Sewer Charges
+Daily Base Charge:
+$0.74 x 31 days $22.94
+Sewer Calculation:
+$2.04 x 8.906 M3 x 82% $14.24
+Storm Drainage Charges (0 - 1,000 m2)
+Daily Base Charge: $0.65 x 31 days $20.15
+Recycling Charges
+Daily Base Charge: $0.25 x 31 days x 1 service(s) $7.75
+Total New Charges $115.72
+6 Water Use Details
+Meter Number S ervice Class Meter Size Reading Type Previous Reading Present Reading Days Usage
+Service 16-DEC-2022 16-JAN-2023
+1 53323783 Residential 5/8" (15mm) Actual 3111.948 3120.854 31 8.906 M3
+CUSTOMER'S COPY - KEEP THIS PORTION FOR YOUR RECORD E. & O.E.
+CUSTOMER+PREMISE+AMOUNT 000CUSTOMER
+15527335380900010668 000155273 35 3809 220121 115.72
+*1001155273353809*
+7 FIRST NAME LAST NAME
+Account Number: 155273 353809
+123 MAILING ADDRESS
+REGINA SK S4N4B5 Service Address:321 SERVICE ADDRESS
+Total Amount Due Amount Paid
+$115.72
+
+=== page
+PRIVACY - The City of Regina is committed to protecting your personal information. We use your personal
+information to verify who you are before discussing your account. Please ensure your personal information is always
+current and accurate. To protect your account, only customers listed on the account may make inquiries or changes
+to that account.
+CO-APPLICATION – By giving verbal permission to add a co-applicant to the Utility account, all parties become liable for
+charges on the account. If applicable, previous unpaid utility charges may be transferred to the account. Amounts owing may
+be disclosed to either party. Other personal information is not shared.
+BILLING INQUIRIES - If you have a question or concern with your bill, it is up to you to notify the City of Regina
+within 60 days. Failure to do so indicates acceptance of the City of Regina utility and City services account as billed.
+Please e-mail service_regina@regina.ca or call 306-777-7000 with any questions or concerns.
+MOVING - Start, stop or transfer service online at expressaddress.com, in person at City Hall, or by contacting
+Service Regina at 306-777-7000. You are responsible for all charges up to the date that you move or to the date that
+you notify the City of Regina. When you move to a different residence, you will need to apply for water service to
+ensure your water is not disconnected. Your account number changes when you move, so please notify your financial
+institution to update online or telephone banking.
+BILL CALCULATION
+Days- the number of days of service you are billed for. The number of days of billing is multiplied by the Daily
+Base Charge.
+Daily Base Charge- the fixed daily charge for services regardless of consumption.
+Usage- the difference between your present and previous meter reading. Water usage (consumption) is
+recorded in cubic metres (m3).
+Water Consumption Charge- your usage multiplied by the rate per cubic metre.
+Sewer Calculation- sewer calculations use the formula below:
+Residential (82%)
+Water Consumption x Multi- Residential (95%) x rate per cubic metre for sewer
+Commercial (98%)
+Water Affordability Surcharge- a fixed daily charge to support water affordability programs.
+METER READINGS - Readings are obtained every month via automated meter reading (AMR) technology.
+Consumption is estimated when readings are not obtained or when it is deemed necessary to estimate an entire
+area. If necessary, your consumption is adjusted when an actual reading is obtained.
+TERMS OF PAYMENT- PAYMENT FOR SERVICE IS DUE UPON RECEIPT OF BILL. Your service may be cut off
+for non-payment 30 days from the mailing date.
+UTILITY eBILL – To sign up for utility eBill, visit MyAccount.Regina.ca and register today.
+PAYMENT METHODS
+DIRECT DEBIT and BUDGET BILLING- The City offers easy and convenient payment options. For more
+information visit Regina.ca or contact Service Regina at 306-777-7000.
+AT YOUR FINANCIAL INSTITUTION- You can pay your bill at a bank teller or through online or telephone banking.
+Please allow five to seven business days for the payment to be reflected in your account.
+IN PERSON -Bill payments are accepted at Service Regina, Main Floor of City Hall (2476 Victoria Avenue)
+Monday to Friday from 8 a.m. to 4:45p.m.
+BY MAIL- Mail your bill stub and cheque to City of Regina, P.O. Box 5022, Regina, SK S4P 4J3.

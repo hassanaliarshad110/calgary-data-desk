@@ -1,0 +1,35 @@
+200 61910 ott_water26 https://documents.ottawa.ca/sites/default/files/2026%20Annual%20Water%20Bill%20Insert%20EN.pdf
+403 964 ott_water_page https://ottawa.ca/en/living-ottawa/water-utility-bills/rates-and-fees/water-utility-rates
+403 307836 ott_taxpolicy https://pub-ottawa.escribemeetings.com/filestream.ashx?DocumentId=305531
+200 394819 wpg_rates2627 https://dmis.winnipeg.ca/DownloadMeetingDocument/786158/1.%202026%20and%202027%20Water%20and%20Sewer%20Volume%20Rates.pd
+200 72362 wpg_fees https://myutility.winnipeg.ca/UtilityPortal/UtilityBilling/sp/feeincrease?lan=en
+200 72362 wpg_myutil https://myutility.winnipeg.ca/UtilityPortal/UtilityBilling/rates
+200 344278 wpg_shortform https://assessment.winnipeg.ca/Asmttax/pdfs/Statistics/ShortFormTaxationSection2026.pdf
+200 52195 edm_ratesfees https://www.edmonton.ca/programs_services/garbage_waste/rates-fees
+200 52195 edm_ratesfees2 https://www.edmonton.ca/programs_services/garbage_waste/rates-fees
+200 3975445 edm_highlights https://www.edmonton.ca/sites/default/files/public-files/documents/2026-budget-highlights.pdf
+200 82394 edm_avg2 https://www.edmonton.ca/sites/default/files/public-files/documents/howdoesyourpropertycomparetotheaverage-2026.pdf
+200 63884 edm_where https://www.edmonton.ca/city_government/budget_finances/where-taxes-go
+200 485508 edm_storm_faq https://www.epcor.com/ca/en/ab/edmonton/account/rates/faqs-for-wastewater-collection-rates-and-bills.html
+200 277321 edm_2027_cbc https://www.cbc.ca/news/canada/edmonton/proposed-edmonton-operating-budget-calls-for-property-tax-hikes-between-3-9-and-
+200 230059 rg_bill https://www.regina.ca/export/sites/Regina.ca/home-property/water/.galleries/pdfs/Understanding-my-Utility-Bill.pdf
+200 96577 rg_2027_cbc https://www.cbc.ca/news/canada/saskatchewan/regina-2027-budget-proposal-9.7410732
+200 327533 rg_2027_gn https://globalnews.ca/news/12138187/regina-budget-property-tax-2027/
+404 54024 rg_taxpage https://www.regina.ca/home-property/property-tax-assessment/
+404 587844 sk_storm https://www.saskatoon.ca/services-residents/power-water-sewer/storm-water-management/storm-water-utility
+200 6389218 sk_storm2 https://www.saskatoon.ca/sites/default/files/media/documents/Storm%20Water%20Utility%202025%20Annual%20Report.pdf
+200 609918 sk_mybill https://www.saskatoon.ca/services-residents/myproperty/about-myproperty
+200 740651 sk_cfo https://www.saskatoon.ca/sites/default/files/documents/community-services/planning-development/research/miscellaneous/CI
+200 151758 sk_wrap https://saskatoonchamber.com/saskatoon-civic-budget-2026-2027-wrap-up/
+404 107123 cgy_waste3 https://www.calgary.ca/waste/residential/residential-waste-and-recycling-fees.html
+404 107088 cgy_waste4 https://www.calgary.ca/waste/residential/fees.html
+403 5749 van_ppt https://council.vancouver.ca/20251112/documents/staffppt.pdf
+403 5701 van_budget26 https://vancouver.ca/files/cov/2026-budget.pdf
+table 98100057 4918710
+names ['98100057_MetaData.csv', '98100057.csv']
+hdr ['REF_DATE', 'GEO', 'DGUID', 'Household size (7)', 'Household type including census family structure  (11)', 'Coordinate', 'Household income statistics (6):Number of households (2021)[1]', 'Symbol', 'Household income statistics (6):Number of households (2016)[2]', 'Symbol', 'Household income statistics (6):Median household total income (2020) (2020 constant dollars)[3]', 'Symbol']
+table err 98100057 list index out of range
+table 98100058 6552215
+names ['98100058.csv', '98100058_MetaData.csv']
+hdr ['REF_DATE', 'GEO', 'DGUID', 'Household size (7)', 'Household type including census family structure  (11)', 'Coordinate', 'Household income statistics (6):Number of households (2021)[1]', 'Symbol', 'Household income statistics (6):Number of households (2016)[2]', 'Symbol', 'Household income statistics (6):Median household total income (2020) (2020 constant dollars)[3]', 'Symbol']
+table err 98100058 list index out of range

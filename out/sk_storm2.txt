@@ -1,0 +1,1524 @@
+Appendix 2
+STORM WATER UTILITY
+2025 Annual Report
+
+=== page
+TABLE OF CONTENTS
+Message from Directors ............................................................................................... 4
+Executive Summary ...................................................................................................... 5
+1.0 Overview .................................................................................................................. 7
+1.1 Introduction ............................................................................................................ 7
+1.2 Strategic Linkages ................................................................................................. 7
+2.0 Our Storm Water Utility Team .............................................................................. 10
+3.0 Our Infrastructure .................................................................................................. 12
+4.0 Our Results ............................................................................................................ 13
+4.1 Climate and Precipitation ..................................................................................... 13
+4.2 Capital Programs ................................................................................................. 14
+4.3 Maintenance and Operations ............................................................................... 19
+4.4 Asset Management .............................................................................................. 22
+4.5 Storm Water Outfalls ............................................................................................ 23
+4.6 Storm Water Ponds .............................................................................................. 24
+4.7 Bylaws and Compliance ....................................................................................... 26
+4.8 Riverbank Slope Stability ..................................................................................... 27
+4.9 Community Awareness and Engagement ............................................................ 28
+4.10 Storm Water and the Environment ..................................................................... 32
+4.11 Utility Billing ........................................................................................................ 34
+4.12 Continuous Improvement ................................................................................... 35
+5.0 Our Finances ......................................................................................................... 36
+5.1 Revenues ............................................................................................................. 37
+5.2 Operating Expenditures ....................................................................................... 37
+5.3 Storm Water Stabilization Reserve ...................................................................... 39
+5.4 Capital Funding .................................................................................................... 39
+5.5 Capital Expenditures ............................................................................................ 40
+5.6 Storm Water Capital Reserves ............................................................................. 41
+5.7 Storm Water Utility Benchmarking ....................................................................... 42
+6.0 Our Challenges ...................................................................................................... 44
+7.0 Conclusion ............................................................................................................. 45
+8.0 Appendices ............................................................................................................ 46
+Appendix 1: Definitions and Abbreviations ................................................................. 46
+Page 2 of 52
+
+=== page
+Appendix 2: Communications .................................................................................... 49
+LIST OF FIGURES
+Figure 1: Circle Drive South Storm Water Outfall .......................................................... 12
+Figure 2: Brevoort Park South Sod Installation ............................................................. 14
+Figure 3: Cumberland Park Landscape Construction .................................................... 15
+Figure 4: USask Dry Pond Storm Sewer Construction .................................................. 16
+Figure 5: Rendering of Cahill Park Dry Pond ................................................................ 16
+Figure 6: Water in Churchill Park Dry Pond on August 8, 2025 ..................................... 17
+Figure 7: Ditch Improvements Under Construction in Montgomery Place ..................... 18
+Figure 8: New Tree Plantings at Cartwright Pond ......................................................... 18
+Figure 9: Fall Sweep Total Debris Tonnage Removed .................................................. 20
+Figure 10: Storm Water Maintenance Repairs and Replacements: 2020 to 2025 ......... 21
+Figure 11: Image of Sediment within Storm Sewer Pipe ............................................... 22
+Figure 12: Image of Storm Sewer Main & Trunk Ratings .............................................. 22
+Figure 13: Outfall Condition Grades .............................................................................. 24
+Figure 14: Storm Pond Condition Grades ..................................................................... 25
+Figure 15: Floating Wetlands at Kensington 1 Pond (2025) .......................................... 26
+Figure 16: Social Media Post – Construction Start in Cumberland Park ....................... 29
+Figure 17: Social Media Post – Churchill Park Dry Pond Success ................................ 30
+Figure 18: Social Media Post – Provincial Disaster Assistance Program ...................... 32
+Figure 19: 2025 Revenues by Category ........................................................................ 37
+Figure 20: 2025 Operating Expenses by Category ....................................................... 37
+Figure 21: 2025 Capital Expenditures by Category ....................................................... 40
+Figure 22: 2025 Residential Storm Water Management and Flood Protection Charges 42
+Figure 23: 2025 Commercial Annual Minimum and Maximum Storm Water Charges .. 43
+LIST OF TABLES
+Table 1: Storm Water Inventory .................................................................................... 12
+Table 2: Rain Events in 2025 ........................................................................................ 13
+Table 3: 2024 and 2025 Customer Care Summary of Inquiries .................................... 19
+Table 4: 2024 and 2025 Storm Water Group Customer Inquiries ................................. 19
+Table 5: WWO's Storm Water Infrastructure Maintenance ............................................ 21
+Table 6: Drainage Complaint Numbers ......................................................................... 27
+Table 7: Storm Water Management Credit Categories .................................................. 34
+Table 8: 2025 Storm Water Operating Revenues and Expenditures ............................. 38
+Table 9: 2025 Change in Stabilization Reserve ............................................................ 39
+Table 10: Storm Water Capital Expenditures from Capital Reserve Fund ..................... 41
+Table 11: 2025 Change in Storm Water Capital Reserve.............................................. 41
+Table 12: 2025 Year End Balance of Storm Water Reserves ....................................... 41
+Page 3 of 52
+
+=== page
+MESSAGE FROM DIRECTORS
+The Storm Water Utility funds the complex system of a storm water infrastructure network,
+which starts from the collection ditches, storm ponds, and sewer infrastructure and ends
+at the South Saskatchewan River by discharge through the City’s 91 active outfalls. The
+Storm Water Utility is responsible for the planning and design, management, storage,
+operation and maintenance, asset preservation programming, and system engineering,
+which is managed by the following departments:
+ Saskatoon Water
+ Water and Waste Operations
+ Technical Services
+The Storm Water Utility also funds the Drainage Inspector within the Bylaw and
+Compliance section in Community Standards and the oversight of the riverbank stability
+by the Principal Geotechnical Engineer in Saskatoon Water.
+Management and staff from the responsible departments are committed to providing
+exceptional storm water management and flood protection services, including operations
+and maintenance of assets in the most reliable and cost-efficient way for the citizens of
+Saskatoon. We are pleased to present our results in the Storm Water Utility 2025 Annual
+Report on behalf of our departments.
+This report describes our contributions to achieving the City of Saskatoon’s Strategic
+Plan. We take great pride in efficient storm water management and reducing the flood
+risk for the citizens of Saskatoon. Several initiatives have been completed, and more are
+underway to further enhance service to the citizens, increase efficiencies, reduce costs,
+and strengthen our environmental leadership.
+Our financials show responsible stewardship of the resources that Saskatoon citizens
+have entrusted to us. We continue to provide excellent value to our citizens as we
+undertake capital and Continuous Improvement projects that ensure asset and financial
+sustainability. Our utility rates are designed to fund the needed capital, asset
+preservation, operation and maintenance costs for current and future storm water
+management, and flood protection considering climate change. The departments have
+been focusing on customer service, storm water management for current and new
+neighbourhoods, flood protection for the most at-risk areas, and addressing aging
+infrastructure for storm water related services.
+We are proud to work with a dedicated group of professionals who demonstrate an
+ongoing commitment to storm water management and flood protection, as well as
+ensuring the storm water infrastructure is sustainable. The work of the Storm Water Utility
+departments is greatly appreciated.
+Russ Munro – Director of Saskatoon Water
+Brendan Lemke – Director of Water and Waste Operations
+Dan Willems – Director of Technical Services
+Page 4 of 52
+
+=== page
+EXECUTIVE SUMMARY
+The Storm Water Utility funds storm water management and flood protection services,
+including ongoing operations and maintenance of assets with an estimated replacement
+value of $3.0 billion. The Storm Water Utility also monitors and stabilizes the East
+Riverbank to protect strategic public infrastructure. In 2025, the Storm Water Utility had
+revenues of $14.3 million, with $14.0 million allocated to operating expenses, which
+included $9.6 million transferred to Capital and Infrastructure Reserves.
+In 2025, progress was made implementing the Storm Water Utility Business Plan, with
+the following highlights:
+ Continued to progress the nine-project Flood Control Strategy that will reduce the
+flood risk for at least ten top flood prone locations within the city before 2028.
+Landscape construction was completed for the fourth project (Brevoort Park South
+Underground Storage), while construction began for the Cumberland Park Dry Storm
+Pond and USask Dry Storm Pond project. The detailed design and public engagement
+for the seventh and eighth (Cahill Park Dry Storm Pond and 24th Street Storm Sewer,
+respectively) were completed. Additionally, the feasibility assessment and preliminary
+design began for the ninth project, the 46th Street Storm Sewer.
+ Construction of Phase 3 of the Montgomery Place Drainage Improvement Project
+began in Fall 2025. Construction is expected to be completed by the end of 2026.
+ Additional landscaping at Cartwright Pond was completed in 2025 through the CN
+Industrial Neighbourhood Drainage Improvement project.
+ Responded to 913 storm water and drainage inquiries through our Customer Care
+Centre. Bylaw and Compliance also responded to 247 drainage related complaints,
+and the Storm Water Utility responded to 258 inquiries.
+ Roadways, Fleet and Support completed the fall sweep, which included 107 km of
+streets and 1,034 tonnes of debris collected. Water and Waste Operations completed
+1,088 catch basins inspections and completed 141 repairs or replacements based on
+the inspection findings. Water and Waste Operations also completed 490 manhole
+inspections and executed 94 manhole repairs.
+ Continued asset management planning of infrastructure, including completion of the
+2025 Outfall Visual Inspections and updating the Storm Water Asset Management
+Plan.
+ Monitored sediment levels of storm ponds, including the bathymetric surveying of
+three wet storm ponds.
+ Completed the annual Spring Reconnaissance comprising of a visual inspection of the
+slopes and monitoring of instrumentation of the East Riverbank to assess and rate
+specific sections. Monitoring programs were completed near 16th Street and
+11th Street.
+ Continued collaboration with the University of Saskatchewan, Meewasin Valley
+Authority, and others to monitor and research storm water quality and related concepts
+of the storm water system and South Saskatchewan River.
+Page 5 of 52
+
+=== page
+ Collaborated with the University of Saskatchewan on an ongoing multi-year research
+project regarding storm pond sediment, with the results of the project anticipated to
+guide future storm water design standards at the City.
+ Completed billing reassessments of 326 industrial, commercial, institutional, or multi-
+residential sites in the annual storm water utility billing process.
+Saskatoon had an above average rainfall year with 280 mm of rainfall recorded. This
+accumulation was above the historical average of 263 mm, with it being the 41st highest
+seasonal rainfall total since 1900. Five measured rain events occurred on the following
+dates:
+ June 19, 2025 (2-to-5-year return period)
+ July 6, 2025 (2-year return period)
+ July 20, 2025 (2-to-5-year return period)
+ August 5, 2025 (2-year return period)
+ August 8, 2025 (2-to-25-year return period)
+Page 6 of 52
+
+=== page
+1.0 OVERVIEW
+1.1 Introduction
+The Saskatoon Storm Water Utility (Utility) provides storm water management and flood
+protection through funding the storm water system’s operations and maintenance, asset
+preservation, capacity enhancements, and drainage inspections. The Utility also monitors
+and mitigates damage to strategic public infrastructure along the riverbank.
+Storm water services are provided to residential; and industrial, commercial, and
+institutional (ICI) properties. In 2025, storm water charges were applied to approximately
+69,172 single-family residential properties, 1,215 multi-family residential, and 3,451 ICI
+properties including City of Saskatoon (City)-owned sites.
+Saskatoon’s storm water infrastructure includes over 21,723 manholes and catch basins;
+963 km of linear infrastructure, such as storm sewer pipes and culverts; 47 storm ponds;
+and other drainage infrastructure with a replacement value of approximately $3.0 billion.
+A list of key definitions and abbreviations for the report is provided in Appendix 1.
+1.2 Strategic Linkages
+The City’s 2022-2025 Strategic Plan provided the direction that guided the activities of
+the Saskatoon Water Utilities. The following section outlines our Vision, Mission, linkages
+to the Corporate Strategic Goals, and Guiding Values.
+Our Vision
+The City is a leader in storm water design and asset management. We effectively
+collaborate with citizens and partners to utilize storm water as a resource and mitigate
+the risk of flooding.
+Our Mission
+The Utility provides safe, efficient, and cost-effective storm water management to
+Saskatoon citizens through teamwork and innovation. We develop proactive strategies
+that ensure the effective long-term performance of our storm water systems, supported
+by sustainable, accountable, and responsive funding structures. Storm water
+management charges entrusted by citizens are used as effectively as possible to
+minimize storm water and snow melt impacts.
+Page 7 of 52
+
+=== page
+Our Corporate Purpose
+Our Guiding Values
+Page 8 of 52
+
+=== page
+Our Strategic Goals
+Quality of Life: Provide citizens with cost effective, reliable, and high-quality storm water
+management services.
+Continuous Improvement: Increase workplace efficiencies and improve services
+through implementing innovative approaches that maximize value.
+Asset and Financial Sustainability: Implement capital preservation and expansion
+plans that provide the most cost-effective, storm water-related infrastructure for current
+and future citizens and businesses.
+Environmental Leadership: Implement leading-edge innovations for environmentally
+responsible storm water-related infrastructure and services.
+Sustainable Growth: Work closely with other departments to provide efficient and
+resilient designs for storm water infrastructure for new developments.
+Moving Around: Collaborate with all stakeholders to minimize storm water-related
+transportation disruptions.
+Economic Diversity and Prosperity: Provide competitively priced and reliable storm
+water related services, and cost-effective designs for new developments.
+Page 9 of 52
+
+=== page
+2.0 OUR STORM WATER UTILITY TEAM
+The Utility is part of the Saskatoon Water Department in the Utilities and Environment
+Division. The Utility had three full-time employees and two engineering interns in 2025.
+Saskatoon Water’s Engineering and Planning: Responsible for overseeing the Utility
+and providing storm water engineering expertise. Saskatoon Water provides the following
+storm water management services:
+ Flood Control Strategy (FCS) design and project management.
+ Montgomery Place Drainage Improvement Project (MPDIP) design and project
+management.
+ CN Industrial Drainage Improvement Project design and management.
+ Montgomery Place driveway ditch crossing permitting.
+ Rainfall monitoring and storm water quality monitoring.
+ Assessing runoff factors of multi-residential and ICI properties for billing purposes.
+ Analyzing and administering storm water billing credit applications.
+ Engineering support for drainage projects.
+ Community liaison for storm water issues.
+ Modelling storm system capacity relative to rainfall volume and intensity.
+ Planning and design of storm water infrastructure for new land development.
+ Asset management of the City’s storm ponds and outfalls.
+ Monitoring the stability and condition of the riverbank and coordinating remediation of
+slope failures and/or erosion in the area.
+The Utility also funds services provided by the following departments:
+Construction and Design: Operates the “Connection Desk” and provides project
+management services, including survey work and inspection, for storm water
+infrastructure construction projects.
+Communications and Public Engagement: Assists in initiatives to enhance citizen
+awareness and engagement to improve flood resiliency.
+Community Standards: provides drainage inspections, drainage advice to residents and
+developers, Bylaw No. 9772 The Drainage Bylaw, 2021 updates, and Drainage Bylaw
+enforcement.
+Corporate Revenue: Provides storm water billing and collection services.
+Finance: Provides accounting and administrative support.
+Parks: Provides landscape design services for the FCS projects and provides ongoing
+day-to-day operations and maintenance of areas surrounding some storm ponds.
+Page 10 of 52
+
+=== page
+Roadways, Fleet and Support: Maintains above-ground drainage, including culverts,
+and completes a fall street sweep.
+Sustainability: Provides leadership in activities that contribute to storm water practices
+that protect our watershed and natural resources.
+Technical Services: Tracks the inventory, completes condition assessment, and
+oversees asset preservation for storm sewer infrastructure.
+Water and Waste Operations: Provides the ongoing day-to-day operations and
+maintenance of storm water ponds, outfalls, and below-ground (sewer) storm water
+drainage infrastructure.
+Page 11 of 52
+
+=== page
+3.0 OUR INFRASTRUCTURE
+Table 1: Storm Water Inventory
+2025
+Table 1 summarizes the City’s storm water Asset Type
+Inventory
+infrastructure with a replacement value of
+Collectors 683 km
+$3.0 billion. Sewer Mains
+Trunks 70 km
+Manholes - 8,178 ea.
+The Storm Water Utility’s minor system
+Force mains - 3.7 km
+consists of sewer pipes, manholes, catch
+Service
+basins, and outfall structures that convey - 2,880 ea.
+Connections
+runoff from more frequent, lower intensity
+Catch Basins - 13,545 ea.
+storm events (up to a “1-in-2-year” storm).
+Leads - 155 km
+The system includes 963 km of linear
+infrastructure, such as storm sewer pipes Dry 13 ea.
+Storm Ponds
+and culverts, 8,178 manholes, 13,545 catch Wet 34 ea.
+basins, 2,880 service connections, Underground
+- 1 ea.
+91 functioning river outfalls, and minor Storage
+ditches. Culverts - 11 km
+Outfalls - 91 ea.
+The major system consists of overland Roadways 38.7 km
+Sub-drainage
+street drainage, 13 dry ponds, 34 wet ponds Riverbank 1.7 km
+(including 10 naturalized wetlands) major
+Oil & Grit
+- 1 ea.
+ditches, swales, and any other land that is Separators
+required to convey runoff from less frequent, Lift Stations - 2 ea.
+higher intensity storms that produce runoff in
+Replacement Value $3.0 billion
+excess of what the minor system typically
+handles.
+Figure 1: Circle Drive South Storm Water Outfall
+Page 12 of 52
+
+=== page
+4.0 OUR RESULTS
+4.1 Climate and Precipitation
+Annual Rainfall
+Eleven rainfall gauges, within the City’s network, were regularly monitored between
+April 1, 2025, and September 30, 2025. A summary of Saskatoon’s 2025 rainfall season
+is provided in the 2025 Annual Rainfall Report. Overall, Saskatoon had an above-average
+rainfall year with 280 mm of rainfall accumulating. This was above the historical average
+of 263 mm, with it being the 41st highest seasonal rainfall total in the last 126 years.
+Rainfall decreased from 2024 when the city received 337 mm of rainfall.
+Five rainfall events occurred throughout the year; four with a 2-to-5-year return period
+and one with a of 5-to-25-year return period. Table 2 provides the rain event details for
+all rain events recorded by nine rain gauges.
+Table 2: Rain Events in 2025
+Date R S a t i a n t i E st v i e c n s t A c a d i a R e s e r v o i r A t t ri d g e Fi r
+e
+H a l l C H i a t l y l L i g h t a n d P o w e r S h a w C e n t r
+e
+W a s t e w a t e
+r
+T r e a t m e n t P l a n t d e n B o w m
+a
+n
+W a t e r T r e a t m e n t P l a n t P a r k s A v e
+P
+A
+Peak Intensity
+45 103 96 40 69 12 31 45 129
+June (mm/hr)
+19, 12.
+Total rainfall (mm) 13.8 19.0 20.6 6.2 4.4 8.2 11.6 17.6
+2025 2
+Return Period (yr.) <2 2 2 <2 2 <2 <2 <2 5
+Peak Intensity
+60 34 72 67 53 41 58 65 60
+(mm/hr)
+July 6,
+23.
+2025 Total rainfall (mm) 41.4 27.4 28.0 40.0 27.6 30.4 36.8 34.0
+0
+Return Period (yr.) 2 <2 2 2 2 <2 2 2 2
+Peak Intensity
+July 53 53 0 0 0 10 89 0 5
+(mm/hr)
+20,
+Total rainfall (mm) 18.4 26.4 0 0 0 3.2 17.4 0 0.6
+2025
+Return Period (yr.) 2 <5 <2 <2 <2 <2 <5 <2 <2
+Peak Intensity
+58 48 34 34 10 29 58 17 50
+August (mm/hr)
+5, 2025 Total rainfall (mm) 16.4 18.8 13.6 12.4 7.0 13.0 17.2 7.0 10.4
+Return Period (yr.) 2 2 <2 <2 <2 <2 <2 <2 <2
+Peak Intensity
+91 77 86 106 - 58 101 132 72
+August (mm/hr)
+8, 2025 Total rainfall (mm) 42.4 36.0 32.2 38.8 - 30.0 38.4 33.8 22.2
+Return Period (yr.) <25 5 5 5 - 5 5 5 2
+Page 13 of 52
+
+=== page
+August 8, 2025, Storm
+The greatest rain event of the year occurred on August 8, 2025, where a total average of
+39 mm of rainfall occurred, which represented approximately 14% of the total 2025
+rainfall. During this rain event, the southeast areas of the city received the highest rainfall
+amount, with the Acadia Reservoir capturing 42mm of rain over the course of the rain
+event. The storm in this area was classified as “1-in-25-year” storm, as per the current
+City Intensity-Duration-Frequency curves.
+Following the storm, the City received numerous calls from private property owners who
+experienced property damage because of flooding due to heavy rainfall. As a result, the
+City applied and was designated as an Eligible Assistance Area under the Provincial
+Disaster Assistance Program (PDAP), which provides financial assistance to restore
+essential services and property as a result of rainfall damage during this storm.
+4.2 Capital Programs
+Flood Control Strategy
+The FCS includes nine projects to reduce the flood risk for at least ten flood zones before
+2028. The FCS construction is funded by the Utility (60%) and the Government of Canada
+(GoC) Disaster Mitigation and Adaptation Fund (40%), up to a total project cost of
+$54 million. Any cost overages would be funded through capital reserve allocations within
+the Utility if required.
+Landscaping construction was completed in Brevoort Park South in 2025. While the
+underground storage is in service to mitigate flooding in the area, the park will remain
+closed to the public through much of 2026 while the landscaping continues to root and
+establish. Brevoort Park South is currently expected to reopen to the public in fall 2026.
+Figure 2: Brevoort Park South Sod Installation
+Page 14 of 52
+
+=== page
+Construction of the storm sewer infrastructure was completed, while landscape
+construction progressed for the new dry storm pond in Cumberland Park in 2025, which
+is the fifth FCS project. Landscape construction is expected to be completed in the
+summer of 2026, and the park is anticipated to reopen to the public in 2027. In the
+meantime, the dry pond will be in service to mitigate flooding for the 2026 rainfall season.
+Figure 3: Cumberland Park Landscape Construction
+Construction of the sixth FCS project, the University of Saskatchewan (USask) dry storm
+pond, also progressed in 2025 with completion of new storm sewer infrastructure,
+relocation of existing sanitary sewer infrastructure, and partial excavation of the new dry
+storm pond. The remaining pond excavation and electrical infrastructure relocations are
+anticipated to be completed in early 2026, with the landscaping work estimated to begin
+in late 2026. Once the remaining civil construction is completed, the dry pond is
+anticipated to be in service to mitigate flooding for the remainder of the 2026 construction
+season.
+Page 15 of 52
+
+=== page
+Figure 4: USask Dry Pond Storm Sewer Construction
+Public engagement and final detailed design plans were completed for the seventh FCS
+Project, the Cahill Park Dry Storm Pond. Construction will begin in 2026 and will mitigate
+flooding for the 21st Street West and Avenue W South intersection.
+Figure 5: Rendering of Cahill Park Dry Pond
+The detailed design for the eighth FCS project, the 24th Street Storm Sewer, was
+completed in 2025. The project, which will mitigate the flood risk at properties near 24th
+Street East and 3rd Avenue North is expected to be constructed in multiple phases
+throughout the 2026 and 2027 construction seasons. Additionally, the feasibility
+Page 16 of 52
+
+=== page
+assessment for the ninth FCS project, the 46th Street Storm Sewer, commenced in 2025
+to mitigate the flood risk at properties near 46th Street East and 1st Avenue North.
+During the overnight hours of August 8, the constructed FCS projects in W.W. Ashley
+Park, Churchill Park, Weaver Park, and Brevoort Park South demonstrated their
+effectiveness, as a large storm approaching a “1-in-25-year” rain event hit Saskatoon. All
+four of the constructed dry pond and underground storage locations to date took in
+significant amounts of storm water and mitigated flooding that otherwise would have
+occurred in the neighbourhoods.
+Figure 6: Water in Churchill Park Dry Pond on August 8, 2025
+“The Churchill Park Dry Pond project is a great success & a great amenity for our
+community”
+Resident near Churchill Park
+Montgomery Place Drainage Improvement Project
+Construction began for Phase III of the MPDIP in 2025, beginning in the southern portion
+of the Montgomery Place neighbourhood along a segment of Cassino Avenue.
+Construction of the remaining work in Phase III is expected to be completed in 2026. The
+construction deficiencies from Phase 2 of the project were also addressed in 2025. The
+construction areas included segments of Bader Crescent, Bader Crescent, and
+Mountbatten Street.
+The drainage improvement project is expected to cost $8.0 million and is partially funded
+through the Investing in Canada Infrastructure Program where 40% is contributed by the
+GoC and 33.33% is contributed by the Government of Saskatchewan (GoS). The
+drainage improvement phases will be completed in collaboration with roadway
+preservation work to achieve an efficient, cost-effective, and one-city approach for the
+neighbourhood.
+Page 17 of 52
+
+=== page
+Figure 7: Ditch Improvements Under Construction in Montgomery Place
+CN Industrial Neighbourhood Drainage Improvements
+In collaboration with the Sustainability Department, Saskatoon Water was approved to
+receive up to $4.1 million in GoC funding through the Natural Infrastructure Fund in 2021.
+The final scope of work within this project included landscape enhancements for
+Cartwright Pond, which was completed in 2025.
+Figure 8: New Tree Plantings at Cartwright Pond
+Page 18 of 52
+
+=== page
+4.3 Maintenance and Operations
+Citizen Inquiries
+In 2025, the Customer Care Centre responded to 913 inquiries from citizens regarding
+culverts, drainage, storm sewer, and storm water flooding issues, which was up from 885
+inquiries in 2024. The type of inquiries received are shown below in Table 3 below.
+The Utility group responded to 258 citizen inquiries in 2025, up from 226 in 2024. Of these
+inquires, 88 inquiries were related to storm water billing, 11 were inquiries regarding the
+FCS projects, while 11 required a site visit. Table 4 below summaries the completed
+inquiries.
+Note that complaints received by the Bylaw and Compliance group are not included in
+Tables 3 and 4. This information is provided later in the report in Section 4.7.
+Table 3: 2024 and 2025 Customer Care Summary of Inquiries
+Description 2024 2025
+CB Plugged/Clogged/Frozen 167 152
+Street Drainage 35 8
+Lane and/or Lot Drainage 3 3
+CB Damaged 192 215
+CB Lead Damaged 24 74
+Manholes 115 212
+Spring Drainage 275 160
+Storm Sewer Blockage 31 30
+Storm Ponds 19 30
+Other 24 24
+Total 885 913
+Table 4: 2024 and 2025 Storm Water Group Customer Inquiries
+Description 2024 2025
+Alley Drainage 4 0
+Surface Drainage 11 9
+Sewer Drainage 9 3
+Montgomery General 3 1
+Montgomery Drainage Strategy 23 20
+Montgomery Ditch Crossings 10 11
+Flooding 0 18
+Flood Control Strategy 24 11
+Storm Water Utility Billing 49 88
+General 23 29
+Bylaw 5 4
+Catch Basin Drainage 23 30
+Councillor Requests 15 13
+City of Saskatoon Internal1 13 6
+Storm Ponds 10 10
+Storm Water Credit 4 5
+Total 226 258
+Page 19 of 52
+
+=== page
+Roadways, Fleet and Support Fall Sweep
+The 2025 Fall Street Sweep Program utilized a tree density and flood risk approach
+similar to the methodology used in previous years. A total of 107.2 km of streets were
+swept, with 1,034 tonnes of debris collected. The tonnage of debris removed was down
+significantly from 2,024 tonnes collected in 2024, though similar to 1,060 tonnes collected
+in 2023, as shown in Figure 9. There were portions of Avenue E and D in Mayfair that
+were added to the program (around 674 meters). However, approximately 1,790 meters
+of the typical program could not be completed due to construction.
+By designing the program based on higher tree density, increased debris captured during
+the sweep provides better flood protection per kilometer swept. The RFS team also
+completes many of the overland drainage inquiries received by the Customer Care
+Centre.
+Fall Sweep Total Debris Tonnage Removed
+2500
+2034 2024
+)
+s 2000
+e 1738 1738
+n
+n
+o
+T 1500 1320
+(
+d
+e 1060 1034
+v
+m 1000
+o
+e
+R
+s 500
+ir
+b
+e
+D
+0
+2019 2020 2021 2022 2023 2024 2025
+Year
+Figure 9: Fall Sweep Total Debris Tonnage Removed
+Water and Waste Operations Maintenance
+Water and Waste Operations (WWO) operates and maintains below ground storm water
+infrastructure, including sewer mains, manholes, and catch basins. Table 5 on the
+following page summarizes WWOs 2025 storm-water-related maintenance activities,
+including flushing and televising storm water sewers, and cleaning and inspecting
+infrastructure.
+Page 20 of 52
+
+=== page
+Table Definitions
+Table 5: WWO's Storm Water Infrastructure Maintenance
+ “Storm Sewer Meters”
+Activity 2024 2025 Units refers to the storm
+CCTV of Storm Mains 11,859 16,152 Meters segment meters flushed.
+ “Catch Basin Leads” is the
+CCTV of CB Leads 1,297 3,240 Meters
+number of leads flushed or
+Storm Sewer Meters 49,547 41,985 Meters
+cleaned.
+Catch Basin Leads 289 327 Each  “Outfalls” is the number of
+Inspect Catch Basins 521 1,088 Each total times outfalls
+inspected and/or cleaned.
+Maintain Catch Basins 11,101 11,505 Each
+163 113  “Storm Ponds” is the
+Repair Catch Basins repaired, repaired, 28 Each number of trips made to
+15 replaced replaced maintain storm ponds.
+Inspect Storm  “Inspect Catch Basins”
+Manholes 430 490 Each refers to the number of
+formal inspections
+Repair Storm
+completed at catch basins.
+Manholes 60 94 Each
+ “Maintain Catch Basins”
+Grout MHs/CBs 33 50 Each
+refers to the number of
+Outfalls 84 107 Each
+catch basins visited and
+Storm Ponds 114 69 Each maintained by operations
+*Clean Catch Basins Activity does not include drainage/thawing operations. staff.
+In 2025, a total of 113 catch basins, 94 manholes, 8 segments of catch basin leads, and
+17 segments of storm sewer were repaired, while 28 catch basins and 50 segments of
+catch basin leads were replaced. Additionally, 69 maintenance visits to storm ponds were
+completed. Figure 10 displays the 2025 WWO repairs and replacements of storm water
+infrastructure compared to the previous five years.
+WWO Storm Water Maintenance: 2020 to 2025
+250
+200
+150
+100
+50
+0
+2020 2021 2022 2023 2024 2025
+Storm Manholes Catch Basins Storm Sewers Catch Basin Leads
+Figure 10: Storm Water Maintenance Repairs and Replacements: 2020 to 2025
+Page 21 of 52
+
+=== page
+4.4 Asset Management
+Storm Sewer Inspection, Cleaning, and Lining
+In 2025, the Storm Water Utility funded the cleaning and inspection of approximately
+16 km of storm sewers. As of the end of 2025, over 207 km of storm pipes have been
+inspected (23% of linear storm sewer pipe system), and 151 km of these have been rated
+(21% of linear storm sewer pipe system). The inspected storm sewers were rated using
+a five-point scale:
+ A: No structural problems evident
+ B: Some structural deficiencies noted
+ C: Sewer main showing deterioration
+ D: Physical condition is near failure
+ F: Physical condition has failed
+The rating for 151 km of inspected sewer mains is provided in Figure 12.
+5% 1%
+13%
+14%
+68%
+A B C D F
+Figure 11: Image of Sediment within Storm Figure 12: Image of Storm Sewer Main &
+Sewer Pipe Trunk Ratings
+Storm Water Asset Management Plan
+The current inventory of storm water infrastructure has a replacement valuation of
+approximately $3.0 billion. As of the end of 2025, storm ponds, outfalls, and lift stations
+have at or near 100% reporting levels for condition data, while approximately 22% of the
+storm infrastructure linear network (i.e. storm sewers) has been inspected. Future work
+will be to continue inspections of the storm water infrastructure network, so conditions are
+known for the entire system. Other priorities include documenting service expectations
+and accounting for climate change in future infrastructure projects.
+The 2025 State of Saskatoon Storm Water Infrastructure Report was prepared and
+presented to City Council in 2025. The report summarizes the current state of the City’s
+Page 22 of 52
+
+=== page
+storm water assets, including inventory, condition ratings, and data reliability information.
+Additionally, the report outlined investment needs and current gaps, as well as plans to
+improve asset management and decision making.
+Some of the recommendations and action plans identified within the report included:
+ Developing lifecycle management strategies for critical assets.
+ Documenting current levels of service to optimize approved funding.
+ Developing and implement pond dredging program.
+ Continue to monitor and assess storm water network performance.
+ Collaborating with internal and external stakeholders to update storm water service
+levels.
+ Preparing a business case for a Utility rate increase.
+4.5 Storm Water Outfalls
+Outfall Inventory
+The City currently has 91 owned and maintained storm water outfalls. The Utility formally
+inspects the outfalls every three years as part of the Storm Water Asset Management
+Plan, with the last comprehensive inspection program completed in 2025. WWO also
+completes inspections at select outfall locations annually, as well as inspections on an
+emergency or inquiry basis.
+2025 Outfall Visual Inspections
+In 2025, Saskatoon Water completed visual inspections of 93 storm water outfalls,
+including 83 City-owned and maintained, and 10 privately-owned and maintained
+locations. The overall condition of each outfall was graded from a scale of A to F (A being
+the best condition and F being the worst) as shown in Figure 13. Overall, 30% of the
+outfalls inspected were in the top two graded categories “A” and “B”, 32% were in the
+middle range grade “C”, while 38% were in the bottom two graded categories “D” and “F”.
+Page 23 of 52
+
+=== page
+Outfall Condition Grades
+12% 15%
+15%
+26%
+32%
+A B C D F
+Figure 13: Outfall Condition Grades
+The detailed report and recommendations are still being finalized at time of reporting.
+Once finalized, the recommendations and action items are expected to be completed in
+coordination with Saskatoon Water, WWO, and through external contracts.
+4.6 Storm Water Ponds
+Storm Water Ponds Inventory
+The City currently has 34 wet ponds and 13 dry ponds within the storm water
+management network. The Utility formally inspects the storm water management ponds
+every three years, with new ponds inspected the year they are in service, as part of the
+Storm Water Asset Management Plan. A comprehensive inspection program was last
+completed in 2024. WWO also completes inspections at select pond locations annually,
+as well as inspections on an emergency or inquiry basis.
+2024 Storm Pond Visual Inspections
+In 2024, Saskatoon Water completed visual inspections of 45 ponds in the City’s
+inventory. The visual inspections documented the condition of pond infrastructure (such
+as storm sewer pipes, slopes, shoreline, and water appearance), identifying deficiencies
+or areas requiring maintenance. The ponds were classified into four categories: Good,
+Average, Poor, and Under Construction as shown in Figure 14. Overall, most of the ponds
+were considered to be in average condition (75%), with only 13% considered to be in poor
+condition at time of inspection.
+Page 24 of 52
+
+=== page
+Storm Pond Condition Grades
+3% 10%
+13%
+75%
+Good Condition Average Condition Poor Condition Under Construction
+Figure 14: Storm Pond Condition Grades
+A total of 268 action items were identified, and 92 of these action items were classified
+as Moderate to Urgent. The detailed report and recommendations have been finalized at
+the time of this report. Action items will begin to be addressed in order of their importance
+in Summer 2026 in coordination with Parks, WWO, and external contractors as
+necessary.
+Storm Water Ponds and Recreational Use
+The City permits use of storm water ponds for recreational use through Policy C10-024.
+A Storm Pond Recreational Use Committee that meets quarterly includes members from
+Saskatoon Fire, Recreation and Community Development, Communications, WWO,
+Technical Services, and Saskatoon Water to discuss safety of the storm pond system.
+Saskatoon Fire completes ice thickness testing in the winter to permit recreational use of
+the storm ponds for the season. Additional seasonal testing is completed by Saskatoon
+Fire as required based on weather conditions. Only select storm ponds are permitted for
+recreational use based on infrastructure and site inspections.
+Storm Pond Bathymetric Survey Program
+In 2025, Saskatoon Water continued its bathymetric survey program, identifying sediment
+infill volumes and determining if sediment is affecting the operation of the City’s wet storm
+ponds. Five wet ponds were surveyed in 2025, which contained an average sediment
+build-up equivalent to 45% of the pond’s dead storage. Since 2017, 72% of the City’s wet
+storm ponds have been surveyed, including 95% of wet ponds greater than 20 years of
+age. To monitor sediment levels, Saskatoon Water plans to continue annual surveys with
+the program to be incorporated into the Storm Water Asset Management Plan.
+Page 25 of 52
+
+=== page
+Floating Treatment Wetland Installation
+In 2024, the Saskatchewan Association of Watersheds, in partnership with the City, Water
+Security Agency, Environment and Climate Change Canada, and the Meewasin Valley
+Authority, installed 12 floating treatment wetlands in the City’s Kensington 1 Storm Pond.
+The wetlands are anticipated to provide a benefit to the natural ecosystem, including pond
+water quality improvements, as well as to wildlife and pollinators in the area. The wetlands
+have continued to establish throughout 2025, as shown in Figure 15.
+Figure 15: Floating Wetlands at Kensington 1 Pond (2025)
+Goldfish in Storm Ponds
+In 2025, The City hired EDI Environmental Dynamics Inc. to complete DNA testing of the
+fish at Peter Zakreski (Stonebridge 3) and Dundonald ponds. The results indicated that
+fish species, other than goldfish, were present in Peter Zakreski Pond, including a weak
+detection of exotic fish and several native species.
+No goldfish removal projects were completed in 2025, in part due to limited local
+availability of the natural fish toxicant Rotenone. The City is currently considering options
+for future goldfish removal in 2026.
+4.7 Bylaws and Compliance
+The Storm Water Utility funds a dedicated drainage inspector position and partially funds
+three other positions in the Community Standards Bylaw Compliance section. The
+drainage inspector helps citizens and developers ensure compliance to the City’s Bylaw
+No. 9772 The Drainage Bylaw, 2021 through a model of education and enforcement. In
+2025, Community Standard’s Bylaw Enforcement Network software tracked 247 property
+drainage-related complaints, up from 221 in 2024. Table 6 displays the number of
+drainage-related complaints in 2025 compared to 2024.
+Page 26 of 52
+
+=== page
+Table 6: Drainage Complaint Numbers
+Complaint Type 2024 2025
+Lot Grading Advice & Education 32 42
+Sump Pump Discharge 47 89
+Sump Pump Winter Bypass 45 47
+Lot Grading Plan Requests & Questions 3 2
+Rear Property Line Drainage 11 10
+Eaves Trough & Downspouts 44 33
+ROW Closure Approvals 0 0
+Side Yard Drainage Concerns 8 7
+Commercial Property Development 6 6
+Groundwater Issues 1 1
+Infill Development 5 2
+Multi-Family Development 7 0
+Garage Pad Elevations 3 1
+Water Retention Structure 3 2
+Concrete Swale 2 1
+Other 4 4
+Total 221 247
+4.8 Riverbank Slope Stability
+The Utility funds riverbank slope stability projects due to the impact of snow melt and
+rainfall on groundwater levels and erosion. The City’s goal is to manage the riverbank
+slope stability more proactively for increased efficiency and lower long-term costs.
+East Riverbank Reconnaissance
+Since 2009, an annual reconnaissance has been completed on the East Riverbank for
+areas considered most susceptible to slope instability, between the North and South
+Railway Bridges. This reconnaissance comprises visual inspections of the slopes and
+monitoring of slope inclinometers and standpipe and vibrating wire piezometers. The
+reconnaissance aims to provide a yearly review of the riverbank status from a
+geotechnical and risk of slope instability perspective. In 2020, the inspection extents were
+expanded to the south to the east Raw Water Intake and Pumping Facility, and in 2021
+to the north to Peturrson’s Ravine.
+In addition to the monitoring completed as part of the annual reconnaissance, Saskatoon
+Water staff visually monitored East Riverbank sites near 15th and 16th Streets and 11th
+Street, with monitoring being more frequent when risk of slope movement was higher.
+Nutana Slope Area
+Geotechnical instrumentation in the Nutana Slope Area was monitored three times in
+2025 with the results communicated to residents of the area. Visual inspections were
+Page 27 of 52
+
+=== page
+completed monthly between April and October and occasionally during the winter.
+Instrumentation monitoring was also completed by City staff in spring, summer and fall.
+Geotechnical Support
+In addition to managing the riverbank, the City Principal Geotechnical Engineer is a
+resource for all City departments, and in 2025, was involved in several projects, providing
+geotechnical support. Some of these projects included the following:
+ Cahill Park Dry Pond Design
+ USask Dry Pond Design
+ Trenchless CN and CP track crossings for the Blairmore Primary Water Main
+ Riverbank Overlay District building permit review
+ Land Development Review
+ Sump Pump Project – reviewing the management of the interaction between high
+groundwater and residential development
+4.9 Community Awareness and Engagement
+Flood Control Strategy
+Communications and engagement for the FCS is a priority for the Utility. The following
+communications were mailed to area residents and stakeholders regarding ongoing FCS
+projects in 2025:
+Brevoort Park South Underground Storage (4th FCS Project)
+ Landscape Construction Update (May 2025)
+Cumberland Park Dry Pond (5th FCS Project)
+ Engagement Summary Mailer (January 2025)
+Cahill Park Dry Pond (7th FCS Project)
+ Notification of City Council meeting requesting project approval (May 2025)
+ City Council approval of Project & Engage webpage (August 2025)
+ Public Engagement Event Invitation and Video Presentation on Engage webpage
+(September 2025)
+Two FCS news releases were completed in 2025 for the Weaver Park, Cumberland Park,
+and USask Dry Pond Project, which are shown in Appendix 2 and described below:
+ June 2, 2025: Work begins on the City’s fifth and sixth flood mitigation projects
+ June 9, 2025: City’s third Flood Control project complete: Weaver Park now open
+Engage pages are active for each FCS project and can be found on
+saskatoon.ca/engage.
+Page 28 of 52
+
+=== page
+A social media post was also created in coordination with the news release indicating the
+start of construction in Cumberland Park and on USask land, which is shown in Figure
+16.
+Figure 16: Social Media Post – Construction Start in Cumberland Park
+Additionally, a social media post was created after the Churchill Park Dry Pond
+successfully mitigated flooding during a July 2025 storm, which included photos submitted
+by a local area resident. An image of this post is shown in Figure 17.
+Page 29 of 52
+
+=== page
+Figure 17: Social Media Post – Churchill Park Dry Pond Success
+Page 30 of 52
+
+=== page
+Montgomery Place Drainage
+The construction notices and updates for Phase 3 of the MPDIP were completed by the
+Construction Management Team of Construction and Design. The engage page for the
+MPDIP can be found at Saskatoon.ca/engage.
+Nutana Slope
+Two flyers were distributed to residents in spring and fall near the Nutana Slope to inform
+them of instrumentation monitoring results. A “Notice to Residents” was also delivered in
+the spring to provide information on what to expect from the City and what citizens can
+do to reduce risk from slumping.
+Yellow Fish RoadTM Program
+The Utility, in collaboration with Sustainability, the Wastewater Utility, and WWO,
+supported the Meewasin Valley Authority in delivering the Yellow Fish RoadTM Program
+to make students and citizens aware that water goes through the storm water system
+untreated to the South Saskatchewan River. In 2025, in-person presentations were
+offered to schools and other community groups in the city. Sixteen schools/groups and
+563 students and teachers participated in the Yellow Fish RoadTM Program. Yellow fish
+were painted on 145 storm drains in 11 neighbourhoods, and 943 door hangers were
+distributed. The Yellow Fish RoadTM Program is currently approved to continue until at
+least 2028, as a new agreement with Meewasin Valley Authority to continue delivering
+this program was approved in 2025.
+Storm Water Charges
+Bill inserts were prepared to provide information to ICI property owners about the storm
+water management charges, including information about the Storm Water Management
+Credit Program.
+Saskatoon.ca Website Updates
+The Storm Water website is reviewed as needed to ensure up-to-date information is
+provided to Saskatoon residents. In 2025, the following webpages were updated:
+ Flood Control Strategy
+ Storm Water Utility Charges
+ Storm Water System
+ Rainfall Reports
+ 24th Street Storm Sewer Project
+Provincial Disaster Assistance Program
+A news release was completed by the City Solicitor’s Department regarding the
+application process for the PDAP in response to the August 2025 storm event. This news
+release is also included in Appendix 2 and described below:
+ September 15, 2025: Provincial Financial Assistance Now Available for Flood-
+Affected Saskatoon Residents
+Page 31 of 52
+
+=== page
+Figure 18: Social Media Post – PDAP
+4.10 Storm Water and the Environment
+Storm Water Quality Monitoring
+Saskatoon Water monitors 16 major outfalls for storm water quality. These outfalls are
+sampled and tested for temperature, chlorine, E.coli, and total coliforms every alternate
+week.
+The monitoring program also tracks changes in water quality and quantity for the
+Northeast Swale. The monitoring measures basic water quality parameters, and monthly
+water samples provide for more detailed analysis. Annual reporting includes trend
+analysis of samples and comparisons to guidelines and historical data.
+Page 32 of 52
+
+=== page
+Water quality monitoring was also expanded to select storm ponds in 2025, with water
+quality testing being completed at a total of seven pond locations. The testing was
+completed on three occasions throughout 2025, with a variety of parameters being
+sampled including ions and indicators, solids, nutrients, microbiological, and other field
+measurements.
+Natural Infrastructure
+Saskatoon’s green network includes features such as parks, trees, storm ponds, natural
+and naturalized areas, and other green spaces. These forms of natural infrastructure
+provide several benefits – such as storm water management, flood protection, and habitat
+– and can be used in place of or in combination with grey infrastructure to enhance the
+resilience, performance, and/or lifespan of urban infrastructure.
+Pathways for an Integrated Green Network (approved in principle by City Council in 2022)
+is a 10+ year implementation plan that outlines actions to enhance, grow, and conserve
+Saskatoon’s green network. Several initiatives are underway to support storm water
+management using natural infrastructure, including vegetated ditches, structural soil cells,
+naturalized storm pond enhancements, floating wetlands, and park upgrades. Some of
+the City’s active projects are featured online at saskatoon.ca/naturalinfrastructurefund.
+Outfall Debris Catchment Bags
+In 2022, the City partnered with the USask on a research project (which also received
+funding through the Natural Sciences and Engineering Research Council of Canada) that
+included the installation of trash trap nets on two of the City’s storm water outfalls. The
+nets capture trash and other pollutants that would have otherwise reached the South
+Saskatchewan River through the storm water system.
+2025 was the final year of collection within the research project. Overall, while the nets
+did capture some debris throughout the project and provide some insights for the type of
+debris entering the South Saskatchewan River from the storm system, they did not
+capture as much trash as initially anticipated. The nets are planned to be removed from
+the outfalls in 2026.
+Storm Pond Sediment Research Project
+In 2025, the USask progressed on the four-to-five-year research project that began in
+2024.The research project focuses on studying sedimentation in storm ponds, with the
+project receiving funding from the City, Natural Sciences and Engineering Research
+Council of Canada, and Mitacs Inc. The goal of the overall project, which is led by three
+PhD students and two master’s students at USask, will be to establish a scientific
+foundation to enhance sediment retention in wet ponds, improve sediment management,
+and reduce overall costs for the City. As of 2025, the PhD students continue to work on
+the modelling portion of the project, with the two master’s students expected to start in
+May 2026.
+Outcomes from the project will be used to make future revisions to the City’s pond design
+standards, the development of design standards for sediment forebays, increased
+Page 33 of 52
+
+=== page
+efficiency in pond maintenance and budgeting, and improved safety management
+planning for pond winter recreation.
+Contractor Environmental Guidelines
+In 2025, the City launched a project to update its Contractor Environmental Guidelines
+and develop new Erosion and Sediment Control Standards, which is continuing into 2026.
+These updated tools aim to reduce construction-related impacts, such as sediment,
+pollutants, and dust, while ensuring consistent environmental practices and helping
+safeguard Saskatoon’s waterways, natural areas, and stormwater systems.
+4.11 Utility Billing
+Equivalent Runoff Unit Assessment Updates
+In 2025, the Storm Water team reassessed a total of 326 ICI and multi-residential
+properties. Of these sites, 298 assessments were due to internal observations of recent
+construction, 18 assessments were due to new sites being created, and 10 assessments
+were due to customer inquiries.
+Storm Water Management Credit Program
+The Storm Water Management Credit Program took effect January 1, 2019, providing the
+opportunity for a reduction in Storm Water Management Charges for ICI and multi-
+residential property owners who have implemented onsite storm water management
+measures. Properties are eligible for a credit in the three categories up to a maximum
+total combined credit of 50%. The details of the three categories are provided in Table 7
+below.
+Table 7: Storm Water Management Credit Categories
+Total Credit
+Category Evaluation Criteria
+(50% Maximum)
+Based on the percentage of storm water directed
+Water Quality
+through a quality control infrastructure that meets the
+Improvements Up to 20%
+minimum standard of 80% total suspended solids
+removal for particles sizes 50 micron or larger.
+Based on the proportion of storm water for a
+standard “1-in-2 year” rain event held onsite and
+Peak Flow
+released slowly to the City’s storm water system. Up to 30%
+Reduction
+The credit is equal to 0.4 multiplied by the peak flow
+reduction percentage up to 75%.
+Onsite Based on 2% per millimeter of storm water up to 25
+Retention (Runoff mm that is retained onsite and not released to the Up to 50%
+Volume Reduction) City’s storm water system.
+The Storm Water website includes Frequently Asked Questions, a fillable application
+form, a user-friendly credit calculation calculator, an inspection and maintenance
+template, and a comprehensive guidance manual. Information about the credit program
+Page 34 of 52
+
+=== page
+was sent with all 2025 ICI Storm Water Utility bills. No new applications for the storm
+water credit program were approved in 2025. The Utility will continue to explore options
+in the future to increase awareness of the credit program for ICI and multi-residential
+property owners.
+4.12 Continuous Improvement
+The Utility has undertaken a Continuous Improvement approach to increase service
+levels, improve efficiencies, and reduce costs in 2025:
+ The FCS cost-shared with the GoC to help the City adapt to the risk of more intense
+storms associated with climate change. Project 4 (Brevoort Park Underground
+Storage) reached substantial completion, while significant construction progress was
+made in Project 5 (Cumberland Park Dry Pond) and Project 6 (USask Dry Pond). As
+of December 31, 2025, the GoC contributed approximately $12.95 million as part of
+the Disaster Mitigation and Adaptation Fund agreement.
+ The MPDIP cost-shared with the GoC and GoS to help restore the drainage routes in
+the Montgomery Place neighbourhood through the Investing in Canada Infrastructure
+Program continued in 2025 with the start of construction of Phase III of the project. As
+of December 31, 2025, approximately $4.3 million has been contributed by the GoC
+and GoS. Phase 3 will be completed before the end of 2026.
+ The restoration of drainage routes in the CN Industrial Neighbourhood was cost-
+shared with the GoC, and remaining landscape enhancements were completed in
+2025. As of December 31, 2025, approximately $3.3 million has been contributed by
+the GoC Natural Infrastructure Fund.
+ Cost-effective research was leveraged through additional partnerships with the
+USask, including the ongoing new project regarding storm pond sedimentation.
+ Storm sewer asset inventories were updated in 2025, including visual inspections of
+all outfalls in the City’s pond network (at time of reporting), with action items being
+identified for each location.
+ Participation in the Canadian Infrastructure Benchmarking Initiative (CIBI) provided
+access to best practices and lessons learned from other Canadian municipalities
+regarding storm water management. Saskatoon was the host city of the 2025 CIBI
+Annual Workshop, with the Storm Water Utility leading a tour for conference attendees
+of various storm water infrastructure sites in Saskatoon, as well as completing
+presentations regarding the history of Saskatoon’s Utility and the Brevoort Park Flood
+Control Strategy project.
+Page 35 of 52
+
+=== page
+5.0 OUR FINANCES
+The Utility is funded through a user-pay principle with charges proportional to storm water
+runoff generated according to property size and surface imperviousness (i.e., green
+space is charged less than buildings and pavement). A single-family residential dwelling
+is deemed to produce one Equivalent Runoff Unit (ERU) of storm water, which forms the
+unit for charging other property types. The Storm Water Management Charge for single
+residential properties in 2025 was $8.90 per month ($106.80 annually). In 2025, 69,172
+single family dwellings were charged storm water management fees (one ERU each).
+Commercial properties can generate significantly more storm water than single unit
+residential properties; therefore, they are charged multiple ERUs from a minimum of two
+annual ERUs ($213.60) to a maximum of 100 ERUs ($10,680) in 2025. In 2025, the Utility
+billed 4,666 properties, including 3,451 ICI properties and 1,215 multi-residential
+properties.
+Page 36 of 52
+
+=== page
+5.1 Revenues
+In 2025, total Utility revenues were $14.3
+Storm Water Utility
+million, an increase of 0.9% from 2024.
+2025 Revenues
+Storm Water Management revenues based
+$14,281,385
+on ERUs included
+$5.1 million from ICI properties (36% of
+total revenues and 5% of customers of the
+storm water management charge), and
+36% $9.2 million from residential properties
+(64% of total revenues and 95% of
+52%
+customers of the storm water management
+charge). Figure 19 displays the revenues in
+percentage by category.
+12%
+Variances: Actual total Utility revenues
+Residential (1-unit dwelling) were $34,000 (0.2%) lower than budgeted
+Multi-Residential in 2025 due to lower than anticipated storm
+Commercial water payments received.
+Figure 19: 2025 Revenues by Category
+5.2 Operating Expenditures
+The Utility’s 2025 operating expenditures
+Storm Water Utility were $14.0 million, including $9.6 million
+2025 Operating Expenses (69%) allocated to Capital reserves. Figure
+$13,968,549 20 displays operating expenses in
+percentage by category.
+2%
+3%
+WWO and RFS (Public Works) expended
+26% $3.7 million (26% of total operating
+expenses) to operate and maintain the
+storm water system, including handling
+69% citizen drainage inquiries, keeping storm
+drains clear, replacing and repairing
+infrastructure, and sweeping streets in the
+fall. Of the $3.7 million, $2.5 million was
+Capital Reserve
+spent on sewer maintenance by WWO,
+Public Works
+while $1.2 million was spent on drainage
+Engineering & Inspections
+by RFS.
+Corporate Charges/Other Reserves
+Figure 20: 2025 Operating Expenses by
+Administration costs (corporate charges)
+Category
+included billing services by Corporate
+Revenue, financial and administration services from Finance, and insurance. Engineering
+and inspections, including overall utility management, accounted for $0.5 million.
+Page 37 of 52
+
+=== page
+Variances: Operating expenditures in 2025 were $0.3 million (2.4%) under budget.
+Expenses also included a $71,100 transfer to a capital reserve for the City’s enterprise
+resource program (Fusion).
+Table 8 displays the actual 2025 operating revenues and expenditures compared to the
+2025 budgeted and 2024 actual amounts.
+Table 8: 2025 Storm Water Operating Revenues and Expenditures
+Storm Water Utility
+Operating Revenues and Expenses
+($1000s)
+2025 2025 2024
+Actual Budget Actual
+Revenues
+Storm Water Charges $ 14,278 $ 14,304 $ 14,140
+Late Charges $ 15 $ 12 $ 15
+Ditch Crossing Permits $ - $ - $ -
+Total Revenues $ 14,281 $ 14,316 $ 14,155
+Expenses
+Engineering & Inspections Operations $ 444 $ 675 $ 522
+Maintenance (Public Works) $ 2,476 $ 2,532 $ 2,500
+Drainage (Public Works) $ 1,181 $ 1,168 $ 987
+Customer Billing $ 127 $ 139 $ 125
+Corporate Services $ 63 $ 94 $ 82
+Licenses & Insurance $ 102 $ 133 $ 95
+Other Admin Expenses $ 6 $ 20 $ 11
+Interest Expense/(Revenue) $ ( 54) $ ( 54) $ ( 29)
+Provision to Capital Reserve $ 9,553 $ 9,553 $ 9,556
+Provision to Other Reserves $ 71 $ 58 $ 85
+Total Operating Expenses $ 13,969 $ 14,316 $ 13,935
+Revenues Less Expenses $ 313 $ - $ 220
+Page 38 of 52
+
+=== page
+5.3 Storm Water Stabilization Reserve
+The Storm Water Stabilization Reserve has been established to provide for normal
+fluctuations in storm water expenses because of differences in weather conditions, such
+as widespread severe rain events that impact requirements for storm water maintenance
+services. Changes in the stabilization reserve since 2023 are shown in Table 9. The
+reserve cap is 50% of the one-year operation budget of WWO and RFS. The stabilization
+reserve at the end of 2025 has a balance of $1.8 million, which is the maximum reserve
+cap.
+Table 9: 2025 Change in Stabilization Reserve
+Change in Storm Water Stabilization Reserve
+($1000s)
+Description/Year 2025 2024 2023
+Stabilization Reserve Beginning of Year $ 1,497 $ 1,277 $ 1,669
+Balance From Year $ 313 $ 220 $ ( 392)
+Transfer out to Capital Project $ - $ - $ -
+Storm Stabilization Reserve End of Year $ 1,810 $ 1,497 $ 1,277
+5.4 Capital Funding
+In 2025, $9.6 million was allocated to the Storm Water Capital Reserve. In addition to
+revenue allocated to capital from the Storm Water Operations, $2.4 million from the GoC’s
+Disaster Mitigation and Adaptation Fund Program was utilized for the FCS (Brevoort Park
+South Underground Storage, Cumberland Park Dry Pond, and USask Dry Pond eligible
+expenditures), while $0.3 million from the GoC’s and GoS’s Investing in Canada
+Infrastructure Program was utilized for the drainage improvement project in Montgomery
+Place. The GoC’s Natural Infrastructure Fund also contributed $0.7 million for the
+drainage improvement project in the CN Industrial Neighbourhood.
+Page 39 of 52
+
+=== page
+5.5 Capital Expenditures
+In 2025, Utility capital expenditures were approximately $9.9 million (Figure 21).
+Approximately 95% of capital expenditures were for storm sewer network management,
+asset preservation, and capacity improvements ($9.4 million). Total capital expenditures
+decreased by approximately 58% compared to 2024 due to reduced (planned) spending
+for capacity improvement projects.
+East Riverbank Stabilization expenditures were $201,000 including the internal Principal
+Geotechnical Engineer salary, slope instrumentation monitoring, and other riverbank
+monitoring costs.
+Storm pond preservation expenditures
+Storm Water Utility
+were $252,000 and included inspections,
+2025 Capital Expenses
+monitoring, asset management, and minor
+$9,856,131
+capital repair costs. Significant capital
+expenditures are expected for storm pond
+3% maintenance in the future.
+2%
+Variances: Table 10, on the following
+page, displays the actual 2025 Storm
+Water Capital Expenditures compared to
+the 2025 budget and 2024 actuals. The
+amounts shown in Table 10 does not factor
+95%
+in reimbursement from the Disaster
+Mitigation and Adaptation Fund, Investing
+Storm Sewers in Canada Infrastructure Program, and
+Storm Ponds Natural Infrastructure Fund contribution
+East Riverbank Stabilization agreements. These reimbursements factor
+in the “Storm Trunk and Collection Sewer”
+Figure 21: 2025 Capital Expenditures by Category capital expenditures. Total net capital
+expenditures are reduced from $9.9 million
+to $6.4 million, factoring in the external
+funding.
+2025 actual expenditures were lower than budgeted due to less than anticipated
+construction progress of the Cumberland Park Dry Pond, USask Dry Pond, and Phase III
+of the Montgomery Place Ditch Improvement Project. As a result, 2026 capital
+expenditure budgets will be increased to account for the remaining work.
+At the end of 2025, ongoing capital projects with durations exceeding one year had
+unspent capital balances of $41.0 million. This does not include the capital reserve
+balance of $0.9 million but does include funding allocated from external sources
+(Government of Canada and Government of Saskatchewan) for funding agreements.
+Page 40 of 52
+
+=== page
+Table 10: Storm Water Capital Expenditures from Capital Reserve Fund
+Storm Water Capital Expenditures
+($1000s)
+2025 2025 2024
+Actual Budget Actual
+Storm Trunk and Collection Sewers $ 9,403 $ 16,192 $ 22,955
+Storm Sewer Pond Preservation $ 252 $ 837 $ 360
+East Riverbank Stabilization $ 201 $ 248 $ 217
+Watershed Mgmt and Assessment Program $ - $ - $ -
+Total Capital Expenditures $ 9,856 $ 17,277 $ 23,532
+5.6 Storm Water Capital Reserves
+The Storm Water Capital Reserve provides funding for future large-scale capital projects.
+The capital reserve at the end of 2025 was $0.9 million. Table 11 displays the comparison
+of the 2025 Capital Reserves of this year to those of 2024 and 2023.
+Table 11: 2025 Change in Storm Water Capital Reserve
+Change in Storm Water Capital Reserve
+($1000s)
+Description/Year
+2025 2024 2023
+Capital Reserve Beginning of Year $ 2,001 $ 4,650 $ 5,550
+Provision to Capital Reserve $ 9,553 $ 9,556 $ 9,489
+Capital Budget $ ( 12,572) $ ( 12,241) $ ( 10,389)
+Redevelopment Levy Adjustment $ - $ - $ -
+Transfer in from Stabilization $ - $ - $ -
+Closures and Adjustments Returned to Capital Reserve $ 1,923 $ 37 $ -
+Capital Reserve End of Year $ 905 $ 2,001 $ 4,650
+At the conclusion of 2025, the total balance of the three storm-water-related reserves
+(Stabilization Reserve, Capital Reserve, and Infrastructure Reserve) was $2.8 million,
+shown in Table 12.
+Table 12: 2025 Year End Balance of Storm Water Reserves
+All End of Year Storm Water Reserves
+($1000s)
+Description/Year
+2025 2024 2023
+Storm Stabilization Reserve $ 1,810 $ 1,497 $ 1,277
+Capital Reserve $ 905 $ 2,001 $ 4,650
+Infrastructure Reserve $ 57 $ 57 $ 57
+Total Storm Water Reserves End of Year $ 2,771 $ 3,555 $ 5,983
+Page 41 of 52
+
+=== page
+5.7 Storm Water Utility Benchmarking
+In 2025, the Utility compared its utility rates to 12 other cities with utilities across Canada
+using publicly available information on the cities’ websites. For single residential
+properties, Saskatoon’s overall charge was $106.80. This fee is the fourth lowest
+compared to the 12 other comparison cities, and the second lowest among the seven
+comparison cities located in the prairies. An image of the comparison to prairie cities is
+shown in Figure 22.
+Residential Storm Water Management and Flood
+Protection Charges
+Edmonton, AB 295.39
+Regina, SK 259.15
+Lloydminster, AB/SK 213.48
+St. Albert, AB 196.68
+Calgary, AB 195.60
+Saskatoon, SK 106.80
+Sherwood Park, AB 96.60
+$0.00 $50.00 $100.00 $150.00 $200.00 $250.00 $300.00 $350.00
+Figure 22: 2025 Residential Storm Water Management and Flood Protection Charges1
+Non-residential properties are more difficult to compare, as storm water utility programs
+ranged from flat rates for all customers to charges based on area size and
+imperviousness.
+ For a typical restaurant (4,515 m2) that is all hard surface, municipality storm water
+charges range nationally from $96.60 (Sherwood Park) to $4,522.68 (Edmonton).
+Saskatoon has the tenth highest rate among nationally surveyed cities, and the fourth
+highest annual rate among surveyed prairie cities, charging $1,602.00.
+ For a large shopping centre (37,200 m2) that is all hard surface, municipality storm
+water charges range nationally from $96.60 (Sherwood Park) to $37,263.24
+(Edmonton). Saskatoon again has the tenth highest rate among nationally surveyed
+1 Sources: Rates from websites of cities of Calgary, Lloydminster, Regina, Sherwood Park, St. Albert, and
+EPCOR.
+Page 42 of 52
+
+=== page
+cities, and fourth highest annual rate among surveyed prairie cities, charging
+$10,860.00.
+Saskatoon’s maximum annual storm water charge was $10,860.00 in 2025 for non-
+residential properties, which was the second highest maximum charge out of the seven
+prairie cities surveyed. A comparison between the maximum and minimum commercial
+fees of the seven prairie cities is shown in Figure 23.
+Commercial Annual Minimum and Maximum Storm
+Water Management and Flood Protection Charges
+$37,263.24
+Edmonton, AB*
+$531.70
+$10,680.00
+Saskatoon, SK
+$213.60
+$8,292.80
+Regina, SK
+$259.15
+Lloydminster, $6,934.68
+AB/SK $213.48
+$517.08
+St. Albert, AB
+$196.68
+$195.60
+Calgary, AB
+$195.60
+Sherwood Park, $96.60
+AB $96.60
+$ $ $ $ $ $ $ $ $
+- 5 1 1 2 2 3 3 4
+0
+0,
+0,
+0
+0,
+5
+0,
+0
+0,
+5
+0,
+0
+0,
+5
+0,
+0
+0 0 0 0 0 0 0 0
+0
+0.
+0.
+0
+0.
+0
+0.
+0
+0.
+0
+0.
+0
+0.
+0
+0.
+0
+0 0 0 0 0 0 0
+*Assuming maximum charge is for a large shopping centre (37,200 m2 property) MAX Annual Rate MIN Annual Rate
+Figure 23: 2025 Commercial Annual Minimum and Maximum Storm Water Charges
+Page 43 of 52
+
+=== page
+6.0 OUR CHALLENGES
+Storm water management has continuing and expected future challenges that are
+summarized below:
+Citizen Expectations: Citizens have high expectations for storm water drainage that
+minimizes ponding on their streets and on properties. Flooding happens relatively rarely,
+but when it does, it can impact many properties at once. Citizens expect quick reactions
+by the City to their areas.
+Climate Change: Climate change adds to the potential of more frequent, higher intensity
+rain events, and increased demands on the storm water infrastructure.
+Condition of Existing Infrastructure: Storm water infrastructure has a limited life
+expectancy. Over time, the pipes, culverts, and other infrastructure must be repaired or
+replaced. Some of Saskatoon’s storm water infrastructure dates back to the early 1900s.
+Costs for Businesses: Storm water charges for some businesses have increased over
+the past ten years, which may generate negative feedback. Actions that businesses can
+take to reduce their storm water run-off (storm water credits) generally have high capital
+costs relative to the annual reduction in storm water management charges.
+Drainage Bylaw Enforcement: Neighbourhood storm water drainage is negatively
+impacted by properties developed contrary to approved design standards or drainage
+paths that are not maintained. When development occurs, inspections are necessary to
+minimize future problems.
+Fluctuating Groundwater Levels: Higher groundwater levels have changed drainage
+patterns as water is unable to seep into the ground. The groundwater levels impact
+neighbourhood drainage and contribute to East Riverbank slumping and slope failure. As
+groundwater levels decrease during times of drought, the impact of high groundwater can
+be forgotten by non-technical staff and residents alike, resulting in lower implementation
+of groundwater management practices.
+Historical Design Standards: Limited standards for storm water infrastructure were in
+place when Saskatoon neighbourhoods began to develop. In 1989, new storm water
+standards for new neighbourhoods were established to handle “1-in-100-year” storms.
+Surface flooding during high intensity storms continues to be an issue for many low-lying
+areas in older parts of the city.
+Infill Development: Cumulative impacts of infill development are placing higher demands
+on our storm-water-related infrastructure. Infill reduces greenspace and increases
+surface runoff.
+Inflow & Infiltration to the Sanitary Sewer: Extraneous inflow and infiltration of
+snowmelt, rainfall, and groundwater to the sanitary system increases risk of sanitary
+Page 44 of 52
+
+=== page
+sewer back-up during rain events and creates unnecessary costs for treatment and
+capacity upgrades for the Wastewater Treatment Plant.
+7.0 CONCLUSION
+Several initiatives the Utility progressed in 2025 will be further developed in 2026 and
+beyond, including the following:
+ Flood Control Strategy
+ MPDIP
+ CN Industrial Drainage Improvement
+ Asset Management
+ Storm Pond Inspections
+ Outfall Inspections
+ Storm Water Management Charge Billing
+ Storm Pond Sediment Research
+ Canadian Infrastructure Benchmarking Initiative
+The Utility is committed to working collaboratively with other departments making
+Saskatoon a more flood-resilient City.
+Page 45 of 52
+
+=== page
+8.0 APPENDICES
+Appendix 1: Definitions and Abbreviations
+Definitions
+Catch Basins: Used to convey storm water from the ground surface, usually on a street
+or parking lot, to the storm water collection system. Collector catch basins are located on
+collector mains, and trunk catch basins are located on trunk mains.
+Culverts: Used to channel water under roads, railways, or embankments. Culverts have
+open inlets and outlets, usually transporting water from one ditch to another.
+Equivalent Runoff Unit: A measurement unit for runoff that is used for storm water
+management fees. One ERU is based on an average single-family residential property’s
+areas and types of surfaces (i.e. amount of grass, hard surface, etc.).
+Force Mains: Pressurized mains from 100 mm to 900 mm in diameter that connect storm
+water lift stations to the gravity collection system.
+Leads: Pipes connecting catch basins to the storm collection system that range in
+diameter from 100 mm to 900 mm. Collector leads are located on collector storm mains.
+Trunk leads are located on trunk storm mains.
+Lift Stations: Move storm water from lower to higher elevations, particularly where the
+elevation of the source is not sufficient for gravity flow and/or when the use of gravity
+conveyance will result in excessive excavation depths and high sewer construction costs.
+Lining: A layer of material installed in a sewer main to improve performance and extend
+the lifespan.
+Manholes: Chambers used to access sewer mains for maintenance and inspection
+purposes.
+Outfalls: The discharge point of the storm sewer system to the river and include the
+following three categories:
+ Local – Expel water from relatively smaller local areas than the collector or trunk
+outfalls.
+ Collector – Connect to the storm sewer system through collector mains.
+ Trunk – Connect to the storm sewer system through trunk mains.
+Piezometers: Devices used to measure pressure or depth of groundwater at a specific
+location.
+Page 46 of 52
+
+=== page
+Return Period: The estimated average time between equivalent rain events based on
+rainfall intensity and duration. A rain event with a two-year return period has a
+50% probability of occurring in any year. A rain event with a 100-year return period has a
+1% probability of occurring in any year.
+Runoff: Rain and snowmelt draining from land, buildings, or other surfaces.
+Service Connections: Connect drainage systems from customer properties to storm
+mains in the street.
+Sewer Mains: Principal pipes in a system that distribute water or collect storm water and
+wastewater and include the following two categories:
+ Collector – Sewer mains that are less than 1350 mm in diameter.
+ Trunk – Sewer mains that are more than 1350 mm in diameter.
+Slope Inclinometer: Geotechnical instruments used to measure horizontal
+displacements along various points on a borehole to detect slope movement.
+Storm Water Ponds: Constructed basins that control excess storm water during and
+after heavy rainfall events and provide water quality improvements for runoff.
+ Dry Ponds – normally do not store water. They detain runoff during intense rain events
+and then gradually release the water back into the storm sewer system.
+ Wet ponds – permanently retain water throughout the year.
+Sub-Drainage: Perforated pipes located in the slope along the riverbank used to collect
+ground water and remove it from the slope. This decreases the groundwater level in the
+slope and helps to stabilize the area.
+Sump Pumps: Remove water that has accumulated in a water-collecting sump basin,
+commonly found in the basements of homes.
+Vibrating Wire Piezometers: Used to provide accurate pore-water pressure readings in
+soils to measure groundwater levels.
+Page 47 of 52
+
+=== page
+Abbreviations
+CN Industrial Canadian National Industrial
+CIBI Canadian Infrastructure Benchmarking Initiative
+City City of Saskatoon
+ERU Equivalent Runoff Unit
+FCS Flood Control Strategy
+GoC Government of Canada
+GoS Government of Saskatchewan
+ICI Industrial, Commercial, Institutional
+MPDIP Montgomery Place Drainage Improvement Project
+NIF Natural Infrastructure Fund
+PDAP Provincial Disaster Assistance Program
+RFS Roadways, Fleet and Support
+USask University of Saskatchewan
+Utility Storm Water Utility
+WWO Water and Waste Operations
+Page 48 of 52
+
+=== page
+Appendix 2: Communications
+FCS Engagement Summary – Cumberland Park
+Page 49 of 52
+
+=== page
+Work begins on City’s fifth and sixth flood mitigation projects
+Page 50 of 52
+
+=== page
+City’s third Flood Control Strategy project complete: Weaver Park now open
+Page 51 of 52
+
+=== page
+Provincial Financial Assistance Now Available for Flood-Affected Saskatoon Residents
+Page 52 of 52
