@@ -1,0 +1,6 @@
+p1 https://www.calgary.ca/waste/residential/rates.html 200 22706
+p2 https://www.calgary.ca/water/water-utility/2027-water-rates-and-billing.html 200 25958
+p3 https://www.calgary.ca/our-finances/2027-budget.html 200 27676
+p4 https://www.calgary.ca/adjustments 200 25025
+p5 https://livewirecalgary.com/2026/04/14/calgary-waste-recycling-fees-combined/ 200 66251
+p6 https://www.calgary.ca/waterbill 200 27908
