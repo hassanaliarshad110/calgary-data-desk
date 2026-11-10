@@ -121,5 +121,41 @@
     "publish_at": "2026-11-09T20:07"
    }
   ]
+ },
+ {
+  "date": "2026-11-09",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Housing",
+  "title": "A one-bedroom in the Calgary area: 2020 vs 2025",
+  "topic_used": "CMHC Rental Market Survey, Calgary CMA, row & apartment, October: average one-bedroom rent $1,086 (2020) \u2192 $1,111 \u2192 $1,222 \u2192 $1,463 \u2192 $1,584 \u2192 $1,581 (2025)",
+  "changed_from_calendar": null,
+  "central_figure": "Average one-bedroom rent, Calgary CMA: $1,086 (Oct 2020) \u2192 $1,581 (Oct 2025), +$495/month, +45.6% (CMHC HMIP Table 2.2.11)",
+  "sources": [
+   "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/TableMapChart/Table?TableId=2.2.11&GeographyId=0140&GeographyTypeId=3&DisplayAs=Table",
+   "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/Dashboard/Print?geographyId=0140"
+  ],
+  "length_s": 34.8,
+  "video_path": "studio-videos/2026-11-09-PM/one-bedroom-rent-2020-2025.mp4",
+  "package": "packages/2026-11-09-PM-one-bedroom-rent-2020-2025.md",
+  "audit": {
+   "rounds": 1,
+   "claims_checked": 10,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-09-PM.md"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 422638885,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-4668952460799095619",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-09T20:18"
+   }
+  ]
  }
 ]
