@@ -10,6 +10,12 @@ Every scheduled run follows this file exactly. One run = one video.
 - Nonpartisan and neutral across wards. No attacks on or endorsements of councillors, candidates or parties.
 - Every figure is researched in this run from a primary source, with its URL. Never state a number, date or quote from memory. If a claim can't be verified, cut it.
 
+## Content direction (Hassan, Nov 10, 2026): stories, fun facts and news. No independent studies.
+- **Quick slots (AM/PM): a Calgary fun fact or mini-story.** Surprising, shareable, light: places, names, people, firsts, history, nature, culture. Not a statistics study. Use a number only when the fact itself is a number, and never compute or model anything ourselves.
+- **Flagship slots: a Calgary story.** History, people, places, turning points, told as a story with a beginning, a surprise and an ending. Not an analysis or a report.
+- **CIVIC slots (Mon/Wed/Fri) are now "Calgary news explained".** Pick the biggest or most-talked-about Calgary story of the past ~48 hours (City Hall, transit, weather, events, business, community), using at least two independent reports or an official source, and explain in 30-60 s what happened, why it matters and what happens next. Strictly neutral: no opinion, no taking sides, no predictions. Don't repeat a story already in log.json unless something new happened. If there's no solid Calgary news, make a timely Calgary story instead (an anniversary, a season, an event this week).
+- No independent studies, scores, rankings we computed, or ward-by-ward comparisons. Everything is still fact-checked by the audit gate.
+
 ## 1. Find today's slot
 - Today = `TZ=America/Edmonton date +%F`. If today is before 2026-11-09 or after 2026-12-31, stop and do nothing.
 - Slot: the scheduled task says which type it is (quick-insight / flagship / civic). For quick-insight, local hour < 14 → `AM`, else `PM`.
