@@ -616,7 +616,8 @@ TOOLS = [
                     '2030 budget request: crime severity, clearance and staffing against Edmonton, Vancouver, Winnipeg, Ottawa and '
                     'Toronto (Statistics Canada), Calgary\'s spending, overtime and fine revenue, the request item by item, three '
                     'scenarios, research on officers and crime, community crime per resident and every source; part="summary", '
-                    '"sections", "sources" or "limitations" (find narrows sections). '
+                    '"sections", "sources" or "limitations" (find narrows sections). Asked for the study or a report on it, issue it '
+                    'unchanged with make_report published="calgary-police". '
                     'section="safest_cities" gives Canada\'s safest cities by Statistics Canada\'s Crime Severity Index '
                     '(the latest year and the year before): the 50 safest of every city of 10,000 people or more, '
                     'Calgary\'s rank this year and last, the large cities (100,000+) and the metropolitan areas; '
@@ -847,7 +848,12 @@ TOOLS += [
              'action': {'type': 'string', 'description': 'No timelines or deadlines (no "within 2 weeks", "next 3 months")'},
              'owner': {'type': 'string'},
              'measure': {'type': 'string', 'description': 'How the office will know it worked'}}, 'required': ['action']}},
-         'file_name': {'type': 'string'}},
+         'file_name': {'type': 'string'},
+         'published': {'type': 'string', 'enum': ['calgary-police'],
+                       'description': 'Issue a published Calgary Insight study exactly as published (title, findings, every chapter, '
+                                      'conclusion, method, sources): "calgary-police" is the study of Calgary Police performance, '
+                                      'resources and the 2027 to 2030 budget request. Any chapters saved with report_add are added after '
+                                      'the study\'s own; send only a title (it is replaced by the study\'s).'}},
          'required': ['title']}},
 ]
 _MR = next(t for t in TOOLS if t['name'] == 'make_report')
@@ -1863,6 +1869,16 @@ class Agent:
                 raise cd.DataError(f'There is no step {n} with a result in this question (steps so far: 1 to {self._step_no}).')
             return self._results[n]
         if name == 'make_report':
+            pub = args.pop('published', None) if isinstance(args, dict) else None
+            if pub:                            # a published study, issued exactly as published, with any extra chapters after it
+                import police_study            # noqa: PLC0415
+                st = police_study.load(self.data_dir) if pub == 'calgary-police' else None
+                if not st:
+                    raise cd.DataError('There is no published study by that name: use published="calgary-police".')
+                extra = list(self._draft.get('sections') or []) + list(args.get('sections') or [])
+                args = {k: v for k, v in st.items()}
+                args['sections'] = list(st['sections']) + [x for x in extra if isinstance(x, dict)]
+                self._draft = {'_checks': 2, '_reviewed': True}    # already audited: no rewrite rounds
             args = self._merge_draft(args)
             self._draft = dict(args)          # kept, so a make_report sent back for its conclusion or review needs only what changes
             miss = [k for k in ('summary', 'sections', 'data_sources') if not args.get(k)]
