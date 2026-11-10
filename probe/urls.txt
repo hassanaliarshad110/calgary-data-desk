@@ -1,6 +1,2 @@
-kid_boy https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115917_b6a7c8ed-6098-4de1-9837-e52b34edaee3.glb 512 0.35
-kid_girl https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115919_63c6a435-0022-49d6-b577-0d3a049bd251.glb 512 0.35
-kid_boy2 https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115919_c03efe24-b61d-4446-9e35-df3b3e032770.glb 512 0.35
-amira https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115921_43522d65-c753-4d55-9f1c-63e78671be52.glb 1024
-teen_girl https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115923_e1572085-c3d5-45ce-8486-a652a3eb0ee0.glb 512 0.35
-rabbit https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115409_756298a3-1162-4fcb-80da-31b03bef6c31.glb 512 0.4
+mandela https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_120146_54bb08ed-b79c-4258-817f-1882bed65198.glb 2048
+superstore https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_120147_15ccf59f-cfd5-47b2-bf04-9e85349c62e7.glb 2048
