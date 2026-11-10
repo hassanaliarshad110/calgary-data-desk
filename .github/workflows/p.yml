@@ -1,0 +1,21 @@
+name: Narration and score 19
+on: {push: {branches: [site-check-19]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          mkdir -p out
+          sudo apt-get -qq update >/dev/null && sudo apt-get -qq install -y fluidsynth fluid-soundfont-gm >/dev/null 2>&1 || echo "apt failed" >> out/log.txt
+          git clone -q --depth 1 https://github.com/mrbumpy409/GeneralUser-GS gugs 2>>out/log.txt || echo "no gugs" >> out/log.txt
+          find gugs -iname '*.sf2' >> out/log.txt 2>/dev/null
+          pip install -q mido >> out/log.txt 2>&1
+          if [ -f tts_lines.json ] && [ ! -f keep_tts ]; then python tts.py out >> out/log.txt 2>&1 || true; fi
+          python compose.py out >> out/log.txt 2>&1 || true
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -b fetched-19
+          git add -f out && git commit -qm "Narration and score" && git push -f origin fetched-19
