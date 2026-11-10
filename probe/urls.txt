@@ -1,1 +1,3 @@
-tree_maple https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_211109_8fb8032a-ef50-4936-8062-9963d0751d65.glb 512
+moon.png https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_220308_69e02542-7793-4c9c-9193-ea345398c2d5.png
+plaza_a.png https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_220213_e85068e7-df40-4c13-a282-1fc98b4f6f02.png
+plaza_b.png https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_220212_ce8ccccd-3888-4aac-8621-90517ac4cfdb.png
