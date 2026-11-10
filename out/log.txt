@@ -1,0 +1,11 @@
+403 307706 text/html; charset=UTF-8 https://pub-calgary.escribemeetings.com/FileStream.ashx?DocumentId=377372
+403 307706 text/html; charset=UTF-8 https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=351269
+403 307706 text/html; charset=UTF-8 https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=338952
+200 2898028 application/pdf https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/other-reports/Residential-Property-Taxes-and-Utility-Charges-Survey-2023.pdf
+  pages 40
+403 307750 text/html; charset=UTF-8 https://pub-edmonton.escribemeetings.com/filestream.ashx?DocumentId=294459
+200 1393 text/csv; charset=utf-8 https://data.calgary.ca/api/views/m5bi-n8x4/rows.csv?accessType=DOWNLOAD
+200 7847 application/json; charset=utf-8 https://data.calgary.ca/api/views/m5bi-n8x4.json
+200 120525 text/html; charset=utf-8 https://pub-calgary.escribemeetings.com/Meeting.aspx?Id=92e1e45e-2fd7-4165-b332-06c1ea477848&lang=English&Agenda=Agenda&Item=27&Tab=attachments
+doc 376955 
+doc 376953 

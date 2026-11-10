@@ -1,0 +1,264 @@
+{
+  "id" : "m5bi-n8x4",
+  "name" : "2027–2030 Budget breakdown",
+  "assetType" : "chart",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Government",
+  "createdAt" : 1794243927,
+  "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed information for the 2027–2030 Budget, helping Calgarians explore how funds are allocated across The City.",
+  "diciBackend" : false,
+  "displayType" : "visualization_canvas_chart",
+  "downloadCount" : 1,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "locked" : false,
+  "modifyingViewUid" : "nnnm-9sfh",
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 42746948,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1794258367,
+  "publicationGroup" : 20710183,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1794324377,
+  "rowsUpdatedBy" : "ikwz-m2v4",
+  "tableId" : 20710189,
+  "totalTimesRated" : 0,
+  "viewCount" : 72,
+  "viewLastModified" : 1794258367,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1794325824,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 7855428,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1794325824,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1794325824,
+      "failureCount" : 0,
+      "startedAt" : 1794325824,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "ikwz-m2v4",
+      "displayName" : "Open Data Administrator SE"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ ],
+  "displayFormat" : {
+    "visualizationCanvasMetadata" : {
+      "vifs" : [ {
+        "configuration" : {
+          "viewSourceDataLink" : true,
+          "showDimensionLabels" : true,
+          "xAxisScalingMode" : "pan",
+          "axisLabels" : {
+            "top" : "Budget ($M)",
+            "left" : "Department"
+          },
+          "showValueLabels" : false,
+          "showLegendOpened" : true,
+          "wrapDimensionLabels" : true,
+          "legendPosition" : "right"
+        },
+        "series" : [ {
+          "unit" : {
+            "other" : "($M)",
+            "one" : "($M)"
+          },
+          "stacked" : {
+            "oneHundredPercent" : false
+          },
+          "color" : {
+            "secondary" : "#e55100",
+            "highlight" : "#cccccc",
+            "palette" : "categorical3",
+            "primary" : "#3f51b5"
+          },
+          "showLegend" : true,
+          "type" : "barChart",
+          "dataSource" : {
+            "measure" : {
+              "aggregationFunction" : "sum",
+              "columnName" : "budget_millions"
+            },
+            "orderBy" : {
+              "parameter" : "measure",
+              "sort" : "desc"
+            },
+            "filters" : [ {
+              "dataTypeName" : "number",
+              "columns" : [ {
+                "fieldName" : "year",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : "=",
+              "arguments" : {
+                "value" : "2027"
+              },
+              "isDrilldown" : false,
+              "isHidden" : false
+            }, {
+              "dataTypeName" : "text",
+              "columns" : [ {
+                "fieldName" : "department",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : false,
+              "isHidden" : false
+            }, {
+              "dataTypeName" : "text",
+              "columns" : [ {
+                "fieldName" : "bu",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : false,
+              "isHidden" : false
+            }, {
+              "dataTypeName" : "text",
+              "columns" : [ {
+                "fieldName" : "budget_status",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : false,
+              "isHidden" : false
+            }, {
+              "dataTypeName" : "text",
+              "columns" : [ {
+                "fieldName" : "fund",
+                "datasetUid" : "nnnm-9sfh"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : false,
+              "reactKey" : "35",
+              "isHidden" : false
+            } ],
+            "type" : "socrata.soql",
+            "datasetUid" : "nnnm-9sfh",
+            "dimension" : {
+              "grouping" : {
+                "columnName" : "fund"
+              },
+              "columnName" : "department"
+            }
+          }
+        } ],
+        "format" : {
+          "type" : "visualization_interchange_format",
+          "version" : 10
+        },
+        "description" : "",
+        "id" : "198d9918-c46a-4da4-8c43-931d32df4b28",
+        "title" : ""
+      } ],
+      "filters" : [ {
+        "dataTypeName" : "number",
+        "columns" : [ {
+          "fieldName" : "year",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : "=",
+        "arguments" : {
+          "value" : "2027"
+        },
+        "isDrilldown" : false,
+        "isHidden" : false
+      }, {
+        "dataTypeName" : "text",
+        "columns" : [ {
+          "fieldName" : "department",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : false,
+        "isHidden" : false
+      }, {
+        "dataTypeName" : "text",
+        "columns" : [ {
+          "fieldName" : "bu",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : false,
+        "isHidden" : false
+      }, {
+        "dataTypeName" : "text",
+        "columns" : [ {
+          "fieldName" : "budget_status",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : false,
+        "isHidden" : false
+      }, {
+        "dataTypeName" : "text",
+        "columns" : [ {
+          "fieldName" : "fund",
+          "datasetUid" : "nnnm-9sfh"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : false,
+        "reactKey" : "35",
+        "isHidden" : false
+      } ],
+      "version" : 1
+    }
+  },
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "metadata" : {
+    "custom_fields" : {
+      "License/Attribution" : {
+        "License URL" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Data Supplier" : {
+        "Department" : [ "Corporate Planning & Financial Services" ],
+        "Organization" : "The City of Calgary",
+        "Business Unit" : "Finance-Director"
+      },
+      "Time/Date" : {
+        "Update Frequency" : "Irregular"
+      },
+      "Geospatial Information" : {
+        "Dataset contains geospatial information" : "No"
+      }
+    },
+    "availableDisplayTypes" : [ "visualization" ]
+  },
+  "owner" : {
+    "id" : "ikwz-m2v4",
+    "displayName" : "Open Data Administrator SE",
+    "screenName" : "Open Data Administrator SE",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "ikwz-m2v4",
+    "displayName" : "Open Data Administrator SE",
+    "screenName" : "Open Data Administrator SE",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "flags" : [ "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

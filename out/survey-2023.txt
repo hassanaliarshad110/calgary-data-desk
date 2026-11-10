@@ -1,0 +1,1860 @@
+2023
+Residential Property Taxes
+and Utility Charges Survey
+YYuukkoonn
+TTeerrrriittoorryy
+NNuunnaavvuutt aanndd NNoorrtthhwweesstt
+TTeerrrriittoorriieess
+AAllbbeerrttaa
+BBrriittiisshh
+NNeewwffoouunnddllaanndd//
+CCoolluummbbiiaa Grande
+LLaabbrraaddoorr
+Prairie
+Edmonton
+MMaanniittoobbaa
+Leduc SSaasskkaattcchheewwaann
+QQuueebbeecc
+Red Deer
+Saskatoon
+Vancouver PPrriinnccee EEddwwaarrdd
+Medicine
+Calgary Hat OOnnttaarriioo IIssllaanndd
+Winnipeg
+Victoria Lethbridge
+Regina NNeeww NNoovvaa
+BBrruunnsswwiicckk SSccoottiiaa
+Halifax
+Toronto
+December 2024
+
+=== page
+Draft
+October 31, 2024
+Introduction  three-bedroom bungalow with a main floor area of
+1,200 square feet,
+This year’s survey of participating Canadian municipalities
+ a double car garage,
+contains information on the 2023 taxation and utility ser-
+ a finished full basement,
+vice year. One important reason for providing 2023 informa-
+tion a year later is that the actual cost of 2023 utility services  on a 6,000-square-foot lot located in an average
+(especially electricity bills) is not available until early 2024, neighbourhood of the city.
+unlike taxation for residential properties, which was esti-
+Note that in some instances the ‘representative bunga-
+mated in 2023. Another is the reliance on publicly available
+low’ identifier is used when in reality data is only avail-
+information through audited financial statements of actual
+able for ALL dwellings in the municipality. This is true
+taxes collected for verification that becomes fully available
+for Vancouver, Victoria and in some instances when we
+in the summer.
+did not receive responses from municipalities and col-
+Participating Canadian municipalities responded to the sur- lected data from publicly available sources. In some of
+vey via e-mail. This publication includes all survey respons- those cases we were able to identify data for single fam-
+es. Some participating municipalities chose not to answer ily homes as opposed to ALL dwellings. In every case
+all questions, and in some instances, we have had to supple- where we collected publicly available data we checked
+ment information from public sources like utility regulatory to ensure the data was consistent with submissions by
+filings, property tax bylaws, and provincial property assess- the particular municipality to previous surveys.
+ment numbers. As such, there may be different numbers
+The definition of a “representative two-storey” used in this
+of participants for each table and graph contained in this
+survey is:
+report.
+ A 2-storey,
+If you wish to have your municipality included in next year’s  3-bedroom,
+survey, you can send an email with your municipality’s pri-
+ 2-bathroom,
+mary contact information to Clyde Pawluk, clyde.pawluk@
+ single-family house with a double attached garage
+calgary.ca.
+or car port,
+Changes to this years’ survey  with an average of 1,500 square feet of above-grade
+living space (including only those houses with 1,100
+There are no changes to this years’ survey from last year.
+to 1,900 square feet in the calculations),
+Staffing issues this year have resulted in some confusion
+ located in an average neighbourhood.
+and delays and we apologize to participants for that.
+Notes for all data tables:
+Methodology
+ The cities in the upper section of the ‘selected Cana-
+The survey was disseminated in the spring. Responses came dian cities’ tables are in alphabetical order, while the
+in over the subsequent months. Significant efforts were four larger municipalities at the bottom are in this
+made to confirm numbers with survey participants. In some order: VECT –Vancouver, Edmonton, Calgary, and To-
+cases, audited financial statements, property tax bylaws and ronto.
+rate information from electric utilities serving Canadian mu-  Property Tax Levy-Other includes:
+nicipalities provided the missing information.  Other residential (e.g., senior houses, library, pro-
+vincial transit levies, regional district, hospital);
+Utility numbers were collected or calculated under these as-
+sumptions:  Other farm levies;
+ per a “typical” month consisting of 30.4 days:  Other non-residential (e.g., provincial assess-
+ment levies, and municipal finance authority lev-
+ 600 kW/h usage of electricity,
+ies);
+ 19 cubic meters of water usage, and
+ Data sources other than cities’ responses include:
+ 17.5 cubic meters of wastewater disposal.
+ 2023 property tax bylaws;
+ Other charges on a per-residential-dwelling basis:
+ BC Assessment schedules;
+ recycling fees,
+ cities’ population estimates from Statistics Can-
+ garbage disposal, and
+ada, provincial governments, cities’ annual re-
+ other.
+ports, and cities’ web pages;
+The definition of a “representative bungalow” used in this  posted power rates and franchise fees by provin-
+survey is as follows: cial governments or utility companies, and util-
+ twenty-five to thirty-years-old, ity rates by cities for water, wastewater, garbage,
+land drainage, and recycling fees.
+ single detached,
+2 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Executive Summary
+In 2023 Calgary ranked the #1 lowest property tax position for Adding the utility and other charges to the municipal property
+municipal property taxes in the most common dwelling type, taxes, Calgary ranked the #5 and #9 lowest for a representative
+the Two-Storey house (among the 10 reporting jurisdictions). Two-Storey and Bungalow house, respectively.
+For Bungalow type dwellings Calgary appeared in the #7 spot
+among the 14 reporting Canadian cities.
+Selected Canadian
+Calgary Region
+Cities
+Residential Property Taxes and Utility Charges Calgary Rank Reference
+Calgary Rank
+(out of # of Pages
+(out of # of Cities
+Municipalities
+Reporting)
+Reporting)
+Bungalow 7th / 8 7th / 14 6
+A Municipal Property Tax
+Two-Storey 1st / 3 1st / 10 7
+Bungalow 5th / 8 7th / 14 8
+Net Property Tax
+B
+(Total Property Tax Less Homeowner Grants)
+Two-Storey 1st / 3 1st / 10 9
+Average 5th / 8 9th / 13 12
+Total Property Tax
+C
+(Average and Median)
+Median 1st / 3 7th / 10 13
+D Total Property and Business Tax Residential Property Tax as % of Total 3rd / 8 6th / 14 15
+Property Tax 6th / 8 10th / 14 17
+E Property and Business Tax Per Person
+Property and Business Tax 6th / 8 10th / 14 18
+F Proportion of Property Tax Load Paid Lowest Share for Residential Properties 3rd / 8 6th / 14 20
+G Monthly Average Utility Charges 6th / 8 12th / 14 21
+Bungalow 7th / 8 9th / 14 23
+Combined Municipal Property Tax
+H
+and Utility Charges
+Two-Storey 2nd / 3 5th / 10 24
+Bungalow 6th / 8 9th / 14 27
+Combined Net Property Tax (After Grants)
+I
+and Utility Charges
+Two-Storey 1st / 3 4th / 10 28
+J Combined Total Property Tax and Utility Charges Average 6th / 8 10th / 13 30
+K Non-residential Taxes per $1,000 of Assessed Value 2nd / 2 6th / 8 32
+Median Assessed Value - Single Family 3rd / 3 9th / 12 34
+Median Assessed Value - Condo 3rd / 3 7th / 10 35
+Median Assessed Value and Municipal Tax Rate
+L
+(Single family and Condo) in 2023
+Municipal Tax Rate - Single Family 1st / 3 2nd / 10 36
+Municipal Tax Rate - Condo 1st / 3 2nd / 7 37
+2023 Residential Property Taxes and Utility Charges Survey 3
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+List of Figures and Tables
+A. Municipal Property Tax
+Figure 1: Municipal Property Tax for a Representative Bungalow House in 2023 - Selected Canadian Cities .......................................................................................6
+Figure 2: Municipal Property Tax for a Representative Bungalow House in 2023 - Calgary Region .....................................................................................................6
+Figure 3: Municipal Property Tax for a Representative Two-Storey House in 2023 - Selected Canadian Cities .....................................................................................7
+Figure 4: Municipal Property Tax for a Representative Two-Storey House in 2023 - Calgary Region....................................................................................................7
+B. Net Property Tax
+Figure 5: Net Property Tax (after Grants) for a Representative Bungalow House in 2023 - Selected Canadian Cities ...........................................................................8
+Figure 6: Net Property Tax (after Grants) for a Representative Bungalow House in 2023 - Calgary Region .........................................................................................8
+Figure 7: Net Property Tax (after Grants) for a Representative Two-Storey House in 2023 - Selected Canadian Cities .........................................................................9
+Figure 8: Net Property Tax (after Grants) for a Representative Two-Storey House in 2023 - Calgary Region ........................................................................................9
+Table 1: Comparative Property Tax Levy on a Representative Bungalow House in 2023 - Selected Canadian Cities ..........................................................................10
+Table 2: Comparative Property Tax Levy on a Representative Bungalow House in 2023 - Calgary Region .........................................................................................10
+Table 3: Comparative Property Tax Levy on a Representative Two-Storey House in 2023 - Selected Canadian Cities .........................................................................11
+Table 4: Comparative Property Tax Levy on a Representative Two-Storey House in 2023 - Calgary Region .......................................................................................11
+C. Total Property Tax (Average and Median)
+Figure 9: Average Property Tax for Single Detached Houses in 2023 - Selected Canadian Cities .......................................................................................................12
+Figure 10: Average Property Tax for Single Detached Houses in 2023 - Calgary Region ....................................................................................................................12
+Figure 11: Median Property Tax for Single Detached Houses in 2023 - Selected Canadian Cities ......................................................................................................13
+Figure 12: Median Property Tax for Single Detached Houses in 2023 - Calgary Region .....................................................................................................................13
+Table 5: Average Property Tax and Median Property Tax for All Single Detached Houses in 2023 - Selected Canadian Cities ............................................................14
+Table 6: Average Property Tax and Median Property Tax for All Single Detached Houses in 2023 - Calgary Region ...........................................................................14
+D. Total Property and Business Tax Levy
+Table 7: Total Property and Business Tax Levy in 2023 - Selected Canadian Cities .............................................................................................................................15
+Table 8: Total Property and Business Tax Levy in 2023 - Calgary Region ...........................................................................................................................................15
+Table 9: Total Property Tax Levy By Purposes in 2023 - Selected Canadian Cities ..............................................................................................................................16
+Table 10: Total Property Tax Levy By Purposes in 2023 - Calgary Region ...........................................................................................................................................16
+E. Property and Business Tax Per Person
+Figure 13: Total Property Tax Levy Per Person in 2023 - Selected Canadian Cities .............................................................................................................................17
+Figure 14: Total Property Tax Levy Per Person in 2023 - Calgary Region ............................................................................................................................................17
+Figure 15: Total Property and Business Tax Levy Per Person in 2023 - Selected Canadian Cities ........................................................................................................18
+Figure 16: Total Property and Business Tax Levy Per Person in 2023 - Calgary Region ......................................................................................................................18
+Table 11: Total Property and Business Tax Levy Per Person in 2023 - Selected Canadian Cities .........................................................................................................19
+Table 12: Total Property and Business Tax Levy Per Person in 2023 - Calgary Region ........................................................................................................................19
+F. Proportion of Property Tax Load Paid by Residential Properties
+Figure 17: Residential Property Tax as Percent of Total Tax Levy in 2023 - Selected Canadian Cities..................................................................................................20
+Figure 18: Residential Property Tax as Percent of Total Tax Levy in 2023 - Calgary Region ................................................................................................................20
+G. Average Monthly Utility Charges
+Figure 19: Average Monthly Utility Charges for a Representative Bungalow/Two-Storey House in 2023 - Selected Canadian Cities .................................................21
+Figure 20: Average Monthly Utility Charges for a Representative Bungalow/Two-Storey House in 2023 - Calgary Region ...............................................................21
+Table 13: Average Monthly Utility Charges for a Representative Bungalow / Two-Storey House in 2023 - Selected Canadian Cities .................................................22
+Table 14: Average Monthly Utility Charges for a Representative Bungalow / Two-Storey House in 2023 - Calgary Region ...............................................................22
+4 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+List of Figures and Tables
+A. Municipal Property Tax H. Combined Municipal Property Tax and Utility Charges
+Figure 1: Municipal Property Tax for a Representative Bungalow House in 2023 - Selected Canadian Cities .......................................................................................6 Figure 21: Combined Municipal Property Tax and Utility Charges for a Representative Bungalow House in 2023 - Selected Canadian Cities ...................................23
+Figure 2: Municipal Property Tax for a Representative Bungalow House in 2023 - Calgary Region .....................................................................................................6 Figure 22: Combined Municipal Property Tax and Utility Charges for a Representative Bungalow House in 2023 - Calgary Region ..................................................23
+Figure 3: Municipal Property Tax for a Representative Two-Storey House in 2023 - Selected Canadian Cities .....................................................................................7 Figure 23: Combined Municipal Property Tax and Utility Charges for a Representative Two-Storey House in 2023 - Selected Canadian Cities .................................24
+Figure 4: Municipal Property Tax for a Representative Two-Storey House in 2023 - Calgary Region....................................................................................................7 Figure 24: Combined Municipal Property Tax and Utility Charges for a Representative Two-Storey House in 2023 - Calgary Region ................................................24
+B. Net Property Tax Table 15: Municipal Property Tax and Utility Charges for a Representative Bungalow House in 2023 - Selected Canadian Cities......................................................25
+Table 16: Municipal Property Tax and Utility Charges for a Representative Bungalow House in 2023 - Calgary Region ....................................................................25
+Figure 5: Net Property Tax (after Grants) for a Representative Bungalow House in 2023 - Selected Canadian Cities ...........................................................................8
+Table 17: Municipal Property Tax and Utility Charges for a Representative Two-Storey House in 2023 - Selected Canadian Cities ....................................................26
+Figure 6: Net Property Tax (after Grants) for a Representative Bungalow House in 2023 - Calgary Region .........................................................................................8
+Table 18: Municipal Property Tax and Utility Charges for a Representative Two-Storey House in 2023 - Calgary Region ..................................................................26
+Figure 7: Net Property Tax (after Grants) for a Representative Two-Storey House in 2023 - Selected Canadian Cities .........................................................................9
+Figure 8: Net Property Tax (after Grants) for a Representative Two-Storey House in 2023 - Calgary Region ........................................................................................9 I. Combined Net Property Tax (After Grants) and Utility Charges
+Table 1: Comparative Property Tax Levy on a Representative Bungalow House in 2023 - Selected Canadian Cities ..........................................................................10 Figure 25: Net Property Tax (after Grants) and Utility Charges for a Representative Bungalow House in 2023 - Selected Canadian Cities ........................................27
+Table 2: Comparative Property Tax Levy on a Representative Bungalow House in 2023 - Calgary Region .........................................................................................10 Figure 26: Net Property Tax (after Grants) and Utility Charges for a Representative Bungalow House in 2023 - Calgary Region .......................................................27
+Table 3: Comparative Property Tax Levy on a Representative Two-Storey House in 2023 - Selected Canadian Cities .........................................................................11 Figure 27: Net Property Tax (after Grants) and Utility Charges for a Representative Two-Storey House in 2023 - Selected Canadian Cities ......................................28
+Table 4: Comparative Property Tax Levy on a Representative Two-Storey House in 2023 - Calgary Region .......................................................................................11 Figure 28: Net Property Tax (after Grants) and Utility Charges for a Representative Two-Storey House in 2023 - Calgary Region .....................................................28
+C. Total Property Tax (Average and Median) Table 19: Net Property Tax (after Grants) and Utility Charges for a Representative Bungalow / Two-Storey House in 2023 - Selected Canadian Cities .....................29
+Table 20: Net Property Tax (after Grants) and Utility Charges for a Representative Bungalow / Two-Storey House in 2023 - Calgary Region ...................................29
+Figure 9: Average Property Tax for Single Detached Houses in 2023 - Selected Canadian Cities .......................................................................................................12
+Figure 10: Average Property Tax for Single Detached Houses in 2023 - Calgary Region ....................................................................................................................12 J. Combined Total Property Tax and Utility Charges (Average)
+Figure 11: Median Property Tax for Single Detached Houses in 2023 - Selected Canadian Cities ......................................................................................................13
+Figure 29: Combined Average Property Tax and Utility Charges for Single Detached Houses in 2023 - Selected Canadian Cities ......................................................30
+Figure 12: Median Property Tax for Single Detached Houses in 2023 - Calgary Region .....................................................................................................................13
+Figure 30: Combined Average Property Tax and Utility Charges for Single Detached Houses in 2023 - Calgary Region.....................................................................30
+Table 5: Average Property Tax and Median Property Tax for All Single Detached Houses in 2023 - Selected Canadian Cities ............................................................14
+Table 21: Average Property Tax and Utility Charges for Single Detached Houses in 2023 - Selected Canadian Cities ........................................................................31
+Table 6: Average Property Tax and Median Property Tax for All Single Detached Houses in 2023 - Calgary Region ...........................................................................14
+Table 22: Average Property Tax and Utility Charges for Single Detached Houses in 2023 - Calgary Region .......................................................................................31
+D. Total Property and Business Tax Levy
+K. Non-residential Taxes per $1,000 of Assessed Value
+Table 7: Total Property and Business Tax Levy in 2023 - Selected Canadian Cities .............................................................................................................................15
+Figure 31: Non-residential Taxes per $1,000 of Assessed Value in 2023 - Selected Canadian Cities ...................................................................................................32
+Table 8: Total Property and Business Tax Levy in 2023 - Calgary Region ...........................................................................................................................................15
+Figure 32: Non-residential Taxes per $1,000 of Assessed Value in 2023 - Calgary Region .................................................................................................................32
+Table 9: Total Property Tax Levy By Purposes in 2023 - Selected Canadian Cities ..............................................................................................................................16
+Table 23: Non-residential Taxes per $1,000 of Assessed Value in 2023 - Selected Canadian Cities ....................................................................................................33
+Table 10: Total Property Tax Levy By Purposes in 2023 - Calgary Region ...........................................................................................................................................16
+Table 24: Non-residential Taxes per $1,000 of Assessed Value in 2023- Calgary Region ....................................................................................................................33
+E. Property and Business Tax Per Person
+L. Median Assessed Value and Municipal Tax Rate
+Figure 13: Total Property Tax Levy Per Person in 2023 - Selected Canadian Cities .............................................................................................................................17
+Figure 33: Median Assessed Value - Single Family in 2024 - Selected Canadian Cities ......................................................................................................................34
+Figure 14: Total Property Tax Levy Per Person in 2023 - Calgary Region ............................................................................................................................................17
+Figure 34: Median Assessed Value - Single Family in 2024 - Calgary Region.....................................................................................................................................34
+Figure 15: Total Property and Business Tax Levy Per Person in 2023 - Selected Canadian Cities ........................................................................................................18
+Figure 35: Median Assessed Value - Condo in 2024 - Selected Canadian Cities .................................................................................................................................35
+Figure 16: Total Property and Business Tax Levy Per Person in 2023 - Calgary Region ......................................................................................................................18
+Figure 36: Median Assessed Value - Condo in 2024 - Calgary Region ................................................................................................................................................35
+Table 11: Total Property and Business Tax Levy Per Person in 2023 - Selected Canadian Cities .........................................................................................................19 Figure 37: Municipal Tax Rate - Single Family in 2024 - Selected Canadian Cities .............................................................................................................................36
+Table 12: Total Property and Business Tax Levy Per Person in 2023 - Calgary Region ........................................................................................................................19 Figure 38: Municipal Tax Rate - Single Family in 2024 - Calgary Region ...........................................................................................................................................36
+Figure 39: Municipal Tax Rate - Condo in 2024 - Selected Canadian Cities ........................................................................................................................................37
+F. Proportion of Property Tax Load Paid by Residential Properties
+Figure 40: Municipal Tax Rate - Condo in 2024 - Calgary Region ......................................................................................................................................................37
+Figure 17: Residential Property Tax as Percent of Total Tax Levy in 2023 - Selected Canadian Cities..................................................................................................20
+Table 25: Median Assessed Value and Municipal Tax Rate in 2024 - Selected Canadian Cities ...........................................................................................................38
+Figure 18: Residential Property Tax as Percent of Total Tax Levy in 2023 - Calgary Region ................................................................................................................20
+Table 26: Median Assessed Value and Municipal Tax Rate in 2024 - Calgary Region .........................................................................................................................38
+G. Average Monthly Utility Charges
+Figure 19: Average Monthly Utility Charges for a Representative Bungalow/Two-Storey House in 2023 - Selected Canadian Cities .................................................21
+Figure 20: Average Monthly Utility Charges for a Representative Bungalow/Two-Storey House in 2023 - Calgary Region ...............................................................21
+Table 13: Average Monthly Utility Charges for a Representative Bungalow / Two-Storey House in 2023 - Selected Canadian Cities .................................................22
+Table 14: Average Monthly Utility Charges for a Representative Bungalow / Two-Storey House in 2023 - Calgary Region ...............................................................22
+2023 Residential Property Taxes and Utility Charges Survey 5
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+A. Municipal Property Tax
+Figure 1: Municipal Property Tax for a Representative
+BungalowHouse in 2023-Selected Canadian Cities
+$6,000
+$4,912
+$5,000
+$4,000 $3,715
+$3,403 $3,471
+$3,244 $3,276
+$2,924
+$3,000
+$2,667 $2,681
+$2,328 $2,383 $2,434
+$2,083
+$1,918
+$2,000
+$1,000
+$0
+Figure 2: Municipal Property Tax for a Representative
+BungalowHouse in 2023-Calgary Region
+$3,000
+$2,774
+$2,681
+$2,441
+$2,255
+$2,076
+$2,000 $1,924 $1,954
+$1,533
+$1,000
+$0
+6 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Figure 3: Municipal Property Tax for a Representative
+Two-StoreyHouse in 2023-Selected Canadian Cities
+$6,000
+$5,007
+$5,000
+$3,958
+$4,000
+$3,399
+$3,094 $3,097
+$3,000 $2,778 $2,794
+$2,575 $2,600
+$2,058
+$2,000
+$1,000
+$0
+Figure 4: Municipal Property Tax for a Representative
+Two-StoreyHouse in 2023-Calgary Region
+$3,000
+$2,502
+$2,389
+$2,058
+$2,000
+$1,000
+$0
+2023 Residential Property Taxes and Utility Charges Survey 7
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+B. Net Property Tax
+Figure 5: Net Property Tax (after Grants) for a Representative Bungalow
+House in 2023- Selected Canadian Cities
+$7,500
+$6,376
+$6,218
+$6,000
+$5,047
+$4,364
+$4,500 $4,068 $4,145 $4,151 $4,225
+$3,881
+$3,492 $3,495
+$3,292 $3,297
+$3,000 $2,690
+$1,500
+$0
+Figure 6: Net Property Tax (after Grants) for a Representative
+BungalowHouse in 2023 -Calgary Region
+$6,000
+$5,260
+$4,918
+$5,000
+$4,068 $4,144
+$4,000
+$3,305
+$2,934 $2,977
+$3,000 $2,706
+$2,000
+$1,000
+$0
+8 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Figure 7: Net Property Tax (after Grants) for a Representative
+Two-StoreyHouse in 2023-Selected Canadian Cities
+$7,000
+$6,499
+$6,000
+$5,008
+$5,000 $4,641
+$4,416 $4,433 $4,512
+$4,058
+$4,000 $3,843
+$3,609
+$3,122
+$3,000
+$2,000
+$1,000
+$0
+Figure 8: Net Property Tax(after Grants) for a Representative
+Two-StoreyHouse in 2023-Calgary Region
+$4,500
+$3,666
+$3,569
+$3,122
+$3,000
+$1,500
+2023 Residential Property Taxes and Utility Charges Survey 9
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Table 1
+Comparative Property Tax Levy on a Representative Bungalow House in 2023
+(Selected Canadian Cities)
+Table 1
+(dollars)
+Comparative Property Tax Levy on a Representative Bungalow House in 2023
+Property Tax Levy
+(Selected Canadian Cities)
+Net Property
+City Rank
+(dollars)
+Tax Levy
+Municipal PSrcohpoeorlty TaOx tLheevry (After Grants)
+Grande Prairie 3,276 851 18 Net 4P,r1o4p5erty 8
+City Rank
+Halifax 1,918 700 72 Ta2x,6 L9e0vy 1
+Leduc Mu3n,4i0ci3pal Sc8h1o0ol Ot1h2er (Afte4r, 2G2r5ants) 10
+LGertahnbdreid Pgreairie 23,,626776 788501 4188 43,,144955 85
+MHaelidfaicxine Hat 21,,398138 876080 4762 32,,269907 31
+RLeeddu Dceer 33,,424043 18,11002 1128 44,,326245 1110
+RLeetghinbaridge 22,,606873 17,08205 14884 33,,429952 52
+SMaeskdaictionoen Hat 22,,348334 18,46682 24565 34,,125917 39
+RVeicdto Dreiae*r 33,,724145 11,,313022 108 45,,034647 1121
+RWeigninniapeg 22,,308238 11,,102654  1084 33,,429922 24
+SVaasnkcaotuovoenr * 23,,443741 12,,410622 265455 46,,125118 193
+EVdicmtoorniaton 23,,972145 19,32392 208 35,,084817 162
+CWailngnairpyeg 22,,638218 11,,138674 00 43,,046982 74
+TVoarnocnotuover 34,,947112 12,,416042 6045 66,,327168 1143
+Edmonton Average 22,,996204 19,12491 12382 43,,189861 6-
+Calgary 2,681 1,387 0 4,068 7
+T*oroDnattao from BC Assessment Sch4e,d9u1le2 704, inclu1di,n4g6 4school, gen0eral municipa6l,, 3re7g6ional district, h1o4spital,
+BC AssessmeAntv (eBrCagAe), Munic2i,p9a6l 0Finance Au1th,1o4ri1ty (MFA)1 a3n2d other levie4s., 1 96 -
+ DOES include the Province of Manitoba Education Property Tax Credit and Advance (up to $437.50 for
+a residential property) and the Province of Manitoba Property Tax Rebate of 37.5% of the school division
+Table 2
+special levy payable.
+Comparative Property Tax Levy on a Representative Bungalow House in 2023
+(Calgary Region)
+Table 2
+(dollars)
+Comparative Property Tax Levy on a Representative Bungalow House in 2023
+Property Tax Levy
+(CalgarCy aRlgeagrioyn)
+Net Property
+Rank
+(dollarsR)egion
+Tax Levy
+Municipal PSrcohpoeorlty TaOx tLheevry (After Grants)
+Airdrie Calgary 1,954 956 24 Net 2P,r9o3p4erty 2
+Rank
+CochranReegion 2,774 1,343 27 Ta4x,1 L4e4vy 6
+Foothills MD Mu2n,0i7ci6pal S1c,h9o22ol O1,t2h6e2r (Afte5r, 2G6r0ants) 8
+HAiirgdhr iReiver 11,,992544 795462 2440 22,,790364 12
+OCokcohtoraknse 22,,727545 11,,304034 2476 43,,134045 64
+WFohoethaitlllas nMd DCounty 12,,057363 11,,929282 11,24652 52,,296707 83
+HRoigchk yR iVvieerw County 12,,942441 27,44027 4700 24,,791086 17
+OCaklogtaorkys 22,,628515 11,,308074 406 43,,036085 45
+Wheatland CouAntvyerage 21,,250353 11,,328928 210425 32,,798797 3-
+Rocky View County 2,441 2,407 70 4,918 7
+Calgary 2,681 1,387 0 4,068 5
+Average 2,205 1,382 202 3,789 -
+10 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+1
+1
+
+=== page
+Draft
+October 31, 2024
+Table 3
+Comparative Property Tax Levy on a Representative Two-Storey House in 2023
+(TSaeblelec t3ed Canadian Cities)
+(Cdoomllaprasr)ative Property Tax Levy on a Representative Two-Storey House in 2023
+(Selected Canadian Cities) Property Tax Levy
+(dollars) Net Property
+City Rank
+Property Tax Levy Tax Levy
+Municipal School Other (NAeftte Pr rGorpaenrttsy)
+City Rank
+Grande Prairie 3,958 1,028 22 Ta5x,0 L0e8vy 9
+Halifax Mu2n,5i7ci5pal Sc9h3o8ol Ot9h6er (Afte3r, 6G0r9ants) 2
+LGerdauncde Prairie 3N,9/5A8 1N,0/2A8 N2/2A 5N,0/0A8 N9/A
+LHeatlhifbarxidge 32,,059775 990358 5966 43,,065089 42
+MLeedduiccine Hat 2N,7/7A8 1N,0/1A2 N5/3A 3N,8/4A3 N3/A
+RLeetdh Dbreiderge 3N,0/9A7 N90/A5 N5/6A 4N,0/5A8 N4/A
+RMeegdinicaine Hat 22,,779748 11,,307162 25437 43,,481463 53
+SRaesdk aDteoeorn 2N,6/0A0 1N,5/6A1 N27/2A 4N,4/3A3 N6/A
+VRiecgtionraia 2N,7/9A4 1N,3/7A6 N24/A7 4N,4/1A6 N5/A
+WSaisnknaitpoeogn 32,,069040 11,,554671 2072 44,,644313 86
+VVaicntcooriuaver NN//AA NN//AA NN//AA NN//AA NN//AA
+EWdimnnoinpteogn 33,,309994 11,,058407 302 44,,561421 78
+CVaalngcaoryuver 2N,0/5A8 1N,0/6A4 N0/A 3N,1/2A2 N1/A
+TEodrmoonntoton 53,,030979 11,,409820 302 64,,459192 170
+Calgary Average 32,,104508 11,,203634 1200 43,,411242 1-
+Toronto 5,007 1,492 0 6,499 10
+Average 3,140 1,233 120 4,414 -
+Table 4
+Comparative Property Tax Levy on a Representative Two-Storey House in 2023
+(TCaabllgea 4ry Region)
+(Cdoomllaprasr)ative Property Tax Levy on a Representative Two-Storey House in 2023
+(Calgary Region) Property Tax Levy
+(dollarsC)algary Net Property
+Rank
+Region Property Tax Levy Tax Levy
+Calgary Municipal School Other (NAeftte Pr rGorpaenrttsy)
+Rank
+Airdrie Region N/A N/A N/A TaNx /LAevy N/A
+Cochrane Mu2n,3i8ci9pal S1c,h1o57ol Ot2h3er (Afte3r, 5G6r9ants) 2
+FAoirodtrhieills MD NN//AA NN//AA NN//AA NN//AA NN//AA
+HCoigchh rRaivneer 2N,3/8A9 1N,1/5A7 N2/3A 3N,5/6A9 N2/A
+OFokootthoikllss MD 2N,5/0A2 1N,1/1A3 N5/1A 3N,6/6A6 N3/A
+WHighhe aRtilvaenrd County NN//AA NN//AA NN//AA NN//AA NN//AA
+ROokcoktyo kVsiew County 2N,5/0A2 1N,1/1A3 N5/1A 3N,6/6A6 N3/A
+CWahlgeaartyland County 2N,0/5A8 1N,0/6A4 NN//AA 3N,1/2A2 N1/A
+Rocky View CouAnvteyrage 2N,3/1A6 1N,1/1A1 N3/7A 3N,4/5A2 N-/A
+Calgary 2,058 1,064 N/A 3,122 1
+Average 2,316 1,111 37 3,452 -
+2023 Residential Property Taxes and Utility Charges Survey 11
+Chief Financial Officer’s Department, The City of Calgary
+2
+2
+
+=== page
+Draft
+October 31, 2024
+C. Total Property Tax (Average and Median)
+Figure 9: Average Property Tax for Single Detached Houses in 2023-
+Selected Canadian Cities
+$7,000
+$6,376
+$6,000
+$5,000 $4,636
+$4,379
+$4,225
+$4,028 $4,046
+$4,000 $3,740 $3,756 $3,801
+$3,262
+$3,000 $3,049
+$3,000
+$2,547
+$2,000
+$1,000
+$0
+Figure 10: Average Property Tax for
+Single Detached Houses in 2023 -Calgary Region
+$6,000
+$5,260
+$4,918
+$5,000
+$4,298
+$4,046
+$4,000 $3,690
+$2,934 $2,977
+$3,000 $2,706
+$2,000
+$1,000
+$0
+12 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Figure 11: Median Property Tax for Single Detached Houses in 2023-
+Selected Canadian Cities
+$7,000
+$5,886
+$6,000
+$5,000
+$3,905 $3,968
+$4,000 $3,511 $3,522 $3,572 $3,647
+$3,000 $2,768 $2,829 $2,858
+$2,000
+$1,000
+$0
+* *
+* Includes Regional and Transit Taxes
+Figure 12: Median Property Tax for
+Single Detached Houses in 2023 -Calgary Region
+$5,000
+$4,112
+$3,933
+$4,000
+$3,647
+$3,000
+$2,000
+$1,000
+$0
+2023 Residential Property Taxes and Utility Charges Survey 13
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Table 5
+Average Property Tax and Median Property Tax for Single Detached Houses in 2023
+Table 5
+(Selected Canadian Cities)
+Average Property Tax and Median Property Tax for Single Detached Houses in 2023
+(dollars)
+(Selected Canadian Cities) Average Tax Median Tax
+(dollars)
+City
+Average Tax Median Tax
+Tax Levy Rank Tax Levy Rank
+City
+Grande Prairie 4,028 8 3,905 8
+Halifax Ta3x,2 L6e2vy Ra4nk Ta2x,8 L5e8vy Ra3nk
+LGerdauncde Prairie 44,,022285 180 3N,9/0A5 N8/A
+HLeatlhifbarxidge 33,,280612 74 32,,582528 53
+LMeedduiccine Hat 34,,024295 130 2N,8/2A9 N2/A
+RLeetdh bDreidegre 32,,850417 17 3N,5/2A2 N5/A
+RMeegdinicaine Hat 33,,074409 35 23,,581219 42
+RSaesdk aDteoeorn 23,,574576 16 3N,5/7A2 N6/A
+RVeicgtionraia 3N,7/4A0 N5/A 3N,5/1A1 N4/A
+SWaisnknaitpoeogn 33,,705060 62 32,,577628 61
+VViacntocoriuaver 4N,6/3A6 N1/2A NN//AA NN//AA
+EWdimnnoinpteogn 43,,307090 121 32,,976688 91
+CVaalngcaoruyver 44,,064366 192 3N,6/4A7 N7/A
+TEodrmoonntoton 46,,337796 1113 35,,986886 190
+Calgary Average 34,,901416 9- 33,,664467 7-
+Toronto 6,376 13 5,886 10
+Average 3,911 - 3,646 -
+Table 6
+Average Property Tax and Median Property Tax for Single Detached Houses in 2023
+Table 6
+(Calgary Region)
+Average Property Tax and Median Property Tax for Single Detached Houses in 2023
+(dollars)
+(Calgary Region) Average Tax Median Tax
+(dollarsC)algary
+Region Average Tax Median Tax
+Calgary Tax Levy Rank Tax Levy Rank
+Airdrie Region 2,934 2 N/A N/A
+Cochrane Ta4x,2 L9e8vy Ra6nk Ta4x,1 L1e2vy Ra3nk
+FAoirodtrhieills MD 52,,296304 28 NN//AA NN//AA
+CHoigchh rRainveer 24,,729086 16 4N,1/1A2 N3/A
+FOokootthoikllss MD 53,,266900 48 3N,9/3A3 N2/A
+HWighhe aRtilvaenrd County 22,,977076 13 NN//AA NN//AA
+ORokcoktyo kVsiew County 34,,699108 47 3N,9/3A3 N2/A
+WCahlgeaartyland County 24,,907476 35 3N,6/4A7 N1/A
+Rocky View CouAnvteyrage 34,,895148 7- 3N,8/9A7 N-/A
+Calgary 4,046 5 3,647 1
+Average 3,854 - 3,897 -
+14 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+3
+3
+
+=== page
+Draft
+October 31, 2024
+D. Total Property and Business Tax
+Table 7
+Total Property and Business Tax Levy in 2023
+Table 7
+(Selected Canadian Cities)
+Total Property and Business Tax Levy in 2023
+(Thousands of dollars) Farm included in Residential Property Tax, Not including "other taxes"
+(Selected Canadian Cities)
+Property Tax
+(Thousands of dollars) Farm included in Residential Property Tax, Not including "other taxes"
+Business Total Tax Residential as
+City Rank
+Prop N er o t n y - Tax Tax Levy % of Total
+Business Total Tax Residential as
+Residential residential Total
+City Rank
+Grande Prairie 87,688 6N7o,8n8-3 155,571 T0ax 15L5e,v5y71 % o5f6 T.4otal 4
+Halifax Re5s5id9e,9n9t7ial re3s0id1e,2n8t2ial 86T1o,t2a7l9 0 861,279 65.0 13
+LGerdauncde Prairie 8476,,668288 6278,,858334 17555,,156721 00 17555,,156721 5662..40 48
+HLeatlhifbarxidge 513559,,899457 37061,,820802 281621,,267495 00 826112,,267495 6653..09 193
+LMeedduiccine Hat 4761,,960238 3298,,503242 17150,,196224 00 17150,,196224 6642..80 182
+LReetdh bDreidegre 113157,,854555 7764,,980400 211922,,469455 00 129122,,469455 6631..19 79
+MReegdinicaine Hat 37012,9,80339 13697,,042727 411700,,931264 00 147100,,932146 6644..48 1102
+RSaesdk aDteoeorn 131367,,545845 17640,,964902 419972,,419755 00 149927,,419755 6671..17 174
+RVeicgtionraia 130326,,586389 116179,,649727 427506,,231660 00 245760,,236106 5634..34 120
+WSaisnknaitpoeogn 936366,,540814 146700,,765972 14,49377,1,27558 59,0548 14,49976,1,87056 6647..67 1114
+VViacntocoriuaver 11,13462,5,76181 816149,,763932 22,05067,2,46404 00 22,05067,2,46404 5563..93 25
+EWdimnnoinpteogn 19,26361,5,90713 14,07008,7,35374 12,,244307,,230568 59,0548 21,,429460,,380066 6545..60 131
+CVaalngcaoruyver 11,,170412,,672131 18,26542,7,83732 22,,905047,,449454 00 22,,905047,,449454 5576..69 65
+ETodrmoonntoton 13,,283716,,997032 13,,040683,,383045 27,,234400,,370067 00 27,,234400,,370067 5552..08 31
+Calgary Average 17,76051,3,67233 15,27582,3,84742 21,,395443,,741975 59,0548 12,,394574,,947905 6507..46 6-
+Toronto 3,876,902 3,463,805 7,340,707 0 7,340,707 52.8 1
+Average 765,373 578,344 1,343,717 59,548 1,347,970 60.4 -
+Table 8
+Total Property and Business Tax Levy in 2023
+Table 8
+(Calgary Region)
+Total Property and Business Tax Levy in 2023
+(Thousands of dollars) Farm included in Residential Property Tax, Not including "other taxes"
+(Calgary Region)
+Property Tax
+(ThousaCnadlgsa oryf dollars) Farm included in Residential Property Tax,
+B
+N
+us
+o
+in
+t
+e
+in
+ss
+c ludi
+T
+n
+o
+g
+t a
+"
+l
+o
+T
+t
+a
+h
+x
+e r ta
+R
+x
+e
+e
+si
+s
+d
+"
+ential as
+Rank
+Region Prop N er o t n y - Tax Tax Levy % of Total
+Calgary Business Total Tax Residential as
+Residential residential Total
+Rank
+Airdrie Region 81,652 2N6o,0n8-8 107,740 Ta0x 10L7e,v7y40 % o7f5 T.8otal 5
+Cochrane Re4si4d,e3n1t7ial res7id,7e0n6tial 5T2o,0ta2l3 0 52,023 85.2 8
+AFoirodtrhieills MD 8410,,267572 1236,,018781 15037,4,74480 00 15037,,474480 7755..48 45
+CHoigchh rRainveer 1464,,391777 73,,790861 5220,,092537 00 5220,,092537 8851..02 86
+FOokootthoikllss MD 4400,,207378 193,,214791 5439,,424887 00 5439,,424878 8751..42 47
+HWighhe aRtilvaenrd County 1106,,695787 238,9,88216 3290,,498537 00 3290,,498537 2871..00 16
+ORokcoktyo kVsiew County 7430,,083385 690,,264592 14394,2,48877 00 14394,,248877 8514..92 27
+WCahlgeaartyland County 1,1700,16,56823 1,2285,28,28672 2,3995,44,84395 00 2,3995,44,84395 5277..60 13
+Rocky View CouAnvteyrage 27531,,813752 16705,,635128 412364,,449807 00 412364,,449807 6574..93 2-
+Calgary 1,701,623 1,252,872 2,954,495 0 2,954,495 57.6 3
+Average 251,172 175,318 426,490 0 426,490 67.3 -
+2023 Residential Property Taxes and Utility Charges Survey 15
+Chief Financial Officer’s Department, The City of Calgary
+6
+6
+
+=== page
+Draft
+October 31, 2024
+Table 9
+Total Property Tax Levy By Purposes in 2023
+(Selected Canadian Cities)
+(TTahboleu s9ands of dollars) Not including Farm taxes
+Total Property Tax Levy By Purposes Rine s2i0d2en3tial Property Non-residential Property
+(Selected Canadian Cities)
+City
+(Thousands of dollars) Not including Farm taxes
+Municipal RScehsoidoelntial ProOptheretry Total Municipal NoSnc-hroeosildential OPrtohpeerrty Total
+Grande Prairie 69,473 18,170 387 88,030 56,000 11,883 176 68,059
+City
+Halifax 386,895 173,103 0 559,997 267,289 32,523 1,469 301,281
+Leduc M3u5n,4ic8ip7al 1S1ch,1o4o2l O1t6h5er 4T6o,7t9a4l M2u1n,1ic3ip5al S7c,4h0o0ol Ot5her 2T8o,5t3a9l
+LGertahnbdreid Pgreairie 16095,,487039 3108,,011710 13,88471 18387,,063601 6556,,403030 1111,,384873 414786 7678,,202589
+MHaelidfiacxine Hat 35826,8,84995 11793,0,13033 1,0003 57529,8,98957 23627,4,23879 362,5,58253 12,44669 33091,2,26881
+RLeeddu Dceer 8375,,541897 2191,,516492 418605 14167,,759648 6201,,712355 174,,400504 1653 7248,,954329
+RLeetghinbaridge 119015,,284019 9340,,103191 116,,884619 310327,,264691 16051,,423134 5171,,031467 94,24487 17677,,242787
+SMaeskdaictionoen Hat 15927,,824398 11198,,043239 210,,060630 37326,,838257 9342,,349377 566,,548057 92,84868 13690,,266982
+VReicdto Dreiaer 18073,,541190 3239,,155689 4080 113167,,556688 9620,,776225 2164,,903504 31,16138 17242,,984029
+*
+WReigninniapeg 419991,,526451 49645,,133498 16,0869 936042,,921449 210021,,722134 25678,,001364 9,2047 417607,,745777
+VSaasnkcaotuovoenr 611907,,226368 411198,,149209 12103,,626505 13,13462,3,72171 49643,,359275 35165,,420870 895,,898287 816640,,763932
+EVdicmtoorniaton 912003,,045140 33131,,125980 1610,410 11,33962,5,76583 89626,,716020 12462,,923303 3,1018 11,02028,8,30394
+CWailngnairpyeg 14,29292,5,46256 547695,,139478 00 19,86041,9,61243 12,00429,7,02933 220638,,707394 00 1,427502,,785772
+TVoarnocnotuover 26,91806,2,66164 849109,,218910 1130,255 31,,817462,,879151 24,26133,5,92550 13,21459,2,88505 85,0927 38,46643,7,83035
+Edmonton Average 593230,,408594 232181,,020940 13651,1,41190 17,8349,20,77053 389696,,015060 117412,,626363 11,0069 15,7080,86,23834
+Calgary 1,222,426 579,197 0 1,801,623 1,049,093 203,779 0 1,252,872
+*ToroDnOtoES NOT include: 12), 9T8h6e, 6P1ro4vince8 9o0f ,M28a1nitoba Edu0cation Pr3o,8p7er6t,y8 9T5ax Cr2e,d21it3 a,9n5d0 Adva1n,2c4e9 (,u8p5 5to $437.500 for a re3si,d4e6n3t,i8a0l 5
+property); 2A) vTehrea gPerovi5n3c3e ,o4f8 9Manito2b2a8 P,0r0o4perty Ta3x5 ,R11eb9ate, wh7i8c4h, 0e7q0uates to3 9397,.055%6 of the1 7to1t,a6l6 e6ducatio1n1 p,0r6o9perty ta5x7 (8n,e6t2 o8f
+the $437.50 Property Tax Credit and Advance) for residential and farm properties.
+Table 10
+Total Property Tax Levy By Purposes in 2023
+(Calgary Region)
+(TTahboleu s1a0nds of dollars) Not including Farm taxes
+Total Property Tax Levy By Purposes Rine s2i0d2en3tial Property Non-residential Property
+(CalgarCy aRlgeagrioyn)
+(ThousaRnedgsio onf dollars) Not including Farm taxes
+Municipal RScehsoidoelntial ProOptheretry Total Municipal NoSnc-hroeosildential OPrtohpeerrty Total
+Airdrie Calgary 56,159 27,480 682 84,321 18,917 7,170 0 26,088
+Cochrane 29,830 14,487 0 44,317 5,276 2,430 0 7,706
+Region
+Foothills MD 20,184 16,893 10,353 47,430 7,951 3,571 1,917 13,439
+Municipal School Other Total Municipal School Other Total
+High River 12,249 4,724 209 17,183 2,730 1,250 45 4,025
+Airdrie 56,159 27,480 682 84,321 18,917 7,170 0 26,088
+Okotoks 27,708 12,330 648 40,686 6,543 2,706 0 9,249
+Cochrane 29,830 14,487 0 44,317 5,276 2,430 0 7,706
+Wheatland County 4,355 3,687 0 8,041 15,934 6,295 6,597 28,826
+Foothills MD 20,184 16,893 10,353 47,430 7,951 3,571 1,917 13,439
+Rocky View County 36,753 36,252 1,060 74,064 41,968 18,684 148 60,800
+High River 12,249 4,724 209 17,183 2,730 1,250 45 4,025
+Calgary 1,222,426 579,197 0 1,801,623 1,049,093 203,779 0 1,252,872
+Okotoks 27,708 12,330 648 40,686 6,543 2,706 0 9,249
+Average 176,208 86,881 2,590 264,708 143,551 30,736 2,177 175,376
+Wheatland County 4,355 3,687 0 8,041 15,934 6,295 6,597 28,826
+Rocky View County 36,753 36,252 1,060 74,064 41,968 18,684 148 60,800
+Calgary 1,222,426 579,197 0 1,801,623 1,049,093 203,779 0 1,252,872
+Average 176,208 86,881 2,590 264,708 143,551 30,736 2,177 175,376
+16 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+7
+7
+
+=== page
+Draft
+October 31, 2024
+E. Property and Business Tax Per Person
+Figure 13: Total Property Tax Levy per Person in 2023
+(includes Regional and Transit taxes) –Selected Canadian Cities
+$3,000
+$2,789
+$2,740
+$2,579
+$2,500
+$2,252
+$2,127
+$1,965 $1,996 $2,018
+$2,000 $1,915
+$1,701 $1,710 $1,750 $1,762 $1,762
+$1,500
+$1,000
+$500
+$0
+Figure 14: Total Property Tax Levy Per Person in 2023
+- Calgary Region
+$5,000
+$4,109
+$4,000
+$2,978
+$3,000
+$2,119 $2,127
+$2,000
+$1,621
+$1,485
+$1,336 $1,369
+$1,000
+$0
+2023 Residential Property Taxes and Utility Charges Survey 17
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Figure 15: Total Property and Business Tax Levy Per Person in 2023
+(includes Regional and Transit taxes) - Selected Canadian Cities
+$3,000
+$2,789
+$2,740
+$2,579
+$2,500
+$2,252
+$2,127
+$1,965 $1,996 $2,018
+$2,000 $1,915
+$1,835
+$1,701 $1,710 $1,750 $1,762
+$1,500
+$1,000
+$500
+$0
+Figure 16: Total Property and Business Tax Levy Per Person in 2023
+- Calgary Region
+$5,000
+$4,109
+$4,000
+$2,978
+$3,000
+$2,119 $2,127
+$2,000
+$1,621
+$1,485
+$1,336 $1,369
+$1,000
+$0
+18 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Table 11
+Total Property and Business Tax Levy Per Person in 2023
+Table 11
+(Selected Canadian Cities)
+Total Property and Business Tax Levy Per Person in 2023
+(includes Regional and Transit taxes)
+(Selected Canadian Cities)
+Total Tax Levy Total Tax Levy Per Person
+(includes Regional and Transit taxes)
+City Population
+Total Tax Levy Total Tax Levy Per Person
+City Population Property Business Total Levy Property Rank Total Levy Rank
+(thousands of dolllars) (dollars) (dollars)
+Property Business Total Levy Property Rank Total Levy Rank
+Grande Prairie 69,088 155,571 0 155,571 2,252 11 2,252 11
+(thousands of dolllars) (dollars) (dollars)
+Halifax 492,199 861,279 0 861,279 1,750 3 1,750 3
+Grande Prairie 69,088 155,571 0 155,571 2,252 11 2,252 11
+Leduc 37,253 75,162 0 75,162 2,018 9 2,018 9
+Halifax 492,199 861,279 0 861,279 1,750 3 1,750 3
+Lethbridge 106,550 212,645 0 212,645 1,996 8 1,996 8
+Leduc 37,253 75,162 0 75,162 2,018 9 2,018 9
+Medicine Hat 65,203 110,924 0 110,924 1,701 1 1,701 1
+Lethbridge 106,550 212,645 0 212,645 1,996 8 1,996 8
+Red Deer 109,234 192,495 0 192,495 1,762 5 1,762 4
+Medicine Hat 65,203 110,924 0 110,924 1,701 1 1,701 1
+Regina 245,640 470,316 0 470,316 1,915 6 1,915 6
+Red Deer 109,234 192,495 0 192,495 1,762 5 1,762 4
+Saskatoon 290,750 497,175 0 497,175 1,710 2 1,710 2
+Regina 245,640 470,316 0 470,316 1,915 6 1,915 6
+Victoria 91,867 256,260 0 256,260 2,789 14 2,789 14
+Saskatoon 290,750 497,175 0 497,175 1,710 2 1,710 2
+Winnipeg 815,599 1,437,258 59,548 1,496,806 1,762 4 1,835 5
+Victoria 91,867 256,260 0 256,260 2,789 14 2,789 14
+Vancouver 732,581 2,007,444 0 2,007,444 2,740 13 2,740 13
+Winnipeg 815,599 1,437,258 59,548 1,496,806 1,762 4 1,835 5
+Edmonton 1,140,300 2,240,306 0 2,240,306 1,965 7 1,965 7
+Vancouver 732,581 2,007,444 0 2,007,444 2,740 13 2,740 13
+Calgary 1,389,200 2,954,495 0 2,954,495 2,127 10 2,127 10
+Edmonton 1,140,300 2,240,306 0 2,240,306 1,965 7 1,965 7
+Toronto 2,846,331 7,340,707 0 7,340,707 2,579 12 2,579 12
+Calgary 1,389,200 2,954,495 0 2,954,495 2,127 10 2,127 10
+Average 602,271 1,343,717 59,548 1,347,970 2,076 - 2,081 -
+Toronto 2,846,331 7,340,707 0 7,340,707 2,579 12 2,579 12
+Average 602,271 1,343,717 59,548 1,347,970 2,076 - 2,081 -
+Table 12
+Total Property and Business Tax Levy Per Person in 2023
+Table 12
+(Calgary Region)
+Total Property and Business Tax Levy Per Person in 2023
+Total Tax Levy Total Tax Levy Per Person
+(CalgarCy aRlgeagrioyn)
+Population
+Total Tax Levy Total Tax Levy Per Person
+Region
+Calgary
+Population Property Business Total Levy Property Rank Total Levy Rank
+Region
+(thousands of dolllars) (dollars) (dollars)
+Property Business Total Levy Property Rank Total Levy Rank
+Airdrie 80,649 107,740 0 107,740 1,336 1 1,336 1
+(thousands of dolllars) (dollars) (dollars)
+Cochrane 35,024 52,023 0 52,023 1,485 3 1,485 3
+Airdrie 80,649 107,740 0 107,740 1,336 1 1,336 1
+Foothills MD 24,603 52,126 0 52,126 2,119 5 2,119 5
+Cochrane 35,024 52,023 0 52,023 1,485 3 1,485 3
+High River 15,308 20,957 0 20,957 1,369 2 1,369 2
+Foothills MD 24,603 52,126 0 52,126 2,119 5 2,119 5
+Okotoks 30,405 49,287 0 49,287 1,621 4 1,621 4
+High River 15,308 20,957 0 20,957 1,369 2 1,369 2
+Wheatland County 9,608 39,483 0 39,483 4,109 8 4,109 8
+Okotoks 30,405 49,287 0 49,287 1,621 4 1,621 4
+Rocky View County 45,160 134,487 0 134,487 2,978 7 2,978 7
+Wheatland County 9,608 39,483 0 39,483 4,109 8 4,109 8
+Calgary 1,389,200 2,954,495 0 2,954,495 2,127 6 2,127 6
+Rocky View County 45,160 134,487 0 134,487 2,978 7 2,978 7
+Average 203,745 426,325 0 426,325 2,143 - 2,143 -
+Calgary 1,389,200 2,954,495 0 2,954,495 2,127 6 2,127 6
+Average 203,745 426,325 0 426,325 2,143 - 2,143 -
+2023 Residential Property Taxes and Utility Charges Survey 19
+Chief Financial Officer’s Department, The City of Calgary
+4
+4
+
+=== page
+Draft
+October 31, 2024
+F. Proportion of Property Tax Load Paid by Residential Properties
+Figure 17: Residential Property Tax as Percent of Total Tax Levy in 2023
+(Farm included in Residential Property Tax, Not including "other taxes") -
+Selected Canadian Cities
+80.0%
+70.0% 67.7%
+63.9% 64.4% 64.6% 64.8% 65.0%
+61.1% 62.0%
+60.0% 55.0% 56.4% 56.9% 57.6%
+52.8% 53.3%
+50.0%
+40.0%
+30.0%
+20.0%
+10.0%
+0.0%
+Figure 18: Residential Property Tax as Percent of Total Tax Levy in 2023
+(Farm included in Residential Property Tax, Not including "other taxes") -
+Calgary Region
+90.0% 85.2%
+81.0% 81.2%
+75.4% 75.8%
+75.0%
+60.0% 54.9% 57.6%
+45.0%
+30.0% 27.0%
+15.0%
+0.0%
+20 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+G. Average Monthly Utility Charges
+Figure 19: Average Monthly Utility Charges for a Representative
+Bungalow/Two-Storey House in 2023 - Selected Canadian Cities
+$480
+$391.77
+$400
+$340.61 $345.42 $352.62
+$321.57
+$320 $295.86
+$276.88
+$255.90 $258.30
+$231.92
+$240
+$203.07 $207.05 $209.18
+$173.72
+$160
+$80
+$0
+Figure 20: Average Monthly Utility Charges for a Representative
+Bungalow/Two-Storey House in 2023- Calgary Region
+$500
+$443.80
+$400
+$364.90
+$345.42
+$321.42 $324.70
+$309.64 $311.55
+$300
+$251.92
+$200
+$100
+$0
+2023 Residential Property Taxes and Utility Charges Survey 21
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Table 13
+TAavbelrea g1e3 Monthly Utility Charges for a Representative Bungalow / Two-Storey House in 2023
+A(Sveeleracgteed M Coanntahdliya Un tCiliittiye sC)harges for a Representative Bungalow / Two-Storey House in 2023
+((Sdeollelacrtse)d Canadian Cities)
+(dollars)
+Land Other
+City Power Water Sewer Garbage Total Rank
+DLraaninda ge OFtheeers
+City Power Water Sewer Garbage Total Rank
+Drainage Fees
+Grande Prairie 192.78 51.59 55.02 20.03 0.00 21.19 340.61 11
+GHraalinfadxe Prairie 119129..7088 5314..5493 5553..0523 200..0030 00.0.000 210..1090 324007.6.015 113
+HLeadliufacx 121091..0882 3944..4237 5631..5936 02.80.072 05.0.000 00.0.000 230971.0.757 314
+LLeedthubcridge 210813..8020 9346..2070 6217..9060 2186.7.720 50.0.000 01.40.018 329716.7.878 148
+LMeethdbicriindeg eHat 118034..0700 3169..0806 2574..0104 1268.7.000 00.0.000 142..1488 227069.8.188 84
+MReedd Diceineer Hat 110948..7006 1499..8166 5540..1640 2183.0.705 00.0.000 21.04.800 230291.1.587 410
+RReedgi nDaeer 119387..0367 4792..1669 5507..6900 137..7550 02.00.010 100..0300 322915.5.876 109
+RSaesgkinaatoon 113377..3377 7526..6090 5376..9000 71.05.006 209..1000 07.3.407 229555.8.960 96
+Saskatoon 137.37 56.00 36.00 10.06 9.00 7.47 255.90 6
+Victoria 64.52 32.68 44.25 20.27 12.00 0.00 173.72 1
+Victoria 64.52 32.68 44.25 20.27 12.00 0.00 173.72 1
+Winnipeg 66.77 49.71 51.80 0.00 0.00 34.79 203.07 2
+Winnipeg 66.77 49.71 51.80 0.00 0.00 34.79 203.07 2
+Vancouver 64.52 77.15 84.54 13.58 0.00 18.50 258.30 7
+Vancouver 64.52 77.15 84.54 13.58 0.00 18.50 258.30 7
+Edmonton 201.82 59.13 28.97 45.20 17.50 0.00 352.62 13
+Edmonton 201.82 59.13 28.97 45.20 17.50 0.00 352.62 13
+Calgary 208.13 41.21 55.45 6.99 15.63 18.01 345.42 12
+Calgary 208.13 41.21 55.45 6.99 15.63 18.01 345.42 12
+Toronto 123.34 35.83 43.75 29.00 0.00 0.00 231.92 5
+Toronto 123.34 35.83 43.75 29.00 0.00 0.00 231.92 5
+Average 143.09 50.69 50.35 19.98 13.21 14.10 275.99 -
+Average 143.09 50.69 50.35 19.98 13.21 14.10 275.99 -
+Table 14
+Table 14
+Average Monthly Utility Charges for a Representative Bungalow / Two-Storey House in 2023
+Average Monthly Utility Charges for a Representative Bungalow / Two-Storey House in 2023
+(Calgary Region)
+(Calgary Region)
+(dollars)
+(dollars)
+Calgary Land Other
+Calgary Power Water Sewer Garbage Land Other Total Rank
+Region Power Water Sewer Garbage Drainage Fees Total Rank
+Region Drainage Fees
+Airdrie 198.06 51.00 84.97 24.79 0.00 6.08 364.90 7
+Airdrie 198.06 51.00 84.97 24.79 0.00 6.08 364.90 7
+Cochrane 196.55 35.00 42.00 27.00 6.00 5.00 311.55 3
+Cochrane 196.55 35.00 42.00 27.00 6.00 5.00 311.55 3
+Foothills MD 188.04 51.00 48.38 34.00 0.00 0.00 321.42 4
+Foothills MD 188.04 51.00 48.38 34.00 0.00 0.00 321.42 4
+High River 198.06 47.80 46.80 11.46 2.64 2.89 309.64 2
+High River 198.06 47.80 46.80 11.46 2.64 2.89 309.64 2
+Okotoks 198.06 42.58 50.65 25.08 8.33 0.00 324.70 5
+Okotoks 198.06 42.58 50.65 25.08 8.33 0.00 324.70 5
+Wheatland County 188.04 30.28 33.60 0.00 0.00 0.00 251.92 1
+Wheatland County 188.04 30.28 33.60 0.00 0.00 0.00 251.92 1
+Rocky View County 188.04 86.81 132.65 16.09 0.00 20.21 443.80 8
+Rocky View County 188.04 86.81 132.65 16.09 0.00 20.21 443.80 8
+Calgary 208.13 41.21 55.45 6.99 15.63 18.01 345.42 6
+Calgary 208.13 41.21 55.45 6.99 15.63 18.01 345.42 6
+Average 195.37 48.21 61.81 20.77 8.15 10.44 334.17 -
+Average 195.37 48.21 61.81 20.77 8.15 10.44 334.17 -
+22 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+8
+8
+
+=== page
+Draft
+October 31, 2024
+H. Combined Municipal Property Tax and Utility Charges
+Figure 21: Combined Municipal Property Tax and Utility Charges for a
+Representative BungalowHouse in 2023 - Selected Canadian Cities
+$9,000
+$8,104
+$8,000 $7,695
+$7,363
+$7,103 $7,156
+$6,826
+$7,000 $6,570
+$5,990
+$6,000 $5,505 $5,633 $5,800
+$5,000 $4,765 $4,894
+$4,402
+$4,000
+$3,000
+$2,000
+$1,000
+$0
+Figure 22: Combined Municipal Property Tax and Utility Charges for a
+Representative BungalowHouse in 2023 - Calgary Region
+$8,500
+$8,000 $7,766
+$7,500
+$7,000 $6,826
+$6,513
+$6,500 $6,333
+$6,152
+$5,933
+$6,000
+$5,640
+$5,500
+$5,000
+$4,556
+$4,500
+$4,000
+$3,500
+$3,000
+$2,500
+$2,000
+2023 Residential Property Taxes and Utility Charges Survey 23
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Figure 23: Combined Municipal Property Tax and Utility Charges for a
+Representative Two-Storey House in 2023 - Selected Canadian Cities
+$9,000
+$8,046
+$8,000 $7,631 $7,790
+$7,000
+$6,203 $6,345 $6,420
+$6,000 $5,531 $5,671
+$5,288
+$5,059
+$5,000
+$4,000
+$3,000
+$2,000
+$1,000
+$0
+Figure 24: Combined Municipal Property Tax and Utility Charges for a
+Representative Two-StoreyHouse in 2023 - Calgary Region
+$7,000
+$6,500 $6,398
+$6,203
+$6,128
+$6,000
+$5,500
+$5,000
+$4,500
+$4,000
+$3,500
+$3,000
+24 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Table 15
+TMaubnleic 1ip5al Property Ta x and Utility Charges for a Representative Bungalow House in 2023
+M(Seulneicctiepda lC Parnoapdeiratny CTiatxie asn)d Utility Charges for a Representative Bungalow House in 2023
+((Sdeollelacrtse)d Canadian Cities)
+(dollars) Rank
+Utility Municipal Rank
+City Total Municipal
+CUhtairligteys PrMopuenrictiyp Taal x Total
+City Total MuTnaicxipal
+Charges Property Tax Total
+Tax
+Grande Prairie 4,087.32 3,276 7,363.44 12 10
+GHraalinfadxe Prairie 42,,048874..3524 31,,297168 74,,346032..4247 112 110
+HLeadliufacx 24,,478041..5148 13,,941083 48,,410024..2371 114 111
+LLeedthubcridge 43,,730212..1680 32,,460637 85,,190849..3818 174 161
+LMeethdbicriindeg eHat 32,,352120..6106 22,,636873 54,,988993..8588 73 64
+MReedd Diceineer Hat 23,,581508..1864 23,,328434 47,,819032..5583 130 49
+RReedgi nDaeer 33,,855580..8342 32,,204843 75,,160323..5033 150 92
+RSaesgkinaatoon 33,,505700..3820 22,,048334 55,,653035..0137 54 25
+SVaicstkoartioaon 32,,007804..8602 23,,473145 55,,570959..1572 46 153
+VWicintonriipaeg 22,,048346..6824 32,,731258 54,,779694..5625 62 133
+WVainncnoipuevger 23,,403969..8545 23,,342781 46,,756740..6152 28 132
+VEdanmcoonutvoenr 34,,029391..5454 32,,497214 67,,517505..1526 181 182
+ECdamlgaornyton 44,,213415..4043 22,,962841 76,,185256..5468 191 87
+CToalrgoanrtyo 42,,174853..0037 24,,698112 67,,862965..4087 193 174
+Toronto Average 23,,738131..0878 2,49,5991.295 76,,629751..0873 1-3 1-4
+Average 3,311.88 2,959.95 6,271.83 - -
+Table 16
+TMaubnleic 1ip6al Property Tax and Utility Charges for a Representative Bungalow House in 2023
+M(Caulngiacripy aRl ePgrioopne)rty Tax and Utility Charges for a Representative Bungalow House in 2023
+((Cdaollglaarrsy) Region)
+(dollars) Rank
+Calgary Utility Municipal Rank
+Total
+CRaelggiaorny CUhtairligteys PrMopuenrictiyp Taal x Total Municipal
+Total
+Region Charges Property Tax Total MuTnaicxipal
+Airdrie 4,378.80 1,954 6,332.57 5 Ta3x
+ACoircdhrireane 43,,377388..8602 12,,975744 66,,353122..5977 56 38
+CFooochthrailnlse MD 33,,783587..6023 22,,707746 65,,591323..9377 63 84
+FHoigohth Rililvse Mr D 33,,875175..0730 21,,097264 55,,963339..3578 32 42
+HOikgoht oRkivser 33,,781956..7306 12,,922545 56,,613591..5686 24 25
+OWkhoetaotklsand County 33,,809263..3069 21,,255353 64,,155516..6468 41 51
+WRohcekayt Vlainewd CCoouunnttyy 35,,032235..0695 12,,543431 47,,575666..4282 18 16
+RCoalcgkayr yView County 54,,312455..6053 22,,464811 76,,786266..2428 87 67
+Calgary Average 44,,104150..0034 22,,628015 66,,822164..4982 7- 7-
+Average 4,010.04 2,205 6,214.92 - -
+2023 Residential Property Taxes and Utility Charges Survey 25
+Chief Financial Officer’s Department, The City of Calgary
+10
+10
+
+=== page
+Draft
+October 31, 2024
+Table 17
+Table 17
+Municipal Property Tax and Utility Charges for a Representative Two-Storey House in 2023
+Municipal Property Tax and Utility Charges for a Representative Two-Storey House in 2023
+(Selected Canadian Cities)
+(Selected Canadian Cities)
+(dollars)
+(dollars)
+Rank
+Utility Municipal Rank
+City Total
+CUhatirlgiteys PrMopuenritcyi pTaalx
+Total Municipal
+City Total
+Charges Property Tax Total MuTnaxicipal
+Grande Prairie 4,087.32 3,958 8,045.80 10 T9ax
+HGaralinfadxe Prairie 24,,408847..5342 23,,597558 58,0,05495.0.890 110 29
+LHeadliufacx 42,,740814..1584 2N,/5A75 5,N05/A9.09 N/1A N/2A
+LLeetdhubcridge 34,,372021..6108 3,N0/9A7 6,42N0/.A08 N7/A N7/A
+MLeethdbicriindeg eHat 23,,531202..1660 23,,707987 56,2,48280.0.048 27 47
+RMeedd Diceineer Hat 32,,855180..8146 2N,/7A78 5,N28/A8.04 N/2A N/4A
+RReegdi nDaeer 33,,585508..3824 2,N7/9A4 6,34N4/.A72 N6/A N5/A
+SRaesgkinataoon 33,,057500..8302 22,,670904 56,6,37404.6.742 46 35
+VSaicstkoartioaon 23,,008740..6820 2N,/6A00 5,N67/A0.64 N/4A N/3A
+WVicintonripiaeg 22,,403864..8642 3,N0/9A4 5,53N0/.A91 N3/A N6/A
+VWainncnoipuevger 32,,049396..5854 3N,/0A94 5,N53/A0.91 N/3A N/6A
+EVdamncoonutvoenr 43,,203919..4545 3,N3/9A9 7,63N0/.A77 N8/A N8/A
+CEdalmgaornyton 44,,124351..0434 23,,035989 67,2,60320.6.787 58 18
+TCoarlgoanrtyo 24,,718435..0073 52,,000578 76,7,29002.0.678 95 101
+Toronto Average 32,,371813..8087 3,153,060.077 67,3,79980.2.087 -9 -10
+Average 3,311.88 3,136.07 6,398.28 - -
+Table 18
+MTaubnleic 1ip8al Property Tax and Utility Charges for a Representative Two-Storey House in 2023
+(MCaulngiacriyp aRle Pgrioopne)rty Tax and Utility Charges for a Representative Two-Storey House in 2023
+((dCoallglaarrsy) Region)
+(dollars) Rank
+Calgary Utility Municipal Rank
+Total
+CRaelggiaorny CUhatirlgiteys PrMopuenritcyi pTaalx Total Municipal
+Total
+Region Charges Property Tax Total MuTnaxicipal
+Airdrie 4,378.80 N/A N/A N/A NT/aAx
+CAoircdhrrieane 34,,733788..6820 2,N3/8A9 6,12N7/.A68 N1/A N2/A
+FCooocthhriallnse MD 33,,875378..0632 2N,/3A89 6,N12/A7.68 N/1A N/2A
+HFoigoht hRililvse Mr D 33,,781557..7003 NN//AA NN//AA NN//AA NN/A/A
+OHikgoht oRkivser 33,,879165..3760 2,N5/0A2 6,3N98/.A36 N3/A N3/A
+WOkhoetaotklasnd County 33,,082936..0396 2N,/5A02 6,N39/A8.36 N/3A N/3A
+RWohcekay tVlaienwd CCoouunnttyy 53,,302253..6059 NN//AA NN//AA NN//AA NN/A/A
+Calgary 4,145.03 2,058 6,202.68 2 1
+Rocky View County 5,325.65 N/A N/A N/A N/A
+Calgary Average 44,,011405..0043 22,,301568 66,2,24022.9.618 -2 -1
+Average 4,010.04 2,316 6,242.91 - -
+26 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+11
+11
+
+=== page
+Draft
+October 31, 2024
+I. Combined Net Property Tax (After Grants) and Utility Charges
+Figure 25: Net Property Tax (after Grants) and Utility Charges for a
+Representative BungalowHouse in 2023 - Selected Canadian Cities
+$10,500
+$9,317
+$9,159
+$8,927
+$9,000
+$8,113 $8,213 $8,223 $8,232
+$7,500 $7,132 $7,222
+$6,817 $6,842
+$6,000 $5,807 $5,929
+$5,175
+$4,500
+$3,000
+$1,500
+Figure 26: Net Property Tax (after Grants) and Utility Charges for a
+Representative BungalowHouse in 2023 - Calgary Region
+$11,500
+$10,500 $10,244
+$9,500 $9,117
+$8,500 $8,213
+$7,883
+$7,500 $7,201 $7,312
+$6,421
+$6,500 $6,000
+$5,500
+$4,500
+$3,500
+$2,500
+$1,500
+2023 Residential Property Taxes and Utility Charges Survey 27
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Figure 27: Net Property Tax (after Grants) and Utility Charges for a
+Representative Two-Storey House in 2023 - Selected Canadian Cities
+$10,500
+$9,282
+$9,096
+$9,000 $8,744
+$7,967
+$7,500 $7,078 $7,267 $7,381 $7,504
+$6,353
+$6,093
+$6,000
+$4,500
+$3,000
+$1,500
+$0
+Figure 28: Net Property Tax (after Grants) and Utility Charges for a
+Representative Two-StoreyHouse in 2023 -Calgary Region
+$8,000
+$7,563
+$7,267 $7,307
+$7,000
+$6,000
+$5,000
+$4,000
+$3,000
+$2,000
+28 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Table 19
+Net Property Tax (after Grants) and Utility Charges for a Representative Bungalow / Two-Storey House in 2023
+(Selected Canadian Cities)
+(dollars)
+Bungalow Two-Storey
+Utility Net Property Net Property
+City
+Charges Tax Levy Total Rank Tax Levy Total Rank
+(After Grants) (After Grants)
+Grande Prairie 4,087.32 4,145 8,232.38 11 5,008 9,095.73 9
+Halifax 2,484.54 2,690 5,174.56 1 3,609 6,093.39 1
+Leduc 4,701.18 4,225 8,926.63 12 N/A N/A N/A
+Lethbridge 3,322.60 3,495 6,817.34 4 4,058 7,381.00 5
+Medicine Hat 2,510.16 3,297 5,807.20 2 3,843 6,352.87 2
+Red Deer 3,858.84 4,364 8,222.86 10 N/A N/A N/A
+Regina 3,550.32 3,292 6,841.97 5 4,416 7,966.77 7
+Saskatoon 3,070.80 4,151 7,221.84 7 4,433 7,503.99 6
+Victoria 2,084.62 5,047 7,131.57 6 N/A N/A N/A
+Winnipeg 2,436.84 3,492 5,928.55 3 4,641 7,077.94 3
+Vancouver 3,099.55 6,218 9,317.07 14 N/A N/A N/A
+Edmonton 4,231.44 3,881 8,112.73 8 4,512 8,743.50 8
+Calgary 4,145.03 4,068 8,212.98 9 3,122 7,266.63 4
+Toronto 2,783.07 6,376 9,159.07 13 6,499 9,282.07 10
+Average 3,311.88 4,195.75 7,507.63 - 4,414.18 7,676.39 -
+Table 20
+Net Property Tax (after Grants) and Utility Charges for a Representative Bungalow / Two-Storey House in 2023
+(Calgary Region)
+(dollars)
+Bungalow Two-Storey
+Calgary Utility Net Property Net Property
+Region Charges Tax Levy Total Rank Tax Levy Total Rank
+(After Grants) (After Grants)
+Airdrie 4,378.80 2,934 7,312.33 4 N/A N/A N/A
+Cochrane 3,738.62 4,144 7,882.72 5 3,569 7,307.21 2
+Foothills MD 3,857.03 5,260 9,117.35 7 N/A N/A N/A
+High River 3,715.70 2,706 6,421.50 2 N/A N/A N/A
+Okotoks 3,896.36 3,305 7,201.21 3 3,666 7,562.59 3
+Wheatland County 3,023.09 2,977 5,999.80 1 N/A N/A N/A
+Rocky View County 5,325.65 4,918 10,243.89 8 N/A N/A N/A
+Calgary 4,145.03 4,068 8,212.98 6 3,122 7,266.63 1
+Average 4,010.04 3,789 7,798.97 - 3,452 7,378.81 -
+2023 Residential Property Taxes and Utility Charges Survey 29
+Chief Financial Officer’s Department, The City of Calgary
+9
+
+=== page
+Draft
+October 31, 2024
+J. Combined Total Property Tax and Utility Charges (Average)
+Figure 29: Combined Average Property Tax and Utility Charges for
+Single Detached Houses in 2023 -Selected Canadian Cities
+$10,000
+$9,159
+$8,927
+$9,000 $8,610
+$8,115 $8,191
+$8,000 $7,736
+$7,290
+$7,123
+$6,827
+$7,000
+$6,406
+$6,000 $5,436 $5,559 $5,747
+$5,000
+$4,000
+$3,000
+$2,000
+$1,000
+$0
+Figure 30: Combined Average Property Tax and Utility Charges for
+Single Detached Houses in 2023-Calgary Region
+$11,000
+$10,244
+$10,000
+$9,117
+$9,000
+$8,191
+$8,036
+$8,000 $7,586
+$7,312
+$7,000
+$6,421
+$6,000
+$6,000
+$5,000
+$4,000
+$3,000
+$2,000
+30 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Table 21
+Average Property Tax and Utility Charges for Single Detached Houses in 2023
+(Selected Canadian Cities)
+(dollars)
+Average Utility
+City Total Rank
+Property Tax Charges
+Grande Prairie 4,028 4,087.32 8,115.32 9
+Halifax 3,262 2,484.54 5,746.65 3
+Leduc 4,225 4,701.18 8,926.63 12
+Lethbridge 3,801 3,322.60 7,123.32 6
+Medicine Hat 3,049 2,510.16 5,558.68 2
+Red Deer 2,547 3,858.84 6,406.30 4
+Regina 3,740 3,550.32 7,290.14 7
+Saskatoon 3,756 3,070.80 6,826.65 5
+Victoria N/A 2,084.62 N/A N/A
+Winnipeg 3,000 2,436.84 5,436.34 1
+Vancouver 4,636 3,099.55 7,735.57 8
+Edmonton 4,379 4,231.44 8,610.44 11
+Calgary 4,046 4,145.03 8,191.03 10
+Toronto 6,376 2,783.07 9,159.07 13
+Average 3,911 3,311.88 7,317.40 -
+Table 22
+Average Property Tax and Utility Charges for Single Detached Houses in 2023
+(Calgary Region)
+(dollars)
+Calgary Average Utility
+Total Rank
+Region Property Tax Charges
+Airdrie 2,934 4,378.80 7,312.33 3
+Cochrane 4,298 3,738.62 8,036.44 5
+Foothills MD 5,260 3,857.03 9,117.35 7
+High River 2,706 3,715.70 6,421.50 2
+Okotoks 3,690 3,896.36 7,586.36 4
+Wheatland County 2,977 3,023.09 5,999.80 1
+Rocky View County 4,918 5,325.65 10,243.89 8
+Calgary 4,046 4,145.03 8,191.03 6
+Average 3,854 4,010.04 7,863.59 -
+2023 Residential Property Taxes and Utility Charges Survey 31
+Chief Financial Officer’s Department, The City of Calgary
+12
+
+=== page
+Draft
+October 31, 2024
+K. Non-residential Taxes per $1,000 of Assessed Value
+Figure 31: Non-residential Taxes per $1,000 of Assessed Value in 2023 -
+Selected Canadian Cities
+$35 $33.18
+$30
+$24.98
+$25
+$21.61 $21.68 $22.07
+$20.89
+$19.75
+$20
+$17.97
+$15
+$10
+$5
+$0
+Figure 32: Non-residential Taxes per $1,000 of Assessed Value in 2023-
+Calgary Region
+$25
+$22.07
+$20
+$15
+$11.11
+$10
+$5
+$0
+32 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Table 23
+Non-residential Taxes per $1,000 of Assessed Value in 2023
+(Selected Canadian Cities)
+(dollars)
+Non-residential Taxes per $1,000 of Assessed Value
+City Rank
+Municipal Provincial Total
+Grande Prairie 17.77 3.91 21.68 5
+Halifax 29.27 3.91 33.18 8
+Leduc N/A N/A N/A N/A
+Lethbridge 21.11 3.87 24.98 7
+Medicine Hat 15.91 3.84 19.75 2
+Red Deer N/A N/A N/A N/A
+Regina 12.64 8.25 20.89 3
+Saskatoon N/A N/A N/A N/A
+Victoria N/A N/A N/A N/A
+Winnipeg 8.39 13.22 21.61 4
+Vancouver N/A N/A N/A N/A
+Edmonton N/A N/A N/A N/A
+Calgary 18.43 3.64 22.07 6
+Toronto 11.48 6.49 17.97 1
+Average 16.88 5.89 22.77 -
+Table 24
+Non-residential Taxes per $1,000 of Assessed Value in 2023
+(Calgary Region)
+(dollars)
+Non-residential Taxes per $1,000 of Assessed Value
+Calgary
+Rank
+Region Municipal Provincial Total
+Airdrie N/A N/A N/A N/A
+Cochrane 7.54 3.57 11.11 1
+Foothills MD N/A N/A N/A N/A
+High River N/A N/A N/A N/A
+Okotoks N/A N/A N/A N/A
+Wheatland County N/A N/A N/A N/A
+Rocky View County N/A N/A N/A N/A
+Calgary 18.43 3.64 22.07 2
+Average 12.99 3.61 16.59 -
+2023 Residential Property Taxes and Utility Charges Survey 33
+Chief Financial Officer’s Department, The City of Calgary
+13
+
+=== page
+Draft
+October 31, 2024
+L. Median Assessed Value and Municipal Tax Rate
+Figure 33: Median Assessed Value - Single Family in 2024 -
+Selected Canadian Cities
+$2,500,000
+$2,209,000
+$2,000,000
+$1,500,000
+$1,142,000
+$1,000,000
+$858,000
+$610,000
+$500,000 $428,500
+$263,600 $298,600 $314,000 $315,000 $321,100 $347,800 $357,000
+$0
+Figure 34: Median Assessed Value - Single Family in 2024 -
+Calgary Region
+$620,000
+$610,000
+$610,000
+$600,000
+$590,000
+$580,000
+$570,000
+$570,000
+$560,000
+$554,700
+$550,000
+$540,000
+$530,000
+$520,000
+34 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Figure 35: Median Assessed Value - Condo in 2024 -
+Selected Canadian Cities
+$900,000
+$807,000
+$750,000
+$600,000 $581,000
+$450,000 $418,000
+$295,000
+$300,000
+$215,100 $215,700
+$172,000 $180,000 $182,000
+$149,700
+$150,000
+$0
+Figure 36: Median Assessed Value - Condo in 2024 -
+Calgary Region
+$325,000
+$300,000 $295,000
+$285,000
+$275,000
+$250,000
+$225,000
+$208,800
+$200,000
+$175,000
+$150,000
+$125,000
+2023 Residential Property Taxes and Utility Charges Survey 35
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Figure 37: Municipal Tax Rate -Single Family in 2024 -
+Selected Canadian Cities
+12
+10.420
+10
+8.031 8.176
+8 7.443 7.665
+6.674
+6.008
+6
+5.133
+4.204
+4
+3.211
+2
+0
+Figure 38: Municipal Tax Rate -Single Family in 2024 -
+Calgary Region
+8
+6.876
+7
+6
+5.357
+5
+4.204
+4
+3
+2
+1
+0
+36 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Figure 39: Municipal Tax Rate -Condo in 2024 -
+Selected Canadian Cities
+12
+10.420
+10
+8.031 8.176
+8 7.665
+6.674
+6
+4.204
+4
+3.211
+2
+0
+Figure 40: Municipal Tax Rate -Condo in 2024 -
+Calgary Region
+8
+6.876
+7
+6
+5.357
+5
+4.204
+4
+3
+2
+1
+0
+2023 Residential Property Taxes and Utility Charges Survey 37
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Table 25
+Median Assessed Value and Municipal Tax Rate in 2024
+(Selected Canadian Cities)
+Median Assessed Value Municipal Tax Rate
+City Single Family Condo Single Family Condo
+Rank Rank Rank Rank
+(dollars) (dollars) (Mill Rate) (Mill Rate)
+Grande Prairie 321,100 5 149,700 1 N/A N/A N/A N/A
+Halifax 263,600 1 N/A N/A 7.443 6 N/A N/A
+Leduc N/A N/A N/A N/A N/A N/A N/A N/A
+Lethbridge 314,000 3 182,000 4 8.176 9 8.176 6
+Medicine Hat 315,000 4 180,000 3 6.674 5 6.674 3
+Red Deer N/A N/A N/A N/A N/A N/A N/A N/A
+Regina 298,600 2 215,100 5 10.420 10 10.420 7
+Saskatoon 347,800 6 215,700 6 8.031 8 8.031 5
+Victoria 1,142,000 11 581,000 9 3.211 1 3.211 1
+Winnipeg 357,000 7 N/A N/A 6.008 4 N/A N/A
+Vancouver 2,209,000 12 807,000 10 N/A N/A N/A N/A
+Edmonton 428,500 8 172,000 2 7.665 7 7.665 4
+Calgary 610,000 9 295,000 7 4.204 2 4.204 2
+Toronto 858,000 10 418,000 8 5.133 3 N/A N/A
+Average 622,050 - 321,550 - 6.697 - 6.912 -
+Table 26
+Median Assessed Value and Municipal Tax Rate in 2024
+(Calgary Region)
+Median Assessed Value Municipal Tax Rate
+City Single Family Condo Single Family Condo
+Rank Rank Rank Rank
+(dollars) (dollars) (Mill Rate) (Mill Rate)
+Airdrie N/A N/A N/A N/A N/A N/A N/A N/A
+Cochrane 554,700 1 208,800 1 6.876 3 6.876 3
+Foothills MD N/A N/A N/A N/A N/A N/A N/A N/A
+High River N/A N/A N/A N/A N/A N/A N/A N/A
+Okotoks 570,000 2 285,000 2 5.357 2 5.357 2
+Wheatland County N/A N/A N/A N/A N/A N/A N/A N/A
+Rocky View County N/A N/A N/A N/A N/A N/A N/A N/A
+Calgary 610,000 3 295,000 3 4.204 1 4.204 1
+Average 578,233 - 262,933 - 5.479 - 5.479 -
+38 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
+15
+
+=== page
+Draft
+October 31, 2024
+2023 Residential Property Taxes and Utility Charges Survey 39
+Chief Financial Officer’s Department, The City of Calgary
+
+=== page
+Draft
+October 31, 2024
+Acknowledgements
+We would like to thank the following municipalities for providing their property tax information through this
+survey:
+ City of Grande Prairie  City of Airdrie
+ City of Halifax  Town of Cochrane
+ City of Leduc  Foothills MD
+ City of Lethbridge  Town of High River
+ City of Medicine Hat  Town of Okotoks
+ City of Red Deer  Wheatland County
+ City of Regina  Rocky View County
+ City of Saskatoon
+ City of Victoria
+ City of Winnipeg
+ City of Vancouver
+ City of Edmonton
+ City of Calgary
+ City of Toronto
+Who We Are
+Corporate Economics provides services in four areas: forecasting, information provision, policy analysis and
+consulting. We also monitor the current economic trends which allows us to develop unique insights on
+how external events are impacting the local economy and the Municipal government. We are experienced
+at researching different economic topics and have developed reliable methods of forecasting and analysis.
+For media inquiry, please contact:
+The Media Line at 403.828.2954 or media.relations@calgary.ca
+For the technical questions, please contact:
+Stanley Kongnetiman
+Manager, Corporate Economics and Regulatory Affairs
+stanley.kongnetiman@calgary.ca
+Clyde Pawluk
+Senior Corporate Economist
+clyde.pawluk@calgary.ca
+Estella Scruggs
+Senior Corporate Research Analyst
+estella.scruggs@calgary.ca
+Many of our publications are available on the internet at www.calgary.ca/economy.
+The City of Calgary provides this information in good faith. However, the aforementioned organization makes no representation, warranty or condition, statutory
+express or implied, takes no responsibility for any errors and omissions which may contained herein and accepts no liability for any loss arising from any use or reliance
+on this report.
+40 2023 Residential Property Taxes and Utility Charges Survey
+Chief Financial Officer’s Department, The City of Calgary
