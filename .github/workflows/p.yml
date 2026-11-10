@@ -10,9 +10,9 @@ jobs:
           mkdir -p out
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
           i=0
-          for u in https://www.cbc.ca/news/canada/edmonton/proposed-edmonton-operating-budget-calls-for-property-tax-hikes-between-3-9-and-4-9-9.7406008 https://www.cbc.ca/news/canada/saskatchewan/regina-2027-budget-proposal-9.7410732; do
+          for u in "https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=374196" https://ca.news.yahoo.com/residential-waste-collection-fees-could-180635918.html "https://pub-calgary.escribemeetings.com/FileStream.ashx?DocumentId=377372" "https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=351269"; do
             i=$((i+1)); curl -sSL -A "$UA" --compressed -o "out/p$i.html" "$u" -w "p$i $u %{http_code} %{size_download}\n" >> out/log.txt || true
           done
           git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
-          git checkout -b fetched-20c
-          git add -f out && git commit -qm "Pages" && git push -f origin fetched-20c
+          git checkout -b fetched-20d
+          git add -f out && git commit -qm "Pages" && git push -f origin fetched-20d
