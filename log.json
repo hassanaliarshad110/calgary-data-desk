@@ -24,15 +24,16 @@
   "status": "done",
   "posted": [
    {
-    "metricool_id": 422614844,
+    "metricool_id": 422729195,
     "providers": [
      "instagram",
      "facebook",
      "youtube"
     ],
-    "publish_at": "2026-11-09T19:32"
+    "publish_at": "2026-11-09T23:05"
    }
-  ]
+  ],
+  "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
  },
  {
   "date": "2026-11-09",
@@ -67,22 +68,23 @@
   "status": "done",
   "posted": [
    {
-    "metricool_id": 422614888,
+    "metricool_id": 422729265,
     "providers": [
      "instagram",
      "youtube-short"
     ],
-    "publish_at": "2026-11-09T19:47"
+    "publish_at": "2026-11-09T23:15"
    },
    {
-    "metricool_id": 422614996,
+    "metricool_id": 422729326,
     "providers": [
      "facebook",
      "youtube-video"
     ],
-    "publish_at": "2026-11-09T19:52"
+    "publish_at": "2026-11-09T23:20"
    }
-  ]
+  ],
+  "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
  },
  {
   "date": "2026-11-09",
@@ -112,15 +114,16 @@
   "status": "done",
   "posted": [
    {
-    "metricool_id": 422615039,
+    "metricool_id": 422729376,
     "providers": [
      "instagram",
      "facebook",
      "youtube"
     ],
-    "publish_at": "2026-11-09T20:07"
+    "publish_at": "2026-11-09T23:30"
    }
-  ]
+  ],
+  "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
  },
  {
   "date": "2026-11-09",
@@ -144,19 +147,18 @@
    "verdict": "APPROVED",
    "report": "audits/2026-11-09-PM.md"
   },
-  "status": "made-not-posted",
+  "status": "done",
   "posted": [
    {
-    "metricool_id": 422638885,
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-4668952460799095619",
+    "metricool_id": 422729414,
     "providers": [
      "instagram",
      "facebook",
      "youtube"
     ],
-    "publish_at": "2026-11-09T20:18",
-    "result": "ERROR on instagram, facebook, youtube at 20:18: \"You have reached your Metricool account limit.\" (not retried: account-level limit, not a field error; the Nov 9 AM, FLAGSHIP and CIVIC posts show the same error)"
+    "publish_at": "2026-11-09T23:40"
    }
-  ]
+  ],
+  "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
  }
 ]
