@@ -25,6 +25,7 @@ Every scheduled run follows this file exactly. One run = one video.
 ## 3. Write the package
 Write `packages/<date>-<slot>-<slug>.md` with **every** required output of the skill (topics/angles, hooks, verified evidence labelled fact / estimate / projection / interpretation, methodology and limitations where the skill asks for them, full narration, timestamped scene-by-scene storyboard, visual generation prompts, chart/map instructions with exact values and units, clickable sources with publication date and data period, captions / YouTube title and description, thumbnail concept, short-form version for flagships).
 - Narration: Canadian English, short sentences, **every number written in words as spoken**. It has to fit the runtime (about 2.5 words a second). End with a spoken close and the calgaryinsight.ca end card; never end abruptly.
+- **Site name on screen:** the narration spells the site for the voice ("calgary insight dot c a"), but every caption, subtitle, end card and on-screen text must show it as **calgaryinsight.ca**, never the spelled-out words. Build captions from the narration with that one substitution (for example `re.sub(r"calgary insight dot c a", "calgaryinsight.ca", line, flags=re.I)`), and check the closing caption frame before the full render.
 - The package ends with the claims table required by section 3b.
 - Visual generation prompts are kept for an optional paid cinematic version later. This run renders the free motion-graphics version only.
 
@@ -39,7 +40,7 @@ Write `packages/<date>-<slot>-<slug>.md` with **every** required output of the s
 4. **If it still isn't approved after round 3:** do not narrate or render. Save the package and audit report, log status `"blocked-by-audit"` with the reasons, and tell Hassan which claims couldn't be verified.
 5. If the Agent tool isn't available, run the audit yourself as a separate pass: re-fetch every URL fresh and apply the same checks, and label the report "self-audit".
 6. Save the final auditor report as `audits/<date>-<slot>.md` (every claim, its verdict and the source it was checked against). Record `audit: {rounds, claims_checked, verdict}` in the log.
-7. **After rendering,** confirm that the narration lines sent to Kokoro and the burned-in captions match the approved script word for word. Any change after approval needs a new audit round.
+7. **After rendering,** confirm that the narration lines sent to Kokoro and the burned-in captions match the approved script word for word (the only allowed difference: the spoken site name is shown as calgaryinsight.ca in captions). Any change after approval needs a new audit round.
 
 ## 4. Narration (free, dedicated lane)
 Use the **`studio-probe`** branch, not `budget-probe` (that one is Hassan's own lane).
