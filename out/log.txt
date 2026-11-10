@@ -1,0 +1,4 @@
+p1 https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=374196 403 226391
+p2 https://ca.news.yahoo.com/residential-waste-collection-fees-could-180635918.html 200 82948
+p3 https://pub-calgary.escribemeetings.com/FileStream.ashx?DocumentId=377372 403 226382
+p4 https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=351269 403 226382
