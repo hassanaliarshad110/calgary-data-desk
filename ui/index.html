@@ -117,6 +117,7 @@
         <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
         <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
         <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
+        <a class="tab" href="studies/" title="Studies and reports: police performance and the budget request, ageing sewers, who Calgary's 311 hears"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><span>Studies</span></a>
         <button class="tab" data-view="changes" title="What changed: the Growth vs amenities method before and after its revision"><svg class="ic" aria-hidden="true"><use href="#i-shuffle"/></svg><span>What changed</span></button>
       </div>
     </div>
@@ -219,6 +220,14 @@
     </header>
 
     <div class="content">
+      <section class="studies-strip" aria-labelledby="studies-h">
+        <div class="studies-head"><h2 id="studies-h">Studies</h2><a href="studies/">All studies and reports →</a></div>
+        <div class="studies-row">
+          <a class="study-card" href="studies/calgary-police/"><span class="study-k">New · Independent study</span><b>Calgary Police: performance, resources and the 2027 to 2030 budget request</b><small>How the police have performed since 2019, compared with five other cities, and what the evidence says about 309 more officers. With a budget calculator.</small></a>
+          <a class="study-card" href="studies/calgary-sewers/"><span class="study-k">Report</span><b>Calgary’s ageing sewers</b><small>The age and material of 368,085 sewer connections, and how long pipes last around the world.</small></a>
+          <a class="study-card" href="studies/who-calgarys-311-hears/"><span class="study-k">Independent study</span><b>Who Calgary’s 311 Hears</b><small>Two years of 311 requests across 195 communities, and who the City hears less from.</small></a>
+        </div>
+      </section>
       <div class="banner error" id="dash-error" role="alert" hidden>
         <svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>
         <div><strong>The dashboard could not load.</strong> <span id="dash-error-text"></span></div>

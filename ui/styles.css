@@ -2453,3 +2453,17 @@ html.topnav .side.open .nav-g.has-on .nav-gt { box-shadow: none; }
 .gm-cast ul { margin: 8px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--fg-2); }
 .gm-cast li { margin: 3px 0; }
 @media (max-width: 900px) { .gm-intro { grid-template-columns: 1fr; } }
+
+/* Studies on the home page: each opens the study's summary page (studies/<name>/) */
+.studies-strip { margin: 0 0 var(--gap); }
+.studies-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.studies-head h2 { margin: 0; font-size: 1.05rem; }
+.studies-head a { color: var(--accent); font-size: 14px; font-weight: 600; text-decoration: none; }
+.studies-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--gap); }
+.study-card { display: flex; flex-direction: column; gap: 4px; min-width: 0; background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  border-radius: var(--r); padding: 12px 14px; color: var(--fg); text-decoration: none; box-shadow: var(--shadow); transition: border-color var(--t), transform var(--t); }
+.study-card:hover, .study-card:focus-visible { border-color: var(--accent); transform: translateY(-1px); }
+.study-card b { font-size: 15px; line-height: 1.3; text-wrap: balance; }
+.study-card small { color: var(--muted-fg); font-size: 13px; line-height: 1.4; }
+.study-k { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+@media (max-width: 900px) { .studies-row { grid-template-columns: 1fr; } }

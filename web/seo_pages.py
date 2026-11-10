@@ -84,6 +84,11 @@ ul.news p{margin:4px 0 0;color:var(--fg2);font-size:.95rem}
 .qa{border:1px solid var(--line);border-radius:12px;padding:6px 18px 14px;margin:14px 0;background:var(--card)}
 .qa h3{margin:12px 0 6px;font-size:1.05rem}.qa h3::before{content:"Q. ";color:var(--accent)}
 .bars{display:grid;gap:5px;margin:8px 0}.bars div{display:grid;grid-template-columns:minmax(0,11rem) 1fr auto;gap:8px;align-items:center;font-size:.9rem}
+.study{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px 10px;margin:14px 0}
+.study h2{margin:4px 0 6px;font-size:1.2rem;text-wrap:balance}.study h2 a{color:var(--fg);text-decoration:none}.study h2 a:hover{color:var(--accent)}
+.study-links{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px}.study-links .cta{margin:4px 0}
+.study-open{margin:10px 0 18px}.study-open .cta{margin:6px 8px 6px 0}.cta.alt{background:transparent;color:var(--accent);border:2px solid var(--accent);padding:9px 16px}
+@media (prefers-color-scheme:dark){.cta.alt{color:var(--accent)}}
 .bars i{display:block;height:12px;border-radius:0 4px 4px 0;background:var(--accent)}.bars b{font-variant-numeric:tabular-nums;font-weight:600}
 .steps{counter-reset:s;list-style:none;padding:0}.steps li{counter-increment:s;padding:8px 0 8px 2.4rem;position:relative}
 .steps li::before{content:counter(s);position:absolute;left:0;top:7px;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--chip);color:var(--accent);font-weight:700;display:grid;place-items:center}
@@ -115,7 +120,7 @@ def page(path, title, desc, crumbs, body, ld_extra=None, updated='', og_type='we
 <nav class="crumbs" aria-label="Breadcrumb">{' › '.join(f'<a href="{up}{p}">{e(n)}</a>' for n, p in crumbs[:-1])} › {e(crumbs[-1][0])}</nav>
 {body}
 </main>
-<footer><p>Calgary Insight is independent and non-partisan, made from public data and refreshed every morning{f" (these figures: {e(updated)}, Calgary time)" if updated else ""}. It is not affiliated with The City of Calgary. <a href="{up}about/">About</a> · <a href="{up}wards/">All wards</a> · <a href="{up}communities/">All communities</a></p></footer>
+<footer><p>Calgary Insight is independent and non-partisan, made from public data and refreshed every morning{f" (these figures: {e(updated)}, Calgary time)" if updated else ""}. It is not affiliated with The City of Calgary. <a href="{up}about/">About</a> · <a href="{up}studies/">Studies</a> · <a href="{up}wards/">All wards</a> · <a href="{up}communities/">All communities</a></p></footer>
 </body></html>
 '''
 
@@ -321,6 +326,7 @@ def build(out, data_dir, method='city_actual'):
     urls += study_pages(out, updated)
     urls += sewer_page(out, updated)
     urls += police_page(out, updated)
+    urls += studies_index(out, updated)
 
     # the list the dashboard uses to link each community to its page, and for its "find your community" box
     with open(os.path.join(out, 'communities', 'pages.json'), 'w', encoding='utf-8') as f:
@@ -640,7 +646,7 @@ def study_pages(out, updated):
     with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page(path, 'Who Calgary’s 311 Hears: an independent study of equity in Calgary 311 | Calgary Insight',
                      'Calgary’s 311 closes requests equally fast everywhere, but hears about 23% fewer infrastructure reports where more residents don’t speak English. Findings, Ward 5, 12 recommendations and the full method.',
-                     [('Calgary Insight', ''), ('Data Scientist', 'data-scientist/'), ('Who Calgary’s 311 Hears', path)], '\n'.join(body), ld, updated, og_type='article'))
+                     [('Calgary Insight', ''), ('Studies', 'studies/'), ('Who Calgary’s 311 Hears', path)], '\n'.join(body), ld, updated, og_type='article'))
     return [path]
 
 
@@ -660,6 +666,48 @@ def _paras(t):
     return ''.join(out)
 
 
+# Every study and report published on the site, newest first: the Studies page (studies/) and the home page list these.
+STUDIES = [
+    {'path': 'studies/calgary-police/', 'kind': 'Independent study', 'date': 'November 10, 2026',
+     'title': 'Calgary Police: performance, resources and the 2027 to 2030 budget request',
+     'blurb': 'How Calgary’s police have performed since 2019 for the resources they have had, compared with five other large Canadian cities, '
+              'and what the evidence says about the request for 309 more officers. With a budget calculator.',
+     'extra': [('calculator.html', 'Budget calculator'), ('calgary-police-performance-study.pdf', 'Full study (PDF)')]},
+    {'path': 'studies/calgary-sewers/', 'kind': 'Report', 'date': 'November 7, 2026',
+     'title': 'Calgary’s ageing sewers, and how long sewer pipes last around the world',
+     'blurb': 'The age and material of all 368,085 public sanitary service connections, compared with service lives used by utilities in Canada, '
+              'Australia, the UK and Germany, where back-ups happen most, and what renewal would take.',
+     'extra': [('calgary-sewer-ageing-report.pdf', 'Full report (PDF)')]},
+    {'path': 'studies/who-calgarys-311-hears/', 'kind': 'Independent study', 'date': 'October 2024 to September 2026 data',
+     'title': 'Who Calgary’s 311 Hears',
+     'blurb': 'Two years of 311 requests across 195 communities: the City closes requests equally fast everywhere, but hears about 23% fewer '
+              'infrastructure reports where more residents don’t speak English.',
+     'extra': []},
+]
+
+
+def studies_index(out, updated):
+    """calgaryinsight.ca/studies/: every study and report, each opening its summary page, which opens the full study."""
+    have = [s for s in STUDIES if os.path.exists(os.path.join(out, s['path'], 'index.html'))]
+    cards = ''.join(
+        f'<article class="study"><p class="kicker">{e(s["kind"])} · {e(s["date"])}</p>'
+        f'<h2><a href="{e(s["path"][8:])}">{e(s["title"])}</a></h2><p>{e(s["blurb"])}</p>'
+        f'<p class="study-links"><a class="cta" href="{e(s["path"][8:])}">{"Read the report" if s["kind"] == "Report" else "Read the study"}</a>'
+        + ''.join(f' <a href="{e(s["path"][8:] + u)}">{e(t)}</a>' for u, t in s['extra']) + '</p></article>'
+        for s in have)
+    body = ('<h1>Studies and reports</h1><p class="lead">In-depth studies of Calgary from public data: each one opens with a summary of what it found, '
+            'and links from there to the full study, its sources and every figure.</p>' + cards
+            + '<p class="note">Independent analysis, not affiliated with The City of Calgary or the Calgary Police Service. Corrections and responses: hello@calgaryinsight.ca.</p>')
+    ld = [{'@type': 'CollectionPage', 'name': 'Calgary Insight studies and reports', 'url': SITE + 'studies/',
+           'hasPart': [{'@type': 'Report', 'name': s['title'], 'url': SITE + s['path']} for s in have]}]
+    os.makedirs(os.path.join(out, 'studies'), exist_ok=True)
+    with open(os.path.join(out, 'studies', 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(page('studies/', 'Studies and reports on Calgary | Calgary Insight',
+                     'In-depth studies of Calgary from public data: police performance and the budget request, ageing sewers, and who Calgary’s 311 hears.',
+                     [('Calgary Insight', ''), ('Studies', 'studies/')], body, ld, updated))
+    return ['studies/']
+
+
 def police_page(out, updated):
     """calgaryinsight.ca/studies/calgary-police/: the police performance and resources study, with its PDF, interactive
     version, workbook and budget calculator beside it (web/studies/calgary-police/, copied by build_site)."""
@@ -671,12 +719,12 @@ def police_page(out, updated):
     path = 'studies/calgary-police/'
     body = ['<p class="kicker">Independent study · Calgary Insight · November 10, 2026</p>',
             f'<h1>{e(r["title"])}</h1>', f'<p class="lead">{e(r.get("subtitle") or "")}</p>',
-            '<p><a class="cta" href="calculator.html">Try the police budget calculator</a></p>'
-            '<p><a href="calgary-police-performance-study.pdf">The full study (PDF)</a> · <a href="report.html">Interactive version with charts and the community map</a> · '
-            '<a href="calgary-police-performance-figures.xlsx">Every figure (Excel)</a></p>',
-            '<div class="facts"><h2>In short</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r.get('summary') or []) + '</ul></div>']
+            '<div class="facts"><h2>In short</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r.get('summary') or []) + '</ul></div>',
+            '<div class="study-open"><a class="cta" href="report.html">Read the full study</a> <a class="cta alt" href="calculator.html">Try the budget calculator</a>'
+            '<p><a href="calgary-police-performance-study.pdf">The full study as a PDF</a> · <a href="calgary-police-performance-figures.xlsx">Every figure (Excel)</a> · '
+            '<a href="#s1">Read the findings on this page ↓</a></p></div>']
     for i, sec in enumerate(r.get('sections') or [], 1):
-        body.append(f'<h2>{i}. {e(sec.get("heading") or "")}</h2>{_paras(sec.get("text"))}')
+        body.append(f'<h2 id="s{i}">{i}. {e(sec.get("heading") or "")}</h2>{_paras(sec.get("text"))}')
         tabs = [v for v in sec.get('visuals') or [] if v.get('type') == 'table']
         for t in tabs[:1]:
             body.append(f'<h3>{e(t.get("title") or "")}</h3><div class="wrap"><table><thead><tr>' + ''.join(f'<th>{e(c)}</th>' for c in t['columns'])
@@ -710,7 +758,7 @@ def police_page(out, updated):
     os.makedirs(os.path.join(out, path), exist_ok=True)
     with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page(path, 'Calgary Police: performance, resources and the 2027 to 2030 budget request | Calgary Insight', desc,
-                     [('Calgary Insight', ''), ('Calgary Police study', path)], '\n'.join(body), ld, updated, og_type='article'))
+                     [('Calgary Insight', ''), ('Studies', 'studies/'), ('Calgary Police study', path)], '\n'.join(body), ld, updated, og_type='article'))
     return [path, path + 'calculator.html']
 
 
