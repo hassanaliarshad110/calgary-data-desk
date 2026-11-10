@@ -8,9 +8,11 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           mkdir -p out
-          for f in data/city_actual/w0.json data/budget.json data/infra.json data/budget_2027.json data/city_actual/w4.json data/city_actual/w7.json; do
-            curl -sSL --compressed -o "out/$(echo $f | tr / _)" "https://calgaryinsight.ca/$f" -w "$f %{http_code} %{size_download}\n" >> out/log.txt || true
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+          i=0
+          for u in https://www.calgary.ca/waste/residential/rates.html https://www.calgary.ca/water/water-utility/2027-water-rates-and-billing.html https://www.calgary.ca/our-finances/2027-budget.html https://www.calgary.ca/adjustments https://livewirecalgary.com/2026/04/14/calgary-waste-recycling-fees-combined/ https://www.calgary.ca/waterbill; do
+            i=$((i+1)); curl -sSL -A "$UA" --compressed -o "out/p$i.html" "$u" -w "p$i $u %{http_code} %{size_download}\n" >> out/log.txt || true
           done
           git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
-          git checkout -b fetched-20
-          git add -f out && git commit -qm "Live data" && git push -f origin fetched-20
+          git checkout -b fetched-20b
+          git add -f out && git commit -qm "Pages" && git push -f origin fetched-20b
