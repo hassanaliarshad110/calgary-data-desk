@@ -5,7 +5,7 @@
   "type": "quick-insight",
   "category": "Population",
   "title": "Calgary's migration boom cooled fast",
-  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023\u2013Mar 2024, est.) \u2192 40,500 (Apr 2024\u2013Mar 2025, est.) \u2192 15,500 forecast (Apr 2025\u2013Mar 2026, made Jan 2026)",
+  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023–Mar 2024, est.) → 40,500 (Apr 2024–Mar 2025, est.) → 15,500 forecast (Apr 2025–Mar 2026, made Jan 2026)",
   "changed_from_calendar": null,
   "central_figure": "Net migration to the City of Calgary fell from about 80,200 (year to April 2024) to about 40,500 (year to April 2025), City estimates",
   "sources": [
@@ -92,8 +92,8 @@
   "type": "civic",
   "category": "Civic intelligence",
   "title": "Calgary's 2027 budget: what the preliminary numbers say",
-  "topic_used": "Preliminary 2027\u20132030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2\u20135.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
-  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments \u2026 by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
+  "topic_used": "Preliminary 2027–2030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2–5.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
+  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments … by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
   "central_figure": "2027: $528M in new ongoing operating requests, $144M available funding, remaining $384M paired with a 15% property tax revenue increase (City of Calgary C2026-0749 Rev. Att. 1, slide 28, Sept 29, 2026)",
   "sources": [
    "https://www.calgary.ca/our-finances/2027-budget.html",
@@ -131,9 +131,9 @@
   "type": "quick-insight",
   "category": "Housing",
   "title": "A one-bedroom in the Calgary area: 2020 vs 2025",
-  "topic_used": "CMHC Rental Market Survey, Calgary CMA, row & apartment, October: average one-bedroom rent $1,086 (2020) \u2192 $1,111 \u2192 $1,222 \u2192 $1,463 \u2192 $1,584 \u2192 $1,581 (2025)",
+  "topic_used": "CMHC Rental Market Survey, Calgary CMA, row & apartment, October: average one-bedroom rent $1,086 (2020) → $1,111 → $1,222 → $1,463 → $1,584 → $1,581 (2025)",
   "changed_from_calendar": null,
-  "central_figure": "Average one-bedroom rent, Calgary CMA: $1,086 (Oct 2020) \u2192 $1,581 (Oct 2025), +$495/month, +45.6% (CMHC HMIP Table 2.2.11)",
+  "central_figure": "Average one-bedroom rent, Calgary CMA: $1,086 (Oct 2020) → $1,581 (Oct 2025), +$495/month, +45.6% (CMHC HMIP Table 2.2.11)",
   "sources": [
    "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/TableMapChart/Table?TableId=2.2.11&GeographyId=0140&GeographyTypeId=3&DisplayAs=Table",
    "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/Dashboard/Print?geographyId=0140"
@@ -160,5 +160,42 @@
    }
   ],
   "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "AM",
+  "type": "quick-insight",
+  "category": "Construction",
+  "title": "Calgary's permit value is up. Homes aren't why.",
+  "topic_used": "City of Calgary Building Permit Application Statement (period ending 2026/09/30), YTD estimated value: total $6,396,842,039 vs $5,798,100,988 (+10.3%); residential $3,828,082,150 vs $4,377,246,714 (−$549.2M, −12.5%); non-residential $2,515,244,773 vs $1,397,934,631 (+$1,117.3M, +79.9%)",
+  "changed_from_calendar": null,
+  "central_figure": "Jan–Sep 2026 building permit applications listed $6.40B in estimated construction value (+10% vs Jan–Sep 2025); residential −$549M, non-residential +$1.12B (+80%) (City of Calgary, Building Permit Application Statement, Sept 2026)",
+  "sources": [
+   "https://www.calgary.ca/content/dam/www/pda/pd/documents/building/2026-09-Building-Permit-Application-Statement.pdf",
+   "https://www.calgary.ca/planning/application-statistics.html"
+  ],
+  "length_s": 34.4,
+  "video_path": "studio-videos/2026-11-10-AM/permit-value-2026.mp4",
+  "package": "packages/2026-11-10-AM-permit-value-2026.md",
+  "audit": {
+   "rounds": 1,
+   "claims_checked": 8,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-10-AM.md"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 423497779,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=6958343171422570840",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-10T12:25"
+   }
+  ],
+  "post_note": "Scheduled 12:25 (about 18 min after creation) to avoid landing 2 min before an existing 12:20 post; publish status pending confirmation."
  }
 ]
