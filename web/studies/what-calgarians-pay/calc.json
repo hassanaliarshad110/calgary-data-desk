@@ -3,17 +3,17 @@
   {
    "city": "Calgary",
    "value": 706000,
-   "tax_y": 2748,
-   "tax_m": 229.0,
-   "util_m": 139.99,
+   "tax_y": 2751.84,
+   "tax_m": 229.32,
+   "util_m": 139.72,
    "water_m": 119.21,
-   "waste_m": 20.78,
-   "total_m": 368.99,
+   "waste_m": 20.51,
+   "total_m": 369.04,
    "income": 98000,
-   "tax_share": 2.8,
+   "tax_share": 2.81,
    "all_share": 4.52,
    "derived": false,
-   "tax_basis": "median single residential property; the City gives $229 a month",
+   "tax_basis": "typical single residential property; the City gives $229.32 a month for 2026",
    "util_note": "water $119.21 (water, wastewater and stormwater at 19 m\u00b3); black, blue and green carts $20.51 per 30 days",
    "util_est": null
   },
@@ -139,10 +139,10 @@
  ],
  "calgary_path": {
   "2026": {
-   "tax": 229,
+   "tax": 229.32,
    "water": 119.21,
-   "waste": 20.78,
-   "total": 368.99
+   "waste": 20.51,
+   "total": 369.03999999999996
   },
   "2027": {
    "tax": 266,
@@ -212,6 +212,10 @@
   "cgy_budget": [
    "The City of Calgary, 2027 Budget: financial impact on Calgarians (Nov. 10, 2026)",
    "https://www.calgary.ca/our-finances/2027-budget.html"
+  ],
+  "cgy_2026": [
+   "The City of Calgary, 2026 budget adjustments: monthly cost for a typical single residential property ($229.32 tax, $139.72 utilities, $369.04)",
+   "https://www.calgary.ca/adjustments"
   ],
   "cgy_water": [
    "The City of Calgary, 2026 and 2027 water rates",

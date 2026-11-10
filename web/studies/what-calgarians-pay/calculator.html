@@ -77,7 +77,7 @@ function calc(){
   const v=Math.max(0,+$('#val').value||0), c=+$('#chg').value, u=+$('#use').value, w=+$('#waste').value;
   $('#chgO').textContent=(c>0?'+':'')+(Math.round(c*10)/10)+'%'; $('#useO').textContent=u+' m³';
   const yrs=[2026,2027,2028,2029,2030], rows={};
-  let tax=v*R26/12; rows[2026]={tax,water:water(u,2026),waste:w?20.51*30.4/30:0};
+  let tax=v*R26/12; rows[2026]={tax,water:water(u,2026),waste:w?20.51:0};
   tax=v*(1+c/100)*R27/12; rows[2027]={tax,water:water(u,2027),waste:w?22.29:0};
   let wt=rows[2027].water;
   PATH.forEach((p,i)=>{ tax*=p; wt*=G; rows[2028+i]={tax,water:wt,waste:rows[2027].waste}; });

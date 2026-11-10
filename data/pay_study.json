@@ -4,9 +4,9 @@
  "question": "What would the proposed 2027 to 2030 budget cost a typical Calgary household compared with 2026, and do Calgarians pay more, less or the same as people in other large Canadian cities?",
  "summary": [
   "In 2026 a typical Calgary home pays **$369 a month** to the City: $229 in property tax and $140 for water, wastewater, stormwater and waste. Of eight large Canadian cities, that is the **lowest**; the other seven average $467, and Saskatoon ($378) and Winnipeg ($388) are close.",
-  "Calgary's City property tax on a typical home ($2,748 a year) is the third lowest of the eight, and its City utility bill at the same water use ($140 a month) is also the third lowest. Measured against median household income (2021 Census, 2020 incomes), Calgarians pay the smallest share of the eight (4.5%), partly because Calgary incomes are among the highest.",
-  "The proposed 2027 budget adds about **$53 a month** ($636 a year) for a typical home: $37 in property tax and $16 for water and waste. The 15% is the increase in the City's total tax revenue; on the typical home the tax rises 16%. Using the 2027 figures other cities have published so far, Calgary would be the **third lowest** of the eight, about $56 a month below the others' average instead of $98; four cities have not yet set 2027 taxes, so this will change.",
-  "If the property tax increases reported for 2028 to 2030 pass and water bills rise as Council approved in October, a typical home would pay about **$564 a month in 2030**, 53% more than in 2026 ($2,337 a year more, before inflation). The tax on a typical home would rise about 46% over four years; Edmonton's proposed path for its tax increases is about 19%.",
+  "Calgary's City property tax on a typical home ($2,752 a year) is the third lowest of the eight, and its City utility bill at the same water use ($140 a month) is also the third lowest. Measured against median household income (2021 Census, 2020 incomes), Calgarians pay the smallest share of the eight (4.5%), partly because Calgary incomes are among the highest. That share is a rough affordability guide, not the burden on homeowners: it sets a homeowner's bill against the income of all households, renters included.",
+  "The proposed 2027 budget adds about **$53 a month** ($636 a year) for a typical home: $37 in property tax and $16 for water and waste. The 15% is the increase in the City's total tax revenue; on the typical home the tax rises 16%. Using the 2027 figures other cities have published so far, Calgary would be the **third lowest** of the eight, about $56 a month below the others' average instead of $98. Toronto, Ottawa and Vancouver have not yet published 2027 figures, and Edmonton's and Regina's are still proposals, so this will change.",
+  "A scenario, not a bill anyone has set: if the property tax increases reported for 2028 to 2030 pass, water bills rise as Council approved in October and waste fees stay at their 2027 level (later rates are not yet published), a typical home would pay about **$564 a month in 2030**, 53% more than in 2026 ($2,337 a year more, before inflation). The tax on a typical home would rise about 46% over four years; Edmonton's proposed path for its tax increases is about 19%.",
   "In short: today Calgarians pay **less** to their City than people in the other seven cities. The proposed budget would narrow that difference in 2027, and the full four-year path would narrow it much further; how Calgary compares by 2030 depends on decisions the other cities have not yet made."
  ],
  "sections": [
@@ -16,7 +16,7 @@
   },
   {
    "heading": "What the proposed budget would cost a typical Calgary home",
-   "text": "The City's own estimate, for a home assessed at the median ($706,000 in 2026, $688,000 in 2027): property tax rises from **$229 to $266 a month** and the water, wastewater, stormwater and waste bill from **$140 to $156**, a combined **$53 a month**, or about $636 a year.\n\nThe 15% is the increase in the tax the City collects from existing properties; each 1% raises about $25.6 million, so 15% is about $384 million. Because the median home's assessment falls slightly in 2027, its tax rises a little more than 15% (about 16%). LiveWire Calgary, reporting on the budget, describes it as the largest yearly increase since 1996, after increases that averaged 3.28% over the previous five years, the second lowest among large Canadian municipalities.\n\nWater is the second part. In 2027 the typical water bill rises 12.2% (+$14.50), most of it wastewater (+15.9%); the budget includes upgrades to the Pine Creek and Fish Creek wastewater treatment plants and new feedermains to increase drinking water capacity. A homeowner's actual change depends on how their assessment moves against the median and how much water they use; the calculator with this study shows it for any home.",
+   "text": "The City's own estimate, for a home assessed at the median ($706,000 in 2026, $688,000 in 2027): property tax rises from **$229 to $266 a month** and the water, wastewater, stormwater and waste bill from **$140 to $156**, a combined **$53 a month**, or about $636 a year. The City's 2026 utility figure is $139.72: $119.21 for water, wastewater and stormwater and $20.51 for the black, blue and green carts. Its 2027 figure of $156 is a rounded estimate: $133.71 for water, wastewater and stormwater, leaving about $22 for the carts, whose 2027 rates the City has not yet published.\n\nThe 15% is the increase in the tax the City collects from existing properties; each 1% raises about $25.6 million, so 15% is about $384 million. Because the median home's assessment falls slightly in 2027, its tax rises a little more than 15% (about 16%). LiveWire Calgary, reporting on the budget, describes it as the largest yearly increase since 1996, after increases that averaged 3.28% over the previous five years, the second lowest among large Canadian municipalities.\n\nWater is the second part. In 2027 the typical water bill rises 12.2% (+$14.50), most of it wastewater (+15.9%); the budget includes upgrades to the Pine Creek and Fish Creek wastewater treatment plants and new feedermains to increase drinking water capacity. A homeowner's actual change depends on how their assessment moves against the median and how much water they use; the calculator with this study shows it for any home.",
    "visuals": [
     {
      "type": "table",
@@ -88,7 +88,7 @@
   },
   {
    "heading": "The four years to 2030",
-   "text": "The City's budget page gives the household figure for 2027 only. News reports of the budget presented to Council give the later property tax increases as 10% in 2028, 7.7% in 2029 and 6% in 2030, and the water rates Council approved in October raise the typical water bill by nearly 74% over four years. Applied to the typical home, and holding waste fees at their 2027 level:\n\n- property tax would rise from $229 a month in 2026 to about **$334** in 2030 (+46%);\n- the water bill from $119 to about **$207**;\n- together with waste, from $369 to about **$564 a month**, $2,337 more a year (+53%).\n\nThese are dollars of each year, before inflation; if prices rise 2% a year, the Bank of Canada's target, they rise about 8% over the same four years. The later years are an estimate built on reported figures: Council can change each year, assessments shift, waste fees will likely rise too, and the water bill between 2027 and 2030 is spread in equal steps here because this study did not find the yearly figures published with the budget.",
+   "text": "The City's budget page gives the household figure for 2027 only. News reports of the budget presented to Council give the later property tax increases as 10% in 2028, 7.7% in 2029 and 6% in 2030, and the water rates Council approved in October raise the typical water bill by nearly 74% over four years. Applied to the typical home, and holding waste fees at their 2027 level because the City has not published cart rates for later years, this scenario gives:\n\n- property tax would rise from $229 a month in 2026 to about **$334** in 2030 (+46%);\n- the water bill from $119 to about **$207**;\n- together with waste, from $369 to about **$564 a month**, $2,337 more a year (+53%).\n\nThese are dollars of each year, before inflation; if prices rise 2% a year, the Bank of Canada's target, they rise about 8% over the same four years. The later years are a scenario built on reported figures, not bills Council has set: Council can change each year, assessments shift, any rise in waste fees would add to the total, and the water bill between 2027 and 2030 is spread in equal steps here because this study did not find the yearly figures published with the budget.",
    "visuals": [
     {
      "type": "chart",
@@ -105,7 +105,7 @@
       {
        "name": "Property tax",
        "values": [
-        229,
+        229.32,
         266,
         292.6,
         315.13,
@@ -125,7 +125,7 @@
       {
        "name": "Waste",
        "values": [
-        20.78,
+        20.51,
         22.29,
         22.29,
         22.29,
@@ -140,7 +140,7 @@
   },
   {
    "heading": "City property tax on a typical home, eight cities in 2026",
-   "text": "Calgary's City property tax on its median home is **$2,748 a year** ($229 a month), the third lowest of the eight, close to Winnipeg ($2,581) and Saskatoon ($2,716). Regina is a little higher; Edmonton, Vancouver, Toronto and Ottawa are $1,300 to $1,850 a year higher. The City of Winnipeg's own 2026 comparison gives Calgary $2,741, within $7 of this study's figure.\n\nA typical home is not the same house everywhere: Vancouver's median single-family home is assessed at about $2.1 million, Regina's average home at about $324,000. Toronto's average home includes condominiums; Toronto and Ottawa still assess homes at 2016 values. Saskatoon and Regina include their separate library levies, and Winnipeg its street renewal frontage levy, so that each figure covers what the other cities fund from City tax.\n\nCity tax also pays for different things in different provinces. Ontario cities fund some services that the province pays for in Alberta, and Vancouver homeowners pay TransLink separately for transit. Calgary's tax rate for business property is about 4.6 times its residential rate, which keeps the home share of City tax lower than it would otherwise be.",
+   "text": "Calgary's City property tax on its median home is **$2,752 a year** ($229 a month), the third lowest of the eight, close to Winnipeg ($2,581) and Saskatoon ($2,716). Regina is a little higher; Edmonton, Vancouver, Toronto and Ottawa are $1,300 to $1,850 a year higher. The City of Winnipeg's own 2026 comparison gives Calgary $2,741, within $11 of this study's figure.\n\nA typical home is not the same house everywhere: Vancouver's median single-family home is assessed at about $2.1 million, Regina's average home at about $324,000. Toronto's average home includes condominiums; Toronto and Ottawa still assess homes at 2016 values. Saskatoon and Regina include their separate library levies, and Winnipeg its street renewal frontage levy, so that each figure covers what the other cities fund from City tax.\n\nCity tax also pays for different things in different provinces. Ontario cities fund some services that the province pays for in Alberta, and Vancouver homeowners pay TransLink separately for transit. For Vancouver this study counts the general purpose levy the City sets ($4,048); the same tax bill also carries TransLink, BC Assessment and Municipal Finance Authority levies, which some comparisons add in. Adding them would raise Vancouver's figure and would not change Calgary's position. Calgary's tax rate for business property is about 4.6 times its residential rate, which keeps the home share of City tax lower than it would otherwise be.",
    "visuals": [
     {
      "type": "chart",
@@ -162,7 +162,7 @@
        "values": [
         215.08,
         226.33,
-        229.0,
+        229.32,
         257.42,
         317.75,
         337.33,
@@ -202,9 +202,9 @@
       [
        "Calgary",
        "$706,000",
-       "$2,748",
+       "$2,752",
        "$229",
-       "median single residential property; the City gives $229 a month"
+       "typical single residential property; the City gives $229.32 a month for 2026"
       ],
       [
        "Regina",
@@ -282,7 +282,7 @@
        "values": [
         32.16,
         22.25,
-        20.78,
+        20.51,
         23.09,
         22.0,
         12.46,
@@ -315,7 +315,7 @@
       ],
       [
        "Calgary",
-       "$139.99",
+       "$139.72",
        "water $119.21 (water, wastewater and stormwater at 19 m³); black, blue and green carts $20.51 per 30 days"
       ],
       [
@@ -349,7 +349,7 @@
   },
   {
    "heading": "Tax and utilities together, and against income",
-   "text": "Together, a typical Calgary home pays the City **$369 a month**, the lowest of the eight, just below Saskatoon ($378) and Winnipeg ($388). Vancouver ($549), Edmonton ($521) and Ottawa ($513) are the highest. Of Calgary's $98 a month below the others' average, about $70 is property tax and the rest utilities.\n\nAgainst what households earn, Calgary is also the lowest: tax and utilities take 4.5% of the median household's income, against 7.0% in Edmonton and 8.0% in Vancouver. This share is a rough guide only: Census incomes are for 2020, a pandemic year; they include renters, who do not pay property tax directly; and in Vancouver a single-family owner's bill is set against all households' income.",
+   "text": "Together, a typical Calgary home pays the City **$369 a month**, the lowest of the eight, just below Saskatoon ($378) and Winnipeg ($388). Vancouver ($549), Edmonton ($521) and Ottawa ($513) are the highest. Of Calgary's $98 a month below the others' average, about $69 is property tax and the rest utilities.\n\nAgainst what households earn, Calgary is also the lowest: tax and utilities take 4.5% of the median household's income, against 7.0% in Edmonton and 8.0% in Vancouver. This share is a rough guide only: Census incomes are for 2020, a pandemic year; they include renters, who do not pay property tax directly; and in Vancouver a single-family owner's bill is set against all households' income.",
    "visuals": [
     {
      "type": "table",
@@ -465,7 +465,7 @@
   },
   {
    "heading": "Why tax rates alone mislead",
-   "text": "Comparing tax rates on their own suggests Vancouver is the cheapest city and Regina among the dearest. A rate is set so that the city raises the money it needs from the total value of its property: where homes are worth more, the rate is lower. Calgary's 2026 City rate works out to about $3.89 for every $1,000 of a home's value, against $7.74 in Edmonton and $1.93 in Vancouver. What matters to a household is the dollars it pays, which is why this study compares dollars on a typical home.\n\nA change in the tax rate also does not equal a change in a bill. Calgary's 15% is the increase in what the City collects; a home whose assessment falls less than the median will see more, and one that falls more will see less.",
+   "text": "Comparing tax rates on their own suggests Vancouver is the cheapest city and Regina among the dearest. A rate is set so that the city raises the money it needs from the total value of its property: where homes are worth more, the rate is lower. Calgary's 2026 City rate works out to about $3.90 for every $1,000 of a home's value, against $7.74 in Edmonton and $1.93 in Vancouver. What matters to a household is the dollars it pays, which is why this study compares dollars on a typical home.\n\nA change in the tax rate also does not equal a change in a bill. Calgary's 15% is the increase in what the City collects; a home whose assessment falls less than the median will see more, and one that falls more will see less.",
    "visuals": [
     {
      "type": "table",
@@ -483,7 +483,7 @@
       ],
       [
        "Calgary",
-       "$3.89",
+       "$3.90",
        "$706,000"
       ],
       [
@@ -517,7 +517,7 @@
   },
   {
    "heading": "Where other cities are heading in 2027",
-   "text": "Other cities are setting their 2027 budgets at the same time. Edmonton proposes a 4.9% property tax increase (about $18 a month on its median home), Regina 5.81% with a 10.27% utility rate increase, Saskatoon approved 5.8% for 2027 a year ago, and Winnipeg's multi-year budget plans 3.5%, with its 2027 water and sewer rates approved. Toronto, Ottawa and Vancouver have not yet published their 2027 figures.\n\nPutting the 2027 figures that exist beside the 2026 figures for the rest, Calgary's typical home would pay **$422 a month**, the **third lowest** of the eight and $56 below the others' average (against $98 in 2026). Because four cities' 2027 figures are partly or wholly missing, their totals here are understated, and Calgary's real position is likely to be somewhat better than shown.\n\nOver four years the difference grows. The tax on a typical Calgary home would rise about 46% by 2030 on the reported path; Edmonton's proposed increases (4.9%, 4.7%, 4.5% and 3.9%) compound to about 19%. Comparing Calgary in 2030 with other cities needs their 2028 to 2030 decisions, which most have not made.",
+   "text": "Other cities are setting their 2027 budgets at the same time. Edmonton proposes a 4.9% property tax increase (about $18 a month on its median home), Regina 5.81% with a 10.27% utility rate increase, Saskatoon approved 5.8% for 2027 a year ago, and Winnipeg's multi-year budget plans 3.5%, with its 2027 water and sewer rates approved. Toronto, Ottawa and Vancouver have not yet published their 2027 figures.\n\nPutting the 2027 figures that exist beside the 2026 figures for the rest, Calgary's typical home would pay **$422 a month**, the **third lowest** of the eight and $56 below the others' average (against $98 in 2026). Because Toronto's, Ottawa's and Vancouver's 2027 figures are missing entirely, and Edmonton's and Saskatoon's 2027 utility rates too, those totals are understated, and Calgary's real position is likely to be somewhat better than shown.\n\nOver four years the difference grows. The tax on a typical Calgary home would rise about 46% by 2030 on the reported path; Edmonton's proposed increases (4.9%, 4.7%, 4.5% and 3.9%) compound to about 19%. Comparing Calgary in 2030 with other cities needs their 2028 to 2030 decisions, which most have not made.",
    "visuals": [
     {
      "type": "table",
@@ -598,10 +598,10 @@
  "conclusion": "In 2026 a typical Calgary home pays its City $369 a month for property tax and utilities, the lowest of eight large Canadian cities and the smallest share of household income, though Saskatoon and Winnipeg are close. The proposed 2027 budget would add $53 a month and narrow Calgary's difference from the other cities, from about $98 to about $56 a month below their average on the figures published so far. If the later increases pass as reported, a typical home would pay about $564 a month by 2030, 53% more than in 2026, with water a large part of the rise. Where that leaves Calgary against other cities depends on their own decisions for 2028 to 2030.",
  "method": [
   "Eight cities: Calgary, Edmonton, Vancouver, Toronto, Ottawa, Winnipeg, Saskatoon and Regina, the largest cities of the four western provinces and Ontario's two largest.",
-  "Property tax: City (municipal) property tax for the typical home each city reports on (median or average, as the city defines it), including separate library levies (Saskatoon, Regina) and Winnipeg's street renewal frontage levy; provincial school tax is left out. Saskatoon's and Regina's figures are those compiled in the City of Winnipeg's 2026 Adopted Budget, which agrees with this study's own figures for Calgary, Toronto and Ottawa to within $7.",
+  "Property tax: City (municipal) property tax for the typical home each city reports on (median or average, as the city defines it), including separate library levies (Saskatoon, Regina) and Winnipeg's street renewal frontage levy; provincial school tax is left out. Saskatoon's and Regina's figures are those compiled in the City of Winnipeg's 2026 Adopted Budget, which agrees with this study's own figures for Calgary, Toronto and Ottawa to within $11. For each city the tax counted is the levy its council sets; levies collected on the same bill for other bodies (in Vancouver, TransLink, BC Assessment and the Municipal Finance Authority) are left out.",
   "Utilities: water, wastewater, stormwater and waste collection for a single-family home, from each city's 2026 rate schedule, at 19 cubic metres of water a month, the water use of the City of Calgary's typical customer and of its survey. Vancouver's single-family homes pay flat fees, taken from the City's 2026 taxation report.",
   "Share of income: tax and utilities for a year divided by the median household total income in 2020 from the 2021 Census (Statistics Canada 98-10-0057), the latest available by city.",
-  "Calgary 2028 to 2030: the reported property tax increases (10%, 7.7%, 6%) applied to the City's 2027 figure for the typical home; the water bill raised to 74% above 2026 by 2030 in three equal yearly steps after 2027; waste fees held at 2027. Dollars of each year, not adjusted for inflation.",
+  "Calgary 2028 to 2030: the reported property tax increases (10%, 7.7%, 6%) applied to the City's 2027 figure for the typical home; the water bill raised to 74% above 2026 by 2030 in three equal yearly steps after 2027; waste fees held at 2027 because later cart rates are not published. A scenario in dollars of each year, not adjusted for inflation.",
   "This is an independent analysis of publicly available information. Calgary Insight does not represent The City of Calgary or any other city. All calculations were made in code from the published rates and checked against published examples where one exists (Calgary's $119.21 water bill; Winnipeg's household water bill; Vancouver's $6,588; Winnipeg's comparison of tax bills). The study was checked by an independent reviewer before publication, and corrected."
  ],
  "data_sources": [
@@ -609,6 +609,12 @@
    "name": "The City of Calgary, 2027 Budget: financial impact on Calgarians (Nov. 10, 2026)",
    "publisher": "The City of Calgary",
    "url": "https://www.calgary.ca/our-finances/2027-budget.html",
+   "period": "2026"
+  },
+  {
+   "name": "The City of Calgary, 2026 budget adjustments: monthly cost for a typical single residential property ($229.32 tax, $139.72 utilities, $369.04)",
+   "publisher": "The City of Calgary",
+   "url": "https://www.calgary.ca/adjustments",
    "period": "2026"
   },
   {
