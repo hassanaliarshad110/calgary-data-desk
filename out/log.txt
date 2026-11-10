@@ -1,0 +1,2 @@
+p1 https://www.cbc.ca/news/canada/edmonton/proposed-edmonton-operating-budget-calls-for-property-tax-hikes-between-3-9-and-4-9-9.7406008 200 29832
+p2 https://www.cbc.ca/news/canada/saskatchewan/regina-2027-budget-proposal-9.7410732 200 20502
