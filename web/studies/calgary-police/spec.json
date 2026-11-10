@@ -18,7 +18,7 @@
   },
   {
    "heading": "Crime: fewer and less severe overall; violent incidents up with the population",
-   "text": "Statistics Canada's Crime Severity Index weighs every police-reported crime by how serious it is, per resident. By that measure Calgary's crime fell **35%** from 2019 to 2025, from 96.5 to 62.9: the largest fall of the six cities, and the largest whichever year from 2018 to 2021 is taken as the start (2019 was Calgary's highest year since 2015; measured from 2018 the fall is 31%). In 2025 Calgary's index was the third lowest of the six, after Ottawa and Toronto.\n\nThe volume of crime fell too. Criminal Code incidents (excluding traffic) went from 90,842 in 2019 to 81,929 in 2025 (-10%), and per 100,000 residents from 6,836 to 5,080 (-26%). Property crime per resident fell 32%. Most of the fall in the severity index came from non-violent crime (non-violent severity 99.0 to 60.4).\n\nViolent crime is the exception. The violent crime rate was **1,076** per 100,000 residents in 2019 and **1,047** in 2025, about level (-2.7%). Because the city grew, the number of violent incidents rose from 14,302 to 16,882 (18%). The Service's own reports, which count violent crime by victim, show the same direction. Violent crime severity still fell 20%, because the mix shifted away from the most serious offences; homicides were 34 in 2020 and 15 in 2025.\n\nPolice-reported crime is not the same as all crime: it depends on what people report, and many causes besides policing affect it.",
+   "text": "Statistics Canada's Crime Severity Index weighs every police-reported crime by how serious it is, per resident. By that measure Calgary's crime fell **35%** from 2019 to 2025, from 96.5 to 62.9: the largest fall of the six cities, and the largest whichever year from 2018 to 2021 is taken as the start (2019 was Calgary's highest year since 2015; measured from 2018 the fall is 31%). In 2025 Calgary's index was the third lowest of the six, after Ottawa and Toronto.\n\nThe volume of crime fell too. Criminal Code incidents (excluding traffic) went from 90,842 in 2019 to 81,929 in 2025 (-10%), and per 100,000 residents from 6,836 to 5,080 (-26%). Property crime per resident fell 32%. Most of the fall in the severity index came from non-violent crime (non-violent severity 99.0 to 60.4).\n\nViolent crime is the exception. The violent crime rate was **1,076** per 100,000 residents in 2019 and **1,047** in 2025, about level (-2.7%). Because the city grew, the number of violent incidents rose from 14,302 to 16,882 (18%). The Service's own reports, which count violent crime by victim, show the same direction. Violent crime severity still fell 20%, because the mix shifted away from the most serious offences; homicides were 34 in 2020 and 15 in 2025.\n\nTwo checks on these comparisons. First, the starting year: 2019 was Calgary's highest year since 2015, which flatters a 2019 comparison. Measured from 2015 (79.6) the index is down 21%, and from 2022 (80.1) down 21%, so the fall is real on every base. Second, the latest year: from 2024 to 2025 the severity index edged down again (64.3 to 62.9), but the number of crimes per resident rose 6% and property crime per resident rose 10%. One year is not a trend, but it is worth watching.\n\nPolice-reported crime is not the same as all crime: it depends on what people report, and many causes besides policing affect it. A fall in crime alongside policing does not show that policing caused it.",
    "visuals": [
     {
      "type": "chart",
@@ -231,6 +231,96 @@
        "5,080",
        "16,882",
        "1,047"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Calgary: crime severity since 2015 (Statistics Canada)",
+     "columns": [
+      "Year",
+      "Crime severity",
+      "Violent",
+      "Non-violent",
+      "Weighted clearance rate"
+     ],
+     "rows": [
+      [
+       "2015",
+       "79.6",
+       "75.9",
+       "80.8",
+       "27.1%"
+      ],
+      [
+       "2016",
+       "78.6",
+       "66.5",
+       "82.8",
+       "27.3%"
+      ],
+      [
+       "2017",
+       "84.5",
+       "79.7",
+       "86.1",
+       "25.7%"
+      ],
+      [
+       "2018",
+       "91.1",
+       "85.2",
+       "93.0",
+       "25.4%"
+      ],
+      [
+       "2019",
+       "96.5",
+       "88.7",
+       "99.0",
+       "26.6%"
+      ],
+      [
+       "2020",
+       "82.1",
+       "81.6",
+       "82.1",
+       "28.1%"
+      ],
+      [
+       "2021",
+       "75.0",
+       "87.7",
+       "70.6",
+       "29.9%"
+      ],
+      [
+       "2022",
+       "80.1",
+       "83.7",
+       "79.4",
+       "30.8%"
+      ],
+      [
+       "2023",
+       "74.3",
+       "86.7",
+       "69.9",
+       "33.8%"
+      ],
+      [
+       "2024",
+       "64.3",
+       "80.9",
+       "58.2",
+       "35.5%"
+      ],
+      [
+       "2025",
+       "62.9",
+       "70.7",
+       "60.4",
+       "35.1%"
       ]
      ]
     }
@@ -604,7 +694,7 @@
     },
     {
      "type": "table",
-     "title": "Calgary staff and population (Statistics Canada police survey)",
+     "title": "Calgary staff and population (Statistics Canada police survey, counted on May 15 each year)",
      "columns": [
       "Year",
       "Population served",
@@ -652,7 +742,7 @@
     },
     {
      "type": "table",
-     "title": "Staff per 100,000 residents, 2025",
+     "title": "Staff per 100,000 residents (Statistics Canada, May 15, 2025)",
      "columns": [
       "Police service",
       "Officers",
@@ -702,7 +792,7 @@
   },
   {
    "heading": "Money: a rising budget, about level per resident since 2022",
-   "text": "The Service's total spending rose from $519M (2021 budget) to $671M (2025 actual); $690M is budgeted for 2026 (the 2027 to 2030 plan uses $684.5M for 2026). In 2025 dollars, spending per resident was $461 in 2021, $430 in 2022, $413 in 2024 and $430 in 2025: about 7% lower than in 2021, almost all of it in 2022, when prices rose 7%. Since 2022 it has been roughly level, with a dip in 2024.\n\nFine revenue fell short for several years: budgeted at $47M to $48M, it brought in $34M (2023), $33M (2024) and $25M (2025), after the Province restricted photo radar. From 2026, fine revenue is recorded in the City's corporate accounts, not the police budget. So $48M of the $74M rise in property-tax funding for 2026 replaces revenue that moved off the Service's books; it does not pay for more policing.\n\nOvertime and call-outs ran at about twice their $11M budget: $23M in 2023, $25M in 2024 and $21M in 2025 (about 3% of spending in 2025). The Service has attributed this to protests, transit safety patrols and security at sensitive sites. Sustained overtime is one sign of pressure on the existing workforce.\n\nCapital is the other side. Of $81M budgeted for buildings, vehicles and equipment in 2023, $23M was spent; in 2024, $19M of $71M; in 2025, $29M of $64M. The Service's own target is to spend at least 65% of its capital budget. Money set aside but not spent points to delays in delivering projects, not only to a shortage of funds.",
+   "text": "The Service's total spending rose from $519M (2021 budget) to $671M (2025 actual); $690M is budgeted for 2026 (the 2027 to 2030 plan uses $684.5M for 2026). In 2025 dollars, spending per resident was $461 in 2021, $430 in 2022, $413 in 2024 and $430 in 2025: about 7% lower than in 2021, almost all of it in 2022, when prices rose 7%. Since 2022 it has been roughly level, with a dip in 2024.\n\nFine revenue fell short for several years: budgeted at $47M to $48M, it brought in $34M (2023), $33M (2024) and $25M (2025), after the Province restricted photo radar. From 2026, fine revenue is recorded in the City's corporate accounts, not the police budget. So $48M of the $74M rise in property-tax funding for 2026 replaces revenue that moved off the Service's books; it does not pay for more policing.\n\nOvertime and call-outs ran at about twice their $11M budget: $23M in 2023, $25M in 2024 and $21M in 2025 (about 3% of spending in 2025). The Service has attributed this to protests, transit safety patrols and security at sensitive sites. Sustained overtime is one sign of pressure on the existing workforce, though overtime alone does not show a service is short of staff: events, major investigations and court time also drive it, and no breakdown by cause is published.\n\nCapital is the other side. Of $81M budgeted for buildings, vehicles and equipment in 2023, $23M was spent; in 2024, $19M of $71M; in 2025, $29M of $64M. The Service's own target is to spend at least 65% of its capital budget. For 2023 the City's service plan update gives the reason: delays in the facilities program (a new district office and an indoor range). No reason was found for 2024 or 2025, and no project-by-project figures are published, so this study cannot say whether projects were delayed, deferred or finished under budget. It does raise a fair question for a larger capital plan: what will be different in delivering it?",
    "visuals": [
     {
      "type": "table",
@@ -1529,7 +1619,7 @@
   },
   {
    "heading": "What the public record cannot tell us",
-   "text": "Several questions this study set out to answer cannot be answered from published data:\n\n- **Response times since 2022.** This study could not find a published figure; the Service may hold one.\n- **Officers actually available.** Leave and modified duty were reported once (about 19% in 2025); there is no regular series.\n- **Vacancies, recruitment and departures by year.** Statistics Canada reports a net gain or loss of officers; the Service reports recruiting against a target, without numbers.\n- **Where officers are deployed** across districts, and how that compares with calls and crime.\n- **Fleet use, purchasing and administrative workload,** so the efficiency of spending cannot be tested directly.\n- **Spending per resident on one basis for every city.** Statistics Canada does not publish it by police service.\n\nThe recommendations ask for them."
+   "text": "Several questions this study set out to answer cannot be answered from published data:\n\n- **Response times since 2022.** This study could not find a published figure; the Service may hold one.\n- **Officers actually available.** Leave and modified duty were reported once (about 19% in 2025); there is no regular series.\n- **Vacancies, recruitment and departures by year.** Statistics Canada reports a net gain or loss of officers; the Service reports recruiting against a target, without numbers.\n- **Where officers are deployed** across districts, and how that compares with calls and crime.\n- **Officer hours:** how many are available for front-line work, and how they divide between calls, investigations and paperwork.\n- **Overtime by cause, and capital spending by project,** which would show whether each is a one-time or a lasting problem.\n- **How many of the new positions would be front-line,** and what it costs to have them hired and trained, not only approved.\n- **Fleet use, purchasing and administrative workload,** so the efficiency of spending cannot be tested directly.\n- **Spending per resident on one basis for every city.** Statistics Canada does not publish it by police service.\n\nThe recommendations ask for them."
   },
   {
    "heading": "The five questions, answered as far as the data allows",
@@ -1599,6 +1689,12 @@
    "publisher": "Calgary Police Commission",
    "url": "https://www.calgarypolicecommission.ca/wp-content/uploads/2024/03/2024-03-15-Financial-Tables.pdf",
    "period": "2023, published March 15, 2024"
+  },
+  {
+   "name": "Police Services: 2023 service plan and budget update (capital delays)",
+   "publisher": "City of Calgary",
+   "url": "https://www-prd.calgary.ca/content/dam/www/ca/city-manager/documents/2023-2026-service-plans/updates/police-services.pdf",
+   "period": "2023 results"
   },
   {
    "name": "2021-2022 budget information",
