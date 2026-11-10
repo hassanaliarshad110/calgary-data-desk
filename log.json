@@ -5,7 +5,7 @@
   "type": "quick-insight",
   "category": "Population",
   "title": "Calgary's migration boom cooled fast",
-  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023–Mar 2024, est.) → 40,500 (Apr 2024–Mar 2025, est.) → 15,500 forecast (Apr 2025–Mar 2026, made Jan 2026)",
+  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023\u2013Mar 2024, est.) \u2192 40,500 (Apr 2024\u2013Mar 2025, est.) \u2192 15,500 forecast (Apr 2025\u2013Mar 2026, made Jan 2026)",
   "changed_from_calendar": null,
   "central_figure": "Net migration to the City of Calgary fell from about 80,200 (year to April 2024) to about 40,500 (year to April 2025), City estimates",
   "sources": [
@@ -21,7 +21,18 @@
    "verdict": "APPROVED",
    "report": "audits/2026-11-09-AM.md"
   },
-  "status": "done"
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 422614844,
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-09T19:32"
+   }
+  ]
  },
  {
   "date": "2026-11-09",
@@ -53,7 +64,25 @@
    "verdict": "APPROVED",
    "report": "audits/2026-11-09-FLAGSHIP.md"
   },
-  "status": "done"
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 422614888,
+    "providers": [
+     "instagram",
+     "youtube-short"
+    ],
+    "publish_at": "2026-11-09T19:47"
+   },
+   {
+    "metricool_id": 422614996,
+    "providers": [
+     "facebook",
+     "youtube-video"
+    ],
+    "publish_at": "2026-11-09T19:52"
+   }
+  ]
  },
  {
   "date": "2026-11-09",
@@ -61,8 +90,8 @@
   "type": "civic",
   "category": "Civic intelligence",
   "title": "Calgary's 2027 budget: what the preliminary numbers say",
-  "topic_used": "Preliminary 2027–2030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2–5.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
-  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments … by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
+  "topic_used": "Preliminary 2027\u20132030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2\u20135.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
+  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments \u2026 by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
   "central_figure": "2027: $528M in new ongoing operating requests, $144M available funding, remaining $384M paired with a 15% property tax revenue increase (City of Calgary C2026-0749 Rev. Att. 1, slide 28, Sept 29, 2026)",
   "sources": [
    "https://www.calgary.ca/our-finances/2027-budget.html",
@@ -80,6 +109,17 @@
    "verdict": "APPROVED",
    "report": "audits/2026-11-09-CIVIC.md"
   },
-  "status": "done"
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 422615039,
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-09T20:07"
+   }
+  ]
  }
 ]
