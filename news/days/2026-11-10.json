@@ -1,0 +1,433 @@
+{
+ "date": "2026-11-10",
+ "published_at": "2026-11-10T23:36:30Z",
+ "articles": [
+  {
+   "title": "City's proposed 2027-2030 budget calls for a 15 per cent property tax increase next year",
+   "dek": "The four-year plan would raise a typical home's municipal bill by about $53 a month in 2027, with council debate starting the week of Nov. 23.",
+   "section": "City Hall",
+   "body": [
+    "The City of Calgary released its proposed 2027-2030 budget on Tuesday, Nov. 10, and it calls for a 15 per cent increase in municipal property tax revenue from existing properties in 2027 [1][2].",
+    "The plan sets out about $6 billion in operating spending for 2027 and $21 billion in recommended capital spending over four years, including $13 billion for new infrastructure [1][2]. CBC reported that the capital figure is roughly double recent capital spending, and that staff price the city's long-term infrastructure needs at $54 billion [2].",
+    "After 2027, the proposal calls for annual increases of 10 per cent, 7.7 per cent and six per cent [2][3][4]. City administration said a 15 per cent increase would be the largest annual municipal property tax increase since 1996 [3], and CTV described it as the largest single-year increase in about 30 years [4].",
+    "For a typical single residential property, the city estimates about $37 more a month in municipal property tax plus $16 a month for water, wastewater and recycling, for a combined increase of about $53 a month [1][3]. Individual bills will vary with assessments and service use [1]. CBC reported that residential water rates would rise 74 per cent over four years and business water rates 86 per cent; council approved those rate increases last month, but they still need to be confirmed in the overall budget [2].",
+    "LiveWire Calgary reported that each one per cent of property tax equals about $25.6 million, and that the 2027 increase represents $384 million in required funding [3].",
+    "Among the largest proposed investments are $1.7 billion to upgrade the Pine Creek and Fish Creek wastewater treatment plants, $616 million for the north and south water feeder mains, $420 million for pavement rehabilitation, $300 million for new buses and $284 million for recreation projects, including a replacement for the Forest Lawn recreation facility [1]. Other items include $192 million for Calgary Police Service facilities and equipment, $102 million for new fire and emergency stations in the downtown and Keystone areas, $142 million for the 194 Avenue and Macleod Trail interchange, and $71 million to extend the Blue Line LRT from Saddletowne to 88 Avenue N.E. [1][3]. CBC also reported $178 million for bridge rehabilitation [2].",
+    "Chief administrative officer David Duckworth told council the budget is aimed at a growing population and aging infrastructure [2]. Mayor Jeromy Farkas called the proposal \"the starting point, not the final word\" [1]. Ward 4 Coun. DJ Kelly said council's task now is to bring the number down [3].",
+    "Residents can submit written comments or register to speak starting Nov. 10. Public submissions begin Nov. 23, and council deliberations start that week, with final approval to follow debate [1]. The figures are not final and may change as council amends the plan [2]."
+   ],
+   "key_facts": [
+    "Proposed property tax increases: 15% (2027), 10%, 7.7%, 6%",
+    "Typical home: about $53 more a month in 2027 ($37 tax, $16 utilities)",
+    "$6 billion operating in 2027; $21 billion capital over four years",
+    "Council deliberations begin the week of Nov. 23"
+   ],
+   "topics": [
+    "City Council",
+    "Budget and taxes",
+    "City services",
+    "Water"
+   ],
+   "image_query": "Calgary Municipal Building",
+   "charts": [
+    {
+     "title": "Proposed annual property tax increases",
+     "kind": "bar",
+     "labels": [
+      "2027",
+      "2028",
+      "2029",
+      "2030"
+     ],
+     "series": [
+      {
+       "name": "Increase",
+       "values": [
+        15,
+        10,
+        7.7,
+        6
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 2
+    },
+    {
+     "title": "Selected proposed capital investments",
+     "kind": "hbar",
+     "labels": [
+      "Wastewater plants",
+      "Water feeder mains",
+      "Pavement rehabilitation",
+      "Buses",
+      "Recreation (GamePLAN)",
+      "Police",
+      "194 Ave./Macleod Tr. interchange",
+      "Fire stations",
+      "Blue Line extension"
+     ],
+     "series": [
+      {
+       "name": "Amount",
+       "values": [
+        1700,
+        616,
+        420,
+        300,
+        284,
+        192,
+        142,
+        102,
+        71
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "The City releases proposed 2027-2030 Budget focused on Calgarians' priorities",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/",
+     "published": "2026-11-10"
+    },
+    {
+     "title": "Calgary's 4-year budget proposes 15% property tax hike, rising water rates",
+     "outlet": "CBC News (via Yahoo News Canada)",
+     "url": "https://ca.news.yahoo.com/calgarys-4-budget-proposes-15-160138122.html",
+     "published": "2026-11-10"
+    },
+    {
+     "title": "Calgary's four-year budget breakdown. Where would the money be spent?",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/10/calgary-four-year-budget-breakdown-money-spent/",
+     "published": "2026-11-10"
+    },
+    {
+     "title": "Calgary budget proposes largest single-year property tax increase in about 30 years",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/calgary-budget-proposes-largest-single-year-property-tax-increase-in-about-30-years/",
+     "published": "2026-11-10"
+    }
+   ],
+   "id": "2026-11-10-city-s-proposed-2027-2030-budget-calls-for-a-15-per-cent-property-tax-",
+   "date": "2026-11-10",
+   "published_at": "2026-11-10T23:36:30Z",
+   "words": 464
+  },
+  {
+   "title": "Council rejects Meridian site for complex needs housing, keeps working with provider on a new location",
+   "dek": "Council voted 10-5 to abandon the land use change and land sale for a 60-unit supportive housing project, then 9-6 to keep looking for a site.",
+   "section": "Housing and development",
+   "body": [
+    "Calgary city council on Monday, Nov. 9, turned down a land use redesignation for a complex needs housing project proposed by the non-profit Home Space Society in the Meridian industrial park in southeast Calgary, and declined to sell the municipal reserve parcel it would have used [1].",
+    "The project was a 60-unit, home-style facility with round-the-clock care and specialized supports for residents with complex health and housing needs. The Calgary Planning Commission had recommended approval of both the land sale and the redesignation [1]. The site is in Ward 10, according to LiveWire Calgary [1].",
+    "The first vote, to abandon the land use change and sale, passed 10-5. A second vote, to continue working with Home Space and speed up a search for another site, passed 9-6 [1]. Council also asked that the five highest-ranked sites from an earlier assessment come back to council, without setting a timeline, and signalled it wants to avoid selling municipal reserve land [1].",
+    "Mayor Jeromy Farkas left the chair to move the alternate motion, saying he saw no support on council for either part of the proposal [1]. Ward 10 Coun. Andre Chabot backed the mayor's approach, while Ward 8 Coun. Nathan Schmidt warned the provider could face another year or two of uncertainty [1].",
+    "A representative of nearby property owners told council the roughly one-acre green space serves a business park with more than 3,000 employees and questioned the city's claim that it was underused [1]. The executive director of the International Avenue business improvement area, speaking for a community safety group, called it an incompatible location [1].",
+    "Marcus Berzins, the city's manager of housing investment, said the site search began nearly three years ago and assessed 17 sites against criteria such as planning policy, size, parking, transit access and distance from homes [1]. The CEO of the Alex Community Health Centre, the intended operator, said the operating model would include 24-hour staffing, surveillance and controlled access [1]. One councillor told the meeting: \"It's not the intent of this body, in my view, to vote down this project\" [1]."
+   ],
+   "key_facts": [
+    "Proposal: 60 supportive homes with 24/7 care in the Meridian industrial park",
+    "Vote to abandon the site: 10-5; vote to keep working with the provider: 9-6",
+    "17 sites were assessed over nearly three years"
+   ],
+   "topics": [
+    "Housing",
+    "City Council",
+    "Development",
+    "Health"
+   ],
+   "image_query": "Calgary industrial park",
+   "wards": [
+    10
+   ],
+   "charts": [
+    {
+     "title": "Council votes on the Meridian housing site, Nov. 9",
+     "kind": "bar",
+     "labels": [
+      "Abandon land use and sale",
+      "Keep working with Home Space"
+     ],
+     "series": [
+      {
+       "name": "For",
+       "values": [
+        10,
+        9
+       ]
+      },
+      {
+       "name": "Against",
+       "values": [
+        5,
+        6
+       ]
+      }
+     ],
+     "unit": "votes",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Council turns down site proposed for Meridian complex needs housing",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/09/calgary-rejects-site-proposed-meridian-housing-home-space/",
+     "published": "2026-11-09"
+    }
+   ],
+   "id": "2026-11-10-council-rejects-meridian-site-for-complex-needs-housing-keeps-working-",
+   "date": "2026-11-10",
+   "published_at": "2026-11-10T23:36:30Z",
+   "words": 346
+  },
+  {
+   "title": "City issues fire advisory as dry, warm weather and wind meet ongoing water restrictions",
+   "dek": "No new fire restrictions apply, but residents are asked to consider postponing recreational fires while Stage 4 outdoor water limits stay in place.",
+   "section": "Environment and weather",
+   "body": [
+    "The City of Calgary issued a fire advisory on Tuesday afternoon, Nov. 10, citing prolonged dry conditions, above-seasonal temperatures and forecast winds. The advisory took effect immediately [1].",
+    "The advisory adds no new fire restrictions [1][2]. Instead, the city is asking Calgarians and visitors to consider postponing recreational fires and to take extra care with fire pits, barbecues and campfires: avoid burning in windy conditions, never leave a fire unattended, make sure fires are fully out, and keep fire pits at least three metres from property lines and anything that can burn [1][2]. LiveWire Calgary reported forecast winds of 12 to 15 km/h with gusts of 30 to 60 km/h [2].",
+    "Fire Marshal Glenn Baxter said the city will keep monitoring conditions and update the fire danger rating as needed [1]. He also asked people to dispose of smoking materials carefully [2].",
+    "The city tied the advisory to Stage 4 outdoor water-use restrictions, which remain in effect while crews finish connecting the new Bearspaw South Feeder Main [1]. Global News reported that the city's daily use target is 500 million litres, and that use stayed in the green zone for five days in a row through Sunday, Nov. 8, at between 482 million and 487 million litres a day [3].",
+    "According to the same report, crews will work around the clock at the 89 Street N.W. site starting Thursday, Nov. 12, on a connection expected to take about two weeks, and restrictions are expected to last at least another three and a half weeks [3]. Water chief operating officer Michael Thompson said the system should transition to the new pipe in mid-December [3]. CTV reported on Nov. 10 that use had now stayed below target for six days in a row [4].",
+    "Current fire restrictions are posted at calgary.ca/firebans and albertafirebans.ca [1]."
+   ],
+   "key_facts": [
+    "Fire advisory in effect from Nov. 10; no new restrictions",
+    "Residents asked to consider postponing recreational fires",
+    "Water use below the 500-million-litre daily target for six straight days",
+    "Round-the-clock feeder main connection work starts Nov. 12"
+   ],
+   "topics": [
+    "Weather",
+    "Public safety",
+    "Water",
+    "Environment"
+   ],
+   "image_query": "fire pit",
+   "charts": [
+    {
+     "title": "Daily water use against the 500-million-litre target",
+     "kind": "bar",
+     "labels": [
+      "Fri",
+      "Sat",
+      "Sun"
+     ],
+     "series": [
+      {
+       "name": "Water used",
+       "values": [
+        482,
+        483,
+        487
+       ]
+      },
+      {
+       "name": "Target",
+       "values": [
+        500,
+        500,
+        500
+       ]
+      }
+     ],
+     "unit": "million litres",
+     "source": 3
+    }
+   ],
+   "sources": [
+    {
+     "title": "The City of Calgary Issues Fire Advisory",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/the-city-of-calgary-issues-fire-advisory-november/",
+     "published": "2026-11-10"
+    },
+    {
+     "title": "Calgary issues fire advisory with dry conditions and potential wind",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/10/calgary-fire-advisory-dry-conditions-wind/",
+     "published": "2026-11-10"
+    },
+    {
+     "title": "Calgary water use remains in 'green zone' as Bearspaw feeder main work progresses",
+     "outlet": "Global News",
+     "url": "https://globalnews.ca/news/12143697/calgary-water-restrictions-usage-november-2026/",
+     "published": "2026-11-09"
+    },
+    {
+     "title": "Calgary water use remains below target for 6th day",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/calgary-water-use-below-remains-below-target-for-6th-day/",
+     "published": "2026-11-10"
+    }
+   ],
+   "id": "2026-11-10-city-issues-fire-advisory-as-dry-warm-weather-and-wind-meet-ongoing-wa",
+   "date": "2026-11-10",
+   "published_at": "2026-11-10T23:36:30Z",
+   "words": 302
+  },
+  {
+   "title": "Province puts $4 million into Grey Cup week, projecting more than $50 million in economic activity",
+   "dek": "The festival runs Nov. 11 to 14 at Stampede Park ahead of the 113th Grey Cup at McMahon Stadium on Nov. 15.",
+   "section": "Business and economy",
+   "body": [
+    "The Government of Alberta announced on Tuesday, Nov. 10, that it is supporting the 2026 Grey Cup and Grey Cup Festival in Calgary with a $4-million investment [1].",
+    "The festival runs Nov. 11 to 14 at Stampede Park, with no-cost and low-cost events, a street festival, family programming, rodeo performances and a girls in sport summit [1]. The 113th Grey Cup game is on Sunday, Nov. 15, at McMahon Stadium, where the Edmonton Elks will play the Montreal Alouettes. It is the sixth time Calgary has hosted the championship [1].",
+    "The province projects that the festival and game will generate more than $50 million in economic activity and support about 300 jobs [1]. It expects about 35,000 out-of-town visitors and total attendance across the festival and game day of more than 350,000 [1]. The host organization and the CFL have contracted about 6,000 hotel room nights so far, and broadcast viewership is estimated at 10 million [1].",
+    "The event is being delivered with Tourism Calgary [1]. Statements in the release came from Premier Danielle Smith, Tourism and Sport Minister Andrew Boitchenko, Grey Cup executive director Karen Dommett and Tourism Calgary president and CEO Alisha Reynolds [1]. Dommett described the festival as \"so much more than football\" [1].",
+    "The projections are the province's own estimates; actual visitor numbers and spending will not be known until after the event [1]."
+   ],
+   "key_facts": [
+    "$4 million in provincial support",
+    "Projected: more than $50 million in economic activity and about 300 jobs",
+    "Festival Nov. 11-14 at Stampede Park; game Nov. 15 at McMahon Stadium"
+   ],
+   "topics": [
+    "Sports",
+    "Events",
+    "Economy",
+    "Provincial"
+   ],
+   "image_query": "McMahon Stadium Calgary",
+   "location": {
+    "lat": 51.0702,
+    "lon": -114.1215,
+    "label": "McMahon Stadium"
+   },
+   "charts": [
+    {
+     "title": "Grey Cup week projections",
+     "kind": "hbar",
+     "labels": [
+      "Total attendance",
+      "Out-of-town visitors",
+      "Hotel room nights contracted"
+     ],
+     "series": [
+      {
+       "name": "Projected",
+       "values": [
+        350000,
+        35000,
+        6000
+       ]
+      }
+     ],
+     "unit": "people",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Grey Cup fever takes over Calgary",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=98109C4F60A60-B6C4-2C95-AC8128149CFB4B52",
+     "published": "2026-11-10"
+    }
+   ],
+   "id": "2026-11-10-province-puts-4-million-into-grey-cup-week-projecting-more-than-50-mil",
+   "date": "2026-11-10",
+   "published_at": "2026-11-10T23:36:30Z",
+   "words": 228
+  },
+  {
+   "title": "Remembrance Day in Calgary: what's closed, transit schedule and road closures for ceremonies",
+   "dek": "City recreation facilities close Nov. 11 except for no-charge swim and skate times, transit runs a Saturday schedule and Memorial Drive closes for the morning.",
+   "section": "Community and events",
+   "body": [
+    "City of Calgary hours change for Remembrance Day on Wednesday, Nov. 11, and flags at city facilities will fly at half-mast from sunrise to sundown [1].",
+    "All city arenas, indoor pools and fitness centres, the Maxwell Soccer Centre, the North Mount Pleasant and Wildflower arts centres and the Animal Services Centre will be closed, and registered and drop-in programs will not run [1]. The exception is no-charge public skating from 1 to 2:15 p.m. and 2:30 to 3:45 p.m. at Shouldice and Ernie Starr arenas, and no-charge swimming from 1 to 2:30 p.m. and 3 to 4:30 p.m. at Bob Bahan, Foothills and Shouldice aquatic centres [1]. Southland Leisure Centre will be open with regular admission [1].",
+    "Buses, CTrains and On Demand service will run on a Saturday schedule. Veterans and family members travelling with them can ride at no charge, as can veterans with veteran plates in city surface lots and parkades [1]. On-street ParkPlus parking will not be charged that day, and parkades and surface lots will use weekend rates [1].",
+    "Memorial Drive will be fully closed between 4 Street N.E. and 10 Street N.W. from 9 a.m. to 1 p.m. for the Field of Crosses ceremony [1]. Parts of 12 and 13 Avenues S.W. between 2 and 5 Streets S.W. will have temporary closures from 8 a.m. to 1 p.m. for the Calgary Highlanders parade at Central Memorial Park, and there may be traffic impacts near Signal Hill Drive S.W. for the Battalion Park ceremony [1].",
+    "The city lists ceremonies at the Field of Crosses, the Southern Alberta Jubilee Auditorium, Studio Bell, The Hangar Flight Museum, The Military Museums and the Canadian Pacific Memorial, among others, but notes they are not city events and times should be checked with each organizer [1]."
+   ],
+   "key_facts": [
+    "Transit runs a Saturday schedule on Nov. 11",
+    "Memorial Drive closed 4 St. N.E. to 10 St. N.W., 9 a.m.-1 p.m.",
+    "Most city recreation facilities closed; set swim and skate times at no charge"
+   ],
+   "topics": [
+    "Community",
+    "City services",
+    "Transit",
+    "Roads and traffic",
+    "Events"
+   ],
+   "image_query": "Field of Crosses Calgary",
+   "sources": [
+    {
+     "title": "City Services: Remembrance Day 2026",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/city-services-remembrance-day-2026/",
+     "published": "2026-11-10"
+    }
+   ],
+   "id": "2026-11-10-remembrance-day-in-calgary-what-s-closed-transit-schedule-and-road-clo",
+   "date": "2026-11-10",
+   "published_at": "2026-11-10T23:36:30Z",
+   "words": 295
+  },
+  {
+   "title": "Province plans new urgent care centre in east Calgary as part of nine-site expansion",
+   "dek": "Alberta is spending $39 million over three years on planning and land for nine new urgent care centres, growing the network from six to 15.",
+   "section": "Alberta and Canada",
+   "body": [
+    "The Government of Alberta announced on Monday, Nov. 9, that it is investing $39 million over three years from Budget 2026 to plan and buy land for nine new urgent care centres, one of them in east Calgary [1].",
+    "The expansion would take the provincial network from six centres to 15 [1]. The other planned locations are west and south Edmonton, the Stony Plain-Spruce Grove area, Lethbridge, Medicine Hat, Cold Lake, Fort McMurray and Sylvan Lake [1].",
+    "Urgent care centres provide same-day walk-in treatment for conditions that are not life-threatening [1]. The province says the expansion raises capacity by 150 per cent and could divert up to 300,000 emergency department visits a year, with each centre serving about 30,000 to 33,000 patients annually [1].",
+    "No address or community has been named for the east Calgary site. The province said specific site information will be released once land is acquired and planning is complete [1]. Budget 2025 had included $15 million for planning [1].",
+    "The announcement was made by Hospital and Surgical Health Services Minister Adriana LaGrange and Infrastructure Minister Martin Long, along with Acute Care Alberta interim CEO Dr. Sayeh Zielke [1]. The release did not give opening dates for the new centres [1]."
+   ],
+   "key_facts": [
+    "$39 million over three years for planning and land",
+    "Network to grow from six urgent care centres to 15",
+    "East Calgary site location not yet announced"
+   ],
+   "topics": [
+    "Health",
+    "Provincial"
+   ],
+   "image_query": "Calgary urgent care centre",
+   "charts": [
+    {
+     "title": "Alberta urgent care centres",
+     "kind": "bar",
+     "labels": [
+      "Today",
+      "After expansion"
+     ],
+     "series": [
+      {
+       "name": "Centres",
+       "values": [
+        6,
+        15
+       ]
+      }
+     ],
+     "unit": "centres",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Expanding urgent care across Alberta",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=9810287C81C71-C809-E605-3A70AEA5F0FB60A9",
+     "published": "2026-11-09"
+    }
+   ],
+   "id": "2026-11-10-province-plans-new-urgent-care-centre-in-east-calgary-as-part-of-nine-",
+   "date": "2026-11-10",
+   "published_at": "2026-11-10T23:36:30Z",
+   "words": 204
+  }
+ ]
+}
