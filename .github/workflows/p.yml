@@ -1,0 +1,16 @@
+name: Live data 20
+on: {push: {branches: [site-check-20]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p out
+          for f in data/city_actual/w0.json data/budget.json data/infra.json data/budget_2027.json data/city_actual/w4.json data/city_actual/w7.json; do
+            curl -sSL --compressed -o "out/$(echo $f | tr / _)" "https://calgaryinsight.ca/$f" -w "$f %{http_code} %{size_download}\n" >> out/log.txt || true
+          done
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -b fetched-20
+          git add -f out && git commit -qm "Live data" && git push -f origin fetched-20
