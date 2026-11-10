@@ -6,41 +6,37 @@ def get(u,d=None):
     if d is not None: h['Content-Type']='application/json'
     for i in range(4):
         try:
-            with urllib.request.urlopen(urllib.request.Request(u,data=d,headers=h),timeout=600) as r: return r.read()
+            with urllib.request.urlopen(urllib.request.Request(u,data=d,headers=h),timeout=900) as r: return r.read()
         except Exception as e:
             print('retry',u,e); time.sleep(10)
     raise RuntimeError(u)
-CITIES=['Calgary','Edmonton','Vancouver','Winnipeg','Ottawa','Toronto']
-def want(geo):
-    g=re.sub(r'\s*\[\d+\]\s*$','',geo)
-    return any(g.startswith(c+',') for c in CITIES) or g.startswith('Ottawa') or g.startswith('Toronto')
+CITY=re.compile(r'^(Calgary|Edmonton|Vancouver|Winnipeg|Ottawa|Toronto), [A-Za-z ]+, municipal')
 out={}
-tables=[35100077,35100186,35100187,35100188,35100189,35100061,35100190,35100063,35100064,35100026,35100178,35100184,35100059,35100076]
-meta=json.loads(get(WDS+'getCubeMetadata',json.dumps([{'productId':t} for t in tables]).encode()))
+meta=json.loads(get(WDS+'getCubeMetadata',json.dumps([{'productId':t} for t in [18100005,35100179,35100180,35100181,35100182,35100183]]).encode()))
 for m in meta:
-    if m.get('status')=='SUCCESS':
-        o=m['object']; print(o['productId'],o.get('cubeTitleEn'),o.get('cubeStartDate'),o.get('cubeEndDate'),o.get('releaseTime'))
-for t in tables:
+    if m.get('status')=='SUCCESS': o=m['object']; print(o['productId'],o.get('cubeTitleEn'),o.get('cubeEndDate'))
+def full(t):
+    url=json.loads(get(f'{WDS}getFullTableDownloadCSV/{t}/en'))['object']
+    z=zipfile.ZipFile(io.BytesIO(get(url)))
+    name=next(n for n in z.namelist() if n.endswith('.csv') and 'MetaData' not in n)
+    return z, name
+# CPI annual
+z,n=full(18100005); rows=[]
+with z.open(n) as f:
+    for r in csv.DictReader(io.TextIOWrapper(f,encoding='utf-8-sig')):
+        if r['GEO'] in ('Calgary, Alberta','Alberta','Canada','Edmonton, Alberta') and r['Products and product groups']=='All-items' and r['REF_DATE']>='2015':
+            rows.append((r['REF_DATE'],r['GEO'],r['VALUE']))
+out['cpi']=rows; print('cpi',len(rows))
+KEEP={'Total, all Criminal Code violations (excluding traffic) [50]','Total violent Criminal Code violations [100]','Total property crime violations [200]','Total, all violations [0]','Total Criminal Code violations (excluding traffic) [50]'}
+STATS={'Actual incidents','Rate per 100,000 population','Total cleared','Cleared by charge','Cleared otherwise'}
+for t in [35100180,35100181,35100183,35100184]:
     try:
-        url=json.loads(get(f'{WDS}getFullTableDownloadCSV/{t}/en'))['object']
-        z=zipfile.ZipFile(io.BytesIO(get(url)))
-        name=next(n for n in z.namelist() if n.endswith('.csv') and 'MetaData' not in n)
-        rows=[];cols=None;stats=set();geos=set()
-        with z.open(name) as f:
-            rd=csv.DictReader(io.TextIOWrapper(f,encoding='utf-8-sig'))
-            cols=rd.fieldnames
-            for r in rd:
-                stats.add(r.get('Statistics') or r.get('Violations') or '')
-                if want(r['GEO']) and r['REF_DATE']>='2015':
-                    geos.add(r['GEO'])
-                    rows.append({k:r[k] for k in cols if k not in ('DGUID','UOM_ID','SCALAR_ID','VECTOR','COORDINATE','SYMBOL','TERMINATED','DECIMALS')})
-        print(t,'cols',cols); print(t,'stats',sorted(stats)[:80]); print(t,'geos',sorted(geos))
-        if len(rows)<60000:
-            out[t]=rows
-        else:
-            print(t,'rows',len(rows),'too many; filtering to Total violations-ish')
-            out[t]=[r for r in rows if re.search(r'Total|Homicide|Total violent|Total property|Total, all', r.get('Violations',''))]
-    except Exception as e:
-        print(t,'ERR',e)
-json.dump(out,open('out/statcan_police.json','w'))
-print('done',{k:len(v) for k,v in out.items()})
+        z,n=full(t); rows=[]; viol=set()
+        with z.open(n) as f:
+            for r in csv.DictReader(io.TextIOWrapper(f,encoding='utf-8-sig')):
+                if CITY.match(r['GEO']) and r['REF_DATE']>='2015' and r['Statistics'] in STATS:
+                    if r['Violations'].startswith('Total'): viol.add(r['Violations'])
+                    if r['Violations'] in KEEP: rows.append((r['REF_DATE'],r['GEO'],r['Violations'],r['Statistics'],r['VALUE']))
+        print(t,len(rows),sorted(viol)[:30]); out[str(t)]=rows
+    except Exception as e: print(t,'ERR',e)
+json.dump(out,open('out/statcan2.json','w')); print('done')
