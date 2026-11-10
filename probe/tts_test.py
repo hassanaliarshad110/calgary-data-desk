@@ -14,7 +14,9 @@ res = []
 for i, t in enumerate(variants):
     a, sr = k.create(t, voice='af_heart', speed=1.0, lang='en-us')
     p = os.path.join(out, f't_{i}.wav'); sf.write(p, a, sr)
-    segs, _ = m.transcribe(p, language='en')
+    import numpy as np
+    n = int(len(a) * 16000 / sr); a16 = np.interp(np.linspace(0, len(a) - 1, n), np.arange(len(a)), a).astype('float32')
+    segs, _ = m.transcribe(a16, language='en')
     res.append({'text': t, 'heard': ' '.join(s.text.strip() for s in segs), 'secs': round(len(a)/sr, 2)})
 json.dump(res, open(os.path.join(out, 'test.json'), 'w'), indent=1)
 print(json.dumps(res, indent=1))
