@@ -1,5 +1,1 @@
-tree_spruce https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_205852_c02b74f8-8269-4b99-be58-24bdbf284481.glb 512 0.25 0.05
-tree_birch https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_205855_6913ce22-953b-4fab-9e0d-c34656afc597.glb 512 0.3 0.05
-sorento https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_210144_b26bda0e-1aa3-4e62-9bcd-aa521cc6a357.glb 1024
-rondo https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_210146_f60c6161-075c-4774-8bfd-fa09645c158f.glb 1024
-veloster https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_210147_5b0a4b8e-ec88-4bab-a031-7101ba46e06e.glb 1024
+tree_maple https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_211109_8fb8032a-ef50-4936-8062-9963d0751d65.glb 512
