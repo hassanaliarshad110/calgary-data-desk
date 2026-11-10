@@ -78,10 +78,54 @@ async function renderBudget() {
   $('#bud-table thead').innerHTML = '<tr><th scope="col">Budget</th><th scope="col">Department</th><th scope="col">Service (business unit)</th><th scope="col" class="num">Millions of dollars</th></tr>';
   $('#bud-table tbody').innerHTML = rows.map(r => `<tr><td>${r[0] === 'operating' ? 'Operating' : 'Capital'}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td class="num">${fmt(r[3], 1)}</td></tr>`).join('');
   $('#bud-table-sub').textContent = `${rows.length} lines for ${budYear}, as the City publishes them.`;
+  renderPlan();
   renderRevenue();
   renderTax();
   renderBudgetWards();
   $('#bud-notes').innerHTML = `${esc(BUD.note)} Source: City of Calgary, <button class="link-btn small" data-open="${esc(BUD.page)}">Calgary Open Budget (${esc(BUD.dataset)})</button>, read ${esc(BUD.fetched || '')}; the City's <button class="link-btn small" data-open="${esc(BUD.budget_page)}">budget pages</button>.`;
+}
+
+// the proposed 2027-2030 budget: what it would cost a typical household, the tax path, water, investments, and the
+// City's open data by department (data/budget_2027.json and nnnm-9sfh)
+function renderPlan() {
+  const P = BUD && BUD.plan_2027, O = BUD && BUD.proposed;
+  $('#bud-plan-card').hidden = !P;
+  if (!P) return;
+  const d = s => new Date(s.length === 7 ? s + '-15T12:00:00' : s + 'T12:00:00').toLocaleDateString('en-CA', s.length === 7 ? { month: 'long', year: 'numeric' } : { month: 'long', day: 'numeric', year: 'numeric' });
+  $('#bud-plan-sub').textContent = `${P.status} Council deliberations begin the week of November 23, 2026; approval is expected in December.`;
+  const H = P.household, W = P.water_2027, T = P.tax_path;
+  const cum = (T.pct.reduce((a, p) => a * (1 + p / 100), 1) - 1) * 100;
+  const link = (u, t) => `<button class="link-btn small" data-open="${esc(u)}">${esc(t)}</button>`;
+  const dep = O && O.by_department;
+  const yrs = O ? O.years : [];
+  const depNames = dep ? [...new Set(yrs.flatMap(y => ((dep[y] || {}).operating || []).map(x => x.name)))] : [];
+  const opv = (y, n) => (((dep[y] || {}).operating || []).find(x => x.name === n) || {}).value;
+  $('#bud-plan').innerHTML = `
+    <div class="bud-plan-grid">
+      <div><h3>What it would cost a typical home in 2027</h3>
+        <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Each month</th><th scope="col" class="num">2026</th><th scope="col" class="num">2027 proposed</th><th scope="col" class="num">Change</th></tr></thead>
+        <tbody>${H.lines.map(l => `<tr${l.item === 'Total' ? ' class="cmp-city-row"' : ''}><td>${l.item === 'Total' ? '<b>Total</b>' : esc(l.item)}</td><td class="num">$${fmt(l.m2026)}</td><td class="num">$${fmt(l.m2027)}</td><td class="num"><b>+$${fmt(l.change)}</b></td></tr>`).join('')}</tbody></table></div>
+        <p class="card-sub">That is about $${fmt(H.lines[2].change * 12)} more a year. ${esc(H.basis)} Source: ${link(H.url, H.source)}.</p></div>
+      <div><h3>Property tax, year by year</h3>
+        <div class="bud-path">${T.years.map((y, i) => `<div class="istat"><b>+${fmt(T.pct[i], 1)}%</b><span>${y}${i ? ' (reported)' : ''}</span></div>`).join('')}</div>
+        <p class="card-sub">If every year passes as proposed, the City would collect about ${fmt(cum, 0)}% more property tax from existing properties in 2030 than in 2026 (each year's increase compounds on the last). ${esc(T.source)} ${esc(T.context)}</p></div>
+    </div>
+    <h3>Water, wastewater and stormwater in 2027</h3>
+    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Service (${esc(W.basis)})</th><th scope="col" class="num">2026 rate</th><th scope="col" class="num">2027 rate</th><th scope="col" class="num">Change</th><th scope="col" class="num">A month more</th><th scope="col" class="num">2027 a month</th></tr></thead>
+      <tbody>${W.lines.map(l => `<tr><td>${esc(l.item)}</td><td class="num">${esc(l.rate2026)}</td><td class="num">${esc(l.rate2027)}</td><td class="num">+${fmt(l.pct, 1)}%</td><td class="num">+$${fmt(l.change, 2)}</td><td class="num">$${fmt(l.bill2027, 2)}</td></tr>`).join('')}
+      <tr class="cmp-city-row"><td><b>Typical bill</b></td><td class="num">$${fmt(W.total.bill2026, 2)}</td><td class="num"></td><td class="num"><b>+${fmt(W.total.pct, 1)}%</b></td><td class="num"><b>+$${fmt(W.total.change, 2)}</b></td><td class="num"><b>$${fmt(W.total.bill2027, 2)}</b></td></tr></tbody></table></div>
+    <p class="card-sub">${esc(W.four_year)} Source: ${link(W.url, W.source)}. Water rates were set by Council separately; the budget's household figure adds waste and recycling.</p>
+    ${O ? `<h3>Operating budget by department, proposed</h3>
+    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Department ($ millions, net of recoveries)</th>${yrs.map(y => `<th scope="col" class="num">${y}</th>`).join('')}</tr></thead>
+      <tbody>${depNames.map(n => `<tr><td>${esc(n)}</td>${yrs.map(y => `<td class="num">${opv(y, n) != null ? fmt(opv(y, n), 0) : '–'}</td>`).join('')}</tr>`).join('')}
+      <tr class="cmp-city-row"><td><b>Total operating</b></td>${yrs.map(y => `<td class="num"><b>${fmt(((O.totals[y] || {}).operating || {}).proposed, 0)}</b></td>`).join('')}</tr>
+      <tr><td>Capital, new (proposed)</td>${yrs.map(y => `<td class="num">${fmt(((O.totals[y] || {}).capital || {}).proposed, 0)}</td>`).join('')}</tr>
+      <tr><td>Capital, approved in earlier budgets</td>${yrs.map(y => `<td class="num">${fmt(((O.totals[y] || {}).capital || {}).approved, 0)}</td>`).join('')}</tr></tbody></table></div>
+    <p class="card-sub">${esc(O.note)} ${esc(P.comparability)} Source: City of Calgary, ${link(O.page, 'open data: 2027–2030 Budget (' + O.dataset + ')')}${O.fetched ? ', read ' + esc(O.fetched) : ''}.</p>` : ''}
+    <h3>What the money would buy (the City's highlights)</h3>
+    <ul class="bud-inv">${P.investments.map(([g, a, w]) => `<li><b>${esc(a)}</b> ${esc(w)} <span class="card-sub">${esc(g)}</span></li>`).join('')}</ul>
+    <p class="card-sub">Where 2027 revenue would come from: ${P.revenue_2027_pct.map(([n, p]) => `${esc(n)} ${p}%`).join(', ')}.</p>
+    <p class="card-sub">Documents: ${P.documents.map(([t, u]) => link(u, t)).join(' · ')}. Have your say: written comments and registration to speak are open on the City's budget page. Figures as published by the City on ${esc(d(P.presented))}; they will change if Council amends the budget.</p>`;
 }
 
 // where the money comes from: operating revenue by source (the City's budget book)

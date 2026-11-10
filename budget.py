@@ -30,10 +30,109 @@ def revenue():
         return None
 
 
+PROPOSED = 'nnnm-9sfh'                              # the proposed 2027-2030 budget, by department and service
+PROPOSED_PAGE = 'https://data.calgary.ca/Government/2027-2030-Budget/nnnm-9sfh'
+PLAN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'budget_2027.json')
+
+
+def plan_2027():
+    """The proposed 2027-2030 budget as the City presented it on Nov 10, 2026: the household impact, water rates,
+    the tax path, investments and documents (calgary.ca/budget; kept with the app, updated as Council decides)."""
+    try:
+        with open(PLAN_FILE, encoding='utf-8') as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return None
+
+
+def plan_summary(data_dir=None):
+    """For Data Genie (get_dashboard section city_budget_2027): the proposed budget as the City presented it, and how
+    to read the open data by department."""
+    p = None
+    for d in (data_dir, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')):
+        f = os.path.join(d or '', 'budget_2027.json')
+        if d and os.path.exists(f):
+            with open(f, encoding='utf-8') as fh:
+                p = json.load(fh)
+            break
+    if not p:
+        return {'error': 'The proposed 2027-2030 budget is not available here.'}
+    cum = 1.0
+    for x in p['tax_path']['pct']:
+        cum *= 1 + x / 100
+    return dict(p, tax_revenue_2030_vs_2026_pct=round((cum - 1) * 100, 1),
+                how=('Proposed, not approved: describe it, never rate it or a councillor. The household figures are the City\'s own '
+                     '(a typical home at the median assessment). 2028-2030 tax increases are as reported in the news; say so. '
+                     'For spending by department and service, year by year, query open data ' + PROPOSED + ' (fields '
+                     'budget_department, department, bu, year, budget_status Proposed/Approved, fund, budget_millions) and give '
+                     'the comparability note when comparing with 2023-2026 (fqax-i3nz).'))
+
+
+def proposed(cache_dir, force=False):
+    """The proposed 2027-2030 budget from open data (nnnm-9sfh): operating net of recoveries and capital, by
+    department and service, each line marked Proposed or Approved (capital Council approved in earlier budgets)."""
+    path = os.path.join(cache_dir, 'budget_proposed.json')
+    if not force and os.path.exists(path) and time.time() - os.path.getmtime(path) < KEEP_HOURS * 3600:
+        try:
+            with open(path, encoding='utf-8') as f:
+                return json.load(f)
+        except (OSError, ValueError):
+            pass
+    try:
+        rows = cd.query(PROPOSED, select='budget_department,department,bu,year,budget_status,fund,budget_millions', limit=10000)
+    except Exception:
+        if os.path.exists(path):
+            with open(path, encoding='utf-8') as f:
+                return json.load(f)
+        return None
+    out = summarise_proposed(rows)
+    out['fetched'] = time.strftime('%Y-%m-%d %H:%M')
+    os.makedirs(cache_dir, exist_ok=True)
+    with open(path + '.tmp', 'w', encoding='utf-8') as f:
+        json.dump(out, f)
+    os.replace(path + '.tmp', path)
+    return out
+
+
+def summarise_proposed(rows):
+    """{'years', 'totals': {year: {'operating': {'proposed'}, 'capital': {'proposed', 'approved'}}},
+    'by_department': {year: {kind: [{name, value, proposed, approved, units: [{name, value, status}]}]}}}."""
+    totals, depts = {}, {}
+    for r in rows:
+        y = str(int(_num(r.get('year'))))
+        if not 2027 <= int(y) <= 2030:
+            continue
+        k, v, st = kind(r.get('fund')), _num(r.get('budget_millions')), (r.get('budget_status') or 'Proposed').lower()
+        t = totals.setdefault(y, {}).setdefault(k, {})
+        t[st] = round(t.get(st, 0.0) + v, 3)
+        d = depts.setdefault(y, {}).setdefault(k, {}).setdefault(r.get('budget_department') or 'Other', {})
+        u = d.setdefault((r.get('bu') or r.get('department') or 'Other', st), 0.0)
+        d[(r.get('bu') or r.get('department') or 'Other', st)] = u + v
+    by_dep = {}
+    for y, ks in depts.items():
+        for k, ds in ks.items():
+            lst = []
+            for dn, us in ds.items():
+                units = sorted(({'name': n, 'status': s, 'value': round(v, 3)} for (n, s), v in us.items()), key=lambda x: -x['value'])
+                lst.append({'name': dn, 'value': round(sum(us.values()), 3),
+                            'proposed': round(sum(v for (n, s), v in us.items() if s == 'proposed'), 3),
+                            'approved': round(sum(v for (n, s), v in us.items() if s == 'approved'), 3), 'units': units})
+            by_dep.setdefault(y, {})[k] = sorted(lst, key=lambda x: -x['value'])
+    return {'years': sorted(totals), 'totals': totals, 'by_department': by_dep, 'dataset': PROPOSED, 'page': PROPOSED_PAGE,
+            'unit': 'millions of dollars',
+            'note': ('Proposed, not approved: the budget Council will debate from November 23, 2026. Operating is net of '
+                     'recoveries. Capital lines marked Approved were approved in earlier budgets; Proposed lines are new.')}
+
+
 def load(cache_dir, force=False):
-    """Every row of the open budget (a few hundred), kept for a day, with revenue by source."""
+    """Every row of the open budget (a few hundred), kept for a day, with revenue by source and the proposed
+    2027-2030 budget."""
     data = _load(cache_dir, force)
-    return dict(data, revenue=revenue())
+    try:
+        prop = proposed(cache_dir, force)
+    except Exception:
+        prop = None
+    return dict(data, revenue=revenue(), proposed=prop, plan_2027=plan_2027())
 
 
 def _load(cache_dir, force=False):

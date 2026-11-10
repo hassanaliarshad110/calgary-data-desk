@@ -1,0 +1,268 @@
+{
+ "title": "Proposed 2027–2030 Budget",
+ "status": "Proposed. Presented to Council on November 10, 2026; not yet approved.",
+ "presented": "2026-11-10",
+ "schedule": [
+  {
+   "when": "2026-11-10",
+   "what": "Proposed budget released to Council and Calgarians; written comments and speaker registration open"
+  },
+  {
+   "when": "2026-11-23",
+   "what": "Public Submissions to Council begin; Council deliberations start the week of November 23"
+  },
+  {
+   "when": "2026-12",
+   "what": "Council approves the 2027–2030 Budget (after debate and any amendments)"
+  }
+ ],
+ "headline": {
+  "operating_2027_billion": 6,
+  "capital_2027_2030_billion": 21,
+  "new_capital_billion": 13,
+  "tax_revenue_increase_2027_pct": 15,
+  "note": "The 15% is the increase in municipal property tax revenue required from existing properties in 2027."
+ },
+ "tax_path": {
+  "years": [
+   2027,
+   2028,
+   2029,
+   2030
+  ],
+  "pct": [
+   15,
+   10,
+   7.7,
+   6
+  ],
+  "source": "2027: The City of Calgary (calgary.ca/budget). 2028 to 2030: news reports of the proposed budget presented to Council on November 10, 2026 (LiveWire Calgary, Yahoo News Canada); the City's budget page gives only the 2027 figure, so treat the later years as reported, not confirmed.",
+  "urls": [
+   "https://www.calgary.ca/our-finances/2027-budget.html",
+   "https://livewirecalgary.com/2026/11/10/calgary-four-year-budget-breakdown-money-spent/",
+   "https://ca.news.yahoo.com/calgarys-4-budget-proposes-15-160138122.html"
+  ],
+  "context": "The City says each 1% of property tax is about $25.6 million; the 2027 increase would be the largest since 1996 (LiveWire Calgary). Calgary's five-year average increase was 3.28%, second lowest among large Canadian municipalities (LiveWire Calgary, citing the budget)."
+ },
+ "household": {
+  "basis": "A typical single residential property assessed at the median: $706,000 in 2026 and $688,000 in 2027. City property tax amounts are estimates, subject to final assessments. Water is a typical residential metered customer using 19 cubic metres a month.",
+  "lines": [
+   {
+    "item": "Municipal property tax",
+    "m2026": 229,
+    "m2027": 266,
+    "change": 37
+   },
+   {
+    "item": "Water utilities, waste and recycling",
+    "m2026": 140,
+    "m2027": 156,
+    "change": 16
+   },
+   {
+    "item": "Total",
+    "m2026": 369,
+    "m2027": 422,
+    "change": 53
+   }
+  ],
+  "source": "The City of Calgary, 2027 Budget: Financial impact on Calgarians",
+  "url": "https://www.calgary.ca/our-finances/2027-budget.html#impact"
+ },
+ "water_2027": {
+  "basis": "Residential metered customer, 15 mm meter, 19 cubic metres a month",
+  "lines": [
+   {
+    "item": "Water treatment and supply",
+    "rate2026": "$1.7409 per m³",
+    "rate2027": "$1.9903 per m³",
+    "pct": 10.1,
+    "change": 4.74,
+    "bill2027": 51.65
+   },
+   {
+    "item": "Wastewater collection and treatment",
+    "rate2026": "$1.9050 per m³",
+    "rate2027": "$2.4292 per m³",
+    "pct": 15.9,
+    "change": 8.77,
+    "bill2027": 64.07
+   },
+   {
+    "item": "Stormwater management",
+    "rate2026": "$17.00 per 30 days",
+    "rate2027": "$17.99 per 30 days",
+    "pct": 5.8,
+    "change": 0.99,
+    "bill2027": 17.99
+   }
+  ],
+  "total": {
+   "pct": 12.2,
+   "change": 14.5,
+   "bill2027": 133.71,
+   "bill2026": 119.21
+  },
+  "four_year": "Council approved water rates in October 2026 that raise the typical residential bill about 74% over four years (CTV News, Yahoo News Canada).",
+  "source": "The City of Calgary, 2027 water rates",
+  "url": "https://www.calgary.ca/water/water-utility/2027-water-rates-and-billing.html",
+  "four_year_urls": [
+   "https://www.ctvnews.ca/calgary/article/typical-calgary-water-bill-could-rise-nearly-74-by-2030/",
+   "https://ca.news.yahoo.com/calgarys-4-budget-proposes-15-160138122.html"
+  ]
+ },
+ "revenue_2027_pct": [
+  [
+   "Property tax, including levies",
+   49
+  ],
+  [
+   "Sale of goods and services",
+   30
+  ],
+  [
+   "Return on equity (ENMAX)",
+   5
+  ],
+  [
+   "Investment income",
+   4
+  ],
+  [
+   "Other non-tax revenue",
+   4
+  ],
+  [
+   "Franchise fees",
+   3
+  ],
+  [
+   "Licences and permits",
+   3
+  ],
+  [
+   "Fines and penalties",
+   1
+  ],
+  [
+   "Government grants",
+   1
+  ]
+ ],
+ "investments": [
+  [
+   "Services you can count on",
+   "$1.7 billion",
+   "Upgrade the Pine Creek and Fish Creek wastewater treatment plants"
+  ],
+  [
+   "Services you can count on",
+   "$616 million",
+   "More water infrastructure, including the North and South Water Feedermains"
+  ],
+  [
+   "Services you can count on",
+   "$420 million",
+   "Rehabilitate pavement"
+  ],
+  [
+   "Services you can count on",
+   "$284 million",
+   "GamePLAN: Forest Lawn recreation facility replacement, Kingsland and Belmont athletic parks, The City's share of the Foothills Fieldhouse"
+  ],
+  [
+   "Services you can count on",
+   "$66 million",
+   "Maintain arenas, aquatic centres and the Calgary Soccer Centre"
+  ],
+  [
+   "A city where you feel safe",
+   "$192 million",
+   "Facilities, vehicles, equipment and tools for the Calgary Police Service"
+  ],
+  [
+   "A city where you feel safe",
+   "$102 million",
+   "New fire and emergency response stations, including downtown and Keystone"
+  ],
+  [
+   "A city where you feel safe",
+   "$94 million",
+   "Mobility Safety and Speed Management Program"
+  ],
+  [
+   "Easier ways to get around",
+   "$300 million",
+   "Buses for RouteAhead"
+  ],
+  [
+   "Easier ways to get around",
+   "$142 million",
+   "194 Avenue and Macleod Trail interchange"
+  ],
+  [
+   "Easier ways to get around",
+   "$71 million",
+   "Advance the Blue Line LRT from Saddletowne to 88 Avenue NE"
+  ],
+  [
+   "Welcoming places to enjoy life",
+   "$295 million",
+   "Renew parks and playgrounds and care for the urban forest"
+  ],
+  [
+   "Welcoming places to enjoy life",
+   "$87 million",
+   "Civic Partners: libraries, sport, arts and culture, tourism, economic development, community programs"
+  ],
+  [
+   "Neighbourhoods that grow with you",
+   "$109 million",
+   "Housing partners (plus $36 million for non-market housing and $18 million for Indigenous housing projects)"
+  ],
+  [
+   "Neighbourhoods that grow with you",
+   "$59 million",
+   "Renew Village Square Leisure Centre"
+  ],
+  [
+   "Neighbourhoods that grow with you",
+   "$47 million",
+   "Redevelop the Forest Lawn Civic Centre"
+  ],
+  [
+   "Public dollars you can trust us to manage",
+   "$13.6 million",
+   "Modernize 311: software replacement and ongoing support"
+  ]
+ ],
+ "documents": [
+  [
+   "The City's 2027 Budget page",
+   "https://www.calgary.ca/our-finances/2027-budget.html"
+  ],
+  [
+   "Proposed 2027–2030 Budget (presented Nov. 10, 2026)",
+   "https://pub-calgary.escribemeetings.com/FileStream.ashx?DocumentId=377372"
+  ],
+  [
+   "Every budget request, with its business case (PDF, 792 pages)",
+   "https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf"
+  ],
+  [
+   "Open data: 2027–2030 Budget (nnnm-9sfh)",
+   "https://data.calgary.ca/Government/2027-2030-Budget/nnnm-9sfh"
+  ],
+  [
+   "News release, Nov. 10, 2026",
+   "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/"
+  ],
+  [
+   "Have your say: Public Submissions",
+   "https://www.calgary.ca/our-finances/2027-budget.html"
+  ]
+ ],
+ "dataset": "nnnm-9sfh",
+ "comparability": "The City's 2027–2030 open data counts operating spending differently from the 2023–2026 open budget (2027 shows $6.4 billion net of recoveries against $4.6 billion for 2026, with large new lines under Operational Services and Corporate Program). The City has not published a line-by-line match, so the two are not compared here.",
+ "checked": "2026-11-10"
+}

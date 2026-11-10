@@ -461,7 +461,11 @@ differ by a few as the City closes or merges requests.
 City budget
 The City's budget is in Calgary Open Budget (fqax-i3nz): budget_department, level_2, business_unit, year, budget_status
 (Approved or Actual), fund ('Capital' or 'Operating Expenditures Net of Recoveries') and budget in millions of dollars;
-2026 is the latest operating year, capital runs to 2032. The City does not publish its budget by ward or community:
+2026 is the latest operating year, capital runs to 2032. The proposed 2027-2030 budget (presented to Council on Nov 10,
+2026, not yet approved; Council debates it from Nov 23, approval expected in December) is in get_dashboard section
+city_budget_2027 (what it would cost a typical home, the property tax path, 2027 water rates, the City's investment
+highlights, revenue shares, documents) and in open data nnnm-9sfh (budget_department, department, bu, year,
+budget_status Proposed or Approved, fund, budget_millions). The City does not publish its budget by ward or community:
 say so plainly, then give what can be placed in a ward. Property tax by ward is not published either; the site
 estimates it (get_dashboard section property_tax: the assessment roll by community, public and institutional
 property left out, scaled to the bylaw's taxable assessment, times the bylaw's rates; Calgary's total equals the
@@ -612,6 +616,9 @@ TOOLS = [
                     'sector, and the research file (Tourism Calgary\'s figures, what makes Calgary different, lessons from '
                     'Iceland, Singapore, Dubai, New York, Denver and airline stopovers, incentives, levies, rail, with sources); '
                     'part="arrivals", "countries", "airports" or "research" (find narrows). '
+                    'section="city_budget_2027" gives the City\'s proposed 2027-2030 budget (Nov 10, 2026, not yet approved): '
+                    'the monthly cost for a typical home in 2026 and 2027, the property tax increase each year, 2027 water rates, '
+                    'investments, revenue shares, schedule and documents; spending by department is in open data nnnm-9sfh. '
                     'section="police_study" gives the published study of Calgary Police performance, resources and the 2027 to '
                     '2030 budget request: crime severity, clearance and staffing against Edmonton, Vancouver, Winnipeg, Ottawa and '
                     'Toronto (Statistics Canada), Calgary\'s spending, overtime and fine revenue, the request item by item, three '
@@ -638,7 +645,7 @@ TOOLS = [
                     'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
                     'sources; narrow with find (words), days, topic or date.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'school_tax', 'tourism', 'police_study', 'business', 'growth_forecast', 'visiting'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'school_tax', 'tourism', 'police_study', 'city_budget_2027', 'business', 'growth_forecast', 'visiting'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -1446,6 +1453,9 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
         import business                                 # noqa: PLC0415
         return business.summary(business.load((extra or {}).get('data_dir'), can_build=True), (extra or {}).get('community'),
                                 (extra or {}).get('kind'), (extra or {}).get('find'))
+    if section == 'city_budget_2027':
+        import budget as _budget                        # noqa: PLC0415
+        return _budget.plan_summary((extra or {}).get('data_dir'))
     if section == 'police_study':
         import police_study                             # noqa: PLC0415
         return police_study.summary(police_study.load((extra or {}).get('data_dir')), (extra or {}).get('part'), (extra or {}).get('find'))
@@ -1804,6 +1814,9 @@ class Agent:
             if (args.get('section') or '') == 'tourism':
                 import tourism                         # noqa: PLC0415
                 return tourism.summary(tourism.load(self.data_dir, can_build=True), args.get('part'), args.get('find'))
+            if (args.get('section') or '') == 'city_budget_2027':
+                import budget as _budget               # noqa: PLC0415
+                return _budget.plan_summary(self.data_dir)
             if (args.get('section') or '') == 'police_study':
                 import police_study                    # noqa: PLC0415
                 return police_study.summary(police_study.load(self.data_dir), args.get('part'), args.get('find'))
