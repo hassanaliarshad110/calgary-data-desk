@@ -326,6 +326,7 @@ def build(out, data_dir, method='city_actual'):
     urls += study_pages(out, updated)
     urls += sewer_page(out, updated)
     urls += police_page(out, updated)
+    urls += pay_page(out, updated)
     urls += studies_index(out, updated)
 
     # the list the dashboard uses to link each community to its page, and for its "find your community" box
@@ -668,6 +669,11 @@ def _paras(t):
 
 # Every study and report published on the site, newest first: the Studies page (studies/) and the home page list these.
 STUDIES = [
+    {'path': 'studies/what-calgarians-pay/', 'kind': 'Independent study', 'date': 'November 10, 2026',
+     'title': 'What Calgarians pay: the proposed budget, and Calgary against seven Canadian cities',
+     'blurb': 'What the proposed 2027 to 2030 budget would cost a typical Calgary home, and how Calgary’s City property tax and water, '
+              'wastewater and waste bills compare with Edmonton, Vancouver, Toronto, Ottawa, Winnipeg, Saskatoon and Regina. With a calculator for your own bill.',
+     'extra': [('calculator.html', 'Your City bill calculator'), ('what-calgarians-pay.pdf', 'Full study (PDF)')]},
     {'path': 'studies/calgary-police/', 'kind': 'Independent study', 'date': 'November 10, 2026',
      'title': 'Calgary Police: performance, resources and the 2027 to 2030 budget request',
      'blurb': 'How Calgary’s police have performed since 2019 for the resources they have had, compared with five other large Canadian cities, '
@@ -703,7 +709,7 @@ def studies_index(out, updated):
     os.makedirs(os.path.join(out, 'studies'), exist_ok=True)
     with open(os.path.join(out, 'studies', 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page('studies/', 'Studies and reports on Calgary | Calgary Insight',
-                     'In-depth studies of Calgary from public data: police performance and the budget request, ageing sewers, and who Calgary’s 311 hears.',
+                     'In-depth studies of Calgary from public data: what Calgarians pay against other cities, police performance and the budget request, ageing sewers, and who Calgary’s 311 hears.',
                      [('Calgary Insight', ''), ('Studies', 'studies/')], body, ld, updated))
     return ['studies/']
 
@@ -759,6 +765,61 @@ def police_page(out, updated):
     with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page(path, 'Calgary Police: performance, resources and the 2027 to 2030 budget request | Calgary Insight', desc,
                      [('Calgary Insight', ''), ('Studies', 'studies/'), ('Calgary Police study', path)], '\n'.join(body), ld, updated, og_type='article'))
+    return [path, path + 'calculator.html']
+
+
+def pay_page(out, updated):
+    """calgaryinsight.ca/studies/what-calgarians-pay/: what the proposed 2027-2030 budget would cost a typical Calgary home,
+    and Calgary's City tax and utility bills against seven other Canadian cities, with the PDF, interactive version,
+    workbook and household calculator beside it (web/studies/what-calgarians-pay/, copied by build_site)."""
+    here = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'studies', 'what-calgarians-pay', 'spec.json')
+    if not os.path.exists(here):
+        return []
+    with open(here, encoding='utf-8') as f:
+        r = json.load(f)
+    path = 'studies/what-calgarians-pay/'
+    body = ['<p class="kicker">Independent study · Calgary Insight · November 10, 2026</p>',
+            f'<h1>{e(r["title"])}</h1>', f'<p class="lead">{e(r.get("subtitle") or "")}</p>',
+            '<div class="facts"><h2>In short</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r.get('summary') or []) + '</ul></div>',
+            '<div class="study-open"><a class="cta" href="report.html">Read the full study</a> <a class="cta alt" href="calculator.html">Work out your own bill</a>'
+            '<p><a href="what-calgarians-pay.pdf">The full study as a PDF</a> · <a href="what-calgarians-pay-figures.xlsx">Every figure (Excel)</a> · '
+            '<a href="#s1">Read the findings on this page ↓</a></p></div>']
+    for i, sec in enumerate(r.get('sections') or [], 1):
+        body.append(f'<h2 id="s{i}">{i}. {e(sec.get("heading") or "")}</h2>{_paras(sec.get("text"))}')
+        tabs = [v for v in sec.get('visuals') or [] if v.get('type') == 'table']
+        for t in tabs[:1]:
+            body.append(f'<h3>{e(t.get("title") or "")}</h3><div class="wrap"><table><thead><tr>' + ''.join(f'<th>{e(c)}</th>' for c in t['columns'])
+                        + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{e(x)}</td>' for x in row) + '</tr>' for row in t['rows'][:15]) + '</tbody></table></div>')
+    if r.get('conclusion'):
+        body.append('<h2>Conclusion</h2>' + _paras(r['conclusion']))
+    recs = r.get('recommendations') or []
+    if recs:
+        body.append('<h2>Options to consider</h2><ol>' + ''.join(
+            f'<li><b>{e(x.get("title") or "")}</b><br>{e(x.get("detail") or "")}</li>' for x in recs) + '</ol>')
+    ap = r.get('action_plan') or []
+    if ap:
+        body.append('<h2>Next steps</h2><div class="wrap"><table><thead><tr><th>Step</th><th>Who</th><th>How we would know</th></tr></thead><tbody>'
+                    + ''.join(f'<tr><td>{e(x.get("action") or "")}</td><td>{e(x.get("owner") or "")}</td><td>{e(x.get("measure") or "")}</td></tr>' for x in ap) + '</tbody></table></div>')
+    if r.get('method'):
+        body.append('<h2>Method</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r['method']) + '</ul>')
+    if r.get('limitations'):
+        body.append('<h2>Limits</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r['limitations']) + '</ul>')
+    if r.get('data_sources'):
+        body.append('<h2>Data sources</h2><ul>' + ''.join(
+            f'<li><a href="{e(x.get("url") or "")}">{e(x.get("name") or "")}</a>{(", " + e(x["publisher"])) if x.get("publisher") else ""}{(" (" + e(x["period"]) + ")") if x.get("period") else ""}</li>'
+            for x in r['data_sources']) + '</ul>')
+    body += ['<a class="cta" href="calculator.html">Work out your own City bill, 2026 to 2030</a>',
+             '<p><a href="../../?view=budget">The City budget, with the proposed 2027 to 2030 budget</a> · <a href="../">All studies</a> · <a href="../calgary-police/">The Calgary Police study</a></p>',
+             '<p class="note">Independent analysis. Not affiliated with The City of Calgary or any other city. Rates and budgets as published to November 10, 2026. '
+             'Statistics Canada data under the Statistics Canada Open Licence. Corrections and responses: hello@calgaryinsight.ca.</p>']
+    ld = [{'@type': 'Report', 'name': r['title'], 'url': SITE + path, 'description': r.get('subtitle') or '', 'datePublished': '2026-11-10',
+           'spatialCoverage': {'@type': 'City', 'name': 'Calgary'}, 'encoding': [{'@type': 'MediaObject', 'contentUrl': SITE + path + 'what-calgarians-pay.pdf', 'encodingFormat': 'application/pdf'}],
+           'publisher': {'@type': 'Organization', 'name': 'Calgary Insight', 'url': SITE}}]
+    desc = re.sub(r'[*]', '', ' '.join((r.get('summary') or [])[:2]))[:300]
+    os.makedirs(os.path.join(out, path), exist_ok=True)
+    with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(page(path, 'What Calgarians pay: the proposed budget and seven Canadian cities | Calgary Insight', desc,
+                     [('Calgary Insight', ''), ('Studies', 'studies/'), ('What Calgarians pay', path)], '\n'.join(body), ld, updated, og_type='article'))
     return [path, path + 'calculator.html']
 
 

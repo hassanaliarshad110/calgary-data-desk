@@ -1,0 +1,337 @@
+{
+ "rows": [
+  {
+   "city": "Calgary",
+   "value": 706000,
+   "tax_y": 2748,
+   "tax_m": 229.0,
+   "util_m": 139.99,
+   "water_m": 119.21,
+   "waste_m": 20.78,
+   "total_m": 368.99,
+   "income": 98000,
+   "tax_share": 2.8,
+   "all_share": 4.52,
+   "derived": false,
+   "tax_basis": "median single residential property; the City gives $229 a month",
+   "util_note": "water $119.21 (water, wastewater and stormwater at 19 m\u00b3); black, blue and green carts $20.51 per 30 days",
+   "util_est": null
+  },
+  {
+   "city": "Saskatoon",
+   "value": 394200,
+   "tax_y": 2716,
+   "tax_m": 226.33,
+   "util_m": 151.76,
+   "water_m": 128.67,
+   "waste_m": 23.09,
+   "total_m": 378.09,
+   "income": 85000,
+   "tax_share": 3.2,
+   "all_share": 5.34,
+   "derived": true,
+   "tax_basis": "average home assessed at $394,200; City and library levies, $2,716 as compiled in the City of Winnipeg's 2026 Adopted Budget (the City's own figures imply about $2,520 for the City levy alone)",
+   "util_note": "water, wastewater and infrastructure use $91.13, service charge $28.64, storm water $8.90 (2025 rate; 2026 not found); black (240 L), green and blue carts $23.09",
+   "util_est": "stormwater 2025"
+  },
+  {
+   "city": "Winnipeg",
+   "value": 371100,
+   "tax_y": 2581,
+   "tax_m": 215.08,
+   "util_m": 172.97,
+   "water_m": 150.97,
+   "waste_m": 22.0,
+   "total_m": 388.05,
+   "income": 80000,
+   "tax_share": 3.23,
+   "all_share": 5.82,
+   "derived": false,
+   "tax_basis": "the City's sample single-family home assessed at $371,100: municipal tax $2,233 (mill rate 13.372 on 45% of value) plus the street renewal frontage levy, about $348 for a 50-foot lot",
+   "util_note": "water and sewer use $127.30 (land drainage is in the sewer rate), daily basic charge $23.67; waste management fee $66 a quarter (all garbage and recycling)",
+   "util_est": null
+  },
+  {
+   "city": "Regina",
+   "value": 324000,
+   "tax_y": 3089,
+   "tax_m": 257.42,
+   "util_m": 186.13,
+   "water_m": 173.67,
+   "waste_m": 12.46,
+   "total_m": 443.55,
+   "income": 88000,
+   "tax_share": 3.51,
+   "all_share": 6.05,
+   "derived": true,
+   "tax_basis": "average home valued at $324,000; City and library levies, $3,089 as compiled in the City of Winnipeg's 2026 Adopted Budget (the City's 5.81% = $162.72 implies $2,801 for the City levy alone)",
+   "util_note": "water $86.41, sewer $63.85, storm drainage $23.41; daily waste charge for the 240-litre garbage cart $12.46",
+   "util_est": null
+  },
+  {
+   "city": "Toronto",
+   "value": 692140,
+   "tax_y": 4252,
+   "tax_m": 354.33,
+   "util_m": 124.55,
+   "water_m": 92.4,
+   "waste_m": 32.16,
+   "total_m": 478.88,
+   "income": 84000,
+   "tax_share": 5.06,
+   "all_share": 6.84,
+   "derived": false,
+   "tax_basis": "average home (MPAC current value, $692,140) times the 2026 municipal rate 0.605295% plus the City Building Fund 0.009016%",
+   "util_note": "$4.8629 per m\u00b3 for water, wastewater and stormwater, paid on time ($92.40); medium (120 L) garbage bin $385.86 a year",
+   "util_est": null
+  },
+  {
+   "city": "Ottawa",
+   "value": null,
+   "tax_y": 4593,
+   "tax_m": 382.75,
+   "util_m": 130.6,
+   "water_m": 108.35,
+   "waste_m": 22.25,
+   "total_m": 513.35,
+   "income": 102000,
+   "tax_share": 4.5,
+   "all_share": 6.04,
+   "derived": true,
+   "tax_basis": "average urban home; derived from the City's figure that the 3.75% increase adds $166 a year",
+   "util_note": "use $60.16, fixed water, wastewater and fire supply $27.11, stormwater $21.08; curbside solid waste fee $267 a year",
+   "util_est": null
+  },
+  {
+   "city": "Edmonton",
+   "value": 492500,
+   "tax_y": 3813,
+   "tax_m": 317.75,
+   "util_m": 203.71,
+   "water_m": 161.08,
+   "waste_m": 42.63,
+   "total_m": 521.46,
+   "income": 90000,
+   "tax_share": 4.24,
+   "all_share": 6.95,
+   "derived": false,
+   "tax_basis": "typical household assessed at the median, $492,500; $64.52 a month per $100,000",
+   "util_note": "water $69.31, wastewater treatment $31.64, sanitary sewer $35.21, stormwater about $24.92 (estimate: 557 m\u00b2 lot, runoff 0.45); 240-litre garbage cart $42.63",
+   "util_est": "stormwater"
+  },
+  {
+   "city": "Vancouver",
+   "value": 2093000,
+   "tax_y": 4048,
+   "tax_m": 337.33,
+   "util_m": 211.67,
+   "water_m": null,
+   "waste_m": null,
+   "total_m": 549.0,
+   "income": 82000,
+   "tax_share": 4.94,
+   "all_share": 8.03,
+   "derived": false,
+   "tax_basis": "median single-family home assessed at $2,093,000; general purpose levy at 1.93406 per $1,000 (the median strata unit, $770,000, pays $1,489)",
+   "util_note": "flat fees for water, sewer and solid waste for the median single-family home, $2,540 a year (the City's $6,588 for City taxes and utility fees less the $4,048 levy); not tied to use. Metro Vancouver bills part of water and sewer costs separately",
+   "util_est": null
+  }
+ ],
+ "calgary_path": {
+  "2026": {
+   "tax": 229,
+   "water": 119.21,
+   "waste": 20.78,
+   "total": 368.99
+  },
+  "2027": {
+   "tax": 266,
+   "water": 133.71,
+   "waste": 22.289999999999992,
+   "total": 422.0
+  },
+  "2028": {
+   "tax": 292.6,
+   "water": 154.78536820826557,
+   "waste": 22.289999999999992,
+   "total": 469.6753682082656
+  },
+  "2029": {
+   "tax": 315.1302,
+   "water": 179.1826356395808,
+   "waste": 22.289999999999992,
+   "total": 516.6028356395808
+  },
+  "2030": {
+   "tax": 334.03801200000004,
+   "water": 207.42540000000002,
+   "waste": 22.289999999999992,
+   "total": 563.753412
+  }
+ },
+ "next": {
+  "Calgary": {
+   "tax_pct": 15.0,
+   "tax_m": 266,
+   "util_m": 156,
+   "status": "proposed (City)",
+   "src": "cgy_budget"
+  },
+  "Edmonton": {
+   "tax_pct": 4.9,
+   "tax_m": 335.39,
+   "util_m": null,
+   "status": "proposed",
+   "src": "edm_2027"
+  },
+  "Regina": {
+   "tax_pct": 5.81,
+   "tax_m": 271.935775,
+   "util_pct": 10.27,
+   "status": "proposed",
+   "src": "rg_2027",
+   "util_m": 203.96726252
+  },
+  "Saskatoon": {
+   "tax_pct": 5.8,
+   "tax_m": 238.51333333333335,
+   "util_m": null,
+   "status": "approved in the 2026/27 budget",
+   "src": "sk_wrap"
+  },
+  "Winnipeg": {
+   "tax_pct": 3.5,
+   "util_m": 180.16666666666669,
+   "status": "water and sewer rates approved; 3.5% tax planned in the multi-year budget",
+   "src": "wpg_water",
+   "tax_m": 221.59624999999997
+  }
+ },
+ "use_m3": 19,
+ "sources": {
+  "cgy_budget": [
+   "The City of Calgary, 2027 Budget: financial impact on Calgarians (Nov. 10, 2026)",
+   "https://www.calgary.ca/our-finances/2027-budget.html"
+  ],
+  "cgy_water": [
+   "The City of Calgary, 2026 and 2027 water rates",
+   "https://www.calgary.ca/water/water-utility/2027-water-rates-and-billing.html"
+  ],
+  "cgy_waste": [
+   "The City of Calgary, residential waste rates (2026)",
+   "https://www.calgary.ca/waste/residential/rates.html"
+  ],
+  "cgy_survey": [
+   "The City of Calgary, Residential Property Taxes and Utility Charges Survey 2023",
+   "https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/other-reports/Residential-Property-Taxes-and-Utility-Charges-Survey-2023.pdf"
+  ],
+  "cgy_news": [
+   "LiveWire Calgary, budget breakdown (Nov. 10, 2026), for 2028 to 2030 tax increases",
+   "https://livewirecalgary.com/2026/11/10/calgary-four-year-budget-breakdown-money-spent/"
+  ],
+  "cgy_water4": [
+   "CTV News, typical Calgary water bill could rise nearly 74% by 2030",
+   "https://www.ctvnews.ca/calgary/article/typical-calgary-water-bill-could-rise-nearly-74-by-2030/"
+  ],
+  "edm_2026": [
+   "City of Edmonton, 2026 Budget Highlights and Where your taxes go",
+   "https://www.edmonton.ca/city_government/budget_finances/where-taxes-go"
+  ],
+  "edm_2027": [
+   "CBC News, proposed Edmonton operating budget (Nov. 2026)",
+   "https://www.cbc.ca/news/canada/edmonton/proposed-edmonton-operating-budget-calls-for-property-tax-hikes-between-3-9-and-4-9-9.7406008"
+  ],
+  "edm_water": [
+   "EPCOR, Edmonton water and wastewater rates (April 1, 2026)",
+   "https://www.epcor.com/ca/en/ab/edmonton/account/rates/current-and-historical-rates/water-and-wastewater.html"
+  ],
+  "edm_waste": [
+   "City of Edmonton, monthly waste utility rates (January 1, 2026)",
+   "https://www.edmonton.ca/programs_services/garbage_waste/rates-fees"
+  ],
+  "tor_rates": [
+   "City of Toronto, 2026 property tax rates; 2026 Budget final (average home $692,140)",
+   "https://www.toronto.ca/services-payments/property-taxes-utilities/property-tax/property-tax-rates-and-fees/"
+  ],
+  "tor_water": [
+   "City of Toronto, 2026 water and solid waste rates report",
+   "https://www.toronto.ca/legdocs/mmis/2025/ex/bgrd/backgroundfile-260473.pdf"
+  ],
+  "tor_waste": [
+   "City of Toronto, garbage bin sizes and fees (2026)",
+   "https://www.toronto.ca/services-payments/recycling-organics-garbage/houses/garbage-bin-sizes-fees/"
+  ],
+  "ott_budget": [
+   "City of Ottawa news release, Council approves 2026 Budget (Dec. 10, 2025), as republished",
+   "https://unpublished.ca/news-feed-item/2025-12-10/council-approves-ottawa%E2%80%99s-2026-budget"
+  ],
+  "ott_water": [
+   "City of Ottawa, water utility rates (April 1, 2026)",
+   "https://ottawa.ca/en/living-ottawa/water-utility-bills/rates-and-fees/water-utility-rates"
+  ],
+  "ott_tax": [
+   "City of Ottawa, 2026 final property taxes (solid waste fee)",
+   "https://documents.ottawa.ca/sites/default/files/26-048_Ottawa_Property-taxes_E-print_EN.pdf"
+  ],
+  "van_tax": [
+   "City of Vancouver, 2026 property taxation report to Council, Appendix B (May 5, 2026)",
+   "https://council.vancouver.ca/20260505/documents/r2.pdf"
+  ],
+  "wpg_compare": [
+   "City of Winnipeg, 2026 Adopted Budget, page 44: 2026 municipal residential property tax bill across Canada",
+   "https://www.winnipeg.ca/media/6207"
+  ],
+  "wpg_tax": [
+   "City of Winnipeg, 2026 taxation statistics (sample home)",
+   "https://assessment.winnipeg.ca/Asmttax/pdfs/Statistics/ShortFormTaxationSection2026.pdf"
+  ],
+  "wpg_water": [
+   "City of Winnipeg, 2026 and 2027 water and sewer volume rates",
+   "https://dmis.winnipeg.ca/DownloadMeetingDocument/786158/1.%202026%20and%202027%20Water%20and%20Sewer%20Volume%20Rates.pdf"
+  ],
+  "wpg_front": [
+   "City of Winnipeg, frontage levies (street renewal)",
+   "https://assessment.winnipeg.ca/AsmtTax/English/Property/FrontLevies.stm"
+  ],
+  "wpg_waste": [
+   "City of Winnipeg, 2025 to 2027 solid waste utility plan (waste management fee)",
+   "https://www.winnipeg.ca/news/2025-03-04-public-service-present-2025-2027-revised-sewer-volume-rates-and-solid-waste-utility-financial-plan"
+  ],
+  "sk_guide": [
+   "City of Saskatoon, 2026 guide to property tax (City 62%, library 6%, education 32%)",
+   "https://www.saskatoon.ca/sites/default/files/media/documents/2026-Guide%20to%20tax-web%20FINAL.pdf"
+  ],
+  "sk_budget": [
+   "City of Saskatoon, 2026/2027 budget presentation (Nov. 6, 2025)",
+   "https://www.saskatoon.ca/sites/default/files/documents/community-services/planning-development/research/miscellaneous/CITY%20OF%20SASKATOON%20PRELIMINARY%202026%202027%20BUDGET%20CFO%20MEDIA%20PRESENTATION%20NOV%206%202025R.pdf"
+  ],
+  "sk_wrap": [
+   "Greater Saskatoon Chamber of Commerce, 2026/27 civic budget wrap-up (6.7% and 5.8%)",
+   "https://saskatoonchamber.com/saskatoon-civic-budget-2026-2027-wrap-up/"
+  ],
+  "sk_water": [
+   "City of Saskatoon, 2026 water and wastewater utility rates",
+   "https://www.saskatoon.ca/sites/default/files/2026%20Monthly%20Water%20Wastewater%20Utility%20Rates_0.pdf"
+  ],
+  "sk_storm": [
+   "City of Saskatoon, Storm Water Utility 2025 annual report",
+   "https://www.saskatoon.ca/sites/default/files/media/documents/Storm%20Water%20Utility%202025%20Annual%20Report.pdf"
+  ],
+  "sk_waste": [
+   "City of Saskatoon, 2026 rates and fees",
+   "https://www.saskatoon.ca/news-releases/city-saskatoon-2026-rates-and-fees-effective-january-1-2026"
+  ],
+  "rg_rates": [
+   "City of Regina, utility rates (2026)",
+   "https://www.regina.ca/home-property/water/utility-account/rates/"
+  ],
+  "rg_2027": [
+   "CBC News, Regina proposed 2027 budget (Nov. 2026)",
+   "https://www.cbc.ca/news/canada/saskatchewan/regina-2027-budget-proposal-9.7410732"
+  ],
+  "census": [
+   "Statistics Canada, 2021 Census, median household total income in 2020 (table 98-10-0057)",
+   "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810005701"
+  ]
+ }
+}

@@ -236,11 +236,13 @@ def render(spec, provenance=None, meta=None, interactive=False, printable=False)
         def rec_row(i, r):
             ev = f'<br><span class="ev">Based on: {e(r["evidence"])}</span>' if r.get('evidence') else ''
             pri = str(r.get('priority') or '')
+            cell = f'<td class="pr"><span class="pri {e(pri.lower())}">{e(pri.capitalize())}</span></td>' if has_pri else ''
             return (f'<tr><td class="no">{i}</td><td><b>{e(r.get("title"))}</b><br>{_inline(r.get("detail") or "")}{ev}</td>'
-                    f'<td><span class="pri {e(pri.lower())}">{e(pri.capitalize())}</span></td></tr>')
+                    f'{cell}</tr>')
+        has_pri = any(r.get('priority') for r in recs)
         rows = ''.join(rec_row(i, r) for i, r in enumerate(recs, 1))
         parts.append(f'<section><h2>Options to consider</h2><div class="tbl"><table class="recs"><thead><tr><th></th><th>Option</th>'
-                     f'<th>Priority</th></tr></thead><tbody>{rows}</tbody></table></div></section>')
+                     f'{"<th>Priority</th>" if has_pri else ""}</tr></thead><tbody>{rows}</tbody></table></div></section>')
     plan = [a for a in spec.get('action_plan') or [] if isinstance(a, dict)]
     if plan:
         rows = ''.join(f'<tr><td>{_inline(a.get("action") or "")}</td><td>{e(a.get("owner"))}</td>'
@@ -434,8 +436,9 @@ def workbook_sheets(spec, provenance, meta):
                                [[p.get('label'), p.get('lat'), p.get('lon'), p.get('value')] for p in pts]))
     recs = [r for r in spec.get('recommendations') or [] if isinstance(r, dict)]
     if recs:
-        sheets.append(('Recommendations', [['#', 'Recommendation', 'Detail', 'Based on', 'Priority']] +
-                       [[i, r.get('title'), r.get('detail'), r.get('evidence'), r.get('priority')] for i, r in enumerate(recs, 1)]))
+        hp = any(r.get('priority') for r in recs)
+        sheets.append(('Recommendations', [['#', 'Recommendation', 'Detail', 'Based on'] + (['Priority'] if hp else [])] +
+                       [[i, r.get('title'), r.get('detail'), r.get('evidence')] + ([r.get('priority')] if hp else []) for i, r in enumerate(recs, 1)]))
     plan = [a for a in spec.get('action_plan') or [] if isinstance(a, dict)]
     if plan:
         sheets.append(('Action plan', [['Action', 'Who', 'How we will know']] +
@@ -528,7 +531,7 @@ th:first-child { border-radius: 6px 0 0 6px; } th:last-child { border-radius: 0 
 td { border-bottom: 1px solid #F3F4F6; padding: 6px 8px; vertical-align: top; }
 tbody tr:nth-child(even) td { background: #FAFAFA; }
 .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; } td.no { color: #9CA3AF; width: 22px; }
-.recs td:last-child { width: 80px; } .ev { color: #6B7280; font-size: 8.3pt; }
+.recs td.pr { width: 80px; } .ev { color: #6B7280; font-size: 8.3pt; }
 .pri { font-size: 8pt; font-weight: 700; padding: 2px 8px; border-radius: 9px; background: #F3F4F6; color: #4B5563; }
 .pri.high { background: #FEE2E2; color: #991B1B; } .pri.medium { background: #FEF3C7; color: #92400E; } .pri.low { background: #DCFCE7; color: #166534; }
 .small { font-size: 9.5pt; color: #374151; } .small h2 { font-size: 12pt; }

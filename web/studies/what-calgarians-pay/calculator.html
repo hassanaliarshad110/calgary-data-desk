@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en-CA"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your City bill calculator · Calgary Insight</title>
+<meta name="description" content="Enter your Calgary home's assessed value and water use to see your City property tax and water, wastewater, stormwater and waste bill in 2026, under the proposed 2027 budget, and to 2030.">
+<link rel="canonical" href="https://calgaryinsight.ca/studies/what-calgarians-pay/calculator.html">
+<link rel="icon" href="../../logo.svg">
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--fg:#14202e;--mute:#5b6676;--line:#dde2ea;--accent:#0b6bb5;--warn:#9a5b00;--warnbg:#fff6e6;--good:#17803d;--bad:#b42318;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1420;--card:#141d2b;--fg:#e8edf4;--mute:#9aa6b8;--line:#263246;--accent:#5fb0f0;--warn:#f0b35a;--warnbg:#2a2214;--good:#5cc77e;--bad:#f07a6e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1420;--card:#141d2b;--fg:#e8edf4;--mute:#9aa6b8;--line:#263246;--accent:#5fb0f0;--warn:#f0b35a;--warnbg:#2a2214;--good:#5cc77e;--bad:#f07a6e;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
+a{color:var(--accent)}
+.kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 6px}
+h1{font-size:clamp(1.6rem,4.5vw,2.3rem);line-height:1.15;margin:0 0 8px;text-wrap:balance}
+.lead{color:var(--mute);margin:0 0 20px;max-width:68ch}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;min-width:0}
+.card h2{font-size:1.05rem;margin:0 0 12px}
+label{display:block;font-weight:600;margin:14px 0 4px}
+label:first-of-type{margin-top:0}
+.row{display:flex;gap:10px;align-items:center}
+input[type=range]{flex:1;min-width:0;accent-color:var(--accent)}
+output{min-width:6.5ch;text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.hint{font-size:.85rem;color:var(--mute);margin:2px 0 0}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+button{font:inherit;font-size:.88rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}
+dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px}
+dt{color:var(--mute)} dd{margin:0;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.big{font-size:1.5rem}
+
+.crime .band{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;margin:10px 0 0}
+.down{color:var(--good)} .up{color:var(--bad)}
+.warn{background:var(--warnbg);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:8px;padding:12px 14px;margin-top:16px;font-size:.92rem}
+.warn b{color:var(--warn)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+.scroll{overflow-x:auto}
+footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+input[type=number]{font:inherit;width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+.est{color:var(--mute);font-weight:400;font-size:.8rem}
+tr.tot td{font-weight:700}
+</style>
+<body><div class="wrap">
+<p class="kicker"><a href="./">What Calgarians pay</a> · Calculator</p>
+<h1>Your City bill, 2026 to 2030</h1>
+<p class="lead">Enter your home's 2026 assessed value and how much water you use. The calculator shows your City property tax and your water, wastewater, stormwater and waste bill in 2026, under the proposed 2027 budget, and an estimate to 2030. Provincial school tax is not included.</p>
+<div class="grid">
+<section class="card" aria-labelledby="in"><h2 id="in">Your home</h2>
+<label for="val">2026 assessed value</label><input id="val" type="number" min="50000" max="20000000" step="1000" value="706000">
+<p class="hint">On your 2026 property tax notice. The median single residential property is $706,000.</p>
+<label for="chg">Your 2027 assessment change</label><div class="row"><input id="chg" type="range" min="-15" max="15" step="any"><output id="chgO"></output></div>
+<p class="hint">The median fell from $706,000 to $688,000 (-2.55%). Use the change on your 2027 assessment notice when it arrives.</p>
+<label for="use">Water use a month</label><div class="row"><input id="use" type="range" min="0" max="60" step="1"><output id="useO"></output></div>
+<p class="hint">The City's typical customer uses 19 cubic metres (19,000 litres) a month; your water bill shows yours.</p>
+<label for="waste">Waste carts</label><select id="waste"><option value="1" selected>Black, blue and green carts ($20.51 per 30 days)</option><option value="0">No City waste carts (most apartments and many condos)</option></select>
+<div class="btns"><button type="button" id="reset">Back to the typical home</button></div>
+</section>
+<section class="card" aria-labelledby="out"><h2 id="out">Your City bill</h2>
+<dl><dt>2026, a month</dt><dd class="big" id="m26"></dd><dt>2027 proposed, a month</dt><dd class="big" id="m27"></dd><dt>Change in 2027</dt><dd id="d27"></dd><dt>2030 estimate, a month</dt><dd id="m30"></dd><dt>2030 against 2026, a year</dt><dd id="d30"></dd></dl>
+</section></div>
+<section class="card" style="margin-top:16px" aria-labelledby="yy"><h2 id="yy">Year by year, a month</h2><div class="scroll"><table id="tbl"></table></div>
+<p class="hint">2026 and 2027 use the City's tax rate and water rates. <span class="est">2028 to 2030 are estimates</span>: the property tax increases reported in the news (10%, 7.7%, 6%) and the water bill rising 74% above 2026 by 2030, spread evenly; waste held at 2027. They assume your assessment moves with the typical home after 2027.</p></section>
+<div class="warn"><b>How this is worked out.</b> 2026 City tax: your assessed value times the 2026 municipal residential rate (0.0038906). 2027: your 2027 value times the rate that gives the City's own 2027 figure for the median home ($266 a month on $688,000), an estimate until Council sets the 2027 tax rate in spring 2027. Water: the City's 2026 and 2027 rates for a 15 mm meter; wastewater is charged on 88% of the water you use. Figures change if Council amends the budget.</div>
+<footer>Part of <a href="./">What Calgarians pay</a>, an independent study by Calgary Insight. Sources: The City of Calgary, 2027 Budget, 2026 and 2027 water rates, residential waste rates, 2026 property tax bylaw.</footer>
+</div>
+<script>
+const $=s=>document.querySelector(s), fm=(x,d=0)=>'$'+x.toLocaleString('en-CA',{minimumFractionDigits:d,maximumFractionDigits:d});
+const R26=0.0038906, R27=266*12/688000, PATH=[1.10,1.077,1.06], G=Math.pow(119.21*1.74/133.71,1/3);
+function water(u,y){ return y===2026 ? 1.7409*u+13.83 + 1.9050*u*0.88+23.45 + 17.00 : 1.9903*u+13.83 + 2.4292*u*0.88+23.45 + 17.99; }
+function calc(){
+  const v=Math.max(0,+$('#val').value||0), c=+$('#chg').value, u=+$('#use').value, w=+$('#waste').value;
+  $('#chgO').textContent=(c>0?'+':'')+(Math.round(c*10)/10)+'%'; $('#useO').textContent=u+' m³';
+  const yrs=[2026,2027,2028,2029,2030], rows={};
+  let tax=v*R26/12; rows[2026]={tax,water:water(u,2026),waste:w?20.51*30.4/30:0};
+  tax=v*(1+c/100)*R27/12; rows[2027]={tax,water:water(u,2027),waste:w?22.29:0};
+  let wt=rows[2027].water;
+  PATH.forEach((p,i)=>{ tax*=p; wt*=G; rows[2028+i]={tax,water:wt,waste:rows[2027].waste}; });
+  yrs.forEach(y=>rows[y].total=rows[y].tax+rows[y].water+rows[y].waste);
+  $('#m26').textContent=fm(rows[2026].total); $('#m27').textContent=fm(rows[2027].total);
+  const d=rows[2027].total-rows[2026].total; $('#d27').textContent=(d>=0?'+':'-')+fm(Math.abs(d))+' a month';
+  $('#m30').textContent=fm(rows[2030].total); $('#d30').textContent='+'+fm((rows[2030].total-rows[2026].total)*12);
+  const L=[['City property tax','tax'],['Water, wastewater and stormwater','water'],['Waste carts','waste'],['Total','total']];
+  $('#tbl').innerHTML='<thead><tr><th scope="col">Each month</th>'+yrs.map(y=>'<th scope="col">'+y+(y>2027?' <span class="est">est.</span>':'')+'</th>').join('')+'</tr></thead><tbody>'+L.map(([n,k])=>'<tr'+(k==='total'?' class="tot"':'')+'><td>'+n+'</td>'+yrs.map(y=>'<td>'+fm(rows[y][k],k==='total'?0:2)+'</td>').join('')+'</tr>').join('')+'</tbody>';
+}
+function reset(){ $('#val').value=706000; $('#chg').value=-2.5496; $('#use').value=19; $('#waste').value='1'; calc(); }
+['#val','#chg','#use','#waste'].forEach(s=>$(s).addEventListener('input',calc)); $('#reset').addEventListener('click',reset); reset();
+</script></body></html>

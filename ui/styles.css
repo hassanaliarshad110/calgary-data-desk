@@ -2479,3 +2479,4 @@ html.topnav .side.open .nav-g.has-on .nav-gt { box-shadow: none; }
 @media (max-width: 900px) { .bud-plan-grid { grid-template-columns: 1fr; } .bud-path { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 .budget-new { margin: 0 0 var(--gap); }
+.studies-row { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
