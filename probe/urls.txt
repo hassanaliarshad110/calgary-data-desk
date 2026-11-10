@@ -1,4 +1,3 @@
-maple.png https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_205540_087e09c0-7cd1-4e3f-98f9-0ea9099f10e4.png
-spruce.png https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_205539_71c7f893-aeca-4616-bd48-924c2e9820a4.png
-birch.png https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_205539_619c0b7e-7412-4f09-9f02-058d1942bdd2.png
-mountains.png https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_205539_1d418d89-6a4f-4b0c-81d1-1bdf208af6d4.png
+tree_maple https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_205848_1d732ced-b4d3-4f8f-bd17-ad9107ff2c22.glb 512
+tree_spruce https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_205852_c02b74f8-8269-4b99-be58-24bdbf284481.glb 512
+tree_birch https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_205855_6913ce22-953b-4fab-9e0d-c34656afc597.glb 512
