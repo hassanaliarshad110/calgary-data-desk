@@ -1,0 +1,16 @@
+name: Narration 12
+on: {push: {branches: [site-check-12]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: |
+          mkdir -p out
+          python tts.py out > out/log.txt 2>&1 || true
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -b fetched-12
+          git add -f out && git commit -qm "Narration" && git push -f origin fetched-12
