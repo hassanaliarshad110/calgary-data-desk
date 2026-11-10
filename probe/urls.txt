@@ -1,11 +1,20 @@
-cityhall https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_090547_72ab9391-a8e7-486d-b0d2-25baf57ec1f7.glb 2048
-house_2storey https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091333_5d8589c5-8909-48aa-bfa9-f7df555caf93.glb
-house_bungalow https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091336_56ab3a8d-41b6-4d0b-8818-938580b5371a.glb
-house_infill https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091337_0cbc9734-ce28-46ae-91bf-220b692049e8.glb
-house_split https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091339_1e1f00ab-5002-4c3a-8a92-daf664524537.glb
-house_townrow https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091353_ac9eb2d7-03cf-42e8-b755-f9d860d0839b.glb
-house_porch https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091355_013f939e-a642-458d-bd12-20dd7ea6242f.glb
-clip_idle https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091401_29100349-b09f-4ba4-a1b4-18c6280ca1ef.glb 256
-clip_run https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091403_86b85bdf-ccfb-49f6-85aa-4ecfea8c0cf7.glb 256
-clip_talk https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091406_8b277f37-e8c1-4b3c-acbd-686ce328ecec.glb 256
-clip_wave https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091408_0f43e16a-4cd8-4f12-8d90-2a7dabe02b33.glb 256
+natalia https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091303_fd3f2886-6d81-4095-93d1-bf8cc5725e52.glb 1024
+chris https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091706_96397fd6-30eb-4c13-834d-a004fe1cfd2f.glb 1024
+jean https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091707_ba7bb561-3d73-4287-972d-3d0144466269.glb 1024
+leo https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091709_3a925e8c-d853-463a-8479-4f3df9166ad9.glb 1024
+sofia https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091710_700bac1a-b606-45d3-a264-b47252f68f6c.glb 1024
+npc_suit https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091712_7e005dfa-e7ce-464e-b4dd-2677605acf77.glb 512 0.3
+npc_dress https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091737_d6933d74-96e5-465b-a20d-bd88b4cb2aae.glb 512 0.3
+npc_cowboy https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091739_5b47bbe8-ddb8-4beb-a839-6d89e39c5399.glb 512 0.3
+npc_sikh https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091740_1b21c78d-ba88-41c9-b4d8-004f18a5af68.glb 512 0.3
+npc_hijab https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091741_56c87206-b530-4cad-9d2d-6106c8e29069.glb 512 0.3
+npc_teen https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091743_346f5fd1-bee1-4e75-af81-9135cc200e81.glb 512 0.3
+clip_dance https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091410_315f98bc-9e68-4da4-9ea6-4e8c0cd1210e.glb 256
+clip_sit https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091412_bf70c94a-9720-466f-a525-639c71b2f83c.glb 256
+lod_house_2storey https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091333_5d8589c5-8909-48aa-bfa9-f7df555caf93.glb 512 0.15
+lod_house_bungalow https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091336_56ab3a8d-41b6-4d0b-8818-938580b5371a.glb 512 0.15
+lod_house_infill https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091337_0cbc9734-ce28-46ae-91bf-220b692049e8.glb 512 0.15
+lod_house_split https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091339_1e1f00ab-5002-4c3a-8a92-daf664524537.glb 512 0.15
+lod_house_townrow https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091353_ac9eb2d7-03cf-42e8-b755-f9d860d0839b.glb 512 0.15
+lod_house_porch https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_091355_013f939e-a642-458d-bd12-20dd7ea6242f.glb 512 0.15
+lod_cityhall https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_090547_72ab9391-a8e7-486d-b0d2-25baf57ec1f7.glb 512 0.1
