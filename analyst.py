@@ -108,6 +108,16 @@ TOPICS = [
      'York, Denver and airline stopovers, each with its result and what would or would not carry over. Then the options, '
      'with who would act, cost, the visitors and spending each could add under stated low, middle and high assumptions, '
      'and the trade-offs (crowding in Banff, housing and short-term rentals). Cite every figure\'s source.'),
+    ('police', 'Calgary Police: performance, resources and the budget request',
+     'How the police have performed for the resources they have had, against five other cities, and the 2027 to 2030 request.', 'Safety',
+     'Start from the published study (get_dashboard section police_study, part summary, then sections): crime severity, the violent '
+     'crime rate and clearance for Calgary against Edmonton, Vancouver, Winnipeg, Ottawa and Toronto since 2019; officers and civilian '
+     'staff per resident; spending per resident after inflation, overtime against budget and the loss of fine revenue; calls, response '
+     'times (and what is not published), public confidence; the 2027 to 2030 request item by item and the three scenarios; what research '
+     'says about officers and crime, as an illustration only; and safety across Calgary. Then for {area}: crime per 1,000 residents and '
+     'its trend by community (get_dashboard section crime) against Calgary. Answer the five questions as the evidence allows, recognise '
+     'achievements plainly, state every limit, never claim more officers automatically mean less crime, and take no side on the budget '
+     'decision. Cite every figure\'s source.'),
     ('school_tax', 'School tax paid and school money received',
      'What Calgary pays the province for schools against what comes back, set beside Edmonton and the rest of Alberta.', 'Families',
      'The education property tax Calgary pays the province (the requisition) each year since 2020 and its share of Alberta\'s '

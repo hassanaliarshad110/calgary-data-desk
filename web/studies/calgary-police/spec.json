@@ -1,0 +1,1798 @@
+{
+ "title": "Calgary Police: performance, resources and the 2027 to 2030 budget request",
+ "subtitle": "How Calgary's police have performed since 2019 for the resources they have had, how that compares with five other large Canadian cities, and what the evidence says about the request for 309 more officers",
+ "question": "Has the Calgary Police Service performed well relative to its resources, and does its record, workload and the city's growth support the resources it has asked for in 2027 to 2030?",
+ "summary": [
+  "Calgary's crime severity fell **35%** from 2019 to 2025, the largest fall of six large city police services; in 2025 it solved the highest share of crime of the six (**35.1%**, weighted by seriousness).",
+  "It did so with the second fewest officers per resident (**145** per 100,000) and the fewest civilian staff per resident of the six; officers grew 7% while the population grew 18%.",
+  "Spending per resident fell about **7%** after inflation from 2021 to 2025; overtime ran at about twice its budget, and $48M of 2026's tax increase replaces lost fine revenue.",
+  "Pressure is rising: violent incidents grew +18% with the population (the rate was level), about 19% of officers were on leave or modified duty in 2025, and public confidence fell.",
+  "Priority 1 response time worsened from 7.8 minutes (2020) to **9.5** (2022), against an 8-minute target, and has **not been published since**.",
+  "The request would return officers per resident to about the 2021 level (about **155** per 100,000) for about 12% more per resident by 2030; it sets few measurable outcome targets.",
+  "Overall the evidence fits “strong performance, but increasing operational pressure”; it cannot settle whether the full request is the right size, because the key measures of need are not public."
+ ],
+ "sections": [
+  {
+   "heading": "What this study asks, and how it answers",
+   "text": "The Calgary Police Service has asked for 309 more officers and 214.5 more civilian staff by 2030, and for its yearly operating budget to rise from **$684.5M** in 2026 to **$816.7M** in 2030. Council considers the 2027 to 2030 budget from November 23, 2026.\n\nThis study looks at two questions with the same care. Has the Service performed well for the resources it has had? And does the evidence support the resources it now asks for? It does not assume the Service is underfunded, or adequately funded, or that more spending means less crime.\n\nIt uses only published data: Statistics Canada's police statistics for Calgary and five other large city police services (Edmonton, Vancouver, Winnipeg, Ottawa and Toronto), the Service's annual and quarterly reports, the Calgary Police Commission's reports, the 2027 to 2030 budget plan, the budgets of the other five services, and the Service's community crime file. Where a figure has not been published, the study says so rather than estimate it. No single measure is used to rank police services.\n\nA note on years: Statistics Canada's figures run to 2025. Its police staffing survey has no figures for 2020 or 2024. 2020 was a pandemic year, when crime patterns were unusual, so most comparisons start from 2019."
+  },
+  {
+   "heading": "Crime: less severe, but not less frequent",
+   "text": "Statistics Canada's Crime Severity Index weighs every police-reported crime by how serious it is, per resident. By that measure Calgary's crime fell **35%** from 2019 to 2025, from 96.5 to 62.9: the largest fall of the six cities. Violent crime severity fell **20%**. In 2025 Calgary's index was the third lowest of the six, after Ottawa and Toronto.\n\nSeverity is not the same as volume. The violent crime rate, which counts incidents without weighing them, was **1,076** per 100,000 residents in 2019 and **1,047** in 2025: about level. Because the city grew, the number of violent incidents rose from 14,302 to 16,882 (+18%). The Service's own reports, which count violent crime by victim, show the same direction: 12,699 victims in 2020 and 16,973 in 2025. The severity index fell faster than the count because the most serious crimes fell: homicides went from 34 in 2020 to 15 in 2025.\n\nBoth statements are true at once: crime in Calgary became markedly less severe per resident, while the number of violent incidents grew with the population. Police-reported crime is also not the same as all crime: it depends on what people report.",
+   "visuals": [
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Crime Severity Index, 2019 to 2025 (lower is less crime)",
+     "labels": [
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "series": [
+      {
+       "name": "Calgary",
+       "values": [
+        96.48,
+        82.11,
+        75.05,
+        80.12,
+        74.28,
+        64.28,
+        62.94
+       ]
+      },
+      {
+       "name": "Edmonton",
+       "values": [
+        129.69,
+        116.62,
+        106.46,
+        112.49,
+        114.91,
+        111.11,
+        103.86
+       ]
+      },
+      {
+       "name": "Vancouver",
+       "values": [
+        110.13,
+        104.08,
+        92.19,
+        91.64,
+        96.94,
+        93.94,
+        89.28
+       ]
+      },
+      {
+       "name": "Winnipeg",
+       "values": [
+        138.45,
+        122.18,
+        119.93,
+        144.16,
+        136.83,
+        131.81,
+        119.29
+       ]
+      },
+      {
+       "name": "Ottawa",
+       "values": [
+        58.34,
+        47.96,
+        48.48,
+        54.15,
+        55.8,
+        55.97,
+        52.23
+       ]
+      },
+      {
+       "name": "Toronto",
+       "values": [
+        68.76,
+        58.55,
+        56.99,
+        62.15,
+        69.49,
+        68.62,
+        59.98
+       ]
+      }
+     ],
+     "unit": "index (Canada 2006 = 100)",
+     "source": "Statistics Canada, table 35-10-0190 and others"
+    },
+    {
+     "type": "table",
+     "title": "Change in crime severity, 2019 to 2025",
+     "columns": [
+      "Police service",
+      "Crime severity 2019",
+      "2025",
+      "Change",
+      "Violent severity change",
+      "Violent crimes per 100,000, 2025"
+     ],
+     "rows": [
+      [
+       "Calgary",
+       "96.5",
+       "62.9",
+       "-35%",
+       "-20%",
+       "1,047"
+      ],
+      [
+       "Edmonton",
+       "129.7",
+       "103.9",
+       "-20%",
+       "-2%",
+       "1,385"
+      ],
+      [
+       "Vancouver",
+       "110.1",
+       "89.3",
+       "-19%",
+       "+3%",
+       "1,165"
+      ],
+      [
+       "Winnipeg",
+       "138.4",
+       "119.3",
+       "-14%",
+       "-3%",
+       "1,711"
+      ],
+      [
+       "Toronto",
+       "68.8",
+       "60.0",
+       "-13%",
+       "-24%",
+       "1,158"
+      ],
+      [
+       "Ottawa",
+       "58.3",
+       "52.2",
+       "-10%",
+       "-12%",
+       "806"
+      ]
+     ]
+    },
+    {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Calgary: violent incidents and the violent crime rate",
+     "labels": [
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "series": [
+      {
+       "name": "Violent incidents",
+       "values": [
+        14302.0,
+        12786.0,
+        14209.0,
+        13878.0,
+        15919.0,
+        16490.0,
+        16882.0
+       ]
+      }
+     ],
+     "unit": "incidents",
+     "source": "Statistics Canada, table 35-10-0183"
+    }
+   ]
+  },
+  {
+   "heading": "Solving crime: from below average to the highest of the six",
+   "text": "The weighted clearance rate is the share of crimes solved (a suspect identified, with enough evidence to lay a charge), weighted towards serious crimes. Calgary's rose from **26.6%** in 2019 to **35.1%** in 2025, the largest gain of the six, and in 2025 it was the highest of the six. For violent crime it rose from 42.5% to 51.2%, second only to Toronto (53.2%).\n\nThis is a measurable achievement, not a statement from police leadership. A clearance rate can also rise when fewer crimes are reported, or when the mix of crime shifts towards kinds that are easier to solve; the published data cannot separate these effects.\n\nClearance differs sharply by kind of crime. The Service's quarterly report for the first half of 2025 shows 57.7% of violent crime victims' cases cleared and 13.6% of property crimes (8.2% of vehicle thefts). Clearance figures for recent periods rise later, as cases are solved months or years afterwards.",
+   "visuals": [
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Weighted clearance rate, 2019 to 2025 (share of crime solved, weighted by seriousness)",
+     "labels": [
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "series": [
+      {
+       "name": "Calgary",
+       "values": [
+        26.57,
+        28.15,
+        29.95,
+        30.8,
+        33.83,
+        35.54,
+        35.06
+       ]
+      },
+      {
+       "name": "Edmonton",
+       "values": [
+        36.77,
+        37.34,
+        37.12,
+        35.37,
+        33.63,
+        32.76,
+        34.92
+       ]
+      },
+      {
+       "name": "Vancouver",
+       "values": [
+        25.33,
+        25.38,
+        27.3,
+        24.74,
+        23.45,
+        23.92,
+        30.07
+       ]
+      },
+      {
+       "name": "Winnipeg",
+       "values": [
+        32.9,
+        35.18,
+        32.21,
+        31.37,
+        32.64,
+        33.36,
+        33.31
+       ]
+      },
+      {
+       "name": "Ottawa",
+       "values": [
+        35.92,
+        35.47,
+        34.47,
+        34.38,
+        32.62,
+        31.67,
+        32.7
+       ]
+      },
+      {
+       "name": "Toronto",
+       "values": [
+        33.1,
+        34.16,
+        35.37,
+        33.94,
+        30.75,
+        30.87,
+        32.6
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": "Statistics Canada"
+    },
+    {
+     "type": "table",
+     "title": "Clearance rates, 2025",
+     "columns": [
+      "Police service",
+      "All crime",
+      "Violent crime",
+      "Non-violent crime",
+      "Change since 2019 (points)"
+     ],
+     "rows": [
+      [
+       "Calgary",
+       "35.1",
+       "51.2",
+       "27.5",
+       "+8.5"
+      ],
+      [
+       "Edmonton",
+       "34.9",
+       "48.0",
+       "28.0",
+       "-1.9"
+      ],
+      [
+       "Winnipeg",
+       "33.3",
+       "45.5",
+       "24.1",
+       "+0.4"
+      ],
+      [
+       "Ottawa",
+       "32.7",
+       "50.0",
+       "23.7",
+       "-3.2"
+      ],
+      [
+       "Toronto",
+       "32.6",
+       "53.2",
+       "19.7",
+       "-0.5"
+      ],
+      [
+       "Vancouver",
+       "30.1",
+       "41.8",
+       "24.7",
+       "+4.7"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Service to the public: calls, response and confidence",
+   "text": "Calls for service rose from 571,866 in 2020 to 628,318 in 2025. In 2025, 372,887 were made by the public, 192,477 were started by officers, and 26,773 reports were made online. Per officer counted by Statistics Canada, that is about 269 calls in 2021 and 276 in 2025: workload per officer stayed about level while the number of calls grew.\n\nResponse time to the most urgent (Priority 1) calls, measured from dispatch to arrival, is the measure the public most often asks about. The Service's target was to keep it at or below 8 minutes. It was 7.8 minutes in 2020, 8.3 in 2021 and **9.5 in 2022**. **No figure has been published since 2022** in the annual reports, quarterly reports or policing plans this study found. This is the largest gap in the public record.\n\nThe share of patrol time spent on proactive work (not answering calls) was 18 to 19% from 2019 to 2022; the budget plan puts it at 20% now and aims for 34%.\n\nPublic confidence has fallen. In the Police Commission's telephone surveys, the share of Calgarians who agree Calgary is a safe place to live was 95% in 2018, 94% in 2020, 85% in 2022 and 86% in 2024. Confidence in the Service fell from 94% (2020) to 87% (2022). The 2025 survey moved online (801 people, not weighted) and found 80% feel safe, 75% trust the Service and 61% support more police funding; because the method changed, these cannot be compared with earlier years.",
+   "visuals": [
+    {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Calls for service",
+     "labels": [
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "series": [
+      {
+       "name": "Calls for service",
+       "values": [
+        571866,
+        575058,
+        593412,
+        629469,
+        596907,
+        628318
+       ]
+      }
+     ],
+     "unit": "calls",
+     "source": "Calgary Police Commission, 2025 crime report"
+    },
+    {
+     "type": "table",
+     "title": "Priority 1 response (dispatch to arrival, average)",
+     "columns": [
+      "Year",
+      "Minutes",
+      "Target"
+     ],
+     "rows": [
+      [
+       "2018",
+       "8.0",
+       "8.0 or less"
+      ],
+      [
+       "2019",
+       "8.2",
+       "8.0 or less"
+      ],
+      [
+       "2020",
+       "7.8",
+       "8.0 or less"
+      ],
+      [
+       "2021",
+       "8.3",
+       "8.0 or less"
+      ],
+      [
+       "2022",
+       "9.5",
+       "8.0 or less"
+      ],
+      [
+       "2023 to 2025",
+       "not published",
+       ""
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Calgarians who agree Calgary is a safe place to live (telephone survey)",
+     "columns": [
+      "Year",
+      "Share"
+     ],
+     "rows": [
+      [
+       "2015",
+       "95%"
+      ],
+      [
+       "2016",
+       "95%"
+      ],
+      [
+       "2018",
+       "95%"
+      ],
+      [
+       "2020",
+       "94%"
+      ],
+      [
+       "2022",
+       "85%"
+      ],
+      [
+       "2024",
+       "86%"
+      ],
+      [
+       "2025 (online, not comparable)",
+       "80%"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Staff: fewer officers for each resident",
+   "text": "From 2019 to 2025 Calgary's population (as counted for policing) grew **18%**; its police officers grew **7%** and its civilian staff **8%**. Officers per 100,000 residents fell from 159.8 to **145.2**. In 2025 Calgary had the second fewest officers per resident of the six cities (after Ottawa) and the fewest civilian staff per resident (57 per 100,000, against 65 to 112 elsewhere).\n\nNot every officer on the books is available. A Police Commission memo in the City's 2026 budget package (September 2025) said about 19% of officers were on leave (6%) or on modified duties (13%), many because of physical or mental injuries. Statistics Canada also reports that 8.3% of Calgary's officers were eligible to retire in 2025.\n\nFewer officers per resident does not by itself mean too few. Cities differ in how much they use civilians, in their crime, their geography and the services their police provide.",
+   "visuals": [
+    {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Police officers per 100,000 residents, 2025",
+     "labels": [
+      "Calgary",
+      "Edmonton",
+      "Vancouver",
+      "Winnipeg",
+      "Ottawa",
+      "Toronto"
+     ],
+     "series": [
+      {
+       "name": "Officers per 100,000",
+       "values": [
+        145.2,
+        173.3,
+        170.5,
+        163.2,
+        134.8,
+        171.0
+       ]
+      }
+     ],
+     "unit": "per 100,000",
+     "source": "Statistics Canada, table 35-10-0077"
+    },
+    {
+     "type": "table",
+     "title": "Calgary staff and population (Statistics Canada police survey)",
+     "columns": [
+      "Year",
+      "Population served",
+      "Officers",
+      "Officers per 100,000",
+      "Civilian staff"
+     ],
+     "rows": [
+      [
+       "2019",
+       "1,328,830",
+       "2,123",
+       "159.8",
+       "832"
+      ],
+      [
+       "2021",
+       "1,356,293",
+       "2,140",
+       "157.8",
+       "825"
+      ],
+      [
+       "2022",
+       "1,395,040",
+       "2,097",
+       "150.3",
+       "841"
+      ],
+      [
+       "2023",
+       "1,478,430",
+       "2,164",
+       "146.4",
+       "965"
+      ],
+      [
+       "2025",
+       "1,569,133",
+       "2,278",
+       "145.2",
+       "896"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Staff per 100,000 residents, 2025",
+     "columns": [
+      "Police service",
+      "Officers",
+      "Civilian staff",
+      "Criminal Code incidents per officer"
+     ],
+     "rows": [
+      [
+       "Ottawa",
+       "134.8",
+       "64.7",
+       "33.6"
+      ],
+      [
+       "Calgary",
+       "145.2",
+       "57.1",
+       "36.0"
+      ],
+      [
+       "Winnipeg",
+       "163.2",
+       "76.7",
+       "51.2"
+      ],
+      [
+       "Vancouver",
+       "170.5",
+       "65.6",
+       "34.3"
+      ],
+      [
+       "Toronto",
+       "171.0",
+       "111.5",
+       "28.2"
+      ],
+      [
+       "Edmonton",
+       "173.3",
+       "97.3",
+       "47.0"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Money: a rising budget, but not more per resident",
+   "text": "The Service's total spending rose from $519M (2021 budget) to $671M (2025 actual), and $690M is budgeted for 2026. Per resident that is $392 in 2021 and $429 in 2025. After inflation (Calgary's consumer prices rose 17% over those years), spending per resident fell about **7%**.\n\nA larger budget has not all meant more capacity. Revenue from fines was budgeted at $47M to $48M a year but came in at $34M (2023), $33M (2024) and $25M (2025), after the Province restricted photo radar, and none is budgeted for 2026. Funding from property taxes rises by $74M in 2026; $48M of that replaces the budgeted fine revenue rather than paying for more policing.\n\nOvertime and call-outs ran at about twice their $11M budget: $23M in 2023, $25M in 2024 and $21M in 2025 (about 3% of spending in 2025). The Service has attributed this to protests, transit safety patrols and security at sensitive sites. Sustained overtime is one sign of pressure on the existing workforce.\n\nCapital is the other side. Of $81M budgeted for buildings, vehicles and equipment in 2023, $23M was spent; in 2025, $29M of $64M. The Service's own target is to spend at least 65% of its capital budget. Money set aside but not spent points to delays in delivering projects, not only to a shortage of funds.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "Calgary Police Service spending ($ millions)",
+     "columns": [
+      "Year",
+      "Total spending",
+      "Basis",
+      "Per resident",
+      "Per resident in 2025 dollars"
+     ],
+     "rows": [
+      [
+       "2021",
+       "519",
+       "budget",
+       "$392",
+       "$460"
+      ],
+      [
+       "2022",
+       "529",
+       "budget",
+       "$394",
+       "$431"
+      ],
+      [
+       "2023",
+       "592",
+       "actual",
+       "$416",
+       "$439"
+      ],
+      [
+       "2024",
+       "611",
+       "actual",
+       "$405",
+       "$413"
+      ],
+      [
+       "2025",
+       "671",
+       "actual",
+       "$429",
+       "$429"
+      ],
+      [
+       "2026",
+       "690",
+       "budget",
+       "$436",
+       "n/a"
+      ]
+     ]
+    },
+    {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Overtime and call-out: budget and actual ($ millions)",
+     "labels": [
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "series": [
+      {
+       "name": "Budget",
+       "values": [
+        11,
+        11,
+        11
+       ]
+      },
+      {
+       "name": "Actual",
+       "values": [
+        23,
+        25,
+        21
+       ]
+      }
+     ],
+     "unit": "$ millions"
+    },
+    {
+     "type": "table",
+     "title": "Fine revenue and property taxes ($ millions)",
+     "columns": [
+      "Year",
+      "Fines budgeted",
+      "Fines received",
+      "Property taxes"
+     ],
+     "rows": [
+      [
+       "2023",
+       "47",
+       "34",
+       "485"
+      ],
+      [
+       "2024",
+       "48",
+       "33",
+       "not stated"
+      ],
+      [
+       "2025",
+       "48",
+       "25",
+       "541"
+      ],
+      [
+       "2026",
+       "0",
+       "n/a",
+       "615 (budget)"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "How Calgary compares, on several measures at once",
+   "text": "No single measure ranks police services fairly, so the table below sets several side by side for 2025. Calgary has the lowest crime severity of the four western and prairie cities, the highest clearance rate of the six, the second fewest officers per resident and the fewest civilian staff per resident.\n\nSpending per resident is the hardest comparison. Each city reports its police budget differently (gross or net of revenue, budget or actual, with or without some pension and capital costs), and Statistics Canada does not publish spending for each police service. The figures below are on the basis stated beside each one and are a rough guide only. On them Calgary spends less per resident than Edmonton and Vancouver, about the same as Winnipeg, and more than Ottawa and Toronto.\n\nThe pattern the data supports is this: compared with the other western and prairie cities, Calgary had less severe crime and solved more of it, with fewer officers and civilians per resident and, on the rough spending comparison, no more money per resident. Compared with Ottawa and Toronto, Calgary's crime is a little more severe and its clearance higher; it has more officers per resident than Ottawa but fewer than Toronto, fewer civilians than either, and higher spending per resident. The data shows these outcomes and resources together; it cannot show that one caused the other.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "Performance and staff, 2025",
+     "columns": [
+      "Police service",
+      "Crime severity",
+      "Change since 2019",
+      "Crime solved (weighted)",
+      "Officers per 100,000",
+      "Civilians per 100,000"
+     ],
+     "rows": [
+      [
+       "Calgary",
+       "62.9",
+       "-35%",
+       "35.1%",
+       "145.2",
+       "57.1"
+      ],
+      [
+       "Edmonton",
+       "103.9",
+       "-20%",
+       "34.9%",
+       "173.3",
+       "97.3"
+      ],
+      [
+       "Ottawa",
+       "52.2",
+       "-10%",
+       "32.7%",
+       "134.8",
+       "64.7"
+      ],
+      [
+       "Winnipeg",
+       "119.3",
+       "-14%",
+       "33.3%",
+       "163.2",
+       "76.7"
+      ],
+      [
+       "Vancouver",
+       "89.3",
+       "-19%",
+       "30.1%",
+       "170.5",
+       "65.6"
+      ],
+      [
+       "Toronto",
+       "60.0",
+       "-13%",
+       "32.6%",
+       "171.0",
+       "111.5"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Spending per resident, 2025 (rough guide: different bases)",
+     "columns": [
+      "Police service",
+      "Spending",
+      "Per resident",
+      "Basis"
+     ],
+     "rows": [
+      [
+       "Calgary",
+       "$671.0M",
+       "$428",
+       "2025 actual, total spending"
+      ],
+      [
+       "Edmonton",
+       "$608.7M",
+       "$511",
+       "2025 actual, gross spending"
+      ],
+      [
+       "Ottawa",
+       "$447.5M",
+       "$388",
+       "2025 budget, gross"
+      ],
+      [
+       "Winnipeg",
+       "$352.0M",
+       "$417",
+       "2025 projected spending"
+      ],
+      [
+       "Vancouver",
+       "$434.2M",
+       "$573",
+       "2025 budget as requested by the police board"
+      ],
+      [
+       "Toronto",
+       "$1,220.2M",
+       "$373",
+       "2025 budget approved by the police board (gross or net not stated)"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "The 2027 to 2030 request, item by item",
+   "text": "The budget plan asks for 309 net new officers (2,304 to 2,613) and 214.5 net new civilian staff (946.5 to 1,161). The operating budget would rise by $56.6M in 2027, $30.3M in 2028, $24.0M in 2029 and $21.2M in 2030: from $684.5M to $816.7M. Capital would be $191.9M over four years, up from $110.58M in 2023 to 2026. The plan says about 300 further positions were deferred, and the Chief has said the full need is about double the request.\n\nOn the City's population forecast (1,583,200 in 2026 to 1,689,400 in 2030), the request would take officers per 100,000 residents from about 146 to about **155**, close to where it was in 2021 (158). With no new officers it would fall to about 136. Spending per resident would go from $432 to $483, 12% more; if prices rise 2% a year, that is about 3% more after inflation.\n\nFor each part of the request, the table sets out the problem the plan names, the evidence this study found, and what the public could measure. The main gaps are that the plan gives no year-by-year hiring schedule, does not separate the cost of new positions from the rising cost of existing staff, and sets few outcome targets for 2030 other than proactive patrol time.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "The request and the evidence",
+     "columns": [
+      "Request",
+      "Problem the plan names",
+      "Evidence available",
+      "What to measure"
+     ],
+     "rows": [
+      [
+       "309 net new officers",
+       "Patrol is mostly reactive (20% proactive time); specialist units (homicide, child abuse, domestic violence, hate crime, mental health) stretched",
+       "Officers per 100,000 fell from 160 (2019) to 145 (2025); calls rose +10% since 2020; about 19% of officers on leave or modified duties (2025); overtime about double budget",
+       "Proactive time (plan: 34%); Priority 1 response time; officers available, not just employed; overtime against budget"
+      ],
+      [
+       "214.5 net new civilian staff",
+       "Specialist work (analysts, IT, HR, fleet) done by officers or not done",
+       "Calgary has the fewest civilian staff per resident of the six cities (57 per 100,000)",
+       "Officer hours returned to policing; civilian vacancies filled within four months (the Service's own target)"
+      ],
+      [
+       "Operating budget +$132.1M by 2030",
+       "Growth in population and calls; cost of the new positions",
+       "Spending per resident fell about 7% after inflation, 2021 to 2025; fine revenue lost",
+       "Spending per resident after inflation; split between new positions and existing costs (not published)"
+      ],
+      [
+       "Capital $191.9M (fleet $73.1M, facilities $56.1M, IT $55.2M, equipment $7.5M)",
+       "Ageing fleet, facilities and systems; vehicles for the new officers",
+       "Capital spending has run well below budget: $23M of $81M (2023), $29M of $64M (2025)",
+       "Share of the capital budget spent each year (the Service's target: 65% or more); projects completed"
+      ]
+     ]
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Officers per 100,000 residents: past and planned",
+     "labels": [
+      "2019",
+      "2021",
+      "2022",
+      "2023",
+      "2025",
+      "2030 (with request)",
+      "2030 (no new officers)"
+     ],
+     "series": [
+      {
+       "name": "Officers per 100,000",
+       "values": [
+        159.8,
+        157.8,
+        150.3,
+        146.4,
+        145.2,
+        154.7,
+        136.4
+       ]
+      }
+     ],
+     "unit": "per 100,000"
+    }
+   ]
+  },
+  {
+   "heading": "Three scenarios to 2030",
+   "text": "These are models, not forecasts. They show what each choice would cost per resident and what it would do to staffing per resident. They do not predict crime: the evidence does not support a claim that more officers automatically mean less crime.\n\n**A. No new positions.** Today's service, with its costs rising 2% a year (an assumption: actual wage settlements may differ). Spending reaches about $741M in 2030, $439 per resident; officers per 100,000 fall to about 136.\n\n**B. Half the new positions.** About 155 officers and 107 civilians. Spending reaches about $779M, $461 per resident; officers per 100,000 about 146.\n\n**C. The full request.** Spending reaches $816.7M, $483 per resident; officers per 100,000 about 155.\n\nUnder this model the new positions cost about $76M a year by 2030, roughly $145,000 per position. The plan itself does not publish this split. The interactive budget simulator lets you change the share approved and the yearly cost growth and see the result.",
+   "visuals": [
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Operating budget under each scenario ($ millions)",
+     "labels": [
+      "2026",
+      "2027",
+      "2028",
+      "2029",
+      "2030"
+     ],
+     "series": [
+      {
+       "name": "A. No new positions",
+       "values": [
+        684.5,
+        698.2,
+        712.2,
+        726.4,
+        740.9
+       ]
+      },
+      {
+       "name": "B. Half",
+       "values": [
+        684.5,
+        719.6,
+        741.8,
+        760.9,
+        778.8
+       ]
+      },
+      {
+       "name": "C. Full request",
+       "values": [
+        684.5,
+        741.1,
+        771.5,
+        795.5,
+        816.7
+       ]
+      }
+     ],
+     "unit": "$ millions"
+    },
+    {
+     "type": "table",
+     "title": "Scenarios in 2030 (modelled)",
+     "columns": [
+      "Scenario",
+      "Operating budget",
+      "Per resident",
+      "Officers",
+      "Officers per 100,000",
+      "Civilian staff"
+     ],
+     "rows": [
+      [
+       "A. No new positions",
+       "$741M",
+       "$439",
+       "2,304",
+       "136",
+       "946.5"
+      ],
+      [
+       "B. Half",
+       "$779M",
+       "$461",
+       "2,458",
+       "146",
+       "1,054"
+      ],
+      [
+       "C. Full request",
+       "$817M",
+       "$483",
+       "2,613",
+       "155",
+       "1,161"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Officers and crime: what research can and cannot say",
+   "text": "Would more officers mean less crime in Calgary? No Calgary data can answer that directly: crime and staffing move together for many reasons, and Calgary's crime severity fell while its officers per resident fell too. The best evidence comes from studies of many cities over many years.\n\nA large study of 242 US cities from 1960 to 2010 (Chalfin and McCrary) found that a 10% rise in officers per resident went with about a **1.7% fall in property crime** and a **3.4% fall in violent crime**, with larger effects for murder and robbery. A review of thirteen studies for the UK's police inspectorate (Bradford, 2011) put the typical effect at about **3% less property crime for 10% more officers**, found the evidence for violent crime weaker and sometimes contradictory, and warned that the effect depends on how officers are deployed, that it may not be the same for cuts as for increases, and that causation is not proven.\n\nApplied to the request only as an illustration: 309 officers raise officers per resident by about 6% by 2030. On the research range, that would go with roughly 1.1% to 1.9% less property crime per resident, and between no change and 2.1% less violent crime, all else equal. These are not forecasts for Calgary: the studies are from the United States and the United Kingdom, crime has many causes, and the outcome depends on what the new officers do. The interactive calculator lets you choose a budget increase and shows the officers it could pay for and this research range, with the same warnings.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "Research estimates: change in crime for 10% more officers per resident",
+     "columns": [
+      "Study",
+      "Property crime",
+      "Violent crime",
+      "Where and when"
+     ],
+     "rows": [
+      [
+       "Chalfin and McCrary (2018)",
+       "-1.7%",
+       "-3.4% (murder -6.7%, robbery -5.6%)",
+       "242 US cities, 1960 to 2010"
+      ],
+      [
+       "Bradford, review for HM Inspectorate of Constabulary (2011)",
+       "about -3%",
+       "weaker, sometimes contradictory evidence",
+       "13 studies, mainly US and UK"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Safety across Calgary",
+   "text": "The Service publishes crime by community each month for nine kinds of crime: non-domestic assault and other violence, street and commercial robbery, break-ins, and thefts of and from vehicles. Other theft, fraud and domestic violence are not in the community file. Over the twelve months to September 2026 these crimes numbered 25,861, against 29,651 five years earlier (October 2020 to September 2021), a change of -13%. Violence in the file rose from 7,966 to 8,730 (+10%); per 1,000 residents, from 6.2 to 5.5.\n\nRates are highest downtown. Downtown East Village (111 per 1,000 residents) and the Downtown Commercial Core (105) are far above the typical community (13). Their residents are few compared with the workers, visitors and shelter users there every day, so a rate per resident overstates the risk to any one person. A high count in a community is not a sign of poor policing; it reflects where people gather, where businesses are, and where crime is reported.\n\nOf the 185 communities with at least 1,000 residents, 11 had a higher rate than five years earlier. Of the 17 communities whose population grew by 40% or more, 16 had a lower rate than five years earlier. Growth has not, so far, brought higher crime rates to the new suburbs. The communities to watch are those where violence per resident rose, listed below.",
+   "visuals": [
+    {
+     "type": "map",
+     "title": "Crimes per 1,000 residents, 12 months to September 2026 (nine kinds of crime)",
+     "values": {
+      "DNE": 110.8,
+      "DNC": 104.5,
+      "CLI": 61.0,
+      "STA": 53.7,
+      "SNA": 50.0,
+      "HOU": 45.7,
+      "FLN": 44.9,
+      "BLN": 41.3,
+      "SOV": 41.1,
+      "LMR": 39.2,
+      "LPK": 35.4,
+      "ERL": 34.9,
+      "BNK": 34.2,
+      "SCA": 33.5,
+      "PKH": 32.3,
+      "CHV": 32.2,
+      "CHN": 30.6,
+      "CRE": 30.2,
+      "MIS": 29.5,
+      "RCK": 29.5,
+      "HIL": 29.1,
+      "VIS": 27.7,
+      "SHG": 27.3,
+      "RED": 27.1,
+      "KEL": 27.0,
+      "SSD": 26.9,
+      "DNW": 26.7,
+      "ING": 26.1,
+      "EAU": 25.9,
+      "SOW": 25.8,
+      "GDL": 25.3,
+      "BRD": 25.2,
+      "SOC": 24.7,
+      "GRV": 24.2,
+      "RAM": 24.2,
+      "KIN": 24.1,
+      "WIN": 24.1,
+      "MON": 23.7,
+      "EYA": 23.4,
+      "ALB": 23.1,
+      "HIW": 22.9,
+      "UMR": 22.9,
+      "CAP": 22.4,
+      "WND": 21.7,
+      "BNF": 21.4,
+      "MRL": 21.3,
+      "CHK": 21.3,
+      "RDL": 21.1,
+      "WIL": 20.6,
+      "HAY": 20.6,
+      "REN": 20.6,
+      "RUT": 20.1,
+      "TUX": 19.8,
+      "ACA": 19.7,
+      "RIC": 18.6,
+      "HPK": 18.5,
+      "RUN": 18.4,
+      "RMT": 18.4,
+      "ERI": 17.8,
+      "KIL": 17.7,
+      "PUM": 17.5,
+      "PIN": 17.4,
+      "CHR": 17.4,
+      "FAL": 17.3,
+      "GRE": 17.3,
+      "GLA": 17.1,
+      "BOW": 17.0,
+      "MPL": 16.9,
+      "MAL": 16.9,
+      "PKD": 16.7,
+      "FAI": 16.3,
+      "COL": 16.3,
+      "BRE": 16.1,
+      "FHT": 16.1,
+      "NGM": 16.0,
+      "SHN": 16.0,
+      "SET": 15.8,
+      "MRT": 15.7,
+      "GBK": 15.6,
+      "DOV": 15.6,
+      "MPK": 15.2,
+      "WLD": 14.8,
+      "MOP": 14.8,
+      "PAL": 14.6,
+      "WHI": 14.6,
+      "DRG": 13.9,
+      "ABB": 13.8,
+      "CAN": 13.8,
+      "PEN": 13.7,
+      "CAM": 13.4,
+      "OGD": 13.3,
+      "EPK": 13.3,
+      "APP": 13.3,
+      "CAS": 13.3,
+      "GAW": 13.3,
+      "WGT": 12.9,
+      "TEM": 12.8,
+      "SHS": 12.7,
+      "SPR": 12.6,
+      "MID": 12.6,
+      "HUN": 12.5,
+      "OAK": 12.3,
+      "THO": 12.2,
+      "PKL": 12.2,
+      "WOO": 12.2,
+      "WHL": 12.0,
+      "CNS": 11.9,
+      "VAR": 11.7,
+      "SAD": 11.7,
+      "BRA": 11.5,
+      "LKB": 11.1,
+      "TAR": 11.0,
+      "MOR": 11.0,
+      "CHW": 11.0,
+      "DAL": 10.9,
+      "NHV": 10.8,
+      "LKV": 10.7,
+      "SKR": 10.5,
+      "PAT": 10.4,
+      "COU": 10.4,
+      "ARB": 10.3,
+      "COA": 9.9,
+      "CED": 9.8,
+      "GAG": 9.7,
+      "COR": 9.7,
+      "UNI": 9.7,
+      "BED": 9.7,
+      "MLR": 9.6,
+      "CUR": 9.2,
+      "QLD": 9.1,
+      "CSC": 8.8,
+      "SIG": 8.8,
+      "SHW": 8.5,
+      "ALT": 8.4,
+      "SOM": 8.3,
+      "LIV": 8.3,
+      "SCE": 8.2,
+      "MAC": 8.1,
+      "RAN": 8.0,
+      "RIV": 8.0,
+      "SVO": 8.0,
+      "DRN": 7.8,
+      "CRM": 7.8,
+      "DDG": 7.7,
+      "LEG": 7.6,
+      "WAL": 7.5,
+      "WBN": 7.5,
+      "COV": 7.3,
+      "MCT": 7.3,
+      "RSN": 7.2,
+      "CAR": 7.2,
+      "ASP": 7.1,
+      "HAR": 7.0,
+      "BRI": 7.0,
+      "MAH": 6.4,
+      "STR": 6.4,
+      "CPF": 6.3,
+      "SGH": 6.1,
+      "VAL": 6.1,
+      "NOL": 6.0,
+      "SIL": 5.9,
+      "MCK": 5.9,
+      "HID": 5.7,
+      "SAN": 5.6,
+      "WSP": 5.6,
+      "NEB": 5.6,
+      "CHA": 5.5,
+      "POI": 5.5,
+      "SPH": 5.2,
+      "ROC": 5.1,
+      "SDC": 5.1,
+      "EVN": 4.9,
+      "TUS": 4.8,
+      "HAW": 4.6,
+      "AUB": 4.5,
+      "EDG": 4.5,
+      "DIS": 4.5,
+      "EVE": 4.4,
+      "CGR": 4.0,
+      "CIT": 3.9,
+      "CRA": 3.9,
+      "PAN": 3.8,
+      "ROY": 3.7,
+      "HAM": 3.4,
+      "KCA": 3.1
+     },
+     "unit": "per 1,000 residents",
+     "source": "Calgary Police Service, community crime file"
+    },
+    {
+     "type": "table",
+     "title": "Highest rates (communities with at least 1,000 residents)",
+     "columns": [
+      "Community",
+      "Residents",
+      "Crimes, 12 months",
+      "Per 1,000",
+      "Five years earlier",
+      "Violence per 1,000"
+     ],
+     "rows": [
+      [
+       "Downtown East Village",
+       "4,231",
+       "469",
+       "110.8",
+       "80.3",
+       "79.9"
+      ],
+      [
+       "Downtown Commercial Core",
+       "9,729",
+       "1,017",
+       "104.5",
+       "127.9",
+       "47.7"
+      ],
+      [
+       "Cliff Bungalow",
+       "2,165",
+       "132",
+       "61.0",
+       "75.3",
+       "19.4"
+      ],
+      [
+       "St. Andrews Heights",
+       "1,526",
+       "82",
+       "53.7",
+       "78.8",
+       "30.1"
+      ],
+      [
+       "Sunalta",
+       "3,797",
+       "190",
+       "50.0",
+       "72.5",
+       "13.7"
+      ],
+      [
+       "Hounsfield Heights/Briar Hill",
+       "2,821",
+       "129",
+       "45.7",
+       "61.5",
+       "16.3"
+      ],
+      [
+       "Forest Lawn",
+       "8,146",
+       "366",
+       "44.9",
+       "63.1",
+       "25.0"
+      ],
+      [
+       "Beltline",
+       "33,811",
+       "1,395",
+       "41.3",
+       "56.0",
+       "17.1"
+      ],
+      [
+       "Southview",
+       "1,705",
+       "70",
+       "41.1",
+       "84.5",
+       "18.8"
+      ],
+      [
+       "Lower Mount Royal",
+       "3,395",
+       "133",
+       "39.2",
+       "47.8",
+       "8.8"
+      ],
+      [
+       "Lincoln Park",
+       "1,749",
+       "62",
+       "35.4",
+       "26.4",
+       "11.4"
+      ],
+      [
+       "Erlton",
+       "1,431",
+       "50",
+       "34.9",
+       "50.0",
+       "9.8"
+      ],
+      [
+       "Bankview",
+       "6,079",
+       "208",
+       "34.2",
+       "32.0",
+       "6.3"
+      ],
+      [
+       "Scarboro",
+       "1,134",
+       "38",
+       "33.5",
+       "29.7",
+       "8.8"
+      ],
+      [
+       "Parkhill",
+       "2,137",
+       "69",
+       "32.3",
+       "53.1",
+       "5.6"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Fast-growing communities: more people, fewer crimes per resident",
+     "columns": [
+      "Community",
+      "Population growth since 2021",
+      "Crimes then",
+      "Crimes now",
+      "Per 1,000 then",
+      "Per 1,000 now"
+     ],
+     "rows": [
+      [
+       "Carrington",
+       "284%",
+       "24",
+       "76",
+       "8.7",
+       "7.2"
+      ],
+      [
+       "Livingston",
+       "233%",
+       "50",
+       "110",
+       "12.5",
+       "8.3"
+      ],
+      [
+       "Cornerstone",
+       "194%",
+       "98",
+       "217",
+       "15.8",
+       "11.9"
+      ],
+      [
+       "Seton",
+       "187%",
+       "88",
+       "163",
+       "24.5",
+       "15.8"
+      ],
+      [
+       "Cityscape",
+       "118%",
+       "70",
+       "98",
+       "13.8",
+       "8.8"
+      ],
+      [
+       "Currie Barracks",
+       "104%",
+       "32",
+       "24",
+       "25.1",
+       "9.2"
+      ],
+      [
+       "Sage Hill",
+       "75%",
+       "105",
+       "100",
+       "11.2",
+       "6.1"
+      ],
+      [
+       "Legacy",
+       "71%",
+       "70",
+       "104",
+       "8.8",
+       "7.6"
+      ],
+      [
+       "Mahogany",
+       "67%",
+       "113",
+       "147",
+       "8.2",
+       "6.4"
+      ],
+      [
+       "Shaganappi",
+       "66%",
+       "74",
+       "80",
+       "41.9",
+       "27.3"
+      ],
+      [
+       "Shawnee Slopes",
+       "56%",
+       "56",
+       "40",
+       "27.7",
+       "12.7"
+      ],
+      [
+       "Greenwood/Greenbriar",
+       "53%",
+       "18",
+       "28",
+       "17.1",
+       "17.3"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Where violence per resident rose most (at least 20 incidents)",
+     "columns": [
+      "Community",
+      "Violence then",
+      "Violence now",
+      "Per 1,000 then",
+      "Per 1,000 now"
+     ],
+     "rows": [
+      [
+       "Downtown East Village",
+       "194",
+       "338",
+       "61.8",
+       "79.9"
+      ],
+      [
+       "Kelvin Grove",
+       "10",
+       "20",
+       "5.5",
+       "10.0"
+      ],
+      [
+       "Greenview",
+       "12",
+       "20",
+       "5.7",
+       "8.6"
+      ],
+      [
+       "Carrington",
+       "0",
+       "28",
+       "0.0",
+       "2.6"
+      ],
+      [
+       "Valley Ridge",
+       "6",
+       "22",
+       "1.1",
+       "3.7"
+      ],
+      [
+       "Eau Claire",
+       "14",
+       "24",
+       "7.5",
+       "10.0"
+      ],
+      [
+       "Saddle Ridge",
+       "58",
+       "155",
+       "2.4",
+       "4.7"
+      ],
+      [
+       "Acadia",
+       "50",
+       "77",
+       "5.0",
+       "7.0"
+      ],
+      [
+       "Livingston",
+       "4",
+       "38",
+       "1.0",
+       "2.9"
+      ],
+      [
+       "Hounsfield Heights/Briar Hill",
+       "36",
+       "46",
+       "14.6",
+       "16.3"
+      ],
+      [
+       "Martindale",
+       "65",
+       "96",
+       "4.5",
+       "5.9"
+      ],
+      [
+       "Shawnessy",
+       "50",
+       "71",
+       "5.5",
+       "7.0"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "What the public record cannot tell us",
+   "text": "Several questions this study set out to answer cannot be answered from published data:\n\n- **Response times since 2022.** The most direct measure of service to the public is not in recent public reports.\n- **Officers actually available.** Leave and modified duty were reported once (about 19% in 2025); there is no regular series.\n- **Vacancies, recruitment and departures by year.** Statistics Canada reports a net gain or loss of officers; the Service reports recruiting against a target, without numbers.\n- **Where officers are deployed** across districts, and how that compares with calls and crime.\n- **Fleet use, purchasing and administrative workload,** so the efficiency of spending cannot be tested directly.\n- **Spending per resident on one basis for every city.** Statistics Canada does not publish it by police service.\n\nEach of these could be published by the Service or the Commission without new cost, and the recommendations ask for them."
+  },
+  {
+   "heading": "The five questions, answered as far as the data allows",
+   "text": "**1. Has the Service performed well relative to its resources?** On the measures that can be compared, yes. From 2019 to 2025 Calgary had the largest fall in crime severity of the six cities and moved from below average to the highest clearance rate, while it had the second fewest officers and the fewest civilian staff per resident. The record is not uniformly strong: the violent crime rate did not fall, response times worsened to 2022 and have not been published since, and public confidence declined.\n\n**2. Is the Service genuinely short of resources?** The evidence leans towards yes. Officers per resident fell 9% since 2019, spending per resident fell about 7% after inflation since 2021, overtime has run at about twice its budget, part of the 2026 tax increase only replaces lost fine revenue, and about one in five officers was on leave or modified duty in 2025. Against that, capital money has gone unspent, so some constraints are about delivery, not funding.\n\n**3. Does the evidence justify more officers and civilian staff?** Partly. The staffing ratio, the workload, the lowest civilian ratio of the six, and the overtime all point the same way. But the plan sets few outcome targets, and the measures that would show the need most directly (response times, officers available) are not published.\n\n**4. Is the proposed funding proportionate?** On cost, it appears moderate: about 12% more per resident by 2030, about 3% after inflation at 2% a year, returning officers per resident to the 2021 level and still below four of the five other cities. What the money would buy in outcomes is not set out in measurable terms.\n\n**5. What should taxpayers expect in return?** Measurable, published results: Priority 1 response times each year against the 8-minute target; proactive time rising from 20% towards the plan's 34%; officers available (not on leave) reported each year; overtime within budget; the clearance rate held at or above 35%; and at least 65% of the capital budget spent each year.\n\n**Overall:** the evidence fits best with “strong performance, but increasing operational pressure”. It is not sufficient to say whether the full request is the right size, because the measures that would settle it are not public."
+  }
+ ],
+ "conclusion": "Calgary's police have delivered results that stand out among large Canadian cities on the measures that can be compared fairly: crime became much less severe and more of it was solved, while officers and civilian staff per resident fell to among the lowest of the six cities and spending per resident fell after inflation. That deserves to be recognised plainly.\n\nThe same data shows rising pressure: more violent incidents as the city grows, overtime at about twice its budget, a fifth of officers on leave or modified duty, lower public confidence, and response times that were worsening when they were last published. The 2027 to 2030 request would restore officers per resident to about the 2021 level at a moderate cost per resident. What it would achieve is not set out in measurable terms, and the key measures of need are missing from the public record. Publishing them, and tying the new money to targets the public can check, would let Calgarians judge whether the investment works.",
+ "method": [
+  "Six large city police services compared on Statistics Canada's definitions, for the same years: crime severity, violent crime rate and weighted clearance rate (Uniform Crime Reporting Survey), and officers, civilian staff and population served (Police Administration Survey, a count on May 15 each year).",
+  "Spending per resident for Calgary uses the City of Calgary's population (as in the Police Commission's crime report) and Calgary's consumer price index (Statistics Canada 18-10-0005) to express it in 2025 dollars.",
+  "Calls per officer divide the Service's calls for service by Statistics Canada's count of officers in the same year.",
+  "Community rates divide the police community file's nine crime types over twelve months by each community's residents (Calgary Insight's community estimate for today; the 2021 Census for five years earlier). Communities with fewer than 1,000 residents are left out of rankings.",
+  "Scenarios start from the 2026 budget in the plan ($684.5M). Scenario A grows it 2% a year; C is the plan's own path; B is halfway between. Population between 2026 and 2030 is drawn in a straight line between the City's two forecast years.",
+  "All calculations were made in code from the downloaded tables and checked against the published totals."
+ ],
+ "data_sources": [
+  {
+   "name": "Crime severity index and weighted clearance rates, police services in Alberta (35-10-0190), Ontario (35-10-0188), Manitoba (35-10-0189) and British Columbia (35-10-0063)",
+   "publisher": "Statistics Canada",
+   "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510019001",
+   "period": "2019 to 2025, released July 22, 2026"
+  },
+  {
+   "name": "Police personnel and selected crime statistics, municipal police services (35-10-0077)",
+   "publisher": "Statistics Canada",
+   "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510007701",
+   "period": "2019, 2021 to 2023 and 2025 (no 2020 or 2024), released August 5, 2026"
+  },
+  {
+   "name": "Incident-based crime statistics by detailed violations, police services in Alberta (35-10-0183), Ontario (35-10-0180), Manitoba (35-10-0181) and British Columbia (35-10-0184)",
+   "publisher": "Statistics Canada",
+   "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510018301",
+   "period": "2019 to 2025, released July 22, 2026"
+  },
+  {
+   "name": "Consumer Price Index, annual average (18-10-0005), Calgary",
+   "publisher": "Statistics Canada",
+   "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810000501",
+   "period": "2021 to 2025"
+  },
+  {
+   "name": "Investing in Public Safety: the Calgary Police Service's 2027 to 2030 budget plan",
+   "publisher": "Calgary Police Service",
+   "url": "https://www.calgarypolice.ca/content/dam/police/documents/budget/26-09-16%20-%202027-2030%20Budget%20Plan.pdf",
+   "period": "September 16, 2026"
+  },
+  {
+   "name": "2025 Annual Report",
+   "publisher": "Calgary Police Service",
+   "url": "https://www.calgarypolice.ca/transparency-and-accountability/annual-reports/2025-annual-report.html",
+   "period": "2025"
+  },
+  {
+   "name": "2024 Annual Report",
+   "publisher": "Calgary Police Service",
+   "url": "https://www.calgarypolice.ca/transparency-and-accountability/annual-reports/2024-annual-report.html",
+   "period": "2024"
+  },
+  {
+   "name": "2023 financial tables",
+   "publisher": "Calgary Police Commission",
+   "url": "https://www.calgarypolicecommission.ca/wp-content/uploads/2024/03/2024-03-15-Financial-Tables.pdf",
+   "period": "2023, published March 15, 2024"
+  },
+  {
+   "name": "2021-2022 budget information",
+   "publisher": "Calgary Police Service",
+   "url": "https://www.calgary.ca/content/dam/www/cps/documents/business-plans-and-budgets/2021-2022-CPS-Budget-Information.pdf",
+   "period": "2021 and 2022 budgets"
+  },
+  {
+   "name": "2025 crime report to the Commission",
+   "publisher": "Calgary Police Service",
+   "url": "https://www.calgarypolicecommission.ca/wp-content/uploads/2026/03/Mar-2026-CPC-2025-Crime-Report-1.pdf",
+   "period": "2020 to 2025, March 2026"
+  },
+  {
+   "name": "Key performance indicators for the Calgary Police Service",
+   "publisher": "Calgary Police Commission",
+   "url": "https://www.calgarypolicecommission.ca/wp-content/uploads/2023/07/Key-Performance-Indicators-for-the-Calgary-Police-Service.pdf",
+   "period": "2015 to 2022, July 2023"
+  },
+  {
+   "name": "Quarterly statistical report, second quarter 2025",
+   "publisher": "Calgary Police Service",
+   "url": "https://www.calgarypolice.ca/content/dam/police/documents/Quarterly%20Statistical%20Report%20Q2_2025.pdf",
+   "period": "January to June 2025"
+  },
+  {
+   "name": "2025 Community Perceptions Survey",
+   "publisher": "Calgary Police Commission",
+   "url": "https://www.calgarypolicecommission.ca/wp-content/uploads/2025/06/June-2025-CPC-7.1-2025-Community-Perceptions-Report-Safety-Policing-Public-Priorities-for-Public-Distribution.pdf",
+   "period": "March 31 to April 28, 2025"
+  },
+  {
+   "name": "2026 Annual Policing Plan",
+   "publisher": "Calgary Police Service",
+   "url": "https://www-prd.calgary.ca/content/dam/www/cps/documents/business-plans-and-budgets/service-action-plans/APP%202026%20-%20Web.pdf",
+   "period": "2026 targets"
+  },
+  {
+   "name": "Community Safety Dashboard data (community crime file)",
+   "publisher": "Calgary Police Service",
+   "url": "https://www.calgarypolice.ca/transparency-and-accountability/community-safety-dashboard---monthly-snapshot.html",
+   "period": "October 2020 to September 2026"
+  },
+  {
+   "name": "Nearly 20 per cent of Calgary police officers are on leave or accommodation (report of a Commission memo in the 2026 budget package)",
+   "publisher": "LiveWire Calgary",
+   "url": "https://livewirecalgary.com/2025/09/17/nearly-20-per-cent-of-calgary-police-officers-are-on-leave-cpc-memo/",
+   "period": "September 17, 2025"
+  },
+  {
+   "name": "Overtime and call-out spending in 2023",
+   "publisher": "CBC News",
+   "url": "https://www.cbc.ca/news/canada/calgary/calgary-police-budget-overtime-callouts-double-1.7109144",
+   "period": "2023"
+  },
+  {
+   "name": "Edmonton Police Service budget variance, period ending December 31, 2025",
+   "publisher": "Edmonton Police Commission",
+   "url": "https://edmontonpolicecommission.com/wp-content/uploads/2025/12/6.2.1-Edmonton-Police-Service-Budget-Variance-for-the-Period-Ending-December-31-2025.pdf",
+   "period": "2025"
+  },
+  {
+   "name": "Budget Report 2025",
+   "publisher": "Ottawa Police Service",
+   "url": "https://www.ottawapolice.ca/en/who-we-are/resources/Documents/2025-Budget/Budget-Report-2025.pdf",
+   "period": "2025"
+  },
+  {
+   "name": "2025 Environment for Policing in Winnipeg",
+   "publisher": "Winnipeg Police Board",
+   "url": "https://legacy.winnipeg.ca/clerks/boards/WpgPoliceBoard/pdfs/boardpublications/2025/2025-environment-for-policing-in-winnipeg-quick-reference-guide.pdf",
+   "period": "2025"
+  },
+  {
+   "name": "Vancouver Police Department seeks $22.8M increase for 2025 budget",
+   "publisher": "Squamish Chief (Glacier Media)",
+   "url": "https://squamishchief.com/economy-law-politics/vancouver-police-department-seeks-228m-increase-for-2025-budget-9832076",
+   "period": "2025 request"
+  },
+  {
+   "name": "Are U.S. cities underpoliced? Theory and evidence (Chalfin and McCrary), Review of Economics and Statistics 100(1), 167-186",
+   "publisher": "MIT Press",
+   "url": "https://eml.berkeley.edu/~jmccrary/chalfin_mccrary2015.pdf",
+   "period": "2018 (working paper 2015)"
+  },
+  {
+   "name": "Police numbers and crime rates: a rapid evidence review (Bradford)",
+   "publisher": "HM Inspectorate of Constabulary",
+   "url": "https://assets-hmicfrs.justiceinspectorates.gov.uk/uploads/police-numbers-and-crime-rates-rapid-evidence-review-20110721.pdf",
+   "period": "July 2011"
+  },
+  {
+   "name": "Toronto Police Service 2025 budget",
+   "publisher": "Toronto Police Service",
+   "url": "https://www.tps.ca/media-centre/news-releases/61639/",
+   "period": "2025"
+  }
+ ],
+ "limitations": [
+  "Police-reported crime is not all crime: it depends on what people report and on police counting rules. Statistics Canada's figures and the Service's own reports count in different ways (incidents and victims), so their totals differ.",
+  "Statistics Canada's staffing survey has no figures for 2020 or 2024, and counts officers on one day (May 15). The Service's own year-end counts differ slightly (2,321 officers at the end of 2025).",
+  "Spending figures for the six cities are on different bases (budget or actual, gross or net). The comparison is a rough guide only. Calgary's 2021 and 2022 figures are budgets; 2023 to 2025 are actual spending.",
+  "Priority 1 response times after 2022, officer availability by year, vacancies and deployment by district are not published, so the study cannot test them.",
+  "The 2025 public perception survey changed method (online, 801 people, not weighted) and cannot be compared with earlier telephone surveys.",
+  "Community rates use estimated current population; community boundaries and the police file's grouping of some communities may not match exactly. The community file covers nine crime types only and shows counts of 1 to 5 as 2.",
+  "The crime effects shown in the calculator come from US and UK studies of police numbers, not from Calgary; they are an illustration of the research, not a forecast, and assume the extra money pays for officers and civilians in the same mix as the request.",
+  "The scenarios are models built on stated assumptions (2% yearly cost growth, a straight-line population path); they are not forecasts and say nothing about crime.",
+  "The study did not seek comment from the Calgary Police Service or the Commission before publication; their published reports were used throughout, and any response will be added."
+ ],
+ "recommendations": [
+  {
+   "title": "Publish Priority 1 response times every year",
+   "detail": "The last published figure is for 2022 (9.5 minutes against an 8-minute target). An annual figure, by district, is the clearest public measure of whether more officers are needed and whether they help.",
+   "evidence": "Service to the public; the five questions",
+   "priority": "high"
+  },
+  {
+   "title": "Report officers available, not only officers employed",
+   "detail": "The share on leave or modified duty (about 19% in 2025) changes how many officers the public actually has. A yearly figure would show whether staffing gains reach the street.",
+   "evidence": "Staff",
+   "priority": "high"
+  },
+  {
+   "title": "Tie the 2027 to 2030 funding to published targets",
+   "detail": "Proactive time, response times, clearance, overtime within budget and capital spending against budget, each reported every year, so council and residents can see whether the investment works.",
+   "evidence": "The request, item by item",
+   "priority": "high"
+  },
+  {
+   "title": "Publish the hiring schedule and the cost split",
+   "detail": "Year-by-year hiring and attrition, and how much of the $132.2M increase pays for new positions as against existing costs.",
+   "evidence": "The request, item by item",
+   "priority": "medium"
+  },
+  {
+   "title": "Keep public surveys comparable over time",
+   "detail": "Run the confidence and safety questions the same way each year, so changes reflect opinion rather than method.",
+   "evidence": "Service to the public",
+   "priority": "medium"
+  }
+ ],
+ "action_plan": [
+  {
+   "action": "Ask for 2023 to 2025 Priority 1 response times and the current share of officers on leave or modified duty before the budget decision",
+   "owner": "Council, during budget deliberations",
+   "measure": "Figures tabled in the budget record"
+  },
+  {
+   "action": "Set yearly targets for proactive time, response time, clearance, overtime and capital spending as a condition of the funding",
+   "owner": "Council and the Calgary Police Commission",
+   "measure": "Targets in the approved budget and a yearly public report against them"
+  },
+  {
+   "action": "Add officer availability and response times to the Service's annual report",
+   "owner": "Calgary Police Service",
+   "measure": "Both measures in the 2026 annual report"
+  }
+ ],
+ "file_name": "Calgary police performance and resources study"
+}

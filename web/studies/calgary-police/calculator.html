@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en-CA"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Police budget calculator · Calgary Insight</title>
+<meta name="description" content="Choose how much Calgary's police operating budget grows by 2030 and see the officers and civilian staff it could pay for, the cost per resident, and what published research says about officers and crime.">
+<link rel="canonical" href="https://calgaryinsight.ca/studies/calgary-police/calculator.html">
+<link rel="icon" href="../../logo.svg">
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--fg:#14202e;--mute:#5b6676;--line:#dde2ea;--accent:#0b6bb5;--warn:#9a5b00;--warnbg:#fff6e6;--good:#17803d;--bad:#b42318;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1420;--card:#141d2b;--fg:#e8edf4;--mute:#9aa6b8;--line:#263246;--accent:#5fb0f0;--warn:#f0b35a;--warnbg:#2a2214;--good:#5cc77e;--bad:#f07a6e;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1420;--card:#141d2b;--fg:#e8edf4;--mute:#9aa6b8;--line:#263246;--accent:#5fb0f0;--warn:#f0b35a;--warnbg:#2a2214;--good:#5cc77e;--bad:#f07a6e;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:24px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px))}
+a{color:var(--accent)}
+.kicker{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 6px}
+h1{font-size:clamp(1.6rem,4.5vw,2.3rem);line-height:1.15;margin:0 0 8px;text-wrap:balance}
+.lead{color:var(--mute);margin:0 0 20px;max-width:68ch}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;min-width:0}
+.card h2{font-size:1.05rem;margin:0 0 12px}
+label{display:block;font-weight:600;margin:14px 0 4px}
+label:first-of-type{margin-top:0}
+.row{display:flex;gap:10px;align-items:center}
+input[type=range]{flex:1;min-width:0;accent-color:var(--accent)}
+output{min-width:6.5ch;text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.hint{font-size:.85rem;color:var(--mute);margin:2px 0 0}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+button{font:inherit;font-size:.88rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}
+dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px}
+dt{color:var(--mute)} dd{margin:0;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.big{font-size:1.5rem}
+.crime{margin-top:16px}
+.crime .band{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;margin:10px 0 0}
+.down{color:var(--good)} .up{color:var(--bad)}
+.warn{background:var(--warnbg);border:1px solid var(--line);border-left:4px solid var(--warn);border-radius:8px;padding:12px 14px;margin-top:16px;font-size:.92rem}
+.warn b{color:var(--warn)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+.scroll{overflow-x:auto}
+footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
+@media (max-width:720px){.grid{grid-template-columns:1fr}.crime .band{grid-template-columns:1fr;gap:2px}.crime .band b{margin-bottom:8px}}
+</style></head>
+<body><div class="wrap">
+<p class="kicker"><a href="./">Calgary Police study</a> · Calculator</p>
+<h1>Police budget calculator</h1>
+<p class="lead">Choose how much the police operating budget grows by 2030. The calculator shows the officers and civilian staff that could pay for, the cost per resident, and the change in crime that published research has linked to that many more (or fewer) officers. It is a model, not a forecast.</p>
+
+<div class="grid">
+<section class="card" aria-labelledby="in">
+<h2 id="in">Your choices</h2>
+<label for="inc">Operating budget growth, 2026 to 2030</label>
+<div class="row"><input id="inc" type="range" min="0" max="40" step="any"><output id="incO"></output></div>
+<p class="hint">2026 budget: $684.5M. The police request is +19.3% ($816.7M in 2030).</p>
+<label for="g">Yearly cost growth of today's service</label>
+<div class="row"><input id="g" type="range" min="0" max="5" step="0.25"><output id="gO"></output></div>
+<p class="hint">Wages and prices for the existing staff. An assumption: actual settlements may differ.</p>
+<label for="cost">Yearly cost of each new position</label>
+<div class="row"><input id="cost" type="range" min="100" max="250" step="5"><output id="costO"></output></div>
+<p class="hint">About $145,000 is implied by the request at 2% cost growth; the plan does not publish it.</p>
+<label for="mix">Share of new positions that are officers</label>
+<div class="row"><input id="mix" type="range" min="0" max="100" step="1"><output id="mixO"></output></div>
+<p class="hint">The request: 309 officers of 523.5 positions (59%).</p>
+<div class="btns"><button type="button" data-p="request">The police request</button><button type="button" data-p="none">Only cost growth</button><button type="button" data-p="half">Half the new positions</button></div>
+</section>
+
+<section class="card" aria-labelledby="out" aria-live="polite">
+<h2 id="out">In 2030</h2>
+<dl>
+<dt>Operating budget</dt><dd class="big" id="bud"></dd>
+<dt>Per resident</dt><dd id="per"></dd>
+<dt>Compared with only cost growth</dt><dd id="extra"></dd>
+<dt>New positions it pays for</dt><dd id="pos"></dd>
+<dt>Officers</dt><dd id="off"></dd>
+<dt>Civilian staff</dt><dd id="civ"></dd>
+<dt>Officers per 100,000 residents</dt><dd id="ratio"></dd>
+<dt>Change in officers per resident from today</dt><dd id="rchg"></dd>
+</dl>
+<div class="crime">
+<h2>What research links to that change</h2>
+<div class="band"><span>Property crime per resident</span><b id="prop"></b><span>Violent crime per resident</span><b id="viol"></b></div>
+</div>
+</section>
+</div>
+
+<div class="warn"><b>Read this before quoting the crime figures.</b> They are not a forecast for Calgary. They apply the range found in studies of police numbers elsewhere: a 10% rise in officers per resident went with 1.7% to 3% less property crime (Chalfin and McCrary, 242 US cities, 1960 to 2010; Bradford's review for the UK police inspectorate, 2011) and between no change and 3.4% less violent crime, where the evidence is weaker. Crime has many causes; the effect depends on what officers do; it may differ for cuts and increases; and Calgary's own crime severity fell from 2019 to 2025 while its officers per resident also fell. Use the range to understand the research, not to predict next year.</div>
+
+<section class="card" style="margin-top:16px" aria-labelledby="yr">
+<h2 id="yr">Year by year</h2>
+<div class="scroll"><table><thead><tr><th>Year</th><th>Budget</th><th>Request</th><th>Residents (City forecast)</th><th>Per resident</th></tr></thead><tbody id="years"></tbody></table></div>
+<p class="hint">Residents between 2026 and 2030 follow a straight line between the City's two forecast years (1,583,200 and 1,689,400). The budget grows evenly each year to your 2030 figure.</p>
+</section>
+
+<footer>
+<p>How it works: the 2030 budget is $684.5M plus your growth. Today's service would cost $684.5M grown by your yearly cost growth; whatever is left pays for new positions at your cost each, split between officers and civilians by your share (a negative amount means positions cut). Officers per 100,000 use 2,304 officers today and the City's forecast of 1,689,400 residents in 2030. Sources: the Calgary Police Service 2027 to 2030 budget plan; Chalfin and McCrary, Review of Economics and Statistics (2018); Bradford, Police numbers and crime rates (HM Inspectorate of Constabulary, 2011).</p>
+<p><a href="./">Back to the study</a> · <a href="report.html">Full report with charts</a> · Not affiliated with the Calgary Police Service or The City of Calgary.</p>
+</footer>
+</div>
+<script>
+(function () {
+  var B26 = 684.5, PLAN = {2026: 684.5, 2027: 741.1, 2028: 771.5, 2029: 795.5, 2030: 816.7};
+  var POP = {2026: 1583200, 2030: 1689400}, OFF = 2304, CIV = 946.5, RATIO_NOW = OFF / POP[2026] * 1e5;
+  var EL = {prop: [-0.17, -0.30], viol: [0, -0.34]};
+  var REQ = (PLAN[2030] / B26 - 1) * 100, NONE = (Math.pow(1.02, 4) - 1) * 100;
+  var PRESETS = {request: {inc: REQ, g: 2, cost: 145, mix: 59}, none: {inc: NONE, g: 2, cost: 145, mix: 59}, half: {inc: (REQ + NONE) / 2, g: 2, cost: 145, mix: 59}};
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (m) { return '$' + m.toFixed(1) + 'M'; };
+  var n0 = function (x) { return Math.round(x).toLocaleString('en-CA'); };
+  var sgn = function (x, d) { return (x > 0 ? '+' : x < 0 ? '−' : '') + Math.abs(x).toFixed(d === undefined ? 1 : d); };
+  function range(el, chg) {
+    var v = [el[0] * chg * 100, el[1] * chg * 100].sort(function (x, y) { return Math.abs(x) - Math.abs(y); });
+    var fmt = function (x) { return Math.abs(x) < 0.05 ? 'no change' : Math.abs(x).toFixed(1) + (x < 0 ? '% less' : '% more'); };
+    if (Math.abs(v[1]) < 0.05) return '<span>no change</span>';
+    var cls = v[1] < 0 ? 'down' : 'up';
+    return '<span class="' + cls + '">' + (fmt(v[0]) === fmt(v[1]) ? fmt(v[1]) : 'between ' + fmt(v[0]) + ' and ' + fmt(v[1])) + '</span>';
+  }
+  function run() {
+    var inc = +$('inc').value / 100, g = +$('g').value / 100, cost = +$('cost').value * 1000, mix = +$('mix').value / 100;
+    $('incO').textContent = '+' + (+$('inc').value).toFixed(1) + '%'; $('gO').textContent = (+$('g').value).toFixed(2) + '%';
+    $('costO').textContent = '$' + $('cost').value + 'k'; $('mixO').textContent = $('mix').value + '%';
+    var bud = B26 * (1 + inc), base = B26 * Math.pow(1 + g, 4), extra = bud - base;
+    var pos = extra * 1e6 / cost, off = OFF + pos * mix, civ = CIV + pos * (1 - mix), ratio = off / POP[2030] * 1e5, rchg = ratio / RATIO_NOW - 1;
+    $('bud').textContent = money(bud);
+    $('per').textContent = '$' + (bud * 1e6 / POP[2030]).toFixed(0);
+    $('extra').textContent = (extra >= 0 ? '+' : '−') + '$' + Math.abs(extra).toFixed(1) + 'M';
+    $('pos').textContent = (pos >= 0 ? '' : '−') + n0(Math.abs(pos)) + (pos < 0 ? ' (cut)' : '');
+    $('off').textContent = n0(off); $('civ').textContent = n0(civ);
+    $('ratio').textContent = ratio.toFixed(1); $('rchg').textContent = sgn(rchg * 100) + '%';
+    $('prop').innerHTML = range(EL.prop, rchg); $('viol').innerHTML = range(EL.viol, rchg);
+    var rows = '';
+    for (var i = 0; i <= 4; i++) {
+      var y = 2026 + i, b = B26 * Math.pow(1 + inc, i / 4), popy = POP[2026] + (POP[2030] - POP[2026]) * i / 4;
+      rows += '<tr><td>' + y + '</td><td>' + money(b) + '</td><td>' + money(PLAN[y]) + '</td><td>' + n0(popy) + '</td><td>$' + (b * 1e6 / popy).toFixed(0) + '</td></tr>';
+    }
+    $('years').innerHTML = rows;
+  }
+  function set(p) { var v = PRESETS[p]; $('inc').value = v.inc; $('g').value = v.g; $('cost').value = v.cost; $('mix').value = v.mix; run(); }
+  ['inc', 'g', 'cost', 'mix'].forEach(function (id) { $(id).addEventListener('input', run); });
+  document.querySelectorAll('[data-p]').forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-p')); }); });
+  set('request');
+})();
+</script>
+</body></html>

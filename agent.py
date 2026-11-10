@@ -612,6 +612,11 @@ TOOLS = [
                     'sector, and the research file (Tourism Calgary\'s figures, what makes Calgary different, lessons from '
                     'Iceland, Singapore, Dubai, New York, Denver and airline stopovers, incentives, levies, rail, with sources); '
                     'part="arrivals", "countries", "airports" or "research" (find narrows). '
+                    'section="police_study" gives the published study of Calgary Police performance, resources and the 2027 to '
+                    '2030 budget request: crime severity, clearance and staffing against Edmonton, Vancouver, Winnipeg, Ottawa and '
+                    'Toronto (Statistics Canada), Calgary\'s spending, overtime and fine revenue, the request item by item, three '
+                    'scenarios, research on officers and crime, community crime per resident and every source; part="summary", '
+                    '"sections", "sources" or "limitations" (find narrows sections). '
                     'section="safest_cities" gives Canada\'s safest cities by Statistics Canada\'s Crime Severity Index '
                     '(the latest year and the year before): the 50 safest of every city of 10,000 people or more, '
                     'Calgary\'s rank this year and last, the large cities (100,000+) and the metropolitan areas; '
@@ -632,7 +637,7 @@ TOOLS = [
                     'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
                     'sources; narrow with find (words), days, topic or date.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'school_tax', 'tourism', 'business', 'growth_forecast', 'visiting'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'school_tax', 'tourism', 'police_study', 'business', 'growth_forecast', 'visiting'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -649,7 +654,7 @@ TOOLS = [
          'days': {'type': 'integer', 'description': 'section city_news: only the last N days'},
          'topic': {'type': 'string', 'description': 'section city_news: one topic, e.g. City Council, Transit, Water'},
          'date': {'type': 'string', 'description': 'section city_news: one day\'s edition, YYYY-MM-DD'},
-         'part': {'type': 'string', 'enum': ['summary', 'arrivals', 'countries', 'airports', 'research', 'municipalities', 'residents', 'boards', 'spending', 'grants', 'approvals', 'factors', 'projects', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'planned', 'fields', 'weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats'],
+         'part': {'type': 'string', 'enum': ['summary', 'arrivals', 'countries', 'airports', 'research', 'municipalities', 'residents', 'boards', 'spending', 'grants', 'approvals', 'factors', 'projects', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'planned', 'fields', 'weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats', 'sections', 'sources', 'limitations'],
                   'description': 'section federal_budget: summary (default), revenue_by_province (federal revenue collected '
                                  'and spending in every province, Statistics Canada, with a 2026-27 estimate), province, find (search the measures and their '
                                  'text with find), chapter (every line item of one chapter), tables (Annex 1), tax'},
@@ -1435,6 +1440,9 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
         import business                                 # noqa: PLC0415
         return business.summary(business.load((extra or {}).get('data_dir'), can_build=True), (extra or {}).get('community'),
                                 (extra or {}).get('kind'), (extra or {}).get('find'))
+    if section == 'police_study':
+        import police_study                             # noqa: PLC0415
+        return police_study.summary(police_study.load((extra or {}).get('data_dir')), (extra or {}).get('part'), (extra or {}).get('find'))
     if section == 'school_tax':
         import schooltax                                # noqa: PLC0415
         return schooltax.summary(schooltax.load((extra or {}).get('data_dir'), can_build=True), (extra or {}).get('part'),
@@ -1790,6 +1798,9 @@ class Agent:
             if (args.get('section') or '') == 'tourism':
                 import tourism                         # noqa: PLC0415
                 return tourism.summary(tourism.load(self.data_dir, can_build=True), args.get('part'), args.get('find'))
+            if (args.get('section') or '') == 'police_study':
+                import police_study                    # noqa: PLC0415
+                return police_study.summary(police_study.load(self.data_dir), args.get('part'), args.get('find'))
             if (args.get('section') or '') == 'school_tax':
                 import schooltax                       # noqa: PLC0415
                 return schooltax.summary(schooltax.load(self.data_dir, can_build=True), args.get('part'), args.get('find'))

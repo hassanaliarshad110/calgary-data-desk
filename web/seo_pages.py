@@ -320,6 +320,7 @@ def build(out, data_dir, method='city_actual'):
     urls += ai_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, updated)
     urls += study_pages(out, updated)
     urls += sewer_page(out, updated)
+    urls += police_page(out, updated)
 
     # the list the dashboard uses to link each community to its page, and for its "find your community" box
     with open(os.path.join(out, 'communities', 'pages.json'), 'w', encoding='utf-8') as f:
@@ -399,7 +400,10 @@ def topic_pages(out, city, wards, comms, slugs, byc, crime, cperiod, period, upd
     body.append('<h2>Communities with the most crime per resident</h2><p>Communities with at least 1,000 residents. Downtown and busy shopping areas see crime from far more people than live there.</p>'
                 '<div class="wrap"><table><thead><tr><th>Community</th><th>Ward</th><th class="n">Per 1,000 a year</th></tr></thead><tbody>'
                 + top(lambda c: (byc.get(c['code']) or {}).get('per_1000'), lambda v: num(v, 1)) + '</tbody></table></div>')
-    body += ['<a class="cta" href="../?view=safety">Open crime on the dashboard</a>',
+    body += ['<div class="qa"><h3>Study: Calgary Police performance, resources and the 2027 to 2030 budget request</h3><p>How Calgary’s police have performed since 2019 '
+             'for the resources they have had, compared with Edmonton, Vancouver, Winnipeg, Ottawa and Toronto, with a budget calculator.</p>'
+             '<p><a href="../studies/calgary-police/">Read the study →</a></p></div>',
+             '<a class="cta" href="../?view=safety">Open crime on the dashboard</a>',
              '<p><a href="../311/">311 in Calgary</a> · <a href="../growth/">Growth and new homes</a> · <a href="../wards/">All wards</a> · <a href="../communities/">All communities</a></p>', sources_p(city)]
     write('crime/', 'Calgary crime by ward and community, per 1,000 residents | Calgary Insight',
           f'Calgary crime from Calgary Police Service statistics: {num(crime.get("city_per_1000") or crime.get("per_1000"), 1)} per 1,000 residents a year, every ward and the communities with the highest rates, refreshed daily.',
@@ -654,6 +658,60 @@ def _paras(t):
         elif lines:
             out.append(f'<p>{_md(" ".join(lines))}</p>')
     return ''.join(out)
+
+
+def police_page(out, updated):
+    """calgaryinsight.ca/studies/calgary-police/: the police performance and resources study, with its PDF, interactive
+    version, workbook and budget calculator beside it (web/studies/calgary-police/, copied by build_site)."""
+    here = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'studies', 'calgary-police', 'spec.json')
+    if not os.path.exists(here):
+        return []
+    with open(here, encoding='utf-8') as f:
+        r = json.load(f)
+    path = 'studies/calgary-police/'
+    body = ['<p class="kicker">Independent study · Calgary Insight · November 10, 2026</p>',
+            f'<h1>{e(r["title"])}</h1>', f'<p class="lead">{e(r.get("subtitle") or "")}</p>',
+            '<p><a class="cta" href="calculator.html">Try the police budget calculator</a></p>'
+            '<p><a href="calgary-police-performance-study.pdf">The full study (PDF)</a> · <a href="report.html">Interactive version with charts and the community map</a> · '
+            '<a href="calgary-police-performance-figures.xlsx">Every figure (Excel)</a></p>',
+            '<div class="facts"><h2>In short</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r.get('summary') or []) + '</ul></div>']
+    for i, sec in enumerate(r.get('sections') or [], 1):
+        body.append(f'<h2>{i}. {e(sec.get("heading") or "")}</h2>{_paras(sec.get("text"))}')
+        tabs = [v for v in sec.get('visuals') or [] if v.get('type') == 'table']
+        for t in tabs[:1]:
+            body.append(f'<h3>{e(t.get("title") or "")}</h3><div class="wrap"><table><thead><tr>' + ''.join(f'<th>{e(c)}</th>' for c in t['columns'])
+                        + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{e(x)}</td>' for x in row) + '</tr>' for row in t['rows'][:15]) + '</tbody></table></div>')
+    if r.get('conclusion'):
+        body.append('<h2>Conclusion</h2>' + _paras(r['conclusion']))
+    recs = r.get('recommendations') or []
+    if recs:
+        body.append('<h2>Recommendations</h2><ol>' + ''.join(
+            f'<li><b>{e(x.get("title") or "")}</b> <span class="note">({e(x.get("priority") or "")} priority)</span><br>{e(x.get("detail") or "")}</li>' for x in recs) + '</ol>')
+    ap = r.get('action_plan') or []
+    if ap:
+        body.append('<h2>Next steps</h2><div class="wrap"><table><thead><tr><th>Step</th><th>Who</th><th>How we would know</th></tr></thead><tbody>'
+                    + ''.join(f'<tr><td>{e(x.get("action") or "")}</td><td>{e(x.get("owner") or "")}</td><td>{e(x.get("measure") or "")}</td></tr>' for x in ap) + '</tbody></table></div>')
+    if r.get('method'):
+        body.append('<h2>Method</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r['method']) + '</ul>')
+    if r.get('limitations'):
+        body.append('<h2>Limits</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r['limitations']) + '</ul>')
+    if r.get('data_sources'):
+        body.append('<h2>Data sources</h2><ul>' + ''.join(
+            f'<li><a href="{e(x.get("url") or "")}">{e(x.get("name") or "")}</a>, {e(x.get("publisher") or "")}{(" (" + e(x["period"]) + ")") if x.get("period") else ""}</li>'
+            for x in r['data_sources']) + '</ul>')
+    body += ['<a class="cta" href="calculator.html">Try the police budget calculator</a>',
+             '<p><a href="../../crime/">Crime in Calgary by ward and community</a> · <a href="../who-calgarys-311-hears/">Who Calgary’s 311 Hears</a> · <a href="../../communities/">All communities</a></p>',
+             '<p class="note">Independent analysis. Not affiliated with the Calgary Police Service, the Calgary Police Commission or The City of Calgary. '
+             'Statistics Canada data under the Statistics Canada Open Licence. Corrections and responses: hello@calgaryinsight.ca.</p>']
+    ld = [{'@type': 'Report', 'name': r['title'], 'url': SITE + path, 'description': r.get('subtitle') or '', 'datePublished': '2026-11-10',
+           'spatialCoverage': {'@type': 'City', 'name': 'Calgary'}, 'encoding': [{'@type': 'MediaObject', 'contentUrl': SITE + path + 'calgary-police-performance-study.pdf', 'encodingFormat': 'application/pdf'}],
+           'publisher': {'@type': 'Organization', 'name': 'Calgary Insight', 'url': SITE}}]
+    desc = re.sub(r'[*]', '', ' '.join((r.get('summary') or [])[:2]))[:300]
+    os.makedirs(os.path.join(out, path), exist_ok=True)
+    with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(page(path, 'Calgary Police: performance, resources and the 2027 to 2030 budget request | Calgary Insight', desc,
+                     [('Calgary Insight', ''), ('Calgary Police study', path)], '\n'.join(body), ld, updated, og_type='article'))
+    return [path, path + 'calculator.html']
 
 
 def sewer_page(out, updated):
