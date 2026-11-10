@@ -1,2 +1,1 @@
-mandela https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_120146_54bb08ed-b79c-4258-817f-1882bed65198.glb 2048
-superstore https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_120147_15ccf59f-cfd5-47b2-bf04-9e85349c62e7.glb 2048
+principal https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_120710_d386aa0d-08ad-4182-8ee3-197371c05066.glb 1024
