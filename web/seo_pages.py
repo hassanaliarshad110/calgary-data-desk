@@ -673,7 +673,7 @@ STUDIES = [
      'title': 'What Calgarians pay: the proposed budget, and Calgary against seven Canadian cities',
      'blurb': 'What the proposed 2027 to 2030 budget would cost a typical Calgary home, and how Calgary’s City property tax and water, '
               'wastewater and waste bills compare with Edmonton, Vancouver, Toronto, Ottawa, Winnipeg, Saskatoon and Regina. With a calculator for your own bill.',
-     'extra': [('calculator.html', 'Your City bill calculator'), ('what-calgarians-pay.pdf', 'Full study (PDF)')]},
+     'extra': [('calculator.html', 'Your City bill calculator'), ('what-calgarians-pay.pdf', 'Full study (PDF)'), ('what-calgarians-pay-calculations.xlsx', 'Calculation workbook (Excel)')]},
     {'path': 'studies/calgary-police/', 'kind': 'Independent study', 'date': 'November 10, 2026',
      'title': 'Calgary Police: performance, resources and the 2027 to 2030 budget request',
      'blurb': 'How Calgary’s police have performed since 2019 for the resources they have had, compared with five other large Canadian cities, '
@@ -782,7 +782,7 @@ def pay_page(out, updated):
             f'<h1>{e(r["title"])}</h1>', f'<p class="lead">{e(r.get("subtitle") or "")}</p>',
             '<div class="facts"><h2>In short</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r.get('summary') or []) + '</ul></div>',
             '<div class="study-open"><a class="cta" href="report.html">Read the full study</a> <a class="cta alt" href="calculator.html">Work out your own bill</a>'
-            '<p><a href="what-calgarians-pay.pdf">The full study as a PDF</a> · <a href="what-calgarians-pay-figures.xlsx">Every figure (Excel)</a> · '
+            '<p><a href="what-calgarians-pay.pdf">The full study as a PDF</a> · <a href="what-calgarians-pay-calculations.xlsx">The calculation workbook (Excel: every input, source and formula)</a> · <a href="what-calgarians-pay-figures.xlsx">Every figure (Excel)</a> · '
             '<a href="#s1">Read the findings on this page ↓</a></p></div>']
     for i, sec in enumerate(r.get('sections') or [], 1):
         body.append(f'<h2 id="s{i}">{i}. {e(sec.get("heading") or "")}</h2>{_paras(sec.get("text"))}')
