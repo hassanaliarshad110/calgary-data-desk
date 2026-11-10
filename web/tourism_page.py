@@ -45,6 +45,10 @@ def build(out, tourism=None, research=None):
             'when, what they spend, the gateway to the Rockies, and how other destinations grew. Every figure carries its source and '
             'says whether it is a count, an organisation\'s own estimate or a target. Planning a visit instead? '
             '<a href="../visit/explore/">Explore Calgary</a>.</p>' + CSS]
+    body += ['<figure style="margin:1.2rem 0 1.6rem"><video controls preload="none" playsinline poster="../video/calgary-tourism-hub.jpg" style="width:100%;max-width:960px;border-radius:12px;display:block">'
+             '<source src="../video/calgary-tourism-hub.mp4" type="video/mp4"></video>'
+             '<figcaption style="font-size:.9em;opacity:.8;margin-top:.4rem">Video: Calgary\u2019s potential as a tourist hub (3 min 50 s, narrated, with captions). '
+             'Its transcript and sources are under Video Explainers on the <a href="../">dashboard</a>.</figcaption></figure>']
     # 1. the visitor economy (Tourism Calgary's estimates)
     if c25:
         sp = c25.get('spending_by_origin') or {}
