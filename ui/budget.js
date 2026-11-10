@@ -37,14 +37,19 @@ async function renderBudget() {
   $('#bud-year').innerHTML = years.map(y => `<option ${y === budYear ? 'selected' : ''}>${y}</option>`).join('');
   const T = BUD.totals[budYear] || {}, op = T.operating, cap = T.capital;
   const people = D && D.population ? D.population.city_now : null;
-  $('#bud-sub').textContent = `The City of Calgary's ${budYear} budget: ${[op ? (op.status || '').toLowerCase() + ' operating' : '', cap ? (cap.status || '').toLowerCase() + ' capital' : ''].filter(Boolean).join(' and ')}. Live from Calgary Open Budget.`;
+  // a year past the current budget cycle has no operating budget: its capital is spending Council already approved, in
+  // earlier budgets, for multi-year projects that run into that year; it is not a budget for that year
+  const ahead = !op && !!cap;
+  $('#bud-sub').textContent = ahead
+    ? `${budYear}: no budget has been set for this year. The capital figure is spending Council already approved in earlier budgets for multi-year projects that run into ${budYear}, as the City's open budget data lists it.${+budYear <= 2030 ? ' The proposed 2027 to 2030 budget, now before Council, would add to it.' : ''} Live from Calgary Open Budget.`
+    : `The City of Calgary's ${budYear} budget: ${[op ? (op.status || '').toLowerCase() + ' operating' : '', cap ? (cap.status || '').toLowerCase() + ' capital' : ''].filter(Boolean).join(' and ')}. Live from Calgary Open Budget.`;
   const prev = BUD.totals[String(+budYear - 1)] || {};
   const ch = (a, b) => a && b && b.value ? signed((a.value / b.value - 1) * 100, 1) + ' on ' + (+budYear - 1) : '';
   $('#bud-stats').innerHTML = [
     [op ? money(op.value) : '–', `operating budget${op ? ', ' + (op.status || '').toLowerCase() : ''} ${ch(op, prev.operating)}`],
-    [cap ? money(cap.value) : '–', `capital budget${cap ? ', ' + (cap.status || '').toLowerCase() : ''} ${ch(cap, prev.capital)}`],
+    [cap ? money(cap.value) : '–', ahead ? `capital already approved for ${budYear} (multi-year projects)` : `capital budget${cap ? ', ' + (cap.status || '').toLowerCase() : ''} ${ch(cap, prev.capital)}`],
     [op && people ? '$' + fmt(op.value * 1e6 / people) : '–', `operating per resident (${fmt(people)} people, the City's estimate)`],
-    [cap && people ? '$' + fmt(cap.value * 1e6 / people) : '–', 'capital per resident'],
+    [cap && people && !ahead ? '$' + fmt(cap.value * 1e6 / people) : '–', ahead ? 'per resident: not shown for a future year' : 'capital per resident'],
   ].map(([b, s]) => `<div class="istat"><b>${b}</b><span>${esc(s)}</span></div>`).join('');
 
   const bars = (sel, list) => {
@@ -70,7 +75,7 @@ async function renderBudget() {
         scales: { y: { ticks: { callback: v => moneyShort(v) } } } },
     });
   }
-  $('#bud-trend-sub').textContent = 'Millions of dollars. Past years show what was approved or actually spent, as the City lists them; capital years ahead are what Council has approved so far.';
+  $('#bud-trend-sub').textContent = 'Millions of dollars. Past years show what was approved or actually spent, as the City lists them. Years after 2026 have no budget yet: their capital is spending already approved in earlier budgets for multi-year projects, which is why it falls away; the proposed 2027 to 2030 budget would add to it.';
 
   // every service
   const rows = [];
@@ -200,28 +205,40 @@ function renderBudgetWards() {
   const box = $('#bud-ward');
   if (!D) { box.innerHTML = ''; return; }
   const wardOf = {}; (D.communities || []).forEach(c => { wardOf[c.code] = c.ward; });
+  // City budget spending only: projects the City (or its housing company) owns, and City road projects. Private and
+  // other-government projects are on Growth vs amenities; they are not City spending.
+  const cityOwned = p => /city of calgary|calgary housing company/i.test(p.owner || '');
   const items = [
-    ...(D.projects || []).filter(p => p.state !== 'completed').map(p => ({ title: p.title, kind: p.kind || 'Project', owner: p.owner || '', cost: millions(p.budget), text: p.budget || '', comm: p.comm, url: p.url, state: p.state })),
+    ...(D.projects || []).filter(p => p.state !== 'completed' && cityOwned(p)).map(p => ({ title: p.title, kind: p.kind || 'Project', owner: p.owner || '', cost: millions(p.budget), text: p.budget || '', comm: p.comm, url: p.url, state: p.state })),
     ...(D.roadwork || []).map(r => ({ title: r.title, kind: 'Road project', owner: 'City of Calgary', cost: millions(r.budget), text: r.budget || '', comm: r.comm, url: r.url, state: 'building' })),
   ];
+  // a line that runs through several wards is not placed in one; a cost shared among several listed items ("Part of
+  // $3.9 million") is not added once per item
+  items.forEach(i => { i.multi = /green line/i.test(i.title); i.shared = /^\s*(about\s+)?part of/i.test(i.text); });
   const city = isCity();
-  $('#bud-ward-title').textContent = city ? 'By ward' : `${W()}: spending that can be placed`;
-  $('#bud-ward-sub').innerHTML = `<b>The City publishes its budget by department and service, not by ward.</b> What can be placed in ${city ? 'each ward' : esc(W())} is spending tied to a location: City and partner projects being built or planned, and road projects, each with the cost its owner has published.`;
+  $('#bud-ward-title').textContent = city ? 'City projects by ward' : `${W()}: City projects that can be placed`;
+  $('#bud-ward-sub').innerHTML = `<b>The City publishes its budget by department and service, not by ward.</b> What can be placed in ${city ? 'each ward' : esc(W())} is City of Calgary projects being built or planned, and City road projects, each with the whole project's published cost. That is usually spent over several years and often shared with the province or the federal government, so it is not a year's budget and is not divided per resident. Private and other-government projects are on Growth vs amenities.`;
   const withCost = items.filter(i => isNum(i.cost));
+  const counted = withCost.filter(i => !i.multi && !i.shared);
+  const multi = withCost.filter(i => i.multi);
+  const shared = withCost.filter(i => i.shared);
+  const extra = (multi.length ? `<p class="card-note">Not placed in a ward because it runs through several: ${multi.map(i => `${esc(i.title)} (${money(i.cost)})`).join('; ')}.</p>` : '')
+    + (shared.length ? `<p class="card-note">${fmt(shared.length)} listed project${shared.length === 1 ? '' : 's'} share${shared.length === 1 ? 's' : ''} a cost published for several together (for example ${esc(shared[0].text)}); ${shared.length === 1 ? 'it is' : 'they are'} counted but not added to the totals.</p>` : '');
   if (city) {
     const byW = {};
-    withCost.forEach(i => { const w = wardOf[i.comm]; if (!w) return; const b = byW[w] = byW[w] || { n: 0, sum: 0 }; b.n++; b.sum += i.cost; });
+    withCost.forEach(i => { if (i.multi) return; const w = wardOf[i.comm]; if (!w) return; const b = byW[w] = byW[w] || { n: 0, sum: 0 }; b.n++; if (!i.shared) b.sum += i.cost; });
     const ws = (D.wards_summary || {}).wards || [];
-    box.innerHTML = `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">Projects with a published cost</th><th scope="col" class="num">Their cost</th><th scope="col" class="num">Per resident</th></tr></thead><tbody>
-      ${ws.map(r => { const b = byW[r.ward] || { n: 0, sum: 0 }; return `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${fmt(b.n)}</td><td class="num">${b.n ? money(b.sum) : '–'}</td><td class="num">${b.n && r.residents ? '$' + fmt(b.sum * 1e6 / r.residents) : '–'}</td></tr>`; }).join('')}
-      </tbody></table></div><p class="card-note">Only projects listed on Calgary Insight with a published cost and a location; a ward with none listed may still have City spending (maintenance, services and programs are budgeted city-wide).</p>`;
+    box.innerHTML = `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Ward</th><th scope="col">Councillor</th><th scope="col" class="num">City projects with a published cost</th><th scope="col" class="num">Their whole cost</th></tr></thead><tbody>
+      ${ws.map(r => { const b = byW[r.ward] || { n: 0, sum: 0 }; return `<tr><td>Ward ${r.ward}</td><td>${esc(r.councillor || '')}</td><td class="num">${fmt(b.n)}</td><td class="num">${b.sum ? money(b.sum) : '–'}</td></tr>`; }).join('')}
+      </tbody></table></div>${extra}<p class="card-note">Only City projects listed on Calgary Insight with a published cost and a location. Large plants serve the whole city wherever they stand (for example the Fish Creek and Bonnybrook wastewater plants), and a ward with few listed may still have City spending: maintenance, services and programs are budgeted city-wide.</p>`;
     return;
   }
   box.innerHTML = withCost.length ? `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Project</th><th scope="col">Kind</th><th scope="col">Owner</th><th scope="col">Community</th><th scope="col" class="num">Published cost</th></tr></thead><tbody>
-    ${withCost.sort((a, b) => b.cost - a.cost).map(i => `<tr><td class="wrap">${i.url ? `<button class="link-btn" data-open="${esc(i.url)}">${esc(i.title)}</button>` : esc(i.title)}</td><td>${esc(i.kind)}</td><td>${esc(i.owner)}</td><td>${esc(i.comm ? commName(i.comm) : '')}</td><td class="num" title="${esc(i.text)}">${money(i.cost)}</td></tr>`).join('')}
-    <tr class="cmp-city-row"><td colspan="4"><b>Total of the costs published</b></td><td class="num"><b>${money(withCost.reduce((a, i) => a + i.cost, 0))}</b></td></tr></tbody></table></div>
-    <p class="card-note">${fmt(items.length - withCost.length)} more projects are listed without a published cost (see Growth vs amenities, Being built). Costs are as their owners publish them, often over several years and shared with other governments.</p>`
-    : `<p class="card-sub">No project with a published cost is listed for ${esc(W())}.</p>`;
+    ${withCost.sort((a, b) => b.cost - a.cost).map(i => `<tr><td class="wrap">${i.url ? `<button class="link-btn" data-open="${esc(i.url)}">${esc(i.title)}</button>` : esc(i.title)}${i.multi ? ' <small>(runs through several wards; not in the total)</small>' : ''}</td><td>${esc(i.kind)}</td><td>${esc(i.owner)}</td><td>${esc(i.comm ? commName(i.comm) : '')}</td><td class="num" title="${esc(i.text)}">${i.shared ? esc(i.text) : money(i.cost)}</td></tr>`).join('')}
+    <tr class="cmp-city-row"><td colspan="4"><b>Total of the City costs published</b></td><td class="num"><b>${money(counted.reduce((a, i) => a + i.cost, 0))}</b></td></tr></tbody></table></div>
+    ${shared.length ? `<p class="card-note">Costs shared among several items are shown as published and not added to the total.</p>` : ''}
+    <p class="card-note">${fmt(items.length - withCost.length)} more City projects are listed without a published cost. Costs are each whole project's, as the City publishes them, often over several years and shared with other governments. Private and other-government projects are on Growth vs amenities.</p>`
+    : `<p class="card-sub">No City project with a published cost is listed for ${esc(W())}.</p>`;
 }
 
 $('#bud-year').addEventListener('change', e => { budYear = e.target.value; renderBudget(); });
