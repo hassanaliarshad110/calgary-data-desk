@@ -90,18 +90,18 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
 <section class="card" style="margin-top:16px" aria-labelledby="yr">
 <h2 id="yr">Year by year</h2>
 <div class="scroll"><table><thead><tr><th>Year</th><th>Budget</th><th>Request</th><th>Residents (City forecast)</th><th>Per resident</th></tr></thead><tbody id="years"></tbody></table></div>
-<p class="hint">Residents between 2026 and 2030 follow a straight line between the City's two forecast years (1,583,200 and 1,689,400). The budget grows evenly each year to your 2030 figure.</p>
+<p class="hint">Residents are the City of Calgary's own forecast (Calgary and Region Economic Outlook, Spring 2026, Table 4), the same forecast the police budget plan uses. The budget grows evenly each year to your 2030 figure.</p>
 </section>
 
 <footer>
-<p>How it works: the 2030 budget is $684.5M plus your growth. Today's service would cost $684.5M grown by your yearly cost growth; whatever is left pays for new positions at your cost each, split between officers and civilians by your share (a negative amount means positions cut). Officers per 100,000 use 2,304 officers today and the City's forecast of 1,689,400 residents in 2030. Sources: the Calgary Police Service 2027 to 2030 budget plan; Chalfin and McCrary, Review of Economics and Statistics (2018); Bradford, Police numbers and crime rates (HM Inspectorate of Constabulary, 2011).</p>
+<p>How it works: the 2030 budget is $684.5M plus your growth. Today's service would cost $684.5M grown by your yearly cost growth; whatever is left pays for new positions at your cost each, split between officers and civilians by your share (a negative amount means positions cut). Officers per 100,000 use 2,304 officers today and the City's population forecast (1,583,200 in 2026, 1,689,400 in 2030). Sources: the Calgary Police Service 2027 to 2030 budget plan; Chalfin and McCrary, Review of Economics and Statistics (2018); Bradford, Police numbers and crime rates (HM Inspectorate of Constabulary, 2011).</p>
 <p><a href="./">Back to the study</a> · <a href="report.html">Full report with charts</a> · Not affiliated with the Calgary Police Service or The City of Calgary.</p>
 </footer>
 </div>
 <script>
 (function () {
   var B26 = 684.5, PLAN = {2026: 684.5, 2027: 741.1, 2028: 771.5, 2029: 795.5, 2030: 816.7};
-  var POP = {2026: 1583200, 2030: 1689400}, OFF = 2304, CIV = 946.5, RATIO_NOW = OFF / POP[2026] * 1e5;
+  var POP = {2026: 1583200, 2027: 1608700, 2028: 1634800, 2029: 1662300, 2030: 1689400}, OFF = 2304, CIV = 946.5, RATIO_NOW = OFF / POP[2026] * 1e5;
   var EL = {prop: [-0.17, -0.30], viol: [-0.34, -0.34]};
   var REQ = (PLAN[2030] / B26 - 1) * 100, NONE = (Math.pow(1.02, 4) - 1) * 100;
   var COST = (PLAN[2030] - B26 * Math.pow(1.02, 4)) * 1000 / 523.5, MIX = 309 / 523.5 * 100;   // $k a position, implied by the request at 2%
@@ -133,7 +133,7 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
     $('prop').innerHTML = range(EL.prop, rchg); $('viol').innerHTML = range(EL.viol, rchg);
     var rows = '';
     for (var i = 0; i <= 4; i++) {
-      var y = 2026 + i, b = B26 * Math.pow(1 + inc, i / 4), popy = POP[2026] + (POP[2030] - POP[2026]) * i / 4;
+      var y = 2026 + i, b = B26 * Math.pow(1 + inc, i / 4), popy = POP[y];
       rows += '<tr><td>' + y + '</td><td>' + money(b) + '</td><td>' + money(PLAN[y]) + '</td><td>' + n0(popy) + '</td><td>$' + (b * 1e6 / popy).toFixed(0) + '</td></tr>';
     }
     $('years').innerHTML = rows;
