@@ -12,7 +12,7 @@ durs = {}
 for name, lines in L.items():
     durs[name] = []
     for i, t in enumerate(lines):
-        a, sr = k.create(t, voice='af_heart', speed=1.0, lang='en-us')
+        a, sr = k.create(t, voice='af_heart', speed=1.1, lang='en-us')
         sf.write(os.path.join(out, f'{name}_{i}.wav'), a, sr)
         durs[name].append(round(len(a) / sr, 3))
 json.dump(durs, open(os.path.join(out, 'durs.json'), 'w'))
