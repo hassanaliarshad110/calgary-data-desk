@@ -7,10 +7,14 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
       - run: |
           mkdir -p out
-          pip install -q requests pdfplumber
-          python3 probe.py > out/log.txt 2>&1 || true
+          npm i -s playwright@1.47.2 && npx playwright install --with-deps chromium > /dev/null 2>&1
+          node browse.js > out/log.txt 2>&1 || true
+          pip install -q requests
+          python3 census.py >> out/log.txt 2>&1 || true
           git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
-          git checkout -b fetched-17
-          git add -f out && git commit -qm "City rates fetch 2" && git push -f origin fetched-17
+          git checkout -b fetched-18
+          git add -f out && git commit -qm "Browser fetch" && git push -f origin fetched-18
