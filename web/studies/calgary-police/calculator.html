@@ -46,7 +46,7 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
 <body><div class="wrap">
 <p class="kicker"><a href="./">Calgary Police study</a> · Calculator</p>
 <h1>Police budget calculator</h1>
-<p class="lead">Choose how much the police operating budget grows by 2030. The calculator shows the officers and civilian staff that could pay for, the cost per resident, and the change in crime that published research has linked to that many more (or fewer) officers. It is a model, not a forecast.</p>
+<p class="lead">Choose how much the police operating budget grows by 2030. The calculator shows the officers and civilian staff that it could pay for, the cost per resident, and the change in crime that published research has linked to that many more (or fewer) officers. It is a model, not a forecast.</p>
 
 <div class="grid">
 <section class="card" aria-labelledby="in">
@@ -58,10 +58,10 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
 <div class="row"><input id="g" type="range" min="0" max="5" step="0.25"><output id="gO"></output></div>
 <p class="hint">Wages and prices for the existing staff. An assumption: actual settlements may differ.</p>
 <label for="cost">Yearly cost of each new position</label>
-<div class="row"><input id="cost" type="range" min="100" max="250" step="5"><output id="costO"></output></div>
-<p class="hint">About $145,000 is implied by the request at 2% cost growth; the plan does not publish it.</p>
+<div class="row"><input id="cost" type="range" min="80" max="250" step="any"><output id="costO"></output></div>
+<p class="hint">About $145,000 is implied by the request at 2% cost growth (about $88,000 at 3%); the plan does not publish it.</p>
 <label for="mix">Share of new positions that are officers</label>
-<div class="row"><input id="mix" type="range" min="0" max="100" step="1"><output id="mixO"></output></div>
+<div class="row"><input id="mix" type="range" min="0" max="100" step="any"><output id="mixO"></output></div>
 <p class="hint">The request: 309 officers of 523.5 positions (59%).</p>
 <div class="btns"><button type="button" data-p="request">The police request</button><button type="button" data-p="none">Only cost growth</button><button type="button" data-p="half">Half the new positions</button></div>
 </section>
@@ -85,7 +85,7 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
 </section>
 </div>
 
-<div class="warn"><b>Read this before quoting the crime figures.</b> They are not a forecast for Calgary. They apply the range found in studies of police numbers elsewhere: a 10% rise in officers per resident went with 1.7% to 3% less property crime (Chalfin and McCrary, 242 US cities, 1960 to 2010; Bradford's review for the UK police inspectorate, 2011) and about 3.4% less violent crime (Chalfin and McCrary; some other studies found a smaller effect on violent crime, or none). Crime has many causes; the effect depends on what officers do; it may differ for cuts and increases; and Calgary's own crime severity fell from 2019 to 2025 while its officers per resident also fell. Use the range to understand the research, not to predict next year.</div>
+<div class="warn"><b>Read this before quoting the crime figures.</b> They are not a forecast for Calgary. They apply the range found in studies of police numbers elsewhere, and compare 2030 with 2026: with no new positions, officers per resident fall as the city grows, so the research links that to slightly more crime. The studies looked at changes of around 10%; beyond about 15% the calculator does not show a crime figure. a 10% rise in officers per resident went with 1.7% to 3% less property crime (Chalfin and McCrary, 242 US cities, 1960 to 2010; Bradford's review for the UK police inspectorate, 2011) and about 3.4% less violent crime (Chalfin and McCrary; some other studies found a smaller effect on violent crime, or none). Crime has many causes; the effect depends on what officers do; it may differ for cuts and increases; and Calgary's own crime severity fell from 2019 to 2025 while its officers per resident also fell. Use the range to understand the research, not to predict next year.</div>
 
 <section class="card" style="margin-top:16px" aria-labelledby="yr">
 <h2 id="yr">Year by year</h2>
@@ -104,13 +104,15 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
   var POP = {2026: 1583200, 2030: 1689400}, OFF = 2304, CIV = 946.5, RATIO_NOW = OFF / POP[2026] * 1e5;
   var EL = {prop: [-0.17, -0.30], viol: [-0.34, -0.34]};
   var REQ = (PLAN[2030] / B26 - 1) * 100, NONE = (Math.pow(1.02, 4) - 1) * 100;
-  var PRESETS = {request: {inc: REQ, g: 2, cost: 145, mix: 59}, none: {inc: NONE, g: 2, cost: 145, mix: 59}, half: {inc: (REQ + NONE) / 2, g: 2, cost: 145, mix: 59}};
+  var COST = (PLAN[2030] - B26 * Math.pow(1.02, 4)) * 1000 / 523.5, MIX = 309 / 523.5 * 100;   // $k a position, implied by the request at 2%
+  var PRESETS = {request: {inc: REQ, g: 2, cost: COST, mix: MIX}, none: {inc: NONE, g: 2, cost: COST, mix: MIX}, half: {inc: (REQ + NONE) / 2, g: 2, cost: COST, mix: MIX}};
   var $ = function (id) { return document.getElementById(id); };
   var money = function (m) { return '$' + m.toFixed(1) + 'M'; };
   var n0 = function (x) { return Math.round(x).toLocaleString('en-CA'); };
-  var sgn = function (x, d) { return (x > 0 ? '+' : x < 0 ? '−' : '') + Math.abs(x).toFixed(d === undefined ? 1 : d); };
+  var sgn = function (x, d) { var t = Math.abs(x).toFixed(d === undefined ? 1 : d); return (+t === 0 ? '' : x > 0 ? '+' : '−') + t; };
   function range(el, chg) {
-    var v = [el[0] * chg * 100, el[1] * chg * 100].sort(function (x, y) { return Math.abs(x) - Math.abs(y); });
+    if (Math.abs(chg) > 0.15) return '<span>outside the range the studies cover</span>';
+    var v = [(Math.pow(1 + chg, el[0]) - 1) * 100, (Math.pow(1 + chg, el[1]) - 1) * 100].sort(function (x, y) { return Math.abs(x) - Math.abs(y); });
     var fmt = function (x) { return Math.abs(x) < 0.05 ? 'no change' : Math.abs(x).toFixed(1) + (x < 0 ? '% less' : '% more'); };
     if (Math.abs(v[1]) < 0.05) return '<span>no change</span>';
     var cls = v[1] < 0 ? 'down' : 'up';
@@ -119,14 +121,14 @@ footer{margin-top:28px;font-size:.85rem;color:var(--mute)}
   function run() {
     var inc = +$('inc').value / 100, g = +$('g').value / 100, cost = +$('cost').value * 1000, mix = +$('mix').value / 100;
     $('incO').textContent = '+' + (+$('inc').value).toFixed(1) + '%'; $('gO').textContent = (+$('g').value).toFixed(2) + '%';
-    $('costO').textContent = '$' + $('cost').value + 'k'; $('mixO').textContent = $('mix').value + '%';
+    $('costO').textContent = '$' + Math.round(+$('cost').value) + 'k'; $('mixO').textContent = Math.round(+$('mix').value) + '%';
     var bud = B26 * (1 + inc), base = B26 * Math.pow(1 + g, 4), extra = bud - base;
     var pos = extra * 1e6 / cost, off = OFF + pos * mix, civ = CIV + pos * (1 - mix), ratio = off / POP[2030] * 1e5, rchg = ratio / RATIO_NOW - 1;
     $('bud').textContent = money(bud);
     $('per').textContent = '$' + (bud * 1e6 / POP[2030]).toFixed(0);
     $('extra').textContent = (extra >= 0 ? '+' : '−') + '$' + Math.abs(extra).toFixed(1) + 'M';
     $('pos').textContent = (pos >= 0 ? '' : '−') + n0(Math.abs(pos)) + (pos < 0 ? ' (cut)' : '');
-    $('off').textContent = n0(off); $('civ').textContent = n0(civ);
+    $('off').textContent = n0(off); $('civ').textContent = (Math.round(civ * 2) / 2).toLocaleString('en-CA');
     $('ratio').textContent = ratio.toFixed(1); $('rchg').textContent = sgn(rchg * 100) + '%';
     $('prop').innerHTML = range(EL.prop, rchg); $('viol').innerHTML = range(EL.viol, rchg);
     var rows = '';
