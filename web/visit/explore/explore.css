@@ -116,3 +116,70 @@ footer a{color:var(--glacier)}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 @media(min-width:861px){.split>div:last-child{position:sticky;top:3.6rem}}
+
+/* Beyond Calgary: the drive-time dial (daytrips.js) */
+.dt{--panel:#16203c;--ink2:#cfd3df}
+.dt-controls{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:flex-end;margin:4px 0 12px;padding:16px 18px;background:var(--night2);border:1px solid var(--line);border-radius:12px}
+.dt-ctl{display:flex;flex-direction:column;gap:8px;min-width:0}
+.dt-ctl label,.dt-lab{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.dt-time{flex:1 1 300px}
+.dt-time output{font-family:var(--display);font-weight:900;font-size:1.7rem;color:var(--chinook);letter-spacing:.02em;text-transform:none;margin-left:8px;font-variant-numeric:tabular-nums}
+.dt input[type=range]{width:100%;accent-color:var(--chinook);height:28px}
+.dt-ticks{display:flex;justify-content:space-between;color:var(--mute);font-size:.7rem;margin-top:-4px;font-variant-numeric:tabular-nums}
+.dt-chips{display:flex;flex-wrap:wrap;gap:6px}
+.dt-chip{border:1px solid var(--line);background:transparent;color:var(--ink2);border-radius:999px;padding:6px 12px;font-size:.85rem;cursor:pointer}
+.dt-chip[aria-pressed=true]{background:var(--chinook);border-color:var(--chinook);color:#1c1405}
+.dt-count{color:var(--ink2);margin:0 0 8px}.dt-count b{color:var(--ink)}
+.dt-main{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:start}
+.dt-dialbox{position:sticky;top:56px;background:radial-gradient(circle at 50% 50%,#17244a 0,var(--night) 70%);border:1px solid var(--line);border-radius:14px;padding:8px}
+.dt-dial{width:100%;height:auto;display:block}
+.dt-ring{fill:none;stroke:var(--line);stroke-width:1.2}.dt-ring.in{stroke:#3d4d7a}
+.dt-rlab{fill:var(--mute);font:600 15px var(--body)}
+.dt-compass{fill:var(--mute);font:700 16px var(--body)}
+.dt-sweep{fill:rgba(92,200,194,.07);stroke:var(--chinook);stroke-opacity:.55;stroke-width:1.5;stroke-dasharray:4 5;transition:r .45s cubic-bezier(.2,.8,.2,1)}
+.dt-needle{transform-box:view-box;transform-origin:400px 400px;animation:dt-spin 6s linear infinite}
+.dt-needle line{stroke:var(--chinook);stroke-width:2.5;stroke-linecap:round}.dt-tip{fill:var(--chinook)}.dt-trail{fill:url(#dt-trail)}
+@keyframes dt-spin{to{transform:rotate(360deg)}}
+.dt-pt{cursor:pointer;transition:opacity .3s}.dt-pt:focus{outline:none}.dt-pt:focus-visible .dt-halo{opacity:1;stroke:var(--glacier)}
+.dt-dot{fill:var(--glacier);stroke:var(--night);stroke-width:2}
+.dt-pt.unesco .dt-dot{fill:var(--chinook)}
+.dt-halo{fill:none;stroke:var(--chinook);stroke-width:1.6;opacity:0}.dt-pt.unesco .dt-halo{opacity:.9}
+.dt-hit{fill:transparent}
+.dt-ping{fill:none;stroke:var(--chinook);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+.dt-pt.in .dt-ping{animation:dt-ping 6s linear infinite}
+.dt-pt.in .dt-dot{animation:dt-flash 6s linear infinite}
+@keyframes dt-ping{0%{opacity:.95;transform:scale(1)}14%{opacity:0;transform:scale(3.2)}100%{opacity:0;transform:scale(3.2)}}
+@keyframes dt-flash{0%{fill:#fff;r:9}8%{r:6.5}16%,100%{}}
+.dt-pt.out{opacity:.22}.dt-pt.off{opacity:0;pointer-events:none}
+.dt-pt.sel .dt-dot{fill:#fff}
+.dt-ray{stroke:var(--chinook);stroke-width:1.5;stroke-dasharray:3 4}
+.dt-city circle{fill:#fff}.dt-city text{fill:var(--ink);font:700 15px var(--body);letter-spacing:.14em}
+.dt-legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.78rem;color:var(--ink2);padding:8px 10px 4px}
+.dt-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.dt-guide{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:0}
+.dt-ph{position:relative;aspect-ratio:3/2;background:var(--night2);max-width:100%}
+.dt-ph img{width:100%;height:100%;object-fit:cover}
+.dt-nav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(12,16,32,.75);color:#fff;font-size:1.3rem;cursor:pointer;display:grid;place-items:center}
+.dt-nav.prev{left:10px}.dt-nav.next{right:10px}
+.dt-n{position:absolute;right:10px;bottom:10px;background:rgba(12,16,32,.75);color:#fff;font-size:.75rem;padding:3px 8px;border-radius:999px}
+.dt-credit{font-size:.72rem;color:var(--mute);padding:6px 16px 0;margin:0}.dt-credit a{color:var(--mute)}
+.dt-gbody{padding:10px 18px 18px}
+.dt-gbody h2{font-size:clamp(1.8rem,4vw,2.4rem);margin:.1rem 0 .5rem}
+.dt-gbody .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--chinook);margin:1rem 0 .4rem}
+.dt-gbody ul{margin:0;padding-left:18px;color:var(--ink2)}
+.dt-what{font-size:1.05rem}
+.dt-steps{margin:0;padding:0;list-style:none;counter-reset:s}
+.dt-steps li{display:flex;justify-content:space-between;gap:10px;padding:6px 0 6px 28px;border-bottom:1px solid var(--line);position:relative;font-size:.9rem;counter-increment:s}
+.dt-steps li::before{content:counter(s);position:absolute;left:0;top:7px;width:19px;height:19px;border-radius:50%;border:1px solid var(--line);font-size:.68rem;display:grid;place-items:center;color:var(--ink2)}
+.dt-steps li span{min-width:0}.dt-steps li b{font-weight:500;color:var(--mute);white-space:nowrap;font-variant-numeric:tabular-nums}
+.dt-steps li.end::before{content:"";background:var(--chinook);border-color:var(--chinook)}
+.dt-rmap{height:240px;margin-top:12px;border-radius:10px}
+.dt-gbody .links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px}
+.dt-h{font-size:1.6rem;margin:1.6rem 0 .8rem}
+.dt-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:1rem}
+.dt-card{display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px;align-items:center;background:var(--night2);border:1px solid var(--line);border-radius:12px;padding:8px;cursor:pointer;text-align:left}
+.dt-card img{width:72px;height:56px;object-fit:cover;border-radius:8px}
+.dt-card b{display:block;font-size:.9rem;line-height:1.25}.dt-card small{color:var(--mute);font-size:.8rem}
+.dt-card[aria-current=true]{border-color:var(--chinook)}.dt-card .u{color:var(--chinook)}
+@media (max-width:900px){.dt-main{grid-template-columns:1fr}.dt-dialbox{position:static}}
+@media (prefers-reduced-motion:reduce){.dt-needle,.dt-pt .dt-ping,.dt-pt .dt-dot{animation:none}}

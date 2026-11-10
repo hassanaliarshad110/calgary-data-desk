@@ -344,22 +344,20 @@
 
   // ---------------------------------------------------------------- beyond Calgary
   let ring = 'all';
-  function viewBeyond() {
-    const B = D.beyond, R = { all: 'All', 60: 'Within 1 hour', 120: 'Within 2 hours', 180: 'Within 3 hours', 240: 'Within 4 hours' };
-    const ps = B.places.filter(b => ring === 'all' || b.drive_minutes <= +ring).sort((a, b) => a.drive_minutes - b.drive_minutes);
-    $('#main').innerHTML = `<h2 class="sec">Beyond Calgary</h2><p class="lead">Calgary is a base for the mountains, the badlands and five UNESCO World Heritage Sites. These places are <b>outside the city</b>; drive times are from downtown Calgary without traffic (OpenStreetMap routing), so allow longer on summer weekends and winter roads.</p>
-      <div class="rings">${Object.entries(R).map(([k, t]) => `<button class="btn ${k === String(ring) ? '' : 'ghost'} small" data-r="${k}">${t}</button>`).join('')}</div>
-      <div class="split"><div class="list">${ps.map(b => `<div class="row"><div><b data-beyond="${esc(b.place)}">${esc(b.place)}</b><p>${esc(b.what)}</p>
-          <p>${b.unesco_world_heritage ? `<span class="badge unesco">UNESCO: ${esc(b.unesco_world_heritage)}</span>` : ''}${b.visitors ? `<span class="badge">${(b.visitors.visitors / 1000).toFixed(0)}k visitors (${esc(b.visitors.period)})</span>` : ''}${b.season ? `<span class="badge">${esc(b.season.split(':')[0])}</span>` : ''}</p></div>
-          <span class="t">${mins(b.drive_minutes)}</span></div>`).join('')}
-        ${B.banff_note ? `<p class="note">${esc(B.banff_note)}</p>` : ''}<p class="note">${esc(B.unesco || '')}</p></div>
-        <div><div class="map" id="bmap"></div></div></div>`;
-    const m = maps.b = baseMap($('#bmap'), [50.9, -114.4], 7);
-    L.circleMarker(D.city.centre, { radius: 9, color: '#f2a33a', fillOpacity: .9 }).addTo(m).bindTooltip('Calgary');
-    ps.filter(b => b.lat).forEach(b => L.marker([b.lat, b.lon], { icon: pinIcon(b.unesco_world_heritage ? '#f2a33a' : '#5cc8c2', true) }).addTo(m).on('click', () => beyondDetail(b)).bindTooltip(`${b.place} · ${mins(b.drive_minutes)}`));
-    if (ps.length) m.fitBounds(ps.filter(b => b.lat).map(b => [b.lat, b.lon]).concat([D.city.centre]), { padding: [24, 24] });
-    $('#main').querySelectorAll('[data-r]').forEach(b => b.addEventListener('click', () => { ring = b.dataset.r; viewBeyond(); }));
-    $('#main').querySelectorAll('[data-beyond]').forEach(b => b.addEventListener('click', () => beyondDetail(B.places.find(x => x.place === b.dataset.beyond))));
+  // Beyond Calgary: the drive-time dial (daytrips.js); a place's route is drawn on the street map
+  function viewBeyond(sel) {
+    const B = D.beyond || {};
+    window.DayTrips.mount($('#main'), {
+      select: sel, notes: [B.banff_note, B.unesco].filter(Boolean).map(esc).join(' '),
+      routeMap(el, p) {
+        if (maps.r) { maps.r.remove(); delete maps.r; }
+        const m = maps.r = baseMap(el, [51, -114.6], 8);
+        const line = L.polyline(p.line, { color: '#f2a33a', weight: 4, opacity: .9 }).addTo(m);
+        L.circleMarker(D.city.centre, { radius: 7, color: '#fff', fillColor: '#fff', fillOpacity: 1 }).addTo(m).bindTooltip('Downtown Calgary');
+        L.circleMarker([p.lat, p.lon], { radius: 8, color: '#0c1020', weight: 2, fillColor: '#f2a33a', fillOpacity: 1 }).addTo(m).bindTooltip(p.name);
+        m.fitBounds(line.getBounds(), { padding: [18, 18] });
+      },
+    });
   }
 
   // ---------------------------------------------------------------- the detail panel
