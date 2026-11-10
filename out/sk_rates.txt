@@ -1,0 +1,62 @@
+Water & Wastewater Utility Rates
+On January 1, 2026, Water, Sewer & Infrastructure rates will increase overall by 5.418%
+The rates are designed to fund all the Water and Wastewater utilities' costs related to operations
+(treatment, storage, pumpage, and distribution/collection systems) and capital projects related to water
+quality, city growth, and regulatory requirements.
+The rate structure consists of charges based on service and volume (volumetric charges). The water
+and wastewater service charges are based on water meter size to reflect the demand placed on the
+utilities. The water, wastewater, and infrastructure volumetric charges are based on consumption and
+are designed to encourage conservation. The infrastructure charges are for the capital replacement of
+the water distribution and wastewater collection systems, roadway damage associated with the utility,
+and water and wastewater upgrades to serve redevelopment in existing core areas. Minimum charges
+equal to the service charges apply to the water and wastewater portions of the bill.
+For multi-unit residential properties where the ratio of the number of dwelling units to the number of
+meters is four or less, the rates under multi-unit residential property section (A) apply. For multi-unit
+residential properties where the ratio of the number of dwelling units to the number of meters is greater
+than four, the rates under multi-unit residential property section (B) apply.
+For more detailed information, review:
+No. 7567, The Waterworks Bylaw, 1996
+No. 9466, The Sewer Use Bylaw, 2017
+Volumetric Charges
+Rates list below are effective January 1, 2026.
+Residential
+($ per 1cu. m. per month)
+Usage (cu. m.) Water Wastewater Infrastructure Total
+First 17 cu. m. $2.276 $0.872 $1.609 $4.754
+Next 17 cu. m. $2.565 $0.983 $1.609 $5.154
+Greater than 34 $3.376 $1.294 $1.609 $6.275
+
+=== page
+Multi-Unit Residential Property
+($ per 1 cu. m. per month)
+Residential
+A) Ratio of dwelling units to meters is less than or equal to four
+Usage (cu. m.) Water Wastewater Infrastructure Total
+First 17 cu. m. $2.276 $0.872 $1.609 $4.754
+Next 17 cu. m. $2.565 $0.983 $1.609 $5.154
+Greater than 34 $3.376 $1.294 $1.609 $6.275
+B) Ratio of dwelling units to meters is greater than four
+Usage (cu. m.) Water Wastewater Infrastructure Total
+All Volumes $1.939 $1.196 $1.317 $4.452
+Commercial
+($ per 100 cu. m. per month)
+Usage (cu. m.) Water Wastewater Infrastructure Total
+All Volumes $1.939 $1.196 $1.317 $4.452
+* Note: Additional surcharges may be applied to commercial wastewater that exceed specific
+chemical limits.
+Service Charges
+(per meter per month)
+Meter Size Residential Multi-Unit Residential (A) Multi-Unit Residential (B) Commercial
+5/8" (15mm) $28.64 $28.64 $73.54 $73.54
+603/4" (20mm) $42.96 $42.96 $110.32 $110.32
+
+=== page
+1" (25mm) $85.92 $85.92 $220.62 $220.62
+1 1/2" (40mm) $171.84 $171.84 $441.24 $441.24
+2" (50 mm) $286.40 $286.40 $735.40 $735.40
+3" (75mm) n/a n/a $1,691.42 $1,691.42
+4" (100mm) n/a n/a $3,015.14 $3,015.14
+6" (150mm) n/a n/a $6,765.68 $6,765.68
+8" (200mm) n/a n/a $12,060.56 $12,060.56
+10" (250mm) n/a n/a $18,826.24 $18,826.24
+Service charges are 50% water and 50% wastewater.

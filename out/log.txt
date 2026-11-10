@@ -1,0 +1,61 @@
+502 136 edm_avg https://www.edmonton.ca/sites/default/files/public-files/documents/howdoesyourpropertycomparetotheaverage-2026.pdf
+502 136 edm_taxes https://www.edmonton.ca/whereyourtaxesgo
+200 422874 edm_bylaw https://www.ctvnews.ca/edmonton/article/2026-municipal-tax-bylaw-passes-69-tax-levy-confirmed/
+200 369977 edm_water https://www.epcor.com/ca/en/ab/edmonton/account/rates/current-and-historical-rates/water-and-wastewater.html
+200 312626 edm_rates_home https://www.epcor.com/ca/en/ab/edmonton/start-services/home.html
+502 136 edm_waste https://www.edmonton.ca/programs_services/garbage_waste/waste-utility-rates
+502 136 edm_waste2 https://www.edmonton.ca/programs_services/garbage_waste/utility-bill-and-rates
+403 5750 van_budget https://vancouver.ca/files/cov/proposed-2026-budget.pdf
+403 5846 van_0pct https://vancouver.ca/news-calendar/council-approves-0-property-tax-nov-2025.aspx
+403 5849 van_taxrates https://vancouver.ca/home-property-development/property-tax-rates-and-levies.aspx
+403 5743 van_util_rep https://council.vancouver.ca/20251112/documents/spec1a.pdf
+403 5743 van_util_rep2 https://council.vancouver.ca/20251112/documents/spec1b.pdf
+403 5780 van_metered https://vancouver.ca/home-property-development/metered-rates.aspx
+403 5771 van_flat https://vancouver.ca/home-property-development/flat-rates.aspx
+403 5885 van_waste https://vancouver.ca/home-property-development/garbage-and-green-bin-utility-fees.aspx
+403 5970 van_bulletin https://vancouver.ca/files/cov/2025-11-25-upcoming-information-bulletin-vancouver-city-council-approves.pdf
+200 52472 tor_final https://www.toronto.ca/news/city-of-torontos-2026-budget-now-final-focuses-on-affordability-service-stability-and-financ
+200 49186 tor_taxrates https://www.toronto.ca/services-payments/property-taxes-utilities/property-tax/property-tax-rates-and-fees/
+200 40397 tor_water_rel https://www.toronto.ca/news/city-of-toronto-approves-2026-interim-rates-and-fees-for-toronto-water-and-solid-waste-manag
+200 1055481 tor_water_rep https://www.toronto.ca/legdocs/mmis/2025/ex/bgrd/backgroundfile-260473.pdf
+200 641969 tor_water_rep2 https://www.toronto.ca/legdocs/mmis/2025/ex/bgrd/backgroundfile-260475.pdf
+200 1644036 tor_waste_rep https://www.toronto.ca/legdocs/mmis/2025/ex/bgrd/backgroundfile-260474.pdf
+200 44297 tor_bins https://www.toronto.ca/services-payments/recycling-organics-garbage/houses/garbage-bin-sizes-fees/
+404 26238 tor_water_rates https://www.toronto.ca/services-payments/property-taxes-utilities/utility-bill/water-rates/
+200 512089 tor_bgrd284368 https://www.toronto.ca/legdocs/mmis/2026/cc/bgrd/backgroundfile-284368.pdf
+200 688980 ott_tax https://documents.ottawa.ca/sites/default/files/26-048_Ottawa_Property-taxes_E-print_EN.pdf
+403 963 ott_taxpage https://ottawa.ca/en/living-ottawa/taxes/property-taxes
+403 964 ott_taxrates https://ottawa.ca/en/living-ottawa/taxes/property-taxes/tax-rates
+403 964 ott_water https://ottawa.ca/en/living-ottawa/water-utility-bills/rates-and-fees
+403 965 ott_waterbill https://ottawa.ca/en/living-ottawa/water-utility-bills/understand-your-water-utility-bill
+200 465557 ott_budget_ctv https://www.ctvnews.ca/ottawa/article/council-votes-on-2026-city-of-ottawa-budget-today-heres-what-you-need-to-know/
+200 149938 wpg_bill https://www.winnipeg.ca/people-culture/our-city-our-stories/opening-your-2026-property-tax-bill-heres-what-you-need-know
+200 122415 wpg_budget https://www.winnipeg.ca/news/2025-11-14-citys-2026-budget-update-focused-stability-growth-and-affordability
+200 48803179 wpg_prelim https://www.winnipeg.ca/media/6207
+200 118924 wpg_water https://www.winnipeg.ca/news/2025-10-28-citys-alternative-strategy-keeps-water-and-sewer-rates-affordable-winnipeggers
+200 3225 wpg_water_rates https://legacy.winnipeg.ca/shared/ErrorMessages/404.asp?prev=?404;http://legacy.winnipeg.ca:80/water-sewer/water-sewer-r
+200 2502925 wpg_media6277 https://www.winnipeg.ca/media/6277
+200 3225 wpg_waste https://legacy.winnipeg.ca/shared/ErrorMessages/404.asp?prev=?404;http://legacy.winnipeg.ca:80/recycling-garbage/waste-d
+200 285012 sk_rates https://www.saskatoon.ca/sites/default/files/2026%20Monthly%20Water%20Wastewater%20Utility%20Rates_0.pdf
+200 115243 sk_compare https://www.saskatoon.ca/sites/default/files/Compare%202026%20and%202025%20Rates%20%28metric%29.pdf
+200 599798 sk_fees_rel https://www.saskatoon.ca/news-releases/city-saskatoon-2026-rates-and-fees-effective-january-1-2026
+200 11914358 sk_budget https://www.saskatoon.ca/sites/default/files/documents/asset-financial-management/assessment-taxation/Preliminary%202026
+200 1596186 sk_taxinfo https://www.saskatoon.ca/sites/default/files/media/documents/2026%20Property%20Tax%20Policy%20Infographic%20Q%20%26%20As
+200 604396 sk_waterpage https://www.saskatoon.ca/services-residents/power-water-sewer/drinking-water/water-wastewater-utility-rates
+200 318720 sk_passed https://globalnews.ca/news/11549986/saskatoon-city-council-passes-2026-budget/
+200 81429 rg_rates https://www.regina.ca/home-property/water/utility-account/rates/
+200 3496512 rg_mill https://www.regina.ca/export/sites/Regina.ca/home-property/water/.galleries/pdfs/Mill-Rate-Increase-Bill-Insert-2026.pdf
+200 140855 rg_budget https://www.regina.ca/export/sites/Regina.ca/city-government/budget-finance/.galleries/pdfs/2026-Budget-Highlights-Acces
+200 440976 rg_2027 https://www.ctvnews.ca/regina/article/regina-forecasts-153m-in-utility-capital-investments-10-per-cent-rate-hike-in-2027
+200 130712 cgy_taxchange https://www-prd.calgary.ca/our-finances/facts/property-tax-changes.html
+200 136485 cgy_water2026 https://www.calgary.ca/water/water-utility/residential-water-rates-and-billing.html
+404 107155 cgy_waste https://www.calgary.ca/waste/residential/waste-and-recycling-fees.html
+404 107193 cgy_waste2 https://www.calgary.ca/waste/residential/residential-waste-fees.html
+404 107444 cgy_taxrate https://www.calgary.ca/property-owners/taxes/tax-rates.html
+200 2898028 cgy_survey2023 https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/other-reports/Residential-Property-Tax
+table 98100057 4918710
+table err 98100057 list index out of range
+table 98100058 6552215
+table err 98100058 list index out of range
+table 98100055 240556748
+table err 98100055 list index out of range

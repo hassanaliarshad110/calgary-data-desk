@@ -1,0 +1,24 @@
+
+ 404 Not Found | 404 Page non trouvée 
+City of Winnipeg 
+404 Page Not Found 
+ Sorry! The webpage you requested cannot be found on the City of Winnipeg website . Please visit our homepage to find a link to the content you are
+ looking for. 
+Once you find the page you want, please update any old
+ bookmarks or favorites. If you continue to have difficulties locating the information you are interested
+in, please contact 311 . 
+This error is caused by: 
+A link to a non existing page was clicked. 
+A page has been moved or renamed and a permanant 301 redirect is not in place. 
+Someone found an old listing in a search engine or directory results and clicked it. 
+The user made a typing error when manually typing the url of a webpage. 
+Ville de Winnipeg 
+404 : Page non trouvée 
+ Nous sommes désolés! La page du site Web de la Ville de Winnipeg que vous avez demandée est introuvable. Veuillez visiter notre page d’accueil pour trouver un lien vers le contenu que vous cherchez. 
+Dès que vous aurez trouvé la page désirée, veuillez mettre à jour vos anciens marque-pages ou favoris. Si vous continuez à avoir de la difficulté à trouver les renseignements que vous cherchez, communiquez avec le Service 311 . 
+Causes possibles de cette erreur : 
+L’internaute a cliqué sur un lien menant vers une page non existante. 
+Une page a été déplacée ou renommée et une redirection permanente (301) n’a pas été mise en place. 
+L’internaute a cliqué sur un résultat de recherche périmé. 
+L’internaute a fait une faute de frappe en tapant l’URL d’une page Web. 
+ 

@@ -1,0 +1,163 @@
+Appendix C - 2026 User Fees for Technical Adjustments
+Ref. Rate Fee Fee 2025 Approved 2026 Budget Reason for
+Rate ID Service Adjusted
+No. Description Category Basis Rate Rate Adjustment
+W2001 1 Installing 19 mm New Revenue - Capital Full Cost Flat fee per $5,671.75 $5,884.44 Description
+Residential Water Service Planning & Recovery connection changes for
+and Meter Implementation Service
+W2002 2 Installing 25 mm New Revenue - Capital Full Cost Flat fee per $6,571.85 $6,818.29 Description
+Residential Water Service Planning & Recovery connection changes for
+and Meter Implementation Service
+W2004 4 New non-Residential water Revenue - Capital Full Cost Actual Cost per Variable Variable Description
+service of any size or Planning & Recovery Connection changes for
+Residential Water Service Implementation Service
+greater than 25 mm
+W2005 5 Disconnection Fee for any Revenue - Capital Full Cost Flat fee per $1,676.86 $1,739.74 Description
+residential water service Planning & Recovery disconnection changes for
+less than or equal to 25 Implementation Service
+mm
+W2006 6 Disconnection of Non- Revenue - Capital Full Cost Per Variable Variable Description
+Residential of any size / Planning & Recovery Disconnection - changes for
+Residential Water Service Implementation Actual Cost Service
+greater than 25 mm
+W2045 45 Water Service Upgrade Revenue - Capital Full Cost Flat fee per $644.85 $669.03 Description
+Fee - Lead Water Service Planning & Recovery connection changes for
+Replacement Programs Implementation Service
+(19 mm to 25 mm upgrade
+only)
+W2046 46 Water Service Upgrade - Revenue - Capital Full Cost Per connection Actual Cost + Actual Cost + Description
+Lead Water Service Planning & Recovery 15% 15% changes for
+Replacement (greater Implementation administrative administrative Service
+than 25 mm upgrade ) fee fee
+W3001.1 1.1 Industrial Waste Surcharge Revenues – Full Cost Per Kilogram $0.64 $0.64 Description
+- Biochemical Oxygen Environment, Energy Recovery changes for
+Demand (BOD) or & Emergency Service
+Phenolics (4AAP) Planning
+W3001.2 1.2 Industrial Waste Surcharge Revenues – Full Cost Per Kilogram $0.70 $0.70 Description
+- Total Suspended Solids Environment, Energy Recovery changes for
+(TSS) & Emergency Service
+Planning
+W3001.3 1.3 Industrial Waste Surcharge Revenues – Full Cost Per Kilogram $2.24 $2.24 Description
+- Total Phosphorus (TP) Environment, Energy Recovery changes for
+& Emergency Service
+Planning
+W3001.4 1.4 Industrial Waste Surcharge Revenues – Full Cost Per Kilogram $1.43 $1.43 Description
+- Total Kjeldahl Nitrogen Environment, Energy Recovery changes for
+(TKN) & Emergency Service
+Planning
+W3002 2 Sewer Surcharge on Revenues – Full Cost Per Cubic Metre 57% of Block 1 57% of Block Description
+private water Environment, Energy Recovery Water Rate 1 Water Rate changes for
+& Emergency Service
+Planning
+Page 1 of 3
+
+=== page
+Appendix C - 2026 User Fees for Technical Adjustments
+Ref. Rate Fee Fee 2025 Approved 2026 Budget Reason for
+Rate ID Service Adjusted
+No. Description Category Basis Rate Rate Adjustment
+W3003 3 Industrial Waste Surcharge Revenues – Full Cost Fixed Fee with Calculated in Calculated in Description
+Agreement or Permit Environment, Energy Recovery Minimum accord with accord with changes for
+where the anticipated total & Emergency Ref. No. 1.1 - Ref. No. 1.1 - Service
+fees for one year or lesser Planning 1.4 above as 1.4 above as
+term are $ 500 or less applicable - applicable -
+calculated in accord with $500.00 $500.00
+Ref. No. 1.1-1.4 & 2 minimum minimum
+above, as applicable
+W3003.1 3.1 Sanitary Discharge Revenues – Full Cost Fixed Fee with Calculated in Calculated in Description
+Agreement or Permit Environment, Energy Recovery Minimum accord with accord with changes for
+where the anticipated total & Emergency Ref. No. 2 Ref. No. 2 Service
+fees for one year or lesser Planning above - above -
+term are $20,000 or less $500.00 $500.00
+calculated in accordance minimum minimum
+with Ref. No. 2 above
+W3014 14 Hauled Sewage Discharge Revenues – Full Cost Per Cubic Metre $27.86 $27.86 Description
+Rate Environment, Energy Recovery changes for
+& Emergency Service
+Planning
+W3020 20 Initial fee for establishment Revenues – Full Cost Per agreement $1,089.98 $1,130.85 Description
+of new industrial waste Environment, Energy Recovery changes for
+surcharge agreement & Emergency Service
+Planning
+W2011 11 Fire hydrant Permit Revenue - Full Cost Flat Fee $212.45 $220.42 Description
+Technology & Recovery changes for
+Customer Experience Service
+W2012 12 Water meter accuracy test Revenue - Full Cost Flat Fee $212.45 $220.42 Description
+; Meter less than or equal Technology & Recovery changes for
+to 50mm - No Chamber - Customer Experience Service
+applied if meter does not
+over-register
+W2013 13 Water turn off fee for Revenue - Full Cost Flat Fee $106.15 $110.13 Description
+demolition; (disconnection Technology & Recovery changes for
+of old water service not Customer Experience Service
+included)
+W2015 15 Water Turn-off or Turn-on Revenue - Full Cost Each Turn-off or $106.15 $110.13 Description
+Technology & Recovery Turn-on changes for
+Customer Experience Service
+W2015.1 15.1 Single Service call Turn-off Revenue - Full Cost Turn-off and $106.15 $110.13 Description
+and Turn-on within 30 min Technology & Recovery Turn-on Service changes for
+Customer Experience within 30 min Service
+W2017 17 Conduct fire hydrant flow Revenue - Full Cost Per Flow Test $354.14 $367.42 Description
+test Technology & Recovery changes for
+Customer Experience Service
+W2018 18 Unmetered water from Revenue - City Policy Per 50 cubic 50 cubic metre 50 cubic metre Description
+each unmetered hydrant- Technology & metre @ Block 1 @ Block 1 changes for
+less than or equal to 50 Customer Experience Water rate Water rate Service
+cubic metre
+W2019 19 Metered water received at Revenue - Full Cost Per cubic metre Block 1 Water Block 1 Water Description
+hydrant Technology & Recovery of water rate rate changes for
+Customer Experience Service
+Page 2 of 3
+
+=== page
+Appendix C - 2026 User Fees for Technical Adjustments
+Ref. Rate Fee Fee 2025 Approved 2026 Budget Reason for
+Rate ID Service Adjusted
+No. Description Category Basis Rate Rate Adjustment
+W2021 21 Unregistered water each Revenue - Full Cost Flat Rate $70.76 $73.41 Description
+day order not complied Technology & Recovery changes for
+Customer Experience Service
+W2024 24 Cost of meter, strainer, Revenue - Full Cost Actual Cost Variable Variable Description
+connection fittings, Technology & Recovery changes for
+hardware and flanges Customer Experience Service
+W2025 25 Annual Seasonal Meter Revenue - Full Cost Flat Fee $272.42 $282.64 Description
+Activation Fee : includes Technology & Recovery changes for
+replacement, removal of Customer Experience Service
+water meter; 1 turn on, 1
+turn off
+W2029 29 Relocation of Water Meter Revenue - Full Cost Actual Cost Variable Variable Description
+Technology & Recovery changes for
+Customer Experience Service
+W2041 41 Fee for lost or damaged Revenue - Full Cost per location $119.59 $124.07 Description
+automated meter reading Technology & Recovery changes for
+transmitter Customer Experience Service
+W2042 42 Manual water meter Revenue - Full Cost Per visit $108.56 $112.63 Description
+reading fee for consumers Technology & Recovery changes for
+with water meters refusing Customer Experience Service
+installation of a new
+automatic water meter and
+associated meter reading
+equipment
+W2043 43 Flat rate legacy fee, in Revenue - Full Cost Per year $1,448.06 $1,502.36 Description
+addition to any existing Technology & Recovery changes for
+water and wastewater flat Customer Experience Service
+rates charged, for
+residential flat rate
+consumers who refuse the
+installation of an automatic
+water meter and
+associated meter reading
+equipment
+W2044 44 Processing annual water Revenue - Full Cost per report $66.02 $68.50 Description
+supply backflow prevention Technology & Recovery changes for
+device testing reports Customer Experience Service
+W3009 9 Removal of tree root Revenue - Full Cost Based on actual Variable Variable Description
+blockage Technology & Recovery cost changes for
+Customer Experience Service
+W3010 10 Investigation and Revenue - Full Cost Based on actual Variable Variable Description
+excavation of drain Technology & Recovery cost changes for
+blockage Customer Experience Service
+W3024 24 Record search for Sewers Revenue - Full Cost per address or $128.94 $133.78 Description
+by-law and water supply by-Technology & Recovery per water changes for
+law compliance violation Customer Experience account Service
+Page 3 of 3

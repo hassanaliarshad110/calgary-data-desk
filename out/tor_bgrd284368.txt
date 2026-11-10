@@ -1,0 +1,1227 @@
+~TORONTO
+REVISED
+REPORT FOR ACTION
+Budget Implementation Including Property Tax Rates,
+User Fees and Related Matters
+Date: February 6, 2026
+To: City Council
+From: Chief Financial Officer and Treasurer
+Wards: All
+SUMMARY
+The purpose of this report is to recommend the additional approvals required to give
+effect to the 2026 Budget and includes the following matters:
+2026 Property Tax Rates and Related Matters
+City Council must enact a by-law to levy property tax rates that generate the tax
+revenue set out in the City’s budget. This report recommends the 2026 municipal tax
+rates, in alignment with the 2026 Mayor's Proposed Budget.
+For 2026, an average budgetary tax rate increase of 0.57 percent is proposed, as
+detailed in Table 1. This includes a 0.70 percent increase for residential and industrial
+properties and a 0.35 percent increase for multi-residential and commercial properties.
+Additionally, this report recommends an incremental tax rate increase for the City
+Building Fund Levy to support critical capital investments in transit and housing. This
+includes a 1.50 percent increase for residential and industrial properties, and a 0.75
+percent increase for multi-residential and commercial properties.
+Table 1: 2026 Recommended Municipal Property Tax Rate Increases
+2026 Tax Rate 2026 Tax Rate 2026 Total
+Property Class Increase for Increase for City Municipal Tax
+Operating Budget Building Fund Rate Increase
+Residential, New Multi-
+Residential, Farmland, 0.70% 1.50% 2.20%
+Managed Forest, Pipelines
+Multi-Residential 0.35% 0.75% 1.10%
+Commercial 0.35% 0.75% 1.10%
+Industrial 0.70% 1.50% 2.20%
+Total Tax Rate Increase 0.57% 1.22% 1.79%
+Budget Implementation Page 1 of 30
+
+=== page
+This report also recommends continuation of the City’s existing capping approaches,
+and annual adjustments to the income threshold for the City’s property tax, solid waste
+and water relief programs.
+2026 Education Property Tax Levy
+This report recommends adoption of the 2026 education tax rates and education
+property tax levy for school purposes, as required by legislation. The City of Toronto
+levies and collects education taxes on behalf of the Province of Ontario, based on the
+education tax rates set out in Ontario Regulation 400/98, as amended. The education
+property tax rates prescribed by the Province for 2026 remain unchanged from the
+previous year for all classes. Accordingly, the average household will see no increase in
+their education tax this year.
+2026 User Fees
+User fees are reviewed and adjusted through the budget process, including the final
+rates and service fees for Rate Supported Programs (Solid Waste Management
+Services and Toronto Water). The 2026 Mayor’s Proposed Budget outlines estimated
+revenues from user fees, subject to City Council approval as required by the City of
+Toronto Act, 2006. This report seeks Council approval for user fee changes and the
+introduction of new fees.
+Provincial Gas Tax and Build Communities Strong Fund
+In accordance with the directive to report annually to City Council through the capital
+budget process, this report provides an overview of the Provincial Gas Tax (PGT) and
+Build Communities Strong Fund (BCSF) programs, which are vital to supporting
+Toronto's public transit and infrastructure investments. These programs, as outlined in
+the 2026-2035 Capital Budget and Plan, have enabled the City to fund key projects
+aimed at maintaining and expanding its transit network. Details of the planned eligible
+projects funded under these programs are included in Appendix B.
+Other Items
+This report also makes recommendations with respect to matters related to the 2026
+Budget that do not fall under the strong mayor powers:
+• Financial governance, budget implementation, and delegated authorities, including
+suspension of the Toronto Parking Authority Net Income Share Agreement, in-year
+expenditure management measures, capital cash flow acceleration, and related
+financial and expenditure authorities to support effective budget delivery;
+• Operational service delivery and capital management actions, including updates to
+solid waste collection communications and the consolidation of transit-related capital
+reserves into the City Building Reserve Fund to support long-term infrastructure
+priorities;
+Budget Implementation Page 2 of 30
+
+=== page
+• Regulatory framework and enforcement updates, including amendments to Toronto
+Municipal Code chapters to modernize maximum fines, enable officer and director
+liability, and enhance compliance and deterrence;
+• Program, community, and service-focused initiatives, including Parks & Recreation
+partnerships, expansion of the Air Conditioner Program for low-income and
+vulnerable residents, acceptance of donations, humanitarian assistance, community
+nutrition funding, and reviews of homelessness outreach services; and
+• Authorities and oversight measures to support major City initiatives, including
+funding flexibility, procurement and reporting authorities to support the delivery of the
+FIFA World Cup 2026, as well as targeted transit planning analysis.
+RECOMMENDATIONS
+The Chief Financial Officer and Treasurer recommends that:
+2026 MUNICIPAL PROPERTY TAX RATES AND RELATED MATTERS
+1. City Council adopt the 2026 tax ratios shown in Column II for each of the property
+classes set out below in Column I:
+Column II
+Column I
+(to be adopted)
+2026 Recommended Tax
+Property Class
+Ratios
+Residential 1.000000
+Multi-Residential 1.737361
+New Multi-Residential 1.000000
+Commercial 2.313431
+Industrial 2.500000
+Pipeline 1.923425
+Farmlands 0.250000
+Managed Forests 0.250000
+2. City Council elect to raise the tax rates as follows:
+a. On the restricted property classes:
+i. On the Commercial Property Classes, by one-half of the percentage tax
+rate increase on the residential (and new multi-residential, pipelines,
+farmlands, and managed forests) property class; and
+Budget Implementation Page 3 of 30
+
+=== page
+b. On the unrestricted property classes:
+i. On the Multi-Residential Property Classes, by one-half of the percentage
+tax rate increase on the residential (and new multi-residential, pipelines,
+farmlands, and managed forests) property class; and
+ii. On the Industrial Property Classes, by the full tax rate increase on the
+residential (and new multi-residential, pipelines, farmlands, and managed
+forests) property class.
+3. City Council adopt the following tax rates, subject to the 2026 Mayor's Proposed
+Budget being adopted as the City's 2026 Budget, and in the event City Council amends
+the 2026 Mayor's Proposed Budget so as to impact the following tax rates and such
+amendments are not subsequently vetoed by the Mayor, City Council direct the Chief
+Financial Officer and Treasurer to report to City Council with any necessary adjustments
+to the tax rates to reflect the final budget amendments for Council's consideration:
+a. The tax rates set out below in Column IV, which will raise a general local
+municipal tax levy for 2026 of $6,174,269,194, inclusive of a 0.7% residential,
+new multi-residential, industrial, pipeline, farmlands and managed forest tax rate
+increase, and a 0.35% commercial and multi-residential tax rate increase; and
+b. The additional tax rates set out below in Column V, which will raise an
+additional special general tax levy of $74,996,117 dedicated for priority transit
+and housing capital projects (the "City’s Building Fund levy").
+Column I Column II Column III Column IV Column V Column VI
+2026
+2026 Municipal
+2026 Tax 2026
+Additional 2026 Tax Rate
+Rate for Additional
+Tax Rate to Municipal Inclusive of
+Property General Tax Rate for
+Fund Tax Rate* City
+Class Local City
+Budgetary (Column Building
+Municipal Building
+Levy II+III) Fund Rate*
+Levy Fund
+Increase (Column
+IV+V)
+Residential 0.601087% 0.004208% 0.605295% 0.009016% 0.614311%
+Multi-
+1.044305% 0.003655% 1.047960% 0.007832% 1.055792%
+Residential
+New Multi-
+0.601087% 0.004208% 0.605295% 0.009016% 0.614311%
+Residential
+Commercial 1.390573% 0.004867% 1.395440% 0.010429% 1.405869%
+Industrial 1.502718% 0.010519% 1.513237% 0.022541% 1.535778%
+Pipelines 1.156146% 0.008093% 1.164239% 0.017342% 1.181581%
+Farmlands 0.150272% 0.001052% 0.151324% 0.002254% 0.153578%
+Managed
+0.150272% 0.001052% 0.151324% 0.002254% 0.153578%
+Forests
+* (excluding Charity rebates)
+Budget Implementation Page 4 of 30
+
+=== page
+4. City Council elect to have the subclasses set out in Column II for each of the property
+classes set out in Column I apply for the 2026 taxation year, and to apply the respective
+tax rate reductions set out in Column III below.
+Column I Column II Column III
+Property Applicable Municipal Tax
+Tax Subclass
+Class Rate Reduction
+Creative Facilities Enterprise subclass
+50% of Commercial rate
+(Creative Co-location Facilities Subclass)
+Small Business subclass 15% of Commercial rate
+Excess Land 30% of Commercial rate
+Commercial
+Vacant Land 30% of Commercial rate
+Farmland Awaiting Development (First subclass) 60% of Residential/Farm rate
+Farmland Awaiting Development (Second
+30% of Commercial rate
+subclass)
+Creative Facilities Enterprise subclass
+50% of Industrial rate
+(Creative Co-location Facilities Subclass)
+Excess Land 35% of Industrial rate
+Industrial Vacant Land 35% of Industrial rate
+Farmland Awaiting Development (First subclass) 60% of Residential/Farm rate
+Farmland Awaiting Development (Second
+35% of Industrial rate
+subclass)
+Farmland Awaiting Development (First subclass) 60% of Residential/Farm rate
+Residential
+Farmland Awaiting Development (Second
+0% of Residential/Farm rate
+subclass)
+Farmland Awaiting Development (First subclass) 60% of Residential/Farm rate
+Multi-
+residential Farmland Awaiting Development (Second
+0% of Residential/Farm rate
+subclass)
+New Multi- New Multi-Residential Property (Municipal 15% of Residential/New
+residential Reduction) Tax subclass Multi-Residential rate
+5. City Council adopt the following property tax capping polices for the 2026 taxation
+year, consistent with the 2025 taxation year:
+a. limit tax increases for the commercial, industrial, and multi-residential property
+classes by capping taxes at 10% of the preceding year’s annualized taxes, by
+opting to have subsection 292(1), paragraph 1, of the City of Toronto Act, 2006,
+apply for the 2026 taxation year;
+b. continue to provide that the 10% cap on tax increases apply to any property
+within the commercial, industrial and multi-residential classes, regardless of
+whether the property had reached full Current Value Assessment taxation levels
+in a prior year, subject to the threshold adopted in Part c. below; and
+Budget Implementation Page 5 of 30
+
+=== page
+c. for the purposes of subsection 292(1), paragraphs 3 and 4 of the City of
+Toronto Act, 2006, adopt a threshold limit of $500 to determine the taxes for
+municipal and school purposes, such that properties that are within $500 (plus or
+minus) of their full Current Value Assessment level of taxation in the current year
+are taxed at full Current Value Assessment taxation levels for the year, and are
+therefore excluded from capping/claw-back provisions for that year.
+6. City Council determine that:
+a. The instalment dates for the 2026 final tax bills be set as follows:
+i. The regular instalment dates be July 2, August 4, and September 1 of
+2026;
+ii. For taxpayers who are enrolled in the monthly pre-authorized property
+tax payment program, the instalment dates be July 15, August 17,
+September 15, October 15, November 16 and December 15 of 2026; and
+iii. For taxpayers who are enrolled in the two-installment program, the final
+instalment date be July 2, 2026; and
+b. The collection of taxes for 2026, other than those levied under the interim levy
+By-law 1336-2025, be authorized.
+PROPERTY TAX, WATER AND SOLID WASTE RELIEF PROGRAMS
+7. Effective January 1, 2026, City Council amend the eligibility criteria for the Tax
+Deferral and Tax Cancellation programs, the Solid Waste Single Family Residential
+Low-Income Relief Program and the Water Rebate for Low-Income Seniors and Low-
+Income Disabled Persons, the Co-Operative Housing Grant program, comprised of the
+Co-Operative Housing Property Tax Grant Program, the Co-Operative Housing Solid
+Waste Grant Program and the Co-Operative Housing Water Grant Program, and
+amend, as may be required to give effect to Council’s decision, the City of Toronto
+Municipal Code Chapter 767, Taxation, Property Tax, Chapter 844, Waste Collection,
+Residential Properties, and Chapter 849, Water and Sewage Services and Utility Bill,
+and any other necessary Municipal Code Chapters, to increase the maximum
+household income for an eligible person to $62,000, and for each calendar year after
+2026, effective January 1 of the year, to annually adjust the maximum household
+income for an eligible person in accordance with the Statistics Canada, All-Items
+Consumer Price Index by City, Annual Change – Toronto.
+8. City Council approve the continuation of the previously approved interim water rebate
+for eligible low-income seniors and low-income persons with disabilities at a rate of
+$1.4589 per cubic metre, representing a 30 percent reduction from the Block 1 rate
+(paid on or before the due date).
+9. City Council determine that the 2026 Non-Program Tax Account for Rebates to
+Charities in the Commercial and Industrial Property Classes be set in the amount of
+Budget Implementation Page 6 of 30
+
+=== page
+$7,274,452 to fund the mandatory 2026 property tax rebates to registered charities in
+the commercial and industrial property classes, which provision is to be funded, for a
+net impact on the 2026 operating budget of zero, by the following:
+a. an additional tax rate of 0.005381% be levied as part of the general local
+municipal levy on the commercial class to raise a further additional local
+municipal tax levy of $6,771,766 to fund the total estimated rebates to registered
+charities for properties in the commercial class in 2026; and
+b. an additional tax rate of 0.000996% be levied as part of the general local
+municipal levy on the industrial class to raise a further additional local municipal
+tax levy of $502,686 to fund the total estimated rebates to registered charities for
+properties in the industrial class in 2026.
+2026 EDUCATION PROPERTY TAX RATES AND LEVY
+10. City Council adopt the 2026 tax rates for school purposes, as shown in column II,
+which will generate an education tax levy on rateable properties for 2026 in the total
+amount of $2,213,525,317 in accordance with Ontario Regulation 400/98 as amended,
+prescribing such rates for the City of Toronto, of which $4,223,129 (0.2% of the total
+education levy) is to be retained by the City pursuant to Ontario Regulation 121/07:
+Column I Column II
+2026 Tax Rates for
+Property Class
+Education Levy
+Residential 0.153000%
+Multi-Residential 0.153000%
+New Multi-Residential 0.153000%
+Commercial 0.880000%
+Commercial Shared Payment-in-Lieu 0.980000%
+Industrial 0.880000%
+Industrial Shared Payment-in-Lieu 1.067220%
+Pipelines 0.880000%
+Farmlands 0.038250%
+Managed Forests 0.038250%
+USER FEES
+11. City Council approve the 2026 fees and charges in Appendix 1 of the 2026 Mayor’s
+Proposed Budget, and amend City of Toronto Municipal Code Chapter 441, Fees and
+Charges, and any other necessary Municipal Code Chapter accordingly.
+12. City Council direct that the water and wastewater consumption rates for metered
+and flat rate consumers and water and wastewater services fees in the amounts set out
+in Appendix 3 to the Mayor's Proposed Budget, which is consistent with the 2026 interim
+water and wastewater consumption rates for metered and flat rate consumers and water
+Budget Implementation Page 7 of 30
+
+=== page
+and wastewater services fees adopted by Council in Item 2025.EX28.9 at its meeting on
+December 16 and 17, 2025, are the final rates and fees for 2026.
+13. City Council direct that the solid waste management service rates and fees in the
+amounts set out in Appendix 3 to the Mayor’s Proposed Budget, which is consistent with
+the 2026 interim rates adopted by Council in Item 2025.EX28.10 at its meeting on
+December 16 and 17, 2025, are the final rates and fees for 2026.
+14. City Council delegate authority to the Chief Financial Officer and Treasurer to
+approve automatic annual inflationary adjustments to the fees and charges set out in
+Table 1 of Appendix A in this report, effective January 1 of each year, commencing in
+January of 2027, and amend City of Toronto Municipal Code Chapter 441, Fees and
+Charges accordingly.
+OTHER
+15. City Council approve the suspension of the 2024–2026 City of Toronto–Toronto
+Parking Authority Net Income Share Agreement, effective January 1, 2026, to enable all
+Toronto Parking Authority net revenues to be remitted to the City of Toronto, while a
+longer-term fiscal and governance review is underway, consistent with the Toronto
+Parking Authority Board decision (Agenda Item 2025.PA17.3).
+16. City Council request the Toronto Parking Authority Board direct the President,
+Toronto Parking Authority, to consider applying an inflationary adjustment or modified
+rates for parking locations for 2026.
+17. City Council authorize the Chief Financial Officer and Treasurer, in consultation with
+the General Managers and Division Heads, to accelerate the cash flows included in
+divisional 2026-2035 Capital Budgets and Plans as operationally required to enable
+implementation of the 2026 Mayor’s Proposed Budget, consistent with direction
+communicated in the 2026 Mayor’s Proposed Budget.
+18. City Council direct the Chief Financial Officer and Treasurer to report back to
+Council in the annual Year-End Capital Variance report on accelerations of cash flows
+that were operationally required to enable the implementation of the 2026 Mayor’s
+Proposed Budget.
+19. City Council direct the General Manager, Solid Waste Management Services to
+distribute all future waste collection schedules through a full standalone mailing.
+20. City Council direct the consolidation of major capital reserves through the transfer of
+the balance of the Scarborough Transit Reserve Fund in the amount of $332.996 million
+to the City Building Reserve Fund, while preserving funds for their intended purposes.
+21. City Council amend the Toronto Municipal Code Chapters contained in Appendix C
+to this report to increase the maximum fine amount for offences to $100,000 and
+provide that a director or officer of a corporation who knowingly concurs in the
+contravention of the chapter by the corporation is guilty of an offence.
+Budget Implementation Page 8 of 30
+
+=== page
+22. City Council direct that the amendments to Toronto Municipal Code Chapters, to
+give effect to City Council's decision in Recommendation 21, come into force on
+September 1, 2026.
+23. City Council authorize the General Manager, Parks and Recreation to negotiate and
+execute an agreement with Park People to implement a citywide initiative to support and
+strengthen community-led park groups, with funding of up to $120,000 to be provided to
+and matched by Park People, for a term expiring on December 31, 2026, on terms and
+conditions satisfactory to the General Manager, Parks and Recreation and in a form
+satisfactory to the City Solicitor.
+24. City Council direct the Executive Director, Environment, Climate and Forestry, and
+the Executive Director, Social Development, or their designates, to expand the existing
+Air Conditioner Pilot Program for Low-Income Seniors by renaming the program as the
+Air Conditioner Pilot Program for Low-Income and Vulnerable Residents and by
+authorizing the Executive Director, Environment, Climate and Forestry and Executive
+Director, Social Development, in consultation with the Medical Officer of Health, to
+expand eligibility criteria to include other low-income or vulnerable groups based on
+similar City programs, together with the following:
+a. other program eligibility criteria;
+b. collection of personal information for the purpose of determining eligibility;
+c. administration of air conditioner benefits;
+d. evaluation framework; and
+e. the geographic equity component proposed on page 5 of the revised report
+(May 7, 2025) from the Executive Director, Environment, Climate and Forestry,
+and the Executive Director, Social Development, without limitation.
+25. City Council authorize the Executive Director, Environment, Climate and Forestry
+and the Executive Director, Social Development, to accept donations for the purpose of
+the Air Conditioner Program for Low-Income and Vulnerable Residents.
+26. City Council authorize the City Manager to reallocate FIFA related funding included
+in Division and Agency 2026 Operating and Capital Budgets within the FIFA hosting
+costs envelope of $380 million, as required to address emerging cost pressures,
+operational requirements, delivery risks, and schedule constraints.
+27. City Council direct the City Manager to report back to Council on FIFA-related
+funding reallocations for which the City Manager exercised the authority granted by City
+Council under Recommendation 26.
+28. City Council direct the City Manager, the Executive Director, FIFA World Cup 2026
+Toronto Secretariat, and the Chief Procurement Officer:
+a. to exercise their authorities currently delegated under Municipal Code Chapter
+71, Financial Control, and Municipal Code Chapter 195, Procurement, to make
+commitments, awards, amendments, and to authorize over-expenditures for
+procurements required for the delivery of the FIFA World Cup 2026 that are not
+Budget Implementation Page 9 of 30
+
+=== page
+included in the Council approved Procurement Plan, and to report to every
+meeting of the FIFA World Cup 2026 Subcommittee on all such commitments,
+awards, amendments, and over-expenditures made during the previous reporting
+cycle.
+b. for commitments, awards, amendments, and over-expenditures for
+procurements under Recommendation 28 (a), City Council rescind any
+requirement for the Chief Procurement Officer to exercise their discretion to bring
+forward recommendations to Executive Committee, via the FIFA World Cup 2026
+Subcommittee.
+29. City Council delegate authority to the City Manager or their delegate to approve
+over-expenditures up to $1,000,000 in addition to the original amount of the
+commitment, and to execute any necessary purchase order amendments required in
+compliance with Chapter 195, Procurement, required for the delivery of the FIFA World
+Cup 2026, provided that:
+a. City Council has provided funds in the Operating or Capital budgets for that
+purpose, or donated funds are provided in accordance with Chapter 71, Financial
+Control;
+b. sufficient funds remain within the Capital project or program’s budget or within
+the relevant Operating budget; and
+c. the City Manager and the Chief Procurement Officer report, for information, on
+the use of this authorization to each meeting of the FIFA World Cup 2026
+Subcommittee.
+30. City Council authorize the City Manager, in consultation with the Executive Director,
+FIFA World Cup 2026 Toronto Secretariat and the Chief Procurement Officer, to award,
+negotiate, and enter into non-competitive procurement contracts valued up to
+$1,000,000, in accordance with Section 7.1(P) of Chapter 195, Section 7.1(P), for the
+purposes of delivering the FIFA World Cup 2026, provided that:
+a. the City Manager and the Executive Director, FIFA World Cup 2026 Toronto
+Secretariat have determined that the agreement is necessary to meet the
+requirements of the FIFA Host City Agreement;
+b. the agreements do not conflict with the Council approved FIFA World Cup
+2026 Procurement Plan;
+c. the costs are funded through the approved 2026 FIFA World Cup 2026
+Operating and Capital budgets;
+d. the City Manager and the Executive Director, FIFA World Cup 2026 Toronto
+Secretariat report, for information, on the use of this authorization to the
+Executive Committee through the FIFA World Cup 2026 Subcommittee; and
+Budget Implementation Page 10 of 30
+
+=== page
+e. the terms and conditions are satisfactory to the City Manager and the
+Executive Director, FIFA World Cup 2026 Toronto Secretariat, and are in a form
+satisfactory to the City Solicitor.
+31. City Council request the Executive Director, Transit Expansion conduct a high-level
+analysis of grade separation, underground, or at-grade alternative options for the
+Eglinton East Rapid Transit (EERT) project and report in 2026 on a high-level
+assessment of risks and considerations of an alternative alignment, including necessary
+changes to current approvals, and the timeline that an alternative approach would
+impose on the project.
+32. City Council direct the City Manager conduct a review of the homelessness
+outreach programs delivered by Toronto Shelter and Support Services, Toronto Public
+Health, Social Development and the Housing Secretariate to support better coordination
+of services aimed at improving the impact of these programs to deliver more long-term
+housing solutions for vulnerable individuals.
+33. City Council authorize the General Manager, Fleet Services, to donate up to five
+generators at no cost to Kyiv City State Administration in Ukraine for humanitarian
+purposes.
+34. City Council authorize the Medical Officer of Health to enter into agreements and
+other suitable arrangements, on behalf of the City of Toronto, for the transfer of funds to
+the Angel Foundation for Learning ($100,000) and the Toronto Foundation for Student
+Success ($700,000) for the purpose of administering municipal funds to eligible new
+school communities as part of the Phase 3 expansion of the Student Nutrition Program,
+on terms satisfactory to the Medical Officer of Health and in a form satisfactory to the
+City Solicitor.
+35. That City Council authorize the City Manager and the Chief Financial Officer &
+Treasurer to allocate the $75.0 million in-year expenditure management target, across
+applicable City divisions, which will amend the Council-adopted 2026 Operating
+Budgets for specific divisions while maintaining the overall consolidated City Budget.
+FINANCIAL IMPACT
+2026 Municipal Property Tax Rates and Related Matters
+The tax ratios and rates recommended in this report reflect tax policy decisions adopted
+by City Council as permitted and/or mandated by Provincial regulatory requirements,
+including:
+• one-half of the tax rate increase on the Residential property class to be applied to
+the Commercial;
+• the full tax rate increase on the Residential property class to be applied to the
+Industrial property class; and
+• one-half of the tax rate increase on the Residential property class to be applied to
+the Multi-Residential property class, as recommended by staff.
+Budget Implementation Page 11 of 30
+
+=== page
+Municipal Tax Levy
+The recommended total municipal tax levy for 2026 is summarized in Table 2:
+Table 2: 2026 Municipal Tax Levy
+Property Tax Levy ($ millions)
+2025 Levy 6,063.1
+2025 Assessment Growth 76.2
+2026 General Levy 6,139.3
+2026 Operational Budget Levy Increase 35.0
+2026 Municipal Levy before City Building Fund 6,174.3
+2026 City Building Fund Levy Increase 75.0
+2026 Total Municipal Tax Levy 6,249.3
+As per the above table, the City will generate $6.249 billion in municipal property tax
+funding, including an incremental $35 million associated with the 0.70 percent increase
+for the operational levy and an incremental $75 million reflective of a 1.5 percent
+increase for the City Building Fund levy.
+Impact of Operational and City Building Fund Levy Increases
+The average residential property value for tax assessment purposes for 2026 is
+$692,140. A summary of the 2026 tax impacts on the average residential property is
+outlined in Table 3. The average home will receive a municipal property tax bill of
+$4,252 for 2026. This excludes provincial education property taxes.
+Table 3: Average Residential Impact of Operational and City Building Fund Levy
+Increases in 2026
+Impact on Average Residential Household
+2026 Starting Municipal Tax Bill $4,160
+Operational Budget Levy Increase $29 0.70%
+City Building Fund Levy Increase $62 1.50%
+2026 Municipal Tax Bill $4,252 2.20%
+The 2026 operational levy and City Building Fund levy increases on the various
+property classes are outlined in Table 4 below:
+Budget Implementation Page 12 of 30
+
+=== page
+Table 4: Impact of Operational and City Building Fund Levy Increases in 2026 by
+Property Class
+2026 Total
+Operational Budget City Building Fund
+Property Class Municipal Tax Rate
+Levy Increase Levy Increase
+Increase
+Residential 0.70% 1.50% 2.20%
+Multi-Residential 0.35% 0.75% 1.10%
+Commercial 0.35% 0.75% 1.10%
+Industrial 0.70% 1.50% 2.20%
+City Average 0.57% 1.22% 1.79%
+Education Tax Rates Impact
+The education property tax rates prescribed by the Province for 2026 remain
+unchanged from the previous year for all classes, including the education rates for
+certain properties where municipalities are permitted to retain the education portion of
+payment in lieu of taxes (PILTs).
+Accordingly, the average household assessed at $692,140 in 2026 will see no increase
+in their education tax bill of $1,059, which has remained the same since 2020. The total
+impact of 2026 municipal and education property taxes on the average home is
+presented in Table 5 below.
+Table 5: 2026 Total Residential Impact for the Average Home
+2025 Taxes 2026 Taxes Increase $ Increase %
+City $4,160 $4,252 $92 2.20%
+Education $1,059 $1,059 - 0.00%
+Total $5,219 $5,311 $92 1.75%
+The City is required by legislation to levy and collect property taxes for school purposes
+at the tax rates prescribed by the Minister of Finance. For 2026, the education tax levy
+is $2.213 billion. For certain PILT properties, the portion of the payment that would
+normally go toward education taxes is retained by the City under prior agreements and
+existing legislation/regulations. Of the total education levy, the City retains only $4.223
+million (0.2%) as the education portion of PILTs, as permitted by Ontario Regulation
+121/07, and remits the remaining balance of $2.209 billion to the Province. The City is
+required to remit the amounts levied for school purposes within the calendar year.
+The current 15% education tax rate reduction for the small business tax subclass will
+result in $25.1 million in reduced education taxes for the subclass in 2026.
+Budget Implementation Page 13 of 30
+
+=== page
+2026 User Fees
+Adjustments Requiring City Council Approval
+In accordance with the City User Fee Policy, Council approval is required for user fee
+revenue set out in the 2026 Mayor’s Proposed Budget, including fee adjustments above
+inflation, new fees, discontinuations, rationalizations, transfers, and technical
+adjustments. The proposed changes to user fee adjustments, excluding automatic
+inflationary user fees, will generate $15.14 million in total incremental revenue, including
+$0.012 million in new fees. Revenue impacts from the proposed changes are reflected
+in the Budget Notes for each Program and Agency.
+Automatic Adjustments: User Fee Inflationary Increases
+Annual inflationary increases are applied under delegated authority, generating an
+additional $16.25 million in the 2026 Budget. The Chief Financial Officer and Treasurer
+has been delegated authority to apply these increases effective January 1 of each year.
+It is recommended that authority be delegated to apply inflationary adjustments to new
+fees in 2026, as outlined in Appendix 4 of the 2026 Mayor’s Proposed Budget.
+Water, Wastewater and Solid Waste Fees
+Proposed increases in water, wastewater, and solid waste fees were initially adopted by
+City Council as part of the 2026 interim rates and service fees (Item EX28.9 and Item
+EX28.10), with final approval requested in this report. These fee adjustments are
+aligned with financial modeling and the 2026-2035 Capital Budget and Plan.
+• A 3.75 percent increase in solid waste management and increases in water and
+wastewater rates of 3.75 percent for Block 1 and 1.25 percent for Block 2 are
+expected to generate $14.13 million and $55.15 million in additional revenue for Solid
+Waste Management Services and Toronto Water respectively to support operational
+and capital program needs.
+• Inflationary increases to water and wastewater service fees for services provided by
+Toronto Water and Revenue Services are projected to generate an additional $2.3
+million.
+Provincial Gas Tax and Build Communities Strong Fund in the City’s 2026-
+2035 Capital Budget and Plan
+Provincial Gas Tax (PGT):
+Introduced in 2004, the PGT permanently allocates two cents per litre of provincial gas
+tax revenues to municipalities to expand and improve public transit systems. Annual
+allocations are determined by a provincial formula based on transit ridership (70
+percent) and population (30 percent), ensuring funding is responsive to transit demand
+and population growth.
+Budget Implementation Page 14 of 30
+
+=== page
+Since 2005, Toronto has received over $3.3 billion in PGT funding, with the 2024-25
+allocation confirmed at $178.2 million. The 2026-2035 Capital Budget and Plan includes
+approximately $866 million in PGT-funded investments, supporting essential transit
+projects. Specific details are provided in Appendix B, Table 1.
+Build Communities Strong Fund (BCSF)
+(formerly the Canada Community Building Fund)
+The Build Communities Strong Fund is a long-term federal infrastructure funding
+program announced in 2025, that incorporates and will replace the Canada Community
+Building Fund (CCBF) as its Community Stream in 2026-27. The program provides
+stable, predictable funding to municipalities on a per-capita basis to support local
+infrastructure priorities, including public transit.
+Since the introduction of the federal gas tax-based funding framework in 2005, Toronto
+has received $3.4 billion, primarily directed toward the Toronto Transit Commission to
+support transit system investments.
+In 2025, Toronto received $184.0 million under the Canada Community Building Fund.
+Over the next decade, the City projects $1.9 billion in funding under the Build
+Communities Strong Fund (including the CCBF Community Stream) to support
+initiatives such as fleet replacement and state of good repair projects, helping maintain
+the reliability and functionality of Toronto’s transit network. Full details of planned
+projects can be found in Appendix B, Table 2.
+DECISION HISTORY
+2026 Property Tax Rates and Related Matters
+Each year, Council must pass a by-law for the purposes of raising the general local
+municipal levy in an amount Council decides to raise in its budget for that year. The by-
+law shall establish the tax ratios for that year for the City and shall specify a separate
+tax rate on the assessment in each property class in the City rateable for municipal
+purposes, determined in accordance with legislation and regulations.
+The “2025 Budget Implementation Including Property Tax Rates, User Fees and
+Related Matters” report with the adopted motions can be viewed at Item CC27.1.
+At its meeting on February 15, 2023, City Council expressed its support for a 1.5
+percent annual increase for the City Building Fund Levy for priority transit and housing
+projects through to 2035 and requested the Mayor to include such revenue in their
+future proposed annual budgets (Item CC4.1).
+On November 9, 2021, City Council adopted a small business tax subclass for the
+commercial property tax class, approved the subclass eligibility criteria, the process to
+approve the inclusion of properties in the subclass, as well as a tax rate reduction for
+the subclass of 15 percent of the commercial property tax rate (Item EX27.7).
+Budget Implementation Page 15 of 30
+
+=== page
+On November 13, 2024, City Council adopted the New Multi-Residential Property
+(Municipal Reduction) Tax subclass (the "Subclass"), approved the Subclass eligibility
+criteria and amended City of Toronto Municipal Code Chapter 767, Taxation, Property
+Tax, to add the Subclass (Item EX18.2)
+At its meeting of April 23 and 24, 2025, City Council adopted Item EX22.4: 2025
+Education Property Tax Levy and Clawback Rate By-Law that established the 2025
+education property tax levy and tax rates.
+2026 User Fees
+City Council reviews and approves user fee adjustments as part of the annual budget
+process. Under the City of Toronto Act, 2006, Council must approve the implementation
+of user fees, including new fees or changes to existing fees, to ensure the City raises
+the necessary revenue for its operations. Exceptions include automatic annual
+inflationary adjustments, which have previously been approved through delegated
+authority and take effect on January 1 of each year.
+On April 12, 2011, City Council adopted the User Fee Policy (Item EX10.2), establishing
+a consistent and transparent framework for setting and managing user fees. This policy
+mandates that fees should recover the full cost of services, except where this conflicts
+with City policy objectives or legislation (User Fee Policy).
+On December 16 and 17, 2025, City Council adopted 2026 interim rates and service
+fees for water and wastewater consumption (Item EX28.9) solid waste management
+services (Item EX28.10), both effective January 1, 2026. These interim fees remain in
+effect until amended or repealed by City Council.
+Provincial Gas Tax and Build Communities Strong Fund in the City’s 2026-
+2035 Capital Budget and Plan
+On January 29 and 30, 2014, City Council adopted recommendations in the report
+(January 16, 2014) from the City Manager on Federal Gas Tax Fund Renewal (Item
+EX37.1) directing staff to report annually to City Council through the capital budget
+process on planned eligible projects funded by the Provincial Gas Tax and the federal
+Build Communities Strong Fund (BCSF, formerly the Canada Community Building
+Fund).
+Other Items Responding To Council Direction
+At its meeting on June 26 and 27, 2024, City Council adopted (Item 2024.EX15.9) and
+approved the terms of the new Net Income Share Agreement between the City of
+Toronto and the Toronto Parking Authority for a three (3) year period, effective January
+1, 2024, as outlined in Attachment 2 to the report (May 15, 2024) from the President,
+Toronto Parking Authority and the Chief Financial Officer and Treasurer. In addition,
+City Council authorized the appropriate City staff to prepare a Net Income Sharing
+Agreement between the Toronto Parking Authority and the City of Toronto, in
+accordance with the terms set out in Attachment 2 to the report (May 15, 2024) from the
+President, Toronto Parking Authority TPA 2026 Operating Budget and 2026-2028
+Budget Implementation Page 16 of 30
+
+=== page
+Capital Budget and the Chief Financial Officer and Treasurer, in a form satisfactory to
+the City Solicitor, and subject to the approval of the Board of Directors of the Toronto
+Parking Authority.
+At its meeting on February 11, 2025, City Council adopted recommendations in the
+Budget Implementation Including Property Tax Rates, User Fees and Related Matters
+report (Item 2025.CC27.1), including a request for the Chief Financial Officer and
+Treasurer to report on the following as part of the 2026 budget process: a. the annual
+impact to property taxes in the event that the Municipal Land Transfer Tax is no longer a
+source of revenue.
+At its meeting on October 9 and 10, 2024, City Council adopted Member Motion
+2024.MM22.2, which directed City staff to review Municipal Code chapters governed by
+the City of Toronto Act, 2006 where maximum fines are below the applicable statutory
+limits. Through the adoption of the motion, City Council approved staff undertaking a
+review of existing fine provisions and bringing forward recommended amendments,
+where appropriate, to increase maximum fines to the levels authorized under provincial
+legislation and to provide for charges against officers and directors of corporations
+where permitted. City Council further authorized the appropriate City officials to take the
+necessary steps to implement the direction, including consultation with Legal Services,
+and to prepare the required bills and by law amendments, in a form satisfactory to the
+City Solicitor, for Council consideration.
+-
+At its meeting on December 16 and 17, 2025, City Council requested (Item EX28.1) the
+Chief Financial Officer and Treasurer to review the First Time Homebuyers Rebate
+Program and consider options to improve the program, including necessary offsets, in
+the budget process.
+During its meeting on January 23, 2026, Budget Committee requested the Chief
+Financial Officer and Treasurer to prepare a briefing note for the Special Council
+Meeting on February 10, 2026 on increasing the municipal rate reduction for the Small
+Business Property Tax Subclass from 15 percent to 20 percent for the 2026 taxation
+year, including the corresponding municipal tax rate adjustment required to offset the
+impact within the remainder of the commercial property tax class, without affecting the
+total municipal levy identified in the Mayor's Proposed Budget (Item BU12.1).
+COMMENTS
+2026 Municipal Property Tax Rates and Related Matters
+Council will consider the 2026 Mayor's Proposed Budget and Tax Levy at a Special
+Meeting on February 10, 2026. In accordance with the City of Toronto Act, 2006,
+Council is required to approve the tax rates to generate the approved tax revenue by
+enacting a municipal tax levy by-law.
+This report recommends on a preliminary basis the City's 2026 Tax Ratios, Tax Rates
+and Levy for municipal purposes, concurrent with the 2026 Mayor’s Proposed Budget
+on February 1, 2026. If Council amends the 2026 Mayor’s Proposed Budget affecting
+Budget Implementation Page 17 of 30
+
+=== page
+property taxes revenue, the tax rates recommended in this report will have to be
+adjusted accordingly.
+Council must also make tax policy decisions, including setting tax ratios per statutory
+requirements. The Province restricts levy increases for tax classes exceeding the ratio
+thresholds. The tax ratios and tax rates recommended in this report include a full
+increase for all classes, except for the commercial and multi-residential classes. The
+commercial tax class ratio remains above Provincial threshold in 2026, limiting
+increases to half the residential increase.
+Assessment Cycle and Changes
+Property assessments are conducted by the Municipal Property Assessment
+Corporation (MPAC), under the Assessment Act, 1990. Reassessments have
+traditionally been carried out on a four-year cycle with Current Value Assessment (CVA)
+increases phased-in equally over each year of the proceeding four-year period. The
+most recent reassessment cycle, based on a January 1, 2016, valuation date, was
+intended to cover the period from 2017 to 2020, with increases applied annually
+throughout the four-year phase-in period. 2020 marked the final year of that phase-in.
+In 2021, the Provincial government postponed the scheduled 2021 reassessment, and
+to-date the Province has not announced the timing for the next reassessment cycle or
+the effective valuation date. As a result of this postponement, property assessments for
+2026 remain unchanged from those applied in 2020, based on the January 1, 2016,
+valuation date, unless the property has undergone changes that affected the assessed
+value, such as renovations, improvements, or demolitions.
+Property Tax Class Ratio Policy
+In 2005, City Council adopted a policy under the ‘Enhancing Toronto’s Business
+Climate’ initiative to reduce the tax ratios for the commercial, industrial and multi-
+residential tax classes to 2.5-times the residential tax rate by 2020. The plan also
+provided for an accelerated reduction in tax rates for small businesses, with a ratio
+target of 2.5-times the residential rate by 2015.
+The small business ratio target was met in 2015 and has continued to decrease. By
+2024, all ratios reached Council’s 2.5 target, meaning no further policy ratio reductions
+are needed in 2026. While the ratio has met Council’s target, the Commercial ratio in
+2026 of 2.29 remains above the Provincial threshold of 1.98 in 2026, limiting increases
+to half the residential rate.
+In 2017, the Province set the ratio threshold for the multi-residential property tax class at
+2.0, restricting the City’s ability to increase property tax rates for the multi-residential
+class. However, by 2023, the City’s ratio dropped below this threshold, removing the
+restriction on tax rate increases for multi-residential tax properties. Since that time, the
+City has chosen to apply a reduced rate increase to the multi-residential class. In 2026,
+the multi-residential tax class ratio is 1.719. Despite the class being unrestricted, this
+report recommends only 50 percent of the residential increase to mitigate impacts on
+multi-residential properties. In addition, staff are examining long term ratio reduction
+Budget Implementation - Page 18 of 30
+
+=== page
+policies and projections through 2035, at which time New Multi Residential properties
+will conclude their 35 year classification period and transition to the Multi Residential
+-
+class.
+- -
+Table 6 below shows progress of the ratio reductions since 2015. The last column
+indicates the Provincial threshold, which limits tax rate increases when ratios exceed
+the threshold.
+Table 6: Tax Ratio Projections
+Tax Class / Actual 2026 Provincial
+Subclass 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 Projected Threshold
+Commercial 2.85 2.81 2.74 2.65 2.61 2.58 2.50 2.39 2.31 2.29 1.98
+Industrial 3.00 2.90 2.83 2.76 2.71 2.62 2.59 2.51 2.51 2.50 2.50 2.50 2.63
+Multi-Residential 2.66 2.46 2.28 2.10 2.05 1.96 1.90 1.90 1.74 1.72 2.00
+Small Business 2.50 2.50 2.49 2.44 2.43 2.43 2.43 2.19 2.12 2.03 1.97 1.95 1.98
+Small Business Subclass
+On November 9, 2021, City Council adopted the recommendations in Item EX27.7 to
+implement a Small Business Subclass for the commercial property tax class with a rate
+reduction of 15 percent of the commercial property tax rate.
+In 2026, approximately 28,239 commercial properties, including eligible strip plazas, are
+included in the Subclass and expected to benefit from a tax rate reduction. The 15
+percent municipal reduction will result in about $40.07 million in levy savings. The
+Province will also provide a corresponding reduction in the education tax rate, with an
+additional estimated savings of over $25.1 million for these properties.
+Appendix D provides a Briefing Note on the impact of increasing the municipal rate
+reduction for the Small Business Property Tax Subclass from 15% to 20%.
+New Multi-Residential Subclass
+In the 2024 Ontario Budget, the Province introduced an optional subclass within the
+New Multi-Residential property class, enabling municipalities to offer reduced municipal
+property tax rates for eligible new multi-residential rental properties. On November 13,
+2024, City Council adopted the New Multi-Residential Property (Municipal Reduction)
+Tax subclass and approved its eligibility criteria (Item EX18.2). This report recommends
+continuing the 15 percent municipal rate reduction for this subclass for the 2026 taxation
+year, consistent with the reduction applied in 2025.
+The continued application of a stable reduced rate supports predictability for taxpayers
+while the City undertakes ongoing work on long term tax rate planning for the
+Multi Residential property class. In particular, this work is focused on the gradual
+harmonization of municipal multi residential tax -rates over the 35 year period during
+which- eligible properties are included in the subclass. Maintaining a consistent annual
+reduction helps to limit the accum-ulation of tax rate disparities be-tween new and
+Budget Implementation Page 19 of 30
+
+=== page
+existing multi residential properties over time and mitigates significant year over year
+impacts as properties transition through the new class framework.
+- - -
+For the 2026 taxation year, MPAC did not identify any properties in this subclass within
+the City of Toronto. As one of the eligibility criteria requires that the first building permit
+be issued after the by law came into effect (November 2024), the first eligible properties
+are expected to be added to the assessment roll in late 2026 or 2027, and the financial
+impact of the 15 perce-nt municipal rate reduction will be determined as qualifying
+buildings are completed and added to the assessment roll.
+To date, the Province has not granted the requested matching reduction in education
+tax rates for this property subclass.
+Property Tax Assistance for Low-Income Seniors and People with Disabilities
+The City offers two property tax assistance programs for eligible low-income seniors
+and persons with disabilities, based on criteria that include age, household income, and,
+in some cases, the property’s assessed value:
+• Tax Increase Cancellation Program: This program cancels annual property tax
+increases for eligible homeowners.
+• Tax Increase Deferral Program: This program allows eligible homeowners to
+defer tax increases without interest, with repayment due when the homeowner no
+longer owns the property.
+In February 2017, City Council established a maximum household Current Value
+Assessment (CVA) threshold for the Tax Increase Cancellation Program. The threshold
+was set at $850,000 for 2017 and 2018 and increase to $975,000 for 2019 and 2020.
+Since the 2026 taxation year is based on 2020 assessment values, this threshold will
+remain at $975,000 until the next reassessment. The Deferral Program does not have a
+CVA threshold.
+In 2025, City Council updated the eligibility criteria for both programs, increasing the
+household income threshold to $60,000. Since their inception, the programs have
+benefitted over 10,900 households with the City providing approximately $60.6 million in
+total tax relief, including $15.2 million in provincial education taxes. This total reflects
+$45.4 million through the Tax Increase Cancellation Program (City portion) and over
+$9.06 million in deferred tax increases, which also include provincial education taxes. Of
+the provincial portion cancelled, $3.8 million remains as a receivable to the City. These
+figures highlight the broad financial assistance provided to qualifying households,
+offering vital financial relief for seniors and persons with disabilities.
+For 2026, given the focus and direction to prioritize affordability, staff are recommending
+the income threshold be established at $62,000, reflecting a 3.3 percent increase over
+the 2025 amount. It is estimated that approximately 12,000 households will benefit from
+these programs in 2026, however there is no cap or restriction to the program.
+Budget Implementation Page 20 of 30
+
+=== page
+It should be noted that low-income seniors and low-income people with disabilities who
+are eligible for either of the above property tax assistance programs are also eligible for
+a 30 percent rebate on their water bill, so long as their water consumption is less than
+400 m3 annually. Since April 1, 2019, eligible homeowners also receive the benefit of a
+higher rebate adjustment on the solid waste management component of their utility bill.
+Funding Rebates for Registered Charities
+Provincial legislation requires the City to adopt a tax rebate program for charities
+located in properties of the Commercial or Industrial property class. The rebate must be
+no less than 40 percent. The regulation also permits higher tax rates and ratios for
+these classes to fund charity rebates from within the Commercial and Industrial classes.
+The Province funds the education share of the rebates.
+For 2026, the estimated funding requirements are based on 1,013 applications received
+in 2024. The funding requirements are as follows:
+• Commercial Charity Rebates:
+ο Funding requirement for 2026: $6.788 million
+ο Minus surplus from 2024: ($0.016 million)
+ο Net requirement of 2026: $6.772 million.
+• Industrial Charity Rebates
+ο Funding requirement for 2026: $0.073 million
+ο Plus deficit from 2024: $0.430 million
+ο Net requirement for 2026: $0.503 million.
+City Building Fund
+On February 15, 2017, City Council approved a dedicated property tax levy for priority
+transit and housing capital projects equal to a 0.50 percent residential property tax
+increase in 2017, followed by additional 0.50 percent increases each year from 2018 to
+2021 (Item EX22.1).
+On December 17, 2019, City Council adopted an additional increase of 1 percent for the
+City Building Levy in both 2020 and 2021, followed by an additional 1.5 percent annually
+from 2022 to 2025 (Item EX11.26).
+In 2023, City Council endorsed extending the 1.5 percent increase until 2035 to support
+ongoing investments in transit and housing (Item CC4.1). The incremental increase of
+1.5 percent will raise an additional $75 million, resulting in total expected revenue of
+$459 million in 2026.
+The continued growth of the City Building Fund is required to maintain funding for
+existing capital commitments in the City’s 10 Year Capital Plan. The 1.5 per cent
+increase in 2026 is expected to generate $75 million in incremental revenue, bringing
+total City Building Fund revenues to $459 mi-llion in 2026, and rising to a required $1.3
+billion annually by 2035 to support approved capital commitments.
+Budget Implementation Page 21 of 30
+
+=== page
+The Scarborough Transit Reserve Fund was established in 2013 to accumulate funds to
+partially fund a replacement for the rapid transit line in Scarborough. The City Building
+Fund was established to hold capital funding dedicated to housing and priority transit
+capital projects. In order to consolidate major capital reserves and leverage funding
+capacity of the City Building Fund to increase annual contributions dedicated to
+Scarborough transit, it is recommended that the balance of the Scarborough Transit
+Reserve Fund be transferred to the City Building Reserve Fund, while specifically
+accounting for and preserving the transferred funds for their intended purposes.
+Annual Impact of Municipal Land Transfer Tax (MLTT)
+During 2025 budget implementation considerations (Item CC27.1), City Council
+requested the Chief Financial Officer and Treasurer to report on the annual impact to
+property taxes in the event that the Municipal Land Transfer Tax (MLTT) is no longer a
+source of revenue as part of the 2026 budget process.
+The projected MLTT revenue for 2025 is approximately $805 million, equivalent to about
+a 16.1 percent increase in the Residential property tax rate in 2026.
+As part of Item EX28.1, City Council requested staff to review the First Time
+Homebuyers Rebate Program and consider options to improve the program, including
+necessary offsets, in the budget process. The City of Toronto currently provides an
+MLTT rebate to first-time purchasers of residential property, up to a maximum rebate
+value of $4,475. In 2024, the City provided a total of $60.3 million in rebates.
+At this time, staff are not recommending any changes to the program due to the
+financial impacts. If the City were to increase the maximum rebate value, it would result
+in additional foregone revenue for the City and would create an added financial
+pressure. For example, if the rebate value was increased to $11,475, which would
+essentially provide a full rebate for home purchases up to $750,000, it would cost the
+City an estimated additional $86 million. Staff will continue to monitor MLTT and first-
+time home buyer activity. Should there be future consideration to adjusting the program,
+staff recommend aligning program changes with recovery in the real estate market to
+mitigate the annual financial impact on the City.
+2026 Education Tax Rates and Levy
+The Education Act, 1990, requires every municipality to levy and collect taxes for school
+purposes each year at the education tax rates prescribed by the Minister of Finance.
+In accordance with these legislative requirements, City Council must annually adopt the
+following by-laws:
+(iii) the municipal levy;
+(iii) the education levy; and
+(iii) the claw-back rate for properties in the commercial, industrial, and multi-
+residential property classes.
+These by-laws are required to enable the City to issue the final property tax bills for the
+year, for both municipal and school purposes, and may be combined into one by-law.
+Budget Implementation Page 22 of 30
+
+=== page
+On December 5, 2025, the Minister of Finance filed O. Reg. 297/25 amending O. Reg.
+400/98 under the Education Act, prescribing 2026 tax rates for school purposes. The
+2026 education rates remain the same as in 2025. The release of this information
+occurred earlier than prior years and therefore enables City Council to adopt the
+required by-laws as part of this Budget Implementation report, rather than consider a
+separate report later in the year.
+The current regulation provides that the tax rate for school purposes for the Small
+Business subclasses be reduced by 15 per cent, matching the municipal tax rate
+reduction for the subclass in 2025. The 15% reduction will result in $25.1 million in
+education tax relief for the properties in the small business subclass in Toronto. The
+Province does not currently provide a matching 15% reduction for the New Multi-
+Residential (Municipal Reduction) Subclass.
+The applicable subclass tax rate reductions on the education rates in 2026 for the City
+of Toronto are shown in Table 7 below.
+Table 7: Applicable Education Tax Rate Reductions
+Applicable Tax Rate
+Property Class Tax Subclass
+Reduction
+Creative Facilities Enterprise
+subclass
+50% of Commercial rate
+(Creative Co-location Facilities
+Subclass)
+Small Business subclass 15% of Commercial rate
+Commercial
+Excess Land 0% of Commercial rate
+Vacant Land 0% of Commercial rate
+Farmland Awaiting Development
+60% of Residential/Farm rate
+(First subclass)
+Excess Land 0% of Industrial rate
+Vacant Land 0% of Industrial rate
+Industrial
+Farmland Awaiting Development
+60% of Residential/Farm rate
+(First subclass)
+Farmland Awaiting Development
+Multi-residential 60% of Residential/Farm rate
+(First subclass)
+Since the assessment values for the 2026 taxation year remain the same as for the last
+five taxation years, and the rates are the same since 2021, there is no CVA-related or
+rate-related education tax increase in 2026. To ensure municipalities are not negatively
+Budget Implementation Page 23 of 30
+
+=== page
+impacted by business education tax reductions, the education rates for payment-in-lieu
+properties, where the education portion of taxes are retained by the municipality, have
+been maintained at the 2021 rates.
+Table 8 below provides a reconciliation of the 2026 education tax levy for Toronto by
+property class. The Province will receive an additional $24.48 million in education tax
+levies in 2026 arising from new development and assessment growth in the City, largely
+driven by condominium, multi-residential and commercial development.
+Table 8: 2026 Education Taxes ($000s)
+2025 Levy
+2025 Education Change from 2026 Education
+Property Class
+Levy Assessment Levy
+Growth
+Residential 917,518 14,933 932,451
+Multi-Residential 78,294 -889 77,405
+New Multi-Residential 15,193 2,954 18,147
+Commercial 1,101,538 7,737 1,109,275
+Industrial 73,067 -249 72,818
+Pipelines 3,427 -1.9 3,426
+Farmlands 1.5 0.0 1.5
+Managed Forests 1.6 0.0 1.6
+Total 2,189,041 24,484 2,213,525
+Table 9 summarizes the tax impacts on the average home in Toronto with an assessed
+value of $692,140. The breakdown of the average 2026 household impact arising from
+the municipal portion of taxes of $92 (a 2.2% increase including the City Building Fund)
+is shown in Table 3. The 2026 education tax rates, prescribed by the Province and
+recommended in this report, will see no increase in education taxes on the average
+home in Toronto. The total 2026 combined municipal and education levy impact for the
+average household in Toronto will be $92, or a combined 1.75% increase on the total
+property tax bill.
+Table 9: Average Residential Tax Impact
+2025 Taxes 2026 Taxes Increase $ Increase %
+City $4,160 $4,252 $92 2.20%
+Education $1,059 $1,059 - 0.00%
+$5,219 $5,311 $92 1.75%
+Budget Implementation Page 24 of 30
+
+=== page
+As part of administering education property taxes on behalf of the Province, the City
+incurs costs related to billing, collection, customer service, and associated staff
+resources. These administrative costs are currently partially offset through the City’s
+ability, under provincial legislation, to retain a small portion of education taxes collected,
+as authorized by City Council through the annual Education Property Tax Levy By law.
+While existing legislative authority enables limited cost recovery, it may be appropr-iate
+to assess whether the current level of retention remains aligned with the actual costs
+incurred. Any consideration of adjustments would require further analysis and, where
+applicable, consultation with the Province, including an examination of fiscal impacts,
+consistency with legislative authority, and implications for taxpayers.
+Capping Policy and Funding Capping Limits (Commercial, Industrial and Multi-
+Residential Property Classes)
+Legislation mandates a cap on CVA-related tax increases on properties in the
+Commercial, Industrial, and Multi-Residential classes. This report recommends
+continuing the policy of limiting (‘capping’) allowable tax increases to a maximum of
+10% of a property's prior year's annualized taxes. This applies to any property in the
+Commercial, Industrial, and Multi-Residential tax classes that would otherwise
+experience a tax increase greater than 10%, and where the tax increase exceeds $500
+for the 2026 taxation year. This policy provides protection from significant tax increases
+to all business properties. The application of the $500 threshold, however, allows for
+faster transition to full CVA and reduces the number of capped and clawed back
+properties impacted. Only properties with a 10% increase exceeding $500 will continue
+to be capped.
+As permitted by current legislation, the capping of tax increases is funded by "clawing
+back" tax decreases that some properties may otherwise experience following a
+reassessment. The percentage reductions in the tax decreases for 2026 (the “clawback
+rate”) necessary to fund the foregone revenue resulting from the recommended 10%
+cap on tax increases for 2026 will be reported to City Council in second quarter of 2026.
+2026 User Fees
+Adjustments Requiring City Council Approval
+In accordance with the City User Fee Policy, City Council must approve the following
+adjustments: changes to certain market-based fees, the creation of new user fees, any
+changes to existing user fees beyond inflation, and user fees requiring technical
+adjustments, transfers, discontinuations or rationalizations as outlined in Appendix 3 to
+the 2026 Mayor’s Proposed Budget. New fees, added under the existing delegated
+authority for annual inflationary adjustments are also included. Details on these fees are
+provided in Table 1 of Appendix A.
+The City provided public notice of its intent to change existing user fees and introduce
+new fees. The public notice was posted on the City of Toronto website more than five
+Budget Implementation Page 25 of 30
+
+=== page
+business days before the Budget Committee public hearings, where constituents were
+given the opportunity to provide input or depute on the proposed changes to fees.
+Automatic Adjustments: User Fee Inflationary Increases
+As part of the City User Fee Policy, annual inflationary adjustments are applied to user
+fees based on the applicable inflation rate. Authority to implement these adjustments is
+delegated to the Chief Financial Officer and Treasurer, and the expected incremental
+revenue generated from these adjustments is included in the 2026 Mayor’s Proposed
+Budget. Details of user fees with previously approved delegated authority are provided
+in Appendix 4 of the 2026 Mayor’s Proposed Budget.
+Rates and Service Fees - Solid Waste Management Services and Toronto Water
+On December 17, 2025, City Council approved interim rates and service fees for Solid
+Waste Management Services and Toronto Water to take effect on January 1, 2026.
+These rates align with the financial modelling and required increases presented during
+the 2026 budget process and are consistent with the 2026-2035 Capital Budget and
+Plan. This report recommends adopting these interim rates and service fees as final for
+2026.
+Provincial Gas Tax and Build Communities Strong Fund in the City’s 2026-
+2035 Capital Budget and Plan:
+The Provincial Gas Tax (PGT) and Build Communities Strong Fund (BCSF, formerly the
+Canada Community Building Fund) are essential funding sources that enable Toronto to
+sustain and enhance its public transit system. These programs ensure that critical
+investments in transit infrastructure align with the City’s operational and strategic goals,
+as reflected in the 2026-2035 Capital Budget and Plan for the Toronto Transit
+Commission.
+Provincial Gas Tax funding supplements municipal transit expenditures, addressing
+both operating and capital needs. The allocation formula ensures that funding is
+responsive to transit ridership and population trends, enabling the Toronto Transit
+Commission to meet evolving needs. Projects funded by the PGT are detailed in the 10-
+year capital plan provided in Appendix B.
+The Build Communities Strong Fund offers municipalities with flexibility to prioritize
+projects across infrastructure categories, with Toronto directing its allocation primarily to
+transit-related projects. This funding’s inflation-indexed structure ensures stability for
+long-term projects, while the Administrative Agreement with the Government of Canada,
+the Ontario Government, and the Association of Municipalities of Ontario ensures that
+funding is distributed in a structured and transparent manner, aligned with the City’s
+strategic goals.
+Together, these programs support Toronto’s long-term infrastructure needs and
+contribute to the City’s ability to meet growing demands for public transit and related
+services. The 2026-2035 Capital Budget and Plan, with its detailed Appendix B lists all
+Budget Implementation Page 26 of 30
+
+=== page
+planned projects reflects the significant role these funding sources play in Toronto’s
+infrastructure future.
+Other Items:
+Toronto Parking Authority
+The Toronto Parking Authority (TPA) 2026 Operating budget does not include an
+inflationary adjustment or a modification to rates for parking locations. This report
+includes a recommendation for City Council to request the TPA Board direct the
+President, TPA, to consider applying an inflationary adjustment or modified rates for
+parking locations for 2026 in keeping with TPA’s past practice.
+Amendments to Toronto Municipal Code Chapters for allowable maximum fines
+for offences
+In response to City Council direction through Member Motion 2024.MM22.2 - Credible
+Maximum Fines for Offences Contrary to Toronto Municipal Code, City divisions
+reviewed Toronto Municipal Code chapters governed by the City of Toronto Act, 2006 to
+determine whether existing maximum fines remain appropriate. This included assessing
+opportunities to increase fines to the maximum levels permitted under provincial
+legislation and, where authorized, to allow charges against corporate officers and
+directors.
+Under the Provincial Offences Act, fines are imposed by the courts following a
+conviction. When setting a penalty, judicial officers look to the maximum fine
+established in the applicable by law as the outer limit in determining what is appropriate
+in a given case. Updating these maximums provides courts with greater discretion to
+impose penalties that reflect the- seriousness of the offence and the specific
+circumstances of each case, supporting compliance and deterrence.
+Legal Services provided guidance on the statutory maximum fines permitted under the
+City of Toronto Act, 2006, which allows Council to set fines of up to $100,000 for certain
+by law contraventions, compared to the default $5,000 maximum where no higher fine
+is specified. With this guidance, City divisions assessed 19 Municipal Code chapters,
+co-nsidering public safety, alignment with comparable offences, feedback from the
+public, potential policy impacts, and the risk of disproportionate impacts on vulnerable
+populations.
+Appendix C outlines the recommended amendments, which would update maximum
+fines where appropriate and authorize charges against corporate officers and directors,
+consistent with legislative authority.
+Revenues from by law enforcement fines are projected at approximately $192.7 million
+in 2026, representing about 1 per cent of the City’s total planned revenue. The majority
+of this revenue is g-enerated from parking enforcement and red light camera infractions.
+Budget Implementation Page 27 of 30
+
+=== page
+Impacts of Provincial Policy Changes
+Recent provincial policy changes have also had direct revenue and operational impacts
+on the City. In particular, the Province’s removal of municipal authority to implement and
+operate Automated Speed Enforcement (ASE) eliminated a source of revenue that had
+been used to support road safety initiatives and traffic enforcement activities. While the
+financial impact of the removal of ASE has now been addressed through the 2026
+Budget, this change reduced a dedicated revenue stream and increased pressure on
+the City’s operating budget to continue funding road safety priorities. The City continues
+to monitor the impacts of provincial policy decisions on municipal service delivery and
+financial sustainability.
+Cost-of-Living Adjustment Rate For Non-Union and Management Employees
+The City Manager will continue to establish the cost-of-living adjustment rate for non-
+union and management employees as directed by City Council on February 2, 2025
+(CC27.2).
+Parks and Recreation
+To advance priorities to support community-led parks groups, it is recommended that
+the City enter into a collaborative agreement for 2026 that will enable Parks and
+Recreation to allocate a portion of Parks and Recreation’s base budget to be matched
+by Parks People’s funding resources. This collaborative agreement will support growing
+“Friends of” parks organizations, leveraging existing city-wide relationships with local
+parks groups, with the aim of enhancing community stewardship within parks.
+Environment, Climate and Forestry
+Toronto is experiencing more frequent and extreme heat events, which pose a public
+health risk for residents without access to adequate indoor cooling, particularly low-
+income seniors and other vulnerable populations. In response, the City launched a pilot
+Air Conditioner Assistance Program in 2025, which delivered approximately 500 air
+conditioners to low-income seniors, including professional installation at no cost. The
+pilot demonstrated strong demand and delivered meaningful benefits to recipients.
+Building on the pilot, staff are proposing an expanded Air Conditioner Assistance
+Program in 2026. Subject to Council approval and funding, the program would deploy
+up to 1,000 air conditioners prior to the summer of 2026. Eligibility would continue to
+prioritize low-income seniors and would be expanded include additional low income or
+vulnerable populations, informed by similar City programs and public health
+considerations.
+Council authorization is requested to expand program eligibility and administration
+parameters for 2026 to enable timely implementation. The City would accept donations
+to support program delivery and expand access to no-cost air conditioners for eligible
+residents.
+Budget Implementation Page 28 of 30
+
+=== page
+FIFA World Cup 2026
+With the FIFA World Cup 2026 (FWC26) approaching, certain decisions may need to be
+made on an immediate or just-in-time basis to support the successful delivery of the
+FWC26.
+Accordingly, this report recommends authorizing the City Manager to:
+• reallocate budgets within the $380.0 million FWC26 Toronto Secretariat budget;
+• exercise temporary delegated authorities to mitigate procurement delay arising
+from unexpected or time-sensitive operational requirements needed to meet
+obligations under the FIFA Host City Agreement.
+In 2024.EX16.32, City Council adopted a Procurement Plan for FWC26-related
+procurements and established additional reporting requirements. Specifically, where the
+actual value of a proposed procurement award exceeds the estimated value in the
+approved Procurement Plan by the lesser of 5 percent or $250,000, the Chief
+Procurement Officer would exercise their discretion to bring forward recommendations
+to Executive Committee, via the FIFA World Cup 2026 Subcommittee, regardless of any
+existing authority.
+For FWC26-related procurements not included in the approved Procurement Plan, this
+report recommends rescinding the requirement for the Chief Procurement Officer to
+exercise discretion to bring forward recommendations to Executive Committee. In these
+cases, delegated authorities under Municipal Code Chapter 71, Financial Control, and
+Chapter 195, Procurement, will be relied upon to make commitments and awards.
+This also recommends temporarily increasing the City Manager’s authority, or that of
+their delegate, to approve over-expenditures on commitments and non-competitive
+procurements (NCPs) of up to $1,000,000 required to delivery the FWC26.
+• Under Chapter 71, Financial Control, the City Manager’s authority is limited to
+over-expenditures up to $500,000. A temporary increase to this authority will
+allow FWC26 to use of existing City contracts without negatively impacting the
+procurement activities of the division(s) that owns the contact to be leveraged.
+• As FWC26 approaches, urgent and time-sensitive procurements may be required
+to address operational needs, delivery risks and schedule constraints, which may
+necessitate purchasing goods and/or services using NCPs exceeding existing
+authorities for divisions ($50,000) and the City Manager ($500,000).
+The authority or delegation set out in these recommendations are intended to provide
+operational flexibility while maintaining appropriate financial controls and reporting
+oversight. They are required to manage risks associated with the scale, complexity, and
+timelines of hosting a major international event such as the FWC26. Staff will report
+back to the FIFA World Cup 2026 Subcommittee for information on any use of these
+authorities granted via this report.
+Budget Implementation Page 29 of 30
+
+=== page
+CONTACT
+Althea Hutchinson, Executive Director, Financial Planning, 416-338-7840,
+Althea.Hutchinson@toronto.ca
+John Longarini, Director, Revenue Services, Finance and Treasury, 416-898-9410,
+John.Longarini@toronto.ca
+Lauren Birch, Director, Financial Strategy & Policy, Office of the Chief Financial Officer
+and Treasurer, 416-392-4258, Lauren.Birch@toronto.ca
+SIGNATURE
+Stephen Conforti
+Chief Financial Officer and Treasurer
+ATTACHMENTS
+Appendix A: Summary of New Chapter 441 Fees Moving to Delegated Authority for
+Automatic Annual Inflationary Adjustment
+Appendix B: Provincial Gas Tax and Build Communities Strong Fund Projects Funded
+Through the City’s 2026-2035 Capital Budget and Plan
+Appendix C: Amendments to Toronto Municipal Code Chapters
+Appendix D: 2026 Operating Budget Briefing Note - Impact of Increasing the Municipal
+Rate Reduction for the Small Business Property Tax Subclass from 15% to 20%
+Budget Implementation Page 30 of 30
