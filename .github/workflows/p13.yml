@@ -11,5 +11,5 @@ jobs:
           pip install -q pillow requests
           python3 probe.py > out/log.txt 2>&1 || true
           git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
-          git checkout -b fetched-13
-          git add -f out && git commit -qm "Day trip photos and routes" && git push -f origin fetched-13
+          git checkout -b fetched-13b
+          git add -f out && git commit -qm "Day trip photos and routes" && git push -f origin fetched-13b
