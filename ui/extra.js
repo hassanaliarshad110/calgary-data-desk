@@ -1582,7 +1582,7 @@ window.reportCard = reportCard;
 
 // ================================================================ DATA SCIENTIST
 const DS_AREA = { '311': ['list', '#0369A1'], Safety: ['shield', '#B91C1C'], Growth: ['crane', '#B45309'], Families: ['child', '#7C3AED'],
-  Transit: ['bus', '#0F766E'], Housing: ['home', '#BE185D'], People: ['users', '#4338CA'], Roads: ['cone', '#C2410C'] };
+  Transit: ['bus', '#0F766E'], Housing: ['home', '#BE185D'], People: ['users', '#4338CA'], Roads: ['cone', '#C2410C'], Budget: ['bars', '#15803D'] };
 let dsBusy = false;
 async function renderScientist(fresh = true) {
   const a = await api();

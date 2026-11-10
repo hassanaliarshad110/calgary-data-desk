@@ -1,9 +1,9 @@
 """What Calgarians pay: the proposed 2027-2030 budget and Calgary against seven Canadian cities (data/pay_study.json).
 
-The published study (calgaryinsight.ca/studies/calgary-police/) as data, for Data Genie and the Data Scientist:
-its summary, every section with its tables and chart data, the method, limits, recommendations and every source.
-Figures come from Statistics Canada (crime severity, clearance, police staffing for Calgary and five other city police
-services), the Calgary Police Service's reports and 2027 to 2030 budget plan, and the police community crime file.
+The published study (calgaryinsight.ca/studies/what-calgarians-pay/) as data, for Data Genie and the Data Scientist:
+its summary, every section with its tables and chart data, the method, limits, options and every source.
+Figures come from each city's own budget, tax and utility rate documents, the City of Winnipeg's 2026 comparison of
+municipal tax bills, news reports of 2027 budgets and Statistics Canada (2021 Census household incomes).
 """
 import json
 import os

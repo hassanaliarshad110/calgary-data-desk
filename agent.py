@@ -620,6 +620,8 @@ TOOLS = [
                     'would cost a typical Calgary home to 2030, and City property tax and water, wastewater and waste bills on a typical '
                     'home in Calgary, Edmonton, Vancouver, Toronto, Ottawa, Winnipeg, Saskatoon and Regina in 2026 (and 2027 where '
                     'published), with share of income, method, limits and sources; part="summary", "sections", "sources" or "limitations". '
+                    'Asked for this study or a report on it, issue it unchanged with make_report published="what-calgarians-pay"; '
+                    'for one household\'s bill point to the calculator. '
                     'section="city_budget_2027" gives the City\'s proposed 2027-2030 budget (Nov 10, 2026, not yet approved): '
                     'the monthly cost for a typical home in 2026 and 2027, the property tax increase each year, 2027 water rates, '
                     'investments, revenue shares, schedule and documents; spending by department is in open data nnnm-9sfh. '
@@ -860,10 +862,12 @@ TOOLS += [
              'owner': {'type': 'string'},
              'measure': {'type': 'string', 'description': 'How the office will know it worked'}}, 'required': ['action']}},
          'file_name': {'type': 'string'},
-         'published': {'type': 'string', 'enum': ['calgary-police'],
+         'published': {'type': 'string', 'enum': ['calgary-police', 'what-calgarians-pay'],
                        'description': 'Issue a published Calgary Insight study exactly as published (title, findings, every chapter, '
                                       'conclusion, method, sources): "calgary-police" is the study of Calgary Police performance, '
-                                      'resources and the 2027 to 2030 budget request. Any chapters saved with report_add are added after '
+                                      'resources and the 2027 to 2030 budget request; "what-calgarians-pay" is the study of what the proposed 2027-2030 '
+                                      'City budget would cost a typical home and how Calgary\'s City tax and utility bills compare with '
+                                      'seven Canadian cities. Any chapters saved with report_add are added after '
                                       'the study\'s own; send only a title (it is replaced by the study\'s).'}},
          'required': ['title']}},
 ]
@@ -1895,9 +1899,11 @@ class Agent:
             pub = args.pop('published', None) if isinstance(args, dict) else None
             if pub:                            # a published study, issued exactly as published, with any extra chapters after it
                 import police_study            # noqa: PLC0415
-                st = police_study.load(self.data_dir) if pub == 'calgary-police' else None
+                import pay_study               # noqa: PLC0415
+                st = (police_study.load(self.data_dir) if pub == 'calgary-police'
+                      else pay_study.load(self.data_dir) if pub == 'what-calgarians-pay' else None)
                 if not st:
-                    raise cd.DataError('There is no published study by that name: use published="calgary-police".')
+                    raise cd.DataError('There is no published study by that name: use published="calgary-police" or "what-calgarians-pay".')
                 extra = list(self._draft.get('sections') or []) + list(args.get('sections') or [])
                 args = {k: v for k, v in st.items()}
                 args['sections'] = list(st['sections']) + [x for x in extra if isinstance(x, dict)]

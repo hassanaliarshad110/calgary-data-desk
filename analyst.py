@@ -115,6 +115,13 @@ TOPICS = [
      'all of Calgary, first add one chapter with report_add for {area}: crime per 1,000 residents and its trend by community '
      '(get_dashboard section crime) against Calgary, with the police community file\'s limits (counts of 1 to 5 shown as 2); '
      'it is placed after the study\'s chapters. Do not rewrite, shorten or re-compute the study\'s figures.'),
+    ('pay', 'What Calgarians pay: the proposed budget against seven cities',
+     'What the proposed 2027 to 2030 budget would cost a typical home, and Calgary\'s City tax and utility bills against seven cities.', 'Budget',
+     'Issue the published study exactly as it stands: call make_report with published="what-calgarians-pay" (it brings the '
+     'study\'s title, findings, every chapter with its tables and charts, conclusion, method, limits and sources, unchanged). If '
+     '{area} is not all of Calgary, first add one chapter with report_add for {area}: City property tax by community (get_dashboard '
+     'section property_tax) set against the typical Calgary home in the study, so residents see how their own community compares; '
+     'it is placed after the study\'s chapters. Do not rewrite, shorten or re-compute the study\'s figures, and take no side on the budget.'),
     ('school_tax', 'School tax paid and school money received',
      'What Calgary pays the province for schools against what comes back, set beside Edmonton and the rest of Alberta.', 'Families',
      'The education property tax Calgary pays the province (the requisition) each year since 2020 and its share of Alberta\'s '
