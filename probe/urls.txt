@@ -1,5 +1,6 @@
-brookfield https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_114616_726060a7-67d3-4c88-b290-97786b54becb.glb 2048
-bow https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_114618_653fb73a-ad8c-461f-a684-87584774509c.glb 2048
-telussky https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_114622_9513fd78-d940-492a-8ca4-481136c1a42b.glb 2048
-saddledome https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_114623_a5c56807-7383-4b22-8b5c-550d8a491a81.glb 2048
-bear https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_114632_73561893-0ef5-47c2-97ca-33766255f1e5.glb 512 0.5
+kid_boy https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115917_b6a7c8ed-6098-4de1-9837-e52b34edaee3.glb 512 0.35
+kid_girl https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115919_63c6a435-0022-49d6-b577-0d3a049bd251.glb 512 0.35
+kid_boy2 https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115919_c03efe24-b61d-4446-9e35-df3b3e032770.glb 512 0.35
+amira https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115921_43522d65-c753-4d55-9f1c-63e78671be52.glb 1024
+teen_girl https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115923_e1572085-c3d5-45ce-8486-a652a3eb0ee0.glb 512 0.35
+rabbit https://d8j0ntlcm91z4.cloudfront.net/user_3KCBM5g2og8WAtnWqfWf92dKZR4/hf_20261110_115409_756298a3-1162-4fcb-80da-31b03bef6c31.glb 512 0.4
