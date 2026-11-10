@@ -5,7 +5,7 @@ Every scheduled run follows this file exactly. One run = one video.
 ## 0. Guard rails (always)
 - Credit is always **calgaryinsight.ca** (spoken "calgary insight dot c a"). Never put Hassan's name or any credential in a video, package or caption.
 - **Free pipeline only:** Kokoro narration on GitHub Actions, Playwright scenes and ffmpeg. Never spend credits (Higgsfield, OpenArt, vidIQ, Descript, RunPod, fal.ai).
-- **Create, don't publish.** Never post to Instagram, Facebook, YouTube or Metricool. Never touch `main`, the website or any branch other than `content-studio` and `studio-probe`. Hassan reviews and publishes himself.
+- **Post only what passed.** Hassan approved automatic posting to Calgary Insight's Instagram, Facebook and YouTube through Metricool (Nov 9, 2026), but only for videos whose fact audit returned APPROVED and whose render checks passed. Never post anything blocked, script-only or failed. Never touch `main` or the website, or any branch other than `content-studio`, `studio-probe` and `studio-videos`.
 - Never mention Canada Insight in Calgary Insight content.
 - Nonpartisan and neutral across wards. No attacks on or endorsements of councillors, candidates or parties.
 - Every figure is researched in this run from a primary source, with its URL. Never state a number, date or quote from memory. If a claim can't be verified, cut it.
@@ -69,4 +69,16 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
   Raw link (for Metricool later, once Hassan approves): `https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/<date>-<slot>/<slug>.mp4`
 - Append to `log.json`: `{date, slot, type, category, title, topic_used, changed_from_calendar (reason or null), central_figure, sources:[urls], length_s, video_path, status:"done"}`. If rendering failed, save the package anyway with status `"script-only"` and the reason.
 - Commit the package and log to `content-studio` as Hassan Ali, `git pull --rebase` then push, retrying up to 3 times.
-- Send the MP4(s) to Hassan with SendUserFile (flagships: both versions) (display attach), then a SendUserMessage of at most 5 lines: title, length and format, the one key figure with its source, and the raw video link.
+- Send the MP4(s) to Hassan with SendUserFile (flagships: both versions) (display attach), then a SendUserMessage of at most 5 lines: title, length and format, the one key figure with its source, the raw video link, and when and where it is scheduled to post (or why it wasn't).
+
+## 7. Post to social (Metricool), only after APPROVED and a successful render
+- Brand: Metricool `blogId` **7089421**, timezone **America/Edmonton**. Connected: Instagram @calgaryinsight, the Calgary Insight Facebook page, the YouTube channel.
+- Media: the raw link `https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/<date>-<slot>/<file>.mp4`, used only **after** the push to `studio-videos` has succeeded. Metricool copies the file when the post is created.
+- Publish time: about 10 minutes after now (Calgary time), `autoPublish: true`, `draft: false`. Leave out `videoThumbnailUrl` and `videoCoverMilliseconds`.
+- Text: the package's audited caption or description, word for word (sources, calgaryinsight.ca and hashtags included). Instagram captions must stay under 2,200 characters; trim hashtags first if needed, never the facts or sources.
+- YouTube: `privacy: "public"`, `madeForKids: false`, title from the package (100 characters max), 3-7 tags, category `EDUCATION` (civic videos: `NEWS_POLITICS`).
+- What goes where:
+  - **Quick insight and civic (vertical):** one post with providers instagram (`type: REEL`, `showReelOnFeed: true`), facebook (`type: REEL`) and youtube (`type: short`).
+  - **Flagship:** post A with `<slug>-short.mp4` to instagram (`REEL`) and youtube (`short`, Short title); then post B, 5 minutes later, with `<slug>-youtube.mp4` to facebook (`type: POST`, `title` = full video title) and youtube (`type: video`, full title and full description with chapters and sources). Facebook Reels are too short for flagships.
+- If a post is rejected, fix the field the error names and retry once. If it still fails, log status `"made-not-posted"` with the error and tell Hassan. Never post the same video twice: check the log's `posted` field first.
+- Add `posted: [{metricool_id, plannerUrl, providers, publish_at}]` to the log entry, then commit and push the log again.
