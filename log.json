@@ -144,7 +144,7 @@
    "verdict": "APPROVED",
    "report": "audits/2026-11-09-PM.md"
   },
-  "status": "done",
+  "status": "made-not-posted",
   "posted": [
    {
     "metricool_id": 422638885,
@@ -154,7 +154,8 @@
      "facebook",
      "youtube"
     ],
-    "publish_at": "2026-11-09T20:18"
+    "publish_at": "2026-11-09T20:18",
+    "result": "ERROR on instagram, facebook, youtube at 20:18: \"You have reached your Metricool account limit.\" (not retried: account-level limit, not a field error; the Nov 9 AM, FLAGSHIP and CIVIC posts show the same error)"
    }
   ]
  }
