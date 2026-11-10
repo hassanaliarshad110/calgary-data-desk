@@ -1,0 +1,7349 @@
+[
+ {
+  "place": "Cochrane",
+  "wikipedia": "https://en.wikipedia.org/wiki/Cochrane,_Alberta",
+  "photos": [
+   {
+    "file": "img_00_0.jpg",
+    "name": "Cochrane-Szmurlo.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cochrane-Szmurlo.jpg",
+    "licence": "CC BY 2.5",
+    "licence_url": "https://creativecommons.org/licenses/by/2.5",
+    "artist": "",
+    "caption": ""
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.cochrane.ca/",
+    "status": 200,
+    "final": "https://www.cochrane.ca/",
+    "title": "Town of Cochrane"
+   }
+  ],
+  "wiki_extract": "Cochrane is a town in the Calgary Metropolitan Region of Alberta, Canada. The town is located 18 km (11 mi) west of the Calgary city limits along Highway 1A. Cochrane is one of the fastest-growing communities in Canada, and with a population of 32,199 in 2021, it is one of the largest towns in Alberta. It is part of Calgary's census metropolitan area and a member community of the Calgary Metropolitan Region Board (CMRB). The town is surrounded by Rocky View County.",
+  "route": {
+   "km": 37,
+   "minutes": 39,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0447,
+     -114.068
+    ],
+    [
+     51.0476,
+     -114.0678
+    ],
+    [
+     51.0475,
+     -114.1011
+    ],
+    [
+     51.0446,
+     -114.1125
+    ],
+    [
+     51.0511,
+     -114.1178
+    ],
+    [
+     51.0737,
+     -114.1181
+    ],
+    [
+     51.0854,
+     -114.1286
+    ],
+    [
+     51.1012,
+     -114.1545
+    ],
+    [
+     51.148,
+     -114.2684
+    ],
+    [
+     51.1573,
+     -114.2803
+    ],
+    [
+     51.1672,
+     -114.3018
+    ],
+    [
+     51.1764,
+     -114.3507
+    ],
+    [
+     51.1876,
+     -114.3773
+    ],
+    [
+     51.1977,
+     -114.4164
+    ],
+    [
+     51.1957,
+     -114.4362
+    ],
+    [
+     51.1915,
+     -114.4431
+    ],
+    [
+     51.192,
+     -114.4667
+    ],
+    [
+     51.189,
+     -114.467
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1213,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 201,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 347,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 15833,
+     "name": "Crowchild Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 16651,
+     "name": "Highway 1A",
+     "ref": "1A",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 347,
+     "name": "Centre Avenue",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 21,
+     "name": "1st Street",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 8,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Big Hill Springs Provincial Park",
+  "wikipedia": "https://en.wikipedia.org/wiki/Big_Hill_Springs_Provincial_Park",
+  "photos": [
+   {
+    "file": "img_01_0.jpg",
+    "name": "Waterfalls_at_Big_hill_springs_01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Waterfalls_at_Big_hill_springs_01.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Lzw09",
+    "caption": "Hiking in Big Hill springs park"
+   },
+   {
+    "file": "img_01_1.jpg",
+    "name": "Big_Hill_springs_park_aug_30_2016.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Big_Hill_springs_park_aug_30_2016.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Ruben Lara",
+    "caption": "Big Hill Springs provincial park"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.albertaparks.ca/parks/south/big-hill-springs-pp/",
+    "status": 404,
+    "final": "https://www.albertaparks.ca/parks/south/big-hill-springs-pp/",
+    "title": null
+   }
+  ],
+  "wiki_extract": "Big Hill Springs Provincial Park is a provincial park in the foothills of Alberta's Rocky Mountains, about 40 kilometres (20 mi) northwest of Calgary, Alberta, Canada. It features a series of springs and small waterfalls that flow year-round over rocky terraces covered with a lush growth of mosses, shrubs, and grasses. The park also includes the ruins of a historic fish hatchery and Alberta's first commercial creamery. The main activities at the park are hiking, picnicking, scenic viewing, wildlife watching, and photography.",
+  "route": {
+   "km": 43,
+   "minutes": 43,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0447,
+     -114.068
+    ],
+    [
+     51.0476,
+     -114.0678
+    ],
+    [
+     51.0475,
+     -114.1011
+    ],
+    [
+     51.0446,
+     -114.1125
+    ],
+    [
+     51.0511,
+     -114.1178
+    ],
+    [
+     51.0755,
+     -114.119
+    ],
+    [
+     51.0841,
+     -114.1267
+    ],
+    [
+     51.1002,
+     -114.1527
+    ],
+    [
+     51.148,
+     -114.2684
+    ],
+    [
+     51.1573,
+     -114.2803
+    ],
+    [
+     51.1672,
+     -114.3018
+    ],
+    [
+     51.172,
+     -114.3272
+    ],
+    [
+     51.2707,
+     -114.3273
+    ],
+    [
+     51.2707,
+     -114.3752
+    ],
+    [
+     51.2498,
+     -114.3843
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1213,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 201,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 347,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 15833,
+     "name": "Crowchild Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 5949,
+     "name": "Highway 1A",
+     "ref": "1A",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 10940,
+     "name": "Lochend Road",
+     "ref": "766",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 46,
+     "name": "Lochend Road",
+     "ref": "766",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 3344,
+     "name": "Big Hill Springs Road",
+     "ref": "567",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 2381,
+     "name": "Big Hill Springs Trail",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 57,
+     "name": "Big Hill Springs Trail",
+     "ref": "",
+     "type": "continue",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Big Hill Springs Trail",
+     "ref": "",
+     "type": "arrive",
+     "mod": "right",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Bragg Creek",
+  "wikipedia": "https://en.wikipedia.org/wiki/Bragg_Creek",
+  "photos": [
+   {
+    "file": "img_02_0.jpg",
+    "name": "Bragg_Creek_mall.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:Bragg_Creek_mall.JPG",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Qyd",
+    "caption": "Strip mall in Bragg Creek, Alberta, Canada"
+   },
+   {
+    "file": "img_02_1.jpg",
+    "name": "Bragg_Creek_Alberta_Store.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bragg_Creek_Alberta_Store.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Royalbroil",
+    "caption": "The store in Bragg Creek, Alberta."
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.albertaparks.ca/parks/kananaskis/bragg-creek-pp/",
+    "status": 200,
+    "final": "https://www.albertaparks.ca/parks/kananaskis/bragg-creek-pp/",
+    "title": "Information &amp; Facilities | Bragg Creek Provincial Park | Alberta Parks"
+   }
+  ],
+  "wiki_extract": "Bragg Creek is a hamlet in southern Alberta under the jurisdiction of Rocky View County in Division No. 6.",
+  "route": {
+   "km": 45,
+   "minutes": 45,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0447,
+     -114.068
+    ],
+    [
+     51.0476,
+     -114.0678
+    ],
+    [
+     51.0482,
+     -114.0895
+    ],
+    [
+     51.0473,
+     -114.1022
+    ],
+    [
+     51.0438,
+     -114.1124
+    ],
+    [
+     51.0374,
+     -114.1136
+    ],
+    [
+     51.0343,
+     -114.1183
+    ],
+    [
+     51.0152,
+     -114.1184
+    ],
+    [
+     51.0102,
+     -114.1291
+    ],
+    [
+     51.0037,
+     -114.131
+    ],
+    [
+     51.0087,
+     -114.139
+    ],
+    [
+     51.0079,
+     -114.1669
+    ],
+    [
+     51.0104,
+     -114.1828
+    ],
+    [
+     51.0231,
+     -114.2235
+    ],
+    [
+     51.0165,
+     -114.2462
+    ],
+    [
+     51.0162,
+     -114.2617
+    ],
+    [
+     51.0196,
+     -114.2885
+    ],
+    [
+     51.0197,
+     -114.3211
+    ],
+    [
+     51.0234,
+     -114.3371
+    ],
+    [
+     51.0237,
+     -114.4666
+    ],
+    [
+     51.0152,
+     -114.4684
+    ],
+    [
+     51.0046,
+     -114.4869
+    ],
+    [
+     50.9896,
+     -114.4975
+    ],
+    [
+     50.9711,
+     -114.5354
+    ],
+    [
+     50.9611,
+     -114.5503
+    ],
+    [
+     50.951,
+     -114.5608
+    ],
+    [
+     50.9479,
+     -114.5709
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1213,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 201,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 439,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 2700,
+     "name": "Crowchild Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 426,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 63,
+     "name": "Richard Road SW",
+     "ref": "",
+     "type": "roundabout",
+     "mod": "right",
+     "exits": 3
+    },
+    {
+     "m": 1581,
+     "name": "Richard Road SW",
+     "ref": "",
+     "type": "exit roundabout",
+     "mod": "slight right",
+     "exits": 3
+    },
+    {
+     "m": 347,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 3338,
+     "name": "Glenmore Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 2746,
+     "name": "Stoney Trail SW",
+     "ref": "201",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 1662,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 16453,
+     "name": "Highway 8",
+     "ref": "8",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 95,
+     "name": "Highway 22",
+     "ref": "22",
+     "type": "roundabout",
+     "mod": "slight right",
+     "exits": 3
+    },
+    {
+     "m": 10673,
+     "name": "Highway 22",
+     "ref": "22",
+     "type": "exit roundabout",
+     "mod": "slight right",
+     "exits": 3
+    },
+    {
+     "m": 792,
+     "name": "White Avenue",
+     "ref": "758",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 90,
+     "name": "Watt Street",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 104,
+     "name": "River Drive South",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "River Drive South",
+     "ref": "",
+     "type": "arrive",
+     "mod": "left",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Okotoks Big Rock erratic",
+  "wikipedia": "https://en.wikipedia.org/wiki/Okotoks_Erratic",
+  "photos": [
+   {
+    "file": "img_03_0.jpg",
+    "name": "Bigrock.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Bigrock.jpg",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "artist": "Coaxial at English Wikipedia",
+    "caption": "Big Rock (glacial erratic). Big Rock (also known as Okotoks Erratic) is a glacial erratic situated between the towns of Okotoks and Black Diamond, Alberta, Canada (18 kilometres south of Calgary). The"
+   },
+   {
+    "file": "img_03_1.jpg",
+    "name": "Okotoks_Erratic.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Okotoks_Erratic.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Philcomanforterie",
+    "caption": "Okotoks Erratic"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.alberta.ca/okotoks-erratic-big-rock-provincial-historic-site",
+    "status": 404,
+    "final": "https://www.alberta.ca/okotoks-erratic-big-rock-provincial-historic-site",
+    "title": null
+   }
+  ],
+  "wiki_extract": "Okotoks Erratic is a 16,500-tonne (18,200-ton) boulder that lies on the otherwise flat, relatively featureless, surface of the Canadian Prairies in Alberta, Canada. It is part of the 930-kilometre-long (580 mi) Foothills Erratics Train of typically angular boulders of distinctive quartzite and pebbly quartzite.",
+  "route": {
+   "km": 61,
+   "minutes": 52,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0445,
+     -114.0582
+    ],
+    [
+     51.0483,
+     -114.0579
+    ],
+    [
+     51.0503,
+     -114.0498
+    ],
+    [
+     51.0478,
+     -114.0186
+    ],
+    [
+     51.0318,
+     -113.9978
+    ],
+    [
+     51.0125,
+     -114.0074
+    ],
+    [
+     51.0064,
+     -114.0279
+    ],
+    [
+     50.9766,
+     -114.0407
+    ],
+    [
+     50.9542,
+     -114.0273
+    ],
+    [
+     50.9457,
+     -113.9846
+    ],
+    [
+     50.9376,
+     -113.9757
+    ],
+    [
+     50.8963,
+     -113.9753
+    ],
+    [
+     50.8708,
+     -113.9622
+    ],
+    [
+     50.8189,
+     -113.9871
+    ],
+    [
+     50.7984,
+     -113.9704
+    ],
+    [
+     50.7924,
+     -113.9751
+    ],
+    [
+     50.737,
+     -113.9752
+    ],
+    [
+     50.7273,
+     -113.9824
+    ],
+    [
+     50.7032,
+     -113.975
+    ],
+    [
+     50.7028,
+     -114.149
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 1040,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 422,
+     "name": "Macleod Trail SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 570,
+     "name": "5 Avenue SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2318,
+     "name": "Memorial Drive NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 662,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 11435,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 20506,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 481,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 340,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 6447,
+     "name": "Highway 2A",
+     "ref": "2A",
+     "type": "turn",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 4379,
+     "name": "Northridge Drive",
+     "ref": "2A",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 622,
+     "name": "386 Avenue W",
+     "ref": "7",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 11701,
+     "name": "Highway 7 West",
+     "ref": "7",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Highway 7 West",
+     "ref": "7",
+     "type": "arrive",
+     "mod": "right",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Forget-Me-Not Pond (Kananaskis)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Forget-me-not_Pond",
+  "photos": [],
+  "links": [
+   {
+    "url": "https://www.albertaparks.ca/parks/kananaskis/kananaskis-country/",
+    "status": 200,
+    "final": "https://www.albertaparks.ca/parks/kananaskis/kananaskis-country/",
+    "title": "Kananaskis Country | Alberta Parks"
+   }
+  ],
+  "wiki_extract": null,
+  "route": {
+   "km": 74,
+   "minutes": 70,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0476,
+     -114.0678
+    ],
+    [
+     51.0482,
+     -114.0895
+    ],
+    [
+     51.0438,
+     -114.1124
+    ],
+    [
+     51.0343,
+     -114.1183
+    ],
+    [
+     51.0152,
+     -114.1184
+    ],
+    [
+     51.0102,
+     -114.1291
+    ],
+    [
+     51.0037,
+     -114.131
+    ],
+    [
+     51.0087,
+     -114.139
+    ],
+    [
+     51.0104,
+     -114.1828
+    ],
+    [
+     51.0231,
+     -114.2235
+    ],
+    [
+     51.0161,
+     -114.2545
+    ],
+    [
+     51.0197,
+     -114.3211
+    ],
+    [
+     51.0234,
+     -114.3371
+    ],
+    [
+     51.0237,
+     -114.4666
+    ],
+    [
+     51.0152,
+     -114.4684
+    ],
+    [
+     51.0046,
+     -114.4869
+    ],
+    [
+     50.9898,
+     -114.4972
+    ],
+    [
+     50.9711,
+     -114.5354
+    ],
+    [
+     50.9517,
+     -114.5599
+    ],
+    [
+     50.9214,
+     -114.5602
+    ],
+    [
+     50.9213,
+     -114.6015
+    ],
+    [
+     50.9118,
+     -114.6302
+    ],
+    [
+     50.909,
+     -114.658
+    ],
+    [
+     50.9031,
+     -114.668
+    ],
+    [
+     50.9001,
+     -114.6967
+    ],
+    [
+     50.8707,
+     -114.7273
+    ],
+    [
+     50.867,
+     -114.7447
+    ],
+    [
+     50.8694,
+     -114.7666
+    ],
+    [
+     50.8667,
+     -114.7883
+    ],
+    [
+     50.8364,
+     -114.8186
+    ],
+    [
+     50.8253,
+     -114.8144
+    ],
+    [
+     50.8091,
+     -114.8285
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1213,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 201,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 439,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 2700,
+     "name": "Crowchild Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 426,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 63,
+     "name": "Richard Road SW",
+     "ref": "",
+     "type": "roundabout",
+     "mod": "right",
+     "exits": 3
+    },
+    {
+     "m": 1581,
+     "name": "Richard Road SW",
+     "ref": "",
+     "type": "exit roundabout",
+     "mod": "slight right",
+     "exits": 3
+    },
+    {
+     "m": 347,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 3338,
+     "name": "Glenmore Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 2746,
+     "name": "Stoney Trail SW",
+     "ref": "201",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 1662,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 16453,
+     "name": "Highway 8",
+     "ref": "8",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 95,
+     "name": "Highway 22",
+     "ref": "22",
+     "type": "roundabout",
+     "mod": "slight right",
+     "exits": 3
+    },
+    {
+     "m": 10673,
+     "name": "Highway 22",
+     "ref": "22",
+     "type": "exit roundabout",
+     "mod": "slight right",
+     "exits": 3
+    },
+    {
+     "m": 3381,
+     "name": "Range Road 50",
+     "ref": "22",
+     "type": "turn",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 26462,
+     "name": "Highway 66",
+     "ref": "66",
+     "type": "end of road",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 93,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Cobble Flats",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Kananaskis Village",
+  "wikipedia": "https://en.wikipedia.org/wiki/Kananaskis_Village",
+  "photos": [
+   {
+    "file": "img_05_0.jpg",
+    "name": "View_from_Kananaskis_Village.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:View_from_Kananaskis_Village.jpg",
+    "licence": "CC BY 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by/2.0",
+    "artist": "D'Arcy Norman from Calgary, Canada",
+    "caption": "Mountain view in Kananaskis (this mountain is directly across the valley from Nakiska).View from Kananaskis Village"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.albertaparks.ca/parks/kananaskis/kananaskis-country/",
+    "status": 200,
+    "final": "https://www.albertaparks.ca/parks/kananaskis/kananaskis-country/",
+    "title": "Kananaskis Country | Alberta Parks"
+   }
+  ],
+  "wiki_extract": "Kananaskis Village is an unincorporated community in Alberta's Rockies within the Kananaskis Country park system in the Kananaskis Improvement District of Alberta, Canada. It is located between Calgary and Banff, approximately 26 km (16 mi) south of the Trans-Canada Highway, 3 km (1.9 mi) west of Highway 40 via Mt. Allan Drive and Centennial Drive. The community is located on the west shore of the Kananaskis River at the base of Mount Kidd.",
+  "route": {
+   "km": 100,
+   "minutes": 84,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0476,
+     -114.0678
+    ],
+    [
+     51.0482,
+     -114.0898
+    ],
+    [
+     51.0419,
+     -114.1173
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0526,
+     -114.1638
+    ],
+    [
+     51.0627,
+     -114.1662
+    ],
+    [
+     51.0732,
+     -114.1845
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0867,
+     -114.4565
+    ],
+    [
+     51.0878,
+     -114.5324
+    ],
+    [
+     51.0933,
+     -114.55
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1132,
+     -114.6489
+    ],
+    [
+     51.1471,
+     -114.7336
+    ],
+    [
+     51.1613,
+     -114.7569
+    ],
+    [
+     51.1614,
+     -114.7777
+    ],
+    [
+     51.1504,
+     -114.8168
+    ],
+    [
+     51.1461,
+     -114.8638
+    ],
+    [
+     51.1283,
+     -114.959
+    ],
+    [
+     51.1049,
+     -115.021
+    ],
+    [
+     51.0866,
+     -115.0094
+    ],
+    [
+     51.0723,
+     -115.0144
+    ],
+    [
+     51.0569,
+     -115.0117
+    ],
+    [
+     51.0441,
+     -115.0274
+    ],
+    [
+     51.0306,
+     -115.0351
+    ],
+    [
+     51.0176,
+     -115.0666
+    ],
+    [
+     50.9808,
+     -115.0779
+    ],
+    [
+     50.9663,
+     -115.1169
+    ],
+    [
+     50.9322,
+     -115.1267
+    ],
+    [
+     50.9345,
+     -115.1375
+    ],
+    [
+     50.9291,
+     -115.1496
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 54409,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 532,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 41,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 23091,
+     "name": "Kananaskis Trail",
+     "ref": "40",
+     "type": "turn",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 857,
+     "name": "Mount Allan Drive",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 1205,
+     "name": "Centennial Drive",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Centennial Drive",
+     "ref": "",
+     "type": "arrive",
+     "mod": "right",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Canmore",
+  "wikipedia": "https://en.wikipedia.org/wiki/Canmore,_Alberta",
+  "photos": [
+   {
+    "file": "img_06_0.jpg",
+    "name": "Canmore_from_Lady_MacDonald_Teahouse.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Canmore_from_Lady_MacDonald_Teahouse.jpg",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "artist": "Daniel Patterson",
+    "caption": "View of Canmore, AB from the abandoned tea house up Mount Lady MacDonald"
+   },
+   {
+    "file": "img_06_1.jpg",
+    "name": "North_West_Mounted_Police_barrack_Canmore_HPIM4264.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:North_West_Mounted_Police_barrack_Canmore_HPIM4264.JPG",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Glenlarson",
+    "caption": "By the 1890s, a North West Mounted Police barrack had been instated on Main Street Canmore, but it was vacated in 1927. The building was restored in 1989 and is currently home to a small community-run"
+   },
+   {
+    "file": "img_06_2.jpg",
+    "name": "Three_Sisters_Rockey_Mountains_Canmore.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Three_Sisters_Rockey_Mountains_Canmore.jpg",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "artist": "Bhasker Garudadri|garudadri.org",
+    "caption": "This breathtaking view of the famous Canadian Rockies Three Sisters Mountain Range is taken from Canmore"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.explorecanmore.ca/",
+    "status": 200,
+    "final": "https://www.explorecanmore.ca/",
+    "title": "Canmore &amp; Kananaskis | Official Visitor Information"
+   }
+  ],
+  "wiki_extract": "Canmore is a town in Alberta, Canada, located approximately 81 kilometres (50 mi) west of Calgary near the southeast boundary of Banff National Park. It is located in the Bow Valley within Alberta's Rocky Mountains. The town shares a border with Kananaskis Country to the west and south and the Municipal District of Bighorn No. 8 to the north and east. With a population of 17,036 in 2023, Canmore is the fifth-largest town in Alberta.",
+  "route": {
+   "km": 106,
+   "minutes": 84,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0476,
+     -114.0678
+    ],
+    [
+     51.0482,
+     -114.0898
+    ],
+    [
+     51.0419,
+     -114.1173
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0526,
+     -114.1638
+    ],
+    [
+     51.0627,
+     -114.1662
+    ],
+    [
+     51.0732,
+     -114.1845
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0867,
+     -114.4565
+    ],
+    [
+     51.0878,
+     -114.5324
+    ],
+    [
+     51.0933,
+     -114.55
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1132,
+     -114.6489
+    ],
+    [
+     51.1471,
+     -114.7336
+    ],
+    [
+     51.1623,
+     -114.7625
+    ],
+    [
+     51.1593,
+     -114.7882
+    ],
+    [
+     51.1504,
+     -114.8168
+    ],
+    [
+     51.1461,
+     -114.8638
+    ],
+    [
+     51.1283,
+     -114.959
+    ],
+    [
+     51.0924,
+     -115.0497
+    ],
+    [
+     51.0757,
+     -115.0619
+    ],
+    [
+     51.0667,
+     -115.0883
+    ],
+    [
+     51.0697,
+     -115.1197
+    ],
+    [
+     51.055,
+     -115.1435
+    ],
+    [
+     51.0497,
+     -115.1639
+    ],
+    [
+     51.0478,
+     -115.1828
+    ],
+    [
+     51.0552,
+     -115.1993
+    ],
+    [
+     51.0408,
+     -115.2386
+    ],
+    [
+     51.0391,
+     -115.2723
+    ],
+    [
+     51.0576,
+     -115.3177
+    ],
+    [
+     51.0961,
+     -115.3478
+    ],
+    [
+     51.0905,
+     -115.3431
+    ],
+    [
+     51.0884,
+     -115.3479
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 84167,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 790,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 510,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 216,
+     "name": "",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 406,
+     "name": "Benchlands Trail",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2,
+     "name": "Bow Valley Trail",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Bow Valley Trail",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Horseshoe Canyon (Drumheller)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Horseshoe_Canyon_(Alberta)",
+  "photos": [
+   {
+    "file": "img_07_0.jpg",
+    "name": "Badlands-Drumheller.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Badlands-Drumheller.jpg",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Peter1dav (talk) (Uploads)",
+    "caption": "I took this picture in 2006 Summary I took this picture in 2006"
+   },
+   {
+    "file": "img_07_1.jpg",
+    "name": "Horseshoe_Canyon_Alberta_Nov_1988.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Horseshoe_Canyon_Alberta_Nov_1988.jpg",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "artist": "Anky-man 16:33, 16 April 2007",
+    "caption": "Horseshoe Canyon Formation exposed in Horseshoe Canyon near Drumheller, Alberta"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://traveldrumheller.com/",
+    "status": 200,
+    "final": "https://traveldrumheller.com/",
+    "title": "Home - Travel Drumheller"
+   }
+  ],
+  "wiki_extract": "Horseshoe Canyon is a region of badlands surrounded by prairie in the province of Alberta, Canada. It is located about 11 miles west of the town of Drumheller, Alberta, along Highway 9.",
+  "route": {
+   "km": 120,
+   "minutes": 96,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0445,
+     -114.0582
+    ],
+    [
+     51.0483,
+     -114.0579
+    ],
+    [
+     51.0503,
+     -114.0498
+    ],
+    [
+     51.0472,
+     -114.0149
+    ],
+    [
+     51.1029,
+     -114.0455
+    ],
+    [
+     51.1279,
+     -114.0458
+    ],
+    [
+     51.1668,
+     -114.0017
+    ],
+    [
+     51.2123,
+     -113.9992
+    ],
+    [
+     51.2125,
+     -113.6788
+    ],
+    [
+     51.2343,
+     -113.6622
+    ],
+    [
+     51.2443,
+     -113.6341
+    ],
+    [
+     51.2678,
+     -113.6289
+    ],
+    [
+     51.274,
+     -113.5929
+    ],
+    [
+     51.3369,
+     -113.5898
+    ],
+    [
+     51.3672,
+     -113.5415
+    ],
+    [
+     51.387,
+     -113.5212
+    ],
+    [
+     51.3866,
+     -113.0564
+    ],
+    [
+     51.3912,
+     -113.0351
+    ],
+    [
+     51.387,
+     -113.0014
+    ],
+    [
+     51.387,
+     -112.9095
+    ],
+    [
+     51.3942,
+     -112.8914
+    ],
+    [
+     51.4114,
+     -112.8857
+    ],
+    [
+     51.4155,
+     -112.878
+    ],
+    [
+     51.416,
+     -112.8649
+    ],
+    [
+     51.4196,
+     -112.8649
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 1040,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 422,
+     "name": "Macleod Trail SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 570,
+     "name": "5 Avenue SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2486,
+     "name": "Memorial Drive NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 595,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 16409,
+     "name": "Deerfoot Trail NE",
+     "ref": "2",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 2633,
+     "name": "Queen Elizabeth II Highway",
+     "ref": "2",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 554,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 97,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 22330,
+     "name": "Township Road 262",
+     "ref": "566",
+     "type": "turn",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 24875,
+     "name": "",
+     "ref": "9",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 44570,
+     "name": "Township Road 282",
+     "ref": "9",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2047,
+     "name": "Range Road 213",
+     "ref": "9",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 1346,
+     "name": "Township Road 284",
+     "ref": "9",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 402,
+     "name": "Range Road 212",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Range Road 212",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Blackfoot Crossing Historical Park",
+  "wikipedia": "https://en.wikipedia.org/wiki/Blackfoot_Crossing_Historical_Park",
+  "photos": [],
+  "links": [
+   {
+    "url": "https://www.blackfootcrossing.ca/",
+    "status": 200,
+    "final": "https://blackfootcrossing.ca/",
+    "title": "Home - Blackfoot Crossing Historical Centre"
+   }
+  ],
+  "wiki_extract": "This list of museums in Alberta, Canada contains museums which are defined for this context as institutions that collect and care for objects of cultural, artistic, scientific, or historical interest and make their collections or related exhibits available for public viewing. Also included are non-profit art galleries and university art galleries. Museums that exist only in cyberspace are not included.",
+  "route": {
+   "km": 124,
+   "minutes": 109,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0445,
+     -114.0582
+    ],
+    [
+     51.0483,
+     -114.0579
+    ],
+    [
+     51.0503,
+     -114.0498
+    ],
+    [
+     51.0456,
+     -113.9978
+    ],
+    [
+     51.0523,
+     -113.9815
+    ],
+    [
+     51.0667,
+     -113.9779
+    ],
+    [
+     51.0667,
+     -113.8265
+    ],
+    [
+     51.0626,
+     -113.8148
+    ],
+    [
+     51.0474,
+     -113.8114
+    ],
+    [
+     51.0376,
+     -113.7976
+    ],
+    [
+     51.036,
+     -113.0805
+    ],
+    [
+     51.03,
+     -113.0746
+    ],
+    [
+     50.9091,
+     -113.0736
+    ],
+    [
+     50.8641,
+     -113.0205
+    ],
+    [
+     50.8635,
+     -112.8668
+    ],
+    [
+     50.8125,
+     -112.8667
+    ],
+    [
+     50.7785,
+     -112.8382
+    ],
+    [
+     50.7732,
+     -112.8404
+    ],
+    [
+     50.7681,
+     -112.8528
+    ],
+    [
+     50.747,
+     -112.8439
+    ],
+    [
+     50.747,
+     -112.867
+    ],
+    [
+     50.7617,
+     -112.867
+    ],
+    [
+     50.7627,
+     -112.8739
+    ],
+    [
+     50.7685,
+     -112.8774
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 1040,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 422,
+     "name": "Macleod Trail SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 570,
+     "name": "5 Avenue SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 3100,
+     "name": "Memorial Drive NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2035,
+     "name": "Memorial Drive SE",
+     "ref": "",
+     "type": "continue",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 139,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 1317,
+     "name": "36 Street NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 588,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 4467,
+     "name": "16 Avenue NE",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 91982,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 14224,
+     "name": "Highway 842",
+     "ref": "842",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 1632,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2843,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Banff (town)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Banff,_Alberta",
+  "photos": [
+   {
+    "file": "img_09_0.jpg",
+    "name": "Town_of_Banff_viewed_from_Sulphur_Mountain.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Town_of_Banff_viewed_from_Sulphur_Mountain.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Ethan Sahagun",
+    "caption": "The town of Banff viewed from Sulphur Mountain."
+   },
+   {
+    "file": "img_09_1.jpg",
+    "name": "Banff_from_Sulphur_Mountain_2020.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Banff_from_Sulphur_Mountain_2020.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Ethan Sahagun",
+    "caption": "The Banff townsite, photographed from the top of Sulphur Mountain."
+   },
+   {
+    "file": "img_09_2.jpg",
+    "name": "King_Edward_Front_Panorama.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:King_Edward_Front_Panorama.jpg",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Tmerker",
+    "caption": "King Edward Hotel Banff"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://parks.canada.ca/pn-np/ab/banff",
+    "status": 200,
+    "final": "https://parks.canada.ca/pn-np/ab/banff",
+    "title": "Banff National Park"
+   }
+  ],
+  "wiki_extract": "Banff is a resort town in Banff National Park, Alberta, Canada, in Alberta's Rockies along the Trans-Canada Highway, 126 km (78 mi) west of Calgary, 58 km (36 mi) east of Lake Louise, and 1,400 to 1,630 m above sea level.",
+  "route": {
+   "km": 128,
+   "minutes": 104,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0526,
+     -114.1638
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1132,
+     -114.6489
+    ],
+    [
+     51.1623,
+     -114.7634
+    ],
+    [
+     51.1283,
+     -114.959
+    ],
+    [
+     51.0924,
+     -115.0497
+    ],
+    [
+     51.0772,
+     -115.0589
+    ],
+    [
+     51.0671,
+     -115.086
+    ],
+    [
+     51.0699,
+     -115.1182
+    ],
+    [
+     51.05,
+     -115.1621
+    ],
+    [
+     51.0477,
+     -115.1824
+    ],
+    [
+     51.0552,
+     -115.1993
+    ],
+    [
+     51.0408,
+     -115.2386
+    ],
+    [
+     51.0387,
+     -115.2696
+    ],
+    [
+     51.0578,
+     -115.318
+    ],
+    [
+     51.1202,
+     -115.3809
+    ],
+    [
+     51.1636,
+     -115.4436
+    ],
+    [
+     51.1702,
+     -115.4668
+    ],
+    [
+     51.1991,
+     -115.4997
+    ],
+    [
+     51.2094,
+     -115.5374
+    ],
+    [
+     51.1957,
+     -115.5402
+    ],
+    [
+     51.1784,
+     -115.5708
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 90593,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 12638,
+     "name": "Trans-Canada Highway",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 525,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 4527,
+     "name": "Banff Avenue",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Banff Avenue",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Peter Lougheed Provincial Park",
+  "wikipedia": "https://en.wikipedia.org/wiki/Peter_Lougheed_Provincial_Park",
+  "photos": [
+   {
+    "file": "img_10_0.jpg",
+    "name": "U-Kananaskis-Lk-Szmurlo.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:U-Kananaskis-Lk-Szmurlo.jpg",
+    "licence": "CC BY 2.5",
+    "licence_url": "https://creativecommons.org/licenses/by/2.5",
+    "artist": "No machine-readable author provided. Cszmurlo assumed (based on copyright claims).",
+    "caption": "Upper Kananaskis Lake in Peter Lougheed Provincial Park in Alberta, Canada Taken by Chuck Szmurlo in June 2006 with a Nikon D70 and 28-70 f2.8 lens"
+   },
+   {
+    "file": "img_10_1.jpg",
+    "name": "Elpoca_creek_Dwayne_Reilander-1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Elpoca_creek_Dwayne_Reilander-1.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Dwayne Reilander",
+    "caption": "A long exposure photograph of a small waterfall along Elpoca Creek during winter in Peter Lougheed Provincial Park in Alberta, Canada."
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.albertaparks.ca/parks/kananaskis/peter-lougheed-pp/",
+    "status": 200,
+    "final": "https://www.albertaparks.ca/parks/kananaskis/peter-lougheed-pp/",
+    "title": "Peter Lougheed Provincial Park | Alberta Parks"
+   }
+  ],
+  "wiki_extract": "Peter Lougheed Provincial Park is in Kananaskis Country about 90 kilometres (56 mi) west of Calgary, along the Kananaskis Trail in Alberta, Canada.",
+  "route": {
+   "km": 130,
+   "minutes": 115,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0476,
+     -114.0678
+    ],
+    [
+     51.0482,
+     -114.0898
+    ],
+    [
+     51.0419,
+     -114.1173
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0526,
+     -114.1638
+    ],
+    [
+     51.0627,
+     -114.1662
+    ],
+    [
+     51.0732,
+     -114.1845
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0867,
+     -114.4565
+    ],
+    [
+     51.0878,
+     -114.5324
+    ],
+    [
+     51.0933,
+     -114.55
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1132,
+     -114.6489
+    ],
+    [
+     51.1471,
+     -114.7336
+    ],
+    [
+     51.1622,
+     -114.7615
+    ],
+    [
+     51.1609,
+     -114.7809
+    ],
+    [
+     51.1504,
+     -114.8168
+    ],
+    [
+     51.1461,
+     -114.8638
+    ],
+    [
+     51.1277,
+     -114.9607
+    ],
+    [
+     51.1048,
+     -115.021
+    ],
+    [
+     51.0866,
+     -115.0094
+    ],
+    [
+     51.0723,
+     -115.0144
+    ],
+    [
+     51.0569,
+     -115.0117
+    ],
+    [
+     51.0441,
+     -115.0274
+    ],
+    [
+     51.0306,
+     -115.0351
+    ],
+    [
+     51.0176,
+     -115.0666
+    ],
+    [
+     50.9808,
+     -115.0779
+    ],
+    [
+     50.9663,
+     -115.1169
+    ],
+    [
+     50.8875,
+     -115.1389
+    ],
+    [
+     50.875,
+     -115.1483
+    ],
+    [
+     50.873,
+     -115.1675
+    ],
+    [
+     50.8654,
+     -115.1763
+    ],
+    [
+     50.842,
+     -115.166
+    ],
+    [
+     50.7879,
+     -115.1632
+    ],
+    [
+     50.716,
+     -115.1087
+    ],
+    [
+     50.6839,
+     -115.117
+    ],
+    [
+     50.6891,
+     -115.1294
+    ],
+    [
+     50.6895,
+     -115.1228
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 54409,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 532,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 41,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 50051,
+     "name": "Kananaskis Trail",
+     "ref": "40",
+     "type": "turn",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 3945,
+     "name": "Kananaskis Lakes Trail",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 1175,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 614,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "",
+     "ref": "",
+     "type": "arrive",
+     "mod": "left",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Royal Tyrrell Museum (Drumheller)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Royal_Tyrrell_Museum_of_Palaeontology",
+  "photos": [
+   {
+    "file": "img_11_0.jpg",
+    "name": "Royal_Tyrrell_Museum_from_the_staircase.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Royal_Tyrrell_Museum_from_the_staircase.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Ymblanter",
+    "caption": "Royal Tyrrell Museum, Drumheller, Alberta, Canada"
+   },
+   {
+    "file": "img_11_1.jpg",
+    "name": "Joseph_Burr_Tyrrell_bust.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Joseph_Burr_Tyrrell_bust.jpg",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Photograph:Prakashsubbarao at en.wikipedia Original work: Danek Mozdzenski",
+    "caption": "This picture was taken by me, Prakash Subbarao, on 26th May 2007. during a visit to the Royal Tyrrell Museum in Drumheller. I hereby place it in the public domain."
+   },
+   {
+    "file": "img_11_2.jpg",
+    "name": "Alxasaurus_Tyrrell.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Alxasaurus_Tyrrell.jpg",
+    "licence": "CC BY-SA 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "artist": "Sebastian Bergmann from Siegburg, Germany",
+    "caption": "Reconstructed skeleton of Alxasaurus from China in Royal Tyrrell Museum."
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.tyrrellmuseum.com/",
+    "status": 200,
+    "final": "https://www.tyrrellmuseum.com/",
+    "title": "Home | Royal Tyrrell Museum"
+   }
+  ],
+  "wiki_extract": "The Royal Tyrrell Museum of Palaeontology is a palaeontology museum and research facility in Drumheller, Alberta, Canada. The museum was named in honour of Joseph Burr Tyrrell, and is situated within a 12,500-square-metre-building (135,000 sq ft) designed by BCW Architects at Midland Provincial Park.",
+  "route": {
+   "km": 143,
+   "minutes": 119,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0445,
+     -114.0582
+    ],
+    [
+     51.0483,
+     -114.0579
+    ],
+    [
+     51.0503,
+     -114.0498
+    ],
+    [
+     51.0472,
+     -114.0149
+    ],
+    [
+     51.1029,
+     -114.0455
+    ],
+    [
+     51.1279,
+     -114.0458
+    ],
+    [
+     51.1668,
+     -114.0017
+    ],
+    [
+     51.2123,
+     -113.9992
+    ],
+    [
+     51.2125,
+     -113.6788
+    ],
+    [
+     51.2343,
+     -113.6622
+    ],
+    [
+     51.2443,
+     -113.6341
+    ],
+    [
+     51.2678,
+     -113.6289
+    ],
+    [
+     51.274,
+     -113.5929
+    ],
+    [
+     51.3369,
+     -113.5898
+    ],
+    [
+     51.3672,
+     -113.5415
+    ],
+    [
+     51.387,
+     -113.5212
+    ],
+    [
+     51.3866,
+     -113.0564
+    ],
+    [
+     51.3912,
+     -113.0351
+    ],
+    [
+     51.387,
+     -113.0014
+    ],
+    [
+     51.3873,
+     -112.9066
+    ],
+    [
+     51.3933,
+     -112.8922
+    ],
+    [
+     51.4096,
+     -112.8874
+    ],
+    [
+     51.4158,
+     -112.8769
+    ],
+    [
+     51.4161,
+     -112.7345
+    ],
+    [
+     51.4216,
+     -112.7188
+    ],
+    [
+     51.447,
+     -112.7006
+    ],
+    [
+     51.4579,
+     -112.7006
+    ],
+    [
+     51.4621,
+     -112.7105
+    ],
+    [
+     51.4715,
+     -112.7124
+    ],
+    [
+     51.4676,
+     -112.7607
+    ],
+    [
+     51.4787,
+     -112.7896
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 1040,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 422,
+     "name": "Macleod Trail SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 570,
+     "name": "5 Avenue SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2486,
+     "name": "Memorial Drive NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 595,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 16409,
+     "name": "Deerfoot Trail NE",
+     "ref": "2",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 2633,
+     "name": "Queen Elizabeth II Highway",
+     "ref": "2",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 554,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 97,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 22330,
+     "name": "Township Road 262",
+     "ref": "566",
+     "type": "turn",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 24875,
+     "name": "",
+     "ref": "9",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 44570,
+     "name": "Township Road 282",
+     "ref": "9",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2047,
+     "name": "Range Road 213",
+     "ref": "9",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 16102,
+     "name": "Township Road 284",
+     "ref": "9",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 813,
+     "name": "South Railway Avenue",
+     "ref": "9; 56",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 637,
+     "name": "2 Street West",
+     "ref": "9; 56",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 520,
+     "name": "Bridge Street",
+     "ref": "9; 56",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 5228,
+     "name": "North Dinosaur Trail",
+     "ref": "838",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 608,
+     "name": "Tyrrell Museum Road",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 99,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 17,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 66,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 41,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "",
+     "ref": "",
+     "type": "arrive",
+     "mod": "right",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Head-Smashed-In Buffalo Jump",
+  "wikipedia": "https://en.wikipedia.org/wiki/Head-Smashed-In_Buffalo_Jump",
+  "photos": [
+   {
+    "file": "img_12_0.jpg",
+    "name": "Head-Smashed-In_Buffalo_Jump-27527-2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Head-Smashed-In_Buffalo_Jump-27527-2.jpg",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Ken Thomas",
+    "caption": "The view north along the top of the cliffs at Head-Smashed-In Buffalo Jump, a World Heritage Site in Alberta, Canada.Photo taken with a Panasonic Lumix DMC-FZ20."
+   },
+   {
+    "file": "img_12_1.jpg",
+    "name": "Head_Smashed-In_Buffalo_Jump.jpeg",
+    "page": "https://commons.wikimedia.org/wiki/File:Head_Smashed-In_Buffalo_Jump.jpeg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Lazarus000",
+    "caption": "Sign at Entrance"
+   },
+   {
+    "file": "img_12_2.jpg",
+    "name": "Head-Smashed-In_Buffalo_Jump-27527-1.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Head-Smashed-In_Buffalo_Jump-27527-1.jpg",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Ken Thomas",
+    "caption": "The interpretive center and museum at Head-Smashed-In Buffalo Jump, a World Heritage Site in Alberta, Canada.Photo taken with a Panasonic Lumix DMC-FZ20."
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.headsmashedin.ca/",
+    "status": 200,
+    "final": "https://www.headsmashedin.ca/",
+    "title": "Head-Smashed-In Buffalo Jump World Heritage Site | Head-Smashed-In Buffalo Jump"
+   }
+  ],
+  "wiki_extract": "Head-Smashed-In Buffalo Jump is a museum of Blackfoot culture 18 kilometres (11 mi) west of Fort Macleod, Alberta, Canada. The now disused buffalo jump is a UNESCO world heritage site in an area where the foothills of the Rocky Mountains begin to rise from the prairie.",
+  "route": {
+   "km": 181,
+   "minutes": 143,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0478,
+     -114.0186
+    ],
+    [
+     51.0323,
+     -113.9979
+    ],
+    [
+     50.9766,
+     -114.0407
+    ],
+    [
+     50.9538,
+     -114.0267
+    ],
+    [
+     50.9387,
+     -113.976
+    ],
+    [
+     50.8696,
+     -113.9622
+    ],
+    [
+     50.816,
+     -113.9868
+    ],
+    [
+     50.7285,
+     -113.8848
+    ],
+    [
+     50.6883,
+     -113.8812
+    ],
+    [
+     50.6557,
+     -113.837
+    ],
+    [
+     50.4004,
+     -113.8269
+    ],
+    [
+     50.2539,
+     -113.6594
+    ],
+    [
+     50.1617,
+     -113.6498
+    ],
+    [
+     49.9112,
+     -113.5283
+    ],
+    [
+     49.7796,
+     -113.5232
+    ],
+    [
+     49.7283,
+     -113.46
+    ],
+    [
+     49.7203,
+     -113.5924
+    ],
+    [
+     49.7484,
+     -113.5923
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 1040,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 422,
+     "name": "Macleod Trail SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 570,
+     "name": "5 Avenue SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2318,
+     "name": "Memorial Drive NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 662,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 11435,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 115007,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 36300,
+     "name": "1 Street West",
+     "ref": "2",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 10077,
+     "name": "Highway 785",
+     "ref": "785",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 3159,
+     "name": "Range Road 273",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Range Road 273",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Lake Louise (lake)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Lake_Louise_(Alberta)",
+  "photos": [
+   {
+    "file": "img_13_0.jpg",
+    "name": "1_lake_louise_pano_2019.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:1_lake_louise_pano_2019.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Chensiyuan",
+    "caption": "Lake Louise, Banff Alberta, Canada. Panorama from beehive (2019)"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://parks.canada.ca/pn-np/ab/banff/visit/les10-top10/louise",
+    "status": 200,
+    "final": "https://parks.canada.ca/pn-np/ab/banff/visit/les10-top10/louise",
+    "title": "Lake Louise and Moraine Lake - Banff National Park"
+   }
+  ],
+  "wiki_extract": "Lake Louise is a glacial lake within Banff National Park in Alberta, Canada. Situated 11 km (6.8 mi) east of the border with British Columbia, Lake Louise is located 5 km (3.1 mi) west of the community of Lake Louise and the Trans-Canada Highway.",
+  "route": {
+   "km": 187,
+   "minutes": 154,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0526,
+     -114.1638
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1132,
+     -114.6489
+    ],
+    [
+     51.1623,
+     -114.7634
+    ],
+    [
+     51.1283,
+     -114.959
+    ],
+    [
+     51.0924,
+     -115.0497
+    ],
+    [
+     51.0772,
+     -115.0589
+    ],
+    [
+     51.0671,
+     -115.086
+    ],
+    [
+     51.0699,
+     -115.1182
+    ],
+    [
+     51.05,
+     -115.1621
+    ],
+    [
+     51.0477,
+     -115.1824
+    ],
+    [
+     51.0552,
+     -115.1993
+    ],
+    [
+     51.0408,
+     -115.2386
+    ],
+    [
+     51.039,
+     -115.2716
+    ],
+    [
+     51.0578,
+     -115.318
+    ],
+    [
+     51.1202,
+     -115.3809
+    ],
+    [
+     51.1636,
+     -115.4436
+    ],
+    [
+     51.1702,
+     -115.4668
+    ],
+    [
+     51.1993,
+     -115.5001
+    ],
+    [
+     51.209,
+     -115.5352
+    ],
+    [
+     51.1964,
+     -115.5504
+    ],
+    [
+     51.175,
+     -115.6456
+    ],
+    [
+     51.1575,
+     -115.6822
+    ],
+    [
+     51.1619,
+     -115.7177
+    ],
+    [
+     51.2187,
+     -115.7955
+    ],
+    [
+     51.2888,
+     -115.9968
+    ],
+    [
+     51.3948,
+     -116.1374
+    ],
+    [
+     51.4007,
+     -116.1552
+    ],
+    [
+     51.4264,
+     -116.1718
+    ],
+    [
+     51.4129,
+     -116.1869
+    ],
+    [
+     51.4169,
+     -116.2159
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 90593,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 66816,
+     "name": "Trans-Canada Highway",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 186,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 263,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 4751,
+     "name": "Trans-Canada Highway",
+     "ref": "1; 93",
+     "type": "merge",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 431,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 93,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 230,
+     "name": "Bow Valley Parkway",
+     "ref": "1A",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 448,
+     "name": "Lake Louise Drive",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 20,
+     "name": "Lake Louise Drive",
+     "ref": "",
+     "type": "roundabout",
+     "mod": "right",
+     "exits": 2
+    },
+    {
+     "m": 3484,
+     "name": "Lake Louise Drive",
+     "ref": "",
+     "type": "exit roundabout",
+     "mod": "straight",
+     "exits": 2
+    },
+    {
+     "m": 212,
+     "name": "Lake Louise Drive",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 88,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "",
+     "ref": "",
+     "type": "arrive",
+     "mod": "left",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Moraine Lake",
+  "wikipedia": "https://en.wikipedia.org/wiki/Moraine_Lake",
+  "photos": [
+   {
+    "file": "img_14_0.jpg",
+    "name": "Moraine_Lake_17092005.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Moraine_Lake_17092005.jpg",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Gorgo",
+    "caption": "Valley of the Ten Peaks and Moraine Lake, Banff National Park, Canada. Mountains from left to right: Tonsa (3057 m), Mount Perren (3051 m), Mount Allen (3310 m), Mount Tuzo (3246 m), Deltaform Mountai"
+   },
+   {
+    "file": "img_14_1.jpg",
+    "name": "Moraine_Lake_Alberta_Canada_canoe_docks.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Moraine_Lake_Alberta_Canada_canoe_docks.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "WikiPedant",
+    "caption": "The canoe docks near the lodge at the north end of Moraine Lake in Alberta, Canada, 2015."
+   },
+   {
+    "file": "img_14_2.jpg",
+    "name": "DSC2528_Morraine_Lake_Banff_National_Park,_Alberta.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:DSC2528_Morraine_Lake_Banff_National_Park,_Alberta.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Robert Berdan",
+    "caption": "Moraine Lake, Banff National Park, Alberta"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://parks.canada.ca/pn-np/ab/banff/visit/parkbus/louise",
+    "status": 200,
+    "final": "https://parks.canada.ca/pn-np/ab/banff/visit/parkbus/louise",
+    "title": "Visiting Lake Louise and Moraine Lake - Banff National Park"
+   }
+  ],
+  "wiki_extract": "Moraine Lake is a snow and glacially fed alpine lake in Banff National Park, 14 kilometres (8.7 mi) outside the village of Lake Louise, Alberta, Canada. It is situated in the Valley of the Ten Peaks, at an elevation of approximately 1,884 metres (6,181 ft). The lake has a surface area of 50 hectares.",
+  "route": {
+   "km": 197,
+   "minutes": 170,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0526,
+     -114.1638
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1132,
+     -114.6489
+    ],
+    [
+     51.1623,
+     -114.7634
+    ],
+    [
+     51.1283,
+     -114.959
+    ],
+    [
+     51.0924,
+     -115.0497
+    ],
+    [
+     51.0772,
+     -115.0589
+    ],
+    [
+     51.0671,
+     -115.086
+    ],
+    [
+     51.0699,
+     -115.1182
+    ],
+    [
+     51.05,
+     -115.1621
+    ],
+    [
+     51.0477,
+     -115.1824
+    ],
+    [
+     51.0552,
+     -115.1993
+    ],
+    [
+     51.0408,
+     -115.2386
+    ],
+    [
+     51.0387,
+     -115.2702
+    ],
+    [
+     51.0576,
+     -115.3177
+    ],
+    [
+     51.125,
+     -115.3873
+    ],
+    [
+     51.1636,
+     -115.4436
+    ],
+    [
+     51.1699,
+     -115.4663
+    ],
+    [
+     51.1988,
+     -115.4992
+    ],
+    [
+     51.2088,
+     -115.53
+    ],
+    [
+     51.1964,
+     -115.5504
+    ],
+    [
+     51.175,
+     -115.6456
+    ],
+    [
+     51.1575,
+     -115.6822
+    ],
+    [
+     51.1625,
+     -115.7194
+    ],
+    [
+     51.2187,
+     -115.7955
+    ],
+    [
+     51.2888,
+     -115.9968
+    ],
+    [
+     51.3948,
+     -116.1374
+    ],
+    [
+     51.4007,
+     -116.1552
+    ],
+    [
+     51.4264,
+     -116.1718
+    ],
+    [
+     51.4131,
+     -116.1911
+    ],
+    [
+     51.3642,
+     -116.1461
+    ],
+    [
+     51.3522,
+     -116.1702
+    ],
+    [
+     51.3277,
+     -116.1829
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 90593,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 66816,
+     "name": "Trans-Canada Highway",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 186,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 263,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 4751,
+     "name": "Trans-Canada Highway",
+     "ref": "1; 93",
+     "type": "merge",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 431,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 93,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 230,
+     "name": "Bow Valley Parkway",
+     "ref": "1A",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 448,
+     "name": "Lake Louise Drive",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 20,
+     "name": "Lake Louise Drive",
+     "ref": "",
+     "type": "roundabout",
+     "mod": "right",
+     "exits": 2
+    },
+    {
+     "m": 1733,
+     "name": "Lake Louise Drive",
+     "ref": "",
+     "type": "exit roundabout",
+     "mod": "straight",
+     "exits": 2
+    },
+    {
+     "m": 12227,
+     "name": "Moraine Lake Road",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 104,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Yoho National Park (Field, BC)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Yoho_National_Park",
+  "photos": [
+   {
+    "file": "img_15_0.jpg",
+    "name": "Takakkaw_Falls_-_panoramio_(1).jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Takakkaw_Falls_-_panoramio_(1).jpg",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Jack Borno",
+    "caption": "Takakkaw Falls"
+   },
+   {
+    "file": "img_15_1.jpg",
+    "name": "Yoho_National_Park_of_Canada.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Yoho_National_Park_of_Canada.jpg",
+    "licence": "CC BY 2.5",
+    "licence_url": "https://creativecommons.org/licenses/by/2.5",
+    "artist": "Marek Ślusarczyk (Tupungato) Photo gallery",
+    "caption": "Chancellor Peak in Yoho National Park of Canada. Towering above Kicking Horse Valley. The river visible is Kicking Horse river. Photo taken from Trans-Canada Highway. The greyish areas of the forests "
+   },
+   {
+    "file": "img_15_2.jpg",
+    "name": "YohoNP.EmeraldLake.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:YohoNP.EmeraldLake.jpg",
+    "licence": "CC BY 2.5",
+    "licence_url": "https://creativecommons.org/licenses/by/2.5",
+    "artist": "China Crisis",
+    "caption": "Emerald Lake in Yoho National Park, Canada."
+   }
+  ],
+  "links": [
+   {
+    "url": "https://parks.canada.ca/pn-np/bc/yoho",
+    "status": 200,
+    "final": "https://parks.canada.ca/pn-np/bc/yoho",
+    "title": "Yoho National Park"
+   }
+  ],
+  "wiki_extract": "Yoho National Park is a national park of Canada. It is located within the Rocky Mountains along the western slope of the Continental Divide of the Americas in southeastern British Columbia, bordered by Kootenay National Park to the south and Banff National Park to the east in Alberta. The park features a spectacular landscape of massive ice fields and mountain peaks, which rank among the highest in the Canadian Rockies.",
+  "route": {
+   "km": 209,
+   "minutes": 170,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0526,
+     -114.1638
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1132,
+     -114.6489
+    ],
+    [
+     51.1623,
+     -114.7634
+    ],
+    [
+     51.1283,
+     -114.959
+    ],
+    [
+     51.0924,
+     -115.0497
+    ],
+    [
+     51.0772,
+     -115.0589
+    ],
+    [
+     51.0671,
+     -115.086
+    ],
+    [
+     51.0699,
+     -115.1182
+    ],
+    [
+     51.05,
+     -115.1621
+    ],
+    [
+     51.0477,
+     -115.1824
+    ],
+    [
+     51.0552,
+     -115.1993
+    ],
+    [
+     51.0408,
+     -115.2386
+    ],
+    [
+     51.0387,
+     -115.2702
+    ],
+    [
+     51.0576,
+     -115.3177
+    ],
+    [
+     51.125,
+     -115.3873
+    ],
+    [
+     51.1636,
+     -115.4436
+    ],
+    [
+     51.1699,
+     -115.4663
+    ],
+    [
+     51.1988,
+     -115.4992
+    ],
+    [
+     51.2088,
+     -115.53
+    ],
+    [
+     51.1964,
+     -115.5504
+    ],
+    [
+     51.175,
+     -115.6456
+    ],
+    [
+     51.1575,
+     -115.6822
+    ],
+    [
+     51.1625,
+     -115.7194
+    ],
+    [
+     51.2187,
+     -115.7955
+    ],
+    [
+     51.2888,
+     -115.9968
+    ],
+    [
+     51.3948,
+     -116.1374
+    ],
+    [
+     51.4007,
+     -116.1552
+    ],
+    [
+     51.4281,
+     -116.1749
+    ],
+    [
+     51.4422,
+     -116.2033
+    ],
+    [
+     51.4449,
+     -116.248
+    ],
+    [
+     51.4582,
+     -116.2706
+    ],
+    [
+     51.4305,
+     -116.4136
+    ],
+    [
+     51.3957,
+     -116.4905
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 90593,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 66816,
+     "name": "Trans-Canada Highway",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 186,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 263,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 30952,
+     "name": "Trans-Canada Highway",
+     "ref": "1; 93",
+     "type": "merge",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 478,
+     "name": "Field Access Road",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 242,
+     "name": "Kicking Horse Avenue",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 110,
+     "name": "Wall Street",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Wall Street",
+     "ref": "",
+     "type": "arrive",
+     "mod": "left",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Waterton Lakes National Park (townsite)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Waterton_Lakes_National_Park",
+  "photos": [
+   {
+    "file": "img_16_0.jpg",
+    "name": "Watertonlake.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Watertonlake.jpg",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Gorgo",
+    "caption": "Upper Waterton Lake with Prince of Wales Hotel in Waterton Lakes National Park"
+   },
+   {
+    "file": "img_16_1.jpg",
+    "name": "Cameron_lake.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cameron_lake.jpg",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "artist": "",
+    "caption": ""
+   },
+   {
+    "file": "img_16_2.jpg",
+    "name": "MooseAtCameronLake.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:MooseAtCameronLake.JPG",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Noblesteed at English Wikipedia",
+    "caption": "Moose at Cameron Lake, Waterton Lakes National Park Picture taken by myself Labour Day 2004"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://parks.canada.ca/pn-np/ab/waterton",
+    "status": 200,
+    "final": "https://parks.canada.ca/pn-np/ab/waterton",
+    "title": "Waterton Lakes National Park"
+   }
+  ],
+  "wiki_extract": "Waterton Lakes National Park is in the southwest corner of Alberta, Canada. The national park borders Glacier National Park in Montana, United States. Waterton was the fourth Canadian national park, formed in 1895 as Kootenay Lakes Forest Reserve. It is named after Waterton Lake, in turn after the Victorian naturalist and conservationist Charles Waterton. Its range is between the Rocky Mountains and the Prairies. This park contains 505 km2 (195 sq mi) of rugged mountains and wilderness. It has a diverse ecosystem.",
+  "route": {
+   "km": 271,
+   "minutes": 210,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0478,
+     -114.0186
+    ],
+    [
+     51.0323,
+     -113.9979
+    ],
+    [
+     50.9766,
+     -114.0407
+    ],
+    [
+     50.9538,
+     -114.0267
+    ],
+    [
+     50.9387,
+     -113.976
+    ],
+    [
+     50.8696,
+     -113.9622
+    ],
+    [
+     50.816,
+     -113.9868
+    ],
+    [
+     50.7285,
+     -113.8848
+    ],
+    [
+     50.6883,
+     -113.8812
+    ],
+    [
+     50.6557,
+     -113.837
+    ],
+    [
+     50.3997,
+     -113.8266
+    ],
+    [
+     50.2539,
+     -113.6594
+    ],
+    [
+     50.1617,
+     -113.6498
+    ],
+    [
+     49.9112,
+     -113.5283
+    ],
+    [
+     49.7796,
+     -113.5232
+    ],
+    [
+     49.7126,
+     -113.4448
+    ],
+    [
+     49.5543,
+     -113.7463
+    ],
+    [
+     49.5334,
+     -113.881
+    ],
+    [
+     49.489,
+     -113.9366
+    ],
+    [
+     49.3737,
+     -113.9257
+    ],
+    [
+     49.3487,
+     -113.8988
+    ],
+    [
+     49.3283,
+     -113.9045
+    ],
+    [
+     49.2911,
+     -113.8565
+    ],
+    [
+     49.2005,
+     -113.8585
+    ],
+    [
+     49.1819,
+     -113.8306
+    ],
+    [
+     49.141,
+     -113.8531
+    ],
+    [
+     49.1138,
+     -113.8428
+    ],
+    [
+     49.0514,
+     -113.9137
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 1040,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 422,
+     "name": "Macleod Trail SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 570,
+     "name": "5 Avenue SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2318,
+     "name": "Memorial Drive NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 662,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 11435,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 115007,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 37974,
+     "name": "1 Street West",
+     "ref": "2",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 1120,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 39714,
+     "name": "Crowsnest Highway",
+     "ref": "3",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 4415,
+     "name": "Highway 785",
+     "ref": "785",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 898,
+     "name": "MacLeod Street",
+     "ref": "785",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 1178,
+     "name": "Waterton Avenue",
+     "ref": "6; 507",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 45202,
+     "name": "Cowboy Trail",
+     "ref": "6",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 506,
+     "name": "Highway 5",
+     "ref": "5",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 62,
+     "name": "",
+     "ref": "5",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 8064,
+     "name": "",
+     "ref": "5",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 153,
+     "name": "Mountain View Road",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 413,
+     "name": "Fountain Avenue",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 29,
+     "name": "Cameron Falls Drive",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Cameron Falls Drive",
+     "ref": "",
+     "type": "arrive",
+     "mod": "right",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Dinosaur Provincial Park",
+  "wikipedia": "https://en.wikipedia.org/wiki/Dinosaur_Provincial_Park",
+  "photos": [
+   {
+    "file": "img_17_0.jpg",
+    "name": "Rock_formations_in_Dinosaur_Provincial_Park_near_an_Albertan_river_-_July_2014.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Rock_formations_in_Dinosaur_Provincial_Park_near_an_Albertan_river_-_July_2014.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Aacounthingy",
+    "caption": "Some rock formations in Dinosaur Provincial Park, AB, Canada."
+   },
+   {
+    "file": "img_17_1.jpg",
+    "name": "Chasmosaurus_belli_RTM_01.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Chasmosaurus_belli_RTM_01.jpg",
+    "licence": "CC BY-SA 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "artist": "ceasol from Edmonton, Canada",
+    "caption": "Chasmosaurus belli ROM 843, Royal Tyrrell Museum of Paleontology. Late Cretaceous 75-74.5 millions years ago. Found at Dinosaur Provincial Park, Alberta, and prepared at the Royal Tyrrell Museum of Pa"
+   },
+   {
+    "file": "img_17_2.jpg",
+    "name": "Dinosaur_provincial_Park.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Dinosaur_provincial_Park.jpg",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Scorpion0422",
+    "caption": "The scenery"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.albertaparks.ca/parks/south/dinosaur-pp/",
+    "status": 200,
+    "final": "https://www.albertaparks.ca/parks/south/dinosaur-pp/",
+    "title": "Dinosaur Provincial Park | Alberta Parks"
+   }
+  ],
+  "wiki_extract": "Dinosaur Provincial Park is a UNESCO World Heritage Site situated 220 kilometres (137 mi) east of Calgary, Alberta, Canada; or 48 kilometres (30 mi) northeast of Brooks.",
+  "route": {
+   "km": 224,
+   "minutes": 183,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0503,
+     -114.0498
+    ],
+    [
+     51.0456,
+     -113.9978
+    ],
+    [
+     51.0523,
+     -113.9815
+    ],
+    [
+     51.0667,
+     -113.9779
+    ],
+    [
+     51.0667,
+     -113.8265
+    ],
+    [
+     51.0376,
+     -113.7976
+    ],
+    [
+     51.036,
+     -113.0805
+    ],
+    [
+     50.911,
+     -113.0745
+    ],
+    [
+     50.8646,
+     -113.0221
+    ],
+    [
+     50.8633,
+     -112.8576
+    ],
+    [
+     50.8341,
+     -112.8088
+    ],
+    [
+     50.8332,
+     -112.4757
+    ],
+    [
+     50.8192,
+     -112.4531
+    ],
+    [
+     50.7865,
+     -112.4432
+    ],
+    [
+     50.7806,
+     -112.411
+    ],
+    [
+     50.765,
+     -112.4014
+    ],
+    [
+     50.7332,
+     -112.3487
+    ],
+    [
+     50.7315,
+     -112.3048
+    ],
+    [
+     50.6555,
+     -112.0877
+    ],
+    [
+     50.6369,
+     -111.99
+    ],
+    [
+     50.6885,
+     -111.9708
+    ],
+    [
+     50.6885,
+     -111.6895
+    ],
+    [
+     50.7176,
+     -111.6894
+    ],
+    [
+     50.7192,
+     -111.645
+    ],
+    [
+     50.7526,
+     -111.6406
+    ],
+    [
+     50.7592,
+     -111.6033
+    ],
+    [
+     50.752,
+     -111.5516
+    ],
+    [
+     50.7542,
+     -111.5259
+    ],
+    [
+     50.7621,
+     -111.5194
+    ],
+    [
+     50.7575,
+     -111.5155
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 1040,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 422,
+     "name": "Macleod Trail SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 570,
+     "name": "5 Avenue SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 3100,
+     "name": "Memorial Drive NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2035,
+     "name": "Memorial Drive SE",
+     "ref": "",
+     "type": "continue",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 139,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 1317,
+     "name": "36 Street NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 588,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 4467,
+     "name": "16 Avenue NE",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 164295,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 5894,
+     "name": "Veterans Memorial Highway",
+     "ref": "36",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 19889,
+     "name": "Highway 544",
+     "ref": "544",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 3236,
+     "name": "Highway 876",
+     "ref": "876",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 2827,
+     "name": "Township Road 204",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 3910,
+     "name": "Range Road 125A",
+     "ref": "",
+     "type": "turn",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 8248,
+     "name": "Township Road 210A",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 1727,
+     "name": "Dinosaur Provincial Park Campground Road",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 40,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 428,
+     "name": "South Loop",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 16,
+     "name": "S-37",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "S-37",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Glacier National Park, Montana (St. Mary)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Glacier_National_Park_(U.S.)",
+  "photos": [
+   {
+    "file": "img_18_0.jpg",
+    "name": "Mountain_Goat_at_Hidden_Lake.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mountain_Goat_at_Hidden_Lake.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Robert M. Russell",
+    "caption": "Mountain goat at Hidden Lake, near Logan Pass, in Glacier National Park"
+   },
+   {
+    "file": "img_18_1.jpg",
+    "name": "BlackfeetatGlacier_J.W.Schultz_1916_18_(border_removed).JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:BlackfeetatGlacier_J.W.Schultz_1916_18_(border_removed).JPG",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Roland W. Reed",
+    "caption": "Illustrations of Blackfeet Indians in Glacier National Park from Schultz, James Willard (1916) Blackfeet Tales of Glacier National Park, Boston: Houghton, Mifflin &amp; Co."
+   },
+   {
+    "file": "img_18_2.jpg",
+    "name": "Many_glacier_hotel.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Many_glacier_hotel.jpg",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Traveler100 at English Wikipedia",
+    "caption": "Many Glacier Hotel"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.nps.gov/glac/",
+    "status": 200,
+    "final": "https://www.nps.gov/glac/index.htm",
+    "title": "Glacier National Park (U.S. National Park Service)"
+   }
+  ],
+  "wiki_extract": "Glacier National Park is a national park of the United States located in northwestern Montana, on the Canada–United States border. The park encompasses more than 1 million acres (4,100 km2) and includes parts of two mountain ranges, more than 130 named lakes, more than 1,000 different species of plants, and hundreds of species of animals. This vast pristine ecosystem is the centerpiece of what has been referred to as the \"Crown of the Continent Ecosystem\", a region of protected land encompassing 16,000 mi2 (41,000 km2).",
+  "route": {
+   "km": 291,
+   "minutes": 223,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0323,
+     -113.9979
+    ],
+    [
+     50.9766,
+     -114.0407
+    ],
+    [
+     50.9387,
+     -113.976
+    ],
+    [
+     50.816,
+     -113.9868
+    ],
+    [
+     50.6571,
+     -113.8376
+    ],
+    [
+     50.4016,
+     -113.8273
+    ],
+    [
+     50.2539,
+     -113.6594
+    ],
+    [
+     49.9112,
+     -113.5283
+    ],
+    [
+     49.7774,
+     -113.5222
+    ],
+    [
+     49.7114,
+     -113.4426
+    ],
+    [
+     49.718,
+     -113.3871
+    ],
+    [
+     49.4772,
+     -113.3008
+    ],
+    [
+     49.1304,
+     -113.2855
+    ],
+    [
+     48.9182,
+     -113.4338
+    ],
+    [
+     48.791,
+     -113.4073
+    ],
+    [
+     48.7471,
+     -113.4398
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 1040,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 422,
+     "name": "Macleod Trail SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 570,
+     "name": "5 Avenue SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2318,
+     "name": "Memorial Drive NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 662,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 11435,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 115007,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 37974,
+     "name": "1 Street West",
+     "ref": "2",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 1711,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 1672,
+     "name": "Crowsnest Highway",
+     "ref": "3; 2",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 1275,
+     "name": "23 Street",
+     "ref": "3; 2",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 877,
+     "name": "Crowsnest Highway",
+     "ref": "3; 2",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 59271,
+     "name": "Highway 2",
+     "ref": "2",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2424,
+     "name": "Main Street",
+     "ref": "2; 5",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 22777,
+     "name": "Highway 2",
+     "ref": "2",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 30694,
+     "name": "",
+     "ref": "US 89",
+     "type": "turn",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 979,
+     "name": "Going-to-the-Sun Road",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 92,
+     "name": "Going-to-the-Sun Road",
+     "ref": "",
+     "type": "continue",
+     "mod": "sharp left",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Going-to-the-Sun Road",
+     "ref": "",
+     "type": "arrive",
+     "mod": "right",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Kootenay National Park (Radium gate, BC)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Kootenay_National_Park",
+  "photos": [
+   {
+    "file": "img_19_0.jpg",
+    "name": "Stanley_Valley.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Stanley_Valley.jpg",
+    "licence": "CC BY-SA 2.5 ca",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.5/ca/deed.en",
+    "artist": "The Cosmonaut",
+    "caption": "Stanley Valley and Mount Whymper viewed from the Stanley Glacier Trail."
+   },
+   {
+    "file": "img_19_1.jpg",
+    "name": "Kootenay_National_Park_-_Paint_Pots_2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Kootenay_National_Park_-_Paint_Pots_2.jpg",
+    "licence": "CC BY 2.5",
+    "licence_url": "https://creativecommons.org/licenses/by/2.5",
+    "artist": "Marek Ślusarczyk (Tupungato) Photo gallery",
+    "caption": "Paint Pots - iron rich mineral springs in Kootenay National Park, British Columbia, Canada."
+   },
+   {
+    "file": "img_19_2.jpg",
+    "name": "Vermillion_Range,_BC.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Vermillion_Range,_BC.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Ron Clausen",
+    "caption": "Mammoth Peak (3066 meters) in the Vermilion Range of Kootenay National Park in BC, Canada seen from Highway 93. aka Hewitt Peak"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://parks.canada.ca/pn-np/bc/kootenay",
+    "status": 200,
+    "final": "https://parks.canada.ca/pn-np/bc/kootenay",
+    "title": "Kootenay National Park"
+   }
+  ],
+  "wiki_extract": "Kootenay National Park is a national park of Canada in southeastern British Columbia. The park consists of 1,406 km2 (543 sq mi) of the Canadian Rockies, including parts of the Kootenay and Park mountain ranges, the Kootenay River and the entirety of the Vermilion River. While the Vermilion River is completely contained within the park, the Kootenay River has its headwaters just outside the park boundary, flowing through the park into the Rocky Mountain Trench and eventually joining the Columbia River. The park ranges in elevation from 918 m (3,012 ft) at the southwestern park entrance to 3,424 m (11,234 ft) at Deltaform Mountain.",
+  "route": {
+   "km": 262,
+   "minutes": 226,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0526,
+     -114.1638
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1132,
+     -114.6489
+    ],
+    [
+     51.1623,
+     -114.7634
+    ],
+    [
+     51.1283,
+     -114.959
+    ],
+    [
+     51.0924,
+     -115.0497
+    ],
+    [
+     51.0772,
+     -115.0589
+    ],
+    [
+     51.0671,
+     -115.086
+    ],
+    [
+     51.0699,
+     -115.1182
+    ],
+    [
+     51.05,
+     -115.1621
+    ],
+    [
+     51.0477,
+     -115.1824
+    ],
+    [
+     51.0552,
+     -115.1993
+    ],
+    [
+     51.0408,
+     -115.2386
+    ],
+    [
+     51.0387,
+     -115.2702
+    ],
+    [
+     51.0578,
+     -115.318
+    ],
+    [
+     51.1212,
+     -115.3822
+    ],
+    [
+     51.1636,
+     -115.4436
+    ],
+    [
+     51.1702,
+     -115.4668
+    ],
+    [
+     51.1995,
+     -115.5007
+    ],
+    [
+     51.209,
+     -115.5356
+    ],
+    [
+     51.1964,
+     -115.5504
+    ],
+    [
+     51.175,
+     -115.6456
+    ],
+    [
+     51.1575,
+     -115.6822
+    ],
+    [
+     51.1585,
+     -115.7008
+    ],
+    [
+     51.1633,
+     -115.7208
+    ],
+    [
+     51.2187,
+     -115.7955
+    ],
+    [
+     51.2552,
+     -115.8945
+    ],
+    [
+     51.2649,
+     -115.9314
+    ],
+    [
+     51.2651,
+     -115.966
+    ],
+    [
+     51.2453,
+     -116.0301
+    ],
+    [
+     51.2054,
+     -116.0815
+    ],
+    [
+     51.1673,
+     -116.1505
+    ],
+    [
+     51.1527,
+     -116.1547
+    ],
+    [
+     51.0245,
+     -115.9805
+    ],
+    [
+     50.9872,
+     -115.9533
+    ],
+    [
+     50.9736,
+     -115.9471
+    ],
+    [
+     50.9603,
+     -115.9551
+    ],
+    [
+     50.9141,
+     -116.0339
+    ],
+    [
+     50.8997,
+     -116.0322
+    ],
+    [
+     50.8825,
+     -116.0495
+    ],
+    [
+     50.8514,
+     -116.0175
+    ],
+    [
+     50.8175,
+     -116.0128
+    ],
+    [
+     50.8003,
+     -115.9991
+    ],
+    [
+     50.7695,
+     -115.9489
+    ],
+    [
+     50.733,
+     -115.9103
+    ],
+    [
+     50.675,
+     -115.8881
+    ],
+    [
+     50.673,
+     -115.9465
+    ],
+    [
+     50.6458,
+     -115.9708
+    ],
+    [
+     50.6333,
+     -116.0541
+    ],
+    [
+     50.6205,
+     -116.0709
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 90593,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 46700,
+     "name": "Trans-Canada Highway",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 338,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 32,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 10104,
+     "name": "Banff-Windermere Highway",
+     "ref": "93",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 94056,
+     "name": "Banff-Windermere Parkway",
+     "ref": "BC 93",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 68,
+     "name": "Kootenay-Columbia Highway",
+     "ref": "BC 93; BC 95",
+     "type": "roundabout",
+     "mod": "right",
+     "exits": 3
+    },
+    {
+     "m": 193,
+     "name": "Kootenay-Columbia Highway",
+     "ref": "BC 93; BC 95",
+     "type": "exit roundabout",
+     "mod": "slight right",
+     "exits": 3
+    },
+    {
+     "m": 0,
+     "name": "Kootenay-Columbia Highway",
+     "ref": "BC 93; BC 95",
+     "type": "arrive",
+     "mod": "right",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Columbia Icefield Centre",
+  "wikipedia": "https://en.wikipedia.org/wiki/Columbia_Icefield",
+  "photos": [
+   {
+    "file": "img_20_0.jpg",
+    "name": "Columbia_icefield_view.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Columbia_icefield_view.jpg",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "artist": "Rufus Hawthorne at English Wikipedia",
+    "caption": "View from camp atop Columbia Icefield looking south, Castleguard Mountain at left"
+   },
+   {
+    "file": "img_20_1.jpg",
+    "name": "Mt._Alberta_from_the_Columbia_Icefield.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mt._Alberta_from_the_Columbia_Icefield.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "BrettA343",
+    "caption": "Mt. Alberta's summit from the slope of Columbia Icefield's high shoulder (Unnamed 10-7). The slope up to the right goes to the Stutfields (East and West). Vic and Doug skiing."
+   },
+   {
+    "file": "img_20_2.jpg",
+    "name": "Mts._Athabasca_and_Andromeda_from_Wilcox_Pass2.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Mts._Athabasca_and_Andromeda_from_Wilcox_Pass2.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "BrettA343",
+    "caption": "Mts. Athabasca (left) and Andromeda (right) from Wilcox Pass. The Athabasca Glacier is in the lower right quadrant, with a bit of the Columbia Icefield above the Athabasca Glacier headwall at the extr"
+   }
+  ],
+  "links": [
+   {
+    "url": "https://parks.canada.ca/pn-np/ab/jasper/visit/les10-top10/glacier-athabasca",
+    "status": 404,
+    "final": "https://parks.canada.ca/pn-np/ab/jasper/visit/les10-top10/glacier-athabasca",
+    "title": null
+   }
+  ],
+  "wiki_extract": "The Columbia Icefield is the largest ice field in North America's Rocky Mountains. Located within the Canadian Rocky Mountains astride the Continental Divide along the border of British Columbia and Alberta, Canada, the ice field lies partly in the northwestern tip of Banff National Park and partly in the southern end of Jasper National Park. It is about 325 square kilometres (125 mi2) in area, 100 to 365 metres in depth and receives up to 7 metres (280 in) of snowfall per year.",
+  "route": {
+   "km": 311,
+   "minutes": 259,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1623,
+     -114.7634
+    ],
+    [
+     51.1283,
+     -114.959
+    ],
+    [
+     51.0671,
+     -115.086
+    ],
+    [
+     51.0387,
+     -115.2696
+    ],
+    [
+     51.0576,
+     -115.3177
+    ],
+    [
+     51.125,
+     -115.3873
+    ],
+    [
+     51.2088,
+     -115.53
+    ],
+    [
+     51.1575,
+     -115.6822
+    ],
+    [
+     51.1622,
+     -115.7186
+    ],
+    [
+     51.2187,
+     -115.7955
+    ],
+    [
+     51.2888,
+     -115.9968
+    ],
+    [
+     51.4456,
+     -116.2136
+    ],
+    [
+     51.5688,
+     -116.3051
+    ],
+    [
+     51.6197,
+     -116.3173
+    ],
+    [
+     51.6495,
+     -116.3588
+    ],
+    [
+     51.6615,
+     -116.4344
+    ],
+    [
+     51.6845,
+     -116.4652
+    ],
+    [
+     51.8478,
+     -116.624
+    ],
+    [
+     51.9146,
+     -116.7207
+    ],
+    [
+     51.9683,
+     -116.7155
+    ],
+    [
+     51.9882,
+     -116.8053
+    ],
+    [
+     52.1551,
+     -117.01
+    ],
+    [
+     52.1752,
+     -117.0521
+    ],
+    [
+     52.1702,
+     -117.0727
+    ],
+    [
+     52.1805,
+     -117.0575
+    ],
+    [
+     52.1923,
+     -117.1274
+    ],
+    [
+     52.2173,
+     -117.1701
+    ],
+    [
+     52.2198,
+     -117.2236
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 90593,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 66816,
+     "name": "Trans-Canada Highway",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 186,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 263,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 7564,
+     "name": "Trans-Canada Highway",
+     "ref": "1; 93",
+     "type": "merge",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 517,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 308,
+     "name": "Icefields Parkway",
+     "ref": "93",
+     "type": "turn",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 125085,
+     "name": "Icefields Parkway",
+     "ref": "93",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 96,
+     "name": "Icefields Parkway",
+     "ref": "93",
+     "type": "continue",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Icefields Parkway",
+     "ref": "93",
+     "type": "arrive",
+     "mod": "right",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Writing-on-Stone Provincial Park (Áísínai'pi)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Writing-on-Stone_Provincial_Park",
+  "photos": [
+   {
+    "file": "img_21_0.jpg",
+    "name": "Writing_on_stone990.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Writing_on_stone990.jpg",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Matthias Süßen",
+    "caption": "Áísínai'pi National Historic Site of Canada - rock carvings"
+   },
+   {
+    "file": "img_21_1.jpg",
+    "name": "Valley_of_petroglyphs.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Valley_of_petroglyphs.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Lucy Rowed",
+    "caption": "Writing-on-Stone Provincial park."
+   },
+   {
+    "file": "img_21_2.jpg",
+    "name": "MilkriverAB.JPG",
+    "page": "https://commons.wikimedia.org/wiki/File:MilkriverAB.JPG",
+    "licence": "Public domain",
+    "licence_url": "",
+    "artist": "Wheateater (talk)",
+    "caption": "Milk River in Alberta. The Áísínai’pi National Historic Site of Canada is located in the Milk River Valley. To the south are the volcanic Sweetgrass Hills."
+   }
+  ],
+  "links": [
+   {
+    "url": "https://www.albertaparks.ca/parks/south/writing-on-stone-pp/",
+    "status": 200,
+    "final": "https://www.albertaparks.ca/parks/south/writing-on-stone-pp/",
+    "title": "Writing-on-Stone Provincial Park | Alberta Parks"
+   }
+  ],
+  "wiki_extract": "Writing-on-Stone Provincial Park is located about 100 kilometres (60 mi) southeast of Lethbridge, Alberta, Canada, or 44 kilometres (30 mi) east of the community of Milk River, and straddles the Milk River itself. It is one of the largest areas of protected prairie in the Alberta park system, and serves as both a nature preserve and protection for many First Nations (indigenous) rock carvings and paintings. The park is sacred to the Blackfoot and other Indigenous peoples.",
+  "route": {
+   "km": 340,
+   "minutes": 262,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0478,
+     -114.0186
+    ],
+    [
+     51.0323,
+     -113.9979
+    ],
+    [
+     50.9766,
+     -114.0407
+    ],
+    [
+     50.9538,
+     -114.0267
+    ],
+    [
+     50.9387,
+     -113.976
+    ],
+    [
+     50.8696,
+     -113.9622
+    ],
+    [
+     50.816,
+     -113.9868
+    ],
+    [
+     50.7285,
+     -113.8848
+    ],
+    [
+     50.6883,
+     -113.8812
+    ],
+    [
+     50.6557,
+     -113.837
+    ],
+    [
+     50.4004,
+     -113.8269
+    ],
+    [
+     50.2539,
+     -113.6594
+    ],
+    [
+     50.1627,
+     -113.6501
+    ],
+    [
+     49.9131,
+     -113.5289
+    ],
+    [
+     49.8731,
+     -113.5265
+    ],
+    [
+     49.8731,
+     -113.0854
+    ],
+    [
+     49.7914,
+     -113.0679
+    ],
+    [
+     49.7839,
+     -112.9933
+    ],
+    [
+     49.7225,
+     -112.9144
+    ],
+    [
+     49.6974,
+     -112.8106
+    ],
+    [
+     49.6688,
+     -112.7979
+    ],
+    [
+     49.6676,
+     -112.7472
+    ],
+    [
+     49.4754,
+     -112.4697
+    ],
+    [
+     49.3711,
+     -112.2721
+    ],
+    [
+     49.2619,
+     -112.1871
+    ],
+    [
+     49.1957,
+     -112.1061
+    ],
+    [
+     49.148,
+     -112.0871
+    ],
+    [
+     49.1446,
+     -111.8566
+    ],
+    [
+     49.1591,
+     -111.817
+    ],
+    [
+     49.1591,
+     -111.6532
+    ],
+    [
+     49.1071,
+     -111.6528
+    ],
+    [
+     49.0842,
+     -111.6226
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 1040,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 422,
+     "name": "Macleod Trail SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 570,
+     "name": "5 Avenue SE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 2318,
+     "name": "Memorial Drive NE",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 662,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 11435,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 115007,
+     "name": "Deerfoot Trail SE",
+     "ref": "2",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 18536,
+     "name": "1 Street West",
+     "ref": "2",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 31717,
+     "name": "",
+     "ref": "519",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 11,
+     "name": "",
+     "ref": "23",
+     "type": "roundabout",
+     "mod": "right",
+     "exits": 1
+    },
+    {
+     "m": 32017,
+     "name": "",
+     "ref": "23",
+     "type": "exit roundabout",
+     "mod": "straight",
+     "exits": 1
+    },
+    {
+     "m": 160,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 52,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 3081,
+     "name": "Mayor Magrath Drive S",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 136,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 1370,
+     "name": "24 Avenue S",
+     "ref": "5",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 78069,
+     "name": "Highway 4",
+     "ref": "4",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 107,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1324,
+     "name": "Railway Street NW",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 801,
+     "name": "Centre Avenue NE",
+     "ref": "501",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 19362,
+     "name": "Township Road 24A",
+     "ref": "501",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 12124,
+     "name": "Township Road 25",
+     "ref": "501",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 5838,
+     "name": "Range Road 132",
+     "ref": "500",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 872,
+     "name": "Township Road 21A",
+     "ref": "500",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 1867,
+     "name": "Township Road 20A",
+     "ref": "500",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 1077,
+     "name": "Writing-on-Stone Road",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 226,
+     "name": "Writing-on-Stone Road",
+     "ref": "",
+     "type": "continue",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Writing-on-Stone Road",
+     "ref": "",
+     "type": "arrive",
+     "mod": "left",
+     "exits": null
+    }
+   ]
+  }
+ },
+ {
+  "place": "Jasper (town)",
+  "wikipedia": "https://en.wikipedia.org/wiki/Jasper,_Alberta",
+  "photos": [
+   {
+    "file": "img_22_0.jpg",
+    "name": "Jasper_from_the_Jasper_Tramway_2008.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Jasper_from_the_Jasper_Tramway_2008.jpg",
+    "licence": "CC BY-SA 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "artist": "Harvey Barrison from Massapequa, NY, USA",
+    "caption": "The City of Jasper From the Jasper Tramway"
+   },
+   {
+    "file": "img_22_1.jpg",
+    "name": "Jasper_Information_Centre_Jasper_Alberta_Canada_01-A.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Jasper_Information_Centre_Jasper_Alberta_Canada_01-A.jpg",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "artist": "WinterforceMedia (WinterE229)",
+    "caption": "The Jasper Information Centre in Jasper, Alberta, Canada."
+   },
+   {
+    "file": "img_22_2.jpg",
+    "name": "Jasper-Bear-Hunt-11.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Jasper-Bear-Hunt-11.jpg",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Dwayne Reilander",
+    "caption": "A sign glows in the night at the entrance to the Town of Jasper in Alberta, Canada. Jasper is the main population center in Jasper National Park."
+   }
+  ],
+  "links": [
+   {
+    "url": "https://parks.canada.ca/pn-np/ab/jasper",
+    "status": 200,
+    "final": "https://parks.canada.ca/pn-np/ab/jasper",
+    "title": "Jasper National Park"
+   }
+  ],
+  "wiki_extract": "Jasper is a specialized municipality and townsite in western Alberta within the Canadian Rockies. The townsite is in the Athabasca River valley and is the commercial centre of Jasper National Park.",
+  "route": {
+   "km": 414,
+   "minutes": 357,
+   "line": [
+    [
+     51.0447,
+     -114.0719
+    ],
+    [
+     51.0418,
+     -114.1363
+    ],
+    [
+     51.0813,
+     -114.1881
+    ],
+    [
+     51.0885,
+     -114.2311
+    ],
+    [
+     51.0912,
+     -114.5753
+    ],
+    [
+     51.1623,
+     -114.7634
+    ],
+    [
+     51.1283,
+     -114.959
+    ],
+    [
+     51.0671,
+     -115.086
+    ],
+    [
+     51.0387,
+     -115.2702
+    ],
+    [
+     51.0578,
+     -115.318
+    ],
+    [
+     51.1995,
+     -115.5007
+    ],
+    [
+     51.209,
+     -115.5356
+    ],
+    [
+     51.1587,
+     -115.7023
+    ],
+    [
+     51.2187,
+     -115.7955
+    ],
+    [
+     51.2878,
+     -115.9948
+    ],
+    [
+     51.4459,
+     -116.2139
+    ],
+    [
+     51.6375,
+     -116.3349
+    ],
+    [
+     51.6667,
+     -116.4439
+    ],
+    [
+     51.8478,
+     -116.624
+    ],
+    [
+     51.9142,
+     -116.7204
+    ],
+    [
+     51.9681,
+     -116.7153
+    ],
+    [
+     51.9882,
+     -116.8053
+    ],
+    [
+     52.1551,
+     -117.01
+    ],
+    [
+     52.1752,
+     -117.0521
+    ],
+    [
+     52.1702,
+     -117.0727
+    ],
+    [
+     52.1805,
+     -117.0575
+    ],
+    [
+     52.1923,
+     -117.1274
+    ],
+    [
+     52.2173,
+     -117.1701
+    ],
+    [
+     52.2216,
+     -117.2381
+    ],
+    [
+     52.293,
+     -117.3271
+    ],
+    [
+     52.3473,
+     -117.3398
+    ],
+    [
+     52.4344,
+     -117.4115
+    ],
+    [
+     52.5832,
+     -117.7387
+    ],
+    [
+     52.6101,
+     -117.8391
+    ],
+    [
+     52.6669,
+     -117.8814
+    ],
+    [
+     52.7163,
+     -117.873
+    ],
+    [
+     52.7408,
+     -117.9588
+    ],
+    [
+     52.8048,
+     -118.0175
+    ],
+    [
+     52.8134,
+     -118.0498
+    ],
+    [
+     52.8737,
+     -118.0815
+    ]
+   ],
+   "steps": [
+    {
+     "m": 58,
+     "name": "",
+     "ref": "",
+     "type": "depart",
+     "mod": "",
+     "exits": null
+    },
+    {
+     "m": 348,
+     "name": "9 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "uturn",
+     "exits": null
+    },
+    {
+     "m": 318,
+     "name": "2 Street SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 1721,
+     "name": "6 Avenue SW",
+     "ref": "",
+     "type": "turn",
+     "mod": "left",
+     "exits": null
+    },
+    {
+     "m": 5543,
+     "name": "Bow Trail SW",
+     "ref": "",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 208,
+     "name": "",
+     "ref": "",
+     "type": "on ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 2950,
+     "name": "Sarcee Trail SW",
+     "ref": "",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 329,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 749,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 7335,
+     "name": "16 Avenue NW",
+     "ref": "1",
+     "type": "merge",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 90593,
+     "name": "Trans-Canada Highway",
+     "ref": "1",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 66816,
+     "name": "Trans-Canada Highway",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 186,
+     "name": "",
+     "ref": "",
+     "type": "fork",
+     "mod": "slight left",
+     "exits": null
+    },
+    {
+     "m": 263,
+     "name": "",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 7564,
+     "name": "Trans-Canada Highway",
+     "ref": "1; 93",
+     "type": "merge",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 517,
+     "name": "",
+     "ref": "",
+     "type": "off ramp",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 308,
+     "name": "Icefields Parkway",
+     "ref": "93",
+     "type": "turn",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 225787,
+     "name": "Icefields Parkway",
+     "ref": "93",
+     "type": "fork",
+     "mod": "slight right",
+     "exits": null
+    },
+    {
+     "m": 1725,
+     "name": "Athabasca Road",
+     "ref": "93A",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 590,
+     "name": "Hazel Avenue",
+     "ref": "93A",
+     "type": "new name",
+     "mod": "straight",
+     "exits": null
+    },
+    {
+     "m": 80,
+     "name": "Connaught Drive",
+     "ref": "",
+     "type": "turn",
+     "mod": "right",
+     "exits": null
+    },
+    {
+     "m": 0,
+     "name": "Connaught Drive",
+     "ref": "",
+     "type": "arrive",
+     "mod": "",
+     "exits": null
+    }
+   ]
+  }
+ }
+]

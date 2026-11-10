@@ -1,0 +1,52 @@
+Cochrane
+  photos 1 route True [200]
+Big Hill Springs Provincial Park
+  photos 2 route True [404]
+Bragg Creek
+  photos 2 route True [200]
+Okotoks Big Rock erratic
+  photos 2 route True [404]
+Forget-Me-Not Pond (Kananaskis)
+   404 https://en.wikipedia.org/api/rest_v1/page/summary/Forget-me-not_Pond
+   404 https://en.wikipedia.org/api/rest_v1/page/summary/Forget-me-not_Pond
+   404 https://en.wikipedia.org/api/rest_v1/page/summary/Forget-me-not_Pond
+   404 https://en.wikipedia.org/api/rest_v1/page/media-list/Forget-me-not_Pond
+   404 https://en.wikipedia.org/api/rest_v1/page/media-list/Forget-me-not_Pond
+   404 https://en.wikipedia.org/api/rest_v1/page/media-list/Forget-me-not_Pond
+  photos 0 route True [200]
+Kananaskis Village
+  photos 1 route True [200]
+Canmore
+  photos 3 route True [200]
+Horseshoe Canyon (Drumheller)
+  photos 2 route True [200]
+Blackfoot Crossing Historical Park
+  photos 0 route True [200]
+Banff (town)
+  photos 3 route True [200]
+Peter Lougheed Provincial Park
+  photos 2 route True [200]
+Royal Tyrrell Museum (Drumheller)
+  photos 3 route True [200]
+Head-Smashed-In Buffalo Jump
+  photos 3 route True [200]
+Lake Louise (lake)
+  photos 1 route True [200]
+Moraine Lake
+  photos 3 route True [200]
+Yoho National Park (Field, BC)
+  photos 3 route True [200]
+Waterton Lakes National Park (townsite)
+  photos 3 route True [200]
+Dinosaur Provincial Park
+  photos 3 route True [200]
+Glacier National Park, Montana (St. Mary)
+  photos 3 route True [200]
+Kootenay National Park (Radium gate, BC)
+  photos 3 route True [200]
+Columbia Icefield Centre
+  photos 3 route True [404]
+Writing-on-Stone Provincial Park (Áísínai'pi)
+  photos 3 route True [200]
+Jasper (town)
+  photos 3 route True [200]
