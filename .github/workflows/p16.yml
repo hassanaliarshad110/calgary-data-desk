@@ -12,5 +12,5 @@ jobs:
           pip install -q requests pdfplumber
           python3 probe.py > out/log.txt 2>&1 || true
           git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
-          git checkout -b fetched-16
-          git add -f out && git commit -qm "City rates fetch" && git push -f origin fetched-16
+          git checkout -b fetched-17
+          git add -f out && git commit -qm "City rates fetch 2" && git push -f origin fetched-17

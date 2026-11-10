@@ -21,19 +21,22 @@ for k, u in U.items():
     open(f'out/{k}.txt', 'w').write(txt)
 # 2021 Census household income and population by city (Statistics Canada 98-10-0057 and 98-10-0001)
 CSD = {'4806016': 'Calgary', '4811061': 'Edmonton', '5915022': 'Vancouver', '3520005': 'Toronto', '3506008': 'Ottawa', '4611040': 'Winnipeg', '4711066': 'Saskatoon', '4706027': 'Regina'}
-for tid in ['98100057', '98100058', '98100055']:
+for tid in ['98100057', '98100058']:
     try:
         m = requests.get(f'https://www150.statcan.gc.ca/t1/wds/rest/getFullTableDownloadCSV/{tid}/en', headers=UA, timeout=60).json()
         z = requests.get(m['object'], headers=UA, timeout=600)
         print('table', tid, len(z.content))
-        zf = zipfile.ZipFile(io.BytesIO(z.content))
-        name = [n for n in zf.namelist() if not n.endswith('MetaData.csv')][0]
+        zf = zipfile.ZipFile(io.BytesIO(z.content)); print('names', zf.namelist())
+        name = [n for n in zf.namelist() if 'etadata' not in n.lower()][0]
         out = open(f'out/{tid}_cities.csv', 'w', newline=''); w = None
         with zf.open(name) as f:
             rd = csv.reader(io.TextIOWrapper(f, encoding='utf-8-sig'))
             hdr = next(rd); w = csv.writer(out); w.writerow(hdr)
-            gi = [i for i, h in enumerate(hdr) if 'DGUID' in h][0]
+            print('hdr', hdr[:12])
+            gi = [i for i, h in enumerate(hdr) if 'DGUID' in h.upper()][0]
+            n = 0
             for row in rd:
-                if row[gi][-7:] in CSD and 'A0005' in row[gi]: w.writerow(row)
+                if row[gi][-7:] in CSD and 'A0005' in row[gi]: w.writerow(row); n += 1
+            print('rows', n)
         out.close()
     except Exception as e: print('table err', tid, e)
