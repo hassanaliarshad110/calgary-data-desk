@@ -35,10 +35,15 @@ Write `packages/<date>-<slot>-<slug>.md` with **every** required output of the s
 - **Captions and descriptions (Hassan's rule, Nov 10, 2026): short, engaging, no figures.** Every post text (Instagram, Facebook, YouTube Short, teaser) is:
   1. a one-line hook (a question or a surprising plain-language statement),
   2. one or two short sentences with the key facts in plain words, with **no numbers, percentages, dollar amounts or tables** (say "nearly half", "more than doubled" only if audited; otherwise just describe it),
-  3. a one-line question that invites comments,
+  3. a one-line question that invites comments, ending "Drop your thoughts below 👇",
   4. `Sources and the full story: calgaryinsight.ca`,
   5. 3-5 hashtags (#Calgary #yyc plus 1-3 on the topic).
   No source lists, no URLs other than calgaryinsight.ca, no long paragraphs. About 300 characters before the hashtags. The full YouTube widescreen description may add chapters below the same short text, nothing else. Sources live in the package and on the site, not in the post.
+- **Hook and question in every video (Hassan's rule, Nov 10, 2026).**
+  - **Open with a hook** in the first 2 seconds, spoken and on screen: a question or a surprising line ("Why is a Calgary highway named after a runner?"), never a slow intro.
+  - **Close with a question to the viewer**, spoken and shown big on screen just before the end card, followed by "Drop your thoughts below" (on screen: "Drop your thoughts below 👇"). Example: "Do you think this is fair, or too much? Drop your thoughts below."
+  - The caption follows the same pattern: hook as the first line, the question near the end with "Drop your thoughts below 👇", then the calgaryinsight.ca line and hashtags.
+  - Questions must be genuinely open or two-sided ("fair, or too much?", "Did you know this?", "Which one would you visit first?", "How has this affected you?"), never leading, partisan or pushing one answer, especially in news videos. They are not facts, so they need no source, but the auditor checks they're neutral.
 - The package ends with the claims table required by section 3b.
 - Visual generation prompts are kept for an optional paid cinematic version later. This run renders the free motion-graphics version only.
 
@@ -47,7 +52,7 @@ Write `packages/<date>-<slot>-<slug>.md` with **every** required output of the s
 2. **Independent auditor.** Spawn a fresh subagent (Agent tool, general-purpose) that did not draft the script. Give it **only** the narration, on-screen text and the claims table, not your research notes or reasoning. Its instructions:
    - Open every source URL yourself and check each claim against what the page actually says: the number, unit, date, reference period, geographic boundary (city / CMA / ward / community) and attribution.
    - Mark each claim **PASS**, **FAIL** (the source says something different, and give the correct wording), or **UNSUPPORTED** (the page doesn't say it, won't load, or isn't a credible source).
-   - Also flag: any factual sentence missing from the claims table; numbers in words that don't match the figure (for example "forty-two" vs 4.2); comparisons across mismatched periods or boundaries; estimates or projections stated as facts; correlation presented as cause; a hook the data doesn't pay off; anything partisan or unfair to a ward or person; any mention of Hassan's name.
+   - Also flag: any factual sentence missing from the claims table; numbers in words that don't match the figure (for example "forty-two" vs 4.2); comparisons across mismatched periods or boundaries; estimates or projections stated as facts; correlation presented as cause; a hook the data doesn't pay off; anything partisan or unfair to a ward or person; a closing question that is leading or one-sided; a missing opening hook or closing question; any mention of Hassan's name.
    - Return a table with one row per claim, plus a verdict: **APPROVED** only if every claim passes and nothing is flagged.
 3. **Fix and re-audit.** Correct or cut every FAIL and UNSUPPORTED claim, deal with every flag, and send the revised script to a **new** auditor subagent. Allow at most 3 rounds.
 4. **If it still isn't approved after round 3:** do not narrate or render. Save the package and audit report, log status `"blocked-by-audit"` with the reasons, and tell Hassan which claims couldn't be verified.
