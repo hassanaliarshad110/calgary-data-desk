@@ -482,20 +482,22 @@
    "https://mycalgary.com/?p=134884",
    "https://www.ammsa.com/publications/windspeaker/crowchild-award-cause-celebrate"
   ],
-  "length_s": 33.1,
+  "length_s": 34.5,
   "video_path": "studio-videos/2026-11-11-PM/crowchild-trail-chief.mp4",
   "thumbnail_path": "studio-videos/2026-11-11-PM/crowchild-trail-chief-thumb.jpg",
   "package": "packages/2026-11-11-PM-crowchild-trail-chief.md",
   "audit": {
-   "rounds": 1,
-   "claims_checked": 5,
+   "rounds": 2,
+   "claims_checked": 6,
    "verdict": "APPROVED",
-   "report": "audits/2026-11-11-PM.md"
+   "report": "audits/2026-11-11-PM.md",
+   "note": "Round 1 approved the first script; the follow/subscribe playbook rule (committed during the run) required a revised script, approved in round 2 before re-narration."
   },
   "status": "done",
   "posted": [
    {
-    "metricool_id": 425080274,
+    "metricool_id": 425083845,
+    "previous_metricool_id": 425080274,
     "uuid": "-909838119547745351",
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-909838119547745351",
     "providers": [
@@ -507,6 +509,6 @@
     "status": "scheduled"
    }
   ],
-  "post_note": "Scheduled at the fixed 19:00 PM slot (created 17:29) with designed thumbnail, EDUCATION, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1). Earlier today's CIVIC post confirmed PUBLISHED in this run."
+  "post_note": "Scheduled at the fixed 19:00 PM slot (created 17:29, updated 17:33 with the round-2 video with follow/subscribe prompt and new caption line; same post, not duplicated). Designed thumbnail, EDUCATION, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1). Earlier today's CIVIC post confirmed PUBLISHED in this run."
  }
 ]
