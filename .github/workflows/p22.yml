@@ -37,10 +37,10 @@ jobs:
           git -C rest fsck --no-dangling >> $T 2>&1; echo "fsck exit $?" >> $T
           echo "== the published website inside the artifact" >> $T
           mkdir web0 && tar -xzf bk/website.tar.gz -C web0
-          W=$(dirname "$(find web0 -maxdepth 3 -name index.html | head -1)"); ln -s "$W" web; echo "website root inside the archive: $W" >> $T
+          W=$(dirname "$(find web0 -maxdepth 3 -name index.html | awk '{print length($0), $0}' | sort -n | head -1 | cut -d' ' -f2-)"); ln -s "$W" web; echo "website root inside the archive: $W" >> $T
           echo "files $(find web/ -type f | wc -l)  size $(du -shL web | cut -f1)" >> $T
           (cd web && sha256sum index.html site.*.js data/built.json data/budget.json data/tax.json) >> $T
-          (cd web && find . -type f -printf '%s %p\n' | sort -k2 > ../out/backup/website-files.txt)
+          (cd web/ && find . -type f -printf '%s %p\n' | sort -k2 > "$GITHUB_WORKSPACE/out/backup/website-files.txt")
           echo "== does the restored code rebuild the published interface? (the site's own offline build step)" >> $T
           pip install -q cryptography numpy scipy openpyxl overturemaps pypdf >/dev/null 2>&1 || true
           (cd rest && python -c "import sys; sys.path[:0]=['web','.']; import build_site; build_site.page('../rebuilt')" >> ../$T 2>&1; echo "build step exit $?" >> ../$T)
@@ -51,7 +51,7 @@ jobs:
           echo "index.html: published $a  rebuilt-from-backup $b  $([ "$a" = "$b" ] && echo IDENTICAL || echo DIFFERENT)" >> $T
           cat $T
       - name: Run records and log excerpts (read only)
-        if: always()
+        if: false
         run: |
           set +e
           mkdir -p out/runs
@@ -71,7 +71,7 @@ jobs:
           done
           ls -la out/runs
       - name: Official sources, read again (read only)
-        if: always()
+        if: false
         run: |
           set +e
           mkdir -p out/src
@@ -97,5 +97,5 @@ jobs:
       - if: always()
         run: |
           git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
-          git checkout -q -b fetched-22
-          git add -f out && git commit -qm "Second-stage verification evidence (read only): backup restore, run records, official sources" && git push -qf origin fetched-22
+          git checkout -q -b fetched-22b
+          git add -f out && git commit -qm "Second-stage verification evidence (read only): backup restore, run records, official sources" && git push -qf origin fetched-22b
