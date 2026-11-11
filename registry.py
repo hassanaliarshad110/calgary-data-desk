@@ -151,9 +151,13 @@ DESCRIBE = {
     'live.json': 'The live connections the site checks (City open data, the City feeds, news) and when each last answered.',
     'settings.json': 'The ways of counting residents, the wards, the methods and the contact details the site uses.',
     'transit.json': 'The Calgary Transit timetable: routes, trips and the dates it is valid for.',
+    'access_base.json': 'Growth vs amenities working file: the distance from every home to each kind of amenity, by community (built every morning).',
 }
 SKIP = {'registry.json', 'search.json', 'methods.json'}      # the registry itself, the site search and the method notes (get_method)
 MAX_SHIP = 1500000                                          # bytes: a bigger file is not sent to the browser with the assistants
+# where to read a file too big to send with the assistants (the build leaves it out of the browser's copy)
+TOO_BIG = {'access_base.json': 'get_dashboard section=access (every community and amenity: distance from homes, crowding, scores) and '
+                               'section=growth_forecast (the same in 2030); get_method topic=access'}
 
 
 def _describe(name, d):
@@ -201,8 +205,11 @@ def auto_files(out=None):
         except (OSError, ValueError):
             continue
         what = _describe(f, d)
+        big = size > MAX_SHIP
+        how = (f'Too large to send with the assistants on the website; read its figures with {TOO_BIG.get(f) or "the page that shows them (list_sources)"}'
+               if big else f'read_source key=data:{f[:-5]} (outline, then part or find)')
         entries.append({'key': 'data:' + f[:-5], 'view': None, 'title': f[:-5].replace('_', ' ').capitalize() + ' (data file)', 'what': what,
-                        'read': f'read_source key=data:{f[:-5]} (outline, then part or find)', 'files': [[f, src]], 'section': None,
+                        'read': how, 'too_large': big, 'files': [[f, src]], 'section': None,
                         'scientist': None, 'keywords': f[:-5].replace('_', ' '), 'registered': True, 'auto': True, 'bytes': size,
                         'described': f in DESCRIBE or (isinstance(d, dict) and any(isinstance(d.get(k), str) for k in ('note', 'description', 'about')))})
     return entries
@@ -395,6 +402,8 @@ def read(key, data_dir=None, part=None, find_text=None, reg=None, limit=24000):
         return {'page': entry['title'], 'read': entry['read'],
                 'note': 'This page has no data file of its own to read here; the way to read it is above.'}
     found = _locate(entry, data_dir)
+    if not found and entry.get('too_large'):
+        return {'page': entry['title'], 'read': entry['read'], 'note': 'This file is too large to send with the assistants; read it the way above.'}
     if not found:
         return {'page': entry['title'], 'error': 'This page\'s data file is not on this computer right now; the page itself shows it.',
                 'files': [f[0] for f in entry['files']]}
