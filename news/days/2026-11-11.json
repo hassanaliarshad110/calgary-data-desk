@@ -1,0 +1,377 @@
+{
+ "date": "2026-11-11",
+ "published_at": "2026-11-11T23:36:08Z",
+ "articles": [
+  {
+   "title": "City debt would more than double to about $10 billion by 2030 under proposed four-year budget",
+   "dek": "City documents show outstanding debt rising from nearly $3.8 billion to just over $10 billion as Calgary borrows for water projects and the Green Line.",
+   "section": "City Hall",
+   "updated_from": "2026-11-10-city-s-proposed-2027-2030-budget-calls-for-a-15-per-cent-property-tax-",
+   "body": [
+    "The City of Calgary's outstanding debt would climb from nearly $3.8 billion today to just over $10 billion by 2030 if council approves the proposed 2027-2030 budget, according to City documents released on Nov. 10 and reported by LiveWire Calgary [1].",
+    "Per person, net outstanding debt is projected to rise from $2,395 in 2026 to $5,943 in 2030, based on the City's January 2026 population projections [1]. The documents say total debt stays below the limit council has set, but would reach about 80 per cent of that limit by 2030, compared with a fairly steady 40 per cent between 2022 and 2026 [1].",
+    "The City says the borrowing pays for long-lived infrastructure, including major water utility projects and the Green Line [1]. The proposed budget includes $21 billion in recommended capital spending over four years, $13 billion of it for new infrastructure, along with $1.7 billion to upgrade the Pine Creek and Fish Creek wastewater treatment plants and $616 million for the North and South Water Feedermains [2].",
+    "Chief financial officer Les Tochor said the capital program is two and a half times the size of the previous four-year budget and is being tracked over a 10-year window [1]. He estimated that about 1.9 per cent of tax revenue in 2030, roughly $50 million, would be needed to service tax-supported debt [1]. Calgary's debt is split between self-supported debt, repaid through utility fees and levies, and tax-supported debt, repaid through property taxes [1]. LiveWire Calgary said the City had not yet answered its question about the total cost of servicing $10 billion in debt [1].",
+    "Ward 10 Coun. Andre Chabot said the increase worried him and noted the City has been talking with Alberta's municipal affairs minister about allowing longer repayment terms; the current maximum is 25 years, while some infrastructure is expected to last more than 50 years [1]. Mayor Jeromy Farkas compared spreading out repayment to a family taking a mortgage on a long-lasting asset [1].",
+    "The debt projection comes on top of a proposed 15 per cent municipal property tax increase in 2027, followed by proposed increases of 10, 7.7 and 6 per cent in the following years [3]. For a typical single-family home the City estimates the 2027 change at about $53 a month, including $37 in property tax and $16 for water, wastewater and recycling [2][3]. Farkas has called the proposal a starting point; public submissions and council deliberations begin the week of Nov. 23 [2][3]."
+   ],
+   "key_facts": [
+    "Outstanding debt: nearly $3.8B now, just over $10B by 2030",
+    "Debt per person: $2,395 (2026) to $5,943 (2030)",
+    "Debt would reach about 80% of council's limit by 2030",
+    "Budget deliberations begin the week of Nov. 23"
+   ],
+   "topics": [
+    "City Council",
+    "Budget and taxes",
+    "Water",
+    "Transit"
+   ],
+   "image_query": "Calgary Municipal Building",
+   "charts": [
+    {
+     "title": "City of Calgary outstanding debt",
+     "kind": "bar",
+     "labels": [
+      "Now (2026)",
+      "2030 (projected)"
+     ],
+     "series": [
+      {
+       "name": "Outstanding debt",
+       "values": [
+        3.8,
+        10
+       ]
+      }
+     ],
+     "unit": "$B",
+     "source": 1
+    },
+    {
+     "title": "Net outstanding debt per person",
+     "kind": "bar",
+     "labels": [
+      "2026",
+      "2030 (projected)"
+     ],
+     "series": [
+      {
+       "name": "Debt per person",
+       "values": [
+        2395,
+        5943
+       ]
+      }
+     ],
+     "unit": "$",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Calgary debt projected to balloon by 2030 under infrastructure crunch",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/11/calgary-debt-projected-to-balloon-by-2030-under-infrastructure-crunch/",
+     "published": "2026-11-11"
+    },
+    {
+     "title": "The City releases proposed 2027–2030 Budget focused on Calgarians' priorities",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/",
+     "published": "2026-11-10"
+    },
+    {
+     "title": "Calgary's four-year budget breakdown. Where would the money be spent?",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/10/calgary-four-year-budget-breakdown-money-spent/",
+     "published": "2026-11-10"
+    }
+   ],
+   "id": "2026-11-11-city-debt-would-more-than-double-to-about-10-billion-by-2030-under-pro",
+   "date": "2026-11-11",
+   "published_at": "2026-11-11T23:36:08Z",
+   "words": 412
+  },
+  {
+   "title": "Police lay aggravated sexual assault charge in 2006 Forest Heights cold case after DNA match",
+   "dek": "The accused was 14 at the time of the 2006 attack and cannot be named; police say he is already in custody on unrelated matters.",
+   "section": "Public safety",
+   "body": [
+    "Calgary police have charged a man with aggravated sexual assault in connection with an attack in the southeast community of Forest Heights in 2006, nearly 20 years ago [1][2].",
+    "According to police, an 18-year-old woman was walking through a school field in the early morning of Aug. 6, 2006, when a man on a bicycle attacked her; she was sexually assaulted and stabbed several times [2].",
+    "Investigators sent evidence to the RCMP for testing, and a DNA profile believed to belong to the attacker was entered into the National DNA Data Bank in 2006 [2]. The case then went unsolved for years. Police say they made public appeals and used genetic genealogy over that time, and ruled out several persons of interest, the last of them in 2022 [2].",
+    "On Sept. 21, investigators were told of a DNA match between the 2006 evidence and a person already in custody for other offences, police said [2]. The accused was 14 at the time of the attack, so he cannot be named under the Youth Criminal Justice Act [2]. The charge was announced on Monday, Nov. 9 [1][2].",
+    "He is scheduled to appear in court on Dec. 18 [2]. The charge has not been proven in court.",
+    "Staff Sgt. Tom Hanson of the Calgary Police Service's Sexual Assault Investigative Unit spoke about the case, saying \"unsolved doesn't mean forgotten\" [2]. Police noted there is no time limit in Canada on reporting a sexual assault, and asked anyone with information to contact the Calgary Police Service or Crime Stoppers [2]."
+   ],
+   "key_facts": [
+    "Attack happened Aug. 6, 2006, in a Forest Heights school field",
+    "DNA match reported to investigators on Sept. 21",
+    "Accused was 14 at the time and cannot be named",
+    "Court date: Dec. 18"
+   ],
+   "topics": [
+    "Public safety",
+    "Courts"
+   ],
+   "communities": [
+    "Forest Heights"
+   ],
+   "image_query": "Calgary Police Service headquarters",
+   "sources": [
+    {
+     "title": "Man charged in connection with 20-year-old Calgary sexual assault",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/man-charged-in-connection-with-20-year-old-calgary-sexual-assault/",
+     "published": "2026-11-09"
+    },
+    {
+     "title": "Calgary police charge man in 2006 cold case after DNA match",
+     "outlet": "Medicine Hat News",
+     "url": "https://medicinehatnews.com/news/local-news/2026/11/11/calgary-police-charge-man-in-2006-cold-case-after-dna-match/",
+     "published": "2026-11-11"
+    }
+   ],
+   "id": "2026-11-11-police-lay-aggravated-sexual-assault-charge-in-2006-forest-heights-col",
+   "date": "2026-11-11",
+   "published_at": "2026-11-11T23:36:08Z",
+   "words": 257
+  },
+  {
+   "title": "Two residents rescued from basement suite in early-morning Dover house fire; cat dies",
+   "dek": "Firefighters said they heard no smoke alarms when they arrived at the Doverthorn Close S.E. bungalow; the cause is under investigation.",
+   "section": "Public safety",
+   "body": [
+    "Firefighters rescued two people from the basement suite of a bungalow in the 100 block of Doverthorn Close S.E. early Tuesday, Nov. 10, after a fire broke out in the basement, the Calgary Fire Department said [1].",
+    "Crews were called at about 4 a.m. and saw smoke coming from the house when they arrived [1]. One resident got out alone and was checked by paramedics, while the two people rescued from the basement apartment were handed over to paramedics for care [1]. A cat was found dead [1].",
+    "Reports differ on how badly the two rescued residents were hurt. CTV News reported that two people were taken to hospital in critical condition after an early-morning house fire in Dover that day [2]. Global News did not describe their condition [1]. The sources do not make clear whether both reports refer to the same people, and the fire department's account of their condition could not be confirmed.",
+    "Fire department spokesperson Alex Kwan said crews did not hear smoke alarms going off when they arrived [1]. The department stressed that homes with more than one suite need interconnected smoke alarms, so that a fire in one unit sets off alarms in the others [1].",
+    "Crews stayed at the scene on Tuesday to make sure the fire did not flare up again, and the cause is under investigation [1]."
+   ],
+   "key_facts": [
+    "Fire in the 100 block of Doverthorn Close S.E. at about 4 a.m. Nov. 10",
+    "Two residents rescued from the basement suite; one got out alone",
+    "CTV reported two people in critical condition",
+    "No smoke alarms heard when crews arrived"
+   ],
+   "topics": [
+    "Public safety"
+   ],
+   "communities": [
+    "Dover"
+   ],
+   "image_query": "Calgary Fire Department fire truck",
+   "sources": [
+    {
+     "title": "Cat dies after fire breaks out in basement of Calgary home",
+     "outlet": "Global News",
+     "url": "https://globalnews.ca/news/12144282/doverthorn-close-southeast-calgary-fire/",
+     "published": "2026-11-10"
+    },
+    {
+     "title": "2 people in critical condition after Calgary house fire",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/2-people-in-critical-condition-after-calgary-house-fire/",
+     "published": "2026-11-10"
+    }
+   ],
+   "id": "2026-11-11-two-residents-rescued-from-basement-suite-in-early-morning-dover-house",
+   "date": "2026-11-11",
+   "published_at": "2026-11-11T23:36:08Z",
+   "words": 226
+  },
+  {
+   "title": "City economists forecast about 60,000 new jobs in the Calgary region this year despite October dip",
+   "dek": "A City of Calgary outlook projects the fastest job growth in 20 years outside the pandemic rebound, even as Alberta lost about 24,000 jobs in October.",
+   "section": "Business and economy",
+   "body": [
+    "The Calgary region is expected to add about 60,000 jobs in 2026, a 5.8 per cent increase, according to a City of Calgary economic outlook described in a Calgary Herald column [1]. Excluding the 2022 recovery from COVID-19, that would be the fastest job growth in 20 years [1].",
+    "The City's economists expect another 24,400 jobs in 2027, with health care, manufacturing, and accommodation and food services among the contributors [1]. They project regional economic output to grow 2.2 per cent in 2026 and 2.6 per cent in 2027, then between 2 and 2.4 per cent a year through 2031 [1].",
+    "The forecast comes after a weaker month for the province. Alberta lost about 24,300 jobs in October and its unemployment rate rose almost a full percentage point to 7.3 per cent, following a gain of 23,000 jobs in September [1]. The province has still added about 41,000 jobs over the past 12 months [1]. ATB linked the October losses mainly to transportation and warehousing, and to professional, scientific and technical services [1].",
+    "Chris Jacyk, a City of Calgary finance manager responsible for economics and long-range financial planning, discussed the outlook, while ATB chief economist Mark Parsons said growth depends on companies committing to new projects [1]. Alicia Planincic of the Business Council of Alberta cautioned against reading too much into a single month of data [1].",
+    "Risks named in the outlook include volatile commodity prices, geopolitical conflict, high inflation and the Canada-U.S. trade dispute [1]. The proposed Pacific Link oil pipeline and the Pathways carbon capture network were cited as possible sources of jobs if they go ahead [1]. Benchmark U.S. crude fell almost $4 a barrel on Monday to close at US$86.85 [1]."
+   ],
+   "key_facts": [
+    "Calgary region: about 60,000 new jobs forecast for 2026 (5.8%)",
+    "Another 24,400 jobs forecast for 2027",
+    "Regional GDP growth: 2.2% in 2026, 2.6% in 2027",
+    "Alberta lost about 24,300 jobs in October; unemployment 7.3%"
+   ],
+   "topics": [
+    "Economy",
+    "Business",
+    "Energy"
+   ],
+   "image_query": "Calgary downtown skyline",
+   "charts": [
+    {
+     "title": "Forecast Calgary-region GDP growth",
+     "kind": "bar",
+     "labels": [
+      "2026",
+      "2027"
+     ],
+     "series": [
+      {
+       "name": "GDP growth",
+       "values": [
+        2.2,
+        2.6
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 1
+    },
+    {
+     "title": "Forecast new jobs in the Calgary region",
+     "kind": "bar",
+     "labels": [
+      "2026",
+      "2027"
+     ],
+     "series": [
+      {
+       "name": "New jobs",
+       "values": [
+        60000,
+        24400
+       ]
+      }
+     ],
+     "unit": "jobs",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Varcoe: 'Consistent growth' forecast in Calgary region through 2031, amid choppy Alberta jobs report",
+     "outlet": "Calgary Herald (via Yahoo News Canada)",
+     "url": "https://ca.news.yahoo.com/varcoe-consistent-growth-forecast-calgary-110030805.html",
+     "published": "2026-11-10"
+    }
+   ],
+   "id": "2026-11-11-city-economists-forecast-about-60-000-new-jobs-in-the-calgary-region-t",
+   "date": "2026-11-11",
+   "published_at": "2026-11-11T23:36:08Z",
+   "words": 285
+  },
+  {
+   "title": "Grey Cup festival opens at Stampede Park ahead of Sunday's Montreal-Edmonton final at McMahon",
+   "dek": "Four days of street festivals, concerts and community events run at Stampede Park before the 113th Grey Cup kicks off at 5 p.m. Sunday.",
+   "section": "Community and events",
+   "updated_from": "2026-11-09-grey-cup-arrives-in-calgary-as-soldiers-hurt-in-cfb-wainwright-fire-ar",
+   "body": [
+    "Calgary's Grey Cup festival began on Wednesday, Nov. 11, with events running through Saturday at Stampede Park ahead of the 113th Grey Cup game at McMahon Stadium on Sunday, Nov. 15 [1]. Local businesses are preparing for an influx of visitors as festivities get under way, CTV News reported [2].",
+    "The Montreal Alouettes, who finished 14-4, will play the Edmonton Elks, who finished 13-5 [1]. Gates open at 3 p.m. and kickoff is at 5 p.m., with the game on TSN, CTV and RDS [1]. It is the sixth time Calgary has hosted the Grey Cup and the first since 2019 [1].",
+    "Festival events include a street festival and outdoor community stage in Lot 3 from 4:30 to 9 p.m. on Wednesday, a pancake breakfast from 11 a.m. to 1 p.m. on Thursday, and a family zone and street festival from 11 a.m. to 9 p.m. Thursday, followed by a drone show at 8:45 p.m. [1]. Saturday brings rodeo performances at the Nutrien Western Event Centre and a cheer showcase at the Scotiabank Saddledome; several concerts at the Big Four Roadhouse and team parties at the BMO Centre are ticketed and limited to people 18 and over [1].",
+    "On game day, a family tailgate with no admission charge runs from 1 to 5 p.m. in McMahon Stadium's east lot, with a separate ticketed adult section [1]. Riley Green is the halftime performer, James Barker Band plays the kickoff show and Sarah McLachlan will sing the national anthem [1].",
+    "Alouettes receiver Tyson Philpot, a University of Calgary alumnus, was named the league's Most Outstanding Canadian after setting Canadian single-season records with 124 catches and 1,809 receiving yards [1]."
+   ],
+   "key_facts": [
+    "Festival at Stampede Park runs Wednesday to Saturday",
+    "Game: Sunday, Nov. 15, 5 p.m. kickoff at McMahon Stadium",
+    "Montreal Alouettes (14-4) vs. Edmonton Elks (13-5)",
+    "Calgary's sixth time hosting, first since 2019"
+   ],
+   "topics": [
+    "Events",
+    "Sports",
+    "Community"
+   ],
+   "image_query": "McMahon Stadium Calgary",
+   "location": {
+    "lat": 51.0703,
+    "lon": -114.1215,
+    "label": "McMahon Stadium"
+   },
+   "charts": [
+    {
+     "title": "Regular-season wins",
+     "kind": "hbar",
+     "labels": [
+      "Montreal Alouettes",
+      "Edmonton Elks"
+     ],
+     "series": [
+      {
+       "name": "Wins",
+       "values": [
+        14,
+        13
+       ]
+      }
+     ],
+     "unit": "wins",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Grey Cup week in Calgary: here's a look at the festivities",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/grey-cup-week-calgary-2026-guide",
+     "published": "2026-11-09"
+    },
+    {
+     "title": "'There's nothing better': Grey Cup set to bring uniquely Canadian economic boost to Calgary",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/theres-nothing-better-grey-cup-set-to-bring-uniquely-canadian-economic-boost-to-calgary/",
+     "published": "2026-11-10"
+    }
+   ],
+   "id": "2026-11-11-grey-cup-festival-opens-at-stampede-park-ahead-of-sunday-s-montreal-ed",
+   "date": "2026-11-11",
+   "published_at": "2026-11-11T23:36:08Z",
+   "words": 277
+  },
+  {
+   "title": "Calgarians mark Remembrance Day at ceremonies across the city; Wainwright soldiers a focus",
+   "dek": "About 1,000 people attended the service at the Hangar Flight Museum, one of about ten ceremonies held around Calgary on Wednesday.",
+   "section": "Community and events",
+   "updated_from": "2026-11-10-remembrance-day-in-calgary-what-s-closed-transit-schedule-and-road-clo",
+   "body": [
+    "Calgarians gathered at ceremonies across the city on Wednesday, Nov. 11, to mark Remembrance Day [1][2]. About 1,000 people attended a service at the Hangar Flight Museum in northeast Calgary, CTV News reported, and the four soldiers who died in the CFB Wainwright tragedy were a focus of the day [1].",
+    "Most services began shortly after 10 a.m. [2]. Ceremonies were held at the Field of Crosses on Memorial Drive N.W., the Southern Alberta Jubilee Auditorium, Studio Bell, the Hangar Flight Museum, The Military Museums, the Canadian Pacific Memorial in Ogden Dale, and Battalion Park, along with parades by the Calgary Highlanders at Central Memorial Park, Scouts Canada at George Moss Park and the King's Own Calgary Regiment at North Glenmore Park [2][3].",
+    "Flags at all City of Calgary facilities flew at half-mast from sunrise to sundown [3]. Memorial Drive between 4 Street N.E. and 10 Street N.W. was closed from 9 a.m. to 1 p.m. for the Field of Crosses ceremony, and streets around Central Memorial Park were closed from 8 a.m. to 1 p.m. [3].",
+    "Calgary Transit ran a Saturday level of service, and veterans in uniform or with veteran identification, along with family members travelling with them, rode at no charge [2][3]. City arenas, indoor pools and fitness centres were closed for regular programs, though the City offered public skating and swimming sessions without admission fees at several facilities in the afternoon [3]."
+   ],
+   "key_facts": [
+    "About 1,000 people attended the Hangar Flight Museum service",
+    "Ceremonies held at about ten sites across Calgary",
+    "City flags at half-mast from sunrise to sundown",
+    "Transit ran a Saturday schedule"
+   ],
+   "topics": [
+    "Community",
+    "Events"
+   ],
+   "image_query": "Field of Crosses Calgary Memorial Drive",
+   "sources": [
+    {
+     "title": "4 fallen soldiers in CFB Wainwright tragedy a focus on Remembrance Day",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/remembrance-day-ceremonies-taking-place-in-calgary/",
+     "published": "2026-11-11"
+    },
+    {
+     "title": "Remembrance Day 2026: Where you can attend a service",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/11/remembrance-day-2026-where-you-can-attend-a-service/",
+     "published": "2026-11-11"
+    },
+    {
+     "title": "City Services: Remembrance Day 2026",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/city-services-remembrance-day-2026/",
+     "published": "2026-11-10"
+    }
+   ],
+   "id": "2026-11-11-calgarians-mark-remembrance-day-at-ceremonies-across-the-city-wainwrig",
+   "date": "2026-11-11",
+   "published_at": "2026-11-11T23:36:08Z",
+   "words": 236
+  }
+ ]
+}
