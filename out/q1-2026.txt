@@ -1,0 +1,885 @@
+                                                   EC2026-0394
+                                                  ATTACHMENT 2
+
+
+
+
+                           The City’s
+                           Quarterly Report
+                             2026 First Quarter
+
+
+
+
+Quarterly Report 2026 First Quarter                          ﻿   1
+                                                                                                                                                   EC2026-0394
+                                                                                                                                                  ATTACHMENT 2
+
+
+
+
+    The Calgary area, where the Bow and Elbow rivers meet, is a place of confluence
+    where the sharing of ideas and opportunities naturally come together.
+    Indigenous peoples have their own names for this area that have been in use long
+    before Scottish settlers named this place Calgary.
+    The Métis call the Calgary area Otos-kwunee. In the Blackfoot language, they call this
+    place, Moh’kinstsis. The Îethka Nakoda Wîcastabi First Nations refer to the Calgary
+    area as Wîcîspa Oyade and the people of the Tsuut’ina nation call this area Guts’ists’i.
+    We appreciate and acknowledge that we live, work, and play on the ancestral and
+    traditional territories of the Blackfoot confederacy, made up of the Siksika, Piikani,
+    Amskaapipiikani and Kainai First Nations; the Îethka Nakoda Wîcastabi First Nations,
+    comprised of the Chiniki, Bearspaw, and Goodstoney First Nations; and the Tsuut’ina
+    First Nation.
+    Calgary is also homeland to the historic Northwest Métis and to the Otipemisiwak
+    Métis Government, Métis Nation Battle River Territory (Nose Hill Métis District 5 and
+    Elbow Métis District 6).
+    We acknowledge all Indigenous people who have made Calgary their home.
+
+
+
+
+Contents
+Message from Chief Administrative Officer. ..........................................................................................3
+The City at a Glance.........................................................................................................................................4
+Infrastructure.....................................................................................................................................................5
+Public Safety. .....................................................................................................................................................6
+Transit...................................................................................................................................................................7
+Housing. ..............................................................................................................................................................8
+Key Performance Measures..........................................................................................................................9
+Financial and Economic Update First Quarter.................................................................................... 10
+
+
+
+
+Quarterly Report 2026 First Quarter                                                                                                                                    ﻿      2
+                                                                                                                        EC2026-0394
+                                                                                                                       ATTACHMENT 2
+
+
+
+
+     Message from
+     Chief Administrative Officer
+
+
+The first quarter of 2026 was shaped by the infrastructure             We know that the reliability of our services affects how Calgarians
+challenge we faced on December 30, 2025, when the Bearspaw             feel about us as an organization, setting the foundation for trust
+South Feeder Main ruptured for the second time. This event             with the people we serve. To me, this is one of the most critical
+reinforced the urgency of building a more resilient system             metrics for our organization. While we saw a small increase in
+and set us on a path that focused our efforts even more on             trust from Calgarians in our Spring Survey, we know that trust is
+strengthening our systems for the people who rely on them              earned over time through consistent, reliable service. This means
+every day.                                                             being transparent about risks, celebrating progress and listening
+Since January, we have accelerated the design and construction         to Calgarians as we strive for continuous improvement.
+of the feeder main replacement, aiming to complete this project        This Quarterly Report exists to do just that. It is my hope that
+by the end of the year. We also moved quickly to reinforce             as you read it, you see our commitment to transparency and
+vulnerable pipe segments, began recruitment for a Chief                continuous improvement reflected in every achievement and
+Operating Officer for a new Water department and supported             lesson learned.
+affected communities with resources and information. This rapid        Looking ahead, as we finish the 2023-2026 Business Plans and
+progress marks a significant milestone and demonstrates our            Budget cycle and begin to implement the 2027-2030 Council
+commitment to delivering reliable services.                            Priorities, our focus is clear. Council’s six priority focus areas—
+This quarter’s report also demonstrates the incredible work City       reliable and sustainable infrastructure, safe city, functional
+employees do to make life better every day. Thanks to Council          transportation network, community livability and well-being,
+investments, 97 per cent of 9-1-1 calls were answered within           balanced growth and evolving neighborhoods, and a trusted
+15 seconds—exceeding provincial standards and last year’s              and collaborative government—will guide our decisions and
+performance. Water outages dropped by 25 per cent compared             investments over the next four years, helping ensure the city
+to Q1 2025, thanks to sustained investment and improved leak           continues to support safe, healthy and livable communities.
+detection. We repaired over 4,600 potholes, directly enhancing         Together, we will build a city that is stronger, more responsive
+mobility and safety on Calgary’s streets. Each of these outcomes       and more connected.
+is not merely a statistic but a meaningful improvement in the
+lives of Calgarians—safer neighbourhoods, fewer interruptions
+and more reliable access to essential services. I invite you to read
+more about these achievements in the pages that follow.
+                                                                       David Duckworth, P. Eng., MBA, ICD.D
+                                                                       Chief Administrative Officer
+
+
+
+
+Quarterly Report 2026 First Quarter                                                             Message from Chief Administrative Officer    3
+                                                                                                                    EC2026-0394
+                                                                                                                   ATTACHMENT 2
+
+
+
+
+     The City at a Glance
+     The City is committed to delivering timely, responsive, and effective services.
+     We listen, measure what matters, and continuously improve to make every
+     dollar count. We are transparent and accountable to provide the services
+     Calgarians need.
+
+
+
+      This quarter, 62 per cent of Calgarians reported satisfaction with the overall
+      level and quality of City services, consistent with the 2025 average.
+
+   WHAT’S HAPPENING
+                                             Building a trusted and collaborative            Innovating for Calgarians
+   IN THE COMMUNITY                          City: improving hiring with clearer,            In 2025, The City’s Innovation Lab
+                                             more accountable processes                      partnered with Water Services,
+   This quarter, 62 per cent
+                                             Calgary’s growth is putting more                Information Technology and Marketing &
+   of Calgarians reported satisfaction
+   with the overall level and quality of     pressure on The City’s internal systems         Communications to improve how
+   City services, consistent with the        and processes. To keep pace with this           Calgarians receive information during
+   same time last year (2026 Spring          growth and remain an employer of                unplanned service outages. City teams
+   Survey). Given ongoing economic           choice, Human Resources is improving            engaged Calgarians in an innovation
+   and affordability pressures, this         key processes, remove delays,                   process and what they heard was
+   result points to a stable level of        improve consistency and strengthen              consistent: residents understand that
+   confidence in City service delivery.      accountability—to make it easier for            water repairs take time, and clear
+   We see a strong connection between        people to do their jobs well.                   communication, timely updates, and
+   service satisfaction and quality of                                                       easy to find information make the
+   life, reflecting how services shape       Starting with recruitment, process
+                                                                                             disruption more manageable.
+   daily experience. Accessibility and       mapping and listening sessions with
+   the removal of barriers remain critical   hiring leaders are already leading to faster    These insights informed practical
+   drivers of satisfaction, underscoring     turnarounds, more transparent status            improvements, specifically:
+   fairness and reliability in how           updates, and updated tools that make            • A redesigned Water Outages page to
+   services are assessed.                    roles, responsibilities and next steps easier     provide Calgarians with up-to-date
+   The 2026 Spring Survey results            to understand. This work creates a more           information with clearer descriptions,
+   indicate that 54 per cent of              consistent experience for everyone while          interactive map and information
+   Calgarians trust The City, consistent     reducing administrative time. Reference-          in multiple languages. Website
+   with this time last year (52 per          check improvements are estimated to               satisfaction doubled from 23 to
+   cent) and higher than spring 2024         save approximately 1,900 hours per year,
+   (38 per cent). Findings from the                                                            46 per cent.
+                                             time that can be redirected to delivering
+   National Municipal Benchmarking                                                           • Opt-in push notifications via text and
+   Survey, run in parallel, show similar     services that Calgarians rely on. Further
+                                                                                               email to receive real time updates
+   results (57 per cent) and indicate        streamlining and the exploration of
+                                                                                               automatically.
+   that trust in The City of Calgary         automation are still planned.
+   is 11 per cent higher than in four                                                        • A 20 per cent increased awareness of
+                                             Human Resources will continue to improve
+   peer municipalities (2026 National                                                          Recreation Passes for Calgarians to
+                                             core systems and work collaboratively
+   Municipal Benchmarking Report).                                                             access shower facilities.
+                                             across The City to keep pace with
+   The size of the neutral segment           growth, use taxpayer dollars efficiently,       • A new in-community Water
+   (28 per cent) is notable, suggesting      and remain an employer of choice.                 Ambassador role to provide direct
+   that a meaningful portion of                                                                face-to-face support for affected
+   residents neither firmly trust nor                                                          residents.
+   actively distrust The City, but may
+   be undecided or disengaged.
+   This “middle ground” continues
+                                               54%
+                                               of Calgarians trust The City
+                                                                                             Together, these changes improve how
+                                                                                             The City shows up for Calgarians during
+   to represent an opportunity                                                               water outages by providing clearer
+                                               consistent with
+   for The City to strengthen                                                                information, timely updates and more
+   trust through visible actions                  52% in Spring 2025 and                     accessible support when it matters most.
+   related to transparency, service
+                                                  higher than 38% in Spring 2024
+   performance, and responsiveness.
+
+Quarterly Report 2026 First Quarter                                                                               The City at a Glance   4
+                                                                                                                      EC2026-0394
+                                                                                                                     ATTACHMENT 2
+
+
+
+
+     Infrastructure
+     The City is building and caring for Calgary’s infrastructure to keep people safe,
+     support daily life and prepare for a growing city. We are improving how we
+     plan, deliver, maintain and operate critical assets. By prioritizing reliability and
+     predictability, we ensure essential services remain resilient and ready for the future.
+
+
+
+      City crews repaired a record 4,627 potholes in the first quarter, making
+      Calgary’s roads safer for travel despite challenging winter conditions.
+                                               Keeping water services reliable                 Meeting winter service
+   WHAT’S HAPPENING
+   IN THE COMMUNITY                            From March 9 to April 2, The City               commitments
+                                               completed emergency repairs and                 During Q1 2026, City crews met or
+   The condition of                            reinforced nine sections of the Bearspaw        exceeded service standards:
+   “infrastructure, traffic &                  South Feeder Main. The City’s water
+   roads” remains the top concern              demand was met throughout the                   • 100 per cent of Priority 1 and 2 routes
+   for Calgarians. In the 2026 Spring          repairs thanks to strong conservation             were cleared within committed
+   Survey of Calgarians, 39 per cent           efforts by residents, businesses and              timeframes, and
+   of respondents say it’s the most            regional customers and effective                • 92 per cent of pedestrian infrastructure
+   urgent issue needing attention.             communications driving water savings.             was cleared within 24 hours.
+   Satisfaction with Roads                     As a result of ongoing infrastructure           These results helped keep people
+   (40 per cent) and Water Services            investment and leak detection, water            moving safely during snow events and
+   (51 per cent) was below the                 outages dropped to about 8.26 per
+   citywide average (62 per cent).                                                             supported reliable access for transit,
+                                               1,000 properties in Q1 2026, down from          emergency services and daily travel.
+   These results align with 2026               11 per 1,000 in Q1 2025—a 25 per cent
+   Corporate Asset Management Plan             improvement. It is expected that service
+   findings, which show that while             disruptions will stabilize and gradually        Delivering capital projects
+   most City assets are in fair or better      decline as we continue to invest in our         for a growing city
+   condition, 13.4 per cent are                water infrastructure.                           Construction season typically runs
+   rated as Poor or Very Poor,                                                                 from April to November and is the
+   primarily concentrated in                   Improving road conditions                       primary window for delivering most
+   “roads, sidewalks, & pathways,”             across Calgary                                  capital projects. In 2026, Council
+   and water infrastructure.                                                                   authorized an additional $367 million to
+                                               Road concerns remain a top concern
+   These findings reinforce the                for Calgarians, and addressing aging            accelerate redundancy improvements
+   importance of continued, targeted                                                           through the Bearspaw Feeder Main
+                                               pavement continues to require sustained
+   investment and clear communication                                                          Improvement Project.
+                                               investment. As of Q1 2026, 24 per cent
+   about progress and trade‑offs.
+                                               of paved roads are in poor or very poor         With total capital commitments
+                                               condition, an improvement from 32 per           exceeding $4.4 billion, performance data
+                                               cent in 2025. Council’s one-time capital        at the end of Q1 shows The City is on
+                                               investment of $24 million in 2026 is            track to deliver more than 90 per cent
+                                               expected to help lower this figure further      of planned capital spending to deliver
+                                               to 23 per cent by year-end. Additional          reliable and sustainable infrastructure
+                                               program funding for 2027-2030 is
+                                                                                               for Calgarians.
+                                               required to meet the pavement quality
+                                               targets adopted by Council in 2024.
+
+
+
+  100%
+  Snow and ice control completion on
+                                                  34%
+                                                  Paved roadways in Good and
+  priority 1 & 2 routes within 24 hours           Very Good condition
+  unchanged from Q1 2025                             down from 38% in 2025
+
+
+Quarterly Report 2026 First Quarter                                                                                      Infrastructure     5
+                                                                                                                    EC2026-0394
+                                                                                                                   ATTACHMENT 2
+
+
+
+
+     Public Safety
+     All Calgarians should be safe and feel safe where they live, work, and travel throughout the city. The City works with
+     community partners to deliver a continuum of safety-related services and investments, from prevention to incident
+     response to foster a healthy, vibrant city where everyone feels safe, connected, supported, and that they belong.
+
+
+
+      Ninety-seven per cent of initial 9-1-1 calls were answered within 15 seconds,
+      up from 93 per cent the previous quarter, and surpassing the target of
+      95 per cent.
+                                            Emergency response improving                    Strengthening outreach and
+   WHAT’S HAPPENING
+   IN THE COMMUNITY                         through targeted investments                    access to services
+                                            For serious and escalating fires, 70 per cent   Community Peace Officers, through the
+   Safety remains a top                     of arrivals, with full resources on scene,      Vulnerable Persons Team, responded to just
+   priority for Calgarians                  met the 11 minute response time target          over 1,000 encampment-related concerns
+   In the 2026 Spring Survey of             in Q1 2026, down from 73 per cent in            in Q1 2026, 14 per cent fewer than the same
+   Calgarians, crime, safety and            Q1 2025. However, performance showed            period in 2025. Seasonal factors influence
+   policing continue to be the              improved travel times due to Council            response volumes, with typically fewer
+   second most important priority           investment in increasing staffing for aerial    calls in Q1 than in the warmer months.
+   (21 per cent), up three per cent         equipment and the January deployment            The decline is also due in part to increased
+   since last spring. Calgarians            of an additional frontline engine dedicated     collaboration with partners and an ongoing
+   are looking for integrated and           to strengthening coverage in lower              shift to focusing more on connecting
+   lasting solutions to address safety      density areas during peak demand.               people to health, housing and social
+   issues and their root causes.            These operational improvements, in              supports to improve longer-term outcomes.
+                                            combination with adjusting deployment           Demand for Fair Entry remains significant
+   Downtown reflects broader                strategies, will continue throughout
+   community pressures                                                                      with almost 12,600 Fair Entry applications
+                                            2026, and with future investment, help          processed in Q1 2026, a modest year over
+   According to the Community               increase resident and firefighter safety        year decrease following the surge seen
+   Safety & Wellbeing Indicator report,     by ensuring sufficient resources arrive         in 2024 and stabilization in 2025. Council
+   in the first quarter of 2026,            on scene quickly and reliably.                  approved base funding is expanding
+   downtown safety responses by
+                                            In Q1, initial 9-1-1 calls were answered        capacity, reducing wait times and
+   The City and our community partners
+                                            within 15 seconds, 97 per cent of the time.     improving accessibility, particularly for
+   increased by about 25 per cent
+                                            This exceeds the 95 per cent provincial         Calgarians with complex needs who rely
+   compared with the same period
+                                            standard and matches the previous year’s        on in person service.
+   last year (6,597 versus 5,282). These
+   responses include incidents related      Q1 performance after a difficult second
+   to social disorder (up four per cent),   half of 2025. Increased call volume and         Continued need to focus on
+   public safety (down four per             complexity are expected to continue             safety and wellbeing
+   cent), infractions (up 51 per cent),     challenging the service. Future operational
+                                            investments remain essential to keep pace       Population growth and rising complexity
+   and medical or mental health
+                                            with population growth and rising service       continue to place pressure on public
+   needs (up 108 per cent)—areas
+                                            demands to maintain response times.             safety systems. Investments are delivering
+   we track to understand where
+                                                                                            results, but sustained coordination
+   additional focus is needed. Part of
+   the rise in downtown responses                                                           and operational improvements remain
+   mirrors a citywide increase in                                                           critical to maintaining safety and public
+   drug poisoning incidents over
+   the same period, highlighting
+                                               25%
+                                               Increase in downtown safety
+                                                                                            confidence. The City is undertaking a
+                                                                                            coordinated, community wide approach to
+   how worsening health and social                                                          improve safety and wellbeing by focusing
+                                               responses in Q1 2026 (vs. Q1 2025)
+   challenges are contributing to                                                           on prevention, strengthening inclusion,
+   higher demand for coordinated               (Community Safety &                          reducing risk and responding quickly to
+   safety and wellbeing supports.              Wellbeing Indicator Report)                  safety concerns so public spaces feel safer
+                                                                                            and more welcoming for everyone.
+
+Quarterly Report 2026 First Quarter                                                                                     Public Safety      6
+                                                                                                               EC2026-0394
+                                                                                                              ATTACHMENT 2
+
+
+
+
+     Transit
+     A safe, reliable and well-maintained transit system that delivers dependable
+     service today, while sustaining infrastructure needed to support Calgary’s
+     long-term growth.
+
+
+
+      In Q1 2026, The City focused on improving transit service by hiring
+      99 new operators (33 now behind the wheel) and improving safety by
+      opening a fifth transit safety district office.
+                                            More transit peace                         Improving transit safety
+   WHAT’S HAPPENING
+   IN THE COMMUNITY                         officers patrol at select stations         Safety is the top concern of transit
+                                            A pilot initiative is underway that        customers. In the first quarter of 2026, our
+   Transit service is a                     places more transit peace officers at      customer safety rating was 74 per cent,
+   priority for Calgarians                  select LRT stations along the transit      below our target of 88 per cent.
+   In the 2026 Spring Survey of             system. It improves safety by targeting    To improve transit safety, The City added
+   Calgarians, transit was in the top       stations that experience higher levels     additional peace officers and a new district
+   five of the most prevalent issues        of social disorder.                        office, supporting officers to be closer
+   for Calgarians. This rating remains                                                 to customers, respond more quickly,
+   consistent from past years.              Haysboro garage opens                      and provide more consistent coverage.
+   Calgary Transit has made service         After two years of construction,           However, crime, social disorder and safety
+   changes over the past year and           the work on the Haysboro Light Rail        concerns continue to be a challenge on
+   will continue to make service            Vehicle storage building was completed.    the transit system, especially downtown.
+   improvements through 2026.               Features include safer storage capacity,
+                                            improved emergency egress, and             More reliability for customers
+   Transit continues to be a high           greater flexibility to move more           with increased number of
+   use service for Calgarians               customers more often—whether               operators
+   Calgary Transit is one of the            with three- or four-car trains.
+                                                                                       On-time performance was 86 per cent
+   more popular services used by                                                       in Q1 2026, an improvement over 2024
+   Calgarians. According to the 2026        Modernized Light Rail Vehicles             and consistent with recent years, though
+   Spring Survey, 67 per cent of            are better for customers                   still impacted by factors such as severe
+   people living in Calgary use the         Since 2015, 72 vehicles have been          winter weather. Reliability has stabilized
+   service. It shows the importance         modified so more light rail cars can       and is expected to improve as more
+   of connecting people and the             be interchangeable. A more flexible        improvements are implemented.
+   places they care about the               fleet means the number of vehicles         To support more reliable service for
+   most, whether it’s jobs, school,         available for customers can be increased   customers, Calgary Transit hired 99
+   appointments or community.               when needed.                               operators. Thirty-three are now delivering
+                                            These upgrades will extend vehicle life,   service, and more are completing training.
+                                            and improve customer and operator          These additions, alongside navigation
+                                            experience.                                technology upgrades on buses, are
+                                                                                       focused on reducing missed trips and
+                                                                                       improving on-time performance.
+
+
+
+
+                                              74%
+                                              Customer safety rating
+                                                                                         86%
+                                                                                         On-time Transit performance
+                                              vs. 2026 target of 88%                     vs. 2026 target of 90%
+
+
+Quarterly Report 2026 First Quarter                                                                                       Transit     7
+                                                                                                                    EC2026-0394
+                                                                                                                   ATTACHMENT 2
+
+
+
+
+     Housing
+     The City works every day to ensure that every Calgarian has access to a safe,
+     adequate, and affordable place to call home.
+
+
+
+
+      Although first-quarter 2026 housing development levels are below last
+      year’s record pace, progress on non-market housing remains steady, with
+      166 homes reaching the building permit approval stage, on par with 2025.
+                                            Improving supply, choice,                        Strong partnerships driving
+   WHAT’S HAPPENING
+   IN THE COMMUNITY                         affordability                                    affordable Housing
+                                            Calgary continues to make progress               In Q1 The City continued to work closely
+   Economic pressures                       under The City’s Housing Strategy                with our housing partners on several
+   intensifying                             as the housing market shows signs                projects including:
+   Calgary continues to experience          of stabilization alongside sustained,            • The $10 million Backyard Suites
+   strong population growth                 historically high construction activity. In        Incentive Program is expected to
+   alongside rising affordability           2025, more than 27,000 homes received              create 290-320 units.
+   pressures. In early 2026, higher         occupancy, and Calgary led the country
+                                            with over 23,000 housing starts.                 • The Downtown Non-Market Office
+   oil prices drove up transportation
+                                                                                               Conversion Grant awarded over
+   and shipping costs, contributing         Housing activity remained resilient in Q1          $10 million to create 128 non-
+   to a sharp increase in household         2026 following record permit volumes in            market homes.
+   living expenses. The consumer            2025. Development permits for market
+   inflation rate was 2.2 per cent          housing were lower than Q1 2025 but              • Round Two of the Housing Capital
+   year over year during March              remained above 2024 and earlier years.             Initiative awarded $29 million to
+   2026. These inflationary                 Non-market permit volumes were also                deliver 566 non-market homes
+   pressures are impacting all              lower year over year but in line with the          through eight projects.
+   Calgarians in their daily costs.         recent three year average. This pattern aligns   • Maa’too’maa’taapii Aoko’iyii’piaya
+   While these increases affect             with typical seasonal trends, where activity       is a historic $33 million investment
+   all households, they place a             slows in the first quarter following elevated      that has enabled 379 new non-market
+   disproportionate burden on               fourth quarter volumes. Overall, indicators        homes for Indigenous Calgarians.
+   those already experiencing               are improving as Calgary works to close a
+                                                                                             As 2026 progresses, The City will
+   housing insecurity. Even relatively      significant affordability gap that has only
+                                                                                             continue working with partners to
+   modest cost increases can have           widened over the past several years.
+                                                                                             deliver approved projects, unlock new
+   destabilizing effects, making it                                                          opportunities, and advance policies
+   more difficult for households                                                             and investments that help ensure more
+                                              Development permits
+   to maintain stable living                                                                 Calgarians can access a safe, suitable and
+                                              approved in Q1
+   arrangements and meet basic
+                                              4,572
+                                                                                             affordable place to call home.
+   needs (March Inflation Review).
+                                                             market homes
+   Housing pressures remain
+   significant across the city.
+   Although we have seen slight
+                                              58      non-market homes
+
+   declines, rents have doubled since
+   2019, and non-market housing
+   supply continues to fall short of          Building permits approved in Q1
+   the annual target of 3,000 homes,
+                                              4,821                                            Occupancy in Q1
+
+                                                                                               6,633
+   limiting options for households                           market homes
+   facing affordability challenges.
+                                              166        non-market homes
+                                                                                                          new homes
+                                                                                               granted occupancy
+
+
+Quarterly Report 2026 First Quarter                                                                                         Housing       8
+                                                                                                            Note: Due to rounding, values presented throughout this document may not add precisely to the totals                                EC2026-0394
+                                                                                                            provided and percentages may not precisely reflect the absolute values. Throughout the document,
+Key Performance Measures                                                                                    dollar values are presented in millions unless otherwise stated. Unless otherwise stated, annual numeric
+                                                                                                            values reflect summed quarterly totals and annual percentages reflect weighted full-year calculations.
+                                                                                                                                                                                                                                               ATTACHMENT 2
+
+
+                                                                                                                                                                                                                            2026
+                         Key Performance Measures                                                                                                                           2022      2023       2024         2025            Q1                     Target
+                        % total debt to Council debt limit                                                                                                                     41%      40%        40%         38%   1
+                                                                                                                                                                                                                             48%                     48%2
+
+
+
+
+ The City at a Glance
+                        City of Calgary credit rating (Standard & Poor’s ‘S&P rating’)                                                                                         AA+      AA+        AA+         AA+            N/A                AA+ rating
+                        Financial stability ratio (fiscal stability reserve %)                                                                                               12.8%    10.2%      12.6%        9.2%1         9.1%1                   10.2%3
+                        Business license applications that have been submitted and completed online - Ease of Service (%)                                                      N/A      70%        63%         69%           66%            80% by end of 2026
+                        311 Telephone Service Factor (% of calls answered in 60 seconds or less)                                                                               N/A      36%        56%         87%           94%            80% by end of 2026
+                        Trust in The City of Calgary (%)                                                                                                                       48%      47%        40%         50%           54%                     N/A
+                        % of Calgarians satisfied with overall City services                                                                                                   69%      68%        63%         64%           62%                     N/A
+                        Facility Management Assets in Poor & Very Poor Condition (%)                                                                                           16%      16%        13%         12%           12%                    <17%
+                        Paved roadways in Good & Very Good Condition (%)                                                                                                       41%      38%        38%         38%           34%            35% by end of 2026
+                        Cumulative lane-kilometres of road repaved                                                                                                              300     265         400         449           N/A        303 km planned for 2026
+                        Sidewalks in Good & Very Good Condition (%)4                                                                                                           87%      87%        87%         67%           67%                     N/A
+
+
+
+
+ Infrastructure
+                        Pathways in Good & Very Good Condition (%)          4
+                                                                                                                                                                               79%      67%        79%         87%           87%                     N/A
+                        Park Assets in Poor & Very Poor Condition (%)                                                                                                          18%      23%        19%         19%           18%           < 22% by end of 2026
+                        Cumulative number of repaired potholes (Year-to-Date)                                                                                               16,082    33,490     37,850      35,855         4,627                    N/A
+                        Cumulative kilometres of concrete sidewalk repairs completed                                                                                             34      40          38           32          N/A                    N/A
+                        Snow and ice control completion on priority 1 & 2 routes within targeted timeframes (%)                                                                94%      98%       100%        100%          100%       95% annually by end of 2026
+                        Snow and ice control completion on pedestrian infrastructure within targeted timeframes (%)                                                            64%      74%        75%         97%           92%       95% annually by end of 2026
+                        Properties impacted by water outages per 1000 properties                                                                                                 26      41          29           43         8.26      < 33 annually by end of 2026
+                        Initial 9-1-1 calls answered within 15 seconds (%)                                                                                                     96%      95%        95%         94%           97%                95% annually
+
+
+ Public Safety
+                        % of responses to serious and escalating fires (where two engines, one aerial unit, and a minimum of 12 fire fighters arrived) within 11 minutes     63.8%    70.1%      70.9%       75.4%         69.5%           74.4% by end of 2026
+                        Number of responses to encampment sites                                                                                                               5,881   11,065     10,148       9,573         1,046      5,600 per year by end of 20265
+                        Number of applications processed for the Fair Entry program                                                                                         47,167    61,841     74,980      77,874        12,574     80,000 per year by end of 2026
+                        Total number of transit trips (Calgary Transit ridership) (millions)                                                                                   56.9     90.0       93.76        93.1         22.2                    N/A
+
+ Transit
+                        Trips that arrive within a specified period (%), (i.e. bus on-time performance)                                                                        88%      85%        84%         85%           86%       90% annually by end of 2026
+                        Customer safety rating rate on Transit (%)                                                                                                             65%      71%        74%         74%           74%       88% annually by end of 2026
+                        Number of new market homes with development permit approval                                                                                         13,900    14,300     22,500      23,650         4,572                    N/A
+                        Number of new market homes with building permit approval                                                                                            16,391    19,574     25,095      25,770         4,821     14,252 per year by end of 2026
+
+
+ Housing
+                        Number of new non-market homes with development permit approval7                                                                                        185      94         893       1,836            58               3,000 per year
+                        Number of new non-market homes with building permit approval7                                                                                           158     152         121         643           166               3,000 per year
+                        Total new housing units granted occupancy       7
+                                                                                                                                                                            14,261    16,302     21,542      27,965         6,633                    N/A
+                        New housing units completed in Calgary’s Downtown through the conversion of office properties7                                                         N/A      N/A         112         486           195    8898 cumulative from 2024-2026
+
+1 Metric measured is reported as of end of annual or quarterly reporting period vs.                 4 Previously reported “Sidewalks and Pathways in Good and Very Good condition”    7 Metric measured as of the end of quarterly or annual reporting period. The approved
+  an average over that timeframe.                                                                     measure was split into two separate measures to provide more accurate and         permits and unit counts can vary due to file cancellations, appeals, and subsequent
+2 The target Council debt limit increase from 45% in 2025 to 48% in 2026 is primarily                 meaningful asset condition reporting.                                             file manager updates.
+  attributed to an increase in self-supported debt for utilities.                                   5 This metric and target will be re-evaluated for the next budget cycle.          8 Cumulative target clarified from previous report.
+3 Fiscal Stability Reserve must maintain a minimum balance of five per cent of The City’s           6 Updated values based on switch to Automatic Passenger Counting technology on
+  operating, tax-supported gross expenses (net of recoveries).                                        CTrains (vs. manual approach).
+
+Quarterly Report 2026 First Quarter                                                                                                                                                                                          Key Performance Measures                     9
+                                                                                                                          EC2026-0394
+                                                                                                                         ATTACHMENT 2
+
+
+
+
+     Financial and Economic Update First Quarter
+     (Year-to-date as of March 31, 2026)
+
+
+
+
+     Operating Budget Overview
+
+      Net Budget – comparison to Actuals                                                              Favourable/
+      For the period ended March 31 ($ in millions)            YTD Budget                Actual    (Unfavourable)             Forecast
+      Operational Services                                               196                183                  13                    0
+      Community Services                                                 162                145                  17                    2
+      Calgary Police Service                                             151                147                   4                    0
+      People, Innovation & Collaboration Services                         82                 82                   0                  (2)
+      Civic Partners                                                      44                 43                   1                    0
+      Infrastructure Services                                             33                 33                   0                  (2)
+      Planning & Development Services                                     31                 26                   5                    8
+      Law, Legislative Services & Security                                27                 23                   4                    0
+      Corporate Planning & Financial Services                             22                 21                   1                  (1)
+      Chief Operating Office                                               5                   9                 (4)                   0
+      Council                                                              4                   3                  1                    1
+      Chief Administrative Office                                          3                   2                  1                    0
+      Less: Corporate Programs                                           170                172                   2                  79
+      Total                                                             590                 545                  45                  85
+
+     As of March 31, 2026, The City had a favourable operating variance of $45 million, consisting of a combined $43 million
+     across several departments and $2 million in Corporate Programs.
+     The $43 million favourable variances across departments is explained below:
+     • Operational Services: $13 million favourable variance. This is due to favourable $12 million revenue from a combination
+       of higher transit pass sales, increased aggregate and asphalt sales, and higher revenues from parking enforcement and
+       mobility permitting. This is offset by $2 million delayed investment allocation in March related to utilities sustainment
+       and waste and recycling reserves. On the expense side, $26 million below budget is primarily due to $22 million in Water
+       Services due to delayed work associated to capital projects and $4 million in other business units. Other favourable
+       variances include $8 million in lower salary and wage costs due to the timing of seasonal work, milder temperatures and
+       staff recoveries from capital project work in Water Services. These are offset by $31 million due to timing of reserve transfers.
+     • Community Services: $17 million favourable variance. This includes $13 million in lower salary and wage costs due to
+       recruitment delays, including impacts from Training Academy renovations and limited training capacity for the Transit
+       Public Safety pilot. The remaining variance includes $2 million from higher-than-expected revenue at recreational
+       facilities, $1 million in unbudgeted one-time government grants for the Youth Employment Centre and Home Services
+       for Seniors and $1 million due to the timing of projects planned for Q3.
+
+
+
+
+Quarterly Report 2026 First Quarter                                                             Financial and Economic Update First Quarter   10
+                                                                                                                          EC2026-0394
+                                                                                                                         ATTACHMENT 2
+
+
+
+
+     • Calgary Police Service: $4 million favourable variance due to $3 million in salary and wages from vacancies and sickness
+       and accident recoveries. It also includes $1 million underspent budget in contract and general expenditures.
+     • Planning & Development Services: $5 million favourable variance. This includes $7 million in higher permit revenue and
+       $1 million from additional sales of goods and services. Expenses are $9 million below budget due to delays in multiple
+       one time initiatives and programs. Other expenses under budget include $9 million in Downtown Conversion incentives
+       and $2 million salary and wage costs due to vacant positions. These are offset by $23 million in reserve activity due to
+       higher than budgeted revenue, lower than budgeted spend in fee supported expenditures and timing differences in
+       budgeted reserve withdrawals due to delayed downtown office conversion incentives.
+     • Law, Legislative Services & Security: $4 million favourable variance. This includes $2 million from lower insurance claims
+       and premiums and higher settlement revenue due to timing. It also includes $1 million in lower salary and wage costs
+       due to vacancies and $1 million from lower-than-expected spending on contract services.
+     • Other Departments: $0 million favourable variance. The $4 million favourable variance from other departments
+       ($1 million each in Council, Corporate Planning & Financial Services, Civic Partners, and the Chief Administrative Office)
+       is fully offset by $4 million unfavourable variance in the Chief Operating Office. $4 million favourable variance is mainly
+       due to timing differences and lower salary and wage costs from vacancies, while $4 million unfavourable variance is
+       driven by timing differences in expenditures for the Housing Land Fund and the Prairie Economic Gateway initiative.
+     Corporate Programs favourable variance of $2 million is primarily due to higher Franchise Fees from ATCO and ENMAX.
+     The City is forecasting an $85 million favourable year-end operating variance due to higher investment income of $15 million,
+     $50 million in savings from unrequired corporate provisions and other expenditures and $20 million in lower than
+     budgeted salary and wages due to vacancies.
+
+     Progress on Council Operating Amendments
+     During the November 2024 Mid-Cycle Adjustments to the 2023–2026 Business Plans and Budgets, Council approved
+     $6.6 million in one-time high priority operating budget amendments for 2025 and 2026.
+     In 2025, $3.9 million of the total approved $6.6 million was spent with $2.7 million remaining to be spent in 2026. The table
+     below summarizes these amendments, and the progress Administration has made in delivering these investments.
+
+                                                                              2026
+                                      Amendment          Total      2025      YTD
+      Department                      ($ millions)      Budget     spend     Spend    Progress update
+                                                                                      Funding was spent mainly on Arts & Culture’s
+                                                                                      Downtown in Motion grants to support creating
+                                                                                      vibrant, inclusive and financially sustainable
+                                      Better Services
+      Planning & Development                                                          arts, culture and sports initiatives in Calgary’s
+                                      & More Events        2.0       1.0       0.7
+      Services                                                                        greater downtown; cSpace Historic Fire Hall 1
+                                      Downtown
+                                                                                      operations and facility maintenance. Additional
+                                                                                      investments were made in Eau Claire Plaza
+                                                                                      operating and maintenance.
+                                                                                      Funding is supporting community-based equity
+                                      Preventative
+      Community Services                                   1.5       0.8       0.7    organizations such as new immigration, social
+                                      Social Services
+                                                                                      well-being and inclusivity. Funding is fully spent.
+                                                                                      Funding tax cancellation for historic resource
+      Planning & Development          Heritage                                        properties. Tax cancellation credits will be
+                                                           1.3       0.5       0.0
+      Services; Corporate Programs    Conservation                                    applied in Q2 to align with the processing of
+                                                                                      the 2026 annual property tax bills.
+
+
+
+
+Quarterly Report 2026 First Quarter                                                           Financial and Economic Update First Quarter   11
+                                                                                                                                        EC2026-0394
+                                                                                                                                       ATTACHMENT 2
+
+
+
+
+                                                                                         2026
+                                           Amendment             Total         2025      YTD
+      Department                           ($ millions)         Budget        spend     Spend      Progress update
+                                                                                                   Consulting work on assessment and
+                                                                                                   benchmarking was completed in 2025 with
+                                           Improving
+      People, Innovation &                                                                         further reporting and commitments presented
+                                           Engagement              0.8         0.7          0.0
+      Collaboration Services                                                                       to decision makers in 2026. Remaining funding
+                                           with Calgarians
+                                                                                                   will support initial implementation through a
+                                                                                                   focused business plan.
+                                                                                                   Funding was used for the operations and
+      Community Services                   Inglewood Pool          0.8         0.8          0.0    maintenance of the Inglewood Pool. Funding
+                                                                                                   fully spent in 2025.
+                                                                                                   2025 funding was committed to His Majesty’s
+                                                                                                   Canadian Ship Calgary 30th Anniversary ($65K),
+                                                                                                   Grey Cup Committee ($25K) and the Carnaval
+      Community Services                   Event Funding           0.2         0.1          0.1    Committee ($25K). 2025 was fully spent.
+                                                                                                   Remaining 2026 funding allocated between
+                                                                                                   Grey Cup Committee ($25K) and the Carnaval
+                                                                                                   Committee ($25K) and funding is fully spent.
+
+      Total                                                        6.6         3.9          1.6
+
+
+
+
+     Capital Budget Overview
+
+      Net Budget – comparison to Actuals                                                            YTD                       Year-End       Year-End
+      For the period ended March 31 ($ in millions)                2026            2026           Spend Remaining             Forecast       Forecast
+                                                                 Budget           Actual            Rate  Budget                    ($)           (%)
+      Infrastructure Services                                       2,866             376           13%           2,490           2,764            96%
+      Operational Services                                            883             110           12%             773             712            81%
+      Chief Operating Office                                          259              13             5%            246             239            92%
+      Civic Partners                                                  141              18           13%             123             135            96%
+      Community Services                                                 89             9           10%               80              69           78%
+      Planning & Development Services                                    66             5             8%              61              52           79%
+      Calgary Police Service                                             63             3             4%              60              35           56%
+      People, Innovation & Collaboration Services                        57             7           12%               50              46           81%
+      Corp Planning & Financial Services                                 16             0             2%              16              15           94%
+      Law, Legislative Services & Security                               9              2           20%                7               9         100%
+      Chief Administrative Office*                                       0              0            0%                0               0           50%
+
+      Total                                                        4,449              543          12%            3,906          4,076            92%
+
+     * Chief Administrative Office (CAO) showing zero budget due to rounding. In 2026, CAO has a capital budget of $299,631 with a forecast spend of
+       $149,815 which equals to 50 per cent forecast spend rate.
+
+
+
+
+Quarterly Report 2026 First Quarter                                                                         Financial and Economic Update First Quarter   12
+                                                                                                                       EC2026-0394
+                                                                                                                      ATTACHMENT 2
+
+
+
+
+     First quarter highlights:
+     The City remains focused on delivering high priority infrastructure to ensure safe and reliable service to Calgarians. As of
+     March 31, 2026, The City spent $543 million, or 12 per cent, of its $4.4 billion capital budget. This is on par with spend in
+     2025, where The City achieved a high spend rate by year end. The City typically sees the capital spend rate increase in the
+     second half of the year due to the seasonality of the construction industry. The same is expected this year.
+     During the first quarter of 2026, several major infrastructure milestones were completed across the city. These milestones
+     demonstrate The City’s continued dedication to building stronger communities and improving everyday life for Calgarians.
+     This period also highlighted The City’s resilience in managing critical utility infrastructure.
+     On December 30, 2025, the Bearspaw South Feeder Main experienced a catastrophic break, disrupting water service until
+     repairs were completed on January 16, 2026. Due to the critical nature and its importance, The City had a planned outage
+     to reinforce nine pipe segments near 16 Avenue NW and Point McKay, requiring Stage 4 water restrictions for four weeks.
+     Additional work included valve replacements and inspection of the connection to the Bearspaw Water Treatment Plant.
+     Construction was completed, and full water service was restored on time on April 2, 2026.
+     The Scotia Place Event Centre remains on track to open for the 2027 hockey season with construction progressing as
+     planned. Connectivity improvements continue with the 6th Street SE underpass progressing with CPKC Rail line detour,
+     keeping momentum for a Fall 2028 opening.
+     The Green Line LRT – SE Project made strong progress in the first quarter of 2026. Two construction projects initiated in the
+     second half of 2025 achieved substantial completion early in Q1 2026, while construction continues at three key locations
+     along the alignment.
+     The Blue Line NE Extension continues to advance through preliminary design, with LRT alignment approaching finalization.
+     Detailed design work is advancing for MAX Green and MAX Purple improvements.
+     Design work is complete for the Symons Valley Centre (future site of a new library and community commons) and
+     construction will commence this summer. The Glenbow Renovation project reached a major milestone with partial
+     occupancy granted and the associated Plus 15 reopening to the public. The Confluence Historic Site & Parkland celebrated
+     the grand opening of the Holy Gathering Place, providing a dedicated space for Indigenous ceremony and programming.
+     Work is underway to address lifecycle, operational and maintenance needs at fire stations.
+
+     Progress on Council Capital Amendments
+     During the November 2024 Mid Cycle Adjustments to the 2023 – 2026 Business Plans and Budgets, Council approved
+     $47.4 million in high priority capital budget amendments for 2025 and 2026.
+     In 2025 $20.8 million of the total approved $47.4 million was spent with $26.6 million remaining to be spent in 2026.
+     The table below summarizes these amendments, and the progress Administration has made to date.
+
+                                                                        2026
+                        Amendment                    Total     2025      YTD
+      Department        ($ millions)               Budget     Spend    Spend Progress update
+      Operational       Pavement Rehabilitation
+                                                       20.0     20.0       0.0 Project completed and fully spent in 2025.
+      Services          & Reconstruction
+                                                                               Project is in detailed design. Design is expected
+      Infrastructure Village Square Leisure
+                                                       15.0      0.0       0.0 to be completed in June 2026, with construction
+      Services       Center Service Cycle
+                                                                               beginning later in 2026 and continuing into 2027.
+      Calgary        Indoor Training Facility                                    Project ongoing, with completion targeted for
+                                                        9.5      0.0       0.6
+      Police Service (Firearms Range)                                            March 2027.
+      Infrastructure Parks & Playground                                          Project ongoing. Anticipate spending remaining
+                                                        2.5      0.5       0.0
+      Services       Amenities Upgrades                                          budget by end of 2026.
+
+      Community         Inglewood Pool
+                                                        0.4      0.3       0.0 Repairs and upgrades completed in 2025.
+      Services          Upgrades
+
+      Total                                           47.4      20.8      0.6
+
+
+
+
+Quarterly Report 2026 First Quarter                                                          Financial and Economic Update First Quarter   13
+                                                                                                                                                      EC2026-0394
+                                                                                                                                                     ATTACHMENT 2
+
+
+
+
+     Debt Overview
+     Treasury maintains a long-term forecast of the Council approved debt limits. This helps assess the current and future
+     impact on these limits from the use of debt for approved and prospective long-term capital plans. Council approved debt
+     limits in The City’s Debt Policy that have more stringent limits than those set out for other local authorities in the Municipal
+     Government Act, including:
+     • Debt Limit - Total Debt shall not exceed 1.6 times revenue;
+     • Debt Service Limit - Total Debt Service shall not exceed 0.28 times revenue; and
+     • Tax Supported Debt Service Limit - Tax-Supported Debt Service shall not exceed 10 per cent of Tax-Supported Gross
+       Expenditures (Net of Recoveries).
+     In the fiscal year 2025, the capacity within The City’s Debt Limit and Debt Service Limit improved primarily due to a modest
+     increase debt outstanding and debt servicing costs relative to a higher percentage increase in revenues. The fiscal year
+     forecast for 2026 as prepared in Q1 2026, assumes a reduction in capacity within The City’s Debt Limit and Debt Service
+     Limit that is primarily attributed to increase in self-supported debt for utilities, excluding ENMAX.
+
+
+
+        Debt Limit Trend1                                                                Debt Service Limit Trend2
+        $ millions                                                                       $ millions
+        9,000                                                                            1,600
+
+        8,000                                                                            1,400
+
+        7,000
+                                                                                         1,200
+        6,000
+                                                                                         1,000
+        5,000                                                                                                                                                 53%
+                                                                          48%              800                                     54%           51%
+        4,000                                                                                           48%           46%
+                       41%          40%         40%          36%                           600
+        3,000
+                                                                                           400
+        2,000
+
+        1,000                                                                              200
+
+             0                                                                                0
+                       2022        2023         2024         2025       Q1 2026                         2022          2023         2024          2025       Q1 2026
+
+     1 The target Debt Limit for 2026 of 48% is attributed to 43 per cent long-term   2 The target Debt Service Limit for 2026 of 53 per cent is attributed to 26 per cent
+       debt and 5 per cent short-term debt.                                             long-term debt and 27 per cent short-term debt.
+
+
+                        ■ Tax supported debt ■ Self sufficient tax supported ■ Self supported tax supported                     Council debt limit
+
+
+
+
+Quarterly Report 2026 First Quarter                                                                                  Financial and Economic Update First Quarter             14
+                                                                                                                         EC2026-0394
+                                                                                                                        ATTACHMENT 2
+
+
+
+
+     Economic Overview
+
+     Alberta
+     Alberta’s economy has remained relatively resilient despite the uncertainty from tariffs. Alberta has been less affected
+     because many goods are exempt under the Canada-United States-Mexico Agreement (CUSMA) and because some
+     businesses were able to export products ahead of time to avoid potential tariffs. This helped protect Alberta’s exports
+     throughout 2025. The recent increase in oil prices will help buoy the Alberta economy but will add to the affordability
+     challenges to households.
+     The Bank of Canada has maintained its key policy interest rate at 2.25 per cent. The Bank is closely watching the impact
+     of oil prices and trade uncertainty and expects inflation to increase in the second quarter before trending back to 2 per cent
+     in 2027. Business and consumer confidence has continued to slowly improve through the first quarter of 2026, although
+     this was largely before the Middle East conflict. Equity markets have been volatile, starting the year strong before dropping
+     in response to the conflict. Markets have largely recovered since the start of the second quarter. However, investment
+     and job market activity could still be disrupted because of ongoing market volatility and concerns about weaker global
+     economic growth.
+
+     Calgary
+     Calgary’s economy is also expected to remain strong. Growth is expected to fall from 3.7 per cent in 2025 to 2.0 per cent
+     this year, but that is largely due to slower population growth resulting from federal immigration policy.
+
+     Table 1: Key economic indicators in Calgary
+                                                               2025 Actual               2026 Forecast                YTD-2026 (Q1)
+      Inflation rate (per cent)                                          2.1                          2.3                           2.0
+      Employment (‘000 persons)                                     1,046.5                      1,070.6                       1,062.4
+      Unemployment rate (per cent)                                       7.4                          6.6                           6.7
+      Housing starts (CoC) (‘000 units)                                23.4                         20.2                            4.3
+
+     Inflation
+     Consumer prices in Calgary rose 2.0 per cent (year over year) in the first quarter of 2026. Inflation has remained lower partly
+     because the consumer carbon tax was removed, but this effect will no longer be a factor beginning in April. Higher oil prices
+     will likely push inflation up through the rest of the year as higher transportation costs begin affecting the costs of many goods.
+     Insurance costs are one of the biggest factors driving inflation. Vehicle insurance has pushed transportation costs up while
+     home insurance costs continue to rise due to recent hailstorms in Calgary.
+
+     Housing Construction
+     Calgary remains the national leader in homebuilding. While starts are down from last year, the city had the most housing
+     starts and completions in the country. Housing starts are expected to finish the year lower than the record in 2025, but still
+     high relative to historical averages.
+
+     Labour Market
+     Calgary’s unemployment rate in the first quarter was 6.7 per cent, down from the 2025 average of 7.4 per cent. Job growth
+     is expected to be slower this year, mainly due to slower population growth. As a result, the unemployment rate is expected
+     to remain below 2025. A mismatch between worker skills and employer needs in key industries such as health care,
+     construction and technology continues to be a challenge.
+
+     Outlook
+     Overall, Calgary’s economy remains resilient. But there are still significant risks and policy uncertainties that could slow
+     growth in 2026.
+
+
+
+
+Quarterly Report 2026 First Quarter                                                            Financial and Economic Update First Quarter   15
+

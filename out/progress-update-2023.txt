@@ -1,0 +1,1237 @@
+                                                                                                       EC2024-0291
+                                                                                                     ATTACHMENT 3
+
+
+
+
+                                                      2023 Progress
+                                                      Update Report
+23-0034398 ADV-24843
+
+
+
+
+                                                      Making life better every day
+                       ISC: UNRESTRICTED
+                        2023 Progress Update Report                         2023 Progress Update Report        1
+      The Calgary area, where the Bow and Elbow rivers meet, is a place of confluence
+      where the sharing of ideas and opportunities naturally come together. Indigenous
+      peoples have their own names for this area that have been in use long before
+      Scottish settlers named this place Calgary. The Métis call the Calgary area
+      Otos-kwunee. In the Blackfoot language, they call this place, Moh-kins-tsis.
+      The Stoney Nakoda Nation refer to the Calgary area as Wicispa Oyade and the
+      people of the Tsuut’ina nation call this area Guts-ists-i.
+      We would like to take this opportunity to appreciate and acknowledge that we are
+      gathered on the ancestral and traditional territories of the Blackfoot confederacy,
+      made up of the Siksika, Piikani, Amskaapipiikani and Kainai First Nations; the
+      Îethka Nakoda Wîcastabi First Nations, comprised of the Chiniki, Bearspaw, and
+      Goodstoney First Nations; and the Tsuut’ina First Nation. The City of Calgary is also
+      homeland to the historic Northwest Métis and to Métis Nation of Alberta, Region 3.
+      We acknowledge all Indigenous people who have made Calgary their home.
+
+
+
+
+      Introduction
+      The City of Calgary’s vision is to make Calgary a great place to make a                 Contents
+      living, a great place to make a life. The 2023 Progress Update is designed              Introduction.....................................................2
+      to inform the public and Council on what we are doing to achieve our                    Key results. .......................................................3
+      common purpose of making life better every day. This report provides                       Housing........................................................3
+      our key results and progress on Council’s priority areas, financial updates                Public safety. ..............................................5
+      on our 2023 operating and capital budgets, and key improvements to                         Transit. ..........................................................8
+      our service delivery. It supports Council to provide good governance and                   Social equity............................................ 10
+                                                                                                 Climate. ..................................................... 12
+      provides insights on our service performance to help make decisions
+                                                                                                 Downtown revitalization.................... 14
+      about where more investment may be needed and where we might
+                                                                                                 Land use & local area planning. ....... 16
+      make reductions to keep taxes affordable.
+                                                                                              Continuous improvement. ...................... 18
+      2023 service updates are provided at calgary.ca/progressupdate, which                   Financial updates........................................ 19
+                                                                                                 Operating budget overview.............. 20
+      includes key results, challenges faced during 2023, trends and potential
+                                                                                                 Capital budget overview. ................... 21
+      uncertainties monitored by services, performance measures and
+                                                                                                 Debt overview........................................ 22
+      financial performance. These updates provide Council and Calgarians
+                                                                                              Looking ahead. ............................................ 23
+      the opportunity to dive deeper into the results of our services in 2023.                   Progress status. ...................................... 23
+      Attachment 4: Services Updates is a compilation of all of this service                     Service challenges . .............................. 23
+      information, provided in one document for the corporate record.
+
+      In 2024, Corporate Planning and Performance will review, simplify and
+      streamline the organizational approach to progress and performance
+      reporting, ensuring a clear focus on refining the reporting process to
+      capture priority outcomes and indicators.
+
+
+
+2023 Progress Update Report                                                                                                           Introduction                      2
+      Key results
+
+
+      Housing
+      Community impacts
+      Well-located, secure and affordable housing is fundamental to
+                                                                                                          Net migration estimates (000’s persons)
+      individuals’ wellbeing, healthy communities, financial stability and                   35
+                                                                                                                                                          33.1
+      prosperous economic activities. We are closely monitoring the city’s                   30
+
+      population growth and net migration, the number of total housing                       25
+
+      starts and household spending trends to get a clear sense of the need                  20
+                                                                                                                                     19.69
+                                                                                             15
+      for housing. The city of Calgary’s 2023 population was estimated at                    10
+      1,389,200 (lower-bound), which includes a net migration estimate of                     5
+                                                                                                                        6.12
+
+      33,100 people, reflecting a three per cent unprecedented population                     0
+
+      increase. 1                                                                                             2021                2022                    2023
+
+
+
+      Housing starts reached a record high of 16,679 units in 2023, beating the previous                                Total Calgary housing starts
+      record of 14,767 units in 2022. Continued positive net migration is fueling housing     18,000
+                                                                                                                                                                        16,679
+      starts which have increased by 31.1 per cent between 2021 and 2023. Investment          16,000
+                                                                                              14,000
+      in purpose-built rental apartment construction increased solidly to respond to the      12,000
+                                                                                                                                                14,767
+                                                                                                                12,722
+      surging population growth. There is also a shift in housing preferences towards         10,000
+      apartments as the higher interest rate environment continues to challenge                   8,000
+
+      homeownership and affordability.                                                            6,000
+                                                                                                  4,000
+      The 2023 Housing Needs Assessment report shows that the median cost of a                    2,000
+                                                                                                     0
+      detached home has increased by 37 per cent in the past three years. For those                                  2021                2022                    2023
+      looking to rent, an annual income of $84,000 was needed to adequately afford
+      average market rent in 2023. That number has increased from $67,000 in 2022.
+      In the 2023 Fall Survey of Calgarians Report, 92 per cent of Calgarians believe that
+      housing is too expensive for the average Calgarian. Another 90 per cent feel that
+      The City should invest more into affordable housing programs for low-income
+      Calgarians.
+
+
+
+
+      1         Source: City of Calgary Corporate Economics and Regulatory Affairs
+
+
+
+
+2023 Progress Update Report                                                                                                                 Key results                          3
+      From a geographical perspective, the rate of Calgary
+      households living in unaffordable housing is not evenly
+      distributed across the city. This map shows households that
+      are spending 30 per cent or more on shelter costs by census
+      tract. While 23 per cent of households fall in this category at
+      the city level, there are areas where that percentage is as high
+      as 37 per cent.
+
+      What we did
+      Addressing the affordable housing gap is a priority for The
+      City as affordable housing needs are expected to reach
+      close to 100,000 units by 2026. In 2023 September, Council
+      approved the Home is Here - The City of Calgary‘s Housing
+      Strategy 2023-2030. We are coordinating the Implementation
+      and Governance Framework for the strategy. To further
+      accelerate this work, during the 2023 November Adjustments,
+      Council approved funding for the Land Fund, Secondary Suites Incentive Program,                       Number of new affordable units
+                                                                                                        planned for development by non-market
+      Downtown Strategy, One Window, housing for Indigenous and equity-deserving                         housing providers that are supported
+      populations and funding requirements from other orders of government.                                     through City initiatives
+      Specifically, Council approved an additional $27 million base operating and $54.4       2500
+                                                                                                                                                                      2000
+      million one-time operating in 2024 to implement key actions of the Housing              2000
+      Strategy and $90 million capital (2024-2028) to improve access to affordable            1500
+      housing. (See 2023 November Adjustments Attachment 5 - New Investment
+      Recommendations)                                                                        1000
+
+                                                                                                        325               436
+      The City secured federal funding through the third Rapid Housing Initiative              500
+                                                                                                                                   129           227
+                                                                                                                  65
+      program. This funding was stacked with $2 million in City support to build a                  0
+      minimum of 64 new affordable housing units in partnership with the non-profit                      2019      2020    2021    2022    2023        2024    2025     2026
+
+      housing sector. Most notably, The City signed the federal Housing Accelerator Fund
+                                                                                               See Performance Measure 2 of Affordable Housing
+      Contribution agreement for $228 million to build over 6,800 housing units in the
+      next three years.
+      Further, The City committed $2.56 million to eight affordable housing projects. The
+      Home Program disbursed 100 per cent of its annual grant funding of $0.98 million                          Number of affordable housing
+                                                                                                                   units built through the
+      to 12 non-profit applications to deliver programs that will improve housing stability
+                                                                                                                Non-Market Housing Land Sale
+      and support successful tenancies.                                                       140
+                                                                                                                                                                      119
+                                                                                              120
+      A total of 227 new non-market housing units have been approved at the
+                                                                                              100
+      development approval stage of the planning approval process and 57 units were                                       74
+                                                                                               80
+      opened from the Non-Market Land Sale. The third sale of three surplus City-owned                                                    57
+                                                                                               60
+      parcels will result in approximately 104 units, pending land use and development
+                                                                                               40
+      permit approvals. Administration approved five sites yielding 289 units, which is                          27
+                                                                                               20
+      currently pending Council approval.                                                                 0                        0
+                                                                                                0
+                                                                                                        2019      2020    2021    2022    2023     2024       2025     2026
+
+                                                                                               See Performance Measure 4 of Affordable Housing
+
+      What we are watching
+
+         We will continue to monitor market conditions, migration and income trends. Cost escalations caused by inflation, supply
+         chain disruptions and rising labour costs also continue to create challenges for housing providers. This includes non-profit
+         housing providers, including non-profit housing providers. The challenges also affect Calgary Housing Company’s delivery of
+         City-owned new and regenerated affordable housing. The proposed citywide rezoning to a base residential district will help
+         increase the supply of housing to further meet demand. Inconsistent funding and policy from other orders of government
+         continue to be barriers to creating new housing and preserving existing affordable homes.
+
+
+
+
+2023 Progress Update Report                                                                                                                Key results                         4
+      Public safety
+      Community impacts
+      Many factors contribute to overall public safety. We monitor the
+      Crime Severity Index (CSI) which measures changes in the volume and                                  2018   2019   2020    2021   2022
+      severity of crime in the city compared to the national context. Statistics
+      Canada calculates the CSI as a standardized way to compare crime                      National CSI   75.6   79.8   74.0    74.9   78.1
+      levels between different cities and regions. Having a low CSI score
+      is an indicator of community vitality. Crime rates reflect, to a certain              Calgary CSI    90.7   95.8   81.4    74.2   77.6
+      extent, the success of the crime prevention and intervention efforts                  Calgary
+                                                                                                           84.8   88.2   80.9    86.7   79.7
+                                                                                            Violent CSI
+      of police services and its social service partners. Calgary’s violent CSI
+      was 79.7 in 2022, a decrease of 7 points from 2021. The overall CSI for               Calgary Non-
+                                                                                                           92.5   98.4   81.3    69.8   77.5
+      Calgary increased by less than 4 points over 2021 to 77.6, with increases             Violent CSI
+      in property crimes such as vehicle theft, break and enter and fraud
+      influencing the final index.2
+      In 2023, while actual incidents of crime remained relatively stable, violent crime
+      occurrences and social disorder calls both trended up nominally by seven per cent
+      and two per cent, respectively. Property crime has seen sustainable decreases, with
+      commercial and residential break and enter and vehicle thefts both trending down
+      by 30 per cent and 15 per cent below the five-year average. We also observed a
+      seven per cent increase in hate-motivated crime with race/ethnicity and religion
+      crime incidents accounting for 43 per cent and 34 per cent, respectively. Crimes
+      motivated by sexual orientation also noted increases in Calgary, trending up like
+      national and international partners.
+
+
+
+
+      2         Statistics Canada will release the 2023 CSI data in July 2024.
+
+
+
+
+2023 Progress Update Report                                                                                        Key results            5
+      The percentage of Calgarians who feel safe is measured through a statistically valid                        Citizen perspectives on safety
+      survey conducted by the Calgary Police Commission. In 2023, the percentage of                    100%
+
+      Calgarians who agreed that Calgary is safe decreased from 77 per cent in 2022 to                 80%
+      69 per cent, showing a decreasing trend since 2021. Perceived safety in one’s own
+                                                                                                       60%
+      neighbourhood is relatively more stable with a two-point drop in 2023 from 78 per
+      cent in 2022. However, the percentage of Calgarians who perceive an increase in                  40%
+
+      neighborhood crime has increased since 2021.                                                     20%
+
+      According to the 2023 Perspectives on Calgary Safety Perceptions survey, 75 per cent              0%
+      of Calgarians think Calgary is a safe place, down from 85 per cent in 2022. Due to                         2021                   2022                   2023
+
+      safety concerns, 47 per cent of Calgarians indicate that they avoid taking the bus or                   Overall perceived safety (Calgary)
+      CTrain3, up from 37 per cent in 2022, and 44 per cent often avoid going downtown,                       Calgarians who feel safe is their own neighbourhood
+                                                                                                              Calgarians perceive an increase in crime in their neighbourhood
+      up from 35 per cent in 2022. The majority (92 per cent) agree that The City should
+      invest in addressing safety issues, according to the 2023 Fall Survey of Calgarians.
+
+      What we did
+      Although 2023 was a challenging year to ensure and maintain safety, The City’s
+      investments in public safety contributed to improvements. Council approved an
+      additional $37.3 million base operating, $2 million one-time operating and $66.8
+      million capital during the 2023 November Adjustments to support coordinated
+      efforts in addressing various public safety issues (See 2023 November Adjustments
+      Attachment 5 - New Investment Recommendations).
+      In 2023, Calgary Police Service (CPS) responded to 389,627 public and 167,705
+      officer-generated calls for service; CPS received over 22,600 online citizen reports
+      (an increase of 6.7 per cent). We responded to over 90,000 fire emergency incidents
+      with 84 per cent of the time responded within six minutes and 30 seconds at critical
+      medical incidents. We also secured funding to hire additional police and peace
+      officers to meet increasing demand for our services and improve public safety.
+
+
+
+
+      3           2023 Perspectives on Calgary Safety Perceptions survey receives feedback from both
+      transit and non-transit users.
+
+
+
+
+2023 Progress Update Report                                                                                                                    Key results                      6
+      The significant initiatives and changes we implemented to improve safety in 2023                      Customers feeling safe (per cent)
+                                                                                              100
+      include:
+                                                                                               90                                                                     87.5
+       We implemented actions in The Public Transit Safety Strategy, shifting the                  86         86
+
+        perception of safety among transit users on CTrain platforms from 65 per cent          80
+
+        from 2022 to 71 per cent by year-end.                                                  70
+                                                                                                                             71               71.1
+
+       We transferred 3,223 emergency calls to the 2-1-1 Distress Centre, a 70 per cent                                          65.3
+
+        increase from 2022. We are observing an upward trend in call diversion.                60
+
+       Recognizing the connection between community wellbeing and safety, we                  50
+
+        continue implementing several initiatives to support Calgarians’ wellbeing and               2019      2020    2021        2022        2023    2024    2025    2026
+
+        prevent crime or social disorders. We invested $7.8 million through the Mental
+                                                                                              See Performance Measure 1 of Public Transit
+        Health and Addiction (MHA) Investment Framework and, moving into 2024,
+        will continue to invest, build capacity, amplify the work of the sector advancing
+        strategy actions and will work to develop an advocacy plan to ensure investments              Number of derelict or abandoned
+                                                                                                    properties demolished or remediated
+        complement those of the Province. Through the Community Safety Investment             100
+        Framework, $17.8 million was invested in 37 community initiatives with the long-
+        term outcome. This will help improve the wellbeing of Calgarians through an            80                                        75
+
+        equitable and effective crisis response system including continued work on the         60
+                                                                                                                                                                       50
+                                                                                                                      48
+        REACH Up and Action Table projects.                                                                                                     40
+                                                                                               40
+       Coordinated Safety Response Team identified and addressed over 125 vacant and
+        problem properties as part of a strategy to reduce community risk levels. Problem      20
+
+        Properties Team has overseen the demolition of 31 and the remediation of nine           0
+        derelict or abandoned properties across the city.                                           2019      2020    2021        2022        2023    2024    2025     2026
+
+       The City and Public Safety Canada funded 13 organizations who operate
+                                                                                              See Performance Measure 4 of Bylaw Education
+        programming for youth involved in or at risk of joining gangs.                        & Compliance
+       We installed traffic control devices for pedestrians’ safety while using the Always
+        Available for All Ages and Abilities (5A) network. Replacements occurred for 5,650
+                                                                                                            Pavement in good or very good
+        metres of failing pathway assets and 134 bollards were removed to enhance
+                                                                                                                 condition (per cent)
+        accessibility. Approximately 1,800 pathways-related service requests were             60
+        responded to in 2023 (a 26 per cent increase from 2022). Further, the average
+        pathway service response time in 2023 was four days, versus seven days in 2022.       50
+
+        We also added 1,200 meters of pathway to the 5A Network for better connectivity.             39
+                                                                                                               42          42     41          41                        40
+       To improve accessibility and support active transportation while ensuring safety,     40
+
+        we also paved more than 150 locations and over 33,000 potholes were repaired
+                                                                                              30
+        (in comparison with approximately 16,000 potholes repaired in 2022). The
+        percentage of pavement in good or very good condition remained stable in 2023.        20
+                                                                                                    2019      2020    2021        2022        2023    2024    2025    2026
+
+
+      What we are watching                                                                    See Performance Measure 1 of Streets
+
+         There is an increase in the opioid crisis, protests and demonstrations, and
+         encampments, negatively affecting services’ response rates and Calgarians’
+         perception of safety. The homeless population is growing along with the
+         complexity of issues they are facing. Protests occurring over the past year have
+         also affected some Calgarians’ ability to access recreation and library programs
+         that are important for wellbeing.
+
+
+
+
+2023 Progress Update Report                                                                                                                   Key results                     7
+      Transit
+      Community impacts
+      According to the 2023 Calgary Attitudes and Outlook Survey, the main
+      mode of transportation used by Calgarians is driving (70 per cent), which
+      is followed by public transit (18 per cent). According to Statistics Canada,
+      the average commuting time declined by approximately two minutes
+      in Calgary (down to 24.2 minutes) in 2021 from 20164. In 2023, the total
+      ridership reached 90 million, an overall 21 per cent increase at the end
+      of the year. According to the 2023 Fall Survey of Calgarians, 71 per cent of                            Bus on-time performance –
+      Calgarians agree that Calgary Transit fares are affordable.                                                reliability (per cent)
+                                                                                               100
+
+                                                                                                              90     90                                    90
+                                                                                                90                          87.7
+      What we did                                                                                    87                               85.3
+                                                                                                80
+      We are implementing a multi-faceted approach to improve Calgarians’ experiences
+                                                                                                70
+      with public transit service. Supporting our approach, Council approved an
+      additional $18 million base operating and $60 million capital during the 2023             60
+      November Adjustments. (See 2023 November Adjustments Attachment 5 - New                   50
+      Investment Recommendations)                                                                     2019    2020   2021   2022    2023     2024   2025   2026
+
+      In 2023, the number of service hours was 2.5 million. Operating costs per trip show        See Performance Measure 2 of Public Transit
+      consistent improvement, primarily driven by service improvements and increased
+      ridership ($4.98 in 2023 compared to $6.85 in 2022). To meet the growing demand,
+      we hired over 800 operators. Our bus on-time performance was lower than the
+                                                                                                               Population within walking
+      intended levels.                                                                                       distance of Base & PTN Transit
+      We continue to invest in providing access to transit services within walking distance.                       Service (per cent)
+                                                                                               100
+      In 2023, 65 per cent of the population had access to base and primary transit             90
+      network (PTN) transit service, an increase from 49 per cent in 2022.                      80
+                                                                                                70                                  65                       68
+                                                                                                      66       62    62
+                                                                                                60
+                                                                                                50
+                                                                                                                               49
+                                                                                                40
+                                                                                                30
+                                                                                                20
+                                                                                                      2019    2020   2021   2022    2023     2024   2025   2026
+
+
+                                                                                                 See Performance Measure 4 of Public Transit
+      4         Statistics Canada, Commuting time, 2011 to 2022
+
+
+
+2023 Progress Update Report                                                                                                           Key results                 8
+      The key achievements of 2023 to improve transit service for Calgarians included:
+       Calgary Transit initiated major              Auxiliar de Ferrocarriles to complete      In 2023, Specialized Transit saw an
+        service reviews in the northeast and         the LRV Supply Agreement Milestone           increase in trip counts compared to
+        southwest communities, prioritizing          in 2023 December.                            2022, reaching 84 per cent of pre-
+        service improvements, network               Council approved new investments             pandemic 2019 ridership levels. To
+        connections to rapid transit and             for the RouteAhead strategy,                 enhance service levels, 27 new access
+        route efficiency.                            innovative fares (e.g., 12 and under         vehicles were ordered. An upgraded
+       In 2023 May, Green Line entered              free, weekend pass, etc.) and initiated      scheduling software facilitated online
+        the Development Phase with Bow               early-stage design and engineering           trip bookings, increasing bookings by
+        Transit Connectors (BTC). During             capital projects.                            up to 23 per cent and reducing overall
+        this 16-month phase, Green Line             Through effective advocacy with the          trip costs.
+        and BTC will advance the design,             provincial government, $6.2 million
+        understand risks, determine project          in funding was secured for the
+        cost and schedule. Green Line also           sliding-scale low-income transit pass
+        completed the Final Design Review            program in 2023. With The City’s
+        in 2023 September for the new low-           contribution of $32 million, the
+        floor light rail vehicles and worked         annual subsidy reached $38 million
+        collaboratively with Construcciones y        in 2023.
+
+      What we are watching
+
+         RouteAhead has a 30-year implementation and investment plan. It is crucial to continue with planned investments to grow
+         the service. Investment in battery electric buses (BEBs) comes with higher upfront costs compared to traditional buses. The
+         growing demand for BEBs is further driving up the cost and reducing the availability of these vehicles. There is an increasing
+         emphasis on building regional transit networks, driven by initiatives like the Canada Transit Fund. This shift requires
+         collaboration and investment in transit infrastructure beyond the city.
+
+
+
+
+2023 Progress Update Report                                                                                              Key results       9
+      Social equity
+      Community impacts
+      The Calgary Equity Index is a tool to measure social equity in Calgary.
+      It compares 113 community service areas in terms of total equity
+      score, which is a combined score of 20 indicators measuring economic
+      opportunity, social development, physical environment, health and
+      governance. Communities in green are above the target cut-off
+      indicating low equity concern. Communities in red are below the
+      benchmark cut-off signaling high overall inequity. Communities in yellow
+      fall between the green and red areas. The spatial pattern of high need
+      and low equity showcased through the Calgary Equity Index provide a
+      picture of how some social inequities in the city are spatially distributed,
+      and tells us about where best to focus interventions.
+      Monitoring sense of belonging and acceptance help us ensure equity, diversity and
+      inclusiveness in our service and program delivery. In 2023, we saw a slight decrease
+      in the percentage of Calgarians who feel accepted regardless of their background,
+      identity or lifestyle, and in the percentage of Calgarians who feel a sense of
+      belonging in their neighbourhood.
+      However, the 2023 Perspectives on Diversity and Inclusion Survey results show that                Citizen perspectives on safety
+      more than nine in 10 Calgarians agree that people in Calgary are very welcoming        100%
+      and friendly (96 per cent). They feel that they belong (92 per cent) in their                                           80%                    77%
+                                                                                             80%
+                                                                                                       74%
+      neighbourhood. They agree that people with diverse identities are made to feel
+                                                                                                                              72%
+      welcome (91 per cent) in their neighbourhood and they have opportunities to            60%
+                                                                                                       61%
+                                                                                                                                                     67%
+
+      express their unique cultures (94 per cent). The results also show agreement that      40%
+      The City is moving in the right direction to address Truth and Reconciliation
+      (75 per cent; up from 65 per cent in 2021), gender equity (74 per cent), social        20%
+
+      wellbeing and anti-racism (69 per cent). However, support for low-income                0%
+      households and addressing mental health and addiction are areas where                            2021                    2022                   2023
+
+      Calgarians feel The City could do more.                                                       Calgarians who agree they feel accepted regardless of their
+                                                                                                    background, identity, or lifestyle
+                                                                                                    Calgarians who agree they feel a sense of belonging on their
+                                                                                                    neighborhood
+
+
+
+
+2023 Progress Update Report                                                                                                           Key results                  10
+      What we did
+      We implemented several initiatives and continued to remove barriers to ensure all
+      Calgarians have access to our services and programs. To ensure a comprehensive
+      approach to improve Calgarians’ wellbeing, sense of belonging and acceptance,
+      Council approved $8 million base operating, $12.4 million one-time operating
+      and $36 million capital for additional investments during the 2023 November
+      Adjustments. (See 2023 November Adjustments Attachment 5 - New Investment                    Community Social Work partners who agree
+      Recommendations)                                                                              that community social workers effectively
+                                                                                                   address social issues in their neighbourhood
+      Based on the Calgary Equity Index results, community assessments in four new                                   (per cent)
+      areas with low equity indices were completed in 2023. The number of communities        100
+      supported by Community Social Workers has increased from 23 to 24, with a                                            94    96                   90
+                                                                                              90     87     87     87
+      resourcing decision pending on three more. Our community social work partners’
+      agreement level on addressing social issues in their neighbourhood increased since      80
+
+      the relaxation of COVID-19 restrictions.                                                70
+
+      Fair Entry experienced the highest volume of service requests in 2023, with over        60
+      61,000 subsidy applications processed (an average of 2,000 more applications
+                                                                                              50
+      per month than the previous year). Currently, 113,000 Calgarians (90 per cent of               2019   2020   2021   2022   2023   2024   2025   2026
+      Calgarians living with low income) are approved for Fair Entry.
+                                                                                              See Performance Measure 1 of Neighbourhood
+                                                                                              Support
+
+      Other key achievements to enhance social equity in 2023 include:
+       Round four of the Indigenous               Participation in no- and low-cost         CPS advanced several key initiatives
+        Placemaking project, designed               programming increased significantly        to improve equity in service delivery,
+        to connect emerging artists with            this year, with 17,800 visits (up 27       such as in-service anti-racism and
+        experience, is currently wrapping up.       per cent from 2022) to free summer         Indigenous education and gathering
+        The Village Square Library installation     programs by over 7,000 individuals         the community’s perspectives about
+        was completed in 2023 August, with          (up 34 per cent from 2022).                improving policing service delivery
+        installations at Judith Umbach and         Over 38,000 youth connected with           to Indigenous, Black and diverse
+        Fish Creek libraries wrapping up in         the Youth Employment Centre (YEC)          Racialized communities.
+        2024.                                       to attend workshops, employment           Library membership had a record year
+       Neighbourhood grant application             fairs and access the YEC resource area     with 148,000 new accounts, bringing
+        processes have been updated to              for job searching and career planning,     the active membership base to
+        remove barriers for and promote             representing a 16 per cent increase        750,000 (56 per cent of Calgarians). In
+        uptake by Indigenous and Racialized         from 2022.                                 2023, we had 6.74 million people walk
+        residents.                                 The Indigenous Calgary After School        through our library doors.
+                                                    Pilot Project reached 120 children
+                                                    over six sites teaching Connecting to
+                                                    Mother Earth curriculum.
+
+
+
+
+      What we are watching
+
+         We are observing increasing demands for our programs that offer special considerations to equity-deserving Calgarians
+         due to the lingering effects of the pandemic and pressures from the economy. We are experiencing challenges around
+         staff capacity, budget and logistics to meet the growing demand for our social programs. Working with other levels of
+         government will be critical for meeting Calgarians’ needs.
+
+
+
+
+2023 Progress Update Report                                                                                                      Key results                 11
+      Climate
+      Community impacts
+      Calgary is experiencing more frequent and more severe climate events
+      due to global climate change. In 2023, hot days (greater or equal to                             Trends in Calgarians being impacted by
+                                                                                                     climate change - 2023 Citizen Perspectives
+      29 degrees Celsius) and smoke hours from wildfires were significantly
+                                                                                                             on Climate Change Survey
+      above average.5 The Canadian drought monitor provided by Agriculture
+                                                                                                    Number of Calgarians                   Up from
+      and Agri-Food Canada registered Calgary as having either significant                                                    68% 43% in 2022
+                                                                                                    impacted by smoke
+      or extreme drought conditions for most of 2023. The City declared
+      Stage 1 water restrictions in August. According to the drought monitor,                       Number of Calgarians                   Up from
+                                                                                                    impacted by hailstorms
+                                                                                                                              36% 29% in 2022
+      as of 2024 January 31, Calgary is still within a region of severe drought
+      conditions, which are not forecasted to improve through the spring or                         Number of Calgarians
+                                                                                                                                           Up from
+      summer months.                                                                                impacted by heat          24% 22% in 2022
+                                                                                                    waves/ extreme heat
+      Climate hazards are increasingly affecting Calgarians. The Citizen Perspectives on            Number of Calgarians
+      Climate Change Survey in 2023 indicated that the majority of Calgarians (77 per                                                      Down from
+                                                                                                    impacted by river          2% 4% in 2022
+      cent) are concerned about the causes of climate change and the impacts of climate             flooding
+      change on their lives and livelihoods. Further, they agree we need to act now to
+      address the causes and prepare for local impacts. In Calgary, both concerns about
+      extreme weather events and awareness of climate change are increasing, with many
+      residents feeling that The City should be doing more to address climate change.                       Community-wide greenhouse
+      Calgary’s per-capita community-wide greenhouse gas (GHG) emissions are                                     gas emissions
+      decreasing. In 2022, when the Climate Strategy was approved, Calgary’s GHG                                   16.35 MtCO2e
+      emissions were 16.35 megatonnes of carbon dioxide equivalent (MtCO2e), which                                  3.5% since 2005.
+      is 3.5 per cent higher than The City’s baseline of 2005 levels. However, Calgary’s
+      emissions per capita has decreased by 26.7 per cent, meaning emissions have not
+                                                                                                            Community-wide greenhouse
+      proportionally increased with population growth. This decreasing trend reflects the                     gas emissions per capita
+      efforts of all Calgarians who are working together to reduce Calgary’s contributions
+                                                                                                                12.12 tCO2e/person
+      to global GHG emissions.
+                                                                                                                   26.7% since 2005.
+
+
+
+
+      5          18 hot days in 2023 compared to the 30-year average of 10 per year and 512 smoke
+      hours in 2023 compared to the 30-year median of 16 hours per year.
+
+
+
+2023 Progress Update Report                                                                                                  Key results             12
+      What we did
+      The City’s Climate Strategy: Pathways to 2050 charts the milestones and key actions
+      needed to move Calgary towards our 2050 climate goals. These milestones are
+      distilled into four-year climate implementation plans aligned to The City’s Service
+      Plans and Budgets. The City has completed its first year of the 2023-2026 Climate
+      Implementation Plan with 92 out of an identified 120 climate actions (almost 80 per
+      cent) in progress or already completed for this budget cycle.
+      Aligned to this plan, cross-corporate primary climate investments worth $3.5 million
+      base operating, $45.5 million one-time operating and $383.7 million capital were
+      approved by Council as part of the 2023-2026 Service Plans and Budgets. In 2023,
+      approximately 51 per cent of the 2023 cross-corporate climate budget was spent
+      (a total of $1.6 million base operating, $6.0 million one-time operating and $34.1
+      million capital as approved by Council as part of the 2023-2026 Service Plans and
+      Budgets). These expenditures are identified through the primary climate investment
+      and defined as investments which accelerate climate action. Further details on
+      the climate budget by focus area and 2023 spend breakdown can be found in
+      Attachment 6: Update on the Cross-Corporate Climate Budget and 2023 Key Initiatives.
+      The implementation of the Centralized Climate Fund was a key program
+      achievement in 2023. The Fund was developed to support the integration of
+      GHG emissions and/or climate risk reduction measures into The City’s capital
+      infrastructure projects. By early 2024, 20 projects totaling $29.3 million were
+      approved, which represents 98 per cent of the available funding.
+      Other 2023 key achievements that support The City in leading by example,
+      progressing towards its GHG emission targets, avoiding future costs related to the
+      impacts of climate change on City assets’ service provision and lifespan and providing
+      enhanced wellness for communities and equity seeking groups can be found in
+      Attachment 6: Update on the Cross-Corporate Climate Budget and 2023 Key Initiatives.
+
+      What we are watching
+
+         Calgary has been experiencing continual population growth and urban
+         expansion since the 1980s. While growth is vital to Calgary’s economic
+         prosperity, it creates a challenge for reducing the city’s overall GHG emissions, as
+         it drives an increase in the number of people, vehicles, buildings, businesses and
+         industries living and operating in Calgary. Fortunately, Calgary’s per capita GHG
+         emissions are trending downwards. The City is monitoring Calgary’s total annual
+         community-wide and per capita GHG emissions to assess the impact of growth
+         on Calgary’s contribution to global climate change.
+         Leading into 2024, Calgary experienced intensifying drought conditions due to
+         reduced snowpack and below-average precipitation in 2023. There is a higher-
+         than-average risk of dry conditions persisting this year. Currently, river flows
+         remain low throughout the Bow and Elbow watersheds and mountain snowpack
+         continues to trend well below average. The City will continue to monitor
+         conditions and the seasonal outlook over the next several months to inform
+         its response.
+
+
+
+
+2023 Progress Update Report                                                                     Key results   13
+      Downtown
+      revitalization
+      Community impacts                                                                                    Downtown taxable assessed value
+                                                                                                                     (Calgary)
+      Downtown revitalization is critical as the city’s downtown area plays                  16     15.07
+                                                                                                                                       14.16           14.76
+      a vital role in economic and social development. We monitor several                    14
+                                                                                                                     13.65
+
+      indicators to inform our investment decisions to drive commercial,                     12     11.16
+                                                                                                                      9.83              9.91            9.97
+                                                                                             10
+      cultural and civic activities in our downtown core. In 2023, the total                  8
+
+      downtown taxable assessment base increased by 3.5 per cent, primarily                   6
+                                                                                                                                        4.25           4.79
+                                                                                             4       3.91             3.81
+      due to recovery in the highest-quality office buildings. With these                    2
+      buildings becoming more affordable, tenants opt for better spaces                      0
+                                                                                                    2021             2022               2023           2024
+      and amenities, causing a shift in demand from lower-quality offices to
+      superior ones.                                                                                   Residential
+                                                                                                       Non-residential
+                                                                                                       Total
+      Property values and perception of safety are equally important to the revitalization
+      of Calgary’s downtown to bring more people to the core, as safety concern is a
+      reason for Calgarians to avoid downtown according to the 2023 Perspectives on
+      Calgary Safety Perceptions survey results. Calgarians (84 per cent) agree that they
+      do or would feel safer downtown when there are more people around. According to
+      the 2023 Calgary Attitudes and Outlook Survey, work and school commitments bring
+      younger Calgary residents (75 per cent) downtown more frequently than older
+      residents (69 per cent). Many leisure trips were motivated by festivals and events
+      located in downtown Calgary.
+
+      What we did
+      We are implementing various projects to make the city’s core safer, more
+                                                                                                       Downtown Surplus Office Inventory
+      vibrant and attractive for both Calgarians and visitors. Council approved a total                    Reduction (million sq ft)
+      of $12 million base operating for programming and safety initiatives and a total        5
+      of $163 million capital to support downtown investments as part of the April
+                                                                                              4
+      2021 Initial Investments and Incentive package and the 2023-2026 Service Plans
+      and Budgets.                                                                            3
+                                                                                                                                                               2.5
+      The City’s Downtown Calgary Development Incentive Program continues to                  2
+                                                                                                                                       1.46
+      approve the conversion of unused office space to residential uses. The goal of the      1
+      program is to reduce unused office space and support the development of vibrant
+                                                                                              0
+      downtown neighbourhoods to promote economic recovery in Greater Downtown.                       2019    2020       2021   2022     2023   2024    2025   2026
+      Since the start of the Conversion Program ($162 million budget), 11 conversion
+      projects have been approved through the program that are anticipated to remove              See Performance Measure 1 of City Planning & Policy
+
+
+
+2023 Progress Update Report                                                                                                                Key results                14
+                                                                                                      Economic impact of TELUS Convention
+                                                                                                     Centre delegates (Provided by the Calgary
+                                                                                                           Convention Centre Authority)
+      approximately 1.46 million square feet of vacant office space. Expenditures will
+                                                                                                                (millions of dollars)
+      occur when each conversion project is completed.                                          30
+                                                                                                       24                                                         24
+      Working with internal and external partners, we invested in major civic projects          25
+                                                                                                                                     22
+      and priority public infrastructure that support economic development and provide          20
+                                                                                                                                            17
+      Calgarians with needed amenities. In 2023, the Opportunity Calgary Investment             15
+      Fund committed more than $82 million to 26 projects, spurring $800 million of             10
+      investment for creating, training and retaining more than 3,000 jobs and supporting
+                                                                                                 5
+      or starting more than 500 local companies. 2023 was a year of resiliency and activity                   2                 2
+                                                                                                 0
+      at the Calgary TELUS Convention Centre (CTCC) that brought positive economic                    2019     2020      2021       2022    2023   2024   2025   2026
+      and social impact to Calgary and the downtown core. The CTCC was rebranded as a
+      place of possibilities offering quintessential hospitality and boundless experiences       See Performance Measure 2 of Economic
+      to attendees. The sales team continued to sell into future years, the operations team      Development & Tourism
+      focused on capital improvements and CTCC’s experienced employees created safe
+      spaces for all guests.                                                                                 Cultural Attraction Attendance
+                                                                                                                        (millions)
+      Calgary’s 15 Business Improvement Areas (BIA) supported over 6,000 businesses and          5
+      invested $5 million in BIA taxes to deliver tailored programs and services for their
+      shopping destinations, including 220 events and activations, 175 outdoor patios            4
+
+                                                                                                                                                                 3.00
+      and $2.7 million invested in enhanced cleaning and public realm improvements.              3
+                                                                                                      2.42
+                                                                                                                                    2.20
+      We supported several cultural events and festivals and continued our activations           2
+                                                                                                                         1.44
+      projects to add additional space for more events. In 2023, we saw 207 festivals and                      0.95
+                                                                                                 1
+      events, a 12 per cent increase since last year, slowly reaching the pre-pandemic
+      2019 level. The Cultural Attraction Attendance measure tracks data from five civic         0
+                                                                                                      2019        2020   2021        2022   2023   2024   2025   2026
+      partners managing and operating City-owned assets. 2023 data is an annual
+      measure that will be available after the Civic Partner Annual Report in on 2024            See Performance Measure 4 of Economic
+      May 1. Alone, Chinook Blast brought 400,000 people to downtown and $13.8 million           Development & Tourism
+      in economic impact.
+      Other key achievements on downtown revitalization in 2023 include:
+       We continued progress on downtown           to residents and visitors through the         Definitive agreements to proceed
+        vibrancy projects, such as officially       Alcove Centre for the Arts.                      with a significant phase of the
+        opening of the Century Gardens             The $500 million BMO Centre                      Culture + Entertainment District
+        Basketball Court in September,              Expansion Project reached significant            were signed on 2023 October 5 by
+        starting the detailed design phase          milestones in 2023 as the building               The City, The Government of Alberta,
+        of the $270 million Arts Commons            achieved weather tightness and full              Calgary Sports and Entertainment
+        Transformation Project and                  energization. The Calgary Municipal              Corporation and Calgary Stampede.
+        initiating the adjacent Olympic Plaza       Land Corporation and the Calgary                 The design phase of the event centre,
+        Transformation Project in the spring.       Stampede unveiled Gerry Judah’s                  community rink and surrounding
+       Downtown Strategy also directed 30          “Spirit of Water” as the public art piece        public plazas is well underway.
+        grants and approximately $15,000            that will anchor the expansion’s plaza.
+        to local art groups to activate             The project will double the existing
+        downtown with performances and              hosting capacity and is on budget
+        events, including supporting a nine-        and schedule for an anticipated grand
+        month inclusive, free arts amenity          opening during Stampede 2024.
+
+
+      What we are watching
+
+         Continuation of investments is critical to ensure adequate funding and resourcing in the completion of initiatives. Global
+         economic conditions in 2023 resulted in longer investment cycles. Persistently high inflation coupled with high-interest
+         rates meant companies looking to invest in the Calgary region delayed or downsized their investment decisions. Significant
+         political and regulatory uncertainty in the province impacted perceptions of Alberta and Calgary. Cost escalations also
+         continued to be a challenge for partner-led major capital projects and lifecycle maintenance, including the rising cost of
+         labour and supplies. Partners continue to mitigate these risks through reprioritization and cost management.
+
+
+
+
+2023 Progress Update Report                                                                                                                   Key results               15
+      Land use & local
+      area planning
+      Community impacts
+      Land use and local area planning is foundational in shaping our
+      communities and supporting sustainable economic development. It
+      is also the cornerstone for the effective delivery of many City services.
+      Population growth, unemployment rates and residential and non-
+      residential building permit values are some of the key indicators we
+      monitor in alignment with the land use implications of long-term                                     Residential and non-residential
+      strategic plans, such as Transit’s 30-year strategic plan, RouteAhead.                          building permit value (millions of dollars)
+                                                                                             $6,000
+                                                                                                                                                                  $5,946.4
+                                                                                             $5,900
+      Total building permit values rose from $5.7 billion in 2022 to $5.9 billion in 2023,   $5,800
+                                                                                                                           $5,701.7
+      the highest value since 2015. Residential building permit value grew by 12 per         $5,700
+                                                                                                    $5,630.7
+      cent, while non-residential building permits fell by 14 per cent in 2023. A tighter    $5,600
+                                                                                             $5,500
+      business environment and higher financing costs have slowed down demand for            $5,400
+      non-residential space and building permit values. Continued positive net migration     $5,300
+                                                                                             $5,200
+      is fueling housing starts, which increased 31.1 per cent between 2021 and 2023.        $5,100
+                                                                                             $5,000
+                                                                                                             2021                  2022                    2023
+      What we did
+      Our focus is on planning and building vibrant and complete communities that
+      promote sustainable ways of living. To advance this work, Council approved                       Calgarians living in communities
+      $500,000 additional base operating and, $36 million capital funding as part of the           where a modernized Local Area Plan has
+      2023 – 2026 Service Plans and Budgets and we made significant progress in 2023.             been recommended to Council for approval
+                                                                                                                   (per cent)
+      The Westbrook Communities and Heritage Communities Local Area Plans (LAPs)             50
+
+      were approved by Council in 2023, adding 29 communities to the total inventory of      40
+      communities with modernized LAPs. This has been reflected in the 2023 year-end
+                                                                                             30
+      value of this performance measure and the steady growth in the percentage of                                                                           25.1
+
+      Calgarians living in communities with an approved modernized LAP. A total of 82        20
+
+      communities and industrial areas were involved in creating modernized local area       10
+                                                                                                                                      9.2
+      plans in 2023. This represents 12 phases of work completed across five active LAPs                             3      3
+                                                                                              0
+      under development.                                                                              2019   2020   2021    2022      2023   2024   2025      2026
+
+      We made process improvements to make growth more efficient. In new
+      communities, the redesigned evaluation process was approved by Council and             See Performance Measure 2 of City Planning & Policy
+      implemented as of 2023 August. In established areas, new public space investments
+
+
+
+
+2023 Progress Update Report                                                                                                            Key results                           16
+      were completed ($11.4 million spend against a budget of $24.6 million in 2023)
+      and progress was made on financial tools for enabling greater investment. Main
+      Streets and Transit-Oriented Development continue to enable growth in priority
+      locations using Council-approved funding ($17.5 million spend against a budget of
+      $25.7 million in 2023) and support from external partners.
+      We issued over 19,500 building permits in 2023 and saw over 15,600 new dwelling
+      units completed. This presents a nine per cent increase from 2022. In 2023, a record
+      2,915 suites were registered through the Secondary Suite Program to increase the
+      current supply of safe affordable suites.
+      Non-profit affordable housing providers were awarded three parcels of City-owned
+      land in the communities of Bowness, Erlton and Parkdale, which will create an
+      estimated 140 new homes. Council approved five additional parcels for disposition
+                                                                                                       Land area designated for industrial uses,
+      to non-market affordable housing providers.                                                         per 100,000 Calgarians (hectares)
+      In industrial areas, the 2023 Action Plan was approved by Council, leading to              800
+
+      work starting on modernizing local area policy and evaluating incentives. Several                                                                    575
+                                                                                                 600
+      initiatives in the Industrial Action Plan will help retain and increase industrial land.         464     458                   442.4
+                                                                                                                       457
+      Modern Area Structure Plans (ASPs), a new Zoning Bylaw and the Calgary Plan may            400
+      also help by offering greater use flexibility, a response to current development
+      trends. We continue to evaluate land use applications with an aim to enable growth         200
+
+      while retaining industrial land.
+                                                                                                   0
+      We made significant progress in several projects, such as Constellation – the newest              2019    2020   2021   2022    2023   2024   2025    2026
+
+      industrial park launching in 2024, as well as Midfield Heights, Aurora Business Park
+                                                                                                 See Performance Measure 4 of City Planning & Policy
+      and South Macleod Project.
+      The Prairie Economic Gateway (“Gateway”) initiative, a first-of-its-kind collaboration
+      between The City of Calgary and Rocky View County, is focused on connecting
+      pathways to prosperity through the prairies by strengthening inland transport
+      services to support more industrial activity in the Calgary region. In 2023 July, The
+      City and County approved a Terms of Reference for the initiative, which provided
+      a roadmap for the parties to collaboratively plan the area and re-boot work on the
+      Area Structure Plan. Area Structure Plan work commenced in late 2023 and is on
+      track for accelerated completion for Council and Calgary Metropolitan Region Board
+      decisions in the second half of 2024.
+
+      What we are watching
+
+         Inflation, ongoing supply chain issues and competition with the private sector
+         for contractors and materials continue to add challenges. We are closely
+         monitoring the health of the Land Servicing Reserve to ensure we have sufficient
+         funds to address project commitments while supporting affordable housing and
+         addressing challenges, such as Calgarians’ fear of change and a reluctance to
+         accept more housing diversity in many communities.
+
+
+
+
+2023 Progress Update Report                                                                                                           Key results                  17
+      Continuous
+      improvement
+      The City of Calgary embraces a culture of innovation, efficiency and
+      adaptability to continue delivering high-quality services for Calgarians.
+      Continuous improvement includes service initiatives on changes in
+      processes, operations or policies that improve the effectiveness or
+      efficiency of that service.
+
+      What we did
+      In 2023, we tested and implemented innovative technologies, enhanced the
+      capabilities of our systems and streamlined existing processes to increase efficiency.
+      Reviews and updates to our policies validated that we are compliant with the
+      regulatory framework and are up to date with best practices and processes
+      among other municipalities. Examples of how we modernized and improved
+      services include:
+       We reviewed all Annual Investment           Unification of Police and Fire incident    Water Services rolled out a rigorous
+        Programs and selected programs and           management systems is progressing           customer research program that
+        projects to yield $130 million of funds      to improve emergency response               has increased our understanding of
+        for reallocation to other investments.       coordination and reduce 9-1-1               customer needs and experience.
+       We identified additional capital debt        processing times.                          Our Strategic Marketing and
+        borrowing alternatives for The City of      We developed Artificial Intelligence        Communications service completed
+        Calgary by way of issuing municipal          Machine Learning solutions, including       improvements to Calgary.ca, making
+        bonds to the debt capital markets or         pavement condition assessment,              it easier for Calgarians to find
+        private placement.                           vehicle predictive maintenance and          information and complete tasks.
+       Process efficiencies were achieved           wastewater pipeline inspections.
+        by improving approval timelines for         Living Labs, a component of the
+        commercial project permits by seven          Smart Calgary program, enabled
+        per cent, residential improvement            experiments to be tested in a safe          Detailed information on these
+        permits by 11 per cent and single            environment, including drone traffic        specific initiatives and more, along
+        construction permits by 20 per cent.         management, autonomous vehicle              with The City’s evolving continuous
+       Improving our analytical capability,         testing, virtual and augmented              improvement approach, can be
+        311 deployed 14 dashboards for               reality demonstrations and quantum          found in the report Continuous
+        internal and external use, notably           computing.                                  improvement: delivering faster, better,
+        an Evacuee Support dashboard for            Improved functionality and usability        more effective services for Calgarians
+        the Emergency Operations Centre              upgrades were implemented to the            (EC2024-0342).
+        that was used during the Northwest           Land Inventory and Data Application,
+        Territories wildfires.                       enabling response to over 1,000 land
+       A new interactive 5A Network Map             inventory inquiries.
+        is now available online to better assist    Property Assessment extensively
+        City staff involved in the planning,         engaged with non-residential
+        design, construction, operations             property owners regarding their 2023
+        and maintenance of pathways and              property assessments, contributing to
+        bikeways.                                    only 10.2 per cent of total tax revenue
+                                                     being under complaint. This was the
+                                                     lowest proportion since tracking
+                                                     began and down from the 2008 high
+                                                     of 47.9 per cent.
+
+
+
+
+2023 Progress Update Report                                                                                Continuous improvement          18
+      Financial
+      updates
+      We continued to manage our finances sustainably and in accordance with best practices and Council policies
+      to deliver the results Calgarians expect from their municipal government. As anticipated in 2023 November,
+      The City had a favourable 2023 operating variance, an outcome driven primarily by higher-than-expected
+      investment income, supplementary revenue and savings in employee benefits costs and expenditure savings
+      in corporate provisions dedicated to managing and mitigating risk related to unforeseen circumstances. As
+      part of ongoing improvement of our processes, strategic discussions about The City’s financial position in 2023
+      enabled Council to make important investment decisions focused on community priorities identified during
+      the 2023 November Adjustments. This resulted in Council allocating $100 million from our favorable operating
+      variance and $165 million from our favorable franchise fee variance towards our community priorities.
+
+      Operating variances are common for
+      Canadian municipalities striving for
+      a balanced budget. They normally
+      arise because of factors and events
+      that occur differently than assumed in
+      the budget plan, including budgeted
+      contingencies for unforeseen
+      circumstances that may not materialize
+      or due to circumstances The City has
+      limited or no ability to control.
+      The City’s capital budget spend rate
+      has increased to 52.5 per cent from
+      44.4 per cent in 2022. Despite this,
+      the continued low spend rate has
+      been impacted by several factors.
+      Supply disruptions have caused capital
+      project delivery delays and inflationary
+      pressures requiring scope and funding
+      adjustments have further negatively
+      impacted the overall spend rate.
+
+
+
+
+2023 Progress Update Report                                                                       Financial updates     19
+                                                                 2023 Estimated Favourable Operating Variance ($ Million)
+
+      Operating budget overview
+      The favourable 2023 operating                                                           Cost of employee
+      budget variance of $237.7 million                EXPE                                   benefits $38.2M
+                                                           NDI                                                                            TED
+      (5.2 per cent of budgeted total                         TU                                                                      POR
+                                                                RE                                                                 UP 74M
+      expenditures net of recoveries) was                         S$                                                            X-S ES $
+                                                                                                                              TA RVIC
+                                                                    Unallocated utilities and
+                                                                    95
+                                                                    service growth budgets
+      a combined effect of higher revenue,                            M     $29.8M                                             SE
+      lower-than-expected corporate                                                                                                         Other tax-supported
+                                                                  Management                                                                Services $37.8M
+      expenditures and a favourable variance                      of corporate
+                                                                                                                                           Emergency Management
+      across several tax-supported services                        provisions
+                                                                                                                                           & Business Continuity
+                                                                     $27.4M
+      (mostly comprised of non-recurring                                                                                                   $5.6M
+
+      one-time items).                                                                                                                     City Planning & Policy
+                                                                                                                                           $8.9M
+                                                                                                                                     Insurance & Claims
+                                                                            Investment income                                         $10.3M
+                                                                                                           Other
+                                                                                  $51.4M                 corporate              Streets
+                                                                                                         revenues               $11.1M
+                                                                                                          $17.2M
+
+                                                                             RE V
+                                                                                    ENU
+                                                                                          ES $6
+                                                                                                  9M
+
+
+
+      The Corporate Programs’ variance of $164.0 million can be attributed
+      specifically to:                                                                                               During the 2023 November Adjustments
+      Higher-than-expected revenues: $68.6 million                                                                   process, Council was made aware of the
+                                                                                                                     anticipated positive variance and $100
+       $51.4 million higher investment income due to higher interest rates and one-time                             million was committed to high priority
+         gains in infrastructure investment.                                                                         investments. The City will transfer
+       $22.4 million higher supplementary revenue due to increased assessment value                                 the balance of the 2023 favourable
+        ($9.4 million), other impacts ($6.6 million) and higher tax penalties due to higher                          operating variance of $137.7 million
+        outstanding balances ($6.4 million).                                                                         to the Fiscal Stability Reserve once the
+       The above higher revenue impact was partially offset by $5.2 million lower return                            year-end audit is completed in 2024
+        on equity (ROE) from utilities.                                                                              April. These funds will bring the balance
+                                                                                                                     closer to the target reserve balance. The
+      Lower expenditures: $95.4 million                                                                              Franchise Fee variance of $200 million
+       $38.2 million lower employee benefits costs from higher recoveries and the                                   was put into the Reserve for Future
+         impact of the discontinued retirement/vacation allowance program.                                           Capital and Lifecycle Maintenance and
+       $29.8 million unallocated utilities and service growth budgets held centrally until                          Upgrade Merged Reserve to fund capital
+         required.                                                                                                   investments per the standard year-end
+       $27.4 million intentional management of corporate provisions dedicated to                                    process. Of this variance, $165 million
+         managing and mitigating risk related to unforeseen circumstances.                                           has already been committed by Council
+                                                                                                                     in the 2023 November Adjustments to
+      The tax-supported variance of $73.7 million is mainly a result of the                                          fund capital investments in the current
+      following impacts:                                                                                             budget cycle. The remaining $35 million,
+                                                                                                                     the $137.7 million from the operating
+       $11.1 million within Streets is mainly due to lower winter operational expenses as                           variance, along with the 2023 ENMAX
+         a result of relatively mild weather conditions.                                                             dividend variance will be transferred
+       $10.3 million within Insurance & Claims is attributed to a decrease in the provision                         to the Fiscal Stability Reserve, upon
+         for open claims, lower insurance settlements and savings in salary and wages.                               approval, as per the Notice of Motion
+       $8.9 million within City Planning & Policy resulted from savings in salary and                               EC2024-0371, committing those funds
+         wages, communications and consulting expenses.                                                              to inflationary or market pressures on
+       $5.6 million within Emergency Management & Business Continuity is due to                                     existing capital projects.
+        the return of one-time budget pertaining to the World Petroleum Congress and
+        savings in salary and wages.
+       The $37.8 million variance for the remaining services is primarily attributed to
+        savings in salary and wages and other minor impacts.
+
+
+
+
+2023 Progress Update Report                                                                                                               Financial updates         20
+      Capital budget overview
+      In 2023, The City made $1.5 billion in capital investments (52.5 per cent of the
+      $2.8 billion budget). This included several key projects such as the Vivo Expansion,
+      substantial renovations to Glenmore Athletic Park, resurfacing of the Foothills
+      Athletic Park Track and completion of the Haskayne Legacy Park, all of which
+      improve community and accessible recreational opportunities. Improvements and
+      renovations to Fire Station 8, Village Square Leisure Centre and Henry Viney Arena
+      upgrade existing community infrastructure to support future development and
+      growth. The Main Streets projects at 33 Ave. S.W., 17 Ave. S.W., and 1 Ave. N.E. and
+      downtown revitalization with the funding of the Event Centre will enhance active
+      modes of travel, community vibrancy and provide spaces where people can come
+      together and connect as a community.
+      Investments to support growth, development and connectivity between
+      communities include improvements to Stoney Trail and 144 Ave. N.W. As mentioned
+      earlier, work continues to support The City’s commitment to active transportation
+      with investments in the 5A Network with more than 150 locations paved and over
+      33,000 potholes repaired (in comparison with approximately 16,000 potholes
+      repaired in 2022). Additional Light Rail Vehicle and buses were procured to support
+      public transit.
+      Completion of flood barrier construction and stormwater improvements for the
+      Downtown Flood Barrier and Eau Claire Promenade reduces The City’s exposure
+      to flood damage while connecting people along a vibrant riverfront. Along with
+      the completion of construction in Tuxedo Park as part of the Community Drainage
+      Improvement Program, these capital investments improve resiliency in our
+      communities and infrastructure.
+      The City’s capital budget investment rate increased to 52.5 per cent from 44.4 per
+      cent in 2022. However, investments have been impacted by cost escalations and
+      supply disruptions and other systemic contributing factors that The City is working
+      to address. To mitigate some of the challenges, a capital cost escalation fund was
+      created to support Council-approved projects and ensure they can be delivered in a
+      timely way. Services have also worked to adjust to these conditions, such as Public
+      Transit’s procurement strategy that
+      shifted some of the planned spending
+      into future periods. (See Attachment 3:                   Total City 2023 Capital Budget and Spend by Service Categories ($ Million)
+      2023 Progress Update). Administration
+      is committed to progressing capital        Tax and Property 8.5
+                                                       Assessment 2.6
+      investments and realizing great             Information and 9.4
+      outcomes for Calgarians.                    Communication 1.9
+                                                  Social Programs         89.6
+      The unspent budget of $1.3 billion              and Services        44.5
+
+      will be carried forward into 2024.              Public Safety              162.4
+                                                       and Bylaws         51.4
+      Most of the capital budget carry           Parks, Recreation               188.0
+                                                       and Culture
+      forward is required to complete                                     74.6
+                                                Building, Planning                       287.2
+      the approved capital initiatives.              and Business                178.1
+      The Infrastructure Calgary Steering        Enabling Service                           357.8
+                                                                                  187.0
+      Committee is currently reviewing
+                                                      Utilities and                                    560.7                                                 2023 Annual Budget
+      amounts that can be relinquished and           Environment                            364.8
+                                                                                                                                                             2023 Spend
+      reallocated to high priority, unfunded       Transportation                                                      1,119.8
+                                                                                                       556.5
+      capital needs. The City also continues                                                                                                                                      2,783.4
+                                                         Total City
+      to look for third party funding and                                                                                              1,461.4
+                                                                      0                          500           1,000                 1,500        2,000           2,500                 3,000
+      financing for capital opportunities.                                                                               $ Million
+
+
+
+
+2023 Progress Update Report                                                                                                                      Financial updates                 21
+      Debt overview
+      Debt is mainly obtained from the Government of Alberta; it              Total Debt Outstanding 2018-2023
+      includes tax-supported, self-sufficient tax-supported and self-                        8,000
+
+      supported (including utilities and local improvement) debt.                            7,000
+      Self-sufficient tax-supported debt (SSTS) is primarily borrowed
+                                                                                             6,000
+      for The Calgary Municipal Land Corporation (CMLC), a City-
+                                                                                             5,000
+      owned company, and can be used to finance City projects
+      with a defined revenue source. SSTS debt has also included                $ Millions
+                                                                                             4,000
+
+
+      short-term debt that will be funded from future grant receipts                         3,000
+
+
+      from the Government of Alberta’s Municipal Sustainability                              2,000
+
+
+      Initiative (MSI), which provided bridge financing for MSI-                             1,000
+
+      funded projects. MSI-related debt has been fully repaid as of
+      2019. Self-supported debt is funded through user fees. Self-                                   2018      2019         2020        2021       2022       2023
+
+      supported debt, including utilities debt, has grown in recent                                    Tax-Supported                   Self Sufficient Tax Supported
+                                                                                                       Self Supported                  MSI
+      years primarily as a result of infrastructure requirements.
+                                                                                                       Council Debt Limit
+      Local improvement debt is considered self-supported, with
+      principal and interest payments funded by local improvement
+      levies that are collected from property owners.                         Debt Service (Principal & Interest) 2018-2023
+      Effective as of 2021 January 1, The City has its own Debt Policy                       1,400
+
+
+      (CP2020-05) to govern the issuance and management of debt                              1,200
+
+      in a prudent and fiscally responsible manner. This allows The                          1,000
+      Corporation to continue to maintain or improve our credit
+      rating (AA+/AA(High)), which is instrumental in The City’s                              800
+
+
+      ability to issue debt efficiently.                                        $ Millions    600
+
+
+      As an alternative to borrowing from the Government of                                   400
+
+      Alberta, Council approved the Corporate Borrowing Strategy
+      on 2023 October 17, with Bylaw 10B2023. This authorizes                                 200
+
+
+      The City to access debt funding by issuing municipal bonds                                0
+
+      on capital markets and through private placements. The                                         2018      2019         2020        2021       2022       2023
+
+      Corporate Borrowing Strategy provides The City with an                                           Tax-Supported               Self Sufficient Tax Supported
+                                                                                                       Self Supported              Council Debt Service Limit
+      additional capital debt borrowing alternative and will be
+      utilized going forward.
+      Note: 2023 Debt and Debt Service, as well as 2023 Self-Supported Debt
+      Service are estimates.
+      Final 2023 figures will be available in the Annual Financial Report.
+
+
+
+
+2023 Progress Update Report                                                                                                                    Financial updates       22
+      Looking
+      ahead
+      Progress status                                                                         Performance Measures Progress
+
+      When the 2023-2026 Service Plans and Budgets were developed, a total
+      of 286 performance measures and 588 initiatives were identified. The
+      majority of these initiatives and performance measures are progressing
+      as planned, while a small percentage (e.g., service level, response rate
+      and satisfaction measures) is not progressing according to the plans due
+      to some challenges and unprecedented growth. We will continue to                                88.11%
+                                                                                                      Progressing
+      monitor our progress as well as assess challenges and pressures.                                as planned
+      We are exploring ways to optimize our reporting structure and frequency to Council              11.89%
+      and Calgarians by clearly showing our progress on strategic priorities through key              Not progressing
+      metrics. We are investigating different technology solutions to improve reporting               as planned
+      efficiency and user experience, such as providing Service Updates through online,
+      interactive dashboards, ensuring Council receives information about strategic
+      priorities at the right level and time to support decision-making.
+                                                                                              Initiatives Progress
+
+      Service challenges
+      Pressures and challenges can negatively impact our reliable, effective and efficient
+      service delivery. Some of the pressures and challenges that services face include
+      inflation-driven cost escalations impacting operations and budgets. Concurrently,
+      maintaining a proficient workforce amidst increasing demand requires proactive
+      recruitment and promoting an employer of choice reputation. Adapting to growing                 2.59%
+                                                                                                      Completed
+      service demands and complexities entails strategic prioritization and forging
+      robust partnerships to ensure effective delivery. Operational efficiency confronts              92.76%
+      disruptions such as supply chain interruptions and extreme weather events,                      Progressing
+                                                                                                      as planned
+      underscoring the need for agile project management and collaborative approaches.
+      Moreover, navigating changing social dynamics and demographics requires                         4.14%
+                                                                                                      Not progressing
+      careful community engagement strategies to accommodate diverse opinions
+                                                                                                      as planned
+      and emerging groups. Finally, anticipating potential uncertainties like population
+      growth, economic fluctuations, regulatory changes and evolving security                         0.52%
+                                                                                                      Not started
+      landscapes underscores the importance of vigilant trend monitoring for informed
+      strategic planning and resilience.
+      By monitoring and managing pressures and challenges that affect The City’s
+      services, we are better able to avoid undesirable impacts and capitalize on
+      opportunities as they present themselves while continuing to focus on delivering
+      services to Calgarians. To get more information on the current assessment of the risk
+      environment facing The City and how it is impacting The City’s Principal Corporate
+      Risks, please refer to the 2023 Year-End Principal Corporate Risk Report.
+
+
+         Service-specific challenges are provided in the Service Updates at calgary.ca/progressupdate
+         as well as in accompanying Attachment 4 - Service Updates.
+
+
+2023 Progress Update Report                                                                                      Looking ahead   23
+2023 Progress Update Report   Looking ahead   24
+
