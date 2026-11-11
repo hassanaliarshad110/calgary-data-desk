@@ -1,0 +1,35 @@
+name: Probe 26
+
+# Read only. Site-wide accuracy audit: the live site's data files, and the Dashboard's figures worked out again from the
+# City's open data with code written for the audit. Output goes to the branch fetched-26. Nothing is published or changed.
+
+on: {push: {branches: [site-check-26]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: The live site's data files, at the time of the audit
+        run: |
+          set +e
+          mkdir -p out/live/city_actual
+          for f in built.json city_actual/w0.json budget.json tax.json infra.json safety_rank.json capmkt.json business.json elections.json visit.json school_tax.json tourism.json accountability.json methods.json settings.json; do
+            curl -fsS -m 300 "https://calgaryinsight.ca/data/$f?t=$(date +%s)" -o "out/live/$f" || echo "not read: $f" >> out/log.txt
+          done
+          date -u +'live files read %Y-%m-%dT%H:%M:%SZ' >> out/log.txt
+      - name: Independent recalculation from the City's open data
+        run: |
+          pip install -q shapely
+          python audit/independent_city.py out 2>&1 | tail -20
+      - name: Push what was found to fetched-26 (evidence only)
+        if: always()
+        run: |
+          set +e
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q --orphan fetched-26
+          git rm -rqf --cached . > /dev/null 2>&1
+          git add -f out && git commit -qm "Site-wide accuracy audit: live data and independent recalculation (evidence only)" && git push -qf origin fetched-26
