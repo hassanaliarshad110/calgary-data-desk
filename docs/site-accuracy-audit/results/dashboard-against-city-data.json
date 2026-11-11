@@ -1,0 +1,408 @@
+[
+ {
+  "screen": "Dashboard / status board",
+  "check": "311 requests, last 12 months (with a community)",
+  "result": "PASS",
+  "site": 453536,
+  "independent": 453549,
+  "difference": 13,
+  "difference_pct": 0.003,
+  "tolerance": "50 or 0.05%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "311 requests, the 12 months before",
+  "result": "PASS",
+  "site": 449331,
+  "independent": 449374,
+  "difference": 43,
+  "difference_pct": 0.01,
+  "tolerance": "50 or 0.05%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "311 requests with no community (in the trend chart, not in the total)",
+  "result": "NOTE",
+  "detail": "last 12: 31278; before: 33414",
+  "kind": "independent"
+ },
+ {
+  "screen": "311 trend chart",
+  "check": "The chart's 12 months against the City's requests with a community",
+  "result": "PASS",
+  "site": 453549,
+  "independent": 453549,
+  "difference": 0,
+  "difference_pct": 0.0,
+  "tolerance": "60 or 0.05%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "311 trend chart",
+  "check": "Each month: chart vs every non-duplicate request in the City data (the gap is requests with no community)",
+  "result": "NOTE",
+  "detail": "[('2025-11', 30238, 32729), ('2025-12', 31271, 33121), ('2026-01', 32821, 35346), ('2026-02', 28200, 30862), ('2026-03', 32842, 35495), ('2026-04', 37644, 40392), ('2026-05', 44653, 47467), ('2026-06', 50927, 54163), ('2026-07', 50181, 52529), ('2026-08', 42414, 44977), ('2026-09', 38026, 40709), ('2026-10', 34332, 37037)]",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Infrastructure reports (21 types), last 12 months",
+  "result": "PASS",
+  "site": 102098,
+  "independent": 102101,
+  "difference": 3,
+  "difference_pct": 0.003,
+  "tolerance": "30 or 0.05%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Infrastructure reports, 12 months before",
+  "result": "PASS",
+  "site": 101921,
+  "independent": 101935,
+  "difference": 14,
+  "difference_pct": 0.014,
+  "tolerance": "30 or 0.05%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Service names matched to the 21 types",
+  "result": "NOTE",
+  "detail": "['Parks - Garbage - GIS', 'Parks - Infrastructure - GIS', 'Parks - Maintenance - GIS', 'Parks - Tree Concern - GIS', 'Roads - Backlane Maintenance', 'Roads - Dead Animal Pick-Up', 'Roads - Debris on Street/Sidewalk/Boulevard', 'Roads - Pathway Concerns', 'Roads - Pathway Snow and Ice Concerns', 'Roads - Pothole Maintenance', 'Roads - Roadway Maintenance', 'Roads - Sidewalk - Curb and Gutter Repair', 'Roads - Signs - Missing - Damaged', 'Roads - Snow and Ice Control', 'Roads - Streetlight Maintenance', 'Roads - Traffic or Pedestrian Light Repair', 'WATS - Catch Basin Concerns', 'WATS - Service and Main Valve Issues', 'WATS - Sewage Back-up', 'WATS - Sewer Maintenance', 'WATS - Water Main Break or Leak']",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Open requests now (with a community)",
+  "result": "PASS",
+  "site": 75723,
+  "independent": 75784,
+  "difference": 61,
+  "difference_pct": 0.081,
+  "tolerance": "0 or 2.0%",
+  "why_tolerance": "counts that change by the hour (open requests), read some hours apart",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Open more than 90 days",
+  "result": "PASS",
+  "site": 62190,
+  "independent": 62354,
+  "difference": 164,
+  "difference_pct": 0.264,
+  "tolerance": "0 or 2.0%",
+  "why_tolerance": "counts that change by the hour (open requests), read some hours apart",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Closed within 7 days (%), 7 x 24 hours",
+  "result": "PASS",
+  "site": 76.9,
+  "independent": 76.9,
+  "difference": 0.0,
+  "difference_pct": 0.0,
+  "tolerance": "0.3 or 0%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Closed within 7 days: other readings",
+  "result": "NOTE",
+  "detail": "7 calendar days: 76.9%; closed 431,410 (site 431,397); within 7x24h 331,833 (site 331,823)",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Made on a phone (%), source = App",
+  "result": "FAIL",
+  "site": 19.6,
+  "independent": 18.3,
+  "difference": -1.3000000000000007,
+  "difference_pct": -6.633,
+  "tolerance": "0.1 or 0%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Sources",
+  "result": "NOTE",
+  "detail": "{'App': 88741, 'Other': 396083, 'Web': 3}",
+  "kind": "independent"
+ },
+ {
+  "screen": "Compare wards",
+  "check": "Each community is in the ward holding most of its area (exact areas, independent)",
+  "result": "PASS",
+  "detail": "313 communities",
+  "kind": "independent"
+ },
+ {
+  "screen": "Compare wards",
+  "check": "311 requests by ward, from the City data and the independent ward map",
+  "result": "PASS",
+  "detail": {
+   "1": [
+    27180,
+    27180
+   ],
+   "2": [
+    23453,
+    23453
+   ],
+   "3": [
+    21880,
+    21880
+   ],
+   "4": [
+    31627,
+    31627
+   ]
+  },
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard: communities table",
+  "check": "311 requests by community",
+  "result": "PASS",
+  "detail": "313 communities",
+  "kind": "independent"
+ },
+ {
+  "screen": "Compare wards",
+  "check": "Closed within 7 days by ward",
+  "result": "PASS",
+  "detail": "all 14 wards within 0.4 points",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Homes in building permits applied for, last 12 months",
+  "result": "PASS",
+  "site": 23145,
+  "independent": 23148,
+  "difference": 3,
+  "difference_pct": 0.013,
+  "tolerance": "10 or 0.1%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Homes in building permits applied for, 12 months before",
+  "result": "PASS",
+  "site": 25322,
+  "independent": 25322,
+  "difference": 0,
+  "difference_pct": 0.0,
+  "tolerance": "10 or 0.1%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Homes in building permits issued, last 12 months",
+  "result": "PASS",
+  "site": 22394,
+  "independent": 22395,
+  "difference": 1,
+  "difference_pct": 0.004,
+  "tolerance": "10 or 0.1%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Homes in building permits issued, 12 months before",
+  "result": "PASS",
+  "site": 25078,
+  "independent": 25078,
+  "difference": 0,
+  "difference_pct": 0.0,
+  "tolerance": "10 or 0.1%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Homes in permits with no community code",
+  "result": "NOTE",
+  "detail": "applied 0, issued 0",
+  "kind": "independent"
+ },
+ {
+  "screen": "Compare wards",
+  "check": "Homes in permits issued, by ward",
+  "result": "PASS",
+  "detail": "14 wards",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Development permit applications, last 12 months",
+  "result": "FAIL",
+  "site": 6599,
+  "independent": 6616,
+  "difference": 17,
+  "difference_pct": 0.258,
+  "tolerance": "5 or 0.2%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Development permit applications, 12 months before",
+  "result": "FAIL",
+  "site": 6799,
+  "independent": 6816,
+  "difference": 17,
+  "difference_pct": 0.25,
+  "tolerance": "5 or 0.2%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Statuses (independent)",
+  "result": "NOTE",
+  "detail": "{'In Circulation': 303, 'New': 1, 'Cancelled - Pending Refund': 23, 'Pending Appeal': 54, 'Expired': 1, 'Under Review': 133, 'Hold': 524, 'Pending Decision': 18, 'Application Received': 7, 'Approved': 8, 'Pending Release': 390, 'Released': 3667, 'In Advertising': 341, 'Revoked': 2, 'Refused': 35, 'Cancelled': 1085, 'Inactive': 24}",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Released",
+  "result": "PASS",
+  "site": 3658,
+  "independent": 3667,
+  "difference": 9,
+  "difference_pct": 0.246,
+  "tolerance": "5 or 1.0%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Refused",
+  "result": "PASS",
+  "site": 35,
+  "independent": 35,
+  "difference": 0,
+  "difference_pct": 0.0,
+  "tolerance": "2 or 5.0%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Cancelled",
+  "result": "FAIL",
+  "site": 1127,
+  "independent": 1085,
+  "difference": -42,
+  "difference_pct": -3.727,
+  "tolerance": "5 or 1.0%",
+  "why_tolerance": "the window is closed (Nov 2025 to Oct 2026), but the City keeps adding and editing records; the site built at 2026-11-11 04:20 Calgary time, this read at 2026-11-11T16:47:38Z",
+  "kind": "independent"
+ },
+ {
+  "screen": "Compare wards",
+  "check": "Development permits by ward (the permit's own ward field)",
+  "result": "PASS",
+  "detail": {
+   "1": 403,
+   "4": 473,
+   "9": 806,
+   "8": 597,
+   "None": 17
+  },
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Traffic incidents in Calgary, last 12 months (Calgary dates, inside the city)",
+  "result": "PASS",
+  "site": 8408,
+  "independent": 8408,
+  "difference": 0,
+  "difference_pct": 0.0,
+  "tolerance": "3 or 0.1%",
+  "why_tolerance": "incidents can be added late",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Traffic incidents, 12 months before",
+  "result": "PASS",
+  "site": 6742,
+  "independent": 6742,
+  "difference": 0,
+  "difference_pct": 0.0,
+  "tolerance": "3 or 0.1%",
+  "why_tolerance": "",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Traffic: rows / no location / anywhere in the data, last 12",
+  "result": "NOTE",
+  "detail": "15216 rows read, 0 without a location, 8419 anywhere in the last 12 months",
+  "kind": "independent"
+ },
+ {
+  "screen": "Compare wards",
+  "check": "Traffic incidents by ward (exact boundaries)",
+  "result": "PASS",
+  "detail": "14 wards",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard: traffic",
+  "check": "Traffic incidents day by day",
+  "result": "PASS",
+  "detail": "every day within 1",
+  "kind": "independent"
+ },
+ {
+  "screen": "Dashboard: traffic",
+  "check": "The City data in May-June 2025 (days with any incident)",
+  "result": "NOTE",
+  "detail": "2 days with incidents between 2025-05-21 and 2025-07-01: ['2025-05-23', '2025-05-28']",
+  "kind": "independent"
+ },
+ {
+  "screen": "Population",
+  "check": "2021 Census population by community (sum)",
+  "result": "FAIL",
+  "site": 1288995,
+  "independent": 1289690,
+  "difference": 695,
+  "difference_pct": 0.054,
+  "tolerance": "0 or 0%",
+  "why_tolerance": "the Census does not change",
+  "kind": "independent"
+ },
+ {
+  "screen": "Population",
+  "check": "2021 Census private households (sum)",
+  "result": "FAIL",
+  "site": 500990,
+  "independent": 501395,
+  "difference": 405,
+  "difference_pct": 0.081,
+  "tolerance": "0 or 0%",
+  "why_tolerance": "",
+  "kind": "independent"
+ }
+]

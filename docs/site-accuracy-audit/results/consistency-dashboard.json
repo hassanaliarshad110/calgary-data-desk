@@ -1,0 +1,618 @@
+[
+ {
+  "screen": "Dashboard / status board",
+  "check": "311 requests: communities add up to the Calgary total",
+  "result": "PASS",
+  "detail": "communities 453,536 vs Calgary 453,536 (requests with no community: 0)",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "311 requests: the 14 wards add up to the Calgary total",
+  "result": "PASS",
+  "detail": "wards 453,536 vs Calgary 453,536",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: requests_prev",
+  "result": "PASS",
+  "detail": "wards 449,331 vs Calgary 449,331",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: infra12",
+  "result": "PASS",
+  "detail": "wards 102,098 vs Calgary 102,098",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: infra_prev",
+  "result": "PASS",
+  "detail": "wards 101,921 vs Calgary 101,921",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: open",
+  "result": "PASS",
+  "detail": "wards 75,723 vs Calgary 75,723",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: open_over_90_days",
+  "result": "PASS",
+  "detail": "wards 62,190 vs Calgary 62,190",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: new_homes12",
+  "result": "PASS",
+  "detail": "wards 23,145 vs Calgary 23,145",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: new_homes_prev",
+  "result": "PASS",
+  "detail": "wards 25,322 vs Calgary 25,322",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: issued_homes12",
+  "result": "PASS",
+  "detail": "wards 22,394 vs Calgary 22,394",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: dev_permits12",
+  "result": "PASS",
+  "detail": "wards 6,599 vs Calgary 6,599",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: traffic12",
+  "result": "PASS",
+  "detail": "wards 8,408 vs Calgary 8,408",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: traffic_prev",
+  "result": "PASS",
+  "detail": "wards 6,742 vs Calgary 6,742",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: residents",
+  "result": "PASS",
+  "detail": "wards 1,598,075 vs Calgary 1,598,075",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: census2021",
+  "result": "PASS",
+  "detail": "wards 1,288,995 vs Calgary 1,288,995",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: homes_now",
+  "result": "PASS",
+  "detail": "wards 566,079 vs Calgary 566,079",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: homes_census",
+  "result": "PASS",
+  "detail": "wards 494,511 vs Calgary 494,511",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: child_care_spaces",
+  "result": "PASS",
+  "detail": "wards 66,911 vs Calgary 66,911",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: schools",
+  "result": "PASS",
+  "detail": "wards 499 vs Calgary 499",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: students",
+  "result": "PASS",
+  "detail": "wards 239,252 vs Calgary 239,252",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: stops",
+  "result": "PASS",
+  "detail": "wards 5,490 vs Calgary 5,490",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: playgrounds",
+  "result": "PASS",
+  "detail": "wards 1,115 vs Calgary 1,115",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: facilities",
+  "result": "PASS",
+  "detail": "wards 311 vs Calgary 311",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: children_0_14",
+  "result": "PASS",
+  "detail": "wards 272,093 vs Calgary 272,093",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: children_0_4",
+  "result": "PASS",
+  "detail": "wards 86,542 vs Calgary 86,542",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: daycare_spaces",
+  "result": "PASS",
+  "detail": "wards 48,039 vs Calgary 48,039",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Wards add up to Calgary: crimes (wards table)",
+  "result": "PASS",
+  "detail": "wards 25,857 vs Calgary row 25,857; the Crime card uses every row of the police file: 25,861 (method note: a few incidents have no ward)",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Residents: wards add up to the City total for today",
+  "result": "PASS",
+  "detail": "1,598,075 / 1,598,075 / 1,598,075",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Residents: residential communities add up to Calgary",
+  "result": "PASS",
+  "detail": "1,598,075 vs 1,598,075",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "2021 Census: residential communities add up to 1,288,995",
+  "result": "PASS",
+  "detail": "1,288,995",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Requests per 1,000 = residential requests / mid-period residents x 1,000",
+  "result": "PASS",
+  "detail": "426,788 / 1,585,325 x 1000 = 269.21; shown 269.2",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Requests per 1,000 (year before)",
+  "result": "PASS",
+  "detail": "271.59 vs 271.6",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Infrastructure reports per 1,000",
+  "result": "PASS",
+  "detail": "59.73 vs 59.7",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Open requests per 1,000 (today's residents)",
+  "result": "PASS",
+  "detail": "44.34 vs 44.3",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Change in requests against the year before",
+  "result": "PASS",
+  "detail": "0.9 vs 0.9",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Closed within 7 days (Calgary)",
+  "result": "PASS",
+  "detail": "331,823/431,397 = 76.92% vs 76.9",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Made on a phone (app share)",
+  "result": "PASS",
+  "detail": "19.56 vs 19.6",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Traffic incidents change",
+  "result": "PASS",
+  "detail": "24.7 vs 24.7",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Homes in permits applied: change",
+  "result": "PASS",
+  "detail": "-8.6 vs -8.6",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Homes in permits issued: change",
+  "result": "PASS",
+  "detail": "-10.7 vs -10.7",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Growth since 2021 = residents / Census - 1",
+  "result": "PASS",
+  "detail": "23.98 vs 24.0",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard / status board",
+  "check": "Homes growth since 2021",
+  "result": "PASS",
+  "detail": "14.47 vs 14.5",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Compare wards",
+  "check": "Every rate and change of the 14 wards follows from its counts (17 measures x 14 wards)",
+  "result": "PASS",
+  "detail": "14 wards, every measure",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Compare wards",
+  "check": "The Calgary row of the wards table follows from its counts",
+  "result": "PASS",
+  "detail": "every measure",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: communities table",
+  "check": "Each community's growth, open-per-1,000 and change follow from its counts",
+  "result": "PASS",
+  "detail": "210 residential communities",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: communities table",
+  "check": "Communities under 500 residents get no rates",
+  "result": "PASS",
+  "detail": "none rated",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: communities table",
+  "check": "Community rates use mid-period residents (not stored per community): implied mid/today ratio",
+  "result": "NOTE",
+  "detail": "min 0.619, max 1.001, median 1.001 (expected a little under 1 for growing places)",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: crime",
+  "check": "Crime per 1,000 = crimes / residents x 1,000",
+  "result": "PASS",
+  "detail": "25,861/1,583,200 = 16.33 vs 16.3",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: crime",
+  "check": "Crime change",
+  "result": "PASS",
+  "detail": "-1.5 vs -1.5",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: crime",
+  "check": "Violent crime change",
+  "result": "PASS",
+  "detail": "-7.6 vs -7.6",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: crime",
+  "check": "Crime categories",
+  "result": "NOTE",
+  "detail": "[{\"category\": \"Theft FROM Vehicle\", \"label\": \"Theft from vehicles\", \"n\": 7570, \"prev\": 6464, \"change_pct\": 17.1, \"violent\": false}, {\"category\": \"Assault (Non-domestic)\", \"label\": \"Assault\", \"n\": 4790, \"prev\": 5018, \"change_pct\": -4.5, \"violent\": true}, {\"category\": \"Theft OF Vehicle\", \"label\": \"Vehicle theft\", \"n\": 3832, \"prev\": 3973, \"change_pct\": -3.5, \"violent\": false}, {\"category\": \"Break & Enter - Commercial\", \"label\": \"Break-ins: businesses\", \"n\": 2847, \"prev\": 3187, \"change_pct\": -10.7, ",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: crime",
+  "check": "Crime categories add up to the total",
+  "result": "PASS",
+  "detail": "25,861 vs 25,861",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: crime",
+  "check": "Monthly series",
+  "result": "NOTE",
+  "detail": "{\"months\": [\"Oct 2024\", \"Nov 2024\", \"Dec 2024\", \"Jan 2025\", \"Feb 2025\", \"Mar 2025\", \"Apr 2025\", \"May 2025\", \"Jun 2025\", \"Jul 2025\", \"Aug 2025\", \"Sep 2025\", \"Oct 2025\", \"Nov 2025\", \"Dec 2025\", \"Jan 2026\", \"Feb 2026\", \"Mar 2026\", \"Apr 2026\", \"May 2026\", \"Jun 2026\", \"Jul 2026\", \"Aug 2026\", \"Sep 2026\"], \"n\": [2373, 2087, 2088, 2123, 1780, 2054, 2041, 2109, 2183, 2429, 2511, 2487, 2231, 2056, 2061, 224",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: disorder",
+  "check": "Disorder change",
+  "result": "PASS",
+  "detail": "10.6 vs 10.6",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: disorder",
+  "check": "Disorder categories add up",
+  "result": "PASS",
+  "detail": "8,586 vs 8,586",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: disorder",
+  "check": "Disorder card period",
+  "result": "NOTE",
+  "detail": "Aug 2024 to Jul 2025 (data ends 2025-07-31); the police file's disorder in the crime block: {\"n\": 88906, \"prev\": 86156, \"change_pct\": 3.2, \"by_type\": [{\"type\": \"Unwanted Guest\", \"n\": 25307, \"prev\": 25930}, {\"type\": \"Suspicious Person\", \"n\": 16504, \"prev\": 16352}, {\"type\": \"Disturbance\", \"n\": 15853, \"prev\": 14680}, {\"type\": \"Suspicious Vehicle\", \"n\": 6642, \"prev\": 6928}, {\"type\": \"Mental He",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Fields",
+  "result": "NOTE",
+  "detail": "{'applied': 6599, 'applied_prev': 6799, 'released': 3658, 'in_review': 1769, 'refused': 35, 'cancelled': 1127, 'page': 'https://www.calgary.ca/development/permits/permit-application-search/', 'change_pct': -2.9, 'larger': 2434, 'larger_prev': 2474, 'larger_change_pct': -1.6, 'larger_released': 977, 'counts_from': 'every application', 'list_complete': False}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Applications change",
+  "result": "PASS",
+  "detail": "-2.9 vs -2.9",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Status counts add up to applications",
+  "result": "PASS",
+  "detail": "6599 vs 6599: [{\"status\": \"Released\", \"n\": 3658}, {\"status\": \"Cancelled\", \"n\": 1080}, {\"status\": \"Hold\", \"n\": 523}, {\"status\": \"Pending Release\", \"n\": 390}, {\"status\": \"In Advertising\", \"n\": 341}, {\"status\": \"In Circulation\", \"n\": 303}, {\"status\": \"Under Review\", \"n\": 132}, {\"status\": \"Pending Appeal\", \"n\": 54}, ",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Type counts add up to applications",
+  "result": "PASS",
+  "detail": "6599 vs 6599",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Larger developments change",
+  "result": "PASS",
+  "detail": "-1.6 vs -1.6",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Larger developments = the three larger types",
+  "result": "PASS",
+  "detail": "2434 vs 2434; types ['New homes and apartment buildings', 'Change of use', 'New commercial and industrial', 'Rezoning (land use change)']; by_type [{\"type\": \"New homes and apartment buildings\", \"n\": 1288, \"released\": 479, \"larger\": true, \"prev\": 1365}, {\"type\": \"Relaxations (small exceptions to the rules)\", \"n\": 1177, \"released\": 763, \"larger\": false, \"prev\": 1130}, {\"type\": \"Change of use\", \"n\": 916, \"released\": 420, \"larger\": true, \"prev\": 9",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: development",
+  "check": "Wards table development permits = Calgary applications",
+  "result": "PASS",
+  "detail": "6599 vs 6599",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: 311 trend",
+  "check": "Monthly series",
+  "result": "NOTE",
+  "detail": "months ['2025-11', '2025-12', '2026-01']..['2026-08', '2026-09', '2026-10']; all [30238, 31271, 32821]..; sum 453,549; prev sum 449,374",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: 311 trend",
+  "check": "The 12 months of the chart add up to the 12-month total",
+  "result": "FAIL",
+  "detail": "453,549 vs 453,536",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: 311 trend",
+  "check": "The year-before line adds up to the year-before total",
+  "result": "FAIL",
+  "detail": "449,374 vs 449,331",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: traffic",
+  "check": "Traffic incidents by day add up to the 12-month total",
+  "result": "PASS",
+  "detail": "8,408 vs 8,408",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: traffic",
+  "check": "Traffic incidents by day (year before) add up",
+  "result": "PASS",
+  "detail": "6,742 vs 6,742",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: traffic",
+  "check": "Days with no incident recorded in the two periods",
+  "result": "NOTE",
+  "detail": "42 days: ['2025-01-20', '2025-05-21', '2025-05-22', '2025-05-24', '2025-05-25', '2025-05-26', '2025-05-27', '2025-05-29', '2025-05-30', '2025-05-31', '2025-06-01', '2025-06-02']... (a run of missing days is a gap in the City data, which inflates the change)",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Open issues",
+  "check": "Department times fields",
+  "result": "NOTE",
+  "detail": "[{\"dept\": \"CS - Emergency Management and Community Safety\", \"n\": 95160, \"closed\": 90887, \"open\": 4273, \"within7\": 55380, \"within30\": 23619, \"within90\": 10421, \"over90\": 1467, \"avg_days\": 12.4}, {\"dept\": \"OS - Mobility\", \"n\": 89816, \"closed\": 76576, \"open\": 13240, \"within7\": 63417, \"within30\": 7490, \"within90\": 3255, \"over90\": 2414, \"avg_days\": 10.2}]",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Population",
+  "check": "Today's residents equal the City's estimate read on a straight line",
+  "result": "PASS",
+  "detail": "{\"city_actual\": 1598075, \"city_pace\": 1598075, \"model\": 1468963, \"census2021\": 1288995}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Population",
+  "check": "Source and how",
+  "result": "NOTE",
+  "detail": "The figure for a month is read on a straight line between the April figures before and after it (November 2026: 1,583,200 in April 2026 + 7/12 of the way to 1,608,700 in April 2027 = 1,598,075).",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Population",
+  "check": "Cross-check: Homes alone (people per home as in 2021)",
+  "result": "NOTE",
+  "detail": "{\"key\": \"homes\", \"label\": \"Homes alone (people per home as in 2021)\", \"growth_pct\": 14.5, \"how\": \"494,511 homes lived in at the 2021 Census, 566,079 today (City property assessment roll)\"}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Population",
+  "check": "Cross-check: Homes plus more people per home",
+  "result": "NOTE",
+  "detail": "{\"key\": \"homes_per_home\", \"label\": \"Homes plus more people per home\", \"growth_pct\": 24.0, \"per_home_pct\": 5.5, \"real_growth_pct\": 20.7, \"how\": \"Calgary's population grew 20.7% (the City's estimate, 1,323,783 to 1,598,075) on 14.5% more homes (494,511 to 566,079), so each home holds about 5.5% more people. Calgary: 1.145 x 1.055 = +20.7% real growth; x 1.027 for the people the Census count of private homes left out = +24.0% against the 2021 Census count\"}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Population",
+  "check": "Cross-check: School enrolment",
+  "result": "NOTE",
+  "detail": "{\"key\": \"schools\", \"label\": \"School enrolment\", \"growth_pct\": 24.0, \"real_growth_pct\": 20.8, \"how\": \"Students in Calgary's schools 206,261 (2021/2022) to 239,252 (2025/2026), +16.0%; every Calgary school +16.0%. Calgary grew 1.00 times as fast; x Calgary's 20.7% = +20.8% real growth; x 1.027 = +24.0% against the 2021 Census count\"}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Population",
+  "check": "Homes growth cross-check = homes now / homes at Census - 1",
+  "result": "PASS",
+  "detail": "14.47 vs 14.5",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Population",
+  "check": "Real growth cross-check: 1,598,075 / 1,323,783 - 1",
+  "result": "PASS",
+  "detail": "20.72 vs 20.7",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Population",
+  "check": "Homes x people per home = real growth (1.145 x 1.055)",
+  "result": "PASS",
+  "detail": "20.80 vs 20.7",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Population",
+  "check": "Against the 2021 Census count: 1,598,075 / 1,288,995 - 1",
+  "result": "PASS",
+  "detail": "23.98 vs 24.0",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Families",
+  "check": "Child care keys",
+  "result": "NOTE",
+  "detail": "{'as_of': 'Sep 2026', 'quarters': 'list20', 'programs': 'list875', 'by_comm': 'dict248', 'unlocated': 42, 'spaces': 66911, 'programs_counted': 826, 'spaces_first': 43250, 'first_quarter': 'Mar 2021', 'children_0_14': 272093, 'children_0_4': 86542, 'children_0_14_2021': 235280, 'children_0_4_2021': 73695, 'per_100_0_14': 24.6, 'daycare_per_100_0_4': 55.5, 'page': 'https://open.alberta.ca/opendata/childcareinformation', 'note': 'Licensed spaces: how many children each licensed program may care for at once, for programs whose address is in Ward 0 (Government of Alberta, Child Care Information). F",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Families",
+  "check": "Schools keys",
+  "result": "NOTE",
+  "detail": "{'latest_year': '2025/2026', 'years': 'list10', 'schools': 'list499', 'totals': 'list10', 'students': 239252, 'unmatched': 'list38', 'page': 'https://open.alberta.ca/opendata/student-enrolment-by-school-authority-and-grade-level', 'note': \"Students enrolled in each school inside Ward 0 (Government of Alberta, Student enrolment by school, authority and grade level). Schools are placed with the City's Schools map. Totals over years count the same schools in every year.\"}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Families",
+  "check": "Child care: capacity of listed programs (agencies left out)",
+  "result": "NOTE",
+  "detail": "66,911 against the wards table 66,911",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Families",
+  "check": "Schools: students of the listed schools add up to the Calgary total",
+  "result": "FAIL",
+  "detail": "0 vs 239,252; 499 schools vs 499",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Families",
+  "check": "Schools: K to 9 + 10 to 12 = total for every school",
+  "result": "PASS",
+  "detail": "499 schools",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: crime severity",
+  "check": "Fields",
+  "result": "NOTE",
+  "detail": "{'table': '35-10-0026-01', 'page': 'https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510002601', 'cps_dashboard': 'https://www.calgary.ca/cps/statistics/calgary-police-statistical-reports.html', 'years': [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025], 'latest_year': 2025, 'calgary': {'csi': 61.66, 'violent': 68.49, 'non_violent': 59.45}, 'calgary_change_pct': {'csi': -2.6, 'violent': -13.1, 'non_violent': 3.1}, 'calgary_10yr_pct': -22.7, 'canada': 75.01, 'fetched': '2026-11-10', 'fetched_utc': '2026-11-11T04:32:29'}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Dashboard: crime severity",
+  "check": "Calgary series",
+  "result": "NOTE",
+  "detail": "{\"csi\": [79.77, 78.37, 83.87, 89.74, 94.09, 79.96, 72.78, 77.48, 72.66, 63.29, 61.66], \"violent\": [73.52, 64.83, 76.25, 80.73, 85.78, 79.64, 84.39, 81.33, 84.9, 78.78, 68.49], \"non_violent\": [81.87, 83.06, 86.42, 92.77, 96.85, 79.88, 68.76, 76.6, 68.38, 57.64, 59.45]}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "Keys",
+  "result": "NOTE",
+  "detail": "['years', 'totals', 'by_department', 'dataset', 'page', 'budget_page', 'unit', 'note', 'fetched', 'revenue', 'proposed', 'plan_2027']",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax",
+  "check": "Keys",
+  "result": "NOTE",
+  "detail": "['year', 'roll_year', 'city', 'factors', 'rates', 'levy', 'bylaw', 'source', 'dataset', 'fetched', 'by_ward', 'by_comm', 'wards']",
+  "kind": "consistency"
+ }
+]

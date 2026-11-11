@@ -1,0 +1,450 @@
+[
+ {
+  "screen": "Elections",
+  "check": "Municipal 2025: every race's votes add to its total; shares, winners and margins follow",
+  "result": "PASS",
+  "detail": "mayor + 14 councillor + 7 CBE + 7 CCSD races",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Municipal turnout = voters / electors",
+  "result": "PASS",
+  "detail": "349,815/896,042 = 0.3904 vs 0.3904",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Mayor votes cast vs voters",
+  "result": "NOTE",
+  "detail": "mayor race total 348,865; voters 349,815",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Mayor by ward (election-day stations) + advance",
+  "result": "NOTE",
+  "detail": "stations total 252,584 + advance 96,281 = 348,865 vs official mayor total 348,865",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Mayor by ward: each ward's votes add up and its shares follow",
+  "result": "PASS",
+  "detail": "14 wards",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Provincial 2023: every Calgary riding's votes, shares and winner",
+  "result": "PASS",
+  "detail": "26 ridings + 1 by-elections",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Federal 2025: every Calgary riding's votes, shares, winner and turnout",
+  "result": "PASS",
+  "detail": "11 ridings",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Community shares of provincial ridings add to 1",
+  "result": "PASS",
+  "detail": "313 communities",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Provincial ridings outside the Calgary names that hold part of a community",
+  "result": "NOTE",
+  "detail": "['Banff-Kananaskis']",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Community shares of federal ridings add to 1",
+  "result": "PASS",
+  "detail": "313 communities",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Federal ridings outside the Calgary names that hold part of a community",
+  "result": "NOTE",
+  "detail": "['Airdrie\u2014Cochrane', 'Foothills', 'Yellowhead']",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Elections",
+  "check": "Referendum question fields",
+  "result": "NOTE",
+  "detail": "rs\": 44607, \"votes\": [14265, 16101], \"shares\": [0.4698, 0.5302], \"turnout\": 0.7377}, \"Calgary-Buffalo\": {\"electors\": 42143, \"votes\": [9699, 15048], \"shares\": [0.3919, 0.6081], \"turnout\": 0.6474}, \"Calgary-Cross\": {\"electors\": 31179, \"votes\": [7730, 7742], \"shares\": [0.4996, 0.5004], \"turnout\": 0.5314}, \"Calgary-Currie\": {\"electors\": 39485, \"votes\": [9602, 13421], \"shares\": [0.4171, 0.5829], \"turnout\": 0.6398}, \"Calgary-East\": {\"electors\": 34443, \"votes\": [9154, 7269], \"shares\": [0.5574, 0.4426], \"turnout\": 0.5103}, \"Calgary-Edgemont\": {\"electors\": 38264, \"votes\": [11290, 14092], \"shares\": [0.4448, 0.5552], \"turnout\": 0.7072}, \"Calgary-Elbow\": {\"electors\": 40207, \"votes\": [11344, 15630], \"sha",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "2023-2032 (open budget fqax-i3nz): departments add to each year's total; business units to their department",
+  "result": "FAIL",
+  "detail": "[('2024', 'operating', 'Corporate Services', 'units', 370.115, 370.113), ('2025', 'capital', 'Corporate Services', 'units', 191.03, 191.032), ('2026', 'operating', 'Operational Services', 'units', 2031.013, 2031.015), ('2026', 'operating', 'Corporate Services', 'units', 432.451, 432.449)]",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "Revenue: lines add to the total (2026 Budget, page 24)",
+  "result": "PASS",
+  "detail": "lines [4364, 4596, 4916, 5116] vs total [4365, 4595, 4916, 5116]",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "proposed by_department list form",
+  "result": "NOTE",
+  "detail": "{\"name\": \"Infrastructure Services\", \"value\": 3413.9, \"proposed\": 938.6, \"approved\": 2475.3, \"units\": [{\"name\": \"Green Line LRT - SE Project\", \"status\": \"approved\", \"value\": 1222.1}, {\"name\": \"Utilitie",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "proposed by_department list form",
+  "result": "NOTE",
+  "detail": "{\"name\": \"Operational Services\", \"value\": 2815.8, \"proposed\": 2815.8, \"approved\": 0, \"units\": [{\"name\": \"Water Services\", \"status\": \"proposed\", \"value\": 1222.0}, {\"name\": \"Calgary Transit\", \"status\": ",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "proposed by_department list form",
+  "result": "NOTE",
+  "detail": "{\"name\": \"Infrastructure Services\", \"value\": 4192.2, \"proposed\": 1846.0, \"approved\": 2346.2, \"units\": [{\"name\": \"Green Line LRT - SE Project\", \"status\": \"approved\", \"value\": 1460.2}, {\"name\": \"Utiliti",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "proposed by_department list form",
+  "result": "NOTE",
+  "detail": "{\"name\": \"Operational Services\", \"value\": 3122.0, \"proposed\": 3122.0, \"approved\": 0, \"units\": [{\"name\": \"Water Services\", \"status\": \"proposed\", \"value\": 1426.7}, {\"name\": \"Calgary Transit\", \"status\": ",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "proposed by_department list form",
+  "result": "NOTE",
+  "detail": "{\"name\": \"Infrastructure Services\", \"value\": 3197.1, \"proposed\": 2521.4, \"approved\": 675.7, \"units\": [{\"name\": \"Utilities Delivery\", \"status\": \"proposed\", \"value\": 1839.6}, {\"name\": \"Green Line LRT - ",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "proposed by_department list form",
+  "result": "NOTE",
+  "detail": "{\"name\": \"Operational Services\", \"value\": 3494.8, \"proposed\": 3494.8, \"approved\": 0, \"units\": [{\"name\": \"Water Services\", \"status\": \"proposed\", \"value\": 1684.9}, {\"name\": \"Calgary Transit\", \"status\": ",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "proposed by_department list form",
+  "result": "NOTE",
+  "detail": "{\"name\": \"Infrastructure Services\", \"value\": 3317.1, \"proposed\": 2977.8, \"approved\": 339.3, \"units\": [{\"name\": \"Utilities Delivery\", \"status\": \"proposed\", \"value\": 2025.3}, {\"name\": \"Public Spaces Del",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "proposed by_department list form",
+  "result": "NOTE",
+  "detail": "{\"name\": \"Operational Services\", \"value\": 3873.7, \"proposed\": 3873.7, \"approved\": 0, \"units\": [{\"name\": \"Water Services\", \"status\": \"proposed\", \"value\": 1965.3}, {\"name\": \"Calgary Transit\", \"status\": ",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "2027-2030 (nnnm-9sfh): departments add to each year's totals",
+  "result": "PASS",
+  "detail": "every year, fund and status",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "2027 plan headline figures (typed from the City's pages)",
+  "result": "NOTE",
+  "detail": "{\"operating_2027_billion\": 6, \"capital_2027_2030_billion\": 21, \"new_capital_billion\": 13, \"tax_revenue_increase_2027_pct\": 15, \"note\": \"The 15% is the increase in municipal property tax revenue required from existing properties in 2027.\"}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "Tax path",
+  "result": "NOTE",
+  "detail": "{\"years\": [2027, 2028, 2029, 2030], \"pct\": [15, 10, 7.7, 6], \"source\": \"2027: The City of Calgary (calgary.ca/budget). 2028 to 2030: news reports of the proposed budget presented to Council on November 10, 2026 (LiveWire Calgary, Yahoo News Canada); the City's budget page gives only the 2027 figure, so treat the later years as reported, not confirmed.\", \"urls\": [\"https://www.calgary.ca/our-finances/2027-budget.html\", \"https://livewirecalgary.com/2026/11/10/calgary-four-year-budget-breakdown-money-spent/\", \"https://ca.news.yahoo.com/calgarys-4-budget-proposes-15-160138122.html\"], \"context\": \"Th",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "Household impact",
+  "result": "NOTE",
+  "detail": "{\"basis\": \"A typical single residential property assessed at the median: $706,000 in 2026 and $688,000 in 2027. City property tax amounts are estimates, subject to final assessments. Water is a typical residential metered customer using 19 cubic metres a month.\", \"lines\": [{\"item\": \"Municipal property tax\", \"m2026\": 229, \"m2027\": 266, \"change\": 37}, {\"item\": \"Water utilities, waste and recycling\", \"m2026\": 140, \"m2027\": 156, \"change\": 16}, {\"item\": \"Total\", \"m2026\": 369, \"m2027\": 422, \"change\": 53}], \"source\": \"The City of Calgary, 2027 Budget: Financial impact on Calgarians\", \"url\": \"https://www.calgary.ca/our-finances/2027-budget.html#impact\"}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "Water 2027: bill change = 2027 bill - 2026 bill; percent",
+  "result": "PASS",
+  "detail": "{'pct': 12.2, 'change': 14.5, 'bill2027': 133.71, 'bill2026': 119.21}; 14.50, 12.16%",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "Water 2027 lines",
+  "result": "NOTE",
+  "detail": "[{\"item\": \"Water treatment and supply\", \"rate2026\": \"$1.7409 per m\\u00b3\", \"rate2027\": \"$1.9903 per m\\u00b3\", \"pct\": 10.1, \"change\": 4.74, \"bill2027\": 51.65}, {\"item\": \"Wastewater collection and treatment\", \"rate2026\": \"$1.9050 per m\\u00b3\", \"rate2027\": \"$2.4292 per m\\u00b3\", \"pct\": 15.9, \"change\": 8.77, \"bill2027\": 64.07}, {\"item\": \"Stormwater management\", \"rate2026\": \"$17.00 per 30 days\", \"rate2027\": \"$17.99 per 30 days\", \"pct\": 5.8, \"change\": 0.99, \"bill2027\": 17.99}]",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget",
+  "check": "2027 revenue shares add to 100%",
+  "result": "PASS",
+  "detail": "[['Property tax, including levies', 49], ['Sale of goods and services', 30], ['Return on equity (ENMAX)', 5], ['Investment income', 4], ['Other non-tax revenue', 4], ['Franchise fees', 3], ['Licences and permits', 3], ['Fines and penalties', 1], ['Government grants', 1]] = 100",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "municipal: classes add to the total",
+  "result": "FAIL",
+  "detail": "2,520,865,038 vs 2,520,865,033",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "municipal: the levy shown equals the levy in the bylaw (within $5)",
+  "result": "PASS",
+  "detail": "{'residential': 1378401554, 'non_residential': 1141158376, 'farm_land': 1305108, 'total': 2520865033} vs {'residential': 1378401552, 'non_residential': 1141158372, 'farm_land': 1305110, 'total': 2520865034}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "education: classes add to the total",
+  "result": "FAIL",
+  "detail": "1,235,731,193 vs 1,235,731,200",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "education: the levy shown equals the levy in the bylaw (within $5)",
+  "result": "PASS",
+  "detail": "{'residential': 976684302, 'non_residential': 258940838, 'farm_land': 106053, 'total': 1235731200} vs {'residential': 976684302, 'non_residential': 258940842, 'farm_land': 106056, 'total': 1235731200}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "Wards add up to Calgary: municipal",
+  "result": "FAIL",
+  "detail": "2,519,321,296 vs 2,520,865,033 (difference -1,543,737)",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "Wards add up to Calgary: education",
+  "result": "FAIL",
+  "detail": "1,235,377,720 vs 1,235,731,200 (difference -353,480)",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "Wards add up to Calgary: total",
+  "result": "FAIL",
+  "detail": "3,754,699,016 vs 3,756,596,233 (difference -1,897,217)",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "Communities add up to Calgary",
+  "result": "PASS",
+  "detail": "municipal, education, total",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "Each community's tax = assessed x scaling factor x the bylaw rate",
+  "result": "PASS",
+  "detail": "313 communities x 2 levies x 3 classes",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "Each ward = its communities",
+  "result": "PASS",
+  "detail": "14 wards",
+  "kind": "consistency"
+ },
+ {
+  "screen": "City budget: property tax by ward",
+  "check": "Scaling factors (what is left after exempt property, to match the bylaw's taxable assessment)",
+  "result": "NOTE",
+  "detail": "{\"municipal\": {\"residential\": 0.9762, \"non_residential\": 0.7846, \"farm_land\": 0.9118}, \"education\": {\"residential\": 0.9753, \"non_residential\": 0.7721, \"farm_land\": 0.9118}}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Infrastructure",
+  "check": "Water main breaks: communities add up to Calgary (last 12 months)",
+  "result": "PASS",
+  "detail": "117 vs 117",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Infrastructure",
+  "check": "Water main breaks: communities add up to Calgary (12 months before)",
+  "result": "PASS",
+  "detail": "162 vs 162",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Infrastructure",
+  "check": "Water mains: communities add up to Calgary km",
+  "result": "PASS",
+  "detail": "5414.9 vs 5414.9",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Infrastructure",
+  "check": "A community's main and break fields",
+  "result": "NOTE",
+  "detail": "{\"mains\": {\"km\": 14.4, \"median_year\": 1986, \"old_km\": 3.7, \"cast_iron_km\": 2.1, \"materials\": {\"PVC\": 9.0, \"CI\": 2.1, \"CON\": 2.1, \"ST\": 0.5, \"YDI\": 0.3, \"PVCG\": 0.2}}, \"paving\": {\"this_year\": 0.51}, \"req\": {\"sewer\": [131, 123], \"roads\": [67, 55], \"water\": [7, 12], \"lights\": [58, 22], \"sidewalks\": [34, 22]}}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Infrastructure",
+  "check": "Breaks per 100 km = breaks in 12 months / km of main x 100",
+  "result": "PASS",
+  "detail": "every community with mains",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Infrastructure",
+  "check": "Breaks by year (Calgary)",
+  "result": "NOTE",
+  "detail": "1956..2026: last five [('2021', 177), ('2022', 201), ('2023', 207), ('2024', 178), ('2025', 161), ('2026', 90)]",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Infrastructure",
+  "check": "Sewer pipe materials add to 100%",
+  "result": "PASS",
+  "detail": "{'PVC and other plastic': 66.8, 'Clay tile (vitrified clay)': 20.2, 'Unknown or not recorded': 8.6, 'Cast or ductile iron': 3.3, 'Relined (cured-in-place liner, CIPP)': 1.1, 'Concrete': 0.0} = 100.0",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Infrastructure",
+  "check": "Pavement condition good + fair + poor = 100%",
+  "result": "PASS",
+  "detail": "38+35+27",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "Fields of one city",
+  "result": "NOTE",
+  "detail": "{\"name\": \"Kennebecasis Region\", \"province\": \"New Brunswick\", \"prov\": \"NB\", \"police\": \"Municipal police\", \"population\": 32378, \"csi\": 16.7, \"violent\": 19.97, \"nonviolent\": 15.54, \"cleared\": 46.71, \"change_pct\": -32.85, \"csi_prev\": 24.87, \"violent_prev\": 39.71, \"rank\": 1, \"rank_prev\": 3}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "Rank = position by Crime Severity Index, lowest first",
+  "result": "PASS",
+  "detail": "203 cities",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "Cities ranked = cities listed",
+  "result": "PASS",
+  "detail": "203 vs 203",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "No city under the population floor is ranked",
+  "result": "PASS",
+  "detail": "floor 10,000",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "Calgary change = CSI / CSI the year before - 1",
+  "result": "PASS",
+  "detail": "-2.085 vs -2.08",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "Large cities",
+  "result": "NOTE",
+  "detail": "58 at 100,000+; Calgary's place among them 26; stated rank_large 26 of 58",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "The top 50 are the 50 lowest",
+  "result": "PASS",
+  "detail": "50 listed",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "Metropolitan areas: rank = position by CSI",
+  "result": "PASS",
+  "detail": "[('Barrie, Ontario', 1), ('Saguenay, Quebec', 2), ('Sherbrooke, Quebec', 3), ('Ottawa-Gatineau, Ontario/Quebec', 4), ('St.Catharines-Niagara, Ontario', 5)]",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "Calgary CMA on this screen equals the Dashboard crime-severity card",
+  "result": "PASS",
+  "detail": "61.66/68.49 vs {'csi': 61.66, 'violent': 68.49, 'non_violent': 59.45}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Safest cities",
+  "check": "Dashboard crime-severity card: change and 10-year change follow from the series",
+  "result": "PASS",
+  "detail": "-2.6 vs -2.6; 10 years -22.7 vs -22.7 (2015 to 2025 is 10 years)",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Calgary capital markets",
+  "check": "Top-level fields",
+  "result": "NOTE",
+  "detail": "{'built_at': ('str', 22), 'errors': ('dict', 73), 'totals': ('dict', 2703), 'tmx_month': ('str', 12), 'ticker_check': ('dict', 2971), 'history': ('list', 171), 'sources': ('list', 619)}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Invest in Calgary",
+  "check": "Top-level fields",
+  "result": "NOTE",
+  "detail": "{'built_at': ('str', 22), 'today': ('str', 12), 'categories': ('list', 3222), 'communities': ('dict', 229764), 'centres': ('dict', 9633), 'names': ('dict', 6730), 'trend': ('list', 11047), 'columns': ('list', 124), 'businesses': ('list', 7710288), 'totals': ('dict', 207), 'sources': ('list', 572), 'home_access': ('dict', 294323)}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Tourism",
+  "check": "Top-level fields",
+  "result": "NOTE",
+  "detail": "{'built': ('str', 12), 'sources': ('list', 619), 'arrivals': ('dict', 31133), 'airports_annual': ('dict', 16252), 'airports_monthly': ('dict', 21119), 'errors': ('list', 2)}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "School tax study",
+  "check": "Top-level fields",
+  "result": "NOTE",
+  "detail": "{'built': ('str', 12), 'sources': ('list', 1951), 'requisition': ('dict', 29745), 'students': ('dict', 1494), 'tax_per_student': ('dict', 829), 'funding': ('dict', 17405), 'school_projects': ('dict', 20466), 'residents': ('dict', 50791), 'spending': ('dict', 24818), 'approvals': ('dict', 904), 'class_size_grant': ('dict', 8793), 'grants': ('dict', 119253), 'factors': ('list', 2529), 'rates': ('dict', 508), 'errors': ('list', 88)}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Visiting Calgary",
+  "check": "Top-level fields",
+  "result": "NOTE",
+  "detail": "{'version': ('int', 1), 'built_at': ('str', 22), 'today': ('str', 12), 'errors': ('dict', 2), 'weather': ('dict', 30796), 'top': ('list', 13585), 'sights': ('list', 38265), 'stays': ('list', 32060), 'areas': ('list', 1781), 'stay_labels': ('dict', 157), 'osm_source': ('dict', 168), 'day_trips': ('list', 1095), 'months': ('list', 7486), 'getting_around': ('list', 2831), 'facts': ('list', 1915), 'stats': ('list', 697), 'areas_about': ('list', 1322), 'sources': ('list', 1393), 'checked': ('str', 12)}",
+  "kind": "consistency"
+ },
+ {
+  "screen": "Accountability (performance measures)",
+  "check": "Top-level fields",
+  "result": "NOTE",
+  "detail": "{'built_at': ('str', 22), 'today': ('str', 12), 'council': ('dict', 34839), 'city_measures': ('dict', 21204), 'hoc': ('dict', 69539), 'bills': ('dict', 51), 'errors': ('dict', 2), 'sources': ('list', 541)}",
+  "kind": "consistency"
+ }
+]
