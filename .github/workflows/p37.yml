@@ -1,9 +1,9 @@
-name: Probe 35
+name: Probe 37
 
-# Read only. Runs the Data Genie's tools offline against the live site's Genie files with the genie-bva code on top,
-# and follows every pointer it and the Data Scientist are given. Output goes to fetched-35.
+# Read only. Runs the Data Genie's tools offline against the live site's Genie files as published (nothing added),
+# and follows every pointer it and the Data Scientist are given. Output goes to fetched-37.
 
-on: {push: {branches: [site-check-35]}}
+on: {push: {branches: [site-check-37]}}
 permissions: {contents: write}
 jobs:
   p:
@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
         with: {path: probe}
       - uses: actions/checkout@v4
-        with: {ref: genie-bva, path: code}
+        with: {ref: main, path: code}
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - name: Audit
@@ -23,19 +23,16 @@ jobs:
           S=https://calgaryinsight.ca
           curl -fsSL "$S/py/manifest.json?nc=$RANDOM" -o app/_manifest.json
           python3 probe/audit/fetch_app.py
-          cp code/*.py app/ && cp code/web/webapp.py app/web/webapp.py
-          cp code/ui/budget-intel/budget-vs-actual.json app/data/budget-vs-actual.json
-          python3 probe/audit/new_registry.py
           pip install -q requests openpyxl > /dev/null 2>&1
           python3 probe/audit/genie_audit.py "$PWD/app" "$PWD/code" "$PWD/out/audit.txt" > out/run.txt 2>&1
           tail -30 out/run.txt; head -60 out/audit.txt
-      - name: Push to fetched-35 (evidence only)
+      - name: Push to fetched-37 (evidence only)
         if: always()
         run: |
           set +e
           cd probe
           git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
-          git checkout -q --orphan fetched-35
+          git checkout -q --orphan fetched-37
           git rm -rqf --cached . > /dev/null 2>&1
           rm -rf audit .github; mv ../out out
-          git add -f out && git commit -qm "Data Genie and Data Scientist pointer audit (evidence only)" && git push -qf origin fetched-35
+          git add -f out && git commit -qm "Data Genie and Data Scientist pointer audit on the live site (evidence only)" && git push -qf origin fetched-37
