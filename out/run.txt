@@ -1,0 +1,31 @@
+#### Q: What surplus did the City of Calgary have at year end in each of the last five budgets, where does the surplus go, and is it used as relief in later budgets?
+steps: [{"type": "step", "text": "Reading the dashboard (budget intelligence)"}, {"type": "step", "text": "Checking the list of sources for surplus year-end reserve"}, {"type": "step", "text": "Reading budget's own data"}, {"type": "step", "text": "Searching the City's datasets for \u201cyear-end operating surplus variance\u201d"}, {"type": "step", "text": "Working out 4 figures"}]
+event types: ["step"]
+cost: {"input": 201102, "output": 2778, "cache_read": 144705, "cost_usd": 0.0099}
+ANSWER:
+The City's year-end operating surplus was $236.4 million in 2023, $276.3 million in 2024 and $259.3 million in 2025. The site holds only those three years, so I can't give the other two budgets from the data I can reach.
+
+| Year | Operating surplus | Where it went (transfer to the Fiscal Stability Reserve, FSR) | Council draws from the FSR, approved in November of the same year |
+|---|---|---|---|
+| 2023 | $236.4M | Transferred to the FSR in 2024 | $88M for one-time operating and capital investments, plus $100M for new capital from the 2023 surplus; $242M moved to the Major capital projects reserve |
+| 2024 | $276.3M | Transferred to the FSR in 2025 | $61M for one-time operating and capital investments; $136M moved to the capital and lifecycle reserve |
+| 2025 | $259.3M | Transferred to the FSR in 2026 | $317M for one-time operating and capital investments and heritage reserves; $15M to the Opportunity Calgary Investment Fund |
+
+- **Where the surplus goes:** each year's operating surplus is transferred to the FSR in the next fiscal year. The FSR held $1,214M at the end of 2024 and $1,353M at the end of 2025, each including that year's surplus.
+- **Is it used as relief later?** The reports show the FSR is a contingency fund. It covers emergencies, urgent or contingency capital, and unplanned revenue drops. Its investment income can fund one-time operating spending. The reports don't tie any year's surplus to a later spending decision or to property tax relief. Council approves draws from the reserve, and the draws shown are for one-time investments, not tax relief. The draws above total $188M (2023), $61M (2024) and $332M (2025), by my addition of the listed items.
+- **Caution:** the 2023 figure is audited (2025 Annual Financial Report). The 2024 figure comes from the City's year-end update, which is not audited, because the 2024 Annual Financial Report does not include this reconciliation. The surplus is the City's "operating fund variance," not the consolidated annual surplus in the financial statements.
+- **Not on the site:** the 2021 and 2022 surpluses. Those would be in the City's earlier Annual Financial Reports, which I can't read from here.
+
+Sources:
+- 2025 City of Calgary Annual Financial Report (audited), pages 22–25 and 118: https://www.calgary.ca/content/dam/www/cfod/finance/documents/2025-Annual-Financial-Report.pdf
+- 2024 City of Calgary Annual Financial Report, page 28: https://www.calgary.ca/content/dam/www/cfod/finance/documents/Finance-2024-Annual-Report.pdf
+- 2023 City of Calgary Annual Financial Report, page 28: https://www.calgary.ca/content/dam/www/cfod/finance/documents/Finance-2023-Annual-Report.pdf
+- Financial and Economic Update, 2024 Year-End and First Quarter 2025 (EC2025-0414): https://www.calgary.ca/content/dam/www/cfod/finance/documents/financial-economic-update-2024-year-end-Q1-2025.pdf
+- Calgary Insight Budget Intelligence, budget against actual, 2023 to 2025 (read 2026-11-11)
+
+#### Q: Is the City's reserve kept in fixed deposits and investments?
+steps: [{"type": "step", "text": "Reading the dashboard (budget intelligence)"}]
+event types: ["step"]
+cost: {"input": 85456, "output": 1485, "cache_read": 75897, "cost_usd": 0.0027}
+ANSWER:
+The City's reserve is not held in a separate account. The Fiscal Stability Reserve (FSR) is an amount set aside i
