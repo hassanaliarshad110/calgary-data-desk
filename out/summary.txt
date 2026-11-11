@@ -1,0 +1,10 @@
+read 2026-11-11T16:34:42Z
+budget.json: curl exit 0 2c1dec250586f534 66431 bytes
+tax.json: curl exit 0 07e5d6c893497439 116594 bytes
+built.json: curl exit 0 a8a6b071100e3e63 5395 bytes
+live index.html: 78341544d3ff14e3 159387 bytes; bundle site.20186e8330.js; Budget Intelligence tab present: 0
+live build: 2026-11-11 05:39 83 steps, 0 failed []
+tools/budget_intel_check.py exit code: 0
+pass  Property tax by ward adds up to the citywide levy: Wards hold 99.94% of $2,520.9 million (2026).
+note  Business-unit names found in the open data: Not matched: ['Chief Operating Officer'] (recorded in the crosswalk).
+{'pass': 15, 'note': 5, 'gap': 1, 'FAIL': 0}
