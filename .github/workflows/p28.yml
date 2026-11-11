@@ -1,0 +1,32 @@
+name: Probe 28
+
+# Read only. Site-wide accuracy audit: downloads the raw sources behind the other screens (remaining: Statistics
+# Canada tables, election results, the City's budget and property roll sums, water main breaks, Alberta's school and
+# child care files, climate records), untouched, to the branch fetched-28. Nothing is published or changed.
+
+on: {push: {branches: [site-check-28]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: The live site's dashboard data (for the police file's address)
+        run: |
+          mkdir -p out/live/city_actual
+          curl -fsS -m 300 "https://calgaryinsight.ca/data/city_actual/w0.json?t=$(date +%s)" -o out/live/city_actual/w0.json
+      - name: Raw sources
+        run: python audit/fetch_sources2.py out/raw 2>&1 | tail -80
+      - name: Push to fetched-28 (evidence only)
+        if: always()
+        run: |
+          set +e
+          rm -f out/live/city_actual/w0.json
+          find out -size +95M -print -delete
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q --orphan fetched-28
+          git rm -rqf --cached . > /dev/null 2>&1
+          git add -f out && git commit -qm "Site-wide accuracy audit: raw sources (evidence only)" && git push -qf origin fetched-28
