@@ -5,12 +5,12 @@ OUT = sys.argv[1]; os.makedirs(OUT, exist_ok=True)
 UA = {'User-Agent': 'Mozilla/5.0 (calgaryinsight budget-vs-actual)'}
 LOG = []
 def get(url):
-    for i in range(3):
+    for i in range(2):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=180) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=45) as r:
                 return r.read(), r.headers.get('Content-Type', ''), r.headers.get('Content-Disposition', '')
         except Exception as e:
-            LOG.append(f'retry {i} {url} {e}'); time.sleep(6 * (i + 1))
+            LOG.append(f'retry {i} {url} {e}'); time.sleep(3)
     return None, '', ''
 def keep(name, url):
     b, ct, cd = get(url)
@@ -33,8 +33,9 @@ for n, u in [('fe-2024-ye-q1-2025', D + 'financial-economic-update-2024-year-end
              ('afr-2023', D + 'Finance-2023-Annual-Report.pdf')]:
     keep(n, u)
 E='https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId='
-for base in (258098, 282194, 285432, 326758, 331869, 333220, 339038, 339376, 354763, 362131, 366881):
-    for k in range(0, 7):
-        keep(f'escribe-{base + k}', E + str(base + k))
+from concurrent.futures import ThreadPoolExecutor
+jobs = [(f'escribe-{b + k}', E + str(b + k)) for b in (258098, 282194, 285432, 326758, 331869, 333220, 339038, 339376, 354763, 362131, 366881) for k in range(0, 6)]
+with ThreadPoolExecutor(8) as ex:
+    list(ex.map(lambda j: keep(*j), jobs))
 json.dump(LOG, open(os.path.join(OUT, 'log.json'), 'w'), indent=1)
 for l in LOG: print(l if isinstance(l, str) else f"{l['name']} {l['bytes']} p{l['pages']} ye={l['year_end_words']} :: {l['first_words'][:150]}")
