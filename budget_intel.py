@@ -28,8 +28,9 @@ HOW = ('Every figure here is PROPOSED, not approved: Council debates the budget 
        'One-time totals add what the tables show: for some requests the City\'s note says the budget includes only part of the full '
        'request (one_time_requests_partly_in_the_budget). Positions are those in each request\'s FTE row; a request\'s text can mention '
        'other staff that are not in its row. The City\'s open data gives one figure per year (approved or actual, '
-       'never both), so do not compute a variance from it; budget against actual for 2023 to 2025 is in read_source '
-       'key=data:budget-vs-actual (the City\'s Annual Financial Reports and year-end updates, with the page of every table). The City\'s descriptions, '
+       'never both), so do not compute a variance from it; budget against actual for 2023 to 2025 (the year-end operating surplus, '
+       'revenues and expenses, departments, capital, and where the surplus goes) is part="actual", from the City\'s Annual Financial '
+       'Reports and year-end updates with the page of every table. The City\'s descriptions, '
        'benefits and risk statements are not in this data: give the page of the City\'s document (page_url) for them.')
 
 
@@ -48,6 +49,69 @@ def load(data_dir=None, can_build=True):
 
 def crosswalk(data_dir=None):
     return _read('crosswalk.json', data_dir) or {}
+
+
+def bva(data_dir=None):
+    return _read('budget-vs-actual.json', data_dir)
+
+
+def _src(S, key, pdf_page=None, printed_page=None):
+    s = S.get(key) or {}
+    out = {'document': s.get('title'), 'url': s.get('url'), 'audited': s.get('audited')}
+    if pdf_page:
+        out['page'] = f"PDF page {pdf_page}" + (f" (printed page {printed_page})" if printed_page else '')
+        if s.get('url') and 'escribe' not in s['url']:
+            out['page_url'] = f"{s['url']}#page={pdf_page}"
+    return out
+
+
+def actual(data_dir=None, find=None):
+    """Budget against actual for 2023 to 2025 from the City's Annual Financial Reports and year-end updates."""
+    B = bva(data_dir)
+    if not B:
+        return {'error': 'The budget against actual file is not available here; the Budget Intelligence screen (Budget vs actual) shows it.'}
+    S = B.get('sources') or {}
+    k = lambda v: _r(v / 1000) if isinstance(v, (int, float)) else None
+    surplus = [{'year': r['year'], 'operating_surplus_m': k(r['value']),
+                **({'favourable_variance_m': k(r['favourable_variance']), 'timing_m': k(r.get('timing'))} if 'favourable_variance' in r else {}),
+                'source': _src(S, r['source'], r.get('pdf_page'), r.get('printed_page')), **({'note': r['note']} if r.get('note') else {})}
+               for r in B.get('operating_surplus') or []]
+    cons = {}
+    for y, v in (B.get('consolidated') or {}).items():
+        row = {'source': _src(S, v.get('source'))}
+        for blk in ('revenues', 'expenses'):
+            b = v.get(blk) or {}
+            row[blk] = {'page': f"PDF page {b.get('pdf_page')} (printed page {b.get('printed_page')})",
+                        'rows_m': [{'name': r['name'], 'budget': k(r.get('budget')), 'actual': k(r.get('actual')), 'favourable': k(r.get('favourable'))} for r in b.get('rows') or []]}
+        cons[y] = row
+    dept = {y: {'title': v.get('title'), 'source': _src(S, v.get('source'), v.get('pdf_page'), v.get('printed_page')),
+                'rows_m': [{'name': r['name'], 'budget': k(r.get('budget')), 'actual': k(r.get('actual')), 'favourable': k(r.get('favourable'))} for r in v.get('rows') or []]}
+            for y, v in (B.get('tax_supported_by_department') or {}).items()}
+    cap = {}
+    for y, v in (B.get('capital') or {}).items():
+        m = 1 if (v.get('unit') or '').startswith('millions') else 1 / 1000
+        rows = v.get('rows') or []
+        cap[y] = {'title': v.get('title'), 'by': v.get('basis'), 'source': _src(S, v.get('source'), v.get('pdf_page'), v.get('printed_page')),
+                  **({'rows_m': [{'name': r['name'], 'budget': _r(r['budget'] * m), 'actual': _r(r['actual'] * m),
+                                  'spent_pct': _r(100 * r['actual'] / r['budget']) if r.get('budget') else None} for r in rows]} if rows else
+                     {k2: v2 for k2, v2 in v.items() if k2 not in ('source', 'pdf_page', 'printed_page', 'title', 'basis', 'unit')})}
+    use = B.get('surplus_use') or {}
+    out = {'what': B.get('title'), 'screen': PAGE + '&bi=actual', 'unit': 'millions of dollars (the City prints thousands); favourable = better than budget',
+           'operating_surplus': surplus,
+           'operating_surplus_how': 'The City\'s tax-supported operating surplus for the year (its "operating fund variance"), as the City reports it. '
+                                    'It is not the consolidated "annual surplus" of the financial statements, which counts capital contributions and '
+                                    'is a different measure; never call that a budget surplus.',
+           'where_the_surplus_goes': [{**{x: r[x] for x in ('year', 'fact') if x in r}, 'source': _src(S, r['source'], r.get('pdf_page'), r.get('printed_page'))}
+                                      for r in use.get('rows') or []],
+           'where_the_surplus_goes_limits': use.get('limits'),
+           'consolidated_budget_against_actual': cons, 'tax_supported_by_department': dept, 'capital_budget_against_spend': cap,
+           'years': 'Only 2023, 2024 and 2025 are read. Earlier years are not on this site.',
+           'how': 'Give every figure with its document and page. Describe; do not rate the City or Council or say what the surplus should be used for.'}
+    if find:
+        f = str(find).lower()
+        for key in ('consolidated_budget_against_actual', 'tax_supported_by_department', 'capital_budget_against_spend'):
+            out[key] = {y: v for y, v in out[key].items() if f in json.dumps(v).lower()} or out[key]
+    return out
 
 
 def _s(a):
@@ -226,7 +290,10 @@ def checks(d, data_dir=None):
 
 def summary(d, part=None, find=None, kind=None, ward=None, data_dir=None):
     """part: 'summary' (default), 'cases' (find, kind 'operating' or 'capital', ward 1 to 14 narrow the list), 'case' (find = the
-    case number or words of its title), 'departments', 'priorities', 'service_areas', 'wards', 'checks' or 'sources'."""
+    case number or words of its title), 'departments', 'priorities', 'service_areas', 'wards', 'checks', 'sources' or 'actual'
+    (budget against actual for 2023 to 2025: the year-end surplus and where it goes)."""
+    if (part or '').lower() == 'actual':
+        return actual(data_dir, find)
     if not d:
         return {'error': 'The business cases are not available here.'}
     C, src, xw = d['cases'], d['source'], crosswalk(data_dir)
@@ -251,7 +318,8 @@ def summary(d, part=None, find=None, kind=None, ward=None, data_dir=None):
                 'largest_capital_requests': [_row(c, src) for c in sorted(cap, key=lambda c: -_cap(c))[:12]],
                 'largest_operating_requests': [_row(c, src) for c in sorted(op, key=lambda c: -(_s(c['one_time_m']) + _s(c['ongoing_m'])))[:12]],
                 'all_wards_capital_m': _r(_s(_cap(c) for c in cap if c['wards'] == 'all')), 'how': HOW,
-                'parts': 'cases (find, kind, ward), case (find = number), departments, priorities, service_areas, wards, checks, sources'}
+                'parts': 'cases (find, kind, ward), case (find = number), departments, priorities, service_areas, wards, checks, sources; '
+                         'actual: budget against actual for 2023 to 2025 (year-end surplus and where it goes)'}
     if part in ('cases', 'case'):
         L = C
         if kind in ('operating', 'capital'):
@@ -302,8 +370,10 @@ def summary(d, part=None, find=None, kind=None, ward=None, data_dir=None):
                 'wards': rows, 'note': 'A request naming several wards is counted in each; its dollars are not divided. Operating requests name no ward.', 'how': HOW}
     if part == 'checks':
         return {**head, 'checks': checks(d, data_dir), 'how': HOW}
+    if part == 'actual':
+        return actual(data_dir, find)
     if part == 'sources':
         return {**head, 'units': d.get('units'), 'read_by': 'tools/budget_intel_extract.py (pdftotext); every figure row read a second time with pypdf',
                 'open_data': 'City of Calgary 2027-2030 Budget, https://data.calgary.ca/d/nnnm-9sfh (by business unit and year); open budget 2023-2026, https://data.calgary.ca/d/fqax-i3nz',
                 'method': 'get_method topic budget_intelligence'}
-    return {**head, 'error': 'part must be summary, cases, case, departments, priorities, service_areas, wards, checks or sources'}
+    return {**head, 'error': 'part must be summary, cases, case, departments, priorities, service_areas, wards, checks, sources or actual'}

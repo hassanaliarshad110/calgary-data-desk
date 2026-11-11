@@ -1346,7 +1346,7 @@ METHODS = [
                'Download nnnm-9sfh, filter fund = Capital and budget_status = Proposed, and add budget_millions by year: it should be within 0.1% of the same years added from the saved list.'],
      'cautions': ['Everything is proposed, not approved, until Council votes on the 2027-2030 budget.',
                   'The City\'s descriptions, benefits and risk statements are not copied; each request links to its page.',
-                  'The City\'s open data gives either an approved budget or actual spending for a year, never both, so budget against actual cannot be compared.',
+                  'The City\'s open data gives either an approved budget or actual spending for a year, never both, so budget against actual is not worked out from it. The Budget vs actual tab takes it, with page numbers, from the City\'s Annual Financial Reports and year-end updates for 2023 to 2025.',
                   'About 92% of the proposed capital dollars are for all wards.',
                   'Two City datasets give different figures for capital already approved for 2027 to 2030; both are shown.',
                   'One-time totals add what each request\'s table shows, which is the part in the proposed budget. For some requests the City\'s note under the table says the full one-time request is larger; those are listed under Data checks.',
