@@ -74,11 +74,13 @@ PAGES = [
          'priority, ward, stage, funding source, the City\'s risk rating and performance measure, and the page of the City\'s document); capital by '
          'purpose; the tax path; checks that reconcile the business cases with the City\'s open data. All 2027-2030 figures are PROPOSED, not approved.',
          'get_dashboard section=budget_intelligence (part summary, cases with find, kind or ward, case with find = a case number, departments, '
-         'priorities, service_areas, wards, checks, sources); read_source key=budget-intelligence for the raw files (business-cases.json and '
+         'priorities, service_areas, wards, checks, sources; part actual for budget against actual 2023 to 2025: the year-end surplus, where it '
+         'goes, revenues, expenses, departments and capital, with pages); read_source key=budget-intelligence for the raw files (business-cases.json and '
          'the names crosswalk, crosswalk.json); the budget itself is read_source key=budget; how it is counted: get_method topic=budget_intelligence',
          files=[['business-cases.json', 'budget-intel/business-cases.json'], ['crosswalk.json', 'budget-intel/crosswalk.json'], ['budget-vs-actual.json', 'budget-intel/budget-vs-actual.json']],
          section='budget_intelligence', scientist='budget_requests',
-         keywords='business case budget request proposed capital operating FTE positions accountability reconcile priority ward 2027 2030'),
+         keywords='business case budget request proposed capital operating FTE positions accountability reconcile priority ward 2027 2030 '
+                  'budget against actual budget vs actual surplus year-end variance underspend annual financial report fiscal stability reserve reserves investments investment portfolio'),
     page('fedbudget', 'Federal Budget 2026', 'Headline numbers, every measure, province by province, Calgary and Alberta, tax changes and the fiscal tables.',
          'get_dashboard section=federal_budget (part summary, province, find, chapter, tables, tax, revenue_by_province)', section='federal_budget',
          files=[['budget2026.json', 'budget/budget2026.json']],
@@ -149,9 +151,13 @@ DESCRIBE = {
     'live.json': 'The live connections the site checks (City open data, the City feeds, news) and when each last answered.',
     'settings.json': 'The ways of counting residents, the wards, the methods and the contact details the site uses.',
     'transit.json': 'The Calgary Transit timetable: routes, trips and the dates it is valid for.',
+    'access_base.json': 'Growth vs amenities working file: the distance from every home to each kind of amenity, by community (built every morning).',
 }
 SKIP = {'registry.json', 'search.json', 'methods.json'}      # the registry itself, the site search and the method notes (get_method)
 MAX_SHIP = 1500000                                          # bytes: a bigger file is not sent to the browser with the assistants
+# where to read a file too big to send with the assistants (the build leaves it out of the browser's copy)
+TOO_BIG = {'access_base.json': 'get_dashboard section=access (every community and amenity: distance from homes, crowding, scores) and '
+                               'section=growth_forecast (the same in 2030); get_method topic=access'}
 
 
 def _describe(name, d):
@@ -199,8 +205,11 @@ def auto_files(out=None):
         except (OSError, ValueError):
             continue
         what = _describe(f, d)
+        big = size > MAX_SHIP
+        how = (f'Too large to send with the assistants on the website; read its figures with {TOO_BIG.get(f) or "the page that shows them (list_sources)"}'
+               if big else f'read_source key=data:{f[:-5]} (outline, then part or find)')
         entries.append({'key': 'data:' + f[:-5], 'view': None, 'title': f[:-5].replace('_', ' ').capitalize() + ' (data file)', 'what': what,
-                        'read': f'read_source key=data:{f[:-5]} (outline, then part or find)', 'files': [[f, src]], 'section': None,
+                        'read': how, 'too_large': big, 'files': [[f, src]], 'section': None,
                         'scientist': None, 'keywords': f[:-5].replace('_', ' '), 'registered': True, 'auto': True, 'bytes': size,
                         'described': f in DESCRIBE or (isinstance(d, dict) and any(isinstance(d.get(k), str) for k in ('note', 'description', 'about')))})
     return entries
@@ -393,6 +402,8 @@ def read(key, data_dir=None, part=None, find_text=None, reg=None, limit=24000):
         return {'page': entry['title'], 'read': entry['read'],
                 'note': 'This page has no data file of its own to read here; the way to read it is above.'}
     found = _locate(entry, data_dir)
+    if not found and entry.get('too_large'):
+        return {'page': entry['title'], 'read': entry['read'], 'note': 'This file is too large to send with the assistants; read it the way above.'}
     if not found:
         return {'page': entry['title'], 'error': 'This page\'s data file is not on this computer right now; the page itself shows it.',
                 'files': [f[0] for f in entry['files']]}

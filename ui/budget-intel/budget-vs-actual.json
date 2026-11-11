@@ -697,5 +697,187 @@
    "basis": "department",
    "published_only_in": true
   }
+ },
+ "surplus_use": {
+  "what": "Where the year-end operating surplus goes, in the City's own words (Annual Financial Reports).",
+  "rows": [
+   {
+    "fact": "The operating fund variance (the year-end operating surplus) is transferred to the Fiscal Stability Reserve (FSR) in the next fiscal year: $236 million for 2023, $276 million for 2024 and $259 million for 2025.",
+    "source": "afr2025",
+    "pdf_page": 24,
+    "printed_page": 22,
+    "also": {
+     "source": "afr2024",
+     "pdf_page": 29,
+     "printed_page": 27
+    }
+   },
+   {
+    "fact": "The FSR is a contingency fund for operational emergencies, urgent or contingency capital spending, and unplanned drops in revenue with significant financial impact; investment income from the reserve can fund one-time operating spending.",
+    "source": "afr2025",
+    "pdf_page": 24,
+    "printed_page": 22
+   },
+   {
+    "fact": "The FSR held $1,214 million at the end of 2024 and $1,353 million at the end of 2025, each including that year's operating surplus.",
+    "source": "afr2025",
+    "pdf_page": 25,
+    "printed_page": 23
+   },
+   {
+    "year": "2023",
+    "fact": "In November 2023 (C2023-1148) Council approved a draw of $88 million from the FSR for new one-time operating and capital investments, and a further $100 million for new capital investments from the anticipated 2023 operating surplus flowing through the FSR. A $242 million contribution was also transferred from the FSR to the Major capital projects reserve (C2023-0482).",
+    "source": "afr2023",
+    "pdf_page": 30,
+    "printed_page": 28,
+    "council_draws_m": [
+     {
+      "what": "one-time operating and capital investments (C2023-1148)",
+      "m": 88
+     },
+     {
+      "what": "new capital investments from the anticipated 2023 operating surplus flowing through the FSR (C2023-1148)",
+      "m": 100
+     }
+    ],
+    "transfers_to_other_reserves_m": [
+     {
+      "to": "Major capital projects reserve (C2023-0482)",
+      "m": 242
+     }
+    ]
+   },
+   {
+    "year": "2024",
+    "fact": "In November 2024 (C2024-1097) Council approved a draw of $61 million from the FSR for new one-time operating and capital investments. A $136 million contribution was transferred from the FSR to the capital and lifecycle reserve (RFC/LMUR, C2024-0552).",
+    "source": "afr2024",
+    "pdf_page": 30,
+    "printed_page": 28,
+    "also": {
+     "source": "afr2024",
+     "pdf_page": 29,
+     "printed_page": 27
+    },
+    "council_draws_m": [
+     {
+      "what": "one-time operating and capital investments (C2024-1097)",
+      "m": 61
+     }
+    ],
+    "transfers_to_other_reserves_m": [
+     {
+      "to": "Reserve for future capital and lifecycle maintenance and upgrade, RFC/LMUR (C2024-0552)",
+      "m": 136
+     }
+    ]
+   },
+   {
+    "year": "2025",
+    "fact": "In November 2025 (C2025-0901) Council approved a draw of $317 million from the FSR for new one-time operating and capital investments and contributions to the Heritage Incentive Reserve and the Heritage Calgary Reserve fund. A $15 million contribution was transferred from the FSR to the Opportunity Calgary Investment Fund (EC2025-0406).",
+    "source": "afr2025",
+    "pdf_page": 25,
+    "printed_page": 23,
+    "council_draws_m": [
+     {
+      "what": "one-time operating and capital investments and contributions to the Heritage Incentive Reserve and the Heritage Calgary Reserve fund (C2025-0901)",
+      "m": 317
+     }
+    ],
+    "transfers_to_other_reserves_m": [
+     {
+      "to": "Opportunity Calgary Investment Fund (EC2025-0406)",
+      "m": 15
+     }
+    ]
+   }
+  ],
+  "limits": "The reports do not tie a particular year's surplus to a particular later spending decision or to property tax relief; the surplus joins the reserve balance, and Council approves draws from the reserve. Years before 2023 are not read here. Council draws (money approved for spending) and transfers to other reserves are kept apart: a transfer moves money between reserves and is not spending. Do not add the two together."
+ },
+ "investments": {
+  "what": "How the City holds its money, reserves included: reserves are amounts set aside in its accounts, not separate bank accounts; the cash behind them is in one pooled City investment portfolio.",
+  "year_end": "2025-12-31",
+  "unit": "thousands of dollars",
+  "portfolio": {
+   "source": "afr2025",
+   "pdf_page": 55,
+   "printed_page": 53,
+   "rows": [
+    {
+     "name": "Canadian fixed income",
+     "fair_value": 1580565,
+     "cost": 1578998,
+     "fair_value_2024": 2318716
+    },
+    {
+     "name": "Foreign fixed income",
+     "fair_value": 76629,
+     "cost": 77723,
+     "fair_value_2024": 615692
+    },
+    {
+     "name": "Pooled fixed income",
+     "fair_value": 2541195,
+     "cost": 2559326,
+     "fair_value_2024": 1137367
+    },
+    {
+     "name": "Mortgages",
+     "fair_value": 691722,
+     "cost": 698827,
+     "fair_value_2024": 634247
+    },
+    {
+     "name": "Global equities",
+     "fair_value": 0,
+     "cost": 0,
+     "fair_value_2024": 138679
+    },
+    {
+     "name": "Pooled equities",
+     "fair_value": 1170658,
+     "cost": 1086260,
+     "fair_value_2024": 791452
+    },
+    {
+     "name": "Infrastructure",
+     "fair_value": 562492,
+     "cost": 462040,
+     "fair_value_2024": 483073
+    },
+    {
+     "name": "Real estate",
+     "fair_value": 135980,
+     "cost": 134755,
+     "fair_value_2024": 289645
+    }
+   ],
+   "total": {
+    "fair_value": 6759241,
+    "cost": 6597929,
+    "fair_value_2024": 6408871
+   },
+   "average_yield_pct": {
+    "2025": 6.78,
+    "2024": 4.71
+   },
+   "internally_managed": "Of these, $605,786 thousand at cost ($617,067 thousand fair value) is an internally managed portfolio of money market instruments and bonds."
+  },
+  "liquidity": {
+   "source": "afr2025",
+   "pdf_page": 126,
+   "printed_page": 124,
+   "audited": false,
+   "cash_net": 618000,
+   "sellable_within_five_business_days": 3641000,
+   "sellable_within_a_month": 1076000,
+   "note": "The City's unaudited short-term liquidity schedule, in millions in the report (shown here in thousands)."
+  },
+  "reserve_link": {
+   "source": "afr2025",
+   "pdf_page": 24,
+   "printed_page": 22,
+   "fact": "Investment income from the Fiscal Stability Reserve can be used to fund one-time operating budget expenditures."
+  },
+  "limits": "The report does not say which investments stand behind any one reserve."
  }
 }
