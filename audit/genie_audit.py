@@ -53,11 +53,11 @@ keys = {p['key'] for p in reg} | {p.get('view') for p in reg}
 topics = {m['key'] for m in methods.METHODS}
 seen = set()
 for src, t in texts.items():
-    for m in re.finditer(r'read_source[^.;)]{0,20}?key\s*[=:]\s*\\?["\']?([\w:\-]+)', t):
+    for m in re.finditer(r'read_source[^.;)]{0,20}?key\s*=\s*\\?["\']?([\w\-]+(?::[\w\-]+)?)', t):
         k = m.group(1)
         if (src, 'rs', k) in seen: continue
         seen.add((src, 'rs', k))
-        if k not in keys and k not in ('X', 'K'):
+        if k not in keys and k not in ('X', 'K') and not k.endswith(':'):
             flag('read_source key', k, f'named in {src} but not in the registry ({t[max(0, m.start()-80):m.end()+40]!r})')
     for m in re.finditer(r'get_method[^.;)]{0,12}?topic\s*[= ]\s*\\?["\']?([\w\-]+)', t):
         k = m.group(1)
@@ -65,7 +65,7 @@ for src, t in texts.items():
         seen.add((src, 'gm', k))
         r = methods.find(k)
         if r.get('error'): flag('get_method topic', k, f'named in {src}: {r["error"]}')
-    for m in re.finditer(r'section\s*=\s*\\?["\']?([a-z_0-9]+)', t):
+    for m in re.finditer(r'(?<![\w.])section\s?=\s?\\?["\']?([a-z_0-9]+)', t):
         k = m.group(1)
         if (src, 'sec', k) in seen: continue
         seen.add((src, 'sec', k))
@@ -82,6 +82,14 @@ for m in re.finditer(r'section="([a-z_0-9]+)"', desc):
 for p in reg:                                                  # registry read lines: "section=x (part a, b ...)"
     for m in re.finditer(r'section=([a-z_0-9]+)\s*\(([^)]*)\)', p.get('read') or ''):
         seg.setdefault(m.group(1), ''); seg[m.group(1)] += ' ' + m.group(2)
+extra = {}                                                     # parts named anywhere: "section X ... part Y"
+for src, t in texts.items():
+    last, pos = None, -1
+    for m in re.finditer(r'(?<![\w.])(section|part)\s?[= ]\s?\\?["\']?([a-z_0-9]+)', t):
+        if m.group(1) == 'section':
+            last, pos = m.group(2), m.end()
+        elif last in ENUM and m.start() - pos < 300:
+            extra.setdefault(last, set()).add(m.group(2))
 ok_sections = 0
 for s in ENUM:
     r = call('get_dashboard', {'section': s, 'ward': 5} if s == 'profile' else {'section': s})
@@ -94,6 +102,8 @@ for s in ENUM:
     m = re.search(r'\bpart ([a-z_0-9, ]+?)(?:\)|;|$)', seg.get(s, ''))
     for m in re.finditer(r'\(part ([^)]*)\)', seg.get(s, '')):
         cand |= {w.split()[0] for w in m.group(1).split(',') if w.strip()}
+    cand |= set(re.findall(r'"([a-z_0-9]+)"', seg.get(s, '')))
+    cand |= extra.get(s, set())
     for part in sorted(cand):
         args = {'section': s, 'part': part}
         if part in ('case',): args['find'] = '1'
