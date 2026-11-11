@@ -176,7 +176,7 @@
    "Emergency Management": [],
    "All Services": []
   },
-  "gaps": "Fire and Emergency Management have no screen of their own on Calgary Insight yet (no response-time or incident data is published here), so no link is shown."
+  "gaps": ""
  },
  "departments_label": "label: the name the centre shows in its own lists when the document's name and the open-data name are different names (not just different spellings). The document's name is kept."
 }

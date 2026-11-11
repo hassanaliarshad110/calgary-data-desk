@@ -1,0 +1,701 @@
+{
+ "title": "Budget against actual: the City of Calgary, 2023 to 2025",
+ "unit": "thousands of dollars, as the City prints them; favourable = better than budget (spending below budget, or revenue above it)",
+ "read": "2026-11-11",
+ "sources": {
+  "afr2023": {
+   "title": "2023 City of Calgary Annual Financial Report",
+   "publisher": "The City of Calgary",
+   "url": "https://www.calgary.ca/content/dam/www/cfod/finance/documents/Finance-2023-Annual-Report.pdf",
+   "audited": true,
+   "short": "2023 Annual Financial Report"
+  },
+  "afr2024": {
+   "title": "2024 City of Calgary Annual Financial Report",
+   "publisher": "The City of Calgary",
+   "url": "https://www.calgary.ca/content/dam/www/cfod/finance/documents/Finance-2024-Annual-Report.pdf",
+   "audited": true,
+   "short": "2024 Annual Financial Report"
+  },
+  "afr2025": {
+   "title": "2025 City of Calgary Annual Financial Report",
+   "publisher": "The City of Calgary",
+   "url": "https://www.calgary.ca/content/dam/www/cfod/finance/documents/2025-Annual-Financial-Report.pdf",
+   "audited": true,
+   "short": "2025 Annual Financial Report"
+  },
+  "ye2024": {
+   "title": "Financial and Economic Update, 2024 Year-End and First Quarter 2025 (EC2025-0414, revised Attachment 2)",
+   "publisher": "The City of Calgary",
+   "url": "https://www.calgary.ca/content/dam/www/cfod/finance/documents/financial-economic-update-2024-year-end-Q1-2025.pdf",
+   "audited": false,
+   "short": "2024 year-end update"
+  },
+  "pu2023": {
+   "title": "2023 Progress Update Report (EC2024-0291, Attachment 3)",
+   "publisher": "The City of Calgary",
+   "url": "https://www.calgary.ca/content/dam/www/cfod/finance/documents/plans-budgets-and-financial-reports/progress-update-report.pdf",
+   "audited": false,
+   "short": "2023 Progress Update"
+  },
+  "ye2025": {
+   "title": "The City's Quarterly Report, 2025 Year-End (report to Council)",
+   "publisher": "The City of Calgary",
+   "url": "https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=354763",
+   "audited": false
+  }
+ },
+ "consolidated": {
+  "2023": {
+   "source": "afr2023",
+   "revenues": {
+    "pdf_page": 20,
+    "printed_page": 18,
+    "rows": [
+     {
+      "name": "Net taxes available for municipal purposes",
+      "budget": 2370532,
+      "actual": 2607604,
+      "favourable": 237072
+     },
+     {
+      "name": "Sales of goods and services",
+      "budget": 1394150,
+      "actual": 1359983,
+      "favourable": -34167
+     },
+     {
+      "name": "Government transfers related to operating",
+      "budget": 145324,
+      "actual": 179306,
+      "favourable": 33982
+     },
+     {
+      "name": "Investment income",
+      "budget": 110437,
+      "actual": 219934,
+      "favourable": 109497
+     },
+     {
+      "name": "Fines and penalties",
+      "budget": 83009,
+      "actual": 77650,
+      "favourable": -5359
+     },
+     {
+      "name": "Licences, permits and fees",
+      "budget": 115231,
+      "actual": 134083,
+      "favourable": 18852
+     },
+     {
+      "name": "Miscellaneous revenue",
+      "budget": 29870,
+      "actual": 43243,
+      "favourable": 13373
+     },
+     {
+      "name": "ENMAX (the City's share of its earnings)",
+      "budget": 275000,
+      "actual": -15608,
+      "favourable": -290608
+     },
+     {
+      "name": "Total revenues (before transfers for infrastructure)",
+      "budget": 4523553,
+      "actual": 4606195,
+      "favourable": 82642
+     },
+     {
+      "name": "Developer contributions",
+      "budget": 270063,
+      "actual": 188830,
+      "favourable": -81233
+     },
+     {
+      "name": "Government transfers related to capital",
+      "budget": 883491,
+      "actual": 462316,
+      "favourable": -421175
+     },
+     {
+      "name": "Developer contributions-in-kind related to capital",
+      "budget": 0,
+      "actual": 288695,
+      "favourable": 288695
+     },
+     {
+      "name": "Total external transfers for infrastructure",
+      "budget": 1153554,
+      "actual": 939841,
+      "favourable": -213713
+     }
+    ]
+   },
+   "expenses": {
+    "pdf_page": 22,
+    "printed_page": 20,
+    "rows": [
+     {
+      "name": "Planning and development services",
+      "budget": 215261,
+      "actual": 196647,
+      "favourable": 18614
+     },
+     {
+      "name": "Infrastructure services",
+      "budget": 315861,
+      "actual": 368127,
+      "favourable": -52266
+     },
+     {
+      "name": "Community services",
+      "budget": 1475551,
+      "actual": 1509731,
+      "favourable": -34180
+     },
+     {
+      "name": "Operational services",
+      "budget": 1413815,
+      "actual": 1513588,
+      "favourable": -99773
+     },
+     {
+      "name": "General government",
+      "budget": 550735,
+      "actual": 345175,
+      "favourable": 205560
+     },
+     {
+      "name": "Total",
+      "budget": 3971223,
+      "actual": 3933268,
+      "favourable": 37955
+     }
+    ]
+   }
+  },
+  "2024": {
+   "source": "afr2024",
+   "revenues": {
+    "pdf_page": 20,
+    "printed_page": 18,
+    "rows": [
+     {
+      "name": "Net taxes available for municipal purposes",
+      "budget": 2544594,
+      "actual": 2627877,
+      "favourable": 83283
+     },
+     {
+      "name": "Sales of goods and services",
+      "budget": 1377646,
+      "actual": 1341457,
+      "favourable": -36189
+     },
+     {
+      "name": "Government transfers related to operating",
+      "budget": 152909,
+      "actual": 178613,
+      "favourable": 25704
+     },
+     {
+      "name": "Investment income",
+      "budget": 110110,
+      "actual": 312073,
+      "favourable": 201963
+     },
+     {
+      "name": "Fines and penalties",
+      "budget": 83047,
+      "actual": 75731,
+      "favourable": -7316
+     },
+     {
+      "name": "Licences, permits and fees",
+      "budget": 138514,
+      "actual": 153977,
+      "favourable": 15463
+     },
+     {
+      "name": "Miscellaneous revenue",
+      "budget": 32366,
+      "actual": 44051,
+      "favourable": 11685
+     },
+     {
+      "name": "ENMAX (the City's share of its earnings)",
+      "budget": 353000,
+      "actual": 181248,
+      "favourable": -171752
+     },
+     {
+      "name": "Total revenues (before transfers for infrastructure)",
+      "budget": 4792186,
+      "actual": 4915027,
+      "favourable": 122841
+     },
+     {
+      "name": "Developer contributions",
+      "budget": 231285,
+      "actual": 145368,
+      "favourable": -85917
+     },
+     {
+      "name": "Government transfers related to capital",
+      "budget": 760636,
+      "actual": 684848,
+      "favourable": -75788
+     },
+     {
+      "name": "Developer contributions-in-kind related to capital",
+      "budget": 0,
+      "actual": 345075,
+      "favourable": 345075
+     },
+     {
+      "name": "Total external transfers for infrastructure",
+      "budget": 991921,
+      "actual": 1175291,
+      "favourable": 183370
+     }
+    ]
+   },
+   "expenses": {
+    "pdf_page": 22,
+    "printed_page": 20,
+    "rows": [
+     {
+      "name": "Planning and development services",
+      "budget": 299286,
+      "actual": 231600,
+      "favourable": 67686
+     },
+     {
+      "name": "Infrastructure services",
+      "budget": 260800,
+      "actual": 233810,
+      "favourable": 26990
+     },
+     {
+      "name": "Community services",
+      "budget": 1599527,
+      "actual": 1571161,
+      "favourable": 28366
+     },
+     {
+      "name": "Operational services",
+      "budget": 1574309,
+      "actual": 1711887,
+      "favourable": -137578
+     },
+     {
+      "name": "General government",
+      "budget": 594486,
+      "actual": 505388,
+      "favourable": 89098
+     },
+     {
+      "name": "Total",
+      "budget": 4328408,
+      "actual": 4253846,
+      "favourable": 74562
+     }
+    ]
+   }
+  },
+  "2025": {
+   "source": "afr2025",
+   "revenues": {
+    "pdf_page": 16,
+    "printed_page": 14,
+    "rows": [
+     {
+      "name": "Net taxes available for municipal purposes",
+      "budget": 2693849,
+      "actual": 2711231,
+      "favourable": 17382
+     },
+     {
+      "name": "Sales of goods and services",
+      "budget": 1444324,
+      "actual": 1481246,
+      "favourable": 36922
+     },
+     {
+      "name": "Government transfers related to operating",
+      "budget": 171858,
+      "actual": 212595,
+      "favourable": 40737
+     },
+     {
+      "name": "Investment income",
+      "budget": 218458,
+      "actual": 457332,
+      "favourable": 238874
+     },
+     {
+      "name": "Fines and penalties",
+      "budget": 82697,
+      "actual": 75882,
+      "favourable": -6815
+     },
+     {
+      "name": "Licences, permits and fees",
+      "budget": 133751,
+      "actual": 170295,
+      "favourable": 36544
+     },
+     {
+      "name": "Miscellaneous revenue",
+      "budget": 34149,
+      "actual": 43540,
+      "favourable": 9391
+     },
+     {
+      "name": "ENMAX (the City's share of its earnings)",
+      "budget": 357000,
+      "actual": 507117,
+      "favourable": 150117
+     },
+     {
+      "name": "Total revenues (before transfers for infrastructure)",
+      "budget": 5136086,
+      "actual": 5659238,
+      "favourable": 523152
+     },
+     {
+      "name": "Developer contributions",
+      "budget": 238900,
+      "actual": 202137,
+      "favourable": -36763
+     },
+     {
+      "name": "Government transfers related to capital",
+      "budget": 845426,
+      "actual": 834130,
+      "favourable": -11296
+     },
+     {
+      "name": "Developer contributions-in-kind related to capital",
+      "budget": 0,
+      "actual": 583487,
+      "favourable": 583487
+     },
+     {
+      "name": "Total external transfers for infrastructure",
+      "budget": 1084326,
+      "actual": 1619754,
+      "favourable": 535428
+     }
+    ]
+   },
+   "expenses": {
+    "pdf_page": 18,
+    "printed_page": 16,
+    "rows": [
+     {
+      "name": "Planning and development services",
+      "budget": 290839,
+      "actual": 278693,
+      "favourable": 12146
+     },
+     {
+      "name": "Infrastructure services",
+      "budget": 295980,
+      "actual": 249175,
+      "favourable": 46805
+     },
+     {
+      "name": "Community services",
+      "budget": 1751342,
+      "actual": 1825148,
+      "favourable": -73806
+     },
+     {
+      "name": "Operational services",
+      "budget": 1767867,
+      "actual": 1710676,
+      "favourable": 57191
+     },
+     {
+      "name": "General government",
+      "budget": 607321,
+      "actual": 546164,
+      "favourable": 61157
+     },
+     {
+      "name": "Total",
+      "budget": 4713349,
+      "actual": 4609856,
+      "favourable": 103493
+     }
+    ]
+   }
+  }
+ },
+ "operating_surplus": [
+  {
+   "year": "2023",
+   "value": 236408,
+   "favourable_variance": 237756,
+   "timing": -1348,
+   "source": "afr2025",
+   "pdf_page": 120,
+   "printed_page": 118,
+   "also": {
+    "source": "afr2023",
+    "pdf_page": 121,
+    "printed_page": 119
+   }
+  },
+  {
+   "year": "2024",
+   "value": 276277,
+   "source": "ye2024",
+   "pdf_page": 1,
+   "printed_page": 1,
+   "note": "The 2024 Annual Financial Report does not include this reconciliation (the City says the figure went to Council after that report); it is the City's year-end update."
+  },
+  {
+   "year": "2025",
+   "value": 259308,
+   "favourable_variance": 259308,
+   "timing": 0,
+   "source": "afr2025",
+   "pdf_page": 120,
+   "printed_page": 118
+  }
+ ],
+ "tax_supported_by_department": {
+  "2024": {
+   "source": "ye2024",
+   "pdf_page": 1,
+   "printed_page": 1,
+   "title": "Operating Budget Overview, Year-End 2024: Net Budget – comparison to Actuals",
+   "rows": [
+    {
+     "name": "Operational Services",
+     "budget": 681680,
+     "actual": 680506,
+     "favourable": 1174
+    },
+    {
+     "name": "Community Services",
+     "budget": 532287,
+     "actual": 523724,
+     "favourable": 8563
+    },
+    {
+     "name": "Calgary Police Services",
+     "budget": 494158,
+     "actual": 494158,
+     "favourable": 0
+    },
+    {
+     "name": "People, Innovation & Collaboration Services",
+     "budget": 179726,
+     "actual": 175226,
+     "favourable": 4500
+    },
+    {
+     "name": "Civic Partners",
+     "budget": 141550,
+     "actual": 141399,
+     "favourable": 151
+    },
+    {
+     "name": "Planning and Development Services",
+     "budget": 135349,
+     "actual": 74264,
+     "favourable": 61084
+    },
+    {
+     "name": "Corp Planning and Financial Services",
+     "budget": 85606,
+     "actual": 82830,
+     "favourable": 2776
+    },
+    {
+     "name": "Law, Legislative Services & Security",
+     "budget": 62593,
+     "actual": 62593,
+     "favourable": 0
+    },
+    {
+     "name": "Infrastructure Services",
+     "budget": 58523,
+     "actual": 58789,
+     "favourable": -265
+    },
+    {
+     "name": "Council",
+     "budget": 14644,
+     "actual": 13004,
+     "favourable": 1639
+    },
+    {
+     "name": "Chief Administrative Officer",
+     "budget": 3959,
+     "actual": 3375,
+     "favourable": 584
+    },
+    {
+     "name": "Corporate Programs",
+     "budget": -2390075,
+     "actual": -2586145,
+     "favourable": 196070
+    },
+    {
+     "name": "Total",
+     "budget": 0,
+     "actual": -276277,
+     "favourable": 276277
+    }
+   ]
+  }
+ },
+ "capital": {
+  "2023": {
+   "source": "pu2023",
+   "pdf_page": 21,
+   "printed_page": 21,
+   "basis": "service category",
+   "unit": "millions of dollars",
+   "title": "Total City 2023 Capital Budget and Spend by Service Categories ($ Million)",
+   "rows": [
+    {
+     "name": "Transportation",
+     "budget": 1119.8,
+     "actual": 556.5
+    },
+    {
+     "name": "Utilities and Environment",
+     "budget": 560.7,
+     "actual": 364.8
+    },
+    {
+     "name": "Enabling Service",
+     "budget": 357.8,
+     "actual": 187.0
+    },
+    {
+     "name": "Building, Planning and Business",
+     "budget": 287.2,
+     "actual": 178.1
+    },
+    {
+     "name": "Parks, Recreation and Culture",
+     "budget": 188.0,
+     "actual": 74.6
+    },
+    {
+     "name": "Public Safety and Bylaws",
+     "budget": 162.4,
+     "actual": 51.4
+    },
+    {
+     "name": "Social Programs and Services",
+     "budget": 89.6,
+     "actual": 44.5
+    },
+    {
+     "name": "Information and Communication",
+     "budget": 9.4,
+     "actual": 1.9
+    },
+    {
+     "name": "Tax and Property Assessment",
+     "budget": 8.5,
+     "actual": 2.6
+    },
+    {
+     "name": "Total City",
+     "budget": 2783.4,
+     "actual": 1461.4
+    }
+   ]
+  },
+  "2024": {
+   "source": "ye2024",
+   "pdf_page": 4,
+   "printed_page": 4,
+   "basis": "department",
+   "unit": "thousands of dollars",
+   "title": "Capital Budget Overview, Year-End 2024: Capital Budget – comparison to Actuals",
+   "rows": [
+    {
+     "name": "Infrastructure Services",
+     "budget": 854203,
+     "actual": 804238,
+     "rate_printed": "94.2%"
+    },
+    {
+     "name": "Operational Services",
+     "budget": 478044,
+     "actual": 542421,
+     "rate_printed": "113.5%"
+    },
+    {
+     "name": "Green Line",
+     "budget": 393349,
+     "actual": 327897,
+     "rate_printed": "83.4%"
+    },
+    {
+     "name": "Community Services",
+     "budget": 96212,
+     "actual": 78269,
+     "rate_printed": "81.4%"
+    },
+    {
+     "name": "Civic Partners",
+     "budget": 68075,
+     "actual": 68161,
+     "rate_printed": "100.1%"
+    },
+    {
+     "name": "Planning and Development Services",
+     "budget": 49978,
+     "actual": 26481,
+     "rate_printed": "53.0%"
+    },
+    {
+     "name": "People, Innovation & Collaboration Services",
+     "budget": 58782,
+     "actual": 53142,
+     "rate_printed": "90.4%"
+    },
+    {
+     "name": "Calgary Police Services",
+     "budget": 71312,
+     "actual": 18571,
+     "rate_printed": "26.0%"
+    },
+    {
+     "name": "Law, Legislative Services & Security",
+     "budget": 14413,
+     "actual": 8876,
+     "rate_printed": "61.6%"
+    },
+    {
+     "name": "Corp Planning and Financial Services",
+     "budget": 7280,
+     "actual": 4382,
+     "rate_printed": "60.2%"
+    },
+    {
+     "name": "Total",
+     "budget": 2091647,
+     "actual": 1932438,
+     "rate_printed": "92.4%"
+    }
+   ]
+  },
+  "2025": {
+   "source": "ye2025",
+   "basis": "department",
+   "published_only_in": true
+  }
+ }
+}

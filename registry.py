@@ -76,7 +76,7 @@ PAGES = [
          'get_dashboard section=budget_intelligence (part summary, cases with find, kind or ward, case with find = a case number, departments, '
          'priorities, service_areas, wards, checks, sources); read_source key=budget-intelligence for the raw files (business-cases.json and '
          'the names crosswalk, crosswalk.json); the budget itself is read_source key=budget; how it is counted: get_method topic=budget_intelligence',
-         files=[['business-cases.json', 'budget-intel/business-cases.json'], ['crosswalk.json', 'budget-intel/crosswalk.json']],
+         files=[['business-cases.json', 'budget-intel/business-cases.json'], ['crosswalk.json', 'budget-intel/crosswalk.json'], ['budget-vs-actual.json', 'budget-intel/budget-vs-actual.json']],
          section='budget_intelligence', scientist='budget_requests',
          keywords='business case budget request proposed capital operating FTE positions accountability reconcile priority ward 2027 2030'),
     page('fedbudget', 'Federal Budget 2026', 'Headline numbers, every measure, province by province, Calgary and Alberta, tax changes and the fiscal tables.',
