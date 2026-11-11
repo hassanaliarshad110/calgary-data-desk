@@ -29,13 +29,22 @@ async function loadBudget(force = false) {
   }
 }
 
+// Capital already approved for 2027 and later years comes from the 2027-2030 Budget open data (nnnm-9sfh) when it is
+// there: the older open budget lists the same years but puts some projects (the Green Line) in different years, so one
+// dataset is used for all of them and nothing is counted twice. Earlier years, and operating, are the open budget's.
+const budAhead = () => (BUD && BUD.proposed && BUD.proposed.ahead && (BUD.proposed.ahead.years || []).length) ? BUD.proposed.ahead : null;
+const budNewer = y => { const A = budAhead(); return !!(A && +y >= 2027 && A.totals[y] && A.totals[y].approved); };
+const budCap = y => budNewer(y) ? { value: budAhead().totals[y].approved, status: 'Approved' } : ((BUD.totals[y] || {}).capital || null);
+const budCapDep = y => budNewer(y) ? budAhead().by_department[y] || [] : ((BUD.by_department[y] || {}).capital || []);
+
 async function renderBudget() {
   if (!BUD) await loadBudget();
   if (!BUD) return;
-  const years = BUD.years;
+  const A = budAhead();
+  const years = [...new Set([...BUD.years, ...(A ? A.years : [])])].sort();
   if (!budYear) budYear = years.includes('2026') ? '2026' : years[years.length - 1];
   $('#bud-year').innerHTML = years.map(y => `<option ${y === budYear ? 'selected' : ''}>${y}</option>`).join('');
-  const T = BUD.totals[budYear] || {}, op = T.operating, cap = T.capital;
+  const T = BUD.totals[budYear] || {}, op = T.operating, cap = budCap(budYear), newer = budNewer(budYear);
   // the City's population estimate: from the dashboard when it is loaded, or read for this screen when it is opened first
   let people = D && D.population ? D.population.city_now : null;
   let view0 = null;
@@ -44,7 +53,9 @@ async function renderBudget() {
   // earlier budgets, for multi-year projects that run into that year; it is not a budget for that year
   const ahead = !op && !!cap;
   $('#bud-sub').textContent = ahead
-    ? `${budYear}: no budget has been set for this year. The capital figure is spending Council already approved in earlier budgets for multi-year projects that run into ${budYear}, as the City's open budget data lists it.${+budYear <= 2030 ? ' The proposed 2027 to 2030 budget, now before Council, would add to it.' : ''} Live from Calgary Open Budget.`
+    ? (newer
+      ? `${budYear}: no budget has been set for this year. The capital figure is spending Council already approved in earlier budgets for multi-year projects that run into ${budYear}, as the City's 2027 to 2030 budget open data lists it.${A.totals[budYear].proposed > 0.05 ? ` The proposed 2027 to 2030 budget, now before Council, would add ${money(A.totals[budYear].proposed)} of new capital in ${budYear}.` : ''} Live from the City's open data.`
+      : `${budYear}: no budget has been set for this year. The capital figure is spending Council already approved in earlier budgets for multi-year projects that run into ${budYear}, as the City's open budget data lists it.${+budYear <= 2030 ? ' The proposed 2027 to 2030 budget, now before Council, would add to it.' : ''} Live from Calgary Open Budget.`)
     : `The City of Calgary's ${budYear} budget: ${[op ? (op.status || '').toLowerCase() + ' operating' : '', cap ? (cap.status || '').toLowerCase() + ' capital' : ''].filter(Boolean).join(' and ')}. Live from Calgary Open Budget.`;
   const prev = BUD.totals[String(+budYear - 1)] || {};
   const ch = (a, b) => a && b && b.value ? signed((a.value / b.value - 1) * 100, 1) + ' on ' + (+budYear - 1) : '';
@@ -61,10 +72,10 @@ async function renderBudget() {
       <span class="cmp-bar-t"><span class="cmp-bar-f" style="left:0;width:${Math.max(.5, d.value / top * 100)}%"></span></span><span class="cmp-bar-v">${moneyShort(d.value)}</span></div>`).join('')
       || `<p class="card-sub">No ${sel === '#bud-op' ? 'operating' : 'capital'} budget is published for ${budYear}.</p>`;
   };
-  const BD = BUD.by_department[budYear] || {};
-  bars('#bud-op', BD.operating); bars('#bud-cap', BD.capital);
+  const BD = BUD.by_department[budYear] || {}, capDep = budCapDep(budYear);
+  bars('#bud-op', BD.operating); bars('#bud-cap', capDep);
   $('#bud-op-title').textContent = `Operating budget by department, ${budYear}`;
-  $('#bud-cap-title').textContent = `Capital budget by department, ${budYear}`;
+  $('#bud-cap-title').textContent = ahead ? `Capital already approved, by department, ${budYear}` : `Capital budget by department, ${budYear}`;
 
   // year by year
   if (typeof Chart !== 'undefined') {
@@ -72,25 +83,27 @@ async function renderBudget() {
     budChart = new Chart($('#bud-trend'), {
       type: 'bar',
       data: { labels: years, datasets: [
-        { label: 'Operating', data: years.map(y => (BUD.totals[y].operating || {}).value ?? null), backgroundColor: cssv('--chart-bar') },
-        { label: 'Capital', data: years.map(y => (BUD.totals[y].capital || {}).value ?? null), backgroundColor: '#D9A93E' }] },
-      options: { maintainAspectRatio: false, plugins: { tooltip: { callbacks: { label: c => `${c.dataset.label}: ${money(c.parsed.y)} (${(BUD.totals[c.label][c.dataset.label.toLowerCase()] || {}).status || ''})` } } },
+        { label: 'Operating', data: years.map(y => ((BUD.totals[y] || {}).operating || {}).value ?? null), backgroundColor: cssv('--chart-bar') },
+        { label: 'Capital', data: years.map(y => (budCap(y) || {}).value ?? null), backgroundColor: '#D9A93E' }] },
+      options: { maintainAspectRatio: false, plugins: { tooltip: { callbacks: { label: c => `${c.dataset.label}: ${money(c.parsed.y)} (${((c.dataset.label === 'Capital' ? budCap(c.label) : (BUD.totals[c.label] || {}).operating) || {}).status || ''}${c.dataset.label === 'Capital' && budNewer(c.label) ? ', 2027–2030 budget open data' : ''})` } } },
         scales: { y: { ticks: { callback: v => moneyShort(v) } } } },
     });
   }
-  $('#bud-trend-sub').textContent = 'Millions of dollars. Past years show what was approved or actually spent, as the City lists them. Years after 2026 have no budget yet: their capital is spending already approved in earlier budgets for multi-year projects, which is why it falls away; the proposed 2027 to 2030 budget would add to it.';
+  $('#bud-trend-sub').textContent = 'Millions of dollars. Past years show what was approved or actually spent, as the City lists them. Years after 2026 have no budget yet: their capital is spending already approved in earlier budgets for multi-year projects, which is why it falls away; the proposed 2027 to 2030 budget would add to it.'
+    + (A ? ` For ${A.years[0]} to ${A.years[A.years.length - 1]} that capital is taken from the City's 2027 to 2030 budget open data (${A.dataset}), the same figures as the table "Capital, approved in earlier budgets" below. The older open budget (${BUD.dataset}) lists those years too but puts some projects, the Green Line above all, in different years, so its figures for them are not used and the two are never added together.` : '');
 
   // every service
   const rows = [];
-  ['operating', 'capital'].forEach(k => (BD[k] || []).forEach(d => d.units.forEach(u => rows.push([k, d.name, u.name, u.value]))));
+  (BD.operating || []).forEach(d => d.units.forEach(u => rows.push(['operating', d.name, u.name, u.value])));
+  capDep.forEach(d => d.units.forEach(u => rows.push(['capital', d.name, u.name, u.value])));
   $('#bud-table thead').innerHTML = '<tr><th scope="col">Budget</th><th scope="col">Department</th><th scope="col">Service (business unit)</th><th scope="col" class="num">Millions of dollars</th></tr>';
   $('#bud-table tbody').innerHTML = rows.map(r => `<tr><td>${r[0] === 'operating' ? 'Operating' : 'Capital'}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td class="num">${fmt(r[3], 1)}</td></tr>`).join('');
-  $('#bud-table-sub').textContent = `${rows.length} lines for ${budYear}, as the City publishes them.`;
+  $('#bud-table-sub').textContent = `${rows.length} line${rows.length === 1 ? "" : "s"} for ${budYear}, as the City publishes them${newer ? ` (capital already approved, from the 2027 to 2030 budget open data, ${A.dataset})` : ''}.`;
   renderPlan();
   renderRevenue();
   renderTax();
   if (D || !view0) renderBudgetWards(); else withView(view0, 0, renderBudgetWards);     // opened before the dashboard: Calgary's view
-  $('#bud-notes').innerHTML = `${esc(BUD.note)} Source: City of Calgary, <button class="link-btn small" data-open="${esc(BUD.page)}">Calgary Open Budget (${esc(BUD.dataset)})</button>, read ${esc(BUD.fetched || '')}; the City's <button class="link-btn small" data-open="${esc(BUD.budget_page)}">budget pages</button>.`;
+  $('#bud-notes').innerHTML = `${esc(BUD.note)} Source: City of Calgary, <button class="link-btn small" data-open="${esc(BUD.page)}">Calgary Open Budget (${esc(BUD.dataset)})</button>, read ${esc(BUD.fetched || '')}${A ? `; capital already approved for ${esc(A.years[0])} and later, <button class="link-btn small" data-open="${esc(A.page)}">2027–2030 Budget (${esc(A.dataset)})</button>${BUD.proposed.fetched ? ', read ' + esc(BUD.proposed.fetched) : ''}` : ''}; the City's <button class="link-btn small" data-open="${esc(BUD.budget_page)}">budget pages</button>.`;
 }
 
 // the proposed 2027-2030 budget: what it would cost a typical household, the tax path, water, investments, and the

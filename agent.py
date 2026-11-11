@@ -465,7 +465,10 @@ The City's budget is in Calgary Open Budget (fqax-i3nz): budget_department, leve
 2026, not yet approved; Council debates it from Nov 23, approval expected in December) is in get_dashboard section
 city_budget_2027 (what it would cost a typical home, the property tax path, 2027 water rates, the City's investment
 highlights, revenue shares, documents) and in open data nnnm-9sfh (budget_department, department, bu, year,
-budget_status Proposed or Approved, fund, budget_millions). The City does not publish its budget by ward or community:
+budget_status Proposed or Approved, fund, budget_millions). For capital already approved for 2027 and later, use
+nnnm-9sfh (budget_status Approved), as the City budget screen does: fqax-i3nz lists those years too but puts some
+projects (the Green Line above all) in different years, so never add years from one dataset to years from the other.
+The City does not publish its budget by ward or community:
 say so plainly, then give what can be placed in a ward. Property tax by ward is not published either; the site
 estimates it (get_dashboard section property_tax: the assessment roll by community, public and institutional
 property left out, scaled to the bylaw's taxable assessment, times the bylaw's rates; Calgary's total equals the

@@ -75,7 +75,9 @@ def proposed(cache_dir, force=False):
     if not force and os.path.exists(path) and time.time() - os.path.getmtime(path) < KEEP_HOURS * 3600:
         try:
             with open(path, encoding='utf-8') as f:
-                return json.load(f)
+                kept = json.load(f)
+            if 'ahead' in kept:                         # kept files from before the 'ahead' part are read again
+                return kept
         except (OSError, ValueError):
             pass
     try:
@@ -86,6 +88,7 @@ def proposed(cache_dir, force=False):
                 return json.load(f)
         return None
     out = summarise_proposed(rows)
+    out['ahead'] = summarise_ahead(rows)
     out['fetched'] = time.strftime('%Y-%m-%d %H:%M')
     os.makedirs(cache_dir, exist_ok=True)
     with open(path + '.tmp', 'w', encoding='utf-8') as f:
@@ -122,6 +125,36 @@ def summarise_proposed(rows):
             'unit': 'millions of dollars',
             'note': ('Proposed, not approved: the budget Council will debate from November 23, 2026. Operating is net of '
                      'recoveries. Capital lines marked Approved were approved in earlier budgets; Proposed lines are new.')}
+
+
+def summarise_ahead(rows):
+    """Capital already approved for 2027 and every later year, from the 2027-2030 Budget open data (nnnm-9sfh), for the
+    City budget screen's later years. The older open budget (fqax-i3nz, rows last updated January 2026) also lists
+    capital for 2027 to 2032, but puts some projects in different years (the Green Line: the same $4.02 billion over
+    2027 to 2032, spread differently), so mixing the two would count some money twice. One dataset is used for all of
+    those years: the newer one, on which the proposed budget is built. Proposed new capital in each year is kept
+    beside it.
+    {'years', 'totals': {year: {'approved', 'proposed'}}, 'by_department': {year: [{name, value, units: [{name, value}]}]}}"""
+    totals, depts = {}, {}
+    for r in rows:
+        if kind(r.get('fund')) != 'capital':
+            continue
+        y = str(int(_num(r.get('year'))))
+        if int(y) < 2027:
+            continue
+        st, v = (r.get('budget_status') or 'Proposed').lower(), _num(r.get('budget_millions'))
+        t = totals.setdefault(y, {'approved': 0.0, 'proposed': 0.0})
+        t[st] = t.get(st, 0.0) + v
+        if st == 'approved':
+            d = depts.setdefault(y, {}).setdefault(r.get('budget_department') or 'Other', {})
+            u = r.get('bu') or r.get('department') or 'Other'
+            d[u] = d.get(u, 0.0) + v
+    by_dep = {y: sorted(({'name': dn, 'value': round(sum(us.values()), 3),
+                          'units': sorted(({'name': un, 'value': round(uv, 3)} for un, uv in us.items() if abs(uv) > 1e-9), key=lambda x: -x['value'])}
+                         for dn, us in ds.items()), key=lambda x: -x['value']) for y, ds in depts.items()}
+    return {'years': sorted(y for y in totals if totals[y]['approved']),
+            'totals': {y: {k: round(v, 3) for k, v in t.items()} for y, t in totals.items()},
+            'by_department': by_dep, 'dataset': PROPOSED, 'page': PROPOSED_PAGE}
 
 
 def load(cache_dir, force=False):

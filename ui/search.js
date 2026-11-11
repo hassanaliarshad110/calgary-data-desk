@@ -26,18 +26,22 @@
   async function load() {
     if (rows) return rows;
     if (loading) return loading;
+    // the index is built in a local list and published only when every entry is ready: typing while the news is still
+    // being fetched used to reach entries whose search words were not prepared yet
     loading = (async () => {
-      let idx = null;
+      let idx = null, list = [];
       try { idx = window.CDD_WEB && window.CDD_WEB.getJSON ? await window.CDD_WEB.getJSON('search.json') : await (await fetch('data/search.json')).json(); } catch (e) { idx = null; }
-      rows = (idx && idx.rows) || fromPage();
+      try { list = ((idx && idx.rows) || fromPage()).slice(); } catch (e) { list = []; }
       try {                                               // the day's headlines, from the news already loaded or fetched now
         let cn = typeof CN !== 'undefined' ? CN : null;
         if (!cn && typeof api === 'function') { const r = await (await api()).get_city_news(); cn = r && r.ok ? r.data : null; }
-        ((cn && cn.articles) || []).forEach(a => rows.push({ k: 'news', t: a.title, s: `${a.date || ''} · ${a.section || 'Calgary News'}`, v: 'citynews', id: a.id, w: (a.topics || []).join(' ') }));
+        ((cn && cn.articles) || []).forEach(a => list.push({ k: 'news', t: a.title, s: `${a.date || ''} · ${a.section || 'Calgary News'}`, v: 'citynews', id: a.id, w: (a.topics || []).join(' ') }));
       } catch (e) { /* no news today */ }
-      rows.forEach(r => { r._t = norm(r.t); r._s = norm(r.s); r._w = norm(r.w); });
+      list.forEach(r => { r._t = norm(r.t); r._s = norm(r.s); r._w = norm(r.w); });
+      rows = list;
       return rows;
     })();
+    loading.catch(() => { loading = null; });           // a failed load is tried again on the next keystroke
     return loading;
   }
 
@@ -63,6 +67,7 @@
     return h;
   };
   function render(q) {
+    if (!rows) return;
     const words = norm(q).split(/\s+/).filter(Boolean);
     if (!words.length) { pop.hidden = true; input.setAttribute('aria-expanded', 'false'); shown = []; return; }
     const hits = rows.map(r => [score(r, words), r]).filter(x => x[0] > 0).sort((a, b) => b[0] - a[0] || a[1].t.length - b[1].t.length);
@@ -135,8 +140,8 @@
   function close() { pop.hidden = true; input.setAttribute('aria-expanded', 'false'); sel = -1; box.classList.remove('open'); }
 
   let t;
-  input.addEventListener('input', () => { clearTimeout(t); t = setTimeout(async () => { await load(); render(input.value.trim()); }, 120); });
-  input.addEventListener('focus', () => { box.classList.add('open'); load(); if (input.value.trim() && rows) render(input.value.trim()); });
+  input.addEventListener('input', () => { clearTimeout(t); t = setTimeout(async () => { try { await load(); } catch (e) { return; } render(input.value.trim()); }, 120); });
+  input.addEventListener('focus', () => { box.classList.add('open'); load().catch(() => {}); if (input.value.trim() && rows) render(input.value.trim()); });
   input.addEventListener('keydown', e => {
     if (e.key === 'ArrowDown' && shown.length) { e.preventDefault(); sel = (sel + 1) % shown.length; highlight(); }
     else if (e.key === 'ArrowUp' && shown.length) { e.preventDefault(); sel = (sel - 1 + shown.length) % shown.length; highlight(); }

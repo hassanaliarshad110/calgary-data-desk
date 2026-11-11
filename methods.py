@@ -1258,6 +1258,10 @@ METHODS = [
                 'business unit. Operating is "Operating Expenditures Net of Recoveries"; capital is "Capital". Amounts are '
                 'in millions of dollars, as the City publishes them.',
                 'Per resident = the budget / the City\'s population estimate for this month.',
+                'Capital already approved for 2027 and later years (no budget has been set for them yet) comes from the '
+                'City\'s 2027-2030 Budget open data (nnnm-9sfh, budget_status Approved), the same figures as the screen\'s '
+                'table of the proposed budget. The open budget also lists those years but puts some projects (the Green Line '
+                'above all) in different years, so its figures for them are not used and the two are never added together.',
                 'By ward: the City does not publish its budget by ward. The ward table adds up only the published costs of '
                 'City and partner projects and road projects listed on Calgary Insight with a location in the ward (the largest '
                 'dollar amount named in each project\'s cost).'],

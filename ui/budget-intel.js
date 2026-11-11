@@ -614,7 +614,7 @@
           ${ry && ry.roads ? cell(`Road reports to 311, ${lastFull}`, fmt(ry.roads[lastFull]), `potholes, roadway and back lanes ${st('actual', 'Counted')}`) : ''}</div>
         <p class="bi-src"><button type="button" class="link-btn small" data-goto="infra">Infrastructure condition</button> has the paving plan and every community.</p>
         <h3>Water and sewer</h3><div class="bi-chain">${bc('Water Utilities')}
-          ${I && I.city ? cell('Water main breaks, last 12 months', fmt(I.city.breaks_n12), `${fmt(I.city.breaks_nprev)} in the 12 months before ${st('actual', 'Counted')}`) + cell('Water mains 50 years or older', share(I.city.old_km, I.city.mains_km), `${fmt(I.city.old_km)} of ${fmt(I.city.mains_km)} km ${st('calc', 'Calculated')}`) : ''}
+          ${I && I.city ? cell(I.city.breaks_through ? `Water main breaks, 12 months to ${longDate(I.city.breaks_through)}` : 'Water main breaks, last 12 months', fmt(I.city.breaks_n12), `${fmt(I.city.breaks_nprev)} in the 12 months before ${st('actual', 'Counted')}`) + cell('Water mains 50 years or older', share(I.city.old_km, I.city.mains_km), `${fmt(I.city.old_km)} of ${fmt(I.city.mains_km)} km ${st('calc', 'Calculated')}`) : ''}
           ${san ? cell('Sewer lines past a typical service life', fmt(san.past_typical_pct, 1) + '%', `of ${fmt(san.n)} sanitary service lines, by material ${st('calc', 'Calculated')}`) : ''}</div>
         <p class="bi-src"><button type="button" class="link-btn small" data-goto="infra">Infrastructure condition</button> · <a href="studies/calgary-sewers/">Calgary’s ageing sewers (report)</a></p>
         <h3>Transit, recreation and parks</h3><div class="bi-chain">${bc('Transit')}${bc('Recreation')}${bc('Parks & Urban Forestry')}${bc('Community & Culture')}</div>
@@ -702,7 +702,7 @@
         }
         if (rows.length) add(differs.length ? 'note' : 'pass', 'Two City datasets give different figures for capital already approved', differs.length ? `For ${differs.map(r => r[0]).join(', ')} the 2023–2026 open budget and the 2027–2030 open data disagree.` : 'They agree.',
           tbl(['Capital already approved ($ millions)', ...rows.map(r => r[0])], [[`Open budget (${b.dataset})`, ...rows.map(r => fmt(r[1], 1))], [`2027–2030 Budget (${P.dataset})`, ...rows.map(r => fmt(r[2], 1))], ['Difference', ...rows.map(r => fmt(r[2] - r[1], 1))]])
-          + '<p style="margin-top:8px">Neither figure is changed. The centre uses the 2027–2030 data for those years, because it is the newer publication and it is the one the proposed budget is built on; the City budget screen shows the older dataset’s figures. The City has not published a reconciliation.</p>' + where,
+          + '<p style="margin-top:8px">Neither figure is changed. The centre uses the 2027–2030 data for those years, because it is the newer publication and it is the one the proposed budget is built on; the City budget screen uses it for those years too, so the two are never added together. The City has not published a reconciliation.</p>' + where,
           { Formula: 'approved capital for the year, one dataset minus the other', Inputs: `${b.dataset}; ${P.dataset}` });
         const plan = b.plan_2027;
         if (plan) {
