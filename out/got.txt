@@ -1,0 +1,6 @@
+afr2025 https://www.calgary.ca/content/dam/www/cfod/finance/documents/2025-Annual-Financial-Report.pdf
+afr2024 https://www.calgary.ca/content/dam/www/cfod/finance/documents/Finance-2024-Annual-Report.pdf
+afr2023 https://www.calgary.ca/content/dam/www/cfod/finance/documents/Finance-2023-Annual-Report.pdf
+afr2022 MISSING
+afr2021 MISSING
+ye2024 https://www.calgary.ca/content/dam/www/cfod/finance/documents/financial-economic-update-2024-year-end-Q1-2025.pdf

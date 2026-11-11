@@ -1,0 +1,192 @@
+== out/afr2023.txt pdf page 12 line 8
+the consolidated financial statements between the reported year and the previous year                 non-financial assets and net assets) at year end,
+as well as between approved budget and actual results. The FSDA also identifies trends,
+risks and anticipated events that could have financial implications.                              •   Consolidated statement of operations and accumulated
+surplus (summary of the annual surplus for the year,
+The 2023 year is the first year in the four-year business plan and budget cycle (2023-2026),          consisting of revenues reflecting what operating and
+also known as the 2023-2026 Service Plans and Budgets. The budget reflects and addresses              capital funds were raised in the year and expenses
+the ongoing economic challenges The City is facing while continuing to advance the                    reflecting how funds were used during the year,
+== out/afr2023.txt pdf page 14 line 15
+The City’s tangible capital assets.                                                                  investments increased by $553 million to $5,760 million. The decrease in cash and
+cash equivalents is primarily due to cash used for the acquisition of tangible capital
+The City had an excess of revenues over expenses before other contributions and                      assets and purchase of investments. This decrease was offset by cash generated
+transfers of negative $52 million (2022 – $361 million restated). The City’s annual surplus          from operating activities and dividends received from ENMAX.
+on a consolidated basis for financial statement reporting totaled $888 million (2022 –
+$1,329 million restated).                                                                            Cash provided by operating activities
+In 2023, cash provided by operating activities was $1,313 million, compared to
+== out/afr2023.txt pdf page 14 line 20
+$1,329 million restated).                                                                            Cash provided by operating activities
+In 2023, cash provided by operating activities was $1,313 million, compared to
+Consolidated Financial Position                                                                      $1,434 million in 2022, and includes:
+As at December 31, 2023 (in millions)                                                                •   Annual surplus of $888 million (2022 – $1,328 million restated); and
+2022
+2023             (Restated)    •   Items included in the annual surplus and not affecting cash of $425 million
+A. Financial Assets                                         $       10,622       $       10,402          (2022 – $106 million restated).
+== out/afr2023.txt pdf page 30 line 14
+merged reserve,                                                                                the 2023-2026 budget cycle. In December 2023 (EC2023-1211), Council approved the
+•   Increases in the Community investment, Legacy parks and Utilities sustainment                  recommendation to simplify the name to FSR and clarify that committed amounts are
+reserves, offset by                                                                            excluded from the reserve balance when comparing to its minimum and target balances.
+•   Decreases in the Green Line fund and Waste and recycling sustainment reserves.                 The balance of the FSR is $876 million at the end of 2023 before surplus, while the balance
+of the RFC/LMUR merged reserve is $977 million. As at December 31, 2023 the FSR was
+The City allocates funds to reserves to meet specific future operating and capital expenditure     below its Council approved target level of 15 per cent of The City’s tax-supported gross
+requirements and to provide for emergencies in accordance with a Financial Reserve                 expenditures (net of recoveries), but above the minimum balance of 5 per cent of The City’s
+== out/afr2023.txt pdf page 30 line 35
+Maintaining financial reserves is good management, allowing funds to be collected
+for new one-time operating and capital investments, and an additional $100 million to
+as available and spent judiciously as needed to ensure service levels to Calgarians
+fund new capital investments using the anticipated 2023 operating surplus that will flow
+are maintained. The City classifies reserves into three categories to be used for three
+through the FSR. Through that report, Council also approved funding of $165 million from
+distinct purposes:
+== out/afr2023.txt pdf page 30 line 47
+Arts Commons transformation (other than Phase 1) are still in the process of receiving
+•   Capital reserves are used to fund capital expenses.                                            full Council approval. As part of this strategy, the MCP reserve was created in 2019 with a
+•   Sustainment reserves are used to fund both operating and capital expenses for                  total of $424 million. The balance of the MCP reserve at the end of 2023 is $412.7 million.
+activities that are treated as self-sustaining. Surpluses from these activities are retained
+in these reserves to offset any future deficits.
+
+28   The City of Calgary 2023 Annual Financial Report
+== out/afr2023.txt pdf page 47 line 7
+2023     (Restated Note 2)
+Net Inflow (Outflow) of Cash and Cash Equivalents
+Operating Activities
+Annual Surplus                                                   $    888,289      $     1,328,494
+Items not affecting cash:
+Equity in (loss) earnings of ENMAX Corporation (Note 9)              15,608           (295,628)
+ENMAX Corporation – Other comprehensive income (Note 9)                   –           (124,370)
+== out/afr2023.txt pdf page 53 line 14
+Works of art for display are not recognized as tangible capital assets (Note 27).
+Tangible capital assets are reviewed annually for any impairment and written             p. Budget Figures
+down when conditions indicate that a tangible capital asset no longer                       The 2023 budget is reflected on the consolidated statement of operations and
+contributes to The City’s ability to provide goods or services, or that the value of        accumulated surplus. The budget consists of the Council-approved amounts
+future economic benefits associated with the tangible capital asset is less than            for the operating fund and the capital fund, modified for capital revenue
+its book value.                                                                             adjustments, assets capitalized on the statement of financial position, and
+The cost, less residual value, of tangible capital assets are amortized on a                amortization expense for tax-supported assets. The budgets established for the
+== out/afr2023.txt pdf page 80 line 4
+18. 2023 Budget
+Budget data presented in these consolidated financial statements are based upon the 2023 operating and capital budgets as approved by
+Council. Council approved budgets are prepared in accordance with MGA legislation, which in some cases is different from budget amounts
+prepared in accordance with PSAS and reported on the consolidated statement of operations and accumulated surplus and consolidated
+changes in net financial assets. The table below reconciles the Council approved budget to the PSAS budget figures reported in these
+consolidated financial statements. Actual amounts have been used to approximate budget amounts for certain reconciling items that
+were not included in the Council budget.
+== out/afr2023.txt pdf page 81 line 19
+Reserves (Note 21)                                                          4,003,003                  3,635,785
+Equity in ENMAX (Note 9)(2)                                                 2,980,115                  3,072,460                Total operating reserves                                     $      985,592      $       985,215
+Equity in non-financial assets (Note 20)                                   17,752,754                  17,174,149               Calgary Parking                                              $      169,955      $       159,374
+Accumulated surplus                                                   $ 25,034,368              $     24,140,816                Community investment                                                147,820              130,265
+Accumulated remeasurement losses                                      $    (69,097)             $              –                Debt servicing                                                       52,570               52,570
+Established area investments                                         36,007               44,899
+$ 24,965,271              $     24,140,816
+== out/afr2023.txt pdf page 83 line 14
+Calhome Properties Ltd. (operating as Calgary Housing Company)                        the Authority and The City. The land, building, furniture and equipment are
+delivers safe and affordable housing to Calgarians. Some of the housing               owned by The City, who also contributes a grant towards the operating costs
+is provided under agreements with The City and the Province of Alberta,               of CTCC. In accordance with an amendment to the operating agreement,
+which provides subsidies for certain properties. Since its inception, Calgary         the Authority retains operating surpluses to fund any net operating deficits.
+Housing Company has assumed ownership and/or management of
+Portfolios under different agreements.
+
+== out/afr2023.txt pdf page 121 line 7
+Favourable operating variance         (1)
+$       237,756          $        258,088
+Timing differences                                                                                                                       (1,348)                      644
+Tax-supported operating surplus                                                                                                 $       236,408          $        258,732
+Adjustments(2)
+Capital adjustments                                                                                                                 (600,227)                  (508,788)
+Consolidation adjustments                                                                                                                3,353                     18,475
+== out/afr2024.txt pdf page 12 line 11
+non-financial assets and net assets at year end,
+as well as between approved budget and actual results. The FSDA also identifies trends,
+risks and anticipated events that could have financial implications.                              •   Consolidated Statement of Operations and Accumulated
+Surplus: summary of the annual surplus for the year,
+2024 is the second year in the four-year business plan and budget cycle, also known as                consisting of revenues (reflecting what operating and
+the 2023 – 2026 Service Plans and Budgets. In November 2023, Council approved the                     capital funds were raised in the year) and expenses
+Adjustments to the 2024 approved budgets with emphasis on addressing the ongoing                      (reflecting how funds were used during the year),
+== out/afr2024.txt pdf page 29 line 8
+
+
+The reserve balances totalled $3,898 million at the end of 2024 (2023 – $4,003 million),         The balance of the FSR is $1,214 million at the end of 2024, inclusive of the 2024 annual
+excluding the Operating fund variance of $276 million (2023 – $236 million), which is            surplus, while the balance of the Reserve for future capital and lifecycle maintenance and
+transferred to the Fiscal stability reserve (FSR) in the next fiscal year.                       upgrade (RFC/LMUR) merged reserve is $962 million. As at December 31, 2024 the FSR
+The net decrease was primarily the result of:                                                    was below its Council approved target level of 15 per cent of The City’s tax-supported
+gross expenditures (net of recoveries), but above the minimum balance of five per cent
+== out/afr2024.txt pdf page 47 line 6
+2024               2023
+Net Inflow (Outflow) of Cash and Cash Equivalents
+Operating Activities
+Annual Surplus                                                   $   1,105,111    $     888,289
+Items not affecting cash:
+Equity in (earnings) loss of ENMAX Corporation (Note 8)           (181,248)            15,608
+Change in unrealized market value of financial instruments          275,760          (40,830)
+== out/afr2024.txt pdf page 53 line 14
+Works of art for display are not recognized as tangible capital assets (Note 26).
+Tangible capital assets are reviewed annually for any impairment and written down         t.   Budget Figures
+when conditions indicate that a tangible capital asset no longer contributes to                The 2024 budget is reflected on the Consolidated Statement of Operations and
+The City’s ability to provide goods or services, or that the value of future economic          Accumulated Surplus. The budget consists of the Council-approved amounts
+benefits associated with the tangible capital asset is less than its book value.               for the operating budget and the capital budget, modified for capital revenue
+The cost, less residual value, of tangible capital assets are amortized on a straight-         adjustments, assets capitalized on the Consolidated Statement of Financial
+line basis over the estimated useful life as follows:                                          Position and amortization expense for tax-supported assets. The established
+== out/afr2024.txt pdf page 76 line 4
+17. 2024 Budget
+Budget data presented in these consolidated financial statements are based upon the 2024 operating and capital budgets as approved by Council. Council approved budgets
+are prepared in accordance with the Municipal Government Act, which in some cases is different from budget amounts prepared in accordance with PSAS and reported on
+the Consolidated Statement of Operations and Accumulated Surplus and Consolidated Statement of Change in Net Financial Assets. The table below reconciles the Council
+approved budget to the PSAS budget figures reported in these consolidated financial statements. Actual amounts have been used to approximate budget amounts for certain
+reconciling items that were not included in the Council budget.
+
+== out/afr2024.txt pdf page 79 line 14
+Calhome Properties Ltd. (operating as Calgary Housing) delivers safe and              the Authority and The City. The land, building, furniture and equipment are
+affordable housing to Calgarians. Some of the housing is provided under               owned by The City, who also contributes a grant towards the operating costs
+agreements with The City and the Province of Alberta, which provides                  of CTCC. In accordance with an amendment to the operating agreement, the
+subsidies for certain properties. Since its inception, Calgary Housing has            Authority retains operating surpluses to fund any net operating deficits.
+assumed ownership and/or management of Portfolios under different
+agreements.
+
+== out/afr2025.txt pdf page 45 line 6
+2025                2024
+Net inflow (outflow) of cash and cash equivalents
+Operating activities
+Annual surplus                                                   $   1,908,419     $     1,105,111
+Items not affecting cash:
+Equity in earnings of ENMAX                                        (507,117)         (181,248)
+Change in unrealized market value of financial instruments          (73,476)           275,760
+== out/afr2025.txt pdf page 52 line 22
+revenue (operating grants) until eligibility criteria or stipulations are met.
+The 2025 budget is reflected on the Consolidated Statement of Operations
+Authorized transfers from The City are recorded as expenses when
+and Accumulated Surplus. The budget consists of the Council approved
+eligibility criteria have been met by the recipient and the amount can
+amounts for the operating budget and the capital budget, modified for capital
+be reasonably estimated.
+== out/afr2025.txt pdf page 74 line 4
+17. 2025 Budget
+Budget data presented in these consolidated financial statements are based upon the 2025 operating and capital budgets as approved by Council. Council approved budgets
+are prepared in accordance with the Municipal Government Act, which in some cases is different from budget amounts prepared in accordance with PSAS and reported on
+the Consolidated Statement of Operations and Accumulated Surplus and Consolidated Statement of Changes in Net Financial Assets. The table below reconciles the Council
+approved budget to the PSAS budget figures reported in these consolidated financial statements. Actual amounts have been used to approximate budget amounts for certain
+reconciling items that were not included in the Council budget.
+
+== out/afr2025.txt pdf page 75 line 15
+Reserves (Note 20)                                                         3,883,283                   3,898,434
+Equity in ENMAX (Note 8)(2)                                                3,470,480                   3,066,363                 Total operating reserves                               $       1,220,520   $      1,055,143
+Equity in non-financial assets (Note 19)                                  20,644,302                  18,936,371                 Community Investment Reserve                           $        139,701    $       156,814
+Accumulated surplus                                                   $ 28,047,898              $      26,139,479                Established Area Investment Fund                                 23,144             32,391
+Accumulated remeasurement gains                                            218,875                       373,463                 Green Line Fund                                                 269,680            182,753
+Legacy Parks Reserve                                             81,658             64,555
+$ 28,266,773              $      26,512,942                Major Capital Project Reserve                                   352,993            430,281
+== out/afr2025.txt pdf page 77 line 44
+the Authority and The City. The land, building, furniture and equipment
+are owned by The City, who also contributes a grant towards the operating
+costs of CTCC. In accordance with an amendment to the operating
+agreement, the Authority retains operating surpluses to fund any net
+operating deficits.
+
+
+== out/afr2025.txt pdf page 120 line 7
+2025                     2023(1)                  2022(1)
+Favourable operating variance(2)                                                                    $       259,308          $         237,756         $        258,088
+Timing differences                                                                                                –                     (1,348)                     644
+Tax-supported operating surplus                                                                     $       259,308          $        236,408          $        258,732
+Adjustments(3)
+Capital adjustments                                                                               $     (604,458)          $       (600,227)         $      (508,788)
+PSAS adjustments                                                                                         (161,153)                           –                       –
