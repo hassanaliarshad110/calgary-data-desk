@@ -1,0 +1,4 @@
+p1 https://calgaryinsight.ca/py/manifest.json 200 634
+p2 https://calgaryinsight.ca/py/data/pay_study.json 200 12204
+p3 https://calgaryinsight.ca/py/pay_study.py 200 1044
+p4 https://calgaryinsight.ca/py/agent.py 200 69717
