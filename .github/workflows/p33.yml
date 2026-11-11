@@ -1,0 +1,41 @@
+name: Probe 33
+
+# Read only. Checks the published site (calgaryinsight.ca) after the accuracy fixes went live. Output goes to fetched-33.
+
+on: {push: {branches: [site-check-33]}}
+permissions: {contents: write}
+env:
+  PYODIDE_VERSION: '0.26.4'
+  REF: cbe2fff68ab5a9fcbe43bba037beca1a61df963e
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: {path: probe}
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - name: Live data files and screens
+        run: |
+          set +e
+          mkdir -p out
+          for f in data/built.json budget-intel/budget-vs-actual.json data/infra.json; do curl -fsSL "https://calgaryinsight.ca/$f?nc=$RANDOM" -o out/$(basename $f); done
+          python3 -c "import json; b=json.load(open('out/built.json')); print('built', {k:b.get(k) for k in ('built','built_at','commit','sha','minutes')}, 'failed', [s['step'] for s in b.get('steps',[]) if not s.get('ok')])" > out/summary.txt 2>&1
+          python3 -c "import json; I=json.load(open('out/infra.json'))['city']; print('infra breaks', I['breaks_n12'], I['breaks_nprev'], I.get('breaks_through'), 'km', I['mains_km'])" >> out/summary.txt 2>&1
+          cd probe && npm init -y > /dev/null && npm i playwright@1.48.2 > /dev/null 2>&1 && npx playwright install --with-deps chromium > /dev/null 2>&1; cd ..
+          export NODE_PATH=$PWD/probe/node_modules
+          node probe/audit/live_check.js out/live.txt >> out/summary.txt 2>&1
+          node probe/audit/budget_pr.js >> out/summary.txt 2>&1
+          cat out/summary.txt
+        env: {SITE: 'https://calgaryinsight.ca'}
+      - name: Push to fetched-33 (evidence only)
+        if: always()
+        run: |
+          set +e
+          cd probe
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q --orphan fetched-33
+          git rm -rqf --cached . > /dev/null 2>&1
+          rm -rf audit .github node_modules package*.json; mv ../out out
+          git add -f out && git commit -qm "Live check after publishing the accuracy fixes (evidence only)" && git push -qf origin fetched-33
