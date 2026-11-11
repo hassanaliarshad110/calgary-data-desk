@@ -1,0 +1,42 @@
+{
+ "bridge_calls_while_browsing": [
+  "compare_wards",
+  "get_accountability",
+  "get_budget",
+  "get_infra",
+  "get_property_tax"
+ ],
+ "bridge_calls_by_the_site_theme_button": [
+  "set_theme"
+ ],
+ "bridge_calls_on_export": [
+  "save_csv"
+ ],
+ "storage_writes": [
+  "set cdd-web-theme"
+ ],
+ "history": [
+  "replace /?view=budget-intelligence",
+  "replace /?view=budget-intelligence&bi=actual",
+  "replace /?view=budget-intelligence&bi=capital",
+  "replace /?view=budget-intelligence&bi=cases",
+  "replace /?view=budget-intelligence&bi=checks",
+  "replace /?view=budget-intelligence&bi=links",
+  "replace /?view=budget-intelligence&bi=operating",
+  "replace /?view=budget-intelligence&bi=performance",
+  "replace /?view=budget-intelligence&bi=projects",
+  "replace /?view=budget-intelligence&bi=revenue",
+  "replace /?view=budget-intelligence&bi=simulator"
+ ],
+ "files_requested": [
+  "budget-intel/business-cases.json",
+  "budget-intel/crosswalk.json",
+  "data/accountability.json",
+  "data/budget.json",
+  "data/infra.json",
+  "data/tax.json"
+ ],
+ "requests": 6,
+ "requests_to_other_hosts": [],
+ "requests_not_get": 0
+}

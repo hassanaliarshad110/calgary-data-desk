@@ -1,0 +1,3279 @@
+{
+ "what": "Before and after: every file of the daily refresh system on main and on the branch, as git itself records them.\nRun in the repository, on the branch. usage: python3 refresh_compare.py <base-commit> <out-dir>",
+ "counted_as_the_refresh_system": "everything under .github/, web/, data/ and gateway/; every Python file at the top of the repository (the data modules and the assistants); tools/archive.py and tools/news_publish.py",
+ "summary": {
+  "base_commit": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+  "files_on_main": 330,
+  "files_on_the_branch": 439,
+  "same": 324,
+  "changed": [
+   "agent.py",
+   "analyst.py",
+   "methods.py",
+   "registry.py",
+   "ui/index.html",
+   "web/search_index.py"
+  ],
+  "removed": [],
+  "added": 109,
+  "refresh_system_files_on_main": 232,
+  "refresh_system_files_same": 227,
+  "refresh_system_files_changed": [
+   "agent.py",
+   "analyst.py",
+   "methods.py",
+   "registry.py",
+   "web/search_index.py"
+  ],
+  "refresh_system_files_added": [
+   "budget_intel.py"
+  ],
+  "refresh_system_files_removed": [],
+  "workflow_files_added_or_removed": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "workflows": [
+  {
+   "file": ".github/workflows/backup.yml",
+   "main_sha256": "63f2974d90591fb8ace392e40c7c89d4d0b519197cf7a1492acb4eaa49c58e52",
+   "branch_sha256": "63f2974d90591fb8ace392e40c7c89d4d0b519197cf7a1492acb4eaa49c58e52",
+   "main_git_blob": "92c8471faa1725146fcd0cffe2b4f968547254c5",
+   "branch_git_blob": "92c8471faa1725146fcd0cffe2b4f968547254c5",
+   "bytes": 2010,
+   "identical": true,
+   "schedules": [
+    "41 9 * * *"
+   ],
+   "started_by": [
+    "schedule",
+    "workflow_dispatch"
+   ]
+  },
+  {
+   "file": ".github/workflows/gateway.yml",
+   "main_sha256": "3a5075fcb4df18b9861b973c11dd8068b151fb5ce01abbc76e13e4ea3b629c8f",
+   "branch_sha256": "3a5075fcb4df18b9861b973c11dd8068b151fb5ce01abbc76e13e4ea3b629c8f",
+   "main_git_blob": "c9bf10da93f1527669ad7ac1b5b218728f2b2d88",
+   "branch_git_blob": "c9bf10da93f1527669ad7ac1b5b218728f2b2d88",
+   "bytes": 2941,
+   "identical": true,
+   "schedules": [],
+   "started_by": [
+    "workflow_dispatch",
+    "push"
+   ]
+  },
+  {
+   "file": ".github/workflows/news-images.yml",
+   "main_sha256": "1a62aa4446d0d308751533428c41aa608bd273f3306dc66f04c38c2499a8a424",
+   "branch_sha256": "1a62aa4446d0d308751533428c41aa608bd273f3306dc66f04c38c2499a8a424",
+   "main_git_blob": "147dff57d9a8850c1880fe1a03b7e85772a2fc9a",
+   "branch_git_blob": "147dff57d9a8850c1880fe1a03b7e85772a2fc9a",
+   "bytes": 1068,
+   "identical": true,
+   "schedules": [
+    "20 0,1,2 * * *"
+   ],
+   "started_by": [
+    "schedule",
+    "workflow_dispatch"
+   ]
+  },
+  {
+   "file": ".github/workflows/site.yml",
+   "main_sha256": "42e263e4bcff1f063cc298dbc6fea46a5cd42de154d04d316e4b6c35c9bedb54",
+   "branch_sha256": "42e263e4bcff1f063cc298dbc6fea46a5cd42de154d04d316e4b6c35c9bedb54",
+   "main_git_blob": "09a99f14b231bc3aa8251ff80f44ba2046a9b9f3",
+   "branch_git_blob": "09a99f14b231bc3aa8251ff80f44ba2046a9b9f3",
+   "bytes": 4612,
+   "identical": true,
+   "schedules": [
+    "23 11 * * *"
+   ],
+   "started_by": [
+    "schedule",
+    "workflow_dispatch",
+    "push"
+   ]
+  }
+ ],
+ "files": [
+  {
+   "file": ".github/workflows/backup.yml",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "92c8471faa1725146fcd0cffe2b4f968547254c5",
+   "branch_git_blob": "92c8471faa1725146fcd0cffe2b4f968547254c5"
+  },
+  {
+   "file": ".github/workflows/gateway.yml",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "c9bf10da93f1527669ad7ac1b5b218728f2b2d88",
+   "branch_git_blob": "c9bf10da93f1527669ad7ac1b5b218728f2b2d88"
+  },
+  {
+   "file": ".github/workflows/news-images.yml",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "147dff57d9a8850c1880fe1a03b7e85772a2fc9a",
+   "branch_git_blob": "147dff57d9a8850c1880fe1a03b7e85772a2fc9a"
+  },
+  {
+   "file": ".github/workflows/site.yml",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "09a99f14b231bc3aa8251ff80f44ba2046a9b9f3",
+   "branch_git_blob": "09a99f14b231bc3aa8251ff80f44ba2046a9b9f3"
+  },
+  {
+   "file": ".gitignore",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "04dd607404049440e23ef5e9d43e5c1d3b4354b0",
+   "branch_git_blob": "04dd607404049440e23ef5e9d43e5c1d3b4354b0"
+  },
+  {
+   "file": "Check live data.bat",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "8891354806e62930e710ec84e76217c972339619",
+   "branch_git_blob": "8891354806e62930e710ec84e76217c972339619"
+  },
+  {
+   "file": "Make desktop shortcut.bat",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "2a21775e6416fb9d6a9b2f278f8cb8cef7bb3f21",
+   "branch_git_blob": "2a21775e6416fb9d6a9b2f278f8cb8cef7bb3f21"
+  },
+  {
+   "file": "Open Calgary Data Desk v2.bat",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "8417a42128af317dcaeb95105c88141804ffdf58",
+   "branch_git_blob": "8417a42128af317dcaeb95105c88141804ffdf58"
+  },
+  {
+   "file": "README.md",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "3a399fa996e5a484303abe3ab8c37cfd50e21449",
+   "branch_git_blob": "3a399fa996e5a484303abe3ab8c37cfd50e21449"
+  },
+  {
+   "file": "access.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "93e88addd9d704bbc38c3956a4ca5343dbaf4044",
+   "branch_git_blob": "93e88addd9d704bbc38c3956a4ca5343dbaf4044"
+  },
+  {
+   "file": "accountability.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "de140e8356b51aaa5e09990953076aa5d1d05d45",
+   "branch_git_blob": "de140e8356b51aaa5e09990953076aa5d1d05d45"
+  },
+  {
+   "file": "agent.py",
+   "status": "changed",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "bac014085272e6f37c5f6f588af871aec1bd3d14",
+   "branch_git_blob": "bd81e629beef7308242410c75411bc521d350869"
+  },
+  {
+   "file": "alberta.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f2cca02878f91b271b8a5f09160ae3c2092a3e03",
+   "branch_git_blob": "f2cca02878f91b271b8a5f09160ae3c2092a3e03"
+  },
+  {
+   "file": "analyst.py",
+   "status": "changed",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "41acb29830b416697bb4f64e59dc96c1d1430ef0",
+   "branch_git_blob": "a3543328558a71d29ba6018e0edc5b03bc0f24c6"
+  },
+  {
+   "file": "app.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "95685f0b4dfc61f82a34e2cae8fa974bf265bb4b",
+   "branch_git_blob": "95685f0b4dfc61f82a34e2cae8fa974bf265bb4b"
+  },
+  {
+   "file": "assets.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "2006952de021cd01b43484dd08e20b70adc441da",
+   "branch_git_blob": "2006952de021cd01b43484dd08e20b70adc441da"
+  },
+  {
+   "file": "auditor.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ab0151ade04769fe1b89920f9104519f5f8978c3",
+   "branch_git_blob": "ab0151ade04769fe1b89920f9104519f5f8978c3"
+  },
+  {
+   "file": "bud/fed_by_province.py",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "88790a5ac4813daa9b0f44df55fa7211d644c0ff",
+   "branch_git_blob": "88790a5ac4813daa9b0f44df55fa7211d644c0ff"
+  },
+  {
+   "file": "budget.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "7569ee1015a5233a4a103d264cd4833b1a5ef444",
+   "branch_git_blob": "7569ee1015a5233a4a103d264cd4833b1a5ef444"
+  },
+  {
+   "file": "budget_intel.py",
+   "status": "added",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": null,
+   "branch_git_blob": "3425f61fde53c0cba327cc2b5005ce7bca3fbb77"
+  },
+  {
+   "file": "buildup.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "58aa0bf47672363b853891d33ef64bd1fdbab24c",
+   "branch_git_blob": "58aa0bf47672363b853891d33ef64bd1fdbab24c"
+  },
+  {
+   "file": "business.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "c10c68951e17718c3789d738be6340a3359c415c",
+   "branch_git_blob": "c10c68951e17718c3789d738be6340a3359c415c"
+  },
+  {
+   "file": "calgary_data.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5761dcbc1ba123a3bb43838a28d8aaa04cc9a735",
+   "branch_git_blob": "5761dcbc1ba123a3bb43838a28d8aaa04cc9a735"
+  },
+  {
+   "file": "camfeed.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "13989d23de07b94e4151ac025b0bbaba7d3b21a4",
+   "branch_git_blob": "13989d23de07b94e4151ac025b0bbaba7d3b21a4"
+  },
+  {
+   "file": "capmkt.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "efe5305c487e3de837529ad2b38c06629ebc67bb",
+   "branch_git_blob": "efe5305c487e3de837529ad2b38c06629ebc67bb"
+  },
+  {
+   "file": "catalog.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d635413211c23a2b0ac0faa2e64314bb39752bb7",
+   "branch_git_blob": "d635413211c23a2b0ac0faa2e64314bb39752bb7"
+  },
+  {
+   "file": "census.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ee09edfac3d5e6ed147efebdb6927293e764172f",
+   "branch_git_blob": "ee09edfac3d5e6ed147efebdb6927293e764172f"
+  },
+  {
+   "file": "citynews.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "08f4f8275f05c3c6aac649bdc5490d6c1719fb63",
+   "branch_git_blob": "08f4f8275f05c3c6aac649bdc5490d6c1719fb63"
+  },
+  {
+   "file": "codebook.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "cd67857a08c1813b63032e9058706aaa60d09922",
+   "branch_git_blob": "cd67857a08c1813b63032e9058706aaa60d09922"
+  },
+  {
+   "file": "context.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "48d9d21c384bd8824614fdf9ebb81814fd96c52f",
+   "branch_git_blob": "48d9d21c384bd8824614fdf9ebb81814fd96c52f"
+  },
+  {
+   "file": "dashboard.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "bd012a480fb2d6cdd6b89a01543e85f619cfb936",
+   "branch_git_blob": "bd012a480fb2d6cdd6b89a01543e85f619cfb936"
+  },
+  {
+   "file": "data/budget_2027.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e971f4db0ada9ee3f545ce117cc13396b2377d4e",
+   "branch_git_blob": "e971f4db0ada9ee3f545ce117cc13396b2377d4e"
+  },
+  {
+   "file": "data/budget_revenue.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "73347d8b62f738b671dc7aa02bbdb54af210c0c6",
+   "branch_git_blob": "73347d8b62f738b671dc7aa02bbdb54af210c0c6"
+  },
+  {
+   "file": "data/civic_projects.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "df70dc2d758ae5fc19497dfded6ac295b366e856",
+   "branch_git_blob": "df70dc2d758ae5fc19497dfded6ac295b366e856"
+  },
+  {
+   "file": "data/explore_ctrain.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3f76ff3d9715735f35e25e5dc742f2ca57e929a4",
+   "branch_git_blob": "3f76ff3d9715735f35e25e5dc742f2ca57e929a4"
+  },
+  {
+   "file": "data/pay_study.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "2d49aad14d496ba1956e0ed4291c362f692f756f",
+   "branch_git_blob": "2d49aad14d496ba1956e0ed4291c362f692f756f"
+  },
+  {
+   "file": "data/police_study.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "de9756f525c94fca071286620e216b692d2adc17",
+   "branch_git_blob": "de9756f525c94fca071286620e216b692d2adc17"
+  },
+  {
+   "file": "data/rentals_all.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "c24ad077dc23dcf493b43bf883e114d497f67c8b",
+   "branch_git_blob": "c24ad077dc23dcf493b43bf883e114d497f67c8b"
+  },
+  {
+   "file": "data/service_life.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3df1bbacead6552066cc19008677cf30eb005ce4",
+   "branch_git_blob": "3df1bbacead6552066cc19008677cf30eb005ce4"
+  },
+  {
+   "file": "data/tax_rates.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "8805e52f2f101d5197d2834f306ffc7f89b2c133",
+   "branch_git_blob": "8805e52f2f101d5197d2834f306ffc7f89b2c133"
+  },
+  {
+   "file": "data/tourism_research.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e8cf84eb1682f931e40227a5326b06d1acfedd38",
+   "branch_git_blob": "e8cf84eb1682f931e40227a5326b06d1acfedd38"
+  },
+  {
+   "file": "data/ward5_profile_2021.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "67489e6f23a18d5f6567267b65686c6daca30d68",
+   "branch_git_blob": "67489e6f23a18d5f6567267b65686c6daca30d68"
+  },
+  {
+   "file": "data/ward5_projects.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d393d26014c1630673ec46f4dfd748b7e16f17e8",
+   "branch_git_blob": "d393d26014c1630673ec46f4dfd748b7e16f17e8"
+  },
+  {
+   "file": "data/ward5_rentals.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "0f8b268782578a821f1e2cdea45540535d064e38",
+   "branch_git_blob": "0f8b268782578a821f1e2cdea45540535d064e38"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/CHANGE-SUMMARY.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/DAILY-DATA-REFRESH-INTEGRITY-REPORT.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/DATA-SOURCE-REGISTER.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/DEVLOG.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/EXECUTIVE-REVIEW.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/1-FINANCIAL-RECONCILIATION.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/2-PDF-EXTRACTION.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/3-REFRESH-AND-BACKUP.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/4-CODE-AND-SECURITY.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/5-USER-EXPERIENCE.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/README.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/build-steps.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/built-files.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/changed-files.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/data-genie-tests.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/dataset-before-after.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/existing-files.patch.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/security-dynamic-calls.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/security-dynamic.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/security-static.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code/sensitive-scan.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/financial/financial-audit.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/financial/open-data-fqax-i3nz-2026-11-11.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/financial/open-data-nnnm-9sfh-2026-11-11.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/financial/sources-read.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/pdf/all-384-cases.csv",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/pdf/all-384-cases.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/pdf/engine-differences.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/pdf/mutation-test.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/pdf/pdf-checks.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/pdf/third-reading.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/artifact-file-checksums.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/before-after.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/restore-test-from-the-artifact.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/runs.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/scheduled-tasks.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/branch/backup.yml.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/branch/gateway.yml.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/branch/news-images.yml.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/branch/site.yml.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/main/backup.yml.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/main/gateway.yml.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/main/news-images.yml.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/main/site.yml.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/build_steps.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/built_compare.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/checks_open.js",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/code_inventory.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/compare_engines.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/fail.js",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/fin_audit.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/genie_test.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/interact.js",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/list_cases.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/make_report.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/mutation_test.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/pdf_checks.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/plumb.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/plumb_words.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/refresh_compare.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/runs_record.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/sec.js",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/sec_scan.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/smoke.js",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/steps.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/steps2.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/ux.js",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/verify_plumber.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/visual_sample.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/write_docs.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/ux/a11y-dark.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/ux/a11y-light.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/ux/ux-results.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/findings.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FUNCTIONAL-TESTS.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/MODULE-INVENTORY.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/README.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/TECHNICAL-REPORT.md",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/backup-manifest.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/evidence/branches-at-backup.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/evidence/failure-handling.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/evidence/functional-after.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/evidence/functional-before.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/evidence/interaction-tests.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/evidence/production-build-log.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/evidence/production-site-files.txt",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/after-desktop-all-screens.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/after-mobile-all-screens.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/baseline-desktop-all-screens.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/baseline-mobile-all-screens.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-budget-vs-actual-desktop-dark.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-business-cases-desktop-dark.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-business-cases-phone.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-capital-desktop-dark.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-connected-data-desktop-dark.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-data-checks-desktop-dark.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-overview-desktop-dark.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-overview-desktop-light.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-overview-phone.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-request-with-city-note-desktop-dark.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/screenshots/centre-tax-simulator-desktop-dark.jpg",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/validation-report.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": null,
+   "note": "documentation or evidence of this review; checksum not recorded here"
+  },
+  {
+   "file": "elections.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "4730b6344506ba89bfd07e355c341cd7dfda7f43",
+   "branch_git_blob": "4730b6344506ba89bfd07e355c341cd7dfda7f43"
+  },
+  {
+   "file": "engines.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "8e3fe72d38275521259dce0571472b7a50eec143",
+   "branch_git_blob": "8e3fe72d38275521259dce0571472b7a50eec143"
+  },
+  {
+   "file": "families.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "b0d14ec06f517709057387e96976e3f6ccff2da2",
+   "branch_git_blob": "b0d14ec06f517709057387e96976e3f6ccff2da2"
+  },
+  {
+   "file": "fedbudget.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "4305ff56f447cf0ec05f4c5b75cd8afef7988011",
+   "branch_git_blob": "4305ff56f447cf0ec05f4c5b75cd8afef7988011"
+  },
+  {
+   "file": "gateway/test.mjs",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "bae81301644f2153ece848f48f7ba28fa6affc53",
+   "branch_git_blob": "bae81301644f2153ece848f48f7ba28fa6affc53"
+  },
+  {
+   "file": "gateway/url.txt",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "85576f4c1b5b6b6ad28dbdaa4aad1b53a6494b58",
+   "branch_git_blob": "85576f4c1b5b6b6ad28dbdaa4aad1b53a6494b58"
+  },
+  {
+   "file": "gateway/worker.js",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "9b0ddfb52a33e60ad446bcb7bbb8b7d4150fbd07",
+   "branch_git_blob": "9b0ddfb52a33e60ad446bcb7bbb8b7d4150fbd07"
+  },
+  {
+   "file": "gateway/wrangler.toml",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "6ff1e73fc2fe9aead0649362431bdbf8a9b94f6d",
+   "branch_git_blob": "6ff1e73fc2fe9aead0649362431bdbf8a9b94f6d"
+  },
+  {
+   "file": "geo.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "4b84b56ce14d05888942dc70adb867f2867fd864",
+   "branch_git_blob": "4b84b56ce14d05888942dc70adb867f2867fd864"
+  },
+  {
+   "file": "infra.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "be3f5873898b07df696d7a91fff6509ef8c8e727",
+   "branch_git_blob": "be3f5873898b07df696d7a91fff6509ef8c8e727"
+  },
+  {
+   "file": "live_check.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "cfd6871de1b30dad7569ac5251437d4a41091467",
+   "branch_git_blob": "cfd6871de1b30dad7569ac5251437d4a41091467"
+  },
+  {
+   "file": "livecheck.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "06802a8b01cd4a0415476a8260689097aa094430",
+   "branch_git_blob": "06802a8b01cd4a0415476a8260689097aa094430"
+  },
+  {
+   "file": "local_data.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e38752e25e73a956869fd9b0868c38e1d4674559",
+   "branch_git_blob": "e38752e25e73a956869fd9b0868c38e1d4674559"
+  },
+  {
+   "file": "majorprojects.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "b62613e0b4b578c10682143589722d35ec815070",
+   "branch_git_blob": "b62613e0b4b578c10682143589722d35ec815070"
+  },
+  {
+   "file": "make_shortcut.ps1",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "bc3dd3e02e09264eb80728fbd9e061aa62f526cb",
+   "branch_git_blob": "bc3dd3e02e09264eb80728fbd9e061aa62f526cb"
+  },
+  {
+   "file": "methods.py",
+   "status": "changed",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "bb485a75308ef60f8ae5e7138ce8fdaed5c48990",
+   "branch_git_blob": "2e653c0ca0ff201355c77403bfe1190a5a4c9cdf"
+  },
+  {
+   "file": "missing.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d345250a89923eb6ca34be02a6cd4dbbe7122170",
+   "branch_git_blob": "d345250a89923eb6ca34be02a6cd4dbbe7122170"
+  },
+  {
+   "file": "newsletter.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "315fb5405741cdc936ef207a8c32fb049d554c21",
+   "branch_git_blob": "315fb5405741cdc936ef207a8c32fb049d554c21"
+  },
+  {
+   "file": "osm.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3518d15289b7629dbd3e318d6a47390b23e1167f",
+   "branch_git_blob": "3518d15289b7629dbd3e318d6a47390b23e1167f"
+  },
+  {
+   "file": "pay_study.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "75cbedc6889c8056851c3a73d960ea7b7ead8f2e",
+   "branch_git_blob": "75cbedc6889c8056851c3a73d960ea7b7ead8f2e"
+  },
+  {
+   "file": "planned.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "7305bae6bd72d6f0a70d413d579753108f347f2d",
+   "branch_git_blob": "7305bae6bd72d6f0a70d413d579753108f347f2d"
+  },
+  {
+   "file": "police.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "886495a9c583122832ff4800cbbd645e6fec8995",
+   "branch_git_blob": "886495a9c583122832ff4800cbbd645e6fec8995"
+  },
+  {
+   "file": "police_study.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "61049e16a2f81fc00d9ee75f64a7b0a36383bea7",
+   "branch_git_blob": "61049e16a2f81fc00d9ee75f64a7b0a36383bea7"
+  },
+  {
+   "file": "population.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5856a9ac0bd57334afdc5a39aba9ac695ccd4f2a",
+   "branch_git_blob": "5856a9ac0bd57334afdc5a39aba9ac695ccd4f2a"
+  },
+  {
+   "file": "profiles.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f269c93043eec35db7fb66734fbdfdc50b6545d8",
+   "branch_git_blob": "f269c93043eec35db7fb66734fbdfdc50b6545d8"
+  },
+  {
+   "file": "proptax.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d95ceb66060624fce21cc8035be7224f76e5aea6",
+   "branch_git_blob": "d95ceb66060624fce21cc8035be7224f76e5aea6"
+  },
+  {
+   "file": "registry.py",
+   "status": "changed",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "60ea69ce0a72567d253de220f1ce3ed45d650cbb",
+   "branch_git_blob": "44e59c43d617a0ef738d799f044a32a826da1aa3"
+  },
+  {
+   "file": "rents.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "0e780e91521595c21df45b738962cc3521e2524e",
+   "branch_git_blob": "0e780e91521595c21df45b738962cc3521e2524e"
+  },
+  {
+   "file": "report.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "06448e5fbdb7ea71a32678b28807f7ebf556e2bb",
+   "branch_git_blob": "06448e5fbdb7ea71a32678b28807f7ebf556e2bb"
+  },
+  {
+   "file": "requirements.txt",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5935b3b9addf936ab63e5611e15947e5c2f26d46",
+   "branch_git_blob": "5935b3b9addf936ab63e5611e15947e5c2f26d46"
+  },
+  {
+   "file": "run.bat",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "c20e0b4268f4b64e015636d5cda8dc030d49f39a",
+   "branch_git_blob": "c20e0b4268f4b64e015636d5cda8dc030d49f39a"
+  },
+  {
+   "file": "safety_rank.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "7c954829592fcf9228014dae70f9fe4f2dd5a133",
+   "branch_git_blob": "7c954829592fcf9228014dae70f9fe4f2dd5a133"
+  },
+  {
+   "file": "schooltax.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ee89d4491b22c66ea325fed0f687693a4b8f3a80",
+   "branch_git_blob": "ee89d4491b22c66ea325fed0f687693a4b8f3a80"
+  },
+  {
+   "file": "scores.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "7f8a364d0c23e80a6e543ae6a711bdeb6da057bf",
+   "branch_git_blob": "7f8a364d0c23e80a6e543ae6a711bdeb6da057bf"
+  },
+  {
+   "file": "srg.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "0180af76914d3af7958975dd0a64d3912d74dffe",
+   "branch_git_blob": "0180af76914d3af7958975dd0a64d3912d74dffe"
+  },
+  {
+   "file": "tools/archive.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "4638581efdbc9836388981ce6e8aa37ca13e2aed",
+   "branch_git_blob": "4638581efdbc9836388981ce6e8aa37ca13e2aed"
+  },
+  {
+   "file": "tools/budget_intel_check.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": "fbb5e8b84d26cfbf10eccf1dd3c22e7ebd296abd"
+  },
+  {
+   "file": "tools/budget_intel_extract.py",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": "ac03373e5012b13c768c66c3df216416d633981b"
+  },
+  {
+   "file": "tools/news_images.py",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "e4903a88f8a39f6735afdf6a45b82ee8da94e0da",
+   "branch_git_blob": "e4903a88f8a39f6735afdf6a45b82ee8da94e0da"
+  },
+  {
+   "file": "tools/news_publish.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "703cb3086e3204ec9830c883970b6df8e2fbe5fc",
+   "branch_git_blob": "703cb3086e3204ec9830c883970b6df8e2fbe5fc"
+  },
+  {
+   "file": "tourism.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d457f5cabfc9b47a99093d7f19544155791b2094",
+   "branch_git_blob": "d457f5cabfc9b47a99093d7f19544155791b2094"
+  },
+  {
+   "file": "transit.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "8132d4fde6c7ad112a1cacfc523b03d333aa71d4",
+   "branch_git_blob": "8132d4fde6c7ad112a1cacfc523b03d333aa71d4"
+  },
+  {
+   "file": "ui/_cam_test.html",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "adb50b8274c5b37ca1624131d930d6b2ff1eb03d",
+   "branch_git_blob": "adb50b8274c5b37ca1624131d930d6b2ff1eb03d"
+  },
+  {
+   "file": "ui/_real.html",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "69debb7817f1d30bc254a3110e8d84d57d8d8927",
+   "branch_git_blob": "69debb7817f1d30bc254a3110e8d84d57d8d8927"
+  },
+  {
+   "file": "ui/_test.html",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "ca9c9ba83063a40c643005f152bb0b8bd4fef4dd",
+   "branch_git_blob": "ca9c9ba83063a40c643005f152bb0b8bd4fef4dd"
+  },
+  {
+   "file": "ui/about/index.html",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "d16acc5115a04f18ebd413fb51ad8b39dbd4fcfe",
+   "branch_git_blob": "d16acc5115a04f18ebd413fb51ad8b39dbd4fcfe"
+  },
+  {
+   "file": "ui/accountability.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "c0789b9e88ddb48d17f69dd7ee40a383c4712edb",
+   "branch_git_blob": "c0789b9e88ddb48d17f69dd7ee40a383c4712edb"
+  },
+  {
+   "file": "ui/accountability/commitments.json",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "75de6a48d8d595b62dbf65be0ca7545a60d2188c",
+   "branch_git_blob": "75de6a48d8d595b62dbf65be0ca7545a60d2188c"
+  },
+  {
+   "file": "ui/app.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "645705aa07f884421eba5f219b6f921175d75d85",
+   "branch_git_blob": "645705aa07f884421eba5f219b6f921175d75d85"
+  },
+  {
+   "file": "ui/audit.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "9464511b19bbcd032bf1c9c1dcd9a49a887235dc",
+   "branch_git_blob": "9464511b19bbcd032bf1c9c1dcd9a49a887235dc"
+  },
+  {
+   "file": "ui/budget-intel.css",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": "8a4d4f32bea7a9b5d014812883da698314bafb3b"
+  },
+  {
+   "file": "ui/budget-intel.js",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": "853592f8ab73598a130621295153d67a8be8fb64"
+  },
+  {
+   "file": "ui/budget-intel/business-cases.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": "cfc03eaa1ea3b0db459aebe36a83b1d4dd7f25d4"
+  },
+  {
+   "file": "ui/budget-intel/crosswalk.json",
+   "status": "added",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": null,
+   "branch_git_blob": "6ab87134f8c596830dc120a1a5022c7ec37046dc"
+  },
+  {
+   "file": "ui/budget.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "b987ddab96b12d2ba48da7b6eb15b011128b03fe",
+   "branch_git_blob": "b987ddab96b12d2ba48da7b6eb15b011128b03fe"
+  },
+  {
+   "file": "ui/budget/budget2026.json",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "3b55bd2e359631283efcc011bddcd96e3b147f0e",
+   "branch_git_blob": "3b55bd2e359631283efcc011bddcd96e3b147f0e"
+  },
+  {
+   "file": "ui/buses.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "a795d542cbe0ca6ab76c4a302f5348cf56ee4af0",
+   "branch_git_blob": "a795d542cbe0ca6ab76c4a302f5348cf56ee4af0"
+  },
+  {
+   "file": "ui/capmkt.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "3a6c686395a49ad6ff07c1b26395001aea41db90",
+   "branch_git_blob": "3a6c686395a49ad6ff07c1b26395001aea41db90"
+  },
+  {
+   "file": "ui/capmkt/companies.json",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "0714e0b568e7a40b38b64577004461e7add9ef14",
+   "branch_git_blob": "0714e0b568e7a40b38b64577004461e7add9ef14"
+  },
+  {
+   "file": "ui/city-stories/index.html",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "dee147999995cfaeae346f4af3b431252692505c",
+   "branch_git_blob": "dee147999995cfaeae346f4af3b431252692505c"
+  },
+  {
+   "file": "ui/citynews.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "c2dee97e3f7d11048d37a3ba18d4f979e227baa1",
+   "branch_git_blob": "c2dee97e3f7d11048d37a3ba18d4f979e227baa1"
+  },
+  {
+   "file": "ui/compare.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "84180f6a75280bea042e0d3760394c784b096921",
+   "branch_git_blob": "84180f6a75280bea042e0d3760394c784b096921"
+  },
+  {
+   "file": "ui/constituency.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "64da6c8bda34efb8d2db80fe6a5b006e9230fbe6",
+   "branch_git_blob": "64da6c8bda34efb8d2db80fe6a5b006e9230fbe6"
+  },
+  {
+   "file": "ui/elanalytics.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "a050e75fc858ec3c9c1e236545d7a373c644fefb",
+   "branch_git_blob": "a050e75fc858ec3c9c1e236545d7a373c644fefb"
+  },
+  {
+   "file": "ui/elections.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "cdc1281e9379a1a8daa93a5cd7964f7f1c9fd87a",
+   "branch_git_blob": "cdc1281e9379a1a8daa93a5cd7964f7f1c9fd87a"
+  },
+  {
+   "file": "ui/extra.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "86db111746880689ae9c54e30d51eb68746c1cdf",
+   "branch_git_blob": "86db111746880689ae9c54e30d51eb68746c1cdf"
+  },
+  {
+   "file": "ui/fedbudget.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "ed1e35ef7a1f5b93c2b0bc6517a339cbd8de7dd5",
+   "branch_git_blob": "ed1e35ef7a1f5b93c2b0bc6517a339cbd8de7dd5"
+  },
+  {
+   "file": "ui/forecast.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "045220845bb8fe3ae5c93f3324241e9d82a4781e",
+   "branch_git_blob": "045220845bb8fe3ae5c93f3324241e9d82a4781e"
+  },
+  {
+   "file": "ui/game/img/downtown-day.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "942458cff07cdebe5811477794f497827372d254",
+   "branch_git_blob": "942458cff07cdebe5811477794f497827372d254"
+  },
+  {
+   "file": "ui/game/img/eau-claire.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "ca4d25a018760bf361e9339423f43f7ae6d44b37",
+   "branch_git_blob": "ca4d25a018760bf361e9339423f43f7ae6d44b37"
+  },
+  {
+   "file": "ui/game/img/hero.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "452b3a136c1f292b0d830dd275bccaf72c266cf1",
+   "branch_git_blob": "452b3a136c1f292b0d830dd275bccaf72c266cf1"
+  },
+  {
+   "file": "ui/game/img/martindale-aerial.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "e0f451c59abe7e7ebfa9b27a4d1706a3806dd7d5",
+   "branch_git_blob": "e0f451c59abe7e7ebfa9b27a4d1706a3806dd7d5"
+  },
+  {
+   "file": "ui/game/img/menu.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "434a4c923584ed6f7d936d93706befb9c0cd590b",
+   "branch_git_blob": "434a4c923584ed6f7d936d93706befb9c0cd590b"
+  },
+  {
+   "file": "ui/game/img/og.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "bdd5c4c0d0aefb8f119533fe73d5d6dcff01b702",
+   "branch_git_blob": "bdd5c4c0d0aefb8f119533fe73d5d6dcff01b702"
+  },
+  {
+   "file": "ui/game/img/peace-bridge.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "b88f598577a10ad008330068dc7c4727dd44f09c",
+   "branch_git_blob": "b88f598577a10ad008330068dc7c4727dd44f09c"
+  },
+  {
+   "file": "ui/game/img/saddledome-night.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "f9e8f613190a1d92b08c69a3bb05afcc18d2adf2",
+   "branch_git_blob": "f9e8f613190a1d92b08c69a3bb05afcc18d2adf2"
+  },
+  {
+   "file": "ui/game/index.html",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "263c3dc559b719d5e4b7860c19a4a03ea0914f31",
+   "branch_git_blob": "263c3dc559b719d5e4b7860c19a4a03ea0914f31"
+  },
+  {
+   "file": "ui/help.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "9487a803ebdc0b80ceef6ab47fda47e52ec9f31c",
+   "branch_git_blob": "9487a803ebdc0b80ceef6ab47fda47e52ec9f31c"
+  },
+  {
+   "file": "ui/help/help.json",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "3f1a90b81ae6c6ca4acd7161878569d47587b890",
+   "branch_git_blob": "3f1a90b81ae6c6ca4acd7161878569d47587b890"
+  },
+  {
+   "file": "ui/index.html",
+   "status": "changed",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "d0f5f2a590d07d9db4abb1cc2f1c98da8d9cb396",
+   "branch_git_blob": "1dca6d1cc888bb1add666b4e975ae7f5fdb01aef"
+  },
+  {
+   "file": "ui/infra.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "99ee9f7d6527a963fc349189a6c094b7d8037cee",
+   "branch_git_blob": "99ee9f7d6527a963fc349189a6c094b7d8037cee"
+  },
+  {
+   "file": "ui/invest.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "63ad7989149585bc6d0779c29b2d1942ff015ce0",
+   "branch_git_blob": "63ad7989149585bc6d0779c29b2d1942ff015ce0"
+  },
+  {
+   "file": "ui/livemap.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "fb7983e38ac8c9fcdd252ad3fc28780b77567024",
+   "branch_git_blob": "fb7983e38ac8c9fcdd252ad3fc28780b77567024"
+  },
+  {
+   "file": "ui/logo-512.png",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "9accc77acce3645e109c66285b315d0f783faf98",
+   "branch_git_blob": "9accc77acce3645e109c66285b315d0f783faf98"
+  },
+  {
+   "file": "ui/logo.ico",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "71486a25e617903b0697ff659a548fc7b20349c2",
+   "branch_git_blob": "71486a25e617903b0697ff659a548fc7b20349c2"
+  },
+  {
+   "file": "ui/logo.svg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "93ebf5393edb5fee114f64ceaf6672e2ae0a689e",
+   "branch_git_blob": "93ebf5393edb5fee114f64ceaf6672e2ae0a689e"
+  },
+  {
+   "file": "ui/og-image.png",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "8df1f8e14a7bc169a52fbc947b3e5e3c4a7ffcd6",
+   "branch_git_blob": "8df1f8e14a7bc169a52fbc947b3e5e3c4a7ffcd6"
+  },
+  {
+   "file": "ui/reports/election-analytics-sample-2027.html",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "f28a962af21c7a6f36dd78bdb34ec30dc7d60f89",
+   "branch_git_blob": "f28a962af21c7a6f36dd78bdb34ec30dc7d60f89"
+  },
+  {
+   "file": "ui/reports/election-analytics-sample-2027.pdf",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "4ab841449d38e8b87f555cc4e3cf77758f6fcb6f",
+   "branch_git_blob": "4ab841449d38e8b87f555cc4e3cf77758f6fcb6f"
+  },
+  {
+   "file": "ui/reports/election-analytics-sample-2027.xlsx",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "0afe1e16d1a21999aefabb799bfd2496a7f10fc3",
+   "branch_git_blob": "0afe1e16d1a21999aefabb799bfd2496a7f10fc3"
+  },
+  {
+   "file": "ui/reports/invest-in-calgary-sample.html",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "fd3855c6881798491fb0e01b74734371e9984a26",
+   "branch_git_blob": "fd3855c6881798491fb0e01b74734371e9984a26"
+  },
+  {
+   "file": "ui/reports/invest-in-calgary-sample.pdf",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "75fcdba42e08a341a873f5179c6ae3edab9d5f9a",
+   "branch_git_blob": "75fcdba42e08a341a873f5179c6ae3edab9d5f9a"
+  },
+  {
+   "file": "ui/reports/invest-in-calgary-sample.xlsx",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "122b60e32a1cad5258480f73b9910c1a74076ad8",
+   "branch_git_blob": "122b60e32a1cad5258480f73b9910c1a74076ad8"
+  },
+  {
+   "file": "ui/safety.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "54772d0f0d1b37ce927a8593ea041c250a081dd4",
+   "branch_git_blob": "54772d0f0d1b37ce927a8593ea041c250a081dd4"
+  },
+  {
+   "file": "ui/search.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "41b01bb0d5bd949575bc289be2eddb9bea3605e4",
+   "branch_git_blob": "41b01bb0d5bd949575bc289be2eddb9bea3605e4"
+  },
+  {
+   "file": "ui/styles.css",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "41bfbbe2ca9a892d5e3d5e646be401ee265265b3",
+   "branch_git_blob": "41bfbbe2ca9a892d5e3d5e646be401ee265265b3"
+  },
+  {
+   "file": "ui/track311.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "65153620cc346089511ff4d950b77de2733df6db",
+   "branch_git_blob": "65153620cc346089511ff4d950b77de2733df6db"
+  },
+  {
+   "file": "ui/vendor/OFL-fira.txt",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "a2c1ae225f24bc345413e0764c0ddcf2a0e6d4da",
+   "branch_git_blob": "a2c1ae225f24bc345413e0764c0ddcf2a0e6d4da"
+  },
+  {
+   "file": "ui/vendor/chart.umd.min.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "ebfe8019d8c9044b53ed416cc21e0423f3685b9e",
+   "branch_git_blob": "ebfe8019d8c9044b53ed416cc21e0423f3685b9e"
+  },
+  {
+   "file": "ui/vendor/fira-code.woff",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "96f7c753c3f44919083dbe67f47e2001cd0afb22",
+   "branch_git_blob": "96f7c753c3f44919083dbe67f47e2001cd0afb22"
+  },
+  {
+   "file": "ui/vendor/fira-sans-bold.woff",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "931c2b2e44698dc424fb59a1bf5c74a3fcf01e5a",
+   "branch_git_blob": "931c2b2e44698dc424fb59a1bf5c74a3fcf01e5a"
+  },
+  {
+   "file": "ui/vendor/fira-sans-medium.woff",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "123de9940ffd3dfe242e7c655735226ba074c068",
+   "branch_git_blob": "123de9940ffd3dfe242e7c655735226ba074c068"
+  },
+  {
+   "file": "ui/vendor/fira-sans-regular.woff",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "6fb0ea12d984f71fa9270f5c4e0f81808fba6f0b",
+   "branch_git_blob": "6fb0ea12d984f71fa9270f5c4e0f81808fba6f0b"
+  },
+  {
+   "file": "ui/vendor/fira-sans-semibold.woff",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "28080d73c1ab58ea4bb86b94bfe9234c5cdd4fa4",
+   "branch_git_blob": "28080d73c1ab58ea4bb86b94bfe9234c5cdd4fa4"
+  },
+  {
+   "file": "ui/vendor/leaflet.css",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "2961b7618a57617d1015d31d2094c425c3d86ce9",
+   "branch_git_blob": "2961b7618a57617d1015d31d2094c425c3d86ce9"
+  },
+  {
+   "file": "ui/vendor/leaflet.googlemutant.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "abb91063cebf0eb0edbd58841e3e4608f39ced7d",
+   "branch_git_blob": "abb91063cebf0eb0edbd58841e3e4608f39ced7d"
+  },
+  {
+   "file": "ui/vendor/leaflet.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "a3bf693d0fcaff885cc5f21b3a699aaa567b3533",
+   "branch_git_blob": "a3bf693d0fcaff885cc5f21b3a699aaa567b3533"
+  },
+  {
+   "file": "ui/vendor/marked.min.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "be3f0969e46287c2c0d3c6ebee47941006b21f3a",
+   "branch_git_blob": "be3f0969e46287c2c0d3c6ebee47941006b21f3a"
+  },
+  {
+   "file": "ui/vendor/purify.min.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "871c80e49ac0c07e35be0844f0d016d3968a140c",
+   "branch_git_blob": "871c80e49ac0c07e35be0844f0d016d3968a140c"
+  },
+  {
+   "file": "ui/video/budget-2026-alberta-calgary.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "5af35d70856049a3fad297b25ef6d4e468ce5a12",
+   "branch_git_blob": "5af35d70856049a3fad297b25ef6d4e468ce5a12"
+  },
+  {
+   "file": "ui/video/budget-2026-alberta-calgary.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "b5ce219767f0fa78e07b1afd21709619e19c5543",
+   "branch_git_blob": "b5ce219767f0fa78e07b1afd21709619e19c5543"
+  },
+  {
+   "file": "ui/video/calgary-first-peoples.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "127f18ff7eb69a4a430ad0f190ff5fbea6a74b2e",
+   "branch_git_blob": "127f18ff7eb69a4a430ad0f190ff5fbea6a74b2e"
+  },
+  {
+   "file": "ui/video/calgary-first-peoples.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "e521ee02e9b7ad540c85b7fb5b85a7b9ee356280",
+   "branch_git_blob": "e521ee02e9b7ad540c85b7fb5b85a7b9ee356280"
+  },
+  {
+   "file": "ui/video/calgary-history.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "80fc3291c766f683b3ac3769b7c4114dd33120ad",
+   "branch_git_blob": "80fc3291c766f683b3ac3769b7c4114dd33120ad"
+  },
+  {
+   "file": "ui/video/calgary-history.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "54ce188ea7ae15509965acd35848d9261d82a579",
+   "branch_git_blob": "54ce188ea7ae15509965acd35848d9261d82a579"
+  },
+  {
+   "file": "ui/video/calgary-insight-intro.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "ea940b982e0081d0e9badac7dce91840ef5530d0",
+   "branch_git_blob": "ea940b982e0081d0e9badac7dce91840ef5530d0"
+  },
+  {
+   "file": "ui/video/calgary-insight-intro.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "d802a33acd4d3fb51257563b03ec20aecffdb42b",
+   "branch_git_blob": "d802a33acd4d3fb51257563b03ec20aecffdb42b"
+  },
+  {
+   "file": "ui/video/calgary-plus-15.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "4122050ef171173e5650017913fcf629f392e3e8",
+   "branch_git_blob": "4122050ef171173e5650017913fcf629f392e3e8"
+  },
+  {
+   "file": "ui/video/calgary-plus-15.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "a4ef1152dd0f4428049b95465458e19155432883",
+   "branch_git_blob": "a4ef1152dd0f4428049b95465458e19155432883"
+  },
+  {
+   "file": "ui/video/calgary-sewer-pipes.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "ae26177d03786c240a2126ef0625c0194a10a185",
+   "branch_git_blob": "ae26177d03786c240a2126ef0625c0194a10a185"
+  },
+  {
+   "file": "ui/video/calgary-sewer-pipes.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "2662b362a31ac9ffbf33c46e251115822eb50528",
+   "branch_git_blob": "2662b362a31ac9ffbf33c46e251115822eb50528"
+  },
+  {
+   "file": "ui/video/calgary-tourism-hub.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "bd1d3e3e7f1f666bf825675ee28cfb090da63f6d",
+   "branch_git_blob": "bd1d3e3e7f1f666bf825675ee28cfb090da63f6d"
+  },
+  {
+   "file": "ui/video/calgary-tourism-hub.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "e1a84a8f9a2ad9bc3629a6092ff7ccd28ad516ff",
+   "branch_git_blob": "e1a84a8f9a2ad9bc3629a6092ff7ccd28ad516ff"
+  },
+  {
+   "file": "ui/video/election-field-guide-2027.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "1700d6b6dcfd9e94982b82e875c7423151231f5c",
+   "branch_git_blob": "1700d6b6dcfd9e94982b82e875c7423151231f5c"
+  },
+  {
+   "file": "ui/video/election-field-guide-2027.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "71754456a97e89c83e895c5442b5c2260ebbf74b",
+   "branch_git_blob": "71754456a97e89c83e895c5442b5c2260ebbf74b"
+  },
+  {
+   "file": "ui/video/invest-in-calgary.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "08dbb47df98494ca3e92ec648a288985cf1caf1b",
+   "branch_git_blob": "08dbb47df98494ca3e92ec648a288985cf1caf1b"
+  },
+  {
+   "file": "ui/video/invest-in-calgary.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "5a244c2dca9e26e1f8b02cb9c54d562923221859",
+   "branch_git_blob": "5a244c2dca9e26e1f8b02cb9c54d562923221859"
+  },
+  {
+   "file": "ui/video/parks-crowding.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "1a2067e3f3ea98ca1093e103d28bcad8fef0bdbd",
+   "branch_git_blob": "1a2067e3f3ea98ca1093e103d28bcad8fef0bdbd"
+  },
+  {
+   "file": "ui/video/parks-crowding.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "32ca10a651b148a723ab15537061e25ca72ad60a",
+   "branch_git_blob": "32ca10a651b148a723ab15537061e25ca72ad60a"
+  },
+  {
+   "file": "ui/video/population-shared.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "212c50e8d6065b2aad16e15024ca4f16f5759f7d",
+   "branch_git_blob": "212c50e8d6065b2aad16e15024ca4f16f5759f7d"
+  },
+  {
+   "file": "ui/video/population-shared.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "22c969341329f68173e552834687cbcdad8ca53b",
+   "branch_git_blob": "22c969341329f68173e552834687cbcdad8ca53b"
+  },
+  {
+   "file": "ui/video/what-calgarians-pay.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "19a814dfe5e5a119b0bf87305910b54df9cb6a59",
+   "branch_git_blob": "19a814dfe5e5a119b0bf87305910b54df9cb6a59"
+  },
+  {
+   "file": "ui/video/what-calgarians-pay.mp4",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "109e6f0a8d75e5f6beab270d3a3fb9e9dc45f6eb",
+   "branch_git_blob": "109e6f0a8d75e5f6beab270d3a3fb9e9dc45f6eb"
+  },
+  {
+   "file": "ui/videos.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "cf8c22d92b6b58e4bf1508f11b24164f5beab4a3",
+   "branch_git_blob": "cf8c22d92b6b58e4bf1508f11b24164f5beab4a3"
+  },
+  {
+   "file": "ui/visit.js",
+   "status": "same",
+   "part_of_the_refresh_system": false,
+   "main_git_blob": "00095f0ccf5637b39b002384efe9edb8d292b649",
+   "branch_git_blob": "00095f0ccf5637b39b002384efe9edb8d292b649"
+  },
+  {
+   "file": "visit.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "9b4a70bb8053835dbd4a52bf7eb920ae782e39c1",
+   "branch_git_blob": "9b4a70bb8053835dbd4a52bf7eb920ae782e39c1"
+  },
+  {
+   "file": "viz.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "7b5eeaaab02b570659944d15f4fc2414987ea058",
+   "branch_git_blob": "7b5eeaaab02b570659944d15f4fc2414987ea058"
+  },
+  {
+   "file": "wards.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3e6705208a7cabe242e5fcb46e1d49183da43794",
+   "branch_git_blob": "3e6705208a7cabe242e5fcb46e1d49183da43794"
+  },
+  {
+   "file": "weather.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "8675edd883cb13acb988b1aa745c7855512284af",
+   "branch_git_blob": "8675edd883cb13acb988b1aa745c7855512284af"
+  },
+  {
+   "file": "web/access_check.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "15776b0320cf75366c067ef0d8464ee54223bafd",
+   "branch_git_blob": "15776b0320cf75366c067ef0d8464ee54223bafd"
+  },
+  {
+   "file": "web/build_site.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f6385d710ebce83bdeaf2593cf0d3d570e03752d",
+   "branch_git_blob": "f6385d710ebce83bdeaf2593cf0d3d570e03752d"
+  },
+  {
+   "file": "web/explore.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "31e0721c9c7c8721821f4bf239cbaf5edb94b178",
+   "branch_git_blob": "31e0721c9c7c8721821f4bf239cbaf5edb94b178"
+  },
+  {
+   "file": "web/genie-worker.js",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "09b71d3459438956ca2e06a9adc8d2accefcae62",
+   "branch_git_blob": "09b71d3459438956ca2e06a9adc8d2accefcae62"
+  },
+  {
+   "file": "web/google-client-id.txt",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f0696227561007dea92b0388b6117d647b593909",
+   "branch_git_blob": "f0696227561007dea92b0388b6117d647b593909"
+  },
+  {
+   "file": "web/google-redirect.txt",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d9d9882ca46fc07130c39b0b9a34081e8a2f1c21",
+   "branch_git_blob": "d9d9882ca46fc07130c39b0b9a34081e8a2f1c21"
+  },
+  {
+   "file": "web/google-verify.txt",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "cb4b3e73dbc020d2e4d43a77809d24a9f8fe333d",
+   "branch_git_blob": "cb4b3e73dbc020d2e4d43a77809d24a9f8fe333d"
+  },
+  {
+   "file": "web/indexnow.txt",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "cbf72b959f5fdb4f95adf223f5177566e04d31b3",
+   "branch_git_blob": "cbf72b959f5fdb4f95adf223f5177566e04d31b3"
+  },
+  {
+   "file": "web/news_pages.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "69dee3400cf36547616507e423ab82d50dd490f6",
+   "branch_git_blob": "69dee3400cf36547616507e423ab82d50dd490f6"
+  },
+  {
+   "file": "web/report-view.html",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5aeb6103ad30f58e2071eb7e8b4f517dbe192e91",
+   "branch_git_blob": "5aeb6103ad30f58e2071eb7e8b4f517dbe192e91"
+  },
+  {
+   "file": "web/search_index.py",
+   "status": "changed",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "2f3de414c126df1ddb076cbaeb02bc3a437e59fb",
+   "branch_git_blob": "134494e4c2e8f1225fbe31ec68c2843d48ef5bc3"
+  },
+  {
+   "file": "web/seo_pages.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f3582d2392c28101afe40714a8aa60a0222fe73c",
+   "branch_git_blob": "f3582d2392c28101afe40714a8aa60a0222fe73c"
+  },
+  {
+   "file": "web/studies/calgary-police/calculator.html",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "1f57f1e4f9fda1428e4343d712118b32d4294d68",
+   "branch_git_blob": "1f57f1e4f9fda1428e4343d712118b32d4294d68"
+  },
+  {
+   "file": "web/studies/calgary-police/calgary-police-performance-figures.xlsx",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "dff0bba47d50770a3a2333273ad7fc02822faebb",
+   "branch_git_blob": "dff0bba47d50770a3a2333273ad7fc02822faebb"
+  },
+  {
+   "file": "web/studies/calgary-police/calgary-police-performance-study.pdf",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3bc99c642dc4d2c16764b889b05a32f1c6c03076",
+   "branch_git_blob": "3bc99c642dc4d2c16764b889b05a32f1c6c03076"
+  },
+  {
+   "file": "web/studies/calgary-police/report.html",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f7380180639e183b3a5a81d6429ee882d8623862",
+   "branch_git_blob": "f7380180639e183b3a5a81d6429ee882d8623862"
+  },
+  {
+   "file": "web/studies/calgary-police/spec.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "de9756f525c94fca071286620e216b692d2adc17",
+   "branch_git_blob": "de9756f525c94fca071286620e216b692d2adc17"
+  },
+  {
+   "file": "web/studies/calgary-sewers/calgary-sewer-ageing-figures.xlsx",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "dfc9d384b5c0d5c1fd64b08f9b0e24b51e702b17",
+   "branch_git_blob": "dfc9d384b5c0d5c1fd64b08f9b0e24b51e702b17"
+  },
+  {
+   "file": "web/studies/calgary-sewers/calgary-sewer-ageing-report.pdf",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "2a5768c123cbdc9cc6bd03c3279f5811cbee0092",
+   "branch_git_blob": "2a5768c123cbdc9cc6bd03c3279f5811cbee0092"
+  },
+  {
+   "file": "web/studies/calgary-sewers/report.html",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "4e795f08413cfff4e934125006fc981fdb4829c6",
+   "branch_git_blob": "4e795f08413cfff4e934125006fc981fdb4829c6"
+  },
+  {
+   "file": "web/studies/calgary-sewers/spec.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "00dd35ce61c82382945248138ac5d02bf9bd4f04",
+   "branch_git_blob": "00dd35ce61c82382945248138ac5d02bf9bd4f04"
+  },
+  {
+   "file": "web/studies/what-calgarians-pay/calc.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3365ee7dad0537f7adc99b08d7090953153e507b",
+   "branch_git_blob": "3365ee7dad0537f7adc99b08d7090953153e507b"
+  },
+  {
+   "file": "web/studies/what-calgarians-pay/calculator.html",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "58e53645affcc142e90a562f289e06425982baa6",
+   "branch_git_blob": "58e53645affcc142e90a562f289e06425982baa6"
+  },
+  {
+   "file": "web/studies/what-calgarians-pay/report.html",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "325af90d878aae34586b289b0a2c78a81d9f6df1",
+   "branch_git_blob": "325af90d878aae34586b289b0a2c78a81d9f6df1"
+  },
+  {
+   "file": "web/studies/what-calgarians-pay/spec.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "2d49aad14d496ba1956e0ed4291c362f692f756f",
+   "branch_git_blob": "2d49aad14d496ba1956e0ed4291c362f692f756f"
+  },
+  {
+   "file": "web/studies/what-calgarians-pay/what-calgarians-pay-calculations.xlsx",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "fc31bca39f2b041683d0b54a995bf941ba9d77e6",
+   "branch_git_blob": "fc31bca39f2b041683d0b54a995bf941ba9d77e6"
+  },
+  {
+   "file": "web/studies/what-calgarians-pay/what-calgarians-pay-figures.xlsx",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d281933947507c540e0ce8ef78c5ec2615d40f90",
+   "branch_git_blob": "d281933947507c540e0ce8ef78c5ec2615d40f90"
+  },
+  {
+   "file": "web/studies/what-calgarians-pay/what-calgarians-pay.pdf",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ac1478f6791e6302a3c3057fede641599782a996",
+   "branch_git_blob": "ac1478f6791e6302a3c3057fede641599782a996"
+  },
+  {
+   "file": "web/tourism_page.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "96a2d65203e4b5fc71dfa4b3906f69dd0c68ac17",
+   "branch_git_blob": "96a2d65203e4b5fc71dfa4b3906f69dd0c68ac17"
+  },
+  {
+   "file": "web/visit/chorus.mp3",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "43a6a023925fb3f2aa26609b799a052ee9ea1bc6",
+   "branch_git_blob": "43a6a023925fb3f2aa26609b799a052ee9ea1bc6"
+  },
+  {
+   "file": "web/visit/explore/daytrips.js",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ba61ef0e903973d154654dd0c1a994f1c43cd855",
+   "branch_git_blob": "ba61ef0e903973d154654dd0c1a994f1c43cd855"
+  },
+  {
+   "file": "web/visit/explore/daytrips/daytrips.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "78eace5146ba7728e2b1087a2f6d9ca494410077",
+   "branch_git_blob": "78eace5146ba7728e2b1087a2f6d9ca494410077"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_00_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "c2bc1eceda382816729b469b73e6f4d7ef9e6c72",
+   "branch_git_blob": "c2bc1eceda382816729b469b73e6f4d7ef9e6c72"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_01_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "a6a5b2a913147a53e043480a104246c65f9217d3",
+   "branch_git_blob": "a6a5b2a913147a53e043480a104246c65f9217d3"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_01_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3b92428393a1e1cf560e3061c90766bddd717d8b",
+   "branch_git_blob": "3b92428393a1e1cf560e3061c90766bddd717d8b"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_02_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "6fbfea7623c5b602bf5f945d46bf9b7c2427e0d4",
+   "branch_git_blob": "6fbfea7623c5b602bf5f945d46bf9b7c2427e0d4"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_03_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "1ccf53857cc5b66e80b31a8375b85921ce71d5cb",
+   "branch_git_blob": "1ccf53857cc5b66e80b31a8375b85921ce71d5cb"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_03_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3638f9259ffa4a50430a09f4562fb1d212c500fb",
+   "branch_git_blob": "3638f9259ffa4a50430a09f4562fb1d212c500fb"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_05_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "87a38cf4ed606d35288e1b780f82d3f6be14605e",
+   "branch_git_blob": "87a38cf4ed606d35288e1b780f82d3f6be14605e"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_06_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "2a8db2feb9ae36c33b3f3041598d4078c2c7c3a3",
+   "branch_git_blob": "2a8db2feb9ae36c33b3f3041598d4078c2c7c3a3"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_06_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "89b4ad03bfe068f7e86be5d1e9f6373268c7ea2d",
+   "branch_git_blob": "89b4ad03bfe068f7e86be5d1e9f6373268c7ea2d"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_06_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "889eb85a2b79b7abce53f4869fcd76c0e297a62f",
+   "branch_git_blob": "889eb85a2b79b7abce53f4869fcd76c0e297a62f"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_07_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "0fa2e56a5d3753f60f0fc3be5d28ed88e5a814ce",
+   "branch_git_blob": "0fa2e56a5d3753f60f0fc3be5d28ed88e5a814ce"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_07_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5d60f8de74370f6dfe3cdd13737600be845d74ac",
+   "branch_git_blob": "5d60f8de74370f6dfe3cdd13737600be845d74ac"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_09_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e43a5cc97a735dd61ee03b7e1a07fe3ead2d218c",
+   "branch_git_blob": "e43a5cc97a735dd61ee03b7e1a07fe3ead2d218c"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_09_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "637101c3b9460b76eb7e83f0e48d9f302699a68e",
+   "branch_git_blob": "637101c3b9460b76eb7e83f0e48d9f302699a68e"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_09_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "04b09686cb94091931da99b7f0aed5c2bb931bac",
+   "branch_git_blob": "04b09686cb94091931da99b7f0aed5c2bb931bac"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_10_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "926971a4c3a38edd37ac2c06f1bae0b0c0410af9",
+   "branch_git_blob": "926971a4c3a38edd37ac2c06f1bae0b0c0410af9"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_10_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "87d740ef674eb564fd013128811155a3684f9a64",
+   "branch_git_blob": "87d740ef674eb564fd013128811155a3684f9a64"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_11_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "1e1f2c42518be8595a81f706a7f1000afe6680ae",
+   "branch_git_blob": "1e1f2c42518be8595a81f706a7f1000afe6680ae"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_11_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "8d849fe8b890e83b6ce314e594e84f8f6f14417d",
+   "branch_git_blob": "8d849fe8b890e83b6ce314e594e84f8f6f14417d"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_12_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "6f662d8988b0ad8c3cf0ec69aa53edb0d308d525",
+   "branch_git_blob": "6f662d8988b0ad8c3cf0ec69aa53edb0d308d525"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_12_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "45992562dc72441b7e67f58afb8f4c0af0ee80bf",
+   "branch_git_blob": "45992562dc72441b7e67f58afb8f4c0af0ee80bf"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_12_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "a0606dfd421776f53653062b4c78fea37866a743",
+   "branch_git_blob": "a0606dfd421776f53653062b4c78fea37866a743"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_13_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "92cd4881507d1200be307234331c29b7bf22bf87",
+   "branch_git_blob": "92cd4881507d1200be307234331c29b7bf22bf87"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_14_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3da781e68a06b084397a9bbfc59d0cf4d266505c",
+   "branch_git_blob": "3da781e68a06b084397a9bbfc59d0cf4d266505c"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_14_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e8d1a444a0a45b9642d6facbd81a46ba2429efba",
+   "branch_git_blob": "e8d1a444a0a45b9642d6facbd81a46ba2429efba"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_14_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "913a68f1a7179b17effa3bb8b8e80204f11b76d6",
+   "branch_git_blob": "913a68f1a7179b17effa3bb8b8e80204f11b76d6"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_15_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e3907bbc415d47911a5dc876ee36bef41825046c",
+   "branch_git_blob": "e3907bbc415d47911a5dc876ee36bef41825046c"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_15_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "28dfc9af4facd4462d3695c8253300c68ccdf873",
+   "branch_git_blob": "28dfc9af4facd4462d3695c8253300c68ccdf873"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_15_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "b01de5780b56a6adc0eba2c61116d4398938d948",
+   "branch_git_blob": "b01de5780b56a6adc0eba2c61116d4398938d948"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_16_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "23c9ba63249c046a4e9ed65e767a18daded907e7",
+   "branch_git_blob": "23c9ba63249c046a4e9ed65e767a18daded907e7"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_16_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3782f9d7c30e03220305aca758526f749e58b891",
+   "branch_git_blob": "3782f9d7c30e03220305aca758526f749e58b891"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_16_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "435c40f0057e756f37f24f2b1f4ede13a1cb454b",
+   "branch_git_blob": "435c40f0057e756f37f24f2b1f4ede13a1cb454b"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_17_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "55608b8c784af25a50c71f8e3b7d7741fef17302",
+   "branch_git_blob": "55608b8c784af25a50c71f8e3b7d7741fef17302"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_17_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "836fa105a2246741c933a7dc3bad32ef08363f24",
+   "branch_git_blob": "836fa105a2246741c933a7dc3bad32ef08363f24"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_17_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "c51956303b5ad9513353707223f7e4771af4ab01",
+   "branch_git_blob": "c51956303b5ad9513353707223f7e4771af4ab01"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_18_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d73835a0109f666b83062547c5a750cbdf49b431",
+   "branch_git_blob": "d73835a0109f666b83062547c5a750cbdf49b431"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_18_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e085b5e614f0a2f551c4c372236829acff0798f5",
+   "branch_git_blob": "e085b5e614f0a2f551c4c372236829acff0798f5"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_19_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "6341924e01d6beb3d6b30e36848f98a119a3942a",
+   "branch_git_blob": "6341924e01d6beb3d6b30e36848f98a119a3942a"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_19_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ef5435501da06830a14e62c7b2477225e8692dba",
+   "branch_git_blob": "ef5435501da06830a14e62c7b2477225e8692dba"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_19_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "8d55731a2138e6e57a69f21520a682c0075455fd",
+   "branch_git_blob": "8d55731a2138e6e57a69f21520a682c0075455fd"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_20_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3d548fa50928caee151f761d5fa487c070cc7056",
+   "branch_git_blob": "3d548fa50928caee151f761d5fa487c070cc7056"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_20_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "cfd76809d496ec6e10d96122562b11879b4e7642",
+   "branch_git_blob": "cfd76809d496ec6e10d96122562b11879b4e7642"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_20_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "28b4ba00fbd22e80714640feeb68953bb0dfa7e6",
+   "branch_git_blob": "28b4ba00fbd22e80714640feeb68953bb0dfa7e6"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_21_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "2ef5244c3b474e360f0ff2793d9b2c0fac726088",
+   "branch_git_blob": "2ef5244c3b474e360f0ff2793d9b2c0fac726088"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_21_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f3bacae91454baa4076c6de11812162497b95c85",
+   "branch_git_blob": "f3bacae91454baa4076c6de11812162497b95c85"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_21_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3317cba6f301b5c9208e2ed055a2d5b5d5fa2995",
+   "branch_git_blob": "3317cba6f301b5c9208e2ed055a2d5b5d5fa2995"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_22_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5ef8401d471021aef0db01157a080ecb94d4c29b",
+   "branch_git_blob": "5ef8401d471021aef0db01157a080ecb94d4c29b"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/img_22_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f366d9b15ef563e8db9bcef9ab40b2bdac9e8135",
+   "branch_git_blob": "f366d9b15ef563e8db9bcef9ab40b2bdac9e8135"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_bfc_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "12084b1e3d57601925e3df032a00a8f375d16700",
+   "branch_git_blob": "12084b1e3d57601925e3df032a00a8f375d16700"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_bfc_1.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "dbe152dd51718bf482322cdcdd467d03d63bf17e",
+   "branch_git_blob": "dbe152dd51718bf482322cdcdd467d03d63bf17e"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_bfc_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "6558351e65b77bcbd9b5d4871f7209798fc7a393",
+   "branch_git_blob": "6558351e65b77bcbd9b5d4871f7209798fc7a393"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_coch_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "1396470254d956c35a0c2dba4d110160bbe8883c",
+   "branch_git_blob": "1396470254d956c35a0c2dba4d110160bbe8883c"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_fmn_0.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "567d633b40edc03bcdbc6d55e9291f27cd87a5e3",
+   "branch_git_blob": "567d633b40edc03bcdbc6d55e9291f27cd87a5e3"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_fmn_2.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ff4abf56d92dbc811808f0effd1dd92ae1583958",
+   "branch_git_blob": "ff4abf56d92dbc811808f0effd1dd92ae1583958"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_fmn_4.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "b6d9f1f76bd78ba57e2955958148e3295d7bf51b",
+   "branch_git_blob": "b6d9f1f76bd78ba57e2955958148e3295d7bf51b"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_kv_4.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "27a8f1057d478206c267d9433a48edb14d9ebdbe",
+   "branch_git_blob": "27a8f1057d478206c267d9433a48edb14d9ebdbe"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_ll_4.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "faae44add06123ea497b9b3163468f54602d7e25",
+   "branch_git_blob": "faae44add06123ea497b9b3163468f54602d7e25"
+  },
+  {
+   "file": "web/visit/explore/daytrips/img/x_ll_5.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e9868d707cecc8a832133a766658b1fa50915d90",
+   "branch_git_blob": "e9868d707cecc8a832133a766658b1fa50915d90"
+  },
+  {
+   "file": "web/visit/explore/explore.css",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "b75aeca247cc2d62291915ad3d5165e5f8519269",
+   "branch_git_blob": "b75aeca247cc2d62291915ad3d5165e5f8519269"
+  },
+  {
+   "file": "web/visit/explore/explore.js",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "c5a02a52fcf6ff552802e075f1444d5f2c43067b",
+   "branch_git_blob": "c5a02a52fcf6ff552802e075f1444d5f2c43067b"
+  },
+  {
+   "file": "web/visit/explore/index.html",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "24d3f4d5a9fe27214a9076b7b092742868eee9cd",
+   "branch_git_blob": "24d3f4d5a9fe27214a9076b7b092742868eee9cd"
+  },
+  {
+   "file": "web/visit/img/ad-arts.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ba210038c1a9d79f0ae1e42b3c8e5d9d92b2088b",
+   "branch_git_blob": "ba210038c1a9d79f0ae1e42b3c8e5d9d92b2088b"
+  },
+  {
+   "file": "web/visit/img/ad-flames.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "eeeadcf66acc125a9f9fa714388427bf76464b09",
+   "branch_git_blob": "eeeadcf66acc125a9f9fa714388427bf76464b09"
+  },
+  {
+   "file": "web/visit/img/ad-folk.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "b5c6e271fa4f2e116967e6395fce06d667d00aea",
+   "branch_git_blob": "b5c6e271fa4f2e116967e6395fce06d667d00aea"
+  },
+  {
+   "file": "web/visit/img/ad-hero.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ffa229643580a22e6179dd75ce56b73f96ba377e",
+   "branch_git_blob": "ffa229643580a22e6179dd75ce56b73f96ba377e"
+  },
+  {
+   "file": "web/visit/img/ad-mcmahon.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "2e994819f90ee244f59aeb095f99e9e940096430",
+   "branch_git_blob": "2e994819f90ee244f59aeb095f99e9e940096430"
+  },
+  {
+   "file": "web/visit/img/ad-tower.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "9d26ff6cb3e67f4f78a31cd1ce4c1171a0ae4393",
+   "branch_git_blob": "9d26ff6cb3e67f4f78a31cd1ce4c1171a0ae4393"
+  },
+  {
+   "file": "web/visit/img/credits.json",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "47c514d8a1ec1cd33f1de1d355f549be73b7c868",
+   "branch_git_blob": "47c514d8a1ec1cd33f1de1d355f549be73b7c868"
+  },
+  {
+   "file": "web/visit/img/dt-chinatown.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5e887a75cd39b8bba17f1f8758f8071c2eaa98f4",
+   "branch_git_blob": "5e887a75cd39b8bba17f1f8758f8071c2eaa98f4"
+  },
+  {
+   "file": "web/visit/img/dt-devonian.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "03b36f5d9bfd2443bb81bd4568abff32eb80e4db",
+   "branch_git_blob": "03b36f5d9bfd2443bb81bd4568abff32eb80e4db"
+  },
+  {
+   "file": "web/visit/img/dt-hero.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "970a4bcfec426f275c0b5e9ccefc061296a91655",
+   "branch_git_blob": "970a4bcfec426f275c0b5e9ccefc061296a91655"
+  },
+  {
+   "file": "web/visit/img/dt-library.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "b65ca8540a79409cccd2cc9a76f5ce5a5f2b2c7e",
+   "branch_git_blob": "b65ca8540a79409cccd2cc9a76f5ce5a5f2b2c7e"
+  },
+  {
+   "file": "web/visit/img/dt-olympic.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "caa3484d703cd1ebb38f4d6940f56d3fbaf42a27",
+   "branch_git_blob": "caa3484d703cd1ebb38f4d6940f56d3fbaf42a27"
+  },
+  {
+   "file": "web/visit/img/dt-stephen.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "df4e18270626690ed780e4720ca2f61bee5001af",
+   "branch_git_blob": "df4e18270626690ed780e4720ca2f61bee5001af"
+  },
+  {
+   "file": "web/visit/img/dt-studiobell.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "578a785f88f628d140b94010982564229e8a2df3",
+   "branch_git_blob": "578a785f88f628d140b94010982564229e8a2df3"
+  },
+  {
+   "file": "web/visit/img/dt-tower.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5735d30a95f66345dd7e96b3aa133342762486dc",
+   "branch_git_blob": "5735d30a95f66345dd7e96b3aa133342762486dc"
+  },
+  {
+   "file": "web/visit/img/ea-17ave.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "16c2055b9f21dfd556d052e749cdd72647c4fba6",
+   "branch_git_blob": "16c2055b9f21dfd556d052e749cdd72647c4fba6"
+  },
+  {
+   "file": "web/visit/img/ea-brewery.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "cfdbbf42318629941d9f9dc8db75688aa93e9a41",
+   "branch_git_blob": "cfdbbf42318629941d9f9dc8db75688aa93e9a41"
+  },
+  {
+   "file": "web/visit/img/ea-chinatown.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "b7e9a63cdd255ddd32408a82e8fd7f69ca449429",
+   "branch_git_blob": "b7e9a63cdd255ddd32408a82e8fd7f69ca449429"
+  },
+  {
+   "file": "web/visit/img/ea-hero.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "670d31bd2af40ead24f730322bcd99a0b621c7b7",
+   "branch_git_blob": "670d31bd2af40ead24f730322bcd99a0b621c7b7"
+  },
+  {
+   "file": "web/visit/img/ea-inglewood.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "6145ac0c77508be01431c782a3501f97bde48243",
+   "branch_git_blob": "6145ac0c77508be01431c782a3501f97bde48243"
+  },
+  {
+   "file": "web/visit/img/ea-kensington.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "931ba4b38dcc07759049b5251baab31c22791b27",
+   "branch_git_blob": "931ba4b38dcc07759049b5251baab31c22791b27"
+  },
+  {
+   "file": "web/visit/img/ea-stephen.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5c9e441550edc6de115662861c07a9a7c12ba89b",
+   "branch_git_blob": "5c9e441550edc6de115662861c07a9a7c12ba89b"
+  },
+  {
+   "file": "web/visit/img/mt-banff.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "57664f48f46627f175870282d3eca744ce4b2d09",
+   "branch_git_blob": "57664f48f46627f175870282d3eca744ce4b2d09"
+  },
+  {
+   "file": "web/visit/img/mt-canmore.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "336413f3baf3a245d41b8fd6c2c34ec341a22aec",
+   "branch_git_blob": "336413f3baf3a245d41b8fd6c2c34ec341a22aec"
+  },
+  {
+   "file": "web/visit/img/mt-gondola.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e59433a049c326a3131771af8b75fbcb9c3590c5",
+   "branch_git_blob": "e59433a049c326a3131771af8b75fbcb9c3590c5"
+  },
+  {
+   "file": "web/visit/img/mt-hero.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "e842074a3fc7a8d8ca2b4a6f14afaeb69fd034ab",
+   "branch_git_blob": "e842074a3fc7a8d8ca2b4a6f14afaeb69fd034ab"
+  },
+  {
+   "file": "web/visit/img/mt-johnston.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f50261b81b0fa8a3a7755ab2fc05f3868e1edd58",
+   "branch_git_blob": "f50261b81b0fa8a3a7755ab2fc05f3868e1edd58"
+  },
+  {
+   "file": "web/visit/img/mt-kananaskis.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "02d4f3f41f48f600cfff81348a53a51127fe77cd",
+   "branch_git_blob": "02d4f3f41f48f600cfff81348a53a51127fe77cd"
+  },
+  {
+   "file": "web/visit/img/mt-louise.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "ac269dce3b7e183ca28bdf1443ab189503af5b12",
+   "branch_git_blob": "ac269dce3b7e183ca28bdf1443ab189503af5b12"
+  },
+  {
+   "file": "web/visit/img/mt-minnewanka.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "8a93ce8583d792b891b1710f9057510756b1a88b",
+   "branch_git_blob": "8a93ce8583d792b891b1710f9057510756b1a88b"
+  },
+  {
+   "file": "web/visit/img/rv-edworthy.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "7cc0f7108cead5608988425bc2239d41da8417c7",
+   "branch_git_blob": "7cc0f7108cead5608988425bc2239d41da8417c7"
+  },
+  {
+   "file": "web/visit/img/rv-fishcreek.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "4b865ec781b72345c0dcc5adabb629bd42b1f23e",
+   "branch_git_blob": "4b865ec781b72345c0dcc5adabb629bd42b1f23e"
+  },
+  {
+   "file": "web/visit/img/rv-float.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "afde2201622f0a50c33ba7a475bf3a8edc2ebe9e",
+   "branch_git_blob": "afde2201622f0a50c33ba7a475bf3a8edc2ebe9e"
+  },
+  {
+   "file": "web/visit/img/rv-hero.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "1d4accda9bce0c7e8c6850da8dd7a66bb5895cee",
+   "branch_git_blob": "1d4accda9bce0c7e8c6850da8dd7a66bb5895cee"
+  },
+  {
+   "file": "web/visit/img/rv-nosehill.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "9f9a29fe7cce11d14f2ef083e66f5347be4e85a2",
+   "branch_git_blob": "9f9a29fe7cce11d14f2ef083e66f5347be4e85a2"
+  },
+  {
+   "file": "web/visit/img/rv-pathway.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d35883fece9e2aae8afc50f4128410e8c24084b9",
+   "branch_git_blob": "d35883fece9e2aae8afc50f4128410e8c24084b9"
+  },
+  {
+   "file": "web/visit/img/rv-peace-night.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "306564a7cc8f3c08e2dcd2f68f10375de7ef436f",
+   "branch_git_blob": "306564a7cc8f3c08e2dcd2f68f10375de7ef436f"
+  },
+  {
+   "file": "web/visit/img/rv-princes.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "f1e6fca9dad88bc37121d5c84d43a1e4b90023bf",
+   "branch_git_blob": "f1e6fca9dad88bc37121d5c84d43a1e4b90023bf"
+  },
+  {
+   "file": "web/visit/img/rv-stpatricks.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "3ebd7ef446c2a35a3a60c6ab5df3cd3385d8df63",
+   "branch_git_blob": "3ebd7ef446c2a35a3a60c6ab5df3cd3385d8df63"
+  },
+  {
+   "file": "web/visit/img/st-breakfast.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "cd42a60be843bde3a24b9ec1c0bfc1c419e47a7a",
+   "branch_git_blob": "cd42a60be843bde3a24b9ec1c0bfc1c419e47a7a"
+  },
+  {
+   "file": "web/visit/img/st-bronc.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "1345e4caca0d4f2b0ec83a7f305d26481d946a12",
+   "branch_git_blob": "1345e4caca0d4f2b0ec83a7f305d26481d946a12"
+  },
+  {
+   "file": "web/visit/img/st-chuck.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "2fe4a47ed3ec80ffabc1d6e477916bba4538a2fb",
+   "branch_git_blob": "2fe4a47ed3ec80ffabc1d6e477916bba4538a2fb"
+  },
+  {
+   "file": "web/visit/img/st-elbowcamp.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "92faac95ae50eec64c5a3b4d3875084088708385",
+   "branch_git_blob": "92faac95ae50eec64c5a3b4d3875084088708385"
+  },
+  {
+   "file": "web/visit/img/st-grandstand.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "45f49b58500d7a1dfb6a3b5215505162bb1c4759",
+   "branch_git_blob": "45f49b58500d7a1dfb6a3b5215505162bb1c4759"
+  },
+  {
+   "file": "web/visit/img/st-hero.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "0f92ba71c0805fe89cc22fc1d6c1cdd1dc1cd042",
+   "branch_git_blob": "0f92ba71c0805fe89cc22fc1d6c1cdd1dc1cd042"
+  },
+  {
+   "file": "web/visit/img/st-midway.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "5534612c40c5b1b4775516e2807968f20478d234",
+   "branch_git_blob": "5534612c40c5b1b4775516e2807968f20478d234"
+  },
+  {
+   "file": "web/visit/img/st-parade.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "141601cf128bdfd6c8fee5ef90d669a1160ff65d",
+   "branch_git_blob": "141601cf128bdfd6c8fee5ef90d669a1160ff65d"
+  },
+  {
+   "file": "web/visit/img/st-park.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "a70a63cdfd7e165b1b970a55360443f2b0f2ee5f",
+   "branch_git_blob": "a70a63cdfd7e165b1b970a55360443f2b0f2ee5f"
+  },
+  {
+   "file": "web/visit/img/tile-downtown.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "41d64bd6b6bd0a135e3719f6cbb3854caad2f79a",
+   "branch_git_blob": "41d64bd6b6bd0a135e3719f6cbb3854caad2f79a"
+  },
+  {
+   "file": "web/visit/img/tile-eat.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "1105f7188e3a6ee48ba154aed8de3c9ccb593992",
+   "branch_git_blob": "1105f7188e3a6ee48ba154aed8de3c9ccb593992"
+  },
+  {
+   "file": "web/visit/img/tile-river.jpg",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "9f453e520d013e3391779dba6255641fac0d6f1b",
+   "branch_git_blob": "9f453e520d013e3391779dba6255641fac0d6f1b"
+  },
+  {
+   "file": "web/visit/index.html",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "9371e23bec00ecaf6d80e3b436eaca0421580cc2",
+   "branch_git_blob": "9371e23bec00ecaf6d80e3b436eaca0421580cc2"
+  },
+  {
+   "file": "web/visit_content.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "65b99d8d15c88520fd8cde90fd4e64ecaaca4f19",
+   "branch_git_blob": "65b99d8d15c88520fd8cde90fd4e64ecaaca4f19"
+  },
+  {
+   "file": "web/visit_pages.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "95f6d50dc024847643d4fcfd6d91361527549cf2",
+   "branch_git_blob": "95f6d50dc024847643d4fcfd6d91361527549cf2"
+  },
+  {
+   "file": "web/web-account.js",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "c52fb053d2084f82b07d2c1bbd333048600f84a7",
+   "branch_git_blob": "c52fb053d2084f82b07d2c1bbd333048600f84a7"
+  },
+  {
+   "file": "web/web-ai.js",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "d48df136e90e844ff58ac8f6d4e10c074c19ac79",
+   "branch_git_blob": "d48df136e90e844ff58ac8f6d4e10c074c19ac79"
+  },
+  {
+   "file": "web/web-ui.js",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "b47d0f1e0f446c5016157735653aa9362871d101",
+   "branch_git_blob": "b47d0f1e0f446c5016157735653aa9362871d101"
+  },
+  {
+   "file": "web/web.css",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "26480a3ea19ad1d66e43785779f05151a29acab3",
+   "branch_git_blob": "26480a3ea19ad1d66e43785779f05151a29acab3"
+  },
+  {
+   "file": "web/web.js",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "803701ecd7f6661370875cfd7f2ce22f4eb75634",
+   "branch_git_blob": "803701ecd7f6661370875cfd7f2ce22f4eb75634"
+  },
+  {
+   "file": "web/webapp.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "1336d3b492b9df2ac9b843a37eb6ba7297383991",
+   "branch_git_blob": "1336d3b492b9df2ac9b843a37eb6ba7297383991"
+  },
+  {
+   "file": "xlsx.py",
+   "status": "same",
+   "part_of_the_refresh_system": true,
+   "main_git_blob": "4fdd09fb3753468113d2eaf1dded7a081a62bc40",
+   "branch_git_blob": "4fdd09fb3753468113d2eaf1dded7a081a62bc40"
+  }
+ ]
+}

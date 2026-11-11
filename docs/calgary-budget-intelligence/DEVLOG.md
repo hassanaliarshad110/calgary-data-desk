@@ -74,3 +74,23 @@
 | `main` on GitHub | still `ff42583` |
 | Review package written | this folder |
 | **Approval gate** | stopped; waiting for the owner |
+
+## Second stage (November 11, from about 11:10 UTC; this entry written about 16:25 UTC): the owner's two instructions and the independent verification
+
+| Step | Result |
+|---|---|
+| Data Genie and the Data Scientist made aware of the new data (owner's instruction) | `budget_intel.py`; the dashboard tool's section `budget_intelligence`; a report topic; a method note; a suggested question. Tried in the layout the website ships to the browser: 23 of 23 checks |
+| Commercial opportunity removed from the plan (owner's instruction) | removed from the reports and from the review page kept outside the repository |
+| Evidence gathered by read-only runs on separate branches (`site-check-22`) | backup downloaded, checksummed and restored on a fresh machine; run records; the City's PDF and both open datasets downloaded again |
+| Financial reconciliation worked out again from the raw sources | `FINAL-VERIFICATION/1-FINANCIAL-RECONCILIATION.md` |
+| Every case read a third time (pdfplumber, by position on the page) | 8,048 comparisons, 0 differences; 21 planted errors all reported |
+| Forty requests read by eye from pictures of the City's pages | all agree; found a City note worded differently (request 124) |
+| New field: the full one-time amount stated in the City's note | 17 requests; no existing value changed |
+| Two checks on the screen made more informative; one sentence corrected | worked out from the day's data |
+| User-experience audit (89 checks) | first run: 5 failed (keyboard focus lost; slider without a label). Fixed; 89 of 89 |
+| Security checks (static and in a running copy) | one weakness closed (links are only made to http or https addresses); 15 of 15 |
+| Regression on the final files | 54 of 54 screens open without error; 40 of 40 interaction checks; 7 failure scenarios without a script error |
+| The morning refresh during this work | Website run 43011014041, started by the scheduled backup-refresh task at 11:19 UTC, finished successfully at 12:40 UTC from `main` at `ff42583`; not started or touched by this work |
+| Full build of the branch as a read-only job (no publishing step, no secrets, no cache saved) | runs after this commit on the separate branch `site-check-23`; result to be added to finding 3.7b |
+| `main` on GitHub | still `ff42583`; nothing merged, nothing deployed |
+| **Approval gate** | stopped; waiting for the owner |

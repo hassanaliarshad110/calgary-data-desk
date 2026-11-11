@@ -1,5 +1,7 @@
 # Data source register
 
+> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instruction), the commercial opportunity was removed (the owner's instruction), and a second-stage audit added one data field and fixed several defects. Where this page and `FINAL-VERIFICATION/` differ, `FINAL-VERIFICATION/` is the current state.
+
 Generated from the production build of 2026-11-11 01:23 (Calgary time), build run 42977312843, commit ff42583. "Last changed by publisher" and "Last answered" are what the site's own live-connection check recorded during that build.
 
 ## 1. Sources the site checks live (data/live.json: 36)

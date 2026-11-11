@@ -1,7 +1,7 @@
 {
  "counts": {
   "pass": 15,
-  "note": 4,
+  "note": 5,
   "gap": 1,
   "FAIL": 0
  },
@@ -50,6 +50,11 @@
    "result": "pass",
    "check": "The stored totals equal the sum of the cases",
    "detail": "Capital total $13.051 billion; positions [855, 445, 279, 347]."
+  },
+  {
+   "result": "note",
+   "check": "One-time requests only partly in the proposed budget",
+   "detail": "17 requests: $235.8 million in their tables, $613.4 million stated as the full requests in the City's notes. One-time totals add the tables."
   },
   {
    "result": "note",

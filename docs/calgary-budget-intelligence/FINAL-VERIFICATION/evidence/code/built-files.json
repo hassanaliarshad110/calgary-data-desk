@@ -1,0 +1,52 @@
+{
+ "main_build_files": 235,
+ "branch_build_files": 239,
+ "identical": 233,
+ "changed": {
+  "index.html": {
+   "main_sha256": "bc8bc109168bcff3cf5afcec826ac0eae8bf647094ba9146137292f95b1c7413",
+   "main_bytes": 159349,
+   "branch_sha256": "266a3425f00f35bbdab96b3dfee8aceac007cb59d76060d07938180ce5e92598",
+   "branch_bytes": 160842
+  }
+ },
+ "removed": [],
+ "added": [
+  "budget-intel.css",
+  "budget-intel.js",
+  "budget-intel/business-cases.json",
+  "budget-intel/crosswalk.json"
+ ],
+ "added_details": {
+  "budget-intel.js": {
+   "sha256": "6a2b0b17c6ac51ebbb95f6174a2f68da668d7b99ad6c84bfc692e8c059dd099f",
+   "bytes": 102848
+  },
+  "budget-intel.css": {
+   "sha256": "442cdda98960c224c3115749fa7dac95c56bee11095901980266894bc1fa6acd",
+   "bytes": 21130
+  },
+  "budget-intel/crosswalk.json": {
+   "sha256": "2320779b69a9dc77fd2ac11d6eeda598f1fb9f3186c3ef035f00573600b1d8a4",
+   "bytes": 5798
+  },
+  "budget-intel/business-cases.json": {
+   "sha256": "821e21772dd8dc028c108736e3895393eb245fc10127dfb49420a80f32e1cdae",
+   "bytes": 235247
+  }
+ },
+ "renamed_bundle": {
+  "main": "site.20186e8330.js",
+  "branch": "site.0c52be4945.js",
+  "main_sha256": "20186e83308d82bc356a00e6d7e6b8161886ce2600701f8c889006fbb8fa7b8d",
+  "branch_sha256": "0c52be494540343b9d88d835313b3a214f9c5db2ba20e6d32651fb6dbb7ebbaa",
+  "main_bytes": 864113,
+  "branch_bytes": 966988
+ },
+ "bundle_check": {
+  "the_branch_bundle_is_the_main_bundle_plus_one_block": true,
+  "block": "the bundler's heading line for budget-intel.js, the file itself, and the bundler's separator",
+  "block_bytes": 102875,
+  "sha256_after_removing_the_block": "20186e83308d82bc356a00e6d7e6b8161886ce2600701f8c889006fbb8fa7b8d"
+ }
+}

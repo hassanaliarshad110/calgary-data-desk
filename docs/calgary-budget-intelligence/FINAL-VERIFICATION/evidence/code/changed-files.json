@@ -1,0 +1,138 @@
+{
+ "base_commit": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+ "examined_commit": "50acadc1c34b8e37226367c86459c2a75438d59b",
+ "existing_files": [
+  {
+   "file": "agent.py",
+   "added": 17,
+   "removed": 2
+  },
+  {
+   "file": "analyst.py",
+   "added": 14,
+   "removed": 0
+  },
+  {
+   "file": "methods.py",
+   "added": 26,
+   "removed": 0
+  },
+  {
+   "file": "registry.py",
+   "added": 11,
+   "removed": 0
+  },
+  {
+   "file": "ui/index.html",
+   "added": 19,
+   "removed": 0
+  },
+  {
+   "file": "web/search_index.py",
+   "added": 4,
+   "removed": 0
+  }
+ ],
+ "deleted_or_renamed": [],
+ "new_product_files": [
+  {
+   "file": "budget_intel.py",
+   "bytes": 22687,
+   "sha256": "89b7d5ee7bde5a0708ae30e9ac2af9235859723a5cc483f31a7f36fc650beeaf",
+   "what": "the new data for Data Genie and the Data Scientist (reads only)"
+  },
+  {
+   "file": "tools/budget_intel_check.py",
+   "bytes": 13546,
+   "sha256": "999e4a9f95c8a31250be415d7f99e68b81aef9d9a0140500a6b5b345be5fc13a",
+   "what": "checks the dataset and reconciles it with the open data (run by hand)"
+  },
+  {
+   "file": "tools/budget_intel_extract.py",
+   "bytes": 17538,
+   "sha256": "6223504f068182bec10e65ce3b513e8d8904a7964773964f1eba88d77c7ed897",
+   "what": "reads the City's PDF into business-cases.json (run by hand)"
+  },
+  {
+   "file": "ui/budget-intel.css",
+   "bytes": 21130,
+   "sha256": "442cdda98960c224c3115749fa7dac95c56bee11095901980266894bc1fa6acd",
+   "what": "its styles"
+  },
+  {
+   "file": "ui/budget-intel.js",
+   "bytes": 102848,
+   "sha256": "6a2b0b17c6ac51ebbb95f6174a2f68da668d7b99ad6c84bfc692e8c059dd099f",
+   "what": "the screen"
+  },
+  {
+   "file": "ui/budget-intel/business-cases.json",
+   "bytes": 235247,
+   "sha256": "821e21772dd8dc028c108736e3895393eb245fc10127dfb49420a80f32e1cdae",
+   "what": "the 384 business cases read from the City's PDF"
+  },
+  {
+   "file": "ui/budget-intel/crosswalk.json",
+   "bytes": 5798,
+   "sha256": "2320779b69a9dc77fd2ac11d6eeda598f1fb9f3186c3ef035f00573600b1d8a4",
+   "what": "hand-kept name matches and topic links"
+  }
+ ],
+ "new_document_files": 102,
+ "new_document_folders": [
+  "docs/calgary-budget-intelligence",
+  "docs/calgary-budget-intelligence/FINAL-VERIFICATION",
+  "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/code",
+  "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/financial",
+  "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/pdf",
+  "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh",
+  "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/branch",
+  "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/refresh/workflows/main",
+  "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools",
+  "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/ux",
+  "docs/calgary-budget-intelligence/evidence",
+  "docs/calgary-budget-intelligence/screenshots"
+ ],
+ "changed_since_the_version_examined": [
+  [
+   "M",
+   "agent.py"
+  ],
+  [
+   "M",
+   "analyst.py"
+  ],
+  [
+   "A",
+   "budget_intel.py"
+  ],
+  [
+   "M",
+   "methods.py"
+  ],
+  [
+   "M",
+   "registry.py"
+  ],
+  [
+   "M",
+   "tools/budget_intel_check.py"
+  ],
+  [
+   "M",
+   "tools/budget_intel_extract.py"
+  ],
+  [
+   "M",
+   "ui/budget-intel.js"
+  ],
+  [
+   "M",
+   "ui/budget-intel/business-cases.json"
+  ],
+  [
+   "M",
+   "ui/index.html"
+  ]
+ ]
+}

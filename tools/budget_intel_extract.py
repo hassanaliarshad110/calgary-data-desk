@@ -243,6 +243,12 @@ def parse(pdf):
             if ft: c['ftes'] = ft
             # a starred amount row (or a second star on the FTE row) means the City added a note under the table
             c['footnotes'] = bool(re.search(r'^[ \t]*(One-time \(\$M\)\*|Ongoing \(\$M\)\*|FTEs\*\*)', body, re.M))
+            # some of those notes say the full one-time request is larger than the part the 2027-2030 budget includes
+            m = re.search(r'total\s+one-time\s+funding\s+(?:request\s+for\s+this\s+initiative|requirement)\s+is\s+\$([\d,.]+)\s+million', body)
+            if m:
+                c['full_one_time_m'] = num(m.group(1).rstrip('.'))     # $ millions over four years, as the City's note states it
+                if not c['footnotes']:
+                    problems.append(f'case {n}: a note about the full request, but no starred row')
             c['metric'] = metric(body)
             c['plan'] = after('Alignment to long-term plan:', body)
             c['risk'] = None
@@ -294,6 +300,7 @@ def main():
                   'needs_k': 'thousands of dollars: 2027, 2028, 2029, 2030, 2031 and later (the City\'s "10-Year Capital Infrastructure Needs")',
                   'one_time_m': 'millions of dollars, one-time: 2027, 2028, 2029, 2030', 'ongoing_m': 'millions of dollars, ongoing: 2027, 2028, 2029, 2030',
                   'ftes': 'full-time equivalents: 2027, 2028, 2029, 2030', 'split': 'per cent: maintenance or replacement, growth, service enhancement, transformative',
+                  'full_one_time_m': 'millions of dollars: the full one-time request over four years, only where the City\'s note under the table says the budget includes part of it',
                   'null': 'a dash in the City\'s table (nil)'},
         'themes': THEMES,
         'counts': {'cases': len(cases), 'operating': len(op), 'capital': len(cap)},

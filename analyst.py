@@ -122,6 +122,20 @@ TOPICS = [
      '{area} is not all of Calgary, first add one chapter with report_add for {area}: City property tax by community (get_dashboard '
      'section property_tax) set against the typical Calgary home in the study, so residents see how their own community compares; '
      'it is placed after the study\'s chapters. Do not rewrite, shorten or re-compute the study\'s figures, and take no side on the budget.'),
+    ('budget_requests', 'The 2027 to 2030 budget requests: where the money would go',
+     'All 384 requests behind the proposed budget: by Council priority, department and purpose, the largest, and the positions they would add.', 'Budget',
+     'The business cases behind the City\'s proposed 2027 to 2030 budget (get_dashboard section budget_intelligence: part summary, '
+     'then priorities, departments, service_areas, wards and checks; part cases with find, kind or ward for lists; part case with '
+     'find = a case number for one request). Set out: how many requests there are and what they add up to, year by year (capital; '
+     'operating one-time; operating ongoing additions; positions); new capital by the City\'s own purpose split (maintenance or '
+     'replacement, growth, service enhancement, transformative); by Council priority and by department; the largest capital and '
+     'operating requests, each with its page in the City\'s document; how far along the capital requests are (stage) and how they '
+     'would be paid for; the reconciliation with the City\'s open data (part checks) and what the City does not publish (budget '
+     'against actual spending, spending by project). Beside it, the proposed budget as the City presents it (section '
+     'city_budget_2027) and the approved 2026 budget (read_source key=budget). If {area} is one ward, add the capital requests '
+     'that name it (part wards) and say plainly that most capital is for all wards and is not divided. Label every figure '
+     'proposed, not approved; ongoing amounts are additions to the base budget, not a four-year cost; never divide a citywide '
+     'amount among wards, communities or residents; take no side on the budget and make no recommendation on what Council should approve.'),
     ('school_tax', 'School tax paid and school money received',
      'What Calgary pays the province for schools against what comes back, set beside Edmonton and the rest of Alberta.', 'Families',
      'The education property tax Calgary pays the province (the requisition) each year since 2020 and its share of Alberta\'s '

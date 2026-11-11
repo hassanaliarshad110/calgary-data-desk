@@ -625,6 +625,13 @@ TOOLS = [
                     'section="city_budget_2027" gives the City\'s proposed 2027-2030 budget (Nov 10, 2026, not yet approved): '
                     'the monthly cost for a typical home in 2026 and 2027, the property tax increase each year, 2027 water rates, '
                     'investments, revenue shares, schedule and documents; spending by department is in open data nnnm-9sfh. '
+                    'section="budget_intelligence" gives every one of the 384 business cases behind that proposed budget (the City\'s '
+                    '"2027-2030 budget request business cases", 792 pages; all PROPOSED, not approved), as on the Budget Intelligence '
+                    'screen: part="summary" (default: totals by year, capital by purpose, by Council priority, the largest requests), '
+                    '"cases" (find = words in a title, department, business unit, service area or Budget ID; kind = operating or '
+                    'capital; ward = requests that name that ward), "case" (find = the case number, 1 to 384: every figure, category '
+                    'and the page of the City\'s document), "departments", "priorities", "service_areas", "wards", "checks" (the '
+                    'reconciliation with open data nnnm-9sfh and what cannot be compared) or "sources". '
                     'section="police_study" gives the published study of Calgary Police performance, resources and the 2027 to '
                     '2030 budget request: crime severity, clearance and staffing against Edmonton, Vancouver, Winnipeg, Ottawa and '
                     'Toronto (Statistics Canada), Calgary\'s spending, overtime and fine revenue, the request item by item, three '
@@ -651,7 +658,7 @@ TOOLS = [
                     'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
                     'sources; narrow with find (words), days, topic or date.',
      'input_schema': {'type': 'object', 'properties': {'section': {
-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'school_tax', 'tourism', 'police_study', 'pay_study', 'city_budget_2027', 'business', 'growth_forecast', 'visiting'],
+         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'school_tax', 'tourism', 'police_study', 'pay_study', 'city_budget_2027', 'budget_intelligence', 'business', 'growth_forecast', 'visiting'],
          'description': 'Which part of the dashboard; overview by default'},
          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
                                                     'Calgary selected, profile needs a ward)'},
@@ -668,7 +675,7 @@ TOOLS = [
          'days': {'type': 'integer', 'description': 'section city_news: only the last N days'},
          'topic': {'type': 'string', 'description': 'section city_news: one topic, e.g. City Council, Transit, Water'},
          'date': {'type': 'string', 'description': 'section city_news: one day\'s edition, YYYY-MM-DD'},
-         'part': {'type': 'string', 'enum': ['summary', 'arrivals', 'countries', 'airports', 'research', 'municipalities', 'residents', 'boards', 'spending', 'grants', 'approvals', 'factors', 'projects', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'planned', 'fields', 'weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats', 'sections', 'sources', 'limitations'],
+         'part': {'type': 'string', 'enum': ['summary', 'arrivals', 'countries', 'airports', 'research', 'municipalities', 'residents', 'boards', 'spending', 'grants', 'approvals', 'factors', 'projects', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'planned', 'fields', 'weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats', 'sections', 'sources', 'limitations', 'cases', 'case', 'departments', 'priorities', 'service_areas', 'wards', 'checks'],
                   'description': 'section federal_budget: summary (default), revenue_by_province (federal revenue collected '
                                  'and spending in every province, Statistics Canada, with a 2026-27 estimate), province, find (search the measures and their '
                                  'text with find), chapter (every line item of one chapter), tables (Annex 1), tax'},
@@ -1467,6 +1474,10 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
     if section == 'city_budget_2027':
         import budget as _budget                        # noqa: PLC0415
         return _budget.plan_summary((extra or {}).get('data_dir'))
+    if section == 'budget_intelligence':
+        import budget_intel                             # noqa: PLC0415
+        return budget_intel.summary(budget_intel.load((extra or {}).get('data_dir')), (extra or {}).get('part'), (extra or {}).get('find'),
+                                    (extra or {}).get('kind'), (extra or {}).get('ward'), (extra or {}).get('data_dir'))
     if section == 'police_study':
         import police_study                             # noqa: PLC0415
         return police_study.summary(police_study.load((extra or {}).get('data_dir')), (extra or {}).get('part'), (extra or {}).get('find'))
@@ -1831,6 +1842,10 @@ class Agent:
             if (args.get('section') or '') == 'city_budget_2027':
                 import budget as _budget               # noqa: PLC0415
                 return _budget.plan_summary(self.data_dir)
+            if (args.get('section') or '') == 'budget_intelligence':
+                import budget_intel                    # noqa: PLC0415
+                return budget_intel.summary(budget_intel.load(self.data_dir), args.get('part'), args.get('find'), args.get('kind'),
+                                            args.get('ward'), self.data_dir)
             if (args.get('section') or '') == 'police_study':
                 import police_study                    # noqa: PLC0415
                 return police_study.summary(police_study.load(self.data_dir), args.get('part'), args.get('find'))

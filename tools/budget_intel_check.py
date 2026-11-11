@@ -92,6 +92,12 @@ def main():
     same = tot['capital_k'] == [s(c['cap_k'][i] for c in cap) for i in range(6)] and tot['ftes'] == [round(s(c['ftes'][i] for c in op), 1) for i in range(4)]
     add('pass' if same else 'FAIL', 'The stored totals equal the sum of the cases', f"Capital total ${tot['capital_k'][0] / 1e6:,.3f} billion; positions {tot['ftes']}.")
     dup = [k for k in set(c['title'] for c in C) if sum(1 for c in C if c['title'] == k) > 1]
+    part = [c for c in op if c.get('full_one_time_m') is not None]
+    low = [c['n'] for c in part if c['full_one_time_m'] + 0.05 < sum(v or 0 for v in c['one_time_m']) or not c.get('footnotes')]
+    add('FAIL' if low else 'note' if part else 'pass', 'One-time requests only partly in the proposed budget',
+        f'A stated full request smaller than its table, or without a starred row: {low}' if low else
+        f"{len(part)} requests: ${sum(sum(v or 0 for v in c['one_time_m']) for c in part):,.1f} million in their tables, ${sum(c['full_one_time_m'] for c in part):,.1f} million "
+        'stated as the full requests in the City\'s notes. One-time totals add the tables.' if part else 'None.')
     add('note' if dup else 'pass', 'Titles used more than once', f'{len(dup)} titles appear on more than one case (the City uses the same title for separate requests): {sorted(dup)[:6]}' if dup else 'None.')
 
     # ---- the crosswalk

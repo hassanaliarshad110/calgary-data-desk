@@ -1,5 +1,7 @@
 # Budget Intelligence & Accountability Centre: executive review
 
+> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instruction), the commercial opportunity was removed (the owner's instruction), and a second-stage audit added one data field and fixed several defects. Where this page and `FINAL-VERIFICATION/` differ, `FINAL-VERIFICATION/` is the current state.
+
 2026-11-11 · For Hassan Ali · **Status: built on an isolated branch, not published.** The live site is unchanged (`main` = `ff42583`).
 
 ## What was built
@@ -31,7 +33,7 @@ All **384 business cases** behind the proposed 2027–2030 budget, read out of t
 
 ## What changed in the existing site
 
-31 lines added across 3 files; no line removed. The published script is byte-identical to production once the new screen's block is taken out. All 26 existing screens were opened on desktop and phone before and after: no errors, no differences. No dependency added.
+91 lines added across 6 files, and two existing lines edited (the first review covered 31 lines in 3 files; the rest lets Data Genie and the Data Scientist read the new data). The published script is byte-identical to production once the new screen's block is taken out. All 26 existing screens were opened on desktop and phone before and after: no errors; the only screens whose content differs are the three that gained an entry (How it is counted, Data Scientist, Data Genie). No dependency added.
 
 ## The daily refresh
 
@@ -43,10 +45,9 @@ Taken and restore-tested before any change: Actions artifact `backup-7` (run 429
 
 ## Decisions for you
 
-1. **Descriptions, benefits and risks.** The City's written text for each request is linked (to the exact page), not copied, because republishing it inside a product meant to earn revenue is a copyright question. Keep links, add the text after checking the City's terms, or have short neutral summaries written case by case?
+1. **Descriptions, benefits and risks.** The City's written text for each request is linked (to the exact page), not copied, because republishing the City's prose is a copyright question. Keep links, add the text after checking the City's terms, or have short neutral summaries written case by case?
 2. **Name and place.** "Budget Intelligence" under Money, after City budget.
 3. **A defect found on the live site** (site search throws an error if you type before it has loaded). Fix it as a separate small change?
-4. **The commercial proposal** was kept out of the repository because the repository is public. It is in the private review page and a separate file.
 
 ## Known limits
 

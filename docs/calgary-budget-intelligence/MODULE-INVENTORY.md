@@ -1,5 +1,7 @@
 # Module inventory
 
+> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instruction), the commercial opportunity was removed (the owner's instruction), and a second-stage audit added one data field and fixed several defects. Where this page and `FINAL-VERIFICATION/` differ, `FINAL-VERIFICATION/` is the current state.
+
 Every screen and data file the site registers for its assistants (data/registry.json of the production build, 53 entries), plus the pages built outside the app.
 
 | Key | Screen | Registered | Data files | What it holds |

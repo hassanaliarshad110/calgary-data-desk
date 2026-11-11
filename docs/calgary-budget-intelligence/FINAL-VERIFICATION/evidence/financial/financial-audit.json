@@ -1,0 +1,1299 @@
+{
+ "open_data_nnnm": {
+  "rows": 1392,
+  "capital_approved_m": {
+   "2027": 2867.04,
+   "2028": 2569.63,
+   "2029": 989.8,
+   "2030": 522.8,
+   "2031": 145.8,
+   "2032": 452.6
+  },
+  "capital_proposed_m": {
+   "2027": 1555.21,
+   "2028": 3017.64,
+   "2029": 4028.83,
+   "2030": 4427.75,
+   "2031": 26.7,
+   "2032": 0.0
+  },
+  "operating_proposed_m": {
+   "2027": 6433.61,
+   "2028": 7009.92,
+   "2029": 7509.13,
+   "2030": 8156.65
+  }
+ },
+ "headline_21_billion": {
+  "city_statement": "$21 billion in recommended capital over four years, including $13 billion in new capital infrastructure (news release and calgary.ca/our-finances/2027-budget.html, read 2026-11-11)",
+  "open_data_2027_2030_m": {
+   "approved_in_earlier_budgets": 6949.27,
+   "proposed": 13029.43,
+   "total": 19978.7
+  },
+  "open_data_all_years_in_the_dataset_m": {
+   "2027_2030": 19978.7,
+   "2031": 172.5,
+   "2032": 452.6,
+   "total": 20603.8
+  },
+  "rounded_to_the_nearest_billion": {
+   "2027_2030_only": 20,
+   "with_2031_and_2032": 21
+  },
+  "new_capital_m": {
+   "open_data_proposed_2027_2030": 13029.43,
+   "open_data_proposed_with_2031": 13056.13,
+   "business_cases_stated_totals": 13051.48
+  },
+  "finding": "The open data for 2027 to 2030 adds to $19.98 billion, which rounds to $20 billion. With the dataset's 2031 and 2032 rows it adds to $20.60 billion, which rounds to $21 billion. That is the only sum of published rows that reproduces \"$21 billion\"; the City does not say which years its headline covers, so the cause is not confirmed."
+ },
+ "approved_capital_two_datasets": {
+  "older": "fqax-i3nz (2023-2026 Budget): figures for 2027 and later are capital already approved when that dataset's rows were last updated",
+  "newer": "nnnm-9sfh (2027-2030 Budget): budget_status = Approved",
+  "years": [
+   "2027",
+   "2028",
+   "2029",
+   "2030",
+   "2031",
+   "2032"
+  ],
+  "newer_total_m": [
+   2867.04,
+   2569.63,
+   989.8,
+   522.8,
+   145.8,
+   452.6
+  ],
+  "older_total_m": [
+   2499.781,
+   1440.336,
+   976.849,
+   768.196,
+   450.696,
+   1103.974
+  ],
+  "difference_m": [
+   367.259,
+   1129.294,
+   12.951,
+   -245.396,
+   -304.896,
+   -651.374
+  ],
+  "six_year_total_m": {
+   "newer": 7547.67,
+   "older": 7239.833,
+   "difference": 307.837
+  },
+  "green_line": {
+   "newer_name": "Green Line LRT - SE Project",
+   "older_name": "Green Line",
+   "newer_m": [
+    1222.1,
+    1460.2,
+    517.5,
+    223.9,
+    144.6,
+    452.6
+   ],
+   "older_m": [
+    475.0,
+    530.0,
+    700.0,
+    761.196,
+    450.696,
+    1103.974
+   ],
+   "six_year_total_m": {
+    "newer": 4020.9,
+    "older": 4020.866
+   },
+   "difference_m": [
+    747.1,
+    930.2,
+    -182.5,
+    -537.296,
+    -306.096,
+    -651.374
+   ]
+  },
+  "everything_else_difference_m": [
+   -379.841,
+   199.094,
+   195.451,
+   291.9,
+   1.2,
+   0.0
+  ],
+  "by_business_unit_2028": [
+   {
+    "business_unit": "Green Line LRT - SE Project",
+    "newer_m": 1460.2,
+    "older_m": 0.0,
+    "difference_m": 1460.2
+   },
+   {
+    "business_unit": "Green Line",
+    "newer_m": 0.0,
+    "older_m": 530.0,
+    "difference_m": -530.0
+   },
+   {
+    "business_unit": "Public Spaces Delivery",
+    "newer_m": 388.5,
+    "older_m": 294.668,
+    "difference_m": 93.832
+   },
+   {
+    "business_unit": "Chief Housing Office",
+    "newer_m": 68.2,
+    "older_m": 23.2,
+    "difference_m": 45.0
+   },
+   {
+    "business_unit": "Calgary Transit",
+    "newer_m": 114.2,
+    "older_m": 81.042,
+    "difference_m": 33.158
+   },
+   {
+    "business_unit": "Real Estate & Development Services",
+    "newer_m": 21.4,
+    "older_m": 0.0,
+    "difference_m": 21.4
+   },
+   {
+    "business_unit": "Parks & Open Spaces",
+    "newer_m": 0.0,
+    "older_m": 20.658,
+    "difference_m": -20.658
+   },
+   {
+    "business_unit": "Calgary Fire",
+    "newer_m": 7.0,
+    "older_m": 0.0,
+    "difference_m": 7.0
+   },
+   {
+    "business_unit": "Civic Partners",
+    "newer_m": 5.7,
+    "older_m": 0.25,
+    "difference_m": 5.45
+   },
+   {
+    "business_unit": "Project Development",
+    "newer_m": 12.1,
+    "older_m": 7.073,
+    "difference_m": 5.027
+   },
+   {
+    "business_unit": "Parks and Open Spaces",
+    "newer_m": 4.5,
+    "older_m": 0.0,
+    "difference_m": 4.5
+   },
+   {
+    "business_unit": "Development, Business & Building Services",
+    "newer_m": 3.5,
+    "older_m": 0.426,
+    "difference_m": 3.074
+   },
+   {
+    "business_unit": "Emergency Management & Community Safety",
+    "newer_m": 7.5,
+    "older_m": 5.0,
+    "difference_m": 2.5
+   },
+   {
+    "business_unit": "Assessment & Tax",
+    "newer_m": 2.0,
+    "older_m": 3.825,
+    "difference_m": -1.825
+   },
+   {
+    "business_unit": "Partnerships",
+    "newer_m": 0.3,
+    "older_m": 0.0,
+    "difference_m": 0.3
+   },
+   {
+    "business_unit": "Supply Management",
+    "newer_m": 0.3,
+    "older_m": 0.0,
+    "difference_m": 0.3
+   },
+   {
+    "business_unit": "City Clerks Office",
+    "newer_m": 0.0,
+    "older_m": 0.23,
+    "difference_m": -0.23
+   },
+   {
+    "business_unit": "GM - Law, Legislative Services & Security",
+    "newer_m": 0.23,
+    "older_m": 0.0,
+    "difference_m": 0.23
+   }
+  ],
+  "finding": "For 2028 the newer dataset has $2,569.6 million already approved and the older $1,440.3 million: $1,129.3 million more. $930.2 million of that is the Green Line, whose six-year total is the same in both datasets ($4,020.9 million) but is spread over the years differently (more in 2027 and 2028, less from 2029 on). The other $199.1 million is spread over other business units. That the Green Line money was moved between years is read from the figures; the City has not published a reconciliation."
+ },
+ "proposed_capital_by_business_unit": {
+  "years": [
+   "2027",
+   "2028",
+   "2029",
+   "2030"
+  ],
+  "units": [
+   {
+    "business_unit": "Assessment & Tax",
+    "capital_cases": 2,
+    "business_cases_m": [
+     0.228,
+     0.786,
+     1.717,
+     0.25
+    ],
+    "open_data_proposed_m": [
+     0.2,
+     0.8,
+     1.8,
+     0.3
+    ],
+    "difference_m": [
+     0.028,
+     -0.014,
+     -0.083,
+     -0.05
+    ],
+    "difference_2027_2030_m": -0.119
+   },
+   {
+    "business_unit": "Calgary Fire",
+    "capital_cases": 8,
+    "business_cases_m": [
+     29.655,
+     57.0,
+     85.776,
+     56.813
+    ],
+    "open_data_proposed_m": [
+     29.6,
+     57.0,
+     85.7,
+     56.8
+    ],
+    "difference_m": [
+     0.055,
+     0.0,
+     0.076,
+     0.013
+    ],
+    "difference_2027_2030_m": 0.144
+   },
+   {
+    "business_unit": "Calgary Police Service",
+    "capital_cases": 4,
+    "business_cases_m": [
+     59.385,
+     51.659,
+     43.39,
+     37.462
+    ],
+    "open_data_proposed_m": [
+     59.3,
+     51.7,
+     43.4,
+     37.4
+    ],
+    "difference_m": [
+     0.085,
+     -0.041,
+     -0.01,
+     0.062
+    ],
+    "difference_2027_2030_m": 0.096
+   },
+   {
+    "business_unit": "Calgary Transit",
+    "capital_cases": 24,
+    "business_cases_m": [
+     116.508,
+     128.024,
+     340.646,
+     520.574
+    ],
+    "open_data_proposed_m": [
+     116.8,
+     128.3,
+     340.8,
+     520.6
+    ],
+    "difference_m": [
+     -0.292,
+     -0.276,
+     -0.154,
+     -0.026
+    ],
+    "difference_2027_2030_m": -0.748
+   },
+   {
+    "business_unit": "Capital Planning & Business Services",
+    "capital_cases": 9,
+    "business_cases_m": [
+     0.861,
+     17.667,
+     17.954,
+     15.22
+    ],
+    "open_data_proposed_m": [
+     0.9,
+     17.7,
+     18.1,
+     15.3
+    ],
+    "difference_m": [
+     -0.039,
+     -0.033,
+     -0.146,
+     -0.08
+    ],
+    "difference_2027_2030_m": -0.298
+   },
+   {
+    "business_unit": "Chief Housing Office",
+    "capital_cases": 6,
+    "business_cases_m": [
+     11.694,
+     88.212,
+     77.967,
+     39.986
+    ],
+    "open_data_proposed_m": [
+     11.7,
+     88.2,
+     78.1,
+     40.0
+    ],
+    "difference_m": [
+     -0.006,
+     0.012,
+     -0.133,
+     -0.014
+    ],
+    "difference_2027_2030_m": -0.141
+   },
+   {
+    "business_unit": "City & Regional Planning",
+    "capital_cases": 3,
+    "business_cases_m": [
+     1.165,
+     7.557,
+     7.67,
+     7.785
+    ],
+    "open_data_proposed_m": [
+     0.0,
+     7.6,
+     7.6,
+     7.8
+    ],
+    "difference_m": [
+     1.165,
+     -0.043,
+     0.07,
+     -0.015
+    ],
+    "difference_2027_2030_m": 1.177,
+    "exception": true,
+    "requests_that_equal_the_difference": null
+   },
+   {
+    "business_unit": "City Clerk's Office",
+    "capital_cases": 5,
+    "business_cases_m": [
+     0.0,
+     6.127,
+     2.618,
+     0.3
+    ],
+    "open_data_proposed_m": [
+     0.0,
+     6.13,
+     2.62,
+     0.3
+    ],
+    "difference_m": [
+     0.0,
+     -0.003,
+     -0.002,
+     0.0
+    ],
+    "difference_2027_2030_m": -0.005
+   },
+   {
+    "business_unit": "Civic Partners",
+    "capital_cases": 4,
+    "business_cases_m": [
+     17.172,
+     61.4,
+     56.542,
+     44.797
+    ],
+    "open_data_proposed_m": [
+     17.1,
+     61.3,
+     56.5,
+     44.9
+    ],
+    "difference_m": [
+     0.072,
+     0.1,
+     0.042,
+     -0.103
+    ],
+    "difference_2027_2030_m": 0.111
+   },
+   {
+    "business_unit": "Corporate Security",
+    "capital_cases": 2,
+    "business_cases_m": [
+     4.132,
+     14.684,
+     7.122,
+     6.819
+    ],
+    "open_data_proposed_m": [
+     4.13,
+     14.68,
+     7.12,
+     6.82
+    ],
+    "difference_m": [
+     0.002,
+     0.004,
+     0.002,
+     -0.001
+    ],
+    "difference_2027_2030_m": 0.007
+   },
+   {
+    "business_unit": "Cyber Security",
+    "capital_cases": 1,
+    "business_cases_m": [
+     0.483,
+     3.121,
+     5.2,
+     2.526
+    ],
+    "open_data_proposed_m": [
+     0.48,
+     3.12,
+     5.2,
+     2.53
+    ],
+    "difference_m": [
+     0.003,
+     0.001,
+     0.0,
+     -0.004
+    ],
+    "difference_2027_2030_m": -0.0
+   },
+   {
+    "business_unit": "Downtown Strategy",
+    "capital_cases": 2,
+    "business_cases_m": [
+     2.979,
+     14.645,
+     16.933,
+     9.357
+    ],
+    "open_data_proposed_m": [
+     0.0,
+     4.1,
+     5.2,
+     3.1
+    ],
+    "difference_m": [
+     2.979,
+     10.545,
+     11.733,
+     6.257
+    ],
+    "difference_2027_2030_m": 31.514,
+    "exception": true,
+    "requests_that_equal_the_difference": {
+     "largest_yearly_gap_m": 0.036,
+     "requests": [
+      {
+       "n": 219,
+       "title": "Downtown Streetscape and Public Realm Program",
+       "page": 465,
+       "by_year_m": [
+        2.979,
+        10.527,
+        11.697,
+        6.239
+       ]
+      }
+     ],
+     "strength": "one request, every year"
+    }
+   },
+   {
+    "business_unit": "Emergency Management & Community Safety",
+    "capital_cases": 13,
+    "business_cases_m": [
+     10.516,
+     26.074,
+     31.69,
+     50.92
+    ],
+    "open_data_proposed_m": [
+     10.5,
+     26.1,
+     31.8,
+     51.0
+    ],
+    "difference_m": [
+     0.016,
+     -0.026,
+     -0.11,
+     -0.08
+    ],
+    "difference_2027_2030_m": -0.2
+   },
+   {
+    "business_unit": "Environmental Risk & Resilience",
+    "capital_cases": 8,
+    "business_cases_m": [
+     1.734,
+     2.128,
+     1.991,
+     1.786
+    ],
+    "open_data_proposed_m": [
+     1.8,
+     2.0,
+     2.0,
+     1.8
+    ],
+    "difference_m": [
+     -0.066,
+     0.128,
+     -0.009,
+     -0.014
+    ],
+    "difference_2027_2030_m": 0.039
+   },
+   {
+    "business_unit": "Facilities",
+    "capital_cases": 14,
+    "business_cases_m": [
+     44.731,
+     138.615,
+     205.184,
+     130.366
+    ],
+    "open_data_proposed_m": [
+     44.8,
+     138.7,
+     205.2,
+     130.4
+    ],
+    "difference_m": [
+     -0.069,
+     -0.085,
+     -0.016,
+     -0.034
+    ],
+    "difference_2027_2030_m": -0.204
+   },
+   {
+    "business_unit": "Finance",
+    "capital_cases": 1,
+    "business_cases_m": [
+     0.0,
+     2.0,
+     0.0,
+     0.0
+    ],
+    "open_data_proposed_m": [
+     0.0,
+     2.0,
+     0.0,
+     0.0
+    ],
+    "difference_m": [
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "difference_2027_2030_m": 0.0
+   },
+   {
+    "business_unit": "Fleet & Inventory",
+    "capital_cases": 8,
+    "business_cases_m": [
+     143.898,
+     158.514,
+     157.781,
+     149.864
+    ],
+    "open_data_proposed_m": [
+     144.0,
+     158.6,
+     157.8,
+     149.8
+    ],
+    "difference_m": [
+     -0.102,
+     -0.086,
+     -0.019,
+     0.064
+    ],
+    "difference_2027_2030_m": -0.143
+   },
+   {
+    "business_unit": "GM - Law, Legislative Services & Security",
+    "capital_cases": 1,
+    "business_cases_m": [
+     0.0,
+     0.0,
+     0.304,
+     0.0
+    ],
+    "open_data_proposed_m": [
+     0.0,
+     0.0,
+     0.3,
+     0.0
+    ],
+    "difference_m": [
+     0.0,
+     0.0,
+     0.004,
+     0.0
+    ],
+    "difference_2027_2030_m": 0.004
+   },
+   {
+    "business_unit": "GM - Operational Services",
+    "capital_cases": 1,
+    "business_cases_m": [
+     2.5,
+     5.976,
+     6.611,
+     8.396
+    ],
+    "open_data_proposed_m": [
+     2.5,
+     6.0,
+     6.6,
+     8.4
+    ],
+    "difference_m": [
+     0.0,
+     -0.024,
+     0.011,
+     -0.004
+    ],
+    "difference_2027_2030_m": -0.017
+   },
+   {
+    "business_unit": "GM - Planning & Development Services",
+    "capital_cases": 3,
+    "business_cases_m": [
+     5.38,
+     6.96,
+     6.6,
+     6.45
+    ],
+    "open_data_proposed_m": [
+     5.5,
+     6.9,
+     6.7,
+     6.4
+    ],
+    "difference_m": [
+     -0.12,
+     0.06,
+     -0.1,
+     0.05
+    ],
+    "difference_2027_2030_m": -0.11
+   },
+   {
+    "business_unit": "Human Resources",
+    "capital_cases": 3,
+    "business_cases_m": [
+     0.5,
+     12.55,
+     0.65,
+     0.65
+    ],
+    "open_data_proposed_m": [
+     0.6,
+     12.7,
+     0.7,
+     0.7
+    ],
+    "difference_m": [
+     -0.1,
+     -0.15,
+     -0.05,
+     -0.05
+    ],
+    "difference_2027_2030_m": -0.35
+   },
+   {
+    "business_unit": "Information Technology",
+    "capital_cases": 23,
+    "business_cases_m": [
+     22.056,
+     47.654,
+     38.031,
+     34.967
+    ],
+    "open_data_proposed_m": [
+     22.1,
+     47.9,
+     38.2,
+     35.0
+    ],
+    "difference_m": [
+     -0.044,
+     -0.246,
+     -0.169,
+     -0.033
+    ],
+    "difference_2027_2030_m": -0.492
+   },
+   {
+    "business_unit": "Law",
+    "capital_cases": 2,
+    "business_cases_m": [
+     0.0,
+     0.209,
+     0.688,
+     0.0
+    ],
+    "open_data_proposed_m": [
+     0.0,
+     0.21,
+     0.69,
+     0.0
+    ],
+    "difference_m": [
+     0.0,
+     -0.001,
+     -0.002,
+     0.0
+    ],
+    "difference_2027_2030_m": -0.003
+   },
+   {
+    "business_unit": "Marketing & Communication",
+    "capital_cases": 2,
+    "business_cases_m": [
+     1.051,
+     3.436,
+     1.788,
+     1.626
+    ],
+    "open_data_proposed_m": [
+     1.0,
+     3.5,
+     1.8,
+     1.7
+    ],
+    "difference_m": [
+     0.051,
+     -0.064,
+     -0.012,
+     -0.074
+    ],
+    "difference_2027_2030_m": -0.099
+   },
+   {
+    "business_unit": "Mobility",
+    "capital_cases": 29,
+    "business_cases_m": [
+     118.236,
+     231.014,
+     319.951,
+     289.71
+    ],
+    "open_data_proposed_m": [
+     113.3,
+     220.8,
+     306.7,
+     274.1
+    ],
+    "difference_m": [
+     4.936,
+     10.214,
+     13.251,
+     15.61
+    ],
+    "difference_2027_2030_m": 44.011,
+    "exception": true,
+    "requests_that_equal_the_difference": {
+     "largest_yearly_gap_m": 0.139,
+     "requests": [
+      {
+       "n": 57,
+       "title": "Major Road Reconstruction",
+       "page": 129,
+       "by_year_m": [
+        4.891,
+        10.349,
+        13.299,
+        15.749
+       ]
+      }
+     ],
+     "strength": "one request, every year"
+    }
+   },
+   {
+    "business_unit": "Occupational Health & Safety",
+    "capital_cases": 2,
+    "business_cases_m": [
+     0.0,
+     1.818,
+     0.937,
+     0.955
+    ],
+    "open_data_proposed_m": [
+     0.0,
+     1.8,
+     0.9,
+     1.0
+    ],
+    "difference_m": [
+     0.0,
+     0.018,
+     0.037,
+     -0.045
+    ],
+    "difference_2027_2030_m": 0.01
+   },
+   {
+    "business_unit": "Parks and Open Spaces",
+    "capital_cases": 7,
+    "business_cases_m": [
+     29.98,
+     84.325,
+     99.511,
+     62.376
+    ],
+    "open_data_proposed_m": [
+     30.0,
+     84.4,
+     99.6,
+     62.3
+    ],
+    "difference_m": [
+     -0.02,
+     -0.075,
+     -0.089,
+     0.076
+    ],
+    "difference_2027_2030_m": -0.108
+   },
+   {
+    "business_unit": "Partnerships",
+    "capital_cases": 1,
+    "business_cases_m": [
+     0.729,
+     1.515,
+     2.689,
+     2.154
+    ],
+    "open_data_proposed_m": [
+     0.7,
+     1.5,
+     2.7,
+     2.2
+    ],
+    "difference_m": [
+     0.029,
+     0.015,
+     -0.011,
+     -0.046
+    ],
+    "difference_2027_2030_m": -0.013
+   },
+   {
+    "business_unit": "Project Development",
+    "capital_cases": 15,
+    "business_cases_m": [
+     47.797,
+     254.477,
+     178.458,
+     133.868
+    ],
+    "open_data_proposed_m": [
+     47.9,
+     247.1,
+     164.8,
+     123.7
+    ],
+    "difference_m": [
+     -0.103,
+     7.377,
+     13.658,
+     10.168
+    ],
+    "difference_2027_2030_m": 31.1,
+    "exception": true,
+    "requests_that_equal_the_difference": {
+     "largest_yearly_gap_m": 0.223,
+     "requests": [
+      {
+       "n": 200,
+       "title": "Build Back Better - Pathways & Repaving",
+       "page": 427,
+       "by_year_m": [
+        0.0,
+        3.638,
+        7.277,
+        3.638
+       ]
+      },
+      {
+       "n": 201,
+       "title": "Calgary Pathway Program",
+       "page": 429,
+       "by_year_m": [
+        0.0,
+        2.956,
+        5.461,
+        4.798
+       ]
+      },
+      {
+       "n": 263,
+       "title": "Local Area Investment Fund",
+       "page": 553,
+       "by_year_m": [
+        0.0,
+        0.776,
+        1.143,
+        1.756
+       ]
+      }
+     ],
+     "strength": "a combination of 3 requests (weaker evidence)"
+    }
+   },
+   {
+    "business_unit": "Public Spaces Delivery",
+    "capital_cases": 39,
+    "business_cases_m": [
+     70.003,
+     284.395,
+     364.182,
+     516.613
+    ],
+    "open_data_proposed_m": [
+     88.2,
+     346.9,
+     467.0,
+     726.6
+    ],
+    "difference_m": [
+     -18.197,
+     -62.505,
+     -102.818,
+     -209.987
+    ],
+    "difference_2027_2030_m": -393.507,
+    "exception": true,
+    "requests_that_equal_the_difference": null
+   },
+   {
+    "business_unit": "Real Estate & Development Services",
+    "capital_cases": 5,
+    "business_cases_m": [
+     28.063,
+     31.923,
+     31.847,
+     86.803
+    ],
+    "open_data_proposed_m": [
+     28.1,
+     32.0,
+     31.9,
+     86.9
+    ],
+    "difference_m": [
+     -0.037,
+     -0.077,
+     -0.053,
+     -0.097
+    ],
+    "difference_2027_2030_m": -0.264
+   },
+   {
+    "business_unit": "Recreation & Social Programs",
+    "capital_cases": 5,
+    "business_cases_m": [
+     9.118,
+     69.552,
+     75.413,
+     182.226
+    ],
+    "open_data_proposed_m": [
+     0.5,
+     35.6,
+     11.7,
+     4.6
+    ],
+    "difference_m": [
+     8.618,
+     33.952,
+     63.713,
+     177.626
+    ],
+    "difference_2027_2030_m": 283.909,
+    "exception": true,
+    "requests_that_equal_the_difference": {
+     "largest_yearly_gap_m": 0.038,
+     "requests": [
+      {
+       "n": 82,
+       "title": "GamePLAN - Wave 1 Projects",
+       "page": 180,
+       "by_year_m": [
+        8.607,
+        33.963,
+        63.675,
+        177.6
+       ]
+      }
+     ],
+     "strength": "one request, every year"
+    }
+   },
+   {
+    "business_unit": "Utilities Delivery",
+    "capital_cases": 8,
+    "business_cases_m": [
+     773.499,
+     1202.254,
+     1839.693,
+     2025.255
+    ],
+    "open_data_proposed_m": [
+     773.5,
+     1202.3,
+     1839.6,
+     2025.3
+    ],
+    "difference_m": [
+     -0.001,
+     -0.046,
+     0.093,
+     -0.045
+    ],
+    "difference_2027_2030_m": 0.001
+   }
+  ],
+  "units_compared": 33,
+  "match_within_1_million": 27,
+  "exceptions": [
+   "City & Regional Planning",
+   "Downtown Strategy",
+   "Mobility",
+   "Project Development",
+   "Public Spaces Delivery",
+   "Recreation & Social Programs"
+  ],
+  "net_of_exceptions_m": -1.796,
+  "net_of_all_units_by_year_m": [
+   -1.157,
+   -1.369,
+   -1.296,
+   -0.876
+  ],
+  "finding": "Read together, the six differences are what would be seen if the open data files under Public Spaces Delivery some requests that the business cases list under the unit that asks for them. This is an inference from matching amounts; the City has published no mapping."
+ },
+ "new_capital_13_05_billion": {
+  "capital_cases": 260,
+  "sum_of_stated_totals_k": 13051480,
+  "by_year_k": {
+   "2027": 1554053,
+   "2028": 3016271,
+   "2029": 4027534,
+   "2030": 4426874,
+   "2031_and_later": 26741
+  },
+  "sum_of_the_year_columns_k": 13051473,
+  "stated_totals_minus_year_columns_k": 7,
+  "cases_where_total_differs_from_its_years_by_k": {
+   "0": 183,
+   "1": 41,
+   "-1": 34,
+   "2": 1,
+   "-2": 1
+  },
+  "in_billions": 13.051,
+  "by_purpose_m": {
+   "maintenance_or_replacement": 5529.5,
+   "growth": 4520.7,
+   "service_enhancement": 2644.0,
+   "transformative": 357.3
+  },
+  "purposes_add_to_m": 13051.5,
+  "purpose_formula": "for each capital case: stated total ($000s) x the City's percentage for the purpose / 100; added over the 260 cases; / 1,000 for millions; rounded once at the end to one decimal",
+  "cases_with_one_purpose_only": 116,
+  "cases_with_a_mixed_purpose": 144
+ },
+ "classification": {
+  "operating": 124,
+  "capital": 260,
+  "rule": "a case is operating if its first page carries the heading \"Budget proposal rationale:\" and capital if its pages carry \"Capital Funding Consideration ($000s)\"; none carries both",
+  "by_council_priority": {
+   "Reliable and sustainable infrastructure": {
+    "operating": 15,
+    "capital": 83
+   },
+   "Safe city": {
+    "operating": 27,
+    "capital": 36
+   },
+   "Functional transportation network": {
+    "operating": 14,
+    "capital": 44
+   },
+   "Community livability and well-being": {
+    "operating": 13,
+    "capital": 18
+   },
+   "Balanced growth and evolving neighbourhoods": {
+    "operating": 7,
+    "capital": 15
+   },
+   "Trusted and collaborative government": {
+    "operating": 48,
+    "capital": 64
+   }
+  }
+ },
+ "positions": {
+  "by_year": {
+   "2027": 855,
+   "2028": 445,
+   "2029": 279,
+   "2030": 347
+  },
+  "four_years": 1926,
+  "operating_cases": 124,
+  "cases_with_positions_in_2027": 50,
+  "formula": "sum over the 124 operating cases of the 2027 cell of the row \"FTEs\" in the City's table \"Proposed funding amount\"; a dash counts as nothing",
+  "period": "each figure is the full-time equivalents the request adds in that year, as the City prints it; years are not cumulative",
+  "2027_by_department": {
+   "Operational Services": 395,
+   "Community Services": 287,
+   "Law, Legislative Services & Security": 60,
+   "People, Innovation & Collaboration Services": 43,
+   "Corporate Planning & Financial Services": 32,
+   "Calgary Police Service": 17,
+   "Planning & Development Services": 11,
+   "Chief Operating Office": 10,
+   "Corporate Programs": 0,
+   "Council": 0,
+   "Chief Administrator's Office": 0
+  },
+  "largest_2027": [
+   {
+    "n": 122,
+    "title": "Increase the number of Transit Peace Officers to improve visibility, response times and rider engagement on the transit system",
+    "positions_2027": 100,
+    "page": 271
+   },
+   {
+    "n": 220,
+    "title": "Parks Maintenance Funding Levels 2026",
+    "positions_2027": 77,
+    "page": 467
+   },
+   {
+    "n": 166,
+    "title": "Increasing Transit service for customers - RouteAhead Investment",
+    "positions_2027": 70,
+    "page": 359
+   },
+   {
+    "n": 124,
+    "title": "Implement the cross-corporate strategies of the Safer Together plan to coordinate community safety and wellbeing improvements",
+    "positions_2027": 65,
+    "page": 275
+   },
+   {
+    "n": 168,
+    "title": "Reliable traffic and pedestrian movement",
+    "positions_2027": 50,
+    "page": 363
+   },
+   {
+    "n": 120,
+    "title": "Shift Critical City Website Funding From Capital to Operating",
+    "positions_2027": 40,
+    "page": 267
+   },
+   {
+    "n": 102,
+    "title": "Hire 9-1-1 staff to keep pace with growing demand for fire, police and emergency services",
+    "positions_2027": 39,
+    "page": 220
+   },
+   {
+    "n": 165,
+    "title": "Better road quality",
+    "positions_2027": 37,
+    "page": 357
+   },
+   {
+    "n": 117,
+    "title": "City of Calgary Guard Services Budget Stabilization",
+    "positions_2027": 29,
+    "page": 261
+   },
+   {
+    "n": 101,
+    "title": "Increase staffing and supports to sustain CFD emergency response performance across the city",
+    "positions_2027": 26,
+    "page": 218
+   }
+  ],
+  "limit": "Only positions in the FTE rows of the business cases. A request's text can describe other staff that are not in its row (request 104 does), so this is not the City's whole change in staff."
+ },
+ "operating": {
+  "one_time_m_by_year": {
+   "2027": 78.6,
+   "2028": 213.8,
+   "2029": 52.1,
+   "2030": 41.1
+  },
+  "one_time_m_four_years": 385.6,
+  "ongoing_added_m_by_year": {
+   "2027": 276.1,
+   "2028": 168.0,
+   "2029": 88.6,
+   "2030": 62.9
+  },
+  "requests_only_partly_in_the_budget": {
+   "count": 17,
+   "in_their_tables_m": 235.8,
+   "full_requests_stated_m": 613.4
+  }
+ }
+}

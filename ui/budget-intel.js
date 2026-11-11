@@ -34,7 +34,9 @@
   const st = (kind, text) => `<span class="bi-st ${kind}">${esc(text)}</span>`;
   const ST = { Approved: 'approved', Actual: 'actual', Proposed: 'proposed' };
   const dash = v => v === null || v === undefined ? '–' : fmt(v, Number.isInteger(v) ? 0 : 1);
-  const src = (label, url) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>`;
+  // a link is only ever made to a web address (http or https) or to a page of this site; anything else in a data file is shown as plain text
+  const safeUrl = u => { const t = String(u === null || u === undefined ? '' : u).trim(); return /^https?:\/\/[^\s"'<>]+$/i.test(t) || /^[A-Za-z0-9_.~\/?#=&%-]+$/.test(t) && !/^[a-z][a-z0-9+.-]*:/i.test(t) ? t : ''; };
+  const src = (label, url) => safeUrl(url) ? `<a href="${esc(safeUrl(url))}" target="_blank" rel="noopener">${esc(label)}</a>` : esc(label);
   const pageLink = (p, text) => `<a class="bi-read" href="${DOC}#page=${p}" target="_blank" rel="noopener">${icon('open')}<span>${esc(text)}</span></a>`;
   const css = n => getComputedStyle($('#view-budget-intelligence .bi') || document.documentElement).getPropertyValue(n).trim();
   const series = i => css('--bi-s' + (i + 1));
@@ -94,7 +96,7 @@
   function rail() {
     const n = cases().length;
     $('#bi-rail').innerHTML = `<div class="bi-rail-h">The centre</div>` + SECTIONS.map(([k, label, ic]) =>
-      `<button type="button" role="radio" data-sec="${k}" aria-checked="${k === S.sec}">${icon(ic)}<span>${label}</span>${k === 'cases' && n ? `<b>${n}</b>` : ''}</button>`).join('');
+      `<button type="button" role="radio" data-sec="${k}" aria-checked="${k === S.sec}" tabindex="${k === S.sec ? 0 : -1}">${icon(ic)}<span>${label}</span>${k === 'cases' && n ? `<b>${n}</b>` : ''}</button>`).join('');
   }
   function go(sec, keep) {
     if (!SECTIONS.some(s => s[0] === sec)) sec = 'overview';
@@ -294,7 +296,7 @@
         ${op.length ? `<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Department</th><th scope="col" class="num">Requests</th><th scope="col" class="num">One-time, 2027–30</th>${Y4.map(v => `<th scope="col" class="num">Ongoing ${v}</th>`).join('')}<th scope="col" class="num">Positions 2027</th><th scope="col" class="num">Positions, four years added</th></tr></thead><tbody>
           ${rows.map(([n, r]) => `<tr><td>${esc(n)}</td><td class="num">${fmt(r.n)}</td><td class="num">${usdZ(r.one)}</td>${r.ong.map(v => `<td class="num">${usdZ(v)}</td>`).join('')}<td class="num">${fmt(r.fte[0])}</td><td class="num">${fmt(sum(r.fte))}</td></tr>`).join('')}
           <tr class="tot"><td>All operating requests</td><td class="num">${fmt(op.length)}</td><td class="num">${usdS(F.bcOne)}</td>${F.bcOng.map(v => `<td class="num">${usdS(v)}</td>`).join('')}<td class="num">${fmt(F.bcFte[0])}</td><td class="num">${fmt(sum(F.bcFte))}</td></tr></tbody></table></div>
-        <p class="card-note">${st('calc', 'Calculated')} Each request’s own figures, added by department. “Ongoing” figures are additions to the base budget in that year, shown as the City prints them. Where the centre gives one ongoing amount for a request it adds the yearly figures, as the City itself does in its notes (for example on requests 124 and 293). The cash cost over the four years, which would count each addition again in every later year, is not worked out, because the document does not state it. Where the document prints a department’s name in more than one way, the match is listed under Data checks.</p>` : empty('Business cases not loaded', S.err.BC)}</section>`;
+        <p class="card-note">${st('calc', 'Calculated')} Each request’s own figures, added by department. “Ongoing” figures are additions to the base budget in that year, shown as the City prints them. Where the centre gives one ongoing amount for a request it adds the yearly figures, as the City itself does in its notes (for example on requests 124 and 293). The cash cost over the four years, which would count each addition again in every later year, is not worked out, because the document does not state it. Where the document prints a department’s name in more than one way, the match is listed under Data checks.${op.some(c => isNum(c.full_one_time_m)) ? ` One-time amounts are what each table shows: for ${fmt(op.filter(c => isNum(c.full_one_time_m)).length)} requests the City’s note says the budget includes only part of the full request (${usd(sum(op.filter(c => isNum(c.full_one_time_m)).map(c => sum(c.one_time_m))))} of ${usd(sum(op.filter(c => isNum(c.full_one_time_m)).map(c => c.full_one_time_m)))}); they are listed under Data checks.` : ''}</p>` : empty('Business cases not loaded', S.err.BC)}</section>`;
     const lab = [...yrsA, ...Y4];
     chart('op', $('#bi-op-chart'), { type: 'bar', data: { labels: lab, datasets: [
       { label: 'Approved', data: lab.map(v => yrsA.includes(v) ? b.totals[v].operating.value : null), backgroundColor: series(2), borderRadius: 4 },
@@ -392,7 +394,7 @@
         <div class="table-wrap" style="margin-top:12px"><table class="data bi-matrix"><thead><tr><th scope="col">Millions of dollars</th>${yrs.map(y => `<th scope="col" class="num">${y}</th>`).join('')}</tr></thead><tbody>
           <tr><th scope="row">Operating</th>${yrs.map(y => `<td>${cell(y, 'operating')}</td>`).join('')}</tr>
           <tr><th scope="row">Capital</th>${yrs.map(y => `<td>${cell(y, 'capital')}</td>`).join('')}</tr></tbody></table></div>
-        <p class="card-note">2023 to 2026 and the years after 2030 are from the ${src(`open budget (${b.dataset})`, b.page)}; 2027 to 2030 are from the ${src(`2027–2030 Budget open data (${P.dataset})`, P.page)}, where “Approved” is capital approved in earlier budgets. Capital already approved for 2031 and 2032 is on the City budget screen.</p></section>
+        <p class="card-note">2023 to 2026 are from the ${src(`open budget (${b.dataset})`, b.page)}; 2027 to 2030 are from the ${src(`2027–2030 Budget open data (${P.dataset})`, P.page)}, where “Approved” is capital approved in earlier budgets. The years after 2030 are left out here: the two datasets spread already-approved capital over the years differently (see Data checks), so adding 2031 and 2032 from one to 2027 to 2030 from the other could count the same money twice.</p></section>
       <section class="card"><div class="card-head"><div><h2>What is missing, and where it exists</h2><p class="card-sub">Recorded as gaps, not filled with estimates</p></div></div>
         <div class="bi-alerts">
           <div class="bi-alert gap">${icon('alert')}<div><b>Operating spending against budget</b><span>The open budget lists operating as “Approved” for every year from 2023 to 2026 and publishes no actual. The City reports actual operating results in its annual financial report and year-end reports (PDF), which are not yet read into Calgary Insight.</span></div></div>
@@ -436,7 +438,7 @@
           <tr><td>Ongoing ($M)</td>${c.ongoing_m.map(v => `<td>${dash(v)}</td>`).join('')}</tr>
           <tr><td>Positions (FTEs)</td>${c.ftes.map(v => `<td>${dash(v)}</td>`).join('')}</tr></tbody></table>
          <p class="bi-src">The City’s table “Proposed funding amount”, as printed, in millions of dollars and full-time equivalents. A dash is the City’s own (nil).</p>
-         ${c.footnotes ? `<div class="bi-alert warn" style="margin-top:8px">${icon('info')}<div><b>The City adds a note under this table</b><span>It qualifies these figures (for example, how the amount is shared among business units, or how much of the full request the budget includes). Read it on page ${c.page}.</span></div></div>` : ''}`;
+         ${c.footnotes ? `<div class="bi-alert warn" style="margin-top:8px">${icon('info')}<div><b>The City adds a note under this table</b><span>${isNum(c.full_one_time_m) ? `The note gives the full one-time amount as ${usd(c.full_one_time_m)} and says the 2027–2030 budget includes only part of it; the table above shows that part (${usd(sum(c.one_time_m))}). ` : 'It qualifies these figures (for example, how the amount is shared among business units). '}Read it on page ${c.page}.</span></div></div>` : ''}`;
     const fact = (k, v) => v === null || v === undefined || v === '' ? '' : `<dt>${k}</dt><dd>${v}</dd>`;
     const tableX = table.replace('<table>', '<div class="bi-x"><table>').replace('</table>', '</table></div>');
     return `<div class="bi-case"><div class="bi-case-grid"><div>
@@ -451,7 +453,7 @@
         ${c.type === 'capital' ? fact('Budget ID', esc(c.budget_id)) + fact('Kind', esc(c.kind)) + fact('Ward(s)', c.wards === 'all' ? 'All wards' : 'Ward ' + c.wards.join(', ')) + fact('Stage', esc(c.stage)) + fact('New or existing', c.new ? 'New opportunity' : 'Existing opportunity') + fact('Funding source', esc(c.funding)) + fact('Service area', esc(c.service_area)) + fact('Corporate risk', esc(c.corp_risk)) + fact('Operating risk', esc(c.op_risk))
           : fact('City’s risk rating', c.risk ? esc(c.risk) : '<span class="bi-na">not stated</span>') + fact('Measured by', c.metric ? esc(c.metric) : '<span class="bi-na">no measure stated</span>') + fact('Long-term plan', esc(c.plan))}
         </dl>
-        ${areas.length ? `<h3>Data on the same subject</h3><p class="bi-src" style="margin-top:0">${areas.map(a => a[0].includes('/') ? `<a href="${esc(a[0])}">${esc(a[1])}</a>: ${esc(a[2])}` : `<button type="button" class="link-btn small" data-goto="${esc(a[0])}">${esc(a[1])}</button> ${esc(a[2])}`).join('<br>')}</p>` : ''}
+        ${areas.length ? `<h3>Data on the same subject</h3><p class="bi-src" style="margin-top:0">${areas.map(a => a[0].includes('/') && safeUrl(a[0]) ? `<a href="${esc(safeUrl(a[0]))}">${esc(a[1])}</a>: ${esc(a[2])}` : `<button type="button" class="link-btn small" data-goto="${esc(a[0])}">${esc(a[1])}</button> ${esc(a[2])}`).join('<br>')}</p>` : ''}
       </div></div></div>`;
   }
   function casesView(main) {
@@ -565,7 +567,7 @@
         <div class="bi-hypo"><b>This is a what-if, not a tax bill and not a forecast.</b> It applies one percentage evenly to this year’s tax. Real bills depend on how each home’s 2027 assessment changes against the rest of the city, and on what Council finally approves.</div>
         <div class="bi-sim"><div>
           <label>Your home’s 2026 assessed value<input type="number" id="bi-sim-v" min="50000" max="20000000" step="1000" value="${typical}" inputmode="numeric"></label>
-          <label>Increase in municipal property tax for 2027: <output id="bi-sim-p-out">${fmt(prop, 1)}%</output>
+          <label for="bi-sim-p">Increase in municipal property tax for 2027: <output id="bi-sim-p-out">${fmt(prop, 1)}%</output>
             <input type="range" id="bi-sim-p" min="0" max="20" step="0.5" value="${prop}" aria-describedby="bi-sim-hint"></label>
           <p class="bi-src" id="bi-sim-hint">${st('proposed', 'Proposed')} The proposed budget asks for ${fmt(prop)}% more property tax revenue from existing properties in 2027. Move the slider to see other outcomes Council could choose.</p>
         </div><div><div class="bi-sim-out" id="bi-sim-out" aria-live="polite"></div></div></div>
@@ -661,9 +663,19 @@
       cap.forEach(c => { const k = buKey(c.bu); c2[k] = (c2[k] || 0) + sum(c.cap_k.slice(1, 5)) / 1000; });
       const names = [...new Set([...Object.keys(o), ...Object.keys(c2)])].sort();
       const diff = names.map(n => [n, c2[n] || 0, o[n] || 0, (c2[n] || 0) - (o[n] || 0)]), off = diff.filter(r => Math.abs(r[3]) > 1), net = sum(off.map(r => r[3]));
+      // for a unit that differs: is there one request whose amount equals the difference in every year? (worked out from today's data)
+      const oy = {};
+      Y4.forEach((y, i) => ((P.by_department[y] || {}).capital || []).forEach(d => (d.units || []).forEach(u => { if (u.status === 'proposed') (oy[u.name] = oy[u.name] || [0, 0, 0, 0])[i] += u.value; })));
+      const one = off.map(r => {
+        const mine = cap.filter(c => buKey(c.bu) === r[0]);
+        const dy = [0, 1, 2, 3].map(i => sum(mine.map(c => c.cap_k[i + 1])) / 1000 - ((oy[r[0]] || [])[i] || 0));
+        const hit = mine.find(c => sum(c.cap_k.slice(1, 5)) > 0 && [0, 1, 2, 3].every(i => Math.abs((c.cap_k[i + 1] || 0) / 1000 - dy[i]) <= 0.2));
+        return hit ? [r[0], hit] : null;
+      }).filter(Boolean);
       add(off.length ? 'note' : 'pass', 'The same check, business unit by business unit', off.length ? `${fmt(names.length - off.length)} of ${fmt(names.length)} business units match within $1 million; ${fmt(off.length)} differ, and their differences net to ${usd(Math.abs(net))}.` : `All ${fmt(names.length)} business units match within $1 million.`,
         (off.length ? `<p>The ${fmt(off.length)} that differ almost cancel out, which suggests the two sources file some of the same projects under different business units (for example the unit that asks for a project and the unit that builds it). That is an inference from the numbers; the City has not published a mapping.</p>` : '')
-        + tbl(['Business unit ($ millions, 2027–2030)', 'Business cases', 'Open data, proposed', 'Difference'], diff.sort((a, c) => Math.abs(c[3]) - Math.abs(a[3])).map(r => [esc(r[0]), fmt(r[1], 1), fmt(r[2], 1), (Math.abs(r[3]) > 1 ? '<b>' : '') + fmt(r[3], 1) + (Math.abs(r[3]) > 1 ? '</b>' : '')])),
+        + (one.length ? `<p style="margin-top:8px">For ${fmt(one.length)} of them, a single request equals the difference in every year from 2027 to 2030 (within $0.2 million), which is what would be seen if the open data files that request under another unit: ${one.map(([n, c]) => `${esc(n)}: <button type="button" class="link-btn small" data-case="${c.n}">${c.n}. ${esc(c.title)}</button> (${usd(sum(c.cap_k.slice(1, 5)) / 1000)})`).join('; ')}.</p>` : '')
+        + tbl(['Business unit ($ millions, 2027–2030)', 'Business cases', 'Open data, proposed', 'Difference'], diff.sort((a, c) => Math.abs(c[3]) - Math.abs(a[3])).map(r => [esc(r[0]), fmt(r[1], 1), fmt(r[2], 1), (Math.abs(r[3]) > 1 ? '<b>' : '') + fmt(Math.abs(r[3]) < 0.05 ? 0 : r[3], 1) + (Math.abs(r[3]) > 1 ? '</b>' : '')])),
         { Formula: 'for each business unit: Σ cases (2027–2030) − Σ open-data proposed capital (2027–2030)', Inputs: `business-cases.json, crosswalk.json, ${P.dataset}`, Limits: 'Business-unit names are matched through the crosswalk; a difference over $1 million is listed.' });
     }
     if (b) {
@@ -676,9 +688,21 @@
       if (P) {
         const rows = Y4.filter(y => (b.totals[y] || {}).capital && isNum((P.totals[y].capital || {}).approved)).map(y => [y, b.totals[y].capital.value, P.totals[y].capital.approved]);
         const differs = rows.filter(r => Math.abs(r[1] - r[2]) > 1);
+        // where the largest difference sits, unit by unit, as each dataset names its units (worked out from today's data; nothing is merged or renamed)
+        let where = '';
+        if (differs.length) {
+          const yr = differs.slice().sort((x, y) => Math.abs(y[2] - y[1]) - Math.abs(x[2] - x[1]))[0][0];
+          const unitsOf = (L, status) => { const m = {}; (L || []).forEach(d => (d.units || []).forEach(u => { if (!status || u.status === status) m[u.name] = (m[u.name] || 0) + u.value; })); return m; };
+          const A = unitsOf((b.by_department[yr] || {}).capital), B = unitsOf(((P.by_department || {})[yr] || {}).capital, 'approved');
+          const top = [...new Set([...Object.keys(A), ...Object.keys(B)])].map(n => [n, A[n], B[n], (B[n] || 0) - (A[n] || 0)]).filter(r => Math.abs(r[3]) >= 5).sort((x, y) => Math.abs(y[3]) - Math.abs(x[3])).slice(0, 10);
+          const cellM = v => isNum(v) ? fmt(v, 1) : '<span class="bi-na">not listed</span>';
+          if (top.length) where = `<p style="margin-top:10px"><b>Where the ${yr} difference is.</b> Business units as each dataset names them, where the two differ by $5 million or more:</p>`
+            + tbl(['Business unit', `Open budget (${b.dataset})`, `2027–2030 Budget (${P.dataset})`, 'Difference'], top.map(r => [esc(r[0]), cellM(r[1]), cellM(r[2]), (r[3] > 0 ? '+' : '') + fmt(r[3], 1)]))
+            + '<p style="margin-top:8px">A unit listed in only one dataset may be the same work under another name; the centre does not merge names. Money can also be moved between years from one publication to the next, so a difference in one year is not by itself a change in the total.</p>';
+        }
         if (rows.length) add(differs.length ? 'note' : 'pass', 'Two City datasets give different figures for capital already approved', differs.length ? `For ${differs.map(r => r[0]).join(', ')} the 2023–2026 open budget and the 2027–2030 open data disagree.` : 'They agree.',
           tbl(['Capital already approved ($ millions)', ...rows.map(r => r[0])], [[`Open budget (${b.dataset})`, ...rows.map(r => fmt(r[1], 1))], [`2027–2030 Budget (${P.dataset})`, ...rows.map(r => fmt(r[2], 1))], ['Difference', ...rows.map(r => fmt(r[2] - r[1], 1))]])
-          + '<p style="margin-top:8px">Neither figure is changed. The centre uses the 2027–2030 data for those years, because it is the newer publication and it is the one the proposed budget is built on; the City budget screen shows the older dataset’s figures. The City has not published a reconciliation.</p>',
+          + '<p style="margin-top:8px">Neither figure is changed. The centre uses the 2027–2030 data for those years, because it is the newer publication and it is the one the proposed budget is built on; the City budget screen shows the older dataset’s figures. The City has not published a reconciliation.</p>' + where,
           { Formula: 'approved capital for the year, one dataset minus the other', Inputs: `${b.dataset}; ${P.dataset}` });
         const plan = b.plan_2027;
         if (plan) {
@@ -709,6 +733,12 @@
           ...bMiss.map(n => [esc(n), '<span class="bi-na">not matched</span>', esc((S.XW.business_units_unmatched || {})[n] || 'Not in the open data’s list of business units with a budget line in 2027 to 2030.')])]),
         { Inputs: 'ui/budget-intel/crosswalk.json', Limits: 'The document’s names are never changed; the match is used only to group and compare.' });
     }
+    const part = cases().filter(c => isNum(c.full_one_time_m));
+    if (part.length) add('note', 'Some one-time requests are only partly in the proposed budget', `${fmt(part.length)} requests: ${usd(sum(part.map(c => sum(c.one_time_m))))} in their tables, ${usd(sum(part.map(c => c.full_one_time_m)))} stated as the full amounts.`,
+      '<p>For these requests the City’s note under the table gives a larger four-year total than the table, and says the rest may or will be considered in later budget adjustments. The centre’s one-time totals add the tables, which is what the proposed budget includes; they are not the full amounts the notes state.</p>'
+      + tbl(['Request', 'In the table ($M)', 'Full amount in the City’s note ($M)'], part.map(c => [`<button type="button" class="link-btn small" data-case="${c.n}">${c.n}. ${esc(c.title)}</button>`, fmt(sum(c.one_time_m), 1), fmt(c.full_one_time_m, 1)]))
+      + '<p style="margin-top:8px">Both columns are the City’s figures as printed. Where a note’s own wording of the included amount differs from the table by $0.1 million, that is the City’s rounding; nothing is adjusted.</p>',
+      { Formula: 'Σ one-time amounts in the table, against the total stated in the note', Inputs: 'one_time_m and full_one_time_m of each operating case' });
     add('note', 'Operating requests cannot be reconciled to a published total', 'The City publishes no total that the 124 operating requests should add to.', 'The open data gives each business unit’s whole operating budget, not the part that comes from new requests, so there is nothing to check the sum against. The requests’ own figures were still read twice and agree.', {});
     return (S.checks = out);
   }
@@ -716,7 +746,7 @@
     const L = runChecks(), n = k => L.filter(c => c.res === k).length;
     const word = { pass: 'Passed', note: 'To know', warn: 'Check', gap: 'Missing' };
     main.innerHTML = `
-      <section class="card"><div class="card-head"><div><h2>Checks on the figures in this centre</h2><p class="card-sub">Run in your browser on today’s data: ${fmt(n('pass'))} passed, ${fmt(n('note'))} to know about, ${fmt(n('warn'))} to check, ${fmt(n('gap'))} missing</p></div></div>
+      <section class="card"><div class="card-head"><div><h2>Checks on the figures in this centre</h2><p class="card-sub">Run in your browser on today’s data: ${fmt(n('pass'))} passed, ${fmt(n('note'))} to know about, ${fmt(n('warn'))} to check, ${fmt(n('gap'))} missing</p></div><div class="card-tools"><button type="button" class="link-btn small" data-method="budget_intelligence">How it’s counted</button></div></div>
         <p class="bi-lead">Every check says what was compared and how, so anyone can repeat it. <b>Nothing in a source is ever corrected to make a check pass:</b> where two City sources disagree, both figures are shown.</p>
         <div style="margin-top:12px">${L.map(c => `<details class="bi-check"><summary><span class="res ${c.res}">${word[c.res]}</span><span><b>${esc(c.title)}</b><br><span style="color:var(--muted-fg);font-size:12.5px">${esc(c.short)}</span></span></summary>
           <div class="body">${c.body}${Object.keys(c.meta).length ? `<dl>${Object.entries(c.meta).filter(([, v]) => v).map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>` : ''}</div></details>`).join('')}</div></section>
@@ -740,23 +770,29 @@
     try { const q = new URLSearchParams(location.search); if (q.get('bi')) sec = q.get('bi'); if (q.get('case') && S.BC) { S.open = +q.get('case'); sec = 'cases'; } } catch (e) { /* none */ }
     go(sec, true);
   }
+  // Every redraw replaces the buttons it contains, so the focus is put back on the control that was used: a keyboard or
+  // screen-reader user stays where they were instead of being sent to the top of the page.
+  const refocus = sel => { const el = document.querySelector(sel); if (el) el.focus({ preventScroll: true }); };
   document.addEventListener('click', e => {
     const view = e.target.closest('#view-budget-intelligence'); if (!view) return;
     const s = e.target.closest('[data-sec]');
     if (s) {
+      const inRail = !!s.closest('#bi-rail'), sec = s.dataset.sec;
       if (s.dataset.type !== undefined || s.dataset.q !== undefined) { S.f = { q: s.dataset.q || '', type: s.dataset.type || '', theme: '', dept: '', ward: '', rationale: '', risk: '', stage: '', fund: '', flag: '', sort: 'amount' }; S.open = null; S.page = 0; }
-      go(s.dataset.sec); return;
+      go(sec);
+      if (inRail) refocus(`#bi-rail [data-sec="${S.sec}"]`); else { const m = $('#bi-main'); m.tabIndex = -1; m.focus({ preventScroll: true }); }
+      return;
     }
     const c = e.target.closest('[data-case]');
-    if (c) { const n = +c.dataset.case; if (S.sec === 'cases' && S.open === n) { S.open = null; listCases(); } else openCase(n); return; }
+    if (c) { const n = +c.dataset.case; if (S.sec === 'cases' && S.open === n) { S.open = null; listCases(); } else openCase(n); refocus(`#bi-case-list [data-case="${n}"]`); return; }
     const pg = e.target.closest('[data-page]');
-    if (pg) { S.page += +pg.dataset.page; S.open = null; listCases(); const t = $('#bi-case-list'); if (t) t.scrollIntoView({ block: 'start' }); return; }
+    if (pg) { const dir = pg.dataset.page; S.page += +dir; S.open = null; listCases(); const t = $('#bi-case-list'); if (t) t.scrollIntoView({ block: 'start' }); refocus(`.bi-pager [data-page="${dir}"]:not([disabled])`); if (!document.activeElement || !document.activeElement.closest('.bi-pager')) refocus('.bi-pager [data-page]:not([disabled])'); return; }
     const v = e.target.closest('.bi-seg [data-v]');
-    if (v) { const id = v.parentElement.id; if (id === 'bi-op-years') S.opYear = v.dataset.v; if (id === 'bi-cap-years') S.capYear = v.dataset.v; if (id === 'bi-rev-years') S.revYear = v.dataset.v; go(S.sec, true); return; }
+    if (v) { const id = v.parentElement.id; if (id === 'bi-op-years') S.opYear = v.dataset.v; if (id === 'bi-cap-years') S.capYear = v.dataset.v; if (id === 'bi-rev-years') S.revYear = v.dataset.v; go(S.sec, true); refocus(`#${id} [data-v="${v.dataset.v}"]`); return; }
     if (e.target.closest('#bi-export')) {
       const L = filtered();
-      saveList(e.target.closest('#bi-export'), 'Calgary 2027-2030 budget requests', ['No.', 'Title', 'Kind', 'Council priority', 'Department', 'Business unit', 'Reason given', 'Capital total ($000s)', 'Capital 2027', 'Capital 2028', 'Capital 2029', 'Capital 2030', 'Capital 2031 and later', 'One-time 2027 ($M)', 'One-time 2028', 'One-time 2029', 'One-time 2030', 'Ongoing 2027 ($M)', 'Ongoing 2028', 'Ongoing 2029', 'Ongoing 2030', 'FTEs 2027', 'FTEs 2028', 'FTEs 2029', 'FTEs 2030', 'Ward(s)', 'Stage', 'Funding source', 'Service area', 'Budget ID', 'Status', 'Page in the City document'],
-        L.map(c => [c.n, c.title, c.type, c.theme, c.dept, c.bu, c.rationale, ...(c.cap_k || Array(6).fill('')), ...(c.one_time_m || Array(4).fill('')), ...(c.ongoing_m || Array(4).fill('')), ...(c.ftes || Array(4).fill('')),
+      saveList(e.target.closest('#bi-export'), 'Calgary 2027-2030 budget requests', ['No.', 'Title', 'Kind', 'Council priority', 'Department', 'Business unit', 'Reason given', 'Capital total ($000s)', 'Capital 2027', 'Capital 2028', 'Capital 2029', 'Capital 2030', 'Capital 2031 and later', 'One-time 2027 ($M)', 'One-time 2028', 'One-time 2029', 'One-time 2030', 'Ongoing 2027 ($M)', 'Ongoing 2028', 'Ongoing 2029', 'Ongoing 2030', 'FTEs 2027', 'FTEs 2028', 'FTEs 2029', 'FTEs 2030', 'Full one-time amount in the City note ($M)', 'Ward(s)', 'Stage', 'Funding source', 'Service area', 'Budget ID', 'Status', 'Page in the City document'],
+        L.map(c => [c.n, c.title, c.type, c.theme, c.dept, c.bu, c.rationale, ...(c.cap_k || Array(6).fill('')), ...(c.one_time_m || Array(4).fill('')), ...(c.ongoing_m || Array(4).fill('')), ...(c.ftes || Array(4).fill('')), isNum(c.full_one_time_m) ? c.full_one_time_m : '',
           c.type === 'capital' ? (c.wards === 'all' ? 'All wards' : c.wards.join('; ')) : '', c.stage || '', c.funding || '', c.service_area || '', c.budget_id || '', 'Proposed, not approved', c.page]));
     }
   });
@@ -765,6 +801,17 @@
     if (e.target.name === 'bi-layer') { S.layer = e.target.value; drawMap(); return; }
     const f = e.target.dataset && e.target.dataset.f;
     if (f) { S.f[f] = e.target.value; S.page = 0; S.open = null; listCases(); }
+  });
+  // the section rail is a radio group: the arrow keys, Home and End move between sections, as in the rest of the site
+  document.addEventListener('keydown', e => {
+    const b = e.target.closest && e.target.closest('#bi-rail [role="radio"]'); if (!b) return;
+    const all = Array.from(document.querySelectorAll('#bi-rail [role="radio"]')), i = all.indexOf(b);
+    const to = { ArrowRight: i + 1, ArrowDown: i + 1, ArrowLeft: i - 1, ArrowUp: i - 1, Home: 0, End: all.length - 1 }[e.key];
+    if (to === undefined) return;
+    e.preventDefault();
+    const sec = all[(to + all.length) % all.length].dataset.sec;
+    go(sec, true);
+    const n = document.querySelector(`#bi-rail [data-sec="${sec}"]`); if (n) n.focus();
   });
   let qT;
   document.addEventListener('input', e => { if (e.target.id === 'bi-q') { clearTimeout(qT); qT = setTimeout(() => { S.f.q = e.target.value; S.page = 0; S.open = null; listCases(); }, 180); } });

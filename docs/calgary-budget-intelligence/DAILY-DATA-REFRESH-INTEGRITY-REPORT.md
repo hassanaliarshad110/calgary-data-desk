@@ -1,5 +1,7 @@
 # DAILY DATA REFRESH INTEGRITY REPORT
 
+> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instruction), the commercial opportunity was removed (the owner's instruction), and a second-stage audit added one data field and fixed several defects. Where this page and `FINAL-VERIFICATION/` differ, `FINAL-VERIFICATION/` is the current state.
+
 Calgary Insight, Budget Intelligence development. Prepared 2026-11-11 against production commit `ff42583` (branch `main`).
 
 **Result: the daily data-refresh system is intact and unchanged.** No refresh command, schedule, workflow, API connection, credential reference or data source was deleted, renamed, replaced, disabled or modified. No scheduler was added. No refreshed dataset is overwritten by static data. Nothing has been pushed to `main` and nothing has been deployed.

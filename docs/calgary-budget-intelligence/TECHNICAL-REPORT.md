@@ -1,8 +1,10 @@
 # Calgary Budget Intelligence & Accountability Centre: full technical report
 
+> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instruction), the commercial opportunity was removed (the owner's instruction), and a second-stage audit added one data field and fixed several defects. Where this page and `FINAL-VERIFICATION/` differ, `FINAL-VERIFICATION/` is the current state.
+
 Prepared 2026-11-11. Production at the time: `main` = `ff42583`, published by Website run 42977312843. Development branch: `budget-intelligence` (local, not pushed to `main`, not deployed).
 
-Contents: A. Executive summary · B. Platform audit · C. Backup verification · D. Architecture · E. File change register · F. Data source register · G. Financial validation · H. Functional tests · I. Visual review · J. Known limitations · K. Security review · L. Commercial opportunity · M. Deployment and rollback · N. Recommendation
+Contents: A. Executive summary · B. Platform audit · C. Backup verification · D. Architecture · E. File change register · F. Data source register · G. Financial validation · H. Functional tests · I. Visual review · J. Known limitations · K. Security review · L. Commercial opportunity (removed from the plan) · M. Deployment and rollback · N. Recommendation
 
 ---
 
@@ -14,7 +16,7 @@ A new screen, the **Budget Intelligence & Accountability Centre** (`?view=budget
 - It adds one new dataset: **all 384 business cases** from the City's 792-page "2027–2030 budget request business cases", read from the City's PDF with each case's amounts, positions, categories and page number. Every figure row was read twice with two different PDF readers (1,152 rows, no differences).
 - The 260 capital cases add up to **$13,051.5 million**, and reconcile with the City's separately published open data to within **0.07% in every year** (a $4.7 million difference on $13.0 billion).
 - Every figure is labelled approved, actual, proposed, reported, City estimate, calculated or hypothetical. Where the City publishes nothing, the screen says "not published" and computes nothing. The most important example: **budget against actual spending cannot be compared from the City's open data**, and the screen says so instead of inventing a variance.
-- Existing code touched: 31 added lines in 3 files, no line removed. The published script bundle is byte-identical to production once the new screen's block is removed. All 26 existing screens were opened on desktop and phone before and after: no script errors, no differences.
+- Existing code touched: 91 added lines in 6 files and two edited lines (31 lines in 3 files at the first review; the rest wires the assistants to the new data, see `FINAL-VERIFICATION/4-CODE-AND-SECURITY.md`). The published script bundle is byte-identical to production once the new screen's block is removed. All 26 existing screens were opened on desktop and phone before and after: no script errors, no differences.
 - The daily refresh is unchanged: workflows byte-identical, schedules and scheduled tasks the same (`DAILY-DATA-REFRESH-INTEGRITY-REPORT.md`).
 
 Nothing is published. Publication waits for explicit approval.
@@ -172,7 +174,7 @@ Each case: `n`, `title`, `theme`, `page`, `pages`, `type`, `dept`, `bu`, `ration
 
 Requested, recommended, approved: the City's document prints **one** set of amounts per case, the amounts in the proposed budget. Its opening page says a description may cover more than is funded. Where the full request is larger, the City says so in a note under the table (20 operating cases carry such notes; for example case 14 states a full request of $302.9 million of which the budget includes $113.3 million). The dataset flags those cases and sends the reader to the page; it does not restate the notes. Nothing is approved until Council votes.
 
-**What is deliberately not in the dataset:** the City's written descriptions, benefits and risk statements. They are the City's prose, they run to hundreds of pages, and re-publishing them inside a product intended to earn revenue is a copyright question the owner should decide. Every case links to its exact page in the City's PDF instead. See J.2.
+**What is deliberately not in the dataset:** the City's written descriptions, benefits and risk statements. They are the City's prose, they run to hundreds of pages, and re-publishing the City's prose is a copyright question the owner should decide. Every case links to its exact page in the City's PDF instead. See J.2.
 
 ### D.5 Preparing the three flagship investigations (architecture only; no conclusions are published)
 
@@ -188,7 +190,7 @@ Requested, recommended, approved: the City's document prints **one** set of amou
 
 Counts are against `main` at `ff42583`.
 
-### Existing files changed (3 files, 31 lines added, 0 removed)
+### Existing files changed (at the first review: 3 files, 31 lines added, 0 removed; now 6 files, 91 lines added, 2 edited: see `CHANGE-SUMMARY.md`)
 
 | File | Change | Why |
 |---|---|---|
@@ -234,7 +236,7 @@ No existing screen was restyled. The new screen follows the reference layout tha
 
 ## G. Financial validation report
 
-Machine-readable: `validation-report.json` (from `tools/budget_intel_check.py`: 15 pass, 4 notes, 1 gap, 0 failures). The same checks run in the browser on the Data checks section.
+Machine-readable: `validation-report.json` (from `tools/budget_intel_check.py`: 15 pass, 5 notes, 1 gap, 0 failures; the fifth note, added by the second-stage audit, lists the 17 one-time requests that are only partly in the proposed budget). The same checks run in the browser on the Data checks section.
 
 ### G.1 Extraction of the business cases
 
@@ -329,7 +331,7 @@ Accessibility: every status is text, not colour alone; the map has a table alter
 ## J. Known limitations
 
 1. **The business cases are a snapshot** of a document the City last changed on 2026-11-09. After Council's decisions the City may publish a new version; the reconciliation checks will then fail visibly, which is the cue to re-read it by hand.
-2. **Descriptions, benefits and risks are linked, not copied** (D.4). This is a choice for the owner: (a) keep links only, (b) add them after confirming the City's terms allow republication in a commercial product, or (c) add short neutral summaries written and checked case by case.
+2. **Descriptions, benefits and risks are linked, not copied** (D.4). This is a choice for the owner: (a) keep links only, (b) add them after confirming the City's terms allow republication, or (c) add short neutral summaries written and checked case by case.
 3. **No budget-versus-actual comparison**, because the City does not publish the pairs as open data.
 4. **Operating requests cannot be reconciled to a published total.**
 5. **No four-year cash cost for ongoing operating requests.**
@@ -361,11 +363,9 @@ Accessibility: every status is text, not colour alone; the map has a table alter
 
 ---
 
-## L. Commercial opportunity
+## L. Commercial opportunity (removed from the plan)
 
-Proposal and indicative pricing only; no payment, sign-in or paywall code was written. **The proposal itself is kept out of this repository on purpose, because the repository is public.** It was delivered to the owner privately with this review (file `COMMERCIAL-OPPORTUNITY.md` and the private review page), and can be added here if the owner wants it public.
-
-In one line: the public centre stays open at no charge; the paid ideas are watch lists and alerts on Council's decisions, team and briefing tiers, a data licence, and commissioned briefs. All are untested assumptions.
+Removed from the plan for now at the owner's instruction of November 11, 2026. No commercial proposal, pricing, payment, sign-in or paywall is part of this work, and none is in this repository or on the review page. The centre is a public screen like every other screen of the site.
 
 ---
 
@@ -386,7 +386,7 @@ Publication is a push to `main`. That starts the Website workflow, which rebuild
 
 ### M.3 Rollback
 
-- **Fast:** `git revert` the publication commit on `main` and push. The site returns to its previous state after one build. The revert removes 31 lines from three files and the new files; nothing else depends on them.
+- **Fast:** `git revert` the publication commit on `main` and push. The site returns to its previous state after one build. The revert removes the added lines from six files and the new files; nothing else depends on them.
 - **Exact:** `git push --force-with-lease origin backup/pre-budget-intelligence-20261111:main`, only if nothing else has been pushed since.
 - **Total loss:** restore from artifact `backup-7` (steps in `backup-manifest.json`).
 
@@ -404,7 +404,9 @@ The new screen cannot damage refreshed data: it writes nothing.
 
 ## N. Final recommendation
 
-**Recommend publishing**, on the evidence that: the change to existing code is 31 added lines in three files; the existing interface is byte-identical apart from those; all existing screens behave the same; the refresh system is untouched; and the new dataset reconciles with the City's own figures to 0.04%.
+**Recommend publishing**, on the evidence that: the change to existing code is 91 added lines in six files, all of them entries for the new screen; the existing interface is byte-identical apart from those; all existing screens behave the same; the refresh system is untouched; and the new dataset reconciles with the City's own figures to 0.04%.
+
+The second-stage audit (`FINAL-VERIFICATION/README.md`) re-checked all of this and lists what is still unverified: real devices, a screen reader, the laptop archive, and a full build of the branch with live data.
 
 Two things to decide first: whether links to the City's pages are enough for descriptions and risks (J.2), and whether the screen's name and its place under Money are right.
 

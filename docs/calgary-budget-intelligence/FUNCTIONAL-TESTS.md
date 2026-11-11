@@ -1,5 +1,7 @@
 # Functional test report
 
+> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instruction), the commercial opportunity was removed (the owner's instruction), and a second-stage audit added one data field and fixed several defects. Where this page and `FINAL-VERIFICATION/` differ, `FINAL-VERIFICATION/` is the current state.
+
 Run 2026-11-11 with Playwright (Chromium) against two local servers:
 
 - **Before:** the production build's own files (snapshot of Website run 42977312843: the published HTML, scripts, styles and `data/`).

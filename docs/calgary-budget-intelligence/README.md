@@ -4,6 +4,7 @@ Development branch `budget-intelligence`, based on production `main` = `ff42583`
 
 | Read first | |
 |---|---|
+| `FINAL-VERIFICATION/README.md` | **The second-stage verification (November 11): every finding marked PASS, FAIL or UNVERIFIED, with evidence and the command to repeat it** |
 | `EXECUTIVE-REVIEW.md` | Two pages: what was built, the evidence, the decisions needed |
 | `CHANGE-SUMMARY.md` | Exactly what changed in the site |
 | `DAILY-DATA-REFRESH-INTEGRITY-REPORT.md` | The refresh system before and after |
