@@ -729,7 +729,23 @@
     "fact": "In November 2023 (C2023-1148) Council approved a draw of $88 million from the FSR for new one-time operating and capital investments, and a further $100 million for new capital investments from the anticipated 2023 operating surplus flowing through the FSR. A $242 million contribution was also transferred from the FSR to the Major capital projects reserve (C2023-0482).",
     "source": "afr2023",
     "pdf_page": 30,
-    "printed_page": 28
+    "printed_page": 28,
+    "council_draws_m": [
+     {
+      "what": "one-time operating and capital investments (C2023-1148)",
+      "m": 88
+     },
+     {
+      "what": "new capital investments from the anticipated 2023 operating surplus flowing through the FSR (C2023-1148)",
+      "m": 100
+     }
+    ],
+    "transfers_to_other_reserves_m": [
+     {
+      "to": "Major capital projects reserve (C2023-0482)",
+      "m": 242
+     }
+    ]
    },
    {
     "year": "2024",
@@ -741,17 +757,41 @@
      "source": "afr2024",
      "pdf_page": 29,
      "printed_page": 27
-    }
+    },
+    "council_draws_m": [
+     {
+      "what": "one-time operating and capital investments (C2024-1097)",
+      "m": 61
+     }
+    ],
+    "transfers_to_other_reserves_m": [
+     {
+      "to": "Reserve for future capital and lifecycle maintenance and upgrade, RFC/LMUR (C2024-0552)",
+      "m": 136
+     }
+    ]
    },
    {
     "year": "2025",
     "fact": "In November 2025 (C2025-0901) Council approved a draw of $317 million from the FSR for new one-time operating and capital investments and contributions to the Heritage Incentive Reserve and the Heritage Calgary Reserve fund. A $15 million contribution was transferred from the FSR to the Opportunity Calgary Investment Fund (EC2025-0406).",
     "source": "afr2025",
     "pdf_page": 25,
-    "printed_page": 23
+    "printed_page": 23,
+    "council_draws_m": [
+     {
+      "what": "one-time operating and capital investments and contributions to the Heritage Incentive Reserve and the Heritage Calgary Reserve fund (C2025-0901)",
+      "m": 317
+     }
+    ],
+    "transfers_to_other_reserves_m": [
+     {
+      "to": "Opportunity Calgary Investment Fund (EC2025-0406)",
+      "m": 15
+     }
+    ]
    }
   ],
-  "limits": "The reports do not tie a particular year's surplus to a particular later spending decision or to property tax relief; the surplus joins the reserve balance, and Council approves draws from the reserve. Years before 2023 are not read here."
+  "limits": "The reports do not tie a particular year's surplus to a particular later spending decision or to property tax relief; the surplus joins the reserve balance, and Council approves draws from the reserve. Years before 2023 are not read here. Council draws (money approved for spending) and transfers to other reserves are kept apart: a transfer moves money between reserves and is not spending. Do not add the two together."
  },
  "investments": {
   "what": "How the City holds its money, reserves included: reserves are amounts set aside in its accounts, not separate bank accounts; the cash behind them is in one pooled City investment portfolio.",

@@ -121,7 +121,9 @@ def actual(data_dir=None, find=None):
            'operating_surplus_how': 'The City\'s tax-supported operating surplus for the year (its "operating fund variance"), as the City reports it. '
                                     'It is not the consolidated "annual surplus" of the financial statements, which counts capital contributions and '
                                     'is a different measure; never call that a budget surplus.',
-           'where_the_surplus_goes': [{**{x: r[x] for x in ('year', 'fact') if x in r}, 'source': _src(S, r['source'], r.get('pdf_page'), r.get('printed_page'))}
+           'where_the_surplus_goes': [{**{x: r[x] for x in ('year', 'fact', 'council_draws_m', 'transfers_to_other_reserves_m') if x in r},
+                                       **({'council_draws_total_m': sum(x['m'] for x in r['council_draws_m'])} if r.get('council_draws_m') else {}),
+                                       'source': _src(S, r['source'], r.get('pdf_page'), r.get('printed_page'))}
                                       for r in use.get('rows') or []],
            'where_the_surplus_goes_limits': use.get('limits'),
            'investments': _invest(B, S),
