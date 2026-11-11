@@ -53,15 +53,21 @@ step('ab mlas', lambda: save('elections/ab-mlas.html', get('https://www.assembly
 step('hoc', lambda: save('elections/hoc.xml', get('https://www.ourcommons.ca/members/en/search/xml')))
 def statcan(pid, keep=None):
     meta = json.loads(get(f'https://www150.statcan.gc.ca/t1/wds/rest/getFullTableDownloadCSV/{pid}/en'))
-    z = get(meta['object'], timeout=900)
-    with zipfile.ZipFile(io.BytesIO(z)) as zf:
+    tmp = os.path.join(OUT, f'_{pid}.zip')
+    with urllib.request.urlopen(urllib.request.Request(meta['object'], headers=UA), timeout=1800) as r, open(tmp, 'wb') as f:
+        while True:
+            chunk = r.read(1 << 20)
+            if not chunk: break
+            f.write(chunk)
+    with zipfile.ZipFile(tmp) as zf:
         for n in zf.namelist():
             if n.endswith('.csv') and 'MetaData' not in n:
-                data = zf.read(n)
-                if keep:
-                    lines = data.decode('utf-8-sig').splitlines(True)
-                    data = ''.join([lines[0]] + [l for l in lines[1:] if keep(l)]).encode()
-                save(f'statcan/{pid}.csv', data)
+                os.makedirs(os.path.join(OUT, 'statcan'), exist_ok=True)
+                with zf.open(n) as src, open(os.path.join(OUT, 'statcan', f'{pid}.csv'), 'w', encoding='utf-8') as dst:
+                    for i, line in enumerate(io.TextIOWrapper(src, encoding='utf-8-sig')):
+                        if i == 0 or keep is None or keep(line): dst.write(line)
+                LOG.append(f'saved statcan/{pid}.csv')
+    os.remove(tmp)
 for pid in ('35100191', '35100192', '35100193'):
     step('statcan ' + pid, lambda pid=pid: statcan(pid))
 step('statcan 24100055', lambda: statcan('24100055', lambda l: ('Calgary' in l or 'Toronto' in l or 'Vancouver' in l or 'Montr' in l or 'Edmonton' in l or '"Canada"' in l or 'Alberta' in l) and l[1:5] >= '2014'))
