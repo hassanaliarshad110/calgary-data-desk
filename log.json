@@ -454,9 +454,59 @@
      "youtube"
     ],
     "publish_at": "2026-11-11T15:00",
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/DfnZqcPlVwi/",
+     "facebook": "https://facebook.com/reel/2351127165426353",
+     "youtube": "https://www.youtube.com/shorts/T1V7weO-uj4"
+    },
+    "confirmed_by": "2026-11-11 PM run (getScheduledPosts 17:20)"
    }
   ],
   "post_note": "Scheduled at the fixed 15:00 CIVIC slot (created 13:27) with designed thumbnail, NEWS_POLITICS, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1)."
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Who was Crowchild? The chief behind Crowchild Trail",
+  "topic_used": "Crowchild Trail is named after David Crowchild, chief of the Tsuut'ina Nation 1946-1953; he gave his blessing to the road name after city officials asked his permission (The Sprawl), and said 'May this be a symbol of cutting all barriers between all peoples for all times to come' (Alberta Champions; Imagine/mycalgary.com). Naming year not used (sources say 1966 / 1968 ribbon / 1971).",
+  "changed_from_calendar": null,
+  "central_figure": "David Crowchild, chief of the Tsuut'ina Nation 1946-1953 (Calgary Guardian; Avenue Calgary); gave his blessing when city officials asked to name the road after him (The Sprawl)",
+  "sources": [
+   "https://calgaryguardian.com/whats-in-a-name-part-i",
+   "https://www.avenuecalgary.com/City-Life/15-Famous-Calgary-Names-Nellie-McClung-Barb-Scott-Tom-Baker",
+   "https://www.sprawlcalgary.com/you-cant-just-take-a-name",
+   "https://albertachampions.org/?p=165",
+   "https://mycalgary.com/?p=134884",
+   "https://www.ammsa.com/publications/windspeaker/crowchild-award-cause-celebrate"
+  ],
+  "length_s": 33.1,
+  "video_path": "studio-videos/2026-11-11-PM/crowchild-trail-chief.mp4",
+  "thumbnail_path": "studio-videos/2026-11-11-PM/crowchild-trail-chief-thumb.jpg",
+  "package": "packages/2026-11-11-PM-crowchild-trail-chief.md",
+  "audit": {
+   "rounds": 1,
+   "claims_checked": 5,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-11-PM.md"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 425080274,
+    "uuid": "-909838119547745351",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-909838119547745351",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-11T19:00",
+    "status": "scheduled"
+   }
+  ],
+  "post_note": "Scheduled at the fixed 19:00 PM slot (created 17:29) with designed thumbnail, EDUCATION, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1). Earlier today's CIVIC post confirmed PUBLISHED in this run."
  }
 ]
