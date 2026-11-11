@@ -317,9 +317,15 @@
      "facebook",
      "youtube"
     ],
-    "publish_at": "2026-11-11T11:00"
+    "publish_at": "2026-11-11T11:00",
+    "status": "PUBLISHED",
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/Dfm-sXliFoP/",
+     "facebook": "https://facebook.com/reel/2588474901665408",
+     "youtube": "https://www.youtube.com/shorts/0mFLe3d_N2M"
+    }
    }
   ],
-  "post_note": "Fixed 08:00 slot had passed (run started 10:31). Moved to 11:00: at least 10 min from scheduling, 80 min after the last post today (09:40) and 90 min before the 12:30 flagship slot. Playbook update at 10:45 (hook frame must match the thumbnail; no AI labels): the first 0.9 s now shows the designed thumbnail, video re-pushed (commit 91c05e0) and the scheduled post updated to that file (id 424669934 -> 424671706), isAiGenerated/isAiGeneratedContent false."
+  "post_note": "Fixed 08:00 slot had passed (run started 10:31). Moved to 11:00: at least 10 min from scheduling, 80 min after the last post today (09:40) and 90 min before the 12:30 flagship slot. Playbook update at 10:45 (hook frame must match the thumbnail; no AI labels): the first 0.9 s now shows the designed thumbnail, video re-pushed (commit 91c05e0) and the scheduled post updated to that file (id 424669934 -> 424671706), isAiGenerated/isAiGeneratedContent false. Confirmed PUBLISHED on all three at 11:08, no warnings."
  }
 ]
