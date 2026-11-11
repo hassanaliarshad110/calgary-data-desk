@@ -105,6 +105,7 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
   | Time | Post |
   |---|---|
   | 08:00 | AM fun fact |
+  | 10:00 | Calgary Origins: Wed = full film (YouTube) + Part 1; Thu = Part 2; Fri = Part 3; Sat = Part 4 (each part: Instagram Reel, Facebook Reel, YouTube Short) |
   | 12:30 | Flagship post A (vertical Short: Instagram Reel + YouTube Short) |
   | 15:00 | CIVIC / news explained (Mon/Wed/Fri) |
   | 17:30 | Flagship post B (widescreen: Facebook video + YouTube video) |
@@ -119,3 +120,10 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
 - If a post is rejected, fix the field the error names and retry once. If it still fails, log status `"made-not-posted"` with the error and tell Hassan. Never post the same video twice: check the log's `posted` field first.
 - **Confirm it went live.** Metricool can accept a post and then fail when it publishes (this happened on Nov 9 because of a plan limit). For a post due within 30 minutes, wait until 2-3 minutes past its publish time, then call getScheduledPosts (brandId 7089421, timezone America/Edmonton, a range covering today) and read each provider's `status`. PUBLISHED: record the `publicUrl`s in the log. ERROR: record the `detailedStatus`, set status `"made-not-posted"` and say so in the delivery message. Never report a video as posted until it shows PUBLISHED. Posts due later than 30 minutes are reported as "scheduled for HH:MM" and are confirmed by the next run (section 1).
 - Add `posted: [{metricool_id, plannerUrl, providers, publish_at}]` to the log entry, then commit and push the log again.
+
+## 8. Calgary Origins (weekly documentary series, from Nov 18, 2026)
+- One episode a week, released on **Wednesdays** (calendar rows with slot `ORIGINS`). Episode 1, "The Town That Moved Across the River", was posted on Nov 11 by Hassan.
+- Made by the scheduled task on the **Tuesday before**, following the `calgary-origins-documentary` skill (about 10 minutes, four 2:30 chapters, four vertical "PART n OF 4" reels), plus every rule in this playbook: content direction, the fact audit gate (section 3b) over the whole script (nothing is narrated or published until APPROVED; any open discrepancy the skill would ask Hassan about counts as not approved), site name shown as calgaryinsight.ca, opening hook and closing viewer question in each part, designed thumbnails (1280x720 for the film, 1080x1920 per part), short engaging captions with no numbers.
+- Narration uses the `studio-probe` lane (section 4), not `budget-probe`. Videos go to the `social-media` branch under `social/<slug>/` as the skill says.
+- Posting is spread across the week, never all together: Wed 10:00 full film to YouTube (type video) + Part 1; Thu 10:00 Part 2; Fri 10:00 Part 3; Sat 10:00 Part 4. Each part goes to Instagram Reel, Facebook Reel and YouTube Short. Captions end with "Part n of 4 · full film on our YouTube · calgaryinsight.ca" before the hashtags.
+- No repeats of topics in log.json, the already-posted list or the flagship calendar.

@@ -79,6 +79,17 @@
  {
   "date": "2026-11-11",
   "day": "Wed",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "skill": "calgary-origins-documentary",
+  "category": "Calgary Origins",
+  "topic": "Ep 1 (posted Nov 11): The Town That Moved Across the River",
+  "length": "~10 min film + 4 parts",
+  "format": "1920x1080 film + 4 x 1080x1920 parts (Parts 2-4 posted Thu/Fri/Sat 10:00)"
+ },
+ {
+  "date": "2026-11-11",
+  "day": "Wed",
   "slot": "FLAGSHIP",
   "type": "flagship",
   "skill": "calgary-storyteller",
@@ -310,6 +321,17 @@
  {
   "date": "2026-11-18",
   "day": "Wed",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "skill": "calgary-origins-documentary",
+  "category": "Calgary Origins",
+  "topic": "Ep 2: The Ranch Era: how cattle leases and ranchers turned Calgary into Cowtown (1880s-1900s)",
+  "length": "~10 min film + 4 parts",
+  "format": "1920x1080 film + 4 x 1080x1920 parts (Parts 2-4 posted Thu/Fri/Sat 10:00)"
+ },
+ {
+  "date": "2026-11-18",
+  "day": "Wed",
   "slot": "CIVIC",
   "type": "civic",
   "skill": "calgary-storyteller",
@@ -526,6 +548,17 @@
   "topic": "When Alberta went dry: Prohibition in Calgary",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
+ },
+ {
+  "date": "2026-11-25",
+  "day": "Wed",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "skill": "calgary-origins-documentary",
+  "category": "Calgary Origins",
+  "topic": "Ep 3: Boom and Bust: the 1912 land rush that drew Calgary's map, and the 1913 crash",
+  "length": "~10 min film + 4 parts",
+  "format": "1920x1080 film + 4 x 1080x1920 parts (Parts 2-4 posted Thu/Fri/Sat 10:00)"
  },
  {
   "date": "2026-11-25",
@@ -761,6 +794,17 @@
  {
   "date": "2026-12-02",
   "day": "Wed",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "skill": "calgary-origins-documentary",
+  "category": "Calgary Origins",
+  "topic": "Ep 4: From Normal School to University: the origins of the University of Calgary",
+  "length": "~10 min film + 4 parts",
+  "format": "1920x1080 film + 4 x 1080x1920 parts (Parts 2-4 posted Thu/Fri/Sat 10:00)"
+ },
+ {
+  "date": "2026-12-02",
+  "day": "Wed",
   "slot": "CIVIC",
   "type": "civic",
   "skill": "calgary-storyteller",
@@ -977,6 +1021,17 @@
   "topic": "The Calgary Stampede's Grandstand Show",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
+ },
+ {
+  "date": "2026-12-09",
+  "day": "Wed",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "skill": "calgary-origins-documentary",
+  "category": "Calgary Origins",
+  "topic": "Ep 5: From a grass field to YYC: the origins of Calgary's airport",
+  "length": "~10 min film + 4 parts",
+  "format": "1920x1080 film + 4 x 1080x1920 parts (Parts 2-4 posted Thu/Fri/Sat 10:00)"
  },
  {
   "date": "2026-12-09",
@@ -1212,6 +1267,17 @@
  {
   "date": "2026-12-16",
   "day": "Wed",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "skill": "calgary-origins-documentary",
+  "category": "Calgary Origins",
+  "topic": "Ep 6: Ogden Shops: how the CPR's giant rail yards built a working-class Calgary",
+  "length": "~10 min film + 4 parts",
+  "format": "1920x1080 film + 4 x 1080x1920 parts (Parts 2-4 posted Thu/Fri/Sat 10:00)"
+ },
+ {
+  "date": "2026-12-16",
+  "day": "Wed",
   "slot": "CIVIC",
   "type": "civic",
   "skill": "calgary-storyteller",
@@ -1428,6 +1494,17 @@
   "topic": "The Centre Street Bridge lions",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
+ },
+ {
+  "date": "2026-12-23",
+  "day": "Wed",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "skill": "calgary-origins-documentary",
+  "category": "Calgary Origins",
+  "topic": "Ep 7: The Lougheeds: a senator, a premier and the family that shaped Calgary",
+  "length": "~10 min film + 4 parts",
+  "format": "1920x1080 film + 4 x 1080x1920 parts (Parts 2-4 posted Thu/Fri/Sat 10:00)"
  },
  {
   "date": "2026-12-23",
@@ -1659,6 +1736,17 @@
   "topic": "Open pick: a surprising, verified Calgary fun fact or mini-story not used before",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
+ },
+ {
+  "date": "2026-12-30",
+  "day": "Wed",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "skill": "calgary-origins-documentary",
+  "category": "Calgary Origins",
+  "topic": "Ep 8: How the Flames came to Calgary: from Atlanta to the Corral in 1980",
+  "length": "~10 min film + 4 parts",
+  "format": "1920x1080 film + 4 x 1080x1920 parts (Parts 2-4 posted Thu/Fri/Sat 10:00)"
  },
  {
   "date": "2026-12-30",
