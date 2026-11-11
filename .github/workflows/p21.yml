@@ -1,0 +1,54 @@
+name: Probe 21
+on: {push: {branches: [site-check-21]}}
+permissions: {contents: write, actions: read}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Production website as published (read only)
+        env: {GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+        run: |
+          mkdir -p out/src
+          id=$(gh run list -R "${{ github.repository }}" --workflow site.yml --status success -L 1 --json databaseId -q '.[0].databaseId')
+          echo "site build run $id" > out/log.txt
+          gh run view "$id" -R "${{ github.repository }}" --json headSha,updatedAt,event >> out/log.txt
+          gh run download "$id" -R "${{ github.repository }}" -n github-pages -D pages
+          mkdir site && tar -xf pages/artifact.tar -C site
+          (cd site && find . -type f -printf '%s %p\n' | sort -k2 > ../out/site-files.txt)
+          (cd site && find . -type f \( -name '*.json' -o -name '*.html' -o -name '*.js' -o -name '*.css' -o -name '*.txt' -o -name '*.xml' \) -print0 | xargs -0 sha256sum > ../out/site-sha256.txt)
+          du -sh site site/* 2>/dev/null | sort -rh | head -40 >> out/log.txt
+          du -sh site/data/* 2>/dev/null | sort -rh | head -60 >> out/log.txt
+          # the part needed to run the app locally: screens, styles, scripts and the city-wide data (no videos, game or Python)
+          mkdir -p out/site
+          rsync -a --exclude 'video/' --exclude 'game/' --exclude 'pyodide/' --exclude 'py/' --exclude 'city-stories/' --exclude 'data/' --exclude 'visit/' --exclude 'studies/' --exclude 'w/' --exclude 'c/' --exclude 'news/' --exclude '*.mp4' --exclude '*.xlsx' --exclude '*.pdf' --max-size=3m site/ out/site/
+          mkdir -p out/site/data/city_actual out/site/data/missing
+          for f in site/data/*.json; do s=$(stat -c %s "$f"); if [ "$s" -lt 26000000 ]; then cp "$f" out/site/data/; else echo "left out (size $s): $f" >> out/log.txt; fi; done
+          cp site/data/city_actual/w0.json site/data/city_actual/w5.json out/site/data/city_actual/ 2>/dev/null || true
+          cp site/data/missing/w0.json out/site/data/missing/ 2>/dev/null || true
+          du -sh out/site >> out/log.txt
+      - name: Official sources (read only)
+        run: |
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+          g() { curl -sSL -A "$UA" --compressed --retry 3 --retry-delay 5 -o "out/src/$1" "$2" -w "$1 %{http_code} %{size_download} $2\n" >> out/log.txt || echo "FAILED $1 $2" >> out/log.txt; }
+          g budget-requests.pdf "https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf"
+          g budgets.html "https://www.calgary.ca/our-finances/budgets.html"
+          g budget-2026.html "https://www.calgary.ca/our-finances/2026-budget.html"
+          g budget-process.html "https://www.calgary.ca/our-finances/budget-process.html"
+          g capital-map.html "https://www.calgary.ca/planning/projects/capital-projects-map.html"
+          g meta-fqax.json "https://data.calgary.ca/api/views/fqax-i3nz.json"
+          g meta-nnnm.json "https://data.calgary.ca/api/views/nnnm-9sfh.json"
+          g meta-m5bi.json "https://data.calgary.ca/api/views/m5bi-n8x4.json"
+          g fqax-status.json "https://data.calgary.ca/resource/fqax-i3nz.json?\$select=year,budget_status,fund,count(*)%20as%20n,sum(budget)%20as%20total&\$group=year,budget_status,fund&\$order=year&\$limit=5000"
+          g nnnm-all.json "https://data.calgary.ca/resource/nnnm-9sfh.json?\$limit=50000"
+          g m5bi-all.json "https://data.calgary.ca/resource/m5bi-n8x4.json?\$limit=50000"
+          g cat-budget.json "https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&search_context=data.calgary.ca&q=budget&limit=100"
+          g cat-capital.json "https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&search_context=data.calgary.ca&q=capital%20project&limit=100"
+          g cat-actual.json "https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&search_context=data.calgary.ca&q=actual%20expenditure&limit=100"
+          g cat-performance.json "https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&search_context=data.calgary.ca&q=performance%20measures&limit=100"
+          ls -la out/src >> out/log.txt
+      - run: |
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q -b fetched-21
+          git add -f out && git commit -qm "Production snapshot (read only) and official budget sources" && git push -qf origin fetched-21
