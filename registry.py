@@ -80,7 +80,7 @@ PAGES = [
          files=[['business-cases.json', 'budget-intel/business-cases.json'], ['crosswalk.json', 'budget-intel/crosswalk.json'], ['budget-vs-actual.json', 'budget-intel/budget-vs-actual.json']],
          section='budget_intelligence', scientist='budget_requests',
          keywords='business case budget request proposed capital operating FTE positions accountability reconcile priority ward 2027 2030 '
-                  'budget against actual budget vs actual surplus year-end variance underspend annual financial report fiscal stability reserve'),
+                  'budget against actual budget vs actual surplus year-end variance underspend annual financial report fiscal stability reserve reserves investments investment portfolio'),
     page('fedbudget', 'Federal Budget 2026', 'Headline numbers, every measure, province by province, Calgary and Alberta, tax changes and the fiscal tables.',
          'get_dashboard section=federal_budget (part summary, province, find, chapter, tables, tax, revenue_by_province)', section='federal_budget',
          files=[['budget2026.json', 'budget/budget2026.json']],

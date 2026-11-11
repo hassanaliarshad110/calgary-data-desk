@@ -65,6 +65,26 @@ def _src(S, key, pdf_page=None, printed_page=None):
     return out
 
 
+def _invest(B, S):
+    """How the City holds its money (reserves included), from the 2025 Annual Financial Report."""
+    I = B.get('investments')
+    if not I:
+        return None
+    P, L = I['portfolio'], I.get('liquidity') or {}
+    tot = P['total']['fair_value']
+    return {'what': I['what'], 'at': I['year_end'],
+            'portfolio_m': [{'name': r['name'], 'fair_value': _r(r['fair_value'] / 1000), 'share_pct': _r(100 * r['fair_value'] / tot),
+                             'fair_value_2024': _r(r['fair_value_2024'] / 1000)} for r in P['rows']],
+            'total_m': {'fair_value': _r(tot / 1000), 'cost': _r(P['total']['cost'] / 1000), 'fair_value_2024': _r(P['total']['fair_value_2024'] / 1000)},
+            'average_yield_pct': P['average_yield_pct'], 'internally_managed': P['internally_managed'],
+            'portfolio_source': _src(S, P['source'], P['pdf_page'], P['printed_page']),
+            'liquidity_m': {'cash_net': _r(L['cash_net'] / 1000), 'sellable_within_five_business_days': _r(L['sellable_within_five_business_days'] / 1000),
+                            'sellable_in_five_days_to_a_month': _r(L['sellable_within_a_month'] / 1000), 'note': L.get('note'),
+                            'source': _src(S, L['source'], L['pdf_page'], L['printed_page'])} if L else None,
+            'reserve_link': {'fact': I['reserve_link']['fact'], 'source': _src(S, I['reserve_link']['source'], I['reserve_link']['pdf_page'], I['reserve_link']['printed_page'])},
+            'limits': I.get('limits')}
+
+
 def actual(data_dir=None, find=None):
     """Budget against actual for 2023 to 2025 from the City's Annual Financial Reports and year-end updates."""
     B = bva(data_dir)
@@ -104,6 +124,7 @@ def actual(data_dir=None, find=None):
            'where_the_surplus_goes': [{**{x: r[x] for x in ('year', 'fact') if x in r}, 'source': _src(S, r['source'], r.get('pdf_page'), r.get('printed_page'))}
                                       for r in use.get('rows') or []],
            'where_the_surplus_goes_limits': use.get('limits'),
+           'investments': _invest(B, S),
            'consolidated_budget_against_actual': cons, 'tax_supported_by_department': dept, 'capital_budget_against_spend': cap,
            'years': 'Only 2023, 2024 and 2025 are read. Earlier years are not on this site.',
            'how': 'Give every figure with its document and page. Describe; do not rate the City or Council or say what the surplus should be used for.'}

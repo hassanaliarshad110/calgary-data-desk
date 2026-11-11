@@ -752,5 +752,92 @@
    }
   ],
   "limits": "The reports do not tie a particular year's surplus to a particular later spending decision or to property tax relief; the surplus joins the reserve balance, and Council approves draws from the reserve. Years before 2023 are not read here."
+ },
+ "investments": {
+  "what": "How the City holds its money, reserves included: reserves are amounts set aside in its accounts, not separate bank accounts; the cash behind them is in one pooled City investment portfolio.",
+  "year_end": "2025-12-31",
+  "unit": "thousands of dollars",
+  "portfolio": {
+   "source": "afr2025",
+   "pdf_page": 55,
+   "printed_page": 53,
+   "rows": [
+    {
+     "name": "Canadian fixed income",
+     "fair_value": 1580565,
+     "cost": 1578998,
+     "fair_value_2024": 2318716
+    },
+    {
+     "name": "Foreign fixed income",
+     "fair_value": 76629,
+     "cost": 77723,
+     "fair_value_2024": 615692
+    },
+    {
+     "name": "Pooled fixed income",
+     "fair_value": 2541195,
+     "cost": 2559326,
+     "fair_value_2024": 1137367
+    },
+    {
+     "name": "Mortgages",
+     "fair_value": 691722,
+     "cost": 698827,
+     "fair_value_2024": 634247
+    },
+    {
+     "name": "Global equities",
+     "fair_value": 0,
+     "cost": 0,
+     "fair_value_2024": 138679
+    },
+    {
+     "name": "Pooled equities",
+     "fair_value": 1170658,
+     "cost": 1086260,
+     "fair_value_2024": 791452
+    },
+    {
+     "name": "Infrastructure",
+     "fair_value": 562492,
+     "cost": 462040,
+     "fair_value_2024": 483073
+    },
+    {
+     "name": "Real estate",
+     "fair_value": 135980,
+     "cost": 134755,
+     "fair_value_2024": 289645
+    }
+   ],
+   "total": {
+    "fair_value": 6759241,
+    "cost": 6597929,
+    "fair_value_2024": 6408871
+   },
+   "average_yield_pct": {
+    "2025": 6.78,
+    "2024": 4.71
+   },
+   "internally_managed": "Of these, $605,786 thousand at cost ($617,067 thousand fair value) is an internally managed portfolio of money market instruments and bonds."
+  },
+  "liquidity": {
+   "source": "afr2025",
+   "pdf_page": 126,
+   "printed_page": 124,
+   "audited": false,
+   "cash_net": 618000,
+   "sellable_within_five_business_days": 3641000,
+   "sellable_within_a_month": 1076000,
+   "note": "The City's unaudited short-term liquidity schedule, in millions in the report (shown here in thousands)."
+  },
+  "reserve_link": {
+   "source": "afr2025",
+   "pdf_page": 24,
+   "printed_page": 22,
+   "fact": "Investment income from the Fiscal Stability Reserve can be used to fund one-time operating budget expenditures."
+  },
+  "limits": "The report does not say which investments stand behind any one reserve."
  }
 }
