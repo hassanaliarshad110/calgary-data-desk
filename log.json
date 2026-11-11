@@ -203,5 +203,43 @@
    }
   ],
   "post_note": "Scheduled 12:25 (about 18 min after creation) to avoid landing 2 min before an existing 12:20 post; confirmed PUBLISHED on all three at 12:28."
+ },
+ {
+  "date": "2026-11-10",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Who was Deerfoot? The runner behind Deerfoot Trail",
+  "topic_used": "Deerfoot (Api-kai-ees), Siksika (Blackfoot) runner and nephew of head chief Crowfoot: autumn 1886 ten-mile race in Calgary, beat J. W. Stokes of Birmingham by a full lap; miscount claim, race rerun; entered after Stokes had run six laps and still passed him, finishing in 54:30; Deerfoot Trail named in his memory in the 1970s (DCB)",
+  "changed_from_calendar": null,
+  "central_figure": "In the autumn 1886 ten-mile race in Calgary, Deerfoot beat J. W. Stokes by a full lap; in the rerun he entered after Stokes had completed six laps and still passed him (Dictionary of Canadian Biography, 'Api-kai-ees')",
+  "sources": [
+   "https://www.biographi.ca/en/bio/api_kai_ees_12E.html",
+   "https://curiocity.com/deerfoot-trail-calgary-history/"
+  ],
+  "length_s": 30.2,
+  "video_path": "studio-videos/2026-11-10-PM/deerfoot-trail-runner.mp4",
+  "thumbnail_path": "studio-videos/2026-11-10-PM/deerfoot-trail-runner-thumb.jpg",
+  "package": "packages/2026-11-10-PM-deerfoot-trail-runner.md",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 11,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-10-PM.md"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 423918973,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-2642940042361552825",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-10T20:20",
+    "status": "PENDING"
+   }
+  ]
  }
 ]
