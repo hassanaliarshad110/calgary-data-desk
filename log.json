@@ -238,8 +238,14 @@
      "youtube"
     ],
     "publish_at": "2026-11-10T20:20",
-    "status": "PENDING"
+    "status": "PUBLISHED",
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/DflZVMildiL/",
+     "facebook": "https://facebook.com/reel/1648173506987511",
+     "youtube": "https://www.youtube.com/shorts/O77c5pwYTqU"
+    }
    }
-  ]
+  ],
+  "post_note": "Scheduled 20:20 with custom thumbnail; confirmed PUBLISHED on all three at 20:23, no warnings."
  }
 ]
