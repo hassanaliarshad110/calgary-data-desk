@@ -1,0 +1,95 @@
+== git clone of the bundle from artifact backup-7
+clone exit 0
+HEAD ff42583627241a1b727d5a85e66ea4dba3df8317
+tree ba8f1f74e06bc288536aefbe601f203bb638abfd
+branch main
+tracked files 330
+working tree changes 0
+branches in the bundle 65
+last commit: ff42583627241a1b727d5a85e66ea4dba3df8317 | Hassan Ali | Wed Nov 11 01:08:19 2026 -0600 | Dashboard: only the latest study, with a link to all studies and reports
+== git bundle verify
+The bundle contains these 66 refs:
+51d2ffa8d0dd11c2df57a99c6509972d9a22172c refs/heads/access-preview
+a8a53ad76aff4b33cd651e33268694f6e052591e refs/heads/access-preview-out
+284c0d7479005ee4a52de165b7fbe7835c291de4 refs/heads/budget-probe
+b96c1a2c11f1cb2b5cd6499680035c878c64cc67 refs/heads/budget-probe-out
+be2e6e12870436049b5e430dd3246363d316b1ad refs/heads/content-studio
+e1fbd26c5b9cf0096cc6d90b40d3366379fdd0f8 refs/heads/elections-dev
+074d6dafcc68203111e13c916e772c1df6b2f35b refs/heads/elections-dev-out
+80ac4cb41094ba9fb6a53eb3bfcedf4ca8050c7d refs/heads/elections-probe
+9fc366056d3c0d94bb8b99a7dc2155b8b64a3c0a refs/heads/elections-probe-out
+df79f37b10a8813fa2812ce49013296c2ccd6116 refs/heads/fetched-10
+9172022b9ddae5f859f3cdd05ca91df42418ba32 refs/heads/fetched-11
+843a8cb6780602d8f070d4c956d607aeea0f93f3 refs/heads/fetched-12
+5acd0a2473b2b973ccca115bcc3a5fb3f59fa206 refs/heads/fetched-13
+ad6b7e423c3320fe814bd97ce99073abe1305177 refs/heads/fetched-13b
+18f66c080d570970519b499975ff5500786bea41 refs/heads/fetched-14
+65899d7af85c1e1b2901b990fb409d527c57eefa refs/heads/fetched-15
+fc4dba3f0a61df65b536348140bd7a50a7ef67f1 refs/heads/fetched-16
+6a8704d22415e9d1f849d20bd5ab02f289ee4adc refs/heads/fetched-17
+030203a2b6c704085cdcdb319207cc2af314bac7 refs/heads/fetched-18
+1fb53bae3cd4d11b4ab068860fcd96137a4a2558 refs/heads/fetched-19
+64c613b4cbda8f89da22f1579ffcbeeceaefc043 refs/heads/fetched-20
+06e2cc43b0baa5c15db862af8b8bef3413cde2ee refs/heads/fetched-20b
+3003c34fc1f4361929881d8af92c7280bd2a5b6f refs/heads/fetched-20c
+3ed964ebdf024e7200d4d8ffd063ef31da9a2dad refs/heads/fetched-20d
+226fff06986672f1c847c73fa3578833327216ca refs/heads/fetched-20e
+696967d8811b8408c9ee595bc9dac94601a94a3c refs/heads/fetched-8
+09cae6a106aabf6ebe44c2f89326a7913f0ed716 refs/heads/fetched-9
+426ff2ecf1b4524c03db435c7cd0b4cb25ee0516 refs/heads/game-3d-src
+bf72b9103e6972bc8f59f39c20700c5bb172f300 refs/heads/game-3d-src-police
+ab98afcb2917919fd49e8a82e16d14a980c78185 refs/heads/game-3d-src2
+d5dc24b5ac9f7afb012954df33707f6340e575b8 refs/heads/game-3d-src3
+2d06b94afbae200c941a6ba624b9d1a852edec70 refs/heads/game-3d-src4
+def76c8140010c1ae04c51ce4dde1aaced7a335b refs/heads/game-addr-probe
+234f13bbff52beea56e8a6a7457e50b57ac43d46 refs/heads/game-addr-probe-out
+953caf0b2b625a315881ecf6f47309a857116aa1 refs/heads/game-map-probe
+d92b72664f9179ae5c45c8f3ceccad22777cee51 refs/heads/game-map-probe-out
+dab0e0af0f0864e54fd3148492240b451361b4a8 refs/heads/game-mp-test
+453a9ad26c75502c317c378999a362f7fac40aa3 refs/heads/game-voice-probe
+45c0d612cf94de5b2e8474bb8fddc8ba9d2086d8 refs/heads/game-voice-probe-out
+ff42583627241a1b727d5a85e66ea4dba3df8317 refs/heads/main
+37a546ed657278de3b8dcf20e0704f169c715e55 refs/heads/narration-tts
+2d641cabbe544c91106fe1d64ea9064d82a1455d refs/heads/narration-tts-out
+2993a5ea876b3d1a4ffefbe8870af0712323a492 refs/heads/news
+9ad53b3a245b32206b5801b971db5c49809a44cb refs/heads/sewer-probe
+8ccb0ceb60936dd6ac5e2fe080d2b51959a2025f refs/heads/sewer-probe-out
+d5be103c4ea330d1be785d3ff41cb4af52682dbd refs/heads/site-check
+a8db6122c4e5904b5aa91d337ff1a40c909558e6 refs/heads/site-check-10
+ea29ab424db8742a1ffbaa01178a0a4d9a33c047 refs/heads/site-check-11
+6d8a091ff33cfdb5ae13f7c732c4a44b5ca2d01c refs/heads/site-check-12
+5b58f67d492f0874135b1ef16ae75b7245f87aa2 refs/heads/site-check-13
+5ebfbd3a7a15ee20d8c20f713c6eebfda6a898f6 refs/heads/site-check-14
+7e56aa67efa59a972ca3754fba5e6752d3ddbc84 refs/heads/site-check-16
+e928702dd395c9ff65e9d35970c908286a6a8254 refs/heads/site-check-19
+b696c9cc8876bca87fe27eaa88f3c06eaba93af0 refs/heads/site-check-2
+568fa1a2966ed413a131ffe608571d5a1c66fff2 refs/heads/site-check-20
+2ba3b600ac6553d33d814749b444cd4f7563223d refs/heads/site-check-3
+35b18bfe1427a2f1e060b8dac2a3610e52c5d485 refs/heads/site-check-4
+3eb41146bf7ca2c80b66b821355ef52859d3799b refs/heads/site-check-5
+5caea3514c7d79588812620c4362033c7b156d70 refs/heads/site-check-6
+ce454ef9eedaaa7a376a7493c6d87faf9fcc5410 refs/heads/site-check-7
+964f7b784ea6eb1362dd960246d74512f1661eba refs/heads/site-check-8
+e59da2706192690d134bb5d53f697891b657c517 refs/heads/social-media
+1/home/runner/work/calgary-data-desk/calgary-data-desk/bk/calgary-data-desk.bundle is okay
+cc8c7c9c79e0ea56c266f2ce2481ba769463156 refs/heads/studio-probe
+1d6a2b6fa14e522dfc7f568e82cb2ae446731426 refs/heads/studio-probe-out
+a53da0a84e7031c8b8731e4e0091a2c19220ff91 refs/heads/studio-videos
+ff42583627241a1b727d5a85e66ea4dba3df8317 HEAD
+The bundle records a complete history.
+The bundle uses this hash algorithm: sha1
+verify exit 0
+== every tracked file against its git blob (git fsck, then checkout comparison)
+fsck exit 0
+== the published website inside the artifact
+website root inside the archive: web0/growth
+files 1  size 12K
+30b056187876fb73d973c779d929a42f9149fb9ea9428083a5ecc2dd7c60c08d  index.html
+== does the restored code rebuild the published interface? (the site's own offline build step)
+build step exit 0
+bc8bc109168bcff3cf5afcec826ac0eae8bf647094ba9146137292f95b1c7413  index.html
+20186e83308d82bc356a00e6d7e6b8161886ce2600701f8c889006fbb8fa7b8d  site.20186e8330.js
+1275455e9b23b51d4898126c843191d388a7039378be022e96d62a0397d0be3c  styles.css
+4c52c6661292110af622492daaa9a9f5dc26e62b7be435c1254e0334dab82306  web.css
+script bundle: published   rebuilt-from-backup 20186e83308d82bc356a00e6d7e6b8161886ce2600701f8c889006fbb8fa7b8d  DIFFERENT
+index.html: published 30b056187876fb73d973c779d929a42f9149fb9ea9428083a5ecc2dd7c60c08d  rebuilt-from-backup bc8bc109168bcff3cf5afcec826ac0eae8bf647094ba9146137292f95b1c7413  DIFFERENT

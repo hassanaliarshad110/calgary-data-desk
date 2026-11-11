@@ -1,0 +1,194 @@
+run 42863009683: 178 log lines in all; excerpt below
+---- first 30
+backup	UNKNOWN STEP	﻿2026-11-10T17:15:14.3067924Z Current runner version: '2.338.2'
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3095188Z ##[group]Runner Image Provisioner
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3096162Z Hosted Compute Agent
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3096764Z Version: 20261028.624
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3097500Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3098229Z Build Date: 2026-10-28T21:51:42Z
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3098919Z Worker ID: {d3265f30-25fe-45d3-923a-e1d6db70108b}
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3099716Z Region: centralus
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3100266Z Cloud: Azure
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3100887Z ##[endgroup]
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3102929Z ##[group]Operating System
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3103713Z Ubuntu
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3104357Z 26.04.1
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3104864Z LTS
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3105416Z ##[endgroup]
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3105995Z ##[group]Runner Image
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3106617Z Image: ubuntu-26.04
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3107246Z Version: 20261101.186.1
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3108528Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3110231Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3111236Z ##[endgroup]
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3112798Z ##[group]GITHUB_TOKEN Permissions
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3115071Z Actions: read
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3115822Z Contents: read
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3116427Z Metadata: read
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3117022Z ##[endgroup]
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3119619Z Secret source: Actions
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3120546Z Cache mode: write
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3121778Z Prepare workflow directory
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3478312Z Prepare all required actions
+---- lines reporting a problem (Traceback, Error:, failed, not reached)
+---- last 160
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3108528Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3110231Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3111236Z ##[endgroup]
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3112798Z ##[group]GITHUB_TOKEN Permissions
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3115071Z Actions: read
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3115822Z Contents: read
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3116427Z Metadata: read
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3117022Z ##[endgroup]
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3119619Z Secret source: Actions
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3120546Z Cache mode: write
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3121778Z Prepare workflow directory
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3478312Z Prepare all required actions
+backup	UNKNOWN STEP	2026-11-10T17:15:14.3527894Z Getting action download info
+backup	UNKNOWN STEP	2026-11-10T17:15:14.6092950Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+backup	UNKNOWN STEP	2026-11-10T17:15:14.8326272Z Complete job name: backup
+backup	UNKNOWN STEP	2026-11-10T17:15:14.9291704Z ##[group]Run git clone -q --mirror "***github.com/hassanaliarshad110/calgary-data-desk.git" repo.git
+backup	UNKNOWN STEP	2026-11-10T17:15:14.9296822Z ^[[36;1mgit clone -q --mirror "***github.com/hassanaliarshad110/calgary-data-desk.git" repo.git^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:14.9297942Z ^[[36;1mgit -C repo.git bundle create "$PWD/calgary-data-desk.bundle" --all^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:14.9299191Z ^[[36;1mgit -C repo.git for-each-ref --format='%(refname:short) %(objectname:short) %(committerdate:iso)' refs/heads > branches.txt^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:14.9300434Z ^[[36;1mgit clone -q calgary-data-desk.bundle check && test -f check/app.py^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:14.9353684Z shell: /usr/bin/bash -e {0}
+backup	UNKNOWN STEP	2026-11-10T17:15:14.9354513Z ##[endgroup]
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4333873Z ##[group]Run id=$(gh run list -R "hassanaliarshad110/calgary-data-desk" --workflow site.yml --status success -L 1 --json databaseId -q '.[0].databaseId')
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4335093Z ^[[36;1mid=$(gh run list -R "hassanaliarshad110/calgary-data-desk" --workflow site.yml --status success -L 1 --json databaseId -q '.[0].databaseId')^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4335987Z ^[[36;1mgh run download "$id" -R "hassanaliarshad110/calgary-data-desk" -n github-pages -D pages^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4336605Z ^[[36;1mmkdir site && tar -xf pages/artifact.tar -C site^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4337019Z ^[[36;1mtar -czf website.tar.gz -C site .^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4337409Z ^[[36;1mecho "website from build run $id" >> branches.txt^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4337846Z ^[[36;1mdu -sh calgary-data-desk.bundle website.tar.gz^[[0m
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4388765Z shell: /usr/bin/bash -e {0}
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4389090Z env:
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4391802Z   GH_TOKEN: ***
+backup	UNKNOWN STEP	2026-11-10T17:15:33.4392090Z ##[endgroup]
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4314739Z 620M	calgary-data-desk.bundle
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4315195Z 133M	website.tar.gz
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4401815Z ##[group]Run actions/upload-artifact@v4
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4402248Z with:
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4402832Z   name: backup-6
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4403206Z   path: calgary-data-desk.bundle
+backup	UNKNOWN STEP	website.tar.gz
+backup	UNKNOWN STEP	branches.txt
+backup	UNKNOWN STEP	
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4403616Z   retention-days: 90
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4403938Z   compression-level: 0
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4404529Z   if-no-files-found: warn
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4404825Z   overwrite: false
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4405102Z   include-hidden-files: false
+backup	UNKNOWN STEP	2026-11-10T17:15:48.4405398Z ##[endgroup]
+backup	UNKNOWN STEP	2026-11-10T17:15:48.7768445Z (node:2353) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+backup	UNKNOWN STEP	2026-11-10T17:15:48.7769826Z (Use `node --trace-deprecation ...` to show where the warning was created)
+backup	UNKNOWN STEP	2026-11-10T17:15:48.7838608Z Multiple search paths detected. Calculating the least common ancestor of all paths
+backup	UNKNOWN STEP	2026-11-10T17:15:48.7847580Z The least common ancestor is /home/runner/work/calgary-data-desk/calgary-data-desk. This will be the root directory of the artifact
+backup	UNKNOWN STEP	2026-11-10T17:15:48.7848550Z With the provided path, there will be 3 files uploaded
+backup	UNKNOWN STEP	2026-11-10T17:15:48.7850215Z Artifact name is valid!
+backup	UNKNOWN STEP	2026-11-10T17:15:48.7850979Z Root directory input is valid!
+backup	UNKNOWN STEP	2026-11-10T17:15:49.1023202Z Beginning upload of artifact content to blob storage
+backup	UNKNOWN STEP	2026-11-10T17:15:49.1640455Z (node:2353) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+backup	UNKNOWN STEP	2026-11-10T17:15:49.6935765Z Uploaded bytes 8388608
+backup	UNKNOWN STEP	2026-11-10T17:15:49.7176888Z Uploaded bytes 16777216
+backup	UNKNOWN STEP	2026-11-10T17:15:49.7772909Z Uploaded bytes 25165824
+backup	UNKNOWN STEP	2026-11-10T17:15:49.8850556Z Uploaded bytes 33554432
+backup	UNKNOWN STEP	2026-11-10T17:15:49.9193864Z Uploaded bytes 41943040
+backup	UNKNOWN STEP	2026-11-10T17:15:49.9280989Z Uploaded bytes 50331648
+backup	UNKNOWN STEP	2026-11-10T17:15:50.0164756Z Uploaded bytes 58720256
+backup	UNKNOWN STEP	2026-11-10T17:15:50.0868696Z Uploaded bytes 67108864
+backup	UNKNOWN STEP	2026-11-10T17:15:50.1065390Z Uploaded bytes 75497472
+backup	UNKNOWN STEP	2026-11-10T17:15:50.1153977Z Uploaded bytes 83886080
+backup	UNKNOWN STEP	2026-11-10T17:15:50.2157889Z Uploaded bytes 92274688
+backup	UNKNOWN STEP	2026-11-10T17:15:50.2749849Z Uploaded bytes 100663296
+backup	UNKNOWN STEP	2026-11-10T17:15:50.2840549Z Uploaded bytes 109051904
+backup	UNKNOWN STEP	2026-11-10T17:15:50.3392200Z Uploaded bytes 117440512
+backup	UNKNOWN STEP	2026-11-10T17:15:50.4113446Z Uploaded bytes 125829120
+backup	UNKNOWN STEP	2026-11-10T17:15:50.4653587Z Uploaded bytes 134217728
+backup	UNKNOWN STEP	2026-11-10T17:15:50.4870601Z Uploaded bytes 142606336
+backup	UNKNOWN STEP	2026-11-10T17:15:50.5929042Z Uploaded bytes 150994944
+backup	UNKNOWN STEP	2026-11-10T17:15:50.6103712Z Uploaded bytes 159383552
+backup	UNKNOWN STEP	2026-11-10T17:15:50.6484005Z Uploaded bytes 167772160
+backup	UNKNOWN STEP	2026-11-10T17:15:50.6706114Z Uploaded bytes 176160768
+backup	UNKNOWN STEP	2026-11-10T17:15:50.7832518Z Uploaded bytes 184549376
+backup	UNKNOWN STEP	2026-11-10T17:15:50.8108094Z Uploaded bytes 192937984
+backup	UNKNOWN STEP	2026-11-10T17:15:50.8627224Z Uploaded bytes 201326592
+backup	UNKNOWN STEP	2026-11-10T17:15:50.8940063Z Uploaded bytes 209715200
+backup	UNKNOWN STEP	2026-11-10T17:15:50.9637028Z Uploaded bytes 218103808
+backup	UNKNOWN STEP	2026-11-10T17:15:51.0069886Z Uploaded bytes 226492416
+backup	UNKNOWN STEP	2026-11-10T17:15:51.0282725Z Uploaded bytes 234881024
+backup	UNKNOWN STEP	2026-11-10T17:15:51.0584708Z Uploaded bytes 243269632
+backup	UNKNOWN STEP	2026-11-10T17:15:51.1894363Z Uploaded bytes 251658240
+backup	UNKNOWN STEP	2026-11-10T17:15:51.2120332Z Uploaded bytes 260046848
+backup	UNKNOWN STEP	2026-11-10T17:15:51.2195894Z Uploaded bytes 268435456
+backup	UNKNOWN STEP	2026-11-10T17:15:51.2653520Z Uploaded bytes 276824064
+backup	UNKNOWN STEP	2026-11-10T17:15:51.3893828Z Uploaded bytes 285212672
+backup	UNKNOWN STEP	2026-11-10T17:15:51.4102040Z Uploaded bytes 293601280
+backup	UNKNOWN STEP	2026-11-10T17:15:51.4341341Z Uploaded bytes 301989888
+backup	UNKNOWN STEP	2026-11-10T17:15:51.4473910Z Uploaded bytes 310378496
+backup	UNKNOWN STEP	2026-11-10T17:15:51.5803655Z Uploaded bytes 318767104
+backup	UNKNOWN STEP	2026-11-10T17:15:51.5884576Z Uploaded bytes 327155712
+backup	UNKNOWN STEP	2026-11-10T17:15:51.6150926Z Uploaded bytes 335544320
+backup	UNKNOWN STEP	2026-11-10T17:15:51.6487090Z Uploaded bytes 343932928
+backup	UNKNOWN STEP	2026-11-10T17:15:51.7825458Z Uploaded bytes 352321536
+backup	UNKNOWN STEP	2026-11-10T17:15:51.7902023Z Uploaded bytes 360710144
+backup	UNKNOWN STEP	2026-11-10T17:15:51.7977382Z Uploaded bytes 369098752
+backup	UNKNOWN STEP	2026-11-10T17:15:51.8357024Z Uploaded bytes 377487360
+backup	UNKNOWN STEP	2026-11-10T17:15:51.9889663Z Uploaded bytes 385875968
+backup	UNKNOWN STEP	2026-11-10T17:15:51.9986727Z Uploaded bytes 394264576
+backup	UNKNOWN STEP	2026-11-10T17:15:52.0229562Z Uploaded bytes 402653184
+backup	UNKNOWN STEP	2026-11-10T17:15:52.0351918Z Uploaded bytes 411041792
+backup	UNKNOWN STEP	2026-11-10T17:15:52.2039162Z Uploaded bytes 419430400
+backup	UNKNOWN STEP	2026-11-10T17:15:52.2279125Z Uploaded bytes 427819008
+backup	UNKNOWN STEP	2026-11-10T17:15:52.2402772Z Uploaded bytes 436207616
+backup	UNKNOWN STEP	2026-11-10T17:15:52.2815312Z Uploaded bytes 444596224
+backup	UNKNOWN STEP	2026-11-10T17:15:52.3993010Z Uploaded bytes 452984832
+backup	UNKNOWN STEP	2026-11-10T17:15:52.4113572Z Uploaded bytes 461373440
+backup	UNKNOWN STEP	2026-11-10T17:15:52.4308314Z Uploaded bytes 469762048
+backup	UNKNOWN STEP	2026-11-10T17:15:52.4869675Z Uploaded bytes 478150656
+backup	UNKNOWN STEP	2026-11-10T17:15:52.6046970Z Uploaded bytes 486539264
+backup	UNKNOWN STEP	2026-11-10T17:15:52.6133219Z Uploaded bytes 494927872
+backup	UNKNOWN STEP	2026-11-10T17:15:52.6360132Z Uploaded bytes 503316480
+backup	UNKNOWN STEP	2026-11-10T17:15:52.7038208Z Uploaded bytes 511705088
+backup	UNKNOWN STEP	2026-11-10T17:15:52.8078591Z Uploaded bytes 520093696
+backup	UNKNOWN STEP	2026-11-10T17:15:52.8194600Z Uploaded bytes 528482304
+backup	UNKNOWN STEP	2026-11-10T17:15:52.8394531Z Uploaded bytes 536870912
+backup	UNKNOWN STEP	2026-11-10T17:15:52.8817478Z Uploaded bytes 545259520
+backup	UNKNOWN STEP	2026-11-10T17:15:52.9871069Z Uploaded bytes 553648128
+backup	UNKNOWN STEP	2026-11-10T17:15:53.0045402Z Uploaded bytes 562036736
+backup	UNKNOWN STEP	2026-11-10T17:15:53.0885338Z Uploaded bytes 570425344
+backup	UNKNOWN STEP	2026-11-10T17:15:53.0985223Z Uploaded bytes 578813952
+backup	UNKNOWN STEP	2026-11-10T17:15:53.1583986Z Uploaded bytes 587202560
+backup	UNKNOWN STEP	2026-11-10T17:15:53.1996166Z Uploaded bytes 595591168
+backup	UNKNOWN STEP	2026-11-10T17:15:53.2742627Z Uploaded bytes 603979776
+backup	UNKNOWN STEP	2026-11-10T17:15:53.3327476Z Uploaded bytes 612368384
+backup	UNKNOWN STEP	2026-11-10T17:15:53.3739765Z Uploaded bytes 620756992
+backup	UNKNOWN STEP	2026-11-10T17:15:53.4329241Z Uploaded bytes 629145600
+backup	UNKNOWN STEP	2026-11-10T17:15:53.5076629Z Uploaded bytes 637534208
+backup	UNKNOWN STEP	2026-11-10T17:15:53.5448434Z Uploaded bytes 645922816
+backup	UNKNOWN STEP	2026-11-10T17:15:53.5564477Z Uploaded bytes 654311424
+backup	UNKNOWN STEP	2026-11-10T17:15:53.6298566Z Uploaded bytes 662700032
+backup	UNKNOWN STEP	2026-11-10T17:15:53.7457679Z Uploaded bytes 671088640
+backup	UNKNOWN STEP	2026-11-10T17:15:53.7645749Z Uploaded bytes 679477248
+backup	UNKNOWN STEP	2026-11-10T17:15:53.7922143Z Uploaded bytes 687865856
+backup	UNKNOWN STEP	2026-11-10T17:15:53.9258858Z Uploaded bytes 696254464
+backup	UNKNOWN STEP	2026-11-10T17:15:53.9560298Z Uploaded bytes 704643072
+backup	UNKNOWN STEP	2026-11-10T17:15:53.9672075Z Uploaded bytes 713031680
+backup	UNKNOWN STEP	2026-11-10T17:15:53.9772771Z Uploaded bytes 721420288
+backup	UNKNOWN STEP	2026-11-10T17:15:54.1055125Z Uploaded bytes 729808896
+backup	UNKNOWN STEP	2026-11-10T17:15:54.1520320Z Uploaded bytes 738197504
+backup	UNKNOWN STEP	2026-11-10T17:15:54.1624226Z Uploaded bytes 746586112
+backup	UNKNOWN STEP	2026-11-10T17:15:54.1905919Z Uploaded bytes 754974720
+backup	UNKNOWN STEP	2026-11-10T17:15:54.2898249Z Uploaded bytes 763363328
+backup	UNKNOWN STEP	2026-11-10T17:15:54.3641676Z Uploaded bytes 771751936
+backup	UNKNOWN STEP	2026-11-10T17:15:54.3695004Z Uploaded bytes 780140544
+backup	UNKNOWN STEP	2026-11-10T17:15:54.4758053Z Uploaded bytes 788529152
+backup	UNKNOWN STEP	2026-11-10T17:15:54.5470888Z Uploaded bytes 789254074
+backup	UNKNOWN STEP	2026-11-10T17:15:54.5991322Z Finished uploading artifact content to blob storage!
+backup	UNKNOWN STEP	2026-11-10T17:15:54.5995328Z SHA256 digest of uploaded artifact zip is 5c547783962c0f0eeea80cf31a1591ecfb93347e46243769ea6bad1a733212a1
+backup	UNKNOWN STEP	2026-11-10T17:15:54.5997976Z Finalizing artifact upload
+backup	UNKNOWN STEP	2026-11-10T17:15:55.1486110Z Artifact backup-6.zip successfully finalized. Artifact ID 13786022186
+backup	UNKNOWN STEP	2026-11-10T17:15:55.1487466Z Artifact backup-6 has been successfully uploaded! Final size is 789254074 bytes. Artifact ID is 13786022186
+backup	UNKNOWN STEP	2026-11-10T17:15:55.1494868Z Artifact download URL: https://github.com/hassanaliarshad110/calgary-data-desk/actions/runs/42863009683/artifacts/13786022186
+backup	UNKNOWN STEP	2026-11-10T17:15:55.1781702Z Cleaning up orphan processes
+backup	UNKNOWN STEP	2026-11-10T17:15:55.2246019Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

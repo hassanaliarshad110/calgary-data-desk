@@ -1,0 +1,194 @@
+run 42973286311: 258 log lines in all; excerpt below
+---- first 30
+images	UNKNOWN STEP	﻿2026-11-11T06:33:44.3849161Z Current runner version: '2.338.2'
+images	UNKNOWN STEP	2026-11-11T06:33:44.3866938Z ##[group]Runner Image Provisioner
+images	UNKNOWN STEP	2026-11-11T06:33:44.3867714Z Hosted Compute Agent
+images	UNKNOWN STEP	2026-11-11T06:33:44.3868199Z Version: 20261028.624
+images	UNKNOWN STEP	2026-11-11T06:33:44.3868802Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+images	UNKNOWN STEP	2026-11-11T06:33:44.3869405Z Build Date: 2026-10-28T21:51:42Z
+images	UNKNOWN STEP	2026-11-11T06:33:44.3870000Z Worker ID: {c184e2b9-a9f2-4a93-98e3-1c7375a5c8f2}
+images	UNKNOWN STEP	2026-11-11T06:33:44.3870633Z Region: centralus
+images	UNKNOWN STEP	2026-11-11T06:33:44.3871088Z Cloud: Azure
+images	UNKNOWN STEP	2026-11-11T06:33:44.3871569Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:44.3872723Z ##[group]Operating System
+images	UNKNOWN STEP	2026-11-11T06:33:44.3873306Z Ubuntu
+images	UNKNOWN STEP	2026-11-11T06:33:44.3873759Z 26.04.1
+images	UNKNOWN STEP	2026-11-11T06:33:44.3874170Z LTS
+images	UNKNOWN STEP	2026-11-11T06:33:44.3874634Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:44.3875094Z ##[group]Runner Image
+images	UNKNOWN STEP	2026-11-11T06:33:44.3875586Z Image: ubuntu-26.04
+images	UNKNOWN STEP	2026-11-11T06:33:44.3876168Z Version: 20261101.186.1
+images	UNKNOWN STEP	2026-11-11T06:33:44.3877387Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+images	UNKNOWN STEP	2026-11-11T06:33:44.3878846Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+images	UNKNOWN STEP	2026-11-11T06:33:44.3879695Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:44.3880748Z ##[group]GITHUB_TOKEN Permissions
+images	UNKNOWN STEP	2026-11-11T06:33:44.3882371Z Contents: write
+images	UNKNOWN STEP	2026-11-11T06:33:44.3882937Z Metadata: read
+images	UNKNOWN STEP	2026-11-11T06:33:44.3883274Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:44.3884622Z Secret source: Actions
+images	UNKNOWN STEP	2026-11-11T06:33:44.3885133Z Cache mode: write
+images	UNKNOWN STEP	2026-11-11T06:33:44.3885692Z Prepare workflow directory
+images	UNKNOWN STEP	2026-11-11T06:33:44.4080975Z Prepare all required actions
+images	UNKNOWN STEP	2026-11-11T06:33:44.4110290Z Getting action download info
+---- lines reporting a problem (Traceback, Error:, failed, not reached)
+---- last 160
+images	UNKNOWN STEP	2026-11-11T06:33:52.3510781Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+images	UNKNOWN STEP	2026-11-11T06:33:52.3712365Z ##[group]Checking out the ref
+images	UNKNOWN STEP	2026-11-11T06:33:52.3715287Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+images	UNKNOWN STEP	2026-11-11T06:33:52.6979267Z Switched to a new branch 'main'
+images	UNKNOWN STEP	2026-11-11T06:33:52.6991363Z branch 'main' set up to track 'origin/main'.
+images	UNKNOWN STEP	2026-11-11T06:33:52.7014264Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:52.7048344Z [command]/usr/bin/git log -1 --format=%H
+images	UNKNOWN STEP	2026-11-11T06:33:52.7069336Z 8f2ad3da86aeb9cb171e49e5449c1a8f13325dd1
+images	UNKNOWN STEP	2026-11-11T06:33:52.7291245Z ##[group]Run actions/checkout@v4
+images	UNKNOWN STEP	2026-11-11T06:33:52.7291411Z with:
+images	UNKNOWN STEP	2026-11-11T06:33:52.7291525Z   ref: news
+images	UNKNOWN STEP	2026-11-11T06:33:52.7291634Z   path: news
+images	UNKNOWN STEP	2026-11-11T06:33:52.7291776Z   repository: hassanaliarshad110/calgary-data-desk
+images	UNKNOWN STEP	2026-11-11T06:33:52.7293129Z   token: ***
+images	UNKNOWN STEP	2026-11-11T06:33:52.7293238Z   ssh-strict: true
+images	UNKNOWN STEP	2026-11-11T06:33:52.7293480Z   ssh-user: git
+images	UNKNOWN STEP	2026-11-11T06:33:52.7293602Z   persist-credentials: true
+images	UNKNOWN STEP	2026-11-11T06:33:52.7293733Z   clean: true
+images	UNKNOWN STEP	2026-11-11T06:33:52.7293853Z   sparse-checkout-cone-mode: true
+images	UNKNOWN STEP	2026-11-11T06:33:52.7294003Z   fetch-depth: 1
+images	UNKNOWN STEP	2026-11-11T06:33:52.7294131Z   fetch-tags: false
+images	UNKNOWN STEP	2026-11-11T06:33:52.7294248Z   show-progress: true
+images	UNKNOWN STEP	2026-11-11T06:33:52.7294367Z   lfs: false
+images	UNKNOWN STEP	2026-11-11T06:33:52.7294493Z   submodules: false
+images	UNKNOWN STEP	2026-11-11T06:33:52.7294634Z   set-safe-directory: true
+images	UNKNOWN STEP	2026-11-11T06:33:52.7294774Z   allow-unsafe-pr-checkout: false
+images	UNKNOWN STEP	2026-11-11T06:33:52.7294923Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:52.7820187Z Syncing repository: hassanaliarshad110/calgary-data-desk
+images	UNKNOWN STEP	2026-11-11T06:33:52.7829969Z ##[group]Getting Git version info
+images	UNKNOWN STEP	2026-11-11T06:33:52.7833812Z Working directory is '/home/runner/work/calgary-data-desk/calgary-data-desk/news'
+images	UNKNOWN STEP	2026-11-11T06:33:52.7844626Z [command]/usr/bin/git version
+images	UNKNOWN STEP	2026-11-11T06:33:52.7875397Z git version 2.56.0
+images	UNKNOWN STEP	2026-11-11T06:33:52.7888120Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:52.7896782Z Temporarily overriding HOME='/home/runner/work/_temp/546a37ee-1d23-4297-989b-02c4c97bf5a2' before making global git config changes
+images	UNKNOWN STEP	2026-11-11T06:33:52.7897283Z Adding repository directory to the temporary git global config as a safe directory
+images	UNKNOWN STEP	2026-11-11T06:33:52.7899538Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/calgary-data-desk/calgary-data-desk/news
+images	UNKNOWN STEP	2026-11-11T06:33:52.7977723Z ##[group]Initializing the repository
+images	UNKNOWN STEP	2026-11-11T06:33:52.7985134Z [command]/usr/bin/git init /home/runner/work/calgary-data-desk/calgary-data-desk/news
+images	UNKNOWN STEP	2026-11-11T06:33:52.8195602Z hint: Using 'master' as the name for the initial branch. This default branch name
+images	UNKNOWN STEP	2026-11-11T06:33:52.8196575Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+images	UNKNOWN STEP	2026-11-11T06:33:52.8197473Z hint: to use in all of your new repositories, which will suppress this warning,
+images	UNKNOWN STEP	2026-11-11T06:33:52.8197868Z hint: call:
+images	UNKNOWN STEP	2026-11-11T06:33:52.8198032Z hint:
+images	UNKNOWN STEP	2026-11-11T06:33:52.8198314Z hint: 	git config --global init.defaultBranch <name>
+images	UNKNOWN STEP	2026-11-11T06:33:52.8198588Z hint:
+images	UNKNOWN STEP	2026-11-11T06:33:52.8198844Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+images	UNKNOWN STEP	2026-11-11T06:33:52.8199270Z hint: 'development'. The just-created branch can be renamed via this command:
+images	UNKNOWN STEP	2026-11-11T06:33:52.8199589Z hint:
+images	UNKNOWN STEP	2026-11-11T06:33:52.8199835Z hint: 	git branch -m <name>
+images	UNKNOWN STEP	2026-11-11T06:33:52.8200062Z hint:
+images	UNKNOWN STEP	2026-11-11T06:33:52.8200353Z hint: Disable this message with "git config set advice.defaultBranchName false"
+images	UNKNOWN STEP	2026-11-11T06:33:52.8200843Z Initialized empty Git repository in /home/runner/work/calgary-data-desk/calgary-data-desk/news/.git/
+images	UNKNOWN STEP	2026-11-11T06:33:52.8207050Z [command]/usr/bin/git remote add origin https://github.com/hassanaliarshad110/calgary-data-desk
+images	UNKNOWN STEP	2026-11-11T06:33:52.8581348Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:52.8581635Z ##[group]Disabling automatic garbage collection
+images	UNKNOWN STEP	2026-11-11T06:33:52.8584482Z [command]/usr/bin/git config --local gc.auto 0
+images	UNKNOWN STEP	2026-11-11T06:33:52.8904607Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:52.8904951Z ##[group]Setting up auth
+images	UNKNOWN STEP	2026-11-11T06:33:52.8905254Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+images	UNKNOWN STEP	2026-11-11T06:33:52.8929983Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+images	UNKNOWN STEP	2026-11-11T06:33:52.9142418Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+images	UNKNOWN STEP	2026-11-11T06:33:52.9169123Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+images	UNKNOWN STEP	2026-11-11T06:33:52.9385741Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+images	UNKNOWN STEP	2026-11-11T06:33:52.9415176Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+images	UNKNOWN STEP	2026-11-11T06:33:52.9630254Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+images	UNKNOWN STEP	2026-11-11T06:33:53.0164549Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:53.0165117Z ##[group]Fetching the repository
+images	UNKNOWN STEP	2026-11-11T06:33:53.0171594Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/news*:refs/remotes/origin/news* +refs/tags/news*:refs/tags/news*
+images	UNKNOWN STEP	2026-11-11T06:33:53.4813946Z From https://github.com/hassanaliarshad110/calgary-data-desk
+images	UNKNOWN STEP	2026-11-11T06:33:53.4814205Z  * [new branch]      news       -> origin/news
+images	UNKNOWN STEP	2026-11-11T06:33:53.4818780Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:53.4819017Z ##[group]Determining the checkout info
+images	UNKNOWN STEP	2026-11-11T06:33:53.4825153Z [command]/usr/bin/git branch --list --remote origin/news
+images	UNKNOWN STEP	2026-11-11T06:33:53.4845193Z   origin/news
+images	UNKNOWN STEP	2026-11-11T06:33:53.4848967Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:53.4853295Z [command]/usr/bin/git sparse-checkout disable
+images	UNKNOWN STEP	2026-11-11T06:33:53.4884519Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+images	UNKNOWN STEP	2026-11-11T06:33:53.4912339Z ##[group]Checking out the ref
+images	UNKNOWN STEP	2026-11-11T06:33:53.4914739Z [command]/usr/bin/git checkout --progress --force -B news refs/remotes/origin/news
+images	UNKNOWN STEP	2026-11-11T06:33:53.4962731Z Switched to a new branch 'news'
+images	UNKNOWN STEP	2026-11-11T06:33:53.4964369Z branch 'news' set up to track 'origin/news'.
+images	UNKNOWN STEP	2026-11-11T06:33:53.4968251Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:53.4993751Z [command]/usr/bin/git log -1 --format=%H
+images	UNKNOWN STEP	2026-11-11T06:33:53.5012282Z 2993a5ea876b3d1a4ffefbe8870af0712323a492
+images	UNKNOWN STEP	2026-11-11T06:33:53.5148867Z ##[group]Run actions/setup-python@v5
+images	UNKNOWN STEP	2026-11-11T06:33:53.5149025Z with:
+images	UNKNOWN STEP	2026-11-11T06:33:53.5149140Z   python-version: 3.12
+images	UNKNOWN STEP	2026-11-11T06:33:53.5149271Z   check-latest: false
+images	UNKNOWN STEP	2026-11-11T06:33:53.5150623Z   token: ***
+images	UNKNOWN STEP	2026-11-11T06:33:53.5150740Z   update-environment: true
+images	UNKNOWN STEP	2026-11-11T06:33:53.5150874Z   allow-prereleases: false
+images	UNKNOWN STEP	2026-11-11T06:33:53.5151010Z   freethreaded: false
+images	UNKNOWN STEP	2026-11-11T06:33:53.5151129Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:53.5935374Z ##[group]Installed versions
+images	UNKNOWN STEP	2026-11-11T06:33:53.6035644Z (node:2299) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+images	UNKNOWN STEP	2026-11-11T06:33:53.6036146Z (Use `node --trace-deprecation ...` to show where the warning was created)
+images	UNKNOWN STEP	2026-11-11T06:33:53.6036689Z Successfully set up CPython (3.12.16)
+images	UNKNOWN STEP	2026-11-11T06:33:53.6036951Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:53.6157264Z ##[group]Run python main/tools/news_images.py news
+images	UNKNOWN STEP	2026-11-11T06:33:53.6157556Z ^[[36;1mpython main/tools/news_images.py news^[[0m
+images	UNKNOWN STEP	2026-11-11T06:33:53.6235740Z shell: /usr/bin/bash -e {0}
+images	UNKNOWN STEP	2026-11-11T06:33:53.6236007Z env:
+images	UNKNOWN STEP	2026-11-11T06:33:53.6236272Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+images	UNKNOWN STEP	2026-11-11T06:33:53.6236852Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+images	UNKNOWN STEP	2026-11-11T06:33:53.6237265Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+images	UNKNOWN STEP	2026-11-11T06:33:53.6237605Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+images	UNKNOWN STEP	2026-11-11T06:33:53.6238000Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+images	UNKNOWN STEP	2026-11-11T06:33:53.6238994Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+images	UNKNOWN STEP	2026-11-11T06:33:53.6239354Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:53.7313016Z articles looked at: 0
+images	UNKNOWN STEP	2026-11-11T06:33:53.7412739Z ##[group]Run cd news
+images	UNKNOWN STEP	2026-11-11T06:33:53.7412903Z ^[[36;1mcd news^[[0m
+images	UNKNOWN STEP	2026-11-11T06:33:53.7413049Z ^[[36;1mif [ -n "$(git status --porcelain)" ]; then^[[0m
+images	UNKNOWN STEP	2026-11-11T06:33:53.7413233Z ^[[36;1m  git config user.name "Hassan Ali"^[[0m
+images	UNKNOWN STEP	2026-11-11T06:33:53.7413452Z ^[[36;1m  git config user.email "[address removed]"^[[0m
+images	UNKNOWN STEP	2026-11-11T06:33:53.7413705Z ^[[36;1m  git add -A && git commit -q -m "Calgary News: reference images"^[[0m
+images	UNKNOWN STEP	2026-11-11T06:33:53.7413940Z ^[[36;1m  git pull -q --rebase origin news && git push -q origin news^[[0m
+images	UNKNOWN STEP	2026-11-11T06:33:53.7414121Z ^[[36;1mfi^[[0m
+images	UNKNOWN STEP	2026-11-11T06:33:53.7452744Z shell: /usr/bin/bash -e {0}
+images	UNKNOWN STEP	2026-11-11T06:33:53.7452880Z env:
+images	UNKNOWN STEP	2026-11-11T06:33:53.7453039Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+images	UNKNOWN STEP	2026-11-11T06:33:53.7453384Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+images	UNKNOWN STEP	2026-11-11T06:33:53.7453609Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+images	UNKNOWN STEP	2026-11-11T06:33:53.7453837Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+images	UNKNOWN STEP	2026-11-11T06:33:53.7454041Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+images	UNKNOWN STEP	2026-11-11T06:33:53.7454250Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+images	UNKNOWN STEP	2026-11-11T06:33:53.7454426Z ##[endgroup]
+images	UNKNOWN STEP	2026-11-11T06:33:53.7597399Z Post job cleanup.
+images	UNKNOWN STEP	2026-11-11T06:33:53.8317956Z (node:2311) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+images	UNKNOWN STEP	2026-11-11T06:33:53.8318572Z (Use `node --trace-deprecation ...` to show where the warning was created)
+images	UNKNOWN STEP	2026-11-11T06:33:53.8424721Z Post job cleanup.
+images	UNKNOWN STEP	2026-11-11T06:33:53.8966073Z [command]/usr/bin/git version
+images	UNKNOWN STEP	2026-11-11T06:33:53.8997654Z git version 2.56.0
+images	UNKNOWN STEP	2026-11-11T06:33:53.9037242Z Temporarily overriding HOME='/home/runner/work/_temp/3a7c78d9-9bdc-4984-8416-5636c578fd81' before making global git config changes
+images	UNKNOWN STEP	2026-11-11T06:33:53.9038006Z Adding repository directory to the temporary git global config as a safe directory
+images	UNKNOWN STEP	2026-11-11T06:33:53.9038810Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/calgary-data-desk/calgary-data-desk/news
+images	UNKNOWN STEP	2026-11-11T06:33:53.9053435Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+images	UNKNOWN STEP	2026-11-11T06:33:53.9080660Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+images	UNKNOWN STEP	2026-11-11T06:33:53.9319722Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+images	UNKNOWN STEP	2026-11-11T06:33:53.9340752Z http.https://github.com/.extraheader
+images	UNKNOWN STEP	2026-11-11T06:33:53.9351273Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+images	UNKNOWN STEP	2026-11-11T06:33:53.9385427Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+images	UNKNOWN STEP	2026-11-11T06:33:53.9611884Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+images	UNKNOWN STEP	2026-11-11T06:33:53.9637886Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+images	UNKNOWN STEP	2026-11-11T06:33:53.9971404Z Post job cleanup.
+images	UNKNOWN STEP	2026-11-11T06:33:54.0485003Z [command]/usr/bin/git version
+images	UNKNOWN STEP	2026-11-11T06:33:54.0516977Z git version 2.56.0
+images	UNKNOWN STEP	2026-11-11T06:33:54.0539287Z Temporarily overriding HOME='/home/runner/work/_temp/c28f6841-8cd3-43f5-aa0d-a894ddda8b8d' before making global git config changes
+images	UNKNOWN STEP	2026-11-11T06:33:54.0540024Z Adding repository directory to the temporary git global config as a safe directory
+images	UNKNOWN STEP	2026-11-11T06:33:54.0542235Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/calgary-data-desk/calgary-data-desk/main
+images	UNKNOWN STEP	2026-11-11T06:33:54.0573505Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+images	UNKNOWN STEP	2026-11-11T06:33:54.0611186Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+images	UNKNOWN STEP	2026-11-11T06:33:54.0870995Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+images	UNKNOWN STEP	2026-11-11T06:33:54.0899723Z http.https://github.com/.extraheader
+images	UNKNOWN STEP	2026-11-11T06:33:54.0908810Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+images	UNKNOWN STEP	2026-11-11T06:33:54.0944804Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+images	UNKNOWN STEP	2026-11-11T06:33:54.1197567Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+images	UNKNOWN STEP	2026-11-11T06:33:54.1224580Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+images	UNKNOWN STEP	2026-11-11T06:33:54.1548069Z Cleaning up orphan processes
+images	UNKNOWN STEP	2026-11-11T06:33:54.1811956Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

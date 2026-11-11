@@ -1,0 +1,196 @@
+run 42977312843: 1841 log lines in all; excerpt below
+---- first 30
+build	UNKNOWN STEP	﻿2026-11-11T07:08:28.2067647Z Current runner version: '2.338.2'
+build	UNKNOWN STEP	2026-11-11T07:08:28.2090081Z ##[group]Runner Image Provisioner
+build	UNKNOWN STEP	2026-11-11T07:08:28.2090828Z Hosted Compute Agent
+build	UNKNOWN STEP	2026-11-11T07:08:28.2091465Z Version: 20261028.624
+build	UNKNOWN STEP	2026-11-11T07:08:28.2092003Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+build	UNKNOWN STEP	2026-11-11T07:08:28.2092669Z Build Date: 2026-10-28T21:51:42Z
+build	UNKNOWN STEP	2026-11-11T07:08:28.2093323Z Worker ID: {52b7a492-f9a5-49cd-a70f-f33a8c5946c3}
+build	UNKNOWN STEP	2026-11-11T07:08:28.2093954Z Region: westus2
+build	UNKNOWN STEP	2026-11-11T07:08:28.2094438Z Cloud: Azure
+build	UNKNOWN STEP	2026-11-11T07:08:28.2094928Z ##[endgroup]
+build	UNKNOWN STEP	2026-11-11T07:08:28.2096334Z ##[group]Operating System
+build	UNKNOWN STEP	2026-11-11T07:08:28.2096907Z Ubuntu
+build	UNKNOWN STEP	2026-11-11T07:08:28.2097425Z 26.04.1
+build	UNKNOWN STEP	2026-11-11T07:08:28.2097924Z LTS
+build	UNKNOWN STEP	2026-11-11T07:08:28.2098362Z ##[endgroup]
+build	UNKNOWN STEP	2026-11-11T07:08:28.2099181Z ##[group]Runner Image
+build	UNKNOWN STEP	2026-11-11T07:08:28.2099871Z Image: ubuntu-26.04
+build	UNKNOWN STEP	2026-11-11T07:08:28.2100422Z Version: 20261101.186.1
+build	UNKNOWN STEP	2026-11-11T07:08:28.2101511Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+build	UNKNOWN STEP	2026-11-11T07:08:28.2102832Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+build	UNKNOWN STEP	2026-11-11T07:08:28.2103631Z ##[endgroup]
+build	UNKNOWN STEP	2026-11-11T07:08:28.2104708Z ##[group]GITHUB_TOKEN Permissions
+build	UNKNOWN STEP	2026-11-11T07:08:28.2106275Z Contents: read
+build	UNKNOWN STEP	2026-11-11T07:08:28.2106936Z Metadata: read
+build	UNKNOWN STEP	2026-11-11T07:08:28.2107409Z Pages: write
+build	UNKNOWN STEP	2026-11-11T07:08:28.2107911Z ##[endgroup]
+build	UNKNOWN STEP	2026-11-11T07:08:28.2109904Z Secret source: Actions
+build	UNKNOWN STEP	2026-11-11T07:08:28.2110776Z Cache mode: write
+build	UNKNOWN STEP	2026-11-11T07:08:28.2111431Z Prepare workflow directory
+build	UNKNOWN STEP	2026-11-11T07:08:28.2424485Z Prepare all required actions
+---- lines reporting a problem (Traceback, Error:, failed, not reached)
+232:build	UNKNOWN STEP	2026-11-11T07:08:52.6816231Z ^[[36;1m  echo "GitHub release download failed, using the jsDelivr copy"^[[0m
+1820:deploy	UNKNOWN STEP	2026-11-11T08:24:30.0671857Z ^[[36;1m    print('IndexNow not reached:', e)^[[0m
+---- last 160
+build	UNKNOWN STEP	2026-11-11T08:23:58.7675507Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_2]
+build	UNKNOWN STEP	2026-11-11T08:23:58.7680897Z ##[end-action id=__actions_upload-pages-artifact.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-11-11T08:23:58.7682712Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_3]
+build	UNKNOWN STEP	2026-11-11T08:23:58.7685381Z ##[end-action id=__actions_upload-pages-artifact.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+build	UNKNOWN STEP	2026-11-11T08:23:58.7686626Z ##[start-action display=Upload artifact;id=__actions_upload-pages-artifact.upload-artifact]
+build	UNKNOWN STEP	2026-11-11T08:23:58.7717640Z ##[group]Run actions/upload-artifact@v4
+build	UNKNOWN STEP	2026-11-11T08:23:58.7717733Z with:
+build	UNKNOWN STEP	2026-11-11T08:23:58.7717828Z   name: github-pages
+build	UNKNOWN STEP	2026-11-11T08:23:58.7717942Z   path: /home/runner/work/_temp/artifact.tar
+build	UNKNOWN STEP	2026-11-11T08:23:58.7718030Z   retention-days: 1
+build	UNKNOWN STEP	2026-11-11T08:23:58.7718124Z   if-no-files-found: error
+build	UNKNOWN STEP	2026-11-11T08:23:58.7718206Z   compression-level: 6
+build	UNKNOWN STEP	2026-11-11T08:23:58.7718293Z   overwrite: false
+build	UNKNOWN STEP	2026-11-11T08:23:58.7718386Z   include-hidden-files: false
+build	UNKNOWN STEP	2026-11-11T08:23:58.7718464Z env:
+build	UNKNOWN STEP	2026-11-11T08:23:58.7718556Z   PYODIDE_VERSION: 0.26.4
+build	UNKNOWN STEP	2026-11-11T08:23:58.7718866Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+build	UNKNOWN STEP	2026-11-11T08:23:58.7719093Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+build	UNKNOWN STEP	2026-11-11T08:23:58.7719230Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+build	UNKNOWN STEP	2026-11-11T08:23:58.7719365Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+build	UNKNOWN STEP	2026-11-11T08:23:58.7719489Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+build	UNKNOWN STEP	2026-11-11T08:23:58.7719625Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+build	UNKNOWN STEP	2026-11-11T08:23:58.7719703Z   GITHUB_PAGES: true
+build	UNKNOWN STEP	2026-11-11T08:23:58.7719787Z ##[endgroup]
+build	UNKNOWN STEP	2026-11-11T08:23:58.9057466Z (node:4469) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	UNKNOWN STEP	2026-11-11T08:23:58.9058197Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build	UNKNOWN STEP	2026-11-11T08:23:58.9094322Z With the provided path, there will be 1 file uploaded
+build	UNKNOWN STEP	2026-11-11T08:23:58.9098353Z Artifact name is valid!
+build	UNKNOWN STEP	2026-11-11T08:23:58.9099207Z Root directory input is valid!
+build	UNKNOWN STEP	2026-11-11T08:23:59.3482779Z Beginning upload of artifact content to blob storage
+build	UNKNOWN STEP	2026-11-11T08:24:00.1411562Z (node:4469) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+build	UNKNOWN STEP	2026-11-11T08:24:01.0787430Z Uploaded bytes 8388608
+build	UNKNOWN STEP	2026-11-11T08:24:01.9461825Z Uploaded bytes 16777216
+build	UNKNOWN STEP	2026-11-11T08:24:02.1456293Z Uploaded bytes 25165824
+build	UNKNOWN STEP	2026-11-11T08:24:02.6938130Z Uploaded bytes 33554432
+build	UNKNOWN STEP	2026-11-11T08:24:03.0183065Z Uploaded bytes 41943040
+build	UNKNOWN STEP	2026-11-11T08:24:03.3841662Z Uploaded bytes 50331648
+build	UNKNOWN STEP	2026-11-11T08:24:03.4225037Z Uploaded bytes 58720256
+build	UNKNOWN STEP	2026-11-11T08:24:03.8526929Z Uploaded bytes 67108864
+build	UNKNOWN STEP	2026-11-11T08:24:04.1050176Z Uploaded bytes 75497472
+build	UNKNOWN STEP	2026-11-11T08:24:04.3011525Z Uploaded bytes 83886080
+build	UNKNOWN STEP	2026-11-11T08:24:04.3123500Z Uploaded bytes 92274688
+build	UNKNOWN STEP	2026-11-11T08:24:04.5167841Z Uploaded bytes 100663296
+build	UNKNOWN STEP	2026-11-11T08:24:04.7384022Z Uploaded bytes 109051904
+build	UNKNOWN STEP	2026-11-11T08:24:04.9468123Z Uploaded bytes 117440512
+build	UNKNOWN STEP	2026-11-11T08:24:05.3456702Z Uploaded bytes 125829120
+build	UNKNOWN STEP	2026-11-11T08:24:05.6359110Z Uploaded bytes 134217728
+build	UNKNOWN STEP	2026-11-11T08:24:05.8019839Z Uploaded bytes 142606336
+build	UNKNOWN STEP	2026-11-11T08:24:05.9879622Z Uploaded bytes 147152469
+build	UNKNOWN STEP	2026-11-11T08:24:06.0672912Z Finished uploading artifact content to blob storage!
+build	UNKNOWN STEP	2026-11-11T08:24:06.0674811Z SHA256 digest of uploaded artifact zip is eee655272df22ba5d9dab396bbcb5d0525c18ea20b731c1652d3b945132ab2fa
+build	UNKNOWN STEP	2026-11-11T08:24:06.0676359Z Finalizing artifact upload
+build	UNKNOWN STEP	2026-11-11T08:24:06.6359646Z Artifact github-pages.zip successfully finalized. Artifact ID 13839722780
+build	UNKNOWN STEP	2026-11-11T08:24:06.6360892Z Artifact github-pages has been successfully uploaded! Final size is 147152469 bytes. Artifact ID is 13839722780
+build	UNKNOWN STEP	2026-11-11T08:24:06.6365897Z Artifact download URL: https://github.com/hassanaliarshad110/calgary-data-desk/actions/runs/42977312843/artifacts/13839722780
+build	UNKNOWN STEP	2026-11-11T08:24:06.6559829Z ##[end-action id=__actions_upload-pages-artifact.upload-artifact;outcome=success;conclusion=success;duration_ms=7887]
+build	UNKNOWN STEP	2026-11-11T08:24:06.6645433Z Post job cleanup.
+build	UNKNOWN STEP	2026-11-11T08:24:06.7696170Z (node:4482) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	UNKNOWN STEP	2026-11-11T08:24:06.7697071Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build	UNKNOWN STEP	2026-11-11T08:24:06.7882647Z Post job cleanup.
+build	UNKNOWN STEP	2026-11-11T08:24:06.8709730Z [command]/usr/bin/git version
+build	UNKNOWN STEP	2026-11-11T08:24:06.8747415Z git version 2.56.0
+build	UNKNOWN STEP	2026-11-11T08:24:06.8781340Z Temporarily overriding HOME='/home/runner/work/_temp/99c3401a-7c27-478e-b5d3-8d748848d309' before making global git config changes
+build	UNKNOWN STEP	2026-11-11T08:24:06.8782592Z Adding repository directory to the temporary git global config as a safe directory
+build	UNKNOWN STEP	2026-11-11T08:24:06.8787521Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/calgary-data-desk/calgary-data-desk
+build	UNKNOWN STEP	2026-11-11T08:24:06.8831986Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build	UNKNOWN STEP	2026-11-11T08:24:06.8870964Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build	UNKNOWN STEP	2026-11-11T08:24:06.9211490Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build	UNKNOWN STEP	2026-11-11T08:24:06.9249881Z http.https://github.com/.extraheader
+build	UNKNOWN STEP	2026-11-11T08:24:06.9252221Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+build	UNKNOWN STEP	2026-11-11T08:24:06.9292803Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build	UNKNOWN STEP	2026-11-11T08:24:06.9625634Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build	UNKNOWN STEP	2026-11-11T08:24:06.9668467Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build	UNKNOWN STEP	2026-11-11T08:24:07.0121777Z Cleaning up orphan processes
+build	UNKNOWN STEP	2026-11-11T08:24:07.0468322Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache/restore@v4, actions/cache/save@v4, actions/checkout@v4, actions/configure-pages@v5, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of
+deploy	UNKNOWN STEP	﻿2026-11-11T08:24:16.3548652Z Current runner version: '2.338.2'
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3570039Z ##[group]Runner Image Provisioner
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3570722Z Hosted Compute Agent
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3571301Z Version: 20261028.624
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3571882Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3572509Z Build Date: 2026-10-28T21:51:42Z
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3573062Z Worker ID: {fd36db92-d41c-44f7-af52-de5f8849396a}
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3573615Z Region: westus2
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3574119Z Cloud: Azure
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3574592Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3575695Z ##[group]Operating System
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3576219Z Ubuntu
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3576653Z 26.04.1
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3577111Z LTS
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3577595Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3578218Z ##[group]Runner Image
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3578722Z Image: ubuntu-26.04
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3579185Z Version: 20261101.186.1
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3580598Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3581877Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3582669Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3583657Z ##[group]GITHUB_TOKEN Permissions
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3585211Z Contents: read
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3585697Z Metadata: read
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3586230Z Pages: write
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3586713Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3588869Z Secret source: Actions
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3589767Z Cache mode: write
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3590447Z Prepare workflow directory
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3893806Z Prepare all required actions
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.3934927Z Getting action download info
+deploy	UNKNOWN STEP	2026-11-11T08:24:16.7180716Z Download action repository 'actions/deploy-pages@v4' (SHA:d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e)
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1202659Z Complete job name: deploy
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1914074Z ##[group]Run actions/deploy-pages@v4
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1914774Z with:
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1915126Z   timeout: 1800000
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1918589Z   token: ***
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1918947Z   error_count: 10
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1919321Z   reporting_interval: 5000
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1919744Z   artifact_name: github-pages
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1920163Z   preview: false
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1921033Z env:
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1921394Z   PYODIDE_VERSION: 0.26.4
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.1921787Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.6433854Z (node:2070) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.6435403Z (Use `node --trace-deprecation ...` to show where the warning was created)
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.9007451Z ##[warning]Warning: timeout value is greater than the allowed maximum - timeout set to the maximum of 600000 milliseconds.
+deploy	UNKNOWN STEP	2026-11-11T08:24:17.9019221Z Fetching artifact metadata for "github-pages" in this workflow run
+deploy	UNKNOWN STEP	2026-11-11T08:24:18.1784391Z Found 1 artifact(s)
+deploy	UNKNOWN STEP	2026-11-11T08:24:18.1891745Z Creating Pages deployment with payload:
+deploy	UNKNOWN STEP	2026-11-11T08:24:18.1892881Z {
+deploy	UNKNOWN STEP	2026-11-11T08:24:18.1893657Z 	"artifact_id": 13839722780,
+deploy	UNKNOWN STEP	2026-11-11T08:24:18.1894706Z 	"pages_build_version": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+deploy	UNKNOWN STEP	2026-11-11T08:24:18.2018826Z 	"oidc_token": "***"
+deploy	UNKNOWN STEP	2026-11-11T08:24:18.2019757Z }
+deploy	UNKNOWN STEP	2026-11-11T08:24:19.2676145Z Created deployment for ff42583627241a1b727d5a85e66ea4dba3df8317, ID: ff42583627241a1b727d5a85e66ea4dba3df8317
+deploy	UNKNOWN STEP	2026-11-11T08:24:24.5977287Z Getting Pages deployment status...
+deploy	UNKNOWN STEP	2026-11-11T08:24:24.8563207Z Current status: syncing_files
+deploy	UNKNOWN STEP	2026-11-11T08:24:29.8573094Z Getting Pages deployment status...
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0354933Z Reported success!
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0665230Z ##[group]Run sleep 60
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0665563Z ^[[36;1msleep 60^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0666016Z ^[[36;1mcurl -fsS https://calgaryinsight.ca/indexnow-urls.txt -o urls.txt^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0666730Z ^[[36;1mKEY=$(curl -fsS https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/ff42583627241a1b727d5a85e66ea4dba3df8317/web/indexnow.txt)^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0667572Z ^[[36;1mpython3 - "$KEY" <<'PY'^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0668015Z ^[[36;1mimport json, sys, urllib.request^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0668295Z ^[[36;1mkey = sys.argv[1].strip()^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0668625Z ^[[36;1murls = [u.strip() for u in open('urls.txt') if u.strip()][:10000]^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0669215Z ^[[36;1mbody = json.dumps({'host': 'calgaryinsight.ca', 'key': key, 'keyLocation': f'https://calgaryinsight.ca/{key}.txt', 'urlList': urls}).encode()^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0670064Z ^[[36;1mreq = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0670583Z ^[[36;1mtry:^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0670857Z ^[[36;1m    with urllib.request.urlopen(req, timeout=60) as r:^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0671218Z ^[[36;1m        print('IndexNow', r.status, len(urls), 'pages')^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0671558Z ^[[36;1mexcept Exception as e:^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0671857Z ^[[36;1m    print('IndexNow not reached:', e)^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0672142Z ^[[36;1mPY^[[0m
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0721274Z shell: /usr/bin/bash -e {0}
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0721554Z env:
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0721770Z   PYODIDE_VERSION: 0.26.4
+deploy	UNKNOWN STEP	2026-11-11T08:24:30.0722014Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-11T08:25:30.8653604Z IndexNow 200 354 pages
+deploy	UNKNOWN STEP	2026-11-11T08:25:30.8827558Z Evaluate and set environment url
+deploy	UNKNOWN STEP	2026-11-11T08:25:30.8831601Z Evaluated environment url: https://calgaryinsight.ca/
+deploy	UNKNOWN STEP	2026-11-11T08:25:30.8832334Z Cleaning up orphan processes
+deploy	UNKNOWN STEP	2026-11-11T08:25:30.9147270Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/deploy-pages@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

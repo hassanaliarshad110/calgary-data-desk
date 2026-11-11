@@ -1,0 +1,194 @@
+run 42764816551: 274 log lines in all; excerpt below
+---- first 30
+deploy	UNKNOWN STEP	﻿2026-11-10T05:52:26.8647130Z Current runner version: '2.338.2'
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8667541Z ##[group]Runner Image Provisioner
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8668288Z Hosted Compute Agent
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8668952Z Version: 20261028.624
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8669538Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8670209Z Build Date: 2026-10-28T21:51:42Z
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8670846Z Worker ID: {35c4ced1-24bb-419c-9f6d-43e42af7266e}
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8671557Z Region: westus3
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8672049Z Cloud: Azure
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8672588Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8673903Z ##[group]Operating System
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8674450Z Ubuntu
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8675280Z 26.04.1
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8675912Z LTS
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8676414Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8676937Z ##[group]Runner Image
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8677507Z Image: ubuntu-26.04
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8678059Z Version: 20261101.186.1
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8679205Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8680531Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8681408Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8682353Z ##[group]GITHUB_TOKEN Permissions
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8684155Z Contents: read
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8684722Z Metadata: read
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8685292Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8687209Z Secret source: Actions
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8688099Z Cache mode: write
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.8688897Z Prepare workflow directory
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.9086506Z Prepare all required actions
+deploy	UNKNOWN STEP	2026-11-10T05:52:26.9143093Z Getting action download info
+---- lines reporting a problem (Traceback, Error:, failed, not reached)
+---- last 160
+deploy	UNKNOWN STEP	2026-11-10T05:52:35.6378423Z   check-latest: false
+deploy	UNKNOWN STEP	2026-11-10T05:52:35.6380425Z   token: ***
+deploy	UNKNOWN STEP	2026-11-10T05:52:35.6380645Z env:
+deploy	UNKNOWN STEP	2026-11-10T05:52:35.6381246Z   CLOUDFLARE_API_TOKEN: ***
+deploy	UNKNOWN STEP	2026-11-10T05:52:35.6381514Z   CLOUDFLARE_ACCOUNT_ID: 
+deploy	UNKNOWN STEP	2026-11-10T05:52:35.6381760Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-10T05:52:35.7581030Z Attempting to download 20...
+deploy	UNKNOWN STEP	2026-11-10T05:52:35.7782012Z (node:2209) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+deploy	UNKNOWN STEP	2026-11-10T05:52:35.7783042Z (Use `node --trace-deprecation ...` to show where the warning was created)
+deploy	UNKNOWN STEP	2026-11-10T05:52:36.7305627Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+deploy	UNKNOWN STEP	2026-11-10T05:52:37.1353887Z Extracting ...
+deploy	UNKNOWN STEP	2026-11-10T05:52:37.1452494Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/ba51005c-d414-421c-b427-11b43bbd7a93 -f /home/runner/work/_temp/edce7aee-b7e6-4931-9954-208cd81e8269
+deploy	UNKNOWN STEP	2026-11-10T05:52:37.6842114Z Adding to the cache ...
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.4891690Z ##[group]Environment details
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.6828964Z node: v20.20.2
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.6829329Z npm: 10.8.2
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.6829586Z yarn: 1.22.22
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.6830297Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.7027547Z ##[group]Run node gateway/test.mjs
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.7027916Z ^[[36;1mnode gateway/test.mjs^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.7077976Z shell: /usr/bin/bash -e {0}
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.7078222Z env:
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.7078892Z   CLOUDFLARE_API_TOKEN: ***
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.7079142Z   CLOUDFLARE_ACCOUNT_ID: 
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.7079374Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-10T05:52:39.8630975Z ok   a real Google sign-in is accepted
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0297530Z ok   a forged token is refused
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0312069Z ok   a token for another site is refused
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0322151Z ok   an expired token is refused
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0332896Z ok   an unverified email is refused
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0338746Z ok   no sign-in, no entry
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0467749Z ok   someone not approved gets no session
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0468540Z ok   a sign-in is kept for the owner even when not approved
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0478001Z ok   a second sign-in within the hour writes nothing new
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0478695Z ok   a sign-in on another day counts a new day
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0485628Z ok   only the owner sees who signed in
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0498062Z ok   nor any answer
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0506242Z ok   only the owner manages access
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0515152Z ok   the owner approves someone with a limit
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0524996Z ok   they see they are approved, with their limit
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0525801Z ok   by default only Data Genie and the Data Scientist
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0540813Z ok   the owner chooses which tools each person gets
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0547459Z ok   no tools at all is refused
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0548216Z ok   the site gets the CORS header
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0555391Z ok   other sites do not
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0573433Z ok   an approved person gets a 12-hour session
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0585377Z ok   a changed session is refused
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0633157Z ok   the answer streams through unchanged
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0633673Z ok   the key is added here, never by the browser
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0634198Z ok   an oversized reply length is capped
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0640772Z ok   its cost is counted ($2 in + $1 out at Sonnet prices)
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0648137Z ok   over the daily limit: stopped, with a plain reason
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0656763Z ok   only Claude models
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0673503Z ok   the owner has every tool
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0674036Z ok   the owner has no limit, and a plain reply is counted too
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0682481Z ok   the owner sees everyone approved with today's spend
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0692655Z ok   removing someone stops their session at once
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0693108Z ok   web searches are priced
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0694130Z ok   an unknown model is priced at the dearest
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0694720Z ok   the day is Calgary's
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0701788Z ok   the owner gets the list, with who is approved
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0733519Z ok   a page view needs no sign-in
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0751206Z ok   views and visitors are counted, other sites and robots are not
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0751867Z ok   pages without their query, sources without the site itself
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0752718Z ok   no address is kept
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0757148Z ok   earlier days' visitor marks are deleted
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0765608Z ok   only the owner sees the traffic
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0765899Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0766048Z All checks passed.
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0834543Z ##[group]Run set -e
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0834811Z ^[[36;1mset -e^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0835113Z ^[[36;1m# a key pasted with a space or line break around it is still the key^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0836524Z ^[[36;1m# Cloudflare's page also shows a test command with the key inside it ("Authorization: ***"): either works^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0837157Z ^[[36;1mT="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | grep -oE 'Bearer[[:space:]]+[A-Za-z0-9_-]+' | tail -1 | awk '{print $2}')"^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0837597Z ^[[36;1m[ -n "$T" ] && CLOUDFLARE_API_TOKEN="$T"^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0838038Z ^[[36;1mCLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"; export CLOUDFLARE_API_TOKEN^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0838554Z ^[[36;1mecho "Key length: ${#CLOUDFLARE_API_TOKEN} characters (a Cloudflare key is 40)"^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0839604Z ^[[36;1mcurl -s https://api.cloudflare.com/client/v4/user/tokens/verify -H "Authorization: ***" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const j=JSON.parse(s);console.log('Key check:',j.success?('valid, '+j.result.status):JSON.stringify(j.errors))})"^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0840376Z ^[[36;1mW="npx --yes wrangler@3.99.0"^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0840747Z ^[[36;1m# the storage for approvals and daily spend: made the first time, found by name after that^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0841479Z ^[[36;1mid=$($W kv namespace list | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const a=JSON.parse(s.slice(s.indexOf('[')));const n=a.find(x=>x.title.endsWith('ACCESS'));console.log(n?n.id:'')})")^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0842053Z ^[[36;1mif [ -z "$id" ]; then^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0842300Z ^[[36;1m  $W kv namespace create ACCESS | tee kv.txt^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0842596Z ^[[36;1m  id=$(grep -oE '[0-9a-f]{32}' kv.txt | head -1)^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0842860Z ^[[36;1mfi^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0843055Z ^[[36;1msed -i "s/KV_ID/$id/" wrangler.toml^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0843312Z ^[[36;1m$W deploy | tee deploy.txt^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0843628Z ^[[36;1mprintf '%s' "$ANTHROPIC_API_KEY" | $W secret put ANTHROPIC_API_KEY^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0844067Z ^[[36;1mecho "Gateway address:"; grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.txt | head -1^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0889868Z shell: /usr/bin/bash -e {0}
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0890115Z env:
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0890750Z   CLOUDFLARE_API_TOKEN: ***
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0891006Z   CLOUDFLARE_ACCOUNT_ID: 
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0891703Z   ANTHROPIC_API_KEY: ***
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.0891910Z ##[endgroup]
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.1025330Z Key length: 53 characters (a Cloudflare key is 40)
+deploy	UNKNOWN STEP	2026-11-10T05:52:40.2606231Z Key check: valid, active
+deploy	UNKNOWN STEP	2026-11-10T05:52:44.4390714Z npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+deploy	UNKNOWN STEP	2026-11-10T05:52:44.4891590Z npm warn deprecated rollup-plugin-inject@3.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.4817571Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.4819096Z Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8172401Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8173414Z  ⛅️ wrangler 3.99.0 (update available 4.159.0)
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8173970Z ----------------------------------------------
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8174509Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8489929Z ^[[33m▲ ^[[43;33m[^[[43;30mWARNING^[[43;33m]^[[0m ^[[1mThe version of Wrangler you are using is now out-of-date.^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8490311Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8490607Z   Please update to the latest version to prevent critical errors.
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8491059Z   Run `npm install --save-dev wrangler@4` to update to the latest version.
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8491559Z   After installation, run Wrangler with `npx wrangler`.
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8491764Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:51.8491771Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:52.5081119Z Total Upload: 19.21 KiB / gzip: 6.29 KiB
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3895847Z Your worker has access to the following bindings:
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3896400Z - Durable Objects:
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3896687Z   - TRAFFIC: Traffic
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3896974Z - KV Namespaces:
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3897324Z   - ACCESS: 132481a9a0f04e9c9bfeaa379101c0ae
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3897692Z - Vars:
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3898455Z   - OWNER_EMAILS: "[address removed]"
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3899081Z   - ALLOWED_ORIGINS: "https://calgaryinsight.ca,https://www..."
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3899569Z   - DEFAULT_LIMIT_USD: "10"
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.3904086Z Uploaded calgary-insight-ai (1.15 sec)
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.8412811Z Deployed calgary-insight-ai triggers (0.21 sec)
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.8413447Z   https://calgary-insight-ai.hasssanaliarshad.workers.dev
+deploy	UNKNOWN STEP	2026-11-10T05:52:53.8429205Z Current Version ID: e6300deb-c47c-4292-a40c-1eaa2b8e36cd
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8644547Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8645711Z  ⛅️ wrangler 3.99.0 (update available 4.159.0)
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8646494Z ----------------------------------------------
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8646763Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8946569Z ^[[33m▲ ^[[43;33m[^[[43;30mWARNING^[[43;33m]^[[0m ^[[1mThe version of Wrangler you are using is now out-of-date.^[[0m
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8947137Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8947448Z   Please update to the latest version to prevent critical errors.
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8948187Z   Run `npm install --save-dev wrangler@4` to update to the latest version.
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8949511Z   After installation, run Wrangler with `npx wrangler`.
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8950042Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.8950050Z 
+deploy	UNKNOWN STEP	2026-11-10T05:52:55.9041191Z 🌀 Creating the secret for the Worker "calgary-insight-ai" 
+deploy	UNKNOWN STEP	2026-11-10T05:52:56.3405392Z ✨ Success! Uploaded secret ANTHROPIC_API_KEY
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.4083911Z Gateway address:
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.4111657Z https://calgary-insight-ai.hasssanaliarshad.workers.dev
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.4203359Z Post job cleanup.
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.5184674Z (node:2435) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.5185341Z (Use `node --trace-deprecation ...` to show where the warning was created)
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.5410930Z Post job cleanup.
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6130636Z [command]/usr/bin/git version
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6169047Z git version 2.56.0
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6201096Z Temporarily overriding HOME='/home/runner/work/_temp/1eb091a8-e0bb-40ae-bdab-2f3f8dc3c1e7' before making global git config changes
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6202118Z Adding repository directory to the temporary git global config as a safe directory
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6205287Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/calgary-data-desk/calgary-data-desk
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6238782Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6269729Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6525930Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6547949Z http.https://github.com/.extraheader
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6557949Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6592827Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6857475Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.6888002Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.7247166Z Cleaning up orphan processes
+deploy	UNKNOWN STEP	2026-11-10T05:52:57.7573902Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
