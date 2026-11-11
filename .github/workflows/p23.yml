@@ -1,0 +1,113 @@
+name: Probe 23
+
+# Read only. Runs the site's own build command on the development branch, to see that the whole build still works with
+# the new screen's files in it. It has no publishing step, saves no cache, and is given none of the site's secrets.
+# What it finds is pushed to the branch fetched-23. It does not touch main, the Website workflow or the live site.
+
+on: {push: {branches: [site-check-23]}}
+permissions: {contents: write, actions: read}
+env:
+  PYODIDE_VERSION: '0.26.4'
+  BUILD_REF: 27db3be9c5522eed3e1b21c85d6dc47f8f1fb2a9
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: 27db3be9c5522eed3e1b21c85d6dc47f8f1fb2a9}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: The same tools the Website workflow installs
+        run: pip install cryptography numpy scipy openpyxl overturemaps pypdf
+      # the same cache the Website workflow restores; it is only read here, never saved
+      - uses: actions/cache/restore@v4
+        with:
+          path: .site-cache
+          key: site-cache-${{ github.run_id }}
+          restore-keys: site-cache-
+      - name: Pyodide, as in the Website workflow
+        run: |
+          curl -fsSL --retry 3 --retry-delay 15 --retry-all-errors -o pyodide.tar.bz2 "https://github.com/pyodide/pyodide/releases/download/${PYODIDE_VERSION}/pyodide-core-${PYODIDE_VERSION}.tar.bz2" || {
+            mkdir -p pyodide
+            for f in pyodide.js pyodide.mjs pyodide.asm.js pyodide.asm.wasm python_stdlib.zip pyodide-lock.json package.json; do
+              curl -fsSL --retry 4 --retry-delay 10 --retry-all-errors -o "pyodide/$f" "https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/$f"
+            done
+            tar -cjf pyodide.tar.bz2 pyodide && rm -rf pyodide
+          }
+          tar -xjf pyodide.tar.bz2
+      - name: The full build of the branch (no secrets, nothing published)
+        env:
+          TZ: America/Edmonton
+          CDD_SITE_URL: https://calgaryinsight.ca/
+        run: |
+          set +e
+          mkdir -p out
+          echo "commit built: $(git rev-parse HEAD)" > out/summary.txt
+          echo "cache restored: $([ -d .site-cache ] && du -sh .site-cache | cut -f1 || echo none)" >> out/summary.txt
+          date -u +'build started %Y-%m-%dT%H:%M:%SZ' >> out/summary.txt
+          python web/build_site.py _site --cache .site-cache --pyodide pyodide > build-log.txt 2>&1
+          echo "build command exit code: $?" >> out/summary.txt
+          date -u +'build finished %Y-%m-%dT%H:%M:%SZ' >> out/summary.txt
+          tail -40 build-log.txt
+      - name: What was built
+        if: always()
+        run: |
+          set +e
+          mkdir -p out
+          grep -E '^(ok  |FAIL) ' build-log.txt > out/steps-as-printed.txt
+          grep -n -i -E 'FAIL |Traceback|skipped|switched off|could not|not reached' build-log.txt | head -200 > out/log-lines-worth-reading.txt
+          tail -60 build-log.txt > out/log-last-60-lines.txt
+          cp _site/data/built.json out/built.json 2>/dev/null
+          curl -fsS -m 60 https://calgaryinsight.ca/data/built.json -o out/built-live.json || echo "live built.json not fetched" >> out/summary.txt
+          (cd _site && find . -type f -not -path './pyodide/*' -printf '%s %p\n' | sort -k2) > out/files.txt
+          echo "files built (without pyodide): $(wc -l < out/files.txt)" >> out/summary.txt
+          (cd _site && sha256sum index.html site.*.js budget-intel.css budget-intel.js budget-intel/business-cases.json budget-intel/crosswalk.json data/methods.json data/analyst_topics.json data/registry.json data/search.json py/manifest.json py/budget_intel.py py/data/business-cases.json py/data/crosswalk.json) > out/key-files-sha256.txt 2>&1
+          sha256sum ui/budget-intel.css ui/budget-intel.js ui/budget-intel/business-cases.json ui/budget-intel/crosswalk.json budget_intel.py > out/source-files-sha256.txt
+          python - <<'PY' >> out/summary.txt 2>&1
+          import json, os
+          def rd(p):
+              try: return json.load(open(p, encoding='utf-8'))
+              except Exception as e: return None
+          b, live = rd('_site/data/built.json'), rd('out/built-live.json')
+          if b:
+              bad = [s for s in b['steps'] if not s.get('ok')]
+              print(f"build steps: {len(b['steps'])}; ok {len(b['steps']) - len(bad)}; failed {len(bad)}; minutes {b.get('minutes')}")
+              for s in bad: print('  FAILED STEP:', s['step'], '|', s.get('error', '')[:200])
+              if live:
+                  a, c = [s['step'] for s in live['steps']], [s['step'] for s in b['steps']]
+                  lbad = [s['step'] for s in live['steps'] if not s.get('ok')]
+                  print(f"live site today: {len(a)} steps, {len(lbad)} failed, built {live.get('built_at')}, {live.get('minutes')} minutes")
+                  print('steps in this build but not in the live one:', [x for x in c if x not in a])
+                  print('steps in the live build but not in this one:', [x for x in a if x not in c])
+          else:
+              print('built.json was not written')
+          def n(p, f):
+              d = rd(p)
+              try: print(f'{p}: {f(d)}')
+              except Exception as e: print(f'{p}: could not be read ({e})')
+          n('_site/data/methods.json', lambda d: f"{len(d)} notes; budget_intelligence present: {'budget_intelligence' in json.dumps(d)}")
+          n('_site/data/analyst_topics.json', lambda d: f"{len(d)} topics; budget_requests present: {'budget_requests' in json.dumps(d)}")
+          n('_site/data/registry.json', lambda d: f"budget-intelligence present: {'budget-intelligence' in json.dumps(d)}")
+          n('_site/data/search.json', lambda d: f"{len(d) if isinstance(d, list) else len(d.get('rows', d))} rows; Budget Intelligence rows: {json.dumps(d).count('budget-intelligence')}")
+          n('_site/py/manifest.json', lambda d: f"budget_intel.py listed: {'budget_intel.py' in json.dumps(d)}; data/business-cases.json listed: {'business-cases.json' in json.dumps(d)}")
+          for p in ('_site/index.html', '_site/budget-intel.js', '_site/budget-intel.css', '_site/budget-intel/business-cases.json', '_site/py/budget_intel.py', '_site/data/city_actual/w0.json', '_site/data/budget.json', '_site/data/tax.json'):
+              print(p, 'present' if os.path.exists(p) else 'MISSING', os.path.getsize(p) if os.path.exists(p) else '')
+          try:
+              h = open('_site/index.html', encoding='utf-8').read()
+              print('index.html: Budget Intelligence tab present:', 'budget-intelligence' in h, '| screen script in the bundle or linked:', 'budget-intel' in h)
+          except Exception as e: print('index.html not read', e)
+          PY
+          # the checks kept in the repository, on this build's data
+          python tools/budget_intel_check.py --data _site/data --json out/checks-on-this-build.json > out/checks-on-this-build.txt 2>&1; echo "tools/budget_intel_check.py exit code: $?" >> out/summary.txt
+          # the assistants' tool, in the layout this build ships to the browser
+          (cd _site/py && python "$GITHUB_WORKSPACE/docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools/genie_test.py" "$GITHUB_WORKSPACE/out/assistants-in-this-build.json" > "$GITHUB_WORKSPACE/out/assistants-in-this-build.txt" 2>&1; echo "assistants' tool test exit code: $?" >> "$GITHUB_WORKSPACE/out/summary.txt")
+          cat out/summary.txt
+      - name: Push what was found to fetched-23 (evidence only)
+        if: always()
+        run: |
+          set +e
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q --orphan fetched-23
+          git rm -rqf --cached . > /dev/null 2>&1
+          git add -f out && git commit -qm "Full build of the development branch as a read-only job: what was built (evidence only)" && git push -qf origin fetched-23
