@@ -1,0 +1,842 @@
+{
+  "results" :
+    [
+      {
+        "resource" :
+          {
+            "name" : "Alberta Township Sections",
+            "id" : "q6ds-xz2v",
+            "resource_name" : null,
+            "parent_fxf" : [ "a2g3-5t6s" ],
+            "description" : "The Alberta Township File identifies land (section, township, range) in a grid format known as Dominion Land Survey (DLS) system. It is a graphic representation of these section boundaries (approximately 1 mile X 1 mile). The file contains Section Boundary, Section Name, Original Road Allowance and Quarter Section attribute information. \r\n\r\nThe polygons in this file represent the section boundaries determined in 1997 by examination and review of all registered legal plans in The City of Calgary. Each section within the city limits are defined by eight quarter section pins and also boundary cadastral stations. The line work was created in 2006 from data which was formally released to The City in 1997.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "map",
+            "updatedAt" : "2026-07-13T17:20:17.000Z",
+            "createdAt" : "2016-08-17T13:02:07.000Z",
+            "metadata_updated_at" : "2026-07-13T17:20:17.000Z",
+            "data_updated_at" : "2026-01-20T21:34:58.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 176,
+                "page_views_last_month" : 733,
+                "page_views_total" : 40260,
+                "page_views_last_week_log" : 7.467605550082998,
+                "page_views_last_month_log" : 9.519636252843213,
+                "page_views_total_log" : 15.297095385815757
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 709,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_map",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-07-13T17:20:17.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Base Maps",
+            "domain_tags" : [ "land survey", "ats", "section grid" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Capital Plan and Bus Serv"
+                },
+                {
+                  "key" : "Geospatial-Information_Map-Projection",
+                  "value" : "EPSG:4326 WGS84"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "Yes"
+                },
+                { "key" : "Time/Date_Creation-Date", "value" : "2006" },
+                {
+                  "key" : "Time/Date_Update-Frequency",
+                  "value" : "Irregular"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/q6ds-xz2v",
+        "link" : "https://data.calgary.ca/Base-Maps/Alberta-Township-Sections/q6ds-xz2v",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Suburban Residential Growth (SRG) Policy Infrastructure Lines",
+            "id" : "szyj-edpn",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "This dataset lists growth-oriented capital infrastructure projects that will support future suburban residential growth, and the policies that will be supported by that infrastructure. It includes required capital infrastructure projects for Water, Sanitary, Storm, Transportation and Emergency Response. Duplicate infrastructure may appear when more than one policy is supported by that infrastructure.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-11-10T16:25:01.000Z",
+            "createdAt" : "2024-06-10T17:34:51.000Z",
+            "metadata_updated_at" : "2026-11-10T16:25:00.000Z",
+            "data_updated_at" : "2026-11-10T16:25:01.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 15,
+                "page_views_last_month" : 53,
+                "page_views_total" : 666,
+                "page_views_last_week_log" : 4.0,
+                "page_views_last_month_log" : 5.754887502163469,
+                "page_views_total_log" : 9.381542951184585
+              },
+            "columns_name" :
+              [
+                "GLOBALID",
+                "POL_NAME",
+                "MULTILINESTRING",
+                "LABEL",
+                "CREATE_DT_LOCAL",
+                "MOD_DT_LOCAL",
+                "TYPE",
+                "SERVICE"
+              ],
+            "columns_field_name" :
+              [
+                "globalid",
+                "pol_name",
+                "multilinestring",
+                "label",
+                "create_dt_local",
+                "mod_dt_local",
+                "type",
+                "service"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "MultiLine",
+                "Text",
+                "Date",
+                "Date",
+                "Text",
+                "Text"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "", "" ],
+            "columns_format" : [ {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 264,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2024-06-10T17:44:57.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Services and Amenities",
+            "domain_tags" :
+              [
+                "transportation",
+                "water",
+                "emergency",
+                "growth",
+                "infrastructure",
+                "land",
+                "planning",
+                "residential",
+                "sanitary",
+                "service",
+                "storm",
+                "supply"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "City and Regional Planning"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Map-Projection",
+                  "value" : "EPSG:4326 WGS84"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "Yes"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Annual" },
+                {
+                  "key" : "Time/Date_Temporal-End-Date",
+                  "value" : "06/07/2024"
+                },
+                {
+                  "key" : "Time/Date_Temporal-Start-Date",
+                  "value" : "06/07/2024"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/szyj-edpn",
+        "link" : "https://data.calgary.ca/Services-and-Amenities/Suburban-Residential-Growth-SRG-Policy-Infrastruct/szyj-edpn",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Bridge map",
+            "id" : "ctxu-aicd",
+            "resource_name" : null,
+            "parent_fxf" : [ "vchq-db2i" ],
+            "description" : "The City of Calgary currently maintains approximately 400 traffic, pedestrian and LRT bridges, as well as subways and tunnels.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "map",
+            "updatedAt" : "2026-11-03T13:07:34.000Z",
+            "createdAt" : "2018-11-01T16:52:35.000Z",
+            "metadata_updated_at" : "2026-08-07T13:30:15.000Z",
+            "data_updated_at" : "2026-11-03T13:07:34.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 42,
+                "page_views_last_month" : 123,
+                "page_views_total" : 2449,
+                "page_views_last_week_log" : 5.426264754702098,
+                "page_views_last_month_log" : 6.954196310386876,
+                "page_views_total_log" : 11.258566033889933
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 26,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_map",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-08-07T13:30:15.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Transportation/Transit",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "http://www.calgary.ca/Transportation/Roads/Pages/Road-Maintenance/Bridge-rehabilitation/Bridge-rehabilitation.aspx"
+                },
+                {
+                  "key" : "Data-Supplier_Department",
+                  "value" : "[ \"Infrastructure Services\" ]"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Capital Plan and Bus Serv"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Map-Projection",
+                  "value" : "WGS84/Web Mercator"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "Yes"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Monthly" },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/ctxu-aicd",
+        "link" : "https://data.calgary.ca/Transportation-Transit/Bridge-map/ctxu-aicd",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Bridges",
+            "id" : "vchq-db2i",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The City of Calgary currently maintains approximately 400 traffic, pedestrian and LRT bridges, as well as subways and tunnels.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-11-03T13:07:34.000Z",
+            "createdAt" : "2018-06-07T16:16:03.000Z",
+            "metadata_updated_at" : "2026-11-03T13:07:30.000Z",
+            "data_updated_at" : "2026-11-03T13:07:34.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 68,
+                "page_views_last_month" : 152,
+                "page_views_total" : 3619,
+                "page_views_last_week_log" : 6.10852445677817,
+                "page_views_last_month_log" : 7.257387842692652,
+                "page_views_total_log" : 11.82177398197057
+              },
+            "columns_name" :
+              [
+                "IN_SERVICE_DATE",
+                "RESPONSIBILITY_resolved",
+                "WIDTH_OUT_TO_OUT",
+                "LENGTH_BRIDGE",
+                "BRIDGE_NAME",
+                "BRIDGE_NO",
+                "ACQUISITION_METHOD_resolved",
+                "POSTED_LOAD",
+                "MODIFY_REASON_resolved",
+                "SUB_EXISTS_YN_resolved",
+                "LOCATION",
+                "WSFC_ACQUISITION_METHOD_resolved",
+                "POSTED_CLEARANCE",
+                "SUPER_EXISTS_YN_resolved",
+                "WSFC_EXISTS_YN_resolved",
+                "SUB_ACQUISITION_METHOD_resolved",
+                "WIDTH_CLEAR",
+                "SUPER_ACQUISITION_METHOD_resolved",
+                "multipolygon",
+                "OWNER_resolved",
+                "STATUS_CD_resolved"
+              ],
+            "columns_field_name" :
+              [
+                "in_service_date",
+                "responsibility_resolved",
+                "width_out_to_out",
+                "length_bridge",
+                "bridge_name",
+                "bridge_no",
+                "acquisition_method_resolved",
+                "posted_load",
+                "modify_reason_resolved",
+                "sub_exists_yn_resolved",
+                "location",
+                "wsfc_acquisition_method_resolved",
+                "posted_clearance",
+                "super_exists_yn_resolved",
+                "wsfc_exists_yn_resolved",
+                "sub_acquisition_method_resolved",
+                "width_clear",
+                "super_acquisition_method_resolved",
+                "multipolygon",
+                "owner_resolved",
+                "status_cd_resolved"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Number",
+                "Number",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Number",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+              ],
+            "columns_format" :
+              [
+                { "view" : "date_ymd" },
+                {},
+                { "align" : "left" },
+                { "align" : "left" },
+                { "align" : "left" },
+                { "align" : "left" },
+                {},
+                { "align" : "left" },
+                {},
+                {},
+                { "align" : "left" },
+                {},
+                { "align" : "left" },
+                {},
+                {},
+                {},
+                { "align" : "left" },
+                {},
+                { "align" : "left" },
+                {},
+                {}
+              ],
+            "download_count" : 557,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2025-11-25T13:35:15.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Transportation/Transit",
+            "domain_tags" : [ "bridge", "length", "width" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "http://www.calgary.ca/Transportation/Roads/Pages/Road-Maintenance/Bridge-rehabilitation/Bridge-rehabilitation.aspx"
+                },
+                {
+                  "key" : "Data-Supplier_Department",
+                  "value" : "[ \"Infrastructure Services\" ]"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Capital Plan and Bus Serv"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Map-Projection",
+                  "value" : "WGS84/Web Mercator"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "Yes"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Monthly" },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/vchq-db2i",
+        "link" : "https://data.calgary.ca/Transportation-Transit/Bridges/vchq-db2i",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Alberta Township Sections",
+            "id" : "a2g3-5t6s",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The Alberta Township File identifies land (section, township, range) in a grid format known as Dominion Land Survey (DLS) system. It is a graphic representation of these section boundaries (approximately 1 mile X 1 mile). The file contains Section Boundary, Section Name, Original Road Allowance and Quarter Section attribute information. \r\n\r\nThe polygons in this file represent the section boundaries determined in 1997 by examination and review of all registered legal plans in The City of Calgary. Each section within the city limits are defined by eight quarter section pins and also boundary cadastral stations. The line work was created in 2006 from data which was formally released to The City in 1997.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-07-13T17:21:01.000Z",
+            "createdAt" : "2016-08-17T13:02:10.000Z",
+            "metadata_updated_at" : "2026-07-13T17:21:01.000Z",
+            "data_updated_at" : "2026-01-20T21:34:58.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 67,
+                "page_views_last_month" : 276,
+                "page_views_total" : 6112,
+                "page_views_last_week_log" : 6.08746284125034,
+                "page_views_last_month_log" : 8.113742166049189,
+                "page_views_total_log" : 12.577664851764846
+              },
+            "columns_name" :
+              [
+                "PLANNING_NO",
+                "LOCATION",
+                "RANGE",
+                "MERIDIAN",
+                "CREATED_DT",
+                "TOWNSHIP",
+                "MULTIPOLYGON",
+                "CORPORATE_SECTION_NUMBER",
+                "ATS_SECTION_NO",
+                "ATS_SECTION_ID",
+                "SECT",
+                "MODIFIED_ATTRIBITE_DT",
+                "FIRE_NO",
+                "TRANSIT_NO"
+              ],
+            "columns_field_name" :
+              [
+                "planning_no",
+                "location",
+                "range",
+                "meridian",
+                "created_dt",
+                "township",
+                "multipolygon",
+                "corporate_section_number",
+                "ats_section_no",
+                "ats_section_id",
+                "sect",
+                "modified_attribite_dt",
+                "fire_no",
+                "transit_no"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Date",
+                "Text",
+                "MultiPolygon",
+                "Text",
+                "Text",
+                "Number",
+                "Text",
+                "Date",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [ "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {},
+                {},
+                {},
+                {},
+                { "view" : "date_ymd" },
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                { "view" : "date_ymd" },
+                {},
+                {}
+              ],
+            "download_count" : 845,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2021-07-26T21:50:36.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Base Maps",
+            "domain_tags" : [ "township", "planning", "section", "transit" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Capital Plan and Bus Serv"
+                },
+                {
+                  "key" : "Geospatial-Information_Map-Projection",
+                  "value" : "EPSG:4326 WGS84"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "Yes"
+                },
+                { "key" : "Time/Date_Creation-Date", "value" : "2006" },
+                {
+                  "key" : "Time/Date_Update-Frequency",
+                  "value" : "Irregular"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/a2g3-5t6s",
+        "link" : "https://data.calgary.ca/Base-Maps/Alberta-Township-Sections/a2g3-5t6s",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Plus 15 Bridges",
+            "id" : "fu7z-c7ar",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Bridges within Calgary's Plus 15 Network. For more information visit <a href=\"https://www.calgary.ca/plus15\">Calgary.ca/Plus15</a>",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-11-01T18:07:06.000Z",
+            "createdAt" : "2020-06-02T18:50:56.000Z",
+            "metadata_updated_at" : "2026-11-01T18:07:06.000Z",
+            "data_updated_at" : "2026-11-01T18:07:06.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 33,
+                "page_views_last_month" : 148,
+                "page_views_total" : 2286,
+                "page_views_last_week_log" : 5.08746284125034,
+                "page_views_last_month_log" : 7.219168520462162,
+                "page_views_total_log" : 11.159240650411672
+              },
+            "columns_name" :
+              [
+                "CROSS_ROW",
+                "CONST_DEC",
+                "CONN_TYPE",
+                "MODIFIED_DT",
+                "POSTED_CLEARANCE",
+                "CROSS_LOC",
+                "BRIDGE_NAME",
+                "LOCATION",
+                "STRUCTURE_TYPE",
+                "polygon"
+              ],
+            "columns_field_name" :
+              [
+                "cross_row",
+                "const_dec",
+                "conn_type",
+                "modified_dt",
+                "posted_clearance",
+                "cross_loc",
+                "bridge_name",
+                "location",
+                "structure_type",
+                "polygon"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [
+                "Indicates if Plus 15 bridge crosses a road Right Of Way",
+                "Date of construction",
+                "Structure type (bridge, lane link, etc.)",
+                "Last date which data was modified",
+                "Posted clearance height of Plus 15 Bridge over road or laneway",
+                "Crossing location of Plus 15 bridge indicated by street/avenue which  bridge crosses and the adjacent streets/avenues that the bridge is bounded by",
+                "Bridge number assigned by City of Calgary",
+                "Building name or addresses of adjacent buildings which Plus 15 bridge spans between",
+                "",
+                ""
+              ],
+            "columns_format" :
+              [ {}, {}, {}, { "view" : "date_ymd" }, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 376,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-26T19:55:17.000Z"
+          },
+        "classification" :
+          {
+            "categories" :
+              [ "housing & development", "transportation", "infrastructure" ],
+            "tags" : [],
+            "domain_category" : "Transportation/Transit",
+            "domain_tags" : [ "plus 15", "plus15" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Capital Plan and Bus Serv"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Map-Projection",
+                  "value" : "EPSG:4326 WGS84"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "Yes"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Monthly" },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/fu7z-c7ar",
+        "link" : "https://data.calgary.ca/Transportation-Transit/Plus-15-Bridges/fu7z-c7ar",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      }
+    ],
+  "resultSetSize" : 6,
+  "timings" : { "serviceMillis" : 27, "searchMillis" : [ 13, 7 ] },
+  "warnings" : []
+}

@@ -1,0 +1,2787 @@
+{
+  "results" :
+    [
+      {
+        "resource" :
+          {
+            "name" : "2023–2026 Budget",
+            "id" : "fqax-i3nz",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed budget information for the 2023 – 2026 Service Plans & Budgets. <a href=\"https://data.calgary.ca/dataset/Budget-Overview-2026/d3ez-qhmr\">View the 2026 budget here</a>",
+            "attribution" : null,
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-11-09T15:17:53.000Z",
+            "createdAt" : "2025-08-28T15:10:06.000Z",
+            "metadata_updated_at" : "2026-11-09T15:17:53.000Z",
+            "data_updated_at" : "2026-01-14T23:38:24.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 154,
+                "page_views_last_month" : 518,
+                "page_views_total" : 6266,
+                "page_views_last_week_log" : 7.276124405274238,
+                "page_views_last_month_log" : 9.019590728357882,
+                "page_views_total_log" : 12.613559277788266
+              },
+            "columns_name" :
+              [
+                "Department",
+                "Budget($millions)",
+                "Budget Status",
+                "Budget Department",
+                "Fund",
+                "Drilldown Level 2",
+                "Year",
+                "Business Unit"
+              ],
+            "columns_field_name" :
+              [
+                "actual_department",
+                "budget",
+                "budget_status",
+                "budget_department",
+                "fund",
+                "level_2",
+                "year",
+                "business_unit"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Number",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Number",
+                "Text"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {},
+                {
+                  "decimalSeparator" : ".",
+                  "precision" : "2",
+                  "groupSeparator" : ","
+                },
+                {},
+                {},
+                {},
+                {},
+                { "noCommas" : "true" },
+                {}
+              ],
+            "download_count" : 286,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2025-09-09T15:55:46.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [ "finance", "fiscal", "budget", "action plan" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.calgary.ca" },
+        "permalink" : "https://data.calgary.ca/d/fqax-i3nz",
+        "link" : "https://data.calgary.ca/Government/2023-2026-Budget/fqax-i3nz",
+        "owner" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          },
+        "creator" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2026 Budget",
+            "id" : "d3ez-qhmr",
+            "resource_name" : null,
+            "parent_fxf" : [ "fqax-i3nz" ],
+            "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed budget information for the 2023 – 2026 Service Plans & Budgets, helping Calgarians explore how funds are allocated across The City.",
+            "attribution" : null,
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-25T17:39:17.000Z",
+            "createdAt" : "2025-09-09T14:29:47.000Z",
+            "metadata_updated_at" : "2026-06-25T17:39:17.000Z",
+            "data_updated_at" : "2026-01-14T23:38:24.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 71,
+                "page_views_last_month" : 367,
+                "page_views_total" : 5262,
+                "page_views_last_week_log" : 6.169925001442312,
+                "page_views_last_month_log" : 8.523561956057014,
+                "page_views_total_log" : 12.361669679492776
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 5,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-25T17:39:17.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/service-lines/budget-overview.html?service-line-budget-bar-chart-serviceplanbudgetasadjustedonnov222024-xview=2023&service-line-budget-bar-chart-serviceplanbudgetasadjustedonnov222024-view-open="
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.calgary.ca" },
+        "permalink" : "https://data.calgary.ca/d/d3ez-qhmr",
+        "link" : "https://data.calgary.ca/Government/2026-Budget/d3ez-qhmr",
+        "owner" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          },
+        "creator" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Budget Overview",
+            "id" : "mzhm-jur7",
+            "resource_name" : null,
+            "parent_fxf" : [ "fqax-i3nz" ],
+            "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed budget information for the 2023 – 2026 Service Plans & Budgets, helping Calgarians explore how funds are allocated across The City.",
+            "attribution" : null,
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-25T17:41:26.000Z",
+            "createdAt" : "2025-08-28T19:21:21.000Z",
+            "metadata_updated_at" : "2026-06-25T17:41:26.000Z",
+            "data_updated_at" : "2026-01-14T23:38:24.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 43,
+                "page_views_last_month" : 223,
+                "page_views_total" : 3014,
+                "page_views_last_week_log" : 5.459431618637297,
+                "page_views_last_month_log" : 7.807354922057604,
+                "page_views_total_log" : 11.557942286787448
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 5,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-25T17:41:26.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/service-lines/budget-overview.html?service-line-budget-bar-chart-serviceplanbudgetasadjustedonnov222024-xview=2023&service-line-budget-bar-chart-serviceplanbudgetasadjustedonnov222024-view-open="
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.calgary.ca" },
+        "permalink" : "https://data.calgary.ca/d/mzhm-jur7",
+        "link" : "https://data.calgary.ca/Government/Budget-Overview/mzhm-jur7",
+        "owner" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          },
+        "creator" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Capital Budget ($M)",
+            "id" : "vjby-bq38",
+            "resource_name" : null,
+            "parent_fxf" : [ "fqax-i3nz" ],
+            "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed budget information for the 2023 – 2026 Service Plans & Budgets, helping Calgarians explore how funds are allocated across The City.",
+            "attribution" : null,
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-25T17:42:52.000Z",
+            "createdAt" : "2025-08-28T20:14:14.000Z",
+            "metadata_updated_at" : "2026-06-25T17:42:52.000Z",
+            "data_updated_at" : "2026-01-14T23:38:24.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 35,
+                "page_views_last_month" : 89,
+                "page_views_total" : 2203,
+                "page_views_last_week_log" : 5.169925001442312,
+                "page_views_last_month_log" : 6.491853096329675,
+                "page_views_total_log" : 11.105908508571158
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 26,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-25T17:42:52.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Department",
+                  "value" : "[ \"Corporate Planning & Financial Services\" ]"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/service-lines/budget-overview.html?service-line-budget-bar-chart-serviceplanbudgetasadjustedonnov222024-xview=2023&service-line-budget-bar-chart-serviceplanbudgetasadjustedonnov222024-view-open="
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.calgary.ca" },
+        "permalink" : "https://data.calgary.ca/d/vjby-bq38",
+        "link" : "https://data.calgary.ca/Government/Capital-Budget-M-/vjby-bq38",
+        "owner" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          },
+        "creator" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2015-2018 Operating Budget (Approved November 2014)",
+            "id" : "pwur-wvcq",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "City of Calgary Operating Budget by Department. These values are from the approved budget as at November 2014, and do not reflect budget adjustments or organizational changes since that date.\r\n\r\nThe complete approved Action Plan 2015-2018 (<a href=\"http://www.calgary.ca/CA/fs/Documents/Action-Plan/Approved/Action-Plan-2015-2018-Complete-Approved.pdf\">PDF</a>) is on Calgary.ca",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : "http://calgary.ca/actionplan",
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-09-08T17:27:07.000Z",
+            "createdAt" : "2017-07-07T21:41:33.000Z",
+            "metadata_updated_at" : "2026-09-08T17:27:07.000Z",
+            "data_updated_at" : "2018-02-01T17:00:31.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 6,
+                "page_views_last_month" : 20,
+                "page_views_total" : 1077,
+                "page_views_last_week_log" : 2.807354922057604,
+                "page_views_last_month_log" : 4.392317422778761,
+                "page_views_total_log" : 10.074141462752506
+              },
+            "columns_name" :
+              [
+                "Net Budget",
+                "Revenues",
+                "Recoveries",
+                "Year",
+                "Department",
+                "Status",
+                "Expenditures"
+              ],
+            "columns_field_name" :
+              [
+                "net_budget",
+                "revenues",
+                "recoveries",
+                "year",
+                "department",
+                "status",
+                "expenditures"
+              ],
+            "columns_datatype" :
+              [
+                "Number",
+                "Number",
+                "Number",
+                "Text",
+                "Text",
+                "Text",
+                "Number"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {
+                  "precisionStyle" : "currency",
+                  "currencyStyle" : "USD",
+                  "precision" : "2"
+                },
+                {
+                  "precisionStyle" : "currency",
+                  "currencyStyle" : "USD",
+                  "precision" : "2"
+                },
+                {
+                  "precisionStyle" : "currency",
+                  "currencyStyle" : "USD",
+                  "precision" : "2"
+                },
+                {
+                  "precisionStyle" : "standard",
+                  "noCommas" : "false",
+                  "align" : "right"
+                },
+                {},
+                {},
+                {
+                  "precisionStyle" : "currency",
+                  "currencyStyle" : "USD",
+                  "precision" : "2"
+                }
+              ],
+            "download_count" : 380,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2018-02-01T17:00:33.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [ "budget", "finance", "fiscal", "action plan" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "None" },
+                { "key" : "Time/Date_Temporal-End-Date", "value" : "2018" },
+                { "key" : "Time/Date_Temporal-Start-Date", "value" : "2015" },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/pwur-wvcq",
+        "link" : "https://data.calgary.ca/Government/2015-2018-Operating-Budget-Approved-November-2014-/pwur-wvcq",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2015 Operating Budget by Department",
+            "id" : "jspy-nidk",
+            "resource_name" : null,
+            "parent_fxf" : [ "pwur-wvcq" ],
+            "description" : "See more about The City of Calgary's operating budget at: http://www.calgary.ca/CA/fs/Pages/Action-Plan/Citizen-Summary/Operating-Budget.aspx",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : "http://calgary.ca/actionplan",
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-25T20:35:51.000Z",
+            "createdAt" : "2017-07-18T21:08:44.000Z",
+            "metadata_updated_at" : "2026-06-25T20:35:51.000Z",
+            "data_updated_at" : "2018-02-01T17:00:31.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 4,
+                "page_views_last_month" : 11,
+                "page_views_total" : 464,
+                "page_views_last_week_log" : 2.321928094887362,
+                "page_views_last_month_log" : 3.5849625007211565,
+                "page_views_total_log" : 8.861086905995393
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 14,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-25T20:35:51.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/jspy-nidk",
+        "link" : "https://data.calgary.ca/Government/2015-Operating-Budget-by-Department/jspy-nidk",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2015-2018 Operating Budget Expenditures",
+            "id" : "kr4i-ggtk",
+            "resource_name" : null,
+            "parent_fxf" : [ "pwur-wvcq" ],
+            "description" : "City of Calgary Operating Budget by Department. These values are from the approved budget as at November 2014, and do not reflect budget adjustments since that date.<br /><br />Complete approved Action Plan 2015-2018: <a href=\"http://www.calgary.ca/CA/fs/Documents/Action-Plan/Approved/Action-Plan-2015-2018-Complete-Approved.pdf\" target=\"_blank\" rel=\"nofollow external\">http://www.calgary.ca/CA/fs/Documents/Action-Plan/Approved/Action-Plan-2015-2018-Complete-Approved.pdf</a>",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : "http://calgary.ca/actionplan",
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-25T20:40:08.000Z",
+            "createdAt" : "2017-07-26T17:02:07.000Z",
+            "metadata_updated_at" : "2026-06-25T20:40:08.000Z",
+            "data_updated_at" : "2018-02-01T17:00:31.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 6,
+                "page_views_last_month" : 18,
+                "page_views_total" : 556,
+                "page_views_last_week_log" : 2.807354922057604,
+                "page_views_last_month_log" : 4.247927513443585,
+                "page_views_total_log" : 9.121533517340032
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 11,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-25T20:40:08.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/kr4i-ggtk",
+        "link" : "https://data.calgary.ca/Government/2015-2018-Operating-Budget-Expenditures/kr4i-ggtk",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2015-2018 Operating Budget Revenues",
+            "id" : "gffy-b5z2",
+            "resource_name" : null,
+            "parent_fxf" : [ "pwur-wvcq" ],
+            "description" : "City of Calgary Operating Budget by Department. These values are from the approved budget as at November 2014, and do not reflect budget adjustments since that date.<br /><br />Complete approved Action Plan 2015-2018: <a href=\"http://www.calgary.ca/CA/fs/Documents/Action-Plan/Approved/Action-Plan-2015-2018-Complete-Approved.pdf\" target=\"_blank\" rel=\"nofollow external\">http://www.calgary.ca/CA/fs/Documents/Action-Plan/Approved/Action-Plan-2015-2018-Complete-Approved.pdf</a>",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : "http://calgary.ca/actionplan",
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-25T20:41:26.000Z",
+            "createdAt" : "2017-07-26T17:07:20.000Z",
+            "metadata_updated_at" : "2026-06-25T20:41:26.000Z",
+            "data_updated_at" : "2018-02-01T17:00:31.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 3,
+                "page_views_last_month" : 11,
+                "page_views_total" : 420,
+                "page_views_last_week_log" : 2.0,
+                "page_views_last_month_log" : 3.5849625007211565,
+                "page_views_total_log" : 8.717676423066395
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 15,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-25T20:41:26.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/gffy-b5z2",
+        "link" : "https://data.calgary.ca/Government/2015-2018-Operating-Budget-Revenues/gffy-b5z2",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2027–2030 Budget",
+            "id" : "nnnm-9sfh",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed information for the 2027–2030 Budget. <a href=\"https://data.calgary.ca/Government/2027-Budget/m5bi-n8x4\">View the 2027 budget here</a>",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-11-10T15:26:17.000Z",
+            "createdAt" : "2026-11-05T19:42:37.000Z",
+            "metadata_updated_at" : "2026-11-10T15:26:16.000Z",
+            "data_updated_at" : "2026-11-10T15:26:17.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 177,
+                "page_views_last_month" : 177,
+                "page_views_total" : 177,
+                "page_views_last_week_log" : 7.475733430966398,
+                "page_views_last_month_log" : 7.475733430966398,
+                "page_views_total_log" : 7.475733430966398
+              },
+            "columns_name" :
+              [
+                "Department",
+                "Budget Status",
+                "BU",
+                "Budget Department",
+                "Budget($millions)",
+                "Year",
+                "Fund"
+              ],
+            "columns_field_name" :
+              [
+                "department",
+                "budget_status",
+                "bu",
+                "budget_department",
+                "budget_millions",
+                "year",
+                "fund"
+              ],
+            "columns_datatype" :
+              [ "Text", "Text", "Text", "Text", "Number", "Number", "Text" ],
+            "columns_description" : [ "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {},
+                {},
+                {},
+                {},
+                {
+                  "decimalSeparator" : ".",
+                  "noCommas" : "true",
+                  "precision" : "2",
+                  "align" : "right"
+                },
+                {
+                  "decimalSeparator" : ".",
+                  "noCommas" : "true",
+                  "align" : "right"
+                },
+                {}
+              ],
+            "download_count" : 8,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-11-05T19:56:54.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Department",
+                  "value" : "[ \"Corporate Planning & Financial Services\" ]"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                {
+                  "key" : "Time/Date_Update-Frequency",
+                  "value" : "Irregular"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.calgary.ca" },
+        "permalink" : "https://data.calgary.ca/d/nnnm-9sfh",
+        "link" : "https://data.calgary.ca/Government/2027-2030-Budget/nnnm-9sfh",
+        "owner" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          },
+        "creator" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Road Construction Projects",
+            "id" : "sizs-hgef",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Transportation Infrastructure (TI) is responsible for many of the major road construction projects that take place in Calgary. Major road construction projects include construction of new roadways, rehabilitation and upgrades to existing roadways, intersection upgrades, and installation of interchanges.\n\nOther road construction projects taking place in Calgary may be the responsibility of the Roads Business Unit or the Province of Alberta. The Province oversees the operation and maintenance of Deerfoot Trail and is constructing the Calgary Ring Road. \nFor more information on Provincial road projects visit <a href=\"http://www.transportation.alberta.ca/4.htm\">Alberta Transportation.</a>",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-11-10T17:41:51.000Z",
+            "createdAt" : "2020-07-23T20:09:32.000Z",
+            "metadata_updated_at" : "2026-11-10T17:41:50.000Z",
+            "data_updated_at" : "2026-11-10T17:41:51.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 48,
+                "page_views_last_month" : 131,
+                "page_views_total" : 4797,
+                "page_views_last_week_log" : 5.614709844115208,
+                "page_views_last_month_log" : 7.044394119358453,
+                "page_views_total_log" : 12.228217442293436
+              },
+            "columns_name" :
+              [
+                "Completion",
+                "Ward Boundaries",
+                "Point",
+                "Budget",
+                "Ward Boundaries 2013-2017",
+                "ProjectType",
+                "Description",
+                "Title",
+                "City Quadrants",
+                "Calgary Communities",
+                "URL"
+              ],
+            "columns_field_name" :
+              [
+                "completion",
+                ":@computed_region_4b54_tmc4",
+                "point",
+                "budget",
+                ":@computed_region_p8tp_5dkv",
+                "projecttype",
+                "description",
+                "title",
+                ":@computed_region_4a3i_ccfj",
+                ":@computed_region_kxmf_bzkv",
+                "url"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Number",
+                "Point",
+                "Text",
+                "Number",
+                "Text",
+                "Text",
+                "Text",
+                "Number",
+                "Number",
+                "Text"
+              ],
+            "columns_description" :
+              [ "", "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" : [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ],
+            "download_count" : 479,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2020-07-23T20:12:48.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Transportation/Transit",
+            "domain_tags" :
+              [
+                "upgrade",
+                "new",
+                "intersection",
+                "construction",
+                "rehabilitation"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://maps.calgary.ca/TrafficInformation/"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Public Spaces Delivery"
+                },
+                {
+                  "key" : "Geospatial-Information_Map-Projection",
+                  "value" : "EPSG:4326 WGS84"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "Yes"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Daily" },
+                {
+                  "key" : "Time/Date_How-Data-is-Collected",
+                  "value" : "Web page content"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/sizs-hgef",
+        "link" : "https://data.calgary.ca/Transportation-Transit/Road-Construction-Projects/sizs-hgef",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2027–2030 Budget breakdown",
+            "id" : "m5bi-n8x4",
+            "resource_name" : null,
+            "parent_fxf" : [ "nnnm-9sfh" ],
+            "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed information for the 2027–2030 Budget, helping Calgarians explore how funds are allocated across The City.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-11-10T15:26:17.000Z",
+            "createdAt" : "2026-11-09T17:05:27.000Z",
+            "metadata_updated_at" : "2026-11-09T21:06:07.000Z",
+            "data_updated_at" : "2026-11-10T15:26:17.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 139,
+                "page_views_last_month" : 139,
+                "page_views_total" : 139,
+                "page_views_last_week_log" : 7.129283016944966,
+                "page_views_last_month_log" : 7.129283016944966,
+                "page_views_total_log" : 7.129283016944966
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 2,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-11-09T21:06:07.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Department",
+                  "value" : "[ \"Corporate Planning & Financial Services\" ]"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                {
+                  "key" : "Time/Date_Update-Frequency",
+                  "value" : "Irregular"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.calgary.ca" },
+        "permalink" : "https://data.calgary.ca/d/m5bi-n8x4",
+        "link" : "https://data.calgary.ca/Government/2027-2030-Budget-breakdown/m5bi-n8x4",
+        "owner" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          },
+        "creator" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2027–2030 operating budget",
+            "id" : "vju8-isk3",
+            "resource_name" : null,
+            "parent_fxf" : [ "nnnm-9sfh" ],
+            "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed information for the 2027–2030 Budget. <a href=\"https://data.calgary.ca/Government/2027-2030-Budget-breakdown/m5bi-n8x4\">View the 2027 budget here</a>",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-11-10T15:26:17.000Z",
+            "createdAt" : "2026-11-05T21:06:32.000Z",
+            "metadata_updated_at" : "2026-11-09T21:06:55.000Z",
+            "data_updated_at" : "2026-11-10T15:26:17.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 42,
+                "page_views_last_month" : 42,
+                "page_views_total" : 42,
+                "page_views_last_week_log" : 5.426264754702098,
+                "page_views_last_month_log" : 5.426264754702098,
+                "page_views_total_log" : 5.426264754702098
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 1,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-11-09T21:06:55.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" : []
+          },
+        "metadata" : { "domain" : "data.calgary.ca" },
+        "permalink" : "https://data.calgary.ca/d/vju8-isk3",
+        "link" : "https://data.calgary.ca/Government/2027-2030-operating-budget/vju8-isk3",
+        "owner" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          },
+        "creator" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2027–2030 capital budget",
+            "id" : "s4mq-cses",
+            "resource_name" : null,
+            "parent_fxf" : [ "nnnm-9sfh" ],
+            "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed information for the 2027–2030 Budget. <a href=\"https://data.calgary.ca/Government/2027-2030-Budget-breakdown/m5bi-n8x4\">View the 2027 budget here</a>",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-11-10T15:26:17.000Z",
+            "createdAt" : "2026-11-05T20:30:53.000Z",
+            "metadata_updated_at" : "2026-11-09T21:07:46.000Z",
+            "data_updated_at" : "2026-11-10T15:26:17.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 40,
+                "page_views_last_month" : 40,
+                "page_views_total" : 40,
+                "page_views_last_week_log" : 5.357552004618084,
+                "page_views_last_month_log" : 5.357552004618084,
+                "page_views_total_log" : 5.357552004618084
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 1,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-11-09T21:07:46.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" : []
+          },
+        "metadata" : { "domain" : "data.calgary.ca" },
+        "permalink" : "https://data.calgary.ca/d/s4mq-cses",
+        "link" : "https://data.calgary.ca/Government/2027-2030-capital-budget/s4mq-cses",
+        "owner" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          },
+        "creator" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Operating Expenditures ($M)",
+            "id" : "qpfd-c3pc",
+            "resource_name" : null,
+            "parent_fxf" : [ "fqax-i3nz" ],
+            "description" : "The City of Calgary creates a four-year budget that is updated annually to reflect the changing needs and priorities of Calgarians. This dataset provides detailed budget information for the 2023 – 2026 Service Plans & Budgets, helping Calgarians explore how funds are allocated across The City.",
+            "attribution" : null,
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-25T17:37:30.000Z",
+            "createdAt" : "2025-08-28T19:57:13.000Z",
+            "metadata_updated_at" : "2026-06-25T17:37:30.000Z",
+            "data_updated_at" : "2026-01-14T23:38:24.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 25,
+                "page_views_last_month" : 101,
+                "page_views_total" : 2106,
+                "page_views_last_week_log" : 4.700439718141093,
+                "page_views_last_month_log" : 6.672425341971495,
+                "page_views_total_log" : 11.040974598817307
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 9,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-25T17:37:30.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Department",
+                  "value" : "[ \"Corporate Planning & Financial Services\" ]"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/service-lines/budget-overview.html?service-line-budget-bar-chart-serviceplanbudgetasadjustedonnov222024-xview=2023&service-line-budget-bar-chart-serviceplanbudgetasadjustedonnov222024-view-open="
+                }
+              ]
+          },
+        "metadata" : { "domain" : "data.calgary.ca" },
+        "permalink" : "https://data.calgary.ca/d/qpfd-c3pc",
+        "link" : "https://data.calgary.ca/Government/Operating-Expenditures-M-/qpfd-c3pc",
+        "owner" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          },
+        "creator" :
+          {
+            "id" : "ikwz-m2v4",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Administrator SE"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Waste and Recycling Services Performance Measures",
+            "id" : "nfvn-x8e2",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "Waste & Recycling Performance Measures are used to assess the performance of The City of Calgary's Waste & Recycling service.  Five measures have been approved for the 2023-2026 Service Plans and Budgets. See <a href=\"https://www.calgary.ca/service-lines/2023-2026-city-services/waste-recycling.html?service-line-budget-bar-chart-serviceplanbudget-xview=2023&service-line-budget-bar-chart-serviceplanbudget-view-open=\">Waste & Recycling plan and budget </a>for more information.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-06-12T20:03:34.000Z",
+            "createdAt" : "2021-02-11T17:55:57.000Z",
+            "metadata_updated_at" : "2026-06-12T20:03:34.000Z",
+            "data_updated_at" : "2026-05-13T22:15:49.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 13,
+                "page_views_last_month" : 90,
+                "page_views_total" : 3432,
+                "page_views_last_week_log" : 3.8073549220576037,
+                "page_views_last_month_log" : 6.507794640198696,
+                "page_views_total_log" : 11.745254141957256
+              },
+            "columns_name" :
+              [
+                "Residential Waste Diverted from Landfill Through Blue and Green Cart Programs",
+                "Waste Collection Interruptions per 10,000 Scheduled Stops",
+                "Residential Waste Generated through Black, Blue and Green Cart Programs (kilograms per household)",
+                "Greenhouse Gas (GHG) Emission Reduction from Landfill Gas Management (tonnes CO2e, thousands)",
+                "Year",
+                "Citizens who are satisfied with the job The City is doing providing Waste and Recycling services (per cent)"
+              ],
+            "columns_field_name" :
+              [
+                "residential_waste_diverted",
+                "waste_collection_interruptions_per_10_000_scheduled_stops",
+                "residential_waste_generated_through_black_blue_and_green_cart_programs_kilograms_per_household_",
+                "greenhouse_gas_ghg_emission_reduction_from_landfill_gas_management_tonnes_co2e_thousands_",
+                "year",
+                "citizens_who_are_satisfied_with_the_job_the_city_is_doing_providing_waste_and_recycling_services_per_cent_"
+              ],
+            "columns_datatype" :
+              [ "Number", "Number", "Number", "Number", "Text", "Number" ],
+            "columns_description" :
+              [
+                "This measure represents the per cent of residential waste that is diverted from landfill through the Blue Cart and Green Cart programs, out of the total waste generated by single-family households. The data is no longer available to report on this measure as of 2025 due to the implementation of Extended Producer Responsibility (EPR).",
+                "This measure captures 311 service requests related to interruptions in Black, Blue and Green Cart waste collection and reports the number of interruptions per 10,000 scheduled collection stops.",
+                "This measure represents all residential waste generated though Blue, Black and Green Cart Programs. ",
+                "This measure represents the reduction in greenhouse gas emissions due to managing landfill gas at the three active landfill sites.",
+                "",
+                "This measure is based on results from the Spring Pulse Survey. Responses falling into “very satisfied” and “somewhat satisfied” make up the per cent of responses that are satisfied. "
+              ],
+            "columns_format" :
+              [
+                { "precisionStyle" : "percentage", "percentScale" : "1" },
+                {},
+                {},
+                {},
+                {},
+                { "precisionStyle" : "percentage", "percentScale" : "1" }
+              ],
+            "download_count" : 454,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2024-03-26T19:26:50.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Help and Information",
+            "domain_tags" :
+              [
+                "satisfaction",
+                "black cart",
+                "blue cart",
+                "citizens",
+                "climate",
+                "collection",
+                "diversion",
+                "emission",
+                "garbage",
+                "ghg",
+                "green cart",
+                "greenhouse gas",
+                "landfill",
+                "organics",
+                "recycling",
+                "waste"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/cfod/finance/plans-budgets-and-financial-reports/plans-and-budget-2019-2022/financial-reports/business-plans-budgets-accountability-reports.html"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Waste and Recycling Srvcs"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Annual" },
+                {
+                  "key" : "Time/Date_Time-Period-Covered",
+                  "value" : "2015-Present"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/nfvn-x8e2",
+        "link" : "https://data.calgary.ca/Help-and-Information/Waste-and-Recycling-Services-Performance-Measures/nfvn-x8e2",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Residential Waste Diverted from Landfill Through Blue and Green Cart Programs",
+            "id" : "fa2r-5t79",
+            "resource_name" : null,
+            "parent_fxf" : [ "nfvn-x8e2" ],
+            "description" : "Waste & Recycling Performance Measures are used to assess the performance of The City of Calgary's Waste & Recycling service.  Five measures have been approved for the 2023-2026 Service Plans and Budgets. See <a href=\"https://www.calgary.ca/service-lines/2023-2026-city-services/waste-recycling.html?service-line-budget-bar-chart-serviceplanbudget-xview=2023&service-line-budget-bar-chart-serviceplanbudget-view-open=\">Waste & Recycling plan and budget </a>for more information.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-12T19:09:53.000Z",
+            "createdAt" : "2021-02-18T16:52:10.000Z",
+            "metadata_updated_at" : "2026-06-12T19:09:53.000Z",
+            "data_updated_at" : "2026-05-13T22:15:49.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 9,
+                "page_views_last_month" : 37,
+                "page_views_total" : 782,
+                "page_views_last_week_log" : 3.3219280948873626,
+                "page_views_last_month_log" : 5.247927513443585,
+                "page_views_total_log" : 9.612868497291041
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 3,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-12T19:09:53.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Help and Information",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/cfod/finance/plans-budgets-and-financial-reports/plans-and-budget-2019-2022/financial-reports/business-plans-budgets-accountability-reports.html"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Waste and Recycling Srvcs"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Annual" },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/fa2r-5t79",
+        "link" : "https://data.calgary.ca/Help-and-Information/Residential-Waste-Diverted-from-Landfill-Through-B/fa2r-5t79",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Greenhouse Gas (GHG) Emission Reduction from Landfill Gas Management",
+            "id" : "ezpz-mrk7",
+            "resource_name" : null,
+            "parent_fxf" : [ "nfvn-x8e2" ],
+            "description" : "Waste & Recycling Performance Measures are used to assess the performance of The City of Calgary's Waste & Recycling service.  Five measures have been approved for the 2023-2026 Service Plans and Budgets. See <a href=\"https://www.calgary.ca/service-lines/2023-2026-city-services/waste-recycling.html?service-line-budget-bar-chart-serviceplanbudget-xview=2023&service-line-budget-bar-chart-serviceplanbudget-view-open=\">Waste & Recycling plan and budget </a>for more information.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-12T15:33:21.000Z",
+            "createdAt" : "2024-03-26T19:57:20.000Z",
+            "metadata_updated_at" : "2026-06-12T15:33:21.000Z",
+            "data_updated_at" : "2026-05-13T22:15:49.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 7,
+                "page_views_last_month" : 21,
+                "page_views_total" : 601,
+                "page_views_last_week_log" : 3.0,
+                "page_views_last_month_log" : 4.459431618637297,
+                "page_views_total_log" : 9.233619676759702
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 2,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-12T15:33:21.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Help and Information",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/cfod/finance/plans-budgets-and-financial-reports/plans-and-budget-2019-2022/financial-reports/business-plans-budgets-accountability-reports.html"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Waste and Recycling Srvcs"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Annual" },
+                {
+                  "key" : "Time/Date_Time-Period-Covered",
+                  "value" : "2015-Present"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/ezpz-mrk7",
+        "link" : "https://data.calgary.ca/Help-and-Information/Greenhouse-Gas-GHG-Emission-Reduction-from-Landfil/ezpz-mrk7",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Senior management expenses",
+            "id" : "y3tg-gbwj",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "As part of The City of Calgary's commitment to an open, transparent and accountable local government we release the Senior Management Expense report twice per year in the spring and fall. It includes line item details, including business travel, meals and hosting, and employee recognition for the Senior Management Team. The Senior Management Team includes the City Manager, general managers and directors.\n\nBudgets for the City Manager and each General Manager are reviewed and approved annually by City Council as part of budget deliberations.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-09-09T21:25:26.000Z",
+            "createdAt" : "2019-09-30T15:15:24.000Z",
+            "metadata_updated_at" : "2026-09-09T21:25:26.000Z",
+            "data_updated_at" : "2026-05-19T14:12:19.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 36,
+                "page_views_last_month" : 140,
+                "page_views_total" : 5471,
+                "page_views_last_week_log" : 5.20945336562895,
+                "page_views_last_month_log" : 7.139551352398794,
+                "page_views_total_log" : 12.4178525148859
+              },
+            "columns_name" :
+              [
+                "Amount",
+                "Vendor Name",
+                "Description",
+                "Expense Category",
+                "Business Unit",
+                "Name",
+                "Transaction Date",
+                "Posting Date"
+              ],
+            "columns_field_name" :
+              [
+                "amount",
+                "vendor_name",
+                "description",
+                "expense_category",
+                "business_unit",
+                "name",
+                "transaction_date",
+                "posting_date"
+              ],
+            "columns_datatype" :
+              [
+                "Number",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Calendar date",
+                "Calendar date"
+              ],
+            "columns_description" :
+              [
+                "Amount",
+                "Vendor",
+                "Rationale for the expense",
+                "Type of expense: Meals & Hosting, Business travel, Employee recognition",
+                "City business unit that incurred the expense",
+                "Name of employee who incurred the expense",
+                "Date the expense was incurred",
+                "Date the transaction was posted to the account"
+              ],
+            "columns_format" :
+              [
+                {
+                  "precisionStyle" : "currency",
+                  "currencyStyle" : "CAD",
+                  "noCommas" : "true",
+                  "precision" : "2"
+                },
+                {},
+                {},
+                {},
+                {},
+                {},
+                { "view" : "date_ymd" },
+                { "view" : "date_ymd" }
+              ],
+            "download_count" : 18757,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2020-10-14T21:42:12.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [ "finance", "economy" ],
+            "tags" : [],
+            "domain_category" : "Government",
+            "domain_tags" :
+              [ "expense", "disclosure", "senior", "management", "expenses" ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/cfod/finance/Pages/Plans-Budgets-and-Financial-Reports/Senior-Management-Expenses.aspx"
+                },
+                {
+                  "key" : "Data-Supplier_Department",
+                  "value" : "[ \"Corporate Planning & Financial Services\" ]"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Finance-Director"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                {
+                  "key" : "Time/Date_Update-Frequency",
+                  "value" : "Semiannual"
+                },
+                {
+                  "key" : "Time/Date_Temporal-Start-Date",
+                  "value" : "10/13/2013"
+                },
+                {
+                  "key" : "Time/Date_Time-Period-Covered",
+                  "value" : "January 2020-"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/y3tg-gbwj",
+        "link" : "https://data.calgary.ca/Government/Senior-management-expenses/y3tg-gbwj",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Residential Waste Generated through Black, Blue and Green Cart Programs",
+            "id" : "gh9b-jkhz",
+            "resource_name" : null,
+            "parent_fxf" : [ "nfvn-x8e2" ],
+            "description" : "Waste & Recycling Performance Measures are used to assess the performance of The City of Calgary's Waste & Recycling service.  Five measures have been approved for the 2023-2026 Service Plans and Budgets. See <a href=\"https://www.calgary.ca/service-lines/2023-2026-city-services/waste-recycling.html?service-line-budget-bar-chart-serviceplanbudget-xview=2023&service-line-budget-bar-chart-serviceplanbudget-view-open=\">Waste & Recycling plan and budget </a>for more information.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-12T19:16:29.000Z",
+            "createdAt" : "2024-03-26T19:41:18.000Z",
+            "metadata_updated_at" : "2026-06-12T19:16:29.000Z",
+            "data_updated_at" : "2026-05-13T22:15:49.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 11,
+                "page_views_last_month" : 27,
+                "page_views_total" : 532,
+                "page_views_last_week_log" : 3.5849625007211565,
+                "page_views_last_month_log" : 4.807354922057604,
+                "page_views_total_log" : 9.057991722759176
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 2,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-12T19:16:29.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Help and Information",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/cfod/finance/plans-budgets-and-financial-reports/plans-and-budget-2019-2022/financial-reports/business-plans-budgets-accountability-reports.html"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Waste and Recycling Srvcs"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Annual" },
+                {
+                  "key" : "Time/Date_Time-Period-Covered",
+                  "value" : "2015-Present"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/gh9b-jkhz",
+        "link" : "https://data.calgary.ca/Help-and-Information/Residential-Waste-Generated-through-Black-Blue-and/gh9b-jkhz",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Citizens who are satisfied with the job The City is doing providing Waste and Recycling services",
+            "id" : "rg2e-teqb",
+            "resource_name" : null,
+            "parent_fxf" : [ "nfvn-x8e2" ],
+            "description" : "Waste & Recycling Performance Measures are used to assess the performance of The City of Calgary's Waste & Recycling service.  Five measures have been approved for the 2023-2026 Service Plans and Budgets. See <a href=\"https://www.calgary.ca/service-lines/2023-2026-city-services/waste-recycling.html?service-line-budget-bar-chart-serviceplanbudget-xview=2023&service-line-budget-bar-chart-serviceplanbudget-view-open=\">Waste & Recycling plan and budget </a>for more information.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-12T14:51:36.000Z",
+            "createdAt" : "2024-03-26T19:53:47.000Z",
+            "metadata_updated_at" : "2026-06-12T14:51:36.000Z",
+            "data_updated_at" : "2026-05-13T22:15:49.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 8,
+                "page_views_last_month" : 20,
+                "page_views_total" : 499,
+                "page_views_last_week_log" : 3.1699250014423126,
+                "page_views_last_month_log" : 4.392317422778761,
+                "page_views_total_log" : 8.965784284662087
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 2,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-12T14:51:36.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Help and Information",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/cfod/finance/plans-budgets-and-financial-reports/plans-and-budget-2019-2022/financial-reports/business-plans-budgets-accountability-reports.html"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Waste and Recycling Srvcs"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Annual" },
+                {
+                  "key" : "Time/Date_Time-Period-Covered",
+                  "value" : "2015-Present"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/rg2e-teqb",
+        "link" : "https://data.calgary.ca/Help-and-Information/Citizens-who-are-satisfied-with-the-job-The-City-i/rg2e-teqb",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "Waste Collection Interruptions per 10,000 Scheduled Stops",
+            "id" : "chwd-8ya5",
+            "resource_name" : null,
+            "parent_fxf" : [ "nfvn-x8e2" ],
+            "description" : "Waste & Recycling Performance Measures are used to assess the performance of The City of Calgary's Waste & Recycling service.  Five measures have been approved for the 2023-2026 Service Plans and Budgets. See <a href=\"https://www.calgary.ca/service-lines/2023-2026-city-services/waste-recycling.html?service-line-budget-bar-chart-serviceplanbudget-xview=2023&service-line-budget-bar-chart-serviceplanbudget-view-open=\">Waste & Recycling plan and budget </a>for more information.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "chart",
+            "updatedAt" : "2026-06-12T19:38:24.000Z",
+            "createdAt" : "2024-03-26T19:46:56.000Z",
+            "metadata_updated_at" : "2026-06-12T19:38:24.000Z",
+            "data_updated_at" : "2026-05-13T22:15:49.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 7,
+                "page_views_last_month" : 19,
+                "page_views_total" : 433,
+                "page_views_last_week_log" : 3.0,
+                "page_views_last_month_log" : 4.321928094887363,
+                "page_views_total_log" : 8.76155123244448
+              },
+            "columns_name" : [],
+            "columns_field_name" : [],
+            "columns_datatype" : [],
+            "columns_description" : [],
+            "columns_format" : [],
+            "download_count" : 2,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "visualization_canvas_chart",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-12T19:38:24.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Help and Information",
+            "domain_tags" : [],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Additional-Information_Source-URL",
+                  "value" : "https://www.calgary.ca/cfod/finance/plans-budgets-and-financial-reports/plans-and-budget-2019-2022/financial-reports/business-plans-budgets-accountability-reports.html"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Waste and Recycling Srvcs"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "Annual" },
+                {
+                  "key" : "Time/Date_Time-Period-Covered",
+                  "value" : "2015-Present"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/chwd-8ya5",
+        "link" : "https://data.calgary.ca/Help-and-Information/Waste-Collection-Interruptions-per-10-000-Schedule/chwd-8ya5",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2026 Q1 Progress Report - Performance Measures",
+            "id" : "yjvm-qkfs",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The City of Calgary's 2026 Q1 Progress Update provides an overview of our achievements and challenges as we continue implementing the 2023-2026 Service Plans and Budgets.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-09-03T16:29:48.000Z",
+            "createdAt" : "2026-06-04T13:34:56.000Z",
+            "metadata_updated_at" : "2026-09-03T16:29:48.000Z",
+            "data_updated_at" : "2026-09-03T16:20:44.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 32,
+                "page_views_last_month" : 134,
+                "page_views_total" : 1507,
+                "page_views_last_week_log" : 5.044394119358453,
+                "page_views_last_month_log" : 7.076815597050832,
+                "page_views_total_log" : 10.558420713268665
+              },
+            "columns_name" :
+              [
+                "2024 Value",
+                "2023 Value",
+                "2022 Value",
+                "Target",
+                "2025 Value",
+                "Council Priority Area",
+                "Performance Measure Name",
+                "Q1_2026 Value",
+                "Story behind the number"
+              ],
+            "columns_field_name" :
+              [
+                "_2024_value",
+                "_2023_value",
+                "_2022_value",
+                "target",
+                "_2025_value",
+                "council_priority_area",
+                "performance_measure_name",
+                "q1_2026_value",
+                "story_behind_the_number"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {}
+              ],
+            "download_count" : 46,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-06-04T13:43:51.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Business and Economic Activity",
+            "domain_tags" :
+              [
+                "performance update",
+                "service performance measures",
+                "progress update"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Department",
+                  "value" : "[ \"City Manager's Office\" ]"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Chief Administrative Office"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "None" },
+                { "key" : "Time/Date_Temporal-End-Date", "value" : "03/2026" },
+                {
+                  "key" : "Time/Date_Temporal-Resolution",
+                  "value" : "Quarterly"
+                },
+                {
+                  "key" : "Time/Date_Temporal-Start-Date",
+                  "value" : "01/2026"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/yjvm-qkfs",
+        "link" : "https://data.calgary.ca/Business-and-Economic-Activity/2026-Q1-Progress-Report-Performance-Measures/yjvm-qkfs",
+        "owner" :
+          {
+            "id" : "rb3e-c97r",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Master"
+          },
+        "creator" :
+          {
+            "id" : "rb3e-c97r",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Master"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2024 Mid-Year Progress Report - Initiatives",
+            "id" : "x7ai-b6uj",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The City of Calgary's 2024 Mid-Year Progress Update provides an overview of our achievements and challenges during the first half of the year as we continue implementing the 2023-2026 Service Plans and Budgets.\n\n- Initiatives - details on how the service initiatives are progressing against the plan along with each initiative's alignment with Council's priority areas and impact area.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-09-10T17:05:02.000Z",
+            "createdAt" : "2024-10-30T17:05:34.000Z",
+            "metadata_updated_at" : "2026-09-10T17:05:02.000Z",
+            "data_updated_at" : "2024-11-05T18:17:36.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 7,
+                "page_views_last_month" : 27,
+                "page_views_total" : 1274,
+                "page_views_last_week_log" : 3.0,
+                "page_views_last_month_log" : 4.807354922057604,
+                "page_views_total_log" : 10.31628153174622
+              },
+            "columns_name" :
+              [
+                "Initiative Update",
+                "Initiative Name",
+                "Initiative Index",
+                "Service",
+                "Approved by Service Director on",
+                "Impact Area (table)",
+                "Impact Type",
+                "Funding Type",
+                "Alignment with Council Priority Area",
+                "Service Improvement Initiative",
+                "Initiative Status"
+              ],
+            "columns_field_name" :
+              [
+                "initiative_update",
+                "initiative_name",
+                "initiative_index",
+                "service",
+                "approved_by_service_director",
+                "impact_area_table",
+                "impact_type",
+                "funding_type",
+                "alignment_with_council",
+                "service_improvement_initiative",
+                "initiative_status"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Calendar date",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Checkbox",
+                "Text"
+              ],
+            "columns_description" :
+              [ "", "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                { "displayStyle" : "yesno" },
+                {}
+              ],
+            "download_count" : 180,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2024-10-30T17:08:34.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Business and Economic Activity",
+            "domain_tags" :
+              [
+                "progress update",
+                "service initiatives",
+                "performance update"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Chief Administrative Office"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                { "key" : "Time/Date_Update-Frequency", "value" : "None" },
+                { "key" : "Time/Date_Temporal-End-Date", "value" : "2024" },
+                { "key" : "Time/Date_Temporal-Start-Date", "value" : "2024" },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/x7ai-b6uj",
+        "link" : "https://data.calgary.ca/Business-and-Economic-Activity/2024-Mid-Year-Progress-Report-Initiatives/x7ai-b6uj",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2024 Mid-Year Progress Report - Performance Measures",
+            "id" : "2tzz-grag",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The City of Calgary's 2024 Mid-Year Progress Update provides an overview of our achievements and challenges during the first half of the year as we continue implementing the 2023-2026 Service Plans and Budgets.\n\n- Performance measures - details on how actual performance compares against the Council-approved expected future performance.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-04T20:50:17.000Z",
+            "createdAt" : "2024-10-30T17:14:09.000Z",
+            "metadata_updated_at" : "2026-05-04T20:50:17.000Z",
+            "data_updated_at" : "2024-10-30T17:17:25.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 10,
+                "page_views_last_month" : 46,
+                "page_views_total" : 1778,
+                "page_views_last_week_log" : 3.4594316186372978,
+                "page_views_last_month_log" : 5.554588851677638,
+                "page_views_total_log" : 10.79685079526716
+              },
+            "columns_name" :
+              [
+                "Story behind the number",
+                "Performance Measure Status",
+                "Approved by Service Director on",
+                "2024 Value",
+                "Performance Measure  Name",
+                "Service",
+                "2023 Value",
+                "Performance Measure Index",
+                "Alignment with Council Priority Area",
+                "Level of alignment",
+                "Expected Future Value"
+              ],
+            "columns_field_name" :
+              [
+                "story_behind_the_number",
+                "performance_measure_status",
+                "approved_by_service_director",
+                "_2024_value",
+                "performance_measure_name",
+                "service",
+                "_2023_value",
+                "performance_measure_index",
+                "alignment_with_council",
+                "level_of_alignment",
+                "expected_future_value"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Calendar date",
+                "Number",
+                "Text",
+                "Text",
+                "Number",
+                "Text",
+                "Text",
+                "Text",
+                "Number"
+              ],
+            "columns_description" :
+              [ "", "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {},
+                {},
+                { "view" : "date" },
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                {},
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," }
+              ],
+            "download_count" : 293,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2024-10-30T17:17:31.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Business and Economic Activity",
+            "domain_tags" :
+              [
+                "performance update",
+                "service performance measures",
+                "progress update"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Chief Administrative Office"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                {
+                  "key" : "Time/Date_Update-Frequency",
+                  "value" : "Irregular"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/2tzz-grag",
+        "link" : "https://data.calgary.ca/Business-and-Economic-Activity/2024-Mid-Year-Progress-Report-Performance-Measures/2tzz-grag",
+        "owner" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          },
+        "creator" :
+          {
+            "id" : "55bi-hyk4",
+            "user_type" : "interactive",
+            "display_name" : "Calgary Open Data"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2026 Q2 Progress Report - Performance Measures",
+            "id" : "4y62-crsf",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The City of Calgary's 2026 Q2 Progress Update provides an overview of our achievements and challenges as we continue implementing the 2023-2026 Service Plans and Budgets.",
+            "attribution" : "The City of Calgary",
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-08-24T20:56:38.000Z",
+            "createdAt" : "2026-08-24T20:49:21.000Z",
+            "metadata_updated_at" : "2026-08-24T20:56:38.000Z",
+            "data_updated_at" : "2026-08-24T20:55:59.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 70,
+                "page_views_last_month" : 302,
+                "page_views_total" : 832,
+                "page_views_last_week_log" : 6.149747119504682,
+                "page_views_last_month_log" : 8.24317398347295,
+                "page_views_total_log" : 9.702172685365548
+              },
+            "columns_name" :
+              [
+                "2024 Value",
+                "2023 Value",
+                "2022 Value",
+                "Performance Measure Name",
+                "Story behind the number",
+                "Council Priority Area",
+                "Target",
+                "Q2_2026 Value",
+                "Q1_2026 Value",
+                "2025 Value"
+              ],
+            "columns_field_name" :
+              [
+                "_2024_value",
+                "_2023_value",
+                "_2022_value",
+                "performance_measure_name",
+                "story_behind_the_number",
+                "council_priority_area",
+                "target",
+                "q2_2026_value",
+                "q1_2026_value",
+                "_2025_value"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" : [ "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                {},
+                {},
+                {},
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                { "decimalSeparator" : ".", "groupSeparator" : "," }
+              ],
+            "download_count" : 34,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-08-24T20:56:15.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Business and Economic Activity",
+            "domain_tags" :
+              [
+                "progress update",
+                "service performance measures",
+                "performance update"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Time/Date_Update-Frequency",
+                  "value" : "Quarterly"
+                },
+                {
+                  "key" : "Data-Supplier_Department",
+                  "value" : "[ \"City Manager's Office\" ]"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Chief Administrative Office"
+                },
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/4y62-crsf",
+        "link" : "https://data.calgary.ca/Business-and-Economic-Activity/2026-Q2-Progress-Report-Performance-Measures/4y62-crsf",
+        "owner" :
+          {
+            "id" : "rb3e-c97r",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Master"
+          },
+        "creator" :
+          {
+            "id" : "rb3e-c97r",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Master"
+          }
+      },
+      {
+        "resource" :
+          {
+            "name" : "2025 Year-End Progress Report - Performance Measures",
+            "id" : "f39w-zwp3",
+            "resource_name" : null,
+            "parent_fxf" : [],
+            "description" : "The City of Calgary's 2025 Year-End Progress Update provides an overview of our achievements and challenges as we continue implementing the 2023-2026 Service Plans and Budgets.\n\n- Performance measures - details on how actual performance compares against the Council-approved expected future performance.",
+            "attribution" : null,
+            "attribution_link" : null,
+            "contact_email" : null,
+            "type" : "dataset",
+            "updatedAt" : "2026-05-04T20:52:18.000Z",
+            "createdAt" : "2026-02-23T17:23:49.000Z",
+            "metadata_updated_at" : "2026-05-04T20:52:18.000Z",
+            "data_updated_at" : "2026-02-23T17:34:24.000Z",
+            "page_views" :
+              {
+                "page_views_last_week" : 14,
+                "page_views_last_month" : 74,
+                "page_views_total" : 1164,
+                "page_views_last_week_log" : 3.9068905956085187,
+                "page_views_last_month_log" : 6.22881869049588,
+                "page_views_total_log" : 10.186114239541643
+              },
+            "columns_name" :
+              [
+                "Q1 2025 Value",
+                "2022 Value",
+                "Council Priority Area",
+                "Story behind the number",
+                "Q4 2025 Value",
+                "Q3 2025 Value",
+                "Performance Measure Name",
+                "2023 Value",
+                "2024 Value",
+                "Q2 2025 Value",
+                "2025 Value",
+                "Target"
+              ],
+            "columns_field_name" :
+              [
+                "q1_2025_value",
+                "_2022_value",
+                "council_priority_area",
+                "story_behind_the_number",
+                "q4_2025_value",
+                "q3_2025_value",
+                "performance_measure_name",
+                "_2023_value",
+                "_2024_value",
+                "q2_2025_value",
+                "_2025_value",
+                "target"
+              ],
+            "columns_datatype" :
+              [
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text",
+                "Text"
+              ],
+            "columns_description" :
+              [ "", "", "", "", "", "", "", "", "", "", "", "" ],
+            "columns_format" :
+              [
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {},
+                { "decimalSeparator" : ".", "groupSeparator" : "," },
+                {}
+              ],
+            "download_count" : 70,
+            "provenance" : "official",
+            "lens_view_type" : "tabular",
+            "lens_display_type" : "table",
+            "locked" : false,
+            "backend" : "nbe",
+            "blob_mime_type" : null,
+            "hide_from_data_json" : false,
+            "publication_date" : "2026-02-23T17:34:35.000Z"
+          },
+        "classification" :
+          {
+            "categories" : [],
+            "tags" : [],
+            "domain_category" : "Business and Economic Activity",
+            "domain_tags" :
+              [
+                "service performance measures",
+                "progress update",
+                "performance update"
+              ],
+            "domain_metadata" :
+              [
+                {
+                  "key" : "Data-Supplier_Organization",
+                  "value" : "The City of Calgary"
+                },
+                {
+                  "key" : "Data-Supplier_Business-Unit",
+                  "value" : "Chief Administrative Office"
+                },
+                {
+                  "key" : "Geospatial-Information_Dataset-contains-geospatial-information",
+                  "value" : "No"
+                },
+                {
+                  "key" : "Time/Date_Update-Frequency",
+                  "value" : "Irregular"
+                },
+                {
+                  "key" : "License/Attribution_License-URL",
+                  "value" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+                }
+              ]
+          },
+        "metadata" :
+          { "domain" : "data.calgary.ca", "license" : "See Terms of Use" },
+        "permalink" : "https://data.calgary.ca/d/f39w-zwp3",
+        "link" : "https://data.calgary.ca/Business-and-Economic-Activity/2025-Year-End-Progress-Report-Performance-Measures/f39w-zwp3",
+        "owner" :
+          {
+            "id" : "rb3e-c97r",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Master"
+          },
+        "creator" :
+          {
+            "id" : "rb3e-c97r",
+            "user_type" : "interactive",
+            "display_name" : "Open Data Master"
+          }
+      }
+    ],
+  "resultSetSize" : 26,
+  "timings" : { "serviceMillis" : 25, "searchMillis" : [ 7, 6 ] },
+  "warnings" : []
+}

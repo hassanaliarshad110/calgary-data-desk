@@ -1,0 +1,1271 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calgary Insight: Calgary ward and community data, in plain words</title>
+<link rel="icon" href="logo.svg">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+<script>(function(){var p='top';try{var q=new URLSearchParams(location.search).get('nav');p=q==='top'||q==='side'?q:(localStorage.getItem('nav-layout')||'top');}catch(e){}if(p!=='side')document.documentElement.classList.add('topnav');})();</script>
+<link rel="stylesheet" href="web.css">
+<meta name="description" content="Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections, plus a visitor guide: the weather by month, what to see and where to stay. From official public data, refreshed every morning. Independent and non-partisan.">
+<link rel="canonical" href="https://calgaryinsight.ca/">
+<meta name="theme-color" content="#071226">
+<meta name="robots" content="index,follow">
+<link rel="apple-touch-icon" href="logo-512.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Calgary Insight">
+<meta property="og:title" content="Calgary Insight: Calgary ward and community data, in plain words">
+<meta property="og:description" content="Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections, plus a visitor guide: the weather by month, what to see and where to stay. From official public data, refreshed every morning. Independent and non-partisan.">
+<meta property="og:url" content="https://calgaryinsight.ca/">
+<meta property="og:image" content="https://calgaryinsight.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Calgary Insight: the city, ward by ward">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calgary Insight: Calgary ward and community data, in plain words">
+<meta name="twitter:description" content="Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections, plus a visitor guide: the weather by month, what to see and where to stay. From official public data, refreshed every morning. Independent and non-partisan.">
+<meta name="twitter:image" content="https://calgaryinsight.ca/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://calgaryinsight.ca/#site","name":"Calgary Insight","url":"https://calgaryinsight.ca/","description":"Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections, plus a visitor guide: the weather by month, what to see and where to stay. From official public data, refreshed every morning. Independent and non-partisan.","inLanguage":"en-CA","publisher":{"@id":"https://calgaryinsight.ca/#org"}},{"@type":"Organization","@id":"https://calgaryinsight.ca/#org","name":"Calgary Insight","url":"https://calgaryinsight.ca/about/","email":"hello@calgaryinsight.ca","logo":"https://calgaryinsight.ca/logo-512.png","areaServed":{"@type":"City","name":"Calgary"},"sameAs":["https://www.facebook.com/share/1GwiEvuSog/","https://www.instagram.com/calgaryinsight/"]},{"@type":"Dataset","name":"Calgary ward and community indicators","url":"https://calgaryinsight.ca/","description":"Population, growth, 311 requests, amenities, safety and development for every Calgary ward and community, compiled from City of Calgary open data and other public sources, refreshed daily.","creator":{"@id":"https://calgaryinsight.ca/#org"},"spatialCoverage":{"@type":"Place","name":"Calgary, Alberta, Canada"},"isAccessibleForFree":true,"license":"https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"}]}</script>
+<meta name="google-site-verification" content="FPH2p5PKD0IMwkmSMZKKO8Hrn_KdssN6pZcbr1Khu6o">
+</head>
+<body data-web="1">
+<noscript><div style="max-width:760px;margin:24px auto;padding:0 16px;font-family:sans-serif;color:#e2e8f0"><h1>Calgary Insight</h1><p>Every Calgary ward and community side by side: population and growth, 311 requests, safety, parks and amenities, what is being built, budgets and elections, plus a visitor guide: the weather by month, what to see and where to stay. From official public data, refreshed every morning. Independent and non-partisan.</p><ul><li><a href="?view=dashboard">Dashboard: every ward and community at a glance</a></li><li><a href="?view=growth">Growth vs amenities and the forecast to 2030</a></li><li><a href="?view=compare">Compare wards</a></li><li><a href="?view=elections">Election Data Centre</a></li><li><a href="?view=budget">City budget</a></li><li><a href="?view=citynews">Calgary News</a></li><li><a href="?view=livemap">Live map: news, traffic and crime</a></li><li><a href="?view=fedbudget">Federal Budget 2026</a></li><li><a href="?view=invest">Invest in Calgary</a></li><li><a href="?view=infra">Infrastructure condition</a></li><li><a href="?view=safety">Canada's safest cities</a></li><li><a href="?view=issues">Open 311 issues</a></li><li><a href="?view=families">Families and schools</a></li><li><a href="?view=help">Find help near me</a></li><li><a href="?view=game">YYC City Stories: learn City services in a game on the real map of Calgary</a></li><li><a href="?view=visit">Visiting Calgary: what to see, where to stay, the weather by month, getting around</a></li><li><a href="?view=videos">Video explainers</a></li><li><a href="?view=methods">How it's counted</a></li><li><a href="?view=sources">Data sources and refresh schedule</a></li><li><a href="wards/">Calgary's 14 wards</a></li><li><a href="communities/">Every Calgary community</a></li><li><a href="about/">About Calgary Insight</a></li></ul><p>Turn on JavaScript to use the interactive maps, tables and Data Genie.</p></div></noscript>
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- Icon set (Lucide style, 24px grid, 2px stroke) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M22 17 13.5 8.5 8.5 13.5 2 7"/><path d="M16 17h6v-6"/></symbol>
+    <symbol id="i-flat" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4M12 17h.01"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><ellipse cx="9" cy="6" rx="6" ry="3"/><path d="M3 6v4c0 1.66 2.69 3 6 3s6-1.34 6-3V6"/><path d="M3 10v4c0 1.66 2.69 3 6 3 1 0 1.94-.12 2.77-.34"/><ellipse cx="16" cy="15" rx="5" ry="2.5"/><path d="M11 15v3.5c0 1.38 2.24 2.5 5 2.5s5-1.12 5-2.5V15"/></symbol>
+    <symbol id="i-sigma" viewBox="0 0 24 24"><path d="M18 7V4H6l6 8-6 8h12v-3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.38 2.63a2.12 2.12 0 1 1 3 3L12 15l-4 1 1-4Z"/></symbol>
+    <symbol id="i-open" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.99-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-bars" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="1.2"/><circle cx="17.5" cy="10.5" r="1.2"/><circle cx="8.5" cy="7.5" r="1.2"/><circle cx="6.5" cy="12.5" r="1.2"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.87a.5.5 0 0 0-.75-.43L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arr-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-arr-down" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .71-1.53l7-6a2 2 0 0 1 2.58 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+    <symbol id="i-child" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 8v6M8 22l4-8 4 8M6 11h12"/></symbol>
+    <symbol id="i-school" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-budget" viewBox="0 0 24 24"><circle cx="8" cy="8" r="5.5"/><path d="M8 4.8v6.4"/><path d="M9.7 6.2c-.3-.5-.9-.8-1.7-.8-.9 0-1.7.5-1.7 1.2 0 1.7 3.4.8 3.4 2.5 0 .7-.8 1.2-1.7 1.2-.8 0-1.5-.3-1.8-.9"/><path d="M3 21h18"/><path d="M14 21v-5"/><path d="M17.5 21v-8"/><path d="M21 21V9"/></symbol>
+    <symbol id="i-paper" viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 8h3v9a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12h7M7 15h4"/></symbol>
+    <symbol id="i-maple" viewBox="0 0 24 24"><path d="M12 3l1.6 3.4 2.4-1-0.6 4 3.6-1.4-1 2.8 2 1.2-4.6 3.4 0.8 2.2-4.2-0.8V21h-0.4v-4.2l-4.2 0.8 0.8-2.2L3.6 12l2-1.2-1-2.8L8.2 9.4l-0.6-4 2.4 1z"/></symbol>
+    <symbol id="i-legis" viewBox="0 0 24 24"><path d="M3 21h18M5 21v-7h14v7M8.5 14v7M12 14v7M15.5 14v7M4 14h16"/><path d="M7 14a5 5 0 0 1 10 0"/><path d="M12 9V3.5l3.2 1.2L12 6"/></symbol>
+    <symbol id="i-analytics-solid" viewBox="0 0 24 24"><rect x="2.5" y="11" width="4" height="10" rx="1" fill="currentColor" stroke="none"/><rect x="8.5" y="5" width="4" height="16" rx="1" fill="currentColor" stroke="none"/><rect x="14.5" y="13" width="4" height="8" rx="1" fill="currentColor" stroke="none"/><circle cx="18" cy="6.5" r="4" fill="currentColor" stroke="none"/><path d="m16.2 6.6 1.3 1.3 2.5-2.6" stroke="var(--on-accent, #fff)" stroke-width="1.8" fill="none"/></symbol>
+    <symbol id="i-analytics" viewBox="0 0 24 24"><path d="M4 20V11M8.5 20V6M13 20v-6"/><circle cx="17.5" cy="14.5" r="3.2"/><path d="m19.8 16.8 2.2 2.2"/><path d="M3 20h9"/></symbol>
+    <symbol id="i-studio" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="2"/><path d="m10 9 5 2.5-5 2.5z"/><path d="M8 21h8"/></symbol>
+    <symbol id="i-ballot" viewBox="0 0 24 24"><path d="M4 21h16"/><path d="M6 21V11h12v10"/><path d="M9 11V4h6v7"/><path d="M10.5 7.5l1 1 2-2"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 7.5v.5"/></symbol>
+    <symbol id="i-growth" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21v-6h4v6"/><path d="M11 21V11h4v10"/><path d="M17 21v-4h3v4"/><path d="m4 10 5-4 4 3 7-6"/><path d="M15 3h5v5"/></symbol>
+    <symbol id="i-crane" viewBox="0 0 24 24"><path d="M3 21h18M6 21V4h12M6 4l12 0 0 4M10 4v17"/></symbol>
+    <symbol id="i-helpheart" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 9.5V20h13V9.5"/><path d="M12 17.2s-3.2-1.9-3.2-4a1.7 1.7 0 0 1 3.2-.8 1.7 1.7 0 0 1 3.2.8c0 2.1-3.2 4-3.2 4z"/></symbol>
+    <symbol id="i-cone" viewBox="0 0 24 24"><path d="M9 3h6l4 16H5z"/><path d="M3 21h18M7.5 11h9M6.5 15h11"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6"/><path d="M12 2 5 12h4l-3 4h12l-3-4h4z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8" rx="1"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m6 3 14 9-14 9z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4h3v16H7zM14 4h3v16h-3z"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m10 9 5 3-5 3z"/></symbol>
+    <symbol id="i-news" viewBox="0 0 24 24"><path d="M4 22h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></symbol>
+    <symbol id="i-genie" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4M4 17v2M5 18H3"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h1.97a4 4 0 0 0 3.3-1.7l5.45-8.6a4 4 0 0 1 3.3-1.7H22"/><path d="M2 6h1.97a4 4 0 0 1 3.3 1.7l5.45 8.6a4 4 0 0 0 3.3 1.7H22"/></symbol>
+    <symbol id="i-scientist" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h5"/><path d="M7 16v-3"/><path d="M11 16V8"/><path d="M15 10V5"/><circle cx="17" cy="16" r="3.6"/><path d="m19.6 18.6 2.6 2.6"/><path d="M17 14.4v3.2M15.4 16h3.2"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></symbol>
+    <symbol id="i-candles" viewBox="0 0 24 24"><path d="M6 3v3M6 14v7M12 2v6M12 16v6M18 5v4M18 15v5"/><rect x="4" y="6" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="8" rx="1"/><rect x="16" y="9" width="4" height="6" rx="1"/></symbol>
+    <symbol id="i-cone" viewBox="0 0 24 24"><path d="M9.3 6.5h5.4M8.2 10.5h7.6M6.9 14.5h10.2M4 20h16M10.6 3h2.8l4.6 17H6L10.6 3z"/></symbol>
+    <symbol id="i-radar" viewBox="0 0 24 24"><path d="M19.07 4.93A10 10 0 1 0 22 12"/><path d="M16.24 7.76A6 6 0 1 0 18 12"/><circle cx="12" cy="12" r="2"/><path d="M12 12l7-7"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-compare" viewBox="0 0 24 24"><path d="M3 20V10M9 20V4M15 20v-8M21 20V7"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.3 5.7-5.7 2.3 2.3-5.7z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  </defs>
+</svg>
+
+<nav class="side" aria-label="Sections">
+  <div class="brand">
+    <img class="brand-mark" src="logo.svg" alt="" width="42" height="42">
+    <div class="brand-text"><strong>Calgary Insight</strong><span>The city, ward by ward</span></div>
+  </div>
+  <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="side-menu" aria-label="Menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  <label class="scope-pick" for="scope-sel"><span>Viewing</span>
+    <select id="scope-sel" aria-label="Show the whole city or one ward"><option value="0">Calgary: all wards</option></select>
+  </label>
+  <div class="side-menu" id="side-menu">
+  <div class="site-search" id="site-search">
+    <label class="sr" for="ss-q">Search Calgary Insight</label>
+    <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+    <input id="ss-q" type="search" placeholder="Search the site" autocomplete="off" aria-controls="ss-results" aria-expanded="false" aria-autocomplete="list" role="combobox">
+    <kbd class="ss-kbd" aria-hidden="true">Ctrl K</kbd>
+    <div class="ss-pop" id="ss-results" role="listbox" aria-label="Search results" hidden></div>
+  </div>
+  <div class="nav">
+    <div class="nav-g" data-group="home">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Home</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab is-on" data-view="dashboard" title="Dashboard" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard</span></button>
+        <button class="tab" data-view="compare" title="Compare wards"><svg class="ic" aria-hidden="true"><use href="#i-compare"/></svg><span>Compare wards</span></button>
+        <button class="tab" data-view="issues" title="Open issues"><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg><span>Open issues</span><b class="tab-count" id="tab-open-count"></b></button>
+        <a class="tab" href="studies/" title="Studies and reports: police performance and the budget request, ageing sewers, who Calgary's 311 hears"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><span>Studies</span></a>
+        <button class="tab" data-view="changes" title="What changed: the Growth vs amenities method before and after its revision"><svg class="ic" aria-hidden="true"><use href="#i-shuffle"/></svg><span>What changed</span></button>
+      </div>
+    </div>
+    <div class="nav-g" data-group="city">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Living here</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab tab-growth" data-view="growth" title="Growth vs amenities: how near homes are to everyday amenities, new homes against older ones, and the forecast to 2030"><svg class="ic" aria-hidden="true"><use href="#i-growth"/></svg><span>Growth vs amenities</span></button>
+        <button class="tab" data-view="families" title="Families and schools"><svg class="ic" aria-hidden="true"><use href="#i-child"/></svg><span>Families and schools</span></button>
+        <button class="tab" data-view="infra" title="Infrastructure condition: water main breaks, the age of the water network, the paving plan and the City's own condition figures, against 311 requests"><svg class="ic" aria-hidden="true"><use href="#i-cone"/></svg><span>Infrastructure condition</span></button>
+        <button class="tab" data-view="safety" title="Canada's safest cities: every city of 10,000 or more by Statistics Canada's Crime Severity Index, with Calgary's rank this year and last"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>Canada's safest cities</span></button>
+        <button class="tab" data-view="livemap" title="Live map: Calgary News stories where they happened, live traffic incidents, the newest 311 requests and police-reported crime by community"><svg class="ic" aria-hidden="true"><use href="#i-radar"/></svg><span>Live map</span></button>
+        <button class="tab" data-view="cameras" title="Traffic cameras"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><span>Traffic cameras</span></button>
+        <button class="tab" data-view="game" title="YYC City Stories: a free learning game on the real map of Calgary, built from City open data, that teaches City services"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg><span>Learn City Services: YYC Game</span></button>
+        <button class="tab tab-help" data-view="help" title="Find help near me: a bed tonight, food, day spaces, health care and help lines, nearest to you first"><svg class="ic" aria-hidden="true"><use href="#i-helpheart"/></svg><span>Find help near me</span></button>
+      </div>
+    </div>
+    <div class="nav-g" data-group="money">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Money</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
+        <button class="tab" data-view="fedbudget" title="Federal Budget 2026: headline numbers, every measure, province by province, Calgary and Alberta"><svg class="ic" aria-hidden="true"><use href="#i-maple"/></svg><span>Federal Budget 2026</span></button>
+        <button class="tab" data-view="invest" title="Invest in Calgary: every business, where each kind is underserved, growth, and the Business Economist"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg><span>Invest in Calgary</span></button>
+        <button class="tab" data-view="capmkt" title="Calgary Capital Markets: Calgary's public companies, their industries and value, and Calgary's place in Canada's stock markets"><svg class="ic" aria-hidden="true"><use href="#i-candles"/></svg><span>Calgary Capital Markets</span></button>
+      </div>
+    </div>
+    <div class="nav-g" data-group="democracy">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Democracy</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab" data-view="elections" title="Election Data Centre: seats, leaders, constituencies, Election Analytics and the latest official results"><svg class="ic" aria-hidden="true"><use href="#i-legis"/></svg><span>Election Data Centre</span></button>
+        <button class="tab" data-view="citynews" title="Calgary News: the day's Calgary stories, each with its sources"><svg class="ic" aria-hidden="true"><use href="#i-paper"/></svg><span>Calgary News</span></button>
+      </div>
+    </div>
+    <div class="nav-g nav-g-one" data-group="visit">
+      <button class="tab tab-visit" data-view="visit" title="Visiting Calgary: what to see, where to stay, the weather by month and what suits it, getting around"><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg><span>Visiting Calgary</span></button>
+    </div>
+    <div class="nav-g" data-group="ask">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Ask the data</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab tab-genie" data-view="ask" title="Data Genie: ask anything about the data"><svg class="ic" aria-hidden="true"><use href="#i-genie"/></svg><span>Data Genie</span></button>
+        <button class="tab tab-ds" data-view="scientist" title="Data Scientist: full analysis reports on the selected area"><svg class="ic" aria-hidden="true"><use href="#i-scientist"/></svg><span>Data Scientist</span></button>
+      </div>
+    </div>
+    <div class="nav-g" data-group="more">
+      <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">More</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+      <div class="nav-gm">
+        <button class="tab" data-view="videos" title="Video Explainers: short narrated videos on what the data shows"><svg class="ic" aria-hidden="true"><use href="#i-studio"/></svg><span>Video Explainers</span></button>
+        <button class="tab" data-view="news" title="Newsletter"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><span>Newsletter</span></button>
+        <button class="tab brief-btn" id="brief-btn" title="Briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><span>Briefing screen</span></button>
+        <button class="tab" data-view="methods" title="How every figure is worked out"><svg class="ic" aria-hidden="true"><use href="#i-sigma"/></svg><span>How it's counted</span></button>
+        <button class="tab" data-view="sources" title="Data sources and the refresh schedule"><svg class="ic" aria-hidden="true"><use href="#i-database"/></svg><span>Data sources</span></button>
+        <button class="tab" data-view="files" title="Files"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Files</span></button>
+        <button class="tab" data-view="settings" title="Settings"><svg class="ic" aria-hidden="true"><use href="#i-sliders"/></svg><span>Settings</span></button>
+        <a class="tab tab-about" href="about/" title="About Calgary Insight: why it exists and who built it"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>About</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="side-foot">
+    <button class="status" id="side-status" type="button" aria-haspopup="dialog" title="Data status"><span class="dot" aria-hidden="true"></span><span class="status-text">Connecting</span></button>
+    <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg><span>Dark mode</span></button>
+  </div>
+  </div>
+</nav>
+
+<main id="main">
+  <!-- ======================= DASHBOARD ======================= -->
+  <section id="view-dashboard" class="view is-on" aria-labelledby="dash-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="dash-title">Calgary overview</h1>
+        <p class="meta" id="dash-sub">Loading City of Calgary open data</p>
+      </div>
+      <div class="topbar-actions">
+        <span class="clock" id="clock" aria-label="Current time"></span>
+        <div class="period-wrap">
+          <button type="button" class="pill period-btn" id="period-pill" hidden aria-haspopup="true" aria-expanded="false" aria-controls="period-menu"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg><span id="period-text"></span></button>
+          <div class="period-menu" id="period-menu" hidden>
+            <p class="pm-title">Compare</p>
+            <div class="pm-quick" id="pm-quick">
+              <button type="button" data-kind="last12">Last 12 months against the 12 before</button>
+              <button type="button" data-kind="ytd">This year to date against the same months last year</button>
+              <button type="button" data-kind="last3">Last 3 months against the same months a year earlier</button>
+              <button type="button" data-kind="lastmonth">Last full month against the same month a year earlier</button>
+              <button type="button" data-kind="study">Study period: Oct 2025 to Sep 2026 against Oct 2024 to Sep 2025</button>
+            </div>
+            <p class="pm-title">Custom</p>
+            <div class="pm-custom">
+              <label><span>From</span><input type="month" id="pm-start"></label>
+              <label><span>To</span><input type="month" id="pm-end"></label>
+              <label class="pm-cmp-toggle"><input type="checkbox" id="pm-own"><span>Choose the comparison period myself</span></label>
+              <label class="pm-cmp" hidden><span>Compare from</span><input type="month" id="pm-cstart"></label>
+              <label class="pm-cmp" hidden><span>Compare to</span><input type="month" id="pm-cend"></label>
+              <button type="button" class="btn primary" id="pm-apply">Show this period</button>
+              <p class="field-hint" id="pm-msg">Whole months only. Otherwise the comparison is the same months a year earlier. A new period takes 20 to 30 seconds the first time.</p>
+            </div>
+          </div>
+        </div>
+        <span class="stamp" id="dash-stamp"></span>
+        <button class="btn" id="refresh" title="Ask every source again now: City open data, Calgary Police, CMHC, Statistics Canada and the Government of Alberta (about a minute)"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Refresh data</span></button>
+      </div>
+    </header>
+
+    <div class="content">
+      <a class="study-card budget-new" href="?view=budget"><span class="study-k">New · Proposed City budget 2027 to 2030</span><b>What the proposed budget would cost a typical Calgary home: about $53 a month more in 2027</b><small>Property tax up 15% in 2027, water up 12.2%, and what the money would buy. Proposed on November 10; Council debates it from November 23.</small></a>
+      <section class="studies-strip" aria-labelledby="studies-h">
+        <div class="studies-head"><h2 id="studies-h">Latest study</h2><a href="studies/">All studies and reports →</a></div>
+        <div class="studies-row">
+          <a class="study-card" href="studies/what-calgarians-pay/"><span class="study-k">New · Independent study</span><b>What Calgarians pay: the proposed budget, and Calgary against seven Canadian cities</b><small>A typical home pays the City $369 a month today, the lowest of eight cities compared; about $422 in 2027 and about $567 by 2030 if the proposed increases pass. With a calculator for your own bill.</small></a>
+        </div>
+      </section>
+      <div class="banner error" id="dash-error" role="alert" hidden>
+        <svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>
+        <div><strong>The dashboard could not load.</strong> <span id="dash-error-text"></span></div>
+        <button class="btn" id="retry">Try again</button>
+      </div>
+
+      <div class="grid" id="dash-loading" aria-busy="true" aria-label="Loading dashboard">
+        <div class="sk span-12 h-board"></div>
+        <div class="sk span-8 h-map"></div><div class="sk span-4 h-map"></div>
+        <p class="sk-note span-12">Fetching 311 requests, traffic incidents, cameras, permits, property records and boundaries from data.calgary.ca, and estimating today's population. The first load of a ward takes about a minute; the whole city about five minutes the first time, then much less.</p>
+      </div>
+
+      <div class="grid" id="dash-body" hidden>
+        <!-- status board -->
+        <section class="board span-12" aria-label="Ward 5 status board">
+          <div class="board-head">
+            <div class="board-title">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>Live from City and Calgary Police open data</span>
+            </div>
+            <span class="board-period" id="board-period"></span>
+          </div>
+          <div class="kpis" id="kpis" role="list" aria-label="Key figures"></div>
+        </section>
+
+        <!-- map + panel -->
+        <section class="card span-8 map-card" aria-labelledby="map-title">
+          <div class="card-head">
+            <div>
+              <h2 id="map-title">Ward 5 map</h2>
+              <p class="card-sub" id="map-sub"></p>
+            </div>
+            <div class="card-tools">
+              <div class="seg" role="radiogroup" aria-label="Shade the map by" id="metric-seg">
+                <button role="radio" aria-checked="true" data-metric="open_per_1000">Open per 1,000</button>
+                <button role="radio" aria-checked="false" data-metric="requests_per_1000">Requests per 1,000</button>
+                <button role="radio" aria-checked="false" data-metric="infra_per_1000">Infrastructure per 1,000</button>
+                <button role="radio" aria-checked="false" data-metric="requests_change_pct">Change in requests</button>
+                <button role="radio" aria-checked="false" data-metric="growth_pct">Growth since 2021</button>
+              </div>
+            </div>
+          </div>
+          <div class="layer-row">
+            <div class="seg small" role="radiogroup" aria-label="Background map" id="base-seg">
+              <button type="button" role="radio" aria-checked="true" data-base="street">Street</button>
+              <button type="button" role="radio" aria-checked="false" data-base="satellite">Satellite</button>
+              <button type="button" role="radio" aria-checked="false" data-base="grey">Plain</button>
+            </div>
+            <span class="base-note" id="base-note"></span>
+            <div class="layers-wrap">
+              <button type="button" class="btn" id="layers-btn" aria-expanded="false" aria-controls="layer-menu"><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg><span>Map layers</span><b class="tab-count" id="layers-btn-n"></b></button>
+              <div class="layer-menu" id="layer-menu" hidden><div id="layer-list"></div></div>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <div id="map" role="region" aria-label="Map of Ward 5 communities. The ranked list beside it has the same figures."></div>
+            <div class="legend" id="legend"></div>
+          </div>
+        </section>
+        <section class="card span-4 panel" id="panel" aria-live="polite" aria-label="Community details"></section>
+
+        <!-- trend + newest -->
+        <section class="card span-8" aria-labelledby="trend-title">
+          <div class="card-head"><div><h2 id="trend-title">311 requests each month</h2><p class="card-sub" id="trend-sub"></p></div></div>
+          <div class="chart-holder tall"><canvas id="trend" aria-label="Line chart of monthly 311 requests in Ward 5" role="img"></canvas></div>
+        </section>
+        <section class="card span-4 feed-card" aria-labelledby="feed-title">
+          <div class="card-head"><div><h2 id="feed-title">Newest 311 reports</h2><p class="card-sub">The latest requests logged in Ward 5</p></div>
+            <button class="link-btn" data-goto="issues">All open issues</button></div>
+          <ol class="feed" id="feed"></ol>
+        </section>
+
+        <!-- crime and safety -->
+        <div class="section-head span-12" id="crime-head" hidden><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><h2>Crime and safety</h2></div>
+        <section class="card span-12" aria-labelledby="rep-title" id="rep-card" hidden>
+          <div class="card-head"><div><h2 id="rep-title">Who represents this area</h2><p class="card-sub">Elected at each level, with the last result and turnout</p></div><button class="btn" data-goto="elections"><span>Election Data Centre</span></button></div>
+          <div id="rep-body"></div>
+        </section>
+        <section class="card span-12" aria-labelledby="crime-title" id="crime-card" hidden>
+          <div class="card-head"><div><h2 id="crime-title">Crime in Ward 5</h2><p class="card-sub" id="crime-sub"></p></div>
+            <div class="card-tools"><button class="btn primary" id="crime-dash" title="Opens the Calgary Police page at &quot;Dashboard data download&quot;, where &quot;Download Community Safety Data&quot; gives the spreadsheet these numbers come from"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>Source: police download page</span></button><button class="btn" id="crime-file" title="Download the police spreadsheet these numbers come from"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Download the file</span></button></div></div>
+          <div class="crime-grid">
+            <div class="crime-kpis" id="crime-kpis"></div>
+            <div><h3 class="crime-h">By type of crime <span class="crime-cmp"></span></h3><ul class="hbars crime-cats" id="crime-cats"></ul></div>
+            <div><h3 class="crime-h">By community <span class="crime-cmp"></span></h3><div id="crime-comms"></div></div>
+          </div>
+          <div class="chart-holder crime-chart"><canvas id="crime-chart" role="img" aria-label="Crimes in Ward 5 by month"></canvas></div>
+          <p class="card-note" id="crime-note"></p>
+        </section>
+        <section class="card span-12 mp-card" aria-labelledby="mp-title" id="mp-card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><div><h2 id="mp-title">Missing persons: police appeals</h2><p class="card-sub" id="mp-sub">Checking the Calgary Police news releases…</p></div></div>
+            <div class="card-tools"><button class="btn" id="mp-check"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Check again</span></button><button class="btn" id="mp-page"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>Police news releases</span></button></div></div>
+          <div id="mp-list" class="mp-list"></div>
+          <p class="card-note">Read live from the Calgary Police Service news releases each time and never saved. The police take an appeal down once the person is found, and it disappears here too. The police do not publish counts of missing persons by ward or community. Anyone with information should call the Calgary Police non-emergency line, 403-266-1234, or 911 if the person may be in danger.</p>
+        </section>
+        <section class="card span-12" aria-labelledby="csi-title" id="csi-card" hidden>
+          <div class="card-head"><div><h2 id="csi-title">Crime in Calgary compared with other cities</h2><p class="card-sub" id="csi-sub"></p></div>
+            <div class="seg" role="radiogroup" aria-label="Which index" id="csi-seg">
+              <button role="radio" aria-checked="true" class="is-on" data-v="csi">All crime</button>
+              <button role="radio" aria-checked="false" data-v="violent">Violent</button>
+              <button role="radio" aria-checked="false" data-v="non_violent">Non-violent</button></div></div>
+          <div class="csi-wrap"><div class="chart-holder"><canvas id="csi-chart" role="img" aria-label="Crime Severity Index by city and year"></canvas></div>
+            <div id="csi-side"></div></div>
+          <p class="card-note" id="csi-note"></p>
+        </section>
+
+
+        <section class="card span-12" aria-labelledby="rent-title" id="rent-card" hidden>
+          <div class="card-head"><div><h2 id="rent-title">Rents and vacancy near Ward 5</h2><p class="card-sub" id="rent-sub"></p></div></div>
+          <div class="rent-grid"><div id="rent-kpis" class="rent-kpis"></div><div id="rent-table"></div></div>
+        </section>
+
+        <section class="card span-12" aria-labelledby="prof-title" id="profile-card" hidden>
+          <div class="card-head"><div><h2 id="prof-title">Who lives in Ward 5</h2><p class="card-sub" id="prof-sub"></p></div>
+            <div class="seg" role="radiogroup" aria-label="Topic" id="prof-seg"></div></div>
+          <div id="prof-body"></div>
+        </section>
+
+        <!-- population + service areas -->
+        <section class="card span-6" aria-labelledby="pop-title">
+          <div class="card-head"><div><h2 id="pop-title">Population today against the 2021 Census</h2><p class="card-sub" id="pop-sub"></p></div></div>
+          <div id="popcmp"></div>
+        </section>
+        <section class="card span-6" aria-labelledby="areas-title">
+          <div class="card-head"><div><h2 id="areas-title">311 requests by City service</h2><p class="card-sub" id="areas-sub"></p></div></div>
+          <div id="areas"></div>
+        </section>
+
+        <!-- population month by month -->
+        <section class="card span-12" aria-labelledby="popm-title" id="popm-card">
+          <div class="card-head">
+            <div><h2 id="popm-title">Population month by month since the 2021 Census</h2><p class="card-sub" id="popm-sub"></p></div>
+            <div class="card-tools">
+              <div class="seg small" role="radiogroup" aria-label="Show" id="popm-seg">
+                <button type="button" role="radio" aria-checked="true" data-popm="res">Residents</button>
+                <button type="button" role="radio" aria-checked="false" data-popm="k14">Children 0 to 14</button>
+                <button type="button" role="radio" aria-checked="false" data-popm="k4">Children under 5</button>
+              </div>
+            </div>
+          </div>
+          <div class="chips" id="popm-chips" role="group" aria-label="Communities to show"></div>
+          <div class="chart-holder tall"><canvas id="popm-chart" role="img" aria-label="Ward 5 population by month since May 2021"></canvas></div>
+          <p class="card-note" id="popm-note"></p>
+        </section>
+
+        <!-- families and schools -->
+        <div class="section-head span-12"><svg class="ic" aria-hidden="true"><use href="#i-child"/></svg><h2>Families, schools, growth and amenities</h2></div>
+        <section class="card span-12" aria-labelledby="cc-title" id="cc-card">
+          <div class="card-head"><div><h2 id="cc-title">Licensed child care spaces</h2><p class="card-sub" id="cc-sub"></p></div>
+            <button class="link-btn" data-goto="families">All programs and schools</button></div>
+          <div class="cc-kpis" id="cc-kpis"></div>
+          <div class="chart-holder short"><canvas id="cc-chart" role="img" aria-label="Child care spaces in Ward 5 by quarter"></canvas></div>
+        </section>
+        <section class="card span-4 dash-off" aria-labelledby="ccc-title" id="ccc-card">
+          <div class="card-head"><div><h2 id="ccc-title">Spaces per 100 children, by community</h2><p class="card-sub">Children aged 0 to 14</p></div></div>
+          <div id="cc-comm"></div>
+        </section>
+        <section class="card span-12" aria-labelledby="sc-title" id="sc-card">
+          <div class="card-head"><div><h2 id="sc-title">Students in Ward 5 schools</h2><p class="card-sub" id="sc-sub"></p></div></div>
+          <div class="chart-holder short"><canvas id="sc-chart" role="img" aria-label="Students enrolled in Ward 5 schools by school year"></canvas></div>
+        </section>
+        <section class="card span-6 dash-off" aria-labelledby="scl-title" id="scl-card">
+          <div class="card-head"><div><h2 id="scl-title">Largest schools</h2><p class="card-sub" id="scl-sub"></p></div>
+            <button class="link-btn" data-goto="families">All schools</button></div>
+          <div id="sc-list"></div>
+        </section>
+
+        <!-- growth and amenities -->
+        <section class="card span-6" aria-labelledby="dp-title" id="dp-card">
+          <div class="card-head"><div><h2 id="dp-title">Development permits</h2><p class="card-sub" id="dp-sub"></p></div>
+            <button class="link-btn" data-goto="growth">All permits</button></div>
+          <div id="dp-sum"></div>
+        </section>
+        <section class="card span-6" aria-labelledby="rw-title" id="rw-card">
+          <div class="card-head"><div><h2 id="rw-title">Road construction</h2><p class="card-sub">City projects in and near Ward 5</p></div></div>
+          <div id="rw-list"></div>
+        </section>
+        <section class="card span-4 dash-off" aria-labelledby="am-title" id="am-card">
+          <div class="card-head"><div><h2 id="am-title">Amenities by community</h2><p class="card-sub">Playgrounds and children per playground, by community</p></div>
+            <button class="link-btn" data-goto="growth">Details</button></div>
+          <div id="am-sum"></div>
+        </section>
+
+        <!-- cameras strip -->
+        <section class="card span-12" aria-labelledby="camstrip-title">
+          <div class="card-head"><div><h2 id="camstrip-title">Traffic cameras in Ward 5</h2><p class="card-sub">Each camera replays its last 30 minutes on a loop</p></div>
+            <div class="card-tools"><button class="link-btn" data-goto="cameras">Camera wall</button><button class="btn" data-url="camera_page"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>City camera page</span></button></div></div>
+          <div class="camstrip" id="camstrip"></div>
+        </section>
+
+        <!-- open by type, benchmarks, disorder -->
+        <section class="card span-4 bench-mate" aria-labelledby="open-title">
+          <div class="card-head"><div><h2 id="open-title">Open requests by type</h2><p class="card-sub">Most requests still open today</p></div></div>
+          <div class="chart-holder"><canvas id="open-types" aria-label="Bar chart of open requests by type" role="img"></canvas></div>
+        </section>
+        <section class="card span-4" aria-labelledby="bench-title" id="bench-card">
+          <div class="card-head"><div><h2 id="bench-title">Ward 5 against Calgary</h2><p class="card-sub" id="bench-sub"></p></div></div>
+          <div id="bench"></div>
+        </section>
+        <section class="card span-4 bench-mate" aria-labelledby="dis-title">
+          <div class="card-head"><div><h2 id="dis-title">Police-reported social disorder</h2><p class="card-sub" id="dis-sub"></p></div></div>
+          <div id="disorder"></div>
+        </section>
+
+        <!-- table -->
+        <section class="card span-12 table-card" aria-labelledby="table-title">
+          <div class="card-head">
+            <div><h2 id="table-title">All communities</h2><p class="card-sub">Select a column heading to sort. Select a row to show it on the map.</p></div>
+            <div class="card-tools">
+              <div class="seg" role="radiogroup" aria-label="Which areas to list" id="area-seg">
+                <button role="radio" aria-checked="true" data-areas="res">Residential</button>
+                <button role="radio" aria-checked="false" data-areas="all">All areas</button>
+              </div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data" id="comm-table">
+              <thead><tr id="comm-head"></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="notes span-12" id="notes"></footer>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= OPEN ISSUES ======================= -->
+  <section id="view-issues" class="view" aria-labelledby="issues-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="issues-title">Open issues</h1>
+        <p class="meta" id="issues-sub">Every 311 request still open in Ward 5</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn" id="issues-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="issue-stats" id="issue-stats"></div>
+      <div class="banner info" id="issues-note">
+        <svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>
+        <div><strong>"Still open" is how the City's data marks them, not proof the work is undone.</strong> Many older requests are still marked open, some for years: some may be finished but never closed, especially "311 Contact Us" messages, which the list below leaves out unless you untick the box. The office can send 311 a list of request numbers to review: filter the list, then use "Save this list".</div>
+      </div>
+      <section class="card" id="track-card"></section>
+      <section class="card" id="issues-city" hidden></section>
+      <div class="filters card">
+        <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
+          <input id="f-text" type="search" placeholder="Search request number, type, address or department"></label>
+        <label><span>Community</span><select id="f-comm"></select></label>
+        <label><span>Service</span><select id="f-area"></select></label>
+        <label><span>Open for</span><select id="f-age">
+          <option value="0">Any time</option><option value="30">More than 30 days</option><option value="90">More than 90 days</option>
+          <option value="365">More than a year</option></select></label>
+        <label><span>Year made</span><select id="f-year"></select></label>
+        <label class="f-check"><input type="checkbox" id="f-nocontact" checked><span>Hide "311 Contact Us"</span></label>
+        <label><span>Sort</span><select id="f-sort">
+          <option value="new" selected>Newest first</option><option value="old">Oldest first</option><option value="type">By type</option></select></label>
+      </div>
+      <section class="card issues-card">
+        <div class="table-wrap tall">
+          <table class="data" id="issues-table">
+            <thead><tr><th scope="col">Request</th><th scope="col">Opened</th><th scope="col" class="num">Days open</th><th scope="col">Type</th><th scope="col">Community</th><th scope="col">Department</th><th scope="col">Last update</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="issues-foot"><span id="issues-count"></span><button class="btn" id="issues-more" hidden>Show more</button></div>
+      </section>
+      <section class="card" id="dept-card"></section>
+      <p class="notes">Request details come from the City's 311 open data, updated daily. The City publishes the community for each request, not its address, and its own status page shows a request only to the person who filed it.</p>
+    </div>
+    <aside class="drawer" id="drawer" aria-label="Issue details" hidden></aside>
+  </section>
+
+  <!-- ======================= FAMILIES ======================= -->
+  <section id="view-families" class="view" aria-labelledby="fam-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="fam-title">Families and schools</h1><p class="meta" id="fam-sub">Licensed child care and school enrolment in Ward 5, from Government of Alberta open data</p></div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Show" id="fam-seg">
+          <button type="button" role="radio" aria-checked="true" data-fam="cc">Child care</button>
+          <button type="button" role="radio" aria-checked="false" data-fam="sc">Schools</button>
+        </div>
+        <button class="btn" id="fam-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="filters card" id="fam-filters"></div>
+      <div class="issue-stats" id="fam-stats"></div>
+      <section class="card compare-card" id="fam-compare" hidden></section>
+      <section class="card issues-card">
+        <div class="table-wrap tall"><table class="data" id="fam-table"><thead></thead><tbody></tbody></table></div>
+      </section>
+      <p class="notes" id="fam-notes"></p>
+    </div>
+    <aside class="drawer" id="fam-drawer" aria-label="Details" hidden></aside>
+  </section>
+
+  <!-- ======================= GROWTH ======================= -->
+  <!-- What changed on Growth vs amenities (5 November 2026); reached from the tab's revision note -->
+  <section id="view-changes" class="view" aria-labelledby="chg-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="chg-title">What changed: Growth vs amenities</h1><p class="meta">Revised 5 November 2026: the earlier and the new method side by side, and what changed in the findings</p></div>
+      <div class="topbar-actions"><button class="btn" data-goto="growth"><span>Back to Growth vs amenities</span></button></div>
+    </header>
+    <div class="content narrow" id="chg-body"></div>
+  </section>
+
+  <section id="view-growth" class="view" aria-labelledby="gr-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="gr-title">Growth vs amenities</h1><p class="meta" id="gr-sub">How near homes are to everyday amenities, and how many people share the playgrounds and parks within reach</p></div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Show" id="gr-seg">
+          <button type="button" role="radio" aria-checked="true" data-gr="gap">Growth vs amenities</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="srg">Forecast to 2030</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="assets">Assets</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="recon">Population build-up</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="am">Amenities</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="rw">Being built</button>
+          <button type="button" role="radio" aria-checked="false" data-gr="dp">Development and rezoning</button>
+        </div>
+        <button class="btn" id="gr-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this list</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="filters card" id="gr-filters">
+        <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
+          <input id="gr-text" type="search" placeholder="Search permit number, address or description"></label>
+        <label><span>Community</span><select id="gr-comm"></select></label>
+        <label><span>Type</span><select id="gr-type"></select></label>
+        <label><span>Status</span><select id="gr-status"></select></label>
+      </div>
+      <div class="banner info" id="gr-note" hidden></div>
+      <div class="issue-stats" id="gr-stats"></div>
+      <section class="card gap-card" id="gr-gap" hidden></section>
+      <section class="card issues-card" id="gr-list">
+        <div class="table-wrap tall"><table class="data" id="gr-table"><thead></thead><tbody></tbody></table></div>
+      </section>
+      <p class="notes" id="gr-notes"></p>
+    </div>
+  </section>
+
+  <!-- ======================= COMPARE WARDS ======================= -->
+  <section id="view-compare" class="view" aria-labelledby="cmp-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="cmp-title">Compare wards</h1><p class="meta" id="cmp-sub">Every ward side by side, from the same City data</p></div>
+      <div class="topbar-actions">
+        <button class="btn" id="cmp-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this table</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <section class="card cmp-pick">
+        <div class="cmp-row"><span class="cmp-lab">Ward in focus</span><div class="chips" id="cmp-main" role="radiogroup" aria-label="Ward in focus"></div></div>
+        <div class="cmp-row"><span class="cmp-lab">Add wards (pick any)</span><div class="chips" id="cmp-others" role="group" aria-label="Wards to compare with"></div>
+          <button type="button" class="link-btn small" id="cmp-all">All wards</button><button type="button" class="link-btn small" id="cmp-none">Clear</button></div>
+      </section>
+      <div class="banner info" id="cmp-loading" hidden>Building the whole-city figures from the City's live data. The first time takes about five minutes; after that, under a minute.</div>
+      <div class="banner warn" id="cmp-error" hidden></div>
+      <section class="card" id="cmp-table-card">
+        <div class="card-head"><div><h2>Side by side</h2><p class="card-sub" id="cmp-table-sub"></p></div></div>
+        <div class="table-wrap"><table class="data cmp-table" id="cmp-table"><thead></thead><tbody></tbody></table></div>
+        <p class="card-note" id="cmp-note"></p>
+      </section>
+      <div class="grid cmp-grid">
+        <section class="card span-7">
+          <div class="card-head"><div><h2 id="cmp-rank-title">Every ward ranked</h2><p class="card-sub" id="cmp-rank-sub"></p></div>
+            <label class="cmp-metric"><span class="sr">Measure</span><select id="cmp-metric"></select></label></div>
+          <div class="cmp-bars" id="cmp-bars"></div>
+        </section>
+        <section class="card span-5">
+          <div class="card-head"><div><h2>Map of wards</h2><p class="card-sub" id="cmp-map-sub"></p></div></div>
+          <div id="cmp-map" class="cmp-map" role="region" aria-label="Map of Calgary's wards shaded by the chosen measure"></div>
+          <div class="cmp-legend" id="cmp-legend"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= DATA SOURCES ======================= -->
+  <!-- ======================= CITY BUDGET ======================= -->
+  <section id="view-elections" class="view" aria-labelledby="el-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="el-title">Election Data Centre</h1><p class="meta">Seats, leaders, constituencies and the latest official results: City of Calgary 2025, Alberta 2023 (with by-elections since and the 2026 referendum), Canada 2025</p></div>
+    </header>
+    <div class="content"><div class="grid" id="el-body"></div></div>
+  </section>
+
+  <section id="view-livemap" class="view" aria-labelledby="lm-h">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="lm-h">Live map</h1><p class="meta">Calgary News stories where they happened, traffic incidents as they are reported, the newest 311 requests and police-reported crime by community</p></div>
+    </header>
+    <div class="content"><div class="grid" id="lm-body"></div></div>
+  </section>
+
+  <section id="view-citynews" class="view" aria-labelledby="cn-h">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="cn-h">Calgary News</h1><p class="meta">The day's Calgary stories</p></div>
+    </header>
+    <div class="content"><div class="grid" id="cn-body"></div></div>
+  </section>
+
+  <section id="view-fedbudget" class="view" aria-labelledby="fb-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="fb-title">Federal Budget 2026</h1><p class="meta">The Government of Canada's budget, tabled 5 November 2026: headline numbers, every measure, province by province, Calgary and Alberta</p></div>
+    </header>
+    <div class="content"><div class="grid" id="fb-body"></div></div>
+  </section>
+
+  <section id="view-invest" class="view" aria-labelledby="iv-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="iv-title">Invest in Calgary</h1><p class="meta">Every business in Calgary, where each kind is underserved for the people nearby, where new ones are opening, and business plans from the Business Economist</p></div>
+    </header>
+    <div class="content"><div class="grid" id="iv-body"></div></div>
+  </section>
+
+  <section id="view-help" class="view" aria-labelledby="help-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="help-title">Find help near me</h1><p class="meta">A bed tonight, food, a warm place by day, health care and help lines in Calgary, nearest to you first</p></div>
+    </header>
+    <div class="content"><div class="grid" id="help-body"></div></div>
+  </section>
+
+  <section id="view-capmkt" class="view" aria-labelledby="cm-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="cm-title">Calgary Capital Markets</h1><p class="meta">Calgary's public companies: how many, in which industries, what they are worth together, and Calgary's place in Canada's stock markets</p></div>
+    </header>
+    <div class="content"><div class="grid" id="cm-body"></div></div>
+  </section>
+  <section id="view-infra" class="view" aria-labelledby="inf-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="inf-title">Infrastructure condition</h1><p class="meta">Where roads and pipes are wearing out, and whether 311 requests about them are rising in the same places</p></div>
+    </header>
+    <div class="content"><div class="grid" id="inf-body"></div></div>
+  </section>
+
+  <!-- YYC City Stories: the learning game, introduced here; the game itself opens on its own page -->
+  <section id="view-game" class="view" aria-labelledby="gm-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="gm-title">Learn City Services: YYC Game</h1><p class="meta">A free learning game on the real map of Calgary, built from the City's open data, that teaches residents how to use City services</p></div>
+    </header>
+    <div class="content"><div class="grid">
+      <section class="card span-12 gm-intro">
+        <img class="gm-shot" src="game/img/hero.jpg" alt="The game's Calgary: the downtown skyline and the Calgary Tower at dusk" width="1600" height="900" loading="lazy">
+        <div class="gm-text">
+          <h2>Learn how the City works by living in it</h2>
+          <p>Players walk, drive and ride the CTrain through Calgary as a newcomer, a student, a senior or a long-time resident. Each mission is a real task, like getting settled, getting a driver's licence, finding a seniors' program or putting out the right cart, and ends with a short card on the real City service, the official link and a quick quiz.</p>
+          <p>Streets, buildings, addresses, businesses, parks, traffic signals, transit and ward boundaries all come from City of Calgary open data, so what players learn applies to the city they live in.</p>
+          <div class="gm-actions"><a class="btn primary" href="city-stories/">Play the game</a><a class="btn" href="game/">The game's own page: characters, missions and screenshots</a></div>
+          <p class="card-note">Free, in a web browser, with no account. English, French, Punjabi, Urdu, Tagalog and Arabic.</p>
+        </div>
+      </section>
+      <section class="card span-12">
+        <div class="card-head"><div><h2>What players learn</h2><p class="card-sub">Four characters, 18 missions, each one tied to a real City or public service</p></div></div>
+        <div class="gm-cast">
+          <div><b>Ali, new to Calgary</b><span>7 missions</span><ul><li>Paying for the bus and the CTrain</li><li>Free settlement help at the Centre for Newcomers</li><li>An Alberta driver's licence at a registry agent, and the road test</li><li>Insurance first, then registration</li><li>The Genesis Centre, the library and Fair Entry</li><li>Calgary's two CTrain lines</li></ul></div>
+          <div><b>Natalia, student</b><span>3 missions</span><ul><li>Getting to school on transit</li><li>Standing up to bullying safely, and who to tell</li><li>Teaching younger students what to do</li></ul></div>
+          <div><b>Chris, senior</b><span>4 missions</span><ul><li>A centre for older adults</li><li>The Senior Yearly Pass, Fair Entry and Calgary Transit Access</li><li>Health Link 811, day or night</li><li>Spotting phone scams</li></ul></div>
+          <div><b>Jean, resident</b><span>4 missions</span><ul><li>Shopping local with licensed neighbourhood businesses</li><li>Black, blue and green carts: what goes where</li><li>Clearing the sidewalk within 24 hours, and Snow Angels</li><li>Paying for parking by zone, or taking the CTrain</li></ul></div>
+        </div>
+      </section>
+      <section class="card span-12">
+        <p class="card-note">YYC City Stories is presented by Calgary Insight and is not affiliated with The City of Calgary. Map data © OpenStreetMap contributors (ODbL); City of Calgary open data under the Open Government Licence – City of Calgary. Ideas for a mission about a City service? Write to hello@calgaryinsight.ca.</p>
+      </section>
+    </div></div>
+  </section>
+
+  <section id="view-visit" class="view" aria-labelledby="vi-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="vi-title">Visiting Calgary</h1><p class="meta">What to see, where to stay, the weather by month and over the years, what is on, and how to get around, from public data and the organisers' own pages</p></div>
+    </header>
+    <div class="content"><div class="grid" id="vi-body"></div></div>
+  </section>
+
+  <section id="view-safety" class="view" aria-labelledby="sr-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="sr-title">Canada's safest cities</h1><p class="meta">Statistics Canada's Crime Severity Index for every city of 10,000 people or more: the 50 safest, and where Calgary stands this year and last</p></div>
+    </header>
+    <div class="content"><div class="grid" id="sr-body"></div></div>
+  </section>
+
+  <section id="view-budget" class="view" aria-labelledby="bud-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="bud-title">City budget</h1><p class="meta" id="bud-sub">The City of Calgary's approved budget and spending, live from its open data</p></div>
+      <div class="topbar-actions">
+        <label class="bud-year"><span>Year</span><select id="bud-year"></select></label>
+        <button class="btn" id="bud-export"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save this table</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="banner warn" id="bud-error" hidden></div>
+      <div class="grid">
+        <section class="card span-12 bud-plan" id="bud-plan-card" hidden><div class="card-head"><div><h2 id="bud-plan-title">Proposed 2027–2030 budget</h2><p class="card-sub" id="bud-plan-sub"></p></div></div><div id="bud-plan"></div></section>
+      </div>
+      <div class="issue-stats" id="bud-stats"></div>
+      <div class="grid">
+        <section class="card span-6"><div class="card-head"><div><h2 id="bud-op-title">Operating budget by department</h2><p class="card-sub">Net of recoveries, millions of dollars</p></div></div><div class="cmp-bars" id="bud-op"></div></section>
+        <section class="card span-6"><div class="card-head"><div><h2 id="bud-cap-title">Capital budget by department</h2><p class="card-sub">Millions of dollars</p></div></div><div class="cmp-bars" id="bud-cap"></div></section>
+        <section class="card span-12"><div class="card-head"><div><h2>Year by year</h2><p class="card-sub" id="bud-trend-sub"></p></div></div><div class="chart-holder"><canvas id="bud-trend" role="img" aria-label="Operating and capital budget by year"></canvas></div></section>
+        <section class="card span-12" id="bud-rev-card"><div class="card-head"><div><h2 id="bud-rev-title">Where the money comes from</h2><p class="card-sub" id="bud-rev-sub"></p></div></div><div class="bud-rev"><div class="cmp-bars" id="bud-rev"></div><div class="table-wrap"><table class="data" id="bud-rev-table"><thead></thead><tbody></tbody></table></div></div><p class="card-note" id="bud-rev-note"></p></section>
+        <section class="card span-12" id="bud-tax-card"><div class="card-head"><div><h2 id="bud-tax-title">Property tax by ward</h2><p class="card-sub" id="bud-tax-sub"></p></div><div class="card-tools"><button type="button" class="link-btn small" data-method="property_tax">How it's estimated</button></div></div><div id="bud-tax"></div></section>
+        <section class="card span-12" id="bud-ward-card"><div class="card-head"><div><h2 id="bud-ward-title">By ward</h2><p class="card-sub" id="bud-ward-sub"></p></div></div><div id="bud-ward"></div></section>
+        <section class="card span-12"><div class="card-head"><div><h2>Every service</h2><p class="card-sub" id="bud-table-sub"></p></div></div><div class="table-wrap tall"><table class="data" id="bud-table"><thead></thead><tbody></tbody></table></div></section>
+      </div>
+      <p class="notes" id="bud-notes"></p>
+    </div>
+  </section>
+
+  <!-- ======================= HOW IT'S COUNTED ======================= -->
+  <!-- ======================= VIDEO BRIEFS ======================= -->
+  <section id="view-videos" class="view" aria-labelledby="vid-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="vid-title">Video Explainers</h1><p class="meta">Short narrated videos on what the data shows, with how it is measured. Pick a topic or an area, or search.</p></div>
+    </header>
+    <div class="content"><div class="vid-bar" id="vid-bar"></div><div class="vid-grid" id="vid-grid">
+      <section class="card vid-card" id="vid-whatcalgarianspay" data-cat="Budgets and spending" data-area="All of Calgary">
+        <div class="card-head"><div><h2>What Calgarians pay: the proposed budget, and Calgary against seven cities</h2>
+          <p class="card-sub">Published <time datetime="2026-11-10">November 10, 2026</time> · 2 min 45 s · animated, narrated, with sound</p></div></div>
+        <video controls preload="none" playsinline data-poster="video/what-calgarians-pay.jpg">
+          <source src="video/what-calgarians-pay.mp4" type="video/mp4">
+          Your browser can&#x27;t play this video. <a href="video/what-calgarians-pay.mp4">Download it (MP4, 8 MB)</a>.
+        </video>
+        <p class="vid-desc">A typical Calgary home pays the City $369 a month for property tax, water, wastewater, stormwater and waste, the lowest of eight large Canadian cities. The proposed 2027 budget adds about $53 a month (property tax revenue +15%; about +16% on the typical home&#x27;s tax), and if the reported increases pass, about $567 a month by 2030 (+54%, a scenario before inflation). In 2027, on the figures published so far, Calgary would be the third lowest.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> A typical home in Calgary pays the City three hundred and sixty-nine dollars a month, for property tax, water and waste. The proposed budget would raise that. So how does Calgary compare with other large Canadian cities?</p><p><b>What we compared.</b> We compared eight cities: Calgary, Edmonton, Vancouver, Toronto, Ottawa, Winnipeg, Saskatoon and Regina. For each, we took the City property tax on its typical home, and the City bill for water, wastewater, stormwater and waste, at the same water use.</p><p><b>The proposed 2027 budget.</b> First, the budget. The City proposes a fifteen percent increase in property tax revenue for twenty twenty-seven. For a typical home, the City says property tax rises from two hundred and twenty-nine dollars a month to two hundred and sixty-six, and water and waste from one hundred and forty to one hundred and fifty-six. That is fifty-three dollars more a month, or about six hundred and thirty dollars a year.</p><p><b>Water.</b> Water is a big part of it. The typical water bill rises about twelve percent next year, mostly for wastewater, as the City upgrades two treatment plants and builds new feedermains.</p><p><b>The four years to 2030.</b> If the reported tax increases for the following years pass, water rises as Council approved, and cart fees rise as the City proposed, a typical home would pay about five hundred and sixty-seven dollars a month by twenty thirty. That is fifty-four percent more than today, before inflation.</p><p><b>The comparison, 2026.</b> Now, the comparison. In twenty twenty-six, Calgary&#x27;s three hundred and sixty-nine dollars is the lowest of the eight cities. Saskatoon and Winnipeg are close behind. Vancouver, Edmonton and Ottawa pay the most, more than five hundred dollars a month. The other seven cities average four hundred and sixty-seven.</p><p><b>Property tax and utilities separately.</b> Calgary is the third lowest on property tax alone, and the third lowest on utilities alone. Together, it comes out lowest.</p><p><b>Against household income.</b> Against what households earn, Calgarians pay the smallest share of the eight: about four and a half percent of the median household&#x27;s income.</p><p><b>2027, where published.</b> In twenty twenty-seven, using what other cities have published so far, Calgary would be the third lowest. Its gap below the average would narrow from about ninety-eight dollars a month to about fifty-seven. Toronto, Ottawa and Vancouver have not published their twenty twenty-seven figures yet, and Edmonton&#x27;s and Regina&#x27;s are still proposals, so this will change.</p><p><b>Why tax rates alone mislead.</b> One caution. Tax rates on their own mislead. Vancouver has the lowest rate, but its homes are worth far more, so its bills are the highest. What matters is the dollars a household pays.</p><p><b>Sources, and your own bill.</b> Every figure comes from each city&#x27;s own budgets and rate schedules, and every source is published with the study. Read it at calgary insight dot c a. To work out your own bill, enter your home&#x27;s assessed value at calgary insight dot c a slash bill.</p></details>
+        <p class="card-note">Figures as of November 10, 2026. Sources: The City of Calgary (2027 budget, 2026 and 2027 water rates, cart fees proposed in October 2026), each city&#x27;s 2026 budget, tax and utility rates, the City of Winnipeg&#x27;s 2026 Adopted Budget and Statistics Canada (2021 Census). Every figure, source and formula: <a href="studies/what-calgarians-pay/">the full study</a>; work out your own bill at <a href="bill/">calgaryinsight.ca/bill</a>. <a href="video/what-calgarians-pay.mp4" download>Download the video (MP4, 8 MB)</a></p>
+      </section>
+      <section class="card vid-card" id="vid-tourism" data-cat="Tourism and visitors" data-area="All of Calgary">
+        <div class="card-head"><div><h2>Calgary’s potential as a tourist hub</h2>
+          <p class="card-sub">Published <time datetime="2026-11-10">November 10, 2026</time> · 3 min 50 s · animated, narrated, with music</p></div></div>
+        <video controls preload="none" playsinline data-poster="video/calgary-tourism-hub.jpg">
+          <source src="video/calgary-tourism-hub.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/calgary-tourism-hub.mp4">Download it (MP4, 7 MB)</a>.
+        </video>
+        <p class="vid-desc">Calgary welcomed 10.5 million visitors in 2025, who spent $3.3 billion; hotels were 67.5% full and tourism and hospitality supported 84,000 jobs. About two dollars in three came from Canadians (Alberta $1.0 billion, the rest of Canada $1.2 billion) and one in three from abroad (United States $538 million, overseas $521 million), and international visitor spending rose 15.6% in the first quarter of 2026. YYC handled 19.4 million passengers with 110 non-stop destinations, and more than 7 million international travellers connect through it each year without leaving the airport: every 1% who stayed would be 70,000 more visitors. Banff National Park had a record 4.5 million visitors in 2025–26, and five UNESCO World Heritage Sites are within a few hours’ drive. The goal is $6 billion in visitor spending by 2035, about 6% growth a year.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Calgary. A city of big skies, with the Rocky Mountains on its doorstep. How far could tourism here really go? Here is what the numbers say.</p><p><b>Today.</b> In twenty twenty-five, Calgary welcomed ten and a half million visitors. They spent three point three billion dollars. Hotels were sixty-seven and a half percent full. And tourism and hospitality supported eighty-four thousand jobs.</p><p><b>Who spends.</b> So where does that money come from? One billion dollars comes from Albertans, and one point two billion from the rest of Canada. Visitors from the United States and overseas add just over one billion more. Put together, about two dollars in every three come from Canadians, and one in three from abroad. And that international share is growing. In the first quarter of twenty twenty-six, international visitor spending rose more than fifteen percent.</p><p><b>The airport.</b> The hub is already built. Calgary&#x27;s airport handled nineteen point four million passengers in twenty twenty-five. It flies non-stop to one hundred and ten destinations. Fifteen new routes were added in a single year. And twenty twenty-six brought its first non-stop flights to South America and the Middle East: Sao Paulo, and Abu Dhabi.</p><p><b>The opportunity.</b> Here is the opportunity. More than seven million international travellers connect through Calgary every year, and never leave the airport. What if a few of them stayed? Every one percent who stay would mean seventy thousand more visitors. It has already started. Since June twenty twenty-six, a stopover program lets travellers on two WestJet routes from the United Kingdom add up to seven days in Calgary, at no extra airfare.</p><p><b>The gateway.</b> Calgary is also a base camp. Banff National Park just set a record: four and a half million visitors in a single year. And Calgary is its nearest international airport, about one hundred and thirty kilometres away. Five UNESCO World Heritage Sites sit within a few hours&#x27; drive, along with the Badlands, dinosaur country, and Blackfoot heritage.</p><p><b>Events.</b> And the city already knows how to draw a crowd. The Calgary Stampede generated seven hundred and twenty-one million dollars across Alberta in twenty twenty-five, a third more than in twenty nineteen. Meetings and conventions brought seventy-five thousand delegates, and two hundred and forty million dollars. Sport, culture and major events added nearly one hundred and twenty-three million more.</p><p><b>Lessons from elsewhere.</b> Other places have turned passing traffic into tourism. Iceland offered a free stopover of up to seven days. Its visitor numbers roughly tripled in six years. Singapore gives transit passengers a free city tour. More than eighty thousand took it in twenty nineteen. Denver, another gateway to the Rockies, measured two hundred and nineteen dollars in visitor spending for every dollar of advertising. And Dubai, with festivals all year round, fills almost eighty-one percent of its hotel rooms. Calgary fills sixty-seven and a half. Not everything will carry over to Calgary. But the ideas have been tested.</p><p><b>The target.</b> Tourism Calgary has set a target: double visitor spending, to six billion dollars, by twenty thirty-five. That means growing about six percent, every year, for ten years. Growth has costs too: crowding in Banff, and pressure on housing from short-term rentals. They need weighing alongside the gains.</p><p><b>Close.</b> The visitors are already coming. The hub is already built. The room to grow is international. These figures are the published estimates of Calgary&#x27;s own tourism bodies, checked in November twenty twenty-six. See the full study at calgary insight dot c a.</p></details>
+        <p class="card-note">Figures as published by their sources and checked November 9, 2026; visitor and spending figures are Tourism Calgary’s own estimates, and economic-impact figures overlap, so they are not added together. Worked out here: the Canadian and international shares (from the four origin figures), 1% of 7 million, and the even-growth path to 2035, which is not a forecast. Drive times from downtown Calgary use OpenStreetMap routing at free-flowing speeds; the route lines in the airport scene are a diagram, not a map. Sources: Tourism Calgary, <a href="https://tourism-calgary-production.tor1.cdn.digitaloceanspaces.com/files/industry/tc-annual-report-2025.pdf" target="_blank" rel="noopener">Annual Report 2025</a> and <a href="https://www.visitcalgary.com/business/industry/news/calgary-announcements/tourism-calgary-and-westjet-launch-calgary-stopover-program" target="_blank" rel="noopener">Calgary Stopover Program release</a> (June 2026); Calgary Airport Authority, <a href="https://www.yyc.com/en-us/media-centre/artmid/2328/articleid/186/yyc-calgary-international-airport-welcomed-194-million-passengers-in-2025" target="_blank" rel="noopener">19.4 million passengers in 2025</a>; Parks Canada via <a href="https://moderncampground.com/canada/banff-national-park-sets-new-record-with-4-5-million-visitors-in-2025-26/" target="_blank" rel="noopener">Modern Campground</a> (April 2026); <a href="https://livewirecalgary.com/2026/02/05/calgary-stampede-economic-impact-report-shows-33-per-cent-jump-in-6-years/" target="_blank" rel="noopener">Calgary Stampede economic impact report</a> (via LiveWire Calgary, February 2026); <a href="https://fortune.com/2016/10/23/icelandair-layover-travel/" target="_blank" rel="noopener">Fortune</a> (Iceland, 2016); <a href="https://www.stb.gov.sg/about-stb/media-publications/media-centre/free-singapore-tour-for-transfer-and-transit-passengers-returns-from-3-april/" target="_blank" rel="noopener">Singapore Tourism Board</a> (2023); <a href="https://www.denver7.com/news/local-news/denver-tourism-sets-records-in-2025-with-37-6m-visitors" target="_blank" rel="noopener">Denver7</a> (May 2026); <a href="https://www.khaleejtimes.com/business/dubai-tourism-hits-record-1959m-visitors-in-2025-marking-third-year-of-growth" target="_blank" rel="noopener">Khaleej Times</a> (February 2026); map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>. Every figure, with more, is on the <a href="tourism-intelligence/">Tourism Intelligence</a> page. Original music. <a href="video/calgary-tourism-hub.mp4" download>Download the video (MP4, 7 MB)</a></p>
+      </section>
+      <section class="card vid-card" id="vid-plus15" data-cat="Infrastructure and utilities" data-area="All of Calgary">
+        <div class="card-head"><div><h2>The city above the city: Calgary’s Plus 15</h2>
+          <p class="card-sub">Published <time datetime="2026-11-09">November 9, 2026</time> · 1 min 47 s · animated, narrated, with music</p></div></div>
+        <video controls preload="none" playsinline data-poster="video/calgary-plus-15.jpg">
+          <source src="video/calgary-plus-15.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/calgary-plus-15.mp4">Download it (MP4, 9 MB)</a>.
+        </video>
+        <p class="vid-desc">In 1969, one enclosed bridge crossed 4 Avenue SW, linking the Calgary Inn (today’s Westin) to Calgary Place, about 15 feet above the street. Today the City counts 86 Plus 15 bridges and more than 16 km of walkways. The City’s records show 11 bridges built in the 1970s and 31 in the 1980s. On the busiest bridges, 19,000 to 22,000 people crossed every winter workday in City counts from 2011 and 2012, and January counts were about double July’s. The City’s own study found uneven hours, the name signed 11 different ways, and some routes with stairs but no ramp.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>The mystery.</b> Imagine walking through downtown Calgary in the middle of winter. Snow is falling. The streets are cold. But what if you could cross most of downtown without stepping outside? Welcome to the city above the city.</p><p><b>The original vision.</b> In the nineteen sixties, Harold Hanen, an architect in the City's planning department, imagined downtown buildings joined by enclosed bridges, about fifteen feet above the street. In nineteen sixty-nine, the first one was built, linking the Calgary Inn, today's Westin, to Calgary Place.</p><p><b>An entire network.</b> One bridge became many. The City's records show eleven more in the nineteen seventies, and thirty-one in the boom of the nineteen eighties. Today, the City counts eighty-six bridges and more than sixteen kilometres of walkways, linking offices, hotels, shops and transit.</p><p><b>The weather effect.</b> And the weather shapes how people use it. In City counts from twenty eleven and twenty twelve, the busiest bridges carried nineteen to twenty-two thousand people every winter workday. The City's network study found January counts were about double July's.</p><p><b>The challenges.</b> But a city above the city has its challenges. Most walkways run through private buildings, and owners keep different hours. Standard hours end at nine on weeknights and seven on weekends. A City study found the network's name signed eleven different ways, and some routes with stairs but no ramp.</p><p><b>The bigger question.</b> More than fifty years after the first bridge, the Plus Fifteen is still one of Calgary's boldest experiments. And it raises a bigger question for winter cities: should people move through the city above its streets, or on them? Explore Calgary's stories at calgary insight dot c a.</p></details>
+        <p class="card-note">Figures as of November 9, 2026. Method: every building is drawn from the City’s 3D building data, and every bridge lights in the year the City’s Plus 15 Bridges dataset gives for its construction (87 records, 3 with no year; the City’s network page counts 86 bridges). Pedestrian counts are historical (2011 and 2012). Moving people and dimmed bridges are illustrations, not counts. The 1969 drawing is a newspaper illustration of the time. Sources: City of Calgary, <a href="https://www.calgary.ca/bike-walk-roll/plus-15-network.html" target="_blank" rel="noopener">Plus 15 network</a> (86 bridges, 16+ km, hours); City of Calgary, <a href="https://www.calgary.ca/content/dam/www/transportation/documents/transportation-infrastructure/plus-15-policy.pdf" target="_blank" rel="noopener">Plus 15 Policy</a> (2021: first bridge 1969, private property and easements); City of Calgary, <a href="https://www.calgary.ca/content/dam/www/transportation/roads/documents/road-maintenance/plus-15-network-study-final-report-sep-2019.pdf" target="_blank" rel="noopener">Plus 15 Network Study</a> (2019: pedestrian counts, January and July, signage and accessibility); City of Calgary open data, <a href="https://data.calgary.ca/d/fu7z-c7ar" target="_blank" rel="noopener">Plus 15 Bridges (fu7z-c7ar)</a>, <a href="https://data.calgary.ca/d/3u3x-hrc7" target="_blank" rel="noopener">Plus 15 walkways (3u3x-hrc7)</a> and <a href="https://data.calgary.ca/d/cchr-krqg" target="_blank" rel="noopener">3D Buildings – Citywide (cchr-krqg)</a>; <a href="https://www.heritagecalgary.ca/heritage-calgary-blog/plus15" target="_blank" rel="noopener">Heritage Calgary</a> (Harold Hanen and the 1966 plan); map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>. Original music. <a href="video/calgary-plus-15.mp4" download>Download the video (MP4, 9 MB)</a></p>
+      </section>
+      <section class="card vid-card" id="vid-sewers" data-cat="Infrastructure and utilities" data-area="All of Calgary">
+        <div class="card-head"><div><h2>The pipes beneath Calgary: how old are our sewer connections?</h2>
+          <p class="card-sub">Published <time datetime="2026-11-08">November 8, 2026</time> · 3 min 34 s · animated, narrated, with music</p></div></div>
+        <video controls preload="none" playsinline data-poster="video/calgary-sewer-pipes.jpg">
+          <source src="video/calgary-sewer-pipes.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/calgary-sewer-pipes.mp4">Download it (MP4, 10 MB)</a>.
+        </video>
+        <p class="vid-desc">The City’s open data doesn’t include its sewer mains, so this looks at the connections: the City-owned section of each home’s sewer line, from the main to the property line (367,671 with an install year; 2,782 km). The typical connection went in in 1995; 24.8% are older than 50. Against published service lives for each material, 32,720 (8.9%) are past their typical life: 25.8% on the short benchmark, 2.3% on the long one. If none were replaced, that would reach 43,464 by 2046 and 77,608 by 2071. Four in five of those past typical life have no specific material recorded (“Other” 17,877, code “TP” 7,582, blank 957) and are given 45 years. Age is a warning sign, not proof that a pipe has failed.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Right now, beneath Calgary&#x27;s streets, nearly thirty-three thousand of the pipes that carry sewage away from homes and buildings have passed the life that pipes like them are expected to last.</p><p><b>The wave ahead.</b> And if none were replaced, that number would more than double by twenty seventy-one. So, how old are the pipes under your feet?</p><p><b>What is counted.</b> The City&#x27;s open data doesn&#x27;t include its sewer mains, so this study looks at the connections. The City publishes the public section of each home&#x27;s connection, from the main to the property line. Nearly three hundred sixty-eight thousand of them, about two thousand eight hundred kilometres of pipe.</p><p><b>The method.</b> Each record has the year the pipe went in, and what it&#x27;s made of. We set each pipe&#x27;s age against published service lives for its material: a short, a typical, and a long benchmark.</p><p><b>How old.</b> The typical connection went in in nineteen ninety-five, so it&#x27;s thirty-one years old. But one in four is more than fifty.</p><p><b>Materials.</b> Two in three are plastic, expected to last about a century. One in five is clay tile, mostly from the sixties and seventies. Cast iron, expected to last about sixty years, is three percent. And half of it is already past that.</p><p><b>The verdict.</b> Against the typical life for each material, about nine percent of connections are past it. Judged by the short end of the range, it&#x27;s one in four. By the long end, about two percent.</p><p><b>One honest caveat.</b> One honest caveat. Four in five of the pipes past their typical life have no specific material on record, so the study gives them a cautious forty-five years. Age is a warning sign, not proof that a pipe has failed.</p><p><b>Where.</b> The oldest networks are in Calgary&#x27;s established communities. Among those with at least a thousand connections, Inglewood, Renfrew and Banff Trail are oldest, with the typical pipe from the mid nineteen-fifties. In Wildwood, three in four connections are past their typical life.</p><p><b>The newest.</b> In the newest communities, like Alpine Park and Glacier Ridge, the typical pipe is just two or three years old.</p><p><b>The wave.</b> The bigger story is the wave behind them. The boom years of the seventies laid more connections than any decade before. As those pipes age, the count past typical life climbs. About forty-three thousand by twenty forty-six, and seventy-eight thousand by twenty seventy-one.</p><p><b>The fix: relining.</b> The City is already fixing pipes from the inside, sliding a new liner through the old one, with little or no digging. Its records list about four thousand relined connections. Seven hundred ninety-one are dated twenty twenty-five, more than three times as many as in twenty seventeen.</p><p><b>311 requests.</b> And residents report sewer problems. In twenty twenty-five, Calgarians made about fourteen thousand three-one-one requests about sewer back-ups, sewer maintenance and catch basins.</p><p><b>The bigger picture.</b> Calgary isn&#x27;t alone. Across Canada in twenty twenty, nearly fourteen percent of smaller sewer pipes were rated poor or very poor. And a City report lists nine large wastewater river crossings, of unknown condition, among the assets whose failure would have severe consequences.</p><p><b>What the data can’t show.</b> What the open data can&#x27;t show is the condition of each pipe. The City reports condition only as totals, in its asset management plan, not pipe by pipe. With pipe-by-pipe inspections, age could become a true picture of risk.</p><p><b>Close.</b> Every figure and source is listed with this video. Explore your city, community by community, at calgary insight dot c a.</p></details>
+        <p class="card-note">Figures as of November 8, 2026, recomputed independently from the raw data. Method: each connection’s age (2026 minus install year) against low, typical and high benchmark lives for its material; communities use connections placed inside City community boundaries, shown for communities with 1,000+ connections. Sources: City of Calgary open data, <a href="https://data.calgary.ca/d/xesp-3jc3" target="_blank" rel="noopener">Public Sanitary Service Lines (xesp-3jc3)</a> (excludes large commercial and multi-family lines), <a href="https://data.calgary.ca/d/iahh-g8bj" target="_blank" rel="noopener">311 Service Requests (iahh-g8bj)</a> (13,937 sewer back-up, sewer maintenance and catch basin requests in 2025, duplicates removed) and <a href="https://data.calgary.ca/d/surr-xmvs" target="_blank" rel="noopener">community boundaries (surr-xmvs)</a>; benchmark lives: District of Saanich, <a href="https://www.saanich.ca/assets/Local~Government/Documents/Engineering/AMStrategy-v1-AppG-UsefulLife.pdf" target="_blank" rel="noopener">Useful Life Summary</a> (2023: PVC and clay 100, cast iron 60, unknown 45, liners 45) and Halcrow Pacific for IPART, <a href="https://www.ipart.nsw.gov.au/sites/default/files/documents/review_of_sydney_water_corporations_asset_lives_and_asset_value_estimates_-_final_report_-_november_2007_-_halcrow_pacific.pdf" target="_blank" rel="noopener">Review of Sydney Water’s asset lives</a> (2007: clay 50–150, Sydney Water 130); Statistics Canada, <a href="https://www.statcan.gc.ca/o1/en/plus/2162-culvert-operation-flushing-out-data-canadas-storm-water-and-wastewater-infrastructure" target="_blank" rel="noopener">storm water and wastewater infrastructure, 2020</a> (8.7% poor and 5.1% very poor, sewer pipes 450 mm or less); City of Calgary, <a href="https://livewirecalgary.com/wp-content/uploads/2026/02/Attach-1-Breakdown-of-Critical-Assets-in-Poor-and-Very-Poor-Condition-IP2026-0102.pdf" target="_blank" rel="noopener">IP2026-0102 Attachment 1</a> (9 wastewater river crossings, unknown condition, severe consequence of failure, $400M capital over 10 years); City of Calgary, <a href="https://www.calgary.ca/content/dam/www/is/capital-planning-business-services/documents/2026-CAMP-report-appendix-B.pdf" target="_blank" rel="noopener">2026 Corporate Asset Management Plan, Appendix B</a> (condition reported for the wastewater asset class as a whole). Relining years are as recorded; a few relined pipes carry their original install year. Original music. <a href="video/calgary-sewer-pipes.mp4" download>Download the video (MP4, 10 MB)</a></p>
+      </section>
+      <section class="card vid-card" id="vid-firstpeoples" data-cat="History and heritage" data-area="All of Calgary">
+        <div class="card-head"><div><h2>The Elbow: Calgary’s First Peoples</h2>
+          <p class="card-sub">Published <time datetime="2026-11-08">November 8, 2026</time> · 2 min 42 s · animated, narrated, with sound and music</p></div></div>
+        <video class="portrait" controls preload="none" playsinline data-poster="video/calgary-first-peoples.jpg">
+          <source src="video/calgary-first-peoples.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/calgary-first-peoples.mp4">Download it (MP4, 6 MB)</a>.
+        </video>
+        <p class="vid-desc">Before Calgary had a name, this place already had many: Mohkinstsis (Blackfoot), Wîchîspa Oyade (Stoney Nakoda), Guts’ists’i (Tsuut’ina) and Otos-kwunee (Métis), all meaning “the elbow”. About 8,000 years of people where the Bow and Elbow meet, the stone circles on Nose Hill, Treaty 7 in 1877, the hard years after the buffalo disappeared and the residential schools, and what the Nations are doing today: Elbow River Camp since 1912, the Buffalo Treaty and 130+ bison back in Banff, Kainai’s fire guardians, Áísínai’pi as a UNESCO World Heritage Site, and Taza.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Before Calgary had a name, this place already had many. In Blackfoot, Stoney, Tsuut’ina, and Métis, they all mean the same thing: the elbow.</p><p><b>Calgary’s First Peoples.</b> This is the story of Calgary&#x27;s First Peoples.</p><p><b>Eight thousand years.</b> For at least eight thousand years, people have lived where the Bow and Elbow rivers meet.</p><p><b>The Nations.</b> The Blackfoot Confederacy: Siksika, Kainai, and Piikani, with the Blackfeet across the border in Montana. The Tsuut’ina, who speak a Dene language. The Stoney Nakoda, people of the mountains. And the Métis, who wintered along the Bow.</p><p><b>The buffalo.</b> Life followed the buffalo. Families moved with the seasons, used every part of the animal, and set careful fires to renew the grass that drew the herds.</p><p><b>Nose Hill.</b> Their homes left marks you can still see. On Nose Hill, stone circles that once held down lodge covers still rest in the grass.</p><p><b>Treaty 7.</b> In eighteen seventy-seven, the five Nations made Treaty Seven with the Crown. The Elders say it was a treaty of peace, and of sharing the land.</p><p><b>Hard years.</b> Then came hard years. By eighteen seventy-nine, the buffalo were nearly gone. For more than a century, children were sent to residential schools, ten of them in and around Calgary.</p><p><b>They held on.</b> But the Nations held on to their languages, their ceremonies, and their stories.</p><p><b>Elbow River Camp.</b> Since the first Stampede in nineteen twelve, Treaty Seven families have raised painted tipis by the Elbow River. Some designs are hundreds of years old.</p><p><b>The buffalo come home.</b> In twenty fourteen, Nations from both sides of the border signed the Buffalo Treaty, to bring the buffalo home. In twenty seventeen, sixteen bison returned to Banff. By twenty twenty-four, the herd had grown past one hundred and thirty.</p><p><b>Fire guardians.</b> The Kainai Nation is building Canada&#x27;s first fire guardians program, bringing good fire back to heal the prairie.</p><p><b>Áísínai’pi.</b> In twenty nineteen, Writing-on-Stone, a sacred Blackfoot place of rock art, became a UNESCO World Heritage Site.</p><p><b>Today.</b> Today, more than forty-eight thousand Indigenous people live in the Calgary region. Next door, the Tsuut’ina Nation and its partner Canderel are building Taza, with shops, hotels, and entertainment along Tsuut’ina Trail.</p><p><b>Close.</b> Long before it was Calgary, it was the elbow. Their story is Calgary&#x27;s story. calgaryinsight.ca.</p></details>
+        <p class="card-note">Facts checked November 8, 2026. Sources: City of Calgary land acknowledgement and Indigenous relations; Treaty 7 Elders and Tribal Council, <i>The True Spirit and Original Intent of Treaty 7</i> (1996); Alberta’s Historic Places and the University of Calgary (Nose Hill and Edworthy Park archaeology); Heritage Calgary (residential schools in and around Calgary); Calgary Stampede (Elbow River Camp); Parks Canada (Banff bison, 130+ in 2024; Áísínai’pi); UNESCO; The Narwhal (Kainai fire guardians); Statistics Canada, 2021 Census (48,625 Indigenous people in the Calgary CMA); Taza Development Corp. Original music. <a href="video/calgary-first-peoples.mp4" download>Download the video (MP4, 6 MB)</a></p>
+      </section>
+      <section class="card vid-card" id="vid-history" data-cat="History and heritage" data-area="All of Calgary">
+        <div class="card-head"><div><h2>Where Two Rivers Meet: The Story of Calgary</h2>
+          <p class="card-sub">Published <time datetime="2026-11-08">November 8, 2026</time> · 2 min 36 s · animated, narrated, with sound and music</p></div></div>
+        <video class="portrait" controls preload="none" playsinline data-poster="video/calgary-history.jpg">
+          <source src="video/calgary-history.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/calgary-history.mp4">Download it (MP4, 6 MB)</a>.
+        </video>
+        <p class="vid-desc">Calgary has burned, flooded, struck oil and hosted the world. From Mohkinstsis at the meeting of the Bow and Elbow rivers to a city of more than 1.5 million: the North-West Mounted Police fort (1875), the name Fort Calgary (1876), Treaty 7 (1877), the railway (1883), the 1886 fire and the Sandstone City, the first Stampede (1912), oil at Turner Valley (1914), the Leduc boom (1947), the Calgary Tower (1968), the 1988 Winter Olympics and the 2013 flood.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Calgary has burned, flooded, struck oil, and hosted the world. It all began where two rivers meet.</p><p><b>Mohkinstsis.</b> For thousands of years, the place where the Bow and Elbow rivers join was a gathering place. The Blackfoot call it Mohkinstsis, the elbow.</p><p><b>The Nations.</b> It is the land of the Blackfoot Confederacy, the Tsuut’ina, and the Stoney Nakoda, and home to the Métis.</p><p><b>1875.</b> Eighteen seventy-five. The North-West Mounted Police arrive, and build a log fort where the rivers meet.</p><p><b>The name.</b> Its commander names it Fort Brisebois, after himself. Nobody likes it. In eighteen seventy-six, it becomes Fort Calgary, named by James Macleod after Calgary, on Scotland&#x27;s Isle of Mull.</p><p><b>1877.</b> Eighteen seventy-seven. Treaty Seven is signed at Blackfoot Crossing, between the Crown and five First Nations.</p><p><b>1883.</b> Eighteen eighty-three. The Canadian Pacific Railway arrives. Calgary becomes a town the next year, and a city in eighteen ninety-four.</p><p><b>1886.</b> Eighteen eighty-six. Fire sweeps through the wooden downtown. Calgary rebuilds in stone, and becomes the Sandstone City.</p><p><b>1912.</b> Nineteen twelve. Guy Weadick stages the first Stampede, backed by four cattlemen known as the Big Four.</p><p><b>1914.</b> Nineteen fourteen. Dingman Number One strikes at Turner Valley, southwest of the city. Calgary goes oil crazy.</p><p><b>1947.</b> Nineteen forty-seven. After the big Leduc discovery, oil companies make Calgary their head office, and the city booms.</p><p><b>1968.</b> Nineteen sixty-eight. The Husky Tower rises one hundred and ninety-one metres over downtown. Today, we call it the Calgary Tower.</p><p><b>1988.</b> Nineteen eighty-eight. Calgary hosts the first Winter Olympics ever held in Canada, and the tower&#x27;s torch burns for sixteen days.</p><p><b>2013.</b> Twenty thirteen. The Bow and Elbow rise. About seventy-five thousand people are told to leave home, the largest evacuation in the city&#x27;s history. Calgarians clean up, together.</p><p><b>Today.</b> Today, more than one and a half million people call Calgary home. A city of newcomers, still growing, where two rivers meet.</p><p><b>Close.</b> Calgary&#x27;s story, explained for everyone. calgaryinsight.ca.</p></details>
+        <p class="card-note">Facts checked November 8, 2026. Sources: The Canadian Encyclopedia (Fort Calgary, Calgary); City of Calgary (naming of Calgary, the 1886 fire, population outlook); Parks Canada (Treaty 7 signing site, Turner Valley oilfield); Alberta Energy Heritage (Dingman No. 1); Canada’s Historic Places (Leduc No. 1); Britannica (1988 Winter Olympics); 2013 Alberta floods. Original music. <a href="video/calgary-history.mp4" download>Download the video (MP4, 6 MB)</a></p>
+      </section>
+      <section class="card vid-card" id="vid-intro" data-cat="About Calgary Insight" data-area="All of Calgary">
+        <div class="card-head"><div><h2>Calgary Insight: what it is and what it offers</h2>
+          <p class="card-sub">Published <time datetime="2026-11-08">November 8, 2026</time> · 1 min 25 s · animated, narrated, with sound and music</p></div></div>
+        <video class="portrait" controls preload="none" playsinline data-poster="video/calgary-insight-intro.jpg">
+          <source src="video/calgary-insight-intro.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/calgary-insight-intro.mp4">Download it (MP4, 6 MB)</a>.
+        </video>
+        <p class="vid-desc">A quick tour of Calgary Insight: the daily dashboard for all 14 wards, ward-by-ward comparisons, the 2026 City budget and property tax, neighbourhood amenities and infrastructure, elections, business, safety, news and visiting. Every figure shows its formula and its source. Data Genie and Data Scientist are passcode protected (request access at hello@calgaryinsight.ca), and reports can go through a three-way audit: Chinook re-runs every figure, Bow rules on each finding and writes the corrected report, and Rundle confirms every finding was dealt with.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Calgary&#x27;s public data is spread across many places. Calgary Insight brings it together in one.</p><p><b>What it is.</b> A free, non-partisan website, made by a Calgarian, at calgaryinsight.ca.</p><p><b>Dashboard.</b> It pulls City data every day: three-one-one requests, traffic incidents, permits and more, for the whole city or any of its fourteen wards.</p><p><b>Compare wards.</b> Put any ward next to the other thirteen.</p><p><b>Budget.</b> See the twenty twenty-six City budget, where the money comes from, and property tax by ward.</p><p><b>Neighbourhoods.</b> See how close homes are to everyday amenities, and what condition the water mains and roads are in.</p><p><b>More.</b> Election data, a business map, Canada&#x27;s safest cities, daily Calgary news, and a guide for visitors.</p><p><b>Methods.</b> Every figure shows its formula and its source, so anyone can check the work.</p><p><b>AI tools.</b> Two AI tools go further. Data Genie answers any question about the data. Data Scientist writes full analysis reports.</p><p><b>Passcode.</b> Both are behind a passcode. To get one, send a request to the developer, at hello@calgaryinsight.ca.</p><p><b>Three-way audit.</b> Any report can go through a three-way audit. Chinook, the auditor, re-runs every figure. Bow, the reviewer, rules on each finding and writes the corrected report. Rundle, the final checker, confirms every finding was dealt with.</p><p><b>Close.</b> Calgary&#x27;s open data, explained for everyone. calgaryinsight.ca.</p></details>
+        <p class="card-note">The budget chart shows 2026 operating revenue by source from the City of Calgary’s 2026 Budget as approved; the water main and road gauges are illustrations, not measured values. The 3D ward map uses the City of Calgary’s ward boundaries (open data). <a href="video/calgary-insight-intro.mp4" download>Download the video (MP4, 6 MB)</a></p>
+      </section>
+      <section class="card vid-card" id="vid-fedbudget2026" data-cat="Budgets and spending" data-area="All of Calgary">
+        <div class="card-head"><div><h2>Budget 2026: what&#x27;s in it for Alberta and Calgary</h2>
+          <p class="card-sub">Published <time datetime="2026-11-06">November 6, 2026</time> · 2 min 47 s · animated, narrated, with sound</p></div></div>
+        <video controls preload="none" playsinline data-poster="video/budget-2026-alberta-calgary.jpg">
+          <source src="video/budget-2026-alberta-calgary.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/budget-2026-alberta-calgary.mp4">Download it (MP4, 9 MB)</a>.
+        </video>
+        <p class="vid-desc">The federal budget tabled on November 5, 2026, searched word by word: Alberta is named 34 times, Calgary twice and Edmonton five times (Québec 74, Ontario 67, British Columbia 41). Alberta&#x27;s three nation-building projects (Pacific Link, Pathways, Alberta High-Speed Rail), up to $2.5B in waterbomber financing, defence work at CFB Cold Lake and CFB Suffield, Calgary&#x27;s quantum defence hub and the Silver Springs Community Centre, the grocery benefit supplement, and $9.2B in health and social transfers to Alberta.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> On November fifth, Ottawa tabled Budget twenty twenty-six, titled Masters of our destiny. What is in it for Alberta, and for Calgary? Here is a quick look.</p><p><b>The big picture.</b> First, the big picture. The deficit this year is sixty-two point three billion dollars, and about two hundred and eighty-nine billion over five years. The biggest new measure is the Productivity Mega Deduction: businesses can write off new machinery and equipment right away. It is worth about thirty-six billion dollars over five years.</p><p><b>How often each place is named.</b> We searched the whole budget, about two hundred and twenty thousand words. Alberta is named thirty-four times. Calgary, just twice. Edmonton, five times. For comparison, Québec is named seventy-four times, Ontario sixty-seven, and British Columbia forty-one.</p><p><b>Pacific Link.</b> Three of the twenty-eight nation-building projects sent to the federal Major Projects Office are in Alberta. The biggest is Pacific Link: a twelve hundred and fifty kilometre oil pipeline from Bruderheim to the coast near Delta, British Columbia. It would carry one million barrels a day, with at least ten percent offered to Indigenous owners.</p><p><b>Pathways.</b> Next to it is Pathways, large-scale carbon capture in the oil sands. With the Oil Sands Alliance&#x27;s other commitments, it aims to cut sixteen million tonnes of emissions a year.</p><p><b>Alberta High-Speed Rail.</b> The third is Alberta High-Speed Rail. The budget lists it by name, with no dollar figure yet.</p><p><b>Waterbombers and defence.</b> Alberta-based De Havilland gets up to two point five billion dollars in financing to build more waterbombers in Wheatland County, to fight wildfires in Canada and Europe. On defence, the budget names fighter facilities at CFB Cold Lake, a laboratory at CFB Suffield, and repairs across Alberta&#x27;s bases.</p><p><b>Calgary.</b> Now, Calgary&#x27;s two mentions. In August, Ottawa launched the Quantum Defence Innovation Secure Hub in Calgary, bringing quantum, defence and technology organisations together. And the Silver Springs Community Centre expansion is one of the projects named for the new Build Communities Strong Fund.</p><p><b>Households and transfers.</b> For households, there is a one-time Groceries and Essentials Benefit supplement in early twenty twenty-seven, for more than twelve million people on low and modest incomes. And Alberta&#x27;s federal health and social transfers rise to about nine point two billion dollars this year, roughly eighteen hundred dollars per person.</p><p><b>Close.</b> Every passage that names Alberta is on the Federal Budget page. Calgary Insight.</p></details>
+        <p class="card-note">Figures as of November 6, 2026. Counts are whole-word matches across the budget&#x27;s chapters, annexes, overview, budget in brief and tax measures. Source: Budget 2026, Government of Canada (budget.canada.ca), tabled November 5, 2026; every passage that names Alberta is on the Federal Budget 2026 page. <a href="video/budget-2026-alberta-calgary.mp4" download>Download the video (MP4, 9 MB)</a></p>
+      </section>
+      <section class="card vid-card" id="vid-ea2027" data-cat="Elections" data-area="All of Calgary">
+        <div class="card-head"><div><h2>Calgary&#x27;s 26 electoral divisions: a field guide for the 2027 Alberta election</h2>
+          <p class="card-sub">Published <time datetime="2026-11-06">November 6, 2026</time> · 2 min 19 s · narrated, figures on screen</p></div></div>
+        <video controls preload="none" playsinline data-poster="video/election-field-guide-2027.jpg">
+          <source src="video/election-field-guide-2027.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/election-field-guide-2027.mp4">Download it (MP4, 5 MB)</a>.
+        </video>
+        <p class="vid-desc">Alberta votes on October 18, 2027. 13 of Calgary&#x27;s 26 electoral divisions were won by under 5 points, and in every one the electors who stayed home outnumber the winning margin. The October 2026 referendum, where voters get their news, youth turnout, and a playbook any campaign can use.</p>
+        <p class="vid-desc">The full sample report: <a href="reports/election-analytics-sample-2027.pdf" target="_blank" rel="noopener">PDF</a> · <a href="reports/election-analytics-sample-2027.html" target="_blank" rel="noopener">interactive report</a> · <a href="reports/election-analytics-sample-2027.xlsx" download>Excel</a></p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Alberta votes on October eighteenth, twenty twenty-seven. Calgary elects twenty-six of the Legislature&#x27;s eighty-seven members, and many of the province&#x27;s closest seats are here. This is what the numbers say, for any candidate.</p><p><b>How close every seat is.</b> Thirteen of Calgary&#x27;s twenty-six electoral divisions were won by less than five points. In Calgary-Acadia, the margin was twenty-two votes. In Calgary-Glenmore, forty-eight. In Calgary-North West, one hundred and forty-three.</p><p><b>The voters who stayed home.</b> In every division, the people who stayed home outnumber the winning margin. About three hundred and fifty thousand electors on Calgary&#x27;s lists did not vote. In the Calgary-Shaw by-election this September, turnout was just thirty-six percent, and the seat changed hands by five hundred and ninety-one votes.</p><p><b>The October referendum.</b> The October referendum is the newest map of local opinion. On each of the first nine questions, Calgary&#x27;s Yes vote was seven to eight points below Alberta&#x27;s. Eighty-two percent of Calgary voters chose for Alberta to remain a province, against seventy-five percent province-wide.</p><p><b>Social media.</b> Where do voters get their news? Social media now leads television. For half of Canadians aged eighteen to thirty-four, it is the main source of news. YouTube and Facebook lead, then Instagram, TikTok and X. Only thirty-seven percent trust most news, so short, local video with a source goes furthest.</p><p><b>Youth engagement.</b> Young people vote less: sixty-six percent of eighteen to twenty-four year olds, against seventy-six percent of all Canadians. Registration, campus outreach, young volunteers, and plain information on how to vote close that gap, and they help every voter.</p><p><b>The playbook.</b> The playbook for any campaign: know the arithmetic. Map the lowest-turnout polling stations. Register and remind. Listen before you speak. Put local facts on every screen. And measure progress every week.</p><p><b>The full report.</b> The full report has a preview for every one of Calgary&#x27;s twenty-six divisions. The boundaries are still under review, and every figure will be redrawn on the final map.</p></details>
+        <p class="card-note">Figures as of November 6, 2026. The same rules and arithmetic for every division, candidate and party; nothing here predicts a winner. Sources: Elections Alberta (2023 general election, 2026 by-election and referendum results); City of Calgary Open Data; Statistics Canada, Reasons for not voting (2021); Digital News Report 2026, Canada (Centre d&#x27;études sur les médias). Boundaries for 2027 are under review.</p>
+      </section>
+      <section class="card vid-card" id="vid-invest" data-cat="Business and investment" data-area="All of Calgary">
+        <div class="card-head"><div><h2>Calgary: a hub of innovation, leadership and future growth</h2>
+          <p class="card-sub">Published <time datetime="2026-11-06">November 6, 2026</time> · 2 min 6 s · narrated, figures on screen</p></div></div>
+        <video controls preload="none" playsinline data-poster="video/invest-in-calgary.jpg">
+          <source src="video/invest-in-calgary.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/invest-in-calgary.mp4">Download it (MP4, 5 MB)</a>.
+        </video>
+        <p class="vid-desc">What a new investor should know: a metro that grew 2.9% in a year, Canada&#x27;s lowest corporate income tax (23% combined), the country&#x27;s fastest-growing startup ecosystem, the airport, rail and office space already in place, the suburbs short of everyday businesses, and the risks to plan for.</p>
+        <p class="vid-desc">The full sample report: <a href="reports/invest-in-calgary-sample.pdf" target="_blank" rel="noopener">PDF</a> · <a href="reports/invest-in-calgary-sample.html" target="_blank" rel="noopener">interactive report</a> · <a href="reports/invest-in-calgary-sample.xlsx" download>Excel</a></p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Calgary: a hub of innovation, leadership and future growth. Here is what a new investor should know, with the numbers, and where they come from.</p><p><b>A growing market.</b> Calgary is home to about one point six million people. In the year to July twenty twenty-five, its metro area grew two point nine percent, among the fastest in Canada. Toronto, Vancouver and Montreal grew half a percent or less.</p><p><b>Ease of doing business.</b> Alberta has Canada&#x27;s lowest corporate income tax: eight percent provincial, twenty-three percent combined. There is no provincial sales tax, no payroll tax, and no health premium. Invest Alberta puts the advantage at sixteen point nine billion dollars this year.</p><p><b>Innovation.</b> Calgary is Canada&#x27;s fastest-growing startup ecosystem. It ranks in the world&#x27;s top fifty emerging ecosystems, worth seven billion dollars, with three point four billion in venture capital since twenty twenty-one, and a tech workforce up sixty-one percent in three years.</p><p><b>Infrastructure.</b> The infrastructure is already here. Calgary&#x27;s airport carried a record nineteen point four million passengers in twenty twenty-five. Calgary is home to CPKC, the railway linking Canada, the United States and Mexico. And downtown has quality office space on competitive terms.</p><p><b>Where the openings are.</b> Where are the openings? Calgary has about six everyday local businesses for every thousand residents. In fast-growing suburbs like Cornerstone, Cityscape and Belmont, there are fewer than two. Grocery, health, child care and food are the clearest gaps.</p><p><b>Quality of life and risks.</b> Calgary is safer than the Canadian average, and far more affordable than Toronto or Vancouver. The risks to plan for: energy price cycles, high office vacancy, and a cooling housing market.</p><p><b>The full report.</b> The full report lists every source, the steps to set up a business, and the help available. Calgary Data Desk.</p></details>
+        <p class="card-note">Figures as of November 6, 2026. General information, not financial advice. Sources: Statistics Canada; Invest Alberta; Calgary Economic Development; Startup Genome; Calgary Airport Authority; Cresa; CREB; City of Calgary Open Data; OpenStreetMap.</p>
+      </section>
+      <section class="card vid-card" id="vid-parks" data-cat="Parks and amenities" data-area="Ward 5">
+        <div class="card-head"><div><h2>Near, but crowded: parks and playgrounds against population in Ward 5</h2>
+          <p class="card-sub">Published <time datetime="2026-11-05">November 5, 2026</time> · 2 min 9 s · narrated, figures on screen</p></div></div>
+        <video controls preload="none" playsinline data-poster="video/parks-crowding.jpg">
+          <source src="video/parks-crowding.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/parks-crowding.mp4">Download it (MP4, 6 MB)</a>.
+        </video>
+        <p class="vid-desc">Almost every home in Ward 5 is within 400 m of a public park (98.6%; Calgary 98.9%), and 78.7% are within 400 m of a playground (Calgary 71.2%). But the park space within reach works out to 2.9 hectares per 1,000 residents against Calgary's 5.9, the second lowest of the 14 wards, and 2.1 playgrounds per 1,000 children under 15 against 4.1, the lowest. Homes are fuller: 3.6 people per household against 2.6 (2021 Census).</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> Ward 5 has public parks and playgrounds close to almost every home. But how many people share them? This is amenities against population, measured the same way for every ward in Calgary.</p><p><b>Distance.</b> First, distance. Ninety-nine percent of homes in Ward 5 are within four hundred metres of a public park, about the same as Calgary as a whole. And seventy-nine percent are within four hundred metres of a playground, more than Calgary&#x27;s seventy-one percent.</p><p><b>Park crowding.</b> Now, crowding. Take the park space within reach of each home, and share it among everyone who can reach it. Ward 5 has about two point nine hectares of park for every thousand residents. Calgary has five point nine. That is about half, and the second lowest of the fourteen wards.</p><p><b>Playgrounds.</b> Playgrounds tell the same story. Within four hundred metres, Ward 5 has about two playgrounds for every thousand children under fifteen, against four across Calgary. That is the lowest of any ward.</p><p><b>Why.</b> Why? Homes in Ward 5 are fuller. The 2021 Census counted three point six people per household, against two point six in Calgary, and three in ten residents were under twenty. The same parks are shared by more people, and more children.</p><p><b>Community by community.</b> Community by community, against Calgary&#x27;s level of one. Redstone, Saddle Ridge, Skyview Ranch and Taradale have well under half of Calgary&#x27;s park space per person. For playgrounds, Cityscape, Falconridge and Skyview Ranch are the most crowded.</p><p><b>How it is measured.</b> How it is measured: every park&#x27;s area is shared among the residents within four hundred metres of its edge, and every playground among the children nearby. Each home then adds up its shares. A score of one means the same as Calgary. Every ward and community is measured the same way on the Growth versus amenities screen.</p><p><b>Close.</b> calgaryinsight.ca. Near is not the same as enough.</p></details>
+        <p class="card-note">Figures as of November 5, 2026, residents counted the dashboard's default way (the City's total shared by actual growth); the Growth vs amenities screen shows today's figures for every ward and community, under every way of counting. Sources: City of Calgary Open Data (parks, playgrounds, property assessments, 2021 Census by community). How it is worked out: How it's counted, "How crowding is worked out" and "How the scores are worked out". <a href="video/parks-crowding.mp4" download>Download the video (MP4, 6 MB)</a></p>
+      </section>
+      <section class="card vid-card" id="vid-population" data-cat="Population and growth" data-area="All of Calgary">
+        <div class="card-head"><div><h2>How Calgary's population is shared across its communities</h2>
+          <p class="card-sub">Published <time datetime="2026-11-05">November 5, 2026</time> · 2 min 21 s · narrated, figures on screen</p></div></div>
+        <video controls preload="none" playsinline data-poster="video/population-shared.jpg">
+          <source src="video/population-shared.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="video/population-shared.mp4">Download it (MP4, 7 MB)</a>.
+        </video>
+        <p class="vid-desc">The dashboard starts from the City of Calgary's own population estimate (1,598,075 in November 2026) and places it community by community: each community's 2021 Census count, plus the people in homes built there since 2021 (from the City's property roll), plus an equal share of the rest of the City's growth, 10.0% of its 2021 count.</p>
+        <details class="vid-trans"><summary>Transcript</summary><p><b>Opening.</b> How is Calgary&#x27;s population shared across its communities? It starts with one number: the City of Calgary&#x27;s own estimate, about one point six million people this November.</p><p><b>The City’s figure.</b> Step one. The City&#x27;s figure comes from its Spring 2026 Economic Outlook, with an estimate for each April. Between those, we draw a straight line, month by month. Right now, that line adds about seventy people a day.</p><p><b>The starting point.</b> Step two. Each community starts from its own count in the 2021 Census: about one point two nine million people in all. Since then, the City&#x27;s figure has added about three hundred and nine thousand.</p><p><b>Placing the growth.</b> Step three. Where do those people go? About one hundred and eighty thousand live in homes built since 2021, so they are placed in the community where those homes were built. The other one hundred and twenty nine thousand come from more people in each home, seniors&#x27; homes, residences, shelters, and people the Census missed. That part is shared by every community: ten percent on top of its 2021 count.</p><p><b>How new homes are counted.</b> New homes come from the City&#x27;s property roll. We keep residential accounts with a home on them, and leave out vacant lots, commercial property, parking stalls and storage lockers. A new home counts as lived in one year after it is built, and a rental building counts by its units.</p><p><b>The same rule for every community.</b> Step four. Every community follows the same rule: its 2021 count, times one point one, plus the people in its new homes. Abbeydale, with no new homes, grows to six thousand five hundred and twenty. Cornerstone, with about thirty two hundred new homes, reaches eighteen thousand one hundred and eighty five. Together, every community adds up to the City&#x27;s figure.</p><p><b>Where the new homes are.</b> This is where the new homes are. The most people in new homes are on the edges of the city: Cornerstone, Livingston, Mahogany, Carrington and Seton.</p><p><b>Close.</b> Calgary Data Desk, by Hassan Ali. When the 2026 Census counts arrive in February 2027, every community gets a new starting point.</p></details>
+        <p class="card-note">Figures as of November 5, 2026; the dashboard shows today's figures, which update with every data refresh. Sources: City of Calgary, Calgary and Region Economic Outlook 2026-2031 (Spring 2026), Table 4; City of Calgary Open Data (2021 Census by community, property assessments, building permits). How it is worked out: How it's counted, "How residents are counted (Settings)". <a href="video/population-shared.mp4" download>Download the video (MP4, 7 MB)</a></p>
+      </section>
+    </div></div>
+  </section>
+
+  <section id="view-methods" class="view" aria-labelledby="meth-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="meth-title">How every figure is worked out</h1><p class="meta">Every formula, filter and threshold Calgary Insight uses, with its datasets, how to check it yourself, and what to keep in mind</p></div>
+    </header>
+    <div class="content">
+      <div class="filters card">
+        <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
+          <input id="meth-text" type="search" placeholder="Search: distance to a playground, crime per 1,000, growth model, closed within 7 days"></label>
+      </div>
+      <div class="meth-list" id="meth-list"></div>
+    </div>
+  </section>
+
+  <section id="view-sources" class="view" aria-labelledby="src-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="src-title">Data sources</h1><p class="meta">Every dataset Calgary Insight uses, what it shows, and what you can ask for: download, analyze or chart</p></div>
+      <div class="topbar-actions"><button class="btn" id="src-catalogue"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>All City datasets</span></button></div>
+    </header>
+    <div class="content">
+      <section class="card refresh-card" id="refresh-card">
+        <div class="card-head"><div><h2>When each part is refreshed</h2><p class="card-sub">Calgary time. Each source is read again on this schedule; a source that publishes less often (yearly, quarterly) is simply read again and kept until it changes.</p></div></div>
+        <div class="table-wrap"><table class="data refresh-table"><thead><tr><th scope="col">When</th><th scope="col">What is refreshed</th></tr></thead><tbody>
+          <tr><th scope="row">Every morning, about 4:20 a.m.<small>a backup start at 5:10 a.m. if the first does not begin</small></th><td>All City of Calgary open data on every screen (311, permits, development, traffic, child care, schools, amenities, property tax), Calgary Police crime data, council and committee votes, House of Commons votes and bills, the City's performance measures, Invest in Calgary businesses, infrastructure condition, Calgary Capital Markets totals, weather. A full build takes one to two hours, and Visiting Calgary's weather (the current year's daily records and the forecast).</td></tr>
+          <tr><th scope="row">With every update to the website</th><td>The same full refresh as the morning one.</td></tr>
+          <tr><th scope="row">Every evening, about 5:30 p.m.</th><td>Calgary News: the day's edition, with pictures added within the hour.</td></tr>
+          <tr><th scope="row">Every week</th><td>Growth vs amenities (distance from every home, crowding, scores), election results, the City's Suburban Residential Growth forecast, major projects in every ward (Government of Alberta Major Projects), park land and facilities already planned, private amenities and the sights and places to stay on Visiting Calgary (OpenStreetMap).</td></tr>
+          <tr><th scope="row">Every Monday, checked by hand</th><td>Promises and commitments on Civic Accountability and whether each is kept, City facilities being built that the provincial list misses (fire stations, libraries, recreation), each ward's hand-checked projects, the Calgary Capital Markets company list, and Visiting Calgary's facts, events, fares and visitor figures. Each change is checked against its source before it is published.</td></tr>
+          <tr><th scope="row">Every month</th><td>Homes on the City's property roll (the growth model and the population build-up).</td></tr>
+          <tr><th scope="row">Live, while you look</th><td>Bus positions (every 30 seconds), the live population counter, traffic cameras, and each source under "Live connections" below when tested.</td></tr>
+        </tbody></table></div>
+      </section>
+      <section class="card live-card" id="live-card">
+        <div class="card-head"><div><h2>Live connections</h2><p class="card-sub">Each source asked directly now, with no saved copies: one small request each. Test one, or all of them together.</p></div>
+          <div class="card-tools"><span class="live-sum" id="live-sum"></span><button class="btn primary" id="live-all"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Test all</span></button></div></div>
+        <div class="table-wrap"><table class="data live-table" id="live-table"><thead><tr><th scope="col">Source</th><th scope="col">Publisher</th><th scope="col">Status</th><th scope="col" class="num">Time</th><th scope="col">Source last updated</th><th scope="col">What came back</th><th scope="col"><span class="sr">Link</span></th></tr></thead><tbody></tbody></table></div>
+      </section>
+      <div class="filters card">
+        <label class="f-search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="sr">Search</span>
+          <input id="src-text" type="search" placeholder="Search datasets: potholes, permits, schools, weather"></label>
+        <label><span>Publisher</span><select id="src-pub"></select></label>
+      </div>
+      <div class="src-grid" id="src-grid"></div>
+      <p class="notes">Data Genie can also find and use any of the City of Calgary's other open datasets (over 400, alongside data from Calgary Police, the Province of Alberta, Statistics Canada, CMHC, Environment Canada and OpenStreetMap): ask about a topic and it searches the catalogue. Downloads are saved as spreadsheet files (CSV) to the Files tab.</p>
+    </div>
+  </section>
+
+  <!-- ======================= NEWSLETTER ======================= -->
+  <section id="view-news" class="view" aria-labelledby="news-h">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="news-h">Newsletter</h1><p class="meta">A Ward 5 community update for the months you choose, saved as a PDF</p></div>
+      <div class="topbar-actions"><button class="btn" data-goto="files"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Saved newsletters</span></button></div>
+    </header>
+    <div class="content news-layout">
+      <section class="card news-form" aria-labelledby="news-form-h">
+        <h2 id="news-form-h" class="nf-h">1. Months</h2>
+        <div class="seg" role="radiogroup" aria-label="Quick choice of months" id="news-quick">
+          <button role="radio" aria-checked="true" class="is-on" data-v="lastmonth">Last month</button>
+          <button role="radio" aria-checked="false" data-v="last3">Last 3 months</button>
+          <button role="radio" aria-checked="false" data-v="ytd">This year</button>
+          <button role="radio" aria-checked="false" data-v="last12">Last 12 months</button></div>
+        <div class="nf-range">
+          <label><span>From</span><input type="month" id="news-from"></label>
+          <label><span>To</span><input type="month" id="news-to"></label>
+        </div>
+        <p class="card-note" id="news-range-note">Whole months, compared with the same months a year earlier.</p>
+        <h2 class="nf-h">2. Wording</h2>
+        <label class="nf-field"><span>Title</span><input id="news-title" value="Ward 5 Community Update" maxlength="80"></label>
+        <label class="nf-field"><span>Message from the Councillor (optional)</span>
+          <textarea id="news-msg" rows="5" placeholder="A few lines to open the newsletter. Leave empty to start with the figures."></textarea></label>
+        <label class="nf-check nf-good"><input type="checkbox" id="news-good" checked><span><b>Good news only</b><small>Leaves out figures that got worse, such as a rise in crime, traffic incidents or open requests. Untick for the full picture.</small></span></label>
+        <h2 class="nf-h">3. Sections</h2>
+        <div class="nf-sections" id="news-sections"></div>
+        <button class="btn primary nf-go" id="news-make"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><span>Create newsletter (PDF)</span></button>
+        <p class="nf-status" id="news-status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="card news-preview" aria-labelledby="news-prev-h">
+        <div class="card-head"><div><h2 id="news-prev-h">Preview</h2><p class="card-sub" id="news-prev-sub">Choose the months and select Create.</p></div>
+          <div class="card-tools">
+            <button class="btn" id="news-open" disabled><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>Open PDF</span></button>
+            <button class="btn" id="news-save" disabled><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Save PDF with my edits</span></button></div></div>
+        <div class="news-frame-wrap"><iframe id="news-frame" title="Newsletter preview"></iframe>
+          <div class="news-empty" id="news-empty"><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><p>The newsletter appears here. You can click any text in it to change the wording, then save it again.</p></div></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ======================= CAMERAS ======================= -->
+  <section id="view-cameras" class="view" aria-labelledby="cam-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="cam-title">Traffic cameras</h1>
+        <p class="meta" id="cam-sub">City of Calgary traffic cameras, each replaying its last 30 minutes</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Which cameras" id="cam-seg">
+          <button role="radio" aria-checked="true" data-cams="ward">Ward 5 and nearby</button>
+          <button role="radio" aria-checked="false" data-cams="all">All Calgary</button>
+        </div>
+        <button class="btn" data-url="camera_page"><svg class="ic" aria-hidden="true"><use href="#i-open"/></svg><span>City camera page</span></button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="camgrid" id="camgrid"></div>
+      <p class="notes">The City's cameras are for traffic monitoring only. Footage is not recorded, and cameras can be offline for maintenance or after collisions. Source: City of Calgary Open Data, Traffic Cameras (k7p9-kppz).</p>
+    </div>
+  </section>
+
+  <!-- ======================= DATA SCIENTIST ======================= -->
+  <section id="view-scientist" class="view" aria-labelledby="ds-title">
+    <div class="content ds-page">
+      <header class="ds-hero">
+        <div class="ds-hero-main">
+          <div class="ds-mark" aria-hidden="true"><svg class="ic"><use href="#i-scientist"/></svg></div>
+          <div>
+            <h1 id="ds-title">Data Scientist</h1>
+            <p>Full analysis reports on Calgary and any ward, built from live public data: every figure worked out and sourced, with charts, maps, recommendations and an action plan.</p>
+            <div class="ds-gets"><span><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg>PDF report</span><span><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Interactive charts and maps</span><span><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Excel workbook</span></div>
+          </div>
+        </div>
+        <div class="ds-hero-side">
+          <div><b>3 to 8 min</b><span>per report</span></div>
+        </div>
+      </header>
+      <div class="seg ds-tabs" role="radiogroup" aria-label="Data Scientist" id="ds-tabs">
+        <button type="button" role="radio" aria-checked="true" data-dstab="make">Make reports</button>
+        <button type="button" role="radio" aria-checked="false" data-dstab="audit">Report auditor</button>
+      </div>
+      <div class="banner warn" id="ds-nokey" hidden><svg class="ic" aria-hidden="true"><use href="#i-key"/></svg><div>Add an AI service key (Anthropic, Google Gemini or OpenAI) in Settings to make reports.</div></div>
+
+      <div id="ds-make">
+      <div class="ds-depth" id="ds-depth">
+        <div class="seg" role="radiogroup" aria-label="How thorough the report is">
+          <button type="button" role="radio" aria-checked="false" data-depth="quick">Quick</button>
+          <button type="button" role="radio" aria-checked="true" data-depth="thorough">Thorough</button>
+        </div>
+        <p class="card-sub" id="ds-depth-note">Thorough uses the strongest model: deeper reasoning, longer reports, about twice the cost and time of Quick.</p>
+      </div>
+      <div class="ds-sec-head"><h2>Topics for today</h2><button class="btn" id="ds-shuffle"><svg class="ic" aria-hidden="true"><use href="#i-shuffle"/></svg><span>Show other topics</span></button></div>
+      <div class="ds-topics" id="ds-topics"></div>
+
+      <form class="card ds-own" id="ds-own">
+        <div class="ds-own-head"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><div><h2>Your own analysis</h2><p class="card-sub">Describe what you need in plain words. Add the visuals you want, or let the Data Scientist choose.</p></div></div>
+        <textarea id="ds-text" rows="4" placeholder="For example: how have potholes and sidewalk repairs changed in Taradale and Martindale since 2021, and how does that compare with Calgary?"></textarea>
+        <div class="ds-own-foot">
+          <div class="ds-chips" id="ds-chips" aria-label="Add to the request">
+            <button type="button" data-add="Include a chart of the trend by year.">+ Trend chart</button>
+            <button type="button" data-add="Include a map of Ward 5 communities shaded by the main measure.">+ Map by community</button>
+            <button type="button" data-add="Compare with Calgary as a whole.">+ Compare with Calgary</button>
+            <button type="button" data-add="Rank the communities in a table.">+ Ranking table</button>
+            <button type="button" data-add="Show where it happens as points on a map.">+ Points on a map</button>
+          </div>
+          <button type="submit" class="btn primary ds-go" id="ds-go"><svg class="ic" aria-hidden="true"><use href="#i-scientist"/></svg><span>Make the report</span></button>
+        </div>
+      </form>
+
+      <section class="card ds-run" id="ds-run" hidden>
+        <div class="card-head"><div><h2 id="ds-run-title"></h2><p class="card-sub" id="ds-run-sub"></p></div></div>
+        <ol class="ds-stages" id="ds-stages">
+          <li data-stage="0"><i></i><span>Gather the data</span></li>
+          <li data-stage="1"><i></i><span>Work out the figures</span></li>
+          <li data-stage="2"><i></i><span>Draw charts and maps</span></li>
+          <li data-stage="3"><i></i><span>Write the report</span></li>
+        </ol>
+        <details class="ds-log"><summary>What it is doing</summary><ol class="steps" id="ds-steps"></ol></details>
+        <div id="ds-result"></div>
+      </section>
+
+      <section class="card ds-lib">
+        <div class="card-head"><div><h2>Your reports</h2><p class="card-sub">Made here or in Data Genie, newest first. Every report is also in Files.</p></div></div>
+        <div id="ds-reports"></div>
+      </section>
+      </div>
+
+      <div id="ds-audit" hidden>
+        <section class="card">
+          <div class="card-head"><div><h2>Report auditor</h2><p class="card-sub">Three separate checks on a finished report. <b>Chinook</b> (the auditor) re-runs every figure from the data and lists what is wrong. <b>Bow</b> (the reviewer) re-checks each finding itself, accepts, revises or rejects it with its reasons, and makes the corrected report. <b>Rundle</b> (the final check) then looks only at those findings: fixed correctly, or rightly rejected. About 5 to 15 minutes a report.</p></div></div>
+          <div id="au-reports"></div>
+        </section>
+        <section class="card ds-run" id="au-run" hidden>
+          <div class="card-head"><div><h2 id="au-run-title"></h2><p class="card-sub" id="au-run-sub"></p></div></div>
+          <ol class="ds-stages" id="au-stages">
+            <li data-stage="0"><i></i><span>Chinook: re-runs every figure</span></li>
+            <li data-stage="1"><i></i><span>Bow: reviews each finding and fixes it</span></li>
+            <li data-stage="2"><i></i><span>Rundle: final check of the findings</span></li>
+          </ol>
+          <details class="ds-log"><summary>What it is doing</summary><ol class="steps" id="au-steps"></ol></details>
+          <div id="au-result"></div>
+        </section>
+        <section class="card ds-lib">
+          <div class="card-head"><div><h2>Audits</h2><p class="card-sub">Each audit page lists every finding, the reviewer's decision and the final check, with the corrected report.</p></div></div>
+          <div id="au-list"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= ASK ======================= -->
+  <section id="view-ask" class="view" aria-labelledby="ask-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="ask-title" class="with-genie"><svg class="ic" aria-hidden="true"><use href="#i-genie"/></svg>Data Genie</h1>
+        <p class="meta">Ask anything about Calgary's data: it finds the right datasets among over 400 from seven public sources, runs the numbers, and answers with charts, tables, maps, downloads and full analysis reports (PDF)</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="seg" role="radiogroup" aria-label="Answer mode" id="mode-seg">
+          <button role="radio" aria-checked="true" data-mode="fast" title="Quick answers">Fast</button>
+          <button role="radio" aria-checked="false" data-mode="smart" title="For harder questions">Thorough</button>
+        </div>
+        <button class="btn" id="new-chat"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><span>New chat</span></button>
+      </div>
+    </header>
+    <div class="ask-shell">
+      <div class="thread" id="thread" aria-live="polite">
+        <div class="welcome" id="welcome">
+          <div class="welcome-mark genie" aria-hidden="true"><svg class="ic"><use href="#i-genie"/></svg></div>
+          <h2>What would you like to know?</h2>
+          <p>Ask about the area you have selected (all of Calgary or any ward) or anything the City publishes as open data: for casework, briefings or council meetings. Data Genie answers from the data already in this app first (the dashboard's figures, police crime data, files you have saved), and goes to the City's website only when it needs more.</p>
+          <div class="banner warn" id="no-key" hidden>
+            <svg class="ic" aria-hidden="true"><use href="#i-key"/></svg>
+            <div>Add an AI service key (Anthropic, Google Gemini or OpenAI) in Settings to start asking. The dashboard works without it.</div>
+            <button class="btn" id="go-settings">Open Settings</button>
+          </div>
+          <div class="suggest">
+            <button><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span>Which community here has the most open pothole requests?</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><span>Make a report: how have vehicle thefts and break-ins changed in each community here since 2021, with recommendations and an action plan</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span>Brief me on Taradale: open requests, the oldest ones and what changed this year</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Download all open 311 requests in Martindale and Taradale</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span>Which communities here had the most vehicle thefts this year, and how does that compare with last year?</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg><span>Compare Calgary's Crime Severity Index with Edmonton and Vancouver over 10 years</span></button>
+            <button><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg><span>What would the proposed City budget cost a typical Calgary home, and how does Calgary compare with other cities?</span></button>
+          </div>
+        </div>
+      </div>
+      <form class="composer" id="composer">
+        <label class="sr" for="question">Your question</label>
+        <textarea id="question" rows="3" placeholder="Ask a question about City of Calgary data, or ask for a full report with charts and maps"></textarea>
+        <button type="submit" class="send" id="send" aria-label="Ask"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></button>
+      </form>
+      <p class="composer-hint">Enter to ask. Shift and Enter for a new line. Answers come from the City's open data and show their sources.</p>
+    </div>
+  </section>
+
+  <!-- ======================= FILES ======================= -->
+  <section id="view-files" class="view" aria-labelledby="files-title">
+    <header class="topbar">
+      <div class="topbar-title">
+        <h1 id="files-title">Files</h1>
+        <p class="meta" id="files-where">Data the assistant has saved</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn" id="open-folder"><svg class="ic" aria-hidden="true"><use href="#i-folder"/></svg><span>Open folder</span></button>
+      </div>
+    </header>
+    <div class="content narrow">
+      <section class="card">
+        <table class="data files-table">
+          <thead><tr><th scope="col">File</th><th scope="col">Saved</th><th scope="col" class="num">Size</th><th scope="col"><span class="sr">Action</span></th></tr></thead>
+          <tbody id="files"></tbody>
+        </table>
+      </section>
+    </div>
+  </section>
+
+  <!-- ======================= SETTINGS ======================= -->
+  <section id="view-settings" class="view" aria-labelledby="settings-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="settings-title">Settings</h1><p class="meta">Saved only on this computer</p></div>
+    </header>
+    <div class="content narrow">
+      <form class="settings" id="settings-form">
+        <section class="card" id="pop-card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg><div><h2>How residents are counted</h2><p class="card-sub">Used for every "per 1,000 residents" figure, the population charts, the newsletter and Data Genie</p></div></div><span class="badge ok" id="pop-badge"></span></div>
+          <div class="pop-choices" role="radiogroup" aria-label="How residents are counted" id="pop-choices"></div>
+          <p class="field-hint" id="pop-hint">The choice is saved on this computer. The dashboard is worked out again with it (the first time takes about a minute).</p>
+        </section>
+        <section class="card" id="eng-card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-key"/></svg><div><h2>AI services, in order of use</h2><p class="card-sub">For Data Genie and the Data Scientist. The first one answers; if it runs out of credit, reaches its daily limit or is down, the next one carries on automatically.</p></div></div><span class="badge" id="key-badge">Not saved</span></div>
+          <ol class="eng-list" id="eng-list"></ol>
+          <div class="eng-add-row">
+            <button type="button" class="btn" id="eng-add"><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg><span>Add a service</span></button>
+            <span class="field-hint" id="eng-count"></span>
+          </div>
+          <p class="field-hint">Keys are saved only on this computer. A no-cost key gives quick answers, but long reports are most reliable with the Anthropic service, so keep a paid service first if reports matter and a no-cost one after it as the backup.</p>
+        </section>
+        <section class="card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><div><h2>Google Maps key</h2><p class="card-sub">Optional: shows Google Maps on the dashboard</p></div></div><span class="badge" id="gkey-badge">Not saved</span></div>
+          <p class="field-hint" id="gkey-status">No key saved. The maps use OpenStreetMap, which needs no key.</p>
+          <label class="field-label" for="google-key">Paste a Google Maps key</label>
+          <input type="password" id="google-key" autocomplete="off" placeholder="AIza...">
+          <p class="field-hint">The key needs the Maps JavaScript API turned on in Google Cloud. Google may charge the key's owner for map use beyond its no-charge allowance. Remove a personal key before giving this computer to someone else.</p>
+          <div class="row-actions"><button type="button" class="btn" id="remove-gkey">Remove Google key</button></div>
+        </section>
+        <section class="card">
+          <div class="card-head"><div class="with-icon"><svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg><div><h2>Appearance</h2><p class="card-sub">Light, dark, or follow Windows</p></div></div></div>
+          <div class="seg" role="radiogroup" aria-label="Theme" id="theme-seg">
+            <button type="button" role="radio" aria-checked="true" data-theme-pref="system">Match Windows</button>
+            <button type="button" role="radio" aria-checked="false" data-theme-pref="light">Light</button>
+            <button type="button" role="radio" aria-checked="false" data-theme-pref="dark">Dark</button>
+          </div>
+        </section>
+        <div class="row-actions">
+          <button type="submit" class="btn primary">Save settings</button>
+          <p class="saved" id="saved-msg" role="status"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div class="brief" id="brief" hidden role="dialog" aria-modal="true" aria-label="Briefing screen">
+  <header class="brief-head">
+    <div class="brief-brand"><img src="logo.svg" alt="" width="44" height="44"><div><strong>Ward 5</strong><span id="brief-who"></span></div></div>
+    <div class="brief-clock"><span id="brief-time"></span><span id="brief-date"></span></div>
+    <button class="brief-close" id="brief-close" aria-label="Close the briefing screen"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+  </header>
+  <div class="brief-body">
+    <div class="brief-kpis" id="brief-kpis"></div>
+    <div class="brief-cams" id="brief-cams"></div>
+    <div class="brief-side">
+      <h2>Newest 311 reports</h2>
+      <ol class="brief-feed" id="brief-feed"></ol>
+      <h2>Most open requests</h2>
+      <ol class="brief-types" id="brief-types"></ol>
+    </div>
+  </div>
+  <div class="brief-sources" id="brief-sources"></div>
+  <footer class="brief-foot" id="brief-foot"></footer>
+</div>
+
+<div class="status-dlg" id="status-dlg" hidden role="dialog" aria-modal="true" aria-labelledby="status-title">
+  <div class="status-box">
+    <div class="viewer-head"><strong id="status-title">Data status</strong><button class="brief-close" id="status-close" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+    <p class="card-sub" id="status-sub"></p>
+    <div class="table-wrap"><table class="data" id="status-table"><thead><tr><th scope="col">Source</th><th scope="col">Last updated by the publisher</th><th scope="col">Fetched by Calgary Insight</th><th scope="col">Status</th></tr></thead><tbody></tbody></table></div>
+    <p class="field-hint">Calgary Insight checks for new data every 15 minutes and rebuilds the dashboard at least every hour. Select a source to open its page.</p>
+  </div>
+</div>
+
+<div class="record" id="record" hidden role="dialog" aria-modal="true" aria-label="Request page"></div>
+
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-label="Camera">
+  <div class="viewer-box" id="viewer-box"><div class="viewer-head"><strong id="viewer-name"></strong><button class="brief-close" id="viewer-close" aria-label="Close"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <div class="viewer-frame"><img id="viewer-img" alt=""><span class="live" data-stamp>Latest</span><span class="progress" aria-hidden="true"><i></i></span></div>
+  <div class="viewer-tools">
+    <button class="btn icon-only" id="viewer-prev" aria-label="Back one image" title="Back one image (left arrow)"><svg class="ic" aria-hidden="true"><use href="#i-prev"/></svg></button>
+    <button class="btn" id="viewer-play" title="Play or pause (space)"><svg class="ic" aria-hidden="true"><use href="#i-pause"/></svg><span>Pause</span></button>
+    <button class="btn icon-only" id="viewer-next" aria-label="Forward one image" title="Forward one image (right arrow)"><svg class="ic" aria-hidden="true"><use href="#i-next"/></svg></button>
+    <input type="range" id="viewer-range" min="0" max="0" value="0" aria-label="Position in the last 30 minutes">
+    <div class="seg small" role="radiogroup" aria-label="Playback speed" id="viewer-speed">
+      <button type="button" role="radio" aria-checked="true" data-speed="1">1×</button>
+      <button type="button" role="radio" aria-checked="false" data-speed="2">2×</button>
+      <button type="button" role="radio" aria-checked="false" data-speed="4">4×</button>
+    </div>
+    <button class="btn" id="viewer-latest">Newest image</button>
+  </div>
+  <p class="viewer-count" id="viewer-count"></p>
+  <p class="viewer-note" id="viewer-note"></p></div>
+</div>
+
+<script src="vendor/leaflet.js"></script>
+<script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/marked.min.js"></script>
+<script src="vendor/purify.min.js"></script>
+<script src="site.20186e8330.js"></script>
+<script async src="/hit.js"></script>
+</body>
+</html>

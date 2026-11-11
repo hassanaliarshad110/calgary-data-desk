@@ -1,0 +1,69 @@
+site build run 42977312843
+{"event":"push","headSha":"ff42583627241a1b727d5a85e66ea4dba3df8317","updatedAt":"2026-11-11T08:25:33Z"}
+344M	site
+43M	site/data/model
+43M	site/data/city_pace
+43M	site/data/city_actual
+43M	site/data/census2021
+13M	site/data/cache
+7.4M	site/data/business.json
+2.1M	site/data/access_base.json
+740K	site/data/elections.json
+724K	site/data/catalog.json
+552K	site/data/transit.json
+292K	site/data/infra.json
+256K	site/data/school_tax.json
+124K	site/data/majorprojects.json
+120K	site/data/visit.json
+116K	site/data/tax.json
+116K	site/data/methods.json
+116K	site/data/accountability.json
+84K	site/data/srg_raw.json
+76K	site/data/search.json
+72K	site/data/safety_rank.json
+68K	site/data/budget.json
+64K	site/data/tourism.json
+64K	site/data/missing
+48K	site/data/planned.json
+28K	site/data/registry.json
+24K	site/data/business_people.json
+16K	site/data/live.json
+16K	site/data/analyst_topics.json
+8.0K	site/data/capmkt.json
+8.0K	site/data/built.json
+4.0K	site/data/settings.json
+4.0K	site/data/genie.json
+32M	out/site
+budget-requests.pdf 200 9132758 https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf
+budgets.html 200 21876 https://www.calgary.ca/our-finances/budgets.html
+budget-2026.html 200 25027 https://www.calgary.ca/our-finances/2026-budget.html
+budget-process.html 200 20951 https://www.calgary.ca/our-finances/budget-process.html
+capital-map.html 200 23962 https://www.calgary.ca/planning/projects/capital-projects-map.html
+meta-fqax.json 200 2585 https://data.calgary.ca/api/views/fqax-i3nz.json
+meta-nnnm.json 200 2428 https://data.calgary.ca/api/views/nnnm-9sfh.json
+meta-m5bi.json 200 2004 https://data.calgary.ca/api/views/m5bi-n8x4.json
+fqax-status.json 200 338 https://data.calgary.ca/resource/fqax-i3nz.json?$select=year,budget_status,fund,count(*)%20as%20n,sum(budget)%20as%20total&$group=year,budget_status,fund&$order=year&$limit=5000
+nnnm-all.json 200 8063 https://data.calgary.ca/resource/nnnm-9sfh.json?$limit=50000
+m5bi-all.json 200 49 https://data.calgary.ca/resource/m5bi-n8x4.json?$limit=50000
+cat-budget.json 200 10378 https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&search_context=data.calgary.ca&q=budget&limit=100
+cat-capital.json 200 4406 https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&search_context=data.calgary.ca&q=capital%20project&limit=100
+cat-actual.json 200 110 https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&search_context=data.calgary.ca&q=actual%20expenditure&limit=100
+cat-performance.json 200 18422 https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&search_context=data.calgary.ca&q=performance%20measures&limit=100
+total 10072
+drwxr-xr-x 2 runner runner    4096 Nov 11 09:45 .
+drwxr-xr-x 4 runner runner    4096 Nov 11 09:44 ..
+-rw-r--r-- 1 runner runner  143735 Nov 11 09:45 budget-2026.html
+-rw-r--r-- 1 runner runner  119993 Nov 11 09:45 budget-process.html
+-rw-r--r-- 1 runner runner 9132758 Nov 11 09:45 budget-requests.pdf
+-rw-r--r-- 1 runner runner  131591 Nov 11 09:45 budgets.html
+-rw-r--r-- 1 runner runner  130741 Nov 11 09:45 capital-map.html
+-rw-r--r-- 1 runner runner     130 Nov 11 09:45 cat-actual.json
+-rw-r--r-- 1 runner runner  112353 Nov 11 09:45 cat-budget.json
+-rw-r--r-- 1 runner runner   31442 Nov 11 09:45 cat-capital.json
+-rw-r--r-- 1 runner runner  150396 Nov 11 09:45 cat-performance.json
+-rw-r--r-- 1 runner runner    1410 Nov 11 09:45 fqax-status.json
+-rw-r--r-- 1 runner runner    5569 Nov 11 09:45 m5bi-all.json
+-rw-r--r-- 1 runner runner   13762 Nov 11 09:45 meta-fqax.json
+-rw-r--r-- 1 runner runner    7848 Nov 11 09:45 meta-m5bi.json
+-rw-r--r-- 1 runner runner   11709 Nov 11 09:45 meta-nnnm.json
+-rw-r--r-- 1 runner runner  281714 Nov 11 09:45 nnnm-all.json
