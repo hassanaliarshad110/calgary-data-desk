@@ -377,7 +377,12 @@
     ],
     "file": "three-places-military-story-short.mp4",
     "publish_at": "2026-11-11T12:30",
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/DfnISfljOeg/",
+     "youtube": "https://www.youtube.com/shorts/-88VVDIXXng"
+    },
+    "confirmed_by": "2026-11-11 CIVIC run (getScheduledPosts 13:13)"
    },
    {
     "metricool_id": 424705605,
@@ -409,5 +414,49 @@
    }
   ],
   "post_note": "Post A 12:30 and post B 17:30 scheduled at their fixed times with designed thumbnails and no AI labels. Post C (teaser Facebook Reel, 21:00) left as pending_link for the link-up task (PLAYBOOK 7b, updated during this run) so its caption carries the YouTube film link. Post B text is shared by Facebook and YouTube, so the chapter lines also appear on Facebook."
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "CIVIC",
+  "type": "civic",
+  "category": "Calgary news",
+  "title": "Calgary's proposed budget: what it means for a typical home",
+  "topic_used": "News explained: City released its proposed 2027–2030 Budget on Nov 10, 2026 (15% increase in municipal property tax revenue from existing properties in 2027; City estimate for a typical single residential property +$53/month = +$37 municipal property tax + $16 water, waste & recycling; CAO cites growth, rising cost, aging assets; some councillors want proposed tax hikes brought down; public submissions and deliberations from the week of Nov 23; approval expected December 2026)",
+  "changed_from_calendar": null,
+  "repeat_note": "Follow-up to 2026-11-09 CIVIC (preliminary Sept 29 figures). New since then: the proposed budget itself was released Nov 10, with a combined typical-home estimate incl. utilities and approval now listed for December.",
+  "central_figure": "City estimate: typical single residential property pays about $53 more a month in 2027 ($37 municipal property tax + $16 water, waste and recycling)",
+  "sources": [
+   "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/",
+   "https://www.calgary.ca/our-finances/2027-budget.html",
+   "https://ca.news.yahoo.com/calgarys-4-budget-proposes-15-160138122.html",
+   "https://ca.news.yahoo.com/calgary-budget-proposes-15-property-171554543.html",
+   "https://ca.news.yahoo.com/calgarys-proposed-four-budget-draws-012412444.html"
+  ],
+  "length_s": 57.2,
+  "video_path": "studio-videos/2026-11-11-CIVIC/proposed-budget-explained.mp4",
+  "thumbnail_path": "studio-videos/2026-11-11-CIVIC/proposed-budget-explained-thumb.jpg",
+  "package": "packages/2026-11-11-CIVIC-proposed-budget-explained.md",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 14,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-11-CIVIC.md"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 424849483,
+    "uuid": "4844832204137844080",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4844832204137844080",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-11T15:00",
+    "status": "scheduled"
+   }
+  ],
+  "post_note": "Scheduled at the fixed 15:00 CIVIC slot (created 13:27) with designed thumbnail, NEWS_POLITICS, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1)."
  }
 ]
