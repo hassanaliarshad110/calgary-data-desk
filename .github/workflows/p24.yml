@@ -1,0 +1,35 @@
+name: Probe 24
+
+# Read only. Before publication: the repository's own checks for the Budget Intelligence data, run on the data that is
+# on the live site at this moment. Output goes to the branch fetched-24. Nothing is published or changed.
+
+on: {push: {branches: [site-check-24]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: 27db3be9c5522eed3e1b21c85d6dc47f8f1fb2a9}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: The checks on the live site's data
+        run: |
+          set +e
+          mkdir -p out live
+          date -u +'read %Y-%m-%dT%H:%M:%SZ' > out/summary.txt
+          for f in budget.json tax.json built.json; do curl -fsS -m 120 "https://calgaryinsight.ca/data/$f" -o "live/$f"; echo "$f: curl exit $? $(sha256sum live/$f | cut -c1-16) $(stat -c %s live/$f) bytes" >> out/summary.txt; done
+          curl -fsS -m 60 https://calgaryinsight.ca/ -o live-index.html; echo "live index.html: $(sha256sum live-index.html | cut -c1-16) $(stat -c %s live-index.html) bytes; bundle $(grep -o 'site\.[0-9a-f]*\.js' live-index.html | head -1); Budget Intelligence tab present: $(grep -c 'budget-intelligence' live-index.html)" >> out/summary.txt
+          python -c "import json; b=json.load(open('live/built.json')); bad=[s['step'] for s in b['steps'] if not s.get('ok')]; print('live build:', b['built_at'], len(b['steps']), 'steps,', len(bad), 'failed', bad)" >> out/summary.txt 2>&1
+          python tools/budget_intel_check.py --data live --json out/checks-live.json > out/checks-live.txt 2>&1; echo "tools/budget_intel_check.py exit code: $?" >> out/summary.txt
+          tail -3 out/checks-live.txt >> out/summary.txt
+          cat out/summary.txt
+      - name: Push what was found to fetched-24 (evidence only)
+        if: always()
+        run: |
+          set +e
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q --orphan fetched-24
+          git rm -rqf --cached . > /dev/null 2>&1
+          git add -f out && git commit -qm "Before publication: the Budget Intelligence checks on the live site's data (evidence only)" && git push -qf origin fetched-24
