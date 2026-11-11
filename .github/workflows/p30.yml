@@ -1,9 +1,9 @@
-name: Probe 30
+name: Probe 31
 
 # Read only. Downloads the City of Calgary's year-end financial updates (budget against actual, by department) and
-# annual financial reports, untouched, with their text, to the branch fetched-30. Nothing is published or changed.
+# annual financial reports, untouched, with their text, to the branch fetched-31. Nothing is published or changed.
 
-on: {push: {branches: [site-check-30]}}
+on: {push: {branches: [site-check-31]}}
 permissions: {contents: write}
 jobs:
   p:
@@ -14,12 +14,12 @@ jobs:
       - run: sudo apt-get install -y -qq poppler-utils > /dev/null
       - name: The City's reports
         run: python3 audit/fetch_ye.py out 2>&1 | tail -120
-      - name: Push to fetched-30 (evidence only)
+      - name: Push to fetched-31 (evidence only)
         if: always()
         run: |
           set +e
           find out -size +95M -print -delete
           git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
-          git checkout -q --orphan fetched-30
+          git checkout -q --orphan fetched-31
           git rm -rqf --cached . > /dev/null 2>&1
-          git add -f out && git commit -qm "Budget vs actual: the City's year-end reports (evidence only)" && git push -qf origin fetched-30
+          git add -f out && git commit -qm "Budget vs actual: the City's year-end reports (evidence only)" && git push -qf origin fetched-31

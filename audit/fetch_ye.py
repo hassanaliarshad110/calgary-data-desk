@@ -22,20 +22,23 @@ def keep(name, url):
     hit = any(k in t for k in ('comparison to Actuals', 'Comparison to Actuals', 'Year-End', 'Year End', 'year-end'))
     first = ' '.join(t.split()[:40])
     LOG.append({'name': name, 'url': url, 'bytes': len(b), 'disposition': cd, 'pages': t.count('\f'), 'year_end_words': hit, 'first_words': first})
-    if not hit and len(b) > 3_000_000: os.remove(p)       # unrelated large files: keep the text only
-D = 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/'
-for n, u in [('fe-2024-ye-q1-2025', D + 'financial-economic-update-2024-year-end-Q1-2025.pdf'),
-             ('fe-2023-ye-q1-2024', D + 'financial-economic-update-2023-year-end-Q1-2024.pdf'),
-             ('fe-2025-ye-q1-2026', D + 'financial-economic-update-2025-year-end-Q1-2026.pdf'),
-             ('fe-2022-ye-q1-2023', D + 'financial-economic-update-2022-year-end-Q1-2023.pdf'),
-             ('afr-2025', D + '2025-Annual-Financial-Report.pdf'),
-             ('afr-2024', D + 'Finance-2024-Annual-Report.pdf'),
-             ('afr-2023', D + 'Finance-2023-Annual-Report.pdf')]:
-    keep(n, u)
-E='https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId='
+    pass       # unrelated large files: keep the text only
+D = 'https://www.calgary.ca/content/dam/www/'
+F = D + 'cfod/finance/documents/'
+Q = D + 'our-organization/our-performance/documents/'
+jobs = [('afr-2023', F + 'Finance-2023-Annual-Report.pdf'),
+        ('progress-update-2023', F + 'plans-budgets-and-financial-reports/progress-update-report.pdf'),
+        ('service-updates-2023', F + 'plans-budgets-and-financial-reports/service-updates.pdf'),
+        ('progress-snapshot-2023', F + 'plans-budgets-and-financial-reports/progress-update-snapshot.pdf'),
+        ('mid-year-2024', F + 'plans-budgets-and-financial-reports/2024-mid-year-progress-update.pdf'),
+        ('q1-2026', Q + 'quarterly-report-2026-q1.pdf'), ('q2-2026', Q + 'quarterly-report-2026-q2.pdf')]
+for nm in ('quarterly-report-2025-q4', 'quarterly-report-2025-year-end', 'quarterly-report-2025-ye', '2025-year-end-report', 'quarterly-report-2025', 'year-end-report-2025', 'quarterly-report-2025-q2-q3', 'quarterly-report-2025-q1'):
+    jobs.append((nm, Q + nm + '.pdf'))
+for nm in ('financial-economic-update-2025-year-end', 'financial-economic-update-2025-year-end-Q1-2026', 'financial-economic-update-2023-year-end', 'financial-economic-update-2023-year-end-Q1-2024',
+           'financial-economic-update-2023-year-end-q1-2024', 'financial-economic-update-2025-Q2', 'financial-economic-update-2025-q2', 'financial-economic-update-2025-Q3'):
+    jobs.append((nm, F + nm + '.pdf'))
 from concurrent.futures import ThreadPoolExecutor
-jobs = [(f'escribe-{b + k}', E + str(b + k)) for b in (258098, 282194, 285432, 326758, 331869, 333220, 339038, 339376, 354763, 362131, 366881) for k in range(0, 6)]
-with ThreadPoolExecutor(8) as ex:
+with ThreadPoolExecutor(6) as ex:
     list(ex.map(lambda j: keep(*j), jobs))
 json.dump(LOG, open(os.path.join(OUT, 'log.json'), 'w'), indent=1)
 for l in LOG: print(l if isinstance(l, str) else f"{l['name']} {l['bytes']} p{l['pages']} ye={l['year_end_words']} :: {l['first_words'][:150]}")
