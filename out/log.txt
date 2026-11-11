@@ -1,0 +1,26 @@
+gugs/GeneralUser-GS.sf2
+
+[notice] A new release of pip is available: 26.2.2 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+
+[notice] A new release of pip is available: 26.2.2 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+[0;93m2026-11-11 02:38:01.528908445 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+{'v': [12.736, 15.232, 22.613, 10.347, 16.853, 18.411, 7.445, 7.36, 20.352, 11.2, 14.336]}
+total 164.69 events 2624
+gugs gugs/GeneralUser-GS.sf2 0 efault_value) != NULL' failed
+
+(process:3355): GLib-GObject-CRITICAL **: 02:39:03.848: validate_pspec_to_install: assertion 'G_IS_PARAM_SPEC (pspec)' failed
+
+(process:3355): GLib-GObject-CRITICAL **: 02:39:03.848: g_param_spec_ref_sink: assertion 'G_IS_PARAM_SPEC (pspec)' failed
+
+(process:3355): GLib-GObject-CRITICAL **: 02:39:03.848: g_param_spec_unref: assertion 'G_IS_PARAM_SPEC (pspec)' failed
+
+fluid /usr/share/sounds/sf2/FluidR3_GM.sf2 0 efault_value) != NULL' failed
+
+(process:3435): GLib-GObject-CRITICAL **: 02:39:05.620: validate_pspec_to_install: assertion 'G_IS_PARAM_SPEC (pspec)' failed
+
+(process:3435): GLib-GObject-CRITICAL **: 02:39:05.620: g_param_spec_ref_sink: assertion 'G_IS_PARAM_SPEC (pspec)' failed
+
+(process:3435): GLib-GObject-CRITICAL **: 02:39:05.620: g_param_spec_unref: assertion 'G_IS_PARAM_SPEC (pspec)' failed
+
