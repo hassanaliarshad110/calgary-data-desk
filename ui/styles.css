@@ -2032,6 +2032,8 @@ table.data td.num, table.data th.num, .num { font-variant-numeric: tabular-nums;
 .ca-body { padding: 4px 14px 14px; border-top: 1px solid var(--border); background: var(--card); }
 .ca-body p { margin: 10px 0 0; }
 .ca-disputed { border-left: 3px solid #F472B6; padding-left: 10px; }
+.ca-await { color: #F59E0B; }
+.ca-await-note { border-left: 3px solid #F59E0B; padding-left: 10px; }
 .ca-ev { margin: 6px 0 0; padding-left: 18px; }
 .ca-ev li { margin: 4px 0; }
 .ca-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }

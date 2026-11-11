@@ -24,6 +24,10 @@ function caFilters(list) {
   const sel = (id, v, opts) => `<select id="${id}" class="select" aria-label="${LBL[id] || 'Filter'}">${opts.map(([k, t]) => `<option value="${k}" ${k === v ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>`;
   return `<div class="card-tools sr-tools">${sel('ca-level', caLevel, [['', 'Every government'], ...Object.entries(CA_LEVEL)])}${sel('ca-type', caType, [['', 'Every kind'], ...Object.entries(CA_TYPE)])}${list ? sel('ca-status', caStatus, [['', 'Every status'], ...Object.keys(CA.statuses || {}).map(s => [s, s])]) : ''}</div>`;
 }
+// an entry waiting on a dated decision (watch: {date, event}): from the day after, until its outcome is recorded and the
+// watch removed, it says so plainly instead of leaving text written before the decision to read as current
+const caToday = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+const caAwaiting = c => !!(c.watch && c.watch.date && c.watch.date < caToday());
 const caKeep = c => (!caLevel || c.level === caLevel) && (!caType || c.type === caType) && (!caStatus || c.status === caStatus);
 function caCard(c) {
   const open = caOpen === c.id;
@@ -31,8 +35,8 @@ function caCard(c) {
   return `<article class="ca-item${open ? ' is-open' : ''}" id="ca-${c.id}">
     <button type="button" class="ca-head" data-caopen="${c.id}" aria-expanded="${open}"><span class="ca-tags"><span class="ca-tag lvl-${c.level}">${esc(CA_LEVEL[c.level] || c.level)}</span><span class="ca-tag">${esc(CA_TYPE[c.type] || c.type)}</span></span>
       <span class="ca-title">${esc(c.title)}</span>${caBadge(c.status)}</button>
-    <div class="ca-sub">${esc(c.who)}${c.made ? ` · committed ${esc(caDate(c.made))}` : ''}${c.expected ? ` · timeline: ${esc(c.expected.charAt(0).toLowerCase() + c.expected.slice(1))}` : ''}${c.missed ? ' · <b class="ca-missed">deadline missed</b>' : ''}${c.disputed ? ' · <b class="ca-disp">disputed</b>' : ''}</div>
-    ${open ? `<div class="ca-body"><p><b>Where it stands.</b> ${esc(c.progress || '')}</p>${c.missed ? `<p><b>Deadline.</b> ${esc(c.missed)}</p>` : ''}
+    <div class="ca-sub">${esc(c.who)}${c.made ? ` · committed ${esc(caDate(c.made))}` : ''}${c.expected ? ` · timeline: ${esc(c.expected.charAt(0).toLowerCase() + c.expected.slice(1))}` : ''}${c.missed ? ' · <b class="ca-missed">deadline missed</b>' : ''}${c.disputed ? ' · <b class="ca-disp">disputed</b>' : ''}${caAwaiting(c) ? ' · <b class="ca-await">awaiting outcome</b>' : ''}</div>
+    ${open ? `<div class="ca-body">${caAwaiting(c) ? `<p class="ca-await-note"><b>Awaiting the outcome.</b> ${esc(c.watch.event || 'The decision')} was due on ${esc(caDate(c.watch.date))}; its result has not been recorded here yet, so the text below was written before it.</p>` : ''}<p><b>Where it stands.</b> ${esc(c.progress || '')}</p>${c.missed ? `<p><b>Deadline.</b> ${esc(c.missed)}</p>` : ''}
       ${c.disputed ? `<p class="ca-disputed"><b>Disputed.</b> ${esc(c.disputed)}${c.disputed_url ? ` <a href="${esc(c.disputed_url)}" target="_blank" rel="noopener">Read the other view</a>` : ''}</p>` : ''}
       ${c.funding ? `<p><b>Money.</b> Promised: ${esc(c.funding.promised || '–')}. Allocated: ${esc(c.funding.allocated || '–')}. Spent: ${esc(c.funding.spent || '–')}.</p>` : ''}
       <p><b>Evidence.</b></p><ul class="ca-ev">${(c.evidence || []).map(e => `<li><span class="muted">${esc(caDate(e.date))}</span> ${esc(e.text)}: ${caSrc(e)}</li>`).join('')}</ul>
@@ -161,7 +165,7 @@ function caMethod() {
       <h3>What is tracked</h3><p>Promises made by parties and candidates that formed government or won office (City council, the Alberta government and the Government of Canada), and formal commitments by those governments that affect Calgary. Each is labelled as a party promise, a candidate promise or a government commitment. Promises of those who did not win office are listed, not rated.</p>
       <h3>What counts as evidence</h3><p>An official record first: a law and its Royal Assent, a council decision, a budget document, a government or City report, a contract or a completed project. News reports are used for dates and figures they quote from those records. Opinion is never evidence; where a rating is disputed, the other view is linked.</p>
       <h3>Statuses</h3><ul>${Object.entries(CA.statuses || {}).map(([k, v]) => `<li>${caBadge(k)} ${esc(v)}</li>`).join('')}</ul>
-      <h3>Verification</h3><p>Every commitment carries its source document and date, the evidence for its current status with links, and a history of every change. Commitments are re-checked at least each quarter and when news breaks; official voting and progress records are read again every day.</p>
+      <h3>Verification</h3><p>Every commitment carries its source document and date, the evidence for its current status with links, and a history of every change. Commitments are re-checked every week and when news breaks, and the day after any dated decision an entry is waiting on; until that result is recorded, the entry is marked as awaiting the outcome. Official voting and progress records are read again every day.</p>
       <h3>Fairness</h3><p>The same rules for every party, person and government. A status describes a commitment, not a person; voting counts describe attendance and positions, not quality of work.</p>
       <h3>Corrections and limitations</h3><p>Coverage starts with the largest, best-documented commitments and grows. The Alberta Legislature does not publish members' votes as open data. City council votes in open data begin ${esc(caDate((CAR && CAR.council && CAR.council.from) || ''))}. To report an error or suggest a commitment, use the contact form on Invest in Calgary or the developer's contact.</p>
       <h3>Sources read every day</h3><p>${((CAR && CAR.sources) || []).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.publisher)}: ${esc(s.title)}</a>`).join(' · ')}</p></div></section>`;
