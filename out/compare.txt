@@ -1,0 +1,21 @@
+Counter({'PASS': 19, 'FAIL': 11, 'NOTE': 9})
+FAIL | Dashboard / status board | 311 requests, last 12 months (with a community) | {'site': 484827, 'independent': 453549, 'difference_pct': -6.451}
+FAIL | Dashboard / status board | 311 requests, the 12 months before | {'site': 482788, 'independent': 449374, 'difference_pct': -6.921}
+NOTE | Dashboard / status board | 311 requests with no community (in the trend chart, not in the total) | {'detail': 'last 12: 31278; before: 33414'}
+FAIL | 311 trend chart | The chart's 12 months against the City's requests with a community | {'site': 484827, 'independent': 453549, 'difference_pct': -6.451}
+NOTE | 311 trend chart | Each month: chart vs every non-duplicate request in the City data (the gap is requests with no community) | {'detail': "[('2025-11', 32729, 32729), ('2025-12', 33121, 33121), ('2026-01', 35346, 35346), ('2026-02', 30862, 30862), ('2026-03', 35495, 35495), ('2026-04', 40392, 40392), ('2026-05', 47467, 47467), ('2026-06', 54163, 54163), ('2026-07', 52529, 52529), ('2026-08', 44977, 44977), ('2026-09', 40709, 40709), ('2026-10', 37037, 37037)]"}
+FAIL | Dashboard / status board | Infrastructure reports (21 types), last 12 months | {'site': 102249, 'independent': 102101, 'difference_pct': -0.145}
+FAIL | Dashboard / status board | Infrastructure reports, 12 months before | {'site': 102100, 'independent': 101935, 'difference_pct': -0.162}
+NOTE | Dashboard / status board | Service names matched to the 21 types | {'detail': "['Parks - Garbage - GIS', 'Parks - Infrastructure - GIS', 'Parks - Maintenance - GIS', 'Parks - Tree Concern - GIS', 'Roads - Backlane Maintenance', 'Roads - Dead Animal Pick-Up', 'Roads - Debris on Street/Sidewalk/Boulevard', 'Roads - Pathway Concerns', 'Roads - Pathway Snow and Ice Concerns', 'Roads - Pothole Maintenance', 'Roads - Roadway Maintenance', 'Roads - Sidewalk - Curb and Gutter Repair', 'Roads - Signs - Missing - Damaged', 'Roads - Snow and Ice Control', 'Roads - Streetlight Maintenance', 'Roads - Traffic or Pedestrian Light Repair', 'WATS - Catch Basin Concerns', 'WATS - Service and Main Valve Issues', 'WATS - Sewage Back-up', 'WATS - Sewer Maintenance', 'WATS - Water Main Break or Leak']"}
+FAIL | Dashboard / status board | Open requests now (with a community) | {'site': 78774, 'independent': 75309, 'difference_pct': -4.399}
+FAIL | Dashboard / status board | Open more than 90 days | {'site': 65012, 'independent': 62331, 'difference_pct': -4.124}
+FAIL | Dashboard / status board | Closed within 7 days (%), 7 x 24 hours | {'site': 76.3, 'independent': 76.9, 'difference_pct': 0.786}
+NOTE | Dashboard / status board | Closed within 7 days: other readings | {'detail': '7 calendar days: 76.9%; closed 431,735 (site 431,722); within 7x24h 331,814 (site 331,804)'}
+NOTE | Dashboard / status board | Sources | {'detail': "{'App': 88741, 'Other': 396083, 'Web': 3}"}
+NOTE | Dashboard / status board | Homes in permits with no community code | {'detail': 'applied 0, issued 0'}
+NOTE | Dashboard: development | Statuses (independent) | {'detail': "{'In Circulation': 303, 'New': 1, 'Cancelled - Pending Refund': 23, 'Pending Appeal': 54, 'Expired': 1, 'Under Review': 133, 'Hold': 524, 'Pending Decision': 18, 'Application Received': 7, 'Approved': 8, 'Pending Release': 390, 'Released': 3667, 'In Advertising': 341, 'Revoked': 2, 'Refused': 35, 'Cancelled': 1085, 'Inactive': 24}"}
+FAIL | Dashboard: development | Cancelled | {'site': 1132, 'independent': 1085, 'difference_pct': -4.152}
+NOTE | Dashboard / status board | Traffic: rows / no location / anywhere in the data, last 12 | {'detail': '15216 rows read, 0 without a location, 8419 anywhere in the last 12 months'}
+NOTE | Dashboard: traffic | The City data in May-June 2025 (days with any incident) | {'detail': "2 days with incidents between 2025-05-21 and 2025-07-01: ['2025-05-23', '2025-05-28']"}
+FAIL | Population | 2021 Census population by community (sum) | {'site': 1288995, 'independent': 1289690, 'difference_pct': 0.054}
+FAIL | Population | 2021 Census private households (sum) | {'site': 500990, 'independent': 501395, 'difference_pct': 0.081}

@@ -1,0 +1,5 @@
+/home/runner/work/calgary-data-desk/calgary-data-desk/probe/audit/independent_city.py:30: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  R = {'read_at': dt.datetime.utcnow().isoformat(timespec='seconds') + 'Z'}
+/home/runner/work/calgary-data-desk/calgary-data-desk/probe/audit/independent_city.py:49: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  'over_90_days_with_community': cnt(f"status_description = 'Open' AND comm_code IS NOT NULL AND requested_date < '{(dt.datetime.utcnow() - dt.timedelta(hours=6) - dt.timedelta(days=90)).strftime('%Y-%m-%dT%H:%M:%S')}'"),
+done {'read_at': 22, '311': 96000, 'permits': 58152, 'dp': 7354, 'traffic': 12785, 'geo': 20922, 'census': 781613, 'budget_fqax': 297, 'budget_nnnm': 212, 'wmb_sample': 604, 'log': 2}

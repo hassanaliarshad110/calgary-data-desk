@@ -1,0 +1,6 @@
+{'FAIL': 5, 'PASS': 64, 'NOTE': 19}
+FAIL | Dashboard / status board | 311 requests: communities add up to the Calgary total | communities 453,536 vs Calgary 484,827 (requests with no community: 31,291)
+FAIL | Dashboard / status board | Closed within 7 days (Calgary) | 331,804/431,722 = 76.86% vs 76.3
+FAIL | Dashboard / status board | Made on a phone (app share) | 19.56 vs 18.3
+FAIL | Dashboard: development | Wards table development permits = Calgary applications | 6601 vs 6616
+FAIL | Families | Schools: students of the listed schools add up to the Calgary total | 0 vs 227,762; 499 schools vs 488

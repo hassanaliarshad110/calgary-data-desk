@@ -1,0 +1,284 @@
+Compare wards
+
+Nov 2025 to Oct 2026 against Nov 2024 to Oct 2025. All 14 wards from the same City data, with Calgary as a whole.
+
+Save this table
+Ward in focus
+Ward 1
+Ward 2
+Ward 3
+Ward 4
+Ward 5
+Ward 6
+Ward 7
+Ward 8
+Ward 9
+Ward 10
+Ward 11
+Ward 12
+Ward 13
+Ward 14
+Add wards (pick any)
+Ward 2
+Ward 3
+Ward 4
+Ward 5
+Ward 6
+Ward 7
+Ward 8
+Ward 9
+Ward 10
+Ward 11
+Ward 12
+Ward 13
+Ward 14
+All wards
+Clear
+Side by side
+
+Two different comparisons. Under each ward's figure: its place among the 14 wards (for example "2nd lowest of 14 wards": a place, not a judgment; fewer 311 reports can mean problems are not being reported). "Against Calgary": how far it is from Calgary's own figure, which is all 14 wards added together: every resident and every request placed in a community, so a big ward counts for more than a small one. A ward can be 2nd lowest of 14 and 32% below Calgary at the same time: they measure different things. Green or red only where higher or lower is clearly better (crime, traffic incidents, requests closed within 7 days, amenities), and only when 10% or more from Calgary. Choose a measure to rank every ward. How each measure is worked out
+
+Measure	Ward 1
+Kim Tyers
+	Ward 1 against Calgary
+difference from Calgary's figure
+	Calgary
+all 14 wards added together
+
+PEOPLE AND GROWTH
+Residents today	102,681
+5th lowest of 14 wards
+	6.4% of Calgary	1,598,075
+Above the 2021 Census count (includes people the Census count left out)	17.5%
+4th lowest of 14 wards
+	6.5 pts below Calgary	24.0%
+Children aged 0 to 14 (estimate)	16,771
+7th lowest of 14 wards
+	6.2% of Calgary	272,093
+311
+311 requests per 1,000 residents a year	260
+6th highest of 14 wards
+	3% below Calgary	269
+Infrastructure reports per 1,000 residents a year	56.6
+6th highest of 14 wards
+	5% below Calgary	59.7
+Open requests per 1,000 residents (requests in residential communities)	43.9
+6th highest of 14 wards
+	same as Calgary	44.1
+Requests closed within 7 days	78.9%
+4th highest of 14 wards
+	2.0 pts above Calgary	76.9%
+Requests made on a phone (311 Calgary)	17.7%
+5th lowest of 14 wards
+	1.9 pts below Calgary	19.6%
+SAFETY
+Crimes per 1,000 residents a year	8.8
+4th lowest of 14 wards
+	46% below Calgary	16.3
+Change in crime from a year earlier	−15.0%
+2nd lowest of 14 wards
+	13.5 pts below Calgary	−1.5%
+Change in violent crime	−12.3%
+5th lowest of 14 wards
+	4.7 pts below Calgary	−7.6%
+TRAFFIC
+Traffic incidents reported	330
+4th lowest of 14 wards
+	3.9% of Calgary	8,408
+Traffic incidents per 1,000 residents a year	3.2
+5th lowest of 14 wards
+	40% below Calgary	5.3
+HOMES
+Homes lived in today (City property roll)	35,926
+4th lowest of 14 wards
+	6.3% of Calgary	566,079
+Homes lived in at the 2021 Census (same count)	33,405
+7th lowest of 14 wards
+	6.8% of Calgary	494,511
+Households counted by the 2021 Census (check)	33,775
+7th lowest of 14 wards
+	6.7% of Calgary	500,990
+Growth in homes since the 2021 Census	7.5%
+4th lowest of 14 wards
+	7.0 pts below Calgary	14.5%
+Residents per home (City's total, actual growth)	2.86
+6th highest of 14 wards
+	1% above Calgary	2.82
+BUILDING
+New homes in building permit applications	795
+2nd lowest of 14 wards
+	3.4% of Calgary	23,145
+Development permit applications	403
+5th lowest of 14 wards
+	6.1% of Calgary	6,601
+FAMILIES
+Licensed child care spaces per 100 children (0 to 14)	27.7
+6th highest of 14 wards
+	11% above Calgary	24.9
+Daycare and preschool spaces per 100 children under 5	69.1
+6th highest of 14 wards
+	23% above Calgary	56.4
+Schools	35
+7th highest of 14 wards
+	7.2% of Calgary	488
+Students enrolled	14,065
+5th lowest of 14 wards
+	6.2% of Calgary	227,762
+AMENITIES
+Homes within 400 m of a playground (any community)	74%
+7th highest of 14 wards
+	3.0 pts above Calgary	71%
+Homes within 400 m of a public park (any community)	100%
+highest of 14 wards
+	1.0 pts above Calgary	99%
+Homes within 400 m of a transit stop (any community)	94%
+6th lowest of 14 wards
+	0.3 pts below Calgary	95%
+Homes within 800 m of a community centre (any community)	28%
+6th lowest of 14 wards
+	11.0 pts below Calgary	39%
+Homes within 2 km of an indoor recreation centre (any community)	42%
+5th lowest of 14 wards
+	7.9 pts below Calgary	50%
+Homes within 2 km of a public library (any community)	48%
+6th highest of 14 wards
+	3.1 pts below Calgary	51%
+Playgrounds per 1,000 children (residential communities)	5.07
+3rd highest of 14 wards
+	25% above Calgary	4.05
+Neighbourhood park space (hectares) per 1,000 residents (residential communities)	4.01
+highest of 14 wards
+	51% above Calgary	2.66
+Park benches per 1,000 residents (residential communities)	7.91
+4th highest of 14 wards
+	38% above Calgary	5.72
+Picnic tables per 1,000 residents (residential communities)	4.63
+highest of 14 wards
+	190% above Calgary	1.59
+Basketball hoops per 1,000 residents (residential communities)	0.28
+highest of 14 wards
+	38% above Calgary	0.21
+Sports field goal posts per 1,000 residents (residential communities)	1.71
+4th highest of 14 wards
+	22% above Calgary	1.40
+Park washrooms per 1,000 residents (residential communities)	0.05
+3rd highest of 14 wards
+	133% above Calgary	0.02
+Off-leash dog areas per 1,000 residents (residential communities)	0.14
+5th highest of 14 wards
+	39% above Calgary	0.10
+Public trees per 1,000 residents (residential communities)	419
+4th highest of 14 wards
+	22% above Calgary	343
+Recreation facilities per 1,000 residents (residential communities)	0.05
+5th highest of 14 wards
+	20% below Calgary	0.06
+Libraries per 1,000 residents (residential communities)	0.01
+6th highest of 14 wards
+	23% below Calgary	0.01
+Community centres and halls per 1,000 residents (residential communities)	0.05
+6th lowest of 14 wards
+	28% below Calgary	0.07
+Transit stops per 1,000 residents (residential communities)	4.34
+3rd highest of 14 wards
+	26% above Calgary	3.44
+
+Each ward is its communities (the ward holding most of each community's area). Rates are per 1,000 residents a year, using residents in the middle of the period, counted the way chosen in Settings. Traffic incidents are placed by their exact location; crime is the Calgary Police Service figure for each ward. Crime: Oct 2025 to Sep 2026. Amenities: homes within reach of each amenity, in any community (Growth vs amenities); City assets in open data per 1,000 residents (playgrounds per 1,000 children) counted inside each ward.
+
+Homes within 400 m of a playground (any community)
+
+Highest first. The line is Calgary as a whole (71%).
+
+Measure
+Residents today
+Above the 2021 Census count (includes people the Census count left out)
+Children aged 0 to 14 (estimate)
+311 requests per 1,000 residents a year
+Infrastructure reports per 1,000 residents a year
+Open requests per 1,000 residents (requests in residential communities)
+Requests closed within 7 days
+Requests made on a phone (311 Calgary)
+Crimes per 1,000 residents a year
+Change in crime from a year earlier
+Change in violent crime
+Traffic incidents reported
+Traffic incidents per 1,000 residents a year
+Homes lived in today (City property roll)
+Homes lived in at the 2021 Census (same count)
+Households counted by the 2021 Census (check)
+Growth in homes since the 2021 Census
+Residents per home (City's total, actual growth)
+New homes in building permit applications
+Development permit applications
+Licensed child care spaces per 100 children (0 to 14)
+Daycare and preschool spaces per 100 children under 5
+Schools
+Students enrolled
+Homes within 400 m of a playground (any community)
+Homes within 400 m of a public park (any community)
+Homes within 400 m of a transit stop (any community)
+Homes within 800 m of a community centre (any community)
+Homes within 2 km of an indoor recreation centre (any community)
+Homes within 2 km of a public library (any community)
+Playgrounds per 1,000 children (residential communities)
+Neighbourhood park space (hectares) per 1,000 residents (residential communities)
+Park benches per 1,000 residents (residential communities)
+Picnic tables per 1,000 residents (residential communities)
+Basketball hoops per 1,000 residents (residential communities)
+Sports field goal posts per 1,000 residents (residential communities)
+Park washrooms per 1,000 residents (residential communities)
+Off-leash dog areas per 1,000 residents (residential communities)
+Public trees per 1,000 residents (residential communities)
+Recreation facilities per 1,000 residents (residential communities)
+Libraries per 1,000 residents (residential communities)
+Community centres and halls per 1,000 residents (residential communities)
+Transit stops per 1,000 residents (residential communities)
+1
+Ward 3
+82%
+2
+Ward 13
+81%
+3
+Ward 9
+79%
+4
+Ward 12
+79%
+5
+Ward 5
+79%
+6
+Ward 2
+77%
+7
+Ward 1
+74%
+8
+Ward 6
+73%
+9
+Ward 14
+72%
+10
+Ward 11
+71%
+11
+Ward 10
+67%
+12
+Ward 4
+67%
+13
+Ward 8
+57%
+14
+Ward 7
+48%
+Map of wards
+
+Homes within 400 m of a playground (any community). Darker is higher. Ward 1 is outlined in blue; click a ward to add it.
+
+ Leaflet | Esri
+48%
+82%

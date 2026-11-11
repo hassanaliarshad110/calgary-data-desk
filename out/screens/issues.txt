@@ -1,0 +1,152 @@
+Open issues
+
+311 requests still open in Calgary as of the last refresh (11 Nov 2026). Choose a ward to list them.
+
+78,774
+still open as of today (3,526 with no community, so in no ward)
+65,012
+open more than 90 days
+44.1
+open per 1,000 residents (requests in residential communities only)
+"Still open" is how the City's data marks them, not proof the work is undone. Many older requests are still marked open, some for years: some may be finished but never closed, especially "311 Contact Us" messages, which the list below leaves out unless you untick the box. The office can send 311 a list of request numbers to review: filter the list, then use "Save this list".
+Track a request
+
+Type a 311 request number to see which department has it, its status and its dates
+
+Look up
+
+What a status cannot tell you: "Closed" means the department closed the request in its system. It does not confirm the problem was fixed: the work may be scheduled for later, the request may have been passed to another City system or team, or it may be outside the City's responsibility. The open data has no notes on what was done, who did it, or when the department took it on; it shows the department responsible, the status and the dates. Request numbers name no one. Source: City of Calgary 311 Service Requests (iahh-g8bj), published daily.
+
+Open requests in each ward
+
+Most open per 1,000 residents first. The rate counts requests in residential communities only, since business and industrial areas have almost no residents; "Still open" counts every request. Choose a ward to list its requests one by one.
+
+Ward	Councillor	Still open	Open more than 90 days	Open per 1,000 residents	
+Open the ward
+
+Ward 7	Myke Atkinson	10,413	8,367	106.7	List Ward 7's requests
+Ward 8	Nathaniel Schmidt	7,611	6,136	64.0	List Ward 8's requests
+Ward 9	Harrison M. Clark	7,428	6,067	60.1	List Ward 9's requests
+Ward 4	Daniel James (DJ) Kelly	5,710	4,864	53.5	List Ward 4's requests
+Ward 11	Rob Ward	6,206	5,089	49.3	List Ward 11's requests
+Ward 1	Kim Tyers	4,629	3,901	43.9	List Ward 1's requests
+Ward 10	Andre Chabot	4,414	3,652	36.5	List Ward 10's requests
+Ward 6	John Pantazopoulos	4,435	3,728	36.3	List Ward 6's requests
+Ward 12	Mike Jamieson	5,064	4,354	33.3	List Ward 12's requests
+Ward 14	Landon Johnston	3,510	2,898	32.7	List Ward 14's requests
+Ward 13	Dan McLean	3,723	3,050	31.1	List Ward 13's requests
+Ward 3	Andrew Yule	3,595	3,003	31.0	List Ward 3's requests
+Ward 2	Jennifer Wyness	3,692	3,129	29.6	List Ward 2's requests
+Ward 5	Raj Dhaliwal	4,818	3,929	26.8	List Ward 5's requests
+How quickly departments close requests
+
+311 requests made in Calgary between 1 Nov 2025 and 1 Nov 2026 (duplicates left out), by how long the department took to close them
+
+Departments
+Request types
+within 7 days
+8 to 30
+31 to 90
+over 90
+still open
+Department	Requests	Closed within 7 days · 30 · 90 · later · still open	Within 7 days	Still open	Average days to close
+CS - Emergency Management and Community Safety	95,551	
+	58%	4%	12.3
+OS - Mobility	90,238	
+	71%	15%	10.2
+OS - Waste and Recycling Services	87,789	
+	97%	0%	2.3
+OS - Parks and Open Spaces	46,237	
+	73%	1%	8.2
+OS - Water Services	39,973	
+	70%	3%	11.5
+CPFS - Assessment and Tax	35,339	
+	89%	0%	4.7
+OS - Calgary Transit	22,139	
+	45%	6%	14.4
+CS - Recreation and Social Programs	20,576	
+	62%	1%	11.0
+CS - Calgary Fire	13,326	
+	54%	7%	16.7
+PDS - Development, Business and Building Services	11,986	
+	47%	5%	19.6
+OSC - Waste and Recycling Services	4,718	
+	99%	0%	2.5
+OSC - Calgary Transit	2,666	
+	98%	0%	1.7
+Corporate Wide Service Requests	2,237	
+	98%	1%	0.6
+IS - Public Spaces Delivery	1,881	
+	71%	1%	7.4
+CPFS - Finance	1,655	
+	96%	0%	1.8
+PICS - Human Resources	1,335	
+	94%	2%	1.4
+LLSS - Law	1,215	
+	93%	0%	3.8
+IS - Real Estate and Development Services	786	
+	78%	1%	6.6
+IS - Capital Planning and Business Services	670	
+	84%	0%	4.4
+OS - Facility Management	627	
+	61%	15%	20.4
+IS - Utilities Delivery	623	
+	76%	1%	6.4
+CS - Partnerships	531	
+	89%	1%	3.8
+IS - Project Development	311	
+	55%	1%	8.3
+PDS - Environmental Risk & Resilience	284	
+	48%	1%	16.2
+PDS - Community Planning	274	
+	22%	2%	17.4
+PICS - Marketing and Communication	266	
+	79%	0%	7.5
+PICS - Information Technology	191	
+	94%	2%	2.5
+Elected Officials	177	
+	100%	0%	0.0
+PDS - City and Regional Planning	176	
+	23%	13%	17.7
+PICS - Customer Service and Communications	172	
+	84%	1%	4.5
+PICS - Collaboration, Analytics and Innovation	155	
+	83%	1%	4.8
+PDS - Climate and Environment	143	
+	86%	0%	6.3
+OSC - Greenline	124	
+	95%	2%	2.0
+IS - Green Line LRT - SE Project	106	
+	55%	0%	6.9
+LLSS - City Clerk's Office	92	
+	64%	1%	10.2
+OS - Fleet and Inventory	50	
+	82%	0%	4.7
+AO - Calgary Housing	44	
+	39%	7%	23.9
+CPFS - Supply Management	38	
+	89%	0%	7.2
+CS - Community Strategies	25	
+	84%	4%	8.9
+LLSS - Chief Administrators Office	23	
+	91%	0%	2.9
+OS - Operational Excellence	22	
+	86%	0%	4.3
+CEO - Chief Housing Office	16	
+	31%	0%	32.4
+PICS - 311 and Insights	14	
+	79%	14%	3.2
+CS - Chief Housing Office	11	
+	100%	0%	2.5
+PDS - Downtown Strategy	7	
+	71%	0%	6.3
+N/A	5	
+	40%	0%	36.2
+
+Days to close = the closed date minus the date the request was made; the average counts closed requests only. Requests made near the end of the period have had less time to close, so "still open" is higher for recent work. What a status cannot tell you: "Closed" means the department closed the request in its system. It does not confirm the problem was fixed: the work may be scheduled for later, the request may have been passed to another City system or team, or it may be outside the City's responsibility. The open data has no notes on what was done, who did it, or when the department took it on; it shows the department responsible, the status and the dates.
+
+Request details come from the City's 311 open data, updated daily. The City publishes the community for each request, not its address, and its own status page shows a request only to the person who filed it.
+
+Source 311 Service Requests (City of Calgary): updated by the City 11 Nov 2026
+Note Every Calgary request marked Open in the City's records at the last refresh (11 Nov 2026). Some are years old and may already be fixed.
+How it's counted 311 Service Requests · Rates per 1,000 residents, growth, and the "Growing" flag

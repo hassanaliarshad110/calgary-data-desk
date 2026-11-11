@@ -1,0 +1,13 @@
+build exit 0
+steps 83 failed 0 [] minutes 93.1
+screens 54 of 54 problems []
+direct, after 20 s: [
+  "operating per resident (1,598,075 people, the City's estimate)",
+  'capital per resident',
+  " not a year's budget and is not divided per resident. Private and other-government projects are on Growth vs ame"
+]
+after the dashboard: [
+  "operating per resident (1,598,075 people, the City's estimate)",
+  'capital per resident',
+  " not a year's budget and is not divided per resident. Private and other-government projects are on Growth vs ame"
+]

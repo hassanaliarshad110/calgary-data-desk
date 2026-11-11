@@ -1,0 +1,15 @@
+311 requests12 484827 no community 31291 prev 482788 change 0.4
+open 78774 no community 3526 over 90 65012 per 1000 44.1
+infra 102249 102100 | closed 7d 76.3 76.3 | app 18.3 18.3
+per 1000 269.2 59.7
+trend sum 484827 dept sum 484827
+dp applied 6616 prev 6816 wards table 6601
+students 227762 elsewhere {"programs": [{"name": "The Gilbertine Academy", "board": "The Gilbertine Institute of Catholic Studies", "students": 6218}, {"name": "Vista Virtual School", "board": "The Pembina Hills School Division", "students": 2011}, {"name": "CBe-learn", "board": "The Calgary School Division", "students": 1304}, {"name": "BCS@Home", "board": "Bearspaw Christian School Society", "students": 1213}, {"name": " | note Students enrolled in each school inside Calgary (Government of Alberta, Student enrolment by school, authority and grade level). Schools are placed with the City's Schools map. Totals over years count
+ward students {1: 14065, 2: 9856, 3: 13439, 4: 24031, 5: 17465, 6: 16034, 7: 11818, 8: 15227, 9: 16321, 10: 19975, 11: 26416, 12: 15772, 13: 12700, 14: 14643}
+child care spaces 69678 programs 861 unplaced {'programs': 23, 'spaces': 1957} unlocated 2
+child care note of Alberta, Child Care Information). Family day home agencies are listed but not counted, because the day homes they oversee are spread across the city. 23 programs (1,957 spaces) have a Calgary address the City's address list could not place: they are in Calgary's total but in no community or ward.
+names with apostrophe-S 0
+wards table child care 67721
+infra breaks 141 162 through 2026-08-23 mains km 5414.9
+school growth check [{"key": "schools", "label": "School enrolment", "growth_pct": 24.0, "real_growth_pct": 20.8, "how": "Students in Calgary's schools 193,282 (2021/2022) to 227,762 (2025/2026), +17.8%; every Calgary school +17.8%. Calgary grew 1.00 times as fast; x Calgary's 20.7% = +20.8% real growth; x 1.027 = +24.0% against the 2021 Census count"}]
+school tax students {"year": "2025/2026", "students": 227386, "schools": 450, "years": [{"year": "2016/2017", "students": 183921}, {"year": "2017/2018", "students": 187754}, {"year": "2018/2019", "students": 190847}, {"y per student 5486
