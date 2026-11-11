@@ -89,7 +89,7 @@
   },
   {
    "heading": "The four years to 2030",
-   "text": "The City's budget page gives the household figure for 2027 only. News reports of the budget presented to Council give the later property tax increases as 10% in 2028, 7.7% in 2029 and 6% in 2030, the water rates Council approved in October take the typical water bill from $119.21 to $206.94 a month by 2030 (nearly 74%), and the cart fees the City proposed in October rise $1.45 a year, from $20.51 to $26.31 a month. Applied to the typical home, this scenario gives:\n\n- property tax would rise from $229 a month in 2026 to about **$334** in 2030 (+46%);\n- the water bill from $119 to about **$207**;\n- cart fees from $20.51 to **$26.31**;\n- together, from $369 to about **$567 a month**, $2,379 more a year (+54%).\n\nThese are dollars of each year, before inflation; if prices rise 2% a year, the Bank of Canada's target, they rise about 8% over the same four years. The later years are a scenario built on reported figures, not bills Council has set: Council can change each year and assessments shift. The 2030 water bill ($206.94) comes from the rates Council approved, as reported; the cart fees are the City's October 2026 proposal, which its $156 estimate for 2027 already reflects; the water bill in 2028 and 2029 is spread in equal steps between 2027 and 2030 because this study did not find the yearly figures.",
+   "text": "The City's budget page gives the household figure for 2027 only. News reports of the budget presented to Council give the later property tax increases as 10% in 2028, 7.7% in 2029 and 6% in 2030, the water rates Council approved in October take the typical water bill from $119.21 to $206.94 a month by 2030 (nearly 74%), and the cart fees the City proposed in October rise $1.45 a year, from $20.51 to $26.31 a month. Applied to the typical home, this scenario gives:\n\n- property tax would rise from $229 a month in 2026 to about **$334** in 2030 (+46%);\n- the water bill from $119 to about **$207**;\n- cart fees from $20.51 to **$26.31**;\n- together, from $369 to about **$567 a month**, $2,379 more a year (+54%).\n\nThese are dollars of each year, before inflation; if prices rise 2% a year, the Bank of Canada's target, they rise about 8% over the same four years. The later years are a scenario built on reported figures, not bills Council has set: Council can change each year and assessments shift. The 2030 water bill ($206.94) comes from the rates Council approved, as reported; the cart fees are the City's October 2026 proposal, which its $156 estimate for 2027 already reflects; the water bill in 2028 and 2029 is spread in equal dollar steps between 2027 and 2030 ($24.41 a year, so $158.12 and $182.53) because this study did not find the yearly figures.",
    "visuals": [
     {
      "type": "chart",
@@ -118,8 +118,8 @@
        "values": [
         119.21,
         133.71,
-        154.66,
-        178.9,
+        158.12,
+        182.53,
         206.94
        ]
       },
@@ -613,7 +613,7 @@
   "Property tax: City (municipal) property tax for the typical home each city reports on (median or average, as the city defines it), including separate library levies (Saskatoon, Regina) and Winnipeg's street renewal frontage levy; provincial school tax is left out. Saskatoon's and Regina's figures are those compiled in the City of Winnipeg's 2026 Adopted Budget, which agrees with this study's own figures for Calgary, Toronto and Ottawa to within $11. For each city the tax counted is the levy its council sets; levies collected on the same bill for other bodies (in Vancouver, TransLink, BC Assessment and the Municipal Finance Authority) are left out.",
   "Utilities: water, wastewater, stormwater and waste collection for a single-family home, from each city's 2026 rate schedule, at 19 cubic metres of water a month, the water use of the City of Calgary's typical customer and of its survey. Vancouver's single-family homes pay flat fees, taken from the City's 2026 taxation report.",
   "Share of income: tax and utilities for a year divided by the median household total income in 2020 from the 2021 Census (Statistics Canada 98-10-0057), the latest available by city.",
-  "Calgary 2028 to 2030: the reported property tax increases (10%, 7.7%, 6%) applied to the City's 2027 figure for the typical home; the water bill rising to the City's $206.94 for 2030 in three equal yearly steps after 2027; cart fees as the City proposed in October 2026 ($21.96, $23.41, $24.86, $26.31). A scenario in dollars of each year, not adjusted for inflation.",
+  "Calgary 2028 to 2030: the reported property tax increases (10%, 7.7%, 6%) applied to the City's 2027 figure for the typical home; the water bill rising to the City's $206.94 for 2030 in three equal dollar steps after 2027 ($24.41 a year); cart fees as the City proposed in October 2026 ($21.96, $23.41, $24.86, $26.31). A scenario in dollars of each year, not adjusted for inflation.",
   "This is an independent analysis of publicly available information. Calgary Insight does not represent The City of Calgary or any other city. Every calculation is reproduced, with its inputs, sources and live formulas, in the calculation workbook published with this study (what-calgarians-pay-calculations.xlsx). All calculations were made from the published rates and checked against published examples where one exists (Calgary's $119.21 water bill; Winnipeg's household water bill; Vancouver's $6,588; Winnipeg's comparison of tax bills). The study was checked by an independent reviewer before publication, and corrected."
  ],
  "data_sources": [
@@ -666,7 +666,13 @@
    "period": "October 2026"
   },
   {
-   "name": "Residential waste collection fees could go up nearly $6 by 2030 (the City's administrative report: +$1.45 a year to $26.31) (Oct. 2, 2026)",
+   "name": "The City of Calgary, Report on Waste & Recycling Rates and Charges, to Executive Committee (October 2026): cart fees +$1.45 a year to $26.31 a month in 2030",
+   "publisher": "The City of Calgary",
+   "url": "https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=374196",
+   "period": "October 2026"
+  },
+  {
+   "name": "Yahoo News Canada, Residential waste collection fees could go up nearly $6 by 2030: report (Oct. 2, 2026), reporting the figures of that City report",
    "publisher": "News or business report",
    "url": "https://ca.news.yahoo.com/residential-waste-collection-fees-could-180635918.html",
    "period": "October 2026"

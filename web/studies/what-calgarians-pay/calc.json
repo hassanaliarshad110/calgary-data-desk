@@ -152,21 +152,21 @@
   },
   "2028": {
    "tax": 292.6,
-   "water": 154.66453520741578,
+   "water": 158.12,
    "waste": 23.41,
-   "total": 470.67453520741583
+   "total": 474.13000000000005
   },
   "2029": {
    "tax": 315.1302,
-   "water": 178.90298744241986,
+   "water": 182.53,
    "waste": 24.86,
-   "total": 518.8931874424198
+   "total": 522.5202
   },
   "2030": {
    "tax": 334.03801200000004,
-   "water": 206.94000000000003,
+   "water": 206.94,
    "waste": 26.31,
-   "total": 567.2880120000001
+   "total": 567.288012
   }
  },
  "next": {
@@ -241,8 +241,12 @@
    "LiveWire Calgary, committee recommends near 75 per cent increase to water rates ($119.21 to $206.94 a month) (Oct. 6, 2026)",
    "https://livewirecalgary.com/2026/10/06/calgary-committee-recommends-near-75-per-cent-increase-to-water-rates/"
   ],
+  "cgy_waste_rpt": [
+   "The City of Calgary, Report on Waste & Recycling Rates and Charges, to Executive Committee (October 2026): cart fees +$1.45 a year to $26.31 a month in 2030",
+   "https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=374196"
+  ],
   "cgy_waste4": [
-   "Residential waste collection fees could go up nearly $6 by 2030 (the City's administrative report: +$1.45 a year to $26.31) (Oct. 2, 2026)",
+   "Yahoo News Canada, Residential waste collection fees could go up nearly $6 by 2030: report (Oct. 2, 2026), reporting the figures of that City report",
    "https://ca.news.yahoo.com/residential-waste-collection-fees-could-180635918.html"
   ],
   "edm_2026": [
