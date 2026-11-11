@@ -37,9 +37,15 @@ Write `packages/<date>-<slot>-<slug>.md` with **every** required output of the s
   1. a one-line hook (a question or a surprising plain-language statement),
   2. one or two short sentences with the key facts in plain words, with **no numbers, percentages, dollar amounts or tables** (say "nearly half", "more than doubled" only if audited; otherwise just describe it),
   3. a one-line question that invites comments, ending "Drop your thoughts below 👇",
-  4. `Sources and the full story: calgaryinsight.ca` **on its own line** (never run into a sentence),
+  4. `More Calgary stories, studies and analysis: calgaryinsight.ca` **on its own line** (never run into a sentence),
   5. 3-5 hashtags (#Calgary #yyc plus 1-3 on the topic).
   No source lists, no URLs other than calgaryinsight.ca, no long paragraphs. About 300 characters before the hashtags. The full YouTube widescreen description may add chapters below the same short text, nothing else. Sources live in the package and on the site, not in the post.
+- **Visual hook + text hook + CTA in EVERY video (Hassan's rule, Nov 11, 2026: "It is important").** Applies to fun facts, news, flagships (Short, widescreen and teaser), and every Calgary Origins film and part.
+  - **Visual hook (0-2 s):** the first frames must *move* and grab the eye, together with the text hook, never a static title card. Pick what fits the story: a fast push-in or zoom onto a real Calgary landmark, map or archival-style scene; a bold before/after flash; an object or number slamming in; a split-second "reveal" (a wipe, a pin dropping on the map, a road sign flipping, a light switching on); kinetic hook text punching in word by word. It must match the thumbnail's design (section 5) and be readable with the sound off.
+  - **Text hook (0-2 s):** the spoken and on-screen hook line, as before.
+  - **CTA at the end (spoken and on screen, before the end card):** (1) the comment prompt: the closing question + "Drop your thoughts below 👇"; then (2) "For more Calgary stories, studies and analysis, visit calgaryinsight.ca" (spoken as "calgary insight dot c a", shown as calgaryinsight.ca). The end card repeats both: a big "💬 Comment below" and "More at calgaryinsight.ca", held for at least 2 seconds.
+  - **Caption CTA:** after the question line and before the hashtags, a line `More Calgary stories, studies and analysis: calgaryinsight.ca` (this replaces "Sources and the full story: calgaryinsight.ca"; in section 7b posts it sits beside the ▶ Full film line).
+  - Storyboards must name the visual hook explicitly (what moves, how, for how long). The renderer checks the first 2 seconds as stills (frame at 0.0 s, 0.5 s, 1.0 s and 1.5 s) and the CTA frames before the full render.
 - **Hook and question in every video (Hassan's rule, Nov 10, 2026).**
   - **Open with a hook** in the first 2 seconds, spoken and on screen: a question or a surprising line ("Why is a Calgary highway named after a runner?"), never a slow intro.
   - **Close with a question to the viewer**, spoken and shown big on screen just before the end card, followed by "Drop your thoughts below" (on screen: "Drop your thoughts below 👇"). Example: "Do you think this is fair, or too much? Drop your thoughts below."
@@ -53,7 +59,7 @@ Write `packages/<date>-<slot>-<slug>.md` with **every** required output of the s
 2. **Independent auditor.** Spawn a fresh subagent (Agent tool, general-purpose) that did not draft the script. Give it **only** the narration, on-screen text and the claims table, not your research notes or reasoning. Its instructions:
    - Open every source URL yourself and check each claim against what the page actually says: the number, unit, date, reference period, geographic boundary (city / CMA / ward / community) and attribution.
    - Mark each claim **PASS**, **FAIL** (the source says something different, and give the correct wording), or **UNSUPPORTED** (the page doesn't say it, won't load, or isn't a credible source).
-   - Also flag: any factual sentence missing from the claims table; numbers in words that don't match the figure (for example "forty-two" vs 4.2); comparisons across mismatched periods or boundaries; estimates or projections stated as facts; correlation presented as cause; a hook the data doesn't pay off; anything partisan or unfair to a ward or person; a closing question that is leading or one-sided; a missing opening hook or closing question; any mention of Hassan's name.
+   - Also flag: any factual sentence missing from the claims table; numbers in words that don't match the figure (for example "forty-two" vs 4.2); comparisons across mismatched periods or boundaries; estimates or projections stated as facts; correlation presented as cause; a hook the data doesn't pay off; anything partisan or unfair to a ward or person; a closing question that is leading or one-sided; a missing opening hook or closing question; a missing visual hook in the storyboard; a missing end CTA (comment prompt + calgaryinsight.ca) in the narration, end card or caption; any mention of Hassan's name.
    - Return a table with one row per claim, plus a verdict: **APPROVED** only if every claim passes and nothing is flagged.
 3. **Fix and re-audit.** Correct or cut every FAIL and UNSUPPORTED claim, deal with every flag, and send the revised script to a **new** auditor subagent. Allow at most 3 rounds.
 4. **If it still isn't approved after round 3:** do not narrate or render. Save the package and audit report, log status `"blocked-by-audit"` with the reasons, and tell Hassan which claims couldn't be verified.
@@ -132,7 +138,7 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
   <question> Drop your thoughts below 👇
 
   ▶ Full film: https://youtu.be/<id>
-  🌐 calgaryinsight.ca
+  🌐 More Calgary stories, studies and analysis: calgaryinsight.ca
 
   #Calgary #yyc ...
   ```
