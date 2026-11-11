@@ -1,0 +1,122 @@
+name: Probe 25
+
+# Read only. After publication: waits until the live site shows the new build, then checks the live site itself
+# (the files served, the data checks, every screen on desktop and an emulated phone, the new screen in detail).
+# Output goes to the branch fetched-25. It changes nothing on main or on the site.
+
+on: {push: {branches: [site-check-25]}}
+permissions: {contents: write}
+env:
+  SITE: https://calgaryinsight.ca
+  T: docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/tools
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: acf0660db0d8c8ad3617dba412a7a7804e1a74a4}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - name: A browser for the checks
+        run: |
+          npm i --no-save playwright > /dev/null 2>&1
+          npx playwright install --with-deps chromium > /dev/null 2>&1
+          node -e "console.log('playwright', require('playwright/package.json').version)"
+      - name: Wait for the live site to show the new build
+        run: |
+          set +e
+          mkdir -p out
+          date -u +'started waiting %Y-%m-%dT%H:%M:%SZ' > out/summary.txt
+          for i in $(seq 1 200); do
+            curl -fsS -m 60 "$SITE/?t=$(date +%s)" -o live-index.html
+            if grep -q 'site\.0c52be4945\.js' live-index.html && grep -q 'budget-intelligence' live-index.html; then echo "new build seen on the live site $(date -u +%Y-%m-%dT%H:%M:%SZ) after $i checks" >> out/summary.txt; break; fi
+            sleep 60
+          done
+          grep -q 'site\.0c52be4945\.js' live-index.html || echo "THE NEW BUILD WAS NOT SEEN ON THE LIVE SITE within the waiting time" >> out/summary.txt
+          sleep 90
+      - name: The files served by the live site
+        if: always()
+        run: |
+          set +e
+          mkdir -p live/data live/budget-intel live-py/data
+          for f in index.html budget-intel.js budget-intel.css budget-intel/business-cases.json budget-intel/crosswalk.json data/built.json data/budget.json data/tax.json data/methods.json data/analyst_topics.json data/registry.json data/search.json py/manifest.json; do
+            mkdir -p "live/$(dirname $f)"; curl -fsS -m 120 "$SITE/$f?t=$(date +%s)" -o "live/$f" || echo "NOT SERVED: $f" >> out/summary.txt
+          done
+          echo "live bundle: $(grep -o 'site\.[0-9a-f]*\.js' live/index.html | head -1); Budget Intelligence in index.html: $(grep -c 'budget-intelligence' live/index.html) lines" >> out/summary.txt
+          for p in "budget-intel.js ui/budget-intel.js" "budget-intel.css ui/budget-intel.css" "budget-intel/business-cases.json ui/budget-intel/business-cases.json" "budget-intel/crosswalk.json ui/budget-intel/crosswalk.json"; do
+            set -- $p; a=$(sha256sum "live/$1" | cut -d' ' -f1); b=$(sha256sum "$2" | cut -d' ' -f1)
+            echo "$1: live ${a:0:16} repository ${b:0:16} $([ "$a" = "$b" ] && echo IDENTICAL || echo DIFFERENT)" >> out/summary.txt
+          done
+          python - <<'PY' >> out/summary.txt 2>&1
+          import json
+          def rd(p):
+              try: return json.load(open(p, encoding='utf-8'))
+              except Exception as e: return None
+          b = rd('live/data/built.json')
+          if b:
+              bad = [s for s in b['steps'] if not s.get('ok')]
+              print(f"live build: {b.get('built_at')} (Calgary time), {len(b['steps'])} steps, {len(bad)} failed, {b.get('minutes')} minutes")
+              for s in bad: print('  FAILED STEP:', s['step'], '|', s.get('error', '')[:200])
+          else: print('live built.json not read')
+          for p, key in (('live/data/methods.json', 'budget_intelligence'), ('live/data/analyst_topics.json', 'budget_requests'), ('live/data/registry.json', 'budget-intelligence'), ('live/data/search.json', 'budget-intelligence'), ('live/py/manifest.json', 'budget_intel.py')):
+              d = rd(p); t = json.dumps(d) if d is not None else ''
+              print(f"{p}: {'read' if d is not None else 'NOT READ'}; {len(d) if isinstance(d, (list, dict)) else ''} entries; '{key}' appears {t.count(key)} times")
+          PY
+          python tools/budget_intel_check.py --data live/data --json out/checks-live.json > out/checks-live.txt 2>&1; echo "tools/budget_intel_check.py on the live data, exit code: $?" >> out/summary.txt; tail -1 out/checks-live.txt >> out/summary.txt
+          # the assistants' Python files exactly as the live site ships them to the browser
+          python - <<'PY' >> out/summary.txt 2>&1
+          import json, os, urllib.request
+          m = json.load(open('live/py/manifest.json')); n = 0; bad = []
+          for f in m['files']:
+              os.makedirs(os.path.dirname(os.path.join('live-py', f)) or 'live-py', exist_ok=True)
+              try: urllib.request.urlretrieve('https://calgaryinsight.ca/py/' + f, os.path.join('live-py', f)); n += 1
+              except Exception as e: bad.append(f)
+          print(f"assistants' files downloaded from the live site: {n} of {len(m['files'])}; not downloaded: {bad[:8]}")
+          PY
+          (cd live-py && python "$GITHUB_WORKSPACE/$T/genie_test.py" "$GITHUB_WORKSPACE/out/assistants-live.json" > "$GITHUB_WORKSPACE/out/assistants-live.txt" 2>&1; echo "assistants' tool on the live files, exit code: $?" >> "$GITHUB_WORKSPACE/out/summary.txt"; tail -1 "$GITHUB_WORKSPACE/out/assistants-live.txt" >> "$GITHUB_WORKSPACE/out/summary.txt")
+          python -c "import json; d=json.load(open('out/assistants-live.json')); print('assistants live:', d['passed'], 'passed,', d['failed'], 'failed')" >> out/summary.txt 2>&1
+      - name: Every screen of the live site, desktop and an emulated phone
+        if: always()
+        run: |
+          set +e
+          node $T/smoke.js "$SITE" smoke-out budget-intelligence > out/smoke.txt 2>&1
+          mkdir -p out/shots; cp smoke-out/results.json out/smoke-results.json
+          for v in budget-intelligence budget dashboard infra; do cp smoke-out/desktop-$v.jpg smoke-out/mobile-$v.jpg out/shots/ 2>/dev/null; done
+          python -c "import json; r=json.load(open('out/smoke-results.json')); bad=[(x['device'],x['view'],x['jsErrors'][:1],x['localFailures'][:2]) for x in r if not x['shown'] or x['jsErrors'] or x['localFailures']]; print('screens opened:', sum(1 for x in r if x['shown']), 'of', len(r), '| with a script error or a failed request:', len(bad)); [print('  ', b) for b in bad]" >> out/summary.txt 2>&1
+      - name: The new screen in detail on the live site
+        if: always()
+        run: |
+          set +e
+          node $T/ux.js "$SITE" ui/budget-intel/business-cases.json ux-out > out/ux.txt 2>&1
+          cp ux-out/ux-results.json out/ 2>/dev/null
+          python -c "import json; d=json.load(open('out/ux-results.json')); print('user-experience checks on the live site:', d['passed'], 'passed,', d['failed'], 'failed'); [print('   FAILED:', r['group'], '|', r['name'], '|', r['detail'][:200]) for r in d['results'] if r['result']!='PASS']" >> out/summary.txt 2>&1
+          sed "s#http://localhost:8802#$SITE#" $T/interact.js > live-interact.js; node live-interact.js > out/interact.txt 2>&1; echo "interaction checks: $(grep -c '^PASS' out/interact.txt) passed, $(grep -c '^FAIL' out/interact.txt) failed" >> out/summary.txt
+          node $T/checks_open.js "$SITE" > out/data-checks-on-the-live-screen.txt 2>&1; tail -1 out/data-checks-on-the-live-screen.txt >> out/summary.txt
+          cat > live-shots.js <<'JS'
+          const { chromium, devices } = require('playwright');
+          (async () => {
+            const b = await chromium.launch(); const S = process.env.SITE;
+            const shot = async (ctxOpts, url, name, full) => { const c = await b.newContext(ctxOpts); const p = await c.newPage(); await p.goto(S + url, { waitUntil: 'domcontentloaded' }); await p.waitForTimeout(6000); await p.screenshot({ path: 'out/shots/' + name + '.jpg', type: 'jpeg', quality: 72, fullPage: !!full }); await c.close(); };
+            const D = { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, colorScheme: 'dark' };
+            await shot(D, '/?view=budget-intelligence', 'live-overview-desktop', true);
+            await shot(D, '/?view=budget-intelligence&bi=cases&case=124', 'live-request-124-desktop', false);
+            await shot(D, '/?view=budget-intelligence&bi=checks', 'live-data-checks-desktop', true);
+            await shot({ ...devices['iPhone 13'] }, '/?view=budget-intelligence', 'live-overview-phone', false);
+            await shot({ ...devices['iPhone 13'] }, '/?view=budget-intelligence&bi=cases', 'live-cases-phone', false);
+            await b.close();
+          })();
+          JS
+          node live-shots.js >> out/ux.txt 2>&1
+          date -u +'finished %Y-%m-%dT%H:%M:%SZ' >> out/summary.txt
+          cat out/summary.txt
+      - name: Push what was found to fetched-25 (evidence only)
+        if: always()
+        run: |
+          set +e
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q --orphan fetched-25
+          git rm -rqf --cached . > /dev/null 2>&1
+          git add -f out && git commit -qm "After publication: checks of the live site (evidence only)" && git push -qf origin fetched-25
