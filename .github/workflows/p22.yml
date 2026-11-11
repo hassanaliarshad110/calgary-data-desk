@@ -14,7 +14,9 @@ jobs:
         with: {python-version: '3.12'}
       - name: The durable backup, downloaded, checksummed and restored (read only)
         run: |
+          set +e
           mkdir -p out/backup out/runs out/src
+          date -u +'evidence gathered %Y-%m-%dT%H:%M:%SZ' > out/when.txt
           gh api "repos/$R/actions/runs/42997418780/artifacts" > out/backup/artifact-api.json
           gh run download 42997418780 -R "$R" -n backup-7 -D bk
           (cd bk && ls -la > ../out/backup/artifact-files.txt && sha256sum * > ../out/backup/artifact-sha256.txt)
@@ -34,9 +36,10 @@ jobs:
           echo "== every tracked file against its git blob (git fsck, then checkout comparison)" >> $T
           git -C rest fsck --no-dangling >> $T 2>&1; echo "fsck exit $?" >> $T
           echo "== the published website inside the artifact" >> $T
-          mkdir web && tar -xzf bk/website.tar.gz -C web
-          echo "files $(find web -type f | wc -l)  size $(du -sh web | cut -f1)" >> $T
-          (cd web && sha256sum index.html site.*.js data/built.json data/budget.json data/tax.json) >> ../$T
+          mkdir web0 && tar -xzf bk/website.tar.gz -C web0
+          W=$(dirname "$(find web0 -maxdepth 3 -name index.html | head -1)"); ln -s "$W" web; echo "website root inside the archive: $W" >> $T
+          echo "files $(find web/ -type f | wc -l)  size $(du -shL web | cut -f1)" >> $T
+          (cd web && sha256sum index.html site.*.js data/built.json data/budget.json data/tax.json) >> $T
           (cd web && find . -type f -printf '%s %p\n' | sort -k2 > ../out/backup/website-files.txt)
           echo "== does the restored code rebuild the published interface? (the site's own offline build step)" >> $T
           pip install -q cryptography numpy scipy openpyxl overturemaps pypdf >/dev/null 2>&1 || true
@@ -48,7 +51,10 @@ jobs:
           echo "index.html: published $a  rebuilt-from-backup $b  $([ "$a" = "$b" ] && echo IDENTICAL || echo DIFFERENT)" >> $T
           cat $T
       - name: Run records and log excerpts (read only)
+        if: always()
         run: |
+          set +e
+          mkdir -p out/runs
           gh run list -R "$R" --workflow site.yml -L 20 --json databaseId,event,status,conclusion,headSha,createdAt,updatedAt > out/runs/site-last20.json
           gh run list -R "$R" --workflow site.yml --event schedule -L 6 --json databaseId,event,status,conclusion,headSha,createdAt,updatedAt > out/runs/site-scheduled.json
           gh run list -R "$R" --workflow backup.yml -L 10 --json databaseId,event,status,conclusion,headSha,createdAt,updatedAt > out/runs/backup-last10.json
@@ -65,7 +71,10 @@ jobs:
           done
           ls -la out/runs
       - name: Official sources, read again (read only)
+        if: always()
         run: |
+          set +e
+          mkdir -p out/src
           sudo apt-get install -y -q poppler-utils >/dev/null 2>&1 || true
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
           g() { curl -sSL -A "$UA" --compressed --retry 3 --retry-delay 5 -o "$1" "$2" -w "$1 %{http_code} %{size_download} %{content_type} $2\n" >> out/src/log.txt || echo "FAILED $1 $2" >> out/src/log.txt; }
