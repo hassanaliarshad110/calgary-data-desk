@@ -1,0 +1,122 @@
+{
+ "how": "Data Genie and the Data Scientist: the new section is tried the way the website runs it. Run from the folder of Python\nfiles the website ships to the browser (py/ in the built site), with no site data folder, as in the browser.\nusage: cd <built site>/py && python3 genie_test.py <out.json>",
+ "passed": 23,
+ "failed": 0,
+ "results": [
+  {
+   "name": "summary: 384 requests, 124 operating, 260 capital",
+   "result": "PASS",
+   "detail": "{'requests': 384, 'operating': 124, 'capital': 260}"
+  },
+  {
+   "name": "summary: capital total and years ($ millions)",
+   "result": "PASS",
+   "detail": "{'total': 13051.5, '2027': 1554.1, '2028': 3016.3, '2029': 4027.5, '2030': 4426.9, '2031_and_later': 26.7}"
+  },
+  {
+   "name": "summary: positions by year",
+   "result": "PASS",
+   "detail": "{'2027': 855, '2028': 445, '2029': 279, '2030': 347}"
+  },
+  {
+   "name": "summary: capital by purpose",
+   "result": "PASS",
+   "detail": "{'Maintenance or replacement': 5529.5, 'Growth': 4520.7, 'Service enhancement': 2644.0, 'Transformative': 357.3}"
+  },
+  {
+   "name": "summary: requests only partly in the budget",
+   "result": "PASS",
+   "detail": "(17, 235.8, 613.4)"
+  },
+  {
+   "name": "summary: status says nothing is approved; the guidance says PROPOSED, no rating, no dividing citywide amounts",
+   "result": "PASS",
+   "detail": "Proposed by Administration; before Council. Nothing here is approved until Council votes on the 2027\u20132030 budget."
+  },
+  {
+   "name": "one request by number (82)",
+   "result": "PASS",
+   "detail": "('GamePLAN - Wave 1 Projects', 283.8, 'pdf#page=180')"
+  },
+  {
+   "name": "request 124 carries the City note about the full amount",
+   "result": "PASS",
+   "detail": "The City's note under the table gives the full one-time amount as $23.9 million and says the 2027-2030 budget includes only part of it; the table shows that part ($14.8 million). The rest may or will be considered in lat"
+  },
+  {
+   "name": "request 104: positions by year",
+   "result": "PASS",
+   "detail": "{'2027': 17, '2028': 15, '2029': 13, '2030': 13}"
+  },
+  {
+   "name": "list: search \"police\"",
+   "result": "PASS",
+   "detail": "6"
+  },
+  {
+   "name": "list: capital requests naming ward 7",
+   "result": "PASS",
+   "detail": "16"
+  },
+  {
+   "name": "by department: 13 names as printed, requests add to 384",
+   "result": "PASS",
+   "detail": "13"
+  },
+  {
+   "name": "by Council priority: six",
+   "result": "PASS",
+   "detail": "6"
+  },
+  {
+   "name": "capital by service area: fifteen, with the related Calgary Insight pages",
+   "result": "PASS",
+   "detail": "15"
+  },
+  {
+   "name": "by ward: fourteen wards, and the rule that dollars are not divided",
+   "result": "PASS",
+   "detail": "A request naming several wards is counted in each; its dollars are not divided. Operating requests name no ward."
+  },
+  {
+   "name": "checks: eight, including the part-requests and the reconciliation with the open data",
+   "result": "PASS",
+   "detail": "['Every business case was read', 'Each capital total equals the sum of its years', 'Some one-time requests are only partly in the proposed budget', \"The capital requests add up to the City's open data\", 'The same, busine"
+  },
+  {
+   "name": "checks: the three single requests that equal a business-unit difference are named",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "name": "sources: the City document and how it was read",
+   "result": "PASS",
+   "detail": "['units', 'read_by', 'open_data', 'method']"
+  },
+  {
+   "name": "an unknown part gives a plain error, not a crash",
+   "result": "PASS",
+   "detail": "part must be summary, cases, case, departments, priorities, service_areas, wards, checks or sources"
+  },
+  {
+   "name": "\"How it is counted\" note is served (get_method)",
+   "result": "PASS",
+   "detail": "7"
+  },
+  {
+   "name": "the raw files can be read (read_source)",
+   "result": "PASS",
+   "detail": "Budget Intelligence"
+  },
+  {
+   "name": "Data Scientist: the topic \"budget requests\" exists; no stray automatic topic for the page or its crosswalk file",
+   "result": "PASS",
+   "detail": "The 2027 to 2030 budget requests: where the money would go"
+  },
+  {
+   "name": "the tool's description and its lists of sections and parts name the new section",
+   "result": "PASS",
+   "detail": ""
+  }
+ ]
+}

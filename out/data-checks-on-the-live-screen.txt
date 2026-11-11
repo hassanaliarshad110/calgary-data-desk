@@ -1,0 +1,221 @@
+--- 1
+PASSED
+Every business case was read
+384 cases, numbered 1 to 384 with none missing.
+The City’s contents list 384 requests; all were read (124 operating, 260 capital). When the file was made, each title was matched to the contents, each printed page number to the PDF’s own page, and every figure row was read a second time with a different PDF reader (1,152 rows, no differences).
+Formula
+case numbers = 1, 2, 3 … N; count = the count stored when the file was made
+Inputs
+ui/budget-intel/business-cases.json
+Source
+https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf
+Period
+The City’s document as last changed 9 Nov 2026
+--- 2
+PASSED
+Each capital request’s total equals its years
+All 260 totals equal the sum of 2027 to 2030 and later (within $3,000 of rounding).
+Formula
+|total − (2027 + 2028 + 2029 + 2030 + 2031 and later)| ≤ 3 ($000s)
+Inputs
+cap_k of each capital case
+Limits
+The City rounds each year to $1,000.
+--- 3
+PASSED
+Each capital request’s four purposes add to 100%
+All 260 do.
+Formula
+maintenance + growth + service enhancement + transformative = 100% (±1)
+--- 4
+PASSED
+No negative amounts
+No request carries a negative amount or position count.
+Formula
+every figure ≥ 0
+--- 5
+PASSED
+The capital requests add up to the City’s open data
+Within 0.07% in every year from 2027 to 2030.
+Proposed capital ($ millions)	2027	2028	2029	2030	2027–2030
+Sum of the 260 capital business cases	1,554.1	3,016.3	4,027.5	4,426.9	13,024.7
+City open data, “Proposed” capital	1,555.2	3,017.6	4,028.8	4,427.8	13,029.4
+Difference	-1.2	-1.4	-1.3	-0.9	-4.7
+Two City sources published separately agree to within a few million dollars of $13 billion. The small difference is not explained by either source; the open data rounds each line to $0.1 million.
+Formula
+Σ cases’ amount for the year ÷ 1,000 compared with Σ open-data rows where fund = Capital and status = Proposed
+Inputs
+business-cases.json; nnnm-9sfh (read 2026-11-10 17:59)
+Period
+2027 to 2030
+Limits
+Passes when every year is within 0.5%.
+--- 6
+TO KNOW
+The same check, business unit by business unit
+27 of 33 business units match within $1 million; 6 differ, and their differences net to $1.8 million.
+The 6 that differ almost cancel out, which suggests the two sources file some of the same projects under different business units (for example the unit that asks for a project and the unit that builds it). That is an inference from the numbers; the City has not published a mapping.
+For 3 of them, a single request equals the difference in every year from 2027 to 2030 (within $0.2 million), which is what would be seen if the open data files that request under another unit: Downtown Strategy: 219. Downtown Streetscape and Public Realm Program ($31.4 million); Mobility: 57. Major Road Reconstruction ($44.3 million); Recreation & Social Programs: 82. GamePLAN - Wave 1 Projects ($283.8 million).
+Business unit ($ millions, 2027–2030)	Business cases	Open data, proposed	Difference
+Public Spaces Delivery	1,235.2	1,628.7	-393.5
+Recreation & Social Programs	336.3	52.4	283.9
+Mobility	958.9	914.9	44.0
+Downtown Strategy	43.9	12.4	31.5
+Project Development	614.6	583.5	31.1
+City & Regional Planning	24.2	23.0	1.2
+Calgary Transit	1,105.8	1,106.5	-0.7
+Information Technology	142.7	143.2	-0.5
+Human Resources	14.4	14.7	-0.3
+Capital Planning & Business Services	51.7	52.0	-0.3
+Real Estate & Development Services	178.6	178.9	-0.3
+Facilities	518.9	519.1	-0.2
+Emergency Management & Community Safety	119.2	119.4	-0.2
+Calgary Fire	229.2	229.1	0.1
+Fleet & Inventory	610.1	610.2	-0.1
+Chief Housing Office	217.9	218.0	-0.1
+Assessment & Tax	3.0	3.1	-0.1
+Civic Partners	179.9	179.8	0.1
+GM - Planning & Development Services	25.4	25.5	-0.1
+Parks and Open Spaces	276.2	276.3	-0.1
+Marketing & Communication	7.9	8.0	-0.1
+Calgary Police Service	191.9	191.8	0.1
+Environmental Risk & Resilience	7.6	7.6	0.0
+GM - Operational Services	23.5	23.5	0.0
+Partnerships	7.1	7.1	0.0
+Occupational Health & Safety	3.7	3.7	0.0
+Corporate Security	32.8	32.8	0.0
+City Clerk's Office	9.0	9.1	0.0
+GM - Law, Legislative Services & Security	0.3	0.3	0.0
+Law	0.9	0.9	0.0
+Utilities Delivery	5,840.7	5,840.7	0.0
+Cyber Security	11.3	11.3	0.0
+Finance	2.0	2.0	0.0
+Formula
+for each business unit: Σ cases (2027–2030) − Σ open-data proposed capital (2027–2030)
+Inputs
+business-cases.json, crosswalk.json, nnnm-9sfh
+Limits
+Business-unit names are matched through the crosswalk; a difference over $1 million is listed.
+--- 7
+PASSED
+Open budget: departments add up to each year’s total
+For every year and fund from 2023 to 2032.
+Formula
+|Σ departments − total| ≤ $0.6 million
+Inputs
+fqax-i3nz (read 2026-11-10 21:20)
+--- 8
+MISSING
+Budget against actual spending cannot be compared
+The open budget gives one figure per year and fund: approved or actual, never both.
+Operating is “Approved” for every year; capital is “Actual” for the oldest years and “Approved” after. So no variance is shown anywhere in the centre. See Budget vs actual for what would close the gap.
+Source
+https://data.calgary.ca/d/fqax-i3nz
+--- 9
+TO KNOW
+Two City datasets give different figures for capital already approved
+For 2027, 2028, 2029, 2030 the 2023–2026 open budget and the 2027–2030 open data disagree.
+Capital already approved ($ millions)	2027	2028	2029	2030
+Open budget (fqax-i3nz)	2,499.8	1,440.3	976.8	768.2
+2027–2030 Budget (nnnm-9sfh)	2,867.0	2,569.6	989.8	522.8
+Difference	367.3	1,129.3	13.0	-245.4
+Neither figure is changed. The centre uses the 2027–2030 data for those years, because it is the newer publication and it is the one the proposed budget is built on; the City budget screen shows the older dataset’s figures. The City has not published a reconciliation.
+Where the 2028 difference is. Business units as each dataset names them, where the two differ by $5 million or more:
+Business unit	Open budget (fqax-i3nz)	2027–2030 Budget (nnnm-9sfh)	Difference
+Green Line LRT - SE Project	not listed	1,460.2	+1,460.2
+Green Line	530.0	not listed	-530.0
+Public Spaces Delivery	294.7	388.5	+93.8
+Chief Housing Office	23.2	68.2	+45.0
+Calgary Transit	81.0	114.2	+33.2
+Real Estate & Development Services	not listed	21.4	+21.4
+Parks & Open Spaces	20.7	not listed	-20.7
+Calgary Fire	not listed	7.0	+7.0
+Civic Partners	0.3	5.7	+5.5
+Project Development	7.1	12.1	+5.0
+A unit listed in only one dataset may be the same work under another name; the centre does not merge names. Money can also be moved between years from one publication to the next, so a difference in one year is not by itself a change in the total.
+Formula
+approved capital for the year, one dataset minus the other
+Inputs
+fqax-i3nz; nnnm-9sfh
+--- 10
+TO KNOW
+The City’s headline for four-year capital is higher than its open data
+Headline: $21 billion. Open data for 2027 to 2030: $19.98 billion.
+The open data adds to $19.98 billion for 2027 to 2030 (approved earlier plus proposed). The headline may count amounts in later years or be rounded up; the published sources do not say. The centre shows the open-data sums and does not use the headline in any calculation.
+Formula
+Σ approved + proposed capital, 2027–2030
+Inputs
+nnnm-9sfh
+Source
+https://www.calgary.ca/our-finances/2027-budget.html
+--- 11
+PASSED
+Revenue sources add up to the total
+For 2023 to 2026, within $2 million of rounding.
+Formula
+|Σ sources − total| ≤ 2 ($ millions)
+Inputs
+The City of Calgary, 2026 Budget as approved (December 3, 2025), Budget Overview, Operating Revenue table, page 24 of 158
+--- 12
+PASSED
+Property tax by ward adds up to the citywide levy
+The 14 wards hold 99.94% of the municipal levy.
+Citywide $2,520.9 million; wards $2,519.3 million. The remainder is property that has no ward in the assessment data.
+Formula
+Σ wards ÷ citywide
+Inputs
+tax.json (4bsw-nn7w, read 2026-11-10 14:26)
+Period
+2026
+--- 13
+TO KNOW
+Names matched between the two City sources
+15 department names and 45 business-unit names in the document; 8 needed a match by hand, 1 could not be matched.
+As the document prints it	Open-data name	Why
+Calgary Police Services	Calgary Police Service	The same body; the document prints the name with and without the final s.
+Law, Legislative Services, & Security	Law, Legislative Services & Security	The same name with an extra comma.
+People, Innovation & Collaboration Services	People & Corporate Services	Different names in the two City sources; matched because all five business units the document lists under it (Information Technology, Human Resources, Marketing & Communications, Occupational Health & Safety, 311 & Insights) are the business units the open data lists under People & Corporate Services. An inference, not confirmed by the City.
+Calgary Fire Department	Calgary Fire	The same business unit under its longer name.
+Calgary Police Services	Calgary Police Service	The same body; printed with a final s.
+GM - Planning and Development	GM - Planning & Development Services	The same office, printed in a shorter form.
+Marketing & Communications	Marketing & Communication	The same business unit; the open data drops the final s.
+Parks & Open Spaces	Parks and Open Spaces	The same name with an ampersand.
+Chief Operating Officer	not matched	The open data has two units, Chief Operating Office - City Services and Chief Operating Office - Water Services; the document does not say which, so it is not matched.
+Inputs
+ui/budget-intel/crosswalk.json
+Limits
+The document’s names are never changed; the match is used only to group and compare.
+--- 14
+TO KNOW
+Some one-time requests are only partly in the proposed budget
+17 requests: $235.8 million in their tables, $613.4 million stated as the full amounts.
+For these requests the City’s note under the table gives a larger four-year total than the table, and says the rest may or will be considered in later budget adjustments. The centre’s one-time totals add the tables, which is what the proposed budget includes; they are not the full amounts the notes state.
+Request	In the table ($M)	Full amount in the City’s note ($M)
+14. Renew The City’s digital infrastructure supporting finance, supply chain, and human resources to reduce operational risk, strengthen data and governance, and improve reliable service delivery.	113.3	302.9
+15. Risk Assessment Data, Tools and Management Plans	1.6	2.6
+124. Implement the cross-corporate strategies of the Safer Together plan to coordinate community safety and wellbeing improvements	14.8	23.9
+125. Safe & Resilient Homes and Communities	2.8	4.1
+175. Calgary Moves	1.8	2.0
+253. Downtown Office Conversion Program	67.5	202.5
+255. Industrial Development Incentive Program	20.0	40.0
+256. Overhead to Underground Power Program	6.0	12.0
+257. Three Phase Power Growth Program	2.0	4.0
+294. Customer to Cash program software licensing, implementation costs and sustainment support	2.5	4.2
+295. Zero-Based Review - Full Program	1.1	8.4
+306. Community Collaboration, Outreach, Engagement and Communications	0.4	0.8
+315. Risk Disclosure and Verification Standards	0.4	0.7
+316. Clean Energy Improvement Program (CEIP)	0.0	2.1
+317. Finance digital transformation support	0.6	1.3
+318. Leveraging Partnerships	0.7	1.5
+319. Sustainable Building Resources for Industry and Developers	0.3	0.4
+Both columns are the City’s figures as printed. Where a note’s own wording of the included amount differs from the table by $0.1 million, that is the City’s rounding; nothing is adjusted.
+Formula
+Σ one-time amounts in the table, against the total stated in the note
+Inputs
+one_time_m and full_one_time_m of each operating case
+--- 15
+TO KNOW
+Operating requests cannot be reconciled to a published total
+The City publishes no total that the 124 operating requests should add to.
+The open data gives each business unit’s whole operating budget, not the part that comes from new requests, so there is nothing to check the sum against. The requests’ own figures were still read twice and agree.
+checks 15 script errors []

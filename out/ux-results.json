@@ -1,0 +1,632 @@
+{
+ "when": "2026-11-11T17:43:21.586Z",
+ "engine": "Playwright Chromium, headless",
+ "note": "Phone and tablet results are emulated devices, not real devices. No screen reader was run.",
+ "passed": 89,
+ "failed": 0,
+ "results": [
+  {
+   "group": "1 sections",
+   "name": "desktop 1440x900, light: all eleven sections draw with content",
+   "result": "PASS",
+   "detail": "5139 3037 3231 4020 2218 5472 8130 26333 1646 3307 3116",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "1 sections",
+   "name": "desktop 1440x900, light: no sideways scrolling of the page, nothing wider than the screen",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "1 sections",
+   "name": "desktop 1440x900, light: no script errors, no failed requests",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "1 sections",
+   "name": "desktop 1440x900, dark: all eleven sections draw with content",
+   "result": "PASS",
+   "detail": "5139 3037 3231 4020 2218 5472 8130 26333 1646 3307 3116",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "1 sections",
+   "name": "desktop 1440x900, dark: no sideways scrolling of the page, nothing wider than the screen",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "1 sections",
+   "name": "desktop 1440x900, dark: no script errors, no failed requests",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "1 sections",
+   "name": "tablet (emulated iPad Mini), light: all eleven sections draw with content",
+   "result": "PASS",
+   "detail": "5139 3037 3231 4020 2218 5472 8130 26333 1646 3307 3116",
+   "tested_on": "emulated tablet (Chromium, iPad Mini profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "tablet (emulated iPad Mini), light: no sideways scrolling of the page, nothing wider than the screen",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "emulated tablet (Chromium, iPad Mini profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "tablet (emulated iPad Mini), light: no script errors, no failed requests",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "emulated tablet (Chromium, iPad Mini profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "tablet (emulated iPad Mini), dark: all eleven sections draw with content",
+   "result": "PASS",
+   "detail": "5139 3037 3231 4020 2218 5472 8130 26333 1646 3307 3116",
+   "tested_on": "emulated tablet (Chromium, iPad Mini profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "tablet (emulated iPad Mini), dark: no sideways scrolling of the page, nothing wider than the screen",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "emulated tablet (Chromium, iPad Mini profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "tablet (emulated iPad Mini), dark: no script errors, no failed requests",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "emulated tablet (Chromium, iPad Mini profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "phone (emulated iPhone 13), light: all eleven sections draw with content",
+   "result": "PASS",
+   "detail": "5139 3037 3231 4020 2218 5420 8130 26333 1646 3307 3116",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "phone (emulated iPhone 13), light: no sideways scrolling of the page, nothing wider than the screen",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "phone (emulated iPhone 13), light: no script errors, no failed requests",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "phone (emulated iPhone 13), dark: all eleven sections draw with content",
+   "result": "PASS",
+   "detail": "5139 3037 3231 4020 2218 5420 8130 26333 1646 3307 3116",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "phone (emulated iPhone 13), dark: no sideways scrolling of the page, nothing wider than the screen",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "phone (emulated iPhone 13), dark: no script errors, no failed requests",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "1 sections",
+   "name": "small phone (emulated 360x640), light: all eleven sections draw with content",
+   "result": "PASS",
+   "detail": "5139 3037 3231 4020 2218 5420 8130 26333 1646 3307 3116",
+   "tested_on": "emulated phone (Chromium, 360x640)"
+  },
+  {
+   "group": "1 sections",
+   "name": "small phone (emulated 360x640), light: no sideways scrolling of the page, nothing wider than the screen",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "emulated phone (Chromium, 360x640)"
+  },
+  {
+   "group": "1 sections",
+   "name": "small phone (emulated 360x640), light: no script errors, no failed requests",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "emulated phone (Chromium, 360x640)"
+  },
+  {
+   "group": "1 sections",
+   "name": "small phone (emulated 360x640), dark: all eleven sections draw with content",
+   "result": "PASS",
+   "detail": "5139 3037 3231 4020 2218 5420 8130 26333 1646 3307 3116",
+   "tested_on": "emulated phone (Chromium, 360x640)"
+  },
+  {
+   "group": "1 sections",
+   "name": "small phone (emulated 360x640), dark: no sideways scrolling of the page, nothing wider than the screen",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "emulated phone (Chromium, 360x640)"
+  },
+  {
+   "group": "1 sections",
+   "name": "small phone (emulated 360x640), dark: no script errors, no failed requests",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "emulated phone (Chromium, 360x640)"
+  },
+  {
+   "group": "2 mobile navigation",
+   "name": "the site menu opens from the menu button",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "2 mobile navigation",
+   "name": "Budget Intelligence is listed under Money, after City budget",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "2 mobile navigation",
+   "name": "tapping it opens the screen and closes the menu",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "2 mobile navigation",
+   "name": "each of the eleven sections opens from the section strip, the chosen one stays in view, and the address keeps it",
+   "result": "PASS",
+   "detail": "all eleven",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "2 mobile navigation",
+   "name": "section buttons are at least 40 px in each direction for a finger",
+   "result": "PASS",
+   "detail": "0 smaller",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "2 mobile navigation",
+   "name": "a link to one request (?case=82) opens that request on a phone",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "2 mobile navigation",
+   "name": "no script errors",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "emulated phone (Chromium, iPhone 13 profile)"
+  },
+  {
+   "group": "3 filtering",
+   "name": "every value of seven filters, one at a time (40 values), shows the number of requests counted from the data file",
+   "result": "PASS",
+   "detail": "40 of 40",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "3 filtering",
+   "name": "the department values (13) together cover all 384 requests once",
+   "result": "PASS",
+   "detail": "384",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "3 filtering",
+   "name": "the reason given values (6) together cover all 384 requests once",
+   "result": "PASS",
+   "detail": "384",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "3 filtering",
+   "name": "combined filters (kind x ward x Council priority, 20 combinations) match counts from the data file",
+   "result": "PASS",
+   "detail": "20 of 20",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "3 filtering",
+   "name": "search (9 searches: words, a Budget ID, a number, nothing found) matches the data file",
+   "result": "PASS",
+   "detail": "police, water, transit, P854_000, #82, green line, fire, recreation, zzzz",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "3 filtering",
+   "name": "a search with no match shows a plain \"no request matches\" message, not an empty page",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "3 filtering",
+   "name": "the totals line for operating requests equals the data file (one-time dollars, 2027 positions)",
+   "result": "PASS",
+   "detail": "124 requests $385.6 million one-time operating (124) 855 positions in 2027",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "3 filtering",
+   "name": "paging through the whole list shows every request once, in the City's order",
+   "result": "PASS",
+   "detail": "384 rows over 16 pages",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "4 PDF links",
+   "name": "all 384 rows link to the City's PDF at that request's own page, opening in a new tab",
+   "result": "PASS",
+   "detail": "384 of 384, e.g. get/2027-2030-operating-capital-budget-requests.pdf#page=180",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "4 PDF links",
+   "name": "the link address is the City's own (calgary.ca) and the same file that was read",
+   "result": "PASS",
+   "detail": "https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "4 PDF links",
+   "name": "inside an opened request (13 tried, across both kinds), every \"read it in the City's document\" link goes to its page",
+   "result": "PASS",
+   "detail": "1, 14, 16, 32, 55, 82, 104, 124, 178, 219, 253, 300, 384",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "5 export",
+   "name": "\"Save this list\" downloads a CSV file with one row per request and a heading row",
+   "result": "PASS",
+   "detail": "Calgary 2027-2030 budget requests.csv: 384 rows, 33 columns",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "5 export",
+   "name": "every exported cell checked (25 columns x 384 rows) equals the data file, including dashes kept as blanks and the status \"Proposed, not approved\"",
+   "result": "PASS",
+   "detail": "9,600 cells",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "5 export",
+   "name": "the exported capital totals add to the same $13,051,480 thousand as the screen",
+   "result": "PASS",
+   "detail": "13051480",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "5 export",
+   "name": "with filters on, the export holds only the filtered requests",
+   "result": "PASS",
+   "detail": "16 rows",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "5 export",
+   "name": "a title with commas and quotation marks survives the export",
+   "result": "PASS",
+   "detail": "Renew The City’s digital infrastructure supporting finance, ",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "3-5 explorer",
+   "name": "no script errors during filtering, paging, links and exports",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "6 theme",
+   "name": "the site's own theme button switches the screen between light and dark and back",
+   "result": "PASS",
+   "detail": "dark -> light -> dark",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "6 theme",
+   "name": "the screen's surfaces change with the theme (page, card, text, map)",
+   "result": "PASS",
+   "detail": "card rgba(0, 0, 0, 0) -> rgb(255, 255, 255); text rgb(248, 250, 252) -> rgb(2, 6, 23); map rgb(7, 13, 26) -> rgb(238, 242, 247)",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "6 theme",
+   "name": "charts and the map are still drawn after switching",
+   "result": "PASS",
+   "detail": "1 charts, map true",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "6 theme",
+   "name": "switching the theme while on each of the eleven sections keeps the section drawn",
+   "result": "PASS",
+   "detail": "all eleven",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "6 theme",
+   "name": "no script errors while switching",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "the section list is one Tab stop (the chosen section), as a radio group should be",
+   "result": "PASS",
+   "detail": "1 tab stops",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "arrow keys, Home and End move between sections, wrap at the ends, and keep the focus on the chosen section",
+   "result": "PASS",
+   "detail": "ArrowDown:operating ArrowDown:capital ArrowRight:revenue ArrowUp:capital End:checks Home:overview ArrowUp:checks ArrowDown:overview",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "the focused section button shows a visible focus mark",
+   "result": "PASS",
+   "detail": "solid 2px | rgb(56, 189, 248) 3px 0px 0px 0px inset",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "five presses of the down arrow from the overview reach \"Business cases\"",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "Tab from the section list goes through the export button, the search box and the filters, then the list, in reading order",
+   "result": "PASS",
+   "detail": "bi-export bi-q type theme dept ward summary case1 a:link case2 a:link case3",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "Enter on a request opens it, says so to assistive technology (aria-expanded) and keeps the focus on it",
+   "result": "PASS",
+   "detail": "{\"open\":true,\"exp\":\"true\",\"focusOn\":\"1\"}",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "Enter again closes it",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "\"Next\" with Enter moves to the next 25 requests and the focus stays on \"Next\"",
+   "result": "PASS",
+   "detail": "{\"inPager\":true,\"dir\":\"1\",\"first\":26}",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "choosing a year with Enter redraws the section and the focus stays on the chosen year",
+   "result": "PASS",
+   "detail": "{\"id\":\"bi-op-years\",\"v\":\"2023\",\"pressed\":\"true\"}",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "a link inside a section that leads to another section moves the focus to the new section's content",
+   "result": "PASS",
+   "detail": "{\"sec\":\"checks\",\"focus\":\"bi-main\"}",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "typing in the search box keeps the focus in the box while the list updates",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "a filter can be changed from the keyboard and keeps the focus",
+   "result": "PASS",
+   "detail": "operating",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "the map's \"what the map shows\" choices change with the arrow keys",
+   "result": "PASS",
+   "detail": "people",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "the simulator's inputs are ordinary labelled form controls (reachable and adjustable from the keyboard)",
+   "result": "PASS",
+   "detail": "[{\"type\":\"number\",\"labelled\":true},{\"type\":\"range\",\"labelled\":true}]",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "moving the simulator's slider with the arrow keys changes the result",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "a data check opens with Enter (native details element)",
+   "result": "PASS",
+   "detail": "",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "7 keyboard",
+   "name": "no script errors",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "light: every button, link and control has a name a screen reader can read",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), light theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "light: every form control has a label",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), light theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "light: every table has header cells (data tables with scope)",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), light theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "light: headings do not skip a level",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), light theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "light: charts and pictures are named or marked as decoration",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), light theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "light: no repeated ids; lists are built from list items",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "desktop Chromium (headless), light theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "light: text contrast is at least 4.5 to 1 (3 to 1 for large text) on every section (3413 pieces of text measured; 0 over a picture could not be measured)",
+   "result": "PASS",
+   "detail": "0 kinds below:  || measured per section: overview:218 operating:283 capital:218 revenue:235 actual:218 cases:275 projects:218 performance:884 simulator:218 links:166 checks:480",
+   "tested_on": "desktop Chromium (headless), light theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "light: no script errors",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "desktop Chromium (headless), light theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "dark: every button, link and control has a name a screen reader can read",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), dark theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "dark: every form control has a label",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), dark theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "dark: every table has header cells (data tables with scope)",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), dark theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "dark: headings do not skip a level",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), dark theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "dark: charts and pictures are named or marked as decoration",
+   "result": "PASS",
+   "detail": "all",
+   "tested_on": "desktop Chromium (headless), dark theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "dark: no repeated ids; lists are built from list items",
+   "result": "PASS",
+   "detail": "none",
+   "tested_on": "desktop Chromium (headless), dark theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "dark: text contrast is at least 4.5 to 1 (3 to 1 for large text) on every section (3372 pieces of text measured; 0 over a picture could not be measured)",
+   "result": "PASS",
+   "detail": "0 kinds below:  || measured per section: overview:218 operating:283 capital:264 revenue:235 actual:80 cases:275 projects:437 performance:884 simulator:50 links:166 checks:480",
+   "tested_on": "desktop Chromium (headless), dark theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "dark: no script errors",
+   "result": "PASS",
+   "detail": "[]",
+   "tested_on": "desktop Chromium (headless), dark theme"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "the page states its language, the screen has one main heading that names it, and the section list is a named radio group with one choice marked",
+   "result": "PASS",
+   "detail": "{\"lang\":\"en\",\"title\":\"Calgary Insight\",\"h1\":1,\"labelled\":\"bi-title\",\"live\":true,\"rg\":\"Sections of the Budget Intelligence Centre\",\"checked\":1,\"zoom\":\"width=device-width,initial-scale=1\"}",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "pinch zoom is not switched off",
+   "result": "PASS",
+   "detail": "width=device-width,initial-scale=1",
+   "tested_on": "desktop Chromium (headless)"
+  },
+  {
+   "group": "8 accessibility",
+   "name": "with text at 200% on a 640 px wide window the page still does not scroll sideways",
+   "result": "PASS",
+   "detail": "{\"page\":0,\"view\":0}",
+   "tested_on": "desktop Chromium (headless)"
+  }
+ ]
+}

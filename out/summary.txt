@@ -1,0 +1,24 @@
+started waiting 2026-11-11T16:54:36Z
+new build seen on the live site 2026-11-11T17:32:43Z after 39 checks
+live bundle: site.0c52be4945.js; Budget Intelligence in index.html: 2 lines
+budget-intel.js: live 6a2b0b17c6ac51eb repository 6a2b0b17c6ac51eb IDENTICAL
+budget-intel.css: live 442cdda98960c224 repository 442cdda98960c224 IDENTICAL
+budget-intel/business-cases.json: live 821e21772dd8dc02 repository 821e21772dd8dc02 IDENTICAL
+budget-intel/crosswalk.json: live 2320779b69a9dc77 repository 2320779b69a9dc77 IDENTICAL
+live build: 2026-11-11 10:32 (Calgary time), 83 steps, 0 failed, 55.7 minutes
+live/data/methods.json: read; 52 entries; 'budget_intelligence' appears 1 times
+live/data/analyst_topics.json: read; 57 entries; 'budget_requests' appears 1 times
+live/data/registry.json: read; 1 entries; 'budget-intelligence' appears 3 times
+live/data/search.json: read; 3 entries; 'budget-intelligence' appears 5 times
+live/py/manifest.json: read; 2 entries; 'budget_intel.py' appears 1 times
+tools/budget_intel_check.py on the live data, exit code: 0
+{'pass': 15, 'note': 5, 'gap': 1, 'FAIL': 0}
+assistants' files downloaded from the live site: 113 of 113; not downloaded: []
+assistants' tool on the live files, exit code: 0
+passed 23 failed 0
+assistants live: 23 passed, 0 failed
+screens opened: 54 of 54 | with a script error or a failed request: 0
+user-experience checks on the live site: 89 passed, 0 failed
+interaction checks: 40 passed, 0 failed
+checks 15 script errors []
+finished 2026-11-11T17:44:46Z

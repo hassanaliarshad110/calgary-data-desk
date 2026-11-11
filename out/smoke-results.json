@@ -1,0 +1,542 @@
+[
+ {
+  "device": "desktop",
+  "view": "dashboard",
+  "exists": true,
+  "shown": true,
+  "title": "City of Calgary at a glance",
+  "textLen": 35970,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "issues",
+  "exists": true,
+  "shown": true,
+  "title": "Open issues",
+  "textLen": 5856,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "families",
+  "exists": true,
+  "shown": true,
+  "title": "Families and schools",
+  "textLen": 76771,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "changes",
+  "exists": true,
+  "shown": true,
+  "title": "What changed: Growth vs amenities",
+  "textLen": 9137,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "growth",
+  "exists": true,
+  "shown": true,
+  "title": "Growth vs amenities",
+  "textLen": 58326,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "compare",
+  "exists": true,
+  "shown": true,
+  "title": "Compare wards",
+  "textLen": 8188,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "elections",
+  "exists": true,
+  "shown": true,
+  "title": "Election Data Centre: Calgary",
+  "textLen": 7679,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "livemap",
+  "exists": true,
+  "shown": true,
+  "title": "Live map",
+  "textLen": 6332,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "citynews",
+  "exists": true,
+  "shown": true,
+  "title": "Calgary News",
+  "textLen": 15123,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "fedbudget",
+  "exists": true,
+  "shown": true,
+  "title": "Federal Budget 2026",
+  "textLen": 8906,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "invest",
+  "exists": true,
+  "shown": true,
+  "title": "Invest in Calgary",
+  "textLen": 24269,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "help",
+  "exists": true,
+  "shown": true,
+  "title": "Find help near me",
+  "textLen": 3385,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "capmkt",
+  "exists": true,
+  "shown": true,
+  "title": "Calgary Capital Markets",
+  "textLen": 2156,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "infra",
+  "exists": true,
+  "shown": true,
+  "title": "Infrastructure condition",
+  "textLen": 28723,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "game",
+  "exists": true,
+  "shown": true,
+  "title": "Learn City Services: YYC Game",
+  "textLen": 2128,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "visit",
+  "exists": true,
+  "shown": true,
+  "title": "Visiting Calgary",
+  "textLen": 7312,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "safety",
+  "exists": true,
+  "shown": true,
+  "title": "Canada's safest cities",
+  "textLen": 10061,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "budget",
+  "exists": true,
+  "shown": true,
+  "title": "City budget",
+  "textLen": 18957,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "videos",
+  "exists": true,
+  "shown": true,
+  "title": "Video Explainers",
+  "textLen": 15715,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "methods",
+  "exists": true,
+  "shown": true,
+  "title": "How every figure is worked out",
+  "textLen": 7971,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "sources",
+  "exists": true,
+  "shown": true,
+  "title": "Data sources",
+  "textLen": 15994,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "cameras",
+  "exists": true,
+  "shown": true,
+  "title": "Traffic cameras",
+  "textLen": 10130,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "scientist",
+  "exists": true,
+  "shown": true,
+  "title": "Data Scientist",
+  "textLen": 3319,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "ask",
+  "exists": true,
+  "shown": true,
+  "title": "Data Genie",
+  "textLen": 2710,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "files",
+  "exists": true,
+  "shown": true,
+  "title": "Files",
+  "textLen": 260,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "settings",
+  "exists": true,
+  "shown": true,
+  "title": "Settings",
+  "textLen": 1844,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "desktop",
+  "view": "budget-intelligence",
+  "exists": true,
+  "shown": true,
+  "title": "Budget Intelligence & Accountability Centre",
+  "textLen": 5534,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "dashboard",
+  "exists": true,
+  "shown": true,
+  "title": "City of Calgary at a glance",
+  "textLen": 35947,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "issues",
+  "exists": true,
+  "shown": true,
+  "title": "Open issues",
+  "textLen": 5854,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "families",
+  "exists": true,
+  "shown": true,
+  "title": "Families and schools",
+  "textLen": 76771,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "changes",
+  "exists": true,
+  "shown": true,
+  "title": "What changed: Growth vs amenities",
+  "textLen": 9137,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "growth",
+  "exists": true,
+  "shown": true,
+  "title": "Growth vs amenities",
+  "textLen": 58326,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "compare",
+  "exists": true,
+  "shown": true,
+  "title": "Compare wards",
+  "textLen": 8188,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "elections",
+  "exists": true,
+  "shown": true,
+  "title": "Election Data Centre: Calgary",
+  "textLen": 7679,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "livemap",
+  "exists": true,
+  "shown": true,
+  "title": "Live map",
+  "textLen": 6332,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "citynews",
+  "exists": true,
+  "shown": true,
+  "title": "Calgary News",
+  "textLen": 15123,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "fedbudget",
+  "exists": true,
+  "shown": true,
+  "title": "Federal Budget 2026",
+  "textLen": 8906,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "invest",
+  "exists": true,
+  "shown": true,
+  "title": "Invest in Calgary",
+  "textLen": 24269,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "help",
+  "exists": true,
+  "shown": true,
+  "title": "Find help near me",
+  "textLen": 3385,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "capmkt",
+  "exists": true,
+  "shown": true,
+  "title": "Calgary Capital Markets",
+  "textLen": 2156,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "infra",
+  "exists": true,
+  "shown": true,
+  "title": "Infrastructure condition",
+  "textLen": 28723,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "game",
+  "exists": true,
+  "shown": true,
+  "title": "Learn City Services: YYC Game",
+  "textLen": 2128,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "visit",
+  "exists": true,
+  "shown": true,
+  "title": "Visiting Calgary",
+  "textLen": 7312,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "safety",
+  "exists": true,
+  "shown": true,
+  "title": "Canada's safest cities",
+  "textLen": 10061,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "budget",
+  "exists": true,
+  "shown": true,
+  "title": "City budget",
+  "textLen": 18957,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "videos",
+  "exists": true,
+  "shown": true,
+  "title": "Video Explainers",
+  "textLen": 15715,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "methods",
+  "exists": true,
+  "shown": true,
+  "title": "How every figure is worked out",
+  "textLen": 7971,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "sources",
+  "exists": true,
+  "shown": true,
+  "title": "Data sources",
+  "textLen": 15994,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "cameras",
+  "exists": true,
+  "shown": true,
+  "title": "Traffic cameras",
+  "textLen": 10130,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "scientist",
+  "exists": true,
+  "shown": true,
+  "title": "Data Scientist",
+  "textLen": 3048,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "ask",
+  "exists": true,
+  "shown": true,
+  "title": "Data Genie",
+  "textLen": 2608,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "files",
+  "exists": true,
+  "shown": true,
+  "title": "Files",
+  "textLen": 260,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "settings",
+  "exists": true,
+  "shown": true,
+  "title": "Settings",
+  "textLen": 1844,
+  "jsErrors": [],
+  "localFailures": []
+ },
+ {
+  "device": "mobile",
+  "view": "budget-intelligence",
+  "exists": true,
+  "shown": true,
+  "title": "Budget Intelligence & Accountability Centre",
+  "textLen": 5523,
+  "jsErrors": [],
+  "localFailures": []
+ }
+]

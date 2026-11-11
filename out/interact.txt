@@ -1,0 +1,42 @@
+PASS explorer lists all cases  [384 requests $13.05 billion capital over four years (260) $385.6 million one-time operating (124) 855 positions in 2027]
+PASS filter kind = capital  [260 requests $13.05 billion capital over four years (260)]
+PASS filter ward 7 (capital)  [16 requests $458.0 million capital over four years (16)]
+PASS filter all-wards requests  [226 requests $11.98 billion capital over four years (226)]
+PASS filter kind = operating  [124 requests $385.6 million one-time operating (124) 855 positions in 2027]
+PASS filter Council priority = Safe city  [63 requests $723.9 million capital over four years (36) $33.4 million one-time operating (27) 389 positions in 2027]
+PASS filter department = Infrastructure Services  [76 requests $7.95 billion capital over four years (76)]
+PASS search "pavement" finds case 55  [1 request $420.2 million capital over four years (1)]
+PASS search by Budget ID  [1 request $265.8 million capital over four years (1)]
+PASS no match shows an empty state
+PASS sort: largest amount first  [Wastewater Treatment Plants Program]
+PASS sort: most positions first  [360 positions]
+PASS filter: marked Required  [66 requests $7.12 billion capital over four years (66)]
+PASS filter: with a City note  [20 requests $238.9 million one-time operating (20) 89 positions in 2027]
+PASS filter: stage 4  [96 requests $7.62 billion capital over four years (96)]
+PASS filter: risk rating Extensive  [37 requests $218.6 million one-time operating (37) 389 positions in 2027]
+PASS filter: funding source Grants  [71 requests $3.35 billion capital over four years (71)]
+PASS filter: reason given (grouped)  [52 requests $1.19 billion capital over four years (18) $70.0 million one-time operating (34) 365 positions in 2027]
+PASS paging: next page starts at 26
+PASS open a case shows its detail  [2. Sustaining reliable CTrain rail infrastructure]
+PASS case links to its page in the City PDF  [https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf#page=12]
+PASS close the case
+PASS export: a CSV of the list with a header and 384 rows  [Calgary 2027-2030 budget requests.csv 385 lines]
+PASS export: case 55 row carries 420196  [55,Pavement Rehabilitation Program,capital,Reliable and sustainable infrastructure,Operational Services,Mobili]
+PASS map draws 14 wards  [14]
+PASS map layer: Residents  [97,587 148,087 none or not published]
+PASS map layer: Infrastructure reports to 311  [4,275 11,308 none or not published]
+PASS map layer: Capital requests naming the ward  [1 16 none or not published]
+PASS map layer: Property tax levied, 2026  [$107M $455M none or not published]
+PASS map has a table alternative with 14 rows
+PASS a ranked bar opens its case in the explorer  [?view=budget-intelligence&bi=cases]
+PASS address carries the section  [https://calgaryinsight.ca/?view=budget-intelligence&bi=cases]
+PASS leaving removes the centre's address parameters; City budget opens  [https://calgaryinsight.ca/?view=budget]
+PASS City budget screen still renders its figures  [$4.62 billion operating budget, approved +1.3% on 2025 $3.67 billion capital bud]
+PASS coming back shows the centre again
+PASS simulator: $500,000 at 10% gives $1,945 then $2,140  [$1,945 2026 municipal tax, a year ($162 a month) $2,140 2027 at +10.0%, a year ($178 a month) +$195 more a year (+$16.21 a month) $252.1 mil]
+PASS site search lists the new screen
+PASS site search result "Tax simulator" opens the centre on that section
+PASS phone: no section scrolls sideways  []
+PASS no script errors from the new screen during all of the above  []
+NOTE  pre-existing site-search error (also on the production build) seen 1 time(s)
+passed 40 failed 0
