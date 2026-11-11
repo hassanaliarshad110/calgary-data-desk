@@ -2,25 +2,28 @@ const { chromium, devices } = require('playwright');
 const B='https://calgaryinsight.ca/';
 const t=async u=>{try{const r=await fetch(B+u+(u.includes('?')?'&':'?')+'t='+Date.now());return [r.status,await r.text()]}catch(e){return [0,String(e)]}};
 (async()=>{
- const [s,st]=await t('studies/'); console.log('STUDIES', s, ['calgary-police/','calgary-sewers/','who-calgarys-311-hears/'].map(k=>k+':'+st.includes('href="'+k)).join(' '));
- for(const u of ['studies/calgary-police/','studies/calgary-sewers/','studies/who-calgarys-311-hears/','visit/explore/daytrips/daytrips.json','hit.js']){const [c]=await t(u);console.log('GET',u,c);}
- const [h,ht]=await t(''); console.log('HOME', h, 'strip', ht.includes('class="studies-strip"'), 'menu', ht.includes('href="studies/" title='), 'hit', ht.includes('/hit.js'));
- const [v,vt]=await t('visit/'); console.log('VISIT', v, 'trips', vt.includes('class="explore-cta trips-cta" href="explore/#beyond"'));
- const b=await chromium.launch();
+ const S='studies/what-calgarians-pay/';
+ for(const u of ['', 'calculator.html','report.html','what-calgarians-pay.pdf','what-calgarians-pay-calculations.xlsx','what-calgarians-pay-figures.xlsx']){const [c,x]=await t(S+u);console.log('GET',S+u,c,x.length);}
+ const [s,st]=await t(S); console.log('PAGE $369',st.includes('$369 a month'),'lowest',st.includes('lowest'),'$567',st.includes('$567 a month in 2030'),'16%',st.includes('Why the typical home sees about 16%'),'workbook link',st.includes('what-calgarians-pay-calculations.xlsx'),'old564',st.includes('$564'));
+ const [i,it]=await t('studies/'); const a=it.indexOf('what-calgarians-pay/'),b=it.indexOf('calgary-police/'); console.log('STUDIES',i,'pay first',a>0&&(b<0||a<b));
+ const [h,ht]=await t(''); console.log('HOME card lowest',ht.includes('the lowest of eight cities compared'),'$567',ht.includes('about $567 by 2030'),'budget-new',ht.includes('budget-new'));
+ const [bj,bt]=await t('data/budget.json'); try{const J=JSON.parse(bt);console.log('BUDGET.JSON',bj,'plan_2027',!!J.plan_2027,'proposed',!!J.proposed,'years',J.years)}catch(e){console.log('BUDGET.JSON',bj,'parse fail')}
+ const [pj,pt]=await t('data/pay_study.json'); console.log('PAY_STUDY.JSON',pj,pt.includes('$567'));
+ const br=await chromium.launch();
  for(const [n,ctx] of [['desktop',{viewport:{width:1366,height:1000}}],['phone',devices['iPhone 13']]]){
-  const x=await b.newContext(ctx),p=await x.newPage(),errs=[];p.on('pageerror',e=>errs.push(String(e)));
-  const tiles=[];p.on('response',r=>{if(/tile\.openstreetmap|arcgisonline/.test(r.url()))tiles.push(r.status())});
-  await p.goto(B+'visit/explore/#beyond',{waitUntil:'networkidle'});await p.waitForTimeout(2500);
-  await p.evaluate(()=>{try{localStorage.removeItem('ci-daytrips')}catch(e){}});
-  await p.goto(B+'visit/explore/#beyond',{waitUntil:'networkidle'});await p.waitForTimeout(2500);
-  const r1=await p.evaluate(()=>({in:document.querySelectorAll('.dt-pt.in').length,sw:document.documentElement.scrollWidth,vw:innerWidth}));
-  if(n==='phone') await p.screenshot({path:'out/phone-dial.png'});
-  await p.click('.dt-pt.in >> nth=4',{force:true});await p.waitForTimeout(2500);
-  const r2=await p.evaluate(()=>({sel:(document.querySelector('.dt-gbody h2')||{}).textContent,img:(document.querySelector('#dt-ph img')||{}).naturalWidth,route:document.querySelectorAll('#dt-rmap path.leaflet-interactive').length}));
-  if(n==='phone') await p.screenshot({path:'out/phone-guide.png'});
-  await p.goto(B+'visit/explore/#map',{waitUntil:'networkidle'});await p.waitForTimeout(2500);
-  console.log(n,JSON.stringify(r1),JSON.stringify(r2),'tiles',tiles.length,tiles.filter(s=>s!==200).length,'errors',JSON.stringify(errs));
-  await x.close();
- }
- await b.close();
-})();
+  const x=await br.newContext(ctx),p=await x.newPage(),errs=[];p.on('pageerror',e=>errs.push(String(e)));
+  await p.goto(B+S+'calculator.html',{waitUntil:'networkidle'});await p.waitForTimeout(800);
+  const ct=await p.evaluate(()=>document.body.innerText);console.log(n,'CALC',['$369','$422','$567'].map(k=>k+':'+ct.includes(k)).join(' '),'sideways',await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth));
+  await p.goto(B+'?view=budget',{waitUntil:'networkidle'});await p.waitForTimeout(3500);
+  const plan=await p.evaluate(()=>{const e=document.querySelector('#bud-plan-card');return e?{vis:e.offsetParent!==null,t:e.innerText.slice(0,400)}:null});
+  console.log(n,'PLAN',plan&&plan.vis,plan&&plan.t.includes('$53'),plan&&plan.t.includes('+15.0%'));
+  const scope=await p.evaluate(()=>{const s=document.querySelector('#scope, select[aria-label*="cope"], .scope-select');return s?(s.value||s.textContent).slice(0,40):''});
+  const has2032=await p.evaluate(()=>[...document.querySelectorAll('#bud-year option')].map(o=>o.value));
+  console.log(n,'years',has2032.join(','),'scope',scope);
+  if(has2032.includes('2032')){await p.selectOption('#bud-year','2032');await p.waitForTimeout(1500);}
+  const r=await p.evaluate(()=>({sub:(document.querySelector('#bud-sub')||{}).innerText,title:(document.querySelector('#bud-ward-title')||{}).innerText,ward:(document.querySelector('#bud-ward')||{}).innerText}));
+  console.log(n,'SUB',r.sub);console.log(n,'WARDTITLE',r.title,'perResident',/Per resident/.test(r.ward||''));
+  console.log(n,'WARD',(r.ward||'').replace(/\n/g,' | ').slice(0,900));
+  console.log(n,'sideways',await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),'errors',errs.slice(0,3));
+  await x.close();}
+ await br.close();})();
