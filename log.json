@@ -366,6 +366,48 @@
    "verdict": "APPROVED",
    "report": "audits/2026-11-11-FLAGSHIP.md"
   },
-  "status": "done"
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 424705440,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=8169461891680782963",
+    "providers": [
+     "instagram",
+     "youtube-short"
+    ],
+    "file": "three-places-military-story-short.mp4",
+    "publish_at": "2026-11-11T12:30",
+    "status": "scheduled"
+   },
+   {
+    "metricool_id": 424705605,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-1105029241938621933",
+    "providers": [
+     "facebook",
+     "youtube-video"
+    ],
+    "file": "three-places-military-story-youtube.mp4",
+    "publish_at": "2026-11-11T17:30",
+    "status": "scheduled"
+   }
+  ],
+  "pending_link": [
+   {
+    "file": "three-places-military-story-teaser.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-teaser.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-thumb.jpg",
+    "providers": [
+     {
+      "network": "facebook",
+      "type": "REEL"
+     }
+    ],
+    "caption_without_link": "This Calgary drill hall was finished too late for the war of its day.\nMewata Armoury, a Depression-era army base and a school turned museum: Calgary's military story, hiding in plain sight.\nWhich one would you visit first? Drop your thoughts below 👇",
+    "hashtags": "#Calgary #yyc #RemembranceDay #CalgaryHistory",
+    "post_at": "2026-11-11T21:00",
+    "link_to": 424705605
+   }
+  ],
+  "post_note": "Post A 12:30 and post B 17:30 scheduled at their fixed times with designed thumbnails and no AI labels. Post C (teaser Facebook Reel, 21:00) left as pending_link for the link-up task (PLAYBOOK 7b, updated during this run) so its caption carries the YouTube film link. Post B text is shared by Facebook and YouTube, so the chapter lines also appear on Facebook."
  }
 ]

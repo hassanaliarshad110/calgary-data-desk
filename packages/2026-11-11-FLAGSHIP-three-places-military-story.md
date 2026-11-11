@@ -136,7 +136,7 @@ YouTube widescreen description: the same text, then a blank line and chapters:
 ```
 (Chapters come from the final render timings, see render notes. They are the one addition PLAYBOOK section 3 allows; the no-figures rule covers post text, while burned-in subtitles reproduce the audited narration word for word, section 3b.7.)
 
-**Teaser caption (post C, Facebook Reel):**
+**Teaser caption (post C, Facebook Reel; posted by the link-up task in the PLAYBOOK 7b layout, with the YouTube film link on its own line before the calgaryinsight.ca line; same audited wording):**
 ```
 This Calgary drill hall was finished too late for the war of its day.
 Mewata Armoury, a Depression-era army base and a school turned museum: Calgary's military story, hiding in plain sight.
