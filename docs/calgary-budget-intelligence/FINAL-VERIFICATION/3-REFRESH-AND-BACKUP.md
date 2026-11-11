@@ -76,7 +76,7 @@ One of them, the daily follow-up on dated decisions, was created on November 11 
 | Item | Why | What would verify it |
 |---|---|---|
 | The laptop archive (`tools/archive.py` under Windows Task Scheduler) | it runs on the owner's laptop, out of reach of this review | on the laptop: the task's last result and the date of the newest archive file |
-| A full build of the branch with live data | the read-only job takes one to two hours and builds the committed files, so it runs after this report is written | the result of that job (branch fetched-23) |
+| A full build of the branch with live data | done |  |
 | A full restore to a public site | it would publish | not authorized |
 | That GitHub's own schedule fires tomorrow | cannot be known in advance; it fired about seven hours late on November 10 | the backup morning refresh task covers a late or missed run |
 | The values of the build's secrets and settings | only their names were seen, by design | today's successful builds show they work |
@@ -157,10 +157,10 @@ One of them, the daily follow-up on dated decisions, was created on November 11 
 
 ### 3.7b A full build of the branch with live data
 
-**UNVERIFIED.** The first review did not run the whole build on the branch because the Website workflow publishes. For this audit the same build command is run from the committed branch as a separate read-only job that has no publishing step, saves no cache and is given none of the site's secrets. It takes one to two hours with live data and can only start once this report is committed (it builds the committed files), so its result is not in this report; it will be reported to the owner separately and added to this page. Without the site's keys some sources may answer more slowly or refuse, so the result will be read step by step.
+**PASS.** The same build command was run on the committed branch (27db3be) as a separate read-only job with no publishing step, none of the site's secrets and no cache saved (run 43058207340, 16:26 to 17:19 UTC on 11 November). All 83 build steps succeeded, the same 83 as the live site's own build that morning, none added or missing; 844 files were built. The built data has the new method note, report topic, registry entry, five search rows and the assistants' files; tools/budget_intel_check.py on that build: 15 pass, 5 to know, 1 gap, 0 failed; the assistants' tool on the built files: 23 of 23. After publication the live site was checked the same way (run of Probe 25): the four new files are byte-for-byte the repository's, 83 of 83 steps, 54 of 54 screens, 89 of 89 user-experience checks, 40 of 40 interaction checks, 23 of 23 assistant checks.
 
-- Evidence: The job's definition is on the branch site-check-23; its output will be on the branch fetched-23
-- To repeat: Push a copy of .github/workflows/p23.yml from site-check-23 to a new site-check-N branch
+- Evidence: Branch fetched-23 (out/summary.txt) and, after publication, branch fetched-25 (out/summary.txt)
+- To repeat: .github/workflows/p23.yml on the branch site-check-23
 
 ### 3.7c Every build step that the changed files feed was run with the branch's code
 

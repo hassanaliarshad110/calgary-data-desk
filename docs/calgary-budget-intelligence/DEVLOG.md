@@ -103,4 +103,7 @@
 | `main` before the merge | `ff42583`, where it was before development started |
 | The repository's own checks, run on the live site's data just before the merge (read 16:34 UTC) | 15 pass, 5 to know, 1 gap, 0 failed; the live site at that moment was the build of 05:39 Calgary time (83 steps, 0 failed) |
 | Merge | the development branch (`27db3be`) as one commit on `main`; the four workflow files are unchanged |
-| Build and checks of the live site | recorded in the next entry, once the Website build has finished |
+| Website build | run 43059929407, 16:36 to 17:33 UTC: success; live from 17:32 UTC (script bundle `site.0c52be4945.js`) |
+| The live site checked (read-only job, branch `fetched-25`) | the four new files are byte-for-byte the repository's; 83 of 83 build steps; 54 of 54 screens on desktop and an emulated phone with no script error or failed request; 89 of 89 user-experience checks; 40 of 40 interaction checks; data checks on the live data 15 pass, 5 to know, 1 gap, 0 failed; the assistants' tool on the live files 23 of 23 |
+| Full build of the branch before the merge (finding 3.7b) | 83 of 83 steps, the same steps as the live build; now PASS |
+| The sentence about paid ideas (finding 4.9b) | the branch was merged as one squashed commit, so it is not in `main`'s history; it remains only on the development branch |

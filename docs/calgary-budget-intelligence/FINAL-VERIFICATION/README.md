@@ -8,10 +8,10 @@ Written November 11, 2026. Branch `budget-intelligence`, compared with main at `
 |---|---:|---:|---:|---|
 | 1. Financial reconciliation | 11 | 1 | 5 | [1-FINANCIAL-RECONCILIATION.md](1-FINANCIAL-RECONCILIATION.md) |
 | 2. PDF extraction | 9 | 0 | 0 | [2-PDF-EXTRACTION.md](2-PDF-EXTRACTION.md) |
-| 3. Daily refresh and backup | 9 | 0 | 5 | [3-REFRESH-AND-BACKUP.md](3-REFRESH-AND-BACKUP.md) |
+| 3. Daily refresh and backup | 10 | 0 | 4 | [3-REFRESH-AND-BACKUP.md](3-REFRESH-AND-BACKUP.md) |
 | 4. Code and security | 10 | 1 | 0 | [4-CODE-AND-SECURITY.md](4-CODE-AND-SECURITY.md) |
 | 5. User experience | 10 | 0 | 4 | [5-USER-EXPERIENCE.md](5-USER-EXPERIENCE.md) |
-| **All 65 findings** | **49** | **2** | **14** | [findings.json](findings.json) |
+| **All 65 findings** | **50** | **2** | **13** | [findings.json](findings.json) |
 
 PASS means checked and found right, with evidence that can be re-run. FAIL means checked and found wrong or not as required. UNVERIFIED means it could not be checked from here, or a reason is an inference that the City has not confirmed; each says what would verify it.
 
@@ -20,7 +20,7 @@ PASS means checked and found right, with evidence that can be re-run. FAIL means
 - **1.2d On the live site today: the City budget screen shows both sets of figures in different places.** Not caused by this branch and not changed by it. The live City budget screen draws its by-year chart from the older dataset (capital for 2027 to 2032: 2,499.8, 1,440.3, 976.8, 768.2, 450.7, 1,104.0) and its 2027 to 2030 table from the newer one (2,867.0, 2,569.6, 989.8, 522.8). A reader who adds 2031 and 2032 from the chart to 2027 to 2030 from the table would count about $957.5 million of Green Line money twice. The new centre no longer points readers to those later years and says why. A fix to the existing screen would be a separate change needing its own approval.
 - **4.9b The branch's first commit still holds one sentence about paid ideas.** Commit 50acadc (the version the owner examined) contains, in two report files, one sentence listing kinds of paid service that were being considered and two mentions of "a product meant to earn revenue". No prices, no figures, no names. Later commits remove the text from the files but not from the history of this public branch. Two ways to close this, both the owner's decision: (a) at publication, merge the branch as a single squashed commit, so the sentence never enters main's history (recommended; nothing to do now); (b) rewrite the branch now as one commit and force-push it, which removes it from the branch as well. Not done without instruction, because rewriting history is not reversible.
 
-## The 14 UNVERIFIED findings, in short
+## The 13 UNVERIFIED findings, in short
 
 | | What is not verified | Why |
 |---|---|---|
@@ -32,7 +32,6 @@ PASS means checked and found right, with evidence that can be re-run. FAIL means
 | 3.3c | Full workflow logs | full logs are on GitHub, not copied into a public repository |
 | 3.5b | A full restore to a working public site | it would publish |
 | 3.7a | The laptop archive (tools/archive.py, run by Windows Task Scheduler) | it runs on the owner's laptop |
-| 3.7b | A full build of the branch with live data | the read-only job takes one to two hours and runs after this report is committed |
 | 3.7d | Other things that could not be verified | outside what this review can reach or know in advance |
 | 5.5b | PDF links: does the document open at the right page on every device? | depends on each phone's PDF viewer |
 | 5.8b | Accessibility: a full audit with a screen reader | no screen reader was run |
