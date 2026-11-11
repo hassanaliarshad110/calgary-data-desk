@@ -22,10 +22,13 @@ jobs:
         with: {node-version: '20'}
       - name: A browser for the checks
         run: |
-          npm i --no-save playwright > /dev/null 2>&1
-          npx playwright install --with-deps chromium > /dev/null 2>&1
+          mkdir -p out
+          npm init -y > /dev/null
+          npm i playwright@1.48.2 2>&1 | tail -3
+          npx playwright install --with-deps chromium 2>&1 | tail -5
           node -e "console.log('playwright', require('playwright/package.json').version)"
       - name: Wait for the live site to show the new build
+        if: always()
         run: |
           set +e
           mkdir -p out
