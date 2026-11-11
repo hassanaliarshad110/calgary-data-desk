@@ -7,6 +7,7 @@
 <link rel="icon" href="logo.svg">
 <link rel="stylesheet" href="vendor/leaflet.css">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="budget-intel.css">
 <script>(function(){var p='top';try{var q=new URLSearchParams(location.search).get('nav');p=q==='top'||q==='side'?q:(localStorage.getItem('nav-layout')||'top');}catch(e){}if(p!=='side')document.documentElement.classList.add('topnav');})();</script>
 </head>
 <body>
@@ -138,6 +139,7 @@
       <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Money</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
       <div class="nav-gm">
         <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
+        <button class="tab tab-bi" data-view="budget-intelligence" title="Budget Intelligence: what is approved, what was spent and what is only proposed, every 2027–2030 budget request with its page in the City's document, and checks on the figures"><svg class="ic" aria-hidden="true"><use href="#i-analytics"/></svg><span>Budget Intelligence</span></button>
         <button class="tab" data-view="fedbudget" title="Federal Budget 2026: headline numbers, every measure, province by province, Calgary and Alberta"><svg class="ic" aria-hidden="true"><use href="#i-maple"/></svg><span>Federal Budget 2026</span></button>
         <button class="tab" data-view="invest" title="Invest in Calgary: every business, where each kind is underserved, growth, and the Business Economist"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg><span>Invest in Calgary</span></button>
         <button class="tab" data-view="capmkt" title="Calgary Capital Markets: Calgary's public companies, their industries and value, and Calgary's place in Canada's stock markets"><svg class="ic" aria-hidden="true"><use href="#i-candles"/></svg><span>Calgary Capital Markets</span></button>
@@ -735,6 +737,21 @@
     </div>
   </section>
 
+  <!-- ======================= BUDGET INTELLIGENCE ======================= -->
+  <section id="view-budget-intelligence" class="view" aria-labelledby="bi-title">
+    <header class="topbar">
+      <div class="topbar-title"><h1 id="bi-title">Budget Intelligence &amp; Accountability Centre</h1><p class="meta">The City of Calgary's budget: what is approved, what was spent, what is proposed, and every request behind it</p></div>
+      <div class="topbar-actions"><span class="pill" id="bi-fresh">Loading</span></div>
+    </header>
+    <div class="content bi">
+      <div class="banner warn" id="bi-error" hidden></div>
+      <div class="bi-shell">
+        <div class="bi-rail" id="bi-rail" role="radiogroup" aria-label="Sections of the Budget Intelligence Centre"></div>
+        <div class="bi-main" id="bi-main"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ======================= HOW IT'S COUNTED ======================= -->
   <!-- ======================= VIDEO BRIEFS ======================= -->
   <section id="view-videos" class="view" aria-labelledby="vid-title">
@@ -1248,6 +1265,7 @@
 <script src="forecast.js"></script>
 <script src="compare.js"></script>
 <script src="budget.js"></script>
+<script src="budget-intel.js"></script>
 <script src="elections.js"></script>
 <script src="constituency.js"></script>
 <script src="fedbudget.js"></script>

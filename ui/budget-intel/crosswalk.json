@@ -1,0 +1,182 @@
+{
+ "note": "Budget Intelligence crosswalk: how names in the City's business-case document are matched to the City's open budget data (2027-2030 Budget, nnnm-9sfh), and which Calgary Insight screens hold data on the same subject. Kept by hand; nothing in the City's documents is changed. A name with no entry is used exactly as printed.",
+ "kept": "2026-11-11",
+ "departments": {
+  "Calgary Police Services": {
+   "open_data": "Calgary Police Service",
+   "basis": "The same body; the document prints the name with and without the final s."
+  },
+  "Law, Legislative Services, & Security": {
+   "open_data": "Law, Legislative Services & Security",
+   "basis": "The same name with an extra comma."
+  },
+  "People, Innovation & Collaboration Services": {
+   "open_data": "People & Corporate Services",
+   "basis": "Different names in the two City sources; matched because all five business units the document lists under it (Information Technology, Human Resources, Marketing & Communications, Occupational Health & Safety, 311 & Insights) are the business units the open data lists under People & Corporate Services. An inference, not confirmed by the City.",
+   "label": "People, Innovation & Collaboration Services"
+  }
+ },
+ "budget_departments": {
+  "Corporate Programs": "Corporate Program",
+  "Chief Administrator's Office": "Corporate Services",
+  "Chief Operating Office": "Corporate Services",
+  "Corporate Planning & Financial Services": "Corporate Services",
+  "Law, Legislative Services & Security": "Corporate Services",
+  "People & Corporate Services": "Corporate Services"
+ },
+ "budget_departments_basis": "The open data's own two columns (department and budget_department): six departments are reported under two budget departments.",
+ "business_units": {
+  "Calgary Police Services": {
+   "open_data": "Calgary Police Service",
+   "basis": "The same body; printed with a final s."
+  },
+  "Calgary Fire Department": {
+   "open_data": "Calgary Fire",
+   "basis": "The same business unit under its longer name."
+  },
+  "GM - Planning and Development": {
+   "open_data": "GM - Planning & Development Services",
+   "basis": "The same office, printed in a shorter form."
+  },
+  "Marketing & Communications": {
+   "open_data": "Marketing & Communication",
+   "basis": "The same business unit; the open data drops the final s."
+  },
+  "Parks & Open Spaces": {
+   "open_data": "Parks and Open Spaces",
+   "basis": "The same name with an ampersand."
+  }
+ },
+ "business_units_unmatched": {
+  "Chief Operating Officer": "The open data has two units, Chief Operating Office - City Services and Chief Operating Office - Water Services; the document does not say which, so it is not matched."
+ },
+ "rationales": {
+  "Explicit": {
+   "same_as": "Explicit Direction from Council",
+   "basis": "Printed cut short in two capital cases; grouped with the full wording."
+  },
+  "Implicit": {
+   "same_as": "Implicit Direction from Council",
+   "basis": "Printed cut short in one capital case; grouped with the full wording."
+  }
+ },
+ "service_areas": {
+  "relationship": "Topic link: the screen holds data on the same subject. No dollars are divided between places and no cause is claimed.",
+  "areas": {
+   "Roads & Pathways": [
+    [
+     "infra",
+     "Infrastructure condition",
+     "pavement quality, the paving plan and 311 reports about roads, sidewalks and streetlights"
+    ],
+    [
+     "livemap",
+     "Live map",
+     "traffic incidents"
+    ]
+   ],
+   "Water Utilities": [
+    [
+     "infra",
+     "Infrastructure condition",
+     "water main breaks, the age of water mains and sewer lines"
+    ],
+    [
+     "studies/calgary-sewers/",
+     "Calgary's ageing sewers (report)",
+     "how long sewer pipes last and how old Calgary's are"
+    ],
+    [
+     "studies/what-calgarians-pay/",
+     "What Calgarians pay",
+     "water rates in the household bill"
+    ]
+   ],
+   "Waste & Recycling": [
+    [
+     "studies/what-calgarians-pay/",
+     "What Calgarians pay",
+     "cart fees in the household bill"
+    ]
+   ],
+   "Transit": [
+    [
+     "growth",
+     "Growth vs amenities",
+     "how near homes are to transit stops"
+    ]
+   ],
+   "Parks & Urban Forestry": [
+    [
+     "growth",
+     "Growth vs amenities",
+     "how near homes are to parks and playgrounds"
+    ]
+   ],
+   "Recreation": [
+    [
+     "growth",
+     "Growth vs amenities",
+     "how near homes are to recreation centres"
+    ]
+   ],
+   "Community & Culture": [
+    [
+     "growth",
+     "Growth vs amenities",
+     "how near homes are to libraries"
+    ]
+   ],
+   "Housing": [
+    [
+     "growth",
+     "Growth vs amenities",
+     "new homes, development and rezoning"
+    ],
+    [
+     "dashboard",
+     "Dashboard",
+     "rents by community"
+    ]
+   ],
+   "Development & Building": [
+    [
+     "growth",
+     "Growth vs amenities",
+     "development permits and rezoning"
+    ]
+   ],
+   "Police": [
+    [
+     "dashboard",
+     "Dashboard",
+     "police-reported crime by community"
+    ],
+    [
+     "studies/calgary-police/",
+     "Calgary Police study",
+     "performance, resources and the 2027 to 2030 budget request"
+    ]
+   ],
+   "Bylaw": [
+    [
+     "issues",
+     "Open issues",
+     "open 311 requests by kind and age"
+    ]
+   ],
+   "Business & Local Economy": [
+    [
+     "invest",
+     "Invest in Calgary",
+     "businesses by community"
+    ]
+   ],
+   "Fire": [],
+   "Emergency Management": [],
+   "All Services": []
+  },
+  "gaps": "Fire and Emergency Management have no screen of their own on Calgary Insight yet (no response-time or incident data is published here), so no link is shown."
+ },
+ "departments_label": "label: the name the centre shows in its own lists when the document's name and the open-data name are different names (not just different spellings). The document's name is kept."
+}

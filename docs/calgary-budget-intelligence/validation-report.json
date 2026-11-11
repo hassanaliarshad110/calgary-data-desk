@@ -1,0 +1,123 @@
+{
+ "counts": {
+  "pass": 15,
+  "note": 4,
+  "gap": 1,
+  "FAIL": 0
+ },
+ "source": {
+  "title": "2027–2030 budget request business cases",
+  "publisher": "The City of Calgary",
+  "url": "https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf",
+  "pages": 792,
+  "sha256": "b4deb3927d24afb142426127662c8be76751b6a041d6bb85a3358869da85c3d0",
+  "modified": "2026-11-09",
+  "read": "2026-11-11"
+ },
+ "checks": [
+  {
+   "result": "pass",
+   "check": "Every business case is present",
+   "detail": "384 cases, numbered 1 to 384; 124 operating, 260 capital."
+  },
+  {
+   "result": "pass",
+   "check": "Every case has every field, in the City's own categories",
+   "detail": "All fields present; stages, kinds, wards and ratings are within the City's lists."
+  },
+  {
+   "result": "pass",
+   "check": "Cases are in page order",
+   "detail": "Page numbers rise with the case numbers."
+  },
+  {
+   "result": "pass",
+   "check": "Each capital total equals its years",
+   "detail": "All 260 totals equal 2027 + 2028 + 2029 + 2030 + later, within $3,000 of rounding.",
+   "formula": "|total - sum of years| <= 3 ($000s)"
+  },
+  {
+   "result": "pass",
+   "check": "Each capital request's four purposes add to 100%",
+   "detail": "All 260 do."
+  },
+  {
+   "result": "pass",
+   "check": "No negative amounts",
+   "detail": "None."
+  },
+  {
+   "result": "pass",
+   "check": "The stored totals equal the sum of the cases",
+   "detail": "Capital total $13.051 billion; positions [855, 445, 279, 347]."
+  },
+  {
+   "result": "note",
+   "check": "Titles used more than once",
+   "detail": "1 titles appear on more than one case (the City uses the same title for separate requests): ['Technology Improvements']"
+  },
+  {
+   "result": "pass",
+   "check": "Every crosswalk entry matches a name in the document",
+   "detail": "3 department and 5 business-unit matches, 1 recorded as unmatched."
+  },
+  {
+   "result": "pass",
+   "check": "Every service area has an entry (a link or a stated gap)",
+   "detail": "15 service areas."
+  },
+  {
+   "result": "pass",
+   "check": "Every linked screen exists",
+   "detail": "All linked screens are in ui/index.html."
+  },
+  {
+   "result": "pass",
+   "check": "The screen is wired into the site once, beside the City budget screen",
+   "detail": "One section, one tab, one script, one stylesheet; the City budget screen and its script are still there."
+  },
+  {
+   "result": "pass",
+   "check": "The capital requests add up to the City's open data, year by year",
+   "detail": "Cases [1554.1, 3016.3, 4027.5, 4426.9] against open data [1555.21, 3017.64, 4028.83, 4427.75] ($ millions, 2027 to 2030); largest difference 0.07%.",
+   "formula": "sum of cases for the year / 1,000 against open-data rows with fund = Capital, status = Proposed",
+   "inputs": "nnnm-9sfh read 2026-11-10 17:59"
+  },
+  {
+   "result": "note",
+   "check": "The same, business unit by business unit",
+   "detail": "27 of 33 match within $1 million. Differing ($ millions, cases minus open data): [('City & Regional Planning', 1.2), ('Downtown Strategy', 31.5), ('Mobility', 44.0), ('Project Development', 31.1), ('Public Spaces Delivery', -393.5), ('Recreation & Social Programs', 283.9)]; net -1.8.",
+   "note": "The differences nearly cancel, which suggests the two sources file some of the same projects under different business units. An inference; the City has not published a mapping."
+  },
+  {
+   "result": "pass",
+   "check": "Open budget: departments add up to each year's total",
+   "detail": "For every year and fund, 2023 to 2032."
+  },
+  {
+   "result": "gap",
+   "check": "Budget against actual spending cannot be compared",
+   "detail": "The open budget gives one figure per year and fund (approved or actual), never both: 2023 operating Approved, capital Actual; 2024 operating Approved, capital Actual; 2025 operating Approved, capital Approved; 2026 operating Approved, capital Approved"
+  },
+  {
+   "result": "note",
+   "check": "Capital already approved for 2027 to 2030: two City datasets",
+   "detail": "fqax-i3nz against nnnm-9sfh ($ millions, newer minus older): [('2027', 367.3), ('2028', 1129.3), ('2029', 13.0), ('2030', -245.4)]. Neither is changed; the centre uses the newer for those years."
+  },
+  {
+   "result": "pass",
+   "check": "Revenue sources add up to the total",
+   "detail": "2023 to 2026, within $2 million of rounding."
+  },
+  {
+   "result": "pass",
+   "check": "Property tax by ward adds up to the citywide levy",
+   "detail": "Wards hold 99.94% of $2,520.9 million (2026)."
+  },
+  {
+   "result": "note",
+   "check": "Business-unit names found in the open data",
+   "detail": "Not matched: ['Chief Operating Officer'] (recorded in the crosswalk)."
+  }
+ ]
+}

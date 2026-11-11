@@ -1,0 +1,98 @@
+{
+ "what": "Backup taken before any development for the Budget Intelligence work, and the proof that it restores.",
+ "taken": "2026-11-11T09:45:00Z",
+ "repository": "hassanaliarshad110/calgary-data-desk",
+ "production": {
+  "branch": "main",
+  "commit": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+  "tree": "ba8f1f74e06bc288536aefbe601f203bb638abfd",
+  "subject": "Dashboard: only the latest study, with a link to all studies and reports",
+  "tracked_files": 330,
+  "working_tree": "clean (one empty untracked folder, bud/, in the working clone; not part of the repository)",
+  "published_by": {
+   "workflow": "Website (site.yml)",
+   "run": 42977312843,
+   "finished": "2026-11-11T08:25:33Z",
+   "site_size": "344 MB",
+   "published_files": 847
+  }
+ },
+ "copies": [
+  {
+   "id": "A",
+   "kind": "GitHub Actions artifact (durable, off this workspace)",
+   "name": "backup-7",
+   "workflow": "Backup (backup.yml)",
+   "run": 42997418780,
+   "event": "workflow_dispatch",
+   "at_commit": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+   "created": "2026-11-11T09:42:23Z",
+   "size_bytes": 1034660657,
+   "expires": "2027-02-09T09:42:25Z",
+   "contains": [
+    "calgary-data-desk.bundle (every branch, full history)",
+    "website.tar.gz (the site exactly as published by run 42977312843)",
+    "branches.txt"
+   ],
+   "verified_by": "the workflow's own restore step (git clone of the bundle, then test -f check/app.py) succeeded; all 5 job steps succeeded"
+  },
+  {
+   "id": "B",
+   "kind": "Branch on GitHub (durable)",
+   "name": "backup/pre-budget-intelligence-20261111",
+   "commit": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+   "verified_by": "git ls-remote shows the branch at the production commit (checked again after development)"
+  },
+  {
+   "id": "C",
+   "kind": "Independent bundle made in the development workspace (verification copy; the workspace is temporary)",
+   "file": "calgary-data-desk-20261111T0945Z.bundle",
+   "size_bytes": 887073813,
+   "sha256": "b11e9616c0b9fcc58ae672350990927285f12db11672ca68de3f3e38d304e2cf",
+   "branches": 66,
+   "verified_by": "git bundle verify: 'is okay'"
+  },
+  {
+   "id": "D",
+   "kind": "Source archive of main (verification copy; the workspace is temporary)",
+   "file": "main-source-20261111T0945Z.tar.gz",
+   "size_bytes": 111732937,
+   "sha256": "3f31e034476b7fb40c8879dc72510379aec301be7ffdfef80aa99d0623e22260",
+   "verified_by": "all 330 files hash-identical to the git blobs at ff42583"
+  }
+ ],
+ "restore_test": {
+  "method": "cloned copy C into an empty folder and compared it with production",
+  "result": "pass",
+  "checks": [
+   "HEAD = ff42583627241a1b727d5a85e66ea4dba3df8317",
+   "tree = ba8f1f74e06bc288536aefbe601f203bb638abfd (identical to production)",
+   "330 tracked files, working tree clean",
+   "the offline build step run from the restored copy writes the script bundle site.20186e8330.js, the same content-hash name as on the live site"
+  ]
+ },
+ "configuration": {
+  "secrets": "Not copied. They stay in GitHub's repository settings and are referenced by name only (ANTHROPIC_API_KEY, GENIE_ACCESS_CODE, ELECTION_ACCESS_CODE, BUSINESS_ACCESS_CODE, SEC_CONTACT, SOCRATA_APP_TOKEN, CLOUDFLARE_API_TOKEN).",
+  "variables": "CONTACT_EMAIL, FIREBASE_CONFIG, AI_GATEWAY_URL, GOOGLE_SITE_VERIFICATION, CLOUDFLARE_ACCOUNT_ID: referenced by name; values not read.",
+  "in_repository": "The workflows, gateway/wrangler.toml and web/google-*.txt are in the repository and therefore in every copy above."
+ },
+ "not_in_the_repository": [
+  "GitHub Pages settings and the custom domain (calgaryinsight.ca, DNS at GoDaddy): unchanged and not touched",
+  "the .site-cache of the Website workflow (GitHub Actions cache): rebuilt by the next run if lost",
+  "the owner's laptop archive (tools/archive.py output)"
+ ],
+ "restore_procedure": {
+  "undo_a_publication_fast": [
+   "git revert <the publication commit(s)> on main and push; the Website workflow rebuilds and republishes the previous site in 1 to 1.5 hours",
+   "or, to return main to exactly the pre-development commit: git push --force-with-lease origin backup/pre-budget-intelligence-20261111:main (only if nothing else has been pushed to main since)"
+  ],
+  "restore_everything_from_the_artifact": [
+   "GitHub > Actions > Backup > run 42997418780 > Artifacts > backup-7 (download)",
+   "git clone calgary-data-desk.bundle restored && cd restored",
+   "git remote set-url origin https://github.com/hassanaliarshad110/calgary-data-desk.git",
+   "git push origin --all (or push only main)",
+   "to serve the site exactly as it was without rebuilding: unpack website.tar.gz and publish it with GitHub Pages"
+  ],
+  "the_development_never_touched_production": "Until publication is approved there is nothing to roll back: main is still ff42583."
+ }
+}
