@@ -139,7 +139,7 @@ function renderSchoolCards() {
   $('#sc-card').hidden = $('#scl-card').hidden = !sc;
   if (!sc) return;
   const t = sc.totals, first = t[0], last = t[t.length - 1];
-  $('#sc-sub').textContent = `${fmt(last.students)} students at the ${sc.schools.filter(x => x.latest).length} schools located in ${W()}, ${sc.latest_year}: ${signed(pct(last.students, first.students), 0)} since ${first.year}. Includes students who live outside the ward.`;
+  $('#sc-sub').textContent = `${fmt(last.students)} students at the ${sc.schools.filter(x => x.latest && !x.taught_elsewhere).length} schools located in ${W()}, ${sc.latest_year}: ${signed(pct(last.students, first.students), 0)} since ${first.year}. Includes students who live outside the ward.`;
   chartTheme();
   xcharts.sc = new Chart($('#sc-chart'), {
     type: 'bar',
@@ -147,7 +147,7 @@ function renderSchoolCards() {
     options: { maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { ...tooltipStyle(), callbacks: { label: c => ' ' + fmt(c.parsed.y) + ' students' } } },
       scales: { x: { grid: { display: false } }, y: { beginAtZero: true, grid: { color: cssv('--chart-grid') }, ticks: { callback: v => fmt(v) } } } }
   });
-  const list = sc.schools.filter(x => x.latest).slice(0, 8);
+  const list = sc.schools.filter(x => x.latest && !x.taught_elsewhere).slice(0, 8);
   $('#scl-sub').textContent = `${sc.latest_year}, with the change since ${list[0] && list[0].base_year ? list[0].base_year : 'five years earlier'}`;
   $('#sc-list').innerHTML = `<table class="data compact"><thead><tr><th scope="col">School</th><th scope="col">Grades</th><th scope="col">Community</th><th scope="col" class="num">Students</th><th scope="col" class="num">Change</th></tr></thead>
     <tbody>${list.map(x => `<tr><td>${esc(x.name)}</td><td>${esc(shortGrades(x.grades))}</td><td>${esc(commName(x.comm))}</td><td class="num">${fmt(x.latest)}</td>
@@ -300,11 +300,11 @@ function renderFamilies(keepFilters) {
     if (!sc) { $('#fam-stats').innerHTML = ''; head.innerHTML = ''; body.innerHTML = '<tr><td class="empty">School enrolment data is not available right now.</td></tr>'; return; }
     const years = sc.years.slice(-4), rows = scRows(), t = sc.totals;
     $('#fam-sub').textContent = `Students enrolled at each school located in ${W()}, ${sc.years[0]} to ${sc.latest_year} (Government of Alberta). Includes students who live outside the ward.`;
-    $('#fam-stats').innerHTML = [[fmt(rows.reduce((n, x) => n + (x.latest || 0), 0)), `students, ${sc.latest_year}`], [signed(pct(t[t.length - 1].students, t[0].students), 0), `all ${W()} schools since ${t[0].year}`],
+    $('#fam-stats').innerHTML = [[fmt(rows.reduce((n, x) => n + (x.taught_elsewhere ? 0 : x.latest || 0), 0)), `students, ${sc.latest_year}`], [signed(pct(t[t.length - 1].students, t[0].students), 0), `all ${W()} schools since ${t[0].year}`],
       [fmt(rows.length) + ' of ' + fmt(sc.schools.length), 'schools shown'], [fmt((sc.unmatched || []).length), 'schools not in the province\'s file']]
       .map(([b, s]) => `<div class="istat"><b>${b}</b><span>${s}</span></div>`).join('');
     head.innerHTML = `<tr><th scope="col">School</th><th scope="col">Board</th><th scope="col">Grades</th><th scope="col">Community</th>${years.map(y => `<th scope="col" class="num">${esc(y.replace(/^(\d{4})\/\d{2}(\d{2})$/, '$1–$2'))}</th>`).join('')}<th scope="col" class="num">Change</th></tr>`;
-    body.innerHTML = rows.map(x => `<tr><td>${esc(x.name)}</td><td>${esc(x.board || '')}</td><td>${esc(shortGrades(x.grades))}</td><td>${esc(x.comm ? commName(x.comm) : '–')}</td>
+    body.innerHTML = rows.map(x => `<tr><td>${esc(x.name)}${x.taught_elsewhere ? ' <small class="muted">(home education or online: not counted)</small>' : ''}</td><td>${esc(x.board || '')}</td><td>${esc(shortGrades(x.grades))}</td><td>${esc(x.comm ? commName(x.comm) : '–')}</td>
       ${years.map(y => `<td class="num">${isNum(x.enrolment[y]) ? fmt(x.enrolment[y]) : '<span class="dash">–</span>'}</td>`).join('')}
       <td class="num">${isNum(x.change_pct) ? chg(x.change_pct, null, '%', 0, x.base_year) : '<span class="dash">–</span>'}</td></tr>`).join('')
       || `<tr><td colspan="${years.length + 5}" class="empty">No schools match these filters.</td></tr>`;
@@ -590,7 +590,7 @@ function renderGapInner() {
   const head = `<div class="gap-scope ac-head"><h2 class="h3">Are new homes keeping up?</h2>
     <p class="ac-lead">${esc(acHeadline(A))}</p>
     <div class="table-wrap ac-full"><table class="data ac-keep"><thead><tr><th scope="col">Amenity</th><th scope="col">Distance</th><th scope="col">Homes built since ${A.growth_year}</th><th scope="col">Homes built before ${A.growth_year}</th><th scope="col" class="num">Difference</th><th scope="col">All homes, Calgary</th></tr></thead><tbody>
-    ${kinds.map(k => { const c = A.city[k] || {}, d = isNum(c.share_new_1) && isNum(c.share_old_1) ? Math.round((c.share_new_1 - c.share_old_1) * 100) : null;
+    ${kinds.map(k => { const c = A.city[k] || {}, d = isNum(c.share_new_1) && isNum(c.share_old_1) ? Math.round(c.share_new_1 * 100) - Math.round(c.share_old_1 * 100) : null;   // the difference of the two shares as shown
       return `<tr><td>${esc(A.kinds[k].label)}</td><td>within ${acM(acTh(A, k, false))}</td><td>${acBar(c.share_new_1, 'new')}<b>${acPct(c.share_new_1)}</b></td><td>${acBar(c.share_old_1)}${acPct(c.share_old_1)}</td><td class="num">${isNum(d) ? signed(d, 0, ' pts') : '–'}</td><td>${acPct(c.share_1)} <small class="ac-med">median ${acM(c.median_m)}</small></td></tr>`; }).join('')}
     </tbody></table></div>
     <p class="card-note">Share of homes (dwelling units) within the distance of the nearest one, in any community, straight-line. ${fmt(A.homes.units)} homes on the City's property roll (${fmt(A.homes.records)} records; ${fmt(A.homes.units_estimated)} rental units estimated from assessed value). "Built since ${A.growth_year}": year of construction ${A.growth_year} or later; homes with no year are in neither group.</p>

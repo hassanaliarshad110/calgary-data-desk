@@ -36,7 +36,10 @@ async function renderBudget() {
   if (!budYear) budYear = years.includes('2026') ? '2026' : years[years.length - 1];
   $('#bud-year').innerHTML = years.map(y => `<option ${y === budYear ? 'selected' : ''}>${y}</option>`).join('');
   const T = BUD.totals[budYear] || {}, op = T.operating, cap = T.capital;
-  const people = D && D.population ? D.population.city_now : null;
+  // the City's population estimate: from the dashboard when it is loaded, or read for this screen when it is opened first
+  let people = D && D.population ? D.population.city_now : null;
+  let view0 = null;
+  if (!people) { try { view0 = await peekView(0); people = view0 && view0.population ? view0.population.city_now : null; } catch (e) { people = null; } }
   // a year past the current budget cycle has no operating budget: its capital is spending Council already approved, in
   // earlier budgets, for multi-year projects that run into that year; it is not a budget for that year
   const ahead = !op && !!cap;
@@ -86,7 +89,7 @@ async function renderBudget() {
   renderPlan();
   renderRevenue();
   renderTax();
-  renderBudgetWards();
+  if (D || !view0) renderBudgetWards(); else withView(view0, 0, renderBudgetWards);     // opened before the dashboard: Calgary's view
   $('#bud-notes').innerHTML = `${esc(BUD.note)} Source: City of Calgary, <button class="link-btn small" data-open="${esc(BUD.page)}">Calgary Open Budget (${esc(BUD.dataset)})</button>, read ${esc(BUD.fetched || '')}; the City's <button class="link-btn small" data-open="${esc(BUD.budget_page)}">budget pages</button>.`;
 }
 
@@ -117,7 +120,7 @@ function renderPlan() {
         <p class="card-sub">If every year passes as proposed, the City would collect about ${fmt(cum, 0)}% more property tax from existing properties in 2030 than in 2026 (each year's increase compounds on the last). ${esc(T.source)} ${esc(T.context)}</p></div>
     </div>
     <h3>Water, wastewater and stormwater in 2027</h3>
-    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Service (${esc(W.basis)})</th><th scope="col" class="num">2026 rate</th><th scope="col" class="num">2027 rate</th><th scope="col" class="num">Change</th><th scope="col" class="num">A month more</th><th scope="col" class="num">2027 a month</th></tr></thead>
+    <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Service (${esc(W.basis)})</th><th scope="col" class="num">2026 rate</th><th scope="col" class="num">2027 rate</th><th scope="col" class="num">Change in the monthly bill</th><th scope="col" class="num">A month more</th><th scope="col" class="num">2027 a month</th></tr></thead>
       <tbody>${W.lines.map(l => `<tr><td>${esc(l.item)}</td><td class="num">${esc(l.rate2026)}</td><td class="num">${esc(l.rate2027)}</td><td class="num">+${fmt(l.pct, 1)}%</td><td class="num">+$${fmt(l.change, 2)}</td><td class="num">$${fmt(l.bill2027, 2)}</td></tr>`).join('')}
       <tr class="cmp-city-row"><td><b>Typical bill</b></td><td class="num">$${fmt(W.total.bill2026, 2)}</td><td class="num"></td><td class="num"><b>+${fmt(W.total.pct, 1)}%</b></td><td class="num"><b>+$${fmt(W.total.change, 2)}</b></td><td class="num"><b>$${fmt(W.total.bill2027, 2)}</b></td></tr></tbody></table></div>
     <p class="card-sub">${esc(W.four_year)} Source: ${link(W.url, W.source)}. Water rates were set by Council separately; the budget's household figure adds waste and recycling.</p>

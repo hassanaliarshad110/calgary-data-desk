@@ -242,7 +242,7 @@ STREET_TYPES = {
     'PLAZA': 'PZ', 'PATH': 'PH', 'WALK': 'WK', 'VILLAS': 'VI', 'VILLAGE': 'VL', 'CENTRE': 'CE', 'CAPE': 'CA', 'COVE': 'CV',
     'MOUNT': 'MT', 'GLEN': 'GL', 'HIGHWAY': 'HY', 'GROUNDS': 'GO', 'ISLAND': 'IS', 'CROSSING': 'CX',
     'AVENE': 'AV', 'AVNUE': 'AV', 'STEET': 'ST', 'GDNS': 'GD', 'GDN': 'GD', 'PK': 'PA', 'PKWY': 'PY', 'HTS': 'HT', 'TERR': 'TC',
-    'CRT': 'CO', 'CMN': 'CM', 'MNR': 'MR', 'GRV': 'GV', 'LNDG': 'LD', 'LDG': 'LD', 'PLZ': 'PZ', 'SQR': 'SQ', 'BV.': 'BV'}
+    'CRT': 'CO', 'VW': 'VW', 'PASSAGE': 'PS', 'PS': 'PS', 'CMN': 'CM', 'MNR': 'MR', 'GRV': 'GV', 'LNDG': 'LD', 'LDG': 'LD', 'PLZ': 'PZ', 'SQR': 'SQ', 'BV.': 'BV'}
 QUADS = {'NE', 'NW', 'SE', 'SW', 'N', 'S', 'E', 'W'}
 QUAD_WORDS = {'NORTHEAST': 'NE', 'NORTHWEST': 'NW', 'SOUTHEAST': 'SE', 'SOUTHWEST': 'SW', 'NORTH': 'N', 'SOUTH': 'S',
               'EAST': 'E', 'WEST': 'W'}
@@ -254,10 +254,21 @@ def parse_address(text):
     if not a or 'NOT AVAILABLE' in a:
         return None
     a = re.sub(r'\s+(SUITE|UNIT|BAY)\s+\S+$', '', a)              # "6815 8TH ST NE SUITE 290"
+    a = re.sub(r',\s*(SUITE|UNIT|BAY|FLOOR)\s*#?\S+$', '', a)     # "88 SHAWNEE ST SW, SUITE 2125"
+    a = a.rstrip(' ,')
+    a = re.sub(r'\s+(GROUND|MAIN|SECOND|2ND|UPPER|LOWER)\s+FLOOR$', '', a)   # "333 - 11 AVENUE SW GROUND FLOOR"
+    a = re.sub(r'#\d+[A-Z]?\s*-\s*(?=\d)', '', a)                  # "#30-4307 130 AVE SE"
+    a = re.sub(r'\b(\d+[A-Z]?)\s*/\s*\d+[A-Z]?\b', r'\1', a)       # "4239/4247 BOW TRAIL SW"
+    a = re.sub(r'\b(\d+)-\s+(?=[A-Z])', r'\1 ', a)                  # "59- AMBLEFIELD TERR NW"
     a = re.sub(r',\s*(NE|NW|SE|SW)\b', r' \1', a)               # "CORNERSTONE BLVD, NE"
     a = re.sub(r'^(UNITS?|SUITE|BAY|#)\s*[\w&\s]*?,', '', a)     # "UNIT 1040, 4231 109 AVE NE"
+    before = ''
     if ',' in a:
-        a = a.rsplit(',', 1)[1]                                 # "4, 2611 - 37 AVENUE NE"
+        before, a = a.rsplit(',', 1)                            # "4, 2611 - 37 AVENUE NE"
+        if not re.match(r'^\s*#?\d+[A-Z]?\s+\S', a) or re.match(r'^\s*\d+\s+(AVENUE|AVE|AV|STREET|ST)\b', a):
+            m = re.search(r'(\d+[A-Z]?)\s*$', before)          # "5721, 3 STREET SW": the house number is before the comma
+            if m:
+                a = m.group(1) + ' ' + a.strip()
     a = re.sub(r'^(UNITS?|SUITE|BAY)\s+', '', a.strip())
     a = re.sub(r'#\S+\s*', '', a)
     a = re.sub(r'(\d)\s*-\s*(\d)', r'\1 \2', a)                  # "2105-30", "950 - 6"

@@ -97,7 +97,7 @@ METHODS = [
          'the department closing the request in its system; the data does not say whether the problem was fixed, and '
          'has no notes on what was done or when the department took it on.',
          'A ward = requests whose comm_code is one of the ward\'s communities (the communities section of the dashboard '
-         'lists them; a community belongs to the ward holding most of its area); Calgary = every request.',
+         'lists them; a community belongs to the ward holding most of its area); Calgary = every request in the City\'s data, including those with no community (about 6% of a year\'s requests; they are in Calgary\'s totals but in no community or ward). Compare wards adds up the 14 wards, so its Calgary row counts only requests placed in a community.',
          'Requests in a period: requested_date from the first day of the first month to the last day of the last month. '
          'Duplicates are left out: status_description "Duplicate (Open)" and "Duplicate (Closed)".',
          'Per 1,000 residents a year: requests in the area\'s residential communities / its residents at the middle of '
@@ -114,7 +114,7 @@ METHODS = [
          'Open more than 90 days: also requested_date more than 90 days before the refresh.',
          'Closed within 7 days: requests made in the period with status "Closed" whose closed_date is within 7 days of '
          'requested_date, as a share of the period\'s requests closed so far (requests still open are not counted, so a '
-         'short or recent period looks faster than it will end up). Calgary uses every request with a community.',
+         'short or recent period looks faster than it will end up). Calgary uses every request.',
          'Made on a phone (311 Calgary): source = "App" as a share of the period\'s non-duplicate requests (Web and Other, '
          'mostly phone, are the rest).',
          'City service: the first part of service_name, before " - " (Roads, WATS = Water, WRS = Waste and '
@@ -243,7 +243,7 @@ METHODS = [
          'homes get the community\'s 2021 household size. Communities built since 2021 have no 2021 count, so they use '
          'the Calgary average (2.66 people per home).',
          '2021 Census: 2021 Federal Census Population by Community (f9wk-wej9, total_pop_household) and Households '
-         '(msjx-5ygv, total_private_households). Calgary: 1,288,995 people in 500,990 households.'],
+         '(msjx-5ygv, total_private_households). Calgary: 1,288,995 people in 500,990 households in its residential communities (the file also has 695 people and 405 households in business, industrial and park areas, which have no residents in the model).'],
      'excel': [
          'Download the roll for a community (4bsw-nn7w, comm_code = e.g. CNS).',
          'Filter assessment_class = RE, property_type = LI, sub_property_use begins with R: that is the number of homes '

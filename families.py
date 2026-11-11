@@ -150,6 +150,11 @@ def _where(lat, lon, ward_shape, comm_shapes):
     return True, loc.find(lon, lat)
 
 
+def _title(name):
+    """Title case that keeps "Children's" (str.title gives "Children'S")."""
+    return re.sub(r"'(S|T|D|Ll|Re|Ve|M)\b", lambda m: "'" + m.group(1).lower(), (name or '').title())
+
+
 def children_note(new_count=None):
     """How children are estimated, with the number of communities new at the Census when it is known."""
     which = (f"{new_count} of them, spread across the city" if new_count
@@ -172,6 +177,14 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
                 if k and not near.get(k):
                     near[k] = alberta.street_type(p['address'])
     points = _geocode(sorted(near), os.path.join(cache_dir, 'alberta', 'addresses.json'))
+    # "Centre Street N", "Macleod Trail S": the City's address list may give such a street another quadrant code; ask
+    # for the house number and street in any quadrant
+    loose = {k: k.rsplit('|', 1)[0] + '|' for k in near if not points.get(k) and k.split('|')[-1] in ('N', 'S', 'E', 'W', '')}
+    if loose:
+        found = _geocode(sorted(set(loose.values())), os.path.join(cache_dir, 'alberta', 'addresses.json'))
+        for k, k2 in loose.items():
+            if found.get(k2):
+                points[k] = found[k2]
     misses = {k: near[k] for k in near if not points.get(k)}
     if misses:
         try:
@@ -198,11 +211,21 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
                 t[1] += 1
     ward_fsa = {f for f, (i, n) in tally.items() if n and i / n > 0.5}
 
+    def in_city(p):
+        """A program with a Calgary address the City's address list could not place: inside the city unless the
+        address is rural (a range road, a six-digit rural number, Springbank) or the postal area is outside Calgary."""
+        a, post = (p['address'] or '').upper(), (p['postal'] or '').upper().replace(' ', '')
+        if re.search(r'RANGE ROAD|RGE RD|TOWNSHIP|TWP|SPRINGBANK|\b\d{6}\b', a):
+            return False
+        return post[:2] in ('T2', 'T3') and post[:3] != 'T3Z'
+
     def in_ward(p):
         k = alberta.address_key(p['address']) or ''
         hit = place.get(k)
         if hit:
             return hit if hit[0] else None
+        if not ward and in_city(p):              # Calgary as a whole: counted, though in no community or ward
+            return (True, None, None)
         # a new address the City's list doesn't have yet: streets named after one of the ward's newer communities
         # are only in it (Cityscape Drive is in Cityscape)
         name = k.split('|')[1] if k.count('|') == 2 else ''
@@ -244,7 +267,7 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
         visits = sorted({r['date'] for r in recent})
         actions = [r for r in recent if r['action']]
         programs.append({
-            'id': p['id'], 'name': p['name'].title(), 'kind': alberta.kind(p), 'type': p['type'].title(),
+            'id': p['id'], 'name': _title(p['name']), 'kind': alberta.kind(p), 'type': p['type'].title(),
             'capacity': p['capacity'], 'counted': alberta.kind(p) != NOT_COUNTED,
             'address': p['address'], 'postal': p['postal'], 'phone': p['phone'], 'comm': h[1],
             'lat': h[2][0] if h[2] else None, 'lon': h[2][1] if h[2] else None, 'since': first_seen.get(alberta.program_key(p)),
@@ -259,6 +282,7 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
     # programs in the ward's postal areas that couldn't be placed on the map at all
     unlocated = sum(1 for p in q['programs'] if p['postal'][:3] in ward_fsa and not in_ward(p)
                     and not place.get(alberta.address_key(p['address']) or ''))
+    unplaced = [p for p in programs if p['counted'] and not p['comm']]
 
     # spaces and children by community
     by_comm = {}
@@ -281,6 +305,7 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
     return {
         'as_of': label, 'quarters': trend, 'programs': sorted(programs, key=lambda x: -x['capacity']),
         'by_comm': by_comm, 'unlocated': unlocated,
+        'unplaced': {'programs': len(unplaced), 'spaces': sum(p['capacity'] for p in unplaced)},
         'spaces': latest['spaces'], 'programs_counted': latest['programs'],
         'spaces_first': first['spaces'], 'first_quarter': first['quarter'],
         'children_0_14': round(total_k014), 'children_0_4': round(total_k04),
@@ -290,10 +315,23 @@ def child_care(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, name
         'daycare_per_100_0_4': round((latest['daycare'] + latest['preschool']) / total_k04 * 100, 1) if total_k04 else None,
         'page': alberta.CHILD_CARE_PAGE,
         'note': (f"Licensed spaces: how many children each licensed program may care for at once, for programs whose "
-                 f"address is in Ward {ward} (Government of Alberta, Child Care Information). Family day home agencies are "
-                 "listed but not counted, because the day homes they oversee are spread across the city."),
+                 f"address is in {'Calgary' if not ward else f'Ward {ward}'} (Government of Alberta, Child Care Information). Family day home agencies are "
+                 "listed but not counted, because the day homes they oversee are spread across the city."
+                 + (f" {len(unplaced)} programs ({sum(p['capacity'] for p in unplaced):,} spaces) have a Calgary address the City's "
+                    "address list could not place: they are in Calgary's total but in no community or ward." if unplaced else '')),
         'children_note': children_note(),
     }
+
+
+# Home education and online programs are registered at an office address, but their students are taught at home or
+# online, many of them across Alberta (The Gilbertine Academy is the WISDOM home schooling program; Vista Virtual School
+# is Pembina Hills' online school). They are listed, but not counted in any community, ward or Calgary total.
+NOT_TAUGHT_HERE = re.compile(r'home education|home schooling|@home|virtual|e-?learn|online|distance learning', re.I)
+NOT_TAUGHT_HERE_CODES = {'2338'}            # The Gilbertine Academy (WISDOM home schooling), Government of Alberta code
+
+
+def taught_elsewhere(name, code):
+    return bool(NOT_TAUGHT_HERE.search(name or '')) or str(code or '') in NOT_TAUGHT_HERE_CODES
 
 
 def schools(cache_dir, ward_shape, comm_shapes, ward=5):
@@ -349,10 +387,11 @@ def schools(cache_dir, ward_shape, comm_shapes, ward=5):
             'base_year': base_year if base_year != latest_year else None, 'base': base if base_year != latest_year else None,
             'change_pct': round((now - base) / base * 100, 1) if now and base and base >= 50 and base_year != latest_year else None,
             'grades': (f'{span[0]} to {span[-1]}' if len(span) > 1 else span[0]) if span else (r.get('grades') or ''),
-            'matched': bool(code),
+            'matched': bool(code), 'taught_elsewhere': taught_elsewhere(r.get('name'), code),
         })
     out.sort(key=lambda s: -(s['latest'] or 0))
-    matched = [s for s in out if s['latest']]
+    matched = [s for s in out if s['latest'] and not s['taught_elsewhere']]
+    elsewhere = [s for s in out if s['latest'] and s['taught_elsewhere']]
     totals = []
     k9 = alberta.GRADES[:10]                       # kindergarten (ECS) to Grade 9: roughly ages 5 to 14
     for y, d in years:
@@ -363,10 +402,14 @@ def schools(cache_dir, ward_shape, comm_shapes, ward=5):
     return {
         'latest_year': latest_year, 'years': [y for y, _ in years], 'schools': out, 'totals': totals,
         'students': sum(s['latest'] for s in matched), 'unmatched': [s['name'] for s in out if not s['matched']],
+        'taught_elsewhere': {'programs': [{'name': s['name'], 'board': s['board'], 'students': s['latest']} for s in elsewhere],
+                             'students': sum(s['latest'] for s in elsewhere)},
         'page': alberta.ENROLMENT_PAGE,
-        'note': (f"Students enrolled in each school inside Ward {ward} (Government of Alberta, Student enrolment by school, "
-                 "authority and grade level). Schools are placed with the City's Schools map. Totals over years count "
-                 "the same schools in every year."),
+        'note': (f"Students enrolled in each school inside {'Calgary' if not ward else f'Ward {ward}'} (Government of Alberta, "
+                 "Student enrolment by school, authority and grade level). Schools are placed with the City's Schools map. "
+                 "Totals over years count the same schools in every year. Home education and online programs registered "
+                 "at an address here are listed but not counted: their students are taught at home or online, many of "
+                 "them elsewhere in Alberta."),
     }
 
 
@@ -387,7 +430,7 @@ def build(cache_dir, ward_shape, comm_shapes, children, as_of, ward=5, names=Non
 def city_school_totals(cache_dir, keep_days=7):
     """Students enrolled in every school inside Calgary, year by year (the same schools in every year): Calgary's side
     of the growth checks. Counted once a week."""
-    path = os.path.join(cache_dir, 'school_totals_city.json')
+    path = os.path.join(cache_dir, 'school_totals_city_v2.json')     # v2: home education and online programs left out
     try:
         import time
         if os.path.exists(path) and time.time() - os.path.getmtime(path) < keep_days * 86400:
@@ -418,7 +461,7 @@ def city_school_totals(cache_dir, keep_days=7):
             board = alberta.norm_name(r.get('board'))
             cands = [c for c in cands if alberta.norm_name(latest[c]['authority']) == board or
                      'CALGARY' in latest[c]['authority'].upper()] or cands
-        if len(cands) == 1:
+        if len(cands) == 1 and not taught_elsewhere(r.get('name'), cands[0]):
             codes.add(cands[0])
     out = {'years': [{'year': y, 'students': sum(d[c]['total'] for c in codes if c in d)} for y, d in years],
            'schools': len(codes)}
