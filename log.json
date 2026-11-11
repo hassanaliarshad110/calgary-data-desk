@@ -309,7 +309,8 @@
   "status": "done",
   "posted": [
    {
-    "metricool_id": 424669934,
+    "metricool_id": 424671706,
+    "uuid": "6453527198449680992",
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=6453527198449680992",
     "providers": [
      "instagram",
@@ -319,6 +320,6 @@
     "publish_at": "2026-11-11T11:00"
    }
   ],
-  "post_note": "Fixed 08:00 slot had passed (run started 10:31). Moved to 11:00: at least 10 min from scheduling, 80 min after the last post today (09:40) and 90 min before the 12:30 flagship slot."
+  "post_note": "Fixed 08:00 slot had passed (run started 10:31). Moved to 11:00: at least 10 min from scheduling, 80 min after the last post today (09:40) and 90 min before the 12:30 flagship slot. Playbook update at 10:45 (hook frame must match the thumbnail; no AI labels): the first 0.9 s now shows the designed thumbnail, video re-pushed (commit 91c05e0) and the scheduled post updated to that file (id 424669934 -> 424671706), isAiGenerated/isAiGeneratedContent false."
  }
 ]

@@ -87,7 +87,7 @@ Thumbnail concept: navy background, rows of white crosses along the bottom, hook
 Kokoro af_heart raw durations (s): 3.499, 7.125, 7.979, 7.872, 3.093, 2.859; sped up with ffmpeg atempo 1.07 (no wording change) to fit the 35 s cap: 3.282, 6.665, 7.449, 7.375, 2.898, 2.684. 0.5 s lead, 0.35 s gaps, 1.8 s end-card hold. Total 34.4 s, 1080×1920, 30 fps, H.264 crf 18, AAC 192k, 2.5 MB. Font: Inter (Fira Sans not available in this sandbox). Kokoro lines_used.json equals the sent JSON; burned-in captions generated from the same lines with only the site-name substitution.
 | Scene | Time |
 |---|---|
-| 0 Hook | 0.00–4.13 s |
+| 0 Hook | 0.00–4.13 s (0–0.9 s: the designed thumbnail frame, fading into the hook layout by 1.25 s) |
 | 1 Menlo, Georgia | 4.13–11.15 s |
 | 2 2009 | 11.15–18.95 s |
 | 3 2026 | 18.95–26.67 s |
