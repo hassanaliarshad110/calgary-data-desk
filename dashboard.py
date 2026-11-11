@@ -741,8 +741,11 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
     s, e, cs, ce = (P[k].isoformat() for k in ('start', 'end', 'cstart', 'cend'))
     # the City's records carry a community code; the whole city is every record that has one
     codes = 'comm_code IS NOT NULL' if city else _in('comm_code', ALL_CODES)
+    # Calgary's 311 counts take every record, with or without a community; a ward takes its communities' records
+    every = 'service_request_id IS NOT NULL'
+    rq = every if city else codes
     pcodes = 'communitycode IS NOT NULL' if city else _in('communitycode', ALL_CODES)
-    in_ward = 'ward IS NOT NULL' if city else f"ward='{ward}'"
+    in_ward = 'permitnum IS NOT NULL' if city else f"ward='{ward}'"      # Calgary: every permit, with or without a ward
     not_dup = "status_description not like 'Duplicate%'"
     cur = f"requested_date>='{s}' AND requested_date<'{e}'"
     cmp_ = f"requested_date>='{cs}' AND requested_date<'{ce}'"
@@ -764,36 +767,36 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                  else (lambda: cd.query(WARDS, where=f'ward_num={ward}', limit=5))),
         'areas': lambda: cd.query(COMMUNITIES, select='comm_code,name,class,multipolygon', where=codes, limit=1000 if city else 100),
         'monthly_all': lambda: cd.query(SERVICE_REQUESTS, select='comm_code,date_trunc_ym(requested_date) as m,count(*) as n',
-                                        where=f'{both} AND {not_dup} AND {codes}', group='comm_code,m', limit=50000),
+                                        where=f'{both} AND {not_dup} AND {rq}', group='comm_code,m', limit=50000),
         'types': lambda: cd.query(SERVICE_REQUESTS,
                                   select=(f"service_name,sum(case({cur},1,true,0)) as n12,"
                                           f"sum(case({cmp_},1,true,0)) as nprev"),
-                                  where=f'{both} AND {not_dup} AND {codes}', group='service_name', limit=5000),
+                                  where=f'{both} AND {not_dup} AND {rq}', group='service_name', limit=5000),
         'infra': lambda: cd.query(SERVICE_REQUESTS,
                                   select=f"comm_code,sum(case({cur},1,true,0)) as n12,sum(case({cmp_},1,true,0)) as nprev",
-                                  where=f'{both} AND {not_dup} AND {codes} AND {infra}', group='comm_code', limit=1000),
+                                  where=f'{both} AND {not_dup} AND {rq} AND {infra}', group='comm_code', limit=1000),
         'open': lambda: cd.query(SERVICE_REQUESTS, select='comm_code,service_name,count(*) as n,min(requested_date) as oldest',
-                                 where=f"status_description='Open' AND {codes}", group='comm_code,service_name', limit=50000),
+                                 where=f"status_description='Open' AND {rq}", group='comm_code,service_name', limit=50000),
         'open_old': lambda: cd.query(SERVICE_REQUESTS, select='comm_code,count(*) as n',
-                                     where=f"status_description='Open' AND requested_date<'{old_cutoff}' AND {codes}",
+                                     where=f"status_description='Open' AND requested_date<'{old_cutoff}' AND {rq}",
                                      group='comm_code', limit=1000),
         'open_list': lambda: cd.query(SERVICE_REQUESTS,
                                       select=('service_request_id,requested_date,updated_date,source,service_name,'
                                               'agency_responsible,address,comm_code,location_type,latitude,longitude'),
-                                      where=f"status_description='Open' AND {codes}", order='requested_date',
+                                      where=f"status_description='Open' AND {rq}", order='requested_date',
                                       limit=1 if city else 20000),
         'newest': lambda: cd.query(SERVICE_REQUESTS,
                                    select='service_request_id,requested_date,status_description,service_name,comm_code',
-                                   where=f'{not_dup} AND {codes}', order='requested_date DESC,service_request_id DESC',
+                                   where=f'{not_dup} AND {rq}', order='requested_date DESC,service_request_id DESC',
                                    limit=40),
         'close_ward': lambda: cd.query(SERVICE_REQUESTS, select=f'count(*) as n,sum(case({days}<=7,1,true,0)) as w7',
-                                       where=f"{cur} AND status_description='Closed' AND {codes}", limit=1),
+                                       where=f"{cur} AND status_description='Closed' AND {rq}", limit=1),
         'close_city': lambda: cd.query(SERVICE_REQUESTS, select=f'count(*) as n,sum(case({days}<=7,1,true,0)) as w7',
-                                       where=f"{cur} AND status_description='Closed' AND comm_code IS NOT NULL", limit=1),
+                                       where=f"{cur} AND status_description='Closed' AND {every}", limit=1),
         'channel_ward': lambda: cd.query(SERVICE_REQUESTS, select='source,count(*) as n',
-                                         where=f'{cur} AND {not_dup} AND {codes}', group='source', limit=20),
+                                         where=f'{cur} AND {not_dup} AND {rq}', group='source', limit=20),
         'channel_city': lambda: cd.query(SERVICE_REQUESTS, select='source,count(*) as n',
-                                         where=f'{cur} AND {not_dup} AND comm_code IS NOT NULL', group='source', limit=20),
+                                         where=f'{cur} AND {not_dup} AND {every}', group='source', limit=20),
         'permits12': permits('applieddate', s, e),
         'permits_prev': permits('applieddate', cs, ce),
         'issued12': permits('issueddate', s, e),
@@ -812,12 +815,12 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                 f"sum(case({closed_} AND {days}>30 AND {days}<=90,1,true,0)) as d90,"
                 f"avg({days}) as avg_days")
     optional = {
-        'dept_area': lambda: cd.query(SERVICE_REQUESTS, select=dept_sel, where=f'{cur} AND {oc} AND {codes}',
+        'dept_area': lambda: cd.query(SERVICE_REQUESTS, select=dept_sel, where=f'{cur} AND {oc} AND {rq}',
                                       group='agency_responsible', limit=200),
-        'dept_city': lambda: cd.query(SERVICE_REQUESTS, select=dept_sel, where=f'{cur} AND {oc} AND comm_code IS NOT NULL',
+        'dept_city': lambda: cd.query(SERVICE_REQUESTS, select=dept_sel, where=f'{cur} AND {oc} AND {every}',
                                       group='agency_responsible', limit=200),
         'dept_types': lambda: cd.query(SERVICE_REQUESTS, select='service_name,' + dept_sel,
-                                       where=f'{cur} AND {oc} AND {codes}', group='agency_responsible,service_name',
+                                       where=f'{cur} AND {oc} AND {rq}', group='agency_responsible,service_name',
                                        order='count(*) DESC', limit=60),
         'wards_all': lambda: cd.query(WARDS, select='ward_num,multipolygon', limit=50),
         'city': lambda: cd.query(CITY_BOUNDARY, select='multipolygon', limit=5),
@@ -1724,16 +1727,29 @@ def _build(today=None, cache_dir=None, spec=None, pop_method=DEFAULT_POP_METHOD,
                    'error': access_err if not access_out else None,
                    'note': 'Worked out once a week (the property roll once a month)', 'page': DATASET_PAGE + '4bsw-nn7w'})
 
+    # Calgary: also the records with no community (or a code not on the community list), so the city counts are every
+    # request in the City's data, as the method note says; they have no residents, so the rates do not change
+    known = set(ALL_CODES)
+    outside = {
+        'requests12': sum(v for (c, m), v in all_g.items() if c not in known and m in m12),
+        'requests_prev': sum(v for (c, m), v in all_g.items() if c not in known and m in mprev),
+        'infra12': sum(v[0] for c, v in infra_g.items() if c not in known),
+        'infra_prev': sum(v[1] for c, v in infra_g.items() if c not in known),
+        'open': sum(x['n'] for c, L in open_by_comm.items() if c not in known for x in L),
+        'open_over_90_days': sum(n for c, n in open_old.items() if c not in known),
+    } if city else {k: 0 for k in ('requests12', 'requests_prev', 'infra12', 'infra_prev', 'open', 'open_over_90_days')}
+    allc = lambda k: tot(k) + outside[k]
     sum_ = {
-        'requests12': tot('requests12'), 'requests_prev': tot('requests_prev'),
-        'requests_change_pct': _pct(tot('requests12') * yr12, tot('requests_prev') * yrprev),
+        'requests12': allc('requests12'), 'requests_prev': allc('requests_prev'),
+        'requests_change_pct': _pct(allc('requests12') * yr12, allc('requests_prev') * yrprev),
+        'requests12_no_community': outside['requests12'], 'open_no_community': outside['open'],
         'requests_per_1000': per1000(tot('requests12', res), mid12_total, yr12),
         'requests_per_1000_prev': per1000(tot('requests_prev', res), midprev_total, yrprev),
         # counts over every community (as 311 requests and the ward table); rates over lived-in communities
-        'infra12': tot('infra12'), 'infra_prev': tot('infra_prev'),
+        'infra12': allc('infra12'), 'infra_prev': allc('infra_prev'),
         'infra_per_1000': per1000(tot('infra12', res), mid12_total, yr12),
         'infra_per_1000_prev': per1000(tot('infra_prev', res), midprev_total, yrprev),
-        'open_now': tot('open'), 'open_over_90_days': tot('open_over_90_days'),
+        'open_now': allc('open'), 'open_over_90_days': allc('open_over_90_days'),
         'open_per_1000': per1000(tot('open', res), residents),
         'closed_7_days_pct': round(int(cw['w7']) / int(cw['n']) * 100, 1) if int(cw.get('n', 0)) else None,
         'closed_7_days_pct_city': round(int(cc['w7']) / int(cc['n']) * 100, 1) if int(cc.get('n', 0)) else None,
@@ -2045,6 +2061,8 @@ def ward_summaries(communities, comm_ward, pop_mid12, pop_midprev, yr12, yrprev,
         add(w, 'children_0_4', b.get('k0_4'))
         add(w, 'daycare_spaces', b.get('daycare'))
     for sch in ((fam or {}).get('schools') or {}).get('schools') or []:
+        if sch.get('taught_elsewhere'):         # home education and online programs: listed, not counted in a ward
+            continue
         add(comm_ward.get(sch.get('comm')), 'schools', 1)
         add(comm_ward.get(sch.get('comm')), 'students', sch.get('latest'))
     crime = police.by_ward(pdata, P['start'], P['end']) if pdata else None

@@ -26,7 +26,7 @@ function infCodes(city) {
 function infRow(c, today) {
   const b = (INF.by_comm || {})[c.code] || {}, br = b.breaks || {}, mn = b.mains || {}, pv = b.paving || {}, rq = b.req || {};
   const r = k => rq[k] || [0, 0];
-  const row = { code: c.code, name: c.name || infName(c.code), residents: c.residents || 0, ward: c.ward,
+  const row = { code: c.code, name: c.name || infName(c.code), residents: c.residents || 0, ward: c.ward, lived: c.residential !== false,
     br12: br.n12 || 0, brPrev: br.nprev || 0, km: mn.km || 0, medYear: mn.median_year, oldKm: mn.old_km || 0, ciKm: mn.cast_iron_km || 0,
     roads: r('roads'), side: r('sidewalks'), lights: r('lights'), water: r('water'), sewer: r('sewer'),
     paveNext: (pv.next_year || 0) + (pv.this_year || 0), pave5: pv.five_year || 0, paveRecent: pv.recent || 0 };
@@ -61,7 +61,9 @@ async function renderInfra() {
   let city = null;
   try { city = SCOPE === 0 && D ? D : await peekView(0); } catch (e) { city = D; }
   const today = +String(INF.today || '').slice(0, 4) || new Date().getFullYear();
-  const comms = infCodes(city).filter(c => c.residential !== false);
+  // every community, business and industrial areas and parks included, so the figures are Calgary's (or the ward's) whole
+  // network; the flags and the list of communities are for the lived-in ones
+  const comms = infCodes(city);
   const rows = comms.map(c => infRow(c, today));
   const sum = k => rows.reduce((a, r) => a + (typeof k === 'function' ? k(r) : r[k] || 0), 0);
   const ctx = INF.context || {}, pq = ctx.pavement || {};
@@ -79,7 +81,7 @@ async function renderInfra() {
       <div class="el-cr-sub">Water main breaks, the age of the water network, the City's paving plan and its own condition figures, set against 311 requests about the same things.</div></div>${areaSel}</div>
     <div class="el-cr-kpis">
       <div class="el-kpi"><div class="el-kpi-l">Calgary's roads in poor condition</div><div class="el-kpi-n">${pq.poor ?? '–'}%</div><div class="el-hero-sub">${pq.good ?? '–'}% good, ${pq.fair ?? '–'}% fair (City, ${esc(pq.as_of || '')})</div></div>
-      <div class="el-kpi"><div class="el-kpi-l">Water main breaks, 12 months</div><div class="el-kpi-n">${fmt(br12)}</div><div class="el-hero-sub">${infChg(infPct(br12, brPrev))} on the 12 months before (${fmt(brPrev)})</div></div>
+      <div class="el-kpi"><div class="el-kpi-l">Water main breaks, 12 months${(INF.city || {}).breaks_through ? ' to ' + longDate((INF.city || {}).breaks_through) : ''}</div><div class="el-kpi-n">${fmt(br12)}</div><div class="el-hero-sub">${infChg(infPct(br12, brPrev))} on the 12 months before (${fmt(brPrev)})</div></div>
       <div class="el-kpi"><div class="el-kpi-l">Water mains 50 years or older</div><div class="el-kpi-n">${km ? fmt(oldKm / km * 100, 0) : '–'}%</div><div class="el-hero-sub">${fmt(oldKm, 0)} of ${fmt(km, 0)} km</div></div>
       <div class="el-kpi"><div class="el-kpi-l">Cast iron mains</div><div class="el-kpi-n">${km ? fmt(ciKm / km * 100, 0) : '–'}%</div><div class="el-hero-sub">${fmt(ciKm, 0)} km, the material that breaks most</div></div>
       <div class="el-kpi"><div class="el-kpi-l">311: roads and potholes</div><div class="el-kpi-n">${fmt(rd12)}</div><div class="el-hero-sub">${infChg(infPct(rd12, rdPrev))} on the 12 months before</div></div>
@@ -89,7 +91,7 @@ async function renderInfra() {
   // the communities where condition is slipping and complaints are rising
   const sorters = { signals: (x, y) => (y.both - x.both) || (y.flags.length - x.flags.length) || (y.br12 - x.br12), breaks: (x, y) => y.br12 - x.br12,
     rate: (x, y) => (y.brRate || 0) - (x.brRate || 0), age: (x, y) => (x.medYear || 9999) - (y.medYear || 9999), roads: (x, y) => y.roads[0] - x.roads[0] };
-  const list = rows.filter(r => r.km || r.roads[0] || r.br12).sort(sorters[infSort] || sorters.signals);
+  const list = rows.filter(r => r.lived && (r.km || r.roads[0] || r.br12)).sort(sorters[infSort] || sorters.signals);
   const both = list.filter(r => r.both);
   const flagHtml = r => r.flags.map(([k, t]) => `<span class="inf-flag ${k}">${esc(t)}</span>`).join('');
   const shown = list.slice(0, a.startsWith('c:') ? 1 : 60);
@@ -101,7 +103,7 @@ async function renderInfra() {
       <td class="num"><b>${fmt(r.br12)}</b> <small class="muted">(${fmt(r.brPrev)})</small></td><td class="num">${isNum(r.brRate) ? fmt(r.brRate, 1) : '–'}</td><td class="num">${r.medYear || '–'}</td><td class="num">${isNum(r.oldShare) ? fmt(r.oldShare * 100, 0) + '%' : '–'}</td><td class="num">${isNum(r.ciShare) ? fmt(r.ciShare * 100, 0) + '%' : '–'}</td>
       ${['roads', 'side', 'lights', 'water'].map(k => `<td class="num">${fmt(r[k][0])} <small class="${infPct(r[k][0], r[k][1]) > 0 ? 'inf-up' : 'muted'}">${infChg(infPct(r[k][0], r[k][1]))}</small></td>`).join('')}
       <td class="num">${r.paveNext + r.pave5 ? fmt(r.paveNext + r.pave5, 1) : '–'}</td><td class="inf-flags">${flagHtml(r) || '<span class="muted">–</span>'}</td></tr>`).join('')}</tbody></table></div>
-    <p class="card-note">Water main breaks: this year's 12 months, the 12 before in brackets. 311 columns: requests in the last 12 months and the change on the 12 before. Highlighted rows show both: a condition signal and rising 311 requests about the same thing. Paving planned: this year, next year and the tentative five-year plan. A flag is a lead to look into, not a finding: more requests can also mean more people reporting.</p></section>`;
+    <p class="card-note">Water main breaks: the 12 months to the latest break the City has recorded${(INF.city || {}).breaks_through ? ` (${longDate((INF.city || {}).breaks_through)}; its records run some weeks behind)` : ''}, the 12 before in brackets. 311 columns: requests in the last 12 months and the change on the 12 before. Highlighted rows show both: a condition signal and rising 311 requests about the same thing. Paving planned: this year, next year and the tentative five-year plan. A flag is a lead to look into, not a finding: more requests can also mean more people reporting.</p></section>`;
 
   // Calgary by year
   const by = INF.city || {}, yrs = Object.keys(by.breaks_by_year || {}).map(Number).filter(y => y >= today - 15 && y < today).sort();
@@ -138,11 +140,11 @@ async function renderInfra() {
     <p class="card-note">Source: <a href="${esc(((ctx.critical || {}).source || {}).url || '#')}" target="_blank" rel="noopener">${esc(((ctx.critical || {}).source || {}).title || '')}</a>, City of Calgary, 2026.</p></section>`;
 
   // ward by ward: every ward side by side (all of Calgary), or the chosen ward against Calgary
-  const allRows = ((city && city.communities) || []).filter(c => c.code && c.residential !== false && c.ward).map(c => infRow(c, today));
+  const allRows = ((city && city.communities) || []).filter(c => c.code && c.ward).map(c => infRow(c, today));
   const agg = rs => {
-    const g = { res: 0, br12: 0, brPrev: 0, km: 0, oldKm: 0, ciKm: 0, pave: 0, both: 0, n: rs.length };
+    const g = { res: 0, br12: 0, brPrev: 0, km: 0, oldKm: 0, ciKm: 0, pave: 0, both: 0, n: rs.filter(r => r.lived).length };
     ['roads', 'side', 'lights', 'water'].forEach(k => { g[k] = [0, 0]; });
-    rs.forEach(r => { g.res += r.residents; g.br12 += r.br12; g.brPrev += r.brPrev; g.km += r.km; g.oldKm += r.oldKm; g.ciKm += r.ciKm; g.pave += r.paveNext + r.pave5; g.both += r.both ? 1 : 0;
+    rs.forEach(r => { g.res += r.residents; g.br12 += r.br12; g.brPrev += r.brPrev; g.km += r.km; g.oldKm += r.oldKm; g.ciKm += r.ciKm; g.pave += r.paveNext + r.pave5; g.both += r.both && r.lived ? 1 : 0;
       ['roads', 'side', 'lights', 'water'].forEach(k => { g[k][0] += r[k][0]; g[k][1] += r[k][1]; }); });
     g.oldShare = g.km ? g.oldKm / g.km : null; g.ciShare = g.km ? g.ciKm / g.km : null; g.brRate = g.km ? g.br12 / g.km * 100 : null;
     g.roads1k = g.res ? g.roads[0] / g.res * 1000 : null;

@@ -27,8 +27,9 @@ HOW = ('Every figure here is PROPOSED, not approved: Council debates the budget 
        'is counted in each and its dollars are not divided. '
        'One-time totals add what the tables show: for some requests the City\'s note says the budget includes only part of the full '
        'request (one_time_requests_partly_in_the_budget). Positions are those in each request\'s FTE row; a request\'s text can mention '
-       'other staff that are not in its row. The City\'s open data does not allow budget against actual spending to '
-       'be compared (one figure per year: approved or actual, never both), so do not compute a variance. The City\'s descriptions, '
+       'other staff that are not in its row. The City\'s open data gives one figure per year (approved or actual, '
+       'never both), so do not compute a variance from it; budget against actual for 2023 to 2025 is in read_source '
+       'key=data:budget-vs-actual (the City\'s Annual Financial Reports and year-end updates, with the page of every table). The City\'s descriptions, '
        'benefits and risk statements are not in this data: give the page of the City\'s document (page_url) for them.')
 
 
@@ -215,8 +216,9 @@ def checks(d, data_dir=None):
         out.append({'check': 'The City\'s headline for four-year capital against its open data', 'result': 'to know',
                     'detail': f"Headline ${((b.get('plan_2027') or {}).get('headline') or {}).get('capital_2027_2030_billion')} billion; open data for 2027 to 2030 adds to ${tot / 1000:.2f} billion "
                               '(approved in earlier budgets plus proposed). The published sources do not explain the difference.'})
-        out.append({'check': 'Budget against actual spending', 'result': 'missing',
-                    'detail': 'The open budget gives one figure per year and fund (approved or actual, never both), so no variance can be worked out.'})
+        out.append({'check': 'Budget against actual spending', 'result': 'to know',
+                    'detail': 'The open budget gives one figure per year and fund (approved or actual, never both). Budget against actual for 2023 to 2025 '
+                              'is taken from the City\'s Annual Financial Reports and year-end updates (budget-vs-actual.json, with the page of every table).'})
     else:
         out.append({'check': 'Checks against the City\'s open data', 'result': 'not run', 'detail': 'The site\'s budget file is not at hand here; the Budget Intelligence screen runs them.'})
     return out

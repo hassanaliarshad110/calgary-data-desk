@@ -20,7 +20,7 @@
   ];
   const S = {
     sec: 'overview', loading: null, BUD: null, TAX: null, CMP: null, ACC: null, INF: null, BC: null, XW: null, err: {},
-    layer: 'tax', charts: {}, map: null, opYear: '2026', capYear: '2027', revYear: '2026',
+    layer: 'tax', charts: {}, map: null, opYear: '2026', capYear: '2027', revYear: '2026', bvaYear: '2025', BVA: null,
     f: { q: '', type: '', theme: '', dept: '', ward: '', rationale: '', risk: '', stage: '', fund: '', flag: '', sort: 'n' }, open: null, page: 0, checks: null,
   };
   const PAGE = 25;
@@ -77,6 +77,7 @@
         CMP: () => a.compare_wards().then(r => { if (!r.ok) throw new Error(r.error); return r; }),
         BC: () => getStatic('budget-intel/business-cases.json'),
         XW: () => getStatic('budget-intel/crosswalk.json'),
+        BVA: () => getStatic('budget-intel/budget-vs-actual.json'),
       };
       await Promise.all(Object.entries(want).map(([k, fn]) => fn().then(v => { S[k] = v; }).catch(e => { S.err[k] = String((e && e.message) || e); })));
     })();
@@ -375,33 +376,65 @@
 
   // ================================================================ BUDGET VS ACTUAL
   function actual(main) {
-    const b = S.BUD;
-    if (!b) { main.innerHTML = `<section class="card">${empty('The City budget could not be loaded', S.err.BUD)}</section>`; return; }
-    const P = b.proposed, yrs = b.years.filter(y => +y <= 2030);
-    const cell = (y, f) => {
-      const out = [], t = (b.totals[y] || {})[f];
-      if (+y <= 2026 || !P || !P.totals[y]) { if (t) out.push([t.value, t.status]); }
-      else {
-        const p = P.totals[y][f] || {};
-        if (isNum(p.approved) && p.approved) out.push([p.approved, 'Approved']);
-        if (isNum(p.proposed)) out.push([p.proposed, 'Proposed']);
-      }
-      return out.length ? out.map(([v, s]) => `${usdS(v)}${st(ST[s] || 'estimate', s)}`).join('<br>') : st('none', 'Not published');
-    };
+    const V = S.BVA, b = S.BUD;
+    if (!V) { main.innerHTML = `<section class="card">${empty('The City’s year-end results could not be loaded', S.err.BVA)}</section>`; return; }
+    const SRC = V.sources, k$ = v => usd(v / 1000), kS = v => usdS(v / 1000);
+    const yrs = Object.keys(V.consolidated).sort(), y = yrs.includes(S.bvaYear) ? S.bvaYear : yrs[yrs.length - 1];
+    const ref = (key, page, pdfPage, short) => { const s = SRC[key] || {}; return `${src((short && s.short) || s.title || key, s.url ? s.url + (pdfPage ? '#page=' + pdfPage : '') : '')}${page ? `, page ${page}` : ''}`; };
+    const tag = key => (SRC[key] || {}).audited ? st('actual', 'Audited · City') : st('actual', 'Reported · City');
+    const pctOf = (v, base) => base ? `${v >= 0 ? '+' : '−'}${fmt(Math.abs(v / base * 100), 1)}%` : '–';
+    const dv = v => Math.abs(v) < 50 ? '0' : (v > 0 ? '+' : '−') + kS(Math.abs(v));       // under $50,000 rounds to $0.0M: shown as 0
+    const C = V.consolidated[y], E = C.expenses.rows, Rv = C.revenues.rows, ET = E[E.length - 1];
+    const tbl = (head, rows, foot) => `<div class="table-wrap"><table class="data"><thead><tr>${head.map((h, i) => `<th scope="col"${i ? ' class="num"' : ''}>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}${foot || ''}</tbody></table></div>`;
+    const tr = (cells, total) => `<tr${total ? ' class="cmp-city-row"' : ''}>${cells.map((c, i) => i ? `<td class="num">${total ? `<b>${c}</b>` : c}</td>` : `<td>${total ? `<b>${esc(c)}</b>` : esc(c)}</td>`).join('')}</tr>`;
+    const seg2 = seg('bi-bva-years', yrs.map(x => [x, x]), y);
+    // the tax-supported operating surplus, year by year
+    const sur = V.operating_surplus;
+    const kpis = sur.map((s, i) => `<div class="bi-kpi" style="--kc:${series(i)}"><div class="k-l"><span>${s.year}</span>${tag(s.source)}</div><div class="k-v">${usd(s.value / 1000)}</div><div class="k-n">under the tax-supported operating budget · ${ref(s.source, s.printed_page, s.pdf_page, true)}</div></div>`).join('');
+    // capital
+    const c23 = V.capital['2023'], c24 = V.capital['2024'], c25 = V.capital['2025'];
+    const cRows = (L, unit) => L.map(r => { const m = unit === 'm' ? 1 : 1 / 1000, tot = /^Total/.test(r.name);
+      return tr([r.name === 'Total City' ? 'Total' : r.name, usdS(r.budget * m), usdS(r.actual * m), r.rate_printed || (r.budget ? fmt(r.actual / r.budget * 100, 1) + '%' : '–')], tot); });
+    const t23 = c23.rows[c23.rows.length - 1], t24 = c24.rows[c24.rows.length - 1];
+    // the tax-supported operating budget by department, 2024
+    const D24 = V.tax_supported_by_department['2024'];
     main.innerHTML = `
-      <section class="card"><div class="card-head"><div><h2>Can the budget be compared with what was spent?</h2><p class="card-sub">What the City’s open data holds for each year</p></div></div>
-        <p class="bi-lead"><b>Not yet, and this centre does not pretend otherwise.</b> For every year and fund, the City’s open budget publishes one figure: either the approved budget or the actual spending, never both. A year with no actual figure is shown as “not published”. It is not zero, and no variance is worked out from figures that do not exist.</p>
-        <div class="table-wrap" style="margin-top:12px"><table class="data bi-matrix"><thead><tr><th scope="col">Millions of dollars</th>${yrs.map(y => `<th scope="col" class="num">${y}</th>`).join('')}</tr></thead><tbody>
-          <tr><th scope="row">Operating</th>${yrs.map(y => `<td>${cell(y, 'operating')}</td>`).join('')}</tr>
-          <tr><th scope="row">Capital</th>${yrs.map(y => `<td>${cell(y, 'capital')}</td>`).join('')}</tr></tbody></table></div>
-        <p class="card-note">2023 to 2026 are from the ${src(`open budget (${b.dataset})`, b.page)}; 2027 to 2030 are from the ${src(`2027–2030 Budget open data (${P.dataset})`, P.page)}, where “Approved” is capital approved in earlier budgets. The years after 2030 are left out here: the two datasets spread already-approved capital over the years differently (see Data checks), so adding 2031 and 2032 from one to 2027 to 2030 from the other could count the same money twice.</p></section>
-      <section class="card"><div class="card-head"><div><h2>What is missing, and where it exists</h2><p class="card-sub">Recorded as gaps, not filled with estimates</p></div></div>
-        <div class="bi-alerts">
-          <div class="bi-alert gap">${icon('alert')}<div><b>Operating spending against budget</b><span>The open budget lists operating as “Approved” for every year from 2023 to 2026 and publishes no actual. The City reports actual operating results in its annual financial report and year-end reports (PDF), which are not yet read into Calgary Insight.</span></div></div>
-          <div class="bi-alert gap">${icon('alert')}<div><b>Capital budget for the years with actuals</b><span>For 2023 and 2024 the open budget shows capital actually spent, and no longer shows what was budgeted for those years, so the two cannot be set side by side from this source.</span></div></div>
-          <div class="bi-alert gap">${icon('alert')}<div><b>Spending by project</b><span>No open dataset gives each capital project’s approved budget, spending to date and expected completion. See Capital projects.</span></div></div>
-          <div class="bi-alert note">${icon('info')}<div><b>What would close the gap</b><span>Reading the City’s year-end financial reports for 2023 to 2025 (operating and capital, budget and actual, by department) into a hand-kept file with page references, the way revenue is kept today. This is proposed, not built.</span></div></div>
-        </div></section>`;
+      <section class="card"><div class="card-head"><div><h2>Did the City spend what it budgeted?</h2><p class="card-sub">The City’s own year-end results, 2023 to 2025</p></div></div>
+        <p class="bi-lead">In each of the last three years the City finished the year <b>under its tax-supported operating budget</b>: it spent less than budgeted, collected more revenue than budgeted, or both. Council decides where that surplus goes: in recent years, to the next year’s priorities, the Green Line and the Fiscal Stability Reserve (${src('the City’s surplus page', 'https://www.calgary.ca/ca/city-manager/our-finances/financial-facts/annual-operating-surplus-timeline.html')}).</p>
+        <div class="bi-kpis">${kpis}</div>
+        <p class="card-note">The tax-supported operating surplus is the City’s own measure of its result against the operating budget Council sets. ${esc(sur.find(s => s.note) ? sur.find(s => s.note).note : '')}</p></section>
+
+      <section class="card"><div class="card-head"><div><h2>Spending against budget, by area of the City, ${y}</h2><p class="card-sub">Operating spending of the City and its subsidiaries, before amortization ${tag(C.source)}</p></div><div class="card-tools">${seg2}</div></div>
+        ${tbl(['Area of the City', `Budget ${y}`, `Actual ${y}`, 'Under (+) or over (−) budget', 'Per cent'],
+          E.slice(0, -1).map(r => tr([r.name, kS(r.budget), kS(r.actual), dv(r.favourable), pctOf(r.favourable, r.budget)])),
+          tr(['Total', kS(ET.budget), kS(ET.actual), (ET.favourable >= 0 ? '+' : '−') + kS(Math.abs(ET.favourable)), pctOf(ET.favourable, ET.budget)], true))}
+        <div class="table-wrap" style="margin-top:12px"><table class="data"><thead><tr><th scope="col">All areas</th>${yrs.map(x => `<th scope="col" class="num">${x}</th>`).join('')}</tr></thead><tbody>
+          ${[['Budget', 'budget'], ['Actual', 'actual'], ['Under (+) or over (−) budget', 'favourable']].map(([l, f]) => `<tr><td>${l}</td>${yrs.map(x => { const t = V.consolidated[x].expenses.rows.slice(-1)[0]; return `<td class="num">${f === 'favourable' ? (t[f] >= 0 ? '+' : '−') + kS(Math.abs(t[f])) : kS(t[f])}</td>`; }).join('')}</tr>`).join('')}</tbody></table></div>
+        <p class="card-note">As the City compares them in its audited Annual Financial Report: amortization (the yearly wear of buildings, roads and equipment) is left out because the City budgets for it only in its self-supported businesses. These are consolidated figures, which include the City’s subsidiaries and follow public-sector accounting standards, so they differ from the tax-supported budget above. Source: ${ref(C.source, C.expenses.printed_page, C.expenses.pdf_page)}. Amounts in the City’s tables are in thousands of dollars and are shown here in millions.</p></section>
+
+      <section class="card"><div class="card-head"><div><h2>Revenue against budget, ${y}</h2><p class="card-sub">Where the money came from, against what was expected ${tag(C.source)}</p></div></div>
+        ${tbl(['Source', `Budget ${y}`, `Actual ${y}`, 'Above (+) or below (−) budget', 'Per cent'],
+          Rv.map(r => tr([r.name, r.budget ? kS(r.budget) : '–', kS(r.actual), dv(r.favourable), r.budget ? pctOf(r.favourable, r.budget) : 'not budgeted'], /^Total/.test(r.name))))}
+        <p class="card-note">“Transfers for infrastructure” (developer contributions, government grants for capital and assets developers hand over to the City) pay for capital, not day-to-day services; the City does not budget for assets handed over by developers. Source: ${ref(C.source, C.revenues.printed_page, C.revenues.pdf_page)}.</p></section>
+
+      <section class="card"><div class="card-head"><div><h2>Capital: what was budgeted and what was spent</h2><p class="card-sub">Each year’s capital budget includes money carried forward from earlier years for projects still under way</p></div></div>
+        <div class="bi-kpis">
+          <div class="bi-kpi" style="--kc:${series(0)}"><div class="k-l"><span>2023</span>${tag(c23.source)}</div><div class="k-v">${fmt(t23.actual / t23.budget * 100, 1)}%</div><div class="k-n">${usdS(t23.actual)} spent of ${usdS(t23.budget)}</div></div>
+          <div class="bi-kpi" style="--kc:${series(1)}"><div class="k-l"><span>2024</span>${tag(c24.source)}</div><div class="k-v">${esc(t24.rate_printed)}</div><div class="k-n">${kS(t24.actual)} spent of ${kS(t24.budget)}</div></div>
+</div>
+        <p class="card-note">The City’s capital results for 2025, department by department, are in its ${src('2025 year-end report to Council', SRC[c25.source].url)}.</p>
+        <div class="bi-plan-grid" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));margin-top:12px">
+          <div style="min-width:0"><h3>2024, by department</h3>${tbl(['Department', 'Budget', 'Spent', 'Spend rate'], cRows(c24.rows, 'k'))}<p class="card-note">${ref(c24.source, c24.printed_page, c24.pdf_page)}. A rate over 100% means the department spent more than that year’s budget, usually by bringing forward work budgeted for later years.</p></div>
+          <div style="min-width:0"><h3>2023, by service category</h3>${tbl(['Service category', 'Budget', 'Spent', 'Spend rate'], cRows(c23.rows, 'm'))}<p class="card-note">${ref(c23.source, c23.printed_page, c23.pdf_page)}. For 2023 the City published capital by service category, not by department. The spend rate is spent ÷ budget.</p></div>
+        </div></section>
+
+      <section class="card"><div class="card-head"><div><h2>The tax-supported operating budget by department, 2024</h2><p class="card-sub">Net budget (spending less revenue the department earns) against actual ${tag(D24.source)}</p></div></div>
+        ${tbl(['Department', 'Net budget 2024', 'Net actual 2024', 'Under (+) or over (−) budget'],
+          D24.rows.map(r => tr([r.name, r.name === 'Total' && r.budget === 0 ? '0' : kS(r.budget), kS(r.actual), dv(r.favourable)], r.name === 'Total')))}
+        <p class="card-note">Corporate Programs holds the City’s property tax and other general revenue, so its net figure is negative and the departments’ budgets add to zero: the whole budget is funded. The total under budget, $276.3 million, is the 2024 surplus above. The City rounds each line to the nearest $1,000, so the lines can differ from the total by $1,000. Source: ${ref(D24.source, D24.printed_page, D24.pdf_page)}. The City published the same table for 2023 and 2025 in its year-end reports to Council.</p></section>
+
+      ${b ? `<section class="card"><div class="card-head"><div><h2>What the City’s open data holds</h2><p class="card-sub">One figure per year in the open budget</p></div></div>
+        <p class="card-note">The City’s open budget (${src(b.dataset, b.page)}) lists one figure for each year: the approved budget or the amount actually spent, not both. So the figures above come from the City’s financial reports, with the page of each. The City publishes no dataset with each capital project’s budget and spending; see Capital projects.</p></section>` : ''}`;
   }
 
   // ================================================================ BUSINESS CASES
@@ -614,7 +647,7 @@
           ${ry && ry.roads ? cell(`Road reports to 311, ${lastFull}`, fmt(ry.roads[lastFull]), `potholes, roadway and back lanes ${st('actual', 'Counted')}`) : ''}</div>
         <p class="bi-src"><button type="button" class="link-btn small" data-goto="infra">Infrastructure condition</button> has the paving plan and every community.</p>
         <h3>Water and sewer</h3><div class="bi-chain">${bc('Water Utilities')}
-          ${I && I.city ? cell('Water main breaks, last 12 months', fmt(I.city.breaks_n12), `${fmt(I.city.breaks_nprev)} in the 12 months before ${st('actual', 'Counted')}`) + cell('Water mains 50 years or older', share(I.city.old_km, I.city.mains_km), `${fmt(I.city.old_km)} of ${fmt(I.city.mains_km)} km ${st('calc', 'Calculated')}`) : ''}
+          ${I && I.city ? cell(I.city.breaks_through ? `Water main breaks, 12 months to ${longDate(I.city.breaks_through)}` : 'Water main breaks, last 12 months', fmt(I.city.breaks_n12), `${fmt(I.city.breaks_nprev)} in the 12 months before ${st('actual', 'Counted')}`) + cell('Water mains 50 years or older', share(I.city.old_km, I.city.mains_km), `${fmt(I.city.old_km)} of ${fmt(I.city.mains_km)} km ${st('calc', 'Calculated')}`) : ''}
           ${san ? cell('Sewer lines past a typical service life', fmt(san.past_typical_pct, 1) + '%', `of ${fmt(san.n)} sanitary service lines, by material ${st('calc', 'Calculated')}`) : ''}</div>
         <p class="bi-src"><button type="button" class="link-btn small" data-goto="infra">Infrastructure condition</button> · <a href="studies/calgary-sewers/">Calgary’s ageing sewers (report)</a></p>
         <h3>Transit, recreation and parks</h3><div class="bi-chain">${bc('Transit')}${bc('Recreation')}${bc('Parks & Urban Forestry')}${bc('Community & Culture')}</div>
@@ -623,7 +656,7 @@
         <p class="bi-src"><button type="button" class="link-btn small" data-goto="dashboard">Dashboard</button> has police-reported crime by community · <a href="studies/calgary-police/">Calgary Police: performance, resources and the budget request (study)</a>. ${esc(xw.gaps || '')}</p></section>
       <section class="card"><div class="card-head"><div><h2>Every service area and where its data lives</h2><p class="card-sub">${esc(xw.relationship || '')}</p></div></div>
         <div class="table-wrap"><table class="data"><thead><tr><th scope="col">The City’s service area</th><th scope="col" class="num">Capital requests</th><th scope="col" class="num">Proposed, four years</th><th scope="col" class="wrap">On Calgary Insight</th></tr></thead><tbody>
-          ${rowsA.map(([n, v]) => { const L = (xw.areas || {})[n] || []; return `<tr><td><button type="button" class="link-btn small" data-sec="cases" data-q="${esc(n)}">${esc(n)}</button></td><td class="num">${fmt(v[1])}</td><td class="num">${usdS(v[0])}</td><td class="wrap">${L.length ? L.map(a => a[0].includes('/') ? `<a href="${esc(a[0])}">${esc(a[1])}</a>` : `<button type="button" class="link-btn small" data-goto="${esc(a[0])}">${esc(a[1])}</button>`).join(' ') : (n === 'All Services' ? '<span class="bi-na">not specific to one service</span>' : '<span class="bi-na">no screen on this subject yet</span>')}</td></tr>`; }).join('')}</tbody></table></div>
+          ${rowsA.map(([n, v]) => { const L = (xw.areas || {})[n] || []; return `<tr><td><button type="button" class="link-btn small" data-sec="cases" data-q="${esc(n)}">${esc(n)}</button></td><td class="num">${fmt(v[1])}</td><td class="num">${usdS(v[0])}</td><td class="wrap">${L.length ? L.map(a => a[0].includes('/') ? `<a href="${esc(a[0])}">${esc(a[1])}</a>` : `<button type="button" class="link-btn small" data-goto="${esc(a[0])}">${esc(a[1])}</button>`).join(' ') : (n === 'All Services' ? '<span class="bi-na">not specific to one service</span>' : '<span class="bi-na">not covered on Calgary Insight</span>')}</td></tr>`; }).join('')}</tbody></table></div>
         <p class="card-note">How records are joined: a request belongs to a department and business unit (matched to the City’s open budget by name), a Council priority, a service area and, for capital, one or more wards or all wards. Operating requests carry no service area or ward in the City’s document. The name matches are listed under Data checks.</p></section>`;
   }
 
@@ -683,8 +716,14 @@
       b.years.forEach(y => ['operating', 'capital'].forEach(f => { const t = (b.totals[y] || {})[f], L = (b.by_department[y] || {})[f]; if (t && L && Math.abs(sum(L.map(d => d.value)) - t.value) > 0.6) bad.push(`${y} ${f}`); }));
       add(bad.length ? 'warn' : 'pass', 'Open budget: departments add up to each year’s total', bad.length ? 'They do not for: ' + bad.join(', ') : `For every year and fund from ${b.years[0]} to ${b.years[b.years.length - 1]}.`, '',
         { Formula: '|Σ departments − total| ≤ $0.6 million', Inputs: `${b.dataset} (read ${b.fetched})` });
-      add('gap', 'Budget against actual spending cannot be compared', 'The open budget gives one figure per year and fund: approved or actual, never both.',
-        'Operating is “Approved” for every year; capital is “Actual” for the oldest years and “Approved” after. So no variance is shown anywhere in the centre. See Budget vs actual for what would close the gap.', { Source: b.page });
+      if (S.BVA) {
+        const V = S.BVA, bad = [];
+        Object.entries(V.consolidated).forEach(([y, c]) => [['expenses', (bb, a) => bb - a], ['revenues', (bb, a) => a - bb]].forEach(([k, f]) => c[k].rows.forEach(r => { if (f(r.budget, r.actual) !== r.favourable) bad.push(`${y} ${r.name}`); })));
+        Object.entries(V.consolidated).forEach(([y, c]) => { const E = c.expenses.rows, T = E[E.length - 1]; ['budget', 'actual', 'favourable'].forEach(f => { if (sum(E.slice(0, -1).map(r => r[f])) !== T[f]) bad.push(`${y} expenses ${f} total`); }); });
+        add(bad.length ? 'warn' : 'pass', 'Budget against actual: the City’s tables add up', bad.length ? 'Not for: ' + bad.join(', ') : 'Every line’s difference equals budget minus actual, and the areas add to each year’s total, 2023 to 2025.',
+          'Every figure was read twice from the City’s PDFs with two different readers, and the two readings agree on every one. The tax-supported surplus is the City’s own figure.',
+          { Formula: 'favourable = budget − actual (spending) or actual − budget (revenue); Σ areas = total', Inputs: 'ui/budget-intel/budget-vs-actual.json', Source: Object.values(V.sources).filter(x => x.audited).map(x => x.url).join(' · ') });
+      }
       if (P) {
         const rows = Y4.filter(y => (b.totals[y] || {}).capital && isNum((P.totals[y].capital || {}).approved)).map(y => [y, b.totals[y].capital.value, P.totals[y].capital.approved]);
         const differs = rows.filter(r => Math.abs(r[1] - r[2]) > 1);
@@ -702,7 +741,7 @@
         }
         if (rows.length) add(differs.length ? 'note' : 'pass', 'Two City datasets give different figures for capital already approved', differs.length ? `For ${differs.map(r => r[0]).join(', ')} the 2023–2026 open budget and the 2027–2030 open data disagree.` : 'They agree.',
           tbl(['Capital already approved ($ millions)', ...rows.map(r => r[0])], [[`Open budget (${b.dataset})`, ...rows.map(r => fmt(r[1], 1))], [`2027–2030 Budget (${P.dataset})`, ...rows.map(r => fmt(r[2], 1))], ['Difference', ...rows.map(r => fmt(r[2] - r[1], 1))]])
-          + '<p style="margin-top:8px">Neither figure is changed. The centre uses the 2027–2030 data for those years, because it is the newer publication and it is the one the proposed budget is built on; the City budget screen shows the older dataset’s figures. The City has not published a reconciliation.</p>' + where,
+          + '<p style="margin-top:8px">Neither figure is changed. The centre uses the 2027–2030 data for those years, because it is the newer publication and it is the one the proposed budget is built on; the City budget screen uses it for those years too, so the two are never added together. The City has not published a reconciliation.</p>' + where,
           { Formula: 'approved capital for the year, one dataset minus the other', Inputs: `${b.dataset}; ${P.dataset}` });
         const plan = b.plan_2027;
         if (plan) {
@@ -788,7 +827,7 @@
     const pg = e.target.closest('[data-page]');
     if (pg) { const dir = pg.dataset.page; S.page += +dir; S.open = null; listCases(); const t = $('#bi-case-list'); if (t) t.scrollIntoView({ block: 'start' }); refocus(`.bi-pager [data-page="${dir}"]:not([disabled])`); if (!document.activeElement || !document.activeElement.closest('.bi-pager')) refocus('.bi-pager [data-page]:not([disabled])'); return; }
     const v = e.target.closest('.bi-seg [data-v]');
-    if (v) { const id = v.parentElement.id; if (id === 'bi-op-years') S.opYear = v.dataset.v; if (id === 'bi-cap-years') S.capYear = v.dataset.v; if (id === 'bi-rev-years') S.revYear = v.dataset.v; go(S.sec, true); refocus(`#${id} [data-v="${v.dataset.v}"]`); return; }
+    if (v) { const id = v.parentElement.id; if (id === 'bi-op-years') S.opYear = v.dataset.v; if (id === 'bi-cap-years') S.capYear = v.dataset.v; if (id === 'bi-rev-years') S.revYear = v.dataset.v; if (id === 'bi-bva-years') S.bvaYear = v.dataset.v; go(S.sec, true); refocus(`#${id} [data-v="${v.dataset.v}"]`); return; }
     if (e.target.closest('#bi-export')) {
       const L = filtered();
       saveList(e.target.closest('#bi-export'), 'Calgary 2027-2030 budget requests', ['No.', 'Title', 'Kind', 'Council priority', 'Department', 'Business unit', 'Reason given', 'Capital total ($000s)', 'Capital 2027', 'Capital 2028', 'Capital 2029', 'Capital 2030', 'Capital 2031 and later', 'One-time 2027 ($M)', 'One-time 2028', 'One-time 2029', 'One-time 2030', 'Ongoing 2027 ($M)', 'Ongoing 2028', 'Ongoing 2029', 'Ongoing 2030', 'FTEs 2027', 'FTEs 2028', 'FTEs 2029', 'FTEs 2030', 'Full one-time amount in the City note ($M)', 'Ward(s)', 'Stage', 'Funding source', 'Service area', 'Budget ID', 'Status', 'Page in the City document'],

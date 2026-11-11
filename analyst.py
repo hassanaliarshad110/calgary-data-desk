@@ -221,6 +221,10 @@ def registry_topics():
     for p in registry.load():
         if p['key'] in have or p.get('scientist') or not p.get('files'):
             continue
+        # the data files behind the pages (registry entries 'data:...') are for the assistants to read, not report topics
+        # a visitor picks, and the open data catalogue lists datasets rather than describing an area
+        if p.get('auto') or str(p['key']).startswith('data:') or p['key'] == 'catalog':
+            continue
         out.append((f"page_{p['key']}", f"{p['title']}: what the data shows for {{area}}", p['what'], 'Pages',
                     f"Use the page {p['title']} ({p['read']}) to show what its data says for {{area}} against Calgary, "
                     f"with the figures, how they changed, and the sources."))

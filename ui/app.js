@@ -4,8 +4,8 @@
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const isNum = n => n !== null && n !== undefined && !Number.isNaN(n);
-const fmt = (n, d = 0) => !isNum(n) ? '–'
-  : Number(n).toLocaleString('en-CA', { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmt = (n, d = 0) => !isNum(n) ? '–'                // a value that rounds to zero is 0, never -0.0
+  : (Math.abs(Number(n)) < 0.5 * 10 ** -d ? 0 : Number(n)).toLocaleString('en-CA', { minimumFractionDigits: d, maximumFractionDigits: d });
 const signed = (n, d = 1, unit = '%') => !isNum(n) ? '–' : (n > 0 ? '+' : n < 0 ? '−' : '') + fmt(Math.abs(n), d) + unit;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const niceType = t => String(t || '').replace(/ - GIS$/, '');
@@ -451,10 +451,10 @@ function renderKpis() {
   const items = [
     [popMethod() === 'census2021' ? 'Residents (' + CY() + ' Census)' : 'Residents today', fmt(w.residents), popMethod() === 'census2021' ? '' : chg(w.growth_pct, null, '%', 1, 'the ' + CY() + ' Census'),
       `${CY()} Census: ${fmt(w.census2021)} (marker). ${popShort()}.${isCity() && D.population && D.population.city_now && popMethod() === 'model' ? ` The City's own estimate for Calgary is ${fmt(D.population.city_now)}: it also counts more people living in each home since ${CY()} and people in seniors' homes, residences and shelters, which the model can't see.` : ''}${['city_pace', 'city_actual'].includes(popMethod()) ? ` This is above the ${CY()} count partly because the Census counted people in private homes only; the City's total also includes people in seniors' homes, residences and shelters.` : ''}${popMethod() === 'city_actual' && D.population && D.population.actual_factor ? ` Each community: its ${CY()} count × ${fmt(D.population.actual_factor, 4)} + the growth measured from homes built there.` : ''}`, versus(w.residents, w.census2021), 'hero'],
-    [`Open 311 requests as of ${asOf}`, fmt(s.open_now), '', `${fmt(s.open_over_90_days)} (${fmt(over90 * 100, 0)}%) open more than 90 days, whenever they were made`, meter(over90)],
+    [`Open 311 requests as of ${asOf}`, fmt(s.open_now), '', `${fmt(s.open_over_90_days)} (${fmt(over90 * 100, 0)}%) open more than 90 days, whenever they were made${isCity() && s.open_no_community ? `. Includes ${fmt(s.open_no_community)} with no community in the City's data` : ''}`, meter(over90)],
     ...crime,
     [`311 requests, ${esc(D.period)}`, fmt(s.requests12), chg(s.requests_change_pct, null, '%', 1, cw),
-      `${fmt(s.requests_per_1000, 0)} per 1,000 residents a year`, spark(D.trend.all)],
+      `${fmt(s.requests_per_1000, 0)} per 1,000 residents a year${isCity() && s.requests12_no_community ? `. Every request in the City's data, ${fmt(s.requests12_no_community)} of them with no community (in the total, not in the rate)` : ''}`, spark(D.trend.all)],
     ['Closed within 7 days', fmt(s.closed_7_days_pct, 1) + '%', isCity() ? '' : chg(s.closed_7_days_pct - s.closed_7_days_pct_city, false, ' pts', 1, 'Calgary as a whole'),
       `Of the period's requests closed so far. Calgary: ${fmt(s.closed_7_days_pct_city, 1)}% (marker)`, meter(s.closed_7_days_pct / 100, s.closed_7_days_pct_city / 100, 'vs')],
     ['Traffic incidents', fmt(s.traffic12), chg(s.traffic_change_pct, true, '%', 1, cw), `${fmt(s.traffic_prev)} in ${esc(cw)} (marker)`, versus(s.traffic12, s.traffic_prev)],
@@ -834,7 +834,7 @@ function communityExtras(c) {
   const b = cc && cc.by_comm[c.code];
   if (b) out += stat('Licensed child care spaces', fmt(b.spaces), `<small>${isNum(b.per_100_0_14) ? fmt(b.per_100_0_14, 1) + ' per 100 children aged 0 to 14' : ''}</small>`);
   if (sc) {
-    const list = sc.schools.filter(x => x.comm === c.code && x.latest);
+    const list = sc.schools.filter(x => x.comm === c.code && x.latest && !x.taught_elsewhere);
     out += stat('Students in its schools, ' + esc(sc.latest_year), fmt(list.reduce((t, x) => t + x.latest, 0)), `<small>${list.length} school${list.length === 1 ? '' : 's'}</small>`);
   }
   const a = am && am.by_comm[c.code];
@@ -1289,7 +1289,7 @@ function renderIssues(reset = true) {
 function renderCityIssues() {
   const s = D.summary || {}, ws = D.wards_summary;
   $('#issues-sub').textContent = `311 requests still open in Calgary as of the last refresh (${longDate(D.built_at)}). Choose a ward to list them.`;
-  $('#issue-stats').innerHTML = [[fmt(s.open_now), 'still open as of today'], [fmt(s.open_over_90_days), 'open more than 90 days', 'bad'],
+  $('#issue-stats').innerHTML = [[fmt(s.open_now), s.open_no_community ? `still open as of today (${fmt(s.open_no_community)} with no community, so in no ward)` : 'still open as of today'], [fmt(s.open_over_90_days), 'open more than 90 days', 'bad'],
     [fmt(s.open_per_1000, 1), 'open per 1,000 residents (requests in residential communities only)']].map(([b, t, cls]) => `<div class="istat ${cls || ''}"><b>${b}</b><span>${t}</span></div>`).join('');
   $$('#view-issues .filters, #view-issues .issues-card').forEach(e => { e.hidden = true; });
   $('#issues-export').hidden = true;

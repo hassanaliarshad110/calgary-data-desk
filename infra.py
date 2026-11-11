@@ -105,24 +105,32 @@ def _year(v):
 
 
 def breaks(loc, today):
-    """Water main breaks by community and year."""
-    out = {}
+    """Water main breaks by community and year. The 12 months end at the latest break the City has recorded (its records
+    run some weeks behind), so the two 12-month periods compared are both complete."""
+    rows = []
     for r in _pages(BREAKS, 'break_date,break_type,status,point'):
         y = _year(r.get('break_date'))
         pt = (r.get('point') or {}).get('coordinates')
-        if not y or not pt:
-            continue
+        if y and pt:
+            rows.append((str(r.get('break_date'))[:10], y, pt))
+    last = max((d for d, _, _ in rows if d <= today.isoformat()), default=today.isoformat())
+    end = dt.date.fromisoformat(last) + dt.timedelta(days=1)
+    out = {}
+    for day, y, pt in rows:
         c = loc.find(pt[0], pt[1])
         if not c:
             continue
         d = out.setdefault(c, {'years': {}, 'n12': 0, 'nprev': 0})
         d['years'][y] = d['years'].get(y, 0) + 1
-        day = str(r.get('break_date'))[:10]
-        if day >= (today - dt.timedelta(days=365)).isoformat():
+        if (end - dt.timedelta(days=365)).isoformat() <= day < end.isoformat():
             d['n12'] += 1
-        elif day >= (today - dt.timedelta(days=730)).isoformat():
+        elif (end - dt.timedelta(days=730)).isoformat() <= day < (end - dt.timedelta(days=365)).isoformat():
             d['nprev'] += 1
+    BREAKS_THROUGH[0] = last
     return out
+
+
+BREAKS_THROUGH = [None]
 
 
 def mains(loc, today):
@@ -346,6 +354,7 @@ def build(today=None):
             'names': names, 'by_comm': by_comm, 'projects': projects,
             'city': {'breaks_by_year': dict(sorted(city_breaks.items())), 'requests_by_year': rq_years,
                      'breaks_n12': sum(d['n12'] for d in br.values()), 'breaks_nprev': sum(d['nprev'] for d in br.values()),
+                     'breaks_through': BREAKS_THROUGH[0],
                      'mains_km': round(sum(d['km'] for d in mn.values()), 1), 'old_km': round(sum(d['old_km'] for d in mn.values()), 1),
                      'cast_iron_km': round(sum(d['cast_iron_km'] for d in mn.values()), 1),
                      'sanitary': sn_city},

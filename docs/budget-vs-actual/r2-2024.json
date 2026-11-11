@@ -1,0 +1,125 @@
+{
+ "agree": 57,
+ "differ": [],
+ "printed_pages": {
+  "revenues": [
+   "18"
+  ],
+  "expenses": [
+   "20"
+  ]
+ },
+ "arithmetic": [
+  [
+   "revenues",
+   "Net taxes available for municipal purposes",
+   true
+  ],
+  [
+   "revenues",
+   "Sales of goods and services",
+   true
+  ],
+  [
+   "revenues",
+   "Government transfers related to operating",
+   true
+  ],
+  [
+   "revenues",
+   "Investment income",
+   true
+  ],
+  [
+   "revenues",
+   "Fines and penalties",
+   true
+  ],
+  [
+   "revenues",
+   "Licences, permits and fees",
+   true
+  ],
+  [
+   "revenues",
+   "Miscellaneous revenue",
+   true
+  ],
+  [
+   "revenues",
+   "Equity in earnings of ENMAX Corporation",
+   true
+  ],
+  [
+   "revenues",
+   "Total revenues (before external transfers for infrastructure)",
+   true
+  ],
+  [
+   "revenues",
+   "Developer contributions",
+   true
+  ],
+  [
+   "revenues",
+   "Government transfers related to capital",
+   true
+  ],
+  [
+   "revenues",
+   "Developer contributions-in-kind related to capital",
+   true
+  ],
+  [
+   "revenues",
+   "Total external transfers for infrastructure",
+   true
+  ],
+  [
+   "expenses",
+   "Planning and development services",
+   true
+  ],
+  [
+   "expenses",
+   "Infrastructure services",
+   true
+  ],
+  [
+   "expenses",
+   "Community services",
+   true
+  ],
+  [
+   "expenses",
+   "Operational services",
+   true
+  ],
+  [
+   "expenses",
+   "General government",
+   true
+  ],
+  [
+   "expenses",
+   "Total",
+   true
+  ],
+  [
+   "revenues",
+   "operating lines add to the total",
+   true
+  ],
+  [
+   "revenues",
+   "capital lines add to the total",
+   true
+  ],
+  [
+   "expenses",
+   "functions add to the total",
+   true
+  ]
+ ],
+ "arithmetic_failures": []
+}

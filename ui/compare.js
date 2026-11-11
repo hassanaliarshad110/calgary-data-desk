@@ -44,7 +44,8 @@ function cmpMetrics() {
   const kinds = ws.amenity_kinds || {};
   const am = CMP_AMENITY.filter(k => kinds[k]).map(k => ({
     g: 'Amenities', k: 'am:' + k, d: k === 'trees' ? 0 : 2, better: 'high',
-    label: kinds[k].per === 'children' ? `${kinds[k].label} per 1,000 children` : `${kinds[k].label} per 1,000 residents`,
+    // the items inside the ward's residential communities, per child or resident there (parks and industrial areas left out)
+    label: (kinds[k].per === 'children' ? `${kinds[k].label} per 1,000 children` : `${kinds[k].label} per 1,000 residents`) + ' (residential communities)',
   }));
   // Growth vs amenities (revised 5 November 2026): share of homes within the first distance, in any community
   const A = (CMP.data || {}).access || {}, ak = A.kinds || {};
@@ -155,7 +156,7 @@ function renderCmpTable() {
       + cellFor(m, CMP.main, true, city) + `<td class="num cmp-vs ${vs.cls}">${vs.text}</td><td class="num cmp-city">${cmpFmt(m, city)}</td>`
       + others.map(w => cellFor(m, w, false, city)).join('') + '</tr>';
   }).join('');
-  $('#cmp-table-sub').innerHTML = `Two different comparisons. <b>Under each ward's figure: its place among the 14 wards</b> (for example "2nd lowest of 14 wards": a place, not a judgment; fewer 311 reports can mean problems are not being reported). <b>"Against Calgary": how far it is from Calgary's own figure</b>, which is all 14 wards added together: every request and every resident in the city, so a big ward counts for more than a small one. A ward can be 2nd lowest of 14 and 32% below Calgary at the same time: they measure different things. Green or red only where higher or lower is clearly better (crime, traffic incidents, requests closed within 7 days, amenities), and only when 10% or more from Calgary. Choose a measure to rank every ward. <button type="button" class="link-btn small" data-method="compare">How each measure is worked out</button>`;
+  $('#cmp-table-sub').innerHTML = `Two different comparisons. <b>Under each ward's figure: its place among the 14 wards</b> (for example "2nd lowest of 14 wards": a place, not a judgment; fewer 311 reports can mean problems are not being reported). <b>"Against Calgary": how far it is from Calgary's own figure</b>, which is all 14 wards added together: every resident and every request placed in a community, so a big ward counts for more than a small one. A ward can be 2nd lowest of 14 and 32% below Calgary at the same time: they measure different things. Green or red only where higher or lower is clearly better (crime, traffic incidents, requests closed within 7 days, amenities), and only when 10% or more from Calgary. Choose a measure to rank every ward. <button type="button" class="link-btn small" data-method="compare">How each measure is worked out</button>`;
   $('#cmp-note').textContent = `${ws.note || ''} Crime: ${ws.crime_period || 'the latest months published'}. Amenities: homes within reach of each amenity, in any community (Growth vs amenities); City assets in open data per 1,000 residents (playgrounds per 1,000 children) counted inside each ward.`;
 }
 
