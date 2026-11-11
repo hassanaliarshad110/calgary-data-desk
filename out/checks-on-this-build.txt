@@ -1,0 +1,22 @@
+pass  Every business case is present: 384 cases, numbered 1 to 384; 124 operating, 260 capital.
+pass  Every case has every field, in the City's own categories: All fields present; stages, kinds, wards and ratings are within the City's lists.
+pass  Cases are in page order: Page numbers rise with the case numbers.
+pass  Each capital total equals its years: All 260 totals equal 2027 + 2028 + 2029 + 2030 + later, within $3,000 of rounding.
+pass  Each capital request's four purposes add to 100%: All 260 do.
+pass  No negative amounts: None.
+pass  The stored totals equal the sum of the cases: Capital total $13.051 billion; positions [855, 445, 279, 347].
+note  One-time requests only partly in the proposed budget: 17 requests: $235.8 million in their tables, $613.4 million stated as the full requests in the City's notes. One-time totals add the tables.
+note  Titles used more than once: 1 titles appear on more than one case (the City uses the same title for separate requests): ['Technology Improvements']
+pass  Every crosswalk entry matches a name in the document: 3 department and 5 business-unit matches, 1 recorded as unmatched.
+pass  Every service area has an entry (a link or a stated gap): 15 service areas.
+pass  Every linked screen exists: All linked screens are in ui/index.html.
+pass  The screen is wired into the site once, beside the City budget screen: One section, one tab, one script, one stylesheet; the City budget screen and its script are still there.
+pass  The capital requests add up to the City's open data, year by year: Cases [1554.1, 3016.3, 4027.5, 4426.9] against open data [1555.21, 3017.64, 4028.83, 4427.75] ($ millions, 2027 to 2030); largest difference 0.07%.
+note  The same, business unit by business unit: 27 of 33 match within $1 million. Differing ($ millions, cases minus open data): [('City & Regional Planning', 1.2), ('Downtown Strategy', 31.5), ('Mobility', 44.0), ('Project Development', 31.1), ('Public Spaces Delivery', -393.5), ('Recreation & Social Programs', 283.9)]; net -1.8.
+pass  Open budget: departments add up to each year's total: For every year and fund, 2023 to 2032.
+gap   Budget against actual spending cannot be compared: The open budget gives one figure per year and fund (approved or actual), never both: 2023 operating Approved, capital Actual; 2024 operating Approved, capital Actual; 2025 operating Approved, capital Approved; 2026 operating Approved, capital Approved
+note  Capital already approved for 2027 to 2030: two City datasets: fqax-i3nz against nnnm-9sfh ($ millions, newer minus older): [('2027', 367.3), ('2028', 1129.3), ('2029', 13.0), ('2030', -245.4)]. Neither is changed; the centre uses the newer for those years.
+pass  Revenue sources add up to the total: 2023 to 2026, within $2 million of rounding.
+pass  Property tax by ward adds up to the citywide levy: Wards hold 99.94% of $2,520.9 million (2026).
+note  Business-unit names found in the open data: Not matched: ['Chief Operating Officer'] (recorded in the crosswalk).
+{'pass': 15, 'note': 5, 'gap': 1, 'FAIL': 0}

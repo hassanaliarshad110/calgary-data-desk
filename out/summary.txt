@@ -1,0 +1,26 @@
+commit built: 27db3be9c5522eed3e1b21c85d6dc47f8f1fb2a9
+cache restored: 93M
+build started 2026-11-11T16:26:00Z
+build command exit code: 0
+build finished 2026-11-11T17:19:11Z
+files built (without pyodide): 844
+build steps: 83; ok 83; failed 0; minutes 53.2
+live site today: 83 steps, 0 failed, built 2026-11-11 05:39, 78.9 minutes
+steps in this build but not in the live one: []
+steps in the live build but not in this one: []
+_site/data/methods.json: 52 notes; budget_intelligence present: True
+_site/data/analyst_topics.json: 57 topics; budget_requests present: True
+_site/data/registry.json: budget-intelligence present: True
+_site/data/search.json: 562 rows; Budget Intelligence rows: 5
+_site/py/manifest.json: budget_intel.py listed: True; data/business-cases.json listed: True
+_site/index.html present 160880
+_site/budget-intel.js present 102848
+_site/budget-intel.css present 21130
+_site/budget-intel/business-cases.json present 235247
+_site/py/budget_intel.py present 22687
+_site/data/city_actual/w0.json present 7502803
+_site/data/budget.json present 66431
+_site/data/tax.json present 116594
+index.html: Budget Intelligence tab present: True | screen script in the bundle or linked: True
+tools/budget_intel_check.py exit code: 0
+assistants' tool test exit code: 0
