@@ -206,7 +206,7 @@ def handle(op, args_json):
             res = auditor.run(entry, lambda: setattr_(_make('auditor'), 'who', 'The report auditor'), lambda ev: _post('auditor', ev), _today(), DOWN)
             auditor.index(DATA, res)
             return json.dumps({'ok': True, 'page': res['page'], 'findings': len(res['findings']), 'verdict': res['verdict'],
-                               'corrected': res.get('corrected')}, default=str)
+                               'new_findings': len(res.get('new_findings') or []), 'corrected': res.get('corrected')}, default=str)
         if op == 'file':
             p = os.path.realpath(a.get('path') or '')
             if not p.startswith(HOME + '/') or not os.path.isfile(p):

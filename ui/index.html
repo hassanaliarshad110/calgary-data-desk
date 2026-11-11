@@ -1071,7 +1071,7 @@
 
       <div id="ds-audit" hidden>
         <section class="card">
-          <div class="card-head"><div><h2>Report auditor</h2><p class="card-sub">Three separate checks on a finished report. <b>Chinook</b> (the auditor) re-runs every figure from the data and lists what is wrong. <b>Bow</b> (the reviewer) re-checks each finding itself, accepts, revises or rejects it with its reasons, and makes the corrected report. <b>Rundle</b> (the final check) then looks only at those findings: fixed correctly, or rightly rejected. About 5 to 15 minutes a report.</p></div></div>
+          <div class="card-head"><div><h2>Report auditor</h2><p class="card-sub">Three separate checks on a finished report. <b>Chinook</b> (the auditor) re-runs every figure from the data and lists what is wrong. <b>Bow</b> (the reviewer) re-checks each finding itself, accepts, revises or rejects it with its reasons, and makes the corrected report. <b>Rundle</b> (the final auditor) then checks each finding was fixed correctly or rightly rejected, and reads the report against its question: is every part answered, and was evidence in the data missed? About 5 to 15 minutes a report.</p></div></div>
           <div id="au-reports"></div>
         </section>
         <section class="card ds-run" id="au-run" hidden>
@@ -1079,13 +1079,13 @@
           <ol class="ds-stages" id="au-stages">
             <li data-stage="0"><i></i><span>Chinook: re-runs every figure</span></li>
             <li data-stage="1"><i></i><span>Bow: reviews each finding and fixes it</span></li>
-            <li data-stage="2"><i></i><span>Rundle: final check of the findings</span></li>
+            <li data-stage="2"><i></i><span>Rundle: final audit of the fixes and the question</span></li>
           </ol>
           <details class="ds-log"><summary>What it is doing</summary><ol class="steps" id="au-steps"></ol></details>
           <div id="au-result"></div>
         </section>
         <section class="card ds-lib">
-          <div class="card-head"><div><h2>Audits</h2><p class="card-sub">Each audit page lists every finding, the reviewer's decision and the final check, with the corrected report.</p></div></div>
+          <div class="card-head"><div><h2>Audits</h2><p class="card-sub">Each audit page lists every finding, the reviewer's decision and the final audit, with the corrected report.</p></div></div>
           <div id="au-list"></div>
         </section>
       </div>

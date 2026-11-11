@@ -125,7 +125,7 @@ TOPICS = [
     ('budget_requests', 'The 2027 to 2030 budget requests: where the money would go',
      'All 384 requests behind the proposed budget: by Council priority, department and purpose, the largest, and the positions they would add.', 'Budget',
      'The business cases behind the City\'s proposed 2027 to 2030 budget (get_dashboard section budget_intelligence: part summary, '
-     'then priorities, departments, service_areas, wards and checks; part cases with find, kind or ward for lists; part case with '
+     'then priorities, departments, department_bridge, service_areas, wards and checks; part cases with find, kind or ward for lists; part case with '
      'find = a case number for one request). Set out: how many requests there are and what they add up to, year by year (capital; '
      'operating one-time; operating ongoing additions; positions); new capital by the City\'s own purpose split (maintenance or '
      'replacement, growth, service enhancement, transformative); by Council priority and by department; the largest capital and '
@@ -237,6 +237,15 @@ DEFAULT_AREA = 'the selected area'
 LENGTH_RULE = (' Length: the report is as long as the subject needs, up to 100 pages; never shorten it, drop sections or summarise to make it '
                'fit. Write it in parts with report_add (two or three sections at a time, each with its tables and charts) and '
                'finish with make_report, so a long report is always delivered.')
+QUESTION_RULE = (' The question: before any analysis, split the question into its parts. Answer every part, or say plainly in the key '
+                 'findings that the data cannot answer it and name the data that would; never answer an easier question in place of '
+                 'the one asked without saying so. End the report with a short section "Does this answer the question?": a table of '
+                 'each part, answered / partly / cannot be answered with public data, and where in the report.')
+TRACE_RULE = (' Large changes: when a total is made of parts (a budget by department or business unit, requests by category), trace '
+              'every change of a tenth or more of the total to the items behind it and state the amount no item explains (for the '
+              'City budget: get_dashboard section budget_intelligence, part department_bridge, with find = the department). Never '
+              'say a figure has no breakdown or is not published before checking list_sources, read_source and the dashboard sections; '
+              'when a large item in the data bears on the question (for example a large one-time request), name it.')
 SOURCES_RULE = (' Sources: the master registry (list_sources, and the list in your instructions) names every page of the '
               'site and every dataset; before you say anything is not available, search it with list_sources and read the page '
               'with read_source or its get_dashboard section; only then, and only for what the registry lacks, say what is not covered.')
@@ -287,7 +296,8 @@ def brief(key=None, text=None, area=None):
             'findings (only specific, data-backed ones the office would not already know; no routine or obvious steps), '
             'and list every source. Write in plain, everyday language for a general reader; never mention the app, '
             'a dashboard, a model or a list, and say where figures come from in the City\'s own words (City of Calgary data, '
-            'the City\'s population forecast, the property assessment roll); do not say who the report is prepared for.' + SOURCES_RULE + LENGTH_RULE)
+            'the City\'s population forecast, the property assessment roll); do not say who the report is prepared for.'
+            + QUESTION_RULE + TRACE_RULE + SOURCES_RULE + LENGTH_RULE)
 
 
 def election_brief(text, area=None):

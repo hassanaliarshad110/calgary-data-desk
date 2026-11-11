@@ -107,3 +107,25 @@
 | The live site checked (read-only job, branch `fetched-25`) | the four new files are byte-for-byte the repository's; 83 of 83 build steps; 54 of 54 screens on desktop and an emulated phone with no script error or failed request; 89 of 89 user-experience checks; 40 of 40 interaction checks; data checks on the live data 15 pass, 5 to know, 1 gap, 0 failed; the assistants' tool on the live files 23 of 23 |
 | Full build of the branch before the merge (finding 3.7b) | 83 of 83 steps, the same steps as the live build; now PASS |
 | The sentence about paid ideas (finding 4.9b) | the branch was merged as one squashed commit, so it is not in `main`'s history; it remains only on the development branch |
+
+## 2026-11-11: department bridge, question coverage, Fable as the final auditor (branch `audit-fable-final`, not merged)
+
+Why: an outside review of the Data Scientist report "Where Calgary's proposed 2027-2030 budget could cost less" found that it
+answered an easier question than the one asked (timing and funding changes in place of unnecessary spending) without saying
+so, and called the $579.4M Corporate Programs rise "one line with no published breakdown" although five business cases
+(6, 14, 274, 295, 305) sit in that business unit. The report auditor could not have caught either: it checked figures only.
+
+| Change | Where |
+|---|---|
+| `department_bridge` part: each operating business unit's 2027-2030 change in open data, the requests behind it and the part no request explains | `budget_intel.py`, described in `agent.py`, `registry.py`, `methods.py` |
+| Data Scientist brief: split the question into parts and end with "Does this answer the question?"; trace changes of a tenth or more of a total; never claim "no breakdown" before checking | `analyst.py` |
+| Auditor step 1: finding kinds `question_not_answered` and `missed_evidence`; sees the question; can read the registry | `auditor.py` |
+| Auditor step 3 (Rundle) is now the final auditor on Claude Fable (`claude-fable-5-2`, tier `final`); runs on every report; checks the fixes, question coverage, missed evidence and key figures; its coverage table and new findings are on the audit page | `auditor.py`, `agent.py`, `ui/audit.js`, `ui/index.html`, `app.py`, `web/webapp.py` |
+| Cost of a Claude model with no listed price (Fable) counted at the dearest listed Claude price, as the gateway does | `agent.py` |
+
+Tests run here (no live data or API key in this workspace): `tools/budget_intel_check.py` 11 pass, 3 note, 0 FAIL; the bridge on a
+fixture with the report's Corporate Programs figures gives requests $52.3M (ongoing added 2028-2030 $75.1M, one-time 2030 less
+2027 -$22.8M) and $527.1M not explained by any request, matching a hand calculation; the three audit stages with stub agents,
+with and without step-1 findings (step 3 runs in both, on tier `final`, with the question); the `final` tier resolves to
+`claude-fable-5-2` on Claude and the strong model elsewhere. UNVERIFIED: a real call to Claude Fable through the app and the
+gateway; the bridge on the live open-data file.

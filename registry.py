@@ -73,7 +73,7 @@ PAGES = [
          '384 business cases in the City\'s 2027-2030 budget requests (number, title, department, business unit, amounts by year, positions, Council '
          'priority, ward, stage, funding source, the City\'s risk rating and performance measure, and the page of the City\'s document); capital by '
          'purpose; the tax path; checks that reconcile the business cases with the City\'s open data. All 2027-2030 figures are PROPOSED, not approved.',
-         'get_dashboard section=budget_intelligence (part summary, cases with find, kind or ward, case with find = a case number, departments, '
+         'get_dashboard section=budget_intelligence (part summary, cases with find, kind or ward, case with find = a case number, departments, department_bridge, '
          'priorities, service_areas, wards, checks, sources); read_source key=budget-intelligence for the raw files (business-cases.json and '
          'the names crosswalk, crosswalk.json); the budget itself is read_source key=budget; how it is counted: get_method topic=budget_intelligence',
          files=[['business-cases.json', 'budget-intel/business-cases.json'], ['crosswalk.json', 'budget-intel/crosswalk.json']],

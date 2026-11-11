@@ -1,6 +1,7 @@
 // ================================================================ REPORT AUDITOR (a tab of Data Scientist)
 // Chinook audits a report (re-running every figure), Bow reviews each finding and makes the corrected report,
-// Rundle checks only those findings were dealt with (the names shown; the models are set in auditor.py). The engine side is auditor.py.
+// Rundle, the final auditor, checks those findings were dealt with and that the report answers its question, and looks for
+// missed evidence (the names shown; the models are set in auditor.py: Rundle runs on Claude Fable). The engine side is auditor.py.
 let auBusy = false;
 wireSeg($('#ds-tabs'), v => {
   $('#ds-make').hidden = v !== 'make';
@@ -27,7 +28,7 @@ async function loadAudits() {
   const list = a.audit_list ? await a.audit_list() : [];
   const box = $('#au-list');
   box.innerHTML = list.length ? `<div class="ds-rows">${list.map(x => `<div class="ds-row">
-      <div class="ds-row-main"><b>${esc(x.title)}</b><small>${esc(x.made)} · ${fmt(x.findings)} finding${x.findings === 1 ? '' : 's'}, ${fmt(x.fixed)} fixed${x.open ? `, <span class="neg">${fmt(x.open)} still open</span>` : ''}</small></div>
+      <div class="ds-row-main"><b>${esc(x.title)}</b><small>${esc(x.made)} · ${fmt(x.findings)} finding${x.findings === 1 ? '' : 's'}, ${fmt(x.fixed)} fixed${x.open ? `, <span class="neg">${fmt(x.open)} still open</span>` : ''}${x.new_findings ? `, <span class="neg">${fmt(x.new_findings)} new from the final audit</span>` : ''}</small></div>
       <div class="file-actions"><button class="btn primary" data-p="${esc(x.page)}">${icon('check')}<span>Audit findings</span></button>
       ${x.corrected_pdf ? `<button class="btn" data-p="${esc(x.corrected_pdf)}${/\.html?$/i.test(x.corrected_pdf) ? '#print' : ''}">${icon('file')}<span>Corrected report (PDF)</span></button>` : ''}
       ${x.corrected_interactive ? `<button class="btn" data-p="${esc(x.corrected_interactive)}">${icon('open')}<span>Interactive</span></button>` : ''}
@@ -58,8 +59,8 @@ async function runAudit(r) {
     else {
       auStage(3, true);
       $('#au-run').classList.add('is-done');
-      $('#au-run-sub').textContent = `Done: ${res.findings} finding${res.findings === 1 ? '' : 's'}.`;
-      $('#au-result').innerHTML = `<div class="answer"><p><b>Final check:</b> ${esc(res.verdict || '')}</p></div>
+      $('#au-run-sub').textContent = `Done: ${res.findings} finding${res.findings === 1 ? '' : 's'}` + (res.new_findings ? `, and ${res.new_findings} new from the final audit.` : '.');
+      $('#au-result').innerHTML = `<div class="answer"><p><b>Final audit:</b> ${esc(res.verdict || '')}</p></div>
         <div class="file-actions"><button class="btn primary" data-p="${esc(res.page)}">${icon('check')}<span>Open the audit findings</span></button>
         ${res.corrected && res.corrected.pdf ? `<button class="btn" data-p="${esc(res.corrected.pdf)}${/\.html?$/i.test(res.corrected.pdf) ? '#print' : ''}">${icon('file')}<span>Corrected report (PDF)</span></button>` : ''}
         ${res.corrected && res.corrected.interactive ? `<button class="btn" data-p="${esc(res.corrected.interactive)}">${icon('open')}<span>Corrected report (interactive)</span></button>` : ''}</div>`;

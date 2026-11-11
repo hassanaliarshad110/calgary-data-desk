@@ -24,7 +24,8 @@ import registry
 import report
 import weather
 
-MODELS = {'fast': 'claude-haiku-5-5', 'smart': 'claude-sonnet-5-5', 'audit': 'claude-opus-5-5'}
+MODELS = {'fast': 'claude-haiku-5-5', 'smart': 'claude-sonnet-5-5', 'audit': 'claude-opus-5-5',
+          'final': 'claude-fable-5-2'}       # final: the report auditor's last step (the final auditor)
 MAX_STEPS = 400                # a ceiling against a runaway loop (hours of work), not a working limit: a long report takes many rounds
 GATHER_TOOLS = frozenset({'search_datasets', 'describe_dataset', 'query_dataset', 'download_dataset', 'get_dashboard', 'get_weather',
                           'get_weather_forecast', 'police_crime', 'crime_severity_index', 'read_source', 'get_method', 'get_code',
@@ -89,7 +90,9 @@ def call_cost(model, u):
     if model not in PRICES and not model.startswith('claude'):
         return None
     total_in = u.get('input_tokens', 0) + u.get('cache_read_input_tokens', 0) + u.get('cache_creation_input_tokens', 0)
-    p_in, p_out = PRICES.get(model, PRICES['claude-sonnet-5-5'])
+    # a Claude model with no price here (Fable, for one) is counted at the dearest known Claude price, as the gateway
+    # does, so a cost is never under-stated
+    p_in, p_out = PRICES.get(model) or max((v for k, v in PRICES.items() if k.startswith('claude')), key=lambda v: v[1])
     if model.startswith('claude-haiku') and total_in > 100_000:
         p_in, p_out = HAIKU_LONG
     searches = ((u.get('server_tool_use') or {}).get('web_search_requests') or 0) * WEB_SEARCH_USD
@@ -630,7 +633,9 @@ TOOLS = [
                     'screen: part="summary" (default: totals by year, capital by purpose, by Council priority, the largest requests), '
                     '"cases" (find = words in a title, department, business unit, service area or Budget ID; kind = operating or '
                     'capital; ward = requests that name that ward), "case" (find = the case number, 1 to 384: every figure, category '
-                    'and the page of the City\'s document), "departments", "priorities", "service_areas", "wards", "checks" (the '
+                    'and the page of the City\'s document), "departments", "department_bridge" (each operating line\'s change from 2027 to '
+                    '2030 in open data, the requests behind it and the part no request explains; find = a department or business '
+                    'unit; use it before saying any budget line has no breakdown), "priorities", "service_areas", "wards", "checks" (the '
                     'reconciliation with open data nnnm-9sfh and what cannot be compared) or "sources". '
                     'section="police_study" gives the published study of Calgary Police performance, resources and the 2027 to '
                     '2030 budget request: crime severity, clearance and staffing against Edmonton, Vancouver, Winnipeg, Ottawa and '
@@ -675,7 +680,7 @@ TOOLS = [
          'days': {'type': 'integer', 'description': 'section city_news: only the last N days'},
          'topic': {'type': 'string', 'description': 'section city_news: one topic, e.g. City Council, Transit, Water'},
          'date': {'type': 'string', 'description': 'section city_news: one day\'s edition, YYYY-MM-DD'},
-         'part': {'type': 'string', 'enum': ['summary', 'arrivals', 'countries', 'airports', 'research', 'municipalities', 'residents', 'boards', 'spending', 'grants', 'approvals', 'factors', 'projects', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'planned', 'fields', 'weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats', 'sections', 'sources', 'limitations', 'cases', 'case', 'departments', 'priorities', 'service_areas', 'wards', 'checks'],
+         'part': {'type': 'string', 'enum': ['summary', 'arrivals', 'countries', 'airports', 'research', 'municipalities', 'residents', 'boards', 'spending', 'grants', 'approvals', 'factors', 'projects', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'planned', 'fields', 'weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats', 'sections', 'sources', 'limitations', 'cases', 'case', 'departments', 'department_bridge', 'priorities', 'service_areas', 'wards', 'checks'],
                   'description': 'section federal_budget: summary (default), revenue_by_province (federal revenue collected '
                                  'and spending in every province, Statistics Canada, with a 2026-27 estimate), province, find (search the measures and their '
                                  'text with find), chapter (every line item of one chapter), tables (Annex 1), tax'},
@@ -2236,10 +2241,11 @@ class Agent:
             raise AgentError('Add an AI service key (Anthropic, Google Gemini or OpenAI) in Settings first.')
         if model_choice == 'fast' and REPORT_WORDS.search(question or ''):
             model_choice = 'smart'                # a full analysis report always uses the thorough model
-        tier = model_choice if model_choice in ('smart', 'audit') else 'fast'
+        tier = model_choice if model_choice in ('smart', 'audit', 'final') else 'fast'
         models = {**MODELS, **(self.get_settings().get('models') or {})}
         for e in chain:                           # the auditor's model: Opus on Claude, the strong model elsewhere
             e['audit'] = models['audit'] if e['provider'] == 'claude' else e['smart']
+            e['final'] = models['final'] if e['provider'] == 'claude' else e['smart']   # the final auditor: Fable on Claude
         start = len(self.history)
         self.provenance = []
         self._report_pdf = None

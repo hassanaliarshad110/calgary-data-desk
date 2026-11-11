@@ -1335,6 +1335,9 @@ METHODS = [
                 'Checked when read: each title against the contents pages; each printed page number against the PDF\'s own; each capital total against the sum of its years (within $3,000); each split against 100%; and every figure row read a second time with a different PDF reader.',
                 'Capital by purpose = each capital request\'s four-year amount x the City\'s percentage for that purpose, added up.',
                 'Reconciliation, worked out again on each visit: the capital requests added by year, against the City\'s open data (nnnm-9sfh) rows with fund Capital and status Proposed; and the same by business unit, with the document\'s names matched to the open data\'s by a hand-kept list.',
+                'Department bridge: each operating business unit\'s change from 2027 to 2030 in the open data (nnnm-9sfh, operating net of recoveries) = '
+                'what the requests account for (ongoing additions in 2028, 2029 and 2030, plus one-time money in 2030 less one-time money in 2027) '
+                '+ the part no request explains. Requests are placed by business unit with the hand-kept names list; the City does not publish the link, so the split is an estimate.',
                 'Ongoing operating amounts are additions to the base budget in that year (the City itself adds a request\'s yearly figures to state its ongoing amount). No four-year cash cost is worked out.',
                 'By ward: only requests that name a ward are counted for it; a request naming several wards is counted in each and its dollars are not divided. Nothing citywide is divided among wards, communities or residents.',
                 'Tax simulator: assessed value x the 2026 municipal residential rate, then x (1 + the percentage chosen). A what-if, not a bill.'],

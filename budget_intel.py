@@ -222,9 +222,75 @@ def checks(d, data_dir=None):
     return out
 
 
+BRIDGE_HOW = ('Department bridge: how much of each operating line\'s change from 2027 to 2030 in the City\'s open data (2027-2030 '
+              'Budget, nnnm-9sfh, operating net of recoveries, approved and proposed rows together) the business cases account for. '
+              'Requests\' share = the ongoing amounts the requests add to the base in 2028, 2029 and 2030 (a 2027 addition is already '
+              'in the 2027 figure) + one-time amounts in 2030 - one-time amounts in 2027 (one-time money ends). Not explained by any '
+              'request = the change - the requests\' share: growth in the base budget that no business case describes. The City does '
+              'not publish which open-data line holds each request, so requests are placed by business unit (the hand-kept names '
+              'list) and the split is an estimate; the business cases do not say what the unexplained part is made of. Requests '
+              'only partly in the budget count only what their tables show. All figures PROPOSED, not approved.')
+
+
+def bridge(d, data_dir=None, find=None):
+    """Each operating line's change from 2027 to 2030 in the City's open data, against what the business cases account for:
+    the requests behind it, and the part no request explains. Needs the site's budget file (open data nnnm-9sfh)."""
+    P = (_read('budget.json', data_dir) or {}).get('proposed')
+    if not P:
+        return {'error': 'The open budget (nnnm-9sfh) is not at hand here, so the bridge cannot be worked out; the site runs it.'}
+    xw = crosswalk(data_dir)
+    units = {}                                           # business unit -> {department, 2027, 2030}
+    for y in ('2027', '2030'):
+        for dep in (P['by_department'].get(y) or {}).get('operating', []):
+            for u in dep.get('units', []):
+                r = units.setdefault(u['name'], {'department': dep['name'], '2027': 0.0, '2030': 0.0})
+                r[y] += u['value']
+    op = [c for c in d['cases'] if c['type'] == 'operating']
+    by_unit, unplaced = {}, []
+    for c in op:
+        bu = _bu(c, xw)
+        (by_unit.setdefault(bu, []) if bu in units else unplaced).append(c)
+
+    def share(cs):
+        ongoing = _s(_s(c['ongoing_m'][1:4]) for c in cs)
+        one_time = _s((c['one_time_m'][3] or 0) - (c['one_time_m'][0] or 0) for c in cs)
+        return ongoing, one_time
+
+    rows = []
+    for name, u in units.items():
+        cs = by_unit.get(name, [])
+        ongoing, one_time = share(cs)
+        change = u['2030'] - u['2027']
+        rows.append({'department': u['department'], 'business_unit': name, 'open_data_2027_m': _r(u['2027']), 'open_data_2030_m': _r(u['2030']),
+                     'change_m': _r(change), 'requests_ongoing_added_2028_2030_m': _r(ongoing), 'requests_one_time_2030_less_2027_m': _r(one_time),
+                     'explained_by_requests_m': _r(ongoing + one_time), 'not_explained_by_any_request_m': _r(change - ongoing - one_time),
+                     'requests': [{'n': c['n'], 'title': c['title'], 'ongoing_added_m': dict(zip(Y4, c['ongoing_m'])),
+                                   'one_time_m': dict(zip(Y4, c['one_time_m'])), 'page': c['page']} for c in cs]})
+    deps = {}
+    for r in rows:
+        g = deps.setdefault(r['department'], {'department': r['department'], 'open_data_2027_m': 0.0, 'open_data_2030_m': 0.0, 'change_m': 0.0,
+                                              'explained_by_requests_m': 0.0, 'not_explained_by_any_request_m': 0.0, 'business_units': 0})
+        for k in ('open_data_2027_m', 'open_data_2030_m', 'change_m', 'explained_by_requests_m', 'not_explained_by_any_request_m'):
+            g[k] += r[k]
+        g['business_units'] += 1
+    deps = sorted(({k: (_r(v) if isinstance(v, float) else v) for k, v in g.items()} for g in deps.values()), key=lambda g: -abs(g['change_m']))
+    words = [x for x in re.split(r'\s+', str(find or '').lower()) if x]
+    if words:
+        hit = lambda r: all(x in (r['department'] + ' ' + r['business_unit']).lower() for x in words)
+        rows = [r for r in rows if hit(r)]
+        deps = [g for g in deps if any(r['department'] == g['department'] for r in rows)]
+    rows.sort(key=lambda r: -abs(r['change_m']))
+    total = _r(sum(u['2030'] - u['2027'] for u in units.values()))
+    return {'by_department': deps, 'by_business_unit': rows[:60], 'shown': min(len(rows), 60), 'matching': len(rows),
+            'all_operating_change_m': total,
+            'requests_not_placed': [{'n': c['n'], 'title': c['title'], 'business_unit': c['bu'], 'department': c['dept']} for c in unplaced],
+            'inputs': f"business-cases.json; {P.get('dataset')} read {P.get('fetched')}", 'how': BRIDGE_HOW}
+
+
 def summary(d, part=None, find=None, kind=None, ward=None, data_dir=None):
     """part: 'summary' (default), 'cases' (find, kind 'operating' or 'capital', ward 1 to 14 narrow the list), 'case' (find = the
-    case number or words of its title), 'departments', 'priorities', 'service_areas', 'wards', 'checks' or 'sources'."""
+    case number or words of its title), 'departments', 'department_bridge' (find narrows it to a department or business
+    unit), 'priorities', 'service_areas', 'wards', 'checks' or 'sources'."""
     if not d:
         return {'error': 'The business cases are not available here.'}
     C, src, xw = d['cases'], d['source'], crosswalk(data_dir)
@@ -249,7 +315,7 @@ def summary(d, part=None, find=None, kind=None, ward=None, data_dir=None):
                 'largest_capital_requests': [_row(c, src) for c in sorted(cap, key=lambda c: -_cap(c))[:12]],
                 'largest_operating_requests': [_row(c, src) for c in sorted(op, key=lambda c: -(_s(c['one_time_m']) + _s(c['ongoing_m'])))[:12]],
                 'all_wards_capital_m': _r(_s(_cap(c) for c in cap if c['wards'] == 'all')), 'how': HOW,
-                'parts': 'cases (find, kind, ward), case (find = number), departments, priorities, service_areas, wards, checks, sources'}
+                'parts': 'cases (find, kind, ward), case (find = number), departments, department_bridge (find), priorities, service_areas, wards, checks, sources'}
     if part in ('cases', 'case'):
         L = C
         if kind in ('operating', 'capital'):
@@ -281,6 +347,8 @@ def summary(d, part=None, find=None, kind=None, ward=None, data_dir=None):
                 'note': 'Up to 80 shown; narrow with find, kind or ward. part="case" with find = a number gives every figure of one request.'}
     if part == 'departments':
         return {**head, 'by_department': _group(C, lambda c: _dept(c, xw)), 'names': 'Departments as the City\'s document prints them, with spelling variants joined.', 'how': HOW}
+    if part in ('department_bridge', 'bridge'):
+        return {**head, **bridge(d, data_dir, find), 'rules': HOW}
     if part == 'priorities':
         return {**head, 'by_council_priority': _group(C, lambda c: c['theme']), 'how': HOW}
     if part == 'service_areas':
@@ -304,4 +372,4 @@ def summary(d, part=None, find=None, kind=None, ward=None, data_dir=None):
         return {**head, 'units': d.get('units'), 'read_by': 'tools/budget_intel_extract.py (pdftotext); every figure row read a second time with pypdf',
                 'open_data': 'City of Calgary 2027-2030 Budget, https://data.calgary.ca/d/nnnm-9sfh (by business unit and year); open budget 2023-2026, https://data.calgary.ca/d/fqax-i3nz',
                 'method': 'get_method topic budget_intelligence'}
-    return {**head, 'error': 'part must be summary, cases, case, departments, priorities, service_areas, wards, checks or sources'}
+    return {**head, 'error': 'part must be summary, cases, case, departments, department_bridge, priorities, service_areas, wards, checks or sources'}

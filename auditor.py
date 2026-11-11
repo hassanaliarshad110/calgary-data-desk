@@ -4,11 +4,13 @@
      wording and recommendations. It reports findings; it changes nothing.
   2. Review and fix (Claude Sonnet): checks each finding for itself (re-running the numbers), decides whether to
      accept, revise or reject it, with its reasons, and makes the corrected report.
-  3. Final check (Claude Opus): checks only the findings from step 1: was each accepted one fixed correctly in the
-     corrected report, and was each rejection justified?
+  3. Final audit (Claude Fable, the final auditor): checks every finding from step 1 (was each accepted one fixed
+     correctly, was each rejection justified?), then reads the corrected report against the question it was asked:
+     is every part of the question answered, was evidence in the data missed, does the data contradict a claim? It
+     runs on every report, including one where step 1 found nothing.
 
 The result is a corrected report (PDF, interactive page, Excel, like any report) and an audit page listing every
-finding, the reviewer's decision and the final check.
+finding, the reviewer's decision and the final audit (fixes checked, question coverage and any new issues).
 """
 import datetime as dt
 import html
@@ -22,14 +24,15 @@ import agent as agent_mod
 agent_mod.STEP_TEXT.update({
     'submit_findings': lambda a: f"Handing in {len(a.get('findings') or [])} finding(s)",
     'submit_review': lambda a: 'Handing in the decisions on each finding',
-    'submit_final': lambda a: 'Handing in the final check',
+    'submit_final': lambda a: 'Handing in the final audit',
 })
 
 DATA_TOOLS = ('search_datasets', 'describe_dataset', 'query_dataset', 'get_dashboard', 'get_weather', 'police_crime',
-              'crime_severity_index', 'get_method', 'get_code', 'list_saved_files', 'query_saved_file', 'calculate')
+              'crime_severity_index', 'list_sources', 'read_source', 'get_method', 'get_code', 'list_saved_files',
+              'query_saved_file', 'calculate')
 
 KINDS = ['wrong_number', 'wrong_source', 'wrong_method', 'wrong_period', 'unsupported_claim', 'missing_caveat',
-         'obvious_recommendation', 'unclear_wording', 'other']
+         'obvious_recommendation', 'unclear_wording', 'question_not_answered', 'missed_evidence', 'other']
 
 SUBMIT_FINDINGS = {
     'name': 'submit_findings',
@@ -66,17 +69,36 @@ SUBMIT_REVIEW = {
             'required': ['id', 'decision', 'own_check', 'reasoning']}}},
         'required': ['summary', 'decisions']}}
 
+COVERAGE = {'type': 'array', 'description': 'The question split into its parts, each with how far the report answers it',
+            'items': {'type': 'object', 'properties': {
+                'part': {'type': 'string', 'description': 'One part of the question, in its own words'},
+                'status': {'type': 'string', 'enum': ['answered', 'partly', 'not_answered', 'cannot_with_the_data'],
+                           'description': 'cannot_with_the_data: the report says plainly that the data cannot answer it, and that is true'},
+                'note': {'type': 'string', 'description': 'Where the report answers it, or what is missing and what data would answer it'}},
+                'required': ['part', 'status', 'note']}}
+
 SUBMIT_FINAL = {
     'name': 'submit_final',
-    'description': 'Hand in the final check. Call once.',
+    'description': 'Hand in the final audit. Call once.',
     'input_schema': {'type': 'object', 'properties': {
-        'verdict': {'type': 'string', 'description': 'One or two sentences: can the corrected report be relied on'},
+        'verdict': {'type': 'string', 'description': 'One or two sentences: can the corrected report be relied on, and does it answer the question'},
+        'coverage': COVERAGE,
+        'new_findings': {'type': 'array', 'description': 'Problems the auditor missed, found in your own pass (empty if none)',
+                         'items': {'type': 'object', 'properties': {
+                             'id': {'type': 'string', 'description': 'N1, N2, ...'},
+                             'where': {'type': 'string'},
+                             'issue': {'type': 'string', 'description': 'What is wrong or missing'},
+                             'evidence': {'type': 'string', 'description': 'What you ran and the numbers you got'},
+                             'kind': {'type': 'string', 'enum': KINDS},
+                             'severity': {'type': 'string', 'enum': ['high', 'medium', 'low']},
+                             'fix': {'type': 'string', 'description': 'What the report should say or add'}},
+                             'required': ['id', 'where', 'issue', 'evidence', 'kind', 'severity', 'fix']}},
         'checks': {'type': 'array', 'items': {'type': 'object', 'properties': {
             'id': {'type': 'string'},
             'status': {'type': 'string', 'enum': ['fixed', 'not_fixed', 'fixed_wrongly', 'rightly_rejected', 'wrongly_rejected']},
             'note': {'type': 'string', 'description': 'What you looked at in the corrected report, and any number you re-ran'}},
             'required': ['id', 'status', 'note']}}},
-        'required': ['verdict', 'checks']}}
+        'required': ['verdict', 'coverage', 'new_findings', 'checks']}}
 
 COMMON = """Today is {today}. You work inside Calgary Insight, an app for the City of Calgary's Mayor and councillors \
 built on City of Calgary open data, Calgary Police Service data, Statistics Canada, CMHC and the Government of Alberta. \
@@ -99,6 +121,14 @@ figures presented as spending recommendations or a ranking of need (open data ha
 recommendations that are obvious or routine (things the Mayor's or a councillor's office would already know) rather than specific \
 and backed by the findings.
 5. In a business plan, check the costs: each cost counted once (a net lease's base rent, operating costs and property tax share are separate lines; a gross lease's rent already includes them, so a separate tax line would count it twice), the lease type stated, and every rate per square foot or per cent of sales stated and sourced.
+6. Check the report against its QUESTION: split the question into its parts and check each is answered. A part \
+left out, or quietly swapped for an easier question, is a question_not_answered finding (if the data cannot answer \
+it, the fix is to say so plainly in the key findings and name the data that would). A claim that something is not \
+available, not broken down or not published must be tested before it stands: search list_sources, read_source and \
+the get_dashboard sections; if the data does hold it, that is a missed_evidence finding. The same for a large change \
+(a tenth or more of a total) the report leaves unexplained when the data could explain it: for a budget, trace each \
+large department or business-unit change to its requests (get_dashboard section budget_intelligence, part \
+department_bridge) and state what no request explains.
 Report only real problems as findings, each with the evidence you re-ran. Do not report a problem you have not \
 checked. Small rounding (the last digit) is not a finding. Finish by calling submit_findings once. Write in plain \
 words for the Mayor's or a councillor's office."""
@@ -112,10 +142,23 @@ Then make the corrected report with make_report: the same structure, sections, v
 changing only what your accepted and revised decisions require (title ending " (audited)"; add a limitation line \
 saying the report was audited and corrected, and how many findings were fixed). Then call submit_review once."""
 
-FINAL_SYSTEM = COMMON + """You are the FINAL CHECKER. Check only the auditor's findings listed below, nothing else in \
-the report. For each finding: if the reviewer accepted or revised it, look in the corrected report for the change and \
-check it is right (re-run calculate if a number changed); if the reviewer rejected it, decide whether the rejection is \
-justified from the reviewer's own check (re-run calculate if needed). Then call submit_final once."""
+FINAL_SYSTEM = COMMON + """You are the FINAL AUDITOR, the last step before the report is relied on. You are \
+independent of the writer, the auditor and the reviewer, and you trust none of them. Two duties:
+A. Each of the auditor's findings listed below (if any): if the reviewer accepted or revised it, look in the corrected \
+report for the change and check it is right (re-run the numbers if one changed); if the reviewer rejected it, decide \
+whether the rejection is justified, re-running the check yourself. One entry in checks for each finding.
+B. Your own pass over the corrected report, against the QUESTION it was asked:
+- split the question into its parts and say for each whether the report answers it, partly answers it, does not, or \
+says plainly that the data cannot answer it (coverage). An easier question answered in place of the one asked, \
+without saying so, is not_answered;
+- test every claim that something is not available, not broken down or not published (list_sources, read_source, \
+get_dashboard); a large change (a tenth or more of a total) left unexplained when the data explains it, or a large \
+item in the data the report never mentions, is missed evidence (for a budget: get_dashboard section \
+budget_intelligence, part department_bridge);
+- spot-check the figures the conclusions rest on (re-run them).
+Each problem you find yourself goes in new_findings, with the evidence you ran. Do not repeat the auditor's findings \
+there. Report only real problems; do not report one you have not checked. Your verdict says whether the report can be \
+relied on and whether it answers the question. Then call submit_final once."""
 
 
 def _text_of_html(path, limit=60000):
@@ -137,10 +180,12 @@ def load_report(entry):
         with open(spec, encoding='utf-8') as f:
             d = json.load(f)
         return {'title': (d.get('spec') or {}).get('title') or entry.get('title'),
+                'question': (d.get('spec') or {}).get('question') or entry.get('question') or '(not kept for this report)',
                 'content': json.dumps(d.get('spec'), default=str), 'queries': json.dumps(d.get('provenance') or [], default=str)[:20000]}
     page = entry.get('interactive') or entry.get('pdf')
     if page and page.endswith('.html') and os.path.exists(page):
-        return {'title': entry.get('title'), 'content': _text_of_html(page), 'queries': '(not kept for this report)'}
+        return {'title': entry.get('title'), 'question': entry.get('question') or '(not kept for this report)',
+                'content': _text_of_html(page), 'queries': '(not kept for this report)'}
     raise ValueError('This report\'s content is not on this computer any more.')
 
 
@@ -168,7 +213,9 @@ def index(data_dir, a=None):
                   'corrected_pdf': cor.get('pdf'), 'corrected_print': cor.get('print'), 'corrected_interactive': cor.get('interactive'), 'corrected_xlsx': cor.get('xlsx'),
                   'findings': len(a.get('findings') or []), 'verdict': a.get('verdict'),
                   'fixed': sum(1 for c in a.get('checks') or [] if c.get('status') == 'fixed'),
-                  'open': sum(1 for c in a.get('checks') or [] if c.get('status') not in GOOD)}] + items
+                  'open': sum(1 for c in a.get('checks') or [] if c.get('status') not in GOOD),
+                  'new_findings': len(a.get('new_findings') or []),
+                  'question_gaps': sum(1 for c in a.get('coverage') or [] if c.get('status') in ('partly', 'not_answered'))}] + items
         os.makedirs(data_dir, exist_ok=True)
         with open(path, 'w', encoding='utf-8') as f:
             json.dump(items[:200], f)
@@ -191,7 +238,8 @@ def run(entry, make_agent, emit, today, folder):
 
     # 1. audit (Opus)
     _, r1 = _stage(make_agent, 'audit', AUDIT_SYSTEM, data_tools + [SUBMIT_FINDINGS], {'submit_findings': keep('findings')},
-                   f"Audit this report.\n\nREPORT ({rep['title']}):\n{rep['content']}\n\nQUERIES THE REPORT RAN:\n{rep['queries']}",
+                   f"Audit this report.\n\nQUESTION THE REPORT WAS ASKED:\n{rep['question']}\n\nREPORT ({rep['title']}):\n"
+                   f"{rep['content']}\n\nQUERIES THE REPORT RAN:\n{rep['queries']}",
                    'audit', today, emit, 'Chinook, the auditor, is re-running every figure')
     cost.append(r1.get('tokens', {}).get('cost_usd'))
     if 'findings' not in got:
@@ -212,22 +260,26 @@ def run(entry, make_agent, emit, today, folder):
             raise RuntimeError('The reviewer stopped without handing in its decisions. Try again.')
     decisions = (got.get('review') or {}).get('decisions') or []
 
-    # 3. final check (Opus), on the auditor's findings only
-    checks, verdict = [], 'The auditor found nothing to correct.'
-    if findings:
-        cor = load_report(corrected) if corrected else {'content': '(no corrected report was made)'}
-        _, r3 = _stage(make_agent, 'final', FINAL_SYSTEM, [t for t in TOOLS if t['name'] in ('calculate', 'get_method', 'get_code')] + [SUBMIT_FINAL],
-                       {'submit_final': keep('final')},
-                       f"AUDITOR'S FINDINGS:\n{json.dumps(findings, indent=1)}\n\nREVIEWER'S DECISIONS:\n"
-                       f"{json.dumps(decisions, indent=1)}\n\nCORRECTED REPORT:\n{cor['content']}",
-                       'audit', today, emit, 'Rundle, the final check, is making sure each finding was dealt with')
-        cost.append(r3.get('tokens', {}).get('cost_usd'))
-        checks = (got.get('final') or {}).get('checks') or []
-        verdict = (got.get('final') or {}).get('verdict') or ''
+    # 3. final audit (Fable), on every report: the auditor's findings, then the question, missed evidence and key figures
+    cor = load_report(corrected) if corrected else rep
+    which = 'CORRECTED REPORT' if corrected else ('REPORT (the auditor found nothing to correct, so it is unchanged)' if not findings
+                                                  else 'REPORT (no corrected report was made, so this is the original)')
+    _, r3 = _stage(make_agent, 'final', FINAL_SYSTEM, data_tools + [SUBMIT_FINAL], {'submit_final': keep('final')},
+                   f"QUESTION THE REPORT WAS ASKED:\n{rep['question']}\n\nAUDITOR'S FINDINGS:\n{json.dumps(findings, indent=1)}\n\n"
+                   f"REVIEWER'S DECISIONS:\n{json.dumps(decisions, indent=1)}\n\n{which}:\n{cor['content']}",
+                   'final', today, emit, 'Rundle, the final auditor, is checking the fixes and whether the report answers the question')
+    cost.append(r3.get('tokens', {}).get('cost_usd'))
+    if 'final' not in got:
+        raise RuntimeError('The final auditor stopped without handing in its audit. Try again.')
+    checks = got['final'].get('checks') or []
+    verdict = got['final'].get('verdict') or ''
+    coverage = got['final'].get('coverage') or []
+    new_findings = got['final'].get('new_findings') or []
 
     out = {'title': rep['title'], 'report': entry, 'corrected': corrected, 'audit_summary': got['findings'].get('summary'),
            'figures_checked': got['findings'].get('figures_checked'), 'findings': findings, 'decisions': decisions,
            'review_summary': (got.get('review') or {}).get('summary'), 'checks': checks, 'verdict': verdict,
+           'coverage': coverage, 'new_findings': new_findings, 'final_model': r3.get('model'),
            'made': today, 'cost_usd': None if any(c is None for c in cost) else round(sum(cost), 2)}
     out['page'] = save_page(out, folder)
     return out
@@ -247,6 +299,8 @@ def save_page(a, folder):
     return path
 
 
+COVER_WORDS = {'answered': 'Answered', 'partly': 'Partly answered', 'not_answered': 'Not answered',
+               'cannot_with_the_data': 'Cannot be answered with the data (said plainly)'}
 WORDS = {'accept': 'Accepted', 'revise': 'Revised', 'reject': 'Rejected', 'fixed': 'Fixed', 'not_fixed': 'Not fixed',
          'fixed_wrongly': 'Fixed wrongly', 'rightly_rejected': 'Rightly rejected', 'wrongly_rejected': 'Wrongly rejected'}
 GOOD = {'fixed', 'rightly_rejected'}
@@ -265,6 +319,16 @@ def render(a):
 <td><b>{e(WORDS.get(d.get('decision'), '–'))}</b><p>{e(d.get('reasoning'))}</p><p class="small"><b>Reviewer's own check:</b> {e(d.get('own_check'))}</p>
 {f'<p class="small"><b>Changed:</b> {e(d.get("change_made"))}</p>' if d.get('change_made') else ''}</td>
 <td><b class="{'ok' if c.get('status') in GOOD else 'bad'}">{e(WORDS.get(c.get('status'), '–'))}</b><p class="small">{e(c.get('note'))}</p></td></tr>""")
+    cov = ''.join(f"<tr><td>{e(c.get('part'))}</td><td><b class=\"{'ok' if c.get('status') in ('answered', 'cannot_with_the_data') else 'bad'}\">"
+                  f"{e(COVER_WORDS.get(c.get('status'), c.get('status')))}</b></td><td class=\"small\">{e(c.get('note'))}</td></tr>"
+                  for c in a.get('coverage') or [])
+    new = ''.join(f"<tr><td><b>{e(f.get('id'))}</b><br><span class=\"sev {e(f.get('severity'))}\">{e(f.get('severity'))}</span></td>"
+                  f"<td><p class=\"where\">{e(f.get('where'))}</p><p><b>Issue:</b> {e(f.get('issue'))}</p></td>"
+                  f"<td class=\"small\">{e(f.get('evidence'))}</td><td>{e(f.get('fix'))}</td></tr>" for f in a.get('new_findings') or [])
+    fm = a.get('final_model') or ''
+    fable = fm.startswith('claude-fable')
+    n_new = len(a.get('new_findings') or [])
+    gaps = sum(1 for c in a.get('coverage') or [] if c.get('status') in ('partly', 'not_answered'))
     n = len(a.get('findings') or [])
     fixed = sum(1 for c in a.get('checks') or [] if c.get('status') == 'fixed')
     rej = sum(1 for c in a.get('checks') or [] if c.get('status') == 'rightly_rejected')
@@ -279,10 +343,13 @@ td{{border-bottom:1px solid #E2E8F0;padding:8px 6px;vertical-align:top}}td p{{ma
 .sev{{font-size:11px;font-weight:700;padding:1px 7px;border-radius:9px;background:#F1F5F9}}.sev.high{{background:#FEE2E2;color:#991B1B}}.sev.medium{{background:#FEF3C7;color:#92400E}}.sev.low{{background:#DCFCE7;color:#166534}}
 .ok{{color:#166534}}.bad{{color:#B91C1C}}.box{{background:#F8FAFC;border-left:4px solid #0B6BB5;padding:8px 14px;border-radius:4px;margin:8px 0}}
 @media print{{body{{margin:0}}}}</style></head><body>
-<div class="band"><p class="kick">Calgary Insight · Report audit</p><h1>{e(a['title'])}</h1><p>Audited {e(a['made'])}: audit by Chinook, review and fixes by Bow, final check by Rundle</p></div>
-<div class="stats"><div><b>{e(a.get('figures_checked'))}</b>figures re-run</div><div><b>{n}</b>findings</div><div><b>{fixed}</b>fixed</div><div><b>{rej}</b>rightly rejected</div><div><b class="{'bad' if bad else 'ok'}">{bad}</b>still open</div></div>
-<div class="box"><b>Final check:</b> {e(a.get('verdict'))}</div>
+<div class="band"><p class="kick">Calgary Insight · Report audit</p><h1>{e(a['title'])}</h1><p>Audited {e(a['made'])}: audit by Chinook, review and fixes by Bow, final audit by Rundle{' (Claude Fable)' if fable else ''}</p></div>
+{'' if fable or not fm else f'<div class="box bad"><b>Note:</b> the final audit ran on {e(fm)}, not Claude Fable (Fable was not reachable).</div>'}
+<div class="stats"><div><b>{e(a.get('figures_checked'))}</b>figures re-run</div><div><b>{n}</b>findings</div><div><b>{fixed}</b>fixed</div><div><b>{rej}</b>rightly rejected</div><div><b class="{'bad' if bad else 'ok'}">{bad}</b>still open</div><div><b class="{'bad' if n_new else 'ok'}">{n_new}</b>new issues from the final audit</div><div><b class="{'bad' if gaps else 'ok'}">{gaps}</b>parts of the question not fully answered</div></div>
+<div class="box"><b>Final audit:</b> {e(a.get('verdict'))}</div>
 <div class="box"><b>Auditor:</b> {e(a.get('audit_summary'))}</div>
 {f'<div class="box"><b>Reviewer:</b> {e(a.get("review_summary"))}</div>' if a.get('review_summary') else ''}
-{'<table><thead><tr><th>Finding</th><th>What Chinook (the auditor) found</th><th>Decision by Bow (the reviewer)</th><th>Final check by Rundle</th></tr></thead><tbody>' + ''.join(rows) + '</tbody></table>' if rows else '<p>No problems found: every figure re-run matched the report.</p>'}
+{'<table><thead><tr><th>Finding</th><th>What Chinook (the auditor) found</th><th>Decision by Bow (the reviewer)</th><th>Final audit by Rundle</th></tr></thead><tbody>' + ''.join(rows) + '</tbody></table>' if rows else '<p>The auditor found no problems: every figure re-run matched the report.</p>'}
+{'<h2>Does the report answer the question?</h2><table><thead><tr><th>Part of the question</th><th>Answer</th><th>Note</th></tr></thead><tbody>' + cov + '</tbody></table>' if cov else ''}
+{'<h2>New issues found by the final audit</h2><table><thead><tr><th>Issue</th><th>What is wrong or missing</th><th>Evidence</th><th>What the report should say</th></tr></thead><tbody>' + new + '</tbody></table>' if new else ''}
 </body></html>"""
