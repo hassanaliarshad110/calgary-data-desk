@@ -33,11 +33,11 @@
     "publish_at": "2026-11-09T23:05",
     "status": "PUBLISHED",
     "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/DfjHaBFASGY/",
      "facebook": "https://facebook.com/reel/2253097085551273",
+     "instagram": "https://www.instagram.com/reel/DfjHaBFASGY/",
      "youtube": "https://www.youtube.com/shorts/0_NMRCN7BAM"
     },
-    "confirmed": "2026-11-11 AM run"
+    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
    }
   ],
   "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
@@ -86,7 +86,7 @@
      "instagram": "https://www.instagram.com/reel/DfjIkjmDIBJ/",
      "youtube": "https://www.youtube.com/shorts/8wXVAiWrLsE"
     },
-    "confirmed": "2026-11-11 AM run"
+    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
    },
    {
     "metricool_id": 422729326,
@@ -100,7 +100,7 @@
      "facebook": "https://facebook.com/122097271263547631/posts/889746627498145",
      "youtube": "https://www.youtube.com/watch?v=oWGSg7oOEdI"
     },
-    "confirmed": "2026-11-11 AM run"
+    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
    }
   ],
   "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
@@ -142,11 +142,11 @@
     "publish_at": "2026-11-09T23:30",
     "status": "PUBLISHED",
     "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/DfjKVKKCu0l/",
      "facebook": "https://facebook.com/reel/1777468610218016",
+     "instagram": "https://www.instagram.com/reel/DfjKVKKCu0l/",
      "youtube": "https://www.youtube.com/shorts/JHlV0Ik29jU"
     },
-    "confirmed": "2026-11-11 AM run"
+    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
    }
   ],
   "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
@@ -185,11 +185,11 @@
     "publish_at": "2026-11-09T23:40",
     "status": "PUBLISHED",
     "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/DfjLWkNHN1Q/",
      "facebook": "https://facebook.com/reel/1427285882397205",
+     "instagram": "https://www.instagram.com/reel/DfjLWkNHN1Q/",
      "youtube": "https://www.youtube.com/shorts/jchtz_NsYEU"
     },
-    "confirmed": "2026-11-11 AM run"
+    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
    }
   ],
   "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
@@ -327,5 +327,45 @@
    }
   ],
   "post_note": "Fixed 08:00 slot had passed (run started 10:31). Moved to 11:00: at least 10 min from scheduling, 80 min after the last post today (09:40) and 90 min before the 12:30 flagship slot. Playbook update at 10:45 (hook frame must match the thumbnail; no AI labels): the first 0.9 s now shows the designed thumbnail, video re-pushed (commit 91c05e0) and the scheduled post updated to that file (id 424669934 -> 424671706), isAiGenerated/isAiGeneratedContent false. Confirmed PUBLISHED on all three at 11:08, no warnings."
+ },
+ {
+  "date": "2026-11-11",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "Three Places, One Military Story",
+  "topic_used": "Remembrance Day story in three places: Mewata Armoury (1917-1918 Tudor Gothic drill hall; per Parks Canada completed too late to be of practical value in WWI; HQ for all Calgary militia units 1918-1939; WWII training camp; National Historic Site 1989), Currie Barracks (land acquired 1933, named for Gen. Sir Arthur Currie; Depression relief project; Queen Elizabeth II stayed overnight in the Officers' Mess; decommissioned 1997; now the Currie neighbourhood, Provincial Historic Resource 1999), The Military Museums (Sir Sam Steele Junior High made surplus, Calgarians raised $6.5M; opened by Queen Elizabeth II as the Museum of the Regiments in 1990; renamed 2006)",
+  "changed_from_calendar": null,
+  "central_figure": "Mewata Armoury was 'completed too late to be of practical value during World War I' (Parks Canada, Directory of Federal Heritage Designations), then served as headquarters for all Calgary militia units 1918-1939",
+  "sources": [
+   "https://www.pc.gc.ca/apps/dfhd/page_fhbro_eng.aspx?id=2405",
+   "https://historicplaces.ca/en/rep-reg/place-lieu.aspx?id=12607",
+   "https://www.veterans.gc.ca/en/node/158234",
+   "https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11075",
+   "https://calgaryheritage.org/wp/celebrating-calgary-150-calgary-at-war-part-two/",
+   "https://mural-atrium.themilitarymuseums.ca/panels/row1/15-sir-arthur-currie",
+   "https://www.clc-sic.ca/node/68",
+   "https://themilitarymuseums.ca/visit/about",
+   "https://mural.themilitarymuseums.ca/panels/row1/10-hrh-queen-elizabeth"
+  ],
+  "length_s": 115.9,
+  "teaser_length_s": 29.9,
+  "video_path": [
+   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-short.mp4",
+   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-youtube.mp4",
+   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-teaser.mp4"
+  ],
+  "thumbnail_path": [
+   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-thumb.jpg",
+   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-thumb-yt.jpg"
+  ],
+  "package": "packages/2026-11-11-FLAGSHIP-three-places-military-story.md",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 22,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-11-FLAGSHIP.md"
+  },
+  "status": "done"
  }
 ]
