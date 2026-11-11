@@ -1,0 +1,17 @@
+desktop BvA $236.4 million:true $276.3 million:true $259.3 million:true 52.5%:true 92.4%:true
+desktop BvA internal wording false
+desktop BvA overflow 0
+desktop budget direct per resident true 2,867,2,570
+desktop dashboard 484,827:true with no community:true 76.3%:true 
+desktop infra true 5,415
+desktop families 227,762:false 1,957 spaces:true Children'S:false
+desktop js errors []
+phone BvA $236.4 million:true $276.3 million:true $259.3 million:true 52.5%:true 92.4%:true
+phone BvA internal wording false
+phone BvA overflow 0
+phone budget direct per resident true 2,867,2,570
+phone dashboard 484,827:true with no community:true 76.3%:true 
+phone infra true 5,415
+phone families 227,762:false 1,957 spaces:true Children'S:false
+phone js errors []
+search rows 1 errors []

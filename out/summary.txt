@@ -1,0 +1,29 @@
+built {'built': None, 'built_at': '2026-11-11 15:29', 'commit': None, 'sha': None, 'minutes': 79.1} failed []
+infra breaks 141 162 2026-08-23 km 5414.9
+desktop BvA $236.4 million:true $276.3 million:true $259.3 million:true 52.5%:true 92.4%:true
+desktop BvA internal wording false
+desktop BvA overflow 0
+desktop budget direct per resident true 2,867,2,570
+desktop dashboard 484,827:true with no community:true 76.3%:true 
+desktop infra true 5,415
+desktop families 227,762:false 1,957 spaces:true Children'S:false
+desktop js errors []
+phone BvA $236.4 million:true $276.3 million:true $259.3 million:true 52.5%:true 92.4%:true
+phone BvA internal wording false
+phone BvA overflow 0
+phone budget direct per resident true 2,867,2,570
+phone dashboard 484,827:true with no community:true 76.3%:true 
+phone infra true 5,415
+phone families 227,762:false 1,957 spaces:true Children'S:false
+phone js errors []
+search rows 1 errors []
+direct, after 20 s: [
+  "operating per resident (1,598,075 people, the City's estimate)",
+  'capital per resident',
+  " not a year's budget and is not divided per resident. Private and other-government projects are on Growth vs ame"
+]
+after the dashboard: [
+  "operating per resident (1,598,075 people, the City's estimate)",
+  'capital per resident',
+  " not a year's budget and is not divided per resident. Private and other-government projects are on Growth vs ame"
+]
