@@ -820,6 +820,13 @@ def pay_page(out, updated):
     with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page(path, 'What Calgarians pay: the proposed budget and seven Canadian cities | Calgary Insight', desc,
                      [('Calgary Insight', ''), ('Studies', 'studies/'), ('What Calgarians pay', path)], '\n'.join(body), ld, updated, og_type='article'))
+    # the short address said in the study's video: calgaryinsight.ca/bill opens the household calculator
+    os.makedirs(os.path.join(out, 'bill'), exist_ok=True)
+    with open(os.path.join(out, 'bill', 'index.html'), 'w', encoding='utf-8') as f:
+        f.write('<!doctype html><html lang="en-CA"><head><meta charset="utf-8"><title>Your City bill calculator | Calgary Insight</title>'
+                f'<meta name="robots" content="noindex"><link rel="canonical" href="{SITE}{path}calculator.html">'
+                f'<meta http-equiv="refresh" content="0; url=/{path}calculator.html"></head><body>'
+                f'<p><a href="/{path}calculator.html">Work out your own City bill, 2026 to 2030</a></p></body></html>')
     return [path, path + 'calculator.html']
 
 

@@ -110,7 +110,8 @@ function renderPlan() {
       <div><h3>What it would cost a typical home in 2027</h3>
         <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Each month</th><th scope="col" class="num">2026</th><th scope="col" class="num">2027 proposed</th><th scope="col" class="num">Change</th></tr></thead>
         <tbody>${H.lines.map(l => `<tr${l.item === 'Total' ? ' class="cmp-city-row"' : ''}><td>${l.item === 'Total' ? '<b>Total</b>' : esc(l.item)}</td><td class="num">$${fmt(l.m2026)}</td><td class="num">$${fmt(l.m2027)}</td><td class="num"><b>+$${fmt(l.change)}</b></td></tr>`).join('')}</tbody></table></div>
-        <p class="card-sub">That is about $${fmt(H.lines[2].change * 12)} more a year. ${esc(H.basis)} Source: ${link(H.url, H.source)}.</p></div>
+        <p class="card-sub">That is about $${fmt(H.lines[2].change * 12)} more a year. ${esc(H.basis)} Source: ${link(H.url, H.source)}.</p>
+        <p><a class="btn small" href="studies/what-calgarians-pay/calculator.html">Work out your own bill, 2026 to 2030</a> <a class="btn small" href="studies/what-calgarians-pay/">How Calgary compares</a></p></div>
       <div><h3>Property tax, year by year</h3>
         <div class="bud-path">${T.years.map((y, i) => `<div class="istat"><b>+${fmt(T.pct[i], 1)}%</b><span>${y}${i ? ' (reported)' : ''}</span></div>`).join('')}</div>
         <p class="card-sub">If every year passes as proposed, the City would collect about ${fmt(cum, 0)}% more property tax from existing properties in 2030 than in 2026 (each year's increase compounds on the last). ${esc(T.source)} ${esc(T.context)}</p></div>
