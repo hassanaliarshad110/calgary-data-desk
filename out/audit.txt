@@ -1,0 +1,105 @@
+FAILURES 1
+read_source key | data | named in src:registry.py but not in the registry ('(f) or "the page that shows them (list_sources)"}\'\n               if big else f\'read_source key=data:{f[:-5]} (outline, then part or find)\')')
+
+==== log
+registry pages 54
+FAIL read_source key data | named in src:registry.py but not in the registry ('(f) or "the page that shows them (list_sources)"}\'\n               if big else f\'read_source key=data:{f[:-5]} (outline, then part or find)\')')
+part overview at ok 
+part election_analytics accountability ok 
+part election_analytics commitments ok 
+part federal_budget chapter ok 
+part federal_budget find ok 
+part federal_budget province ok 
+part federal_budget summary ok 
+part federal_budget tables ok 
+part federal_budget tax ok 
+part school_tax approvals ok 
+part school_tax boards ok 
+part school_tax factors ok 
+part school_tax grants ok 
+part school_tax municipalities ok 
+part school_tax projects ok 
+part school_tax residents ok 
+part school_tax spending ok 
+part tourism airports ok 
+part tourism arrivals ok 
+part tourism countries ok 
+part tourism research ok 
+part police_study limitations ok 
+part police_study sections ok 
+part police_study sources ok 
+part police_study summary ok 
+part pay_study limitations ok 
+part pay_study sections ok 
+part pay_study sources ok 
+part pay_study summary ok 
+part city_budget_2027 wards ok 
+part budget_intelligence actual ok 
+part budget_intelligence case ok 
+part budget_intelligence cases ok 
+part budget_intelligence checks ok 
+part budget_intelligence departments ok 
+part budget_intelligence priorities ok 
+part budget_intelligence service_areas ok 
+part budget_intelligence sources ok 
+part budget_intelligence summary ok 
+part budget_intelligence wards ok 
+part business or ok 
+part growth_forecast communities ok 
+part growth_forecast fields ok 
+part growth_forecast infrastructure ok 
+part growth_forecast or ok 
+part growth_forecast planned ok 
+part growth_forecast sectors ok 
+part visiting weather_months ok 
+sections ok 30 of 30
+actual surplus [('2023', 236.4), ('2024', 276.3), ('2025', 259.3)]
+actual where 6
+read_source budget-intelligence find surplus matches 2 None
+dataset ids named 46
+dataset 33vi-ew4s data.calgary.ca ok: Land Use Redesignation Applications ['agent.SYSTEM', 'src:agent.py', 'src:dashboard.py', 'src:methods.py']
+dataset 35ra-9556 data.calgary.ca ok: Traffic Incidents ['agent.SYSTEM', 'registry.read', 'src:agent.py', 'src:dashboard.py']
+dataset 4bsw-nn7w data.calgary.ca ok: Current Year Property Assessments (Parcel) ['agent.SYSTEM', 'src:access.py', 'src:agent.py', 'src:buildup.py']
+dataset 4evm-wx9a data.calgary.ca ok: Social Disorder Statistics ['agent.SYSTEM', 'src:agent.py', 'src:dashboard.py', 'src:methods.py']
+dataset 4jah-h97u data.calgary.ca ok: Current Traffic Incidents ['agent.SYSTEM', 'src:agent.py']
+dataset 6933-unw5 data.calgary.ca ok: Development Permits ['agent.SYSTEM', 'src:agent.py', 'src:dashboard.py', 'src:livecheck.py']
+dataset 848s-4m4z data.calgary.ca ok: Community Crime and Disorder Statistics (2012-2019) ['agent.SYSTEM', 'src:agent.py']
+dataset 8w7b-2yqx data.calgary.ca ok: 2021 Federal Census Employment by City ['src:census.py', 'src:methods.py', 'src:profiles.py']
+dataset 9zvu-p8uz data.calgary.ca ok: Parcel Address ['src:families.py', 'src:livecheck.py', 'src:methods.py']
+dataset am7c-qe3u data.calgary.ca ok: Calgary Transit Realtime Vehicle Positions GTFS-RT ['src:methods.py', 'src:transit.py']
+dataset b5q8-82zn data.calgary.ca ok: 2021 Federal Census Employment by Ward ['src:census.py', 'src:methods.py', 'src:profiles.py']
+dataset bdu9-amk8 data.calgary.ca ok: Playground Equipment ['src:access.py', 'src:assets.py', 'src:dashboard.py', 'src:livecheck.py']
+dataset c2es-76ed data.calgary.ca ok: Building Permits ['agent.SYSTEM', 'src:agent.py', 'src:buildup.py', 'src:dashboard.py']
+dataset da6k-wpxb data.calgary.ca ok: Parks Sport Equipment ['src:assets.py', 'src:livecheck.py']
+dataset dpcu-jr23 data.calgary.ca ok: Water Main Breaks ['agent.SYSTEM', 'src:agent.py', 'src:infra.py', 'src:methods.py']
+dataset e7ib-v9n4 data.calgary.ca ok: Suburban Residential Growth (SRG) Forecast ['agent.SYSTEM', 'src:agent.py', 'src:dashboard.py', 'src:methods.py']
+dataset enr4-crti data.calgary.ca ok: Parks Off Leash Areas ['src:assets.py', 'src:livecheck.py']
+dataset erra-cqp9 data.calgary.ca ok: City Boundary ['src:dashboard.py', 'src:livecheck.py']
+dataset f9wk-wej9 data.calgary.ca ok: 2021 Federal Census Population and Dwellings by Community ['agent.SYSTEM', 'src:agent.py', 'src:buildup.py', 'src:census.py']
+dataset fd9t-tdn2 data.calgary.ca ok: Schools ['src:families.py', 'src:livecheck.py', 'src:methods.py']
+dataset fm6w-acnx data.calgary.ca ok: 2021 Federal Census Population and Dwellings by City ['src:census.py', 'src:methods.py', 'src:profiles.py']
+dataset fqax-i3nz data.calgary.ca ok: 2023–2026 Budget ['agent.SYSTEM', 'agent.TOOLS', 'src:agent.py', 'src:budget.py']
+dataset fwyk-8pth data.calgary.ca ok: Parks Wayfinder Garbage and Recycle ['src:assets.py', 'src:livecheck.py']
+dataset gqvk-p23x data.calgary.ca ok: Official Results General Election Result - 2025 ['src:dashboard.py', 'src:elections.py', 'src:methods.py']
+dataset gs4m-mdc2 data.calgary.ca ok: Calgary Transit Realtime Trip Updates GTFS-RT ['src:methods.py', 'src:transit.py']
+dataset hxfu-6d96 data.calgary.ca ok: Recreation Facilities ['agent.SYSTEM', 'src:access.py', 'src:agent.py', 'src:assets.py']
+dataset iahh-g8bj data.calgary.ca ok: 311 Service Requests ['agent.SYSTEM', 'agent.TOOLS', 'registry.read', 'src:agent.py']
+dataset ikeb-n5bc data.calgary.ca ok: Parks Seating ['src:assets.py', 'src:dashboard.py', 'src:livecheck.py']
+dataset isek-k4ja data.calgary.ca ok: 2021 Federal Census Employment by Community ['agent.SYSTEM', 'src:agent.py', 'src:elections.py']
+dataset jjkg-kv4n data.calgary.ca ok: Parks Plumbing Fixtures ['src:assets.py', 'src:livecheck.py']
+dataset jzfi-qvb4 data.calgary.ca ok: 2021 Federal Census Families and Households by Ward ['src:census.py', 'src:methods.py', 'src:profiles.py']
+dataset k4pr-cznc data.calgary.ca ok: 2021 Federal Census Population and Dwellings by Ward ['src:census.py', 'src:livecheck.py', 'src:methods.py', 'src:profiles.py']
+dataset k7p9-kppz data.calgary.ca ok: Traffic Cameras ['agent.SYSTEM', 'src:agent.py', 'src:dashboard.py', 'src:livecheck.py']
+dataset msjx-5ygv data.calgary.ca ok: 2021 Federal Census Families and Households by Community ['agent.SYSTEM', 'src:agent.py', 'src:buildup.py', 'src:census.py']
+dataset muzh-c9qc data.calgary.ca ok: Calgary Transit Stops ['agent.SYSTEM', 'src:access.py', 'src:agent.py', 'src:assets.py']
+dataset n4vp-3exq data.calgary.ca ok: Suburban Residential Growth (SRG) Forecast Map ['src:methods.py', 'src:srg.py']
+dataset nnnm-9sfh data.calgary.ca ok: 2027–2030 Budget ['agent.SYSTEM', 'agent.TOOLS', 'src:agent.py', 'src:budget.py']
+dataset npk7-z3bj data.calgary.ca ok: Calgary Transit Scheduling Data ['src:methods.py', 'src:transit.py']
+dataset qe6k-p9nh data.calgary.ca ok: Land Use Districts ['src:planned.py']
+dataset ruq3-99hx data.calgary.ca ok: Council and Committee Votes ['src:accountability.py', 'src:methods.py']
+dataset tfs4-3wwa data.calgary.ca ok: Public Trees ['src:assets.py', 'src:livecheck.py']
+dataset tz8z-hyaz data.calgary.ca ok: Ward Boundaries ['agent.SYSTEM', 'src:agent.py', 'src:dashboard.py', 'src:livecheck.py']
+dataset u75s-8rqc data.calgary.ca ok: 2021 Federal Census Families and Households by City ['src:census.py', 'src:methods.py', 'src:profiles.py']
+dataset w6h9-w33i data.calgary.ca ok: Public Water Main ['src:infra.py', 'src:methods.py']
+dataset x34e-bcjz data.calgary.ca ok: Community Services ['src:access.py', 'src:assets.py', 'src:dashboard.py', 'src:livecheck.py']
+dataset xesp-3jc3 data.calgary.ca ok: Public Sanitary Service Lines ['src:infra.py']
