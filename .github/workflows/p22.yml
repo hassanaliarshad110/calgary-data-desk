@@ -1,0 +1,92 @@
+name: Probe 22
+on: {push: {branches: [site-check-22]}}
+permissions: {contents: write, actions: read}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      R: "${{ github.repository }}"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: The durable backup, downloaded, checksummed and restored (read only)
+        run: |
+          mkdir -p out/backup out/runs out/src
+          gh api "repos/$R/actions/runs/42997418780/artifacts" > out/backup/artifact-api.json
+          gh run download 42997418780 -R "$R" -n backup-7 -D bk
+          (cd bk && ls -la > ../out/backup/artifact-files.txt && sha256sum * > ../out/backup/artifact-sha256.txt)
+          cp bk/branches.txt out/backup/branches-in-artifact.txt
+          T=out/backup/restore-test.txt
+          echo "== git clone of the bundle from artifact backup-7" > $T
+          git clone -q bk/calgary-data-desk.bundle rest >> $T 2>&1; echo "clone exit $?" >> $T
+          echo "HEAD $(git -C rest rev-parse HEAD)" >> $T
+          echo "tree $(git -C rest rev-parse 'HEAD^{tree}')" >> $T
+          echo "branch $(git -C rest branch --show-current)" >> $T
+          echo "tracked files $(git -C rest ls-files | wc -l)" >> $T
+          echo "working tree changes $(git -C rest status --short | wc -l)" >> $T
+          echo "branches in the bundle $(git -C rest branch -r | grep -vc HEAD)" >> $T
+          git -C rest log -1 --format='last commit: %H | %an | %ad | %s' >> $T
+          echo "== git bundle verify" >> $T
+          git -C rest bundle verify "$PWD/bk/calgary-data-desk.bundle" >> $T 2>&1; echo "verify exit $?" >> $T
+          echo "== every tracked file against its git blob (git fsck, then checkout comparison)" >> $T
+          git -C rest fsck --no-dangling >> $T 2>&1; echo "fsck exit $?" >> $T
+          echo "== the published website inside the artifact" >> $T
+          mkdir web && tar -xzf bk/website.tar.gz -C web
+          echo "files $(find web -type f | wc -l)  size $(du -sh web | cut -f1)" >> $T
+          (cd web && sha256sum index.html site.*.js data/built.json data/budget.json data/tax.json) >> ../$T
+          (cd web && find . -type f -printf '%s %p\n' | sort -k2 > ../out/backup/website-files.txt)
+          echo "== does the restored code rebuild the published interface? (the site's own offline build step)" >> $T
+          pip install -q cryptography numpy scipy openpyxl overturemaps pypdf >/dev/null 2>&1 || true
+          (cd rest && python -c "import sys; sys.path[:0]=['web','.']; import build_site; build_site.page('../rebuilt')" >> ../$T 2>&1; echo "build step exit $?" >> ../$T)
+          (cd rebuilt && sha256sum index.html site.*.js styles.css web.css) >> $T 2>&1 || true
+          a=$(cd web && sha256sum site.*.js | cut -d' ' -f1); b=$(cd rebuilt && sha256sum site.*.js | cut -d' ' -f1)
+          echo "script bundle: published $a  rebuilt-from-backup $b  $([ "$a" = "$b" ] && echo IDENTICAL || echo DIFFERENT)" >> $T
+          a=$(sha256sum web/index.html | cut -d' ' -f1); b=$(sha256sum rebuilt/index.html | cut -d' ' -f1)
+          echo "index.html: published $a  rebuilt-from-backup $b  $([ "$a" = "$b" ] && echo IDENTICAL || echo DIFFERENT)" >> $T
+          cat $T
+      - name: Run records and log excerpts (read only)
+        run: |
+          gh run list -R "$R" --workflow site.yml -L 20 --json databaseId,event,status,conclusion,headSha,createdAt,updatedAt > out/runs/site-last20.json
+          gh run list -R "$R" --workflow site.yml --event schedule -L 6 --json databaseId,event,status,conclusion,headSha,createdAt,updatedAt > out/runs/site-scheduled.json
+          gh run list -R "$R" --workflow backup.yml -L 10 --json databaseId,event,status,conclusion,headSha,createdAt,updatedAt > out/runs/backup-last10.json
+          gh run list -R "$R" --workflow news-images.yml -L 10 --json databaseId,event,status,conclusion,headSha,createdAt,updatedAt > out/runs/news-images-last10.json
+          gh run list -R "$R" --workflow gateway.yml -L 5 --json databaseId,event,status,conclusion,headSha,createdAt,updatedAt > out/runs/gateway-last5.json
+          gh api "repos/$R/actions/workflows" --paginate > out/runs/workflows-registered.json
+          for id in 42977312843 42997418780 42863009683 42973286311 42764816551; do
+            gh run view $id -R "$R" --json databaseId,name,event,status,conclusion,headSha,createdAt,updatedAt,jobs > out/runs/run-$id.json || true
+            gh run view $id -R "$R" --log > full-$id.txt 2>/dev/null || true
+            n=$(wc -l < full-$id.txt)
+            # an excerpt without the settings block and with any address removed: first 30 and last 160 lines, and every line that reports a problem
+            grep -v -E 'CDD_|FIREBASE|GOOGLE_|AI_GATEWAY|CONTACT' full-$id.txt | sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}/[address removed]/g' > clean-$id.txt
+            { echo "run $id: $n log lines in all; excerpt below"; echo "---- first 30"; head -30 clean-$id.txt; echo "---- lines reporting a problem (Traceback, Error:, failed, not reached)"; grep -n -i -E 'traceback|error:|failed|not reached|kept yesterday' clean-$id.txt | head -60; echo "---- last 160"; tail -160 clean-$id.txt; } | cut -c1-400 > out/runs/log-excerpt-$id.txt
+          done
+          ls -la out/runs
+      - name: Official sources, read again (read only)
+        run: |
+          sudo apt-get install -y -q poppler-utils >/dev/null 2>&1 || true
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+          g() { curl -sSL -A "$UA" --compressed --retry 3 --retry-delay 5 -o "$1" "$2" -w "$1 %{http_code} %{size_download} %{content_type} $2\n" >> out/src/log.txt || echo "FAILED $1 $2" >> out/src/log.txt; }
+          PDF="https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf"
+          g budget-requests.pdf "$PDF"
+          sha256sum budget-requests.pdf >> out/src/log.txt
+          pdfinfo -isodates budget-requests.pdf >> out/src/log.txt 2>&1 || true
+          curl -sSI -A "$UA" "$PDF" | tr -d '\r' | grep -i -E '^(HTTP|content-type|content-length|last-modified|etag)' >> out/src/log.txt || true
+          g out/src/budget-2027.html "https://www.calgary.ca/our-finances/2027-budget.html"
+          g out/src/news-release.html "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/"
+          g proposed-budget.pdf "https://pub-calgary.escribemeetings.com/FileStream.ashx?DocumentId=377372"
+          sha256sum proposed-budget.pdf >> out/src/log.txt; pdfinfo -isodates proposed-budget.pdf >> out/src/log.txt 2>&1 || true
+          pdftotext -layout proposed-budget.pdf proposed-budget.txt 2>/dev/null || true
+          gzip -9 -c proposed-budget.txt > out/src/proposed-budget.txt.gz || true
+          g out/src/fqax-all.json "https://data.calgary.ca/resource/fqax-i3nz.json?\$limit=50000"
+          g out/src/nnnm-all.json "https://data.calgary.ca/resource/nnnm-9sfh.json?\$limit=50000"
+          g out/src/meta-fqax.json "https://data.calgary.ca/api/views/fqax-i3nz.json"
+          g out/src/meta-nnnm.json "https://data.calgary.ca/api/views/nnnm-9sfh.json"
+          ls -la out/src >> out/src/log.txt; cat out/src/log.txt
+      - if: always()
+        run: |
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q -b fetched-22
+          git add -f out && git commit -qm "Second-stage verification evidence (read only): backup restore, run records, official sources" && git push -qf origin fetched-22
