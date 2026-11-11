@@ -1,0 +1,80 @@
+{
+ "base": "main",
+ "files_scanned": 98,
+ "not_text": [
+  "docs/calgary-budget-intelligence/screenshots/after-desktop-all-screens.jpg",
+  "docs/calgary-budget-intelligence/screenshots/after-mobile-all-screens.jpg",
+  "docs/calgary-budget-intelligence/screenshots/baseline-desktop-all-screens.jpg",
+  "docs/calgary-budget-intelligence/screenshots/baseline-mobile-all-screens.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-budget-vs-actual-desktop-dark.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-business-cases-desktop-dark.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-business-cases-phone.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-capital-desktop-dark.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-connected-data-desktop-dark.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-data-checks-desktop-dark.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-overview-desktop-dark.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-overview-desktop-light.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-overview-phone.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-request-with-city-note-desktop-dark.jpg",
+  "docs/calgary-budget-intelligence/screenshots/centre-tax-simulator-desktop-dark.jpg"
+ ],
+ "secrets": [],
+ "personal": [],
+ "hosts": {
+  "calgaryinsight.ca": [
+   "budget_intel.py"
+  ],
+  "data.calgary.ca": [
+   "budget_intel.py",
+   "ui/budget-intel.js"
+  ],
+  "www.calgary.ca": [
+   "methods.py",
+   "tools/budget_intel_extract.py",
+   "ui/budget-intel.js",
+   "ui/budget-intel/business-cases.json"
+  ]
+ },
+ "hosts_in_documents_and_evidence": {
+  "api.cloudflare.com": 2,
+  "api.indexnow.org": 2,
+  "api.us.socrata.com": 1,
+  "calgaryinsight.ca": 2,
+  "cdn.jsdelivr.net": 2,
+  "data.calgary.ca": 3,
+  "github.com": 5,
+  "localhost": 4,
+  "majorprojects.alberta.ca": 1,
+  "newsroom.calgary.ca": 1,
+  "raw.githubusercontent.com": 2,
+  "www.calgary.ca": 7,
+  "x-access-token": 2
+ },
+ "javascript": {
+  "ui/budget-intel.js": {
+   "fetch, XMLHttpRequest, WebSocket, sendBeacon or EventSource": 1
+  }
+ },
+ "python": {
+  "tools/budget_intel_check.py": {
+   "writes a file": 4
+  },
+  "tools/budget_intel_extract.py": {
+   "writes a file": 3,
+   "runs a program": 2
+  }
+ },
+ "external_script_or_style_tags_added": [],
+ "existing_files_added_lines_only": [
+  "agent.py",
+  "analyst.py",
+  "methods.py",
+  "registry.py",
+  "ui/index.html",
+  "web/search_index.py"
+ ],
+ "script_and_style_tags_added_to_index_html": [
+  "<link rel=\"stylesheet\" href=\"budget-intel.css\">",
+  "<script src=\"budget-intel.js\"></script>"
+ ]
+}

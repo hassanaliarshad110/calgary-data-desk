@@ -1322,6 +1322,31 @@ METHODS = [
                 '(northeast Calgary), back to 1881; grouped by month or year on request. The forecast is Environment '
                 'Canada\'s public forecast for Calgary, about 7 days ahead.'],
      'excel': [], 'cautions': ['One station for the whole city: snow and temperature vary across Calgary.']},
+
+    {'key': 'budget_intelligence', 'name': 'Budget Intelligence: the 2027-2030 budget requests',
+     'dataset': 'City of Calgary, "2027-2030 budget request business cases" (PDF, 792 pages); checked against open data nnnm-9sfh',
+     'publisher': 'City of Calgary', 'page': 'https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf',
+     'updated': 'A snapshot of the City\'s document (last changed by the City on November 9, 2026), read by hand when the City publishes a new version; the open budget it is checked against is read daily',
+     'used_in': 'Budget Intelligence, Data Genie, Data Scientist',
+     'method': ['Every business case in the City\'s document is read from the PDF: its number, title, department, business unit, the reason the City gives, and its page. '
+                'Operating requests: the City\'s table "Proposed funding amount" (one-time and ongoing, in millions of dollars, and full-time equivalents, 2027 to 2030). '
+                'Capital requests: the rows "4-Year Capital Budget Consideration" and "10-Year Capital Infrastructure Needs" (thousands of dollars), the Budget ID, kind, ward(s), stage, funding source, service area and the City\'s split by purpose.',
+                'Names and figures are kept exactly as the City prints them; a dash in the City\'s table is kept as a dash and counted as nothing in a sum. Thousands are divided by 1,000 to show millions; sums are made on the unrounded figures and rounded once for display.',
+                'Checked when read: each title against the contents pages; each printed page number against the PDF\'s own; each capital total against the sum of its years (within $3,000); each split against 100%; and every figure row read a second time with a different PDF reader.',
+                'Capital by purpose = each capital request\'s four-year amount x the City\'s percentage for that purpose, added up.',
+                'Reconciliation, worked out again on each visit: the capital requests added by year, against the City\'s open data (nnnm-9sfh) rows with fund Capital and status Proposed; and the same by business unit, with the document\'s names matched to the open data\'s by a hand-kept list.',
+                'Ongoing operating amounts are additions to the base budget in that year (the City itself adds a request\'s yearly figures to state its ongoing amount). No four-year cash cost is worked out.',
+                'By ward: only requests that name a ward are counted for it; a request naming several wards is counted in each and its dollars are not divided. Nothing citywide is divided among wards, communities or residents.',
+                'Tax simulator: assessed value x the 2026 municipal residential rate, then x (1 + the percentage chosen). A what-if, not a bill.'],
+     'excel': ['On Budget Intelligence, Business cases, choose "Save this list". Add "Capital total ($000s)" for the capital rows and divide by 1,000: 13,051.5 million.',
+               'Download nnnm-9sfh, filter fund = Capital and budget_status = Proposed, and add budget_millions by year: it should be within 0.1% of the same years added from the saved list.'],
+     'cautions': ['Everything is proposed, not approved, until Council votes on the 2027-2030 budget.',
+                  'The City\'s descriptions, benefits and risk statements are not copied; each request links to its page.',
+                  'The City\'s open data gives either an approved budget or actual spending for a year, never both, so budget against actual cannot be compared.',
+                  'About 92% of the proposed capital dollars are for all wards.',
+                  'Two City datasets give different figures for capital already approved for 2027 to 2030; both are shown.',
+                  'One-time totals add what each request\'s table shows, which is the part in the proposed budget. For some requests the City\'s note under the table says the full one-time request is larger; those are listed under Data checks.',
+                  'Positions are the full-time equivalents in each request\'s own row. A request\'s text can mention other staff that are not in its row, so the totals are not the City\'s whole change in staff.']},
 ]
 
 
@@ -1337,6 +1362,7 @@ CODE_WHERE = {
     'police': 'police.py',
     'property_tax': 'proptax.py',
     'budget': 'budget.py',
+    'budget_intelligence': 'tools/budget_intel_extract.py (reading the PDF); budget_intel.py (Data Genie); ui/budget-intel.js (the screen and its checks); tools/budget_intel_check.py',
     'child_care': 'families.py',
     'schools': 'families.py',
     'rents': 'rents.py',

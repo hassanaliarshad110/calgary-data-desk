@@ -68,6 +68,17 @@ PAGES = [
     page('budget', 'City budget', 'The 2026 budget by department and service, revenue, and property tax by ward and community.',
          'read_source key=budget (budget by department and service, revenue); get_dashboard section=property_tax for the tax by ward and community',
          files=['budget.json', 'tax.json'], section='property_tax', keywords='budget spending revenue property tax mill rate'),
+    page('budget-intelligence', 'Budget Intelligence',
+         'The Budget Intelligence and Accountability Centre: what is approved, actually spent and only proposed in the City budget; every one of the '
+         '384 business cases in the City\'s 2027-2030 budget requests (number, title, department, business unit, amounts by year, positions, Council '
+         'priority, ward, stage, funding source, the City\'s risk rating and performance measure, and the page of the City\'s document); capital by '
+         'purpose; the tax path; checks that reconcile the business cases with the City\'s open data. All 2027-2030 figures are PROPOSED, not approved.',
+         'get_dashboard section=budget_intelligence (part summary, cases with find, kind or ward, case with find = a case number, departments, '
+         'priorities, service_areas, wards, checks, sources); read_source key=budget-intelligence for the raw files (business-cases.json and '
+         'the names crosswalk, crosswalk.json); the budget itself is read_source key=budget; how it is counted: get_method topic=budget_intelligence',
+         files=[['business-cases.json', 'budget-intel/business-cases.json'], ['crosswalk.json', 'budget-intel/crosswalk.json']],
+         section='budget_intelligence', scientist='budget_requests',
+         keywords='business case budget request proposed capital operating FTE positions accountability reconcile priority ward 2027 2030'),
     page('fedbudget', 'Federal Budget 2026', 'Headline numbers, every measure, province by province, Calgary and Alberta, tax changes and the fiscal tables.',
          'get_dashboard section=federal_budget (part summary, province, find, chapter, tables, tax, revenue_by_province)', section='federal_budget',
          files=[['budget2026.json', 'budget/budget2026.json']],

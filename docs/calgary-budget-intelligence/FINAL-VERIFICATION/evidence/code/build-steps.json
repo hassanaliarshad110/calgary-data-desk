@@ -1,0 +1,55 @@
+{
+ "methods.json": {
+  "published": 51,
+  "made_from_main_offline": 51,
+  "made_from_the_branch": 52,
+  "main_offline_equals_published_exactly": true,
+  "added_on_the_branch": [
+   "budget_intelligence"
+  ],
+  "removed": [],
+  "changed": []
+ },
+ "analyst_topics.json": {
+  "published": 56,
+  "made_from_main_offline": 56,
+  "made_from_the_branch": 57,
+  "main_offline_equals_published_exactly": true,
+  "added_on_the_branch": [
+   "budget_requests"
+  ],
+  "removed": [],
+  "changed": []
+ },
+ "registry.json": {
+  "made_from_main_offline": 55,
+  "made_from_the_branch": 56,
+  "added_on_the_branch": [
+   "budget-intelligence"
+  ],
+  "removed": [],
+  "changed": [],
+  "note": "Made offline with every published data file present, so two entries for files that the real build writes later (built, genie) appear on both sides."
+ },
+ "search.json": {
+  "rows_from_main": 556,
+  "rows_from_the_branch": 562,
+  "rows_removed": 0,
+  "rows_added": [
+   "Budget Intelligence: the 2027-2030 budget requests (method)",
+   "Budget vs actual (part)",
+   "Business cases (part)",
+   "Data checks (part)",
+   "Tax simulator (part)",
+   "Budget Intelligence (screen)"
+  ]
+ },
+ "files_shipped_to_the_browser_for_the_assistants": {
+  "files": 115,
+  "new": [
+   "budget_intel.py",
+   "data/business-cases.json",
+   "data/crosswalk.json"
+  ]
+ }
+}

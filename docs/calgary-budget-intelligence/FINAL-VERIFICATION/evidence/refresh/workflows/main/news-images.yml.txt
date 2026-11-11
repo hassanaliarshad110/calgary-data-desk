@@ -1,0 +1,29 @@
+name: Calgary News images
+# Adds a reference image from Wikimedia Commons to each new Calgary News article (on the news branch).
+# Started by the evening news run (gh workflow run), with a schedule as a fallback.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 0,1,2 * * *'
+permissions:
+  contents: write
+concurrency: { group: news-images, cancel-in-progress: false }
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main }
+      - uses: actions/checkout@v4
+        with: { ref: news, path: news }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python main/tools/news_images.py news
+      - run: |
+          cd news
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "Hassan Ali"
+            git config user.email "hassanaliarshad110@users.noreply.github.com"
+            git add -A && git commit -q -m "Calgary News: reference images"
+            git pull -q --rebase origin news && git push -q origin news
+          fi

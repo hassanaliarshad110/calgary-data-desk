@@ -1,0 +1,83 @@
+{
+ "when": "2026-11-11T12:21:33.213Z",
+ "engine": "Playwright Chromium, headless",
+ "passed": 15,
+ "failed": 0,
+ "results": [
+  {
+   "name": "the test can see every call the screen makes to the site (the bridge object is one shared object)",
+   "result": "PASS",
+   "detail": "{\"n\":49,\"same\":true}"
+  },
+  {
+   "name": "browsing all eleven sections, filtering, opening a request, paging, the simulator and the map: the screen makes exactly the five read calls it is written to use, and no other",
+   "result": "PASS",
+   "detail": "calls: compare_wards, get_accountability, get_budget, get_infra, get_property_tax; browser storage writes: none"
+  },
+  {
+   "name": "pressing the site's own theme button adds only the site's existing theme call (set_theme, which saves the light or dark choice in this browser)",
+   "result": "PASS",
+   "detail": "calls: set_theme"
+  },
+  {
+   "name": "\"Save this list\" makes exactly one more call, save_csv, which hands a file to the browser's downloads",
+   "result": "PASS",
+   "detail": "save_csv -> Calgary 2027-2030 budget requests.csv"
+  },
+  {
+   "name": "nothing is stored in the browser by the screen (the only storage writes are the site's own theme setting, made by the theme button)",
+   "result": "PASS",
+   "detail": "set cdd-web-theme"
+  },
+  {
+   "name": "no cookie is set, no browser database is opened, no beacon is sent, no window is opened by script",
+   "result": "PASS",
+   "detail": "{\"cookie\":[],\"idb\":[],\"beacon\":[],\"open\":[]}"
+  },
+  {
+   "name": "the address bar is only rewritten in place to remember the section (no new history entries, same page)",
+   "result": "PASS",
+   "detail": "replace /?view=budget-intelligence | replace /?view=budget-intelligence&bi=actual | replace /?view=budget-intelligence&bi=capital | replace /?view=budget-intelligence&bi=cases | replace /?view=budget-intelligence&bi=checks | replace /?view=budget-intelligence&bi=links"
+  },
+  {
+   "name": "every network request while the screen is open is a GET to the site itself: nothing is sent anywhere",
+   "result": "PASS",
+   "detail": "6 requests; other hosts: none; not GET: 0"
+  },
+  {
+   "name": "the files it reads are the site's existing data files and its own two",
+   "result": "PASS",
+   "detail": "budget-intel/business-cases.json, budget-intel/crosswalk.json, data/accountability.json, data/budget.json, data/infra.json, data/tax.json"
+  },
+  {
+   "name": "no script errors",
+   "result": "PASS",
+   "detail": "[]"
+  },
+  {
+   "name": "the test data reached the screen (both data files were replaced with copies carrying markup in every text field)",
+   "result": "PASS",
+   "detail": "files replaced 24 times; markup visible as plain text on: overview, operating, capital, cases, projects, performance, links, checks"
+  },
+  {
+   "name": "no injected markup ran as code on any of the eleven sections (no element, script or handler was created from the data)",
+   "result": "PASS",
+   "detail": "[] dialogs 0"
+  },
+  {
+   "name": "a javascript: address planted as the document's address is not used as a link, and clicking a document link runs nothing",
+   "result": "PASS",
+   "detail": "links with a javascript: address: 0; code ran: 0; first link: https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-"
+  },
+  {
+   "name": "every section still draws with the tampered data (no crash)",
+   "result": "PASS",
+   "detail": "[]"
+  },
+  {
+   "name": "unknown or hostile values in the address (?bi=..., ?case=...) run nothing and fall back to a normal section",
+   "result": "PASS",
+   "detail": "bi=%3Cimg%20src%3Dx%20→overview | bi=cases&case=%3Cscrip→cases | bi=__proto__→overview | bi=constructor→overview | case=99999→cases | case=-1→cases | case=1e9→cases | bi=cases&case=82%22%3E→cases []"
+  }
+ ]
+}

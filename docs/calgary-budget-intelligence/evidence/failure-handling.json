@@ -1,0 +1,506 @@
+[
+ {
+  "hidden": "none",
+  "jsErrors": [],
+  "sections": {
+   "overview": {
+    "len": 5139,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "operating": {
+    "len": 3037,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "capital": {
+    "len": 3231,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "revenue": {
+    "len": 4020,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "actual": {
+    "len": 2218,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "cases": {
+    "len": 5472,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "projects": {
+    "len": 8130,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "performance": {
+    "len": 26333,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "simulator": {
+    "len": 1646,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "links": {
+    "len": 3307,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "checks": {
+    "len": 3116,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   }
+  }
+ },
+ {
+  "hidden": "budget.json",
+  "jsErrors": [],
+  "sections": {
+   "overview": {
+    "len": 3772,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "operating": {
+    "len": 72,
+    "empty": 1,
+    "nan": false,
+    "banner": true
+   },
+   "capital": {
+    "len": 72,
+    "empty": 1,
+    "nan": false,
+    "banner": true
+   },
+   "revenue": {
+    "len": 72,
+    "empty": 1,
+    "nan": false,
+    "banner": true
+   },
+   "actual": {
+    "len": 72,
+    "empty": 1,
+    "nan": false,
+    "banner": true
+   },
+   "cases": {
+    "len": 5472,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "projects": {
+    "len": 8130,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "performance": {
+    "len": 26333,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "simulator": {
+    "len": 1485,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "links": {
+    "len": 3307,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "checks": {
+    "len": 1889,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   }
+  }
+ },
+ {
+  "hidden": "tax.json",
+  "jsErrors": [],
+  "sections": {
+   "overview": {
+    "len": 5105,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "operating": {
+    "len": 3037,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "capital": {
+    "len": 3231,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "revenue": {
+    "len": 2977,
+    "empty": 1,
+    "nan": false,
+    "banner": false
+   },
+   "actual": {
+    "len": 2218,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "cases": {
+    "len": 5472,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "projects": {
+    "len": 8130,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "performance": {
+    "len": 26333,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "simulator": {
+    "len": 100,
+    "empty": 1,
+    "nan": false,
+    "banner": false
+   },
+   "links": {
+    "len": 3307,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "checks": {
+    "len": 2918,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   }
+  }
+ },
+ {
+  "hidden": "business-cases.json",
+  "jsErrors": [],
+  "sections": {
+   "overview": {
+    "len": 3453,
+    "empty": 2,
+    "nan": false,
+    "banner": true
+   },
+   "operating": {
+    "len": 1442,
+    "empty": 1,
+    "nan": false,
+    "banner": true
+   },
+   "capital": {
+    "len": 1205,
+    "empty": 1,
+    "nan": false,
+    "banner": true
+   },
+   "revenue": {
+    "len": 4020,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "actual": {
+    "len": 2218,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "cases": {
+    "len": 95,
+    "empty": 1,
+    "nan": false,
+    "banner": true
+   },
+   "projects": {
+    "len": 1571,
+    "empty": 1,
+    "nan": false,
+    "banner": true
+   },
+   "performance": {
+    "len": 4403,
+    "empty": 1,
+    "nan": false,
+    "banner": true
+   },
+   "simulator": {
+    "len": 1646,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "links": {
+    "len": 2536,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "checks": {
+    "len": 2013,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   }
+  }
+ },
+ {
+  "hidden": "crosswalk.json",
+  "jsErrors": [],
+  "sections": {
+   "overview": {
+    "len": 5162,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "operating": {
+    "len": 3037,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "capital": {
+    "len": 3231,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "revenue": {
+    "len": 4020,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "actual": {
+    "len": 2218,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "cases": {
+    "len": 5534,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "projects": {
+    "len": 8130,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "performance": {
+    "len": 26333,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "simulator": {
+    "len": 1646,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "links": {
+    "len": 3068,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   },
+   "checks": {
+    "len": 2952,
+    "empty": 0,
+    "nan": false,
+    "banner": true
+   }
+  }
+ },
+ {
+  "hidden": "infra.json + accountability.json",
+  "jsErrors": [],
+  "sections": {
+   "overview": {
+    "len": 5139,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "operating": {
+    "len": 3037,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "capital": {
+    "len": 3231,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "revenue": {
+    "len": 4020,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "actual": {
+    "len": 2218,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "cases": {
+    "len": 5472,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "projects": {
+    "len": 8130,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "performance": {
+    "len": 22504,
+    "empty": 1,
+    "nan": false,
+    "banner": false
+   },
+   "simulator": {
+    "len": 1646,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "links": {
+    "len": 2952,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "checks": {
+    "len": 3116,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   }
+  }
+ },
+ {
+  "hidden": "ward file (map)",
+  "jsErrors": [],
+  "sections": {
+   "overview": {
+    "len": 5171,
+    "empty": 1,
+    "nan": false,
+    "banner": false
+   },
+   "operating": {
+    "len": 3037,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "capital": {
+    "len": 3231,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "revenue": {
+    "len": 4020,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "actual": {
+    "len": 2218,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "cases": {
+    "len": 5472,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "projects": {
+    "len": 8130,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "performance": {
+    "len": 26333,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "simulator": {
+    "len": 1646,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "links": {
+    "len": 3307,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   },
+   "checks": {
+    "len": 3116,
+    "empty": 0,
+    "nan": false,
+    "banner": false
+   }
+  }
+ }
+]

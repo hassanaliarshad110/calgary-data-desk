@@ -1,0 +1,86 @@
+{
+ "words_searched": "commercial|pricing|price list|subscription|paid idea|paid tier|revenue-earning|earn revenue|monetiz|paywall",
+ "where": "the documents folder, the new screen, its data, the new module and the two tools",
+ "hits": [
+  {
+   "file": "docs/calgary-budget-intelligence/DAILY-DATA-REFRESH-INTEGRITY-REPORT.md",
+   "line": 3,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instr"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/DATA-SOURCE-REGISTER.md",
+   "line": 3,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instr"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/DEVLOG.md",
+   "line": 83,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "| Commercial opportunity removed from the plan (owner's instruction) | removed from the reports and from the review page kept outside the repository |"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/EXECUTIVE-REVIEW.md",
+   "line": 3,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instr"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FINAL-VERIFICATION/evidence/pdf/all-384-cases.csv",
+   "line": 109,
+   "why_it_is_there": "the City's own title of request 108 (\"... Subscription-Based Software Models\")",
+   "text": "108,Budget Required to Address the Shift to Subscription\u2011Based Software Models,o"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/FUNCTIONAL-TESTS.md",
+   "line": 3,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instr"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/MODULE-INVENTORY.md",
+   "line": 3,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instr"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/TECHNICAL-REPORT.md",
+   "line": 3,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "> **Second-stage update, November 11, 2026.** This page was written for the first review. Since then the branch gained the assistants' wiring (the owner's instr"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/TECHNICAL-REPORT.md",
+   "line": 7,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "Contents: A. Executive summary \u00b7 B. Platform audit \u00b7 C. Backup verification \u00b7 D. Architecture \u00b7 E. File change register \u00b7 F. Data source register \u00b7 G. Financial"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/TECHNICAL-REPORT.md",
+   "line": 360,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "| Access | Public, like the City budget screen. No paywall, sign-in or payment code |"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/TECHNICAL-REPORT.md",
+   "line": 366,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "## L. Commercial opportunity (removed from the plan)"
+  },
+  {
+   "file": "docs/calgary-budget-intelligence/TECHNICAL-REPORT.md",
+   "line": 368,
+   "why_it_is_there": "records that the commercial opportunity was removed, or states that there is no paywall or payment code",
+   "text": "Removed from the plan for now at the owner's instruction of November 11, 2026. No commercial proposal, pricing, payment, sign-in or paywall is part of this work"
+  },
+  {
+   "file": "ui/budget-intel/business-cases.json",
+   "line": 1,
+   "why_it_is_there": "the City's own title of request 108 (\"... Subscription-Based Software Models\")",
+   "text": "{\"note\":\"Every business case in the City of Calgary's \\\"2027-2030 budget request"
+  }
+ ],
+ "not_expected": [],
+ "machine_paths_session_links_or_private_mail_addresses_in_added_lines": []
+}

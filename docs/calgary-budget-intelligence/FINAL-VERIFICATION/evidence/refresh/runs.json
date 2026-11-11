@@ -1,0 +1,471 @@
+{
+ "read_at": "2026-11-11T16:23:49Z",
+ "repository": "hassanaliarshad110/calgary-data-desk",
+ "main_branch_commit_now": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+ "backup_branch_commit": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+ "runs": [
+  {
+   "run_id": 42977312843,
+   "why_it_matters": "The build that published the site this work started from (main at ff42583).",
+   "workflow": "Website",
+   "file": ".github/workflows/site.yml",
+   "started_by": "push",
+   "branch": "main",
+   "commit": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+   "status": "completed",
+   "result": "success",
+   "started": "2026-11-11T07:08:23Z",
+   "last_update": "2026-11-11T08:25:33Z",
+   "address": "https://github.com/hassanaliarshad110/calgary-data-desk/actions/runs/42977312843",
+   "jobs": [
+    {
+     "name": "build",
+     "result": "success",
+     "steps": 13,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    },
+    {
+     "name": "deploy",
+     "result": "success",
+     "steps": 4,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    }
+   ]
+  },
+  {
+   "run_id": 43011014041,
+   "why_it_matters": "The daily refresh of November 11, started by the \"backup morning refresh\" scheduled task while this review was under way; it builds main, which this work has not touched.",
+   "workflow": "Website",
+   "file": ".github/workflows/site.yml",
+   "started_by": "workflow_dispatch",
+   "branch": "main",
+   "commit": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+   "status": "completed",
+   "result": "success",
+   "started": "2026-11-11T11:19:38Z",
+   "last_update": "2026-11-11T12:40:45Z",
+   "address": "https://github.com/hassanaliarshad110/calgary-data-desk/actions/runs/43011014041",
+   "jobs": [
+    {
+     "name": "build",
+     "result": "success",
+     "steps": 13,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    },
+    {
+     "name": "deploy",
+     "result": "success",
+     "steps": 4,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    }
+   ]
+  },
+  {
+   "run_id": 42877892134,
+   "why_it_matters": "The last run started by GitHub's own schedule (November 10).",
+   "workflow": "Website",
+   "file": ".github/workflows/site.yml",
+   "started_by": "schedule",
+   "branch": "main",
+   "commit": "2da4e4b7ae6b024f635818389ba2bab277b87453",
+   "status": "completed",
+   "result": "success",
+   "started": "2026-11-10T18:42:23Z",
+   "last_update": "2026-11-10T20:30:12Z",
+   "address": "https://github.com/hassanaliarshad110/calgary-data-desk/actions/runs/42877892134",
+   "jobs": [
+    {
+     "name": "build",
+     "result": "success",
+     "steps": 13,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    },
+    {
+     "name": "deploy",
+     "result": "success",
+     "steps": 4,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    }
+   ]
+  },
+  {
+   "run_id": 42997418780,
+   "why_it_matters": "The backup taken before development (artifact backup-7).",
+   "workflow": "Backup",
+   "file": ".github/workflows/backup.yml",
+   "started_by": "workflow_dispatch",
+   "branch": "main",
+   "commit": "ff42583627241a1b727d5a85e66ea4dba3df8317",
+   "status": "completed",
+   "result": "success",
+   "started": "2026-11-11T09:42:23Z",
+   "last_update": "2026-11-11T09:43:40Z",
+   "address": "https://github.com/hassanaliarshad110/calgary-data-desk/actions/runs/42997418780",
+   "jobs": [
+    {
+     "name": "backup",
+     "result": "success",
+     "steps": 5,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    }
+   ]
+  },
+  {
+   "run_id": 42863009683,
+   "why_it_matters": "The last backup started by its own schedule (November 10).",
+   "workflow": "Backup",
+   "file": ".github/workflows/backup.yml",
+   "started_by": "schedule",
+   "branch": "main",
+   "commit": "2da4e4b7ae6b024f635818389ba2bab277b87453",
+   "status": "completed",
+   "result": "success",
+   "started": "2026-11-10T17:15:10Z",
+   "last_update": "2026-11-10T17:15:57Z",
+   "address": "https://github.com/hassanaliarshad110/calgary-data-desk/actions/runs/42863009683",
+   "jobs": [
+    {
+     "name": "backup",
+     "result": "success",
+     "steps": 5,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    }
+   ]
+  },
+  {
+   "run_id": 42973286311,
+   "why_it_matters": "The last Calgary News images run started by its schedule.",
+   "workflow": "Calgary News images",
+   "file": ".github/workflows/news-images.yml",
+   "started_by": "schedule",
+   "branch": "main",
+   "commit": "8f2ad3da86aeb9cb171e49e5449c1a8f13325dd1",
+   "status": "completed",
+   "result": "success",
+   "started": "2026-11-11T06:33:40Z",
+   "last_update": "2026-11-11T06:33:57Z",
+   "address": "https://github.com/hassanaliarshad110/calgary-data-desk/actions/runs/42973286311",
+   "jobs": [
+    {
+     "name": "images",
+     "result": "success",
+     "steps": 10,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    }
+   ]
+  },
+  {
+   "run_id": 42764816551,
+   "why_it_matters": "The last AI gateway deployment (starts only when gateway/ changes on main).",
+   "workflow": "AI gateway",
+   "file": ".github/workflows/gateway.yml",
+   "started_by": "push",
+   "branch": "main",
+   "commit": "17eb658a817616a1f071a5eee604e2dbdaf8681f",
+   "status": "completed",
+   "result": "success",
+   "started": "2026-11-10T05:52:22Z",
+   "last_update": "2026-11-10T05:53:00Z",
+   "address": "https://github.com/hassanaliarshad110/calgary-data-desk/actions/runs/42764816551",
+   "jobs": [
+    {
+     "name": "deploy",
+     "result": "success",
+     "steps": 9,
+     "steps_not_successful": [],
+     "steps_still_running_or_waiting": []
+    }
+   ]
+  }
+ ],
+ "latest_runs_by_workflow": {
+  "site.yml": [
+   {
+    "run_id": 43011014041,
+    "started_by": "workflow_dispatch",
+    "status": "completed",
+    "result": "success",
+    "commit": "ff425836",
+    "started": "2026-11-11T11:19:38Z"
+   },
+   {
+    "run_id": 42977312843,
+    "started_by": "push",
+    "status": "completed",
+    "result": "success",
+    "commit": "ff425836",
+    "started": "2026-11-11T07:08:23Z"
+   },
+   {
+    "run_id": 42952001867,
+    "started_by": "push",
+    "status": "completed",
+    "result": "success",
+    "commit": "8f2ad3da",
+    "started": "2026-11-11T03:19:38Z"
+   },
+   {
+    "run_id": 42947303219,
+    "started_by": "push",
+    "status": "completed",
+    "result": "cancelled",
+    "commit": "fbccd60c",
+    "started": "2026-11-11T02:37:33Z"
+   },
+   {
+    "run_id": 42946926519,
+    "started_by": "push",
+    "status": "completed",
+    "result": "cancelled",
+    "commit": "418e9ce9",
+    "started": "2026-11-11T02:34:19Z"
+   },
+   {
+    "run_id": 42946542190,
+    "started_by": "push",
+    "status": "completed",
+    "result": "cancelled",
+    "commit": "dcf19a30",
+    "started": "2026-11-11T02:31:00Z"
+   },
+   {
+    "run_id": 42945911152,
+    "started_by": "push",
+    "status": "completed",
+    "result": "success",
+    "commit": "fca452be",
+    "started": "2026-11-11T02:25:21Z"
+   },
+   {
+    "run_id": 42921157549,
+    "started_by": "push",
+    "status": "completed",
+    "result": "success",
+    "commit": "8bbe7545",
+    "started": "2026-11-10T23:10:47Z"
+   }
+  ],
+  "backup.yml": [
+   {
+    "run_id": 42997418780,
+    "started_by": "workflow_dispatch",
+    "status": "completed",
+    "result": "success",
+    "commit": "ff425836",
+    "started": "2026-11-11T09:42:23Z"
+   },
+   {
+    "run_id": 42863009683,
+    "started_by": "schedule",
+    "status": "completed",
+    "result": "success",
+    "commit": "2da4e4b7",
+    "started": "2026-11-10T17:15:10Z"
+   },
+   {
+    "run_id": 42688720417,
+    "started_by": "schedule",
+    "status": "completed",
+    "result": "success",
+    "commit": "81a51ab7",
+    "started": "2026-11-09T20:00:12Z"
+   },
+   {
+    "run_id": 42499018117,
+    "started_by": "schedule",
+    "status": "completed",
+    "result": "success",
+    "commit": "db988164",
+    "started": "2026-11-08T16:16:09Z"
+   },
+   {
+    "run_id": 42388567592,
+    "started_by": "schedule",
+    "status": "completed",
+    "result": "success",
+    "commit": "223a52d8",
+    "started": "2026-11-07T15:53:38Z"
+   },
+   {
+    "run_id": 42256822512,
+    "started_by": "schedule",
+    "status": "completed",
+    "result": "success",
+    "commit": "c9e9033a",
+    "started": "2026-11-06T16:55:14Z"
+   },
+   {
+    "run_id": 42164134645,
+    "started_by": "workflow_dispatch",
+    "status": "completed",
+    "result": "success",
+    "commit": "f27bea64",
+    "started": "2026-11-06T04:43:00Z"
+   }
+  ],
+  "news-images.yml": [
+   {
+    "run_id": 42973286311,
+    "started_by": "schedule",
+    "status": "completed",
+    "result": "success",
+    "commit": "8f2ad3da",
+    "started": "2026-11-11T06:33:40Z"
+   },
+   {
+    "run_id": 42924782104,
+    "started_by": "workflow_dispatch",
+    "status": "completed",
+    "result": "success",
+    "commit": "8bbe7545",
+    "started": "2026-11-10T23:36:37Z"
+   },
+   {
+    "run_id": 42775178401,
+    "started_by": "schedule",
+    "status": "completed",
+    "result": "success",
+    "commit": "2da4e4b7",
+    "started": "2026-11-10T07:25:22Z"
+   },
+   {
+    "run_id": 42722441518,
+    "started_by": "workflow_dispatch",
+    "status": "completed",
+    "result": "success",
+    "commit": "81a51ab7",
+    "started": "2026-11-09T23:41:07Z"
+   },
+   {
+    "run_id": 42574792706,
+    "started_by": "schedule",
+    "status": "completed",
+    "result": "success",
+    "commit": "fc42d8b8",
+    "started": "2026-11-09T06:43:21Z"
+   },
+   {
+    "run_id": 42536344543,
+    "started_by": "workflow_dispatch",
+    "status": "completed",
+    "result": "success",
+    "commit": "196cb779",
+    "started": "2026-11-08T23:41:05Z"
+   },
+   {
+    "run_id": 42453567186,
+    "started_by": "schedule",
+    "status": "completed",
+    "result": "success",
+    "commit": "28d2b2dc",
+    "started": "2026-11-08T06:09:18Z"
+   },
+   {
+    "run_id": 42426273078,
+    "started_by": "workflow_dispatch",
+    "status": "completed",
+    "result": "success",
+    "commit": "1dc6ff59",
+    "started": "2026-11-07T23:40:02Z"
+   }
+  ],
+  "gateway.yml": [
+   {
+    "run_id": 42764816551,
+    "started_by": "push",
+    "status": "completed",
+    "result": "success",
+    "commit": "17eb658a",
+    "started": "2026-11-10T05:52:22Z"
+   },
+   {
+    "run_id": 42445786534,
+    "started_by": "push",
+    "status": "completed",
+    "result": "success",
+    "commit": "ae1d0361",
+    "started": "2026-11-08T04:11:26Z"
+   },
+   {
+    "run_id": 42439316197,
+    "started_by": "push",
+    "status": "completed",
+    "result": "success",
+    "commit": "f401738b",
+    "started": "2026-11-08T02:37:11Z"
+   },
+   {
+    "run_id": 42438798890,
+    "started_by": "push",
+    "status": "completed",
+    "result": "success",
+    "commit": "afb016d6",
+    "started": "2026-11-08T02:30:03Z"
+   },
+   {
+    "run_id": 42438679831,
+    "started_by": "push",
+    "status": "completed",
+    "result": "success",
+    "commit": "aacffd5d",
+    "started": "2026-11-08T02:28:16Z"
+   },
+   {
+    "run_id": 42438612361,
+    "started_by": "push",
+    "status": "completed",
+    "result": "failure",
+    "commit": "07a96e1d",
+    "started": "2026-11-08T02:27:22Z"
+   },
+   {
+    "run_id": 42438555261,
+    "started_by": "push",
+    "status": "completed",
+    "result": "failure",
+    "commit": "e838c99b",
+    "started": "2026-11-08T02:26:31Z"
+   },
+   {
+    "run_id": 42438493440,
+    "started_by": "push",
+    "status": "completed",
+    "result": "failure",
+    "commit": "b8b916b7",
+    "started": "2026-11-08T02:25:40Z"
+   }
+  ]
+ },
+ "runs_started_by_this_review": "The only runs this review started are Backup 42997418780 (read only: it makes a backup file) and read-only evidence runs on the separate branches site-check-21, site-check-22 and site-check-23. No Website, Calgary News images or AI gateway run was started by this review.",
+ "workflows_registered": [
+  {
+   "name": "Backup",
+   "file": ".github/workflows/backup.yml",
+   "state": "active"
+  },
+  {
+   "name": "AI gateway",
+   "file": ".github/workflows/gateway.yml",
+   "state": "active"
+  },
+  {
+   "name": "Calgary News images",
+   "file": ".github/workflows/news-images.yml",
+   "state": "active"
+  },
+  {
+   "name": "Website",
+   "file": ".github/workflows/site.yml",
+   "state": "active"
+  }
+ ]
+}

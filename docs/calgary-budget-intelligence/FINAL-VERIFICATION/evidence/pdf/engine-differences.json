@@ -1,0 +1,226 @@
+{
+ "pages": 792,
+ "pairs": {
+  "pdftotext -layout (poppler 24.02.0) | pypdf 6.17.0": {
+   "pages_with_exactly_the_same_words": 424,
+   "pages_that_differ": 368,
+   "words_that_differ_in_all": 2113,
+   "most_common_differing_words": [
+    [
+     "-term",
+     56
+    ],
+    [
+     "long",
+     52
+    ],
+    [
+     "-",
+     49
+    ],
+    [
+     "long-term",
+     48
+    ],
+    [
+     "high",
+     23
+    ],
+    [
+     "non",
+     23
+    ],
+    [
+     "s",
+     22
+    ],
+    [
+     "e",
+     20
+    ],
+    [
+     "t",
+     15
+    ],
+    [
+     ",",
+     15
+    ],
+    [
+     "and",
+     13
+    ],
+    [
+     "d",
+     13
+    ],
+    [
+     "Program",
+     12
+    ],
+    [
+     "decision",
+     11
+    ]
+   ],
+   "pages_with_most_differences": [
+    2,
+    4,
+    7,
+    6,
+    9,
+    5
+   ]
+  },
+  "pdftotext -layout (poppler 24.02.0) | pdfplumber 0.11.10 (pdfminer.six)": {
+   "pages_with_exactly_the_same_words": 736,
+   "pages_that_differ": 56,
+   "words_that_differ_in_all": 659,
+   "most_common_differing_words": [
+    [
+     "‑",
+     38
+    ],
+    [
+     "Council",
+     14
+    ],
+    [
+     "Program",
+     12
+    ],
+    [
+     "approved",
+     12
+    ],
+    [
+     "Council‑approved",
+     10
+    ],
+    [
+     "term",
+     9
+    ],
+    [
+     "high",
+     8
+    ],
+    [
+     "long‑term",
+     7
+    ],
+    [
+     "long",
+     7
+    ],
+    [
+     "n",
+     7
+    ],
+    [
+     "time",
+     7
+    ],
+    [
+     "one",
+     6
+    ],
+    [
+     "three",
+     6
+    ],
+    [
+     "decision",
+     5
+    ]
+   ],
+   "pages_with_most_differences": [
+    530,
+    266,
+    2,
+    541,
+    540,
+    4
+   ]
+  },
+  "pypdf 6.17.0 | pdfplumber 0.11.10 (pdfminer.six)": {
+   "pages_with_exactly_the_same_words": 379,
+   "pages_that_differ": 413,
+   "words_that_differ_in_all": 2488,
+   "most_common_differing_words": [
+    [
+     "long",
+     59
+    ],
+    [
+     "-term",
+     56
+    ],
+    [
+     "-",
+     49
+    ],
+    [
+     "long-term",
+     48
+    ],
+    [
+     "‑",
+     38
+    ],
+    [
+     "high",
+     31
+    ],
+    [
+     "e",
+     25
+    ],
+    [
+     "non",
+     23
+    ],
+    [
+     "Council",
+     23
+    ],
+    [
+     "s",
+     22
+    ],
+    [
+     "t",
+     17
+    ],
+    [
+     ",",
+     17
+    ],
+    [
+     "decision",
+     16
+    ],
+    [
+     "d",
+     16
+    ]
+   ],
+   "pages_with_most_differences": [
+    530,
+    266,
+    534,
+    541,
+    540,
+    375
+   ]
+  }
+ },
+ "pages_where_all_three_give_the_same_numbers": 787,
+ "pages_where_numbers_differ": [
+  2,
+  5,
+  9,
+  70,
+  574
+ ]
+}

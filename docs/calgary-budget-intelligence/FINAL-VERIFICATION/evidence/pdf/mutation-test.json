@@ -1,0 +1,181 @@
+{
+ "how": "Does the third reading notice a wrong value? Twenty-one wrong values are planted in a copy of the dataset (never in the\nreal file) and the third reading is run on the copy. Every planted error must be reported, and nothing else.\nusage: python3 mutation_test.py <verify_plumber.py> <plumber-words.json> <business-cases.json> <work-dir> <out.json>",
+ "planted": 21,
+ "reported": 21,
+ "differences_reported_in_all": 21,
+ "requests_reported": [
+  1,
+  2,
+  5,
+  13,
+  14,
+  16,
+  18,
+  20,
+  23,
+  31,
+  55,
+  57,
+  82,
+  104,
+  124,
+  166,
+  173,
+  200,
+  219,
+  275,
+  293
+ ],
+ "requests_planted": [
+  1,
+  2,
+  5,
+  13,
+  14,
+  16,
+  18,
+  20,
+  23,
+  31,
+  55,
+  57,
+  82,
+  104,
+  124,
+  166,
+  173,
+  200,
+  219,
+  275,
+  293
+ ],
+ "false_alarms": [],
+ "results": [
+  {
+   "request": 16,
+   "planted_error": "capital total +1",
+   "reported": true,
+   "as": "capital by year ($000s): third reading [56083, 20545, 19476, 11498, 4564, 0] | dataset [56084, 20545, 19476, 11498, 4564, 0]"
+  },
+  {
+   "request": 82,
+   "planted_error": "capital 2029 and 2030 swapped",
+   "reported": true,
+   "as": "capital by year ($000s): third reading [283845, 8607, 33963, 63675, 177600, 0] | dataset [283845, 8607, 33963, 177600, 63675, 0]"
+  },
+  {
+   "request": 55,
+   "planted_error": "purpose percentages moved one column",
+   "reported": true,
+   "as": "purpose split (%): third reading [100, 0, 0, 0] | dataset [0, 100, 0, 0]"
+  },
+  {
+   "request": 18,
+   "planted_error": "ward 7 changed to ward 8",
+   "reported": true,
+   "as": "wards: third reading [7] | dataset [8]"
+  },
+  {
+   "request": 23,
+   "planted_error": "10-year needs for 2031 and later +1,000",
+   "reported": true,
+   "as": "10-year needs ($000s): third reading [25000, 26000, 87000, 52000, 180000] | dataset [25000, 26000, 87000, 52000, 181000]"
+  },
+  {
+   "request": 104,
+   "planted_error": "positions in 2027: 17 changed to 18",
+   "reported": true,
+   "as": "ftes: third reading [17, 15, 13, 13] | dataset [18, 15, 13, 13]"
+  },
+  {
+   "request": 2,
+   "planted_error": "an ongoing amount moved from 2028 to 2029",
+   "reported": true,
+   "as": "ongoing_m: third reading [2.1, 0.7, None, None] | dataset [2.1, None, 0.7, None]"
+  },
+  {
+   "request": 14,
+   "planted_error": "one-time 2027: 20.4 changed to 2.04",
+   "reported": true,
+   "as": "one_time_m: third reading [20.4, 92.9, None, None] | dataset [2.04, 92.9, None, None]"
+  },
+  {
+   "request": 1,
+   "planted_error": "a word dropped from a title",
+   "reported": true,
+   "as": "title: third reading 'accelerating housing development bill 20 and residential sub-classes' | dataset 'accelerating housing development bill"
+  },
+  {
+   "request": 173,
+   "planted_error": "risk rating changed",
+   "reported": true,
+   "as": "risk rating: third reading 'Extensive' | dataset 'Low'"
+  },
+  {
+   "request": 5,
+   "planted_error": "department changed",
+   "reported": true,
+   "as": "department: third reading 'planning & development services' | dataset 'community services'"
+  },
+  {
+   "request": 31,
+   "planted_error": "funding source shortened",
+   "reported": true,
+   "as": "funding source: third reading 'reserves self-supported debt' | dataset 'reserves'"
+  },
+  {
+   "request": 219,
+   "planted_error": "Budget ID changed by one character",
+   "reported": true,
+   "as": "budget id: third reading 'p616 000' | dataset 'p616 001'"
+  },
+  {
+   "request": 57,
+   "planted_error": "stage changed",
+   "reported": true,
+   "as": "stage: third reading 'stage 3 plan & design' | dataset 'stage 3 define'"
+  },
+  {
+   "request": 200,
+   "planted_error": "reason given changed",
+   "reported": true,
+   "as": "rationale: third reading 'risk-based considerations' | dataset 'explicit'"
+  },
+  {
+   "request": 20,
+   "planted_error": "\"Required\" mark flipped",
+   "reported": true,
+   "as": "\"Required\" statement: third reading True | dataset False"
+  },
+  {
+   "request": 13,
+   "planted_error": "a dash turned into 0.0",
+   "reported": true,
+   "as": "one_time_m: third reading [None, None, None, None] | dataset [0.0, None, None, None]"
+  },
+  {
+   "request": 124,
+   "planted_error": "the full one-time amount in the City note removed",
+   "reported": true,
+   "as": "full one-time request stated in the note: third reading 23.9 | dataset None"
+  },
+  {
+   "request": 293,
+   "planted_error": "the \"City note under the table\" mark removed",
+   "reported": true,
+   "as": "City note under the table (a starred amount row, or a second star on the FTE row): third reading True | dataset False"
+  },
+  {
+   "request": 166,
+   "planted_error": "the long-term plan changed",
+   "reported": true,
+   "as": "long-term plan: third reading 'routeahead' | dataset 'routeahead and another plan'"
+  },
+  {
+   "request": 275,
+   "planted_error": "moved to another Council priority",
+   "reported": true,
+   "as": "Council priority printed on the case = its contents section: third reading False | dataset True"
+  }
+ ]
+}

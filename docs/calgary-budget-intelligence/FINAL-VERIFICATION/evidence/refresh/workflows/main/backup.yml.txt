@@ -1,0 +1,42 @@
+# A full backup every day: every branch of this repository (the code, Calgary News, the videos) as one git bundle, and
+# the website exactly as published. Kept 90 days as workflow artifacts (Actions > Backup > a run > Artifacts).
+# To restore the code: git clone calgary-data-desk.bundle  (every branch comes back; push them to a new repository).
+# To restore the website as published: unpack website.tar.gz and serve it, or publish it with GitHub Pages.
+name: Backup
+on:
+  schedule:
+    - cron: '41 9 * * *'          # every day, 3:41 a.m. Calgary time
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Every branch, full history
+        run: |
+          git clone -q --mirror "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" repo.git
+          git -C repo.git bundle create "$PWD/calgary-data-desk.bundle" --all
+          git -C repo.git for-each-ref --format='%(refname:short) %(objectname:short) %(committerdate:iso)' refs/heads > branches.txt
+          git clone -q calgary-data-desk.bundle check && test -f check/app.py
+      - name: The website as published
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          id=$(gh run list -R "${{ github.repository }}" --workflow site.yml --status success -L 1 --json databaseId -q '.[0].databaseId')
+          gh run download "$id" -R "${{ github.repository }}" -n github-pages -D pages
+          mkdir site && tar -xf pages/artifact.tar -C site
+          tar -czf website.tar.gz -C site .
+          echo "website from build run $id" >> branches.txt
+          du -sh calgary-data-desk.bundle website.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: backup-${{ github.run_number }}
+          path: |
+            calgary-data-desk.bundle
+            website.tar.gz
+            branches.txt
+          retention-days: 90
+          compression-level: 0

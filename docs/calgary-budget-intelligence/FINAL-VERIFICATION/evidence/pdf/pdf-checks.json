@@ -1,0 +1,633 @@
+{
+ "completeness": {
+  "pages_in_the_pdf": 792,
+  "front_pages_before_the_first_case": 10,
+  "first_case_page": 11,
+  "last_page_covered": 792,
+  "pages_between_not_in_any_case": [],
+  "pages_in_more_than_one_case": [],
+  "case_numbers_are_1_to_384_with_none_missing_or_repeated": true,
+  "cases_in_page_order_follow_the_numbering": true,
+  "first_line_of_each_case_start_page_begins_with_its_number": 384,
+  "other_pages_that_begin_like_a_case_heading": 0,
+  "result": "No case is missing: every page from the first case to the last page of the document belongs to exactly one case."
+ },
+ "classification": {
+  "pages_carrying_the_operating_heading": 124,
+  "pages_carrying_the_capital_heading": 260,
+  "pages_carrying_both": 0,
+  "operating_cases_in_the_dataset": 124,
+  "capital_cases_in_the_dataset": 260,
+  "operating_cases_whose_pages_carry_the_operating_heading_once": 124,
+  "capital_cases_whose_pages_carry_the_capital_heading_once": 260,
+  "capital_cases_whose_table_is_not_on_their_first_page": [
+   26,
+   27,
+   28,
+   30,
+   31,
+   32,
+   33
+  ],
+  "council_priority_printed_on_the_case_equals_its_contents_section": {
+   "capital": 260,
+   "of": 260
+  }
+ },
+ "duplicates_and_oddities": {
+  "titles_used_by_more_than_one_case": {
+   "technology improvements": [
+    156,
+    204
+   ]
+  },
+  "budget_ids": {
+   "distinct": 247,
+   "shared_by_more_than_one_case": {
+    "A446562": [
+     338,
+     339,
+     340,
+     341,
+     342,
+     343,
+     344,
+     345
+    ],
+    "P665_02W": [
+     177,
+     178,
+     182,
+     185,
+     187,
+     189
+    ],
+    "P657_01W": [
+     50,
+     51,
+     52,
+     349
+    ],
+    "P564_002": [
+     184,
+     186,
+     188,
+     207
+    ],
+    "A480552": [
+     269,
+     270,
+     271
+    ],
+    "P795_001": [
+     324,
+     357,
+     361
+    ],
+    "P655_17W": [
+     42,
+     350
+    ],
+    "P657_03W": [
+     45,
+     46
+    ],
+    "P128_136": [
+     48,
+     95
+    ],
+    "P223_000": [
+     62,
+     213
+    ],
+    "P044_D02": [
+     126,
+     148
+    ],
+    "P044_009": [
+     149,
+     157
+    ],
+    "P563_001": [
+     183,
+     195
+    ],
+    "P503_933": [
+     197,
+     203
+    ],
+    "A480100": [
+     321,
+     322
+    ],
+    "A481004": [
+     358,
+     375
+    ]
+   },
+   "capital_cases_with_more_than_one_id": 9
+  },
+  "names_printed_in_more_than_one_way": {
+   "Calgary Police Services": "Calgary Police Service",
+   "Law, Legislative Services, & Security": "Law, Legislative Services & Security",
+   "People, Innovation & Collaboration Services": "People & Corporate Services"
+  },
+  "business_unit_names_matched_by_hand": {
+   "Calgary Police Services": "Calgary Police Service",
+   "Calgary Fire Department": "Calgary Fire",
+   "GM - Planning and Development": "GM - Planning & Development Services",
+   "Marketing & Communications": "Marketing & Communication",
+   "Parks & Open Spaces": "Parks and Open Spaces"
+  },
+  "business_unit_not_in_the_open_data": [
+   "Chief Operating Officer"
+  ],
+  "reason_given_printed_in_short_form": [
+   [
+    44,
+    "Explicit"
+   ],
+   [
+    145,
+    "Explicit"
+   ],
+   [
+    219,
+    "Implicit"
+   ]
+  ],
+  "reason_given_values": {
+   "operating": {
+    "Explicit Direction from Council": 34,
+    "Risk-based considerations": 50,
+    "Implicit Direction from Council": 36,
+    "Commission Requested": 1,
+    "Responding to Provincial Government Changes": 3
+   },
+   "capital": {
+    "Police Commission": 4,
+    "Risk-based considerations": 200,
+    "Implicit Direction from Council": 37,
+    "Explicit": 2,
+    "Explicit Direction from Council": 16,
+    "Implicit": 1
+   }
+  },
+  "pages_per_case": {
+   "1": 6,
+   "2": 369,
+   "3": 7,
+   "4": 1,
+   "13": 1
+  },
+  "cases_of_three_or_more_pages": [
+   [
+    26,
+    "capital",
+    3
+   ],
+   [
+    27,
+    "capital",
+    3
+   ],
+   [
+    28,
+    "capital",
+    3
+   ],
+   [
+    30,
+    "capital",
+    3
+   ],
+   [
+    31,
+    "capital",
+    3
+   ],
+   [
+    32,
+    "capital",
+    4
+   ],
+   [
+    33,
+    "capital",
+    3
+   ],
+   [
+    65,
+    "capital",
+    3
+   ],
+   [
+    104,
+    "operating",
+    13
+   ]
+  ],
+  "one_page_cases": [
+   1,
+   6,
+   273,
+   289,
+   305,
+   312
+  ],
+  "operating_cases_whose_table_holds_no_amount_above_zero": [
+   298,
+   316
+  ],
+  "operating_cases_with_a_city_note_under_the_table": [
+   14,
+   15,
+   99,
+   124,
+   125,
+   175,
+   252,
+   253,
+   255,
+   256,
+   257,
+   293,
+   294,
+   295,
+   306,
+   315,
+   316,
+   317,
+   318,
+   319
+  ],
+  "of_which_state_a_larger_full_one_time_amount": [
+   14,
+   15,
+   124,
+   125,
+   175,
+   253,
+   255,
+   256,
+   257,
+   294,
+   295,
+   306,
+   315,
+   316,
+   317,
+   318,
+   319
+  ],
+  "capital_cases_with_money_in_2031_or_later": [
+   [
+    28,
+    26741
+   ]
+  ],
+  "capital_total_minus_sum_of_its_years_in_thousands": {
+   "0": 183,
+   "1": 41,
+   "-1": 34,
+   "2": 1,
+   "-2": 1
+  },
+  "operating_cases_with_no_risk_rating_printed": [
+   1,
+   6,
+   273,
+   278
+  ],
+  "operating_cases_with_no_performance_measure_printed": 12,
+  "capital_text_that_mentions_a_larger_request_than_the_table": "Requests 179 and 272 say in their risk text that the amount shown is less than the full planning request. That is prose, which the centre links to and does not copy; no figure is taken from it."
+ },
+ "check_by_eye": {
+  "how": "The City's own tables for these requests were drawn as pictures (pdftoppm, 110 dpi) with the dataset's values printed under each, and read one by one.",
+  "requests": [
+   {
+    "n": 1,
+    "kind": "operating",
+    "page": 11,
+    "department": "Corporate Planning & Financial Services",
+    "why_chosen": "first case, one page",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 4,
+    "kind": "operating",
+    "page": 16,
+    "department": "Corporate Planning & Financial Services",
+    "why_chosen": "drawn at random in Corporate Planning & Financial Services (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 9,
+    "kind": "operating",
+    "page": 25,
+    "department": "Operational Services",
+    "why_chosen": "drawn at random in Operational Services (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 14,
+    "kind": "operating",
+    "page": 35,
+    "department": "Corporate Programs",
+    "why_chosen": "City note: only part of the amount is in the budget (the largest such case)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 18,
+    "kind": "capital",
+    "page": 43,
+    "department": "Operational Services",
+    "why_chosen": "names one ward",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 26,
+    "kind": "capital",
+    "page": 59,
+    "department": "Infrastructure Services",
+    "why_chosen": "drawn at random in Infrastructure Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 28,
+    "kind": "capital",
+    "page": 65,
+    "department": "Infrastructure Services",
+    "why_chosen": "the only request with money in 2031 or later",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 31,
+    "kind": "capital",
+    "page": 73,
+    "department": "Infrastructure Services",
+    "why_chosen": "largest in Infrastructure Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 32,
+    "kind": "capital",
+    "page": 76,
+    "department": "Infrastructure Services",
+    "why_chosen": "4-page request, table on its second page",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 55,
+    "kind": "capital",
+    "page": 125,
+    "department": "Operational Services",
+    "why_chosen": "largest in Operational Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 78,
+    "kind": "capital",
+    "page": 172,
+    "department": "Operational Services",
+    "why_chosen": "drawn at random in Operational Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 82,
+    "kind": "capital",
+    "page": 180,
+    "department": "Community Services",
+    "why_chosen": "largest in Community Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 104,
+    "kind": "operating",
+    "page": 224,
+    "department": "Calgary Police Service",
+    "why_chosen": "largest in Calgary Police Service (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 124,
+    "kind": "operating",
+    "page": 275,
+    "department": "Community Services",
+    "why_chosen": "largest in Community Services (operating); its City note uses different words",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 130,
+    "kind": "capital",
+    "page": 287,
+    "department": "Calgary Police Services",
+    "why_chosen": "drawn at random in Calgary Police Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 131,
+    "kind": "capital",
+    "page": 289,
+    "department": "Calgary Police Services",
+    "why_chosen": "largest in Calgary Police Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 148,
+    "kind": "capital",
+    "page": 323,
+    "department": "Community Services",
+    "why_chosen": "drawn at random in Community Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 152,
+    "kind": "capital",
+    "page": 331,
+    "department": "Law, Legislative Services, & Security",
+    "why_chosen": "largest in Law, Legislative Services, & Security (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 173,
+    "kind": "operating",
+    "page": 373,
+    "department": "Operational Services",
+    "why_chosen": "largest in Operational Services (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 174,
+    "kind": "operating",
+    "page": 375,
+    "department": "Planning & Development Services",
+    "why_chosen": "drawn at random in Planning & Development Services (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 219,
+    "kind": "capital",
+    "page": 465,
+    "department": "Planning & Development Services",
+    "why_chosen": "largest in Planning & Development Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 231,
+    "kind": "operating",
+    "page": 489,
+    "department": "Community Services",
+    "why_chosen": "drawn at random in Community Services (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 240,
+    "kind": "capital",
+    "page": 507,
+    "department": "Civic Partners",
+    "why_chosen": "largest in Civic Partners (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 241,
+    "kind": "capital",
+    "page": 509,
+    "department": "Civic Partners",
+    "why_chosen": "drawn at random in Civic Partners (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 253,
+    "kind": "operating",
+    "page": 533,
+    "department": "Planning & Development Services",
+    "why_chosen": "largest in Planning & Development Services (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 267,
+    "kind": "capital",
+    "page": 561,
+    "department": "Planning & Development Services",
+    "why_chosen": "drawn at random in Planning & Development Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 275,
+    "kind": "operating",
+    "page": 576,
+    "department": "Council",
+    "why_chosen": "largest in Council (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 276,
+    "kind": "operating",
+    "page": 578,
+    "department": "People, Innovation & Collaboration Services",
+    "why_chosen": "largest in People, Innovation & Collaboration Services (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 286,
+    "kind": "operating",
+    "page": 598,
+    "department": "People, Innovation & Collaboration Services",
+    "why_chosen": "drawn at random in People, Innovation & Collaboration Services (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 292,
+    "kind": "operating",
+    "page": 609,
+    "department": "Chief Operating Office",
+    "why_chosen": "largest in Chief Operating Office (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 293,
+    "kind": "operating",
+    "page": 611,
+    "department": "Operational Services",
+    "why_chosen": "City note splitting the amount among units",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 294,
+    "kind": "operating",
+    "page": 613,
+    "department": "Corporate Planning & Financial Services",
+    "why_chosen": "largest in Corporate Planning & Financial Services (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 310,
+    "kind": "operating",
+    "page": 644,
+    "department": "Law, Legislative Services & Security",
+    "why_chosen": "largest in Law, Legislative Services & Security (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 314,
+    "kind": "operating",
+    "page": 651,
+    "department": "Chief Administrator's Office",
+    "why_chosen": "largest in Chief Administrator's Office (operating)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 316,
+    "kind": "operating",
+    "page": 655,
+    "department": "Planning & Development Services",
+    "why_chosen": "table shows 0.0",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 359,
+    "kind": "capital",
+    "page": 741,
+    "department": "Law, Legislative Services, & Security",
+    "why_chosen": "drawn at random in Law, Legislative Services, & Security (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 365,
+    "kind": "capital",
+    "page": 753,
+    "department": "Corporate Planning & Financial Services",
+    "why_chosen": "largest in Corporate Planning & Financial Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 369,
+    "kind": "capital",
+    "page": 761,
+    "department": "People, Innovation & Collaboration Services",
+    "why_chosen": "largest in People, Innovation & Collaboration Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 381,
+    "kind": "capital",
+    "page": 785,
+    "department": "People, Innovation & Collaboration Services",
+    "why_chosen": "drawn at random in People, Innovation & Collaboration Services (capital)",
+    "result": "every figure and category in the picture equals the dataset"
+   },
+   {
+    "n": 384,
+    "kind": "capital",
+    "page": 791,
+    "department": "Law, Legislative Services, & Security",
+    "why_chosen": "last case",
+    "result": "every figure and category in the picture equals the dataset"
+   }
+  ],
+  "department_and_kind_groups_covered": 20,
+  "groups_in_the_document": 20,
+  "found": "Request 124's note states its full one-time amount in different words from the other sixteen (\"requirement\" where the others say \"request for this initiative\"). The first version of the new field missed it; the reader was widened and the field now holds 17 requests."
+ }
+}

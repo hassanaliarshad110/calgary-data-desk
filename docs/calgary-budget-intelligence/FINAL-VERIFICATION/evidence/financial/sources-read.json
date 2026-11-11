@@ -1,0 +1,70 @@
+{
+ "read_at": "2026-11-11T11:40Z (from a GitHub Actions runner; the datasets' own addresses are below)",
+ "datasets": [
+  {
+   "id": "nnnm-9sfh",
+   "name": "2027\u20132030 Budget",
+   "page": "https://data.calgary.ca/d/nnnm-9sfh",
+   "rows_address": "https://data.calgary.ca/resource/nnnm-9sfh.json?$limit=50000",
+   "rows": 1392,
+   "columns": [
+    "budget_department",
+    "department",
+    "bu",
+    "year",
+    "budget_status",
+    "fund",
+    "budget_millions"
+   ],
+   "rows_last_updated": "2026-11-10T15:26:17Z",
+   "page_last_changed": "2026-11-10T15:26:16Z",
+   "first_published": "2026-11-05T19:56:54Z",
+   "licence": null,
+   "copy_in_this_folder": "open-data-nnnm-9sfh-2026-11-11.json",
+   "copy_sha256": "25af439594b147a73d6b91eed09d928c5b2edf8ff9eb69c1ecb7bcbbf1ffb183",
+   "copy_bytes": 281714
+  },
+  {
+   "id": "fqax-i3nz",
+   "name": "2023\u20132026 Budget",
+   "page": "https://data.calgary.ca/d/fqax-i3nz",
+   "rows_address": "https://data.calgary.ca/resource/fqax-i3nz.json?$limit=50000",
+   "rows": 391,
+   "columns": [
+    "budget_department",
+    "actual_department",
+    "level_2",
+    "business_unit",
+    "year",
+    "budget_status",
+    "fund",
+    "budget"
+   ],
+   "rows_last_updated": "2026-01-14T23:38:24Z",
+   "page_last_changed": "2026-11-09T15:17:53Z",
+   "first_published": "2025-09-09T15:55:46Z",
+   "licence": null,
+   "copy_in_this_folder": "open-data-fqax-i3nz-2026-11-11.json",
+   "copy_sha256": "1be0d15705516c40b331dea9cd4fc2e6494d2a9bd04f00fe4c26156183b32998",
+   "copy_bytes": 106414
+  }
+ ],
+ "city_statements": {
+  "read": "2026-11-11",
+  "pages": [
+   "https://www.calgary.ca/our-finances/2027-budget.html",
+   "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/"
+  ],
+  "what_they_say": "Operating expenditures of $6 billion in 2027; recommended capital of $21 billion over four years, of which $13 billion is new capital infrastructure (paraphrased; the pages do not say which rows of the open data the $21 billion covers).",
+  "not_reached": "The proposed budget document on the Council meetings site (pub-calgary.escribemeetings.com) refused the request (HTTP 403), so it could not be read again."
+ },
+ "pdf": {
+  "address": "https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf",
+  "downloaded_again": "2026-11-11T11:40Z",
+  "bytes": 9132758,
+  "sha256": "b4deb3927d24afb142426127662c8be76751b6a041d6bb85a3358869da85c3d0",
+  "last_modified_header": "Mon, 09 Nov 2026 15:31:37 GMT",
+  "pages": 792,
+  "same_file_as_the_one_extracted": true
+ }
+}

@@ -1,0 +1,222 @@
+diff --git a/agent.py b/agent.py
+index bac0140..bd81e62 100644
+--- a/agent.py
++++ b/agent.py
+@@ -625,6 +625,13 @@ TOOLS = [
+                     'section="city_budget_2027" gives the City\'s proposed 2027-2030 budget (Nov 10, 2026, not yet approved): '
+                     'the monthly cost for a typical home in 2026 and 2027, the property tax increase each year, 2027 water rates, '
+                     'investments, revenue shares, schedule and documents; spending by department is in open data nnnm-9sfh. '
++                    'section="budget_intelligence" gives every one of the 384 business cases behind that proposed budget (the City\'s '
++                    '"2027-2030 budget request business cases", 792 pages; all PROPOSED, not approved), as on the Budget Intelligence '
++                    'screen: part="summary" (default: totals by year, capital by purpose, by Council priority, the largest requests), '
++                    '"cases" (find = words in a title, department, business unit, service area or Budget ID; kind = operating or '
++                    'capital; ward = requests that name that ward), "case" (find = the case number, 1 to 384: every figure, category '
++                    'and the page of the City\'s document), "departments", "priorities", "service_areas", "wards", "checks" (the '
++                    'reconciliation with open data nnnm-9sfh and what cannot be compared) or "sources". '
+                     'section="police_study" gives the published study of Calgary Police performance, resources and the 2027 to '
+                     '2030 budget request: crime severity, clearance and staffing against Edmonton, Vancouver, Winnipeg, Ottawa and '
+                     'Toronto (Statistics Canada), Calgary\'s spending, overtime and fine revenue, the request item by item, three '
+@@ -651,7 +658,7 @@ TOOLS = [
+                     'section="city_news" gives Calgary News, the daily Calgary articles (last 60 days) with their '
+                     'sources; narrow with find (words), days, topic or date.',
+      'input_schema': {'type': 'object', 'properties': {'section': {
+-         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'school_tax', 'tourism', 'police_study', 'pay_study', 'city_budget_2027', 'business', 'growth_forecast', 'visiting'],
++         'type': 'string', 'enum': ['overview', 'communities', 'child_care', 'schools', 'development', 'amenities', 'access', 'other_amenities', 'ward_amenities', 'population_recon', 'crime', 'traffic', 'rents', 'profile', 'wards', 'property_tax', 'elections', 'election_analytics', 'federal_budget', 'city_news', 'safest_cities', 'school_tax', 'tourism', 'police_study', 'pay_study', 'city_budget_2027', 'budget_intelligence', 'business', 'growth_forecast', 'visiting'],
+          'description': 'Which part of the dashboard; overview by default'},
+          'ward': {'type': 'integer', 'description': 'sections other_amenities and profile: one ward (with all of '
+                                                     'Calgary selected, profile needs a ward)'},
+@@ -668,7 +675,7 @@ TOOLS = [
+          'days': {'type': 'integer', 'description': 'section city_news: only the last N days'},
+          'topic': {'type': 'string', 'description': 'section city_news: one topic, e.g. City Council, Transit, Water'},
+          'date': {'type': 'string', 'description': 'section city_news: one day\'s edition, YYYY-MM-DD'},
+-         'part': {'type': 'string', 'enum': ['summary', 'arrivals', 'countries', 'airports', 'research', 'municipalities', 'residents', 'boards', 'spending', 'grants', 'approvals', 'factors', 'projects', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'planned', 'fields', 'weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats', 'sections', 'sources', 'limitations'],
++         'part': {'type': 'string', 'enum': ['summary', 'arrivals', 'countries', 'airports', 'research', 'municipalities', 'residents', 'boards', 'spending', 'grants', 'approvals', 'factors', 'projects', 'province', 'find', 'chapter', 'tables', 'tax', 'revenue_by_province', 'sectors', 'communities', 'infrastructure', 'planned', 'fields', 'weather_months', 'weather_years', 'records', 'today', 'whats_on', 'sights', 'stay', 'getting_around', 'facts', 'stats', 'sections', 'sources', 'limitations', 'cases', 'case', 'departments', 'priorities', 'service_areas', 'wards', 'checks'],
+                   'description': 'section federal_budget: summary (default), revenue_by_province (federal revenue collected '
+                                  'and spending in every province, Statistics Canada, with a 2026-27 estimate), province, find (search the measures and their '
+                                  'text with find), chapter (every line item of one chapter), tables (Annex 1), tax'},
+@@ -1467,6 +1474,10 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
+     if section == 'city_budget_2027':
+         import budget as _budget                        # noqa: PLC0415
+         return _budget.plan_summary((extra or {}).get('data_dir'))
++    if section == 'budget_intelligence':
++        import budget_intel                             # noqa: PLC0415
++        return budget_intel.summary(budget_intel.load((extra or {}).get('data_dir')), (extra or {}).get('part'), (extra or {}).get('find'),
++                                    (extra or {}).get('kind'), (extra or {}).get('ward'), (extra or {}).get('data_dir'))
+     if section == 'police_study':
+         import police_study                             # noqa: PLC0415
+         return police_study.summary(police_study.load((extra or {}).get('data_dir')), (extra or {}).get('part'), (extra or {}).get('find'))
+@@ -1831,6 +1842,10 @@ class Agent:
+             if (args.get('section') or '') == 'city_budget_2027':
+                 import budget as _budget               # noqa: PLC0415
+                 return _budget.plan_summary(self.data_dir)
++            if (args.get('section') or '') == 'budget_intelligence':
++                import budget_intel                    # noqa: PLC0415
++                return budget_intel.summary(budget_intel.load(self.data_dir), args.get('part'), args.get('find'), args.get('kind'),
++                                            args.get('ward'), self.data_dir)
+             if (args.get('section') or '') == 'police_study':
+                 import police_study                    # noqa: PLC0415
+                 return police_study.summary(police_study.load(self.data_dir), args.get('part'), args.get('find'))
+diff --git a/analyst.py b/analyst.py
+index 41acb29..a354332 100644
+--- a/analyst.py
++++ b/analyst.py
+@@ -122,6 +122,20 @@ TOPICS = [
+      '{area} is not all of Calgary, first add one chapter with report_add for {area}: City property tax by community (get_dashboard '
+      'section property_tax) set against the typical Calgary home in the study, so residents see how their own community compares; '
+      'it is placed after the study\'s chapters. Do not rewrite, shorten or re-compute the study\'s figures, and take no side on the budget.'),
++    ('budget_requests', 'The 2027 to 2030 budget requests: where the money would go',
++     'All 384 requests behind the proposed budget: by Council priority, department and purpose, the largest, and the positions they would add.', 'Budget',
++     'The business cases behind the City\'s proposed 2027 to 2030 budget (get_dashboard section budget_intelligence: part summary, '
++     'then priorities, departments, service_areas, wards and checks; part cases with find, kind or ward for lists; part case with '
++     'find = a case number for one request). Set out: how many requests there are and what they add up to, year by year (capital; '
++     'operating one-time; operating ongoing additions; positions); new capital by the City\'s own purpose split (maintenance or '
++     'replacement, growth, service enhancement, transformative); by Council priority and by department; the largest capital and '
++     'operating requests, each with its page in the City\'s document; how far along the capital requests are (stage) and how they '
++     'would be paid for; the reconciliation with the City\'s open data (part checks) and what the City does not publish (budget '
++     'against actual spending, spending by project). Beside it, the proposed budget as the City presents it (section '
++     'city_budget_2027) and the approved 2026 budget (read_source key=budget). If {area} is one ward, add the capital requests '
++     'that name it (part wards) and say plainly that most capital is for all wards and is not divided. Label every figure '
++     'proposed, not approved; ongoing amounts are additions to the base budget, not a four-year cost; never divide a citywide '
++     'amount among wards, communities or residents; take no side on the budget and make no recommendation on what Council should approve.'),
+     ('school_tax', 'School tax paid and school money received',
+      'What Calgary pays the province for schools against what comes back, set beside Edmonton and the rest of Alberta.', 'Families',
+      'The education property tax Calgary pays the province (the requisition) each year since 2020 and its share of Alberta\'s '
+diff --git a/methods.py b/methods.py
+index bb485a7..2e653c0 100644
+--- a/methods.py
++++ b/methods.py
+@@ -1322,6 +1322,31 @@ METHODS = [
+                 '(northeast Calgary), back to 1881; grouped by month or year on request. The forecast is Environment '
+                 'Canada\'s public forecast for Calgary, about 7 days ahead.'],
+      'excel': [], 'cautions': ['One station for the whole city: snow and temperature vary across Calgary.']},
++
++    {'key': 'budget_intelligence', 'name': 'Budget Intelligence: the 2027-2030 budget requests',
++     'dataset': 'City of Calgary, "2027-2030 budget request business cases" (PDF, 792 pages); checked against open data nnnm-9sfh',
++     'publisher': 'City of Calgary', 'page': 'https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf',
++     'updated': 'A snapshot of the City\'s document (last changed by the City on November 9, 2026), read by hand when the City publishes a new version; the open budget it is checked against is read daily',
++     'used_in': 'Budget Intelligence, Data Genie, Data Scientist',
++     'method': ['Every business case in the City\'s document is read from the PDF: its number, title, department, business unit, the reason the City gives, and its page. '
++                'Operating requests: the City\'s table "Proposed funding amount" (one-time and ongoing, in millions of dollars, and full-time equivalents, 2027 to 2030). '
++                'Capital requests: the rows "4-Year Capital Budget Consideration" and "10-Year Capital Infrastructure Needs" (thousands of dollars), the Budget ID, kind, ward(s), stage, funding source, service area and the City\'s split by purpose.',
++                'Names and figures are kept exactly as the City prints them; a dash in the City\'s table is kept as a dash and counted as nothing in a sum. Thousands are divided by 1,000 to show millions; sums are made on the unrounded figures and rounded once for display.',
++                'Checked when read: each title against the contents pages; each printed page number against the PDF\'s own; each capital total against the sum of its years (within $3,000); each split against 100%; and every figure row read a second time with a different PDF reader.',
++                'Capital by purpose = each capital request\'s four-year amount x the City\'s percentage for that purpose, added up.',
++                'Reconciliation, worked out again on each visit: the capital requests added by year, against the City\'s open data (nnnm-9sfh) rows with fund Capital and status Proposed; and the same by business unit, with the document\'s names matched to the open data\'s by a hand-kept list.',
++                'Ongoing operating amounts are additions to the base budget in that year (the City itself adds a request\'s yearly figures to state its ongoing amount). No four-year cash cost is worked out.',
++                'By ward: only requests that name a ward are counted for it; a request naming several wards is counted in each and its dollars are not divided. Nothing citywide is divided among wards, communities or residents.',
++                'Tax simulator: assessed value x the 2026 municipal residential rate, then x (1 + the percentage chosen). A what-if, not a bill.'],
++     'excel': ['On Budget Intelligence, Business cases, choose "Save this list". Add "Capital total ($000s)" for the capital rows and divide by 1,000: 13,051.5 million.',
++               'Download nnnm-9sfh, filter fund = Capital and budget_status = Proposed, and add budget_millions by year: it should be within 0.1% of the same years added from the saved list.'],
++     'cautions': ['Everything is proposed, not approved, until Council votes on the 2027-2030 budget.',
++                  'The City\'s descriptions, benefits and risk statements are not copied; each request links to its page.',
++                  'The City\'s open data gives either an approved budget or actual spending for a year, never both, so budget against actual cannot be compared.',
++                  'About 92% of the proposed capital dollars are for all wards.',
++                  'Two City datasets give different figures for capital already approved for 2027 to 2030; both are shown.',
++                  'One-time totals add what each request\'s table shows, which is the part in the proposed budget. For some requests the City\'s note under the table says the full one-time request is larger; those are listed under Data checks.',
++                  'Positions are the full-time equivalents in each request\'s own row. A request\'s text can mention other staff that are not in its row, so the totals are not the City\'s whole change in staff.']},
+ ]
+ 
+ 
+@@ -1337,6 +1362,7 @@ CODE_WHERE = {
+     'police': 'police.py',
+     'property_tax': 'proptax.py',
+     'budget': 'budget.py',
++    'budget_intelligence': 'tools/budget_intel_extract.py (reading the PDF); budget_intel.py (Data Genie); ui/budget-intel.js (the screen and its checks); tools/budget_intel_check.py',
+     'child_care': 'families.py',
+     'schools': 'families.py',
+     'rents': 'rents.py',
+diff --git a/registry.py b/registry.py
+index 60ea69c..44e59c4 100644
+--- a/registry.py
++++ b/registry.py
+@@ -68,6 +68,17 @@ PAGES = [
+     page('budget', 'City budget', 'The 2026 budget by department and service, revenue, and property tax by ward and community.',
+          'read_source key=budget (budget by department and service, revenue); get_dashboard section=property_tax for the tax by ward and community',
+          files=['budget.json', 'tax.json'], section='property_tax', keywords='budget spending revenue property tax mill rate'),
++    page('budget-intelligence', 'Budget Intelligence',
++         'The Budget Intelligence and Accountability Centre: what is approved, actually spent and only proposed in the City budget; every one of the '
++         '384 business cases in the City\'s 2027-2030 budget requests (number, title, department, business unit, amounts by year, positions, Council '
++         'priority, ward, stage, funding source, the City\'s risk rating and performance measure, and the page of the City\'s document); capital by '
++         'purpose; the tax path; checks that reconcile the business cases with the City\'s open data. All 2027-2030 figures are PROPOSED, not approved.',
++         'get_dashboard section=budget_intelligence (part summary, cases with find, kind or ward, case with find = a case number, departments, '
++         'priorities, service_areas, wards, checks, sources); read_source key=budget-intelligence for the raw files (business-cases.json and '
++         'the names crosswalk, crosswalk.json); the budget itself is read_source key=budget; how it is counted: get_method topic=budget_intelligence',
++         files=[['business-cases.json', 'budget-intel/business-cases.json'], ['crosswalk.json', 'budget-intel/crosswalk.json']],
++         section='budget_intelligence', scientist='budget_requests',
++         keywords='business case budget request proposed capital operating FTE positions accountability reconcile priority ward 2027 2030'),
+     page('fedbudget', 'Federal Budget 2026', 'Headline numbers, every measure, province by province, Calgary and Alberta, tax changes and the fiscal tables.',
+          'get_dashboard section=federal_budget (part summary, province, find, chapter, tables, tax, revenue_by_province)', section='federal_budget',
+          files=[['budget2026.json', 'budget/budget2026.json']],
+diff --git a/ui/index.html b/ui/index.html
+index d0f5f2a..1dca6d1 100644
+--- a/ui/index.html
++++ b/ui/index.html
+@@ -7,6 +7,7 @@
+ <link rel="icon" href="logo.svg">
+ <link rel="stylesheet" href="vendor/leaflet.css">
+ <link rel="stylesheet" href="styles.css">
++<link rel="stylesheet" href="budget-intel.css">
+ <script>(function(){var p='top';try{var q=new URLSearchParams(location.search).get('nav');p=q==='top'||q==='side'?q:(localStorage.getItem('nav-layout')||'top');}catch(e){}if(p!=='side')document.documentElement.classList.add('topnav');})();</script>
+ </head>
+ <body>
+@@ -138,6 +139,7 @@
+       <button class="nav-gt" type="button" aria-expanded="false"><span class="nav-h">Money</span><svg class="ic nav-chev" aria-hidden="true"><use href="#i-next"/></svg></button>
+       <div class="nav-gm">
+         <button class="tab tab-budget" data-view="budget" title="City budget: the 2026 budget, revenue and property tax by ward"><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>City budget</span></button>
++        <button class="tab tab-bi" data-view="budget-intelligence" title="Budget Intelligence: what is approved, what was spent and what is only proposed, every 2027–2030 budget request with its page in the City's document, and checks on the figures"><svg class="ic" aria-hidden="true"><use href="#i-analytics"/></svg><span>Budget Intelligence</span></button>
+         <button class="tab" data-view="fedbudget" title="Federal Budget 2026: headline numbers, every measure, province by province, Calgary and Alberta"><svg class="ic" aria-hidden="true"><use href="#i-maple"/></svg><span>Federal Budget 2026</span></button>
+         <button class="tab" data-view="invest" title="Invest in Calgary: every business, where each kind is underserved, growth, and the Business Economist"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg><span>Invest in Calgary</span></button>
+         <button class="tab" data-view="capmkt" title="Calgary Capital Markets: Calgary's public companies, their industries and value, and Calgary's place in Canada's stock markets"><svg class="ic" aria-hidden="true"><use href="#i-candles"/></svg><span>Calgary Capital Markets</span></button>
+@@ -735,6 +737,21 @@
+     </div>
+   </section>
+ 
++  <!-- ======================= BUDGET INTELLIGENCE ======================= -->
++  <section id="view-budget-intelligence" class="view" aria-labelledby="bi-title">
++    <header class="topbar">
++      <div class="topbar-title"><h1 id="bi-title">Budget Intelligence &amp; Accountability Centre</h1><p class="meta">The City of Calgary's budget: what is approved, what was spent, what is proposed, and every request behind it</p></div>
++      <div class="topbar-actions"><span class="pill" id="bi-fresh">Loading</span></div>
++    </header>
++    <div class="content bi">
++      <div class="banner warn" id="bi-error" hidden></div>
++      <div class="bi-shell">
++        <div class="bi-rail" id="bi-rail" role="radiogroup" aria-label="Sections of the Budget Intelligence Centre"></div>
++        <div class="bi-main" id="bi-main"></div>
++      </div>
++    </div>
++  </section>
++
+   <!-- ======================= HOW IT'S COUNTED ======================= -->
+   <!-- ======================= VIDEO BRIEFS ======================= -->
+   <section id="view-videos" class="view" aria-labelledby="vid-title">
+@@ -1106,6 +1123,7 @@
+             <button><svg class="ic" aria-hidden="true"><use href="#i-news"/></svg><span>Make a report: how have vehicle thefts and break-ins changed in each community here since 2021, with recommendations and an action plan</span></button>
+             <button><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span>Brief me on Taradale: open requests, the oldest ones and what changed this year</span></button>
+             <button><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Download all open 311 requests in Martindale and Taradale</span></button>
++            <button><svg class="ic" aria-hidden="true"><use href="#i-budget"/></svg><span>What are the ten largest requests in the proposed 2027 to 2030 budget, and which page of the City's document is each on?</span></button>
+             <button><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><span>Which communities here had the most vehicle thefts this year, and how does that compare with last year?</span></button>
+             <button><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg><span>Compare Calgary's Crime Severity Index with Edmonton and Vancouver over 10 years</span></button>
+             <button><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg><span>What would the proposed City budget cost a typical Calgary home, and how does Calgary compare with other cities?</span></button>
+@@ -1248,6 +1266,7 @@
+ <script src="forecast.js"></script>
+ <script src="compare.js"></script>
+ <script src="budget.js"></script>
++<script src="budget-intel.js"></script>
+ <script src="elections.js"></script>
+ <script src="constituency.js"></script>
+ <script src="fedbudget.js"></script>
+diff --git a/web/search_index.py b/web/search_index.py
+index 2f3de41..134494e 100644
+--- a/web/search_index.py
++++ b/web/search_index.py
+@@ -32,6 +32,10 @@ SCREENS = [
+     ('cameras', 'Traffic cameras', "The City's traffic cameras, live", 'traffic cameras roads live', []),
+     ('help', 'Find help near me', 'A bed tonight, food, day spaces, health care and help lines, nearest to you first', 'shelter homeless food bank emergency help lines crisis health warming', []),
+     ('budget', 'City budget', 'The 2026 budget by department and service, revenue, and property tax by ward and community', 'city budget spending revenue property tax mill rate assessment', []),
++    ('budget-intelligence', 'Budget Intelligence', 'What is approved, what was spent and what is only proposed; every 2027 to 2030 budget request with its page in the City\'s document; checks on the figures',
++     'budget intelligence accountability business cases budget requests proposed 2027 2030 capital operating positions FTE tax increase simulator Council priorities reconcile',
++     [('Business cases', 'All 384 budget requests, searchable by department, ward and priority'), ('Budget vs actual', 'What the City publishes, and what it does not'),
++      ('Tax simulator', 'A what-if for one home\'s municipal property tax'), ('Data checks', 'How the figures are checked against the City\'s open data')]),
+     ('fedbudget', 'Federal Budget 2026', 'Headline numbers, every measure, province by province, Calgary and Alberta', 'federal budget Canada deficit measures tax changes',
+      [(t, '') for t in ('Overview', 'Province by province', 'Calgary and Alberta', 'Every measure', 'Tax changes', 'Fiscal tables')]),
+     ('invest', 'Invest in Calgary', 'Every business in Calgary, where each kind is underserved, growth, and the Business Economist', 'business licences businesses underserved index opportunities directory restaurants shops',
