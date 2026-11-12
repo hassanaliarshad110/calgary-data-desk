@@ -1,0 +1,25 @@
+{
+ "doc":  {"voice": "af_heart", "speed": 0.95, "lines": [
+   "Downtown Calgary hides a second city, about fifteen feet above the street.",
+   "It is called the Plus Fifteen network.",
+   "Since the first bridge went up in nineteen sixty-nine, it has grown to eighty-six bridges.",
+   "Together they link more than sixteen kilometres of heated, weather-protected walkways.",
+   "Bridges over City roads are built by developers in exchange for extra building density, and then owned by The City.",
+   "So in a Calgary winter, you can cross much of downtown without stepping outside.",
+   "Calgary Insight. calgary insight dot c a."]},
+ "chacha": {"voice": "bm_george", "speed": 1.0, "lines": [
+   "Zoya! Watch this. I will make this ball disappear!",
+   "Today is different. Abracadabra!",
+   "Ouch! My head!",
+   "Hmph. Tomorrow, a bigger trick."]},
+ "zoya": {"voice": "af_bella", "speed": 1.05, "lines": [
+   "Chacha, you said that yesterday. And the day before.",
+   "Ha ha ha! It did disappear. Right onto your head!"]},
+ "anchor": {"voice": "am_michael", "speed": 1.0, "lines": [
+   "Good evening. This is a demonstration bulletin from the News Channel studio.",
+   "Breaking tonight: a sample winter storm scenario moves across southern Alberta.",
+   "Our map tracks the system from the mountains toward Calgary.",
+   "In this sample forecast, snowfall builds from five to twenty-five centimetres over three days.",
+   "Everything you see is reusable: the studio, the presenter, the headlines, the map and the chart.",
+   "That is the bulletin. Stay with us."]}
+}
