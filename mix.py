@@ -1,12 +1,12 @@
 import numpy as np, wave
-SR=44100; DUR=31.6; N=int(SR*DUR)
+SR=44100; DUR=31.4; N=int(SR*DUR)
 rng=np.random.default_rng(7)
 def rd(f):
     w=wave.open(f); a=np.frombuffer(w.readframes(w.getnframes()),np.int16).astype(np.float32)/32768; return a
 voice=np.zeros(N,np.float32); sfx=np.zeros(N,np.float32); mus=np.zeros(N,np.float32)
 def put(buf,a,t,g=1.0):
     i=int(t*SR); a=a[:max(0,N-i)]; buf[i:i+len(a)]+=a*g
-for k,t in [('l0',.5),('l1',6.0),('l2',7.8),('l3',11.6),('l4',16.5),('l5',21.0),('l6',22.85),('l7',24.4)]:
+for k,t in [('q0',.5),('l1',6.0),('q2',7.8),('q3',11.6),('l4',16.5),('q5',21.0),('l6',22.85),('q7',24.4)]:
     a=rd(f'aud/{k}.wav'); a=a/ (np.abs(a).max()+1e-6)*.85; put(voice,a,t)
 tt=lambda d: np.arange(int(d*SR))/SR
 def env(d,a=.005,r=None):
@@ -35,7 +35,7 @@ def sparkle(d=.7):
         s=ding(1500+i*230,.35)*.5; j=int(i*.07*SR); out[j:j+len(s)]+=s[:len(out)-j]
     return out
 # hook
-put(sfx,whoosh(.35),.2,.5); put(sfx,whoosh(.35),2.85,.5); put(sfx,thump(60,.6),1.45,.5); put(sfx,sparkle(),3.15,.6)
+put(sfx,whoosh(.35),.2,.5); put(sfx,whoosh(.35),3.35,.5); put(sfx,thump(60,.6),1.45,.5); put(sfx,sparkle(),3.55,.6)
 # call / ammi
 put(sfx,whoosh(.5),5.3,.8); put(sfx,thump(90,.25),5.9,.4); put(sfx,pop(),6.0,.5)
 for i in range(5): put(sfx,pop(700+i*120,.1),8.95+i*.24,.45)
@@ -50,24 +50,13 @@ put(sfx,whoosh(.5),18.95,.7); put(sfx,sweep(300,600,.4,.12),19.0); put(sfx,thump
 put(sfx,whoosh(.4),21.8,.5); put(sfx,ding(1760,.6),23.5,.7)
 # end
 put(sfx,whoosh(.4),24.3,.5); put(sfx,pop(1000,.15),27.8,.5); put(sfx,pop(1400,.08),28.95,.7); put(sfx,ding(1320,.9),29.15,.6)
-# music: playful 118 bpm loop, C major pentatonic
-bpm=118; beat=60/bpm
-mel=[0,4,7,9,7,4,2,4, 0,4,7,12,9,7,4,2]; base=261.63
-def note(f,d,g=.2):
-    x=tt(d); return (np.sin(2*np.pi*f*x)+.35*np.sin(2*np.pi*2*f*x)+.12*np.sin(2*np.pi*3*f*x))*np.exp(-x*7)*g
-bass=[130.81,130.81,174.61,196.0]
-t=0.; i=0
-while t<DUR:
-    put(mus,note(base*2**(mel[i%16]/12),beat*.9,.11),t)
-    if i%2==0: put(mus,note(bass[(i//4)%4]/2,beat*1.8,.22),t); put(mus,thump(55,.25,.25),t)
-    if i%2==1: put(mus,rng.standard_normal(int(.05*SR))*np.exp(-tt(.05)*80)*.08,t)
-    t+=beat/2*2/2 if False else beat/2; i+=1
+w0=wave.open('music.wav'); mus[:]=np.frombuffer(w0.readframes(w0.getnframes()),np.int16).astype(np.float32)[:N]/32768
 # music: quieter in hook start, silent during reveal boom, duck under voice
-venv=np.convolve(np.abs(voice),np.ones(2205)/2205,'same'); duck=1-.6*np.clip(venv/.05,0,1)
+venv=np.convolve(np.abs(voice),np.ones(2205)/2205,'same'); duck=1-.55*np.clip(venv/.04,0,1)
 duck=np.convolve(duck,np.ones(4410)/4410,'same')
-x=np.arange(N)/SR; gate=np.where((x>15.9)&(x<16.9),.2,1.0)
+x=np.arange(N)/SR; gate=1.0
 fade=np.clip((DUR-x)/1.5,0,1)
-mix=voice*1.0+sfx*.55+mus*.55*duck*gate
+mix=voice*1.0+sfx*.45+mus*.42*duck*gate
 mix*=fade
 mix=np.tanh(mix*1.2)/np.tanh(1.2)
 mix/=np.abs(mix).max()/.95

@@ -6,7 +6,7 @@ const SCENES = [
   { id: 'door', start: 11.0, dur: 4.8 },
   { id: 'reveal', start: 15.8, dur: 3.1 },
   { id: 'lift', start: 18.9, dur: 5.3 },
-  { id: 'end', start: 24.2, dur: 7.4 },
+  { id: 'end', start: 24.2, dur: 7.2 },
 ];
 const up120 = s => `<g transform="translate(0,-120)">${s}</g>`;
 const up220 = s => `<g transform="translate(0,-220)">${s}</g>`;
@@ -16,14 +16,14 @@ function S_hook(t) {
   let g = brushBg(t);
   const z = lerp(1.25, 1, eout(seg(t, 0, .6)));
   const fist = ease(seg(t, 1.4, 1.8));
-  const glowP = seg(t, 3.0, 3.4) * (.6 + .4 * Math.sin(t * 12));
-  let ch = susu({ x: 540, y: 1720, s: 1.5, t, armR: lerp(12, 150, fist), fistR: fist > .5, armL: 12, power: glowP * .9, crown: seg(t, 3.2, 3.6) * .9,
-    blink: blinkAt(t, 2.2, .5), look: [lerp(0, 3, fist), 0], mouth: t > 3.6 ? 'smirk' : 'frown', tilt: -3 * fist });
+  const glowP = seg(t, 3.4, 3.8) * (.6 + .4 * Math.sin(t * 12));
+  let ch = susu({ x: 540, y: 1720, s: 1.5, t, armR: lerp(12, 150, fist), fistR: fist > .5, armL: 12, power: glowP * .9, crown: seg(t, 3.6, 4.0) * .9,
+    blink: blinkAt(t, 2.2, .5), look: [lerp(0, 3, fist), 0], mouth: t > 4.0 ? 'smirk' : 'frown', tilt: -3 * fist });
   g += cam(ch, 540, 1000, z);
   // secret shhh: question marks
-  if (t > 3.1) { const k = back(seg(t, 3.1, 3.5)); g += `<g transform="translate(870,780) scale(${k}) rotate(12)">${T(0, 0, 170, '?', { fill: C.gold, shadow: C.red })}</g><g transform="translate(200,840) scale(${k * .7}) rotate(-14)">${T(0, 0, 170, '?', { fill: '#fff', shadow: C.red })}</g>`; }
-  g += hookText2('4 SAAL KA BACHCHA...', 'EK SECRET POWER!', t, .25, 2.9);
-  g += caption(t < 2.6 ? 'Ye hai Susu. Umar sirf chaar saal...' : 'Lekin iske paas ek RAAZ hai!', '', seg(t, .4, .6));
+  if (t > 3.5) { const k = back(seg(t, 3.5, 3.9)); g += `<g transform="translate(870,780) scale(${k}) rotate(12)">${T(0, 0, 170, '?', { fill: C.gold, shadow: C.red })}</g><g transform="translate(200,840) scale(${k * .7}) rotate(-14)">${T(0, 0, 170, '?', { fill: '#fff', shadow: C.red })}</g>`; }
+  g += hookText2('4 SAAL KA BACHCHA...', 'EK SECRET POWER!', t, .25, 3.4);
+  g += caption(t < 3.4 ? 'Ye hai Qasim. Umar sirf chaar saal...' : 'Lekin iske paas ek RAAZ hai!', '', seg(t, .4, .6));
   return g;
 }
 function hookText2(l1, l2, t, a, b) {
@@ -47,7 +47,7 @@ function S_call(t) {
   if (running) g += `<path d="M${lerp(-180, 420, run) - 170},1180 h-120 M${lerp(-180, 420, run) - 150},1240 h-160" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".7"/>`;
   g = up220(g);
   g += bubble(300, 400, 420, 150, 'AMMI!!', 92, back(seg(t, .7, 1.0)) * (t < 2.3 ? 1 : 0), 'down');
-  g += caption('Ammi! Susu aayi hai!', 'SUSU', seg(t, .65, .8));
+  g += caption('Ammi! Susu aayi hai!', 'QASIM', seg(t, .65, .8));
   return g;
 }
 function S_ammi(t) {
@@ -90,7 +90,7 @@ function S_door(t) {
       <rect x="194" y="239" width="${692 * p}" height="36" rx="18" fill="${p > .99 ? '#ff3b30' : C.gold}"/>
       ${T(540, 272, 40, Math.round(p * 100) + '%', { sw: 6 })}${emblem(180, 257, .7)}</g>`;
   }
-  g += caption('Ammi ko nahi pata...|har flush ke saath Susu ban jata hai...', '', seg(t, .6, .8));
+  g += caption('Ammi ko nahi pata...|har flush ke saath Qasim ban jata hai...', '', seg(t, .6, .8));
   return g;
 }
 function S_reveal(t) {
@@ -118,7 +118,7 @@ function S_lift(t) {
   const fade = seg(t, 2.9, 3.3); // power off
   let sc = room(t + 18.9);
   const ammiUp = seg(t, 1.85, 2.05);
-  sc += ammi({ x: 860, y: 1060, s: .8, t, look: [lerp(0, -10, ammiUp), lerp(10, 0, ammiUp)], brow: ammiUp, mouth: t > 2.1 && t < 3.83 ? 'talk' : 'flat', blink: blinkAt(t, 2.9) });
+  sc += ammi({ x: 860, y: 1060, s: .8, t, look: [lerp(0, -10, ammiUp), lerp(10, 0, ammiUp)], brow: ammiUp, mouth: t > 2.1 && t < 3.1 ? 'talk' : 'flat', blink: blinkAt(t, 2.9) });
   const sx = 610, sy = 1400, ss = .7;
   const aL = lerp(10, 135, lift);
   const a = aL * Math.PI / 180;
@@ -137,7 +137,7 @@ function S_lift(t) {
   if (t > 1.7 && t < 2.6) g += burst(300, 600, 190, '#fff', 'DHAMM!', 84, -10, 1 - seg(t, 2.3, 2.6));
   if (t > 4.6) { const k = back(seg(t, 4.6, 4.9)); g += `<g transform="translate(860,380) scale(${k}) rotate(10)">${T(0, 0, 130, '*wink*', { fill: C.gold, shadow: C.red })}</g>`; }
   if (t > 2.1 && t < 3.9) g += caption('Ye awaaz kaisi thi?', 'AMMI', seg(t, 2.1, 2.2));
-  else if (t >= 3.9) g += caption('Kuch nahi Ammi!', 'SUSU', 1);
+  else if (t >= 3.9) g += caption('Kuch nahi Ammi!', 'QASIM', 1);
   return g;
 }
 function S_end(t) {
@@ -158,9 +158,9 @@ function S_end(t) {
     if (t > 4.0 && t < 6.0) g += `<path d="M${cx},${cy} l0,80 l20,-18 l14,32 l14,-6 l-14,-30 l28,-2z" fill="#fff" stroke="#000" stroke-width="5"/>`;
     if (clicked) { const kb2 = back(seg(t, 5.0, 5.3)); g += `<g transform="translate(540,1700) scale(${kb2})"><rect x="-300" y="-38" width="600" height="76" rx="38" fill="${C.gold}" stroke="#000" stroke-width="5"/>${T(0, 18, 46, 'EPISODE 1 JALD AA RAHA HAI!', { fill: '#000', sw: 0, ls: 1 })}</g>`; }
   }
-  const lines = [[0, 'Kya Ammi ko kabhi pata chalega?'], [2.45, 'Comment mein batao!'], [3.9, 'Susuman ko subscribe|karna mat bhoolna!']];
+  const lines = [[0, 'Kya Ammi ko kabhi pata chalega?'], [1.85, 'Video LIKE karo!'], [3.2, 'Susuman ko SUBSCRIBE|karna mat bhoolna!']];
   let cur = lines[0][1]; for (const [s, l] of lines) if (t >= s + .2) cur = l;
-  if (t < 7.0) g += caption(cur, '', seg(t, .2, .35));
+  if (t < 5.9) g += caption(cur, '', seg(t, .2, .35));
   return g;
 }
 const DRAW = { hook: S_hook, call: S_call, ammi: S_ammi, door: S_door, reveal: S_reveal, lift: S_lift, end: S_end };
@@ -170,7 +170,7 @@ window.drawFrame = (id, t) => {
 // Character model sheet (reference for every episode)
 DRAW.sheet = (t) => {
   let g = `<rect width="1080" height="1920" fill="#f3ead9"/>` + T(540, 110, 90, 'SUSUMAN — MODEL SHEET', { fill: C.ink, sw: 0 });
-  g += T(270, 200, 52, 'SUSU (normal)', { fill: C.red, sw: 0 }) + T(810, 200, 52, 'SUSUMAN (power)', { fill: C.red, sw: 0 });
+  g += T(270, 200, 52, 'QASIM (normal)', { fill: C.red, sw: 0 }) + T(810, 200, 52, 'SUSUMAN (power)', { fill: C.red, sw: 0 });
   g += susu({ x: 270, y: 900, s: .78, t: 0 }) + susu({ x: 810, y: 900, s: .78, t: .3, power: .8, cape: 1, crown: 1, armR: 160, fistR: 1, mouth: 'smirk' });
   g += T(270, 1050, 52, 'AMMI', { fill: '#1f7a78', sw: 0 }) + ammi({ x: 270, y: 1640, s: .95, t: 0, look: [0, 0] });
   const faces = ['frown', 'shout', 'grin', 'wobble'];

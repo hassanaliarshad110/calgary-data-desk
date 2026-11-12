@@ -1,6 +1,8 @@
 {
-  "engine": "Kokoro TTS (kokoro-onnx v1.0, free) run on GitHub Actions; lang 'hi'; write lines in Devanagari, show Roman Urdu/Hindi subtitles",
-  "SUSU":     {"voice": "hf_beta",  "speed": 1.05, "post_ffmpeg": "asetrate=24000*1.28,aresample=24000,atempo=0.78125,highpass=f=120"},
-  "AMMI":     {"voice": "hf_alpha", "speed": 1.0,  "post_ffmpeg": "anull"},
-  "NARRATOR": {"voice": "hm_psi",   "speed": 0.95, "post_ffmpeg": "anull"}
+  "QASIM (kid)": {"engine": "Kokoro TTS (kokoro-onnx v1.0), lang 'hi', text in Devanagari", "voice": "hf_beta", "speed": 1.05,
+                  "post_ffmpeg": "asetrate=24000*1.28,aresample=24000,atempo=0.78125,highpass=f=120"},
+  "AMMI":        {"engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  "NARRATOR":    {"engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  "pause_tighten_ffmpeg": "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_duration=0.3:stop_threshold=-45dB:stop_silence=0.22,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse",
+  "how": "Both engines run free on GitHub Actions (branch budget-probe, workflow budget-probe.yml -> output branch budget-probe-out). Scripts in tts/."
 }
