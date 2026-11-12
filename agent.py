@@ -1728,7 +1728,9 @@ CHECK_SYSTEM = (
     'what the person wants out of it (recommendations, a plan or timeline, a comparison). Never ask about format, length, '
     'charts or style; never ask for facts the data can answer; never ask about anyone\'s ethnicity, religion or other personal '
     'traits. At most 3 questions, and none for a clear request. Each question is short, neutral, and has 2 to 4 options written '
-    'as complete answers, the most likely first (the person can also type their own). Always answer by calling the verdict '
+    'as complete answers, the most likely first; never add an "other" or "I\'ll type it" option (the screen always offers a '
+    'box for their own answer). Say "electoral division" (Alberta) and "electoral district" (Canada), never "riding"; never '
+    'use the word "free". Always answer by calling the verdict '
     'tool once (clear true and no questions when the request is clear).')
 CHECK_TOOL = {'name': 'verdict', 'description': 'Whether the request is clear, and the questions to ask if not.',
               'input_schema': {'type': 'object', 'properties': {
