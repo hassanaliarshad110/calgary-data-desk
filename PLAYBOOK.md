@@ -51,7 +51,7 @@ What the numbers showed (Metricool, Nov 8-11): Facebook Reels 107-549 views, Ins
 - Look up `calendar.json` for (date, slot). If `log.json` already has that date+slot with status `done`, stop (it already ran).
 
 ## 2. Pick and verify the topic
-- Load the skill named in the calendar row (`calgary-data-explainer`, `calgary-storyteller` or `calgary-civic-analyst`) and follow it, plus `calgary-insight-video-explainer` and `video-making` for production.
+- Load the skill named in the calendar row (`calgary-data-explainer`, `calgary-storyteller` or `calgary-civic-analyst`) and follow it, plus `calgary-motion-director` (section 3c) for direction, animation, sound and QC, and `calgary-insight-video-explainer` and `video-making` for production.
 - The calendar topic is a **starting point, not a verified fact.** Research it (web search plus fetching the original pages). If the data doesn't hold up, is stale, or the story is already in `log.json` or on the covered list below, pick a stronger topic **in the same category** and write down why in the log.
 - Prefer timely and underreported angles: check the news from the past two weeks for that subject first.
 - No repeats: the topic and its central number must not repeat anything in `log.json`. A follow-up is fine only if the evidence is materially new; say what changed.
@@ -89,7 +89,8 @@ Write `packages/<date>-<slot>-<slug>.md` with **every** required output of the s
   - The caption follows the same pattern: hook as the first line, the question near the end with "Drop your thoughts below 👇", then the calgaryinsight.ca line and hashtags.
   - Questions must be genuinely open or two-sided ("fair, or too much?", "Did you know this?", "Which one would you visit first?", "How has this affected you?"), never leading, partisan or pushing one answer, especially in news videos. They are not facts, so they need no source, but the auditor checks they're neutral.
 - The package ends with the claims table required by section 3b.
-- Visual generation prompts are kept for an optional paid cinematic version later. This run renders the free motion-graphics version only.
+- Visual generation prompts are kept for an optional paid cinematic version later. This run renders the free version only, built with the motion engine (section 3c).
+- The package also carries the **production bible** (section 3c): visual direction and continuity bible, scene-by-scene storyboard, one AI video prompt per scene, image prompts, sound design with an effects cue sheet, the editing timeline (EDL), the figure-to-claim map and the QC table.
 
 ## 3b. Fact audit: the gate (nothing is narrated or rendered until it passes)
 1. **Claims table.** At the end of the package, list every factual statement in the narration, on-screen text, captions, chart labels and descriptions: `# | claim as worded in the script | exact figure, unit, period, boundary | label (fact / estimate / projection / interpretation) | source URL | where in the source (page, table or section)`.
@@ -104,6 +105,18 @@ Write `packages/<date>-<slot>-<slug>.md` with **every** required output of the s
 6. Save the final auditor report as `audits/<date>-<slot>.md` (every claim, its verdict and the source it was checked against). Record `audit: {rounds, claims_checked, verdict}` in the log.
 7. **After rendering,** confirm that the narration lines sent to Kokoro and the burned-in captions match the approved script word for word (the only allowed difference: the spoken site name is shown as calgaryinsight.ca in captions). Any change after approval needs a new audit round.
 
+## 3c. Motion direction: the professional documentary standard (Hassan, Nov 12, 2026)
+Every video is directed, not assembled from text cards. Load the skill **`calgary-motion-director`** (if it isn't listed in the run, read `motion/README.md` in this branch: the same instructions) and follow it, inside every rule of this playbook (where they differ, this playbook wins: 2-second hook, endings, captions, no AI labels, credits, no spending).
+- **Lead identity by slot, combined as the story needs (Hassan, Nov 12, 2026):** FLAGSHIP and ORIGINS lead with Storyteller (cinematic documentary); AM/PM fun facts lead with Data Explainer (fast motion graphics); CIVIC "news explained" leads with Civic Analyst (evidence-led investigative). Every video combines the three skills and uses whatever is best for that story, beat by beat (a drone opener on a news story, a counter slam in a flagship, a document card or cutaway in a fun fact), in one coherent look, while the owning skill's rules stay (neutrality on civic and political subjects always). Details in `motion/references/visual-identities.md`.
+- **Never a step back:** text is never smaller than the posted videos' house style (hook ≥ 120 px vertical, names ≥ 110, chips ≥ 48, quotes ≥ 72) and the first hook word is on screen at frame 0. The approved before/after reference is `motion/engine/examples/crowchild_remake.js`.
+- **Production bible in the package** (all nine outputs; `motion/references/production-bible.md`), written before the audit so the auditor also checks every on-screen figure and label against the claims table. Scale: fun fact 6-9 scenes; news 8-12; flagship 12-20 per format; Origins a beat list per chapter.
+- **Build with the motion engine**, free: `motion/engine/motion.js` (camera moves, 3D city from real geography, maps, charts, cutaways, traffic, weather, transitions), `motion/geo/calgary_base.json` (OpenStreetMap + City of Calgary boundaries; credit it on map scenes), `motion/engine/render.py` (stills, contact sheets, MP4), `motion/engine/sfx.py` (synthesised music bed + effects cue sheet, mixed under the Kokoro voice and loudness-normalised). Start from the matching file in `motion/engine/examples/`. Scene lengths come from the measured narration.
+- **Every animation explains** something (where, when, how much, how it works, what changed); pick from `motion/references/technique-library.md`. At least three techniques per video (Storyteller four); no more than two text-only scenes in a row.
+- **Sound:** the music bed and effects from the cue sheet go under the narration in every video (`sfx.py mix`), voice on top, about -14 to -16 LUFS.
+- **QC gate** (`motion/references/quality-control.md`): scored on the stills before the full render and on the contact sheet after. Any 0 blocks posting; fix and re-check. Record `qc` in the log entry. If time is short, simplify the scenes (fewer, still moving and explaining) rather than ship a failing video.
+- **Save the source:** `production/<date>-<slot>/scene.js` and `cues.json` in this branch, so any video can be re-rendered.
+- AI video and image prompts are written for every scene (one action per shot, continuity tags) but never run here; a photoreal paid version only on Hassan's request.
+
 ## 4. Narration (free, dedicated lane)
 Use the **`studio-probe`** branch, not `budget-probe` (that one is Hassan's own lane).
 ```
@@ -116,7 +129,7 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
 - Check that `sp_out/lines_used.json` equals the JSON you sent. If it doesn't (another run overwrote it), wait one minute, re-clone, and push again if needed.
 - Voice `af_heart` is the house voice. Verify the WAVs with `ffprobe` and `volumedetect`.
 
-## 5. Render (follow calgary-insight-video-explainer)
+## 5. Render (motion engine per section 3c; logo, layout and assembly rules from calgary-insight-video-explainer)
 - Quick insight and civic: **1080×1920 vertical**.
 - Flagship: **two versions from the same narration**, both rendered every time (YouTube Shorts accept up to 3 minutes, and flagships are always under 3):
   1. `<slug>-short.mp4`: **1080×1920 vertical Short**, laid out natively for vertical (not cropped from the widescreen), with key content between y≈300 and y≈1420 and clear of the right-hand 120 px.
@@ -124,6 +137,7 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
   3. `<slug>-teaser.mp4`: **1080×1920 vertical teaser, 20-30 seconds (never over 85 s)**, rendered from package section 12 (the short-form teaser script), with its own short narration run on the studio-probe lane. It ends on a short card (about 2 s, no Subscribe button) saying "Full video on our page · calgaryinsight.ca". Its claims must be a subset of the audited claims table, with no new facts.
   All versions get burned-in captions and the logo; only versions over 2:00 get the end card (section 3, length rule). 30 fps, H.264 `-crf 18 -preset veryfast`, one file per scene, concatenated with `-c copy`.
 - Logo: `assets/logo.svg` in this branch, placed as the explainer skill specifies. Navy/gold, Fira Sans. Burned-in captions. Source and data period shown small on every data scene.
+- Audio: mux the `sfx.py mix` output (voice + music bed + effects), not the bare narration.
 - Before the full render, render the two busiest scenes plus the last frame (the closing question for videos of 2:00 or less, the end card for longer ones) as stills and **look at them** (Read the image). Fix overlaps and clipped text.
 - After assembly: contact sheet of six frames (look at it), duration check, fade check. Aim for ≤ 10 MB.
 - **Thumbnails (required for every video; Hassan's rule, Nov 10, 2026).** Design them as their own images with Playwright, never a random frame:
@@ -137,7 +151,7 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
 - Video files go to the **`studio-videos`** branch (GitHub releases are blocked for these sessions). Keep it light; never clone it with history:
   `git clone -q --depth 1 -b studio-videos https://github.com/hassanaliarshad110/calgary-data-desk /home/claude/sv`, copy the MP4(s) and thumbnail JPG(s) into `sv/<date>-<slot>/` (flagships: `-short`, `-youtube`, `-teaser` MP4s, `-thumb.jpg` and `-thumb-yt.jpg`), commit as Hassan Ali, then `git pull --rebase --depth 1` and push, retrying up to 3 times.
   Raw link (for Metricool later, once Hassan approves): `https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/<date>-<slot>/<slug>.mp4`
-- Append to `log.json`: `{date, slot, type, category, title, topic_used, changed_from_calendar (reason or null), central_figure, sources:[urls], length_s, video_path, status:"done"}`. If rendering failed, save the package anyway with status `"script-only"` and the reason.
+- Append to `log.json`: `{date, slot, type, category, title, topic_used, changed_from_calendar (reason or null), central_figure, sources:[urls], length_s, video_path, identity, qc:{stills, final, scores}, status:"done"}`. If rendering failed, save the package anyway with status `"script-only"` and the reason.
 - Commit the package and log to `content-studio` as Hassan Ali, `git pull --rebase` then push, retrying up to 3 times.
 - Send the MP4(s) to Hassan with SendUserFile (flagships: both versions) (display attach), then a SendUserMessage of at most 5 lines: title, length and format, the one key figure with its source, the raw video link, and when and where it is scheduled to post (or why it wasn't).
 
@@ -187,7 +201,7 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
 
 ## 8. Calgary Origins (weekly documentary series, from Nov 18, 2026)
 - One episode a week, released on **Wednesdays** (calendar rows with slot `ORIGINS`). Episode 1, "The Town That Moved Across the River", was posted on Nov 11 by Hassan.
-- Made by the scheduled task on the **Tuesday before**, following the `calgary-origins-documentary` skill (about 10 minutes, four 2:30 chapters, four vertical "PART n OF 4" reels), plus every rule in this playbook: content direction, the fact audit gate (section 3b) over the whole script (nothing is narrated or published until APPROVED; any open discrepancy the skill would ask Hassan about counts as not approved), site name shown as calgaryinsight.ca, opening hook and closing viewer question in each part, designed thumbnails (1280x720 for the film, 1080x1920 per part), short engaging captions with no numbers.
+- Made by the scheduled task on the **Tuesday before**, following the `calgary-origins-documentary` skill, directed with `calgary-motion-director` (Storyteller identity, section 3c: production bible per chapter, motion engine, sound mix, QC gate) (about 10 minutes, four 2:30 chapters, four vertical "PART n OF 4" reels), plus every rule in this playbook: content direction, the fact audit gate (section 3b) over the whole script (nothing is narrated or published until APPROVED; any open discrepancy the skill would ask Hassan about counts as not approved), site name shown as calgaryinsight.ca, opening hook and closing viewer question in each part, designed thumbnails (1280x720 for the film, 1080x1920 per part), short engaging captions with no numbers.
 - Narration uses the `studio-probe` lane (section 4), not `budget-probe`. Videos go to the `social-media` branch under `social/<slug>/` as the skill says.
 - Every film and every part gets its own designed thumbnail and no AI labels (section 7). Posting is spread across the week, never all together: the run schedules only the full film to YouTube (type video) for Wednesday 09:30, and records the four parts as `pending_link` items (Part 1 Wed 10:00, Part 2 Thu 10:00, Part 3 Fri 10:00, Part 4 Sat 10:00; each to Instagram Reel, Facebook Reel and YouTube Short). The link-up task (section 7b) schedules them with the film's YouTube link. Each caption shows "Part n of 4" and uses the section 7b layout.
 - No repeats of topics in log.json, the already-posted list or the flagship calendar.
