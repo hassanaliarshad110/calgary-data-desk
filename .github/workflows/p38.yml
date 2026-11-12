@@ -1,0 +1,55 @@
+name: Probe 38
+
+# Read only. Runs the Data Genie's tools offline against the live site's Genie files as published (nothing added),
+# and follows every pointer it and the Data Scientist are given. Output goes to fetched-38.
+
+on: {push: {branches: [site-check-38]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: {path: probe}
+      - uses: actions/checkout@v4
+        with: {ref: main, path: code}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Audit
+        run: |
+          set +e
+          mkdir -p out app/_appdata
+          S=https://calgaryinsight.ca
+          curl -fsSL "$S/py/manifest.json?nc=$RANDOM" -o app/_manifest.json
+          python3 probe/audit/fetch_app.py
+          pip install -q requests openpyxl > /dev/null 2>&1
+          python3 probe/audit/genie_audit.py "$PWD/app" "$PWD/code" "$PWD/out/audit.txt" > out/run.txt 2>&1
+          tail -30 out/run.txt; head -60 out/audit.txt
+          G=https://calgary-insight-ai.hasssanaliarshad.workers.dev
+          { echo "gateway OPTIONS /reports:"; curl -s -D - -o /dev/null -X OPTIONS -H "Origin: https://calgaryinsight.ca" "$G/reports" | grep -i -E "^HTTP|allow-methods";
+            echo "gateway GET /reports without sign-in:"; curl -s -w " %{http_code}" "$G/reports"; echo;
+            echo "site scripts:"; for f in web-account.js web-ai.js; do echo "$f CDD_REPORTS=$(curl -s https://calgaryinsight.ca/$f | grep -c CDD_REPORTS) read_file=$(curl -s https://calgaryinsight.ca/$f | grep -c read_file)"; done;
+            curl -s https://calgaryinsight.ca/ | grep -o "kept with your account and listed here on any device" | head -1;
+            echo "elections compare/next:"; grep -E "next_elections|_seat_compare" app/agent.py | head -3 | cut -c1-120; } > out/live38.txt 2>&1
+          python3 - <<'PY' >> out/live38.txt 2>&1
+          import json, sys
+          sys.path.insert(0, 'app'); import os; os.chdir('app'); import agent
+          d = json.load(open('_dash.json'))
+          A = agent.Agent(lambda: {'api_key': '', 'models': {}}, lambda e: None, '_down', lambda: d, '_appdata', lambda: None)
+          r = A.run_tool('get_dashboard', {'section': 'elections'})
+          print('next_elections', [(x['election'], x['date']) for x in r.get('next_elections') or []])
+          print('compare levels', list((r.get('compare') or {}).keys()))
+          print('federal next in area', ((r.get('area') or {}).get('federal') or {}).get('next_election'))
+          PY
+          cat out/live38.txt
+      - name: Push to fetched-38 (evidence only)
+        if: always()
+        run: |
+          set +e
+          cd probe
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q --orphan fetched-38
+          git rm -rqf --cached . > /dev/null 2>&1
+          rm -rf audit .github; mv ../out out
+          git add -f out && git commit -qm "Data Genie and Data Scientist pointer audit on the live site (evidence only)" && git push -qf origin fetched-38
