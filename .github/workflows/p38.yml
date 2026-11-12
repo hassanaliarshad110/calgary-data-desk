@@ -29,7 +29,7 @@ jobs:
           G=https://calgary-insight-ai.hasssanaliarshad.workers.dev
           { echo "gateway OPTIONS /reports:"; curl -s -D - -o /dev/null -X OPTIONS -H "Origin: https://calgaryinsight.ca" "$G/reports" | grep -i -E "^HTTP|allow-methods";
             echo "gateway GET /reports without sign-in:"; curl -s -w " %{http_code}" "$G/reports"; echo;
-            echo "site scripts:"; for f in web-account.js web-ai.js; do echo "$f CDD_REPORTS=$(curl -s https://calgaryinsight.ca/$f | grep -c CDD_REPORTS) read_file=$(curl -s https://calgaryinsight.ca/$f | grep -c read_file)"; done;
+            echo "site scripts:"; echo "check_request in web-ai: $(curl -s https://calgaryinsight.ca/web-ai.js | grep -c check_request)"; echo "CDD_CLARIFY in bundle: $(for s in $(curl -s https://calgaryinsight.ca/ | grep -o "site\.[a-z0-9]*\.js" | sort -u); do curl -s https://calgaryinsight.ca/$s | grep -c CDD_CLARIFY; done)"; echo "offer_choices in agent: $(curl -s https://calgaryinsight.ca/py/agent.py | grep -c offer_choices)"; for f in web-account.js web-ai.js; do echo "$f CDD_REPORTS=$(curl -s https://calgaryinsight.ca/$f | grep -c CDD_REPORTS) read_file=$(curl -s https://calgaryinsight.ca/$f | grep -c read_file)"; done;
             curl -s https://calgaryinsight.ca/ | grep -o "kept with your account and listed here on any device" | head -1;
             echo "elections compare/next:"; grep -E "next_elections|_seat_compare" app/agent.py | head -3 | cut -c1-120; } > out/live38.txt 2>&1
           python3 - <<'PY' >> out/live38.txt 2>&1
