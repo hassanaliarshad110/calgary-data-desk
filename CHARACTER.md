@@ -64,3 +64,6 @@ Same flat 2D characters from rig.js (never redrawn); the DEPTH comes from stagin
 - Props in rig.js: `patang()` (kite), `dor()` (kite string), `charkhi()` (spool; red = manjha, white = cotton thread), `feather()`.
 - Sets (episodes/ep2/ep2.js): `chhat()` rooftop (sky, far city, mid rooftops with tanks/clotheslines/kite-flyers, rival roof, neem tree, our roof with jaali parapet, mumty stair room, water tank; foreground wires with a stuck kite) and `aangan()` courtyard (neighbours' rooftops above the wall, stairs to the roof, WC door with bulb, window, blue room door, charpai with Mano, chai stool; foreground clothesline).
 - Running detail: a white pigeon feather stays in Qasim's curls after the rescue (Ammi notices: "ye pankh kahan se aaya?").
+
+## Studio skeleton version (Nov 2026)
+Qasim, Susuman and Ammi are also rigged on the studio skeleton (branch `animation-studio`, `CAST.qasim / CAST.susuman / CAST.ammi`) with the same colours as `rig.js`: 31 motions, turnarounds, 16 expressions, lip-sync. Sheets and a motion test are in `studio_rig/`. Use either rig; keep the look identical to this bible.
