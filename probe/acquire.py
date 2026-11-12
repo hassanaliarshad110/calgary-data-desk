@@ -5,7 +5,7 @@ import json, os, re, sys, io, zipfile, shutil, subprocess, urllib.request, urlli
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
-UA = {'User-Agent': 'Mozilla/5.0 (asset-probe; +https://calgaryinsight.ca)'}
+UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36', 'Accept': '*/*', 'Accept-Language': 'en'}
 GH = os.environ.get('GH_TOKEN', '')
 MAN, LOG = [], []
 MAX_FILE = 40 * 2**20
@@ -32,6 +32,7 @@ LIC = {
     'ODbL': dict(licence='ODbL 1.0 - credit "© OpenStreetMap contributors"', commercial=True, modify=True, attribution=True),
     'OGL-CGY': dict(licence='Open Government Licence - City of Calgary (credit the City)', commercial=True, modify=True, attribution=True),
     'CCBY': dict(licence='CC BY 4.0 - credit "Kevin MacLeod (incompetech.com)"', commercial=True, modify=True, attribution=True),
+    'CCBY-SAMPLE': dict(licence='CC BY 4.0 (see metadata.json for the named author)', commercial=True, modify=True, attribution=True),
     'GSAP': dict(licence='GSAP Standard "No Charge" License', commercial=True, modify=False, attribution=False),
 }
 
@@ -92,8 +93,9 @@ def kenney():
         t0 = time.time()
         try:
             page = get(f'https://kenney.nl/assets/{slug}').decode('utf8', 'ignore')
-            m = re.findall(r'(https://kenney\.nl/media/pages/assets/[^"\']+?\.zip)', page)
-            if not m: LOG.append(dict(step=f'kenney:{slug}', ok=False, err='no zip link')); continue
+            m = [urllib.parse.urljoin('https://kenney.nl/', u.replace('&amp;', '&')) for u in re.findall(r'["\'(]([^"\'()\s]+?\.zip)', page)]
+            if not m:
+                LOG.append(dict(step=f'kenney:{slug}', ok=False, err='no zip link', html=page[:1500], links=re.findall(r'href=["\']([^"\']+)', page)[:60])); continue
             z = zipfile.ZipFile(io.BytesIO(get(m[0], timeout=300)))
             names = [n for n in z.namelist() if not n.endswith('/')]
             lic = [n for n in names if os.path.basename(n).lower().startswith('license')]
@@ -281,9 +283,54 @@ def music():
             LOG.append(dict(step=f'music:{t}', ok=False, err=repr(e)[:150]))
 
 
+@step('rigged3d')
+def rigged3d():
+    # Real skinned + animated 3D characters with explicit open licences
+    base = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/'
+    for name, lic, note in [('Fox', 'CCBY-PM', 'rigged + 3 animations (Survey, Walk, Run)'), ('CesiumMan', 'CCBY-CES', 'rigged walk cycle'), ('RiggedFigure', 'CCBY-CES', 'rigged figure'), ('BrainStem', 'CCBY-KH', 'rigged robot dance')]:
+        try:
+            meta = get(base + f'{name}/metadata.json')
+            save(f'rigged3d/{name}/metadata.json', meta)
+            rel = f'rigged3d/{name}/{name}.glb'; save(rel, get(base + f'{name}/glTF-Binary/{name}.glb', timeout=300))
+            rec(rel, f'Khronos glTF-Sample-Assets - {name}', base.replace('raw.githubusercontent.com', 'github.com').replace('/main/', '/tree/main/') + name, 'CC0' if lic == 'CC0' else 'CCBY-SAMPLE', 'characters/3d_rigged', note=note + ' | licence detail in metadata.json')
+        except Exception as e:
+            LOG.append(dict(step=f'rig:{name}', ok=False, err=repr(e)[:150]))
+    try:
+        rel = 'rigged3d/RobotExpressive/RobotExpressive.glb'
+        save(rel, get('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/models/gltf/RobotExpressive/RobotExpressive.glb', timeout=300))
+        save('rigged3d/RobotExpressive/README.md', get('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/models/gltf/RobotExpressive/README.md'))
+        rec(rel, 'three.js examples - RobotExpressive (Tomas Laulhe, CC0)', 'https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf/RobotExpressive', 'CC0', 'characters/3d_rigged', note='14 animations (Idle, Walking, Running, Dance, Jump, Wave, ThumbsUp, Yes, No, Punch, Death, Sitting, Standing, WalkJump) + facial morphs (Angry, Surprised, Sad)')
+    except Exception as e:
+        LOG.append(dict(step='rig:RobotExpressive', ok=False, err=repr(e)[:150]))
+
+
+@step('fonts2')
+def fonts2():
+    for fam, sub in [('luckiestguy', 'apache')]:
+        lst = json.loads(get(f'https://api.github.com/repos/google/fonts/contents/{sub}/{fam}', headers={'Authorization': f'Bearer {GH}'} if GH else {}))
+        for x in lst:
+            if x['name'].endswith('.ttf') or x['name'].startswith('LICENSE'):
+                rel = f'fonts/{fam}/{x["name"]}'; save(rel, get(x['download_url']))
+                if rel.endswith('.ttf'): MAN.append(dict(path=rel, source='Google Fonts', url='https://fonts.google.com/specimen/Luckiest+Guy', category='fonts', format='ttf', bytes=os.path.getsize(os.path.join(OUT, rel)), note='', licence='Apache 2.0', commercial=True, modify=True, attribution=False))
+
+
+@step('roads')
+def roads():
+    Q = {'major_roads': '[out:json][timeout:120];way["highway"~"^(motorway|trunk|primary)$"](50.84,-114.32,51.21,-113.86);out geom tags;',
+         'downtown_streets': '[out:json][timeout:120];way["highway"~"^(primary|secondary|tertiary|residential|unclassified|service)$"](51.0395,-114.0950,51.0560,-114.0430);out geom tags;'}
+    for name, q in Q.items():
+        for ep in ('https://overpass.kumi.systems/api/interpreter', 'https://overpass.private.coffee/api/interpreter', 'https://overpass-api.de/api/interpreter'):
+            try:
+                b = get(ep, data=urllib.parse.urlencode({'data': q}).encode(), timeout=150, headers={'Content-Type': 'application/x-www-form-urlencoded'})
+                rel = f'geo/osm/{name}.json'; save(rel, b); rec(rel, 'OpenStreetMap via Overpass', 'https://www.openstreetmap.org/copyright', 'ODbL', 'environments/calgary_real'); break
+            except Exception as e:
+                LOG.append(dict(step=f'osm:{name}:{ep[:30]}', ok=False, err=repr(e)[:150]))
+
+
 if __name__ == '__main__':
-    for fn in (kenney, fbx2gltf, polyhaven, fonts, npm, geo, music):
-        fn()
+    steps = os.environ.get('STEPS', 'kenney,fbx2gltf,polyhaven,fonts,npm,geo,music').split(',')
+    for name in steps:
+        globals()[name]()
     total = sum(m['bytes'] for m in MAN)
     json.dump(dict(generated=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), files=len(MAN), bytes=total, assets=MAN),
               open(os.path.join(OUT, 'manifest.json'), 'w'), indent=1)
