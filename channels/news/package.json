@@ -19,13 +19,13 @@
   "never present invented events as real news",
   "cite data sources"
  ],
- "asset_count": 397,
- "shared_with_all_channels": 333,
+ "asset_count": 400,
+ "shared_with_all_channels": 342,
  "assets_by_category": {
   "characters": [
    {
     "id": "CHR-001",
-    "name": "Daniel Okafor (News anchor)",
+    "name": "Daniel Okafor (News anchor; in Susuman: TV anchor reporting sightings of a golden mystery hero)",
     "path": "engine/chars.js#CAST.daniel"
    },
    {
@@ -55,7 +55,7 @@
    },
    {
     "id": "CHR-002",
-    "name": "Amara Singh (News co-anchor / reporter)",
+    "name": "Amara Singh (News co-anchor / reporter; in Susuman: the TV field reporter)",
     "path": "engine/chars.js#CAST.amara"
    },
    {
@@ -85,37 +85,37 @@
    },
    {
     "id": "CHR-007",
-    "name": "Maya Chen (Office worker / civic explainer host)",
-    "path": "engine/chars.js#CAST.maya"
+    "name": "Zahra (Explainer host; in Susuman: Zahra Miss, Qasim's school teacher)",
+    "path": "engine/chars.js#CAST.zahra"
    },
    {
     "id": "SHT-031",
-    "name": "Maya Chen - turnaround sheet",
-    "path": "assets/characters/maya/maya_turnaround.jpg"
+    "name": "Zahra - turnaround sheet",
+    "path": "assets/characters/zahra/zahra_turnaround.jpg"
    },
    {
     "id": "SHT-032",
-    "name": "Maya Chen - expressions sheet",
-    "path": "assets/characters/maya/maya_expressions.jpg"
+    "name": "Zahra - expressions sheet",
+    "path": "assets/characters/zahra/zahra_expressions.jpg"
    },
    {
     "id": "SHT-033",
-    "name": "Maya Chen - visemes sheet",
-    "path": "assets/characters/maya/maya_visemes.jpg"
+    "name": "Zahra - visemes sheet",
+    "path": "assets/characters/zahra/zahra_visemes.jpg"
    },
    {
     "id": "SHT-034",
-    "name": "Maya Chen - poses sheet",
-    "path": "assets/characters/maya/maya_poses.jpg"
+    "name": "Zahra - poses sheet",
+    "path": "assets/characters/zahra/zahra_poses.jpg"
    },
    {
     "id": "SHT-035",
-    "name": "Maya Chen - walk cycle sheet",
-    "path": "assets/characters/maya/maya_walk_cycle.jpg"
+    "name": "Zahra - walk cycle sheet",
+    "path": "assets/characters/zahra/zahra_walk_cycle.jpg"
    },
    {
     "id": "CHR-009",
-    "name": "Officer Gill (Police officer)",
+    "name": "Officer Gill (Police officer; in Susuman: the friendly beat-police uncle)",
     "path": "engine/chars.js#CAST.officer"
    },
    {
@@ -307,11 +307,26 @@
    },
    {
     "id": "MOV-027",
+    "name": "Motion: holdPhone",
+    "path": "engine/chars.js#MOVES.holdPhone"
+   },
+   {
+    "id": "MOV-028",
+    "name": "Motion: powerPose",
+    "path": "engine/chars.js#MOVES.powerPose"
+   },
+   {
+    "id": "MOV-029",
+    "name": "Motion: fly",
+    "path": "engine/chars.js#MOVES.fly"
+   },
+   {
+    "id": "MOV-030",
     "name": "Motion: fightStance",
     "path": "engine/chars.js#MOVES.fightStance"
    },
    {
-    "id": "MOV-028",
+    "id": "MOV-031",
     "name": "Motion: present",
     "path": "engine/chars.js#MOVES.present"
    }

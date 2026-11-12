@@ -1,21 +1,22 @@
 {
  "generated_by": "catalog/build_catalog.py",
- "count": 472,
+ "count": 493,
  "assets": [
   {
    "id": "CHR-001",
-   "name": "Daniel Okafor (News anchor)",
+   "name": "Daniel Okafor (News anchor; in Susuman: TV anchor reporting sightings of a golden mystery hero)",
    "thumbnail": "catalog/thumbs/chr_daniel.jpg",
    "path": "engine/chars.js#CAST.daniel",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "drawChar(CAST.daniel, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
@@ -23,7 +24,18 @@
     "adult",
     "average",
     "news",
-    "anchor"
+    "anchor;",
+    "in",
+    "susuman:",
+    "tv",
+    "anchor",
+    "reporting",
+    "sightings",
+    "of",
+    "a",
+    "golden",
+    "mystery",
+    "hero"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -51,7 +63,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -78,7 +91,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -105,7 +119,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -132,7 +147,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -159,7 +175,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -175,18 +192,19 @@
   },
   {
    "id": "CHR-002",
-   "name": "Amara Singh (News co-anchor / reporter)",
+   "name": "Amara Singh (News co-anchor / reporter; in Susuman: the TV field reporter)",
    "thumbnail": "catalog/thumbs/chr_amara.jpg",
    "path": "engine/chars.js#CAST.amara",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "drawChar(CAST.amara, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
@@ -196,6 +214,12 @@
     "news",
     "co-anchor",
     "/",
+    "reporter;",
+    "in",
+    "susuman:",
+    "the",
+    "tv",
+    "field",
     "reporter"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
@@ -224,7 +248,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -251,7 +276,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -278,7 +304,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -305,7 +332,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -332,7 +360,8 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "news"
+    "news",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -348,28 +377,38 @@
   },
   {
    "id": "CHR-003",
-   "name": "Chacha Bashir (Comic uncle, would-be magician)",
-   "thumbnail": "catalog/thumbs/chr_chacha.jpg",
-   "path": "engine/chars.js#CAST.chacha",
+   "name": "Dada Abu (Qasim's grandfather (Abbu's father): comic, proud of his magic tricks - Susuman ensemble)",
+   "thumbnail": "catalog/thumbs/chr_dadaAbu.jpg",
+   "path": "engine/chars.js#CAST.dadaAbu",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
-   "usage": "drawChar(CAST.chacha, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "usage": "drawChar(CAST.dadaAbu, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
     "character",
     "elder",
     "chubby",
-    "comic",
-    "uncle,",
-    "would-be",
-    "magician"
+    "qasim's",
+    "grandfather",
+    "(abbu's",
+    "father):",
+    "comic,",
+    "proud",
+    "of",
+    "his",
+    "magic",
+    "tricks",
+    "-",
+    "susuman",
+    "ensemble"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -377,18 +416,18 @@
    "attribution": false,
    "source": "Original - generated in code by the studio engine",
    "sheets": {
-    "turnaround": "assets/characters/chacha/chacha_turnaround.jpg",
-    "expressions": "assets/characters/chacha/chacha_expressions.jpg",
-    "visemes": "assets/characters/chacha/chacha_visemes.jpg",
-    "poses": "assets/characters/chacha/chacha_poses.jpg",
-    "walk_cycle": "assets/characters/chacha/chacha_walk_cycle.jpg"
+    "turnaround": "assets/characters/dadaAbu/dadaAbu_turnaround.jpg",
+    "expressions": "assets/characters/dadaAbu/dadaAbu_expressions.jpg",
+    "visemes": "assets/characters/dadaAbu/dadaAbu_visemes.jpg",
+    "poses": "assets/characters/dadaAbu/dadaAbu_poses.jpg",
+    "walk_cycle": "assets/characters/dadaAbu/dadaAbu_walk_cycle.jpg"
    }
   },
   {
    "id": "SHT-011",
-   "name": "Chacha Bashir - turnaround sheet",
-   "thumbnail": "catalog/thumbs/sht_chacha_turnaround.jpg",
-   "path": "assets/characters/chacha/chacha_turnaround.jpg",
+   "name": "Dada Abu - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_dadaAbu_turnaround.jpg",
+   "path": "assets/characters/dadaAbu/dadaAbu_turnaround.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -397,13 +436,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "turnaround",
-    "chacha"
+    "dadaAbu"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -413,9 +453,9 @@
   },
   {
    "id": "SHT-012",
-   "name": "Chacha Bashir - expressions sheet",
-   "thumbnail": "catalog/thumbs/sht_chacha_expressions.jpg",
-   "path": "assets/characters/chacha/chacha_expressions.jpg",
+   "name": "Dada Abu - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_dadaAbu_expressions.jpg",
+   "path": "assets/characters/dadaAbu/dadaAbu_expressions.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -424,13 +464,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "expressions",
-    "chacha"
+    "dadaAbu"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -440,9 +481,9 @@
   },
   {
    "id": "SHT-013",
-   "name": "Chacha Bashir - visemes sheet",
-   "thumbnail": "catalog/thumbs/sht_chacha_visemes.jpg",
-   "path": "assets/characters/chacha/chacha_visemes.jpg",
+   "name": "Dada Abu - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_dadaAbu_visemes.jpg",
+   "path": "assets/characters/dadaAbu/dadaAbu_visemes.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -451,13 +492,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "visemes",
-    "chacha"
+    "dadaAbu"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -467,9 +509,9 @@
   },
   {
    "id": "SHT-014",
-   "name": "Chacha Bashir - poses sheet",
-   "thumbnail": "catalog/thumbs/sht_chacha_poses.jpg",
-   "path": "assets/characters/chacha/chacha_poses.jpg",
+   "name": "Dada Abu - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_dadaAbu_poses.jpg",
+   "path": "assets/characters/dadaAbu/dadaAbu_poses.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -478,13 +520,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "poses",
-    "chacha"
+    "dadaAbu"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -494,9 +537,9 @@
   },
   {
    "id": "SHT-015",
-   "name": "Chacha Bashir - walk cycle sheet",
-   "thumbnail": "catalog/thumbs/sht_chacha_walk_cycle.jpg",
-   "path": "assets/characters/chacha/chacha_walk_cycle.jpg",
+   "name": "Dada Abu - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_dadaAbu_walk_cycle.jpg",
+   "path": "assets/characters/dadaAbu/dadaAbu_walk_cycle.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -505,13 +548,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "walk_cycle",
-    "chacha"
+    "dadaAbu"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -521,27 +565,39 @@
   },
   {
    "id": "CHR-004",
-   "name": "Zoya (Clever niece, 14)",
-   "thumbnail": "catalog/thumbs/chr_zoya.jpg",
-   "path": "engine/chars.js#CAST.zoya",
+   "name": "Sakina (Qasim's elder sister (Baaji), 14 - the ONLY one who knows he is Susuman)",
+   "thumbnail": "catalog/thumbs/chr_sakina.jpg",
+   "path": "engine/chars.js#CAST.sakina",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
-   "usage": "drawChar(CAST.zoya, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "usage": "drawChar(CAST.sakina, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
     "character",
     "teen",
     "slim",
-    "clever",
-    "niece,",
-    "14"
+    "qasim's",
+    "elder",
+    "sister",
+    "(baaji),",
+    "14",
+    "-",
+    "the",
+    "only",
+    "one",
+    "who",
+    "knows",
+    "he",
+    "is",
+    "susuman"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -549,18 +605,18 @@
    "attribution": false,
    "source": "Original - generated in code by the studio engine",
    "sheets": {
-    "turnaround": "assets/characters/zoya/zoya_turnaround.jpg",
-    "expressions": "assets/characters/zoya/zoya_expressions.jpg",
-    "visemes": "assets/characters/zoya/zoya_visemes.jpg",
-    "poses": "assets/characters/zoya/zoya_poses.jpg",
-    "walk_cycle": "assets/characters/zoya/zoya_walk_cycle.jpg"
+    "turnaround": "assets/characters/sakina/sakina_turnaround.jpg",
+    "expressions": "assets/characters/sakina/sakina_expressions.jpg",
+    "visemes": "assets/characters/sakina/sakina_visemes.jpg",
+    "poses": "assets/characters/sakina/sakina_poses.jpg",
+    "walk_cycle": "assets/characters/sakina/sakina_walk_cycle.jpg"
    }
   },
   {
    "id": "SHT-016",
-   "name": "Zoya - turnaround sheet",
-   "thumbnail": "catalog/thumbs/sht_zoya_turnaround.jpg",
-   "path": "assets/characters/zoya/zoya_turnaround.jpg",
+   "name": "Sakina - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_sakina_turnaround.jpg",
+   "path": "assets/characters/sakina/sakina_turnaround.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -569,13 +625,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "turnaround",
-    "zoya"
+    "sakina"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -585,9 +642,9 @@
   },
   {
    "id": "SHT-017",
-   "name": "Zoya - expressions sheet",
-   "thumbnail": "catalog/thumbs/sht_zoya_expressions.jpg",
-   "path": "assets/characters/zoya/zoya_expressions.jpg",
+   "name": "Sakina - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_sakina_expressions.jpg",
+   "path": "assets/characters/sakina/sakina_expressions.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -596,13 +653,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "expressions",
-    "zoya"
+    "sakina"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -612,9 +670,9 @@
   },
   {
    "id": "SHT-018",
-   "name": "Zoya - visemes sheet",
-   "thumbnail": "catalog/thumbs/sht_zoya_visemes.jpg",
-   "path": "assets/characters/zoya/zoya_visemes.jpg",
+   "name": "Sakina - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_sakina_visemes.jpg",
+   "path": "assets/characters/sakina/sakina_visemes.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -623,13 +681,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "visemes",
-    "zoya"
+    "sakina"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -639,9 +698,9 @@
   },
   {
    "id": "SHT-019",
-   "name": "Zoya - poses sheet",
-   "thumbnail": "catalog/thumbs/sht_zoya_poses.jpg",
-   "path": "assets/characters/zoya/zoya_poses.jpg",
+   "name": "Sakina - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_sakina_poses.jpg",
+   "path": "assets/characters/sakina/sakina_poses.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -650,13 +709,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "poses",
-    "zoya"
+    "sakina"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -666,9 +726,9 @@
   },
   {
    "id": "SHT-020",
-   "name": "Zoya - walk cycle sheet",
-   "thumbnail": "catalog/thumbs/sht_zoya_walk_cycle.jpg",
-   "path": "assets/characters/zoya/zoya_walk_cycle.jpg",
+   "name": "Sakina - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_sakina_walk_cycle.jpg",
+   "path": "assets/characters/sakina/sakina_walk_cycle.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -677,13 +737,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "walk_cycle",
-    "zoya"
+    "sakina"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -693,27 +754,35 @@
   },
   {
    "id": "CHR-005",
-   "name": "Rafi (Energetic kid, 7)",
-   "thumbnail": "catalog/thumbs/chr_rafi.jpg",
-   "path": "engine/chars.js#CAST.rafi",
+   "name": "Basim (Qasim's best friend from the gali, 7 - Susuman ensemble)",
+   "thumbnail": "catalog/thumbs/chr_basim.jpg",
+   "path": "engine/chars.js#CAST.basim",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
-   "usage": "drawChar(CAST.rafi, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "usage": "drawChar(CAST.basim, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
     "character",
     "kid",
     "average",
-    "energetic",
-    "kid,",
-    "7"
+    "qasim's",
+    "best",
+    "friend",
+    "from",
+    "the",
+    "gali,",
+    "7",
+    "-",
+    "susuman",
+    "ensemble"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -721,18 +790,18 @@
    "attribution": false,
    "source": "Original - generated in code by the studio engine",
    "sheets": {
-    "turnaround": "assets/characters/rafi/rafi_turnaround.jpg",
-    "expressions": "assets/characters/rafi/rafi_expressions.jpg",
-    "visemes": "assets/characters/rafi/rafi_visemes.jpg",
-    "poses": "assets/characters/rafi/rafi_poses.jpg",
-    "walk_cycle": "assets/characters/rafi/rafi_walk_cycle.jpg"
+    "turnaround": "assets/characters/basim/basim_turnaround.jpg",
+    "expressions": "assets/characters/basim/basim_expressions.jpg",
+    "visemes": "assets/characters/basim/basim_visemes.jpg",
+    "poses": "assets/characters/basim/basim_poses.jpg",
+    "walk_cycle": "assets/characters/basim/basim_walk_cycle.jpg"
    }
   },
   {
    "id": "SHT-021",
-   "name": "Rafi - turnaround sheet",
-   "thumbnail": "catalog/thumbs/sht_rafi_turnaround.jpg",
-   "path": "assets/characters/rafi/rafi_turnaround.jpg",
+   "name": "Basim - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_basim_turnaround.jpg",
+   "path": "assets/characters/basim/basim_turnaround.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -741,13 +810,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "turnaround",
-    "rafi"
+    "basim"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -757,9 +827,9 @@
   },
   {
    "id": "SHT-022",
-   "name": "Rafi - expressions sheet",
-   "thumbnail": "catalog/thumbs/sht_rafi_expressions.jpg",
-   "path": "assets/characters/rafi/rafi_expressions.jpg",
+   "name": "Basim - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_basim_expressions.jpg",
+   "path": "assets/characters/basim/basim_expressions.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -768,13 +838,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "expressions",
-    "rafi"
+    "basim"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -784,9 +855,9 @@
   },
   {
    "id": "SHT-023",
-   "name": "Rafi - visemes sheet",
-   "thumbnail": "catalog/thumbs/sht_rafi_visemes.jpg",
-   "path": "assets/characters/rafi/rafi_visemes.jpg",
+   "name": "Basim - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_basim_visemes.jpg",
+   "path": "assets/characters/basim/basim_visemes.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -795,13 +866,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "visemes",
-    "rafi"
+    "basim"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -811,9 +883,9 @@
   },
   {
    "id": "SHT-024",
-   "name": "Rafi - poses sheet",
-   "thumbnail": "catalog/thumbs/sht_rafi_poses.jpg",
-   "path": "assets/characters/rafi/rafi_poses.jpg",
+   "name": "Basim - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_basim_poses.jpg",
+   "path": "assets/characters/basim/basim_poses.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -822,13 +894,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "poses",
-    "rafi"
+    "basim"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -838,9 +911,9 @@
   },
   {
    "id": "SHT-025",
-   "name": "Rafi - walk cycle sheet",
-   "thumbnail": "catalog/thumbs/sht_rafi_walk_cycle.jpg",
-   "path": "assets/characters/rafi/rafi_walk_cycle.jpg",
+   "name": "Basim - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_basim_walk_cycle.jpg",
+   "path": "assets/characters/basim/basim_walk_cycle.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -849,13 +922,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "walk_cycle",
-    "rafi"
+    "basim"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -865,25 +939,32 @@
   },
   {
    "id": "CHR-006",
-   "name": "Nani (Grandmother)",
-   "thumbnail": "catalog/thumbs/chr_nani.jpg",
-   "path": "engine/chars.js#CAST.nani",
+   "name": "Dadi (Qasim's grandmother (Abbu's mother) - Susuman ensemble)",
+   "thumbnail": "catalog/thumbs/chr_dadi.jpg",
+   "path": "engine/chars.js#CAST.dadi",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
-   "usage": "drawChar(CAST.nani, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "usage": "drawChar(CAST.dadi, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
     "character",
     "elder",
     "chubby",
-    "grandmother"
+    "qasim's",
+    "grandmother",
+    "(abbu's",
+    "mother)",
+    "-",
+    "susuman",
+    "ensemble"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -891,18 +972,18 @@
    "attribution": false,
    "source": "Original - generated in code by the studio engine",
    "sheets": {
-    "turnaround": "assets/characters/nani/nani_turnaround.jpg",
-    "expressions": "assets/characters/nani/nani_expressions.jpg",
-    "visemes": "assets/characters/nani/nani_visemes.jpg",
-    "poses": "assets/characters/nani/nani_poses.jpg",
-    "walk_cycle": "assets/characters/nani/nani_walk_cycle.jpg"
+    "turnaround": "assets/characters/dadi/dadi_turnaround.jpg",
+    "expressions": "assets/characters/dadi/dadi_expressions.jpg",
+    "visemes": "assets/characters/dadi/dadi_visemes.jpg",
+    "poses": "assets/characters/dadi/dadi_poses.jpg",
+    "walk_cycle": "assets/characters/dadi/dadi_walk_cycle.jpg"
    }
   },
   {
    "id": "SHT-026",
-   "name": "Nani - turnaround sheet",
-   "thumbnail": "catalog/thumbs/sht_nani_turnaround.jpg",
-   "path": "assets/characters/nani/nani_turnaround.jpg",
+   "name": "Dadi - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_dadi_turnaround.jpg",
+   "path": "assets/characters/dadi/dadi_turnaround.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -911,13 +992,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "turnaround",
-    "nani"
+    "dadi"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -927,9 +1009,9 @@
   },
   {
    "id": "SHT-027",
-   "name": "Nani - expressions sheet",
-   "thumbnail": "catalog/thumbs/sht_nani_expressions.jpg",
-   "path": "assets/characters/nani/nani_expressions.jpg",
+   "name": "Dadi - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_dadi_expressions.jpg",
+   "path": "assets/characters/dadi/dadi_expressions.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -938,13 +1020,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "expressions",
-    "nani"
+    "dadi"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -954,9 +1037,9 @@
   },
   {
    "id": "SHT-028",
-   "name": "Nani - visemes sheet",
-   "thumbnail": "catalog/thumbs/sht_nani_visemes.jpg",
-   "path": "assets/characters/nani/nani_visemes.jpg",
+   "name": "Dadi - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_dadi_visemes.jpg",
+   "path": "assets/characters/dadi/dadi_visemes.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -965,13 +1048,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "visemes",
-    "nani"
+    "dadi"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -981,9 +1065,9 @@
   },
   {
    "id": "SHT-029",
-   "name": "Nani - poses sheet",
-   "thumbnail": "catalog/thumbs/sht_nani_poses.jpg",
-   "path": "assets/characters/nani/nani_poses.jpg",
+   "name": "Dadi - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_dadi_poses.jpg",
+   "path": "assets/characters/dadi/dadi_poses.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -992,13 +1076,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "poses",
-    "nani"
+    "dadi"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1008,9 +1093,9 @@
   },
   {
    "id": "SHT-030",
-   "name": "Nani - walk cycle sheet",
-   "thumbnail": "catalog/thumbs/sht_nani_walk_cycle.jpg",
-   "path": "assets/characters/nani/nani_walk_cycle.jpg",
+   "name": "Dadi - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_dadi_walk_cycle.jpg",
+   "path": "assets/characters/dadi/dadi_walk_cycle.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1019,13 +1104,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "walk_cycle",
-    "nani"
+    "dadi"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1035,31 +1121,36 @@
   },
   {
    "id": "CHR-007",
-   "name": "Maya Chen (Office worker / civic explainer host)",
-   "thumbnail": "catalog/thumbs/chr_maya.jpg",
-   "path": "engine/chars.js#CAST.maya",
+   "name": "Zahra (Explainer host; in Susuman: Zahra Miss, Qasim's school teacher)",
+   "thumbnail": "catalog/thumbs/chr_zahra.jpg",
+   "path": "engine/chars.js#CAST.zahra",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
     "calgaryinsight",
-    "news"
+    "news",
+    "cartoon",
+    "susuman"
    ],
-   "usage": "drawChar(CAST.maya, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "usage": "drawChar(CAST.zahra, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
     "character",
     "adult",
     "average",
-    "office",
-    "worker",
-    "/",
-    "civic",
     "explainer",
-    "host"
+    "host;",
+    "in",
+    "susuman:",
+    "zahra",
+    "miss,",
+    "qasim's",
+    "school",
+    "teacher"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1067,18 +1158,18 @@
    "attribution": false,
    "source": "Original - generated in code by the studio engine",
    "sheets": {
-    "turnaround": "assets/characters/maya/maya_turnaround.jpg",
-    "expressions": "assets/characters/maya/maya_expressions.jpg",
-    "visemes": "assets/characters/maya/maya_visemes.jpg",
-    "poses": "assets/characters/maya/maya_poses.jpg",
-    "walk_cycle": "assets/characters/maya/maya_walk_cycle.jpg"
+    "turnaround": "assets/characters/zahra/zahra_turnaround.jpg",
+    "expressions": "assets/characters/zahra/zahra_expressions.jpg",
+    "visemes": "assets/characters/zahra/zahra_visemes.jpg",
+    "poses": "assets/characters/zahra/zahra_poses.jpg",
+    "walk_cycle": "assets/characters/zahra/zahra_walk_cycle.jpg"
    }
   },
   {
    "id": "SHT-031",
-   "name": "Maya Chen - turnaround sheet",
-   "thumbnail": "catalog/thumbs/sht_maya_turnaround.jpg",
-   "path": "assets/characters/maya/maya_turnaround.jpg",
+   "name": "Zahra - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_zahra_turnaround.jpg",
+   "path": "assets/characters/zahra/zahra_turnaround.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1088,13 +1179,15 @@
    ],
    "channels": [
     "calgaryinsight",
-    "news"
+    "news",
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "turnaround",
-    "maya"
+    "zahra"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1104,9 +1197,9 @@
   },
   {
    "id": "SHT-032",
-   "name": "Maya Chen - expressions sheet",
-   "thumbnail": "catalog/thumbs/sht_maya_expressions.jpg",
-   "path": "assets/characters/maya/maya_expressions.jpg",
+   "name": "Zahra - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_zahra_expressions.jpg",
+   "path": "assets/characters/zahra/zahra_expressions.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1116,13 +1209,15 @@
    ],
    "channels": [
     "calgaryinsight",
-    "news"
+    "news",
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "expressions",
-    "maya"
+    "zahra"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1132,9 +1227,9 @@
   },
   {
    "id": "SHT-033",
-   "name": "Maya Chen - visemes sheet",
-   "thumbnail": "catalog/thumbs/sht_maya_visemes.jpg",
-   "path": "assets/characters/maya/maya_visemes.jpg",
+   "name": "Zahra - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_zahra_visemes.jpg",
+   "path": "assets/characters/zahra/zahra_visemes.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1144,13 +1239,15 @@
    ],
    "channels": [
     "calgaryinsight",
-    "news"
+    "news",
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "visemes",
-    "maya"
+    "zahra"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1160,9 +1257,9 @@
   },
   {
    "id": "SHT-034",
-   "name": "Maya Chen - poses sheet",
-   "thumbnail": "catalog/thumbs/sht_maya_poses.jpg",
-   "path": "assets/characters/maya/maya_poses.jpg",
+   "name": "Zahra - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_zahra_poses.jpg",
+   "path": "assets/characters/zahra/zahra_poses.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1172,13 +1269,15 @@
    ],
    "channels": [
     "calgaryinsight",
-    "news"
+    "news",
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "poses",
-    "maya"
+    "zahra"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1188,9 +1287,9 @@
   },
   {
    "id": "SHT-035",
-   "name": "Maya Chen - walk cycle sheet",
-   "thumbnail": "catalog/thumbs/sht_maya_walk_cycle.jpg",
-   "path": "assets/characters/maya/maya_walk_cycle.jpg",
+   "name": "Zahra - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_zahra_walk_cycle.jpg",
+   "path": "assets/characters/zahra/zahra_walk_cycle.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1200,13 +1299,15 @@
    ],
    "channels": [
     "calgaryinsight",
-    "news"
+    "news",
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "walk_cycle",
-    "maya"
+    "zahra"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1216,27 +1317,36 @@
   },
   {
    "id": "CHR-008",
-   "name": "Marcus (Construction foreman)",
-   "thumbnail": "catalog/thumbs/chr_marcus.jpg",
-   "path": "engine/chars.js#CAST.marcus",
+   "name": "Ammar (Construction foreman; in Susuman: Ammar mistri, the mohalla builder uncle)",
+   "thumbnail": "catalog/thumbs/chr_ammar.jpg",
+   "path": "engine/chars.js#CAST.ammar",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
     "calgaryinsight",
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
-   "usage": "drawChar(CAST.marcus, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "usage": "drawChar(CAST.ammar, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
     "character",
     "adult",
     "muscular",
     "construction",
-    "foreman"
+    "foreman;",
+    "in",
+    "susuman:",
+    "ammar",
+    "mistri,",
+    "the",
+    "mohalla",
+    "builder",
+    "uncle"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1244,18 +1354,18 @@
    "attribution": false,
    "source": "Original - generated in code by the studio engine",
    "sheets": {
-    "turnaround": "assets/characters/marcus/marcus_turnaround.jpg",
-    "expressions": "assets/characters/marcus/marcus_expressions.jpg",
-    "visemes": "assets/characters/marcus/marcus_visemes.jpg",
-    "poses": "assets/characters/marcus/marcus_poses.jpg",
-    "walk_cycle": "assets/characters/marcus/marcus_walk_cycle.jpg"
+    "turnaround": "assets/characters/ammar/ammar_turnaround.jpg",
+    "expressions": "assets/characters/ammar/ammar_expressions.jpg",
+    "visemes": "assets/characters/ammar/ammar_visemes.jpg",
+    "poses": "assets/characters/ammar/ammar_poses.jpg",
+    "walk_cycle": "assets/characters/ammar/ammar_walk_cycle.jpg"
    }
   },
   {
    "id": "SHT-036",
-   "name": "Marcus - turnaround sheet",
-   "thumbnail": "catalog/thumbs/sht_marcus_turnaround.jpg",
-   "path": "assets/characters/marcus/marcus_turnaround.jpg",
+   "name": "Ammar - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_ammar_turnaround.jpg",
+   "path": "assets/characters/ammar/ammar_turnaround.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1265,13 +1375,14 @@
    ],
    "channels": [
     "calgaryinsight",
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "turnaround",
-    "marcus"
+    "ammar"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1281,9 +1392,9 @@
   },
   {
    "id": "SHT-037",
-   "name": "Marcus - expressions sheet",
-   "thumbnail": "catalog/thumbs/sht_marcus_expressions.jpg",
-   "path": "assets/characters/marcus/marcus_expressions.jpg",
+   "name": "Ammar - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_ammar_expressions.jpg",
+   "path": "assets/characters/ammar/ammar_expressions.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1293,13 +1404,14 @@
    ],
    "channels": [
     "calgaryinsight",
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "expressions",
-    "marcus"
+    "ammar"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1309,9 +1421,9 @@
   },
   {
    "id": "SHT-038",
-   "name": "Marcus - visemes sheet",
-   "thumbnail": "catalog/thumbs/sht_marcus_visemes.jpg",
-   "path": "assets/characters/marcus/marcus_visemes.jpg",
+   "name": "Ammar - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_ammar_visemes.jpg",
+   "path": "assets/characters/ammar/ammar_visemes.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1321,13 +1433,14 @@
    ],
    "channels": [
     "calgaryinsight",
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "visemes",
-    "marcus"
+    "ammar"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1337,9 +1450,9 @@
   },
   {
    "id": "SHT-039",
-   "name": "Marcus - poses sheet",
-   "thumbnail": "catalog/thumbs/sht_marcus_poses.jpg",
-   "path": "assets/characters/marcus/marcus_poses.jpg",
+   "name": "Ammar - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_ammar_poses.jpg",
+   "path": "assets/characters/ammar/ammar_poses.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1349,13 +1462,14 @@
    ],
    "channels": [
     "calgaryinsight",
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "poses",
-    "marcus"
+    "ammar"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1365,9 +1479,9 @@
   },
   {
    "id": "SHT-040",
-   "name": "Marcus - walk cycle sheet",
-   "thumbnail": "catalog/thumbs/sht_marcus_walk_cycle.jpg",
-   "path": "assets/characters/marcus/marcus_walk_cycle.jpg",
+   "name": "Ammar - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_ammar_walk_cycle.jpg",
+   "path": "assets/characters/ammar/ammar_walk_cycle.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1377,13 +1491,14 @@
    ],
    "channels": [
     "calgaryinsight",
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "walk_cycle",
-    "marcus"
+    "ammar"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1393,19 +1508,20 @@
   },
   {
    "id": "CHR-009",
-   "name": "Officer Gill (Police officer)",
+   "name": "Officer Gill (Police officer; in Susuman: the friendly beat-police uncle)",
    "thumbnail": "catalog/thumbs/chr_officer.jpg",
    "path": "engine/chars.js#CAST.officer",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
     "news",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "drawChar(CAST.officer, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
@@ -1413,7 +1529,13 @@
     "adult",
     "average",
     "police",
-    "officer"
+    "officer;",
+    "in",
+    "susuman:",
+    "the",
+    "friendly",
+    "beat-police",
+    "uncle"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1442,7 +1564,8 @@
    ],
    "channels": [
     "news",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -1470,7 +1593,8 @@
    ],
    "channels": [
     "news",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -1498,7 +1622,8 @@
    ],
    "channels": [
     "news",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -1526,7 +1651,8 @@
    ],
    "channels": [
     "news",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -1554,7 +1680,8 @@
    ],
    "channels": [
     "news",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
@@ -1570,27 +1697,34 @@
   },
   {
    "id": "CHR-010",
-   "name": "Layla (University student)",
-   "thumbnail": "catalog/thumbs/chr_layla.jpg",
-   "path": "engine/chars.js#CAST.layla",
+   "name": "Latifa (University student; in Susuman: Latifa, the college-going neighbour)",
+   "thumbnail": "catalog/thumbs/chr_latifa.jpg",
+   "path": "engine/chars.js#CAST.latifa",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
     "cartoon",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
-   "usage": "drawChar(CAST.layla, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "usage": "drawChar(CAST.latifa, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
     "character",
     "adult",
     "petite",
     "university",
-    "student"
+    "student;",
+    "in",
+    "susuman:",
+    "latifa,",
+    "the",
+    "college-going",
+    "neighbour"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1598,18 +1732,18 @@
    "attribution": false,
    "source": "Original - generated in code by the studio engine",
    "sheets": {
-    "turnaround": "assets/characters/layla/layla_turnaround.jpg",
-    "expressions": "assets/characters/layla/layla_expressions.jpg",
-    "visemes": "assets/characters/layla/layla_visemes.jpg",
-    "poses": "assets/characters/layla/layla_poses.jpg",
-    "walk_cycle": "assets/characters/layla/layla_walk_cycle.jpg"
+    "turnaround": "assets/characters/latifa/latifa_turnaround.jpg",
+    "expressions": "assets/characters/latifa/latifa_expressions.jpg",
+    "visemes": "assets/characters/latifa/latifa_visemes.jpg",
+    "poses": "assets/characters/latifa/latifa_poses.jpg",
+    "walk_cycle": "assets/characters/latifa/latifa_walk_cycle.jpg"
    }
   },
   {
    "id": "SHT-046",
-   "name": "Layla - turnaround sheet",
-   "thumbnail": "catalog/thumbs/sht_layla_turnaround.jpg",
-   "path": "assets/characters/layla/layla_turnaround.jpg",
+   "name": "Latifa - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_latifa_turnaround.jpg",
+   "path": "assets/characters/latifa/latifa_turnaround.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1619,13 +1753,14 @@
    ],
    "channels": [
     "cartoon",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "turnaround",
-    "layla"
+    "latifa"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1635,9 +1770,9 @@
   },
   {
    "id": "SHT-047",
-   "name": "Layla - expressions sheet",
-   "thumbnail": "catalog/thumbs/sht_layla_expressions.jpg",
-   "path": "assets/characters/layla/layla_expressions.jpg",
+   "name": "Latifa - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_latifa_expressions.jpg",
+   "path": "assets/characters/latifa/latifa_expressions.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1647,13 +1782,14 @@
    ],
    "channels": [
     "cartoon",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "expressions",
-    "layla"
+    "latifa"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1663,9 +1799,9 @@
   },
   {
    "id": "SHT-048",
-   "name": "Layla - visemes sheet",
-   "thumbnail": "catalog/thumbs/sht_layla_visemes.jpg",
-   "path": "assets/characters/layla/layla_visemes.jpg",
+   "name": "Latifa - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_latifa_visemes.jpg",
+   "path": "assets/characters/latifa/latifa_visemes.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1675,13 +1811,14 @@
    ],
    "channels": [
     "cartoon",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "visemes",
-    "layla"
+    "latifa"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1691,9 +1828,9 @@
   },
   {
    "id": "SHT-049",
-   "name": "Layla - poses sheet",
-   "thumbnail": "catalog/thumbs/sht_layla_poses.jpg",
-   "path": "assets/characters/layla/layla_poses.jpg",
+   "name": "Latifa - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_latifa_poses.jpg",
+   "path": "assets/characters/latifa/latifa_poses.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1703,13 +1840,14 @@
    ],
    "channels": [
     "cartoon",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "poses",
-    "layla"
+    "latifa"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1719,9 +1857,9 @@
   },
   {
    "id": "SHT-050",
-   "name": "Layla - walk cycle sheet",
-   "thumbnail": "catalog/thumbs/sht_layla_walk_cycle.jpg",
-   "path": "assets/characters/layla/layla_walk_cycle.jpg",
+   "name": "Latifa - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_latifa_walk_cycle.jpg",
+   "path": "assets/characters/latifa/latifa_walk_cycle.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1731,13 +1869,14 @@
    ],
    "channels": [
     "cartoon",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "walk_cycle",
-    "layla"
+    "latifa"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1747,26 +1886,34 @@
   },
   {
    "id": "CHR-011",
-   "name": "Jamal (Teen skateboarder)",
-   "thumbnail": "catalog/thumbs/chr_jamal.jpg",
-   "path": "engine/chars.js#CAST.jamal",
+   "name": "Dharmender (Teen skateboarder; in Susuman: Dharmender bhaiya, the gali teenager)",
+   "thumbnail": "catalog/thumbs/chr_dharmender.jpg",
+   "path": "engine/chars.js#CAST.dharmender",
    "format": "JS rig (canvas)",
    "category": "characters/2d_rigged",
-   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 28 motions, 16 expressions, 10 visemes, blink/gaze",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
    "tools": [
     "STUDIO engine (Chrome/Playwright canvas)",
     "render/render.py -> MP4"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
-   "usage": "drawChar(CAST.jamal, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "usage": "drawChar(CAST.dharmender, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
    "tags": [
     "character",
     "teen",
     "slim",
     "teen",
-    "skateboarder"
+    "skateboarder;",
+    "in",
+    "susuman:",
+    "dharmender",
+    "bhaiya,",
+    "the",
+    "gali",
+    "teenager"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1774,18 +1921,18 @@
    "attribution": false,
    "source": "Original - generated in code by the studio engine",
    "sheets": {
-    "turnaround": "assets/characters/jamal/jamal_turnaround.jpg",
-    "expressions": "assets/characters/jamal/jamal_expressions.jpg",
-    "visemes": "assets/characters/jamal/jamal_visemes.jpg",
-    "poses": "assets/characters/jamal/jamal_poses.jpg",
-    "walk_cycle": "assets/characters/jamal/jamal_walk_cycle.jpg"
+    "turnaround": "assets/characters/dharmender/dharmender_turnaround.jpg",
+    "expressions": "assets/characters/dharmender/dharmender_expressions.jpg",
+    "visemes": "assets/characters/dharmender/dharmender_visemes.jpg",
+    "poses": "assets/characters/dharmender/dharmender_poses.jpg",
+    "walk_cycle": "assets/characters/dharmender/dharmender_walk_cycle.jpg"
    }
   },
   {
    "id": "SHT-051",
-   "name": "Jamal - turnaround sheet",
-   "thumbnail": "catalog/thumbs/sht_jamal_turnaround.jpg",
-   "path": "assets/characters/jamal/jamal_turnaround.jpg",
+   "name": "Dharmender - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_dharmender_turnaround.jpg",
+   "path": "assets/characters/dharmender/dharmender_turnaround.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1794,13 +1941,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "turnaround",
-    "jamal"
+    "dharmender"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1810,9 +1958,9 @@
   },
   {
    "id": "SHT-052",
-   "name": "Jamal - expressions sheet",
-   "thumbnail": "catalog/thumbs/sht_jamal_expressions.jpg",
-   "path": "assets/characters/jamal/jamal_expressions.jpg",
+   "name": "Dharmender - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_dharmender_expressions.jpg",
+   "path": "assets/characters/dharmender/dharmender_expressions.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1821,13 +1969,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "expressions",
-    "jamal"
+    "dharmender"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1837,9 +1986,9 @@
   },
   {
    "id": "SHT-053",
-   "name": "Jamal - visemes sheet",
-   "thumbnail": "catalog/thumbs/sht_jamal_visemes.jpg",
-   "path": "assets/characters/jamal/jamal_visemes.jpg",
+   "name": "Dharmender - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_dharmender_visemes.jpg",
+   "path": "assets/characters/dharmender/dharmender_visemes.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1848,13 +1997,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "visemes",
-    "jamal"
+    "dharmender"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1864,9 +2014,9 @@
   },
   {
    "id": "SHT-054",
-   "name": "Jamal - poses sheet",
-   "thumbnail": "catalog/thumbs/sht_jamal_poses.jpg",
-   "path": "assets/characters/jamal/jamal_poses.jpg",
+   "name": "Dharmender - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_dharmender_poses.jpg",
+   "path": "assets/characters/dharmender/dharmender_poses.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1875,13 +2025,14 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "poses",
-    "jamal"
+    "dharmender"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -1891,9 +2042,9 @@
   },
   {
    "id": "SHT-055",
-   "name": "Jamal - walk cycle sheet",
-   "thumbnail": "catalog/thumbs/sht_jamal_walk_cycle.jpg",
-   "path": "assets/characters/jamal/jamal_walk_cycle.jpg",
+   "name": "Dharmender - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_dharmender_walk_cycle.jpg",
+   "path": "assets/characters/dharmender/dharmender_walk_cycle.jpg",
    "format": "jpg 1920x1080",
    "category": "characters/sheets",
    "animation": "static reference sheet (drawn by the rig)",
@@ -1902,13 +2053,568 @@
     "reference for artists / image AI"
    ],
    "channels": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "usage": "Reference sheet; regenerate with tools/sheets.html",
    "tags": [
     "sheet",
     "walk_cycle",
-    "jamal"
+    "dharmender"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "CHR-012",
+   "name": "Qasim (4-year-old hero (normal form) - Susuman series)",
+   "thumbnail": "catalog/thumbs/chr_qasim.jpg",
+   "path": "engine/chars.js#CAST.qasim",
+   "format": "JS rig (canvas)",
+   "category": "characters/2d_rigged",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
+   "tools": [
+    "STUDIO engine (Chrome/Playwright canvas)",
+    "render/render.py -> MP4"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "drawChar(CAST.qasim, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "tags": [
+    "character",
+    "toddler",
+    "muscular",
+    "4-year-old",
+    "hero",
+    "(normal",
+    "form)",
+    "-",
+    "susuman",
+    "series"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine",
+   "sheets": {
+    "turnaround": "assets/characters/qasim/qasim_turnaround.jpg",
+    "expressions": "assets/characters/qasim/qasim_expressions.jpg",
+    "visemes": "assets/characters/qasim/qasim_visemes.jpg",
+    "poses": "assets/characters/qasim/qasim_poses.jpg",
+    "walk_cycle": "assets/characters/qasim/qasim_walk_cycle.jpg"
+   }
+  },
+  {
+   "id": "SHT-056",
+   "name": "Qasim - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_qasim_turnaround.jpg",
+   "path": "assets/characters/qasim/qasim_turnaround.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "turnaround",
+    "qasim"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-057",
+   "name": "Qasim - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_qasim_expressions.jpg",
+   "path": "assets/characters/qasim/qasim_expressions.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "expressions",
+    "qasim"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-058",
+   "name": "Qasim - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_qasim_visemes.jpg",
+   "path": "assets/characters/qasim/qasim_visemes.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "visemes",
+    "qasim"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-059",
+   "name": "Qasim - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_qasim_poses.jpg",
+   "path": "assets/characters/qasim/qasim_poses.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "poses",
+    "qasim"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-060",
+   "name": "Qasim - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_qasim_walk_cycle.jpg",
+   "path": "assets/characters/qasim/qasim_walk_cycle.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "walk_cycle",
+    "qasim"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "CHR-013",
+   "name": "Susuman (Qasim in power form: gold aura, red cape, floating crown - Susuman series)",
+   "thumbnail": "catalog/thumbs/chr_susuman.jpg",
+   "path": "engine/chars.js#CAST.susuman",
+   "format": "JS rig (canvas)",
+   "category": "characters/2d_rigged",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
+   "tools": [
+    "STUDIO engine (Chrome/Playwright canvas)",
+    "render/render.py -> MP4"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "drawChar(CAST.susuman, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "tags": [
+    "character",
+    "toddler",
+    "muscular",
+    "qasim",
+    "in",
+    "power",
+    "form:",
+    "gold",
+    "aura,",
+    "red",
+    "cape,",
+    "floating",
+    "crown",
+    "-",
+    "susuman",
+    "series"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine",
+   "sheets": {
+    "turnaround": "assets/characters/susuman/susuman_turnaround.jpg",
+    "expressions": "assets/characters/susuman/susuman_expressions.jpg",
+    "visemes": "assets/characters/susuman/susuman_visemes.jpg",
+    "poses": "assets/characters/susuman/susuman_poses.jpg",
+    "walk_cycle": "assets/characters/susuman/susuman_walk_cycle.jpg"
+   }
+  },
+  {
+   "id": "SHT-061",
+   "name": "Susuman - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_susuman_turnaround.jpg",
+   "path": "assets/characters/susuman/susuman_turnaround.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "turnaround",
+    "susuman"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-062",
+   "name": "Susuman - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_susuman_expressions.jpg",
+   "path": "assets/characters/susuman/susuman_expressions.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "expressions",
+    "susuman"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-063",
+   "name": "Susuman - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_susuman_visemes.jpg",
+   "path": "assets/characters/susuman/susuman_visemes.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "visemes",
+    "susuman"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-064",
+   "name": "Susuman - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_susuman_poses.jpg",
+   "path": "assets/characters/susuman/susuman_poses.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "poses",
+    "susuman"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-065",
+   "name": "Susuman - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_susuman_walk_cycle.jpg",
+   "path": "assets/characters/susuman/susuman_walk_cycle.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "walk_cycle",
+    "susuman"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "CHR-014",
+   "name": "Ammi (Qasim's mother, usually on her phone - Susuman series)",
+   "thumbnail": "catalog/thumbs/chr_ammi.jpg",
+   "path": "engine/chars.js#CAST.ammi",
+   "format": "JS rig (canvas)",
+   "category": "characters/2d_rigged",
+   "animation": "RIGGED: 3D-projected skeleton, 4 views + any angle, 31 motions, 16 expressions, 10 visemes, blink/gaze",
+   "tools": [
+    "STUDIO engine (Chrome/Playwright canvas)",
+    "render/render.py -> MP4"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "drawChar(CAST.ammi, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+   "tags": [
+    "character",
+    "adult",
+    "average",
+    "qasim's",
+    "mother,",
+    "usually",
+    "on",
+    "her",
+    "phone",
+    "-",
+    "susuman",
+    "series"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine",
+   "sheets": {
+    "turnaround": "assets/characters/ammi/ammi_turnaround.jpg",
+    "expressions": "assets/characters/ammi/ammi_expressions.jpg",
+    "visemes": "assets/characters/ammi/ammi_visemes.jpg",
+    "poses": "assets/characters/ammi/ammi_poses.jpg",
+    "walk_cycle": "assets/characters/ammi/ammi_walk_cycle.jpg"
+   }
+  },
+  {
+   "id": "SHT-066",
+   "name": "Ammi - turnaround sheet",
+   "thumbnail": "catalog/thumbs/sht_ammi_turnaround.jpg",
+   "path": "assets/characters/ammi/ammi_turnaround.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "turnaround",
+    "ammi"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-067",
+   "name": "Ammi - expressions sheet",
+   "thumbnail": "catalog/thumbs/sht_ammi_expressions.jpg",
+   "path": "assets/characters/ammi/ammi_expressions.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "expressions",
+    "ammi"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-068",
+   "name": "Ammi - visemes sheet",
+   "thumbnail": "catalog/thumbs/sht_ammi_visemes.jpg",
+   "path": "assets/characters/ammi/ammi_visemes.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "visemes",
+    "ammi"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-069",
+   "name": "Ammi - poses sheet",
+   "thumbnail": "catalog/thumbs/sht_ammi_poses.jpg",
+   "path": "assets/characters/ammi/ammi_poses.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "poses",
+    "ammi"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "SHT-070",
+   "name": "Ammi - walk cycle sheet",
+   "thumbnail": "catalog/thumbs/sht_ammi_walk_cycle.jpg",
+   "path": "assets/characters/ammi/ammi_walk_cycle.jpg",
+   "format": "jpg 1920x1080",
+   "category": "characters/sheets",
+   "animation": "static reference sheet (drawn by the rig)",
+   "tools": [
+    "any image viewer",
+    "reference for artists / image AI"
+   ],
+   "channels": [
+    "cartoon",
+    "susuman"
+   ],
+   "usage": "Reference sheet; regenerate with tools/sheets.html",
+   "tags": [
+    "sheet",
+    "walk_cycle",
+    "ammi"
    ],
    "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
    "commercial": true,
@@ -2646,6 +3352,90 @@
   },
   {
    "id": "MOV-027",
+   "name": "Motion: holdPhone",
+   "thumbnail": "catalog/thumbs/mov_holdPhone.jpg",
+   "path": "engine/chars.js#MOVES.holdPhone",
+   "format": "JS motion preset",
+   "category": "movements",
+   "animation": "PROCEDURAL motion clip f(t) for any rigged character",
+   "tools": [
+    "STUDIO engine (Chrome/Playwright canvas)",
+    "render/render.py -> MP4"
+   ],
+   "channels": [
+    "calgaryinsight",
+    "cartoon",
+    "news"
+   ],
+   "usage": "MOVES.holdPhone(t, opts) -> pose; blend with perform([...]) or blendPose()",
+   "tags": [
+    "motion",
+    "holdPhone"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "MOV-028",
+   "name": "Motion: powerPose",
+   "thumbnail": "catalog/thumbs/mov_powerPose.jpg",
+   "path": "engine/chars.js#MOVES.powerPose",
+   "format": "JS motion preset",
+   "category": "movements",
+   "animation": "PROCEDURAL motion clip f(t) for any rigged character",
+   "tools": [
+    "STUDIO engine (Chrome/Playwright canvas)",
+    "render/render.py -> MP4"
+   ],
+   "channels": [
+    "calgaryinsight",
+    "cartoon",
+    "news"
+   ],
+   "usage": "MOVES.powerPose(t, opts) -> pose; blend with perform([...]) or blendPose()",
+   "tags": [
+    "motion",
+    "powerPose"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "MOV-029",
+   "name": "Motion: fly",
+   "thumbnail": "catalog/thumbs/mov_fly.jpg",
+   "path": "engine/chars.js#MOVES.fly",
+   "format": "JS motion preset",
+   "category": "movements",
+   "animation": "PROCEDURAL motion clip f(t) for any rigged character",
+   "tools": [
+    "STUDIO engine (Chrome/Playwright canvas)",
+    "render/render.py -> MP4"
+   ],
+   "channels": [
+    "calgaryinsight",
+    "cartoon",
+    "news"
+   ],
+   "usage": "MOVES.fly(t, opts) -> pose; blend with perform([...]) or blendPose()",
+   "tags": [
+    "motion",
+    "fly"
+   ],
+   "licence": "Original work (Hassan Ali studio) - all rights reserved, free for own use",
+   "commercial": true,
+   "modify": true,
+   "attribution": false,
+   "source": "Original - generated in code by the studio engine"
+  },
+  {
+   "id": "MOV-030",
    "name": "Motion: fightStance",
    "thumbnail": "catalog/thumbs/mov_fightStance.jpg",
    "path": "engine/chars.js#MOVES.fightStance",
@@ -2673,7 +3463,7 @@
    "source": "Original - generated in code by the studio engine"
   },
   {
-   "id": "MOV-028",
+   "id": "MOV-031",
    "name": "Motion: present",
    "thumbnail": "catalog/thumbs/mov_present.jpg",
    "path": "engine/chars.js#MOVES.present",
@@ -2703,7 +3493,7 @@
   {
    "id": "EXP-001",
    "name": "Facial expression set (16): neutral, happy, laugh, sad, cry, angry, shout, surprised, scared, thinking, smug, wink, disgust, sleepy, love, determined",
-   "thumbnail": "catalog/thumbs/sht_chacha_expressions.jpg",
+   "thumbnail": "catalog/thumbs/sht_dadaAbu_expressions.jpg",
    "path": "engine/chars.js#EXPR",
    "format": "JS preset table",
    "category": "characters/expressions",

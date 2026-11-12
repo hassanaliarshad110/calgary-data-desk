@@ -20,73 +20,73 @@
   "spoken numbers written as words in the script",
   "end card + spoken close"
  ],
- "asset_count": 402,
- "shared_with_all_channels": 333,
+ "asset_count": 405,
+ "shared_with_all_channels": 342,
  "assets_by_category": {
   "characters": [
    {
     "id": "CHR-007",
-    "name": "Maya Chen (Office worker / civic explainer host)",
-    "path": "engine/chars.js#CAST.maya"
+    "name": "Zahra (Explainer host; in Susuman: Zahra Miss, Qasim's school teacher)",
+    "path": "engine/chars.js#CAST.zahra"
    },
    {
     "id": "SHT-031",
-    "name": "Maya Chen - turnaround sheet",
-    "path": "assets/characters/maya/maya_turnaround.jpg"
+    "name": "Zahra - turnaround sheet",
+    "path": "assets/characters/zahra/zahra_turnaround.jpg"
    },
    {
     "id": "SHT-032",
-    "name": "Maya Chen - expressions sheet",
-    "path": "assets/characters/maya/maya_expressions.jpg"
+    "name": "Zahra - expressions sheet",
+    "path": "assets/characters/zahra/zahra_expressions.jpg"
    },
    {
     "id": "SHT-033",
-    "name": "Maya Chen - visemes sheet",
-    "path": "assets/characters/maya/maya_visemes.jpg"
+    "name": "Zahra - visemes sheet",
+    "path": "assets/characters/zahra/zahra_visemes.jpg"
    },
    {
     "id": "SHT-034",
-    "name": "Maya Chen - poses sheet",
-    "path": "assets/characters/maya/maya_poses.jpg"
+    "name": "Zahra - poses sheet",
+    "path": "assets/characters/zahra/zahra_poses.jpg"
    },
    {
     "id": "SHT-035",
-    "name": "Maya Chen - walk cycle sheet",
-    "path": "assets/characters/maya/maya_walk_cycle.jpg"
+    "name": "Zahra - walk cycle sheet",
+    "path": "assets/characters/zahra/zahra_walk_cycle.jpg"
    },
    {
     "id": "CHR-008",
-    "name": "Marcus (Construction foreman)",
-    "path": "engine/chars.js#CAST.marcus"
+    "name": "Ammar (Construction foreman; in Susuman: Ammar mistri, the mohalla builder uncle)",
+    "path": "engine/chars.js#CAST.ammar"
    },
    {
     "id": "SHT-036",
-    "name": "Marcus - turnaround sheet",
-    "path": "assets/characters/marcus/marcus_turnaround.jpg"
+    "name": "Ammar - turnaround sheet",
+    "path": "assets/characters/ammar/ammar_turnaround.jpg"
    },
    {
     "id": "SHT-037",
-    "name": "Marcus - expressions sheet",
-    "path": "assets/characters/marcus/marcus_expressions.jpg"
+    "name": "Ammar - expressions sheet",
+    "path": "assets/characters/ammar/ammar_expressions.jpg"
    },
    {
     "id": "SHT-038",
-    "name": "Marcus - visemes sheet",
-    "path": "assets/characters/marcus/marcus_visemes.jpg"
+    "name": "Ammar - visemes sheet",
+    "path": "assets/characters/ammar/ammar_visemes.jpg"
    },
    {
     "id": "SHT-039",
-    "name": "Marcus - poses sheet",
-    "path": "assets/characters/marcus/marcus_poses.jpg"
+    "name": "Ammar - poses sheet",
+    "path": "assets/characters/ammar/ammar_poses.jpg"
    },
    {
     "id": "SHT-040",
-    "name": "Marcus - walk cycle sheet",
-    "path": "assets/characters/marcus/marcus_walk_cycle.jpg"
+    "name": "Ammar - walk cycle sheet",
+    "path": "assets/characters/ammar/ammar_walk_cycle.jpg"
    },
    {
     "id": "CHR-009",
-    "name": "Officer Gill (Police officer)",
+    "name": "Officer Gill (Police officer; in Susuman: the friendly beat-police uncle)",
     "path": "engine/chars.js#CAST.officer"
    },
    {
@@ -116,33 +116,33 @@
    },
    {
     "id": "CHR-010",
-    "name": "Layla (University student)",
-    "path": "engine/chars.js#CAST.layla"
+    "name": "Latifa (University student; in Susuman: Latifa, the college-going neighbour)",
+    "path": "engine/chars.js#CAST.latifa"
    },
    {
     "id": "SHT-046",
-    "name": "Layla - turnaround sheet",
-    "path": "assets/characters/layla/layla_turnaround.jpg"
+    "name": "Latifa - turnaround sheet",
+    "path": "assets/characters/latifa/latifa_turnaround.jpg"
    },
    {
     "id": "SHT-047",
-    "name": "Layla - expressions sheet",
-    "path": "assets/characters/layla/layla_expressions.jpg"
+    "name": "Latifa - expressions sheet",
+    "path": "assets/characters/latifa/latifa_expressions.jpg"
    },
    {
     "id": "SHT-048",
-    "name": "Layla - visemes sheet",
-    "path": "assets/characters/layla/layla_visemes.jpg"
+    "name": "Latifa - visemes sheet",
+    "path": "assets/characters/latifa/latifa_visemes.jpg"
    },
    {
     "id": "SHT-049",
-    "name": "Layla - poses sheet",
-    "path": "assets/characters/layla/layla_poses.jpg"
+    "name": "Latifa - poses sheet",
+    "path": "assets/characters/latifa/latifa_poses.jpg"
    },
    {
     "id": "SHT-050",
-    "name": "Layla - walk cycle sheet",
-    "path": "assets/characters/layla/layla_walk_cycle.jpg"
+    "name": "Latifa - walk cycle sheet",
+    "path": "assets/characters/latifa/latifa_walk_cycle.jpg"
    },
    {
     "id": "EXP-001",
@@ -308,11 +308,26 @@
    },
    {
     "id": "MOV-027",
+    "name": "Motion: holdPhone",
+    "path": "engine/chars.js#MOVES.holdPhone"
+   },
+   {
+    "id": "MOV-028",
+    "name": "Motion: powerPose",
+    "path": "engine/chars.js#MOVES.powerPose"
+   },
+   {
+    "id": "MOV-029",
+    "name": "Motion: fly",
+    "path": "engine/chars.js#MOVES.fly"
+   },
+   {
+    "id": "MOV-030",
     "name": "Motion: fightStance",
     "path": "engine/chars.js#MOVES.fightStance"
    },
    {
-    "id": "MOV-028",
+    "id": "MOV-031",
     "name": "Motion: present",
     "path": "engine/chars.js#MOVES.present"
    }

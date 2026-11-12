@@ -1,7 +1,37 @@
 {
  "channel": "shared",
- "asset_count": 333,
+ "asset_count": 342,
  "assets": [
+  {
+   "id": "CHR-007",
+   "name": "Zahra (Explainer host; in Susuman: Zahra Miss, Qasim's school teacher)",
+   "path": "engine/chars.js#CAST.zahra"
+  },
+  {
+   "id": "SHT-031",
+   "name": "Zahra - turnaround sheet",
+   "path": "assets/characters/zahra/zahra_turnaround.jpg"
+  },
+  {
+   "id": "SHT-032",
+   "name": "Zahra - expressions sheet",
+   "path": "assets/characters/zahra/zahra_expressions.jpg"
+  },
+  {
+   "id": "SHT-033",
+   "name": "Zahra - visemes sheet",
+   "path": "assets/characters/zahra/zahra_visemes.jpg"
+  },
+  {
+   "id": "SHT-034",
+   "name": "Zahra - poses sheet",
+   "path": "assets/characters/zahra/zahra_poses.jpg"
+  },
+  {
+   "id": "SHT-035",
+   "name": "Zahra - walk cycle sheet",
+   "path": "assets/characters/zahra/zahra_walk_cycle.jpg"
+  },
   {
    "id": "MOV-001",
    "name": "Motion: idle",
@@ -134,11 +164,26 @@
   },
   {
    "id": "MOV-027",
+   "name": "Motion: holdPhone",
+   "path": "engine/chars.js#MOVES.holdPhone"
+  },
+  {
+   "id": "MOV-028",
+   "name": "Motion: powerPose",
+   "path": "engine/chars.js#MOVES.powerPose"
+  },
+  {
+   "id": "MOV-029",
+   "name": "Motion: fly",
+   "path": "engine/chars.js#MOVES.fly"
+  },
+  {
+   "id": "MOV-030",
    "name": "Motion: fightStance",
    "path": "engine/chars.js#MOVES.fightStance"
   },
   {
-   "id": "MOV-028",
+   "id": "MOV-031",
    "name": "Motion: present",
    "path": "engine/chars.js#MOVES.present"
   },

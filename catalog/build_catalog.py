@@ -84,7 +84,7 @@ with sync_playwright() as P:
     # --- motions, expressions, visemes
     for m in REG['moves']:
         add('MOV', f'Motion: {m}', thumbnail=shot(f"thumbMove('{m}')", f'mov_{m}'), path=f'engine/chars.js#MOVES.{m}', format='JS motion preset', category='movements', animation='PROCEDURAL motion clip f(t) for any rigged character', usage=f"MOVES.{m}(t, opts) -> pose; blend with perform([...]) or blendPose()", tags=['motion', m])
-    add('EXP', f"Facial expression set ({len(REG['expr'])}): " + ', '.join(REG['expr']), thumbnail=rel(os.path.join(TH, 'sht_chacha_expressions.jpg')), path='engine/chars.js#EXPR', format='JS preset table', category='characters/expressions', animation='switchable per frame (pose.face.expr)', usage="pose.face.expr = 'laugh'", tags=['expression', 'face', 'emotion'])
+    add('EXP', f"Facial expression set ({len(REG['expr'])}): " + ', '.join(REG['expr']), thumbnail=rel(os.path.join(TH, 'sht_dadaAbu_expressions.jpg')), path='engine/chars.js#EXPR', format='JS preset table', category='characters/expressions', animation='switchable per frame (pose.face.expr)', usage="pose.face.expr = 'laugh'", tags=['expression', 'face', 'emotion'])
     add('VIS', f"Lip-sync mouth shapes ({len(REG['visemes'])} Preston-Blair visemes)", thumbnail=rel(os.path.join(TH, 'sht_amara_visemes.jpg')), path='engine/chars.js#VISEMES + render/lipsync.py', format='JS + Python', category='characters/lipsync', animation='driven by voice loudness per frame', usage='python3 render/lipsync.py lips.json a=voice.wav; pose.face.mouth = visemeAt(LIPS.tracks.a, t)', tags=['lipsync', 'mouth', 'talk'])
     # --- sets
     for k, s in REG['sets'].items():

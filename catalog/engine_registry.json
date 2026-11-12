@@ -2,106 +2,148 @@
  "cast": {
   "daniel": {
    "name": "Daniel Okafor",
-   "role": "News anchor",
+   "role": "News anchor; in Susuman: TV anchor reporting sightings of a golden mystery hero",
    "channel": [
-    "news"
+    "news",
+    "susuman"
    ],
    "age": "adult",
    "build": "average"
   },
   "amara": {
    "name": "Amara Singh",
-   "role": "News co-anchor / reporter",
+   "role": "News co-anchor / reporter; in Susuman: the TV field reporter",
    "channel": [
-    "news"
+    "news",
+    "susuman"
    ],
    "age": "adult",
    "build": "slim"
   },
-  "chacha": {
-   "name": "Chacha Bashir",
-   "role": "Comic uncle, would-be magician",
+  "dadaAbu": {
+   "name": "Dada Abu",
+   "role": "Qasim's grandfather (Abbu's father): comic, proud of his magic tricks - Susuman ensemble",
    "channel": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "age": "elder",
    "build": "chubby"
   },
-  "zoya": {
-   "name": "Zoya",
-   "role": "Clever niece, 14",
+  "sakina": {
+   "name": "Sakina",
+   "role": "Qasim's elder sister (Baaji), 14 - the ONLY one who knows he is Susuman",
    "channel": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "age": "teen",
    "build": "slim"
   },
-  "rafi": {
-   "name": "Rafi",
-   "role": "Energetic kid, 7",
+  "basim": {
+   "name": "Basim",
+   "role": "Qasim's best friend from the gali, 7 - Susuman ensemble",
    "channel": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "age": "kid",
    "build": "average"
   },
-  "nani": {
-   "name": "Nani",
-   "role": "Grandmother",
+  "dadi": {
+   "name": "Dadi",
+   "role": "Qasim's grandmother (Abbu's mother) - Susuman ensemble",
    "channel": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "age": "elder",
    "build": "chubby"
   },
-  "maya": {
-   "name": "Maya Chen",
-   "role": "Office worker / civic explainer host",
+  "zahra": {
+   "name": "Zahra",
+   "role": "Explainer host; in Susuman: Zahra Miss, Qasim's school teacher",
    "channel": [
     "calgaryinsight",
-    "news"
+    "news",
+    "cartoon",
+    "susuman"
    ],
    "age": "adult",
    "build": "average"
   },
-  "marcus": {
-   "name": "Marcus",
-   "role": "Construction foreman",
+  "ammar": {
+   "name": "Ammar",
+   "role": "Construction foreman; in Susuman: Ammar mistri, the mohalla builder uncle",
    "channel": [
     "calgaryinsight",
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "age": "adult",
    "build": "muscular"
   },
   "officer": {
    "name": "Officer Gill",
-   "role": "Police officer",
+   "role": "Police officer; in Susuman: the friendly beat-police uncle",
    "channel": [
     "news",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "age": "adult",
    "build": "average"
   },
-  "layla": {
-   "name": "Layla",
-   "role": "University student",
+  "latifa": {
+   "name": "Latifa",
+   "role": "University student; in Susuman: Latifa, the college-going neighbour",
    "channel": [
     "cartoon",
-    "calgaryinsight"
+    "calgaryinsight",
+    "susuman"
    ],
    "age": "adult",
    "build": "petite"
   },
-  "jamal": {
-   "name": "Jamal",
-   "role": "Teen skateboarder",
+  "dharmender": {
+   "name": "Dharmender",
+   "role": "Teen skateboarder; in Susuman: Dharmender bhaiya, the gali teenager",
    "channel": [
-    "cartoon"
+    "cartoon",
+    "susuman"
    ],
    "age": "teen",
    "build": "slim"
+  },
+  "qasim": {
+   "name": "Qasim",
+   "role": "4-year-old hero (normal form) - Susuman series",
+   "channel": [
+    "cartoon",
+    "susuman"
+   ],
+   "age": "toddler",
+   "build": "muscular"
+  },
+  "susuman": {
+   "name": "Susuman",
+   "role": "Qasim in power form: gold aura, red cape, floating crown - Susuman series",
+   "channel": [
+    "cartoon",
+    "susuman"
+   ],
+   "age": "toddler",
+   "build": "muscular"
+  },
+  "ammi": {
+   "name": "Ammi",
+   "role": "Qasim's mother, usually on her phone - Susuman series",
+   "channel": [
+    "cartoon",
+    "susuman"
+   ],
+   "age": "adult",
+   "build": "average"
   }
  },
  "moves": [
@@ -131,6 +173,9 @@
   "think",
   "scared",
   "holdHead",
+  "holdPhone",
+  "powerPose",
+  "fly",
   "fightStance",
   "present"
  ],

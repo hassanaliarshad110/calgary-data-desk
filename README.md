@@ -24,10 +24,10 @@ Preview single frames first: `python3 render/render.py demos/x/index.html previe
 
 ## Using the rig
 ```js
-drawChar(CAST.zoya, MOVES.walk(t, { yaw: Math.PI/2 }), x, groundY, scale, { t });   // any of 28 motions
+drawChar(CAST.sakina, MOVES.walk(t, { yaw: Math.PI/2 }), x, groundY, scale, { t });   // any of 28 motions
 const p = MOVES.talk(t, { expr: 'smug' }); p.face.mouth = visemeAt(LIPS.tracks.z0, t); // lip-sync from audio
 perform([{ move: 'walk', t0: 0 }, { move: 'turn', t0: 2, opts: { from: Math.PI/2, to: 0 } }, { move: 'wave', t0: 2.5 }], t); // blended sequence
-jointPos(CAST.chacha, pose, x, gy, s, 'wriL') // attach props to hands/head
+jointPos(CAST.dadaAbu, pose, x, gy, s, 'wriL') // attach props to hands/head
 ```
 New character = a new entry in `CAST` (age, build, skin, hair style, outfit type, accessories). New motion = a function in `MOVES` returning a pose.
 

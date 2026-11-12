@@ -18,12 +18,12 @@ SYN = {  # brief words -> catalogue vocabulary
     'calgary': ['calgary', 'skyline', '3d', 'downtown', 'plus15'], 'downtown': ['downtown', 'city', '3d', 'office'], 'history': ['historical', 'fort', 'timeline', 'sepia'], 'future': ['futuristic'], 'police': ['officer', 'police'], 'health': ['hospital', 'heartmonitor'], 'school': ['school', 'schooldesk'],
     'funny': ['laugh', 'boing', 'bonk', 'impactstar', 'cartoon'], 'comedy': ['laugh', 'boing', 'bonk', 'slide', 'cartoon'], 'magic': ['wand', 'magic', 'sparkle', 'poof', 'stars'], 'fight': ['punch', 'kick', 'fightstance', 'impactstar', 'punch'], 'dance': ['dance', 'celebrate', 'confetti'], 'sad': ['cry', 'sad'], 'angry': ['shout', 'angry'],
     'breaking': ['breakingbanner', 'sting', 'headline', 'swoosh'], 'presenter': ['daniel', 'amara', 'anchor', 'newsroom', 'lowerthird'], 'interview': ['lowerthird', 'talk', 'listen', 'office'], 'map': ['map', 'pin', 'route', 'geo', 'provinces'], 'chart': ['bars', 'line', 'donut', 'counter'], 'data': ['bars', 'line', 'counter', 'stat', 'timeline'],
-    'family': ['living', 'nani', 'chacha', 'rafi', 'zoya'], 'kids': ['rafi', 'school', 'park'], 'food': ['food', 'restaurant', 'chai', 'samosa', 'biryani'], 'shop': ['shop', 'till'], 'fire': ['fire', 'smoke'], 'explosion': ['explosion', 'debris', 'shockwave'], 'rain': ['rain', 'umbrella'], 'night': ['night', 'calgary_night'],
+    'family': ['living', 'dadi', 'dadaabu', 'basim', 'sakina'], 'kids': ['basim', 'school', 'park'], 'food': ['food', 'restaurant', 'chai', 'samosa', 'biryani'], 'shop': ['shop', 'till'], 'fire': ['fire', 'smoke'], 'explosion': ['explosion', 'debris', 'shockwave'], 'rain': ['rain', 'umbrella'], 'night': ['night', 'calgary_night'],
 }
 DEFAULTS = {
     'news': ['present', 'talk', 'newsroom', 'daniel', 'amara', 'lowerthird', 'breakingbanner', 'ticker', 'livebug', 'clockbug', 'sting', 'newsswoosh', 'news_bed', 'swoosh_news', 'map', 'bars', 'headline'],
-    'cartoon': ['living_room', 'park', 'chacha', 'zoya', 'rafi', 'talk', 'listen', 'laugh', 'impactstar', 'boing', 'bonk', 'cartoon_bouncy', 'irisout', 'speechbubble', 'pop', 'whoosh'],
-    'calgaryinsight': ['talk', 'point', 'walk', '3d', 'calgary', 'skyline', 'titlecard', 'timeline', 'counter', 'stat', 'callout', 'documentary_calm', 'dissolve', 'kenburns', 'maya', 'marcus', 'endcard', 'sourceline'],
+    'cartoon': ['living_room', 'park', 'dadaabu', 'sakina', 'basim', 'talk', 'listen', 'laugh', 'impactstar', 'boing', 'bonk', 'cartoon_bouncy', 'irisout', 'speechbubble', 'pop', 'whoosh'],
+    'calgaryinsight': ['talk', 'point', 'walk', '3d', 'calgary', 'skyline', 'titlecard', 'timeline', 'counter', 'stat', 'callout', 'documentary_calm', 'dissolve', 'kenburns', 'zahra', 'ammar', 'endcard', 'sourceline'],
 }
 SLOTS = [('characters', lambda a: a['id'].startswith(('CHR', 'R3D')), 3), ('motions', lambda a: a['id'].startswith('MOV'), 6), ('environments', lambda a: a['id'].startswith(('ENV', '3DS', 'HDR')), 3),
          ('props', lambda a: a['id'].startswith(('PRP', 'M3D')), 6), ('vfx', lambda a: a['id'].startswith('VFX'), 4), ('graphics', lambda a: a['id'].startswith(('GFX', 'LOT', 'SVG', 'TXT')), 8),

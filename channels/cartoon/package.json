@@ -20,219 +20,339 @@
   "kids content: no comment CTAs",
   "Susuman assets stay with the Susuman series"
  ],
- "asset_count": 394,
- "shared_with_all_channels": 333,
+ "asset_count": 421,
+ "shared_with_all_channels": 342,
  "assets_by_category": {
   "characters": [
    {
     "id": "CHR-003",
-    "name": "Chacha Bashir (Comic uncle, would-be magician)",
-    "path": "engine/chars.js#CAST.chacha"
+    "name": "Dada Abu (Qasim's grandfather (Abbu's father): comic, proud of his magic tricks - Susuman ensemble)",
+    "path": "engine/chars.js#CAST.dadaAbu"
    },
    {
     "id": "SHT-011",
-    "name": "Chacha Bashir - turnaround sheet",
-    "path": "assets/characters/chacha/chacha_turnaround.jpg"
+    "name": "Dada Abu - turnaround sheet",
+    "path": "assets/characters/dadaAbu/dadaAbu_turnaround.jpg"
    },
    {
     "id": "SHT-012",
-    "name": "Chacha Bashir - expressions sheet",
-    "path": "assets/characters/chacha/chacha_expressions.jpg"
+    "name": "Dada Abu - expressions sheet",
+    "path": "assets/characters/dadaAbu/dadaAbu_expressions.jpg"
    },
    {
     "id": "SHT-013",
-    "name": "Chacha Bashir - visemes sheet",
-    "path": "assets/characters/chacha/chacha_visemes.jpg"
+    "name": "Dada Abu - visemes sheet",
+    "path": "assets/characters/dadaAbu/dadaAbu_visemes.jpg"
    },
    {
     "id": "SHT-014",
-    "name": "Chacha Bashir - poses sheet",
-    "path": "assets/characters/chacha/chacha_poses.jpg"
+    "name": "Dada Abu - poses sheet",
+    "path": "assets/characters/dadaAbu/dadaAbu_poses.jpg"
    },
    {
     "id": "SHT-015",
-    "name": "Chacha Bashir - walk cycle sheet",
-    "path": "assets/characters/chacha/chacha_walk_cycle.jpg"
+    "name": "Dada Abu - walk cycle sheet",
+    "path": "assets/characters/dadaAbu/dadaAbu_walk_cycle.jpg"
    },
    {
     "id": "CHR-004",
-    "name": "Zoya (Clever niece, 14)",
-    "path": "engine/chars.js#CAST.zoya"
+    "name": "Sakina (Qasim's elder sister (Baaji), 14 - the ONLY one who knows he is Susuman)",
+    "path": "engine/chars.js#CAST.sakina"
    },
    {
     "id": "SHT-016",
-    "name": "Zoya - turnaround sheet",
-    "path": "assets/characters/zoya/zoya_turnaround.jpg"
+    "name": "Sakina - turnaround sheet",
+    "path": "assets/characters/sakina/sakina_turnaround.jpg"
    },
    {
     "id": "SHT-017",
-    "name": "Zoya - expressions sheet",
-    "path": "assets/characters/zoya/zoya_expressions.jpg"
+    "name": "Sakina - expressions sheet",
+    "path": "assets/characters/sakina/sakina_expressions.jpg"
    },
    {
     "id": "SHT-018",
-    "name": "Zoya - visemes sheet",
-    "path": "assets/characters/zoya/zoya_visemes.jpg"
+    "name": "Sakina - visemes sheet",
+    "path": "assets/characters/sakina/sakina_visemes.jpg"
    },
    {
     "id": "SHT-019",
-    "name": "Zoya - poses sheet",
-    "path": "assets/characters/zoya/zoya_poses.jpg"
+    "name": "Sakina - poses sheet",
+    "path": "assets/characters/sakina/sakina_poses.jpg"
    },
    {
     "id": "SHT-020",
-    "name": "Zoya - walk cycle sheet",
-    "path": "assets/characters/zoya/zoya_walk_cycle.jpg"
+    "name": "Sakina - walk cycle sheet",
+    "path": "assets/characters/sakina/sakina_walk_cycle.jpg"
    },
    {
     "id": "CHR-005",
-    "name": "Rafi (Energetic kid, 7)",
-    "path": "engine/chars.js#CAST.rafi"
+    "name": "Basim (Qasim's best friend from the gali, 7 - Susuman ensemble)",
+    "path": "engine/chars.js#CAST.basim"
    },
    {
     "id": "SHT-021",
-    "name": "Rafi - turnaround sheet",
-    "path": "assets/characters/rafi/rafi_turnaround.jpg"
+    "name": "Basim - turnaround sheet",
+    "path": "assets/characters/basim/basim_turnaround.jpg"
    },
    {
     "id": "SHT-022",
-    "name": "Rafi - expressions sheet",
-    "path": "assets/characters/rafi/rafi_expressions.jpg"
+    "name": "Basim - expressions sheet",
+    "path": "assets/characters/basim/basim_expressions.jpg"
    },
    {
     "id": "SHT-023",
-    "name": "Rafi - visemes sheet",
-    "path": "assets/characters/rafi/rafi_visemes.jpg"
+    "name": "Basim - visemes sheet",
+    "path": "assets/characters/basim/basim_visemes.jpg"
    },
    {
     "id": "SHT-024",
-    "name": "Rafi - poses sheet",
-    "path": "assets/characters/rafi/rafi_poses.jpg"
+    "name": "Basim - poses sheet",
+    "path": "assets/characters/basim/basim_poses.jpg"
    },
    {
     "id": "SHT-025",
-    "name": "Rafi - walk cycle sheet",
-    "path": "assets/characters/rafi/rafi_walk_cycle.jpg"
+    "name": "Basim - walk cycle sheet",
+    "path": "assets/characters/basim/basim_walk_cycle.jpg"
    },
    {
     "id": "CHR-006",
-    "name": "Nani (Grandmother)",
-    "path": "engine/chars.js#CAST.nani"
+    "name": "Dadi (Qasim's grandmother (Abbu's mother) - Susuman ensemble)",
+    "path": "engine/chars.js#CAST.dadi"
    },
    {
     "id": "SHT-026",
-    "name": "Nani - turnaround sheet",
-    "path": "assets/characters/nani/nani_turnaround.jpg"
+    "name": "Dadi - turnaround sheet",
+    "path": "assets/characters/dadi/dadi_turnaround.jpg"
    },
    {
     "id": "SHT-027",
-    "name": "Nani - expressions sheet",
-    "path": "assets/characters/nani/nani_expressions.jpg"
+    "name": "Dadi - expressions sheet",
+    "path": "assets/characters/dadi/dadi_expressions.jpg"
    },
    {
     "id": "SHT-028",
-    "name": "Nani - visemes sheet",
-    "path": "assets/characters/nani/nani_visemes.jpg"
+    "name": "Dadi - visemes sheet",
+    "path": "assets/characters/dadi/dadi_visemes.jpg"
    },
    {
     "id": "SHT-029",
-    "name": "Nani - poses sheet",
-    "path": "assets/characters/nani/nani_poses.jpg"
+    "name": "Dadi - poses sheet",
+    "path": "assets/characters/dadi/dadi_poses.jpg"
    },
    {
     "id": "SHT-030",
-    "name": "Nani - walk cycle sheet",
-    "path": "assets/characters/nani/nani_walk_cycle.jpg"
+    "name": "Dadi - walk cycle sheet",
+    "path": "assets/characters/dadi/dadi_walk_cycle.jpg"
+   },
+   {
+    "id": "CHR-007",
+    "name": "Zahra (Explainer host; in Susuman: Zahra Miss, Qasim's school teacher)",
+    "path": "engine/chars.js#CAST.zahra"
+   },
+   {
+    "id": "SHT-031",
+    "name": "Zahra - turnaround sheet",
+    "path": "assets/characters/zahra/zahra_turnaround.jpg"
+   },
+   {
+    "id": "SHT-032",
+    "name": "Zahra - expressions sheet",
+    "path": "assets/characters/zahra/zahra_expressions.jpg"
+   },
+   {
+    "id": "SHT-033",
+    "name": "Zahra - visemes sheet",
+    "path": "assets/characters/zahra/zahra_visemes.jpg"
+   },
+   {
+    "id": "SHT-034",
+    "name": "Zahra - poses sheet",
+    "path": "assets/characters/zahra/zahra_poses.jpg"
+   },
+   {
+    "id": "SHT-035",
+    "name": "Zahra - walk cycle sheet",
+    "path": "assets/characters/zahra/zahra_walk_cycle.jpg"
    },
    {
     "id": "CHR-008",
-    "name": "Marcus (Construction foreman)",
-    "path": "engine/chars.js#CAST.marcus"
+    "name": "Ammar (Construction foreman; in Susuman: Ammar mistri, the mohalla builder uncle)",
+    "path": "engine/chars.js#CAST.ammar"
    },
    {
     "id": "SHT-036",
-    "name": "Marcus - turnaround sheet",
-    "path": "assets/characters/marcus/marcus_turnaround.jpg"
+    "name": "Ammar - turnaround sheet",
+    "path": "assets/characters/ammar/ammar_turnaround.jpg"
    },
    {
     "id": "SHT-037",
-    "name": "Marcus - expressions sheet",
-    "path": "assets/characters/marcus/marcus_expressions.jpg"
+    "name": "Ammar - expressions sheet",
+    "path": "assets/characters/ammar/ammar_expressions.jpg"
    },
    {
     "id": "SHT-038",
-    "name": "Marcus - visemes sheet",
-    "path": "assets/characters/marcus/marcus_visemes.jpg"
+    "name": "Ammar - visemes sheet",
+    "path": "assets/characters/ammar/ammar_visemes.jpg"
    },
    {
     "id": "SHT-039",
-    "name": "Marcus - poses sheet",
-    "path": "assets/characters/marcus/marcus_poses.jpg"
+    "name": "Ammar - poses sheet",
+    "path": "assets/characters/ammar/ammar_poses.jpg"
    },
    {
     "id": "SHT-040",
-    "name": "Marcus - walk cycle sheet",
-    "path": "assets/characters/marcus/marcus_walk_cycle.jpg"
+    "name": "Ammar - walk cycle sheet",
+    "path": "assets/characters/ammar/ammar_walk_cycle.jpg"
    },
    {
     "id": "CHR-010",
-    "name": "Layla (University student)",
-    "path": "engine/chars.js#CAST.layla"
+    "name": "Latifa (University student; in Susuman: Latifa, the college-going neighbour)",
+    "path": "engine/chars.js#CAST.latifa"
    },
    {
     "id": "SHT-046",
-    "name": "Layla - turnaround sheet",
-    "path": "assets/characters/layla/layla_turnaround.jpg"
+    "name": "Latifa - turnaround sheet",
+    "path": "assets/characters/latifa/latifa_turnaround.jpg"
    },
    {
     "id": "SHT-047",
-    "name": "Layla - expressions sheet",
-    "path": "assets/characters/layla/layla_expressions.jpg"
+    "name": "Latifa - expressions sheet",
+    "path": "assets/characters/latifa/latifa_expressions.jpg"
    },
    {
     "id": "SHT-048",
-    "name": "Layla - visemes sheet",
-    "path": "assets/characters/layla/layla_visemes.jpg"
+    "name": "Latifa - visemes sheet",
+    "path": "assets/characters/latifa/latifa_visemes.jpg"
    },
    {
     "id": "SHT-049",
-    "name": "Layla - poses sheet",
-    "path": "assets/characters/layla/layla_poses.jpg"
+    "name": "Latifa - poses sheet",
+    "path": "assets/characters/latifa/latifa_poses.jpg"
    },
    {
     "id": "SHT-050",
-    "name": "Layla - walk cycle sheet",
-    "path": "assets/characters/layla/layla_walk_cycle.jpg"
+    "name": "Latifa - walk cycle sheet",
+    "path": "assets/characters/latifa/latifa_walk_cycle.jpg"
    },
    {
     "id": "CHR-011",
-    "name": "Jamal (Teen skateboarder)",
-    "path": "engine/chars.js#CAST.jamal"
+    "name": "Dharmender (Teen skateboarder; in Susuman: Dharmender bhaiya, the gali teenager)",
+    "path": "engine/chars.js#CAST.dharmender"
    },
    {
     "id": "SHT-051",
-    "name": "Jamal - turnaround sheet",
-    "path": "assets/characters/jamal/jamal_turnaround.jpg"
+    "name": "Dharmender - turnaround sheet",
+    "path": "assets/characters/dharmender/dharmender_turnaround.jpg"
    },
    {
     "id": "SHT-052",
-    "name": "Jamal - expressions sheet",
-    "path": "assets/characters/jamal/jamal_expressions.jpg"
+    "name": "Dharmender - expressions sheet",
+    "path": "assets/characters/dharmender/dharmender_expressions.jpg"
    },
    {
     "id": "SHT-053",
-    "name": "Jamal - visemes sheet",
-    "path": "assets/characters/jamal/jamal_visemes.jpg"
+    "name": "Dharmender - visemes sheet",
+    "path": "assets/characters/dharmender/dharmender_visemes.jpg"
    },
    {
     "id": "SHT-054",
-    "name": "Jamal - poses sheet",
-    "path": "assets/characters/jamal/jamal_poses.jpg"
+    "name": "Dharmender - poses sheet",
+    "path": "assets/characters/dharmender/dharmender_poses.jpg"
    },
    {
     "id": "SHT-055",
-    "name": "Jamal - walk cycle sheet",
-    "path": "assets/characters/jamal/jamal_walk_cycle.jpg"
+    "name": "Dharmender - walk cycle sheet",
+    "path": "assets/characters/dharmender/dharmender_walk_cycle.jpg"
+   },
+   {
+    "id": "CHR-012",
+    "name": "Qasim (4-year-old hero (normal form) - Susuman series)",
+    "path": "engine/chars.js#CAST.qasim"
+   },
+   {
+    "id": "SHT-056",
+    "name": "Qasim - turnaround sheet",
+    "path": "assets/characters/qasim/qasim_turnaround.jpg"
+   },
+   {
+    "id": "SHT-057",
+    "name": "Qasim - expressions sheet",
+    "path": "assets/characters/qasim/qasim_expressions.jpg"
+   },
+   {
+    "id": "SHT-058",
+    "name": "Qasim - visemes sheet",
+    "path": "assets/characters/qasim/qasim_visemes.jpg"
+   },
+   {
+    "id": "SHT-059",
+    "name": "Qasim - poses sheet",
+    "path": "assets/characters/qasim/qasim_poses.jpg"
+   },
+   {
+    "id": "SHT-060",
+    "name": "Qasim - walk cycle sheet",
+    "path": "assets/characters/qasim/qasim_walk_cycle.jpg"
+   },
+   {
+    "id": "CHR-013",
+    "name": "Susuman (Qasim in power form: gold aura, red cape, floating crown - Susuman series)",
+    "path": "engine/chars.js#CAST.susuman"
+   },
+   {
+    "id": "SHT-061",
+    "name": "Susuman - turnaround sheet",
+    "path": "assets/characters/susuman/susuman_turnaround.jpg"
+   },
+   {
+    "id": "SHT-062",
+    "name": "Susuman - expressions sheet",
+    "path": "assets/characters/susuman/susuman_expressions.jpg"
+   },
+   {
+    "id": "SHT-063",
+    "name": "Susuman - visemes sheet",
+    "path": "assets/characters/susuman/susuman_visemes.jpg"
+   },
+   {
+    "id": "SHT-064",
+    "name": "Susuman - poses sheet",
+    "path": "assets/characters/susuman/susuman_poses.jpg"
+   },
+   {
+    "id": "SHT-065",
+    "name": "Susuman - walk cycle sheet",
+    "path": "assets/characters/susuman/susuman_walk_cycle.jpg"
+   },
+   {
+    "id": "CHR-014",
+    "name": "Ammi (Qasim's mother, usually on her phone - Susuman series)",
+    "path": "engine/chars.js#CAST.ammi"
+   },
+   {
+    "id": "SHT-066",
+    "name": "Ammi - turnaround sheet",
+    "path": "assets/characters/ammi/ammi_turnaround.jpg"
+   },
+   {
+    "id": "SHT-067",
+    "name": "Ammi - expressions sheet",
+    "path": "assets/characters/ammi/ammi_expressions.jpg"
+   },
+   {
+    "id": "SHT-068",
+    "name": "Ammi - visemes sheet",
+    "path": "assets/characters/ammi/ammi_visemes.jpg"
+   },
+   {
+    "id": "SHT-069",
+    "name": "Ammi - poses sheet",
+    "path": "assets/characters/ammi/ammi_poses.jpg"
+   },
+   {
+    "id": "SHT-070",
+    "name": "Ammi - walk cycle sheet",
+    "path": "assets/characters/ammi/ammi_walk_cycle.jpg"
    },
    {
     "id": "EXP-001",
@@ -398,11 +518,26 @@
    },
    {
     "id": "MOV-027",
+    "name": "Motion: holdPhone",
+    "path": "engine/chars.js#MOVES.holdPhone"
+   },
+   {
+    "id": "MOV-028",
+    "name": "Motion: powerPose",
+    "path": "engine/chars.js#MOVES.powerPose"
+   },
+   {
+    "id": "MOV-029",
+    "name": "Motion: fly",
+    "path": "engine/chars.js#MOVES.fly"
+   },
+   {
+    "id": "MOV-030",
     "name": "Motion: fightStance",
     "path": "engine/chars.js#MOVES.fightStance"
    },
    {
-    "id": "MOV-028",
+    "id": "MOV-031",
     "name": "Motion: present",
     "path": "engine/chars.js#MOVES.present"
    }
