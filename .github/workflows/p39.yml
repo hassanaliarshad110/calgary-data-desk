@@ -1,9 +1,9 @@
-name: Probe 36
+name: Probe 39
 
 # Read only. Runs the Data Genie's tools offline against the live site's Genie files with the genie-bva code on top,
-# and asks it two questions once (Fast), with the site key. Output goes to fetched-36.
+# and asks it two questions once (Fast), with the site key. Output goes to fetched-39.
 
-on: {push: {branches: [site-check-36]}}
+on: {push: {branches: [site-check-39]}}
 permissions: {contents: write}
 jobs:
   p:
@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
         with: {path: probe}
       - uses: actions/checkout@v4
-        with: {ref: genie-bva, path: code}
+        with: {ref: clarify, path: code}
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - name: Ask
@@ -28,15 +28,15 @@ jobs:
           cp code/ui/budget-intel/budget-vs-actual.json app/data/budget-vs-actual.json
           python3 probe/audit/new_registry.py
           pip install -q requests openpyxl > /dev/null 2>&1
-          KEY="$KEY" python3 probe/audit/genie_ask.py "$PWD/app" "$PWD/out/answers.txt" > out/run.txt 2>&1
+          KEY="$KEY" python3 probe/audit/check_ask.py "$PWD/app" "$PWD/out/check.txt" > out/run.txt 2>&1
           tail -40 out/run.txt
-      - name: Push to fetched-36 (evidence only)
+      - name: Push to fetched-39 (evidence only)
         if: always()
         run: |
           set +e
           cd probe
           git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
-          git checkout -q --orphan fetched-36
+          git checkout -q --orphan fetched-39
           git rm -rqf --cached . > /dev/null 2>&1
           rm -rf audit .github; mv ../out out
-          git add -f out && git commit -qm "Data Genie test answers (evidence only)" && git push -qf origin fetched-36
+          git add -f out && git commit -qm "Request check test (evidence only)" && git push -qf origin fetched-39
