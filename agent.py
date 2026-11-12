@@ -1544,6 +1544,11 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                'Elections Canada); members today from the Legislative Assembly of Alberta and the House of Commons. '
                'State results as facts with their source and date; never favour or rate a candidate or party, and '
                'give no voting advice. get_method topic elections.'}
+        try:
+            import elections as _el                     # noqa: PLC0415
+            out['next_elections'] = _el.NEXT           # the dates the Election Data Centre shows (federal, provincial, municipal)
+        except Exception:                               # noqa: BLE001
+            pass
         if (extra or {}).get('full'):
             try:
                 import elections                        # noqa: PLC0415

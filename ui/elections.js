@@ -155,7 +155,7 @@ function elFederal() {
 let elSub = 'room';
 const EL_SUBS = [['room', 'Overview'], ['leaders', 'Know your leaders'], ['area', 'Know your constituency'], ['analytics', 'Election Analytics'], ['civic', 'Civic Accountability'], ['results', 'Full results']];
 // election days: Alberta's (Election Act s. 38.1, Elections Alberta), municipal (Government of Alberta: 15 October 2029)
-// and federal (Canada Elections Act s. 56.1: 15 October 2029, unless an election is called earlier)
+// and federal (Canada Elections Act s. 56.1: 15 October 2029, unless an election is called earlier); elections.py NEXT keeps the same three for Data Genie
 const EL_NEXT = [['Alberta general election', '2027-10-18', 'Fixed date in law'], ['Calgary municipal election', '2029-10-15', 'Alberta\'s next municipal general election'],
   ['Federal general election', '2029-10-15', 'Fixed date in law, unless called earlier']];
 const EL_PALETTE = ['#0369A1', '#B45309', '#047857', '#7C3AED', '#BE123C', '#0F766E', '#4D7C0F', '#64748B'];

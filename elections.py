@@ -66,6 +66,17 @@ DATES = {'municipal': '2025-10-20', 'provincial': '2023-05-29', 'federal': '2025
 AB_PGE_EVENT = 101                    # Elections Alberta's event number for the 2023 general election
 AB_REFERENDUM = [202600 + q for q in range(1, 11)]      # 2026 referendum, questions 1 to 10
 AB_NEXT_DAY = '2027-10-18'            # the third Monday in October 2027 (Election Act, s. 38.1)
+FED_NEXT_DAY = '2029-10-15'           # the third Monday in October of the fourth calendar year after 2025 (Canada Elections Act, s. 56.1)
+MUNI_NEXT_DAY = '2029-10-15'          # Alberta's next municipal general election (third Monday in October, every four years)
+# The next elections, as the Election Data Centre shows them (ui/elections.js EL_NEXT keeps the same three: change both).
+NEXT = [{'election': 'Alberta general election', 'date': AB_NEXT_DAY, 'basis': 'Fixed date in law (Alberta Election Act, s. 38.1)',
+         'source': 'https://www.elections.ab.ca/'},
+        {'election': 'Calgary municipal election', 'date': MUNI_NEXT_DAY, 'basis': 'Alberta\'s next municipal general election, as the Government of Alberta states it',
+         'source': 'https://www.alberta.ca/municipal-elections-overview'},
+        {'election': 'Federal general election (Calgary\'s MPs)', 'date': FED_NEXT_DAY,
+         'basis': 'Fixed date in law: the third Monday in October of the fourth calendar year after the last general election (April 28, 2025) '
+                  '(Canada Elections Act, s. 56.1). It can be held earlier if the Governor General dissolves Parliament on the Prime Minister\'s advice.',
+         'source': 'https://www.elections.ca/content.aspx?section=vot&dir=faq&document=faqelec&lang=e'}]
 
 # Calgary's bounding box, a little wider than the city (for the riding outlines that touch it)
 BOX = (-114.35, 50.84, -113.85, 51.22)
@@ -931,10 +942,11 @@ def view(base, ward, codes, pops, ward_of=None, method=None):
     if not base:
         return None
     out = {'version': base.get('version'), 'built_at': base.get('built_at'), 'dates': base.get('dates'),
-           'errors': base.get('errors') or {}}
+           'errors': base.get('errors') or {}, 'next_elections': NEXT}
     m = base.get('municipal')
     if m:
-        out['municipal'] = {'mayor': _rep(m.get('mayor'), None), 'turnout': m.get('turnout'), 'date': m.get('date')}
+        out['municipal'] = {'mayor': _rep(m.get('mayor'), None), 'turnout': m.get('turnout'), 'date': m.get('date'),
+                            'next_election': MUNI_NEXT_DAY}
         if ward:
             out['municipal']['councillor'] = _rep((m.get('councillors') or {}).get(str(ward)), None)
             for key in ('public_trustees', 'separate_trustees'):
@@ -954,7 +966,8 @@ def view(base, ward, codes, pops, ward_of=None, method=None):
             r = _rep(race, (b.get('members') or {}).get(x['riding']))
             reps.append(dict(x, **(r or {}), last_election=(bye or {}).get('date') or b.get('date'),
                              by_election=bool(bye)))
-        out[level] = {'date': b.get('date'), 'ridings': reps, 'next_election': b.get('next_election'),
+        out[level] = {'date': b.get('date'), 'ridings': reps,
+                      'next_election': b.get('next_election') or (FED_NEXT_DAY if level == 'federal' else AB_NEXT_DAY),
                       'chamber': b.get('chamber')}
         if level == 'provincial':
             out[level]['byelections'] = [e for e in b.get('byelections') or [] if e['ed'] in {x['riding'] for x in mix}]
