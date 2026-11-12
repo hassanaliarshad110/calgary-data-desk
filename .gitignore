@@ -1,0 +1,9 @@
+__pycache__/
+episodes/*/frames/
+episodes/*/framesw/
+episodes/*/prev/
+episodes/*/*.png
+episodes/*/silent*.mp4
+episodes/*/ep*_*.mp4
+episodes/*/*.tmp.mp4
+episodes/*/*_mix.wav

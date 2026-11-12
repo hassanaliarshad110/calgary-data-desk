@@ -18,7 +18,7 @@ const TH2 = {
     // foreground (blurred): kite corner + leaves
     g += `<g filter="url(#dofNear)">${patang(980, 1520, 2.4, 30, '#3b8de5', '#fff')}<circle cx="60" cy="40" r="170" fill="#1f6a27"/><circle cx="220" cy="-30" r="150" fill="#2e7d32"/></g>`;
     g += `<g transform="translate(540,250) rotate(-4)">${T(0, 0, 150, 'KABOOTAR', { shadow: '#000', sw: 16 })}${T(0, 150, 170, 'BACHAO!', { fill: C.red, stroke: '#fff', sw: 18, shadow: '#000' })}</g>`;
-    g += logo(540, 1760, 1.05) + badge(900, 1600, 'EP 2');
+    g += logo(540, 1760, 1.05) + badge(900, 1600, 'EP 3');
     return g; }],
   ep2_h: [1280, 720, () => {
     let g = `<rect width="1280" height="720" fill="#ffcf3a"/>` + rays(840, 330, 24, '#ffb02e', '#ffd75e');
@@ -30,13 +30,13 @@ const TH2 = {
     g += lightPool(830, 640, 300, 90, .8) + susu({ x: 800, y: 790, s: .72, rot: 20, t: .4, power: 1, cape: 1, crown: 1, shades: 1, armL: 178, armR: 150, legL: -20, legR: 12, mouth: 'shout', brow: .3 });
     g += `<g filter="url(#dofNear)">${patang(1230, 640, 1.6, 30, '#3b8de5', '#fff')}</g>`;
     g += `<g transform="translate(330,170) rotate(-4)">${T(0, 0, 118, 'KABOOTAR', { shadow: '#000', sw: 14 })}${T(0, 125, 130, 'BACHAO!', { fill: C.red, stroke: '#fff', sw: 16, shadow: '#000' })}</g>`;
-    g += logo(330, 560, .78) + badge(150, 660, 'EP 2', .8);
+    g += logo(330, 560, .78) + badge(150, 660, 'EP 3', .8);
     return g; }],
   wide_bg: [1920, 1080, () => {
     let g = `<rect width="1920" height="1080" fill="#ffcf3a"/>` + rays(960, 540, 32, '#ffb02e', '#ffd75e', 3000);
     g += far2(1920, 1080, 1050);
     g += `<rect x="640" y="0" width="640" height="1080" fill="#000"/>`;
-    g += logo(330, 170, .9) + `<g transform="translate(320,330)">${T(0, 0, 58, 'EPISODE 2', { fill: '#000', sw: 0, ls: 4 })}${T(0, 80, 76, 'PATANG AUR', { fill: C.red, stroke: '#fff', sw: 10 })}${T(0, 160, 76, 'KABOOTAR!', { fill: C.red, stroke: '#fff', sw: 10 })}</g>`;
+    g += logo(330, 170, .9) + `<g transform="translate(320,330)">${T(0, 0, 58, 'EPISODE 3', { fill: '#000', sw: 0, ls: 4 })}${T(0, 80, 76, 'PATANG AUR', { fill: C.red, stroke: '#fff', sw: 10 })}${T(0, 160, 76, 'KABOOTAR!', { fill: C.red, stroke: '#fff', sw: 10 })}</g>`;
     g += patang(170, 700, 1.3, -12, '#e5463b', '#ffd34a') + kabootar({ x: 400, y: 900, s: 1.6, t: 0, pose: 'perch' });
     g += susu({ x: 1600, y: 1000, s: .95, t: .3, power: 1, cape: 1, crown: 1, shades: 1, armR: 160, fistR: 1, mouth: 'grin' });
     g += `<g transform="translate(1600,150)"><rect x="-230" y="-60" width="460" height="120" rx="60" fill="#ff0000" stroke="#fff" stroke-width="6"/>${T(0, 26, 66, 'SUBSCRIBE', { sw: 0, ls: 4 })}</g>`;

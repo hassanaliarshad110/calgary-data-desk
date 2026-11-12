@@ -4,13 +4,16 @@
 - Metricool brand **Susuman**, blogId **8051708** (YouTube UCcRe0XnHPTeqmZeCMGOW0VQ, Instagram susu.man99, Facebook page, TikTok Susuman).
 - Host media publicly on GitHub branch `susuman-media` of hassanaliarshad110/calgary-data-desk, folder `epN/` (orphan branch: clone with `--depth 1 -b susuman-media`, add files, push). URL: https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/susuman-media/epN/<file>. (The sandbox proxy returns 403 for raw URLs; Metricool fetches them fine — check with the GitHub contents API instead.)
 
-## Files per episode
-- `susuman_epN_vertical.mp4` (1080×1920, ~110 s) · `susuman_epN_16x9.mp4` (vertical video centred on a 1920×1080 branded frame `wide_bg`, ffmpeg overlay at x=656) · `cover_vertical.jpg` (1080×1920) · `thumb_16x9.jpg` (1280×720). Thumbnails: bright yellow rays, Susuman big + the episode's animal/kid, 2-word Roman hook in Bangers (white + red), SUSUMAN logo, EP badge (see episodes/ep1/thumbs.js).
+## Files per episode (Hassan's rules, Nov 12, 2026 — never break these)
+- **Full YouTube video = a TRUE 16:9 render** (`WIDE=1 python3 render_epN.py full` → `drawFrameW`, 1920x1080, every scene re-framed for widescreen, captions redrawn for 16:9). **NEVER** put the vertical video in the middle of a branded frame with art on both sides (the old `wide_bg` layout is retired — Hassan saw Ep 1 with "two thumbnails on both sides" and it was wrong).
+- Vertical `susuman_epN_vertical.mp4` (1080x1920) for the YouTube Short + IG/FB/TikTok Reels.
+- `thumb_16x9.jpg` (1280x720) for the full video; `cover_vertical.jpg` (1080x1920) for Shorts/Reels. Bright yellow rays, Susuman big + the episode's animal/kid, 2-word Roman hook in Bangers (white + red), SUSUMAN logo, EP badge.
+- Full quality: libx264 crf 18, 30 fps, AAC 192k, -14 LUFS-ish mix. Don't compromise quality for speed.
 
-## Time (India + Pakistan prime time; no DST there)
-- YouTube Short: **19:30 Asia/Karachi** (= 20:00 IST)
-- IG Reel + FB Reel + TikTok: **19:35 Asia/Karachi**
-- YouTube full video (16:9): **19:40 Asia/Karachi**
+## Order + time (India + Pakistan prime time; no DST there)
+- **The full 16:9 YouTube video goes out FIRST: 18:00 Asia/Karachi** (= 18:30 IST).
+- Then the YouTube Short **19:30** and IG Reel + FB Reel + TikTok **19:35** — their captions/descriptions must **link to the full YouTube video** ("Poora episode dekhein 👉 <full video URL>").
+- The full video's URL only exists after it publishes, so: schedule the Short/Reels with the channel link, then after 18:00 PKT read the full video's publicUrl (getScheduledPosts shows it once published) and update the Short/Reels text with it (use send_later to wake the session at ~13:10 UTC).
 Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param with `+05:00`.
 
 ## Metadata

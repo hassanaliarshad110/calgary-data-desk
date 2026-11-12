@@ -1,0 +1,10 @@
+file ep3_hook.mp4
+file ep3_intro.mp4
+file ep3_warn.mp4
+file ep3_danger.mp4
+file ep3_home.mp4
+file ep3_power.mp4
+file ep3_rescue.mp4
+file ep3_lesson.mp4
+file ep3_ending.mp4
+file ep3_endcard.mp4

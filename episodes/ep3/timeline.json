@@ -1,0 +1,217 @@
+{
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "dur": 6.944
+  },
+  {
+   "id": "intro",
+   "start": 6.944,
+   "dur": 9.851
+  },
+  {
+   "id": "warn",
+   "start": 16.795,
+   "dur": 5.815
+  },
+  {
+   "id": "danger",
+   "start": 22.61,
+   "dur": 9.871
+  },
+  {
+   "id": "home",
+   "start": 32.481,
+   "dur": 9.484
+  },
+  {
+   "id": "power",
+   "start": 41.965,
+   "dur": 8.425
+  },
+  {
+   "id": "rescue",
+   "start": 50.39,
+   "dur": 10.646
+  },
+  {
+   "id": "lesson",
+   "start": 61.036,
+   "dur": 12.939
+  },
+  {
+   "id": "ending",
+   "start": 73.974,
+   "dur": 9.338
+  },
+  {
+   "id": "endcard",
+   "start": 83.313,
+   "dur": 10.013
+  }
+ ],
+ "lines": {
+  "n1": {
+   "scene": "hook",
+   "s": 0.5,
+   "d": 4.444,
+   "abs": 0.5,
+   "sp": "NARR",
+   "txt": "Barish ka tez paani...|aur ek nanha pilla!~Kya koi use|bacha paayega?"
+  },
+  "n2": {
+   "scene": "intro",
+   "s": 1.0,
+   "d": 4.211,
+   "abs": 7.944,
+   "sp": "NARR",
+   "txt": "Aaj gali mein zor ki barish hai!~Sab bachche kaagaz ki|kashti chala rahe hain!"
+  },
+  "s1": {
+   "scene": "intro",
+   "s": 5.611,
+   "d": 2.64,
+   "abs": 12.555,
+   "sp": "BASIM",
+   "txt": "Qasim! Dekh,|meri kashti sabse tez!"
+  },
+  "d1": {
+   "scene": "warn",
+   "s": 0.8,
+   "d": 3.615,
+   "abs": 17.595,
+   "sp": "DADI",
+   "txt": "Bachcho! Paani mein mat jaana,|naala bhar gaya hai!"
+  },
+  "m1": {
+   "scene": "danger",
+   "s": 1.2,
+   "d": 4.65,
+   "abs": 23.81,
+   "sp": "AMMAR",
+   "txt": "Arre! Dekho, wo dabba|beh raha hai...~us par pilla hai!"
+  },
+  "s2": {
+   "scene": "danger",
+   "s": 6.15,
+   "d": 2.121,
+   "abs": 28.76,
+   "sp": "BASIM",
+   "txt": "Pilla naale ki taraf|ja raha hai!"
+  },
+  "q1": {
+   "scene": "home",
+   "s": 1.8,
+   "d": 1.257,
+   "abs": 34.281,
+   "sp": "QASIM",
+   "txt": "Ammi! Suusuu aayi hai!"
+  },
+  "a1": {
+   "scene": "home",
+   "s": 3.357,
+   "d": 1.735,
+   "abs": 35.837,
+   "sp": "AMMI",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "k1": {
+   "scene": "home",
+   "s": 5.492,
+   "d": 2.292,
+   "abs": 37.973,
+   "sp": "SAKINA",
+   "txt": "Jaa jaldi...|main sambhaal leti hoon!"
+  },
+  "n3": {
+   "scene": "power",
+   "s": 0.7,
+   "d": 3.627,
+   "abs": 42.665,
+   "sp": "NARR",
+   "txt": "Sirf Sakina jaanti hai...|har flush ke saath Qasim ban jata hai..."
+  },
+  "q2": {
+   "scene": "power",
+   "s": 5.227,
+   "d": 1.598,
+   "abs": 47.192,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "m2": {
+   "scene": "rescue",
+   "s": 5.5,
+   "d": 1.715,
+   "abs": 55.89,
+   "sp": "AMMAR",
+   "txt": "Wo superhero phir aa gaya!"
+  },
+  "s3": {
+   "scene": "rescue",
+   "s": 7.515,
+   "d": 1.131,
+   "abs": 57.904,
+   "sp": "BASIM",
+   "txt": "Pilla bach gaya!"
+  },
+  "d2": {
+   "scene": "lesson",
+   "s": 1.2,
+   "d": 5.299,
+   "abs": 62.236,
+   "sp": "DADI",
+   "txt": "Shabaash bachcho! Barish ke paani mein~kabhi mat khelna,|bado ko bulana!"
+  },
+  "s4": {
+   "scene": "lesson",
+   "s": 6.999,
+   "d": 1.974,
+   "abs": 68.035,
+   "sp": "BASIM",
+   "txt": "Iska naam rakhte hain...|Moti!"
+  },
+  "q3": {
+   "scene": "lesson",
+   "s": 9.273,
+   "d": 1.666,
+   "abs": 70.309,
+   "sp": "QASIM",
+   "txt": "Moti! Ab tu hamara dost hai!"
+  },
+  "a2": {
+   "scene": "ending",
+   "s": 1.0,
+   "d": 2.123,
+   "abs": 74.974,
+   "sp": "AMMI",
+   "txt": "Qasim! Itne geele|kaise ho gaye?!"
+  },
+  "k2": {
+   "scene": "ending",
+   "s": 3.423,
+   "d": 2.53,
+   "abs": 77.398,
+   "sp": "SAKINA",
+   "txt": "Ammi, wo...|chhat pe baarish dekh raha tha!"
+  },
+  "q4": {
+   "scene": "ending",
+   "s": 6.253,
+   "d": 1.085,
+   "abs": 80.228,
+   "sp": "QASIM",
+   "txt": "Kuch nahi Ammi!"
+  },
+  "n4": {
+   "scene": "endcard",
+   "s": 0.6,
+   "d": 6.013,
+   "abs": 83.913,
+   "sp": "NARR",
+   "txt": "Bachcho, barish ke paani mein|mat khelo... bado ko bulao!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
+  }
+ },
+ "total": 93.325
+}
