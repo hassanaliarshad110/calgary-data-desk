@@ -1,0 +1,84 @@
+[
+{
+"t": 0.0,
+"sfx": "impact",
+"gain": -5
+},
+{
+"t": 0.25,
+"sfx": "pop",
+"gain": -11
+},
+{
+"t": 0.5,
+"sfx": "whoosh",
+"gain": -15
+},
+{
+"t": 1.998,
+"sfx": "whoosh",
+"gain": -9
+},
+{
+"t": 2.648,
+"sfx": "pop",
+"gain": -10
+},
+{
+"t": 3.348,
+"sfx": "stamp",
+"gain": -7
+},
+{
+"t": 7.295,
+"sfx": "whoosh",
+"gain": -10
+},
+{
+"t": 7.595,
+"sfx": "ticks",
+"dur": 1.4,
+"gain": -16
+},
+{
+"t": 10.95,
+"sfx": "whoosh",
+"gain": -10
+},
+{
+"t": 11.25,
+"sfx": "stamp",
+"gain": -9
+},
+{
+"t": 11.87,
+"sfx": "click",
+"gain": -10
+},
+{
+"t": 12.15,
+"sfx": "whoosh",
+"gain": -14
+},
+{
+"t": 14.15,
+"sfx": "ticks",
+"dur": 2.2,
+"gain": -16
+},
+{
+"t": 17.587,
+"sfx": "whoosh",
+"gain": -11
+},
+{
+"t": 18.737,
+"sfx": "ping",
+"gain": -13
+},
+{
+"t": 20.635,
+"sfx": "whoosh",
+"gain": -12
+}
+]
