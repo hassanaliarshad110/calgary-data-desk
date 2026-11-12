@@ -86,7 +86,18 @@
    "id": "2026-11-12-calgary-water-use-stays-under-limit-for-eighth-straight-day-as-crews-p",
    "date": "2026-11-12",
    "published_at": "2026-11-12T23:39:57Z",
-   "words": 455
+   "words": 455,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Calgary_skyline_from_lynnwood_ridge.jpg/1280px-Calgary_skyline_from_lynnwood_ridge.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Calgary_skyline_from_lynnwood_ridge.jpg",
+    "credit": "Hotdoghead",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "alt": "Calgary skyline from lynnwood ridge",
+    "query": "Calgary skyline",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Bearspaw Water Treatment Plant Calgary"
   },
   {
    "title": "Police seek witnesses after youth fight with weapons and a related hit-and-run in Rundle",
@@ -123,7 +134,18 @@
    "id": "2026-11-12-police-seek-witnesses-after-youth-fight-with-weapons-and-a-related-hit",
    "date": "2026-11-12",
    "published_at": "2026-11-12T23:39:57Z",
-   "words": 249
+   "words": 249,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/The_scene_after_the_fire_was_extinguished_%282807922150%29.jpg/1280px-The_scene_after_the_fire_was_extinguished_%282807922150%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:The_scene_after_the_fire_was_extinguished_(2807922150).jpg",
+    "credit": "RAF-YYC from Calgary, Canada",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "alt": "The scene after the fire was extinguished (2807922150)",
+    "query": "Calgary Police Service vehicle",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Calgary Police Service vehicle"
   },
   {
    "title": "Man in critical condition after assault near 12 Avenue and 14 Street S.W.",
@@ -168,7 +190,18 @@
    "id": "2026-11-12-man-in-critical-condition-after-assault-near-12-avenue-and-14-street-s",
    "date": "2026-11-12",
    "published_at": "2026-11-12T23:39:57Z",
-   "words": 195
+   "words": 195,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Beltline-Calgary.JPG/1280px-Beltline-Calgary.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Beltline-Calgary.JPG",
+    "credit": "Qyd",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "alt": "Beltline-Calgary",
+    "query": "Beltline Calgary street",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Beltline Calgary street"
   },
   {
    "title": "Fire in recycling equipment forces evacuation of southeast warehouse; no injuries",
@@ -202,7 +235,18 @@
    "id": "2026-11-12-fire-in-recycling-equipment-forces-evacuation-of-southeast-warehouse-n",
    "date": "2026-11-12",
    "published_at": "2026-11-12T23:39:57Z",
-   "words": 154
+   "words": 154,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Calgary_skyline_from_lynnwood_ridge.jpg/1280px-Calgary_skyline_from_lynnwood_ridge.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Calgary_skyline_from_lynnwood_ridge.jpg",
+    "credit": "Hotdoghead",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "alt": "Calgary skyline from lynnwood ridge",
+    "query": "Calgary skyline",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Calgary Fire Department fire truck"
   },
   {
    "title": "Flames fall 3-1 to Rangers at the Saddledome as Zibanejad scores twice",
@@ -272,7 +316,18 @@
    "id": "2026-11-12-flames-fall-3-1-to-rangers-at-the-saddledome-as-zibanejad-scores-twice",
    "date": "2026-11-12",
    "published_at": "2026-11-12T23:39:57Z",
-   "words": 166
+   "words": 166,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Scotiabank_Saddledome%2C_southeast_view_20240819_1.jpg/1280px-Scotiabank_Saddledome%2C_southeast_view_20240819_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Scotiabank_Saddledome,_southeast_view_20240819_1.jpg",
+    "credit": "DXR",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "alt": "Scotiabank Saddledome, southeast view 20240819 1",
+    "query": "Scotiabank Saddledome",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Scotiabank Saddledome"
   }
  ]
 }
