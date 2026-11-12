@@ -1,0 +1,10 @@
+[
+ {"id":"l0","text":"ये है सुसु। उम्र, सिर्फ़ चार साल। लेकिन इसके पास, एक राज़ है!","voices":["hm_psi","hm_omega"],"speed":0.95},
+ {"id":"l1","text":"अम्मी! सुसु आई है!","voices":["hf_beta","hf_alpha"],"speed":1.05},
+ {"id":"l2","text":"फिर से? अभी तो गए थे! आज पाँचवीं बार!","voices":["hf_alpha","hf_beta"],"speed":1.0},
+ {"id":"l3","text":"अम्मी को नहीं पता... हर फ़्लश के साथ, सुसु बन जाता है...","voices":["hm_psi","hm_omega"],"speed":0.95},
+ {"id":"l4","text":"सुसुमैन!","voices":["hf_beta","hf_alpha"],"speed":0.9},
+ {"id":"l5","text":"ये आवाज़ कैसी थी?","voices":["hf_alpha","hf_beta"],"speed":1.0},
+ {"id":"l6","text":"कुछ नहीं अम्मी!","voices":["hf_beta","hf_alpha"],"speed":1.05},
+ {"id":"l7","text":"क्या अम्मी को कभी पता चलेगा? कमेंट में बताओ! और सुसुमैन को सब्सक्राइब करना मत भूलना!","voices":["hm_psi","hm_omega"],"speed":1.0}
+]
