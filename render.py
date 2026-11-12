@@ -1,0 +1,26 @@
+import sys, os, subprocess, json, re
+from playwright.sync_api import sync_playwright
+mode = sys.argv[1]  # preview | full
+here = os.path.dirname(os.path.abspath(__file__))
+scenes = json.loads(re.search(r"const SCENES = (\[.*?\]);", open(os.path.join(here,'scenes.js')).read(), re.S).group(1).replace("id:", '"id":').replace("start:", '"start":').replace("dur:", '"dur":').replace("'", '"').replace("},\n]", "}\n]"))
+with sync_playwright() as p:
+    b = p.chromium.launch(); pg = b.new_page(viewport={'width':1080,'height':1920}, device_scale_factor=1)
+    pg.goto('file://' + os.path.join(here, 'index.html')); pg.wait_for_timeout(500)
+    pg.evaluate("Promise.all([document.fonts.load('800 50px Baloo2'), document.fonts.load('50px Bangers')])"); pg.wait_for_timeout(300)
+    if mode == 'preview':
+        for spec in sys.argv[2:]:
+            sid, t = spec.split(':'); pg.evaluate(f"drawFrame('{sid}', {t})")
+            pg.screenshot(path=f'prev_{sid}_{t}.jpg', type='jpeg', quality=85)
+    else:
+        only = sys.argv[2:] or [s['id'] for s in scenes]
+        for s in scenes:
+            if s['id'] not in only: continue
+            d = f'fr_{s["id"]}'; os.makedirs(d, exist_ok=True)
+            n = round(s['dur'] * 30)
+            for i in range(n):
+                pg.evaluate(f"drawFrame('{s['id']}', {i/30})")
+                pg.screenshot(path=f'{d}/f_{i:05d}.jpg', type='jpeg', quality=92)
+            tmp = f'scene_{s["id"]}.tmp.mp4'
+            r = subprocess.run(['ffmpeg','-y','-loglevel','error','-framerate','30','-i',f'{d}/f_%05d.jpg','-c:v','libx264','-crf','18','-preset','veryfast','-pix_fmt','yuv420p',tmp])
+            if r.returncode == 0: os.replace(tmp, f'scene_{s["id"]}.mp4'); print('ok', s['id'], n)
+    b.close()
