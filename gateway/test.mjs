@@ -145,5 +145,43 @@ check('no address is kept', ![...dstore.entries()].some(([k, v]) => /1\.1\.1\.1/
 await tobj.hit({ p: '/', ip: '1.1.1.1', ua: 'x' }, new Date(Date.now() + 2 * 864e5));
 check('earlier days\' visitor marks are deleted', [...dstore.keys()].filter(k => k.startsWith('v:')).length === 1 && [...dstore.keys()].filter(k => k.startsWith('salt:')).length === 1);
 check('only the owner sees the traffic', (await call('/admin/traffic', { token: await idToken({ email: 'guest@gmail.com' }) })).status === 403);
+// reports kept with the person's account
+KV.getWithMetadata = async (k, o) => store.has(k) ? { value: store.get(k), metadata: meta.get(k) } : { value: null, metadata: null };
+const raw = (path, { token, method = 'GET', body, type } = {}) => gw.handle(new Request('https://gw.test' + path, {
+  method, headers: { authorization: 'Bearer ' + token, origin: 'https://calgaryinsight.ca', ...(type ? { 'content-type': type } : {}) }, body }), env, ctx, fetcher);
+const pdfBytes = new TextEncoder().encode('%PDF-1.7 a report');
+r = await raw('/reports/r1/pdf?name=Ward%205%20report.pdf', { token: ownerTok, method: 'PUT', body: pdfBytes });
+check('a report file is kept', r.status === 200 && store.get('repf:owner@gmail.com:r1:pdf').byteLength === pdfBytes.byteLength);
+r = await raw('/reports/r1/interactive?name=Ward%205%20report%20(interactive).html', { token: ownerTok, method: 'PUT', body: '<html>hi</html>' });
+r = await call('/reports/r1', { token: ownerTok, method: 'PUT', body: { title: 'Ward 5 report', question: 'q', made: '2026-11-11 20:10', files: { pdf: {}, interactive: {}, xlsx: {} } } });
+check('a record naming a file not sent is refused', r.status === 400);
+r = await call('/reports/r1', { token: ownerTok, method: 'PUT', body: { title: 'Ward 5 report', question: 'q', made: '2026-11-11 20:10', files: { pdf: {}, interactive: {} } } });
+check('the record is kept with its files', r.status === 200 && (await r.json()).report.files.pdf.name === 'Ward 5 report.pdf');
+r = await call('/reports', { token: ownerTok });
+let lst = (await r.json()).reports;
+check('the person sees their reports', r.status === 200 && lst.length === 1 && lst[0].title === 'Ward 5 report');
+r = await raw('/reports/r1/pdf', { token: ownerTok });
+check('a report file comes back as it was sent', r.status === 200 && r.headers.get('content-type') === 'application/pdf' && (await r.text()) === '%PDF-1.7 a report'
+      && decodeURIComponent(r.headers.get('x-report-name')) === 'Ward 5 report.pdf');
+r = await raw('/reports/r1/interactive', { token: ownerTok });
+check('an interactive page comes back as a web page', r.headers.get('content-type').startsWith('text/html'));
+const guest2 = await idToken({ email: 'guest@gmail.com' });
+r = await call('/reports', { token: guest2 });
+check('someone else sees none of them', r.status === 200 && (await r.json()).reports.length === 0);
+check('nor can they open one', (await raw('/reports/r1/pdf', { token: guest2 })).status === 404);
+const stranger = await idToken({ email: 'stranger@gmail.com' });
+check('someone not approved cannot store files', (await raw('/reports/x1/pdf?name=a.pdf', { token: stranger, method: 'PUT', body: pdfBytes })).status === 403);
+check('a bad report name is refused', (await raw('/reports/..%2Fx/pdf', { token: ownerTok, method: 'PUT', body: pdfBytes })).status === 400
+      && (await raw('/reports/r1/exe', { token: ownerTok, method: 'PUT', body: pdfBytes })).status === 400);
+check('an empty file is refused', (await raw('/reports/r2/pdf?name=a.pdf', { token: ownerTok, method: 'PUT', body: new Uint8Array(0) })).status === 400);
+check('PUT and DELETE are allowed from the website', ((await call('/reports', { token: ownerTok, method: 'OPTIONS' })).headers.get('access-control-allow-methods') || '').includes('PUT'));
+r = await call('/reports/r1', { token: ownerTok, method: 'DELETE' });
+check('a report can be removed, files and all', r.status === 200 && !store.has('rep:owner@gmail.com:r1') && !store.has('repf:owner@gmail.com:r1:pdf'));
+for (let i = 0; i < 102; i++) {
+  await raw(`/reports/k${i}/pdf?name=r${i}.pdf`, { token: ownerTok, method: 'PUT', body: pdfBytes });
+  await call(`/reports/k${i}`, { token: ownerTok, method: 'PUT', body: { title: 'R' + i, made: `2026-11-${String(10 + Math.floor(i / 10)).padStart(2, '0')} 0${i % 10}:00`, files: { pdf: {} } } });
+}
+lst = (await (await call('/reports', { token: ownerTok })).json()).reports;
+check('the newest 100 are kept, the oldest removed with their files', lst.length === 100 && !lst.some(x => x.id === 'k0' || x.id === 'k1') && !store.has('repf:owner@gmail.com:k0:pdf'), String(lst.length));
 console.log('\n' + (fails.length ? `${fails.length} FAILED: ${fails.join(', ')}` : 'All checks passed.'));
 process.exit(fails.length ? 1 : 0);

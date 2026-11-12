@@ -127,6 +127,7 @@
   api.business_report = (text, area, extra) => run('business_report', { text, area, ...(extra || {}) });
   api.audit_run = (report) => run('audit_run', { report });
   api.audit_list = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('audit_list', {}); } catch (e) { return []; } };
+  api.read_file = async (p) => { if (!worker) return null; await booting; return call('read', { path: p }); };   // a report's file, to keep with the account
   api.analyst_reports = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('analyst_reports', {}); } catch (e) { return []; } };
   api.analyst_topics = async (n = 6) => {
     let all = [];
@@ -150,14 +151,15 @@
   const openPath = api.open_path;
   api.open_path = async (p0) => {
     const print = String(p0 || '').endsWith('#print'), p = String(p0 || '').replace(/#print$/, '');
-    if (!String(p || '').startsWith('/home/pyodide/')) return openPath(p);
-    if (!worker) return false;
+    const cloud = /^cloud:/.test(p);                     // a report kept with the visitor's account (web-account.js)
+    if (!cloud && !String(p || '').startsWith('/home/pyodide/')) return openPath(p);
+    if (!cloud && !worker) return false;
     // a web page (a report): opened at once, from the click, on the website's own report page, then filled in
     const isHtml = /\.html?$/i.test(p);
     const win = isHtml ? window.open('report-view.html' + (print ? '#print' : ''), '_blank') : null;
     try {
-      const data = await call('read', { path: p });
-      const name = String(p).split('/').pop();
+      const data = cloud ? await window.CDD_REPORTS.fetch(p) : await call('read', { path: p });
+      const name = cloud ? decodeURIComponent(String(p).split('/').slice(2).join('/')) : String(p).split('/').pop();
       if (win) {
         const title = name.replace(/\.html?$/i, '').replace(/ \((print|interactive)\)/gi, '').replace(/[<>:"/\\|?*\u0000-\u001f]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 90) || 'Calgary Insight report';
         const html = typeof data === 'string' ? data : new TextDecoder().decode(data);
