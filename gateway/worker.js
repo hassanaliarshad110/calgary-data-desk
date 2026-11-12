@@ -6,6 +6,8 @@
 //   POST /session          Firebase ID token → a gateway session (12 hours), so long reports outlive the 1-hour token
 //   GET  /me               who you are, whether you are approved, today's spend and limit
 //   POST /v1/messages      the Anthropic Messages API, for approved people (streams through; the cost is counted)
+//   GET  /reports          the reports this person has made (kept with their account, newest first)
+//   PUT  /reports/<id>/<kind>, PUT /reports/<id>, GET /reports/<id>/<kind>, DELETE /reports/<id>   one report's files
 //   GET  /admin/users      (owner) everyone approved, with today's spend
 //   POST /admin/users      (owner) {email, limit_usd?, remove?}
 //   POST /hit              (no sign-in) one page view from the site, counted anonymously (the Traffic object below)
@@ -163,7 +165,7 @@ function cors(req, env) {
   const allowed = String(env.ALLOWED_ORIGINS || '').split(',').map(s => s.trim()).filter(Boolean);
   if (!allowed.includes(origin)) return {};
   return { 'access-control-allow-origin': origin, vary: 'origin', 'access-control-allow-headers': 'authorization, content-type, anthropic-version, anthropic-beta',
-           'access-control-allow-methods': 'GET, POST, OPTIONS', 'access-control-max-age': '86400' };
+           'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS', 'access-control-max-age': '86400' };
 }
 
 export async function handle(req, env, ctx, fetcher = fetch) {
@@ -242,6 +244,8 @@ export async function handle(req, env, ctx, fetcher = fetch) {
     return fail(404, 'not_found_error', 'No such admin request.', h);
   }
 
+  if (url.pathname === '/reports' || url.pathname.startsWith('/reports/')) return reports(req, url, me, env, h);
+
   if (url.pathname === '/v1/messages' && req.method === 'POST') {
     const a = await access(me.email, env);
     if (!a.allowed) return fail(403, 'permission_error', `${me.email} is not approved for the AI tools. Ask the site's owner to add it.`, h);
@@ -267,6 +271,80 @@ export async function handle(req, env, ctx, fetcher = fetch) {
     return new Response(up.body.pipeThrough(m), { status: up.status, headers: out });
   }
   return fail(404, 'not_found_error', 'No such request.', h);
+}
+
+// ---------------------------------------------------------------- reports kept with the person's account
+// A report the Data Scientist or Data Genie makes in the browser lives only in that page, so the page sends it here
+// (signed in). rep:<email>:<id> holds the record {id, title, question, made, area, files: {kind: {name, type, size}}};
+// repf:<email>:<id>:<kind> holds one file's bytes. Each person sees only their own; the newest REPORTS_KEPT are kept.
+export const REPORT_KINDS = ['pdf', 'interactive', 'xlsx', 'print'];
+const REPORT_MAX_BYTES = 24 * 1024 * 1024, REPORTS_KEPT = 100;
+const REPORT_ID = /^[A-Za-z0-9_-]{1,64}$/;
+const TYPES = { pdf: 'application/pdf', html: 'text/html; charset=utf-8', htm: 'text/html; charset=utf-8',
+                xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', csv: 'text/csv; charset=utf-8' };
+const fileType = name => TYPES[String(name).split('.').pop().toLowerCase()] || 'application/octet-stream';
+const clean = (v, n) => String(v ?? '').replace(/[\u0000-\u001f]+/g, ' ').trim().slice(0, n);
+
+async function listReports(email, env) {
+  const out = [];
+  let cursor;
+  do {
+    const page = await env.ACCESS.list({ prefix: `rep:${email}:`, cursor });
+    for (const k of page.keys) { const r = JSON.parse((await env.ACCESS.get(k.name)) || 'null'); if (r) out.push(r); }
+    cursor = page.list_complete === false ? page.cursor : null;
+  } while (cursor);
+  return out.sort((a, b) => String(b.made || b.saved).localeCompare(String(a.made || a.saved)));
+}
+
+async function dropReport(email, id, env) {
+  await env.ACCESS.delete(`rep:${email}:${id}`);
+  await Promise.all(REPORT_KINDS.map(k => env.ACCESS.delete(`repf:${email}:${id}:${k}`)));
+}
+
+export async function reports(req, url, me, env, h) {
+  const [, , id, kind] = url.pathname.split('/');            // /reports/<id>/<kind>
+  if (!id) {
+    if (req.method !== 'GET') return fail(405, 'invalid_request_error', 'Use GET.', h);
+    return json({ reports: await listReports(me.email, env) }, 200, h);
+  }
+  if (!REPORT_ID.test(id) || (kind && !REPORT_KINDS.includes(kind))) return fail(400, 'invalid_request_error', 'No such report file.', h);
+  const recKey = `rep:${me.email}:${id}`, fileKey = `repf:${me.email}:${id}:${kind}`;
+  if (req.method === 'GET') {
+    if (!kind) { const r = await env.ACCESS.get(recKey); return r ? json(JSON.parse(r), 200, h) : fail(404, 'not_found_error', 'That report is not saved.', h); }
+    const got = await env.ACCESS.getWithMetadata(fileKey, { type: 'arrayBuffer' });
+    if (!got || !got.value) return fail(404, 'not_found_error', 'That report file is not saved.', h);
+    const m = got.metadata || {};
+    return new Response(got.value, { status: 200, headers: { ...h, 'content-type': m.type || 'application/octet-stream', 'cache-control': 'private, no-store',
+      'access-control-expose-headers': 'x-report-name', 'x-report-name': encodeURIComponent(m.name || kind) } });
+  }
+  if (req.method === 'DELETE') { await dropReport(me.email, id, env); return json({ ok: true, removed: id }, 200, h); }
+  if (req.method !== 'PUT') return fail(405, 'invalid_request_error', 'Use GET, PUT or DELETE.', h);
+  const a = await access(me.email, env);
+  if (!a.allowed) return fail(403, 'permission_error', `${me.email} is not approved for the AI tools.`, h);
+  if (kind) {                                               // one file: its bytes, with ?name=
+    const name = clean(url.searchParams.get('name') || kind, 160);
+    const bytes = await req.arrayBuffer();
+    if (!bytes.byteLength) return fail(400, 'invalid_request_error', 'The file is empty.', h);
+    if (bytes.byteLength > REPORT_MAX_BYTES) return fail(413, 'invalid_request_error', 'That file is too large to keep (over 24 MB).', h);
+    await env.ACCESS.put(fileKey, bytes, { metadata: { name, type: fileType(name), size: bytes.byteLength } });
+    return json({ ok: true, id, kind, size: bytes.byteLength }, 200, h);
+  }
+  let b;                                                    // the record, sent after its files
+  try { b = await req.json(); } catch (e) { return fail(400, 'invalid_request_error', 'Send JSON.', h); }
+  const have = Object.fromEntries((await env.ACCESS.list({ prefix: `repf:${me.email}:${id}:` })).keys.map(k => [k.name.split(':').pop(), k.metadata || {}]));
+  const files = {};
+  for (const k of REPORT_KINDS) {
+    if (!(b.files && b.files[k])) continue;
+    if (!have[k]) return fail(400, 'invalid_request_error', `Send the ${k} file before the record.`, h);
+    files[k] = { name: clean(have[k].name || b.files[k].name, 160), size: have[k].size || null };
+  }
+  if (!Object.keys(files).length) return fail(400, 'invalid_request_error', 'A report needs at least one file.', h);
+  const rec = { id, title: clean(b.title, 300) || 'Report', question: clean(b.question, 600), made: clean(b.made, 40), area: clean(b.area, 120),
+                tool: clean(b.tool, 40), files, saved: new Date().toISOString() };
+  await env.ACCESS.put(recKey, JSON.stringify(rec));
+  const all = await listReports(me.email, env);              // keep the newest REPORTS_KEPT
+  for (const old of all.slice(REPORTS_KEPT)) await dropReport(me.email, old.id, env);
+  return json({ ok: true, report: rec }, 200, h);
 }
 
 // ---------------------------------------------------------------- visits to the site, counted anonymously

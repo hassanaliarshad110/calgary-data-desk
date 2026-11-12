@@ -74,11 +74,14 @@
   api.election_report = withResearch(api.election_report);
   api.business_report = withResearch(api.business_report);
   const onAnalyst = window.onAnalystEvent;
-  window.onAnalystEvent = ev => { if (ev && ev.type === 'research') { keepResearch(ev.record); return; } if (onAnalyst) onAnalyst(ev); };
+  window.onAnalystEvent = ev => { if (ev && ev.type === 'research') { keepResearch(ev.record); return; }
+    if (ev && ev.type === 'report') keepReport(ev);      // kept with the account once the engine is free (it reads the files then)
+    if (onAnalyst) onAnalyst(ev); };
   const onEvent = window.onAgentEvent;
   window.onAgentEvent = ev => {
     if (ev && ev.type === 'memory') { ev.op === 'add' ? addNote(ev.text) : removeNotes(ev.text); return; }
     if (ev && ev.type === 'research') { keepResearch(ev.record); return; }
+    if (ev && ev.type === 'report') keepReport(ev);
     if (onEvent) onEvent(ev);
   };
   const newBtn = $('#new-chat');
@@ -267,9 +270,75 @@
         document.dispatchEvent(new CustomEvent('cdd-unlocked'));           // Election Analytics and the Business Economist redraw
       }
       if (ai.owner) loadAdmin();
+      cloudReports = null; keepAll().then(() => { if (window.renderScientist) window.renderScientist(true); }).catch(() => {});
     } catch (e) { ai = { allowed: false, message: String(e.message || e) }; }
     renderAccount(); lockButtons();
   }
+  // ---------------------------------------------------------------- reports kept with the account (gateway /reports)
+  // A report lives only in this page until it is sent here: every report made while signed in (and any made earlier in
+  // this visit) is kept with the account, so Your reports lists it on any device.
+  const KINDS = ['pdf', 'interactive', 'xlsx', 'print'];
+  const canKeep = () => !!(user && gw && ai && ai.allowed);
+  const repId = r => { let h = 5381; for (const c of `${r.made}|${r.title}|${r.question}`) h = ((h * 33) ^ c.charCodeAt(0)) >>> 0;
+    return ('r' + String(r.made || '').replace(/\D/g, '') + '-' + h.toString(36)).slice(0, 64); };
+  let cloudReports = null, keeping = new Set();
+  async function cloudList(force) {
+    if (!canKeep()) return [];
+    if (!cloudReports || force) { try { cloudReports = (await gwFetch('/reports')).reports || []; } catch (e) { return cloudReports || []; } }
+    return cloudReports;
+  }
+  async function keepReport(r) {
+    if (!canKeep() || !r || !api.read_file) return;
+    const id = repId(r);
+    if (keeping.has(id) || (cloudReports || []).some(x => x.id === id)) return;
+    keeping.add(id);
+    try {
+      const files = {};
+      for (const k of KINDS) {
+        const p = r[k];
+        if (!p || !String(p).startsWith('/home/pyodide/') || (k === 'print' && p === r.pdf)) continue;
+        const data = await api.read_file(p);
+        if (!data) continue;
+        const name = String(p).split('/').pop();
+        const t = await user.getIdToken();
+        const res = await fetch(`${gw}/reports/${id}/${k}?name=${encodeURIComponent(name)}`, { method: 'PUT', body: data,
+          headers: { authorization: 'Bearer ' + t, 'content-type': 'application/octet-stream' } });
+        if (!res.ok) { const j = await res.json().catch(() => ({})); throw new Error((j.error && j.error.message) || `answered ${res.status}`); }
+        files[k] = { name };
+      }
+      if (!Object.keys(files).length) return;
+      const j = await gwFetch(`/reports/${id}`, { method: 'PUT', body: JSON.stringify({ title: r.title, question: r.question, made: r.made, area: r.area, files }) });
+      cloudReports = [j.report, ...(cloudReports || []).filter(x => x.id !== id)];
+      flash('Report saved to your account: it is in Your reports on any device where you sign in.');
+    } catch (e) { flash('The report could not be saved to your account (' + (e.message || e) + '). It is still here until you leave this page.'); }
+    finally { keeping.delete(id); }
+  }
+  async function keepAll() {                 // reports made in this visit that the account does not have yet
+    if (!canKeep() || !api.read_file) return;
+    await cloudList();
+    let local = [];
+    try { local = await localReports(); } catch (e) { return; }
+    for (const r of local) await keepReport(r);
+  }
+  const localReports = api.analyst_reports || (async () => []);
+  api.analyst_reports = async () => {
+    const local = await localReports().catch(() => []);
+    const have = new Set(local.map(repId));
+    const cloud = (await cloudList(true)).filter(c => !have.has(c.id)).map(c => {
+      const f = c.files || {}, path = k => f[k] ? `cloud:${c.id}/${k}/${encodeURIComponent(f[k].name || k)}` : null;
+      return { title: c.title, question: c.question, made: c.made, pdf: path('pdf') || path('print'), interactive: path('interactive'), xlsx: path('xlsx'), saved: true };
+    });
+    return [...local, ...cloud].sort((a, b) => String(b.made || '').localeCompare(String(a.made || '')));
+  };
+  window.CDD_REPORTS = {
+    async fetch(p) {                         // cloud:<id>/<kind>/<name>: the file's bytes, from the account
+      const [head, kind] = String(p).split('/');
+      const t = await user.getIdToken();
+      const r = await fetch(`${gw}/reports/${head.slice(6)}/${kind}`, { headers: { authorization: 'Bearer ' + t } });
+      if (!r.ok) throw new Error('That report could not be opened from your account.');
+      return new Uint8Array(await r.arrayBuffer());
+    },
+  };
   async function refreshMe() { if (user && gw && ai && ai.allowed) { try { ai = { ...ai, ...(await gwFetch('/me')) }; renderAccount(); } catch (e) { /* keep the last */ } } }
   async function loadAdmin() {
     try { const [u, p, t] = await Promise.all([gwFetch('/admin/users'), gwFetch('/admin/seen').catch(e => ({ error: String(e.message || e) })), gwFetch('/admin/traffic').catch(e => ({ error: String(e.message || e) }))]); admin = { ...u, seen: p, traffic: t }; }
