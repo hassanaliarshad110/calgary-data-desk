@@ -126,6 +126,7 @@
   api.election_report = (text, area, extra) => run('election_report', { text, area, ...(extra || {}) });
   api.business_report = (text, area, extra) => run('business_report', { text, area, ...(extra || {}) });
   api.audit_run = (report) => run('audit_run', { report });
+  api.check_request = async (text, area, kind) => { try { const r = await run('check_request', { text, area, kind }); return r && r.questions ? r : { clear: true, questions: [] }; } catch (e) { return { clear: true, questions: [] }; } };
   api.audit_list = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('audit_list', {}); } catch (e) { return []; } };
   api.read_file = async (p) => { if (!worker) return null; await booting; return call('read', { path: p }); };   // a report's file, to keep with the account
   api.analyst_reports = async () => { if (!worker || !apiKey) return []; try { await booting; return await call('analyst_reports', {}); } catch (e) { return []; } };

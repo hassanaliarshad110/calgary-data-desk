@@ -124,6 +124,8 @@ function eaCatch(bot, cards) {
 }
 async function eaAsk(q, full) {
   if (eaBusy || !q.trim()) return;
+  let send = q;
+  if (full && window.CDD_CLARIFY) { send = await window.CDD_CLARIFY(q, eaArea(), 'Election Analytics report'); if (send === null) return; }
   eaBusy = true;
   const bot = { who: 'bot', text: full ? 'Planning the report…' : 'Working on it…' };
   eaThread.push({ who: 'you', text: full ? `Full report: ${q}` : q }, bot);
@@ -132,7 +134,7 @@ async function eaAsk(q, full) {
   try {
     const a = await api();
     // the strongest model for every Election Analytics answer; a full report goes through the report writer
-    const res = full ? await a.election_report(q, eaArea()) : await a.ask(`[Election Analytics] Area: ${eaArea()}. ${q}`, 'audit');
+    const res = full ? await a.election_report(send, eaArea()) : await a.ask(`[Election Analytics] Area: ${eaArea()}. ${q}`, 'audit');
     if (res && res.ok) { bot.html = (window.DOMPurify && window.marked) ? DOMPurify.sanitize(marked.parse(res.text || '')) : esc(res.text || ''); bot.text = ''; if (res.report && !cards.some(c => c.includes('ea-report'))) cards.unshift(eaReportCard(typeof res.report === 'string' ? { pdf: res.report } : res.report)); }
     else bot.text = (res && res.error) || 'The analyst could not answer this time.';
   } catch (e) { bot.text = String(e.message || e); }

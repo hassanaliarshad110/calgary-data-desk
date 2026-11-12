@@ -1626,8 +1626,52 @@ $$('#ds-depth [data-depth]').forEach(b => b.addEventListener('click', () => {
   dsDepth = b.dataset.depth; try { localStorage.setItem('ds-depth', dsDepth); } catch { /* storage off */ } showDepth();
 }));
 showDepth();
+// Before a long report: a quick check of the request. If it could mean materially different things, up to three short
+// multiple-choice questions; the answers go with the request. Resolves to the request text to send, or null (cancelled).
+window.CDD_CLARIFY = async function (text, area, kind) {
+  const a = await api();
+  if (!a.check_request || !String(text || '').trim()) return text;
+  const dlg = document.createElement('dialog');
+  dlg.className = 'clarify';
+  dlg.innerHTML = `<div class="clarify-body"><h3>Checking your request</h3><p class="card-sub">A few seconds, so the report is built on what you mean.</p>
+    <div class="clarify-qs"></div><div class="clarify-actions"><button type="button" class="btn" data-skip>Skip, just make it</button></div></div>`;
+  document.body.appendChild(dlg);
+  let settle;
+  const done = new Promise(res => { settle = res; });
+  const close = v => { try { dlg.close(); } catch (e) { /* closed */ } dlg.remove(); settle(v); };
+  dlg.addEventListener('cancel', e => { e.preventDefault(); close(null); });
+  dlg.querySelector('[data-skip]').addEventListener('click', () => close(text));
+  try { dlg.showModal(); } catch (e) { dlg.setAttribute('open', ''); }
+  a.check_request(text, area || null, kind || 'report').then(r => {
+    if (!dlg.isConnected) return;
+    const qs = (r && r.questions) || [];
+    if (!qs.length) { close(text); return; }
+    dlg.querySelector('h3').textContent = 'A quick question before the report';
+    dlg.querySelector('.card-sub').textContent = 'Pick what you mean, or type your own. The report then starts with your answers.';
+    dlg.querySelector('.clarify-qs').innerHTML = qs.map((q, i) => `<fieldset class="clarify-q"><legend>${esc(q.question)}</legend>
+      ${q.options.map((o, j) => `<label class="clarify-opt"><input type="radio" name="cq${i}" value="${esc(o)}"${j === 0 ? ' checked' : ''}><span>${esc(o)}</span></label>`).join('')}
+      <label class="clarify-opt"><input type="radio" name="cq${i}" value=""><input type="text" class="clarify-own" placeholder="Something else" aria-label="Your own answer"></label></fieldset>`).join('');
+    dlg.querySelectorAll('.clarify-own').forEach(inp => inp.addEventListener('input', () => { const r0 = inp.parentElement.querySelector('input[type=radio]'); if (r0) r0.checked = true; }));
+    const acts = dlg.querySelector('.clarify-actions');
+    acts.innerHTML = `<button type="button" class="btn" data-cancel>Cancel</button><button type="button" class="btn" data-skip>Skip, just make it</button><button type="button" class="btn primary" data-go>Make the report</button>`;
+    acts.querySelector('[data-cancel]').addEventListener('click', () => close(null));
+    acts.querySelector('[data-skip]').addEventListener('click', () => close(text));
+    acts.querySelector('[data-go]').addEventListener('click', () => {
+      const lines = qs.map((q, i) => { const r1 = dlg.querySelector(`input[name="cq${i}"]:checked`); const v = r1 ? (r1.value || (r1.parentElement.querySelector('.clarify-own') || {}).value || '') : '';
+        return v.trim() ? `- ${q.question} ${v.trim()}` : ''; }).filter(Boolean);
+      close(lines.length ? `${text}\n\nWhat the person confirmed before the report:\n${lines.join('\n')}` : text);
+    });
+  }).catch(() => close(text));
+  return done;
+};
+
 async function runDs({ key, title, text }) {
   if (dsBusy) return;
+  if (text && !key) {                               // the person's own words: check them first (a ready-made topic is clear)
+    const t2 = await window.CDD_CLARIFY(text, null, 'Data Scientist report');
+    if (t2 === null) return;
+    title = title || text; text = t2;
+  }
   dsBusy = true;
   $$('.ds-topic, #ds-go').forEach(b => { b.disabled = true; });
   $('#ds-run').hidden = false;

@@ -1555,6 +1555,11 @@ window.onAgentEvent = ev => {
   } else if (ev.type === 'report') {
     const card = reportCard(ev);
     cards.appendChild(card);
+  } else if (ev.type === 'choices') {             // Data Genie asks what you meant: tap an answer to send it
+    const box = document.createElement('div'); box.className = 'choices';
+    box.innerHTML = `<div class="choices-q">${esc(ev.question)}</div><div class="choices-row">${(ev.options || []).map(o => `<button type="button" class="btn choice">${esc(o)}</button>`).join('')}</div>`;
+    $$('.choice', box).forEach(b => b.addEventListener('click', () => { if (busy) return; $$('.choice', box).forEach(x => { x.disabled = true; }); b.classList.add('on'); ask(b.textContent); }));
+    current.appendChild(box);
   }
   scrollDown();
 };

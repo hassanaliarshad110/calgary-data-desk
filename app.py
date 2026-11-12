@@ -427,6 +427,10 @@ class Api:
     def analyst_topics(self, n=6):
         return analyst.topics(int(n or 6), area=self._place(), ward=self._ward())
 
+    def check_request(self, text=None, area=None, kind='report'):
+        """Before a long report: up to 3 questions if the request could mean materially different things."""
+        return self._analyst.check_request(text, area or self._place(), kind, dashboard.calgary_now().date().isoformat())
+
     def analyst_run(self, key=None, text=None, depth=None):
         """Run one analysis (a topic key, or the office's own words) to a full report. One at a time."""
         if self._analyst_busy:
