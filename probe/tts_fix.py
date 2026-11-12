@@ -1,6 +1,6 @@
 import json, os, sys, subprocess, asyncio
 out = sys.argv[1]; os.makedirs(out, exist_ok=True)
-subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'edge-tts', 'faster-whisper'], check=True)
+subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'edge-tts', 'faster-whisper', 'imageio-ffmpeg'], check=True)
 import edge_tts
 J = json.load(open(os.path.join(os.path.dirname(__file__), 'fix_lines.json')))
 async def gen():
@@ -14,7 +14,7 @@ res = {}
 for l in J:
     p = os.path.join(out, l['id'] + '.mp3'); r = {}
     import numpy as np
-    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', p, '-f', 'f32le', '-ac', '1', '-ar', '16000', '-'], capture_output=True).stdout
+    import imageio_ffmpeg; raw = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), '-v', 'error', '-i', p, '-f', 'f32le', '-ac', '1', '-ar', '16000', '-'], capture_output=True).stdout
     aud = np.frombuffer(raw, np.float32)
     for lang in ('en', 'ur', 'hi'):
         try:
