@@ -30,5 +30,63 @@
     "rate": "+12%",
     "pitch": "+60Hz"
   },
-  "narrator_note": "Avoid putting 'Susuman' in edge-tts lines (Urdu TTS may misread it); let Qasim (Kokoro) say the name."
+  "narrator_note": "Avoid putting 'Susuman' in edge-tts lines (Urdu TTS may misread it); let Qasim (Kokoro) say the name.",
+  "_ensemble_note": "PROPOSED voices for the Nov 2026 ensemble - not yet tested; Hassan to check pronunciation on the first episode they appear in.",
+  "DADA ABU (proposed)": {
+    "engine": "Kokoro, lang hi, Devanagari",
+    "voice": "hm_omega",
+    "speed": 0.92,
+    "post_ffmpeg": "asetrate=24000*0.92,aresample=24000,atempo=1.087"
+  },
+  "DADI (proposed)": {
+    "engine": "edge-tts, Urdu script",
+    "voice": "ur-IN-GulNeural",
+    "rate": "-10%",
+    "pitch": "-10Hz"
+  },
+  "SAKINA (proposed)": {
+    "engine": "Kokoro, lang hi, Devanagari",
+    "voice": "hf_alpha",
+    "speed": 1.05,
+    "post_ffmpeg": "asetrate=24000*1.08,aresample=24000,atempo=0.926"
+  },
+  "BASIM (proposed)": {
+    "engine": "Kokoro, lang hi, Devanagari",
+    "voice": "hm_psi",
+    "speed": 1.05,
+    "post_ffmpeg": "kid filter as QASIM: asetrate=24000*1.28,aresample=24000,atempo=0.78125,highpass=f=120"
+  },
+  "ZAHRA MISS (proposed)": {
+    "engine": "edge-tts, Devanagari",
+    "voice": "hi-IN-SwaraNeural",
+    "rate": "+0%"
+  },
+  "AMMAR (proposed)": {
+    "engine": "edge-tts, Urdu script",
+    "voice": "ur-IN-SalmanNeural",
+    "rate": "-5%",
+    "pitch": "-15Hz"
+  },
+  "OFFICER GILL (proposed)": {
+    "engine": "edge-tts, Devanagari",
+    "voice": "hi-IN-MadhurNeural",
+    "rate": "-5%",
+    "pitch": "-20Hz"
+  },
+  "LATIFA (proposed)": {
+    "engine": "edge-tts, Urdu script",
+    "voice": "ur-IN-GulNeural",
+    "rate": "+8%",
+    "pitch": "+20Hz"
+  },
+  "DHARMENDER (proposed)": {
+    "engine": "edge-tts, Devanagari",
+    "voice": "hi-IN-MadhurNeural",
+    "rate": "+8%",
+    "pitch": "+25Hz"
+  },
+  "TV ANCHORS (proposed)": {
+    "DANIEL": "Kokoro hm_omega, speed 1.0, no filter",
+    "AMARA": "Kokoro hf_alpha, speed 1.0, no filter"
+  }
 }

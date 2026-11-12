@@ -10,7 +10,7 @@ Reference: `Susuman_model_sheet.jpg`. Drawing code: `rig.js` (`susu()`, `ammi()`
 - Power form (after the flush): gold aura, red cape, floating gold/white crown, bigger chest emblem.
 - Power rule: every washroom trip + flush fills the SUSU POWER bar. The washroom is never shown inside: door closes, gold light under the door, "FLUUSH!", he bursts out.
 - Catchphrase gag: "Ammi! Susu aayi hai!" → Ammi: "Phir se?! Abhi to gaye the!"
-- Parents don't know his power.
+- THE SECRET: only SAKINA (his elder sister, Baaji) knows Qasim is Susuman. Nobody else knows: not Ammi, not Abbu, not Dada Abu, not Dadi, not Basim, not the gali. Sakina covers for him and keeps the secret.
 
 ## Ammi
 - Teal kurta, pink dupatta, white shalwar, black hair in a bun with centre parting, gold earrings, usually on her phone.
@@ -67,3 +67,26 @@ Same flat 2D characters from rig.js (never redrawn); the DEPTH comes from stagin
 
 ## Studio skeleton version (Nov 2026)
 Qasim, Susuman and Ammi are also rigged on the studio skeleton (branch `animation-studio`, `CAST.qasim / CAST.susuman / CAST.ammi`) with the same colours as `rig.js`: 31 motions, turnarounds, 16 expressions, lip-sync. Sheets and a motion test are in `studio_rig/`. Use either rig; keep the look identical to this bible.
+
+## The ensemble (from Nov 12, 2026) — reference: `studio_rig/susuman_ensemble.png`
+All on the studio skeleton (`CAST.<key>` in engine/chars.js, branch `animation-studio`).
+- **Family**
+  - DADA ABU (`dadaAbu`): Qasim's grandfather (Abbu's father). White kurta, glasses, moustache, walking slowly; loves chai, the newspaper and old stories.
+  - DADI (`dadi`): Qasim's grandmother. Purple suit, white dupatta, glasses; feeds everyone, worries, says duas.
+  - SAKINA (`sakina`): Qasim's elder sister, Baaji, 14. Teal hoodie. **The only person who knows he is Susuman.** She covers for him ("Ammi, woh mere saath tha!"), hands him water before missions, and keeps the secret from everyone.
+  - AMMI: as above. Abbu is mentioned but kept off-screen for now.
+- **Gali, school & TV**
+  - BASIM (`basim`): Qasim's best friend from the gali, about his age, spiky hair, orange kurta. Does not know the secret; often the one Susuman saves or plays with.
+  - ZAHRA MISS (`zahra`): Qasim's school teacher, glasses, blue kameez.
+  - AMMAR (`ammar`): Ammar mistri, the mohalla builder uncle; yellow hard hat, orange safety vest. Repairs, ladders, scaffolding, things that fall.
+  - OFFICER GILL (`officer`): the friendly mohalla police uncle (turban, navy uniform).
+  - LATIFA (`latifa`): the college-going neighbour, orange hijab, white coat.
+  - DHARMENDER (`dharmender`): Dharmender bhaiya, the gali teenager in the yellow hoodie, skateboard and cricket.
+  - DANIEL and AMARA (`daniel`, `amara`): TV news anchors, only seen on the family TV ("Mysterious hero saves kitten!").
+- Old names map automatically in code (chacha→dadaAbu, zoya→sakina, rafi→basim, nani→dadi, maya→zahra, marcus→ammar, layla→latifa, jamal→dharmender).
+
+### Rotation rule (every episode)
+- Every episode: Qasim/Susuman + Ammi + **at least 2 other family members** (Sakina in most) + **at least 2 from the gali/school/TV list**.
+- Rotate the featured cast so nobody is absent for more than 3 episodes in a row; keep a "Cast:" line in each episode's notes and check the last 3 before choosing.
+- Give each a story function, not just a cameo: Dada Abu/Dadi set up problems and moral endings, Basim is the friend in trouble, Zahra Miss the school stories, Ammar the building/height rescues, Officer Gill the lost things/traffic, Latifa and Dharmender bhaiya the neighbourhood events, Daniel/Amara report the "mystery hero" on TV.
+- The secret never slips: only Sakina may react knowingly (a wink, a cover story); everyone else credits "koi superhero" on TV.

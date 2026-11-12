@@ -22,3 +22,6 @@ Every episode: ~110 s vertical, desi setting, Qasim's washroom running gag ("Amm
 | 14 | TODO | Ammi Ko Shaq! | — | Ammi notices a gold glow under the washroom door… nearly discovers the secret (cliffhanger) | — |
 
 After 14: continue in the same spirit (festivals by date — winter, Basant/Sankranti, Eid/Holi only in neutral, inclusive terms; never religious content), reuse cast, add new side characters through rig.js + model sheet.
+
+## Ensemble rule (from Nov 12, 2026)
+Every episode features Qasim/Susuman, Ammi, at least two more family members (Sakina in most) and at least two of Basim, Zahra Miss, Ammar, Officer Gill, Latifa, Dharmender, the TV anchors. Rotate so no one is missing for more than 3 episodes in a row. Only Sakina knows the secret. Details in CHARACTER.md.
