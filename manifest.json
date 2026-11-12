@@ -1,0 +1,85 @@
+{
+ "generated": "2026-11-12T08:19:41Z",
+ "files": 6,
+ "bytes": 4383168,
+ "assets": [
+  {
+   "path": "rigged3d/Fox/Fox.glb",
+   "source": "Khronos glTF-Sample-Assets - Fox",
+   "url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/Fox",
+   "category": "characters/3d_rigged",
+   "format": "glb",
+   "bytes": 162852,
+   "note": "rigged + 3 animations (Survey, Walk, Run) | licence detail in metadata.json",
+   "licence": "CC BY 4.0 (see metadata.json for the named author)",
+   "commercial": true,
+   "modify": true,
+   "attribution": true
+  },
+  {
+   "path": "rigged3d/CesiumMan/CesiumMan.glb",
+   "source": "Khronos glTF-Sample-Assets - CesiumMan",
+   "url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CesiumMan",
+   "category": "characters/3d_rigged",
+   "format": "glb",
+   "bytes": 438044,
+   "note": "rigged walk cycle | licence detail in metadata.json",
+   "licence": "CC BY 4.0 (see metadata.json for the named author)",
+   "commercial": true,
+   "modify": true,
+   "attribution": true
+  },
+  {
+   "path": "rigged3d/RiggedFigure/RiggedFigure.glb",
+   "source": "Khronos glTF-Sample-Assets - RiggedFigure",
+   "url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/RiggedFigure",
+   "category": "characters/3d_rigged",
+   "format": "glb",
+   "bytes": 50116,
+   "note": "rigged figure | licence detail in metadata.json",
+   "licence": "CC BY 4.0 (see metadata.json for the named author)",
+   "commercial": true,
+   "modify": true,
+   "attribution": true
+  },
+  {
+   "path": "rigged3d/BrainStem/BrainStem.glb",
+   "source": "Khronos glTF-Sample-Assets - BrainStem",
+   "url": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/BrainStem",
+   "category": "characters/3d_rigged",
+   "format": "glb",
+   "bytes": 3194848,
+   "note": "rigged robot dance | licence detail in metadata.json",
+   "licence": "CC BY 4.0 (see metadata.json for the named author)",
+   "commercial": true,
+   "modify": true,
+   "attribution": true
+  },
+  {
+   "path": "rigged3d/RobotExpressive/RobotExpressive.glb",
+   "source": "three.js examples - RobotExpressive (Tomas Laulhe, CC0)",
+   "url": "https://github.com/mrdoob/three.js/tree/dev/examples/models/gltf/RobotExpressive",
+   "category": "characters/3d_rigged",
+   "format": "glb",
+   "bytes": 463988,
+   "note": "14 animations (Idle, Walking, Running, Dance, Jump, Wave, ThumbsUp, Yes, No, Punch, Death, Sitting, Standing, WalkJump) + facial morphs (Angry, Surprised, Sad)",
+   "licence": "CC0 1.0 (public domain dedication)",
+   "commercial": true,
+   "modify": true,
+   "attribution": false
+  },
+  {
+   "path": "fonts/luckiestguy/LuckiestGuy-Regular.ttf",
+   "source": "Google Fonts",
+   "url": "https://fonts.google.com/specimen/Luckiest+Guy",
+   "category": "fonts",
+   "format": "ttf",
+   "bytes": 73320,
+   "note": "",
+   "licence": "Apache 2.0",
+   "commercial": true,
+   "modify": true,
+   "attribution": false
+  }
+ ]
+}
