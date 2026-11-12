@@ -46,6 +46,7 @@ function E_intro(t) {
   // ball
   if (t > rel - .05 && t < hit) { const k = seg(t, rel, hit), bx = lerp(gx + 50, 690 - camX, k), by = k < .6 ? lerp(800, 1190, k / .6) : lerp(1190, 1020, (k - .6) / .4); sc += ball(bx, by, 16, t * 900); }
   if (t >= hit) { const k = seg(t, hit, hit + 1.0); sc += ball(lerp(690 - camX, 1150, k), lerp(1020, -120, eout(k)), lerp(16, 26, k), t * 1400); if (k < 1) sc += `<path d="M${lerp(690 - camX, 1150, k) - 30},${lerp(1020, -120, eout(k)) + 40} l-120,110" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".7"/>`; }
+  sc = zoom(sc, 540, 1300, lerp(.5, 1, ease(seg(t, .6, 4.8))));
   let g = shake(sc, t > hit && t < hit + .25 ? 1 - seg(t, hit, hit + .25) : 0, t);
   if (t > hit && t < hit + 1.1) g += burst(560, 820, 170, '#fff', 'THWACK!', 70, -8, 1 - seg(t, hit + .8, hit + 1.1));
   if (t < 4.2) g += hookBig('GALI CRICKET', 'BADA MATCH!', t, .3, .9, 230);
@@ -129,6 +130,7 @@ function E_danger(t) {
   sc += guddu({ x: lerp(1500, 1760, kin) - camX, y: 1190, t, armR: g2 ? 155 : 20, armL: 20, legL: kin > 0 && kin < 1 ? walkPh(t) : 0, legR: kin > 0 && kin < 1 ? -walkPh(t) : 0, look: [10, -16], mouth: 'o', amp: amp('GUDDU'), blink: blink(t, 3) });
   sc += bunty({ x: lerp(1620, 1890, kin) - camX, y: 1215, t, armL: b3 ? 170 : 25, armR: b3 ? 170 : 25, legL: kin > 0 && kin < 1 ? walkPh(t) : 0, legR: kin > 0 && kin < 1 ? -walkPh(t) : 0, look: [8, -16], mouth: 'o', amp: amp('BUNTY'), brow: 1, blink: blink(t, 2.5) });
   if (crackK > 0) sc += fallingLeaves(t, 1900 - camX, 520, 5);
+  sc = zoom(sc, 540, 1300, lerp(.6, 1, ease(seg(t, 4.4, 6.2))));
   let g = shake(sc, crackK > 0 ? .25 * Math.max(0, Math.sin(t * 8)) : 0, t);
   if (t > 2.6 && t < 5.0) { const k = Math.max(0, Math.sin(t * 9)); g += T(dx - camX + 60, 1040 - 20 * k, 54, 'BHAU! BHAU!', { fill: '#fff', shadow: '#000', op: k > .3 ? 1 : .6 }); }
   if (pose === 'cling') g += T(cx - camX + 10, cy - 120 - 10 * meow, 50, 'MEOW!', { fill: '#fff', shadow: C.red, op: meow > .2 ? 1 : 0 });
@@ -189,7 +191,7 @@ function E_rescue(t) {
   const kin = eout(seg(t, landT, landT + 1.2));
   sc += bunty({ x: 1890 - camX, y: 1215, t, armL: 30, armR: 30, mouth: 'o', amp: amp('BUNTY'), look: t > offT ? [6, -20] : [10, 0], brow: 1, blink: blink(t) });
   sc += guddu({ x: 1760 - camX, y: 1190, t, armL: 20, armR: t > LS('g3') ? 150 : 20, mouth: 'o', amp: amp('GUDDU'), look: t > offT ? [6, -20] : [12, 0], blink: blink(t, 3) });
-  let g = zoom(sc, 480, 900, slow ? 1.15 : 1);
+  let g = t < A + .3 ? zoom(sc, 480, 1300, lerp(.55, 1, ease(seg(t, A - .9, A + .3)))) : zoom(sc, 480, 900, slow ? 1.15 : 1);
   if (slow) g += `<rect width="1080" height="1920" fill="url(#vig)" opacity=".7"/>`;
   g = shake(g, Math.abs(t - snapT) < .25 ? 1 : (Math.abs(t - landT) < .3 ? .8 : 0), t);
   if (t > snapT && t < snapT + .9) g += burst(560, 420, 150, '#fff', 'KRAKK!', 66, 10, 1 - seg(t, snapT + .6, snapT + .9));
@@ -238,7 +240,8 @@ function E_last(t) {
   sc += cat({ x: mx, y: 1235, s: .6, pose: mpose, flip: mflip, t, meow: t > LS('n4') ? Math.max(0, Math.sin(t * 5)) * .8 : 0 });
   sc += susu({ x: qx, y: qy, s: .55 * KS, rot, flip, t, batR: hasBat, armR, armL, legL: walking ? walkPh(t, 20) * .7 : 0, legR: walking ? -walkPh(t, 20) * .7 : 0, mouth, amp: amp('QASIM'), look: [10, 4], blink: blink(t, 2.6) });
   if (walking) sc += notes(qx + 70, 820, t);
-  let g = sc;
+  const wide = ease(seg(t, t0 + .7, t0 + 1.4)) * (1 - ease(seg(t, LS('n4') - .2, LS('n4') + .6)));
+  let g = zoom(sc, 480, 1250, lerp(1, .72, wide));
   if (t > hitT && t < hitT + .8) g += T(qx + 120, 1000, 60, 'tuk!', { fill: '#fff', shadow: '#000', op: 1 - seg(t, hitT + .5, hitT + .8) });
   if (t > hitT + 1.6 && t < pushT) g += T(820, 760, 70, 'OHHH...', { fill: '#fff', shadow: '#000' });
   if (t > fourT) { g += confetti(t - fourT); if (t < fourT + 1.4) g += `<g transform="translate(540,470) scale(${back(seg(t, fourT, fourT + .3))})">${burst(0, 0, 260, C.gold, 'CHAUKA!', 120, -6, 1 - seg(t, fourT + 1.1, fourT + 1.4))}</g>`; }
@@ -259,7 +262,7 @@ function E_ending(t) {
   sc += susu({ x: qx, y: qy, s: .55 * KS, t, legL: q5 ? 16 + 6 * d : -20, legR: q5 ? -16 + 6 * d : 20, armL: q5 ? 4 : 150, armR: q5 ? 4 : 150, mouth: q5 ? 'wobble' : 'grin', amp: amp('QASIM'), brow: q5 ? 1 : 0, tilt: q5 ? 6 * d : 0, blink: blink(t) });
   sc += cat({ x: 800, y: 1235 - Math.abs(Math.sin(t * 7)) * 30 * (1 - hop), s: .6, pose: 'sit', flip: -1, t });
   if (runOff > 0) sc += speed(qx - 30, 1080, 1, .7, 4);
-  let g = sc;
+  let g = zoom(sc, 540, 1250, lerp(1, .58, ease(seg(t, LE('a2') + .3, sdur('ending')))));
   if (t > LS('a2') - .2) { const k = back(seg(t, LS('a2') - .2, LS('a2') + .1)); g += inset(860, 560, 150 * k, `<rect x="700" y="400" width="320" height="320" fill="#f6e7c8"/><rect x="760" y="430" width="200" height="300" fill="#2f6fd1"/>` + ammi({ x: 860, y: 1000, s: .9, phone: 0, t, look: [-8, 0], brow: 1, amp: amp('AMMI') }), 'insA'); }
   g += tally(8, 'AAJ SUUSUU BREAK:', seg(t, LE('a2') + .1, LE('a2') + .4));
   return g + capFor('ending', t);
@@ -269,7 +272,7 @@ function E_endcard(t) {
   let g = brushBg(t + 90);
   g += susu({ x: 540, y: 1250, s: .85, t, power: .8, cape: 1, crown: 1, shades: 0, armL: 40, armR: 40, mouth: 'grin', blink: blink(t, 2.6) });
   g += cat({ x: 545, y: 1250 - 235 * .85 + 20, s: .55, pose: 'sit', flip: -1, t, meow: Math.max(0, Math.sin(t * 4)) * .7 });
-  const half = LS('n5') + L('n5').d * .48;
+  const half = LS('n5') + L('n5').d * 0.58;
   if (t < half + .2) { g += `<g transform="translate(540,290) scale(${back(seg(t, .2, .5))})">${T(0, 0, 92, 'PED PAR KHUD', { shadow: '#000' })}</g><g transform="translate(540,410) scale(${back(seg(t, .5, .8))}) rotate(-3)">${T(0, 0, 104, 'MAT CHADHNA!', { fill: C.gold, shadow: C.red })}</g>`; }
   else {
     const k = back(seg(t, half + .2, half + .5)), clicked = t > half + 2.2;

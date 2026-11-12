@@ -53,7 +53,7 @@
   {
    "id": "endcard",
    "start": 100.265,
-   "dur": 9.599
+   "dur": 10.39
   }
  ],
  "lines": {
@@ -212,11 +212,11 @@
   "n5": {
    "scene": "endcard",
    "s": 0.6,
-   "d": 5.399,
+   "d": 6.19,
    "abs": 100.865,
    "sp": "NARR",
    "txt": "Bachcho, ped par khud mat chadhna,|badon ko bulao!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
   }
  },
- "total": 109.864
+ "total": 110.655
 }

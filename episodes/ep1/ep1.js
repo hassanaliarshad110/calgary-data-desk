@@ -115,17 +115,17 @@ const HOUSES = [[-260, 400, 560, '#f4b7a6'], [140, 420, 640, '#ffd98a'], [560, 3
 const TREE_X = 2250;
 function branchTip(o) { return { x: 1950, y: 560 + (o.bend || 0) }; }
 function gali(camX, t, o = {}) {
-  let g = `<rect width="${W}" height="${H}" fill="url(#sky)"/>`;
+  let g = `<rect x="-2200" y="-1600" width="5500" height="4200" fill="#7cc7f2"/><rect x="-2200" y="0" width="5500" height="${GY}" fill="url(#sky)"/>`;
   g += `<circle cx="${860 - camX * .05}" cy="250" r="90" fill="#fff3c4" opacity=".9"/><circle cx="${860 - camX * .05}" cy="250" r="150" fill="#fff3c4" opacity=".25"/>`;
   for (let i = 0; i < 5; i++) { const cx = ((i * 520 + t * 14 - camX * .1) % 2600 + 2600) % 2600 - 300, cy = 140 + i * 70 % 210; g += `<g fill="#fff" opacity=".9"><ellipse cx="${cx}" cy="${cy}" rx="110" ry="34"/><ellipse cx="${cx + 60}" cy="${cy - 20}" rx="70" ry="38"/><ellipse cx="${cx - 50}" cy="${cy - 12}" rx="60" ry="28"/></g>`; }
   // kites
   [[300, 300, '#e5463b'], [980, 220, '#3b8de5'], [1700, 330, '#22a35a'], [2500, 260, '#e5b23b']].forEach(([kx, ky, c], i) => {
     const x = kx - camX * .25 + 20 * Math.sin(t * .9 + i), y = ky + 14 * Math.sin(t * 1.3 + i * 2), r = 10 * Math.sin(t * 1.1 + i);
-    if (x < -100 || x > 1180) return;
+    if (x < -900 || x > 2000) return;
     g += `<path d="M${x},${y + 36} Q${x - 60},${y + 300} ${x - 160},${y + 700}" stroke="#555" stroke-width="2" fill="none" opacity=".5"/><g transform="rotate(${r} ${x} ${y})"><path d="M${x},${y - 40} L${x + 32},${y} L${x},${y + 40} L${x - 32},${y}Z" fill="${c}" stroke="${C.ink}" stroke-width="4"/><path d="M${x},${y - 40} V${y + 40} M${x - 32},${y} H${x + 32}" stroke="#fff" stroke-width="2" opacity=".7"/><path d="M${x},${y + 40} q-10,20 4,36" stroke="${c}" stroke-width="5" fill="none"/></g>`;
   });
   // birds
-  for (let i = 0; i < 6; i++) { const bx = ((i * 140 + t * 90 - camX * .5) % 1600 + 1600) % 1600 - 200, by = 380 + 30 * Math.sin(i * 2 + t), f = 14 * Math.sin(t * 12 + i); g += `<path d="M${bx - 18},${by - f} Q${bx - 8},${by - 6} ${bx},${by} Q${bx + 8},${by - 6} ${bx + 18},${by - f}" stroke="#333" stroke-width="4" fill="none" stroke-linecap="round"/>`; }
+  for (let i = 0; i < 8; i++) { const bx = ((i * 140 + t * 90 - camX * .5) % 2400 + 2400) % 2400 - 600, by = 380 + 30 * Math.sin(i * 2 + t), f = 14 * Math.sin(t * 12 + i); g += `<path d="M${bx - 18},${by - f} Q${bx - 8},${by - 6} ${bx},${by} Q${bx + 8},${by - 6} ${bx + 18},${by - f}" stroke="#333" stroke-width="4" fill="none" stroke-linecap="round"/>`; }
   // far rooftops
   g += `<g transform="translate(${-camX * .35},0)" fill="#d8b49a" opacity=".85">`;
   for (let i = 0; i < 16; i++) { const fx = -300 + i * 240, fh = 360 + (i * 97 % 160); g += `<rect x="${fx}" y="${GY - fh - 120}" width="230" height="${fh}"/><rect x="${fx + 60 + i % 3 * 40}" y="${GY - fh - 176}" width="64" height="56" rx="10" fill="#5f5a66"/>`; }
@@ -153,12 +153,19 @@ function gali(camX, t, o = {}) {
     }
   });
   // street + chalk
-  g += `<rect x="${camX - 400}" y="${GY}" width="1900" height="1100" fill="#e2c99b"/>`;
-  for (let i = 0; i < 120; i++) { const sx = i * 37 % 3400 - 200, sy = GY + 30 + (i * 61 % 820); if (sx > camX - 60 && sx < camX + 1140) g += `<ellipse cx="${sx}" cy="${sy}" rx="${5 + i % 4 * 3}" ry="${3 + i % 3}" fill="#bfa478"/>`; }
-  g += `<path d="M${camX - 400},${GY + 4} H${camX + 1500}" stroke="#a88f68" stroke-width="10"/>`;
+  g += `<rect x="${camX - 2400}" y="${GY}" width="6000" height="3200" fill="#e2c99b"/>`;
+  for (let i = 0; i < 120; i++) { const sx = i * 37 % 3400 - 200, sy = GY + 30 + (i * 61 % 820); if (sx > camX - 1000 && sx < camX + 2100) g += `<ellipse cx="${sx}" cy="${sy}" rx="${5 + i % 4 * 3}" ry="${3 + i % 3}" fill="#bfa478"/>`; }
+  g += `<path d="M${camX - 2400},${GY + 4} H${camX + 3600}" stroke="#a88f68" stroke-width="10"/>`;
   g += `<path d="M830,${GY + 30} L800,${GY + 420}" stroke="#fff" stroke-width="12" stroke-dasharray="40 18" opacity=".9"/>`;      // boundary line
   g += `<g transform="translate(470,${GY + 170})"><rect x="0" y="0" width="70" height="34" fill="#b5462e" stroke="${C.ink}" stroke-width="4"/><rect x="0" y="-34" width="70" height="34" fill="#c3533a" stroke="${C.ink}" stroke-width="4"/><rect x="0" y="-68" width="70" height="34" fill="#b5462e" stroke="${C.ink}" stroke-width="4"/></g>`; // brick stumps
   if (o.score) g += `<g transform="translate(600,${GY - 400}) rotate(-3)">${T(0, 0, 54, o.score, { font: 'Bangers', fill: '#fff', stroke: '#555', sw: 3, ls: 2 })}</g>`;
+
+  // foreground street life (seen in wide shots)
+  const rick = (x, y) => `<g transform="translate(${x},${y})"><path d="M-130,-150 Q-120,-230 0,-232 Q120,-230 140,-150 Z" fill="#f4c430" stroke="${C.ink}" stroke-width="6"/><rect x="-140" y="-152" width="290" height="120" rx="20" fill="#2e8b57" stroke="${C.ink}" stroke-width="6"/><rect x="-100" y="-140" width="90" height="70" rx="10" fill="#bfe6f2" stroke="${C.ink}" stroke-width="4"/><circle cx="-90" cy="-20" r="36" fill="#222" stroke="${C.ink}" stroke-width="5"/><circle cx="-90" cy="-20" r="14" fill="#999"/><circle cx="110" cy="-20" r="36" fill="#222" stroke="${C.ink}" stroke-width="5"/><circle cx="110" cy="-20" r="14" fill="#999"/></g>`;
+  const thela = (x, y) => `<g transform="translate(${x},${y})"><path d="M-110,-260 L110,-260 L0,-330 Z" fill="#e5463b" stroke="${C.ink}" stroke-width="5"/><path d="M0,-260 v120" stroke="#555" stroke-width="7"/><rect x="-130" y="-140" width="260" height="90" rx="10" fill="#b07a46" stroke="${C.ink}" stroke-width="6"/><rect x="-70" y="-200" width="60" height="60" rx="14" fill="#c0c0c8" stroke="${C.ink}" stroke-width="4"/><path d="M-10,-185 q30,-6 26,22" stroke="${C.ink}" stroke-width="4" fill="none"/>${[0, 1, 2].map(k => `<rect x="${20 + k * 30}" y="-170" width="22" height="30" rx="4" fill="#fff" stroke="${C.ink}" stroke-width="3"/>`).join('')}<path d="M${-40 + 8 * Math.sin(t * 3)},-210 q-14,-30 6,-60 q-16,-24 4,-50" stroke="#fff" stroke-width="6" fill="none" opacity=".7"/><circle cx="-90" cy="-30" r="30" fill="#5a3b22" stroke="${C.ink}" stroke-width="5"/><circle cx="90" cy="-30" r="30" fill="#5a3b22" stroke="${C.ink}" stroke-width="5"/>${T(0, -82, 44, 'CHAI', { fill: '#fff', sw: 5 })}</g>`;
+  const cycle = (x, y) => `<g transform="translate(${x},${y})" fill="none" stroke="${C.ink}" stroke-width="7"><circle cx="-80" cy="-50" r="50"/><circle cx="80" cy="-50" r="50"/><path d="M-80,-50 L-20,-130 L60,-130 L80,-50 M-20,-130 L10,-50 L60,-130 M-30,-150 h30 M60,-130 L50,-170 h30" stroke="#d33"/></g>`;
+  const plant = (x, y) => `<g transform="translate(${x},${y})"><path d="M-30,0 L-24,-50 H24 L30,0Z" fill="#c0603a" stroke="${C.ink}" stroke-width="4"/><circle cx="-14" cy="-70" r="24" fill="#3c9a4a" stroke="${C.ink}" stroke-width="4"/><circle cx="14" cy="-74" r="26" fill="#43a047" stroke="${C.ink}" stroke-width="4"/></g>`;
+  g += thela(120, GY + 560) + rick(1250, GY + 600) + cycle(2620, GY + 520) + thela(3150, GY + 560) + plant(1500, GY + 30) + plant(1660, GY + 30) + plant(330, GY + 30);
   // neem tree
   const bend = o.bend || 0, snap = o.snap || 0;
   g += `<path d="M${TREE_X - 70},${GY + 30} Q${TREE_X - 40},${GY - 300} ${TREE_X - 50},${GY - 560} L${TREE_X + 50},${GY - 560} Q${TREE_X + 40},${GY - 300} ${TREE_X + 80},${GY + 30}Z" fill="#7a5233" stroke="${C.ink}" stroke-width="7"/>
