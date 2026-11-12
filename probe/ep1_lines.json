@@ -1,142 +1,30 @@
 {
  "kokoro": [
   {
-   "id": "q1",
-   "text": "बंटी भाई! मुझे भी बैटिंग करनी है!"
+   "id": "t1",
+   "text": "अम्मी! सूसू आई है!"
   },
   {
-   "id": "q2",
-   "text": "टाइम आउट! सूसू आई है!"
-  },
-  {
-   "id": "q3a",
-   "phonemes": "sˈuːːsˈuːːmˈɛn!",
-   "speed": 0.72
-  },
-  {
-   "id": "q3b",
-   "phonemes": "sˈuːsˈuːmˈɛn!",
-   "speed": 0.6
-  },
-  {
-   "id": "q3c",
-   "text": "सूऽऽ सूऽऽ मैन!",
-   "speed": 0.8
-  },
-  {
-   "id": "q3d",
-   "text": "सूसूमैन!",
-   "speed": 0.75
-  },
-  {
-   "id": "q4",
-   "text": "सच में?! हाँ!"
-  },
-  {
-   "id": "q5",
-   "text": "अम्मीईई! सूसू आई है!"
-  },
-  {
-   "id": "q6",
-   "text": "सूसू"
+   "id": "t6",
+   "text": "कुछ नहीं अम्मी!"
   }
  ],
  "edge": [
   {
-   "id": "n1",
-   "text": "کیا ایک چار سال کا بچہ... اس ننھی بلی کو بچا پائے گا؟",
+   "id": "n5a",
+   "text": "بچو! پیڑ پر، خود مت چڑھنا۔ بڑوں کو بلاؤ!",
    "voice": "ur-PK-AsadNeural",
    "rate": "+8%"
   },
   {
-   "id": "n2",
-   "text": "یہ ہے ہماری گلی۔ اور یہاں چل رہا ہے، سب سے بڑا میچ!",
+   "id": "n5b",
+   "text": "ویڈیو اچھی لگی، تو LIKE اور SUBSCRIBE کرو!",
    "voice": "ur-PK-AsadNeural",
    "rate": "+8%"
   },
   {
-   "id": "b1",
-   "text": "تو بہت چھوٹا ہے! تو صرف فیلڈنگ کرے گا!",
-   "voice": "ur-IN-SalmanNeural",
-   "rate": "+10%",
-   "pitch": "+40Hz"
-  },
-  {
-   "id": "g1",
-   "text": "हाँ हाँ! छोटू, जा के फ़ील्डिंग कर!",
-   "voice": "hi-IN-MadhurNeural",
-   "rate": "+12%",
-   "pitch": "+60Hz"
-  },
-  {
-   "id": "b2",
-   "text": "پھر سے؟! یہ آج ساتویں بار ہے!",
-   "voice": "ur-IN-SalmanNeural",
-   "rate": "+10%",
-   "pitch": "+40Hz"
-  },
-  {
-   "id": "a1",
-   "text": "پھر سے؟! ابھی تو گئے تھے!",
-   "voice": "ur-PK-UzmaNeural",
-   "rate": "+5%"
-  },
-  {
-   "id": "g2",
-   "text": "अरे! मानो पेड़ पर फँस गई!",
-   "voice": "hi-IN-MadhurNeural",
-   "rate": "+12%",
-   "pitch": "+60Hz"
-  },
-  {
-   "id": "b3",
-   "text": "اتنا اوپر کوئی نہیں جا سکتا!",
-   "voice": "ur-IN-SalmanNeural",
-   "rate": "+10%",
-   "pitch": "+40Hz"
-  },
-  {
-   "id": "n3",
-   "text": "لیکن کوئی نہیں جانتا... ہر فلش کے ساتھ، قاسم بن جاتا ہے...",
-   "voice": "ur-PK-AsadNeural",
-   "rate": "+8%"
-  },
-  {
-   "id": "b4",
-   "text": "یہ... یہ کون تھا؟!",
-   "voice": "ur-IN-SalmanNeural",
-   "rate": "+10%",
-   "pitch": "+40Hz"
-  },
-  {
-   "id": "g3",
-   "text": "कोई सुपरहीरो था!",
-   "voice": "hi-IN-MadhurNeural",
-   "rate": "+12%",
-   "pitch": "+60Hz"
-  },
-  {
-   "id": "b5",
-   "text": "قاسم! آخری بال تو کھیل۔ چار رن چاہئیں!",
-   "voice": "ur-IN-SalmanNeural",
-   "rate": "+10%",
-   "pitch": "+40Hz"
-  },
-  {
-   "id": "n4",
-   "text": "مانو نے بھی، اپنا احسان چکا دیا!",
-   "voice": "ur-PK-AsadNeural",
-   "rate": "+8%"
-  },
-  {
-   "id": "a2",
-   "text": "پھر سے؟!",
-   "voice": "ur-PK-UzmaNeural",
-   "rate": "+5%"
-  },
-  {
-   "id": "n5",
-   "text": "بچو، پیڑ پر خود مت چڑھنا، بڑوں کو بلاؤ! اور ویڈیو اچھی لگی، تو لائک اور سبسکرائب کرو!",
+   "id": "t7",
+   "text": "کیا امی کو کبھی پتا چلے گا؟ ویڈیو کو LIKE کرو، اور SUBSCRIBE کرنا مت بھولنا!",
    "voice": "ur-PK-AsadNeural",
    "rate": "+8%"
   }
