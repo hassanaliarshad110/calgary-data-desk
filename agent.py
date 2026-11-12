@@ -391,6 +391,10 @@ counted, because the homes they oversee are spread across the city.
 "violent crime rose"). When you put an area next to Calgary, keep them apart and say how they compare in plain words, \
 especially when they move in opposite directions: "Ward 5's violent crime rose 13.7%, while Calgary's as a whole fell \
 7.6%". Never put a Calgary figure inside a line or bullet that is about a ward or community without its own label.
+- Comparing any rows (seats, communities, years, cities, departments): whenever an answer says one is the highest, \
+lowest, narrowest, widest, most, least, first or last, take it from a ranking the tool gives (ranks, compare, \
+order_high_to_low) or work it out with calculate (max and min of the values, with their names); never pick it by reading \
+the rows, and check that each such sentence agrees with the table you show.
 - Ranking wards: whenever an answer says a ward is highest, lowest, second, "the most" or "of 14", take the place from \
 get_dashboard section wards, ranks[measure][ward] (1 = highest), never by reading the rows; and use the wards \
 section's ward figures (they count every community, so they add up to Calgary) instead of re-querying a dataset and \
@@ -1387,6 +1391,32 @@ def growth_forecast_out(S, community=None, sector=None, part=None):
                     'ranges); part="infrastructure" for the projects; part="fields" for what every column means.'}
 
 
+def _seat_compare(el):
+    """The area's seats at each level, highest and lowest turnout, margin and winning share, worked out here so no answer
+    picks them by reading the rows (a Fast answer once named the wrong seat as the lowest turnout)."""
+    out = {}
+    for level in ('provincial', 'federal'):
+        rows = [r for r in ((el or {}).get(level) or {}).get('ridings') or [] if r.get('riding')]
+        if len(rows) < 2:
+            continue
+        lv = {}
+        for key, label, get in (('turnout', 'turnout', lambda r: r.get('turnout')),
+                                ('margin', 'winning margin (points)', lambda r: r.get('margin_share')),
+                                ('winning_share', 'winner\'s share', lambda r: (r.get('elected') or {}).get('share'))):
+            vals = [(get(r), r['riding']) for r in rows if isinstance(get(r), (int, float))]
+            if len(vals) < 2:
+                continue
+            pct = lambda v: round(100 * v, 1)
+            hi, lo = max(vals), min(vals)
+            lv[key] = {'measure': label, 'highest': {'seat': hi[1], 'value_pct': pct(hi[0])},
+                       'lowest': {'seat': lo[1], 'value_pct': pct(lo[0])},
+                       'order_high_to_low': [{'seat': n, 'value_pct': pct(v)} for v, n in sorted(vals, reverse=True)]}
+        out[level] = lv
+    if out:
+        out['note'] = ('Worked out from the rows above: say which seat is highest or lowest only from here (narrowest margin = '
+                       'margin lowest). Values are percentages (margin in points).')
+    return out
+
 def dashboard_section(d, section='overview', wards=None, extra=None):
     """The dashboard's figures for the selected area (all of Calgary or one ward), one part at a time so each answer
     fits. wards: () -> the summary of every ward (built from the whole-city dashboard), for section="wards"."""
@@ -1544,6 +1574,7 @@ def dashboard_section(d, section='overview', wards=None, extra=None):
                'Elections Canada); members today from the Legislative Assembly of Alberta and the House of Commons. '
                'State results as facts with their source and date; never favour or rate a candidate or party, and '
                'give no voting advice. get_method topic elections.'}
+        out['compare'] = _seat_compare(d.get('elections'))
         try:
             import elections as _el                     # noqa: PLC0415
             out['next_elections'] = _el.NEXT           # the dates the Election Data Centre shows (federal, provincial, municipal)
