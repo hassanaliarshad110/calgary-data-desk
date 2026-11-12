@@ -237,7 +237,18 @@ produce a full analysis and finish with make_report, which prints it as a PDF th
 5. Report with make_report: a summary of 3 to 6 findings (each with its number), sections that each answer one part
    with a chart or table built from tool results, the method, every data source (name, dataset ID or link, publisher,
    period used), limits, recommendations that follow from the findings (each says which finding it rests on and a
-   priority), and an action plan (action, who in the office or which City service, how success will be measured). No timelines or deadlines anywhere in options or next steps (no "within 2 weeks", "next 3 months", dates to act by): the office sets its own timing.
+   priority), and an action plan (action, who in the office or which City service, how success will be measured). No timelines or deadlines unless the request asks for them: the office sets its own timing.
+   ANSWER WHAT WAS ASKED, BY NAME: when the request asks for recommendations, a pathway, a plan, a timeline or models, the
+   report has a section for each, titled as asked, and each one answers the question rather than describing the data.
+   When the request asks for a pathway, roadmap, timeline or a plan over a period ("the next 12 months", "by election
+   day"), give it as its own section before the recommendations: a period-by-period table (period, what to do, the target
+   it must reach as a number, how it is measured), built from the report's own figures and models so that the steps add
+   up to the goal; this is the one place where timing is given.
+   DO THE WORK YOURSELF, DO NOT ASSIGN IT: anything your tools and the data can do (rebuilding results poll by poll or by
+   voting location, vote targets at given turnouts, counting electors and new homes, mapping new homes or permits by
+   community, comparing areas, building a model) is done in the report, with its tables and maps. The action plan lists
+   only what needs people (meetings, canvassing, events, outreach, decisions). Before make_report, read each action-plan
+   step: if your tools could have done it, do it now, put the result in a section, and drop the step.
    Show the evidence: give each section the visuals that make it clear: a line or area chart for any trend over time,
    bars to compare communities or with Calgary, horizontal bars for rankings, stacked bars for parts of a total, a
    scatter for how two measures relate, a map of the area's communities shaded by a rate (values by community) or with
@@ -874,11 +885,11 @@ TOOLS += [
              'url': {'type': 'string'}, 'period': {'type': 'string'}, 'notes': {'type': 'string'}}, 'required': ['name']}},
          'limitations': {'type': 'array', 'items': {'type': 'string'}},
          'recommendations': {'type': 'array', 'items': {'type': 'object', 'properties': {
-             'title': {'type': 'string'}, 'detail': {'type': 'string', 'description': 'No timelines or deadlines'},
+             'title': {'type': 'string'}, 'detail': {'type': 'string', 'description': 'Specific (where, how many, how big); timing only when the request asks for a timeline or pathway'},
              'evidence': {'type': 'string', 'description': 'The finding it rests on'},
              'priority': {'type': 'string', 'enum': ['high', 'medium', 'low']}}, 'required': ['title', 'detail']}},
          'action_plan': {'type': 'array', 'items': {'type': 'object', 'properties': {
-             'action': {'type': 'string', 'description': 'No timelines or deadlines (no "within 2 weeks", "next 3 months")'},
+             'action': {'type': 'string', 'description': 'Only steps that need people (never data work your tools could do: do that in the report); timing only when the request asks for a timeline or pathway'},
              'owner': {'type': 'string'},
              'measure': {'type': 'string', 'description': 'How the office will know it worked'}}, 'required': ['action']}},
          'file_name': {'type': 'string'},
