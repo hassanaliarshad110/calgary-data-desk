@@ -452,6 +452,8 @@ function ivOwnSummary() {
 
 async function ivAsk(q, full) {
   if (ivBusy || !q.trim()) return;
+  let send = q;
+  if (full && window.CDD_CLARIFY) { send = await window.CDD_CLARIFY(q, isCity() ? 'Calgary' : W(), 'Business Economist plan'); if (send === null) return; }
   ivBusy = true;
   const bot = { who: 'bot', text: full ? 'Planning the business plan…' : 'Working on it…' };
   ivThread.push({ who: 'you', text: full ? `Full business plan: ${q}` : q }, bot);
@@ -459,7 +461,7 @@ async function ivAsk(q, full) {
   const cards = [], done = typeof eaCatch === 'function' ? eaCatch(bot, cards) : () => {};
   try {
     const a = await api();
-    const res = full ? await a.business_report(q, isCity() ? 'Calgary' : W()) : await a.ask(`[Business Economist] Area selected: ${isCity() ? 'all of Calgary' : W()}. ${q}`, 'audit');
+    const res = full ? await a.business_report(send, isCity() ? 'Calgary' : W()) : await a.ask(`[Business Economist] Area selected: ${isCity() ? 'all of Calgary' : W()}. ${q}`, 'audit');
     if (res && res.ok) { bot.html = (window.DOMPurify && window.marked) ? DOMPurify.sanitize(marked.parse(res.text || '')) : esc(res.text || ''); bot.text = ''; if (res.report && !cards.some(c => c.includes('ea-report')) && typeof eaReportCard === 'function') cards.unshift(eaReportCard(typeof res.report === 'string' ? { pdf: res.report } : res.report)); }
     else bot.text = (res && res.error) || 'The Business Economist could not answer this time.';
   } catch (e) { bot.text = String(e.message || e); }

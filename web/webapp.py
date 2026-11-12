@@ -195,6 +195,8 @@ def handle(op, args_json):
             SCIENTIST.earlier = a.get('research') or []      # earlier reports' research kept in the visitor's browser
             res = SCIENTIST.ask(analyst.election_brief(a.get('text'), a.get('area') or _place()), 'audit', today=_today())
             return json.dumps({'ok': True, **res}, default=str)
+        if op == 'check_request':                       # before a long report: is the request clear?
+            return json.dumps(SCIENTIST.check_request(a.get('text'), a.get('area') or _place(), a.get('kind') or 'report', _today()), default=str)
         if op == 'analyst_reports':
             return json.dumps(_reports(), default=str)
         if op == 'audit_list':

@@ -402,6 +402,13 @@ counted, because the homes they oversee are spread across the city.
 "violent crime rose"). When you put an area next to Calgary, keep them apart and say how they compare in plain words, \
 especially when they move in opposite directions: "Ward 5's violent crime rose 13.7%, while Calgary's as a whole fell \
 7.6%". Never put a Calgary figure inside a line or bullet that is about a ward or community without its own label.
+- Ask when it matters (Data Genie chat only): if a question can be read in ways that would give a materially different \
+answer (which area, which period or year, which person, candidate or seat, a name that may be misspelt, which measure, \
+which election), and neither the question, the selected area nor the conversation settles it, do not guess: call \
+offer_choices with one short question and 2 to 4 likely answers (the most likely first), then end your reply with that \
+question in one line. Ask at most once per question, never about format or length, and never for something your tools \
+can look up. When one reading is clearly the most likely, answer it and state the assumption in one short line \
+("Taking 'last year' as 2025"). Reports (the Data Scientist) never ask: they state their assumptions and go on.
 - Comparing any rows (seats, communities, years, cities, departments): whenever an answer says one is the highest, \
 lowest, narrowest, widest, most, least, first or last, take it from a ranking the tool gives (ranks, compare, \
 order_high_to_low) or work it out with calculate (max and min of the values, with their names); never pick it by reading \
@@ -837,6 +844,14 @@ TOOLS = [
          'required': ['title']}},
 ]
 TOOLS += [
+    {'name': 'offer_choices',
+     'description': 'Data Genie chat only: show the person tap-to-choose answers to one clarifying question (see "Ask when it '
+                    'matters"). Then end your reply with the same question in one line; their choice arrives as the next message.',
+     'input_schema': {'type': 'object', 'properties': {
+         'question': {'type': 'string'},
+         'options': {'type': 'array', 'items': {'type': 'string'}, 'minItems': 2, 'maxItems': 4,
+                     'description': 'Complete answers the person can send as they are, the most likely first'}},
+         'required': ['question', 'options']}},
     {'name': 'calculate',
      'description': 'Work out numbers exactly instead of in your head: a list of named expressions, done in order; later '
                     'ones can use earlier names. Allowed: numbers, + - * / ** ( ), lists like [1, 2, 3], and functions '
@@ -964,6 +979,7 @@ STEP_TEXT = {
     'show_chart': lambda a: 'Drawing a chart',
     'show_table': lambda a: 'Building a table',
     'show_map': lambda a: 'Placing points on a map',
+    'offer_choices': lambda a: 'Checking what you mean',
     'calculate': lambda a: f"Working out {len(a.get('calculations') or [])} figure{'s' if len(a.get('calculations') or []) != 1 else ''}",
     'report_revise': lambda a: f"Revising chapter {a.get('number', '')} to fit the whole report",
     'recall_result': lambda a: f"Re-reading the result of step {a.get('step', '')}",
@@ -1704,6 +1720,24 @@ class AgentError(Exception):
     pass
 
 
+CHECK_SYSTEM = (
+    'You check a request for a long data report about Calgary (it takes up to an hour) before it starts. Decide whether it '
+    'is clear enough to build the report the person wants. Ask ONLY when another reasonable reading would give a materially '
+    'different report: which area (ward, community, electoral division or district), which period or year, which person, '
+    'candidate or seat (a name may be misspelt: offer the likely spelling), which measure, which election or boundaries, or '
+    'what the person wants out of it (recommendations, a plan or timeline, a comparison). Never ask about format, length, '
+    'charts or style; never ask for facts the data can answer; never ask about anyone\'s ethnicity, religion or other personal '
+    'traits. At most 3 questions, and none for a clear request. Each question is short, neutral, and has 2 to 4 options written '
+    'as complete answers, the most likely first (the person can also type their own). Answer with the verdict tool.')
+CHECK_TOOL = {'name': 'verdict', 'description': 'Whether the request is clear, and the questions to ask if not.',
+              'input_schema': {'type': 'object', 'properties': {
+                  'clear': {'type': 'boolean'},
+                  'questions': {'type': 'array', 'maxItems': 3, 'items': {'type': 'object', 'properties': {
+                      'question': {'type': 'string'}, 'options': {'type': 'array', 'items': {'type': 'string'}, 'minItems': 2, 'maxItems': 4}},
+                      'required': ['question', 'options']}}},
+                  'required': ['clear']}}
+
+
 def post_messages(api_key, body, timeout=180):
     """One call to the Claude Messages API. Replaced in tests."""
     return engines.post_anthropic(api_key, body, timeout)
@@ -1955,6 +1989,14 @@ class Agent:
         if name in ('show_chart', 'show_table', 'show_map'):
             self.emit({'type': name.replace('show_', ''), **args})
             return {'shown': True}
+        if name == 'offer_choices':
+            if getattr(self, 'who', 'Data Genie') != 'Data Genie':
+                return {'error': 'Reports do not ask questions: state the assumption in the report and carry on.'}
+            opts = [str(o).strip()[:200] for o in (args.get('options') or []) if str(o).strip()][:4]
+            if len(opts) < 2:
+                return {'error': 'Give 2 to 4 options.'}
+            self.emit({'type': 'choices', 'question': str(args.get('question') or '')[:300], 'options': opts})
+            return {'shown': True, 'note': 'Now end your reply with the same question in one short line; do not answer it yourself.'}
         if name == 'calculate':
             return report.calculate(args.get('calculations'))
         if name == 'report_add':
@@ -2284,6 +2326,32 @@ class Agent:
                 continue
             pts.append({'lat': round(y, 5), 'lon': round(x, 5), 'label': str(r.get(src.get('label_field') or '', ''))[:120]})
         return pts, f'{len(rows)} rows fetched from {ds}' + (f', kept those inside {area}' if inside and ward else '')
+
+    # ----- the quick check before a long report -----------------------------------------------------------------
+    def check_request(self, text, area=None, kind='report', today=''):
+        """Before a long report: is the request clear enough? Returns {'clear': bool, 'questions': [{question, options}]}.
+        Never blocks a report: any failure counts as clear."""
+        try:
+            chain = engines.ready(self.get_settings(), os.environ.get('ANTHROPIC_API_KEY', ''))
+            if not chain or not str(text or '').strip():
+                return {'clear': True, 'questions': []}
+            e = chain[0]
+            claude = e['provider'] == 'claude'
+            msg = (f'Today: {today}. Area selected on the site: {area or "not given"}. Kind of report: {kind}.\n'
+                   f'Request: {str(text).strip()[:4000]}')
+            r = engines.call(e, e['smart'], CHECK_SYSTEM, [CHECK_TOOL], [{'role': 'user', 'content': msg}], 1500,
+                             anthropic_post=post_messages, chat_post=post_chat,
+                             options={'tool_choice': {'type': 'tool', 'name': 'verdict'}} if claude else None)
+            got = next((b.get('input') for b in r.get('content') or [] if b.get('type') == 'tool_use'), None) or {}
+            qs = []
+            for q in (got.get('questions') or [])[:3]:
+                opts = [str(o).strip()[:200] for o in (q.get('options') or []) if str(o).strip()][:4]
+                if str(q.get('question') or '').strip() and len(opts) >= 2:
+                    qs.append({'question': str(q['question']).strip()[:300], 'options': opts})
+            return {'clear': not qs, 'questions': qs}
+        except Exception as err:                         # noqa: BLE001 - the report goes ahead as asked
+            print('Request check skipped: ' + str(err)[:200])
+            return {'clear': True, 'questions': []}
 
     # ----- one question -----------------------------------------------------------------------------------------
     def ask(self, question, model_choice='fast', today=''):
