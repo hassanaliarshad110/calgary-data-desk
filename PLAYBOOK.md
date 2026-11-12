@@ -10,10 +10,38 @@ Every scheduled run follows this file exactly. One run = one video.
 - Nonpartisan and neutral across wards. No attacks on or endorsements of councillors, candidates or parties.
 - Every figure is researched in this run from a primary source, with its URL. Never state a number, date or quote from memory. If a claim can't be verified, cut it.
 
+## 0b. Growth rules: views that turn into visits (Hassan's go-ahead, Nov 11, 2026: "optimise strategy for success"). These override any older length, timing or caption rule below.
+What the numbers showed (Metricool, Nov 8-11): Facebook Reels 107-549 views, Instagram Reels 0-129; average watch about 1-9 s; 80-100% of Instagram viewers swiped away within 3 s on most reels; almost no likes, comments, shares or saves; Reel captions' links can't be tapped. The best: Federal Budget (549), sewer pipes (345), migration (270): money, "does this affect me", timely.
+1. **The first 2 seconds decide everything.** Frame 0 already moves and already shows the subject: a fast push-in on the real place or archival photo, a map zooming onto the community, a number slamming in, a before/after flash. The voice starts by 0.3 s with the hook. No logo, no title card, no "Calgary Insight presents", no slow fade-in in the first 3 s (the logo header appears from about 3 s). The on-screen hook is 3-7 words, very large, in the upper middle, readable with the sound off. Cut or change the picture every 1.5-2.5 s for the first 6 s. The thumbnail repeats the opening frame.
+2. **Hook formulas that work** (pick one, never a slow intro): a direct "you" question ("Do you pay more than Edmonton?"); a surprising number in plain words ("One pipe carries 60% of our water"); a myth to break ("Deerfoot Trail isn't named after a road builder"); "Your street, your number"; a place everyone knows with a twist ("You drive past this every day. Here's what it was").
+3. **Shorter.** Fun facts 15-25 s (never over 30); news explained 25-45 s; flagship Short 45-75 s where the story allows (the widescreen film can stay longer). One idea per video. End fast (section 3: no end card on videos of 2:00 or less).
+4. **A tappable link on every post.** Reel captions can't be tapped, so EVERY Facebook and Instagram post sets `firstCommentText` (Metricool) to one line with the deep link (rule 5): for example `🔗 See your community's number: https://calgaryinsight.ca/communities/` (links in Facebook comments can be tapped). The caption's last text line before the hashtags says `🔗 Link in the first comment` (Facebook) and the calgaryinsight.ca line stays (Instagram: also "link in bio").
+5. **A specific page, never just the home page.** Each video points to the most specific page that exists on the site, checked with WebFetch (200) before posting; if a page doesn't load, use the next one up:
+   | Topic | Link |
+   |---|---|
+   | A news story we published | `https://calgaryinsight.ca/news/<article id>/` (from news/index.json on the news branch; the page exists from the next morning's build: if not yet, `https://calgaryinsight.ca/?view=citynews`) |
+   | A community or neighbourhood | `https://calgaryinsight.ca/communities/<slug>/` (all: `/communities/`) |
+   | A ward or councillor | `https://calgaryinsight.ca/wards/<n>/` (all: `/wards/`) |
+   | Property tax, City bills, the budget | `https://calgaryinsight.ca/bill` (your own bill), `/studies/what-calgarians-pay/`, `/?view=budget`, `/?view=budget-intelligence` |
+   | Police, crime, safety | `/studies/calgary-police/`, `/?view=safety` |
+   | Water, pipes, roads | `/studies/calgary-sewers/`, `/?view=infra` |
+   | Tourism, things to do, places, history of a place | `/visit/explore/`, `/visit/downtown/`, `/visit/river/`, `/visit/mountains/`, `/visit/stampede/`, `/tourism-intelligence/` |
+   | Elections, MLAs, MPs | `/?view=elections` |
+   | Growth, parks, schools, families | `/?view=growth`, `/?view=families` |
+   Add `?utm_source=<facebook|instagram|youtube>&utm_medium=social&utm_campaign=<slug>` to the link so visits can be counted by post.
+6. **A reason to click.** The closing line on screen and in the caption offers something personal the site gives: "Find your community's number", "Work out your own bill", "See your ward". If the topic has no personal tool, offer the next story ("The full story, with the photos: link in the first comment").
+7. **Questions people can answer in one word.** "Which one: A or B?", "Did you know this? Yes or no", "Guess the year 👇". Still neutral and two-sided on news.
+8. **Fewer, better.** About two posts a day: one fun fact a day (not two), the flagship every second day, news Monday/Wednesday/Friday, Calgary Origins weekly. A weak topic is skipped rather than posted.
+9. **Times follow the audience** (Metricool's best times for this Facebook page: weekdays 10:00 and 12:00, then 17:00-18:00; weekends about 10:00). See section 7's table.
+10. **Every Monday the weekly review** (its own scheduled task) reads last week's numbers (views, average watch, 3-second skip rate, shares, saves, comments, and site visits by utm_campaign where available), writes `insights.md`, and updates the "What's working" list below: which hooks, topics, lengths and times did best. Follow it when picking hooks and topics.
+
+### What's working (updated by the weekly review)
+- (Nov 11, 2026) Best so far: timely money and "affects me" topics (Federal Budget, sewer pipes, migration, tourism). Weakest: long, number-heavy captions and slow openings.
+
 ## Content direction (Hassan, Nov 10, 2026): stories, fun facts and news. No independent studies.
 - **Quick slots (AM/PM): a Calgary fun fact or mini-story.** Surprising, shareable, light: places, names, people, firsts, history, nature, culture. Not a statistics study. Use a number only when the fact itself is a number, and never compute or model anything ourselves.
 - **Flagship slots: a Calgary story.** History, people, places, turning points, told as a story with a beginning, a surprise and an ending. Not an analysis or a report.
-- **CIVIC slots (Mon/Wed/Fri) are now "Calgary news explained".** Pick the biggest or most-talked-about Calgary story of the past ~48 hours (City Hall, transit, weather, events, business, community), using at least two independent reports or an official source, and explain in 30-60 s what happened, why it matters and what happens next. Strictly neutral: no opinion, no taking sides, no predictions. Don't repeat a story already in log.json unless something new happened. If there's no solid Calgary news, make a timely Calgary story instead (an anniversary, a season, an event this week).
+- **CIVIC slots (Mon/Wed/Fri) are now "Calgary news explained".** Pick the biggest or most-talked-about Calgary story of the past ~48 hours (City Hall, transit, weather, events, business, community), using at least two independent reports or an official source, and explain in 25-45 s what happened, why it matters and what happens next. Strictly neutral: no opinion, no taking sides, no predictions. Don't repeat a story already in log.json unless something new happened. If there's no solid Calgary news, make a timely Calgary story instead (an anniversary, a season, an event this week).
 - No independent studies, scores, rankings we computed, or ward-by-ward comparisons. Everything is still fact-checked by the audit gate.
 
 ## 1. Find today's slot
@@ -119,14 +147,13 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
 - **Publish times are fixed and spread through the day (Hassan's rule, Nov 11, 2026). Never post several videos together.** Calgary time:
   | Time | Post |
   |---|---|
-  | 08:00 | AM fun fact |
   | 09:30 | Calgary Origins full film (YouTube), Wednesdays |
   | 10:00 | Calgary Origins: Wed = Part 1; Thu = Part 2; Fri = Part 3; Sat = Part 4 (each part: Instagram Reel, Facebook Reel, YouTube Short) |
   | 12:30 | Flagship post A (vertical Short: Instagram Reel + YouTube Short) |
   | 15:00 | CIVIC / news explained (Mon/Wed/Fri) |
   | 17:30 | Flagship post B (widescreen: Facebook video + YouTube video) |
-  | 19:00 | PM fun fact |
-  | 21:00 | Flagship post C (teaser: Facebook Reel) |
+  | 18:30 | Fun fact (one a day, from Nov 12, 2026) |
+  | 20:00 | Flagship post C (teaser: Facebook Reel) |
   Schedule each post for its slot time today, `autoPublish: true`, `draft: false`. If that time has already passed (a late or re-run), use the earliest time that is at least 10 minutes from now **and** at least 60 minutes from every other Calgary Insight post scheduled or published today (check with getScheduledPosts for today), and note the change in the log. Always set `videoThumbnailUrl` to the raw link of the matching thumbnail (`https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/<date>-<slot>/<slug>-thumb.jpg`; flagship widescreen post: `<slug>-thumb-yt.jpg`), pushed before posting. If Metricool rejects the post with VIDEO_THUMBNAIL_NOT_APPLICABLE, retry once without it and say so in the delivery message. A YouTube warning "Could not upload video thumbnail" means the YouTube channel isn't verified for custom thumbnails: the video still published, so record it as published with that warning.
 - Text: the package's audited short caption (section 3 rules), word for word.
 - **YouTube daily upload cap.** YouTube limits how many videos the channel can upload in any 24 hours, and Hassan's own uploads count too. On Nov 11, 2026 about 10 uploads in 24 hours hit the limit ("The user has exceeded the number of videos they may upload"). Rules:
@@ -138,7 +165,7 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
 - YouTube: `privacy: "public"`, `madeForKids: false`, title from the package (100 characters max), 3-7 tags, category `EDUCATION` (civic videos: `NEWS_POLITICS`).
 - What goes where:
   - **Quick insight and civic (vertical):** one post with providers instagram (`type: REEL`, `showReelOnFeed: true`), facebook (`type: REEL`) and youtube (`type: short`).
-  - **Flagship:** post A with `<slug>-short.mp4` to instagram (`REEL`) and youtube (`short`, Short title) at 12:30; post B at 17:30 with `<slug>-youtube.mp4` to facebook (`type: POST`, `title` = full video title) and youtube (`type: video`, full title, the short description plus chapters); post C, the teaser `<slug>-teaser.mp4` to facebook only (`type: REEL`) at 21:00, is left as a `pending_link` item for the link-up task (section 7b) so its caption carries the full film's YouTube link.
+  - **Flagship:** post A with `<slug>-short.mp4` to instagram (`REEL`) and youtube (`short`, Short title) at 12:30; post B at 17:30 with `<slug>-youtube.mp4` to facebook (`type: POST`, `title` = full video title) and youtube (`type: video`, full title, the short description plus chapters); post C, the teaser `<slug>-teaser.mp4` to facebook only (`type: REEL`) at 20:00, is left as a `pending_link` item for the link-up task (section 7b) so its caption carries the full film's YouTube link.
 - If a post is rejected, fix the field the error names and retry once. If it still fails, log status `"made-not-posted"` with the error and tell Hassan. Never post the same video twice: check the log's `posted` field first.
 - **Confirm it went live.** Metricool can accept a post and then fail when it publishes (this happened on Nov 9 because of a plan limit). For a post due within 30 minutes, wait until 2-3 minutes past its publish time, then call getScheduledPosts (brandId 7089421, timezone America/Edmonton, a range covering today) and read each provider's `status`. PUBLISHED: record the `publicUrl`s in the log. ERROR: record the `detailedStatus`, set status `"made-not-posted"` and say so in the delivery message. Never report a video as posted until it shows PUBLISHED. Posts due later than 30 minutes are reported as "scheduled for HH:MM" and are confirmed by the next run (section 1).
 - Add `posted: [{metricool_id, plannerUrl, providers, publish_at}]` to the log entry, then commit and push the log again.
@@ -155,7 +182,7 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
 
   #Calgary #yyc ...
   ```
-- The link exists only after YouTube publishes the film, so these posts are **not** scheduled by the run that makes the videos. That run schedules the film itself (flagship post B at 17:30; Origins film Wednesday 09:30), then adds a `pending_link` item to the log entry for each dependent post: `{file, raw_url, thumbnail_url, providers, caption_without_link, post_at, link_to: "<metricool id of the YouTube film post>"}`.
+- The link exists only after YouTube publishes the film, so these posts are **not** scheduled by the run that makes the videos. That run schedules the film itself (flagship post B at 17:30; Origins film Wednesday 09:30), then adds a `pending_link` item to the log entry for each dependent post: `{file, raw_url, thumbnail_url, providers, caption_without_link, first_comment, post_at, link_to: "<metricool id of the YouTube film post>"}` (first_comment: the section 0b rule 4 line with the deep link; the link-up task sends it as `firstCommentText`).
 - The **link-up task** (runs 09:41 and 17:41 daily) finds every `pending_link` item whose film shows PUBLISHED in getScheduledPosts, takes the film's YouTube `publicUrl` (use the https://youtu.be/<id> form), builds the caption with the layout above, and schedules the post for its `post_at` time (or, if that has passed, by the section 7 fallback). If the film failed on YouTube, it links the channel instead: https://www.youtube.com/channel/UC5LiLMNGPjdreg5pjcNm_jg. If a dependent post was already scheduled earlier without the link, it updates that scheduled post's text (updateScheduledPost) instead of creating a second one.
 
 ## 8. Calgary Origins (weekly documentary series, from Nov 18, 2026)
