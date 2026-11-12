@@ -1728,7 +1728,8 @@ CHECK_SYSTEM = (
     'what the person wants out of it (recommendations, a plan or timeline, a comparison). Never ask about format, length, '
     'charts or style; never ask for facts the data can answer; never ask about anyone\'s ethnicity, religion or other personal '
     'traits. At most 3 questions, and none for a clear request. Each question is short, neutral, and has 2 to 4 options written '
-    'as complete answers, the most likely first (the person can also type their own). Answer with the verdict tool.')
+    'as complete answers, the most likely first (the person can also type their own). Always answer by calling the verdict '
+    'tool once (clear true and no questions when the request is clear).')
 CHECK_TOOL = {'name': 'verdict', 'description': 'Whether the request is clear, and the questions to ask if not.',
               'input_schema': {'type': 'object', 'properties': {
                   'clear': {'type': 'boolean'},
@@ -2336,13 +2337,18 @@ class Agent:
             if not chain or not str(text or '').strip():
                 return {'clear': True, 'questions': []}
             e = chain[0]
-            claude = e['provider'] == 'claude'
             msg = (f'Today: {today}. Area selected on the site: {area or "not given"}. Kind of report: {kind}.\n'
                    f'Request: {str(text).strip()[:4000]}')
-            r = engines.call(e, e['smart'], CHECK_SYSTEM, [CHECK_TOOL], [{'role': 'user', 'content': msg}], 1500,
-                             anthropic_post=post_messages, chat_post=post_chat,
-                             options={'tool_choice': {'type': 'tool', 'name': 'verdict'}} if claude else None)
-            got = next((b.get('input') for b in r.get('content') or [] if b.get('type') == 'tool_use'), None) or {}
+            r = engines.call(e, e['smart'], CHECK_SYSTEM, [CHECK_TOOL], [{'role': 'user', 'content': msg}], 4000,
+                             anthropic_post=post_messages, chat_post=post_chat)
+            got = next((b.get('input') for b in r.get('content') or [] if b.get('type') == 'tool_use'), None)
+            if got is None:                              # answered in words: take the JSON object in them, if any
+                text_ = ' '.join(str(b.get('text') or '') for b in r.get('content') or [] if b.get('type') == 'text')
+                m_ = re.search(r'\{.*\}', text_, re.S)
+                try:
+                    got = json.loads(m_.group(0)) if m_ else {}
+                except ValueError:
+                    got = {}
             qs = []
             for q in (got.get('questions') or [])[:3]:
                 opts = [str(o).strip()[:200] for o in (q.get('options') or []) if str(o).strip()][:4]
