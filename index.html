@@ -1,0 +1,11 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Oswald;src:url(fonts/Oswald.ttf);font-weight:200 700}
+@font-face{font-family:Kalam;src:url(fonts/Kalam-Bold.ttf);font-weight:700}
+@font-face{font-family:Inter;src:url(fonts/Inter.ttf);font-weight:100 900}
+@font-face{font-family:Baloo2;src:url(fonts/Baloo2.ttf);font-weight:400 800}
+body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="timeline.js"></script><script src="rig.js"></script><script src="scenes.js"></script><script src="thumb.js"></script>
+<script>ctx=document.getElementById('c').getContext('2d');
+function grab(T){drawFrame(T);return document.getElementById('c').toDataURL('image/jpeg',0.9).split(',')[1];}
+</script></body></html>
