@@ -1,0 +1,30 @@
+{
+ "kokoro": [
+  {"id": "q1", "text": "बंटी भाई! मुझे भी पतंग उड़ानी है!"},
+  {"id": "q2", "text": "अम्मी! सूसू आई है!"},
+  {"id": "q3", "text": "सूऽऽ सूऽऽ मैन!", "speed": 0.8},
+  {"id": "q3p", "phonemes": "sˈuːː sˈuːː mˈɛːn!", "speed": 0.8},
+  {"id": "q4", "text": "देखो! सबसे ऊँची पतंग!"},
+  {"id": "q5", "text": "अम्मीईई! सूसू आई है!"},
+  {"id": "q6", "text": "कुछ नहीं अम्मी!"}
+ ],
+ "edge": [
+  {"id": "n1", "text": "کیا ایک چار سال کا بچہ... اس ننھے کبوتر کو بچا پائے گا؟", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "n2", "text": "آج ہے پتنگ کا دن! ہر چھت پر... پتنگ ہی پتنگ!", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "b1", "text": "یہ مانجھا بہت تیز ہے! تو بہت چھوٹا ہے!", "voice": "ur-IN-SalmanNeural", "rate": "+10%", "pitch": "+40Hz"},
+  {"id": "g1", "text": "छोटू, तू बस चरखी पकड़!", "voice": "hi-IN-MadhurNeural", "rate": "+12%", "pitch": "+60Hz"},
+  {"id": "g2", "text": "बो काटा! अरे... अपनी ही कट गई!", "voice": "hi-IN-MadhurNeural", "rate": "+12%", "pitch": "+60Hz"},
+  {"id": "a1", "text": "پھر سے؟! ابھی تو گئے تھے!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  {"id": "g3", "text": "अरे! कबूतर मांझे में फँस गया!", "voice": "hi-IN-MadhurNeural", "rate": "+12%", "pitch": "+60Hz"},
+  {"id": "b2", "text": "اتنا اوپر... اور مانجھا تیز ہے! اب کیا کریں؟", "voice": "ur-IN-SalmanNeural", "rate": "+10%", "pitch": "+40Hz"},
+  {"id": "n3", "text": "لیکن کوئی نہیں جانتا... ہر فلش کے ساتھ، قاسم بن جاتا ہے...", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1},
+  {"id": "b3", "text": "وہ superhero پھر آ گیا!", "voice": "ur-IN-SalmanNeural", "rate": "+10%", "pitch": "+40Hz", "asr": 1},
+  {"id": "b3u", "text": "وہ سپر ہیرو پھر آ گیا!", "voice": "ur-IN-SalmanNeural", "rate": "+10%", "pitch": "+40Hz", "asr": 1},
+  {"id": "g4", "text": "उसने कबूतर बचा लिया!", "voice": "hi-IN-MadhurNeural", "rate": "+12%", "pitch": "+60Hz"},
+  {"id": "b4", "text": "میرا مانجھا... پرندوں کو زخمی کرتا ہے۔", "voice": "ur-IN-SalmanNeural", "rate": "+10%", "pitch": "+40Hz"},
+  {"id": "b5", "text": "آج سے صرف سادہ دھاگا! آ جا چھوٹو، تو بھی اڑا!", "voice": "ur-IN-SalmanNeural", "rate": "+10%", "pitch": "+40Hz"},
+  {"id": "n4", "text": "کبوتر نے بھی، اپنی دوستی نبھائی!", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "a2", "text": "پھر سے؟! اور بالوں میں یہ پنکھ کہاں سے آیا؟", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  {"id": "n5", "text": "بچو، مانجھا پرندوں کو زخمی کرتا ہے، سادہ دھاگا استعمال کرو! اور ویڈیو اچھی لگی، تو LIKE اور SUBSCRIBE کرو!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1}
+ ]
+}
