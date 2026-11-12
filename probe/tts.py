@@ -34,41 +34,32 @@ def rel_poly(e):
         if ip: outer = outer.difference(unary_union(ip))
     return outer
 res = {}
-try:
-    els = overpass('[out:json][timeout:220];relation["boundary"="administrative"]["admin_level"="8"]["name"="Calgary"];out geom;')
-    g = rel_poly(els[0]); res['boundary'] = poly_out(g, 40); log.append(f'boundary area km2 {g.area/1e6:.1f}, parts {len(res["boundary"])}')
-except Exception as ex: log.append(f'boundary FAILED {ex}')
-try:
-    els = overpass(f'[out:json][timeout:220];(relation["natural"="water"]({BBOX});relation["landuse"="reservoir"]({BBOX});way["landuse"="reservoir"]({BBOX});way["natural"="water"]["water"~"river|reservoir"]({BBOX}););out geom tags;')
-    water = []
-    for e in els:
-        if e['type'] == 'relation': g = rel_poly(e)
-        else:
-            pts = [xy(p['lon'], p['lat']) for p in e.get('geometry', [])]
-            g = Polygon(pts).buffer(0) if len(pts) > 3 and pts[0] == pts[-1] else None
-        if g is None or g.is_empty or g.area < 30000: continue
-        water.append({'name': e.get('tags', {}).get('name', ''), 'kind': e.get('tags', {}).get('water', e.get('tags', {}).get('landuse', '')), 'area_ha': round(g.area / 1e4, 1), 'polys': poly_out(g, 8)})
-    water.sort(key=lambda w: -w['area_ha']); res['water_extra'] = water
-    log.append('water_extra: ' + ', '.join(f"{w['name'] or '?'}[{w['kind']}]({w['area_ha']}ha)" for w in water[:25]))
-except Exception as ex: log.append(f'water FAILED {ex}')
-try:
-    els = overpass(f'[out:json][timeout:220];(way["railway"="light_rail"]({BBOX}););out geom tags;')
-    by = {}
-    for e in els:
-        if 'geometry' not in e: continue
-        by.setdefault(e['tags'].get('service', 'main'), []).append(LineString([xy(p['lon'], p['lat']) for p in e['geometry']]))
-    lines = []
-    for k, ls in by.items():
-        if k != 'main': continue
-        m = linemerge(ls); parts = [m] if isinstance(m, LineString) else list(m.geoms)
-        lines += [[[round(x), round(y)] for x, y in p.simplify(8).coords] for p in parts if p.length > 50]
-    res['lrt'] = lines
-    st = overpass(f'[out:json][timeout:120];(node["railway"="station"]["station"="light_rail"]({BBOX});node["public_transport"="station"]["light_rail"="yes"]({BBOX}););out;')
-    seen = {}
-    for e in st:
-        n = e.get('tags', {}).get('name', '')
-        if n and n not in seen: seen[n] = {'name': n, 'xy': xy(e['lon'], e['lat'])}
-    res['lrt_stations'] = list(seen.values()); log.append(f'lrt lines {len(lines)}, stations {len(seen)}')
-except Exception as ex: log.append(f'lrt FAILED {ex}')
-json.dump(res, open(os.path.join(out, 'extra.json'), 'w'), separators=(',', ':'))
-open(os.path.join(out, 'report2.txt'), 'w').write('\n'.join(log)); print('\n'.join(log))
+for key, q in [('boundary', '[out:json][timeout:120];(relation["boundary"="administrative"]["name"="Calgary"];relation["boundary"="administrative"]["name"="City of Calgary"];);out geom;'),
+               ('glenmore', '[out:json][timeout:120];relation(10609633);out geom;')]:
+    try:
+        els = [e for e in overpass(q) if e['type'] == 'relation']
+        log.append(f'{key}: {[(e["id"], e.get("tags",{}).get("name"), e.get("tags",{}).get("admin_level")) for e in els]}')
+        if key == 'boundary': els = [e for e in els if e.get('tags', {}).get('admin_level') in ('8', None)] or els
+        g = rel_poly(els[0]); res[key] = poly_out(g, 40 if key == 'boundary' else 8); log.append(f'{key} area km2 {g.area/1e6:.2f}')
+    except Exception as ex: log.append(f'{key} FAILED {ex}')
+json.dump(res, open(os.path.join(out, 'extra3.json'), 'w'), separators=(',', ':'))
+open(os.path.join(out, 'report3.txt'), 'w').write('\n'.join(log)); print('\n'.join(log))
+# then the normal narration job on probe/tts_lines.json
+out = sys.argv[1]
+subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'kokoro-onnx', 'soundfile'], check=True)
+base = 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/'
+for f in ('kokoro-v1.0.onnx', 'voices-v1.0.bin'):
+    if not os.path.exists(f): urllib.request.urlretrieve(base + f, f)
+from kokoro_onnx import Kokoro
+import soundfile as sf
+k = Kokoro('kokoro-v1.0.onnx', 'voices-v1.0.bin')
+L = json.load(open(os.path.join(os.path.dirname(__file__), 'tts_lines.json')))
+durs = {}
+for name, lines in L.items():
+    durs[name] = []
+    for i, t in enumerate(lines):
+        a, sr = k.create(t, voice='af_heart', speed=1.0, lang='en-us')
+        sf.write(os.path.join(out, f'{name}_{i}.wav'), a, sr)
+        durs[name].append(round(len(a) / sr, 3))
+json.dump(durs, open(os.path.join(out, 'durs.json'), 'w'))
+print(durs)
