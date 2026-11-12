@@ -98,6 +98,7 @@ DRAW.title = (t, d) => {
   for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.moveTo(rnd(i) * W, 0); ctx.lineTo(rnd(i + 4) * W, H); ctx.stroke(); }
   const k = easeOut(seg(t, 0, 0.25)); const sh = t < 0.5 ? wob(t, 20, 10 * (1 - t * 2)) : 0;
   withT(960 + sh, 470, lerp(1.6, 1, k), 0, () => { alpha(k, () => { txtStroke('NVIDIA KE BOSS KE PEECHE', 0, -80, 92, C.white, C.ink, 14); txtStroke('CHINI JASOOS?', 0, 50, 170, C.red, C.ink, 20); }); });
+  alpha(seg(t, 0.2, 0.6), () => { logoCircle(960 - 250, 250, 44); brandText(960 - 190, 252, 56, 'left'); });
   if (t > 0.6) handwrite('ek sachchi kahaani — reports ke mutabiq', 960, 720, 54, t - 0.6, C.amber, 1.0);
   vignette();
 };
@@ -549,13 +550,31 @@ DRAW.question = (t, d) => {
   vignette();
 };
 DRAW.end = (t, d) => {
-  fillAll(C.bg); glow(960, 500, 700, C.green, 0.12);
-  person(520, 980, 'jensen', { t, s: 1.25, mood: 1, arms: [[0.2, 0.1], [-2.6, -0.3 + wob(t, 1.5, 0.4)]] });
-  withT(1180, 480, back(seg(t, 0.3, 0.7)) * (1 + (t > 1.6 && t < 1.9 ? -0.08 : 0)), 0, () => { const sub = t > 1.75; P(rr(-300, -80, 600, 160, 80), sub ? '#555' : '#E62117', C.ink, 6); txt(sub ? 'SUBSCRIBED' : 'SUBSCRIBE', 0, 4, 76, C.white); });
-  withT(1580, 480, back(seg(t, 2.0, 2.4)), wob(t, 3, 0.25) * seg(t, 2.0, 3.5), () => { P(new Path2D('M-50 30 Q-50 -60 0 -60 Q50 -60 50 30 L65 45 L-65 45 Z'), C.amber, C.ink, 6); P(circ(0, 58, 14), C.amber, C.ink, 5); });
-  handwrite('Aisi aur kahaaniyon ke liye', 1180, 720, 64, t - 0.4, C.white, 1.0);
-  sceneFade(t, d, 0.01, 1.2);
+  fillAll('#0A1022'); glow(560, 500, 700, C.amber, 0.18); glow(1400, 520, 700, ORANGE, 0.1);
+  const lk = back(seg(t, 0.1, 0.6)); withT(560, 470, lk, 0, () => { glow(0, 0, 360, C.amber, 0.35); logoCircle(0, 0, 250); });
+  alpha(seg(t, 0.4, 0.9), () => brandText(560, 800, 72, 'center'));
+  const D = LINES.n43.dur, t0 = LINES.n43.start - (GT - t);
+  const btn = (i, label, col, icon, at, done) => { const k = back(seg(t, at, at + 0.35)); if (k <= 0) return; const y = 300 + i * 190, x = 1380;
+    withT(x, y, k * (t > at + 0.4 && t < at + 0.6 ? 1.08 : 1), 0, () => { P(rr(-300, -70, 600, 140, 70), done && t > at + 0.7 ? '#3A3F4B' : col, C.ink, 6); icon(-200, 0); txt(done && t > at + 0.7 ? done : label, 50, 4, 64, C.white); }); };
+  const thumbI = (x, y) => { P(rr(x - 34, y - 6, 22, 44, 4), C.white, C.ink, 4); P(new Path2D(`M${x - 10} ${y - 6} L${x + 4} ${y - 40} Q${x + 18} ${y - 44} ${x + 16} ${y - 24} L${x + 12} ${y - 8} L${x + 34} ${y - 8} Q${x + 44} ${y - 4} ${x + 40} ${y + 8} L${x + 32} ${y + 34} Q${x + 28} ${y + 40} ${x + 18} ${y + 40} L${x - 10} ${y + 40} Z`), C.white, C.ink, 4); };
+  const shareI = (x, y) => { P(new Path2D(`M${x - 34} ${y + 30} Q${x - 30} ${y - 16} ${x + 6} ${y - 16} L${x + 6} ${y - 38} L${x + 40} ${y - 4} L${x + 6} ${y + 30} L${x + 6} ${y + 8} Q${x - 18} ${y + 6} ${x - 34} ${y + 30} Z`), C.white, C.ink, 4); };
+  const subI = (x, y) => { P(rr(x - 40, y - 28, 80, 56, 16), C.white, C.ink, 4); P(poly([x - 10, y - 14, x - 10, y + 14, x + 16, y]), '#E62117', null); };
+  btn(0, 'LIKE', '#2E6BD8', thumbI, D * 0.22, 'LIKED');
+  btn(1, 'SHARE', '#1E9E5A', shareI, D * 0.45, null);
+  btn(2, 'SUBSCRIBE', '#E62117', subI, D * 0.68, 'SUBSCRIBED');
+  if (t > D * 0.68 + 0.8) withT(1730, 680, back(seg(t, D * 0.68 + 0.8, D * 0.68 + 1.2)), wob(t, 3, 0.25) * seg(t, D * 0.68 + 0.8, D * 0.68 + 2.5), () => { P(new Path2D('M-40 24 Q-40 -48 0 -48 Q40 -48 40 24 L52 36 L-52 36 Z'), C.amber, C.ink, 5); P(circ(0, 46, 11), C.amber, C.ink, 4); });
+  sceneFade(t, d, 0.01, 1.0);
 };
+
+// ---------- channel branding ----------
+const ORANGE = '#FF8A1E';
+function logoCircle(x, y, r) { const L = document.getElementById('logo'); ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.clip(); if (L && L.complete) ctx.drawImage(L, x - r * 1.04, y - r * 1.04, r * 2.08, r * 2.08); ctx.restore(); ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.strokeStyle = C.amber; ctx.lineWidth = Math.max(2, r * 0.06); ctx.stroke(); }
+function brandText(x, y, size, align = 'left') {
+  ctx.font = `700 ${size}px Oswald`; const w1 = ctx.measureText('Awazzzz ').width, w2 = ctx.measureText('ORIGINALS').width;
+  let x0 = align === 'left' ? x : align === 'right' ? x - w1 - w2 : x - (w1 + w2) / 2;
+  txt('Awazzzz ', x0, y, size, C.white, 'Oswald', 700, 'left'); txt('ORIGINALS', x0 + w1, y, size, ORANGE, 'Oswald', 700, 'left'); return w1 + w2;
+}
+function watermark() { alpha(0.9, () => { ctx.font = '700 28px Oswald'; const w = ctx.measureText('Awazzzz ORIGINALS').width; P(rr(W - w - 110, 18, w + 90, 56, 28), 'rgba(8,11,18,0.6)', null); logoCircle(W - w - 82, 46, 24); brandText(W - 40, 47, 28, 'right'); }); }
 
 // ---------- subtitles ----------
 function chunks(roman, dur) { // split into timed pieces
@@ -580,5 +599,6 @@ function drawFrame(T) {
   ctx.save(); DRAW[s.id](T - s.start, s.dur, T); ctx.restore();
   // quick cut flash between scenes
   const u = T - s.start; if (u < 0.12 && s.start > 0 && !s.id.startsWith('ch')) alpha(1 - u / 0.12, () => fillAll('#000'));
+  if (s.id !== 'end') watermark();
   subtitles();
 }

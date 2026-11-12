@@ -265,7 +265,7 @@ function handwrite(s, x, y, size, t, col = C.white, dur = 0.8, font = 'Kalam') {
   ctx.save(); ctx.beginPath(); ctx.rect(x - w / 2 - 10, y - size, (w + 20) * k, size * 2); ctx.clip();
   txt(s, x, y, size, col, font, 700); ctx.restore();
 }
-function dramaTag(t) { alpha(0.85 * seg(t, 0, 0.3), () => { P(rr(W - 330, 30, 300, 46, 23), 'rgba(11,15,23,0.7)', null); txt('● NAATYA RUPANTAR', W - 180, 54, 24, C.amber, 'Oswald', 500); }); }
+function dramaTag(t) { alpha(0.85 * seg(t, 0, 0.3), () => { P(rr(W - 330, 88, 300, 46, 23), 'rgba(11,15,23,0.7)', null); txt('● NAATYA RUPANTAR', W - 180, 112, 24, C.amber, 'Oswald', 500); }); }
 function bubble(s, x, y, t, dir = 1, size = 40, col = C.white) {
   const k = back(seg(t, 0, 0.25)); if (k <= 0) return;
   ctx.font = `700 ${size}px Baloo2`; const w = ctx.measureText(s).width + 50, h = size * 1.7;

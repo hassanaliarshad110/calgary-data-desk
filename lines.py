@@ -62,7 +62,7 @@ L = [
 # ---- END
 ("n41",N,"उस डिनर टेबल पर लौटिए। मोमबत्तियाँ, जाम, दोस्ती के नाम। जेनसन के बग़ल की कुर्सी, अब ख़ाली है।","Us dinner table par lautiye. Mombattiyaan, jaam, dosti ke naam… Jensen ke bagal ki kursi ab khaali hai."),
 ("n42",N,"सवाल ये है, अगर अमेरिका को सब पता था, तो जेनसन को क्यों नहीं बताया? आपकी क्या राय है? कमेंट में ज़रूर बताइए।","Sawaal ye hai — agar America ko sab pata tha, to Jensen ko kyun nahi bataaya? Aapki kya raay hai? Comment mein zaroor bataaiye."),
-("n43",N,"ऐसी और कहानियों के लिए, चैनल को SUBSCRIBE कीजिए।","Aisi aur kahaaniyon ke liye, channel ko SUBSCRIBE kijiye."),
+("n43",N,"वीडियो अच्छा लगा हो, तो LIKE कीजिए, SHARE कीजिए, और आवाज़ को SUBSCRIBE कीजिए।","Video achha laga ho, to LIKE kijiye, SHARE kijiye, aur Awazzzz ko SUBSCRIBE kijiye."),
 ]
 VOICE = {
  'N': dict(name='hi-IN-MadhurNeural', rate='+4%', pitch='-2Hz'),

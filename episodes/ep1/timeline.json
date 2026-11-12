@@ -1,0 +1,700 @@
+{
+"scenes": [
+{
+"id": "dinner",
+"start": 0,
+"dur": 9.823,
+"lines": [
+"n01",
+"n02"
+]
+},
+{
+"id": "alice",
+"start": 9.823,
+"dur": 7.499,
+"lines": [
+"n03"
+]
+},
+{
+"id": "agents",
+"start": 17.322,
+"dur": 3.79,
+"lines": [
+"n04"
+]
+},
+{
+"id": "cork",
+"start": 21.112,
+"dur": 5.613,
+"lines": [
+"n05"
+]
+},
+{
+"id": "toast",
+"start": 26.725,
+"dur": 4.668,
+"lines": [
+"n06",
+"d01"
+]
+},
+{
+"id": "tease",
+"start": 31.393,
+"dur": 10.72,
+"lines": [
+"n07"
+]
+},
+{
+"id": "title",
+"start": 42.113,
+"dur": 3.2,
+"lines": []
+},
+{
+"id": "ch1",
+"start": 45.313,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "flight",
+"start": 47.913,
+"dur": 7.65,
+"lines": [
+"n08"
+]
+},
+{
+"id": "school",
+"start": 55.563,
+"dur": 7.255,
+"lines": [
+"n09"
+]
+},
+{
+"id": "chores",
+"start": 62.818,
+"dur": 6.576,
+"lines": [
+"n10"
+]
+},
+{
+"id": "roomie",
+"start": 69.394,
+"dur": 7.196,
+"lines": [
+"n11"
+]
+},
+{
+"id": "teach",
+"start": 76.59,
+"dur": 6.022,
+"lines": [
+"n12"
+]
+},
+{
+"id": "diner",
+"start": 82.612,
+"dur": 8.722,
+"lines": [
+"n13"
+]
+},
+{
+"id": "booth",
+"start": 91.334,
+"dur": 9.657,
+"lines": [
+"n14"
+]
+},
+{
+"id": "six",
+"start": 100.991,
+"dur": 5.126,
+"lines": [
+"n15"
+]
+},
+{
+"id": "ch2",
+"start": 106.117,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "chef",
+"start": 108.717,
+"dur": 10.002,
+"lines": [
+"n16"
+]
+},
+{
+"id": "cooks",
+"start": 118.719,
+"dur": 7.108,
+"lines": [
+"n17"
+]
+},
+{
+"id": "ai",
+"start": 125.827,
+"dur": 8.765,
+"lines": [
+"n18"
+]
+},
+{
+"id": "five",
+"start": 134.592,
+"dur": 8.513,
+"lines": [
+"n19"
+]
+},
+{
+"id": "keyman",
+"start": 143.105,
+"dur": 4.835,
+"lines": [
+"n20"
+]
+},
+{
+"id": "ch3",
+"start": 147.94,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "call",
+"start": 150.54,
+"dur": 8.188,
+"lines": [
+"n21",
+"d02"
+]
+},
+{
+"id": "share",
+"start": 158.728,
+"dur": 8.147,
+"lines": [
+"n22"
+]
+},
+{
+"id": "rent",
+"start": 166.875,
+"dur": 16.57,
+"lines": [
+"n23",
+"n24"
+]
+},
+{
+"id": "ch4",
+"start": 183.445,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "mega",
+"start": 186.045,
+"dur": 11.392,
+"lines": [
+"n25"
+]
+},
+{
+"id": "bar",
+"start": 197.437,
+"dur": 20.988,
+"lines": [
+"n26",
+"d03",
+"d04",
+"d05"
+]
+},
+{
+"id": "ship",
+"start": 218.425,
+"dur": 13.435,
+"lines": [
+"n27"
+]
+},
+{
+"id": "dc",
+"start": 231.86,
+"dur": 8.569,
+"lines": [
+"n28"
+]
+},
+{
+"id": "boxes",
+"start": 240.429,
+"dur": 10.648,
+"lines": [
+"n29",
+"d06",
+"d07",
+"d08"
+]
+},
+{
+"id": "doj",
+"start": 251.077,
+"dur": 8.668,
+"lines": [
+"n30"
+]
+},
+{
+"id": "big",
+"start": 259.745,
+"dur": 8.447,
+"lines": [
+"n31"
+]
+},
+{
+"id": "ch5",
+"start": 268.192,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "listen",
+"start": 270.792,
+"dur": 10.213,
+"lines": [
+"n32",
+"d09",
+"d10",
+"d11"
+]
+},
+{
+"id": "memo",
+"start": 281.005,
+"dur": 19.468,
+"lines": [
+"n33",
+"n34"
+]
+},
+{
+"id": "nobody",
+"start": 300.473,
+"dur": 8.121,
+"lines": [
+"n35"
+]
+},
+{
+"id": "paper",
+"start": 308.594,
+"dur": 13.397,
+"lines": [
+"n36"
+]
+},
+{
+"id": "ch6",
+"start": 321.991,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "letter",
+"start": 324.591,
+"dur": 13.866,
+"lines": [
+"n37",
+"n38"
+]
+},
+{
+"id": "board",
+"start": 338.457,
+"dur": 9.807,
+"lines": [
+"n39"
+]
+},
+{
+"id": "caveat",
+"start": 348.264,
+"dur": 8.682,
+"lines": [
+"n40"
+]
+},
+{
+"id": "empty",
+"start": 356.946,
+"dur": 8.319,
+"lines": [
+"n41"
+]
+},
+{
+"id": "question",
+"start": 365.265,
+"dur": 8.945,
+"lines": [
+"n42"
+]
+},
+{
+"id": "end",
+"start": 374.21,
+"dur": 9.06,
+"lines": [
+"n43"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.5,
+"dur": 2.271,
+"spk": "N",
+"roman": "Singapore. Ek shaandaar dinner."
+},
+"n02": {
+"start": 3.091,
+"dur": 6.432,
+"spk": "N",
+"roman": "Ek taraf baithe hain duniya ki sabse qeemti company ke maalik — NVIDIA ke CEO, Jensen Huang."
+},
+"n03": {
+"start": 10.023,
+"dur": 6.999,
+"spk": "N",
+"roman": "Aur unke bagal mein — Alice Huang. Koi rishtedaar nahi. Unki company, NVIDIA ki badi customer hai."
+},
+"n04": {
+"start": 17.522,
+"dur": 3.29,
+"spk": "N",
+"roman": "Lekin kuch door, American agents tasveerein le rahe hain."
+},
+"n05": {
+"start": 21.312,
+"dur": 5.113,
+"spk": "N",
+"roman": "Kyunki American khufiya agencies ke mutabiq, ye aurat China ke liye kaam karti hai."
+},
+"n06": {
+"start": 26.925,
+"dur": 2.465,
+"spk": "N",
+"roman": "Aur Jensen? Unhein kuch pata nahi."
+},
+"d01": {
+"start": 29.84,
+"dur": 0.953,
+"spk": "J",
+"roman": "Dosti ke naam!"
+},
+"n07": {
+"start": 31.593,
+"dur": 10.32,
+"spk": "N",
+"roman": "Ye kahaani hai us aadmi ki, jisne toilet saaf karne se shuruaat ki… aur kaise, reports ke mutabiq, China ne uski mez tak apni jasoos pahuncha di."
+},
+"n08": {
+"start": 48.213,
+"dur": 6.95,
+"spk": "N",
+"roman": "Kahaani shuru hoti hai Taiwan se. Nau saal ka Jensen aur uska bada bhai, akele America bheje gaye."
+},
+"n09": {
+"start": 55.763,
+"dur": 6.655,
+"spk": "N",
+"roman": "Chacha ne socha, Kentucky ka ye boarding school bahut achha hai. Nikla… bigde bachon ka sudhaar-ghar."
+},
+"n10": {
+"start": 63.018,
+"dur": 5.976,
+"spk": "N",
+"roman": "Bhai ko tambaaku ke kheton mein kaam mila. Aur Jensen ko? Roz toilet saaf karne ka."
+},
+"n11": {
+"start": 69.594,
+"dur": 6.696,
+"spk": "N",
+"roman": "Uska roommate satrah saal ka tha. Tattoo aur chaaku ke nishaanon se bhara… aur padhna nahi jaanta tha."
+},
+"n12": {
+"start": 76.79,
+"dur": 5.422,
+"spk": "N",
+"roman": "Jensen ne use padhna sikhaaya. Badle mein, usne Jensen ko bench press sikhaayi."
+},
+"n13": {
+"start": 82.812,
+"dur": 8.122,
+"spk": "N",
+"roman": "Pandrah saal ki umr mein, Denny's naam ke diner mein raat ki shift. Pehle bartan dhoye, phir mezein saaf kin, phir waiter bana."
+},
+"n14": {
+"start": 91.534,
+"dur": 9.157,
+"spk": "N",
+"roman": "Aur 1993 mein, usi Denny's ke ek kone waale booth mein, Jensen aur do engineer doston ne ek company banaayi — NVIDIA."
+},
+"n15": {
+"start": 101.191,
+"dur": 4.326,
+"spk": "N",
+"roman": "Shuruaati poonji? Har dost ke do sau dollar. Kul chhe sau."
+},
+"n16": {
+"start": 108.917,
+"dur": 9.502,
+"spk": "N",
+"roman": "Ab samajhiye NVIDIA ka jaadu. Aam computer chip ek ustaad baawarchi hai — jo poori baaraat ka khaana akele, ek-ek plate karke banaata hai."
+},
+"n17": {
+"start": 118.919,
+"dur": 6.508,
+"spk": "N",
+"roman": "NVIDIA ki chip? Das hazaar chhote baawarchi. Har ek, ek hi pal mein, ek roti palatta hai."
+},
+"n18": {
+"start": 126.027,
+"dur": 8.265,
+"spk": "N",
+"roman": "Video games ke liye ye kamaal tha. Phir pata chala — AI ko bhi bilkul yahi chahiye: karodon chhote hisaab, ek saath."
+},
+"n19": {
+"start": 134.792,
+"dur": 7.813,
+"spk": "N",
+"roman": "29 October 2025. NVIDIA duniya ki pehli company bani, jiski qeemat 5 trillion dollar pahunchi."
+},
+"n20": {
+"start": 143.305,
+"dur": 4.035,
+"spk": "N",
+"roman": "Toilet saaf karne waala bachcha, ab AI ki chaabi ka maalik tha."
+},
+"n21": {
+"start": 150.84,
+"dur": 3.451,
+"spk": "N",
+"roman": "Lekin 2022 mein, Washington se phone aaya."
+},
+"d02": {
+"start": 154.741,
+"dur": 3.587,
+"spk": "G",
+"roman": "Aapki sabse taaqatwar AI chips, ab China ko nahi bechi ja saktin."
+},
+"n22": {
+"start": 158.928,
+"dur": 7.547,
+"spk": "N",
+"roman": "Paabandiyaan badhti gayin. Jensen ne khud kaha — China mein hamaara hissa 95 percent se girkar zero ho gaya."
+},
+"n23": {
+"start": 167.075,
+"dur": 4.933,
+"spk": "N",
+"roman": "China chips khareed nahi sakta tha. Lekin ek raasta tha — kiraaya."
+},
+"n24": {
+"start": 172.328,
+"dur": 10.517,
+"spk": "N",
+"roman": "Sochiye, aapko gaadi khareedne ki ijaazat nahi. To padosi gaadiyaan khareed kar border ke us paar khadi kar de… aur aap ghante ke hisaab se chaabi kiraaye par le lein."
+},
+"n25": {
+"start": 186.245,
+"dur": 10.792,
+"spk": "N",
+"roman": "2023 mein, ek Chini gaming company se alag hokar, Singapore mein ek company bani — Megaspeed. Aur iski managing director thin — Alice Huang."
+},
+"n26": {
+"start": 197.637,
+"dur": 10.417,
+"spk": "N",
+"roman": "June 2024. Taipei ki ek bar. Jensen apne bade Asian customers ke saath jashn mana rahe hain. Aur unke theek bagal mein — Alice."
+},
+"d03": {
+"start": 208.504,
+"dur": 3.86,
+"spk": "A",
+"roman": "Hi, main Alice. Megaspeed, Singapore."
+},
+"d04": {
+"start": 212.714,
+"dur": 2.387,
+"spk": "J",
+"roman": "Welcome! Kya bana rahi hain aap?"
+},
+"d05": {
+"start": 215.451,
+"dur": 2.374,
+"spk": "A",
+"roman": "Cloud company. Kuch bahut bada."
+},
+"n27": {
+"start": 218.625,
+"dur": 12.935,
+"spk": "N",
+"roman": "Agle ek saal mein, Megaspeed ki Malaysian company ne lagbhag 2 arab dollar ki NVIDIA chips khareedin — zyaadatar ek aisi American company se, jiski Chini parent company blacklist par hai."
+},
+"n28": {
+"start": 232.06,
+"dur": 8.069,
+"spk": "N",
+"roman": "Chips gayin Malaysia aur Indonesia ke data centers mein — jo, reports ke mutabiq, door baithe Chini customers ko service de rahe the."
+},
+"n29": {
+"start": 240.629,
+"dur": 5.578,
+"spk": "N",
+"roman": "2024 ke aakhir mein, American inspector Malaysia ke ek data center pahunche."
+},
+"d06": {
+"start": 246.657,
+"dur": 1.298,
+"spk": "G",
+"roman": "Data center kahaan hai?"
+},
+"d07": {
+"start": 248.305,
+"dur": 1.009,
+"spk": "W",
+"roman": "Aap usi mein khade hain."
+},
+"d08": {
+"start": 249.664,
+"dur": 0.913,
+"spk": "G",
+"roman": "Ye to dabbe hain!"
+},
+"n30": {
+"start": 251.277,
+"dur": 8.168,
+"spk": "N",
+"roman": "Arabon dollar ke server — ab tak dibbon mein band. Jaanch shuru hui… aur baad mein maamla America ke Justice Department tak pahuncha."
+},
+"n31": {
+"start": 259.945,
+"dur": 7.647,
+"spk": "N",
+"roman": "New York Times ke mutabiq, do saalon mein Megaspeed ne 4.8 arab dollar se zyaada ki NVIDIA chips khareedin."
+},
+"n32": {
+"start": 270.992,
+"dur": 5.323,
+"spk": "N",
+"roman": "Aur yahin kahaani palatti hai. American intelligence, Alice ki baatein sun rahi thi."
+},
+"d09": {
+"start": 276.765,
+"dur": 1.886,
+"spk": "G",
+"roman": "Wo ek American se baat kar rahi hai."
+},
+"d10": {
+"start": 279.001,
+"dur": 0.324,
+"spk": "G2",
+"roman": "Naam?"
+},
+"d11": {
+"start": 279.675,
+"dur": 0.83,
+"spk": "G",
+"roman": "Jensen Huang."
+},
+"n33": {
+"start": 281.205,
+"dur": 12.928,
+"spk": "N",
+"roman": "2026 mein, ek khufiya memo bana. Reports ke mutabiq usmein likha tha: China ki khufiya agency MSS ne Alice ko bharti kiya — Jensen ke baare mein jaankaari jutaane ke liye."
+},
+"n34": {
+"start": 294.453,
+"dur": 5.62,
+"spk": "N",
+"roman": "Aur taaki Jensen, Washington mein, chips par paabandiyaan dheeli karwaane ki wakaalat karte rahein."
+},
+"n35": {
+"start": 300.673,
+"dur": 7.521,
+"spk": "N",
+"roman": "Reports kehti hain, President ko bhi brief kiya gaya. Lekin Jensen ko, aisa lagta hai, kisi ne nahi bataaya."
+},
+"n36": {
+"start": 308.794,
+"dur": 12.597,
+"spk": "N",
+"roman": "29 October ko New York Times ne ye kahaani chhaap di. China ne ise bebuniyaad atkalein kaha. NVIDIA ne kaha: customers ko national security se judi zero jaankaari milti hai."
+},
+"n37": {
+"start": 324.791,
+"dur": 4.072,
+"spk": "N",
+"roman": "Phir 8 November ko, Jensen ne apne staff ko ek khat likha."
+},
+"n38": {
+"start": 329.183,
+"dur": 8.674,
+"spk": "N",
+"roman": "\"Maine apni patni ke saath bewafaai ki. Mere kaamon se unhein aur hamaare bachchon ko dukh pahuncha. Iska koi bahaana nahi.\""
+},
+"n39": {
+"start": 338.657,
+"dur": 9.307,
+"spk": "N",
+"roman": "NVIDIA ke board ne independent jaanch shuru kar di hai. Aur American saansadon ne unhein 18 November ko band-kamre ki briefing ke liye bulaaya hai."
+},
+"n40": {
+"start": 348.464,
+"dur": 7.882,
+"spk": "N",
+"roman": "Aur dhyaan rahe — ab tak public taur par ye saabit nahi hua ki koi raaz leak hua. Jensen aaj bhi CEO hain."
+},
+"n41": {
+"start": 357.346,
+"dur": 7.419,
+"spk": "N",
+"roman": "Us dinner table par lautiye. Mombattiyaan, jaam, dosti ke naam… Jensen ke bagal ki kursi ab khaali hai."
+},
+"n42": {
+"start": 365.465,
+"dur": 8.345,
+"spk": "N",
+"roman": "Sawaal ye hai — agar America ko sab pata tha, to Jensen ko kyun nahi bataaya? Aapki kya raay hai? Comment mein zaroor bataaiye."
+},
+"n43": {
+"start": 374.41,
+"dur": 5.86,
+"spk": "N",
+"roman": "Video achha laga ho, to LIKE kijiye, SHARE kijiye, aur Awazzzz ko SUBSCRIBE kijiye."
+}
+},
+"total": 383.2699999999998
+}

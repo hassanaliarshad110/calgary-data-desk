@@ -1,4 +1,14 @@
-# Hindi/Urdu explainer kit (Paper-Billions-style flat 2D)
-Episode 1: NVIDIA ke Boss ke Peeche Chini Jasoos? (6:21)
-Pipeline: lines.py -> tts_nv.py on budget-probe Actions (edge-tts: narrator hi-IN-MadhurNeural) -> prep_audio.py -> timeline.py -> render.py preview/full -> music.py -> mix.py -> ffmpeg mux.
-Palette #121B2B / #F4D06F / #2BFF88. Jensen = silver swept hair + black leather jacket (KINDS.jensen in rig.js).
+# Awazzzz Originals — Hindi/Urdu explainer kit
+Episode 1: "NVIDIA ke Boss ke Peeche Chini Jasoos?" (6:23) — source files in the root are that episode; copy and adapt for new ones.
+
+## Pipeline (run in /home/claude/<work dir>)
+1. lines.py — script: list of (id, speaker, tts_text Devanagari/Urdu, roman_caption). Narrator N = hi-IN-MadhurNeural +4% -2Hz (Hindustani words, numbers as words, English loanwords in Devanagari or Latin caps). Character voices: ur-IN-SalmanNeural, hi-IN-SwaraNeural, ur-PK-AsadNeural, ur-PK-UzmaNeural (Urdu script for ur-* voices). `python3 lines.py` writes nv_lines.json.
+2. Voices: copy nv_lines.json + tts_nv.py to the budget-probe branch as probe/nv_lines.json + probe/tts_nv.py, point .github/workflows/budget-probe.yml at `python probe/tts_nv.py _b`, commit as Hassan Ali, push -f, poll `git ls-remote origin budget-probe-out` until it changes, clone -b budget-probe-out.
+3. prep_audio.py (expects mp3s in ../nvout) → aud/*.wav + aud_info.json; timeline.py (PLAN of scenes ↔ lines) → timeline.js/json.
+4. rig.js (characters/props, KINDS incl. jensen) + scenes.js (DRAW.<scene>(t,d), subtitles, watermark "Awazzzz ORIGINALS", end card with logo + LIKE/SHARE/SUBSCRIBE) + thumb.js. index.html loads fonts/ + logo.jpg.
+5. `python3 render.py preview <T> ...` → prev/*.jpg ; `python3 render.py full <a> <b> out.mp4` (run 2 halves in parallel).
+6. music.py (calm investigative score, sections by chapter) → mix.py (voices + ducked score + SFX, loudnorm -14) → ffmpeg mux.
+7. shorts.py — 4 vertical 1080x1920 Shorts from short_segs.json, each with spoken opening + closing hook (h{k}o/h{k}e voice lines), branded frame, covers.
+
+## Style
+Paper Billions-like flat vector look, palette #121B2B / #F4D06F / #2BFF88, bean-body characters. From Nov 12 2026 the standing style is **2.5D**: same 2D characters, but every scene built from 3-4 parallax layers, camera moves through them, soft shadows, light pools/glow, haze on far layers, slight blur on nearest/farthest layers.

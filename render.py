@@ -5,7 +5,7 @@ def page(p):
     b=p.chromium.launch(executable_path='/usr/bin/google-chrome',args=['--allow-file-access-from-files'])
     pg=b.new_page(viewport={'width':1920,'height':1080})
     msgs=[]; pg.on('console',lambda m: msgs.append(m.text)); pg.on('pageerror',lambda e: msgs.append('ERR '+str(e)))
-    pg.goto('file://'+here+'/index.html'); pg.wait_for_timeout(400)
+    pg.goto('file://'+here+'/index.html'); pg.wait_for_timeout(400); pg.wait_for_function("document.getElementById('logo').complete")
     pg.evaluate("Promise.all(['700 50px Oswald','700 50px Kalam','800 50px Baloo2','600 20px Inter'].map(f=>document.fonts.load(f)))"); pg.wait_for_timeout(300)
     return b,pg,msgs
 mode=sys.argv[1]
