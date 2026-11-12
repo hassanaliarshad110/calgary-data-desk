@@ -1,0 +1,22 @@
+{
+ "kokoro": [
+  {"id": "s1", "voice": "hm_psi", "text": "कासिम! देख, मेरी कश्ती सबसे तेज़!"},
+  {"id": "s2", "voice": "hm_psi", "text": "पिल्ला नाले की तरफ़ जा रहा है!"},
+  {"id": "s3", "voice": "hm_psi", "text": "पिल्ला बच गया!"},
+  {"id": "s4", "voice": "hm_psi", "text": "इसका नाम रखते हैं... मोती!"},
+  {"id": "k1", "voice": "hf_alpha", "text": "जा जल्दी... मैं संभाल लेती हूँ!"},
+  {"id": "k2", "voice": "hf_alpha", "text": "अम्मी, वो... छत पे बारिश देख रहा था!"},
+  {"id": "q3", "voice": "hf_beta", "text": "मोती! अब तू हमारा दोस्त है!"}
+ ],
+ "edge": [
+  {"id": "n1", "text": "بارش کا تیز پانی... اور ایک ننھا پلا! کیا کوئی اسے بچا پائے گا؟", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "n2", "text": "آج گلی میں زور کی بارش ہے! سب بچے کاغذ کی کشتی چلا رہے ہیں!", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "d1", "text": "بچو! پانی میں مت جانا، نالا بھر گیا ہے!", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz", "asr": 1},
+  {"id": "m1", "text": "ارے! دیکھو، وہ ڈبہ بہہ رہا ہے... اس پر پلا ہے!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz", "asr": 1},
+  {"id": "n3", "text": "صرف سکینہ جانتی ہے... ہر فلش کے ساتھ قاسم بن جاتا ہے...", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1},
+  {"id": "m2", "text": "وہ سپر ہیرو پھر آ گیا!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz"},
+  {"id": "d2", "text": "شاباش بچو! بارش کے پانی میں کبھی مت کھیلنا، بڑوں کو بلانا!", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz"},
+  {"id": "a2", "text": "قاسم! اتنے گیلے کیسے ہو گئے؟!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  {"id": "n4", "text": "بچو، بارش کے پانی میں مت کھیلو... بڑوں کو بلاؤ! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1}
+ ]
+}
