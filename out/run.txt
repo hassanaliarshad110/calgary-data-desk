@@ -1,0 +1,41 @@
+## Election Analytics report | Calgary | What could irender grewal do differently next year election to flip and win the election ? What are recommendations and how his next 12 months look like to reduce deficit of 10% margin into a clear win
+{
+ "clear": false,
+ "questions": [
+  {
+   "question": "Which election do you mean by \"next year's election\"?",
+   "options": [
+    "The 2027 Alberta provincial general election",
+    "A federal election or by-election",
+    "A Calgary municipal by-election",
+    "Another election (I'll type it)"
+   ]
+  },
+  {
+   "question": "Which race produced the roughly 10% deficit?",
+   "options": [
+    "A Calgary electoral division in the 2023 Alberta provincial election",
+    "A Calgary riding in the 2025 federal election",
+    "A Calgary ward in the 2025 municipal election",
+    "Another race (I'll type it)"
+   ]
+  },
+  {
+   "question": "Which spelling of the name do you mean?",
+   "options": [
+    "Irender Grewal",
+    "Inderjit Grewal",
+    "Inder Grewal",
+    "Another spelling (I'll type it)"
+   ]
+  }
+ ]
+}
+
+## Data Scientist report | Ward 5 | Compare 311 service requests per 1,000 residents in Ward 5 with Calgary for the last 12 months, by category, with a map by community
+{
+ "clear": true,
+ "questions": []
+}
+
+
