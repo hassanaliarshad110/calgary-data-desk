@@ -1,146 +1,91 @@
 [
  {
-  "id": "l0",
-  "ur": "یہ ہے سوسو۔ عمر، صرف چار سال۔ لیکن اس کے پاس، ایک راز ہے!",
-  "hi": "ये है सुसु। उम्र, सिर्फ़ चार साल। लेकिन इसके पास, एक राज़ है!",
+  "id": "q0",
+  "ur": "یہ ہے قاسم۔ عمر، صرف چار سال۔ لیکن اس کے پاس، ایک راز ہے!",
+  "hi": "ये है क़ासिम। उम्र, सिर्फ़ चार साल। लेकिन इसके पास, एक राज़ है!",
   "voices": [
    {
-    "name": "ur-PK-AsadNeural"
-   },
-   {
-    "name": "ur-IN-SalmanNeural"
+    "name": "ur-PK-AsadNeural",
+    "rate": "+8%",
+    "tag": "_q"
    },
    {
     "name": "hi-IN-MadhurNeural",
-    "script": "hi"
-   }
-  ]
- },
- {
-  "id": "l1",
-  "ur": "امی! سوسو آئی ہے!",
-  "hi": "अम्मी! सुसु आई है!",
-  "voices": [
-   {
-    "name": "ur-PK-UzmaNeural",
-    "pitch": "+45Hz",
-    "rate": "+8%",
-    "tag": "_kid"
-   },
-   {
-    "name": "hi-IN-SwaraNeural",
     "script": "hi",
-    "pitch": "+45Hz",
     "rate": "+8%",
-    "tag": "_kid"
+    "tag": "_q"
    }
   ]
  },
  {
-  "id": "l2",
+  "id": "q2",
   "ur": "پھر سے؟ ابھی تو گئے تھے! آج پانچویں بار!",
   "hi": "फिर से? अभी तो गए थे! आज पाँचवीं बार!",
   "voices": [
    {
-    "name": "ur-PK-UzmaNeural"
-   },
-   {
-    "name": "ur-IN-GulNeural"
-   },
-   {
-    "name": "hi-IN-SwaraNeural",
-    "script": "hi"
-   }
-  ]
- },
- {
-  "id": "l3",
-  "ur": "امی کو نہیں پتا... ہر فلش کے ساتھ، سوسو بن جاتا ہے...",
-  "hi": "अम्मी को नहीं पता... हर फ़्लश के साथ, सुसु बन जाता है...",
-  "voices": [
-   {
-    "name": "ur-PK-AsadNeural"
-   },
-   {
-    "name": "ur-IN-SalmanNeural"
-   },
-   {
-    "name": "hi-IN-MadhurNeural",
-    "script": "hi"
-   }
-  ]
- },
- {
-  "id": "l4",
-  "ur": "سوسومین!",
-  "hi": "सुसुमैन!",
-  "voices": [
-   {
     "name": "ur-PK-UzmaNeural",
-    "pitch": "+45Hz",
-    "rate": "+8%",
-    "tag": "_kid"
+    "rate": "+5%",
+    "tag": "_q"
    },
    {
     "name": "hi-IN-SwaraNeural",
     "script": "hi",
-    "pitch": "+45Hz",
-    "rate": "+8%",
-    "tag": "_kid"
+    "rate": "+5%",
+    "tag": "_q"
    }
   ]
  },
  {
-  "id": "l5",
+  "id": "q3",
+  "ur": "امی کو نہیں پتا... ہر فلش کے ساتھ، قاسم بن جاتا ہے...",
+  "hi": "अम्मी को नहीं पता... हर फ़्लश के साथ, क़ासिम बन जाता है...",
+  "voices": [
+   {
+    "name": "ur-PK-AsadNeural",
+    "rate": "+8%",
+    "tag": "_q"
+   },
+   {
+    "name": "hi-IN-MadhurNeural",
+    "script": "hi",
+    "rate": "+8%",
+    "tag": "_q"
+   }
+  ]
+ },
+ {
+  "id": "q5",
   "ur": "یہ آواز کیسی تھی؟",
   "hi": "ये आवाज़ कैसी थी?",
   "voices": [
    {
-    "name": "ur-PK-UzmaNeural"
-   },
-   {
-    "name": "ur-IN-GulNeural"
-   },
-   {
-    "name": "hi-IN-SwaraNeural",
-    "script": "hi"
-   }
-  ]
- },
- {
-  "id": "l6",
-  "ur": "کچھ نہیں امی!",
-  "hi": "कुछ नहीं अम्मी!",
-  "voices": [
-   {
     "name": "ur-PK-UzmaNeural",
-    "pitch": "+45Hz",
-    "rate": "+8%",
-    "tag": "_kid"
+    "rate": "+5%",
+    "tag": "_q"
    },
    {
     "name": "hi-IN-SwaraNeural",
     "script": "hi",
-    "pitch": "+45Hz",
-    "rate": "+8%",
-    "tag": "_kid"
+    "rate": "+5%",
+    "tag": "_q"
    }
   ]
  },
  {
-  "id": "l7",
-  "ur": "کیا امی کو کبھی پتا چلے گا؟ ویڈیو کو لائک کرو، اور سوسومین کو سبسکرائب کرنا مت بھولنا!",
-  "hi": "क्या अम्मी को कभी पता चलेगा? वीडियो को लाइक करो, और सुसुमैन को सब्सक्राइब करना मत भूलना!",
+  "id": "q7",
+  "ur": "کیا امی کو کبھی پتا چلے گا؟ ویڈیو لائک کرو، اور سوسومین کو سبسکرائب کرنا مت بھولنا!",
+  "hi": "क्या अम्मी को कभी पता चलेगा? वीडियो लाइक करो, और सुसुमैन को सब्सक्राइब करना मत भूलना!",
   "voices": [
    {
-    "name": "ur-PK-AsadNeural"
-   },
-   {
-    "name": "ur-IN-SalmanNeural"
+    "name": "ur-PK-AsadNeural",
+    "rate": "+8%",
+    "tag": "_q"
    },
    {
     "name": "hi-IN-MadhurNeural",
-    "script": "hi"
+    "script": "hi",
+    "rate": "+8%",
+    "tag": "_q"
    }
   ]
  }
