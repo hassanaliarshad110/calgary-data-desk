@@ -18,7 +18,7 @@ Every episode: ~110 s vertical, desi setting, Qasim's washroom running gag ("Amm
 | 10 | TODO | School Ka Pehla Din | school wala cartoon | Qasim's first day; the school van rolls without driver; Susuman stops it; makes a new friend | Sab se dosti karo |
 | 11 | TODO | Train Ka Safar | train wala cartoon | Family train trip; a lost puppy on the platform; Susuman reunites it before the train leaves | Hamesha Ammi-Abbu ke saath raho |
 | 12 | TODO | Cricket Final | cricket wala cartoon | Gali final vs the next street; ball breaks a window; Qasim tells the truth | Sach bolo |
-| 13 | TODO | Dadi Ki Kahani | dadi wala cartoon | Dadi's birthday; cake falls; Susuman saves it in mid-air; Dadi smiles knowingly | Badon ki izzat |
+| 13 | TODO | Dadi Ki Kahani | dadi wala cartoon | Dadi's birthday; cake falls; Susuman saves it in mid-air; Dadi thinks it was a miracle, only Sakina winks | Badon ki izzat |
 | 14 | TODO | Ammi Ko Shaq! | — | Ammi notices a gold glow under the washroom door… nearly discovers the secret (cliffhanger) | — |
 
 After 14: continue in the same spirit (festivals by date — winter, Basant/Sankranti, Eid/Holi only in neutral, inclusive terms; never religious content), reuse cast, add new side characters through rig.js + model sheet.
