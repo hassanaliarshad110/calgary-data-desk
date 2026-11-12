@@ -42,5 +42,5 @@ Reference: `Susuman_model_sheet.jpg`. Drawing code: `rig.js` (`susu()`, `ammi()`
 
 ## Episode pipeline (episodes/ep1 is the template)
 - timeline.py: lines + scene plan (pre, lines with gaps, post) -> timeline.js/json; voice WAVs in aud1/.
-- amp.js: per-speaker loudness per frame for lip-sync (built from the WAVs; see the snippet in the Episode 1 session or rebuild with numpy RMS at 30 fps).
+- amp.js: per-speaker loudness per frame for lip-sync — run amp_build.py after timeline.py.
 - ep1.js: new cast + gali set + FX; ep1_scenes.js: one function per scene using dialogue times; render_ep1.py; ep1_audio.py: score cues + SFX (meow, bark, crack, thwack, cheer, rewind) + mix.
