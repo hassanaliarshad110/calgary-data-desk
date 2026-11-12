@@ -37,7 +37,8 @@ function arm(side, ang, o) {
   const kara = side > 0 ? `<ellipse cx="0" cy="140" rx="29" ry="8" fill="none" stroke="#d9dde3" stroke-width="7"/>` : '';
   const hand = o.fist ? `<circle cx="0" cy="158" r="31" fill="${C.skin}" stroke="${C.ink}" stroke-width="5"/><path d="M-18,150 h36 M-18,162 h36" stroke="${C.skinD}" stroke-width="4"/>`
     : `<circle cx="0" cy="158" r="30" fill="${C.skin}" stroke="${C.ink}" stroke-width="5"/>`;
-  return `<g transform="translate(${side * 98},-312) rotate(${rot})">
+  const bat = o.bat ? `<g transform="translate(0,150)"><rect x="-9" y="-8" width="18" height="70" rx="6" fill="#d9d2c0" stroke="${C.ink}" stroke-width="4"/><rect x="-24" y="58" width="48" height="170" rx="14" fill="#e3b77a" stroke="${C.ink}" stroke-width="5"/><path d="M-10,80 v130" stroke="#c9975a" stroke-width="5"/></g>` : '';
+  return `<g transform="translate(${side * 98},-312) rotate(${rot})">${bat}
     <rect x="-29" y="-10" width="58" height="150" rx="29" fill="${C.hood}" stroke="${C.ink}" stroke-width="5"/>
     <rect x="-29" y="112" width="58" height="22" rx="8" fill="${C.red}" stroke="${C.ink}" stroke-width="4"/>
     ${hand}${kara}</g>`;
@@ -61,9 +62,10 @@ function emblem(x, y, s) { // gold drop with tiny crown = channel mark
 }
 function susu(o) {
   o = Object.assign({ x: 540, y: 1250, s: 1, flip: 1, armL: 12, armR: 12, fistL: 0, fistR: 0, mouth: 'frown', blink: 0, brow: 0,
-    power: 0, cape: 0, crown: 0, legL: 0, legR: 0, tilt: 0, look: [0, 0], wink: 0, t: 0, squash: 1 }, o);
+    power: 0, cape: 0, crown: 0, legL: 0, legR: 0, tilt: 0, look: [0, 0], wink: 0, t: 0, squash: 1, amp: 0, shades: 0, rot: 0 }, o);
+  if (o.amp > .04 && (o.mouth === 'frown' || o.mouth === 'smirk')) o.mouth = 'talk';
   const t = o.t;
-  let g = `<g transform="translate(${o.x},${o.y}) scale(${o.s * o.flip},${o.s * o.squash})">`;
+  let g = `<g transform="translate(${o.x},${o.y}) rotate(${o.rot}) scale(${o.s * o.flip},${o.s * o.squash})">`;
   if (o.power > 0) g += `<circle cx="0" cy="-330" r="${380 + 18 * Math.sin(t * 9)}" fill="url(#aura)" opacity="${o.power}"/>`;
   if (o.cape > 0) {
     const w1 = 22 * Math.sin(t * 8), w2 = 26 * Math.sin(t * 8 + 1.6);
@@ -77,7 +79,7 @@ function susu(o) {
    <path d="M-24,-300 v62 M24,-300 v58" stroke="#eee" stroke-width="5" stroke-linecap="round"/>
    <circle cx="-24" cy="-236" r="6" fill="#eee"/><circle cx="24" cy="-240" r="6" fill="#eee"/>`;
   g += emblem(0, -236, .62 + .25 * o.power);
-  g += arm(-1, o.armL, { fist: o.fistL }) + arm(1, o.armR, { fist: o.fistR });
+  g += arm(-1, o.armL, { fist: o.fistL, bat: o.batL }) + arm(1, o.armR, { fist: o.fistR, bat: o.batR });
   // head
   g += `<g transform="translate(0,-478) rotate(${o.tilt})">`;
   // back hair mass
@@ -105,9 +107,11 @@ function susu(o) {
   if (m === 'frown') g += `<path d="M-22,80 Q0,70 22,80" stroke="#5a2414" stroke-width="7" fill="none" stroke-linecap="round"/>`;
   else if (m === 'smirk') g += `<path d="M-20,78 Q6,84 26,70" stroke="#5a2414" stroke-width="7" fill="none" stroke-linecap="round"/>`;
   else if (m === 'shout') g += `<ellipse cx="0" cy="82" rx="27" ry="30" fill="#5a1414" stroke="${C.ink}" stroke-width="5"/><ellipse cx="0" cy="98" rx="15" ry="9" fill="#e5636b"/>`;
+  else if (m === 'talk') g += `<ellipse cx="0" cy="80" rx="${20 + 6 * o.amp}" ry="${5 + 26 * o.amp}" fill="#5a1414" stroke="${C.ink}" stroke-width="5"/>`;
   else if (m === 'o') g += `<ellipse cx="0" cy="80" rx="13" ry="16" fill="#5a1414" stroke="${C.ink}" stroke-width="5"/>`;
   else if (m === 'grin') g += `<path d="M-38,66 Q0,116 38,66 Z" fill="#5a1414" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/><path d="M-32,70 Q0,80 32,70 L30,76 Q0,86 -30,76Z" fill="#fff"/>`;
   else if (m === 'wobble') g += `<path d="M-26,82 q9,-10 17,0 q9,10 17,0 q9,-10 17,0" stroke="#5a2414" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+  if (o.shades > 0) { const k = back(o.shades); g += `<g transform="translate(0,4) scale(${k})"><rect x="-78" y="-22" width="70" height="46" rx="16" fill="#111" stroke="${C.ink}" stroke-width="5"/><rect x="8" y="-22" width="70" height="46" rx="16" fill="#111" stroke="${C.ink}" stroke-width="5"/><path d="M-8,-8 h16" stroke="#111" stroke-width="7"/><path d="M-66,-12 l18,0 M20,-12 l18,0" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/></g>`; }
   // front hair: curly fringe swooping over forehead (from his photo)
   const fr = [[-82, -62, 34], [-44, -86, 38], [0, -94, 38], [44, -86, 36], [82, -60, 32], [-96, -18, 24], [96, -18, 22]];
   g += fr.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${C.hair}" stroke="${C.ink}" stroke-width="5"/>`).join('');
@@ -121,7 +125,8 @@ function susu(o) {
 
 // ---------- AMMI ----------
 function ammi(o) {
-  o = Object.assign({ x: 820, y: 1120, s: 1, look: [0, 10], brow: 0, mouth: 'flat', phone: 1, tilt: 0, blink: 0 }, o);
+  o = Object.assign({ x: 820, y: 1120, s: 1, look: [0, 10], brow: 0, mouth: 'flat', phone: 1, tilt: 0, blink: 0, amp: -1 }, o);
+  if (o.amp > .04) o.mouth = 'amp';
   let g = `<g transform="translate(${o.x},${o.y}) scale(${o.s})">`;
   g += `<path d="M-70,-10 L-80,150 L-30,150 L-10,10Z M70,-10 L80,150 L30,150 L10,10Z" fill="#e9e1d4" stroke="${C.ink}" stroke-width="5"/>
         <ellipse cx="-55" cy="155" rx="34" ry="14" fill="#7a3b2a" stroke="${C.ink}" stroke-width="4"/><ellipse cx="55" cy="155" rx="34" ry="14" fill="#7a3b2a" stroke="${C.ink}" stroke-width="4"/>
@@ -144,6 +149,7 @@ function ammi(o) {
   g += `<path d="M-52,${-26} Q-32,${b} -12,${-28}" stroke="#120a07" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M12,-28 Q32,${b - 4} 52,-30" stroke="#120a07" stroke-width="7" fill="none" stroke-linecap="round"/>
      <circle cx="0" cy="28" r="4" fill="#8a5232"/><circle cx="30" cy="34" r="0"/>`;
   if (o.mouth === 'open') g += `<ellipse cx="0" cy="58" rx="17" ry="14" fill="#5a1414" stroke="${C.ink}" stroke-width="4"/>`;
+  else if (o.mouth === 'amp') g += `<ellipse cx="0" cy="58" rx="17" ry="${4 + 18 * o.amp}" fill="#5a1414" stroke="${C.ink}" stroke-width="4"/>`;
   else if (o.mouth === 'talk') g += `<ellipse cx="0" cy="58" rx="16" ry="${6 + 8 * Math.abs(Math.sin(o.t * 18))}" fill="#5a1414" stroke="${C.ink}" stroke-width="4"/>`;
   else g += `<path d="M-18,58 Q0,52 18,58" stroke="#5a2414" stroke-width="6" fill="none" stroke-linecap="round"/>`;
   g += `<circle cx="-84" cy="20" r="7" fill="${C.gold}"/><circle cx="84" cy="20" r="7" fill="${C.gold}"/></g></g>`;

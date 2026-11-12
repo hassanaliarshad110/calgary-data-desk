@@ -1,0 +1,222 @@
+{
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "dur": 6.343
+  },
+  {
+   "id": "intro",
+   "start": 6.343,
+   "dur": 10.395
+  },
+  {
+   "id": "ask",
+   "start": 16.738,
+   "dur": 11.67
+  },
+  {
+   "id": "field",
+   "start": 28.408,
+   "dur": 7.11
+  },
+  {
+   "id": "home",
+   "start": 35.518,
+   "dur": 5.236
+  },
+  {
+   "id": "danger",
+   "start": 40.754,
+   "dur": 13.002
+  },
+  {
+   "id": "power",
+   "start": 53.756,
+   "dur": 8.441
+  },
+  {
+   "id": "rescue",
+   "start": 62.197,
+   "dur": 14.482
+  },
+  {
+   "id": "last",
+   "start": 76.679,
+   "dur": 18.016
+  },
+  {
+   "id": "ending",
+   "start": 94.695,
+   "dur": 5.569
+  },
+  {
+   "id": "endcard",
+   "start": 100.265,
+   "dur": 9.599
+  }
+ ],
+ "lines": {
+  "n1": {
+   "scene": "hook",
+   "s": 0.5,
+   "d": 3.443,
+   "abs": 0.5,
+   "sp": "NARR",
+   "txt": "Kya ek chaar saal ka bachcha...|is nanhi billi ko bacha paayega?"
+  },
+  "n2": {
+   "scene": "intro",
+   "s": 1.0,
+   "d": 3.695,
+   "abs": 7.343,
+   "sp": "NARR",
+   "txt": "Ye hai hamari gali.|Aur yahan chal raha hai sab se bada match!"
+  },
+  "q1": {
+   "scene": "ask",
+   "s": 2.0,
+   "d": 2.342,
+   "abs": 18.738,
+   "sp": "QASIM",
+   "txt": "Bunty bhai! Mujhe bhi batting karni hai!"
+  },
+  "b1": {
+   "scene": "ask",
+   "s": 4.592,
+   "d": 2.703,
+   "abs": 21.331,
+   "sp": "BUNTY",
+   "txt": "Tu bahut chhota hai!|Tu sirf fielding karega!"
+  },
+  "g1": {
+   "scene": "ask",
+   "s": 7.495,
+   "d": 2.374,
+   "abs": 24.234,
+   "sp": "GUDDU",
+   "txt": "Haan haan! Chhotu, ja ke fielding kar!"
+  },
+  "q2": {
+   "scene": "field",
+   "s": 1.9,
+   "d": 1.571,
+   "abs": 30.308,
+   "sp": "QASIM",
+   "txt": "Time out! Suusuu aayi hai!"
+  },
+  "b2": {
+   "scene": "field",
+   "s": 3.771,
+   "d": 2.44,
+   "abs": 32.179,
+   "sp": "BUNTY",
+   "txt": "Phir se?! Ye aaj saatvi baar hai!"
+  },
+  "a1": {
+   "scene": "home",
+   "s": 1.9,
+   "d": 1.736,
+   "abs": 37.418,
+   "sp": "AMMI",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "g2": {
+   "scene": "danger",
+   "s": 7.0,
+   "d": 2.101,
+   "abs": 47.754,
+   "sp": "GUDDU",
+   "txt": "Arre! Mano ped par phas gayi!"
+  },
+  "b3": {
+   "scene": "danger",
+   "s": 9.401,
+   "d": 1.601,
+   "abs": 50.155,
+   "sp": "BUNTY",
+   "txt": "Itna upar koi nahi ja sakta!"
+  },
+  "n3": {
+   "scene": "power",
+   "s": 0.7,
+   "d": 3.642,
+   "abs": 54.456,
+   "sp": "NARR",
+   "txt": "Lekin koi nahi jaanta...|har flush ke saath Qasim ban jata hai..."
+  },
+  "q3": {
+   "scene": "power",
+   "s": 5.242,
+   "d": 1.599,
+   "abs": 58.998,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "b4": {
+   "scene": "rescue",
+   "s": 8.6,
+   "d": 1.522,
+   "abs": 70.797,
+   "sp": "BUNTY",
+   "txt": "Ye... ye kaun tha?!"
+  },
+  "g3": {
+   "scene": "rescue",
+   "s": 10.372,
+   "d": 1.11,
+   "abs": 72.57,
+   "sp": "GUDDU",
+   "txt": "Koi superhero tha!"
+  },
+  "b5": {
+   "scene": "last",
+   "s": 2.6,
+   "d": 3.475,
+   "abs": 79.279,
+   "sp": "BUNTY",
+   "txt": "Qasim! Aakhri ball tu khel.|Chaar run chahiye!"
+  },
+  "q4": {
+   "scene": "last",
+   "s": 6.375,
+   "d": 0.935,
+   "abs": 83.055,
+   "sp": "QASIM",
+   "txt": "Sach mein?! Haan!"
+  },
+  "n4": {
+   "scene": "last",
+   "s": 13.71,
+   "d": 1.906,
+   "abs": 90.39,
+   "sp": "NARR",
+   "txt": "Mano ne bhi apna ehsaan chuka diya!"
+  },
+  "q5": {
+   "scene": "ending",
+   "s": 1.2,
+   "d": 1.439,
+   "abs": 95.895,
+   "sp": "QASIM",
+   "txt": "Ammiii! Suusuu aayi hai!"
+  },
+  "a2": {
+   "scene": "ending",
+   "s": 2.939,
+   "d": 0.431,
+   "abs": 97.634,
+   "sp": "AMMI",
+   "txt": "Phir se?!"
+  },
+  "n5": {
+   "scene": "endcard",
+   "s": 0.6,
+   "d": 5.399,
+   "abs": 100.865,
+   "sp": "NARR",
+   "txt": "Bachcho, ped par khud mat chadhna,|badon ko bulao!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
+  }
+ },
+ "total": 109.864
+}

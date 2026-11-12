@@ -1,8 +1,34 @@
 {
-  "QASIM (kid)": {"engine": "Kokoro TTS (kokoro-onnx v1.0), lang 'hi', text in Devanagari", "voice": "hf_beta", "speed": 1.05,
-                  "post_ffmpeg": "asetrate=24000*1.28,aresample=24000,atempo=0.78125,highpass=f=120"},
-  "AMMI":        {"engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
-  "NARRATOR":    {"engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  "QASIM (kid)": {
+    "engine": "Kokoro TTS (kokoro-onnx v1.0), lang 'hi', text in Devanagari",
+    "voice": "hf_beta",
+    "speed": 1.05,
+    "post_ffmpeg": "asetrate=24000*1.28,aresample=24000,atempo=0.78125,highpass=f=120",
+    "pronunciation": "Write susu as सूसू (long u: suːsuː). Name shout 'SUUU-SUUU-MAN!' = Kokoro text 'सूऽऽ सूऽऽ मैन!' speed 0.8, then the kid filter plus atempo=0.85 (phonemes sˈuːː sˈuːː mˈɛːn). Check phonemes in info.json from tts_ep1.py."
+  },
+  "AMMI": {
+    "engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script",
+    "voice": "ur-PK-UzmaNeural",
+    "rate": "+5%"
+  },
+  "NARRATOR": {
+    "engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script",
+    "voice": "ur-PK-AsadNeural",
+    "rate": "+8%"
+  },
   "pause_tighten_ffmpeg": "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_duration=0.3:stop_threshold=-45dB:stop_silence=0.22,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse",
-  "how": "Both engines run free on GitHub Actions (branch budget-probe, workflow budget-probe.yml -> output branch budget-probe-out). Scripts in tts/."
+  "how": "Both engines run free on GitHub Actions (branch budget-probe, workflow budget-probe.yml -> output branch budget-probe-out). Scripts in tts/.",
+  "BUNTY (older kid)": {
+    "engine": "edge-tts, Urdu script",
+    "voice": "ur-IN-SalmanNeural",
+    "rate": "+10%",
+    "pitch": "+40Hz"
+  },
+  "GUDDU (older kid)": {
+    "engine": "edge-tts, Devanagari",
+    "voice": "hi-IN-MadhurNeural",
+    "rate": "+12%",
+    "pitch": "+60Hz"
+  },
+  "narrator_note": "Avoid putting 'Susuman' in edge-tts lines (Urdu TTS may misread it); let Qasim (Kokoro) say the name."
 }
