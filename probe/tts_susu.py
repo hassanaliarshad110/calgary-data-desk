@@ -4,6 +4,9 @@ subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'kokoro-onnx', 'so
 base = 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/'
 for f in ('kokoro-v1.0.onnx', 'voices-v1.0.bin'):
     if not os.path.exists(f): urllib.request.urlretrieve(base + f, f)
+for u,n in [('ofl/luckiestguy/LuckiestGuy-Regular.ttf','LuckiestGuy.ttf'),('ofl/bangers/Bangers-Regular.ttf','Bangers.ttf'),('ofl/baloo2/Baloo2%5Bwght%5D.ttf','Baloo2.ttf'),('ofl/permanentmarker/PermanentMarker-Regular.ttf','PermanentMarker.ttf')]:
+    try: urllib.request.urlretrieve('https://raw.githubusercontent.com/google/fonts/main/'+u, os.path.join(out,n))
+    except Exception as e: print('font fail',u,e)
 from kokoro_onnx import Kokoro
 import soundfile as sf
 k = Kokoro('kokoro-v1.0.onnx', 'voices-v1.0.bin')
