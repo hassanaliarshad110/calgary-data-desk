@@ -4,7 +4,7 @@ A code-first animation studio: every character, set, prop, effect, graphic and c
 time-driven function, so any frame of any video can be re-rendered and every asset stays identical across videos.
 
 ```
-engine/      core.js (camera, parallax, transitions, text, lip-sync, compositing) · chars.js (2D rig + 11-character cast + 28 motions + 16 expressions + 10 visemes)
+engine/      core.js (camera, parallax, transitions, text, lip-sync, compositing) · chars.js (2D rig + 16-character cast incl. the Susuman ensemble + 31 motions + 16 expressions + 10 visemes)
              sets.js (16 layered environments) · props.js (53 props + 5 food variants) · fx.js (24 effects) · graphics.js (charts, maps, broadcast, documentary) · city3d.js (3D Calgary, three.js)
 render/      render.py (Playwright → one MP4 per scene) · audio.py (SFX/ambience/music synth + ducking mixer) · lipsync.py (voice → mouth track) · serve.py
 assets/      characters/<key>/ sheets · audio/ (synthesized) · lottie/ (15 original Lotties) · svg/ (6 animated SVGs) · reels/Engine_Reel.mp4
@@ -24,7 +24,7 @@ Preview single frames first: `python3 render/render.py demos/x/index.html previe
 
 ## Using the rig
 ```js
-drawChar(CAST.sakina, MOVES.walk(t, { yaw: Math.PI/2 }), x, groundY, scale, { t });   // any of 28 motions
+drawChar(CAST.sakina, MOVES.walk(t, { yaw: Math.PI/2 }), x, groundY, scale, { t });   // any of 31 motions
 const p = MOVES.talk(t, { expr: 'smug' }); p.face.mouth = visemeAt(LIPS.tracks.z0, t); // lip-sync from audio
 perform([{ move: 'walk', t0: 0 }, { move: 'turn', t0: 2, opts: { from: Math.PI/2, to: 0 } }, { move: 'wave', t0: 2.5 }], t); // blended sequence
 jointPos(CAST.dadaAbu, pose, x, gy, s, 'wriL') // attach props to hands/head
@@ -40,3 +40,6 @@ and rebuild the catalogue: `python3 catalog/build_catalog.py && python3 catalog/
 Original engine art, audio, Lotties and SVGs: Hassan Ali's own work. Acquired files keep their own licence (see `acquired/manifest*.json` and the catalogue):
 Poly Haven, Natural Earth, RobotExpressive, Fox: CC0 / public domain · Google Fonts: OFL / Apache · three.js, lottie-web, d3, turf: MIT/ISC · GSAP: GSAP no-charge licence ·
 OpenStreetMap data: ODbL, credit "© OpenStreetMap contributors" · City of Calgary open data: credit the City · Kevin MacLeod music and CesiumMan / RiggedFigure: CC BY 4.0, credit required.
+
+## Susuman ensemble
+`SUSUMAN_ENSEMBLE` in engine/chars.js: qasim, susuman, ammi, dadaAbu, dadi, sakina (elder sister, the only one who knows the secret), basim, zahra, ammar, officer, latifa, dharmender, daniel, amara. Sheet: `assets/characters/susuman/susuman_ensemble.png`. Old keys (chacha, zoya, rafi, nani, maya, marcus, layla, jamal) still resolve to the renamed characters.
