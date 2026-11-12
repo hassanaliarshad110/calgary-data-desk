@@ -1,0 +1,14 @@
+# big or reproducible files stay out of git (originals are on branches asset-probe-out / asset-probe-out2)
+acquired/audio/
+acquired/polyhaven/hdris/*_tonemapped.jpg
+demos/*/scene_*.mp4
+demos/*/silent.mp4
+demos/*/fr_*/
+demos/*/*.mp4
+demos/*/mix.wav
+assets/reels/*.mp4
+assets/reels/mix.wav
+assets/reels/list.txt
+*.tmp.mp4
+__pycache__/
+*.log

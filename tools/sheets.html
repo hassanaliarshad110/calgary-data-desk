@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../engine/fonts.css"></head><body>
+<script src="../engine/core.js"></script><script src="../engine/chars.js"></script>
+<script>
+// Character sheet generator: turnaround, expressions, visemes, poses, movement strips.
+window.PAGE_READY = false; stage(1920, 1080);
+Promise.all(['700 40px "Fira Sans"', '40px Bangers', '800 40px Baloo2'].map(f => document.fonts.load(f))).then(() => window.PAGE_READY = true);
+function paper(title, sub) { C.setTransform(1,0,0,1,0,0); C.fillStyle = '#f7f3ea'; C.fillRect(0, 0, 1920, 1080); C.strokeStyle = 'rgba(0,0,0,0.06)'; C.lineWidth = 1; for (let x = 0; x < 1920; x += 40) { C.beginPath(); C.moveTo(x, 0); C.lineTo(x, 1080); C.stroke(); } for (let y = 0; y < 1080; y += 40) { C.beginPath(); C.moveTo(0, y); C.lineTo(1920, y); C.stroke(); }
+  text(title, 60, 62, { font: '64px Bangers', fill: '#1d3557', align: 'left', ls: 2 }); text(sub, 60, 112, { font: '600 26px "Fira Sans"', fill: '#555', align: 'left' }); }
+function label(s, x, y) { text(s, x, y, { font: '600 24px "Fira Sans"', fill: '#333' }); }
+function turnaround(key) { const sp = CAST[key]; paper(`${sp.name.toUpperCase()} · TURNAROUND`, `${sp.role} · rig: ${sp.age}/${sp.build} · STUDIO cast "${key}"`);
+  const views = [['FRONT', 0], ['3/4', 0.7], ['SIDE', Math.PI / 2], ['3/4 BACK', 2.3], ['BACK', Math.PI]]; const sc = 700 / (sp.height * 1.05) * 0.95;
+  views.forEach(([n, y], i) => { const x = 230 + i * 365; const p = MOVES.idle(0.4); p.yaw = y; drawChar(sp, p, x, 960, Math.min(1.55, sc)); label(n, x, 1010); }); }
+function expressions(key) { const sp = CAST[key]; paper(`${sp.name.toUpperCase()} · EXPRESSIONS`, '16 expression presets · drawn live by the rig (EXPR in chars.js)'); const ks = Object.keys(EXPR);
+  ks.forEach((e, i) => { const col = i % 8, row = Math.floor(i / 8); const x = 150 + col * 232, y = 470 + row * 470; const p = basePose(); p.face.expr = e; p.yaw = 0.15; C.save(); C.beginPath(); C.rect(x - 110, y - 330, 220, 330); C.clip(); drawChar(sp, p, x, groundForHead(sp, y - 160, 2.6), 2.6, { shadow: false, t: 0.3 }); C.restore(); C.strokeStyle = '#ccc'; C.strokeRect(x - 110, y - 330, 220, 330); label(e, x, y + 28); }); }
+function visemes(key) { const sp = CAST[key]; paper(`${sp.name.toUpperCase()} · LIP-SYNC MOUTH SHAPES`, '10 Preston-Blair visemes · driven by audio loudness via render/lipsync.py → visemeAt()');
+  VISEMES.forEach((v, i) => { const col = i % 5, row = Math.floor(i / 5); const x = 230 + col * 365, y = 520 + row * 470; const p = basePose(); p.face.mouth = v; C.save(); C.beginPath(); C.rect(x - 160, y - 360, 320, 360); C.clip(); drawChar(sp, p, x, groundForHead(sp, y - 170, 3.0), 3.0, { shadow: false }); C.restore(); C.strokeStyle = '#ccc'; C.strokeRect(x - 160, y - 360, 320, 360); label(v, x, y + 28); }); }
+function poses(key, list) { const sp = CAST[key]; list = list || ['idle', 'wave', 'point', 'thumbsUp', 'think', 'shrug', 'facepalm', 'clap', 'shout', 'laugh', 'cry', 'scared', 'fightStance', 'punch', 'present', 'sit'];
+  paper(`${sp.name.toUpperCase()} · POSES & GESTURES`, `${list.length} motion presets sampled at a key moment (MOVES in chars.js)`); const sc = Math.min(1.0, 400 / sp.height);
+  list.forEach((m, i) => { const col = i % 8, row = Math.floor(i / 8); const x = 140 + col * 235, y = 560 + row * 460; const tt = { sit: 0.8, punch: 0.2, shrug: 0.45, laugh: 0.1, cry: 0.2 }[m] ?? 0.6; drawChar(sp, MOVES[m](tt), x, y, sc, { t: tt }); label(m, x, y + 34); }); }
+function motionStrip(key, move, n = 8, period = 1.05) { const sp = CAST[key]; paper(`${sp.name.toUpperCase()} · ${move.toUpperCase()} CYCLE`, `${n} frames across one cycle · MOVES.${move}`); const sc = Math.min(1.25, 700 / sp.height);
+  for (let i = 0; i < n; i++) { const tt = i / n * period; const x = 140 + i * 235; drawChar(sp, MOVES[move](tt, { yaw: Math.PI / 2 }), x, 900, sc, { t: tt }); label(`t=${tt.toFixed(2)}s`, x, 960); } }
+function castLineup(keys) { keys = keys || Object.keys(CAST); paper('STUDIO CAST · LINE-UP', `${keys.length} reusable rigged characters · ages, builds, outfits`); keys.forEach((k, i) => { const x = 120 + i * (1700 / (keys.length - 1)); drawChar(CAST[k], MOVES.idle(i * 0.37, { seed: i }), x, 940, 1.2, { t: i }); label(CAST[k].name.split(' ')[0], x, 1000); }); }
+</script></body></html>

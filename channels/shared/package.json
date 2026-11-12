@@ -1,0 +1,1671 @@
+{
+ "channel": "shared",
+ "asset_count": 333,
+ "assets": [
+  {
+   "id": "MOV-001",
+   "name": "Motion: idle",
+   "path": "engine/chars.js#MOVES.idle"
+  },
+  {
+   "id": "MOV-002",
+   "name": "Motion: walk",
+   "path": "engine/chars.js#MOVES.walk"
+  },
+  {
+   "id": "MOV-003",
+   "name": "Motion: run",
+   "path": "engine/chars.js#MOVES.run"
+  },
+  {
+   "id": "MOV-004",
+   "name": "Motion: jump",
+   "path": "engine/chars.js#MOVES.jump"
+  },
+  {
+   "id": "MOV-005",
+   "name": "Motion: sit",
+   "path": "engine/chars.js#MOVES.sit"
+  },
+  {
+   "id": "MOV-006",
+   "name": "Motion: stand",
+   "path": "engine/chars.js#MOVES.stand"
+  },
+  {
+   "id": "MOV-007",
+   "name": "Motion: turn",
+   "path": "engine/chars.js#MOVES.turn"
+  },
+  {
+   "id": "MOV-008",
+   "name": "Motion: talk",
+   "path": "engine/chars.js#MOVES.talk"
+  },
+  {
+   "id": "MOV-009",
+   "name": "Motion: listen",
+   "path": "engine/chars.js#MOVES.listen"
+  },
+  {
+   "id": "MOV-010",
+   "name": "Motion: laugh",
+   "path": "engine/chars.js#MOVES.laugh"
+  },
+  {
+   "id": "MOV-011",
+   "name": "Motion: cry",
+   "path": "engine/chars.js#MOVES.cry"
+  },
+  {
+   "id": "MOV-012",
+   "name": "Motion: shout",
+   "path": "engine/chars.js#MOVES.shout"
+  },
+  {
+   "id": "MOV-013",
+   "name": "Motion: punch",
+   "path": "engine/chars.js#MOVES.punch"
+  },
+  {
+   "id": "MOV-014",
+   "name": "Motion: kick",
+   "path": "engine/chars.js#MOVES.kick"
+  },
+  {
+   "id": "MOV-015",
+   "name": "Motion: fall",
+   "path": "engine/chars.js#MOVES.fall"
+  },
+  {
+   "id": "MOV-016",
+   "name": "Motion: dance",
+   "path": "engine/chars.js#MOVES.dance"
+  },
+  {
+   "id": "MOV-017",
+   "name": "Motion: celebrate",
+   "path": "engine/chars.js#MOVES.celebrate"
+  },
+  {
+   "id": "MOV-018",
+   "name": "Motion: wave",
+   "path": "engine/chars.js#MOVES.wave"
+  },
+  {
+   "id": "MOV-019",
+   "name": "Motion: point",
+   "path": "engine/chars.js#MOVES.point"
+  },
+  {
+   "id": "MOV-020",
+   "name": "Motion: shrug",
+   "path": "engine/chars.js#MOVES.shrug"
+  },
+  {
+   "id": "MOV-021",
+   "name": "Motion: facepalm",
+   "path": "engine/chars.js#MOVES.facepalm"
+  },
+  {
+   "id": "MOV-022",
+   "name": "Motion: thumbsUp",
+   "path": "engine/chars.js#MOVES.thumbsUp"
+  },
+  {
+   "id": "MOV-023",
+   "name": "Motion: clap",
+   "path": "engine/chars.js#MOVES.clap"
+  },
+  {
+   "id": "MOV-024",
+   "name": "Motion: think",
+   "path": "engine/chars.js#MOVES.think"
+  },
+  {
+   "id": "MOV-025",
+   "name": "Motion: scared",
+   "path": "engine/chars.js#MOVES.scared"
+  },
+  {
+   "id": "MOV-026",
+   "name": "Motion: holdHead",
+   "path": "engine/chars.js#MOVES.holdHead"
+  },
+  {
+   "id": "MOV-027",
+   "name": "Motion: fightStance",
+   "path": "engine/chars.js#MOVES.fightStance"
+  },
+  {
+   "id": "MOV-028",
+   "name": "Motion: present",
+   "path": "engine/chars.js#MOVES.present"
+  },
+  {
+   "id": "EXP-001",
+   "name": "Facial expression set (16): neutral, happy, laugh, sad, cry, angry, shout, surprised, scared, thinking, smug, wink, disgust, sleepy, love, determined",
+   "path": "engine/chars.js#EXPR"
+  },
+  {
+   "id": "VIS-001",
+   "name": "Lip-sync mouth shapes (10 Preston-Blair visemes)",
+   "path": "engine/chars.js#VISEMES + render/lipsync.py"
+  },
+  {
+   "id": "ENV-002",
+   "name": "Environment: office",
+   "path": "engine/sets.js#SETS.office"
+  },
+  {
+   "id": "ENV-003",
+   "name": "Environment: city street",
+   "path": "engine/sets.js#SETS.city_street"
+  },
+  {
+   "id": "ENV-005",
+   "name": "Environment: hospital",
+   "path": "engine/sets.js#SETS.hospital"
+  },
+  {
+   "id": "ENV-011",
+   "name": "Environment: mountains",
+   "path": "engine/sets.js#SETS.mountains"
+  },
+  {
+   "id": "ENV-015",
+   "name": "Environment: futuristic",
+   "path": "engine/sets.js#SETS.futuristic"
+  },
+  {
+   "id": "ENV-016",
+   "name": "Environment: construction site",
+   "path": "engine/sets.js#SETS.construction_site"
+  },
+  {
+   "id": "PRP-001",
+   "name": "Prop: sofa",
+   "path": "engine/props.js#PROPS.sofa"
+  },
+  {
+   "id": "PRP-002",
+   "name": "Prop: chair",
+   "path": "engine/props.js#PROPS.chair"
+  },
+  {
+   "id": "PRP-003",
+   "name": "Prop: officeChair",
+   "path": "engine/props.js#PROPS.officeChair"
+  },
+  {
+   "id": "PRP-004",
+   "name": "Prop: table",
+   "path": "engine/props.js#PROPS.table"
+  },
+  {
+   "id": "PRP-005",
+   "name": "Prop: desk",
+   "path": "engine/props.js#PROPS.desk"
+  },
+  {
+   "id": "PRP-006",
+   "name": "Prop: schoolDesk",
+   "path": "engine/props.js#PROPS.schoolDesk"
+  },
+  {
+   "id": "PRP-007",
+   "name": "Prop: bed",
+   "path": "engine/props.js#PROPS.bed"
+  },
+  {
+   "id": "PRP-008",
+   "name": "Prop: hospitalBed",
+   "path": "engine/props.js#PROPS.hospitalBed"
+  },
+  {
+   "id": "PRP-009",
+   "name": "Prop: bookshelf",
+   "path": "engine/props.js#PROPS.bookshelf"
+  },
+  {
+   "id": "PRP-010",
+   "name": "Prop: bench",
+   "path": "engine/props.js#PROPS.bench"
+  },
+  {
+   "id": "PRP-011",
+   "name": "Prop: lamp",
+   "path": "engine/props.js#PROPS.lamp"
+  },
+  {
+   "id": "PRP-012",
+   "name": "Prop: plant",
+   "path": "engine/props.js#PROPS.plant"
+  },
+  {
+   "id": "PRP-013",
+   "name": "Prop: clock",
+   "path": "engine/props.js#PROPS.clock"
+  },
+  {
+   "id": "PRP-014",
+   "name": "Prop: monitor",
+   "path": "engine/props.js#PROPS.monitor"
+  },
+  {
+   "id": "PRP-015",
+   "name": "Prop: laptop",
+   "path": "engine/props.js#PROPS.laptop"
+  },
+  {
+   "id": "PRP-016",
+   "name": "Prop: tv",
+   "path": "engine/props.js#PROPS.tv"
+  },
+  {
+   "id": "PRP-017",
+   "name": "Prop: phone",
+   "path": "engine/props.js#PROPS.phone"
+  },
+  {
+   "id": "PRP-018",
+   "name": "Prop: camera",
+   "path": "engine/props.js#PROPS.camera"
+  },
+  {
+   "id": "PRP-019",
+   "name": "Prop: mic",
+   "path": "engine/props.js#PROPS.mic"
+  },
+  {
+   "id": "PRP-020",
+   "name": "Prop: till",
+   "path": "engine/props.js#PROPS.till"
+  },
+  {
+   "id": "PRP-021",
+   "name": "Prop: cup",
+   "path": "engine/props.js#PROPS.cup"
+  },
+  {
+   "id": "PRP-022",
+   "name": "Prop: chai",
+   "path": "engine/props.js#PROPS.chai"
+  },
+  {
+   "id": "PRP-023",
+   "name": "Prop: umbrella",
+   "path": "engine/props.js#PROPS.umbrella"
+  },
+  {
+   "id": "PRP-024",
+   "name": "Prop: suitcase",
+   "path": "engine/props.js#PROPS.suitcase"
+  },
+  {
+   "id": "PRP-025",
+   "name": "Prop: magicBall",
+   "path": "engine/props.js#PROPS.magicBall"
+  },
+  {
+   "id": "PRP-026",
+   "name": "Prop: wand",
+   "path": "engine/props.js#PROPS.wand"
+  },
+  {
+   "id": "PRP-027",
+   "name": "Prop: anchorDesk",
+   "path": "engine/props.js#PROPS.anchorDesk"
+  },
+  {
+   "id": "PRP-028",
+   "name": "Prop: heartMonitor",
+   "path": "engine/props.js#PROPS.heartMonitor"
+  },
+  {
+   "id": "PRP-029",
+   "name": "Prop: ivStand",
+   "path": "engine/props.js#PROPS.ivStand"
+  },
+  {
+   "id": "PRP-030",
+   "name": "Prop: car",
+   "path": "engine/props.js#PROPS.car"
+  },
+  {
+   "id": "PRP-031",
+   "name": "Prop: bus",
+   "path": "engine/props.js#PROPS.bus"
+  },
+  {
+   "id": "PRP-032",
+   "name": "Prop: lrt",
+   "path": "engine/props.js#PROPS.lrt"
+  },
+  {
+   "id": "PRP-033",
+   "name": "Prop: truck",
+   "path": "engine/props.js#PROPS.truck"
+  },
+  {
+   "id": "PRP-034",
+   "name": "Prop: bicycle",
+   "path": "engine/props.js#PROPS.bicycle"
+  },
+  {
+   "id": "PRP-035",
+   "name": "Prop: excavator",
+   "path": "engine/props.js#PROPS.excavator"
+  },
+  {
+   "id": "PRP-036",
+   "name": "Prop: towerCrane",
+   "path": "engine/props.js#PROPS.towerCrane"
+  },
+  {
+   "id": "PRP-037",
+   "name": "Prop: cone",
+   "path": "engine/props.js#PROPS.cone"
+  },
+  {
+   "id": "PRP-038",
+   "name": "Prop: barrier",
+   "path": "engine/props.js#PROPS.barrier"
+  },
+  {
+   "id": "PRP-039",
+   "name": "Prop: hammer",
+   "path": "engine/props.js#PROPS.hammer"
+  },
+  {
+   "id": "PRP-040",
+   "name": "Prop: wrench",
+   "path": "engine/props.js#PROPS.wrench"
+  },
+  {
+   "id": "PRP-041",
+   "name": "Prop: drill",
+   "path": "engine/props.js#PROPS.drill"
+  },
+  {
+   "id": "PRP-042",
+   "name": "Prop: streetLamp",
+   "path": "engine/props.js#PROPS.streetLamp"
+  },
+  {
+   "id": "PRP-043",
+   "name": "Prop: hydrant",
+   "path": "engine/props.js#PROPS.hydrant"
+  },
+  {
+   "id": "PRP-044",
+   "name": "Prop: kite",
+   "path": "engine/props.js#PROPS.kite"
+  },
+  {
+   "id": "PRP-045",
+   "name": "Prop: peaceBridge",
+   "path": "engine/props.js#PROPS.peaceBridge"
+  },
+  {
+   "id": "PRP-046",
+   "name": "Prop: pizza",
+   "path": "engine/props.js#PROPS.food('pizza')"
+  },
+  {
+   "id": "PRP-047",
+   "name": "Prop: burger",
+   "path": "engine/props.js#PROPS.food('burger')"
+  },
+  {
+   "id": "PRP-048",
+   "name": "Prop: apple",
+   "path": "engine/props.js#PROPS.food('apple')"
+  },
+  {
+   "id": "PRP-049",
+   "name": "Prop: samosa",
+   "path": "engine/props.js#PROPS.food('samosa')"
+  },
+  {
+   "id": "PRP-050",
+   "name": "Prop: biryani",
+   "path": "engine/props.js#PROPS.food('biryani')"
+  },
+  {
+   "id": "PRP-051",
+   "name": "Prop: bill",
+   "path": "engine/props.js#PROPS.bill"
+  },
+  {
+   "id": "PRP-052",
+   "name": "Prop: coins",
+   "path": "engine/props.js#PROPS.coins"
+  },
+  {
+   "id": "PRP-053",
+   "name": "Prop: moneyStack",
+   "path": "engine/props.js#PROPS.moneyStack"
+  },
+  {
+   "id": "PRP-054",
+   "name": "Prop: document",
+   "path": "engine/props.js#PROPS.document"
+  },
+  {
+   "id": "PRP-055",
+   "name": "Prop: folder",
+   "path": "engine/props.js#PROPS.folder"
+  },
+  {
+   "id": "PRP-056",
+   "name": "Prop: clipboard",
+   "path": "engine/props.js#PROPS.clipboard"
+  },
+  {
+   "id": "PRP-057",
+   "name": "Prop: newspaper",
+   "path": "engine/props.js#PROPS.newspaper"
+  },
+  {
+   "id": "VFX-001",
+   "name": "Effect: fire",
+   "path": "engine/fx.js#FX.fire"
+  },
+  {
+   "id": "VFX-002",
+   "name": "Effect: smoke",
+   "path": "engine/fx.js#FX.smoke"
+  },
+  {
+   "id": "VFX-003",
+   "name": "Effect: explosion",
+   "path": "engine/fx.js#FX.explosion"
+  },
+  {
+   "id": "VFX-004",
+   "name": "Effect: rain",
+   "path": "engine/fx.js#FX.rain"
+  },
+  {
+   "id": "VFX-005",
+   "name": "Effect: snow",
+   "path": "engine/fx.js#FX.snow"
+  },
+  {
+   "id": "VFX-006",
+   "name": "Effect: splash",
+   "path": "engine/fx.js#FX.splash"
+  },
+  {
+   "id": "VFX-007",
+   "name": "Effect: lightning",
+   "path": "engine/fx.js#FX.lightning"
+  },
+  {
+   "id": "VFX-008",
+   "name": "Effect: sparks",
+   "path": "engine/fx.js#FX.sparks"
+  },
+  {
+   "id": "VFX-009",
+   "name": "Effect: dust",
+   "path": "engine/fx.js#FX.dust"
+  },
+  {
+   "id": "VFX-010",
+   "name": "Effect: debris",
+   "path": "engine/fx.js#FX.debris"
+  },
+  {
+   "id": "VFX-011",
+   "name": "Effect: impactStar",
+   "path": "engine/fx.js#FX.impactStar"
+  },
+  {
+   "id": "VFX-012",
+   "name": "Effect: speedLines",
+   "path": "engine/fx.js#FX.speedLines"
+  },
+  {
+   "id": "VFX-013",
+   "name": "Effect: motionStreaks",
+   "path": "engine/fx.js#FX.motionStreaks"
+  },
+  {
+   "id": "VFX-014",
+   "name": "Effect: confetti",
+   "path": "engine/fx.js#FX.confetti"
+  },
+  {
+   "id": "VFX-015",
+   "name": "Effect: stars",
+   "path": "engine/fx.js#FX.stars"
+  },
+  {
+   "id": "VFX-016",
+   "name": "Effect: sweatDrops",
+   "path": "engine/fx.js#FX.sweatDrops"
+  },
+  {
+   "id": "VFX-017",
+   "name": "Effect: heartsFloat",
+   "path": "engine/fx.js#FX.heartsFloat"
+  },
+  {
+   "id": "VFX-018",
+   "name": "Effect: zzz",
+   "path": "engine/fx.js#FX.zzz"
+  },
+  {
+   "id": "VFX-019",
+   "name": "Effect: question",
+   "path": "engine/fx.js#FX.question"
+  },
+  {
+   "id": "VFX-020",
+   "name": "Effect: exclaim",
+   "path": "engine/fx.js#FX.exclaim"
+  },
+  {
+   "id": "VFX-021",
+   "name": "Effect: poof",
+   "path": "engine/fx.js#FX.poof"
+  },
+  {
+   "id": "VFX-022",
+   "name": "Effect: shockwave",
+   "path": "engine/fx.js#FX.shockwave"
+  },
+  {
+   "id": "VFX-023",
+   "name": "Effect: glow",
+   "path": "engine/fx.js#FX.glow"
+  },
+  {
+   "id": "VFX-024",
+   "name": "Effect: lensFlare",
+   "path": "engine/fx.js#FX.lensFlare"
+  },
+  {
+   "id": "GFX-001",
+   "name": "Graphic: bars",
+   "path": "engine/graphics.js#GFX.bars"
+  },
+  {
+   "id": "GFX-002",
+   "name": "Graphic: hbars",
+   "path": "engine/graphics.js#GFX.hbars"
+  },
+  {
+   "id": "GFX-003",
+   "name": "Graphic: line",
+   "path": "engine/graphics.js#GFX.line"
+  },
+  {
+   "id": "GFX-004",
+   "name": "Graphic: donut",
+   "path": "engine/graphics.js#GFX.donut"
+  },
+  {
+   "id": "GFX-005",
+   "name": "Graphic: counter",
+   "path": "engine/graphics.js#GFX.counter"
+  },
+  {
+   "id": "GFX-006",
+   "name": "Graphic: iconArray",
+   "path": "engine/graphics.js#GFX.iconArray"
+  },
+  {
+   "id": "GFX-007",
+   "name": "Graphic: stat",
+   "path": "engine/graphics.js#GFX.stat"
+  },
+  {
+   "id": "GFX-008",
+   "name": "Graphic: map",
+   "path": "engine/graphics.js#GFX.map"
+  },
+  {
+   "id": "GFX-009",
+   "name": "Graphic: pin",
+   "path": "engine/graphics.js#GFX.pin"
+  },
+  {
+   "id": "GFX-010",
+   "name": "Graphic: route",
+   "path": "engine/graphics.js#GFX.route"
+  },
+  {
+   "id": "GFX-016",
+   "name": "Graphic: headline",
+   "path": "engine/graphics.js#GFX.headline"
+  },
+  {
+   "id": "GFX-018",
+   "name": "Graphic: titleCard",
+   "path": "engine/graphics.js#GFX.titleCard"
+  },
+  {
+   "id": "GFX-019",
+   "name": "Graphic: callout",
+   "path": "engine/graphics.js#GFX.callout"
+  },
+  {
+   "id": "GFX-020",
+   "name": "Graphic: timeline",
+   "path": "engine/graphics.js#GFX.timeline"
+  },
+  {
+   "id": "GFX-021",
+   "name": "Graphic: sourceLine",
+   "path": "engine/graphics.js#GFX.sourceLine"
+  },
+  {
+   "id": "GFX-022",
+   "name": "Graphic: caption",
+   "path": "engine/graphics.js#GFX.caption"
+  },
+  {
+   "id": "GFX-024",
+   "name": "Graphic: endCard",
+   "path": "engine/graphics.js#GFX.endCard"
+  },
+  {
+   "id": "TRN-001",
+   "name": "Transition: cut",
+   "path": "engine/core.js#TRANS.cut"
+  },
+  {
+   "id": "TRN-002",
+   "name": "Transition: dissolve",
+   "path": "engine/core.js#TRANS.dissolve"
+  },
+  {
+   "id": "TRN-003",
+   "name": "Transition: dipBlack",
+   "path": "engine/core.js#TRANS.dipBlack"
+  },
+  {
+   "id": "TRN-004",
+   "name": "Transition: dipWhite",
+   "path": "engine/core.js#TRANS.dipWhite"
+  },
+  {
+   "id": "TRN-005",
+   "name": "Transition: wipe",
+   "path": "engine/core.js#TRANS.wipe"
+  },
+  {
+   "id": "TRN-006",
+   "name": "Transition: push",
+   "path": "engine/core.js#TRANS.push"
+  },
+  {
+   "id": "TRN-007",
+   "name": "Transition: iris",
+   "path": "engine/core.js#TRANS.iris"
+  },
+  {
+   "id": "TRN-008",
+   "name": "Transition: irisOut",
+   "path": "engine/core.js#TRANS.irisOut"
+  },
+  {
+   "id": "TRN-009",
+   "name": "Transition: whipPan",
+   "path": "engine/core.js#TRANS.whipPan"
+  },
+  {
+   "id": "TRN-010",
+   "name": "Transition: zoomThrough",
+   "path": "engine/core.js#TRANS.zoomThrough"
+  },
+  {
+   "id": "TRN-011",
+   "name": "Transition: glitch",
+   "path": "engine/core.js#TRANS.glitch"
+  },
+  {
+   "id": "TRN-012",
+   "name": "Transition: lightLeak",
+   "path": "engine/core.js#TRANS.lightLeak"
+  },
+  {
+   "id": "TRN-013",
+   "name": "Transition: newsSwoosh",
+   "path": "engine/core.js#TRANS.newsSwoosh"
+  },
+  {
+   "id": "CAM-001",
+   "name": "Camera preset: still",
+   "path": "engine/core.js#CAM.still"
+  },
+  {
+   "id": "CAM-002",
+   "name": "Camera preset: pan",
+   "path": "engine/core.js#CAM.pan"
+  },
+  {
+   "id": "CAM-003",
+   "name": "Camera preset: zoom",
+   "path": "engine/core.js#CAM.zoom"
+  },
+  {
+   "id": "CAM-004",
+   "name": "Camera preset: push",
+   "path": "engine/core.js#CAM.push"
+  },
+  {
+   "id": "CAM-005",
+   "name": "Camera preset: pull",
+   "path": "engine/core.js#CAM.pull"
+  },
+  {
+   "id": "CAM-006",
+   "name": "Camera preset: kenBurns",
+   "path": "engine/core.js#CAM.kenBurns"
+  },
+  {
+   "id": "CAM-007",
+   "name": "Camera preset: track",
+   "path": "engine/core.js#CAM.track"
+  },
+  {
+   "id": "CAM-008",
+   "name": "Camera preset: dutch",
+   "path": "engine/core.js#CAM.dutch"
+  },
+  {
+   "id": "CAM-009",
+   "name": "Camera preset: handheld",
+   "path": "engine/core.js#CAM.handheld"
+  },
+  {
+   "id": "CAM-010",
+   "name": "Camera preset: shake",
+   "path": "engine/core.js#CAM.shake"
+  },
+  {
+   "id": "CAM-011",
+   "name": "Camera preset: whip",
+   "path": "engine/core.js#CAM.whip"
+  },
+  {
+   "id": "CAM-012",
+   "name": "Camera preset: orbit2D",
+   "path": "engine/core.js#CAM.orbit2D"
+  },
+  {
+   "id": "CAM-013",
+   "name": "Camera preset: crane",
+   "path": "engine/core.js#CAM.crane"
+  },
+  {
+   "id": "TXT-001",
+   "name": "Animated text: typeOn",
+   "path": "engine/core.js#TXT.typeOn"
+  },
+  {
+   "id": "TXT-002",
+   "name": "Animated text: fadeUp",
+   "path": "engine/core.js#TXT.fadeUp"
+  },
+  {
+   "id": "TXT-003",
+   "name": "Animated text: pop",
+   "path": "engine/core.js#TXT.pop"
+  },
+  {
+   "id": "TXT-004",
+   "name": "Animated text: slam",
+   "path": "engine/core.js#TXT.slam"
+  },
+  {
+   "id": "TXT-005",
+   "name": "Animated text: perLetter",
+   "path": "engine/core.js#TXT.perLetter"
+  },
+  {
+   "id": "TXT-006",
+   "name": "Animated text: wordByWord",
+   "path": "engine/core.js#TXT.wordByWord"
+  },
+  {
+   "id": "TXT-007",
+   "name": "Animated text: counter",
+   "path": "engine/core.js#TXT.counter"
+  },
+  {
+   "id": "TXT-008",
+   "name": "Animated text: highlight",
+   "path": "engine/core.js#TXT.highlight"
+  },
+  {
+   "id": "LOT-001",
+   "name": "Lottie: arrow_bounce",
+   "path": "assets/lottie/arrow_bounce.json"
+  },
+  {
+   "id": "LOT-002",
+   "name": "Lottie: bars_grow",
+   "path": "assets/lottie/bars_grow.json"
+  },
+  {
+   "id": "LOT-003",
+   "name": "Lottie: breaking_banner",
+   "path": "assets/lottie/breaking_banner.json"
+  },
+  {
+   "id": "LOT-004",
+   "name": "Lottie: check_draw",
+   "path": "assets/lottie/check_draw.json"
+  },
+  {
+   "id": "LOT-005",
+   "name": "Lottie: heart_beat",
+   "path": "assets/lottie/heart_beat.json"
+  },
+  {
+   "id": "LOT-006",
+   "name": "Lottie: impact_burst",
+   "path": "assets/lottie/impact_burst.json"
+  },
+  {
+   "id": "LOT-007",
+   "name": "Lottie: line_draw",
+   "path": "assets/lottie/line_draw.json"
+  },
+  {
+   "id": "LOT-008",
+   "name": "Lottie: loading_dots",
+   "path": "assets/lottie/loading_dots.json"
+  },
+  {
+   "id": "LOT-009",
+   "name": "Lottie: lower_third_bg",
+   "path": "assets/lottie/lower_third_bg.json"
+  },
+  {
+   "id": "LOT-010",
+   "name": "Lottie: map_ping",
+   "path": "assets/lottie/map_ping.json"
+  },
+  {
+   "id": "LOT-011",
+   "name": "Lottie: pin_drop",
+   "path": "assets/lottie/pin_drop.json"
+  },
+  {
+   "id": "LOT-012",
+   "name": "Lottie: speech_bubble",
+   "path": "assets/lottie/speech_bubble.json"
+  },
+  {
+   "id": "LOT-013",
+   "name": "Lottie: spinner_arc",
+   "path": "assets/lottie/spinner_arc.json"
+  },
+  {
+   "id": "LOT-014",
+   "name": "Lottie: weather_snow",
+   "path": "assets/lottie/weather_snow.json"
+  },
+  {
+   "id": "LOT-015",
+   "name": "Lottie: weather_sun",
+   "path": "assets/lottie/weather_sun.json"
+  },
+  {
+   "id": "SVG-001",
+   "name": "Animated SVG: cartoon_eyes_blink",
+   "path": "assets/svg/cartoon_eyes_blink.svg"
+  },
+  {
+   "id": "SVG-002",
+   "name": "Animated SVG: ci_data_bars_loop",
+   "path": "assets/svg/ci_data_bars_loop.svg"
+  },
+  {
+   "id": "SVG-003",
+   "name": "Animated SVG: live_bug",
+   "path": "assets/svg/live_bug.svg"
+  },
+  {
+   "id": "SVG-004",
+   "name": "Animated SVG: map_ping",
+   "path": "assets/svg/map_ping.svg"
+  },
+  {
+   "id": "SVG-005",
+   "name": "Animated SVG: news_ticker",
+   "path": "assets/svg/news_ticker.svg"
+  },
+  {
+   "id": "SVG-006",
+   "name": "Animated SVG: rain_loop",
+   "path": "assets/svg/rain_loop.svg"
+  },
+  {
+   "id": "SFX-001",
+   "name": "Sfx: whoosh",
+   "path": "assets/audio/sfx/whoosh.wav"
+  },
+  {
+   "id": "SFX-003",
+   "name": "Sfx: pop",
+   "path": "assets/audio/sfx/pop.wav"
+  },
+  {
+   "id": "SFX-008",
+   "name": "Sfx: slap",
+   "path": "assets/audio/sfx/slap.wav"
+  },
+  {
+   "id": "SFX-009",
+   "name": "Sfx: punch",
+   "path": "assets/audio/sfx/punch.wav"
+  },
+  {
+   "id": "SFX-010",
+   "name": "Sfx: impact boom",
+   "path": "assets/audio/sfx/impact_boom.wav"
+  },
+  {
+   "id": "SFX-011",
+   "name": "Sfx: thud",
+   "path": "assets/audio/sfx/thud.wav"
+  },
+  {
+   "id": "SFX-012",
+   "name": "Sfx: footstep hard 1",
+   "path": "assets/audio/sfx/footstep_hard_1.wav"
+  },
+  {
+   "id": "SFX-013",
+   "name": "Sfx: footstep hard 2",
+   "path": "assets/audio/sfx/footstep_hard_2.wav"
+  },
+  {
+   "id": "SFX-014",
+   "name": "Sfx: footstep grass",
+   "path": "assets/audio/sfx/footstep_grass.wav"
+  },
+  {
+   "id": "SFX-015",
+   "name": "Sfx: footstep snow",
+   "path": "assets/audio/sfx/footstep_snow.wav"
+  },
+  {
+   "id": "SFX-016",
+   "name": "Sfx: door close",
+   "path": "assets/audio/sfx/door_close.wav"
+  },
+  {
+   "id": "SFX-017",
+   "name": "Sfx: ding",
+   "path": "assets/audio/sfx/ding.wav"
+  },
+  {
+   "id": "SFX-018",
+   "name": "Sfx: chime up",
+   "path": "assets/audio/sfx/chime_up.wav"
+  },
+  {
+   "id": "SFX-019",
+   "name": "Sfx: camera shutter",
+   "path": "assets/audio/sfx/camera_shutter.wav"
+  },
+  {
+   "id": "SFX-020",
+   "name": "Sfx: typewriter key",
+   "path": "assets/audio/sfx/typewriter_key.wav"
+  },
+  {
+   "id": "SFX-022",
+   "name": "Sfx: riser",
+   "path": "assets/audio/sfx/riser.wav"
+  },
+  {
+   "id": "SFX-024",
+   "name": "Sfx: explosion",
+   "path": "assets/audio/sfx/explosion.wav"
+  },
+  {
+   "id": "SFX-025",
+   "name": "Sfx: splash",
+   "path": "assets/audio/sfx/splash.wav"
+  },
+  {
+   "id": "SFX-026",
+   "name": "Sfx: thunder",
+   "path": "assets/audio/sfx/thunder.wav"
+  },
+  {
+   "id": "SFX-027",
+   "name": "Sfx: cartoon run",
+   "path": "assets/audio/sfx/cartoon_run.wav"
+  },
+  {
+   "id": "SFX-028",
+   "name": "Sfx: heartbeat",
+   "path": "assets/audio/sfx/heartbeat.wav"
+  },
+  {
+   "id": "SFX-029",
+   "name": "Sfx: glitch",
+   "path": "assets/audio/sfx/glitch.wav"
+  },
+  {
+   "id": "AMB-001",
+   "name": "Ambience: rain",
+   "path": "assets/audio/ambience/rain.wav"
+  },
+  {
+   "id": "AMB-002",
+   "name": "Ambience: wind",
+   "path": "assets/audio/ambience/wind.wav"
+  },
+  {
+   "id": "AMB-003",
+   "name": "Ambience: city",
+   "path": "assets/audio/ambience/city.wav"
+  },
+  {
+   "id": "AMB-004",
+   "name": "Ambience: park birds",
+   "path": "assets/audio/ambience/park_birds.wav"
+  },
+  {
+   "id": "AMB-005",
+   "name": "Ambience: office",
+   "path": "assets/audio/ambience/office.wav"
+  },
+  {
+   "id": "AMB-006",
+   "name": "Ambience: newsroom",
+   "path": "assets/audio/ambience/newsroom.wav"
+  },
+  {
+   "id": "AMB-007",
+   "name": "Ambience: fire crackle",
+   "path": "assets/audio/ambience/fire_crackle.wav"
+  },
+  {
+   "id": "AMB-008",
+   "name": "Ambience: room tone",
+   "path": "assets/audio/ambience/room_tone.wav"
+  },
+  {
+   "id": "MUS-004",
+   "name": "Music: suspense drone",
+   "path": "assets/audio/music/suspense_drone.wav"
+  },
+  {
+   "id": "R3D-001",
+   "name": "Fox.glb",
+   "path": "acquired/rigged3d/Fox/Fox.glb"
+  },
+  {
+   "id": "R3D-002",
+   "name": "CesiumMan.glb",
+   "path": "acquired/rigged3d/CesiumMan/CesiumMan.glb"
+  },
+  {
+   "id": "R3D-003",
+   "name": "RiggedFigure.glb",
+   "path": "acquired/rigged3d/RiggedFigure/RiggedFigure.glb"
+  },
+  {
+   "id": "R3D-004",
+   "name": "RobotExpressive.glb",
+   "path": "acquired/rigged3d/RobotExpressive/RobotExpressive.glb"
+  },
+  {
+   "id": "FNT-001",
+   "name": "LuckiestGuy-Regular.ttf",
+   "path": "acquired/fonts/luckiestguy/LuckiestGuy-Regular.ttf"
+  },
+  {
+   "id": "HDR-002",
+   "name": "brown_photostudio_02_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/brown_photostudio_02_tonemapped.jpg"
+  },
+  {
+   "id": "HDR-004",
+   "name": "studio_small_09_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/studio_small_09_tonemapped.jpg"
+  },
+  {
+   "id": "HDR-006",
+   "name": "kloofendal_48d_partly_cloudy_puresky_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/kloofendal_48d_partly_cloudy_puresky_tonemapped.jpg"
+  },
+  {
+   "id": "HDR-008",
+   "name": "moonless_golf_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/moonless_golf_tonemapped.jpg"
+  },
+  {
+   "id": "HDR-010",
+   "name": "studio_small_08_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/studio_small_08_tonemapped.jpg"
+  },
+  {
+   "id": "HDR-012",
+   "name": "studio_small_03_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/studio_small_03_tonemapped.jpg"
+  },
+  {
+   "id": "HDR-014",
+   "name": "lilienstein_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/lilienstein_tonemapped.jpg"
+  },
+  {
+   "id": "HDR-016",
+   "name": "dikhololo_night_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/dikhololo_night_tonemapped.jpg"
+  },
+  {
+   "id": "HDR-018",
+   "name": "satara_night_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/satara_night_tonemapped.jpg"
+  },
+  {
+   "id": "HDR-020",
+   "name": "kloppenheim_02_tonemapped.jpg",
+   "path": "acquired/polyhaven/hdris/kloppenheim_02_tonemapped.jpg"
+  },
+  {
+   "id": "TEX-001",
+   "name": "asphalt_02_Diffuse_1k.jpg",
+   "path": "acquired/polyhaven/textures/asphalt_02/asphalt_02_Diffuse_1k.jpg"
+  },
+  {
+   "id": "TEX-002",
+   "name": "asphalt_02_nor_gl_1k.jpg",
+   "path": "acquired/polyhaven/textures/asphalt_02/asphalt_02_nor_gl_1k.jpg"
+  },
+  {
+   "id": "TEX-003",
+   "name": "asphalt_02_Rough_1k.jpg",
+   "path": "acquired/polyhaven/textures/asphalt_02/asphalt_02_Rough_1k.jpg"
+  },
+  {
+   "id": "TEX-004",
+   "name": "asphalt_02_AO_1k.jpg",
+   "path": "acquired/polyhaven/textures/asphalt_02/asphalt_02_AO_1k.jpg"
+  },
+  {
+   "id": "TEX-005",
+   "name": "red_brick_Diffuse_1k.jpg",
+   "path": "acquired/polyhaven/textures/red_brick/red_brick_Diffuse_1k.jpg"
+  },
+  {
+   "id": "TEX-006",
+   "name": "red_brick_nor_gl_1k.jpg",
+   "path": "acquired/polyhaven/textures/red_brick/red_brick_nor_gl_1k.jpg"
+  },
+  {
+   "id": "TEX-007",
+   "name": "red_brick_Rough_1k.jpg",
+   "path": "acquired/polyhaven/textures/red_brick/red_brick_Rough_1k.jpg"
+  },
+  {
+   "id": "TEX-008",
+   "name": "red_brick_AO_1k.jpg",
+   "path": "acquired/polyhaven/textures/red_brick/red_brick_AO_1k.jpg"
+  },
+  {
+   "id": "TEX-009",
+   "name": "concrete_floor_worn_001_Diffuse_1k.jpg",
+   "path": "acquired/polyhaven/textures/concrete_floor_worn_001/concrete_floor_worn_001_Diffuse_1k.jpg"
+  },
+  {
+   "id": "TEX-010",
+   "name": "concrete_floor_worn_001_nor_gl_1k.jpg",
+   "path": "acquired/polyhaven/textures/concrete_floor_worn_001/concrete_floor_worn_001_nor_gl_1k.jpg"
+  },
+  {
+   "id": "TEX-011",
+   "name": "concrete_floor_worn_001_Rough_1k.jpg",
+   "path": "acquired/polyhaven/textures/concrete_floor_worn_001/concrete_floor_worn_001_Rough_1k.jpg"
+  },
+  {
+   "id": "TEX-012",
+   "name": "concrete_floor_worn_001_AO_1k.jpg",
+   "path": "acquired/polyhaven/textures/concrete_floor_worn_001/concrete_floor_worn_001_AO_1k.jpg"
+  },
+  {
+   "id": "TEX-013",
+   "name": "coast_sand_rocks_02_Diffuse_1k.jpg",
+   "path": "acquired/polyhaven/textures/coast_sand_rocks_02/coast_sand_rocks_02_Diffuse_1k.jpg"
+  },
+  {
+   "id": "TEX-014",
+   "name": "coast_sand_rocks_02_nor_gl_1k.jpg",
+   "path": "acquired/polyhaven/textures/coast_sand_rocks_02/coast_sand_rocks_02_nor_gl_1k.jpg"
+  },
+  {
+   "id": "TEX-015",
+   "name": "coast_sand_rocks_02_Rough_1k.jpg",
+   "path": "acquired/polyhaven/textures/coast_sand_rocks_02/coast_sand_rocks_02_Rough_1k.jpg"
+  },
+  {
+   "id": "TEX-016",
+   "name": "coast_sand_rocks_02_AO_1k.jpg",
+   "path": "acquired/polyhaven/textures/coast_sand_rocks_02/coast_sand_rocks_02_AO_1k.jpg"
+  },
+  {
+   "id": "TEX-017",
+   "name": "plywood_Diffuse_1k.jpg",
+   "path": "acquired/polyhaven/textures/plywood/plywood_Diffuse_1k.jpg"
+  },
+  {
+   "id": "TEX-018",
+   "name": "plywood_nor_gl_1k.jpg",
+   "path": "acquired/polyhaven/textures/plywood/plywood_nor_gl_1k.jpg"
+  },
+  {
+   "id": "TEX-019",
+   "name": "plywood_Rough_1k.jpg",
+   "path": "acquired/polyhaven/textures/plywood/plywood_Rough_1k.jpg"
+  },
+  {
+   "id": "TEX-020",
+   "name": "plywood_AO_1k.jpg",
+   "path": "acquired/polyhaven/textures/plywood/plywood_AO_1k.jpg"
+  },
+  {
+   "id": "TEX-021",
+   "name": "beige_wall_001_Diffuse_1k.jpg",
+   "path": "acquired/polyhaven/textures/beige_wall_001/beige_wall_001_Diffuse_1k.jpg"
+  },
+  {
+   "id": "TEX-022",
+   "name": "beige_wall_001_nor_gl_1k.jpg",
+   "path": "acquired/polyhaven/textures/beige_wall_001/beige_wall_001_nor_gl_1k.jpg"
+  },
+  {
+   "id": "TEX-023",
+   "name": "beige_wall_001_Rough_1k.jpg",
+   "path": "acquired/polyhaven/textures/beige_wall_001/beige_wall_001_Rough_1k.jpg"
+  },
+  {
+   "id": "TEX-024",
+   "name": "beige_wall_001_AO_1k.jpg",
+   "path": "acquired/polyhaven/textures/beige_wall_001/beige_wall_001_AO_1k.jpg"
+  },
+  {
+   "id": "TEX-025",
+   "name": "laminate_floor_02_Diffuse_1k.jpg",
+   "path": "acquired/polyhaven/textures/laminate_floor_02/laminate_floor_02_Diffuse_1k.jpg"
+  },
+  {
+   "id": "TEX-026",
+   "name": "laminate_floor_02_nor_gl_1k.jpg",
+   "path": "acquired/polyhaven/textures/laminate_floor_02/laminate_floor_02_nor_gl_1k.jpg"
+  },
+  {
+   "id": "TEX-027",
+   "name": "laminate_floor_02_Rough_1k.jpg",
+   "path": "acquired/polyhaven/textures/laminate_floor_02/laminate_floor_02_Rough_1k.jpg"
+  },
+  {
+   "id": "TEX-028",
+   "name": "laminate_floor_02_AO_1k.jpg",
+   "path": "acquired/polyhaven/textures/laminate_floor_02/laminate_floor_02_AO_1k.jpg"
+  },
+  {
+   "id": "M3D-001",
+   "name": "sofa_02_1k.gltf",
+   "path": "acquired/polyhaven/models/sofa_02/sofa_02_1k.gltf"
+  },
+  {
+   "id": "M3D-002",
+   "name": "wooden_table_02_1k.gltf",
+   "path": "acquired/polyhaven/models/wooden_table_02/wooden_table_02_1k.gltf"
+  },
+  {
+   "id": "M3D-003",
+   "name": "Camera_01_1k.gltf",
+   "path": "acquired/polyhaven/models/Camera_01/Camera_01_1k.gltf"
+  },
+  {
+   "id": "M3D-004",
+   "name": "Television_01_1k.gltf",
+   "path": "acquired/polyhaven/models/Television_01/Television_01_1k.gltf"
+  },
+  {
+   "id": "M3D-005",
+   "name": "potted_plant_02_1k.gltf",
+   "path": "acquired/polyhaven/models/potted_plant_02/potted_plant_02_1k.gltf"
+  },
+  {
+   "id": "M3D-006",
+   "name": "marble_bust_01_1k.gltf",
+   "path": "acquired/polyhaven/models/marble_bust_01/marble_bust_01_1k.gltf"
+  },
+  {
+   "id": "M3D-007",
+   "name": "Barrel_01_1k.gltf",
+   "path": "acquired/polyhaven/models/Barrel_01/Barrel_01_1k.gltf"
+  },
+  {
+   "id": "M3D-008",
+   "name": "power_box_01_1k.gltf",
+   "path": "acquired/polyhaven/models/power_box_01/power_box_01_1k.gltf"
+  },
+  {
+   "id": "M3D-009",
+   "name": "Lantern_01_1k.gltf",
+   "path": "acquired/polyhaven/models/Lantern_01/Lantern_01_1k.gltf"
+  },
+  {
+   "id": "M3D-010",
+   "name": "wine_bottles_01_1k.gltf",
+   "path": "acquired/polyhaven/models/wine_bottles_01/wine_bottles_01_1k.gltf"
+  },
+  {
+   "id": "M3D-011",
+   "name": "grass_medium_01_1k.gltf",
+   "path": "acquired/polyhaven/models/grass_medium_01/grass_medium_01_1k.gltf"
+  },
+  {
+   "id": "M3D-012",
+   "name": "grass_bermuda_01_1k.gltf",
+   "path": "acquired/polyhaven/models/grass_bermuda_01/grass_bermuda_01_1k.gltf"
+  },
+  {
+   "id": "FNT-002",
+   "name": "Oswald[wght].ttf",
+   "path": "acquired/fonts/oswald/Oswald[wght].ttf"
+  },
+  {
+   "id": "FNT-003",
+   "name": "BebasNeue-Regular.ttf",
+   "path": "acquired/fonts/bebasneue/BebasNeue-Regular.ttf"
+  },
+  {
+   "id": "FNT-004",
+   "name": "Anton-Regular.ttf",
+   "path": "acquired/fonts/anton/Anton-Regular.ttf"
+  },
+  {
+   "id": "FNT-005",
+   "name": "Inter[opsz,wght].ttf",
+   "path": "acquired/fonts/inter/Inter[opsz,wght].ttf"
+  },
+  {
+   "id": "FNT-006",
+   "name": "RobotoCondensed[wght].ttf",
+   "path": "acquired/fonts/robotocondensed/RobotoCondensed[wght].ttf"
+  },
+  {
+   "id": "FNT-007",
+   "name": "FiraSans-Black.ttf",
+   "path": "acquired/fonts/firasans/FiraSans-Black.ttf"
+  },
+  {
+   "id": "FNT-008",
+   "name": "FiraSans-Bold.ttf",
+   "path": "acquired/fonts/firasans/FiraSans-Bold.ttf"
+  },
+  {
+   "id": "FNT-009",
+   "name": "FiraSans-ExtraBold.ttf",
+   "path": "acquired/fonts/firasans/FiraSans-ExtraBold.ttf"
+  },
+  {
+   "id": "FNT-010",
+   "name": "FiraSans-Medium.ttf",
+   "path": "acquired/fonts/firasans/FiraSans-Medium.ttf"
+  },
+  {
+   "id": "FNT-011",
+   "name": "NotoNastaliqUrdu[wght].ttf",
+   "path": "acquired/fonts/notonastaliqurdu/NotoNastaliqUrdu[wght].ttf"
+  },
+  {
+   "id": "FNT-012",
+   "name": "NotoSansDevanagari[wdth,wght].ttf",
+   "path": "acquired/fonts/notosansdevanagari/NotoSansDevanagari[wdth,wght].ttf"
+  },
+  {
+   "id": "FNT-013",
+   "name": "Fredoka[wdth,wght].ttf",
+   "path": "acquired/fonts/fredoka/Fredoka[wdth,wght].ttf"
+  },
+  {
+   "id": "FNT-014",
+   "name": "Montserrat[wght].ttf",
+   "path": "acquired/fonts/montserrat/Montserrat[wght].ttf"
+  },
+  {
+   "id": "FNT-015",
+   "name": "PlayfairDisplay[wght].ttf",
+   "path": "acquired/fonts/playfairdisplay/PlayfairDisplay[wght].ttf"
+  },
+  {
+   "id": "FNT-016",
+   "name": "Bangers-Regular.ttf",
+   "path": "acquired/fonts/bangers/Bangers-Regular.ttf"
+  },
+  {
+   "id": "FNT-017",
+   "name": "Baloo2[wght].ttf",
+   "path": "acquired/fonts/baloo2/Baloo2[wght].ttf"
+  },
+  {
+   "id": "FNT-018",
+   "name": "NotoSansArabic[wdth,wght].ttf",
+   "path": "acquired/fonts/notosansarabic/NotoSansArabic[wdth,wght].ttf"
+  },
+  {
+   "id": "LIB-001",
+   "name": "three.core.js",
+   "path": "acquired/vendor/three/build/three.core.js"
+  },
+  {
+   "id": "LIB-002",
+   "name": "three.module.js",
+   "path": "acquired/vendor/three/build/three.module.js"
+  },
+  {
+   "id": "LIB-003",
+   "name": "lottie_svg.min.js",
+   "path": "acquired/vendor/lottie-web/build/player/lottie_svg.min.js"
+  },
+  {
+   "id": "LIB-004",
+   "name": "lottie.min.js",
+   "path": "acquired/vendor/lottie-web/build/player/lottie.min.js"
+  },
+  {
+   "id": "LIB-005",
+   "name": "d3.min.js",
+   "path": "acquired/vendor/d3/dist/d3.min.js"
+  },
+  {
+   "id": "LIB-006",
+   "name": "topojson-client.min.js",
+   "path": "acquired/vendor/topojson-client/dist/topojson-client.min.js"
+  },
+  {
+   "id": "LIB-007",
+   "name": "MotionPathPlugin.min.js",
+   "path": "acquired/vendor/gsap/dist/MotionPathPlugin.min.js"
+  },
+  {
+   "id": "LIB-008",
+   "name": "MorphSVGPlugin.min.js",
+   "path": "acquired/vendor/gsap/dist/MorphSVGPlugin.min.js"
+  },
+  {
+   "id": "LIB-009",
+   "name": "gsap.min.js",
+   "path": "acquired/vendor/gsap/dist/gsap.min.js"
+  },
+  {
+   "id": "LIB-010",
+   "name": "SplitText.min.js",
+   "path": "acquired/vendor/gsap/dist/SplitText.min.js"
+  },
+  {
+   "id": "LIB-011",
+   "name": "DrawSVGPlugin.min.js",
+   "path": "acquired/vendor/gsap/dist/DrawSVGPlugin.min.js"
+  },
+  {
+   "id": "LIB-012",
+   "name": "turf.min.js",
+   "path": "acquired/vendor/turf-turf/turf.min.js"
+  },
+  {
+   "id": "ACM-001",
+   "name": "Investigations.mp3",
+   "path": "acquired/audio/music_ccby/Investigations.mp3"
+  },
+  {
+   "id": "ACM-002",
+   "name": "Hitman.mp3",
+   "path": "acquired/audio/music_ccby/Hitman.mp3"
+  },
+  {
+   "id": "ACM-003",
+   "name": "Fluffing_a_Duck.mp3",
+   "path": "acquired/audio/music_ccby/Fluffing_a_Duck.mp3"
+  },
+  {
+   "id": "ACM-004",
+   "name": "Monkeys_Spinning_Monkeys.mp3",
+   "path": "acquired/audio/music_ccby/Monkeys_Spinning_Monkeys.mp3"
+  },
+  {
+   "id": "ACM-005",
+   "name": "Sneaky_Snitch.mp3",
+   "path": "acquired/audio/music_ccby/Sneaky_Snitch.mp3"
+  },
+  {
+   "id": "ACM-006",
+   "name": "Impact_Moderato.mp3",
+   "path": "acquired/audio/music_ccby/Impact_Moderato.mp3"
+  },
+  {
+   "id": "ACM-007",
+   "name": "Local_Forecast_Elevator.mp3",
+   "path": "acquired/audio/music_ccby/Local_Forecast_Elevator.mp3"
+  },
+  {
+   "id": "ACM-008",
+   "name": "Volatile_Reaction.mp3",
+   "path": "acquired/audio/music_ccby/Volatile_Reaction.mp3"
+  },
+  {
+   "id": "ACM-009",
+   "name": "Ossuary_6_Air.mp3",
+   "path": "acquired/audio/music_ccby/Ossuary_6_Air.mp3"
+  },
+  {
+   "id": "ACM-010",
+   "name": "Darkest_Child.mp3",
+   "path": "acquired/audio/music_ccby/Darkest_Child.mp3"
+  },
+  {
+   "id": "ACM-011",
+   "name": "Spy_Glass.mp3",
+   "path": "acquired/audio/music_ccby/Spy_Glass.mp3"
+  },
+  {
+   "id": "ACM-012",
+   "name": "Mining_by_Moonlight.mp3",
+   "path": "acquired/audio/music_ccby/Mining_by_Moonlight.mp3"
+  },
+  {
+   "id": "EXT-018",
+   "name": "Game 3D character mesh: chris",
+   "path": "github:calgary-data-desk@game-3d-src/chris.glb"
+  },
+  {
+   "id": "EXT-019",
+   "name": "Game 3D character mesh: jean",
+   "path": "github:calgary-data-desk@game-3d-src/jean.glb"
+  },
+  {
+   "id": "EXT-020",
+   "name": "Game 3D character mesh: leo",
+   "path": "github:calgary-data-desk@game-3d-src/leo.glb"
+  },
+  {
+   "id": "EXT-021",
+   "name": "Game 3D character mesh: natalia",
+   "path": "github:calgary-data-desk@game-3d-src/natalia.glb"
+  },
+  {
+   "id": "EXT-022",
+   "name": "Game 3D character mesh: npc_cowboy",
+   "path": "github:calgary-data-desk@game-3d-src/npc_cowboy.glb"
+  },
+  {
+   "id": "EXT-023",
+   "name": "Game 3D character mesh: npc_dress",
+   "path": "github:calgary-data-desk@game-3d-src/npc_dress.glb"
+  },
+  {
+   "id": "EXT-024",
+   "name": "Game 3D character mesh: npc_hijab",
+   "path": "github:calgary-data-desk@game-3d-src/npc_hijab.glb"
+  },
+  {
+   "id": "EXT-025",
+   "name": "Game 3D character mesh: npc_sikh",
+   "path": "github:calgary-data-desk@game-3d-src/npc_sikh.glb"
+  },
+  {
+   "id": "EXT-026",
+   "name": "Game 3D character mesh: npc_suit",
+   "path": "github:calgary-data-desk@game-3d-src/npc_suit.glb"
+  },
+  {
+   "id": "EXT-027",
+   "name": "Game 3D character mesh: npc_teen",
+   "path": "github:calgary-data-desk@game-3d-src/npc_teen.glb"
+  },
+  {
+   "id": "EXT-028",
+   "name": "Game 3D character mesh: sofia",
+   "path": "github:calgary-data-desk@game-3d-src/sofia.glb"
+  },
+  {
+   "id": "EXT-029",
+   "name": "Game 3D character mesh: amira",
+   "path": "github:calgary-data-desk@game-3d-src3/amira.glb"
+  },
+  {
+   "id": "EXT-030",
+   "name": "Game 3D character mesh: kid_boy",
+   "path": "github:calgary-data-desk@game-3d-src3/kid_boy.glb"
+  },
+  {
+   "id": "EXT-031",
+   "name": "Game 3D character mesh: kid_boy2",
+   "path": "github:calgary-data-desk@game-3d-src3/kid_boy2.glb"
+  },
+  {
+   "id": "EXT-032",
+   "name": "Game 3D character mesh: kid_girl",
+   "path": "github:calgary-data-desk@game-3d-src3/kid_girl.glb"
+  },
+  {
+   "id": "EXT-033",
+   "name": "Game 3D character mesh: teen_girl",
+   "path": "github:calgary-data-desk@game-3d-src3/teen_girl.glb"
+  },
+  {
+   "id": "EXT-034",
+   "name": "Game 3D character mesh: police_officer",
+   "path": "github:calgary-data-desk@game-3d-src-police/police_officer.glb"
+  }
+ ]
+}

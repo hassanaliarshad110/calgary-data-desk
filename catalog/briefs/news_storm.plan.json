@@ -1,0 +1,399 @@
+{
+ "brief": {
+  "channel": "news",
+  "title": "Winter storm warning for Calgary",
+  "script": "Breaking: a winter storm moves from the mountains toward Calgary. Our map tracks it. Snowfall chart for three days.",
+  "keywords": [
+   "storm",
+   "map",
+   "chart",
+   "presenter"
+  ]
+ },
+ "channel": "news",
+ "matched_terms": [
+  "3d",
+  "amara",
+  "anchor",
+  "bars",
+  "breaking",
+  "breakingbanner",
+  "calgary",
+  "chart",
+  "counter",
+  "daniel",
+  "days",
+  "donut",
+  "downtown",
+  "geo",
+  "headline",
+  "lightning",
+  "line",
+  "lowerthird",
+  "map",
+  "mountains",
+  "moves",
+  "newsroom",
+  "pin",
+  "plus15",
+  "presenter",
+  "provinces",
+  "rain",
+  "route",
+  "skyline",
+  "snow",
+  "snowfall",
+  "sting",
+  "storm",
+  "swoosh",
+  "three",
+  "toward",
+  "tracks",
+  "warning",
+  "weather",
+  "wind",
+  "winter"
+ ],
+ "slots": {
+  "characters": [
+   {
+    "id": "CHR-001",
+    "name": "Daniel Okafor (News anchor)",
+    "score": 8.5,
+    "path": "engine/chars.js#CAST.daniel",
+    "usage": "drawChar(CAST.daniel, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   },
+   {
+    "id": "CHR-002",
+    "name": "Amara Singh (News co-anchor / reporter)",
+    "score": 8.5,
+    "path": "engine/chars.js#CAST.amara",
+    "usage": "drawChar(CAST.amara, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   },
+   {
+    "id": "CHR-007",
+    "name": "Maya Chen (Office worker / civic explainer host)",
+    "score": 5.0,
+    "path": "engine/chars.js#CAST.maya",
+    "usage": "drawChar(CAST.maya, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   }
+  ],
+  "motions": [
+   {
+    "id": "MOV-008",
+    "name": "Motion: talk",
+    "score": 6.5,
+    "path": "engine/chars.js#MOVES.talk",
+    "usage": "MOVES.talk(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-028",
+    "name": "Motion: present",
+    "score": 6.5,
+    "path": "engine/chars.js#MOVES.present",
+    "usage": "MOVES.present(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-001",
+    "name": "Motion: idle",
+    "score": 5.0,
+    "path": "engine/chars.js#MOVES.idle",
+    "usage": "MOVES.idle(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-002",
+    "name": "Motion: walk",
+    "score": 5.0,
+    "path": "engine/chars.js#MOVES.walk",
+    "usage": "MOVES.walk(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-003",
+    "name": "Motion: run",
+    "score": 5.0,
+    "path": "engine/chars.js#MOVES.run",
+    "usage": "MOVES.run(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-004",
+    "name": "Motion: jump",
+    "score": 5.0,
+    "path": "engine/chars.js#MOVES.jump",
+    "usage": "MOVES.jump(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   }
+  ],
+  "environments": [
+   {
+    "id": "3DS-001",
+    "name": "Realistic 3D downtown Calgary (OpenStreetMap buildings, river, parks, LRT, Plus 15 footbridges)",
+    "score": 12.0,
+    "path": "engine/city3d.js",
+    "usage": "await City3D.init(); composite(City3D.render(CAM3D.orbit(t), {p15glow:1}), 0,0,1920,1080)",
+    "attribution": true
+   },
+   {
+    "id": "ENV-012",
+    "name": "Environment: calgary skyline",
+    "score": 11.0,
+    "path": "engine/sets.js#SETS.calgary_skyline",
+    "usage": "drawSet('calgary_skyline', t, cam)",
+    "attribution": false
+   },
+   {
+    "id": "ENV-002",
+    "name": "Environment: office",
+    "score": 9.0,
+    "path": "engine/sets.js#SETS.office",
+    "usage": "drawSet('office', t, cam)",
+    "attribution": false
+   }
+  ],
+  "props": [
+   {
+    "id": "PRP-027",
+    "name": "Prop: anchorDesk",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.anchorDesk",
+    "usage": "PROPS.anchorDesk(x, y, scale, ...)",
+    "attribution": false
+   }
+  ],
+  "vfx": [
+   {
+    "id": "VFX-004",
+    "name": "Effect: rain",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.rain",
+    "usage": "FX.rain(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-005",
+    "name": "Effect: snow",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.snow",
+    "usage": "FX.snow(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-007",
+    "name": "Effect: lightning",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.lightning",
+    "usage": "FX.lightning(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-012",
+    "name": "Effect: speedLines",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.speedLines",
+    "usage": "FX.speedLines(t, {...})",
+    "attribution": false
+   }
+  ],
+  "graphics": [
+   {
+    "id": "GFX-001",
+    "name": "Graphic: bars",
+    "score": 8.5,
+    "path": "engine/graphics.js#GFX.bars",
+    "usage": "GFX.bars(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-002",
+    "name": "Graphic: hbars",
+    "score": 8.5,
+    "path": "engine/graphics.js#GFX.hbars",
+    "usage": "GFX.hbars(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-009",
+    "name": "Graphic: pin",
+    "score": 8.5,
+    "path": "engine/graphics.js#GFX.pin",
+    "usage": "GFX.pin(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-010",
+    "name": "Graphic: route",
+    "score": 8.5,
+    "path": "engine/graphics.js#GFX.route",
+    "usage": "GFX.route(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-012",
+    "name": "Graphic: breakingBanner",
+    "score": 8.5,
+    "path": "engine/graphics.js#GFX.breakingBanner",
+    "usage": "GFX.breakingBanner(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-016",
+    "name": "Graphic: headline",
+    "score": 8.5,
+    "path": "engine/graphics.js#GFX.headline",
+    "usage": "GFX.headline(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "LOT-003",
+    "name": "Lottie: breaking_banner",
+    "score": 8.5,
+    "path": "assets/lottie/breaking_banner.json",
+    "usage": "lottie.loadAnimation({path}); or drop into any Lottie player",
+    "attribution": false
+   },
+   {
+    "id": "LOT-010",
+    "name": "Lottie: map_ping",
+    "score": 8.5,
+    "path": "assets/lottie/map_ping.json",
+    "usage": "lottie.loadAnimation({path}); or drop into any Lottie player",
+    "attribution": false
+   }
+  ],
+  "maps_data": [
+   {
+    "id": "GEO-003",
+    "name": "ne_50m_admin_1_states_provinces.geojson",
+    "score": 10.5,
+    "path": "acquired/geo/naturalearth/ne_50m_admin_1_states_provinces.geojson",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": false
+   },
+   {
+    "id": "GEO-006",
+    "name": "ne_50m_rivers_lake_centerlines.geojson",
+    "score": 10.5,
+    "path": "acquired/geo/naturalearth/ne_50m_rivers_lake_centerlines.geojson",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": false
+   },
+   {
+    "id": "GEO-007",
+    "name": "community_district_boundaries_surr-xmvs.geojson",
+    "score": 10.0,
+    "path": "acquired/geo/calgary/community_district_boundaries_surr-xmvs.geojson",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": true
+   }
+  ],
+  "camera": [],
+  "transitions": [
+   {
+    "id": "TRN-013",
+    "name": "Transition: newsSwoosh",
+    "score": 6.5,
+    "path": "engine/core.js#TRANS.newsSwoosh",
+    "usage": "transition('newsSwoosh', t, t0, dur, drawA, drawB)",
+    "attribution": false
+   }
+  ],
+  "music": [
+   {
+    "id": "MUS-002",
+    "name": "Music: news bed 120bpm",
+    "score": 4.5,
+    "path": "assets/audio/music/news_bed_120bpm.wav",
+    "usage": "from audio import *; M.add(news_bed_120bpm(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "ACM-004",
+    "name": "Monkeys_Spinning_Monkeys.mp3",
+    "score": 4.5,
+    "path": "acquired/audio/music_ccby/Monkeys_Spinning_Monkeys.mp3",
+    "usage": "Music bed. Credit in description: \"Monkeys Spinning Monkeys Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0\"",
+    "attribution": true
+   }
+  ],
+  "sfx": [
+   {
+    "id": "SFX-002",
+    "name": "Sfx: swoosh news",
+    "score": 6.5,
+    "path": "assets/audio/sfx/swoosh_news.wav",
+    "usage": "from audio import *; M.add(swoosh_news(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-030",
+    "name": "Sfx: news sting",
+    "score": 6.5,
+    "path": "assets/audio/sfx/news_sting.wav",
+    "usage": "from audio import *; M.add(news_sting(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "AMB-006",
+    "name": "Ambience: newsroom",
+    "score": 6.5,
+    "path": "assets/audio/ambience/newsroom.wav",
+    "usage": "from audio import *; M.add(newsroom(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-015",
+    "name": "Sfx: footstep snow",
+    "score": 5.0,
+    "path": "assets/audio/sfx/footstep_snow.wav",
+    "usage": "from audio import *; M.add(footstep_snow(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "AMB-001",
+    "name": "Ambience: rain",
+    "score": 5.0,
+    "path": "assets/audio/ambience/rain.wav",
+    "usage": "from audio import *; M.add(rain(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "AMB-002",
+    "name": "Ambience: wind",
+    "score": 5.0,
+    "path": "assets/audio/ambience/wind.wav",
+    "usage": "from audio import *; M.add(wind(), at, gain)  (or the WAV file)",
+    "attribution": false
+   }
+  ],
+  "fonts": [
+   {
+    "id": "FNT-002",
+    "name": "Oswald[wght].ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/oswald/Oswald[wght].ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   },
+   {
+    "id": "FNT-003",
+    "name": "BebasNeue-Regular.ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/bebasneue/BebasNeue-Regular.ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   }
+  ]
+ },
+ "licence_notes": [
+  "3DS-001 Realistic 3D downtown Calgary (OpenStreetMap buildings, river, parks, LRT, Plus 15 footbridges): Code original; map data ODbL (credit \"\u00a9 OpenStreetMap contributors\")",
+  "GEO-007 community_district_boundaries_surr-xmvs.geojson: Open Government Licence - City of Calgary (credit the City)",
+  "ACM-004 Monkeys_Spinning_Monkeys.mp3: CC BY 4.0 - credit \"Kevin MacLeod (incompetech.com)\""
+ ]
+}

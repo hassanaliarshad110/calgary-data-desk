@@ -1,0 +1,520 @@
+{
+ "cast": {
+  "daniel": {
+   "name": "Daniel Okafor",
+   "role": "News anchor",
+   "channel": [
+    "news"
+   ],
+   "age": "adult",
+   "build": "average"
+  },
+  "amara": {
+   "name": "Amara Singh",
+   "role": "News co-anchor / reporter",
+   "channel": [
+    "news"
+   ],
+   "age": "adult",
+   "build": "slim"
+  },
+  "chacha": {
+   "name": "Chacha Bashir",
+   "role": "Comic uncle, would-be magician",
+   "channel": [
+    "cartoon"
+   ],
+   "age": "elder",
+   "build": "chubby"
+  },
+  "zoya": {
+   "name": "Zoya",
+   "role": "Clever niece, 14",
+   "channel": [
+    "cartoon"
+   ],
+   "age": "teen",
+   "build": "slim"
+  },
+  "rafi": {
+   "name": "Rafi",
+   "role": "Energetic kid, 7",
+   "channel": [
+    "cartoon"
+   ],
+   "age": "kid",
+   "build": "average"
+  },
+  "nani": {
+   "name": "Nani",
+   "role": "Grandmother",
+   "channel": [
+    "cartoon"
+   ],
+   "age": "elder",
+   "build": "chubby"
+  },
+  "maya": {
+   "name": "Maya Chen",
+   "role": "Office worker / civic explainer host",
+   "channel": [
+    "calgaryinsight",
+    "news"
+   ],
+   "age": "adult",
+   "build": "average"
+  },
+  "marcus": {
+   "name": "Marcus",
+   "role": "Construction foreman",
+   "channel": [
+    "calgaryinsight",
+    "cartoon"
+   ],
+   "age": "adult",
+   "build": "muscular"
+  },
+  "officer": {
+   "name": "Officer Gill",
+   "role": "Police officer",
+   "channel": [
+    "news",
+    "calgaryinsight"
+   ],
+   "age": "adult",
+   "build": "average"
+  },
+  "layla": {
+   "name": "Layla",
+   "role": "University student",
+   "channel": [
+    "cartoon",
+    "calgaryinsight"
+   ],
+   "age": "adult",
+   "build": "petite"
+  },
+  "jamal": {
+   "name": "Jamal",
+   "role": "Teen skateboarder",
+   "channel": [
+    "cartoon"
+   ],
+   "age": "teen",
+   "build": "slim"
+  }
+ },
+ "moves": [
+  "idle",
+  "walk",
+  "run",
+  "jump",
+  "sit",
+  "stand",
+  "turn",
+  "talk",
+  "listen",
+  "laugh",
+  "cry",
+  "shout",
+  "punch",
+  "kick",
+  "fall",
+  "dance",
+  "celebrate",
+  "wave",
+  "point",
+  "shrug",
+  "facepalm",
+  "thumbsUp",
+  "clap",
+  "think",
+  "scared",
+  "holdHead",
+  "fightStance",
+  "present"
+ ],
+ "expr": [
+  "neutral",
+  "happy",
+  "laugh",
+  "sad",
+  "cry",
+  "angry",
+  "shout",
+  "surprised",
+  "scared",
+  "thinking",
+  "smug",
+  "wink",
+  "disgust",
+  "sleepy",
+  "love",
+  "determined"
+ ],
+ "visemes": [
+  "rest",
+  "MBP",
+  "AI",
+  "E",
+  "O",
+  "U",
+  "FV",
+  "L",
+  "WQ",
+  "etc"
+ ],
+ "sets": {
+  "living_room": {
+   "desc": "Desi/Canadian living room: sofa, window, rug, lamp, family photos",
+   "channels": [
+    "cartoon"
+   ],
+   "layers": [
+    "wall@0.9",
+    "floor@1"
+   ]
+  },
+  "office": {
+   "desc": "Open-plan office with skyline window, desks, monitors",
+   "channels": [
+    "calgaryinsight",
+    "news",
+    "cartoon"
+   ],
+   "layers": [
+    "window@0.35",
+    "wall@0.85",
+    "floor@1"
+   ]
+  },
+  "city_street": {
+   "desc": "Downtown street: buildings, shops, traffic, sidewalk",
+   "channels": [
+    "cartoon",
+    "news",
+    "calgaryinsight"
+   ],
+   "layers": [
+    "sky@0.1",
+    "far@0.35",
+    "buildings@0.7",
+    "street@1"
+   ]
+  },
+  "school": {
+   "desc": "Classroom: chalkboard, desks, bookshelf, posters",
+   "channels": [
+    "cartoon"
+   ],
+   "layers": [
+    "wall@0.9",
+    "floor@1"
+   ]
+  },
+  "hospital": {
+   "desc": "Hospital ward: bed, monitor with heartbeat, curtain",
+   "channels": [
+    "news",
+    "calgaryinsight",
+    "cartoon"
+   ],
+   "layers": [
+    "wall@0.9",
+    "floor@1"
+   ]
+  },
+  "restaurant": {
+   "desc": "Dhaba/caf\u00e9: counter, menu board, tables, chai",
+   "channels": [
+    "cartoon"
+   ],
+   "layers": [
+    "wall@0.9",
+    "floor@1"
+   ]
+  },
+  "shop": {
+   "desc": "Corner shop / grocery: shelves, counter, till",
+   "channels": [
+    "cartoon",
+    "calgaryinsight"
+   ],
+   "layers": [
+    "shelves@0.85",
+    "floor@1"
+   ]
+  },
+  "newsroom": {
+   "desc": "Broadcast studio: LED video wall, anchor desk, light rig, floor reflections",
+   "channels": [
+    "news"
+   ],
+   "layers": [
+    "wall@0.5",
+    "lights@0.6",
+    "floor@1"
+   ]
+  },
+  "park": {
+   "desc": "City park: trees, path, bench, pond, kites",
+   "channels": [
+    "cartoon",
+    "calgaryinsight"
+   ],
+   "layers": [
+    "sky@0.1",
+    "far@0.4",
+    "ground@1"
+   ]
+  },
+  "forest": {
+   "desc": "Layered pine forest with light shafts",
+   "channels": [
+    "cartoon",
+    "calgaryinsight"
+   ],
+   "layers": [
+    "sky@0.1",
+    "far@0.3",
+    "mid@0.6",
+    "ground@1"
+   ]
+  },
+  "mountains": {
+   "desc": "Rocky Mountains west of Calgary: layered ranges, foothills, lake",
+   "channels": [
+    "calgaryinsight",
+    "cartoon",
+    "news"
+   ],
+   "layers": [
+    "sky@0.05",
+    "range_far@0.2",
+    "range_near@0.45",
+    "foothills@0.75",
+    "lake@1"
+   ]
+  },
+  "calgary_skyline": {
+   "desc": "Calgary downtown across the Bow River (Calgary Tower, The Bow, Saddledome)",
+   "channels": [
+    "calgaryinsight",
+    "news"
+   ],
+   "layers": [
+    "sky@0.05",
+    "mountains@0.12",
+    "skyline@0.45",
+    "river@0.8",
+    "bank@1"
+   ]
+  },
+  "calgary_night": {
+   "desc": "Calgary downtown at night with lit windows and tower beacon",
+   "channels": [
+    "calgaryinsight",
+    "news"
+   ],
+   "layers": [
+    "sky@0.05",
+    "skyline@0.45",
+    "river@0.8"
+   ]
+  },
+  "historical_fort": {
+   "desc": "1870s frontier fort on the river flats (generic, not a reconstruction)",
+   "channels": [
+    "calgaryinsight"
+   ],
+   "layers": [
+    "sky@0.05",
+    "hills@0.3",
+    "fort@0.7",
+    "flats@1"
+   ]
+  },
+  "futuristic": {
+   "desc": "Future city: towers, sky-bridges, flying pods, holograms",
+   "channels": [
+    "calgaryinsight",
+    "cartoon",
+    "news"
+   ],
+   "layers": [
+    "sky@0.05",
+    "far@0.3",
+    "mid@0.6",
+    "ground@1"
+   ]
+  },
+  "construction_site": {
+   "desc": "Infrastructure site: crane, excavator, barriers, concrete pour",
+   "channels": [
+    "calgaryinsight",
+    "news",
+    "cartoon"
+   ],
+   "layers": [
+    "sky@0.05",
+    "skyline@0.3",
+    "crane@0.6",
+    "site@1"
+   ]
+  }
+ },
+ "props": [
+  "sofa",
+  "chair",
+  "officeChair",
+  "table",
+  "desk",
+  "schoolDesk",
+  "bed",
+  "hospitalBed",
+  "bookshelf",
+  "bench",
+  "lamp",
+  "plant",
+  "clock",
+  "monitor",
+  "laptop",
+  "tv",
+  "phone",
+  "camera",
+  "mic",
+  "till",
+  "cup",
+  "chai",
+  "umbrella",
+  "suitcase",
+  "magicBall",
+  "wand",
+  "anchorDesk",
+  "heartMonitor",
+  "ivStand",
+  "car",
+  "bus",
+  "lrt",
+  "truck",
+  "bicycle",
+  "excavator",
+  "towerCrane",
+  "cone",
+  "barrier",
+  "hammer",
+  "wrench",
+  "drill",
+  "streetLamp",
+  "hydrant",
+  "kite",
+  "peaceBridge",
+  "food",
+  "bill",
+  "coins",
+  "moneyStack",
+  "document",
+  "folder",
+  "clipboard",
+  "newspaper"
+ ],
+ "fx": [
+  "fire",
+  "smoke",
+  "explosion",
+  "rain",
+  "snow",
+  "splash",
+  "lightning",
+  "sparks",
+  "dust",
+  "debris",
+  "impactStar",
+  "speedLines",
+  "motionStreaks",
+  "confetti",
+  "stars",
+  "sweatDrops",
+  "heartsFloat",
+  "zzz",
+  "question",
+  "exclaim",
+  "poof",
+  "shockwave",
+  "glow",
+  "lensFlare"
+ ],
+ "gfx": [
+  "bars",
+  "hbars",
+  "line",
+  "donut",
+  "counter",
+  "iconArray",
+  "stat",
+  "projector",
+  "geoPath",
+  "map",
+  "pin",
+  "route",
+  "lowerThird",
+  "breakingBanner",
+  "ticker",
+  "clockBug",
+  "liveBug",
+  "headline",
+  "sting",
+  "titleCard",
+  "callout",
+  "timeline",
+  "sourceLine",
+  "caption",
+  "speechBubble",
+  "endCard"
+ ],
+ "trans": [
+  "cut",
+  "dissolve",
+  "dipBlack",
+  "dipWhite",
+  "wipe",
+  "push",
+  "iris",
+  "irisOut",
+  "whipPan",
+  "zoomThrough",
+  "glitch",
+  "lightLeak",
+  "newsSwoosh"
+ ],
+ "cam": [
+  "still",
+  "pan",
+  "zoom",
+  "push",
+  "pull",
+  "kenBurns",
+  "track",
+  "dutch",
+  "handheld",
+  "shake",
+  "whip",
+  "orbit2D",
+  "crane"
+ ],
+ "txt": [
+  "typeOn",
+  "fadeUp",
+  "pop",
+  "slam",
+  "perLetter",
+  "wordByWord",
+  "counter",
+  "highlight"
+ ],
+ "themes": [
+  "ci",
+  "news",
+  "cartoon"
+ ]
+}

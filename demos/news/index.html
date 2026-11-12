@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../engine/fonts.css"></head><body>
+<script src="../../engine/core.js"></script><script src="../../engine/chars.js"></script><script src="../../engine/props.js"></script>
+<script src="../../engine/sets.js"></script><script src="../../engine/fx.js"></script><script src="../../engine/graphics.js"></script>
+<script>
+/* NEWS CHANNEL demo — breaking-news bulletin with animated presenter, headlines, map and data graphic.
+   Clearly labelled DEMONSTRATION / SAMPLE DATA: the storm is a made-up scenario, not a real forecast. */
+window.PAGE_READY = false; stage(1920, 1080);
+let TL, LIPS, PROV; const AN = CAST.daniel, NT = THEME.news;
+const TICK = ['DEMONSTRATION BULLETIN — SAMPLE CONTENT ONLY', 'Studio, presenter, headlines, map and charts are reusable templates', 'News Channel · built in code'];
+const LINES = ['Good evening. This is a demonstration bulletin from the News Channel studio.', 'Breaking tonight: a sample winter storm scenario moves across southern Alberta.', 'Our map tracks the system from the mountains toward Calgary.', 'In this sample forecast, snowfall builds from five to twenty-five centimetres over three days.', 'Everything you see is reusable: the studio, the presenter, the headlines, the map and the chart.', 'That is the bulletin. Stay with us.'];
+const lip = (i, t) => visemeAt(LIPS.tracks['a' + i], t, 0, 30, i + 3);
+function demoTag() { rr(1500, 140, 360, 44, 6); fillPath('rgba(0,0,0,0.55)'); text('DEMO · SAMPLE DATA', 1680, 163, { font: F(NT, 800, 24), fill: '#ffd166', ls: 3 }); }
+function studio(t, cam, line, pose) { drawSet('newsroom', t, cam, { noForeground: true }); C.save(); camApply(cam, 1); const p = pose || MOVES.present(t, { seed: 4 }); if (line != null) p.face.mouth = lip(line, t - (TL.shot('a' + line).vo_at || 0)); drawChar(AN, p, 960, 1215, 1.9, { t, shadow: false }); SETS.newsroom.foreground(t); C.restore(); }
+function chrome(t, { ticker = true } = {}) { GFX.liveBug(t); GFX.clockBug(t, { time: '6:00 PM', loc: 'CALGARY' }); demoTag(); if (ticker) GFX.ticker(t, { items: TICK, label: 'LATEST' }); }
+function sub(i, t, d, y = 900) { /* broadcast captions sit above the ticker */ const a = clamp(t * 6) * clamp((d - t) * 6); if (a > 0) GFX.caption(LINES[i], { th: NT, y, a }); }
+const BB = [-121.5, 48.3, -107.5, 54.2];
+const PLACES = [['Calgary', -114.07, 51.05], ['Banff', -115.57, 51.18], ['Red Deer', -113.81, 52.27], ['Lethbridge', -112.84, 49.69], ['Medicine Hat', -110.68, 50.04]];
+const TRACK = [[-118.6, 51.9], [-117.2, 51.5], [-115.9, 51.2], [-114.9, 51.05], [-113.6, 50.8]];
+function mapScene(t) { C.fillStyle = '#0a2342'; C.fillRect(0, 0, 1920, 1080); const feats = PROV.features.filter(f => ['Canada', 'United States of America'].includes(f.properties.admin));
+  const cam = CAM.zoom(t, 0, 8, 1.0, 1.18, [1010, 560], 'inOut'); C.save(); camApply(cam, 1);
+  const P = GFX.map(t, 0, { features: feats, bbox: BB, x: 80, y: 60, w: 1760, h: 960, th: NT, fill: '#13355f', stroke: 'rgba(200,220,255,0.55)', highlight: { Alberta: '#1d4f86' }, lw: 2.5 });
+  const pts = TRACK.map(P); // storm cloud travels along the track
+  const k = ease('inOut', clamp((t - 0.8) / 4.5)); const idx = k * (pts.length - 1), i0 = Math.min(pts.length - 2, Math.floor(idx)), f = idx - i0; const sx = lerp(pts[i0][0], pts[i0 + 1][0], f), sy = lerp(pts[i0][1], pts[i0 + 1][1], f);
+  GFX.route(t, 0.8, pts, { dur: 4.5, col: '#ffd166', lw: 9, dash: true });
+  C.save(); C.globalAlpha = clamp((t - 0.6) * 2); for (let j = 0; j < 7; j++) { const a = j / 7 * TAU + t * 0.4; C.fillStyle = rgrad(sx + Math.cos(a) * 60, sy + Math.sin(a) * 40, 0, 150, [[0, 'rgba(230,240,255,0.55)'], [1, 'rgba(230,240,255,0)']]); circle(sx + Math.cos(a) * 60, sy + Math.sin(a) * 40, 150); C.fill(); } C.restore();
+  C.save(); C.beginPath(); C.arc(sx, sy, 230, 0, TAU); C.clip(); C.translate(sx - 960, sy - 540); FX.snow(t, { n: 200, a: 0.85 }); C.restore();
+  PLACES.forEach(([n, lon, lat], i) => { const [px, py] = P([lon, lat]); GFX.pin(t, 0.3 + i * 0.25, px, py, { label: n, th: NT, col: n === 'Calgary' ? '#c8102e' : '#ffd166' }); });
+  C.restore();
+  rr(60, 60, 620, 110, 10); fillPath('rgba(6,19,43,0.85)'); text('STORM TRACK', 90, 100, { font: F(NT, 900, 46), fill: '#fff', align: 'left' }); text('SAMPLE SCENARIO · NOT A REAL FORECAST', 90, 145, { font: F(NT, 700, 24), fill: '#ffd166', align: 'left', ls: 2 });
+  text('Basemap: Natural Earth (public domain)', 1860, 1000, { font: F(NT, 400, 20), fill: 'rgba(255,255,255,0.6)', align: 'right' }); }
+function chartScene(t, d) { C.fillStyle = grad(0, 0, 0, 1080, [[0, '#06132b'], [1, '#0b2a57']]); C.fillRect(0, 0, 1920, 1080); FX.snow(t, { n: 90, a: 0.35, speed: 60 });
+  TXT.fadeUp('SNOWFALL · SAMPLE FORECAST', t, 0.1, 960, 120, { font: F(NT, 900, 64), fill: '#fff', ls: 4 }); TXT.fadeUp('centimetres per day — illustrative numbers for this demo', t, 0.3, 960, 185, { font: F(NT, 500, 32), fill: '#c9d3e3' });
+  GFX.bars(t, 0.6, { th: NT, x: 360, y: 280, w: 1200, h: 520, max: 30, unit: ' cm', data: [['DAY 1', 5, '#4cc9f0'], ['DAY 2', 15, '#ffd166'], ['DAY 3', 25, '#c8102e']], stagger: 0.5 });
+  GFX.route(t, 2.2, [[560, 700], [960, 560], [1360, 380]], { dur: 1.2, col: '#ffffff', lw: 6, dash: true }); demoTag(); }
+function checklist(t) { ['STUDIO', 'PRESENTER', 'HEADLINES', 'MAP', 'CHART'].forEach((s, i) => { const t0 = 0.5 + i * 0.55; const k = ease('back', (t - t0) / 0.4); if (k <= 0) return; withT(() => { rr(0, -36, 400, 72, 12); fillPath('rgba(6,19,43,0.9)', '#4cc9f0', 3); circle(40, 0, 22); fillPath('#2ec4b6'); C.strokeStyle = '#fff'; C.lineWidth = 6; C.beginPath(); C.moveTo(29, 0); C.lineTo(37, 9); C.lineTo(52, -9); C.stroke(); text(s, 80, 2, { font: F(NT, 800, 36), fill: '#fff', align: 'left', ls: 3 }); }, { x: 1400, y: 300 + i * 95, s: k }); }); }
+const DRAW_FN = {
+  sting: t => { C.fillStyle = '#06132b'; C.fillRect(0, 0, 1920, 1080); GFX.sting(t, 0, { th: NT, title: 'NEWS CHANNEL', d: 2.2 }); },
+  a0: t => { const d = TL.dur(0); const cam = CAM.zoom(t, 0, d, 1.0, 1.06, [960, 560]); studio(t, cam, 0); chrome(t); GFX.lowerThird(t, 0.6, { th: NT, name: 'DANIEL OKAFOR', title: 'News Channel · Demonstration bulletin', y: 690 }); sub(0, t - 0.1, d); },
+  a1: t => { const d = TL.dur(1); const cam = CAM.zoom(t, 0, 1.2, 1.06, 1.3, [960, 600], 'cubicInOut'); studio(t, cam, 1, MOVES.present(t, { seed: 9 })); GFX.breakingBanner(t, 0.25, { headline: 'Sample storm scenario moves across southern Alberta', y: 700 }); chrome(t); },
+  a2: t => { const d = TL.shot('a2').dur; transition('newsSwoosh', t, 0, 0.7, () => { const cam = CAM.still({ zoom: 1.3, x: 960, y: 600 }); studio(t + 5, cam, null); chrome(t); }, () => mapScene(t)); if (t > 0.7) sub(2, t - 0.8, TL.dur(2), 930); },
+  a3: t => { const d = TL.shot('a3').dur; transition('push', t, 0, 0.6, () => mapScene(t + 6), () => chartScene(t, d)); if (t > 0.6) sub(3, t - 0.7, TL.dur(3), 930); },
+  a4: t => { const d = TL.dur(4); transition('newsSwoosh', t, 0, 0.7, () => chartScene(t + 5, 6), () => { const cam = CAM.still({ zoom: 1.0, x: 1180, y: 540 }); studio(t, cam, 4, MOVES.present(t, { seed: 12, yaw: 0.25 })); checklist(t); chrome(t); }); if (t > 0.7) sub(4, t - 0.8, d); },
+  a5: t => { const d = TL.dur(5), sp = TL.shot('a5').dur; const cam = CAM.zoom(t, 0, sp, 1.12, 1.22, [960, 600]); const p = MOVES.present(t, { seed: 14 }); if (t > d) { p.face.expr = 'happy'; p.head.pitch = 0.08; } studio(t, cam, 5, p); chrome(t); if (t < d + 0.2) sub(5, t - 0.1, d); GFX.sting(t, d + 0.4, { th: NT, title: 'NEWS CHANNEL', d: 2.0 }); },
+};
+Promise.all([fetch('timeline.json').then(r => r.json()), fetch('lips.json').then(r => r.json()), fetch('../../acquired/geo/naturalearth/ne_50m_admin_1_states_provinces.geojson').then(r => r.json()), ...['700 40px "Fira Sans"', '400 40px "Fira Sans"', '500 40px "Fira Sans"', '600 40px "Fira Sans"', '800 40px "Fira Sans"', '900 40px "Fira Sans"', '40px Bangers'].map(f => document.fonts.load(f))]).then(([tl, lips, prov]) => {
+  TL = tl; LIPS = lips; PROV = prov; TL.shot = id => TL.shots.find(s => s.id === id); TL.dur = i => LIPS.durs['a' + i]; TL.shots.forEach(s => scene(s.id, s.dur, DRAW_FN[s.id])); window.PAGE_READY = true; });
+</script></body></html>

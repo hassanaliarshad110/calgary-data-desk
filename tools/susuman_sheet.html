@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../engine/fonts.css"></head><body>
+<script src="../engine/core.js"></script><script src="../engine/chars.js"></script><script src="../engine/props.js"></script><script src="../engine/sets.js"></script><script src="../engine/fx.js"></script>
+<script>
+/* Susuman series on the studio skeleton: model sheet (vertical, like the original) + motion test scene */
+window.PAGE_READY = false;
+const VERT = location.hash !== '#wide'; stage(VERT ? 1080 : 1920, VERT ? 1920 : 1080);
+Promise.all(['40px Bangers', '800 40px Baloo2', '600 40px "Fira Sans"'].map(f => document.fonts.load(f))).then(() => window.PAGE_READY = true);
+function bg() { C.setTransform(1, 0, 0, 1, 0, 0); C.fillStyle = '#f3e9d8'; C.fillRect(0, 0, STUDIO.W, STUDIO.H); }
+function modelSheet() { bg(); text('SUSUMAN — MODEL SHEET (studio rig)', 540, 80, { font: '72px Bangers', fill: '#1a0f0a' });
+  text('QASIM (NORMAL)', 270, 190, { font: '52px Bangers', fill: '#e0222c' }); text('SUSUMAN (POWER)', 810, 190, { font: '52px Bangers', fill: '#e0222c' });
+  drawChar(CAST.qasim, MOVES.idle(0.4), 270, 920, 2.6, { t: 0.4 }); const pp = MOVES.powerPose(1); drawChar(CAST.susuman, pp, 810, 920, 2.6, { t: 0.4 });
+  text('AMMI', 270, 1030, { font: '52px Bangers', fill: '#1f7a78' }); drawChar(CAST.ammi, MOVES.holdPhone(0.4), 270, 1860, 1.9, { t: 0.4 });
+  text('EXPRESSIONS', 810, 1080, { font: '44px Bangers', fill: '#1a0f0a' }); ['neutral', 'surprised', 'laugh', 'scared', 'wink', 'angry'].forEach((e, i) => { const x = 680 + (i % 2) * 260, y = 1330 + Math.floor(i / 2) * 250; const p = basePose(); p.face.expr = e; C.save(); C.beginPath(); C.rect(x - 120, y - 210, 240, 230); C.clip(); drawChar(CAST.qasim, p, x, groundForHead(CAST.qasim, y - 80, 1.9), 1.9, { shadow: false }); C.restore(); text(e, x, y + 40, { font: '600 26px "Fira Sans"', fill: '#333' }); }); }
+function turnarounds() { bg(); text('TURNAROUND · same skeleton as the studio cast', 540, 80, { font: '58px Bangers', fill: '#1a0f0a' }); const views = [0, 0.7, Math.PI / 2, 2.3, Math.PI];
+  [['qasim', 620, 1.6], ['susuman', 1150, 1.6], ['ammi', 1860, 1.1]].forEach(([k, gy, sc]) => views.forEach((y, i) => { const p = MOVES.idle(0.4); p.yaw = y; drawChar(CAST[k], p, 120 + i * 210, gy, sc, { t: 0.4 }); })); }
+// motion test: 12 s, vertical. Uses only library motions on the Susuman characters.
+scene('susu_motion', 12, t => { bg(); drawSet('living_room', t, CAM.still({ zoom: 1.0, x: 960, y: 700 })); C.setTransform(1, 0, 0, 1, 0, 0);
+  const lab = s => { rr(40, 60, 1000, 90, 16); fillPath('rgba(26,15,10,0.8)'); text(s, 540, 106, { font: '54px Bangers', fill: '#ffd166' }); };
+  const GY = 1500;
+  if (t < 3) { const x = lerp(-150, 420, t / 3); drawChar(CAST.ammi, MOVES.holdPhone(t), 760, GY, 1.6, { t }); drawChar(CAST.qasim, MOVES.walk(t, { speed: 1.2 }), x, GY, 2.0, { t }); lab('WALK  ·  AMMI ON PHONE'); }
+  else if (t < 5) { const tt = t - 3; drawChar(CAST.ammi, MOVES.holdPhone(tt, { lookUp: tt > 0.6, expr: tt > 0.6 ? 'surprised' : 'neutral' }), 760, GY, 1.6, { t }); drawChar(CAST.qasim, MOVES.turn(tt, { from: Math.PI / 2, to: 0.2, dur: 0.5 }), 420, GY, 2.0, { t }); lab('TURN  ·  LOOK UP'); }
+  else if (t < 7) { const tt = t - 5; const p = MOVES.talk(tt, { yaw: 0.3, expr: 'happy' }); p.face.mouth = ['AI', 'E', 'O', 'MBP', 'etc', 'AI'][Math.floor(tt * 8) % 6]; drawChar(CAST.ammi, MOVES.talk(tt + 1, { yaw: -0.3, expr: 'angry' }), 760, GY, 1.6, { t }); drawChar(CAST.qasim, p, 420, GY, 2.0, { t }); lab('TALK + LIP-SYNC  ·  EXPRESSIONS'); }
+  else if (t < 9.5) { const tt = t - 7; const k = clamp(tt / 0.8); drawChar(CAST.ammi, MOVES.scared(tt), 820, GY, 1.6, { t }); drawChar(CAST.susuman, MOVES.powerPose(tt), 420, GY, 2.0, { t, power: k }); FX.sparks(t, { x: 420, y: GY - 300, t0: 7.05, n: 30 }); lab('POWER-UP: AURA · CAPE · CROWN'); }
+  else { const tt = t - 9.5; drawChar(CAST.ammi, MOVES.facepalm(tt), 820, GY, 1.6, { t }); drawChar(CAST.susuman, MOVES.fly(tt, { height: 260 + tt * 160 }), 300 + tt * 180, GY, 2.0, { t }); lab('FLY  ·  FACEPALM'); } });
+</script></body></html>

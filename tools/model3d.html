@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#000}</style>
+<script type="importmap">{ "imports": { "three": "../acquired/vendor/three/build/three.module.js", "three/addons/": "../acquired/vendor/three/examples/jsm/" } }</script></head><body>
+<canvas id="stage" width="960" height="540"></canvas>
+<script type="module">
+// 3D model viewer/thumbnailer + animation player for glTF assets (static props and skinned, animated rigs)
+import * as THREE from 'three'; import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'; import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+const cv = document.getElementById('stage'); const R = new THREE.WebGLRenderer({ canvas: cv, antialias: true, preserveDrawingBuffer: true }); R.toneMapping = THREE.ACESFilmicToneMapping; R.outputColorSpace = THREE.SRGBColorSpace;
+const S = new THREE.Scene(); S.background = new THREE.Color('#dfe6ee'); const cam = new THREE.PerspectiveCamera(35, cv.width / cv.height, 0.01, 1000);
+S.add(new THREE.HemisphereLight('#ffffff', '#667788', 1.2)); const sun = new THREE.DirectionalLight('#ffffff', 2); sun.position.set(3, 5, 4); S.add(sun);
+new RGBELoader().load('../acquired/polyhaven/hdris/studio_small_03_1k.hdr', t => { t.mapping = THREE.EquirectangularReflectionMapping; S.environment = t; });
+let cur = null, mixer = null, clips = [];
+window.loadModel = async (path) => { if (cur) S.remove(cur); const g = await new GLTFLoader().loadAsync(path); cur = g.scene; S.add(cur); clips = g.animations; mixer = clips.length ? new THREE.AnimationMixer(cur) : null;
+  const box = new THREE.Box3().setFromObject(cur), size = box.getSize(new THREE.Vector3()), c = box.getCenter(new THREE.Vector3()); const r = Math.max(size.x, size.y, size.z);
+  cam.position.set(c.x + r * 0.9, c.y + r * 0.45, c.z + r * 1.5); cam.lookAt(c); cam.near = r / 100; cam.far = r * 100; cam.updateProjectionMatrix();
+  let skinned = false, morphs = []; cur.traverse(o => { if (o.isSkinnedMesh) skinned = true; if (o.morphTargetDictionary) morphs.push(...Object.keys(o.morphTargetDictionary)); });
+  return { clips: clips.map(a => [a.name, +a.duration.toFixed(2)]), skinned, morphs: [...new Set(morphs)], size: size.toArray().map(v => +v.toFixed(2)) }; };
+window.pose = (clipIdx, t) => { if (mixer && clips[clipIdx]) { mixer.stopAllAction(); const a = mixer.clipAction(clips[clipIdx]); a.play(); mixer.setTime(t); } R.render(S, cam); return true; };
+window.drawFrame = (id, t) => window.pose(0, t); window.STUDIO_READY = true;
+</script></body></html>

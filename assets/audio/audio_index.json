@@ -1,0 +1,254 @@
+[
+ {
+  "category": "sfx",
+  "name": "whoosh",
+  "path": "sfx/whoosh.wav",
+  "secs": 0.6
+ },
+ {
+  "category": "sfx",
+  "name": "swoosh_news",
+  "path": "sfx/swoosh_news.wav",
+  "secs": 0.9
+ },
+ {
+  "category": "sfx",
+  "name": "pop",
+  "path": "sfx/pop.wav",
+  "secs": 0.12
+ },
+ {
+  "category": "sfx",
+  "name": "boing",
+  "path": "sfx/boing.wav",
+  "secs": 0.7
+ },
+ {
+  "category": "sfx",
+  "name": "slide_whistle_up",
+  "path": "sfx/slide_whistle_up.wav",
+  "secs": 0.8
+ },
+ {
+  "category": "sfx",
+  "name": "slide_whistle_down",
+  "path": "sfx/slide_whistle_down.wav",
+  "secs": 0.8
+ },
+ {
+  "category": "sfx",
+  "name": "bonk",
+  "path": "sfx/bonk.wav",
+  "secs": 0.35
+ },
+ {
+  "category": "sfx",
+  "name": "slap",
+  "path": "sfx/slap.wav",
+  "secs": 0.25
+ },
+ {
+  "category": "sfx",
+  "name": "punch",
+  "path": "sfx/punch.wav",
+  "secs": 0.4
+ },
+ {
+  "category": "sfx",
+  "name": "impact_boom",
+  "path": "sfx/impact_boom.wav",
+  "secs": 2.0
+ },
+ {
+  "category": "sfx",
+  "name": "thud",
+  "path": "sfx/thud.wav",
+  "secs": 0.3
+ },
+ {
+  "category": "sfx",
+  "name": "footstep_hard_1",
+  "path": "sfx/footstep_hard_1.wav",
+  "secs": 0.18
+ },
+ {
+  "category": "sfx",
+  "name": "footstep_hard_2",
+  "path": "sfx/footstep_hard_2.wav",
+  "secs": 0.18
+ },
+ {
+  "category": "sfx",
+  "name": "footstep_grass",
+  "path": "sfx/footstep_grass.wav",
+  "secs": 0.18
+ },
+ {
+  "category": "sfx",
+  "name": "footstep_snow",
+  "path": "sfx/footstep_snow.wav",
+  "secs": 0.25
+ },
+ {
+  "category": "sfx",
+  "name": "door_close",
+  "path": "sfx/door_close.wav",
+  "secs": 0.6
+ },
+ {
+  "category": "sfx",
+  "name": "ding",
+  "path": "sfx/ding.wav",
+  "secs": 1.2
+ },
+ {
+  "category": "sfx",
+  "name": "chime_up",
+  "path": "sfx/chime_up.wav",
+  "secs": 1.48
+ },
+ {
+  "category": "sfx",
+  "name": "camera_shutter",
+  "path": "sfx/camera_shutter.wav",
+  "secs": 0.35
+ },
+ {
+  "category": "sfx",
+  "name": "typewriter_key",
+  "path": "sfx/typewriter_key.wav",
+  "secs": 0.07
+ },
+ {
+  "category": "sfx",
+  "name": "ticker_blip",
+  "path": "sfx/ticker_blip.wav",
+  "secs": 0.08
+ },
+ {
+  "category": "sfx",
+  "name": "riser",
+  "path": "sfx/riser.wav",
+  "secs": 3.0
+ },
+ {
+  "category": "sfx",
+  "name": "magic_sparkle",
+  "path": "sfx/magic_sparkle.wav",
+  "secs": 1.2
+ },
+ {
+  "category": "sfx",
+  "name": "explosion",
+  "path": "sfx/explosion.wav",
+  "secs": 2.5
+ },
+ {
+  "category": "sfx",
+  "name": "splash",
+  "path": "sfx/splash.wav",
+  "secs": 0.8
+ },
+ {
+  "category": "sfx",
+  "name": "thunder",
+  "path": "sfx/thunder.wav",
+  "secs": 3.0
+ },
+ {
+  "category": "sfx",
+  "name": "cartoon_run",
+  "path": "sfx/cartoon_run.wav",
+  "secs": 1.0
+ },
+ {
+  "category": "sfx",
+  "name": "heartbeat",
+  "path": "sfx/heartbeat.wav",
+  "secs": 1.02
+ },
+ {
+  "category": "sfx",
+  "name": "glitch",
+  "path": "sfx/glitch.wav",
+  "secs": 0.5
+ },
+ {
+  "category": "sfx",
+  "name": "news_sting",
+  "path": "sfx/news_sting.wav",
+  "secs": 3.0
+ },
+ {
+  "category": "ambience",
+  "name": "rain",
+  "path": "ambience/rain.wav",
+  "secs": 19.0
+ },
+ {
+  "category": "ambience",
+  "name": "wind",
+  "path": "ambience/wind.wav",
+  "secs": 19.0
+ },
+ {
+  "category": "ambience",
+  "name": "city",
+  "path": "ambience/city.wav",
+  "secs": 19.0
+ },
+ {
+  "category": "ambience",
+  "name": "park_birds",
+  "path": "ambience/park_birds.wav",
+  "secs": 19.0
+ },
+ {
+  "category": "ambience",
+  "name": "office",
+  "path": "ambience/office.wav",
+  "secs": 19.0
+ },
+ {
+  "category": "ambience",
+  "name": "newsroom",
+  "path": "ambience/newsroom.wav",
+  "secs": 19.0
+ },
+ {
+  "category": "ambience",
+  "name": "fire_crackle",
+  "path": "ambience/fire_crackle.wav",
+  "secs": 19.0
+ },
+ {
+  "category": "ambience",
+  "name": "room_tone",
+  "path": "ambience/room_tone.wav",
+  "secs": 19.0
+ },
+ {
+  "category": "music",
+  "name": "documentary_calm_72bpm",
+  "path": "music/documentary_calm_72bpm.wav",
+  "secs": 60.0
+ },
+ {
+  "category": "music",
+  "name": "news_bed_120bpm",
+  "path": "music/news_bed_120bpm.wav",
+  "secs": 40.0
+ },
+ {
+  "category": "music",
+  "name": "cartoon_bouncy_128bpm",
+  "path": "music/cartoon_bouncy_128bpm.wav",
+  "secs": 40.0
+ },
+ {
+  "category": "music",
+  "name": "suspense_drone",
+  "path": "music/suspense_drone.wav",
+  "secs": 30.0
+ }
+]

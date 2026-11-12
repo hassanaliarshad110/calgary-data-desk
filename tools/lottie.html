@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#eef1f5}#anim{width:512px;height:512px}</style></head><body><div id="anim"></div>
+<script src="../acquired/vendor/lottie-web/build/player/lottie.min.js"></script>
+<script>
+// Lottie viewer used by the catalogue: load(path, 0..1) renders that point of the animation with lottie-web (MIT)
+let A = null; window.STUDIO_READY = true;
+function load(path, frac = 0.6, w = 512, h = 512) { return new Promise((res, rej) => { if (A) A.destroy(); const el = document.getElementById('anim'); el.style.width = w + 'px'; el.style.height = h + 'px';
+  A = lottie.loadAnimation({ container: el, renderer: 'svg', loop: false, autoplay: false, path }); A.addEventListener('DOMLoaded', () => { A.goToAndStop(Math.floor(A.totalFrames * frac), true); res({ frames: A.totalFrames, fr: A.frameRate }); }); A.addEventListener('data_failed', () => rej('failed')); }); }
+</script></body></html>

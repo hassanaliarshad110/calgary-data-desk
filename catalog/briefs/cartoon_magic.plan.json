@@ -1,0 +1,302 @@
+{
+ "brief": {
+  "channel": "cartoon",
+  "title": "Chacha's magic trick",
+  "script": "Chacha tries a magic trick with a ball, it falls on his head, Zoya laughs. Funny family comedy in the living room.",
+  "characters": 2
+ },
+ "channel": "cartoon",
+ "matched_terms": [
+  "ball",
+  "boing",
+  "bonk",
+  "cartoon",
+  "chacha",
+  "comedy",
+  "falls",
+  "family",
+  "funny",
+  "head",
+  "impactstar",
+  "laugh",
+  "laughs",
+  "living",
+  "magic",
+  "nani",
+  "poof",
+  "rafi",
+  "room",
+  "slide",
+  "sparkle",
+  "stars",
+  "trick",
+  "tries",
+  "wand",
+  "zoya"
+ ],
+ "slots": {
+  "characters": [
+   {
+    "id": "CHR-003",
+    "name": "Chacha Bashir (Comic uncle, would-be magician)",
+    "score": 8.5,
+    "path": "engine/chars.js#CAST.chacha",
+    "usage": "drawChar(CAST.chacha, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   },
+   {
+    "id": "CHR-004",
+    "name": "Zoya (Clever niece, 14)",
+    "score": 6.5,
+    "path": "engine/chars.js#CAST.zoya",
+    "usage": "drawChar(CAST.zoya, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   }
+  ],
+  "motions": [
+   {
+    "id": "MOV-010",
+    "name": "Motion: laugh",
+    "score": 6.5,
+    "path": "engine/chars.js#MOVES.laugh",
+    "usage": "MOVES.laugh(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-026",
+    "name": "Motion: holdHead",
+    "score": 5.0,
+    "path": "engine/chars.js#MOVES.holdHead",
+    "usage": "MOVES.holdHead(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-008",
+    "name": "Motion: talk",
+    "score": 4.5,
+    "path": "engine/chars.js#MOVES.talk",
+    "usage": "MOVES.talk(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-009",
+    "name": "Motion: listen",
+    "score": 4.5,
+    "path": "engine/chars.js#MOVES.listen",
+    "usage": "MOVES.listen(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   }
+  ],
+  "environments": [
+   {
+    "id": "ENV-001",
+    "name": "Environment: living room",
+    "score": 10.5,
+    "path": "engine/sets.js#SETS.living_room",
+    "usage": "drawSet('living_room', t, cam)",
+    "attribution": false
+   },
+   {
+    "id": "ENV-004",
+    "name": "Environment: school",
+    "score": 5.0,
+    "path": "engine/sets.js#SETS.school",
+    "usage": "drawSet('school', t, cam)",
+    "attribution": false
+   },
+   {
+    "id": "ENV-009",
+    "name": "Environment: park",
+    "score": 4.5,
+    "path": "engine/sets.js#SETS.park",
+    "usage": "drawSet('park', t, cam)",
+    "attribution": false
+   }
+  ],
+  "props": [
+   {
+    "id": "PRP-025",
+    "name": "Prop: magicBall",
+    "score": 7.0,
+    "path": "engine/props.js#PROPS.magicBall",
+    "usage": "PROPS.magicBall(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-026",
+    "name": "Prop: wand",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.wand",
+    "usage": "PROPS.wand(x, y, scale, ...)",
+    "attribution": false
+   }
+  ],
+  "vfx": [
+   {
+    "id": "VFX-011",
+    "name": "Effect: impactStar",
+    "score": 6.5,
+    "path": "engine/fx.js#FX.impactStar",
+    "usage": "FX.impactStar(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-015",
+    "name": "Effect: stars",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.stars",
+    "usage": "FX.stars(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-021",
+    "name": "Effect: poof",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.poof",
+    "usage": "FX.poof(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-008",
+    "name": "Effect: sparks",
+    "score": 4.5,
+    "path": "engine/fx.js#FX.sparks",
+    "usage": "FX.sparks(t, {...})",
+    "attribution": false
+   }
+  ],
+  "graphics": [
+   {
+    "id": "GFX-016",
+    "name": "Graphic: headline",
+    "score": 5.0,
+    "path": "engine/graphics.js#GFX.headline",
+    "usage": "GFX.headline(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "SVG-001",
+    "name": "Animated SVG: cartoon_eyes_blink",
+    "score": 5.0,
+    "path": "assets/svg/cartoon_eyes_blink.svg",
+    "usage": "<img src> or <object>; edit text/colours in the file",
+    "attribution": false
+   },
+   {
+    "id": "GFX-023",
+    "name": "Graphic: speechBubble",
+    "score": 4.5,
+    "path": "engine/graphics.js#GFX.speechBubble",
+    "usage": "GFX.speechBubble(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "TXT-003",
+    "name": "Animated text: pop",
+    "score": 4.5,
+    "path": "engine/core.js#TXT.pop",
+    "usage": "TXT.pop(...)",
+    "attribution": false
+   },
+   {
+    "id": "LOT-012",
+    "name": "Lottie: speech_bubble",
+    "score": 4.5,
+    "path": "assets/lottie/speech_bubble.json",
+    "usage": "lottie.loadAnimation({path}); or drop into any Lottie player",
+    "attribution": false
+   }
+  ],
+  "maps_data": [],
+  "camera": [],
+  "transitions": [
+   {
+    "id": "TRN-008",
+    "name": "Transition: irisOut",
+    "score": 4.5,
+    "path": "engine/core.js#TRANS.irisOut",
+    "usage": "transition('irisOut', t, t0, dur, drawA, drawB)",
+    "attribution": false
+   }
+  ],
+  "music": [
+   {
+    "id": "MUS-003",
+    "name": "Music: cartoon bouncy 128bpm",
+    "score": 6.5,
+    "path": "assets/audio/music/cartoon_bouncy_128bpm.wav",
+    "usage": "from audio import *; M.add(cartoon_bouncy_128bpm(), at, gain)  (or the WAV file)",
+    "attribution": false
+   }
+  ],
+  "sfx": [
+   {
+    "id": "SFX-023",
+    "name": "Sfx: magic sparkle",
+    "score": 8.5,
+    "path": "assets/audio/sfx/magic_sparkle.wav",
+    "usage": "from audio import *; M.add(magic_sparkle(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-004",
+    "name": "Sfx: boing",
+    "score": 6.5,
+    "path": "assets/audio/sfx/boing.wav",
+    "usage": "from audio import *; M.add(boing(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-007",
+    "name": "Sfx: bonk",
+    "score": 6.5,
+    "path": "assets/audio/sfx/bonk.wav",
+    "usage": "from audio import *; M.add(bonk(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-005",
+    "name": "Sfx: slide whistle up",
+    "score": 5.0,
+    "path": "assets/audio/sfx/slide_whistle_up.wav",
+    "usage": "from audio import *; M.add(slide_whistle_up(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-006",
+    "name": "Sfx: slide whistle down",
+    "score": 5.0,
+    "path": "assets/audio/sfx/slide_whistle_down.wav",
+    "usage": "from audio import *; M.add(slide_whistle_down(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-027",
+    "name": "Sfx: cartoon run",
+    "score": 5.0,
+    "path": "assets/audio/sfx/cartoon_run.wav",
+    "usage": "from audio import *; M.add(cartoon_run(), at, gain)  (or the WAV file)",
+    "attribution": false
+   }
+  ],
+  "fonts": [
+   {
+    "id": "FNT-001",
+    "name": "LuckiestGuy-Regular.ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/luckiestguy/LuckiestGuy-Regular.ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   },
+   {
+    "id": "FNT-013",
+    "name": "Fredoka[wdth,wght].ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/fredoka/Fredoka[wdth,wght].ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   }
+  ]
+ },
+ "licence_notes": []
+}

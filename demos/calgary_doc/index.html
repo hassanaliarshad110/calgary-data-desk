@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../engine/fonts.css">
+<script type="importmap">{ "imports": { "three": "../../acquired/vendor/three/build/three.module.js", "three/addons/": "../../acquired/vendor/three/examples/jsm/" } }</script></head><body>
+<script src="../../engine/core.js"></script><script src="../../engine/chars.js"></script><script src="../../engine/props.js"></script>
+<script src="../../engine/sets.js"></script><script src="../../engine/fx.js"></script><script src="../../engine/graphics.js"></script>
+<script type="module">
+/* CALGARYINSIGHT demo — "The City Above the Street": cinematic 3D Calgary (OpenStreetMap) + 2D explainer.
+   Facts (City of Calgary, calgary.ca/plus15): first bridge 1969 · 86 bridges · 16+ km of walkways · bridges over City
+   roads built by developers in exchange for bonus density, then owned by The City. */
+import { City3D, CAM3D } from '../../engine/city3d.js';
+window.PAGE_READY = false; stage(1920, 1080);
+const T = THEME.ci; let TL; const LOGO = new Image(); LOGO.src = '../../channels/calgaryinsight/logo.svg';
+const LINES = ['Downtown Calgary hides a second city, about fifteen feet above the street.', 'It is called the Plus 15 network.', 'Since the first bridge went up in 1969, it has grown to 86 bridges.', 'Together they link more than 16 kilometres of heated, weather-protected walkways.', 'Bridges over City roads are built by developers in exchange for extra building density, and then owned by The City.', 'So in a Calgary winter, you can cross much of downtown without stepping outside.', 'Calgary Insight · calgaryinsight.ca'];
+const SRC = 'Source: City of Calgary, Plus 15 network (calgary.ca/plus15) · 3D map data © OpenStreetMap contributors';
+function header(topic) { if (LOGO.complete) C.drawImage(LOGO, 48, 36, 60, 60); text('CALGARY INSIGHT', 124, 66, { font: F(T, 700, 28), fill: '#fff', align: 'left', ls: 5, shadow: ['rgba(0,0,0,0.6)', 8] }); C.font = F(T, 700, 28); C.letterSpacing = '5px'; const w = C.measureText('CALGARY INSIGHT').width; C.letterSpacing = '0px'; text('· ' + topic, 124 + w + 14, 66, { font: F(T, 700, 28), fill: T.accent, align: 'left', ls: 3, shadow: ['rgba(0,0,0,0.6)', 8] }); }
+function sub(i, t, d) { const a = clamp(t * 5) * clamp((d - t) * 5); if (a > 0) GFX.caption(LINES[i], { th: T, y: 930, a }); }
+function src(a = 1) { text(SRC, 1880, 1052, { font: F(T, 400, 20), fill: 'rgba(255,255,255,0.75)', align: 'right', a, shadow: ['rgba(0,0,0,0.7)', 6] }); }
+function shot3d(cam, look, grade) { const cv = City3D.render(cam, look); composite(cv, 0, 0, 1920, 1080, { grade }); }
+const vo = (id) => TL.shots.find(s => s.id === id).vo;
+const DRAW_FN = {
+  d0: t => { const d = TL.shot('d0').dur; shot3d(CAM3D.dolly(t, d, [-3400, 1600, 2900], [-1550, 640, 1350], [150, 60, 0]), {}); C.fillStyle = grad(0, 0, 0, 700, [[0, 'rgba(6,16,34,0.75)'], [1, 'rgba(6,16,34,0)']]); C.fillRect(0, 0, 1920, 700); vignette(0.35); letterbox(1 - ease('inOut', clamp((t - d + 0.8) / 0.8)));
+    GFX.titleCard(t, 0.3, { th: T, kicker: 'CALGARY INSIGHT · INFRASTRUCTURE', title: 'The City Above the Street', sub: 'Downtown Calgary’s Plus 15 network', y: 430 }); sub(0, t - vo('d0'), TL.line(0)); src(clamp(t - 1)); },
+  d1: t => { const d = TL.shot('d1').dur; const k = ease('inOut', clamp(t / 1.6)); shot3d(CAM3D.orbit(t, { center: [80, 30, 40], radius: lerp(1700, 1250, k), height: lerp(640, 430, k), phase: 2.45, speed: 0.07 }), { p15glow: k, ghost: k * 0.35 }); vignette(0.3); header('PLUS 15');
+    TXT.highlight('THE PLUS 15 NETWORK', t, 0.5, 120, 860, { font: F(T, 800, 64), fill: '#0b1f3a', align: 'left' }, T.accent); sub(1, t - vo('d1'), TL.line(1)); src(); },
+  d2: t => { const d = TL.shot('d2').dur; shot3d(CAM3D.orbit(t + 3, { center: [80, 30, 40], radius: 1300, height: 520, phase: 2.45, speed: 0.07 }), { p15glow: 1, ghost: 0.35 }, 'blur(6px) brightness(0.45)'); header('PLUS 15');
+    GFX.timeline(t, 0.2, { th: T, x: 260, y: 560, w: 1400, dur: TL.line(2) * 0.8, events: [['1969', 'First Plus 15 bridge'], ['1984', '+15 Policy guides growth'], ['2021', 'Policy updated'], ['TODAY', '86 bridges']] });
+    GFX.counter(t, 0.4 + TL.line(2) * 0.55, { th: T, x: 960, y: 300, from: 0, to: 86, dur: 1.6, size: 150, label: 'Plus 15 bridges' }); sub(2, t - vo('d2'), TL.line(2)); src(); },
+  d3: t => { const d = TL.shot('d3').dur; shot3d(CAM3D.topDown(t, d, 2700, 1900), { p15glow: 1, ghost: 0.3, night: 0.55 }); vignette(0.35); header('PLUS 15');
+    GFX.stat(t, 0.5, { th: T, x: 300, y: 420, value: '16+ km', label: 'of elevated walkways', w: 460 }); GFX.stat(t, 1.1, { th: T, x: 300, y: 720, value: '86', label: 'bridges', w: 460 });
+    rr(1380, 120, 480, 64, 10); fillPath('rgba(11,31,58,0.85)', T.accent, 2); circle(1412, 152, 12); fillPath('#ffd166'); text(`Footbridges mapped in OpenStreetMap (${City3D.stats().plus15})`, 1436, 153, { font: F(T, 500, 22), fill: '#fff', align: 'left' }); sub(3, t - vo('d3'), TL.line(3)); src(); },
+  d4: t => { const d = TL.shot('d4').dur, L = TL.line(4), v = vo('d4'); drawSet('construction_site', t, CAM.kenBurns(t, d, [960, 540, 1.0], [1000, 520, 1.06])); C.fillStyle = 'rgba(11,31,58,0.35)'; C.fillRect(0, 0, 1920, 1080); header('HOW BRIDGES GET BUILT');
+    const mk = MOVES.talk(t, { yaw: 0.4, seed: 3, expr: 'happy' }); drawChar(CAST.marcus, mk, 330, 980, 1.25, { t }); const my = MOVES.listen(t, { yaw: -0.4 }); my.face.expr = t > v + L * 0.7 ? 'happy' : 'neutral'; drawChar(CAST.maya, my, 1640, 980, 1.25, { t });
+    const steps = [['DEVELOPER', 'builds the bridge over a City road', 0.0], ['BONUS DENSITY', 'the building may be bigger in return', 0.42], ['THE CITY', 'owns the bridge once it is built', 0.78]];
+    steps.forEach(([h, s, f], i) => { const t0 = v + L * f; const k = ease('back', (t - t0) / 0.5); if (k <= 0) return; withT(() => { rr(-185, -120, 370, 240, 20); fillPath('rgba(11,31,58,0.92)', T.accent, 4); text(h, 0, -40, { font: F(T, 800, 44), fill: T.accent }); wrapLines(s, F(T, 500, 30), 320).forEach((l, j) => text(l, 0, 20 + j * 38, { font: F(T, 500, 30), fill: '#fff' })); }, { x: 560 + i * 400, y: 400, s: k }); if (i) GFX.route(t, t0 - 0.2, [[560 + (i - 1) * 400 + 190, 400], [560 + i * 400 - 190, 400]], { dur: 0.35, col: T.accent, lw: 7 }); });
+    sub(4, t - v, L); src(); },
+  d5: t => { const d = TL.shot('d5').dur; const n = ease('inOut', clamp(t / 2)); const tx = 140, tz = 380; shot3d(CAM3D.crane(t, d, [tx, 0, tz - 200], 520, 140, 700), { p15glow: 1, night: n * 0.75 }); FX.snow(t, { n: 320, a: 0.9, speed: 80 }); colorGrade('cool'); vignette(0.45); header('PLUS 15');
+    sub(5, t - vo('d5'), TL.line(5)); src(); },
+  d6: t => { GFX.endCard(t, 0, { th: T, title: 'The City Above the Street', url: 'calgaryinsight.ca', logo: LOGO }); TXT.fadeUp('Studio demo · 3D: OpenStreetMap + three.js · narration: Kokoro (free, on GitHub Actions)', t, 1.0, 960, 880, { font: F(T, 400, 26), fill: T.sub }); text(SRC, 960, 1040, { font: F(T, 400, 20), fill: T.sub }); },
+};
+Promise.all([fetch('timeline.json').then(r => r.json()), City3D.init({ root: '../../' }), ...['700 40px "Fira Sans"', '400 40px "Fira Sans"', '500 40px "Fira Sans"', '800 40px "Fira Sans"', '600 40px "Fira Sans"'].map(f => document.fonts.load(f)), new Promise(r => { LOGO.onload = r; LOGO.onerror = r; })]).then(([tl]) => {
+  TL = tl; TL.shot = id => TL.shots.find(s => s.id === id); TL.line = i => TL.durs[i]; TL.shots.forEach(s => scene(s.id, s.dur, DRAW_FN[s.id])); window.PAGE_READY = true; });
+</script></body></html>

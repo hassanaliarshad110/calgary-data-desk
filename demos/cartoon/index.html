@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../engine/fonts.css"></head><body>
+<script src="../../engine/core.js"></script><script src="../../engine/chars.js"></script><script src="../../engine/props.js"></script>
+<script src="../../engine/sets.js"></script><script src="../../engine/fx.js"></script><script src="../../engine/graphics.js"></script>
+<script>
+/* CARTOON CHANNEL demo — "The Trick": Chacha Bashir and Zoya talk, move and emote.
+   Timing comes from timeline.json (built from the real voice durations); mouths from lips.json. */
+window.PAGE_READY = false; stage(1920, 1080);
+let TL, LIPS; const CH = CAST.chacha, ZO = CAST.zoya, GY = 905, SC = 1.25, XC = 700, XZ = 1250;
+const LINES = { c0: 'Zoya! Watch this. I will make this ball disappear!', z0: 'Chacha, you said that yesterday. And the day before.', c1: 'Today is different. Abracadabra!', c2: 'Ouch! My head!', z1: 'Ha ha ha! It did disappear. Right onto your head!', c3: 'Hmph. Tomorrow, a bigger trick.' };
+const lip = (k, t) => visemeAt(LIPS.tracks[k], t, 0, 30, k.charCodeAt(0));
+function room(t, cam) { drawSet('living_room', t, cam); }
+function actors(cam, t, pc, pz, extra) { C.save(); camApply(cam, 1); drawChar(CH, pc, XC, GY, SC, { t }); drawChar(ZO, pz, XZ, GY, SC, { t }); if (extra) extra(); C.restore(); }
+function sub(key, t, dur) { const a = clamp(t * 6) * clamp((dur - t) * 6); GFX.caption(LINES[key], { th: THEME.cartoon, y: 985, a, speaker: key[0] === 'c' ? 'CHACHA' : 'ZOYA' }); }
+function ballAt(cam, x, y, t, s = 1.1) { C.save(); camApply(cam, 1); PROPS.magicBall(x, y + 40 * s, s, t); C.restore(); }
+const holdBall = p => { p.armL.sw = 1.1; p.armL.ab = 0.75; p.armL.el = 0.8; p.handL = 'open'; return p; };
+
+function build() {
+  const D = TL.shots; D.forEach(s => scene(s.id, s.dur, DRAW_FN[s.id]));
+}
+const DRAW_FN = {
+  open: t => { const cam = CAM.kenBurns(t, 3.2, [960, 540, 1.0], [960, 560, 1.06]); room(t, cam);
+    const walkT = 2.8, zx = t < walkT ? lerp(2150, XZ, t / walkT) : XZ; let pz = t < walkT ? MOVES.walk(t, { yaw: -Math.PI / 2, speed: 1.05 }) : MOVES.turn(t - walkT, { from: -Math.PI / 2, to: -0.45, dur: 0.35 });
+    const pc = holdBall(MOVES.idle(t)); pc.yaw = 0.45; pc.face.expr = 'happy'; if (t > 2.0) pc.face.gaze = [0.8, 0];
+    C.save(); camApply(cam, 1); drawChar(CH, pc, XC, GY, SC, { t }); drawChar(ZO, pz, zx, GY, SC, { t }); const [bx, by] = jointPos(CH, pc, XC, GY, SC, 'wriL'); PROPS.magicBall(bx + 6, by + 30, 1.0, t); C.restore();
+    TXT.pop('THE TRICK', t, 0.4, 960, 170, { font: '120px Bangers', fill: '#ffd166', stroke: '#2a1c14', lw: 12, a: clamp((2.6 - t) * 3) }); },
+  c0: t => { const d = TL.dur('c0'); const cam = CAM.zoom(t, 0, d, 1.3, 1.42, [820, 560], 'inOut'); room(t, cam);
+    const pc = holdBall(MOVES.talk(t, { yaw: 0.45, expr: 'happy', seed: 2, hand: 'R' })); pc.face.mouth = lip('c0', t);
+    const pz = MOVES.listen(t, { yaw: -0.45, crossed: true }); pz.face.expr = 'neutral';
+    C.save(); camApply(cam, 1); drawChar(ZO, pz, XZ, GY, SC, { t }); drawChar(CH, pc, XC, GY, SC, { t }); const [bx, by] = jointPos(CH, pc, XC, GY, SC, 'wriL'); PROPS.magicBall(bx + 6, by + 30, 1.0, t); FX.stars(t, { x: bx, y: by - 10, rad: 70, n: 4 }); C.restore(); sub('c0', t, d); },
+  z0: t => { const d = TL.dur('z0'); const cam = CAM.zoom(t, 0, d, 1.32, 1.4, [1130, 560]); room(t, cam);
+    const pz = MOVES.talk(t, { yaw: -0.45, expr: 'smug', seed: 5, hand: 'L' }); pz.face.mouth = lip('z0', t); if (t > d * 0.55) { pz.head.roll = -0.12; }
+    const pc = holdBall(MOVES.idle(t)); pc.yaw = 0.45; pc.face.expr = t > d * 0.5 ? 'sad' : 'neutral';
+    C.save(); camApply(cam, 1); drawChar(CH, pc, XC, GY, SC, { t }); const [bx, by] = jointPos(CH, pc, XC, GY, SC, 'wriL'); PROPS.magicBall(bx + 6, by + 30, 1.0, t); drawChar(ZO, pz, XZ, GY, SC, { t }); C.restore(); sub('z0', t, d); },
+  c1: t => { const d = TL.dur('c1'), launch = TL.shot('c1').launch; const cam = CAM.zoom(t, 0, d, 1.12, 1.2, [960, 520]); room(t, cam);
+    const pc = holdBall(MOVES.talk(t, { yaw: 0.4, expr: 'determined', seed: 7 })); pc.face.mouth = lip('c1', t);
+    const wave = t > launch - 0.9; if (wave) { pc.armR.ab = 2.2; pc.armR.sw = 0.3; pc.armR.el = 0.5 + Math.sin(t * 18) * 0.35; pc.face.expr = 'shout'; }
+    const pz = MOVES.listen(t, { yaw: -0.45, crossed: !wave }); pz.face.expr = wave ? 'surprised' : 'smug';
+    C.save(); camApply(cam, 1); drawChar(ZO, pz, XZ, GY, SC, { t }); drawChar(CH, pc, XC, GY, SC, { t });
+    const [hx, hy] = jointPos(CH, pc, XC, GY, SC, 'wriR'); if (wave) PROPS.wand(hx, hy + 10, 1.0, t, -0.9 + Math.sin(t * 18) * 0.3);
+    const [bx, by] = jointPos(CH, pc, XC, GY, SC, 'wriL'); const k = t - launch;
+    if (k < 0) PROPS.magicBall(bx + 6, by + 30, 1.0, t); else { PROPS.magicBall(bx + 6 + k * 120, by + 30 - k * 1700, 1.0, t); FX.poof(t, { x: bx, y: by - 30, t0: launch }); FX.sparks(t, { x: bx, y: by - 30, t0: launch, n: 30 }); }
+    C.restore(); sub('c1', t, d); },
+  fall: t => { const hit = 1.05; let cam = CAM.still({ zoom: 1.18, x: 900, y: 500 }); cam = CAM.shake(cam, t, hit, 0.45, 26); room(t, cam);
+    const look = t < hit; const pc = holdBall(MOVES.idle(t)); pc.yaw = 0.3; pc.armL.sw = 0.2; pc.armL.ab = 0.4; pc.armL.el = 0.3;
+    if (look) { pc.head.pitch = -0.45; pc.face.expr = 'surprised'; pc.face.gaze = [0, -1]; } else { const sq = Math.max(0, 1 - (t - hit) / 0.25); const hh = MOVES.holdHead(t, { yaw: 0.3 }); pc.armL = hh.armL; pc.armR = hh.armR; pc.scaleY = 1 - 0.12 * sq; pc.face.expr = 'cry'; }
+    const pz = MOVES.idle(t); pz.yaw = -0.45; pz.head.pitch = -0.4; pz.face.expr = look ? 'surprised' : 'surprised'; pz.face.gaze = look ? [0, -1] : [-0.6, 0]; pz.armL.sw = pz.armR.sw = 0.9; pz.armL.el = pz.armR.el = 2.2; pz.armL.ab = pz.armR.ab = -0.1;
+    C.save(); camApply(cam, 1); drawChar(ZO, pz, XZ, GY, SC, { t }); drawChar(CH, pc, XC, GY, SC, { t }); const [hx, hy] = jointPos(CH, pc, XC, GY, SC, 'head');
+    if (t < hit) { const k = t / hit; PROPS.magicBall(hx + 10, lerp(-200, hy - 70, k * k) + 40, 1.0, t); FX.motionStreaks(hx + 10, lerp(-200, hy - 70, k * k) - 100, 1, 0, 0); C.strokeStyle = 'rgba(255,255,255,0.7)'; C.lineWidth = 5; for (let i = 0; i < 3; i++) { C.beginPath(); C.moveTo(hx - 20 + i * 20, lerp(-200, hy - 70, k * k) - 60); C.lineTo(hx - 20 + i * 20, lerp(-200, hy - 70, k * k) - 160); C.stroke(); } }
+    else { const k = t - hit; const bx = hx + 10 + k * 260, by = Math.min(GY - 30, hy - 70 + (-600 * k + 1800 * k * k)); PROPS.magicBall(bx, by + 40, 1.0, t); FX.impactStar(t, { x: hx + 40, y: hy - 150, t0: hit, size: 0.9, word: 'BONK!' }); FX.stars(t, { x: hx, y: hy - 120, rad: 110 }); }
+    C.restore(); },
+  c2: t => { const d = TL.dur('c2'); const cam = CAM.zoom(t, 0, d, 1.55, 1.7, [740, 470]); room(t, cam);
+    const pc = MOVES.holdHead(t, { yaw: 0.25 }); pc.face.mouth = lip('c2', t);
+    const pz = MOVES.idle(t); pz.yaw = -0.45; pz.face.expr = 'smug';
+    C.save(); camApply(cam, 1); drawChar(ZO, pz, XZ, GY, SC, { t }); drawChar(CH, pc, XC, GY, SC, { t }); const [hx, hy] = jointPos(CH, pc, XC, GY, SC, 'head'); FX.stars(t, { x: hx, y: hy - 130, rad: 110 }); C.fillStyle = '#e63946'; PROPS.magicBall(1000, GY, 1.0, t); C.restore(); sub('c2', t, d); },
+  z1: t => { const d = TL.dur('z1'); const cam = CAM.zoom(t, 0, d, 1.25, 1.35, [1120, 540]); room(t, cam);
+    const pz = MOVES.laugh(t, { yaw: -0.35 }); pz.face.mouth = lip('z1', t) === 'rest' ? 'laugh' : lip('z1', t); if (t > d * 0.55) { pz.armR.sw = 1.3; pz.armR.ab = -0.05; pz.armR.el = 0.1; pz.handR = 'point'; }
+    const pc = MOVES.listen(t, { yaw: 0.45, crossed: true }); pc.face.expr = 'angry';
+    C.save(); camApply(cam, 1); drawChar(CH, pc, XC, GY, SC, { t }); drawChar(ZO, pz, XZ, GY, SC, { t }); PROPS.magicBall(1000, GY, 1.0, t); const [hx, hy] = jointPos(CH, pc, XC, GY, SC, 'head'); FX.stars(t, { x: hx, y: hy - 130, rad: 100, n: 3 }); C.restore(); sub('z1', t, d); },
+  c3: t => { const d = TL.dur('c3'), sp = TL.shot('c3').dur; const cam = CAM.zoom(t, 0, sp, 1.2, 1.55, [720, 470], 'cubicInOut'); room(t, cam);
+    let pc = MOVES.turn(t, { from: 0.45, to: 0.0, dur: 0.6 }); pc.face.expr = 'determined'; pc.face.mouth = lip('c3', t); pc.armL.sw = pc.armR.sw = 0.5; pc.armL.ab = pc.armR.ab = -0.2; pc.armL.el = pc.armR.el = 1.6;
+    if (t > d + 0.1) { pc = MOVES.thumbsUp(t - d - 0.1); pc.face.expr = 'wink'; }
+    const pz = MOVES.idle(t); pz.yaw = -0.6; pz.face.expr = 'happy';
+    C.save(); camApply(cam, 1); drawChar(ZO, pz, XZ, GY, SC, { t }); drawChar(CH, pc, XC, GY, SC, { t }); PROPS.magicBall(1000, GY, 1.0, t); if (t > d + 0.25) { const [hx, hy] = jointPos(CH, pc, XC, GY, SC, 'head'); FX.stars(t, { x: hx + 120, y: hy - 40, rad: 30, n: 3 }); } C.restore(); if (t < d + 0.2) sub('c3', t, d); },
+  end: t => { const A = () => { const cam = CAM.still({ zoom: 1.55, x: 720, y: 470 }); room(3, cam); C.save(); camApply(cam, 1); const pc = MOVES.thumbsUp(1); pc.face.expr = 'wink'; drawChar(CH, pc, XC, GY, SC, { t: 3 }); C.restore(); };
+    const B = () => { C.fillStyle = '#ffd166'; C.fillRect(0, 0, 1920, 1080); FX.speedLines(t, { a: 0.5 }); TXT.pop('CARTOON CHANNEL', t, 0.75, 960, 440, { font: '150px Bangers', fill: '#e63946', stroke: '#2a1c14', lw: 14 }); TXT.fadeUp('Chacha & Zoya in "The Trick"  ·  studio demo', t, 1.1, 960, 600, { font: '800 52px Baloo2', fill: '#2a1c14' }); };
+    transition('irisOut', t, 0, 0.9, A, B, 760, 360); },
+};
+Promise.all([fetch('timeline.json').then(r => r.json()), fetch('lips.json').then(r => r.json()), ...['40px Bangers', '800 40px Baloo2', '700 40px "Fira Sans"'].map(f => document.fonts.load(f))]).then(([tl, lips]) => {
+  TL = tl; LIPS = lips; TL.shot = id => TL.shots.find(s => s.id === id); TL.dur = k => LIPS.durs[k]; build(); window.PAGE_READY = true; });
+</script></body></html>
