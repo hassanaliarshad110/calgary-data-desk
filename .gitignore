@@ -7,3 +7,7 @@ episodes/*/silent*.mp4
 episodes/*/ep*_*.mp4
 episodes/*/*.tmp.mp4
 episodes/*/*_mix.wav
+episodes/*/efr_*/
+episodes/*/efrw_*/
+episodes/*/*.m4a
+episodes/*/ep_*.jpg

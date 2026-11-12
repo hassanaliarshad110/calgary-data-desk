@@ -28,3 +28,8 @@ Every episode features Qasim/Susuman, Ammi, at least two more family members (Sa
 
 ## Numbering note (Nov 12, 2026)
 Hassan renumbered: Ep 2 = Barish Mein Pilla (built in episodes/ep3), Ep 3 = Patang Aur Kabootar (built in episodes/ep2). From Ep 4 on, folder episodes/epN = Episode N.
+
+## Release calendar notes (Nov 12, 2026)
+- Nov 13: Ep 2 extra Shorts 11:00 + 15:30 PKT; Ep 3 (Patang) full 16:9 18:00, Short 19:30, Reels 19:35.
+- Nov 14 12:00 PKT: Ep 1 re-released as a TRUE 16:9 full video (replaces the side-panel upload). This is a re-release, NOT a new episode, so Nov 14 is still free for Ep 4 (full video 18:00 PKT, Short 19:30, Reels 19:35).
+- Each episode also gets 2 extra Shorts the next day (best rescue moment ~30-40 s, best comedy/secret moment ~25-30 s), captions linking to the full video.
