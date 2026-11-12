@@ -249,3 +249,127 @@ function hookText(l1, l2, t, a) {
   if (k2 > 0) g += `<g transform="translate(540,415) scale(${k2}) rotate(-3)">${T(0, 0, 118, l2, { fill: C.gold, shadow: C.red })}</g>`;
   return g;
 }
+
+// =====================================================================
+// ---------- 2.5D DEPTH KIT (standing rule from Nov 12, 2026) ----------
+// Characters stay the flat 2D rig above; DEPTH comes from the staging:
+//   layer(d, cam, inner)  parallax layer at depth d (1 = action plane, >1 farther, <1 foreground).
+//                         cam = {x, y, z, px, py}: pan (action-plane px), dolly/zoom z, screen pivot.
+//                         Far layers pan 1/d as much and grow less on a push-in; near layers more.
+//                         Auto depth-of-field: blur on the farthest layers (d>=5) and on the foreground (d<=.8).
+//   depthDefs(hazeCol)    the filters/gradients (put once per frame, after defs()).
+//   veil(op)              atmospheric haze veil drawn after each far layer (aerial perspective).
+//   shadow(x,y,w,op,o)    soft contact/cast shadow (o.dx, o.skew push it away from the light).
+//   lightPool(...)        additive glow pool on the floor (lamps, sun patches, the washroom-door gold light).
+//   shafts(...)           god-ray light shafts from a source.   haze(y0,y1,op,col) horizon haze band.
+//   motes(...)            sunlit dust drifting in the air.        distS(d) = character scale for depth d.
+// =====================================================================
+function depthDefs(haze = '#cfe3f2') {
+  // depth-of-field blurs are clipped to the frame (rendering cost); haze is done with veils (veil()) between layers
+  const R = 'filterUnits="userSpaceOnUse" x="-20" y="-20" width="1120" height="1960"';
+  return `<defs><filter id="dof6" ${R}><feGaussianBlur stdDeviation="2.4"/></filter><filter id="dof4" ${R}><feGaussianBlur stdDeviation="1.3"/></filter>
+  <filter id="dofNear" ${R}><feGaussianBlur stdDeviation="8"/></filter><filter id="dofNear2" ${R}><feGaussianBlur stdDeviation="3.5"/></filter>
+  <linearGradient id="veilG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${haze}" stop-opacity=".15"/><stop offset=".55" stop-color="${haze}" stop-opacity=".75"/><stop offset="1" stop-color="${haze}" stop-opacity=".9"/></linearGradient>
+  <radialGradient id="shad"><stop offset="0" stop-color="#1a0f0a" stop-opacity=".6"/><stop offset=".55" stop-color="#1a0f0a" stop-opacity=".3"/><stop offset="1" stop-color="#1a0f0a" stop-opacity="0"/></radialGradient>
+  <radialGradient id="pool"><stop offset="0" stop-color="#fff4c0" stop-opacity=".95"/><stop offset=".4" stop-color="#ffc83a" stop-opacity=".55"/><stop offset="1" stop-color="#ff9a00" stop-opacity="0"/></radialGradient>
+  <radialGradient id="poolW"><stop offset="0" stop-color="#fffbe8" stop-opacity=".7"/><stop offset="1" stop-color="#fff2c4" stop-opacity="0"/></radialGradient>
+  <radialGradient id="sunG"><stop offset="0" stop-color="#fffdf0"/><stop offset=".22" stop-color="#fff3c0" stop-opacity=".85"/><stop offset="1" stop-color="#ffe7a0" stop-opacity="0"/></radialGradient>
+  </defs>`;
+}
+// atmospheric haze veil drawn between depth layers (stronger towards the horizon). op = strength
+function veil(op = .4, y0 = 0, y1 = 1920) { return `<rect x="-20" y="${y0}" width="1120" height="${y1 - y0}" fill="url(#veilG)" opacity="${clamp(op).toFixed(3)}"/>`; }
+const distS = d => 1 / d;                       // how much smaller a character looks at depth d
+function layer(d, cam, inner, o = {}) {
+  const k = 1 / d, z = cam.z ?? 1, s = 1 + (z - 1) * k;
+  const px = cam.px ?? 540, py = cam.py ?? 960, tx = (cam.x || 0) * k, ty = (cam.y || 0) * k;
+  const body = typeof inner === 'function' ? inner(k, s) : inner;
+  const g = `<g transform="translate(${px.toFixed(1)},${py.toFixed(1)}) scale(${s.toFixed(4)}) translate(${(-px - tx).toFixed(1)},${(-py - ty).toFixed(1)})">${body}</g>`;
+  const f = o.f !== undefined ? o.f : d >= 5 ? 'dof6' : d <= .62 ? 'dofNear' : d <= .8 ? 'dofNear2' : '';
+  return f ? `<g filter="url(#${f})">${g}</g>` : g;
+}
+function shadow(x, y, w, op = 1, o = {}) {
+  const ry = w * (o.flat ?? .2), dx = o.dx || 0, sk = o.skew || 0;
+  return `<ellipse cx="${(x + dx).toFixed(1)}" cy="${y.toFixed(1)}" rx="${w.toFixed(1)}" ry="${ry.toFixed(1)}" fill="url(#shad)" opacity="${clamp(op).toFixed(3)}"${sk ? ` transform="translate(${x},${y}) skewX(${sk}) translate(${-x},${-y})"` : ''}/>`;
+}
+// shadow for something lifted h px above the floor: smaller and fainter the higher it is
+const liftShadow = (x, floorY, w, h, o = {}) => shadow(x, floorY, w * clamp(1 - h / 1400, .25, 1), clamp(1 - h / 900, .12, 1) * (o.op ?? 1), o);
+function lightPool(x, y, rx, ry, op = 1, grad = 'pool') {
+  return `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="url(#${grad})" opacity="${clamp(op).toFixed(3)}" style="mix-blend-mode:screen"/>`;
+}
+function shafts(x, y, ang, n, len, op, t, col = '#fff3c8', spread = .11, w = .045) {
+  let g = '';
+  for (let i = 0; i < n; i++) {
+    const a = ang + (i - (n - 1) / 2) * spread + .025 * Math.sin(t * .6 + i * 1.3), ww = w * (.7 + .6 * Math.abs(Math.sin(i * 2.3)));
+    const o = op * (.45 + .55 * Math.sin(i * 1.7 + t * .8) ** 2);
+    g += `<path d="M${x},${y} L${(x + len * Math.cos(a - ww)).toFixed(1)},${(y + len * Math.sin(a - ww)).toFixed(1)} L${(x + len * Math.cos(a + ww)).toFixed(1)},${(y + len * Math.sin(a + ww)).toFixed(1)}Z" fill="${col}" opacity="${o.toFixed(3)}" style="mix-blend-mode:screen"/>`;
+  }
+  return g;
+}
+function haze(y0, y1, op = .5, col = '#fff1d6') {
+  let g = ''; const n = 8;
+  for (let i = 0; i < n; i++) { const a = y0 + (y1 - y0) * i / n; g += `<rect x="-600" y="${a.toFixed(1)}" width="2280" height="${((y1 - y0) / n + 1).toFixed(1)}" fill="${col}" opacity="${(op * Math.sin((i + .5) / n * Math.PI)).toFixed(3)}"/>`; }
+  return g;
+}
+function motes(t, n, x0, y0, w, h, op = .7, seed = 1) {
+  let g = '';
+  for (let i = 0; i < n; i++) {
+    const a = Math.sin((i + seed) * 91.7) * 43758.5; const r = a - Math.floor(a);
+    const x = x0 + ((r * w + t * (8 + 12 * r) + 30 * Math.sin(t * .7 + i)) % w + w) % w, y = y0 + ((i * 137.3 % h) - t * (6 + 10 * r) % h + h) % h;
+    g += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(2 + 3 * r).toFixed(1)}" fill="#fff8d8" opacity="${(op * (.4 + .6 * Math.abs(Math.sin(t * 1.3 + i)))).toFixed(3)}"/>`;
+  }
+  return g;
+}
+
+// ---------- KITE DAY PROPS + KABOOTAR (Episode 2) ----------
+function patang(x, y, s, rot, c1, c2 = '#fff', o = {}) {   // diamond kite with spine, bow and a little tail
+  const fl = o.t !== undefined ? 6 * Math.sin(o.t * 9) : 0;
+  return `<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot.toFixed(1)}) scale(${s})">
+    <path d="M0,62 q${-12 + fl},22 ${4 + fl},40 q${10 - fl},16 ${-4},30" stroke="${c2}" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M0,-62 L54,0 L0,64 L-54,0Z" fill="${c1}" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M0,-62 L54,0 L0,0Z" fill="${c2}" opacity=".92"/><circle cx="-20" cy="18" r="10" fill="${c2}" opacity=".9"/>
+    <path d="M0,-62 V64" stroke="#6b4a2a" stroke-width="4"/><path d="M-54,0 Q0,-36 54,0" stroke="#6b4a2a" stroke-width="4" fill="none"/>
+    <path d="M0,64 l-13,18 h26z" fill="${c2}" stroke="${C.ink}" stroke-width="3"/></g>`;
+}
+function dor(x1, y1, x2, y2, sag = 60, col = '#7a6a8a', w = 2.5, op = .9) {   // kite string with a sag
+  return `<path d="M${x1.toFixed(1)},${y1.toFixed(1)} Q${((x1 + x2) / 2).toFixed(1)},${((y1 + y2) / 2 + sag).toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}" stroke="${col}" stroke-width="${w}" fill="none" opacity="${op}"/>`;
+}
+function charkhi(x, y, s, rot = 0, t = 0, thread = '#e5463b', spin = 0) {   // wooden kite spool
+  const a = spin * t * 720;
+  return `<g transform="translate(${x},${y}) rotate(${rot}) scale(${s})">
+    <rect x="-12" y="-120" width="24" height="70" rx="10" fill="#a8743f" stroke="${C.ink}" stroke-width="5"/><rect x="-12" y="50" width="24" height="70" rx="10" fill="#a8743f" stroke="${C.ink}" stroke-width="5"/>
+    <rect x="-60" y="-56" width="120" height="112" rx="16" fill="${thread}" stroke="${C.ink}" stroke-width="5"/>
+    ${[0, 1, 2, 3].map(k => `<path d="M-58,${-40 + ((k * 28 + a) % 112 + 112) % 112 - 0} h116" stroke="#fff" stroke-width="3" opacity=".35"/>`).join('')}
+    <rect x="-74" y="-64" width="16" height="128" rx="6" fill="#c48a4c" stroke="${C.ink}" stroke-width="5"/><rect x="58" y="-64" width="16" height="128" rx="6" fill="#c48a4c" stroke="${C.ink}" stroke-width="5"/></g>`;
+}
+function feather(x, y, s, rot, op = 1) {
+  return `<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot.toFixed(1)}) scale(${s})" opacity="${op}"><path d="M0,-40 Q20,-10 6,34 L0,44 L-6,34 Q-20,-10 0,-40Z" fill="#eef2f7" stroke="${C.ink}" stroke-width="3.5"/><path d="M0,-34 V52" stroke="#8a97a8" stroke-width="3"/><path d="M0,-6 l10,-8 M0,8 l-10,-8 M0,20 l9,-7" stroke="#b8c2cf" stroke-width="2.5"/></g>`;
+}
+// KABOOTAR — grey-blue rock pigeon, green/purple shimmering neck, orange eyes, pink feet.
+// pose: 'perch' | 'fly' | 'tangled' (one wing caught, flapping) | 'held' (wings folded, calm)
+function kabootar(o) {
+  o = Object.assign({ x: 0, y: 0, s: 1, flip: 1, rot: 0, t: 0, pose: 'perch', wide: 0, blink: 0, look: [0, 0], coo: 0, bob: 0 }, o);
+  const B = '#9fb0c2', BD = '#71839a', BAR = '#3d4757', IR1 = '#2fa889', IR2 = '#8b58b8', INK = C.ink;
+  let g = `<g transform="translate(${o.x.toFixed(1)},${o.y.toFixed(1)}) rotate(${o.rot.toFixed(1)}) scale(${(o.s * o.flip).toFixed(3)},${o.s.toFixed(3)})">`;
+  const flying = o.pose === 'fly', tang = o.pose === 'tangled';
+  const fa = flying ? 55 * Math.sin(o.t * 20) : tang ? 40 * Math.sin(o.t * 28) : 0;
+  const wing = (ang, far) => `<g transform="translate(-6,-58) rotate(${ang.toFixed(1)})"><path d="M0,0 Q-20,-70 -96,-88 Q-82,-66 -88,-56 Q-70,-54 -74,-38 Q-50,-30 -50,-18 Q-24,-8 0,8Z" fill="${far ? BD : B}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/><path d="M-40,-40 l-30,-12 M-44,-26 l-28,-8" stroke="${BAR}" stroke-width="6" stroke-linecap="round"/></g>`;
+  if (flying || tang) g += wing(-20 + fa, 1);
+  if (!flying) g += `<path d="M-6,-10 L-12,8 M-12,8 l-12,6 M-12,8 l2,12 M-12,8 l10,6 M12,-10 L16,8 M16,8 l-12,6 M16,8 l2,12 M16,8 l10,6" stroke="#e8667a" stroke-width="5" stroke-linecap="round" fill="none"/>`;
+  else g += `<path d="M-8,-14 l-20,16 M6,-14 l-14,18" stroke="#e8667a" stroke-width="5" stroke-linecap="round"/>`;
+  g += `<path d="M-40,-44 L-104,-30 L-100,-10 L-36,-24Z" fill="${BD}" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="M-104,-30 L-100,-10 L-88,-13 L-92,-32Z" fill="#2c3340"/>`;
+  g += `<ellipse cx="0" cy="-42" rx="54" ry="35" fill="${B}" stroke="${INK}" stroke-width="5"/><ellipse cx="6" cy="-30" rx="36" ry="16" fill="#c3cfdb" opacity=".7"/>`;
+  g += `<path d="M18,-66 Q46,-62 50,-36 Q36,-50 16,-48Z" fill="${IR1}"/><path d="M24,-58 Q40,-54 44,-40" stroke="${IR2}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+  if (!flying && !tang) g += `<path d="M-30,-58 Q0,-74 22,-58 Q10,-30 -36,-26 Q-46,-40 -30,-58Z" fill="${BD}" stroke="${INK}" stroke-width="4"/><path d="M-22,-46 l-20,4 M-18,-36 l-20,4" stroke="${BAR}" stroke-width="6" stroke-linecap="round"/>`;
+  const hb = o.bob ? 6 * Math.sin(o.t * 14) : 0;
+  g += `<g transform="translate(${42 + hb},-80)"><circle r="23" fill="${B}" stroke="${INK}" stroke-width="5"/>
+    <circle cx="8" cy="-5" r="${9 + 3 * o.wide}" fill="#ff8a1e" stroke="${INK}" stroke-width="2.5"/>${o.blink > .5 ? `<path d="M0,-5 h16" stroke="${INK}" stroke-width="3"/>` : `<circle cx="${9 + o.look[0]}" cy="${-5 + o.look[1]}" r="${4.5 + o.wide}" fill="#111"/><circle cx="${7 + o.look[0]}" cy="${-8 + o.look[1]}" r="1.8" fill="#fff"/>`}
+    <path d="M19,-2 L36,${4 + 4 * o.coo} L19,9Z" fill="#d8c3ae" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="20" cy="-3" rx="5" ry="3.5" fill="#f4f1ea"/></g>`;
+  if (flying || tang) g += wing(-35 - fa * .9, 0);
+  return g + '</g>';
+}
+// proj(d, cam, x, y): where a point at depth d lands on screen, and the scale a character there gets
+// (layer scale x 1/d), so a character can walk from one depth to another smoothly.
+function proj(d, cam, x, y) {
+  const k = 1 / d, z = cam.z ?? 1, s = 1 + (z - 1) * k, px = cam.px ?? 540, py = cam.py ?? 960;
+  return { x: (x - px - (cam.x || 0) * k) * s + px, y: (y - py - (cam.y || 0) * k) * s + py, s: s * k };
+}

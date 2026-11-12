@@ -7,8 +7,8 @@ Every episode: ~110 s vertical, desi setting, Qasim's washroom running gag ("Amm
 |---|---|---|---|---|---|
 | 0 | DONE 2026-11-12 | Teaser | — | Secret power reveal | — |
 | 1 | DONE 2026-11-12 | Mano Billi Ko Bachao | billi wala cartoon | Gali cricket; kitten stuck on neem branch; tiny tap + Mano's paw = CHAUKA | Ped par khud mat chadhna |
-| 2 | NEXT | Patang Aur Kabootar | patang wala cartoon | Kite day; Bunty's manjha tangles a pigeon high in the neem tree; Susuman frees it gently, kids switch to cotton thread | Manjha parindon ko zakhmi karta hai |
-| 3 | TODO | Barish Mein Pilla | barish wala cartoon | Monsoon rain floods the gali; a puppy is stuck on a floating crate; Susuman scoops it out; kids dry it with a towel | Barish ke paani mein mat khelo |
+| 2 | DONE 2026-11-12 (publishes 2026-11-13) | Patang Aur Kabootar | patang wala cartoon | Kite day; Bunty's manjha tangles a pigeon high in the neem tree; Susuman frees it gently, kids switch to cotton thread | Manjha parindon ko zakhmi karta hai |
+| 3 | NEXT | Barish Mein Pilla | barish wala cartoon | Monsoon rain floods the gali; a puppy is stuck on a floating crate; Susuman scoops it out; kids dry it with a towel | Barish ke paani mein mat khelo |
 | 4 | TODO | Ice Cream Wala Thela | ice cream wala cartoon | Ice-cream cart rolls downhill towards kids; Susuman stops it; ice-cream party | Sadak par dhyan se |
 | 5 | TODO | Bandar Ne Chashma Churaya | bandar wala cartoon | A monkey steals Dadi's glasses; chase over balconies; Susuman trades a banana | Janwaron ko tang mat karo |
 | 6 | TODO | Mele Mein Gum | mela wala cartoon | A little girl lost at the mela; Susuman flies above the crowd, finds her parents | Apna naam-pata yaad rakho |

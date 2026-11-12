@@ -1,0 +1,238 @@
+{
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "dur": 6.6
+  },
+  {
+   "id": "intro",
+   "start": 6.6,
+   "dur": 9.409
+  },
+  {
+   "id": "ask",
+   "start": 16.009,
+   "dur": 10.842
+  },
+  {
+   "id": "fight",
+   "start": 26.85,
+   "dur": 10.196
+  },
+  {
+   "id": "home",
+   "start": 37.047,
+   "dur": 6.792
+  },
+  {
+   "id": "danger",
+   "start": 43.839,
+   "dur": 10.919
+  },
+  {
+   "id": "power",
+   "start": 54.758,
+   "dur": 8.439
+  },
+  {
+   "id": "rescue",
+   "start": 63.197,
+   "dur": 12.46
+  },
+  {
+   "id": "lesson",
+   "start": 75.657,
+   "dur": 17.042
+  },
+  {
+   "id": "ending",
+   "start": 92.699,
+   "dur": 8.59
+  },
+  {
+   "id": "endcard",
+   "start": 101.289,
+   "dur": 10.605
+  }
+ ],
+ "lines": {
+  "n1": {
+   "scene": "hook",
+   "s": 0.5,
+   "d": 3.6,
+   "abs": 0.5,
+   "sp": "NARR",
+   "txt": "Kya ek chaar saal ka bachcha...|is nanhe kabootar ko bacha paayega?"
+  },
+  "n2": {
+   "scene": "intro",
+   "s": 1.2,
+   "d": 3.609,
+   "abs": 7.8,
+   "sp": "NARR",
+   "txt": "Aaj hai patang ka din!|Har chhat par... patang hi patang!"
+  },
+  "q1": {
+   "scene": "ask",
+   "s": 1.8,
+   "d": 2.343,
+   "abs": 17.809,
+   "sp": "QASIM",
+   "txt": "Bunty bhai! Mujhe bhi|patang udaani hai!"
+  },
+  "b1": {
+   "scene": "ask",
+   "s": 4.393,
+   "d": 2.968,
+   "abs": 20.402,
+   "sp": "BUNTY",
+   "txt": "Ye manjha bahut tez hai!|Tu bahut chhota hai!"
+  },
+  "g1": {
+   "scene": "ask",
+   "s": 7.561,
+   "d": 1.581,
+   "abs": 23.57,
+   "sp": "GUDDU",
+   "txt": "Chhotu, tu bas charkhi pakad!"
+  },
+  "g2": {
+   "scene": "fight",
+   "s": 5.0,
+   "d": 2.796,
+   "abs": 31.85,
+   "sp": "GUDDU",
+   "txt": "Bo kaata!|Arre... apni hi kat gayi!"
+  },
+  "q2": {
+   "scene": "home",
+   "s": 1.8,
+   "d": 1.257,
+   "abs": 38.847,
+   "sp": "QASIM",
+   "txt": "Ammi! Suusuu aayi hai!"
+  },
+  "a1": {
+   "scene": "home",
+   "s": 3.357,
+   "d": 1.735,
+   "abs": 40.403,
+   "sp": "AMMI",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "g3": {
+   "scene": "danger",
+   "s": 3.2,
+   "d": 2.222,
+   "abs": 47.039,
+   "sp": "GUDDU",
+   "txt": "Arre! Kabootar manjhe mein|phas gaya!"
+  },
+  "b2": {
+   "scene": "danger",
+   "s": 5.722,
+   "d": 3.597,
+   "abs": 49.561,
+   "sp": "BUNTY",
+   "txt": "Itna upar... aur manjha tez hai!|Ab kya karein?"
+  },
+  "n3": {
+   "scene": "power",
+   "s": 0.7,
+   "d": 3.642,
+   "abs": 55.458,
+   "sp": "NARR",
+   "txt": "Lekin koi nahi jaanta...|har flush ke saath Qasim ban jata hai..."
+  },
+  "q3": {
+   "scene": "power",
+   "s": 5.242,
+   "d": 1.598,
+   "abs": 59.999,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "b3": {
+   "scene": "rescue",
+   "s": 7.0,
+   "d": 1.483,
+   "abs": 70.197,
+   "sp": "BUNTY",
+   "txt": "Wo superhero phir aa gaya!"
+  },
+  "g4": {
+   "scene": "rescue",
+   "s": 8.733,
+   "d": 1.327,
+   "abs": 71.93,
+   "sp": "GUDDU",
+   "txt": "Usne kabootar bacha liya!"
+  },
+  "b4": {
+   "scene": "lesson",
+   "s": 1.4,
+   "d": 2.578,
+   "abs": 77.057,
+   "sp": "BUNTY",
+   "txt": "Mera manjha...|parindon ko zakhmi karta hai."
+  },
+  "b5": {
+   "scene": "lesson",
+   "s": 4.278,
+   "d": 3.738,
+   "abs": 79.935,
+   "sp": "BUNTY",
+   "txt": "Aaj se sirf saada dhaaga!|Aa ja Chhotu, tu bhi uda!"
+  },
+  "q4": {
+   "scene": "lesson",
+   "s": 11.216,
+   "d": 1.72,
+   "abs": 86.874,
+   "sp": "QASIM",
+   "txt": "Dekho! Sabse oonchi patang!"
+  },
+  "n4": {
+   "scene": "lesson",
+   "s": 13.336,
+   "d": 1.706,
+   "abs": 88.993,
+   "sp": "NARR",
+   "txt": "Kabootar ne bhi apni dosti nibhaayi!"
+  },
+  "q5": {
+   "scene": "ending",
+   "s": 1.0,
+   "d": 1.439,
+   "abs": 93.699,
+   "sp": "QASIM",
+   "txt": "Ammiii! Suusuu aayi hai!"
+  },
+  "a2": {
+   "scene": "ending",
+   "s": 2.739,
+   "d": 2.616,
+   "abs": 95.438,
+   "sp": "AMMI",
+   "txt": "Phir se?! Aur baalon mein|ye pankh kahan se aaya?"
+  },
+  "q6": {
+   "scene": "ending",
+   "s": 5.605,
+   "d": 1.085,
+   "abs": 98.304,
+   "sp": "QASIM",
+   "txt": "Kuch nahi Ammi!"
+  },
+  "n5": {
+   "scene": "endcard",
+   "s": 0.6,
+   "d": 6.605,
+   "abs": 101.889,
+   "sp": "NARR",
+   "txt": "Bachcho, manjha parindon ko|zakhmi karta hai...~Saada dhaaga istemaal karo!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
+  }
+ },
+ "total": 111.893
+}
