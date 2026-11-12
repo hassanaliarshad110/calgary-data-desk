@@ -1,0 +1,1088 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-07-15T15:22:01Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "way",
+  "id": 46694171,
+  "bounds": {
+    "minlat": 51.0541974,
+    "minlon": -114.0674266,
+    "maxlat": 51.0545618,
+    "maxlon": -114.0674255
+  },
+  "geometry": [
+    { "lat": 51.0541974, "lon": -114.0674255 },
+    { "lat": 51.0545618, "lon": -114.0674266 }
+  ],
+  "tags": {
+    "bicycle": "yes",
+    "bridge": "yes",
+    "catmp-RoadID": "2230",
+    "emergency": "no",
+    "foot": "yes",
+    "goods": "no",
+    "hgv": "no",
+    "highway": "footway",
+    "layer": "1",
+    "maxspeed": "20",
+    "motorcar": "no",
+    "psv": "no",
+    "source": "Calgary Area Trail Mapping Project",
+    "surface": "concrete",
+    "taxi": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 127718949,
+  "bounds": {
+    "minlat": 51.0471510,
+    "minlon": -114.0705150,
+    "maxlat": 51.0471790,
+    "maxlon": -114.0701375
+  },
+  "geometry": [
+    { "lat": 51.0471790, "lon": -114.0701375 },
+    { "lat": 51.0471764, "lon": -114.0705113 },
+    { "lat": 51.0471510, "lon": -114.0705150 }
+  ],
+  "tags": {
+    "bicycle": "no",
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 127734650,
+  "bounds": {
+    "minlat": 51.0466491,
+    "minlon": -114.0722062,
+    "maxlat": 51.0468430,
+    "maxlon": -114.0721911
+  },
+  "geometry": [
+    { "lat": 51.0466491, "lon": -114.0722062 },
+    { "lat": 51.0468430, "lon": -114.0721911 }
+  ],
+  "tags": {
+    "bicycle": "no",
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "level": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 127889836,
+  "bounds": {
+    "minlat": 51.0485093,
+    "minlon": -114.0593936,
+    "maxlat": 51.0485122,
+    "maxlon": -114.0592148
+  },
+  "geometry": [
+    { "lat": 51.0485122, "lon": -114.0593936 },
+    { "lat": 51.0485093, "lon": -114.0592148 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 127943934,
+  "bounds": {
+    "minlat": 51.0472223,
+    "minlon": -114.0593567,
+    "maxlat": 51.0475574,
+    "maxlon": -114.0593324
+  },
+  "geometry": [
+    { "lat": 51.0475574, "lon": -114.0593324 },
+    { "lat": 51.0472223, "lon": -114.0593567 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 157465833,
+  "bounds": {
+    "minlat": 51.0541413,
+    "minlon": -114.0652170,
+    "maxlat": 51.0541786,
+    "maxlon": -114.0651451
+  },
+  "geometry": [
+    { "lat": 51.0541413, "lon": -114.0652170 },
+    { "lat": 51.0541786, "lon": -114.0651451 }
+  ],
+  "tags": {
+    "bicycle": "yes",
+    "bridge": "yes",
+    "emergency": "no",
+    "foot": "yes",
+    "goods": "no",
+    "hgv": "no",
+    "highway": "footway",
+    "layer": "1",
+    "maxspeed": "20",
+    "motorcar": "no",
+    "psv": "no",
+    "source": "Calgary Area Trail Mapping Project",
+    "surface": "asphalt",
+    "taxi": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 171256121,
+  "bounds": {
+    "minlat": 51.0504568,
+    "minlon": -114.0854305,
+    "maxlat": 51.0516766,
+    "maxlon": -114.0839273
+  },
+  "geometry": [
+    { "lat": 51.0516766, "lon": -114.0854305 },
+    { "lat": 51.0504568, "lon": -114.0839273 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "direction": "east",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "layer": "1",
+    "lit": "yes",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 171256124,
+  "bounds": {
+    "minlat": 51.0503622,
+    "minlon": -114.0856182,
+    "maxlat": 51.0515849,
+    "maxlon": -114.0841222
+  },
+  "geometry": [
+    { "lat": 51.0515849, "lon": -114.0856182 },
+    { "lat": 51.0503622, "lon": -114.0841222 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "direction": "west",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "layer": "1",
+    "lit": "yes",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 172402426,
+  "bounds": {
+    "minlat": 51.0530478,
+    "minlon": -114.0624167,
+    "maxlat": 51.0538455,
+    "maxlon": -114.0623901
+  },
+  "geometry": [
+    { "lat": 51.0538455, "lon": -114.0623901 },
+    { "lat": 51.0530478, "lon": -114.0624167 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "2",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 172402436,
+  "bounds": {
+    "minlat": 51.0530516,
+    "minlon": -114.0626718,
+    "maxlat": 51.0539408,
+    "maxlon": -114.0626443
+  },
+  "geometry": [
+    { "lat": 51.0539408, "lon": -114.0626443 },
+    { "lat": 51.0530516, "lon": -114.0626718 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "layer": "2",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 573703601,
+  "bounds": {
+    "minlat": 51.0467381,
+    "minlon": -114.0754650,
+    "maxlat": 51.0469711,
+    "maxlon": -114.0754512
+  },
+  "geometry": [
+    { "lat": 51.0469711, "lon": -114.0754512 },
+    { "lat": 51.0467381, "lon": -114.0754650 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "indoor": "yes",
+    "layer": "1",
+    "name": "Plus 15 Skywalk"
+  }
+},
+{
+  "type": "way",
+  "id": 599981405,
+  "bounds": {
+    "minlat": 51.0483817,
+    "minlon": -114.0803293,
+    "maxlat": 51.0484432,
+    "maxlon": -114.0803247
+  },
+  "geometry": [
+    { "lat": 51.0483817, "lon": -114.0803293 },
+    { "lat": 51.0484432, "lon": -114.0803247 }
+  ],
+  "tags": {
+    "access": "private",
+    "bicycle": "no",
+    "bridge": "yes",
+    "highway": "footway",
+    "horse": "no",
+    "layer": "1",
+    "level": "1",
+    "lit": "no",
+    "motor_vehicle": "no",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 728788814,
+  "bounds": {
+    "minlat": 51.0480485,
+    "minlon": -114.0592064,
+    "maxlat": 51.0484744,
+    "maxlon": -114.0591758
+  },
+  "geometry": [
+    { "lat": 51.0484744, "lon": -114.0591758 },
+    { "lat": 51.0480485, "lon": -114.0592064 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 963753894,
+  "bounds": {
+    "minlat": 51.0450423,
+    "minlon": -114.0814958,
+    "maxlat": 51.0450530,
+    "maxlon": -114.0811363
+  },
+  "geometry": [
+    { "lat": 51.0450530, "lon": -114.0814958 },
+    { "lat": 51.0450423, "lon": -114.0811363 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 963753909,
+  "bounds": {
+    "minlat": 51.0451839,
+    "minlon": -114.0814718,
+    "maxlat": 51.0451923,
+    "maxlon": -114.0811655
+  },
+  "geometry": [
+    { "lat": 51.0451923, "lon": -114.0814718 },
+    { "lat": 51.0451839, "lon": -114.0811655 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 971004795,
+  "bounds": {
+    "minlat": 51.0449010,
+    "minlon": -114.0716760,
+    "maxlat": 51.0449081,
+    "maxlon": -114.0713768
+  },
+  "geometry": [
+    { "lat": 51.0449010, "lon": -114.0713768 },
+    { "lat": 51.0449081, "lon": -114.0716760 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 971004796,
+  "bounds": {
+    "minlat": 51.0447507,
+    "minlon": -114.0716742,
+    "maxlat": 51.0447594,
+    "maxlon": -114.0713880
+  },
+  "geometry": [
+    { "lat": 51.0447594, "lon": -114.0716742 },
+    { "lat": 51.0447507, "lon": -114.0713880 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1020120524,
+  "bounds": {
+    "minlat": 51.0468617,
+    "minlon": -114.0596269,
+    "maxlat": 51.0468727,
+    "maxlon": -114.0594086
+  },
+  "geometry": [
+    { "lat": 51.0468631, "lon": -114.0596269 },
+    { "lat": 51.0468617, "lon": -114.0595828 },
+    { "lat": 51.0468727, "lon": -114.0595523 },
+    { "lat": 51.0468711, "lon": -114.0594086 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "level": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1020120530,
+  "bounds": {
+    "minlat": 51.0468727,
+    "minlon": -114.0596246,
+    "maxlat": 51.0468848,
+    "maxlon": -114.0595523
+  },
+  "geometry": [
+    { "lat": 51.0468848, "lon": -114.0596246 },
+    { "lat": 51.0468838, "lon": -114.0595835 },
+    { "lat": 51.0468727, "lon": -114.0595523 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "level": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1069657130,
+  "bounds": {
+    "minlat": 51.0471709,
+    "minlon": -114.0711821,
+    "maxlat": 51.0472338,
+    "maxlon": -114.0711797
+  },
+  "geometry": [
+    { "lat": 51.0471709, "lon": -114.0711821 },
+    { "lat": 51.0472338, "lon": -114.0711797 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1125904535,
+  "bounds": {
+    "minlat": 51.0479971,
+    "minlon": -114.0566522,
+    "maxlat": 51.0484271,
+    "maxlon": -114.0566203
+  },
+  "geometry": [
+    { "lat": 51.0479971, "lon": -114.0566424 },
+    { "lat": 51.0479973, "lon": -114.0566522 },
+    { "lat": 51.0484271, "lon": -114.0566203 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1125904537,
+  "bounds": {
+    "minlat": 51.0479968,
+    "minlon": -114.0566424,
+    "maxlat": 51.0479971,
+    "maxlon": -114.0566225
+  },
+  "geometry": [
+    { "lat": 51.0479968, "lon": -114.0566225 },
+    { "lat": 51.0479971, "lon": -114.0566424 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "covered": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1313657678,
+  "bounds": {
+    "minlat": 51.0535253,
+    "minlon": -114.0794632,
+    "maxlat": 51.0543297,
+    "maxlon": -114.0783084
+  },
+  "geometry": [
+    { "lat": 51.0535253, "lon": -114.0783084 },
+    { "lat": 51.0537264, "lon": -114.0785971 },
+    { "lat": 51.0539275, "lon": -114.0788858 },
+    { "lat": 51.0541286, "lon": -114.0791745 },
+    { "lat": 51.0543297, "lon": -114.0794632 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "bridge:name": "Peace Bridge",
+    "check_date:surface": "2024-09-02",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "layer": "1",
+    "oneway": "yes",
+    "surface": "concrete:plates"
+  }
+},
+{
+  "type": "way",
+  "id": 1313657681,
+  "bounds": {
+    "minlat": 51.0534974,
+    "minlon": -114.0795101,
+    "maxlat": 51.0543030,
+    "maxlon": -114.0783574
+  },
+  "geometry": [
+    { "lat": 51.0543030, "lon": -114.0795101 },
+    { "lat": 51.0541016, "lon": -114.0792219 },
+    { "lat": 51.0539002, "lon": -114.0789338 },
+    { "lat": 51.0536988, "lon": -114.0786456 },
+    { "lat": 51.0534974, "lon": -114.0783574 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "bridge:name": "Peace Bridge",
+    "check_date:surface": "2024-09-02",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "layer": "1",
+    "oneway": "yes",
+    "surface": "concrete:plates"
+  }
+},
+{
+  "type": "way",
+  "id": 1313657684,
+  "bounds": {
+    "minlat": 51.0536988,
+    "minlon": -114.0786456,
+    "maxlat": 51.0537264,
+    "maxlon": -114.0785971
+  },
+  "geometry": [
+    { "lat": 51.0537264, "lon": -114.0785971 },
+    { "lat": 51.0537195, "lon": -114.0786092 },
+    { "lat": 51.0537126, "lon": -114.0786214 },
+    { "lat": 51.0537057, "lon": -114.0786335 },
+    { "lat": 51.0536988, "lon": -114.0786456 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "check_date:surface": "2024-09-02",
+    "crossing": "unmarked",
+    "crossing:markings": "no",
+    "footway": "crossing",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "concrete:plates"
+  }
+},
+{
+  "type": "way",
+  "id": 1313657685,
+  "bounds": {
+    "minlat": 51.0539002,
+    "minlon": -114.0789338,
+    "maxlat": 51.0539275,
+    "maxlon": -114.0788858
+  },
+  "geometry": [
+    { "lat": 51.0539002, "lon": -114.0789338 },
+    { "lat": 51.0539069, "lon": -114.0789221 },
+    { "lat": 51.0539135, "lon": -114.0789104 },
+    { "lat": 51.0539205, "lon": -114.0788981 },
+    { "lat": 51.0539275, "lon": -114.0788858 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "check_date:surface": "2024-09-02",
+    "crossing": "unmarked",
+    "crossing:markings": "no",
+    "footway": "crossing",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "concrete:plates"
+  }
+},
+{
+  "type": "way",
+  "id": 1313657686,
+  "bounds": {
+    "minlat": 51.0541016,
+    "minlon": -114.0792219,
+    "maxlat": 51.0541286,
+    "maxlon": -114.0791745
+  },
+  "geometry": [
+    { "lat": 51.0541016, "lon": -114.0792219 },
+    { "lat": 51.0541081, "lon": -114.0792107 },
+    { "lat": 51.0541145, "lon": -114.0791994 },
+    { "lat": 51.0541215, "lon": -114.0791869 },
+    { "lat": 51.0541286, "lon": -114.0791745 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "check_date:surface": "2024-09-02",
+    "crossing": "unmarked",
+    "crossing:markings": "no",
+    "footway": "crossing",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "concrete:plates"
+  }
+},
+{
+  "type": "way",
+  "id": 1323527923,
+  "bounds": {
+    "minlat": 51.0527092,
+    "minlon": -114.0875923,
+    "maxlat": 51.0527146,
+    "maxlon": -114.0875923
+  },
+  "geometry": [
+    { "lat": 51.0527146, "lon": -114.0875923 },
+    { "lat": 51.0527092, "lon": -114.0875923 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "covered": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1323739542,
+  "bounds": {
+    "minlat": 51.0526364,
+    "minlon": -114.0886101,
+    "maxlat": 51.0526442,
+    "maxlon": -114.0885865
+  },
+  "geometry": [
+    { "lat": 51.0526364, "lon": -114.0886101 },
+    { "lat": 51.0526442, "lon": -114.0886028 },
+    { "lat": 51.0526402, "lon": -114.0885910 },
+    { "lat": 51.0526442, "lon": -114.0885865 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "metal"
+  }
+},
+{
+  "type": "way",
+  "id": 1323766704,
+  "bounds": {
+    "minlat": 51.0528058,
+    "minlon": -114.0876404,
+    "maxlat": 51.0528100,
+    "maxlon": -114.0876317
+  },
+  "geometry": [
+    { "lat": 51.0528058, "lon": -114.0876317 },
+    { "lat": 51.0528100, "lon": -114.0876317 },
+    { "lat": 51.0528100, "lon": -114.0876404 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "wood"
+  }
+},
+{
+  "type": "way",
+  "id": 1323766709,
+  "bounds": {
+    "minlat": 51.0528054,
+    "minlon": -114.0878686,
+    "maxlat": 51.0528101,
+    "maxlon": -114.0878616
+  },
+  "geometry": [
+    { "lat": 51.0528054, "lon": -114.0878686 },
+    { "lat": 51.0528101, "lon": -114.0878686 },
+    { "lat": 51.0528101, "lon": -114.0878616 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "metal"
+  }
+},
+{
+  "type": "way",
+  "id": 1323929184,
+  "bounds": {
+    "minlat": 51.0522880,
+    "minlon": -114.0626959,
+    "maxlat": 51.0523300,
+    "maxlon": -114.0626944
+  },
+  "geometry": [
+    { "lat": 51.0523300, "lon": -114.0626944 },
+    { "lat": 51.0522880, "lon": -114.0626959 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "foot": "yes",
+    "highway": "footway",
+    "is_sidepath:of:name": "Centre Street S",
+    "layer": "2",
+    "surface": "paved"
+  }
+},
+{
+  "type": "way",
+  "id": 1323929185,
+  "bounds": {
+    "minlat": 51.0523300,
+    "minlon": -114.0626944,
+    "maxlat": 51.0523754,
+    "maxlon": -114.0626928
+  },
+  "geometry": [
+    { "lat": 51.0523754, "lon": -114.0626928 },
+    { "lat": 51.0523300, "lon": -114.0626944 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "covered": "yes",
+    "foot": "yes",
+    "highway": "footway",
+    "is_sidepath:of:name": "Centre Street S",
+    "layer": "2",
+    "surface": "paved"
+  }
+},
+{
+  "type": "way",
+  "id": 1323929186,
+  "bounds": {
+    "minlat": 51.0517785,
+    "minlon": -114.0624759,
+    "maxlat": 51.0522403,
+    "maxlon": -114.0624484
+  },
+  "geometry": [
+    { "lat": 51.0522403, "lon": -114.0624484 },
+    { "lat": 51.0521720, "lon": -114.0624517 },
+    { "lat": 51.0517785, "lon": -114.0624759 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "highway": "footway",
+    "is_sidepath:of:name": "Centre Street S",
+    "layer": "2",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1323929187,
+  "bounds": {
+    "minlat": 51.0522403,
+    "minlon": -114.0624484,
+    "maxlat": 51.0522859,
+    "maxlon": -114.0624434
+  },
+  "geometry": [
+    { "lat": 51.0522859, "lon": -114.0624434 },
+    { "lat": 51.0522403, "lon": -114.0624484 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "covered": "yes",
+    "highway": "footway",
+    "is_sidepath:of:name": "Centre Street S",
+    "layer": "2",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1323947222,
+  "bounds": {
+    "minlat": 51.0520780,
+    "minlon": -114.0624517,
+    "maxlat": 51.0521720,
+    "maxlon": -114.0621099
+  },
+  "geometry": [
+    { "lat": 51.0521720, "lon": -114.0624517 },
+    { "lat": 51.0520780, "lon": -114.0621099 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "description": "Centre Street Ramp (East)",
+    "highway": "footway",
+    "incline": "down",
+    "surface": "paved"
+  }
+},
+{
+  "type": "way",
+  "id": 1411238838,
+  "bounds": {
+    "minlat": 51.0462698,
+    "minlon": -114.0809363,
+    "maxlat": 51.0463589,
+    "maxlon": -114.0807141
+  },
+  "geometry": [
+    { "lat": 51.0463589, "lon": -114.0809354 },
+    { "lat": 51.0463415, "lon": -114.0809363 },
+    { "lat": 51.0463406, "lon": -114.0808960 },
+    { "lat": 51.0463342, "lon": -114.0808796 },
+    { "lat": 51.0462803, "lon": -114.0807425 },
+    { "lat": 51.0462790, "lon": -114.0807141 },
+    { "lat": 51.0462698, "lon": -114.0807146 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1411238839,
+  "bounds": {
+    "minlat": 51.0463342,
+    "minlon": -114.0808796,
+    "maxlat": 51.0463546,
+    "maxlon": -114.0808685
+  },
+  "geometry": [
+    { "lat": 51.0463546, "lon": -114.0808685 },
+    { "lat": 51.0463432, "lon": -114.0808687 },
+    { "lat": 51.0463342, "lon": -114.0808796 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1411238841,
+  "bounds": {
+    "minlat": 51.0462790,
+    "minlon": -114.0807141,
+    "maxlat": 51.0462819,
+    "maxlon": -114.0806985
+  },
+  "geometry": [
+    { "lat": 51.0462790, "lon": -114.0807141 },
+    { "lat": 51.0462819, "lon": -114.0806985 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1472523831,
+  "bounds": {
+    "minlat": 51.0523754,
+    "minlon": -114.0626928,
+    "maxlat": 51.0530516,
+    "maxlon": -114.0626718
+  },
+  "geometry": [
+    { "lat": 51.0530516, "lon": -114.0626718 },
+    { "lat": 51.0523754, "lon": -114.0626928 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "footway": "sidewalk",
+    "highway": "footway",
+    "is_sidepath:of:name": "Centre Street S",
+    "layer": "2",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 1472523832,
+  "bounds": {
+    "minlat": 51.0522859,
+    "minlon": -114.0624434,
+    "maxlat": 51.0530478,
+    "maxlon": -114.0624167
+  },
+  "geometry": [
+    { "lat": 51.0530478, "lon": -114.0624167 },
+    { "lat": 51.0522859, "lon": -114.0624434 }
+  ],
+  "tags": {
+    "bicycle": "dismount",
+    "bridge": "yes",
+    "highway": "footway",
+    "is_sidepath:of:name": "Centre Street S",
+    "layer": "2",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1475666268,
+  "bounds": {
+    "minlat": 51.0494760,
+    "minlon": -114.0634887,
+    "maxlat": 51.0494963,
+    "maxlon": -114.0634581
+  },
+  "geometry": [
+    { "lat": 51.0494760, "lon": -114.0634581 },
+    { "lat": 51.0494761, "lon": -114.0634887 },
+    { "lat": 51.0494963, "lon": -114.0634878 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 1475666270,
+  "bounds": {
+    "minlat": 51.0495252,
+    "minlon": -114.0634858,
+    "maxlat": 51.0495383,
+    "maxlon": -114.0634655
+  },
+  "geometry": [
+    { "lat": 51.0495300, "lon": -114.0634858 },
+    { "lat": 51.0495383, "lon": -114.0634853 },
+    { "lat": 51.0495379, "lon": -114.0634655 },
+    { "lat": 51.0495252, "lon": -114.0634662 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 1494750578,
+  "bounds": {
+    "minlat": 51.0515366,
+    "minlon": -114.0522360,
+    "maxlat": 51.0515576,
+    "maxlon": -114.0522262
+  },
+  "geometry": [
+    { "lat": 51.0515366, "lon": -114.0522360 },
+    { "lat": 51.0515576, "lon": -114.0522360 },
+    { "lat": 51.0515576, "lon": -114.0522262 }
+  ],
+  "tags": {
+    "access": "private",
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "metal"
+  }
+},
+{
+  "type": "way",
+  "id": 1502697853,
+  "bounds": {
+    "minlat": 51.0443898,
+    "minlon": -114.0642989,
+    "maxlat": 51.0443979,
+    "maxlon": -114.0642861
+  },
+  "geometry": [
+    { "lat": 51.0443898, "lon": -114.0642861 },
+    { "lat": 51.0443905, "lon": -114.0642989 },
+    { "lat": 51.0443979, "lon": -114.0642980 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 1504711233,
+  "bounds": {
+    "minlat": 51.0402793,
+    "minlon": -114.0851234,
+    "maxlat": 51.0402914,
+    "maxlon": -114.0851116
+  },
+  "geometry": [
+    { "lat": 51.0402793, "lon": -114.0851118 },
+    { "lat": 51.0402857, "lon": -114.0851116 },
+    { "lat": 51.0402858, "lon": -114.0851234 },
+    { "lat": 51.0402914, "lon": -114.0851233 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1504711234,
+  "bounds": {
+    "minlat": 51.0402753,
+    "minlon": -114.0850100,
+    "maxlat": 51.0402882,
+    "maxlon": -114.0849995
+  },
+  "geometry": [
+    { "lat": 51.0402753, "lon": -114.0849997 },
+    { "lat": 51.0402834, "lon": -114.0849995 },
+    { "lat": 51.0402836, "lon": -114.0850100 },
+    { "lat": 51.0402882, "lon": -114.0850100 }
+  ],
+  "tags": {
+    "access": "private",
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "private": "residents"
+  }
+},
+{
+  "type": "way",
+  "id": 1504711238,
+  "bounds": {
+    "minlat": 51.0402744,
+    "minlon": -114.0848992,
+    "maxlat": 51.0402851,
+    "maxlon": -114.0848896
+  },
+  "geometry": [
+    { "lat": 51.0402744, "lon": -114.0848898 },
+    { "lat": 51.0402808, "lon": -114.0848896 },
+    { "lat": 51.0402809, "lon": -114.0848992 },
+    { "lat": 51.0402851, "lon": -114.0848991 }
+  ],
+  "tags": {
+    "access": "private",
+    "bridge": "yes",
+    "highway": "footway",
+    "layer": "1",
+    "private": "residents"
+  }
+}
+
+  ]
+}
