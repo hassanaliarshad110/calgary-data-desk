@@ -1,0 +1,19 @@
+gateway OPTIONS /reports:
+HTTP/2 204 
+access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
+gateway GET /reports without sign-in:
+{"type":"error","error":{"type":"authentication_error","message":"sign in with Google first"}} 401
+site scripts:
+check_request in web-ai: 1
+CDD_CLARIFY in bundle: 4
+offer_choices in agent: 4
+web-account.js CDD_REPORTS=1 read_file=3
+web-ai.js CDD_REPORTS=1 read_file=1
+kept with your account and listed here on any device
+elections compare/next:
+def _seat_compare(el):
+        out['compare'] = _seat_compare(d.get('elections'))
+            out['next_elections'] = _el.NEXT           # the dates the Election Data Centre shows (federal, provincial, 
+next_elections [('Alberta general election', '2027-10-18'), ('Calgary municipal election', '2029-10-15'), ("Federal general election (Calgary's MPs)", '2029-10-15')]
+compare levels ['provincial', 'federal', 'note']
+federal next in area 2029-10-15
