@@ -1,30 +1,35 @@
-"""15% tax study, part 3: how residential assessments moved by home type and community, from the historical roll."""
-import json, os, sys, traceback
+"""15% tax study, part 3: each home's assessed value in 2022-2025 (historical roll) and 2026 (current roll), by roll number."""
+import json, os, sys, traceback, gzip, csv
 ROOT = os.getcwd(); sys.path.insert(0, ROOT)
 out = sys.argv[1]; os.makedirs(out, exist_ok=True)
 import calgary_data as cd
 log = {}
-m = cd.get_json('https://data.calgary.ca/api/views/4ur7-wsgc.json')
-cols = [c['fieldName'] for c in m.get('columns', [])]
-json.dump({'name': m.get('name'), 'description': m.get('description'), 'columns': [(c['fieldName'], c.get('description')) for c in m.get('columns', [])]},
-          open(os.path.join(out, 'meta.json'), 'w'))
-print(cols)
-val = next((c for c in ('re_assessed_value', 'assessed_value') if c in cols), None)
-where = "assessment_class='RE' AND property_type='LI' AND starts_with(sub_property_use,'R')"
-# every home's value in each roll year for the paired change (same roll number, two years)
+def pages(ds, sel, where, order):
+    rows, off = [], 0
+    while True:
+        p = cd.get_json(cd.soql_url(ds, sel, where, None, order, 50000, offset=off), timeout=600)
+        rows += p; off += 50000
+        if len(p) < 50000: return rows
 try:
-    rn = next((c for c in ('roll_number', 'roll_no') if c in cols), None)
-    for y in (2021, 2025, 2026):
-        rows, off = [], 0
-        while True:
-            p = cd.get_json(cd.soql_url('4ur7-wsgc', f'{rn},sub_property_use,comm_code,{val}', where + f" AND roll_year='{y}'", None, rn, 50000, offset=off), timeout=600)
-            rows += p; off += 50000
-            if len(p) < 50000: break
-        import gzip, csv
-        with gzip.open(os.path.join(out, f'homes_{y}.csv.gz'), 'wt', newline='') as f:
-            w = csv.writer(f); w.writerow([rn, 'sub_property_use', 'comm_code', val])
-            for r in rows: w.writerow([r.get(rn), r.get('sub_property_use'), r.get('comm_code'), r.get(val)])
-        log[f'homes_{y}'] = len(rows)
+    log['years'] = cd.get_json(cd.soql_url('4ur7-wsgc', 'roll_year,assessment_class,count(*) as n', None, 'roll_year,assessment_class', 'roll_year', 500))
+    log['sample_2021'] = cd.get_json(cd.soql_url('4ur7-wsgc', None, "roll_year='2021'", None, None, 3))
 except Exception as e:
-    traceback.print_exc(); log['paired'] = 'FAIL ' + str(e)[:400]
-json.dump(log, open(os.path.join(out, 'log.json'), 'w')); print(log)
+    log['years'] = 'FAIL ' + str(e)[:300]
+H = "property_type='LI' AND starts_with(sub_property_use,'R')"
+def save(name, rows, cols):
+    with gzip.open(os.path.join(out, name), 'wt', newline='') as f:
+        w = csv.writer(f); w.writerow(cols)
+        for r in rows: w.writerow([r.get(c) for c in cols])
+cols = ['roll_number', 'assessment_class', 'sub_property_use', 'comm_code', 're_assessed_value']
+for y in (2022, 2023, 2024, 2025):
+    try:
+        rows = pages('4ur7-wsgc', ','.join(cols), H + f" AND roll_year='{y}'", 'roll_number')
+        save(f'homes_{y}.csv.gz', rows, cols); log[f'homes_{y}'] = len(rows)
+    except Exception as e:
+        traceback.print_exc(); log[f'homes_{y}'] = 'FAIL ' + str(e)[:300]
+try:
+    rows = pages('4bsw-nn7w', ','.join(cols), H, 'roll_number')
+    save('homes_2026.csv.gz', rows, cols); log['homes_2026'] = len(rows)
+except Exception as e:
+    traceback.print_exc(); log['homes_2026'] = 'FAIL ' + str(e)[:300]
+json.dump(log, open(os.path.join(out, 'log.json'), 'w'), default=str); print(json.dumps(log, default=str)[:3000])
