@@ -1,933 +1,940 @@
 [
- {
-  "date": "2026-11-09",
-  "slot": "AM",
-  "type": "quick-insight",
-  "category": "Population",
-  "title": "Calgary's migration boom cooled fast",
-  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023–Mar 2024, est.) → 40,500 (Apr 2024–Mar 2025, est.) → 15,500 forecast (Apr 2025–Mar 2026, made Jan 2026)",
-  "changed_from_calendar": null,
-  "central_figure": "Net migration to the City of Calgary fell from about 80,200 (year to April 2024) to about 40,500 (year to April 2025), City estimates",
-  "sources": [
-   "https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf",
-   "https://www.calgary.ca/research/economic-outlook.html"
-  ],
-  "length_s": 31.9,
-  "video_path": "studio-videos/2026-11-09-AM/net-migration-cooling.mp4",
-  "package": "packages/2026-11-09-AM-net-migration-cooling.md",
-  "audit": {
-   "rounds": 2,
-   "claims_checked": 8,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-09-AM.md"
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 422729195,
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
+  {
+    "date": "2026-11-09",
+    "slot": "AM",
+    "type": "quick-insight",
+    "category": "Population",
+    "title": "Calgary's migration boom cooled fast",
+    "topic_used": "City of Calgary net migration: 80,200 (Apr 2023–Mar 2024, est.) → 40,500 (Apr 2024–Mar 2025, est.) → 15,500 forecast (Apr 2025–Mar 2026, made Jan 2026)",
+    "changed_from_calendar": null,
+    "central_figure": "Net migration to the City of Calgary fell from about 80,200 (year to April 2024) to about 40,500 (year to April 2025), City estimates",
+    "sources": [
+      "https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf",
+      "https://www.calgary.ca/research/economic-outlook.html"
     ],
-    "publish_at": "2026-11-09T23:05",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "facebook": "https://facebook.com/reel/2253097085551273",
-     "instagram": "https://www.instagram.com/reel/DfjHaBFASGY/",
-     "youtube": "https://www.youtube.com/shorts/0_NMRCN7BAM"
+    "length_s": 31.9,
+    "video_path": "studio-videos/2026-11-09-AM/net-migration-cooling.mp4",
+    "package": "packages/2026-11-09-AM-net-migration-cooling.md",
+    "audit": {
+      "rounds": 2,
+      "claims_checked": 8,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-09-AM.md"
     },
-    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
-   }
-  ],
-  "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
- },
- {
-  "date": "2026-11-09",
-  "slot": "FLAGSHIP",
-  "type": "flagship",
-  "category": "Documentary",
-  "title": "The Pipe Under the Bow",
-  "topic_used": "Bearspaw South Feeder Main: 2024 and 2025 breaks, Independent Review Panel finding that the risk was identified after the 2004 McKnight failure and inspections designated 2017/2020/2022 did not occur, and the new steel pipe (microtunnelled under the Bow) being connected under Stage 4 from Nov 4, 2026",
-  "changed_from_calendar": null,
-  "central_figure": "Risks behind the June 5, 2024 failure were identified twenty years earlier, after the 2004 McKnight feeder main failure (Independent Review Panel Final Report, Jan 6, 2026, p. 17); the pipe carries up to ~60% of Calgary's potable water",
-  "sources": [
-   "https://www.calgary.ca/content/dam/www/emergencies/files/feedermain-review-final-report.pdf",
-   "https://livewirecalgary.com/wp-content/uploads/2026/01/Water_Main_Review_-_Final_Report.pdf",
-   "https://www.calgary.ca/emergencies/feeder-main-repair/faq.html",
-   "https://www.calgary.ca/emergencies/feeder-main-repair.html",
-   "https://www.calgary.ca/employees/thank-you-operational-employees/feedermain.html",
-   "https://www.calgary.ca/planning/water/bearspaw-feeder-main/replacement-project.html",
-   "https://newsroom.calgary.ca/bearspaw-south-feeder-main-reaches-95-installation-construction-to-connect-the-new-feeder-main-and-stage-4-water-restrictions-begin-november-4/"
-  ],
-  "length_s": 117.6,
-  "video_path": [
-   "studio-videos/2026-11-09-FLAGSHIP/pipe-under-the-bow-short.mp4",
-   "studio-videos/2026-11-09-FLAGSHIP/pipe-under-the-bow-youtube.mp4"
-  ],
-  "package": "packages/2026-11-09-FLAGSHIP-pipe-under-the-bow.md",
-  "audit": {
-   "rounds": 2,
-   "claims_checked": 24,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-09-FLAGSHIP.md"
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 422729195,
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-09T23:05",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "facebook": "https://facebook.com/reel/2253097085551273",
+          "instagram": "https://www.instagram.com/reel/DfjHaBFASGY/",
+          "youtube": "https://www.youtube.com/shorts/0_NMRCN7BAM"
+        },
+        "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
+      }
+    ],
+    "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
   },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 422729265,
-    "providers": [
-     "instagram",
-     "youtube-short"
+  {
+    "date": "2026-11-09",
+    "slot": "FLAGSHIP",
+    "type": "flagship",
+    "category": "Documentary",
+    "title": "The Pipe Under the Bow",
+    "topic_used": "Bearspaw South Feeder Main: 2024 and 2025 breaks, Independent Review Panel finding that the risk was identified after the 2004 McKnight failure and inspections designated 2017/2020/2022 did not occur, and the new steel pipe (microtunnelled under the Bow) being connected under Stage 4 from Nov 4, 2026",
+    "changed_from_calendar": null,
+    "central_figure": "Risks behind the June 5, 2024 failure were identified twenty years earlier, after the 2004 McKnight feeder main failure (Independent Review Panel Final Report, Jan 6, 2026, p. 17); the pipe carries up to ~60% of Calgary's potable water",
+    "sources": [
+      "https://www.calgary.ca/content/dam/www/emergencies/files/feedermain-review-final-report.pdf",
+      "https://livewirecalgary.com/wp-content/uploads/2026/01/Water_Main_Review_-_Final_Report.pdf",
+      "https://www.calgary.ca/emergencies/feeder-main-repair/faq.html",
+      "https://www.calgary.ca/emergencies/feeder-main-repair.html",
+      "https://www.calgary.ca/employees/thank-you-operational-employees/feedermain.html",
+      "https://www.calgary.ca/planning/water/bearspaw-feeder-main/replacement-project.html",
+      "https://newsroom.calgary.ca/bearspaw-south-feeder-main-reaches-95-installation-construction-to-connect-the-new-feeder-main-and-stage-4-water-restrictions-begin-november-4/"
     ],
-    "publish_at": "2026-11-09T23:15",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/DfjIkjmDIBJ/",
-     "youtube": "https://www.youtube.com/shorts/8wXVAiWrLsE"
-    },
-    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
-   },
-   {
-    "metricool_id": 422729326,
-    "providers": [
-     "facebook",
-     "youtube-video"
+    "length_s": 117.6,
+    "video_path": [
+      "studio-videos/2026-11-09-FLAGSHIP/pipe-under-the-bow-short.mp4",
+      "studio-videos/2026-11-09-FLAGSHIP/pipe-under-the-bow-youtube.mp4"
     ],
-    "publish_at": "2026-11-09T23:20",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "facebook": "https://facebook.com/122097271263547631/posts/889746627498145",
-     "youtube": "https://www.youtube.com/watch?v=oWGSg7oOEdI"
+    "package": "packages/2026-11-09-FLAGSHIP-pipe-under-the-bow.md",
+    "audit": {
+      "rounds": 2,
+      "claims_checked": 24,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-09-FLAGSHIP.md"
     },
-    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
-   }
-  ],
-  "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
- },
- {
-  "date": "2026-11-09",
-  "slot": "CIVIC",
-  "type": "civic",
-  "category": "Civic intelligence",
-  "title": "Calgary's 2027 budget: what the preliminary numbers say",
-  "topic_used": "Preliminary 2027–2030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2–5.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
-  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments … by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
-  "central_figure": "2027: $528M in new ongoing operating requests, $144M available funding, remaining $384M paired with a 15% property tax revenue increase (City of Calgary C2026-0749 Rev. Att. 1, slide 28, Sept 29, 2026)",
-  "sources": [
-   "https://www.calgary.ca/our-finances/2027-budget.html",
-   "https://livewirecalgary.com/wp-content/uploads/2026/09/RELEASED-Item-6.1-Revised-Attachment-1-C2026-0749.pdf",
-   "https://pub-calgary.escribemeetings.com/Meeting.aspx?Id=17d037e1-fd09-406b-b191-f0c5abd8b15b&Agenda=Agenda&lang=English",
-   "https://globalnews.ca/news/12044564/calgary-2027-budget-requests-property-tax-estimate/",
-   "https://ca.news.yahoo.com/real-fiscal-challenges-double-digit-172917918.html"
-  ],
-  "length_s": 59.5,
-  "video_path": "studio-videos/2026-11-09-CIVIC/budget-2027-preliminary.mp4",
-  "package": "packages/2026-11-09-CIVIC-budget-2027-preliminary.md",
-  "audit": {
-   "rounds": 2,
-   "claims_checked": 15,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-09-CIVIC.md"
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 422729265,
+        "providers": [
+          "instagram",
+          "youtube-short"
+        ],
+        "publish_at": "2026-11-09T23:15",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "instagram": "https://www.instagram.com/reel/DfjIkjmDIBJ/",
+          "youtube": "https://www.youtube.com/shorts/8wXVAiWrLsE"
+        },
+        "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
+      },
+      {
+        "metricool_id": 422729326,
+        "providers": [
+          "facebook",
+          "youtube-video"
+        ],
+        "publish_at": "2026-11-09T23:20",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "facebook": "https://facebook.com/122097271263547631/posts/889746627498145",
+          "youtube": "https://www.youtube.com/watch?v=oWGSg7oOEdI"
+        },
+        "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
+      }
+    ],
+    "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
   },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 422729376,
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
+  {
+    "date": "2026-11-09",
+    "slot": "CIVIC",
+    "type": "civic",
+    "category": "Civic intelligence",
+    "title": "Calgary's 2027 budget: what the preliminary numbers say",
+    "topic_used": "Preliminary 2027–2030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2–5.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
+    "changed_from_calendar": "Calendar asked for 2027 'budget adjustments … by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
+    "central_figure": "2027: $528M in new ongoing operating requests, $144M available funding, remaining $384M paired with a 15% property tax revenue increase (City of Calgary C2026-0749 Rev. Att. 1, slide 28, Sept 29, 2026)",
+    "sources": [
+      "https://www.calgary.ca/our-finances/2027-budget.html",
+      "https://livewirecalgary.com/wp-content/uploads/2026/09/RELEASED-Item-6.1-Revised-Attachment-1-C2026-0749.pdf",
+      "https://pub-calgary.escribemeetings.com/Meeting.aspx?Id=17d037e1-fd09-406b-b191-f0c5abd8b15b&Agenda=Agenda&lang=English",
+      "https://globalnews.ca/news/12044564/calgary-2027-budget-requests-property-tax-estimate/",
+      "https://ca.news.yahoo.com/real-fiscal-challenges-double-digit-172917918.html"
     ],
-    "publish_at": "2026-11-09T23:30",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "facebook": "https://facebook.com/reel/1777468610218016",
-     "instagram": "https://www.instagram.com/reel/DfjKVKKCu0l/",
-     "youtube": "https://www.youtube.com/shorts/JHlV0Ik29jU"
+    "length_s": 59.5,
+    "video_path": "studio-videos/2026-11-09-CIVIC/budget-2027-preliminary.mp4",
+    "package": "packages/2026-11-09-CIVIC-budget-2027-preliminary.md",
+    "audit": {
+      "rounds": 2,
+      "claims_checked": 15,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-09-CIVIC.md"
     },
-    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
-   }
-  ],
-  "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
- },
- {
-  "date": "2026-11-09",
-  "slot": "PM",
-  "type": "quick-insight",
-  "category": "Housing",
-  "title": "A one-bedroom in the Calgary area: 2020 vs 2025",
-  "topic_used": "CMHC Rental Market Survey, Calgary CMA, row & apartment, October: average one-bedroom rent $1,086 (2020) → $1,111 → $1,222 → $1,463 → $1,584 → $1,581 (2025)",
-  "changed_from_calendar": null,
-  "central_figure": "Average one-bedroom rent, Calgary CMA: $1,086 (Oct 2020) → $1,581 (Oct 2025), +$495/month, +45.6% (CMHC HMIP Table 2.2.11)",
-  "sources": [
-   "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/TableMapChart/Table?TableId=2.2.11&GeographyId=0140&GeographyTypeId=3&DisplayAs=Table",
-   "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/Dashboard/Print?geographyId=0140"
-  ],
-  "length_s": 34.8,
-  "video_path": "studio-videos/2026-11-09-PM/one-bedroom-rent-2020-2025.mp4",
-  "package": "packages/2026-11-09-PM-one-bedroom-rent-2020-2025.md",
-  "audit": {
-   "rounds": 1,
-   "claims_checked": 10,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-09-PM.md"
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 422729414,
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 422729376,
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-09T23:30",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "facebook": "https://facebook.com/reel/1777468610218016",
+          "instagram": "https://www.instagram.com/reel/DfjKVKKCu0l/",
+          "youtube": "https://www.youtube.com/shorts/JHlV0Ik29jU"
+        },
+        "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
+      }
     ],
-    "publish_at": "2026-11-09T23:40",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "facebook": "https://facebook.com/reel/1427285882397205",
-     "instagram": "https://www.instagram.com/reel/DfjLWkNHN1Q/",
-     "youtube": "https://www.youtube.com/shorts/jchtz_NsYEU"
+    "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
+  },
+  {
+    "date": "2026-11-09",
+    "slot": "PM",
+    "type": "quick-insight",
+    "category": "Housing",
+    "title": "A one-bedroom in the Calgary area: 2020 vs 2025",
+    "topic_used": "CMHC Rental Market Survey, Calgary CMA, row & apartment, October: average one-bedroom rent $1,086 (2020) → $1,111 → $1,222 → $1,463 → $1,584 → $1,581 (2025)",
+    "changed_from_calendar": null,
+    "central_figure": "Average one-bedroom rent, Calgary CMA: $1,086 (Oct 2020) → $1,581 (Oct 2025), +$495/month, +45.6% (CMHC HMIP Table 2.2.11)",
+    "sources": [
+      "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/TableMapChart/Table?TableId=2.2.11&GeographyId=0140&GeographyTypeId=3&DisplayAs=Table",
+      "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/Dashboard/Print?geographyId=0140"
+    ],
+    "length_s": 34.8,
+    "video_path": "studio-videos/2026-11-09-PM/one-bedroom-rent-2020-2025.mp4",
+    "package": "packages/2026-11-09-PM-one-bedroom-rent-2020-2025.md",
+    "audit": {
+      "rounds": 1,
+      "claims_checked": 10,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-09-PM.md"
     },
-    "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
-   }
-  ],
-  "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
- },
- {
-  "date": "2026-11-10",
-  "slot": "AM",
-  "type": "quick-insight",
-  "category": "Construction",
-  "title": "Calgary's permit value is up. Homes aren't why.",
-  "topic_used": "City of Calgary Building Permit Application Statement (period ending 2026/09/30), YTD estimated value: total $6,396,842,039 vs $5,798,100,988 (+10.3%); residential $3,828,082,150 vs $4,377,246,714 (−$549.2M, −12.5%); non-residential $2,515,244,773 vs $1,397,934,631 (+$1,117.3M, +79.9%)",
-  "changed_from_calendar": null,
-  "central_figure": "Jan–Sep 2026 building permit applications listed $6.40B in estimated construction value (+10% vs Jan–Sep 2025); residential −$549M, non-residential +$1.12B (+80%) (City of Calgary, Building Permit Application Statement, Sept 2026)",
-  "sources": [
-   "https://www.calgary.ca/content/dam/www/pda/pd/documents/building/2026-09-Building-Permit-Application-Statement.pdf",
-   "https://www.calgary.ca/planning/application-statistics.html"
-  ],
-  "length_s": 34.4,
-  "video_path": "studio-videos/2026-11-10-AM/permit-value-2026.mp4",
-  "package": "packages/2026-11-10-AM-permit-value-2026.md",
-  "audit": {
-   "rounds": 1,
-   "claims_checked": 8,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-10-AM.md"
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 423497779,
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=6958343171422570840",
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 422729414,
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-09T23:40",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "facebook": "https://facebook.com/reel/1427285882397205",
+          "instagram": "https://www.instagram.com/reel/DfjLWkNHN1Q/",
+          "youtube": "https://www.youtube.com/shorts/jchtz_NsYEU"
+        },
+        "confirmed_by": "2026-11-11 FLAGSHIP run (getScheduledPosts)"
+      }
     ],
-    "publish_at": "2026-11-10T12:25",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/Dfki92pFRpk/",
-     "facebook": "https://facebook.com/reel/1187773927255834",
-     "youtube": "https://www.youtube.com/shorts/mgBxtbyLM-o"
+    "post_note": "First attempt failed (Metricool free-plan limit); re-posted after the Starter upgrade."
+  },
+  {
+    "date": "2026-11-10",
+    "slot": "AM",
+    "type": "quick-insight",
+    "category": "Construction",
+    "title": "Calgary's permit value is up. Homes aren't why.",
+    "topic_used": "City of Calgary Building Permit Application Statement (period ending 2026/09/30), YTD estimated value: total $6,396,842,039 vs $5,798,100,988 (+10.3%); residential $3,828,082,150 vs $4,377,246,714 (−$549.2M, −12.5%); non-residential $2,515,244,773 vs $1,397,934,631 (+$1,117.3M, +79.9%)",
+    "changed_from_calendar": null,
+    "central_figure": "Jan–Sep 2026 building permit applications listed $6.40B in estimated construction value (+10% vs Jan–Sep 2025); residential −$549M, non-residential +$1.12B (+80%) (City of Calgary, Building Permit Application Statement, Sept 2026)",
+    "sources": [
+      "https://www.calgary.ca/content/dam/www/pda/pd/documents/building/2026-09-Building-Permit-Application-Statement.pdf",
+      "https://www.calgary.ca/planning/application-statistics.html"
+    ],
+    "length_s": 34.4,
+    "video_path": "studio-videos/2026-11-10-AM/permit-value-2026.mp4",
+    "package": "packages/2026-11-10-AM-permit-value-2026.md",
+    "audit": {
+      "rounds": 1,
+      "claims_checked": 8,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-10-AM.md"
+    },
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 423497779,
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=6958343171422570840",
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-10T12:25",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "instagram": "https://www.instagram.com/reel/Dfki92pFRpk/",
+          "facebook": "https://facebook.com/reel/1187773927255834",
+          "youtube": "https://www.youtube.com/shorts/mgBxtbyLM-o"
+        }
+      }
+    ],
+    "post_note": "Scheduled 12:25 (about 18 min after creation) to avoid landing 2 min before an existing 12:20 post; confirmed PUBLISHED on all three at 12:28."
+  },
+  {
+    "date": "2026-11-10",
+    "slot": "PM",
+    "type": "quick-insight",
+    "category": "Fun fact",
+    "title": "Who was Deerfoot? The runner behind Deerfoot Trail",
+    "topic_used": "Deerfoot (Api-kai-ees), Siksika (Blackfoot) runner and nephew of head chief Crowfoot: autumn 1886 ten-mile race in Calgary, beat J. W. Stokes of Birmingham by a full lap; miscount claim, race rerun; entered after Stokes had run six laps and still passed him, finishing in 54:30; Deerfoot Trail named in his memory in the 1970s (DCB)",
+    "changed_from_calendar": null,
+    "central_figure": "In the autumn 1886 ten-mile race in Calgary, Deerfoot beat J. W. Stokes by a full lap; in the rerun he entered after Stokes had completed six laps and still passed him (Dictionary of Canadian Biography, 'Api-kai-ees')",
+    "sources": [
+      "https://www.biographi.ca/en/bio/api_kai_ees_12E.html",
+      "https://curiocity.com/deerfoot-trail-calgary-history/"
+    ],
+    "length_s": 30.2,
+    "video_path": "studio-videos/2026-11-10-PM/deerfoot-trail-runner.mp4",
+    "thumbnail_path": "studio-videos/2026-11-10-PM/deerfoot-trail-runner-thumb.jpg",
+    "package": "packages/2026-11-10-PM-deerfoot-trail-runner.md",
+    "audit": {
+      "rounds": 2,
+      "claims_checked": 11,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-10-PM.md"
+    },
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 423918973,
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-2642940042361552825",
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-10T20:20",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "instagram": "https://www.instagram.com/reel/DflZVMildiL/",
+          "facebook": "https://facebook.com/reel/1648173506987511",
+          "youtube": "https://www.youtube.com/shorts/O77c5pwYTqU"
+        }
+      }
+    ],
+    "post_note": "Scheduled 20:20 with custom thumbnail; confirmed PUBLISHED on all three at 20:23, no warnings."
+  },
+  {
+    "date": "2026-11-11",
+    "slot": "AM",
+    "type": "quick-insight",
+    "category": "Fun fact",
+    "title": "The Georgia town behind Calgary's Field of Crosses",
+    "topic_used": "Field of Crosses origin: Calgary businessman Murray McCann saw roadside crosses honouring the fallen in Menlo, Georgia, took the idea to the Calgary Poppy Fund; a few hundred crosses on Memorial Drive in 2009 (VAC 500; board chair 300), more than 3,700 in 2026, honouring thousands of southern Albertans who died defending Canada",
+    "changed_from_calendar": null,
+    "central_figure": "More than 3,700 crosses in 2026 (Global News, Nov 4, 2026), from a few hundred in 2009",
+    "sources": [
+      "https://ckc.calgaryfoundation.org/profile/field-of-crosses/",
+      "https://veterans.gc.ca/en/about-vac/who-we-are/department-officials/minister/minister-veterans-affairs-commendation/j-murray-mccann",
+      "https://globalnews.ca/news/12134683/field-of-crosses-2026/",
+      "https://www.cp24.com/news/canada/2026/11/01/annual-field-of-crosses-ceremony-highlights-wainwright-tragedy-importance-of-remembrance/"
+    ],
+    "length_s": 34.4,
+    "video_path": "studio-videos/2026-11-11-AM/field-of-crosses-georgia.mp4",
+    "thumbnail_path": "studio-videos/2026-11-11-AM/field-of-crosses-georgia-thumb.jpg",
+    "package": "packages/2026-11-11-AM-field-of-crosses-georgia.md",
+    "audit": {
+      "rounds": 2,
+      "claims_checked": 8,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-11-AM.md"
+    },
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 424671706,
+        "uuid": "6453527198449680992",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=6453527198449680992",
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-11T11:00",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "instagram": "https://www.instagram.com/reel/Dfm-sXliFoP/",
+          "facebook": "https://facebook.com/reel/2588474901665408",
+          "youtube": "https://www.youtube.com/shorts/0mFLe3d_N2M"
+        }
+      }
+    ],
+    "post_note": "Fixed 08:00 slot had passed (run started 10:31). Moved to 11:00: at least 10 min from scheduling, 80 min after the last post today (09:40) and 90 min before the 12:30 flagship slot. Playbook update at 10:45 (hook frame must match the thumbnail; no AI labels): the first 0.9 s now shows the designed thumbnail, video re-pushed (commit 91c05e0) and the scheduled post updated to that file (id 424669934 -> 424671706), isAiGenerated/isAiGeneratedContent false. Confirmed PUBLISHED on all three at 11:08, no warnings."
+  },
+  {
+    "date": "2026-11-11",
+    "slot": "FLAGSHIP",
+    "type": "flagship",
+    "category": "Calgary story",
+    "title": "Three Places, One Military Story",
+    "topic_used": "Remembrance Day story in three places: Mewata Armoury (1917-1918 Tudor Gothic drill hall; per Parks Canada completed too late to be of practical value in WWI; HQ for all Calgary militia units 1918-1939; WWII training camp; National Historic Site 1989), Currie Barracks (land acquired 1933, named for Gen. Sir Arthur Currie; Depression relief project; Queen Elizabeth II stayed overnight in the Officers' Mess; decommissioned 1997; now the Currie neighbourhood, Provincial Historic Resource 1999), The Military Museums (Sir Sam Steele Junior High made surplus, Calgarians raised $6.5M; opened by Queen Elizabeth II as the Museum of the Regiments in 1990; renamed 2006)",
+    "changed_from_calendar": null,
+    "central_figure": "Mewata Armoury was 'completed too late to be of practical value during World War I' (Parks Canada, Directory of Federal Heritage Designations), then served as headquarters for all Calgary militia units 1918-1939",
+    "sources": [
+      "https://www.pc.gc.ca/apps/dfhd/page_fhbro_eng.aspx?id=2405",
+      "https://historicplaces.ca/en/rep-reg/place-lieu.aspx?id=12607",
+      "https://www.veterans.gc.ca/en/node/158234",
+      "https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11075",
+      "https://calgaryheritage.org/wp/celebrating-calgary-150-calgary-at-war-part-two/",
+      "https://mural-atrium.themilitarymuseums.ca/panels/row1/15-sir-arthur-currie",
+      "https://www.clc-sic.ca/node/68",
+      "https://themilitarymuseums.ca/visit/about",
+      "https://mural.themilitarymuseums.ca/panels/row1/10-hrh-queen-elizabeth"
+    ],
+    "length_s": 115.9,
+    "teaser_length_s": 29.9,
+    "video_path": [
+      "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-short.mp4",
+      "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-youtube.mp4",
+      "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-teaser.mp4"
+    ],
+    "thumbnail_path": [
+      "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-thumb.jpg",
+      "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-thumb-yt.jpg"
+    ],
+    "package": "packages/2026-11-11-FLAGSHIP-three-places-military-story.md",
+    "audit": {
+      "rounds": 2,
+      "claims_checked": 22,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-11-FLAGSHIP.md"
+    },
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 424705440,
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=8169461891680782963",
+        "providers": [
+          "instagram",
+          "youtube-short"
+        ],
+        "file": "three-places-military-story-short.mp4",
+        "publish_at": "2026-11-11T12:30",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "instagram": "https://www.instagram.com/reel/DfnISfljOeg/",
+          "youtube": "https://www.youtube.com/shorts/-88VVDIXXng"
+        },
+        "confirmed_by": "2026-11-11 CIVIC run (getScheduledPosts 13:13)"
+      },
+      {
+        "metricool_id": 424705605,
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-1105029241938621933",
+        "providers": [
+          "facebook",
+          "youtube-video"
+        ],
+        "file": "three-places-military-story-youtube.mp4",
+        "publish_at": "2026-11-11T17:30",
+        "status": "partial",
+        "provider_status": {
+          "facebook": "PUBLISHED",
+          "youtube": "ERROR: The user has exceeded the number of videos they may upload."
+        },
+        "publicUrls": {
+          "facebook": "https://facebook.com/122097271263547631/posts/1687232703011470"
+        },
+        "confirmed_by": "link-up task 2026-11-11 17:41 run (getScheduledPosts)"
+      },
+      {
+        "metricool_id": 425089703,
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7446808389422694413",
+        "providers": [
+          "facebook-reel"
+        ],
+        "file": "three-places-military-story-teaser.mp4",
+        "publish_at": "2026-11-11T21:00",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "facebook": "https://facebook.com/reel/1681419000299567"
+        },
+        "confirmed_by": "2026-11-12 PM run (getScheduledPosts 17:20)"
+      },
+      {
+        "metricool_id": 425090871,
+        "uuid": "-8675205878457286254",
+        "providers": [
+          "youtube-video"
+        ],
+        "file": "three-places-military-story-youtube.mp4",
+        "publish_at": "2026-11-12T11:00",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "youtube": "https://www.youtube.com/watch?v=0bPBqFZoxOs"
+        },
+        "note": "YouTube-only retry of the Nov 11 17:30 widescreen copy that hit the upload cap",
+        "confirmed_by": "2026-11-12 PM run (getScheduledPosts 17:20)"
+      }
+    ],
+    "pending_link": [
+      {
+        "file": "three-places-military-story-teaser.mp4",
+        "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-teaser.mp4",
+        "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-thumb.jpg",
+        "providers": [
+          {
+            "network": "facebook",
+            "type": "REEL"
+          }
+        ],
+        "caption_without_link": "This Calgary drill hall was finished too late for the war of its day.\nMewata Armoury, a Depression-era army base and a school turned museum: Calgary's military story, hiding in plain sight.\nWhich one would you visit first? Drop your thoughts below 👇",
+        "hashtags": "#Calgary #yyc #RemembranceDay #CalgaryHistory",
+        "post_at": "2026-11-11T21:00",
+        "link_to": 424705605,
+        "scheduled": true,
+        "metricool_id": 425089703,
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7446808389422694413",
+        "publish_at": "2026-11-11T21:00",
+        "status": "PUBLISHED",
+        "link_used": "https://www.youtube.com/channel/UC5LiLMNGPjdreg5pjcNm_jg",
+        "link_note": "Film post 424705605 failed on YouTube (ERROR: 'The user has exceeded the number of videos they may upload'), so the channel link was used per PLAYBOOK 7b.",
+        "scheduled_by": "link-up task 2026-11-11 17:41 run",
+        "publicUrl": "https://facebook.com/reel/1681419000299567"
+      }
+    ],
+    "post_note": "Post A 12:30 and post B 17:30 scheduled at their fixed times with designed thumbnails and no AI labels. Post C (teaser Facebook Reel, 21:00) left as pending_link for the link-up task (PLAYBOOK 7b, updated during this run) so its caption carries the YouTube film link. Post B text is shared by Facebook and YouTube, so the chapter lines also appear on Facebook."
+  },
+  {
+    "date": "2026-11-11",
+    "slot": "CIVIC",
+    "type": "civic",
+    "category": "Calgary news",
+    "title": "Calgary's proposed budget: what it means for a typical home",
+    "topic_used": "News explained: City released its proposed 2027–2030 Budget on Nov 10, 2026 (15% increase in municipal property tax revenue from existing properties in 2027; City estimate for a typical single residential property +$53/month = +$37 municipal property tax + $16 water, waste & recycling; CAO cites growth, rising cost, aging assets; some councillors want proposed tax hikes brought down; public submissions and deliberations from the week of Nov 23; approval expected December 2026)",
+    "changed_from_calendar": null,
+    "repeat_note": "Follow-up to 2026-11-09 CIVIC (preliminary Sept 29 figures). New since then: the proposed budget itself was released Nov 10, with a combined typical-home estimate incl. utilities and approval now listed for December.",
+    "central_figure": "City estimate: typical single residential property pays about $53 more a month in 2027 ($37 municipal property tax + $16 water, waste and recycling)",
+    "sources": [
+      "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/",
+      "https://www.calgary.ca/our-finances/2027-budget.html",
+      "https://ca.news.yahoo.com/calgarys-4-budget-proposes-15-160138122.html",
+      "https://ca.news.yahoo.com/calgary-budget-proposes-15-property-171554543.html",
+      "https://ca.news.yahoo.com/calgarys-proposed-four-budget-draws-012412444.html"
+    ],
+    "length_s": 57.2,
+    "video_path": "studio-videos/2026-11-11-CIVIC/proposed-budget-explained.mp4",
+    "thumbnail_path": "studio-videos/2026-11-11-CIVIC/proposed-budget-explained-thumb.jpg",
+    "package": "packages/2026-11-11-CIVIC-proposed-budget-explained.md",
+    "audit": {
+      "rounds": 2,
+      "claims_checked": 14,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-11-CIVIC.md"
+    },
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 424849483,
+        "uuid": "4844832204137844080",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4844832204137844080",
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-11T15:00",
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "instagram": "https://www.instagram.com/reel/DfnZqcPlVwi/",
+          "facebook": "https://facebook.com/reel/2351127165426353",
+          "youtube": "https://www.youtube.com/shorts/T1V7weO-uj4"
+        },
+        "confirmed_by": "2026-11-11 PM run (getScheduledPosts 17:20)"
+      }
+    ],
+    "post_note": "Scheduled at the fixed 15:00 CIVIC slot (created 13:27) with designed thumbnail, NEWS_POLITICS, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1)."
+  },
+  {
+    "date": "2026-11-11",
+    "slot": "PM",
+    "type": "quick-insight",
+    "category": "Fun fact",
+    "title": "Who was Crowchild? The chief behind Crowchild Trail",
+    "topic_used": "Crowchild Trail is named after David Crowchild, chief of the Tsuut'ina Nation 1946-1953; he gave his blessing to the road name after city officials asked his permission (The Sprawl), and said 'May this be a symbol of cutting all barriers between all peoples for all times to come' (Alberta Champions; Imagine/mycalgary.com). Naming year not used (sources say 1966 / 1968 ribbon / 1971).",
+    "changed_from_calendar": null,
+    "central_figure": "David Crowchild, chief of the Tsuut'ina Nation 1946-1953 (Calgary Guardian; Avenue Calgary); gave his blessing when city officials asked to name the road after him (The Sprawl)",
+    "sources": [
+      "https://calgaryguardian.com/whats-in-a-name-part-i",
+      "https://www.avenuecalgary.com/City-Life/15-Famous-Calgary-Names-Nellie-McClung-Barb-Scott-Tom-Baker",
+      "https://www.sprawlcalgary.com/you-cant-just-take-a-name",
+      "https://albertachampions.org/?p=165",
+      "https://mycalgary.com/?p=134884",
+      "https://www.ammsa.com/publications/windspeaker/crowchild-award-cause-celebrate"
+    ],
+    "length_s": 34.5,
+    "video_path": "studio-videos/2026-11-11-PM/crowchild-trail-chief.mp4",
+    "thumbnail_path": "studio-videos/2026-11-11-PM/crowchild-trail-chief-thumb.jpg",
+    "package": "packages/2026-11-11-PM-crowchild-trail-chief.md",
+    "audit": {
+      "rounds": 2,
+      "claims_checked": 6,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-11-PM.md",
+      "note": "Round 1 approved the first script; the follow/subscribe playbook rule (committed during the run) required a revised script, approved in round 2 before re-narration."
+    },
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 425083845,
+        "previous_metricool_id": 425080274,
+        "uuid": "-909838119547745351",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-909838119547745351",
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-11T19:00",
+        "status": "partial",
+        "provider_status": {
+          "facebook": "PUBLISHED",
+          "instagram": "PUBLISHED",
+          "youtube": "ERROR: The user has exceeded the number of videos they may upload."
+        },
+        "publicUrls": {
+          "facebook": "https://facebook.com/reel/2593829781114038",
+          "instagram": "https://www.instagram.com/reel/Dfn1VUjgVtQ/"
+        },
+        "confirmed_by": "2026-11-12 PM run (getScheduledPosts 17:20)"
+      },
+      {
+        "metricool_id": 426357238,
+        "uuid": "2850276423014432948",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=2850276423014432948",
+        "providers": [
+          "youtube-short"
+        ],
+        "file": "crowchild-trail-chief.mp4",
+        "publish_at": "2026-11-13T11:00",
+        "status": "PUBLISHED",
+        "note": "YouTube-only retry of the failed Nov 11 19:00 YouTube copy (PLAYBOOK 7). Nov 12 11:00/14:00 had already passed when found, and 11:00 Nov 13 is the first slot more than 24 h after the failure; YouTube 24-hour count stays under 8.",
+        "publicUrls": {
+          "youtube": "https://www.youtube.com/shorts/T8UKokVWQ5g"
+        },
+        "confirmed_by": "2026-11-13 FLAGSHIP run (getScheduledPosts 11:37)"
+      }
+    ],
+    "post_note": "Scheduled at the fixed 19:00 PM slot (created 17:29, updated 17:33 with the round-2 video with follow/subscribe prompt and new caption line; same post, not duplicated). Designed thumbnail, EDUCATION, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1). Earlier today's CIVIC post confirmed PUBLISHED in this run.",
+    "youtube_deferred": true
+  },
+  {
+    "date": "2026-11-12",
+    "slot": "PM",
+    "type": "quick-insight",
+    "category": "Fun fact",
+    "title": "Calgary cloned a war memorial",
+    "topic_used": "Memorial Drive's memorial poplars: first tree planted by Mayor Adams in 1922 on Sunnyside Boulevard (now Memorial Drive); the plan was a tree for each fallen soldier of the Great War; in 2001 the City harvested live cuttings from the remaining trees and grew cloned memorial trees at a tree farm in Grand Forks, B.C., so the memorial poplars can be replaced (City of Calgary; Veterans Affairs Canada). Tree counts and the exact day left out because the sources differ.",
+    "changed_from_calendar": "Kept the calendar topic, sharpened to its most surprising part (the clones).",
+    "central_figure": "2001: the City took cuttings from the remaining memorial poplars and grew clones in Grand Forks, B.C. (City of Calgary, Memorial Drive trees)",
+    "sources": [
+      "https://www.calgary.ca/parks/trees/memorial-drive-history.html",
+      "https://www.veterans.gc.ca/en/node/158192"
+    ],
+    "link": "https://calgaryinsight.ca/communities/sunnyside/?utm_source=facebook&utm_medium=social&utm_campaign=memorial-drive-clones",
+    "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/seo_pages.py, slug 'sunnyside') instead",
+    "length_s": 24.76,
+    "video_path": "studio-videos/2026-11-12-PM/memorial-drive-clones.mp4",
+    "thumbnail_path": "studio-videos/2026-11-12-PM/memorial-drive-clones-thumb.jpg",
+    "package": "packages/2026-11-12-PM-memorial-drive-clones.md",
+    "production": "production/2026-11-12-PM/scene.js",
+    "identity": "Data Explainer lead; Storyteller riverbank drone; Civic cutaway/schematic card",
+    "audit": {
+      "rounds": 1,
+      "claims_checked": 6,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-12-PM.md"
+    },
+    "qc": {
+      "stills": "pass (after 4 fixes)",
+      "final": "pass",
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "notes": [
+        "no 0s; ending 3.97 s; -15.0 LUFS"
+      ]
+    },
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 426361320,
+        "uuid": "8864068214155134845",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=8864068214155134845",
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-12T18:30",
+        "status": "PUBLISHED",
+        "firstCommentText": true,
+        "videoThumbnailUrl": true,
+        "publicUrls": {
+          "facebook": "https://facebook.com/reel/1326272009572632",
+          "instagram": "https://www.instagram.com/reel/DfqWWwwgXJH/",
+          "youtube": "https://www.youtube.com/shorts/tH1rt9vIS1g"
+        },
+        "confirmed_by": "2026-11-13 FLAGSHIP run (getScheduledPosts 10:50)"
+      }
+    ],
+    "post_note": "Scheduled at the fixed 18:30 fun-fact slot; only other post today was the 11:00 YouTube retry. Due more than 30 min after the run, so confirmation is left to the next run (section 1)."
+  },
+  {
+    "date": "2026-11-13",
+    "slot": "FLAGSHIP",
+    "type": "flagship",
+    "category": "Calgary story",
+    "title": "Forced Out Twice: The Story of Calgary's Chinatown",
+    "topic_used": "Calgary's Chinatown in three locations: first just east of the train station (today's Calgary Municipal Building); 1892 smallpox outbreak fuelled violence, a mob of over 300 smashed Chinese laundries' doors and windows, NWMP protected Chinatown for three weeks; from 1901 a second Chinatown across the tracks on 10 Ave SW (anti-Chinese sentiment and development pressure, CBC); 1910 Canadian Northern Railway route announced, property values soared, landlords evicted Chinese tenants and sold; Chinese merchants bought land at Centre St & 2 Ave, anti-Chinese protesters demanded it be elsewhere, they won a permit and built the Canton Block (1910-11, 200-216 Centre St SE, still standing); 1966 parkway would have eliminated half of Chinatown, defeated by Sien Lok; Cultural Centre 1992, modelled on the Temple of Heaven; there since 1910.",
+    "changed_from_calendar": "Kept the subject; reframed 'three moves' to three locations / two forced moves (City of Calgary). No founding year used (sources say 1883/1885/1888/c.1890).",
+    "central_figure": "Chinatown 'has been in three different locations in Calgary' (City of Calgary, Tomorrow's Chinatown); the Canton Block (1910-11) still stands (Heritage Calgary)",
+    "sources": [
+      "https://www.calgary.ca/pda/pd/current-studies-and-ongoing-activities/tomorrows-chinatown.html",
+      "https://www.sfu.ca/chinese-canadian-history/calgary_chinatown_en.html",
+      "https://www.lougheedhouse.com/story-early-chinese-community",
+      "https://calgaryjournal.ca/2021/10/29/lougheed-house-exhibit-showcases-the-citys-early-chinatowns/",
+      "https://amp.cbc.ca/lite/story/1.7018628",
+      "https://www.culturalcentre.ca/the-evolution-of-calgary-s-chinatow",
+      "https://heritagecalgary.ca/heritage-calgary-blog/canton-block",
+      "https://heritagecalgary.ca/heritage-calgary-blog/chinatown",
+      "https://www.heritageinspiresyyc.org/?p=894",
+      "https://historicplacesdays.ca/places/%e5%8d%a1%e5%9f%8e%e8%8f%af%e5%9f%a0-calgary-chinatown?a=36175",
+      "https://albertaviews.ca/china-town/"
+    ],
+    "link": "https://calgaryinsight.ca/communities/chinatown/?utm_source=<platform>&utm_medium=social&utm_campaign=chinatown-forced-out-twice",
+    "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/seo_pages.py builds communities/<slug>/ for every community; CHINATOWN -> chinatown)",
+    "length_s": 86.95,
+    "short_length_s": 72.42,
+    "teaser_length_s": 26.39,
+    "video_path": [
+      "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-short.mp4",
+      "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-youtube.mp4",
+      "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-teaser.mp4"
+    ],
+    "thumbnail_path": [
+      "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-thumb.jpg",
+      "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-thumb-yt.jpg"
+    ],
+    "package": "packages/2026-11-13-FLAGSHIP-chinatown-forced-out-twice.md",
+    "production": "production/2026-11-13-FLAGSHIP/scene.js",
+    "identity": "Storyteller lead (dusk/night drones over real OSM/City geometry, dissolves through time, letterbox on wide); Data Explainer counter slam + year stamps; Civic Analyst evidence chips + schematic map cards",
+    "audit": {
+      "rounds": 3,
+      "claims_checked": 21,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-13-FLAGSHIP.md"
+    },
+    "qc": {
+      "stills": "pass (after 9 layout fixes)",
+      "final": "pass",
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "notes": [
+        "no 0s; ending 3.9-4.0 s; about -14.8 LUFS; Short 11.0 MB, film 15.7 MB, teaser 2.9 MB"
+      ]
+    },
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 427256036,
+        "uuid": "2982997679375664082",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=2982997679375664082",
+        "providers": [
+          "instagram",
+          "youtube-short"
+        ],
+        "file": "chinatown-forced-out-twice-short.mp4",
+        "publish_at": "2026-11-13T12:30",
+        "status": "PUBLISHED",
+        "firstCommentText": true,
+        "videoThumbnailUrl": true,
+        "publicUrls": {
+          "instagram": "https://www.instagram.com/reel/DfsR3zPlcHH/",
+          "youtube": "https://www.youtube.com/shorts/IIMIYVjnBSo"
+        },
+        "confirmed_by": "2026-11-13 CIVIC run (getScheduledPosts ~13:30)"
+      },
+      {
+        "metricool_id": 427262064,
+        "uuid": "-4481465902319776585",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-4481465902319776585",
+        "providers": [
+          "facebook",
+          "youtube-video"
+        ],
+        "file": "chinatown-forced-out-twice-youtube.mp4",
+        "publish_at": "2026-11-13T17:30",
+        "status": "scheduled",
+        "firstCommentText": true,
+        "videoThumbnailUrl": true
+      }
+    ],
+    "pending_link": [
+      {
+        "file": "chinatown-forced-out-twice-teaser.mp4",
+        "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-teaser.mp4",
+        "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-thumb.jpg",
+        "providers": [
+          {
+            "network": "facebook",
+            "type": "REEL"
+          }
+        ],
+        "caption_without_link": "Calgary's Chinatown was forced to move. Twice.\nDisplacement and discrimination forced the community to move, until Chinese merchants bought their own land and built a block that still stands.\nHave you been to Chinatown? Yes or no? Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔗 Link in the first comment\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca",
+        "hashtags": "#Calgary #yyc #Chinatown #CalgaryHistory",
+        "first_comment": "🔗 Explore Chinatown and every Calgary community: https://calgaryinsight.ca/communities/chinatown/?utm_source=facebook&utm_medium=social&utm_campaign=chinatown-forced-out-twice",
+        "first_comment_note": "PLAYBOOK 7b Facebook rule: firstCommentText = '▶ Full film: https://youtu.be/<id>' on the first line, then the first_comment line",
+        "post_at": "2026-11-13T20:00",
+        "link_to": 427262064,
+        "scheduled": true,
+        "metricool_id": 427591629,
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-4827586616840142811",
+        "publish_at": "2026-11-13T20:00",
+        "status": "scheduled",
+        "link_used": "https://youtu.be/L2FDPlOiUE4",
+        "link_placement": "firstCommentText (Facebook exception, PLAYBOOK 7b); caption has no YouTube URL",
+        "scheduled_by": "link-up task 2026-11-13 17:41 run"
+      }
+    ],
+    "post_note": "Post A scheduled 11:37 for the fixed 12:30 slot; post B scheduled 11:42 for the fixed 17:30 slot (both with designed thumbnails, first comment, no AI labels). YouTube 24-hour count stays at 4 or fewer (Nov 12 18:30, Nov 13 11:00, 12:30, 17:30). Teaser left as pending_link for the 17:41 link-up task. Confirmation of A and B is left to the next run (section 1)."
+  },
+  {
+    "date": "2026-11-13",
+    "slot": "CIVIC",
+    "type": "civic",
+    "category": "Calgary news",
+    "title": "Grey Cup Sunday in Calgary: what to know",
+    "topic_used": "113th Grey Cup at McMahon Stadium on Sun Nov 15, 2026 (Montreal Alouettes vs Edmonton Elks, 5 p.m.); Calgary's sixth time hosting, first since 2019; festival at Stampede Park Nov 11-14 with free family-friendly events; organizers expect roughly $50M in economic activity (estimate); Sunday 11 a.m.-11 p.m. University Drive NW closed 16-24 Ave NW, Crowchild Trail NW two lanes each way; City says take the Red Line CTrain to Banff Trail Station.",
+    "changed_from_calendar": null,
+    "why_this_story": "Most-talked-about Calgary story of the past 48 h (festival week, game in two days), practical road and transit changes; the budget was covered Nov 9 and Nov 11.",
+    "central_figure": "Sixth time Calgary hosts the Grey Cup, first since 2019 (Wikipedia, Tourism Calgary, City of Calgary 2019 release)",
+    "sources": [
+      "https://www.calgary.ca/events/grey-cup.html",
+      "https://www.cp24.com/news/sports/2026/11/13/grey-cup-celebrations-kick-off-in-calgary-as-fans-arrive-from-across-canada/",
+      "https://en.wikipedia.org/wiki/113th_Grey_Cup",
+      "https://www.greycupfestival.ca/tickets/113-grey-cup/",
+      "https://www.visitcalgary.com/events/113th-grey-cup-festival",
+      "https://newsroom.calgary.ca/calgary-is-ready-for-2019-grey-cup-game-and-festivities/"
+    ],
+    "link": "https://calgaryinsight.ca/news/2026-11-11-grey-cup-festival-opens-at-stampede-park-ahead-of-sunday-s-montreal-ed/?utm_source=facebook&utm_medium=social&utm_campaign=grey-cup-sunday",
+    "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate; news/<id>/ pages are generated by web/news_pages.py and today's Website build (run 214) succeeded after the story was published.",
+    "length_s": 44.0,
+    "video_path": "studio-videos/2026-11-13-CIVIC/grey-cup-sunday.mp4",
+    "thumbnail_path": "studio-videos/2026-11-13-CIVIC/grey-cup-sunday-thumb.jpg",
+    "package": "packages/2026-11-13-CIVIC-grey-cup-sunday.md",
+    "identity": "Civic Analyst lead + Storyteller drone + Data Explainer counters",
+    "audit": {
+      "rounds": 2,
+      "claims_checked": 9,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-13-CIVIC.md"
+    },
+    "qc": {
+      "stills": "pass",
+      "final": "pass",
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "notes": [
+        "Stampede Park label and Red Line text moved clear of the right 120 px after the stills check"
+      ]
+    },
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 427423095,
+        "previous_draft_id": 427381826,
+        "uuid": "7519967824730277000",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7519967824730277000",
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-13T15:00",
+        "draft": false,
+        "status": "PUBLISHED",
+        "publicUrls": {
+          "facebook": "https://facebook.com/reel/1677233067139775",
+          "instagram": "https://www.instagram.com/reel/DfsjZqFgqAp/",
+          "youtube": "https://www.youtube.com/shorts/kKnREt6U02Y"
+        },
+        "confirmed_by": "2026-11-13 PM run"
+      }
+    ],
+    "post_note": "One-time review: Hassan replied 'Post it' at 14:22; draft switched to draft:false, kept at the planned 15:00 Calgary slot (38 min away; 2.5 h from the 12:30 and 17:30 posts). Due >30 min after this update, so the next run confirms it (section 1).",
+    "approval": {
+      "by": "Hassan",
+      "at": "2026-11-13 14:22 Calgary",
+      "reply": "Post it",
+      "changes": null
     }
-   }
-  ],
-  "post_note": "Scheduled 12:25 (about 18 min after creation) to avoid landing 2 min before an existing 12:20 post; confirmed PUBLISHED on all three at 12:28."
- },
- {
-  "date": "2026-11-10",
-  "slot": "PM",
-  "type": "quick-insight",
-  "category": "Fun fact",
-  "title": "Who was Deerfoot? The runner behind Deerfoot Trail",
-  "topic_used": "Deerfoot (Api-kai-ees), Siksika (Blackfoot) runner and nephew of head chief Crowfoot: autumn 1886 ten-mile race in Calgary, beat J. W. Stokes of Birmingham by a full lap; miscount claim, race rerun; entered after Stokes had run six laps and still passed him, finishing in 54:30; Deerfoot Trail named in his memory in the 1970s (DCB)",
-  "changed_from_calendar": null,
-  "central_figure": "In the autumn 1886 ten-mile race in Calgary, Deerfoot beat J. W. Stokes by a full lap; in the rerun he entered after Stokes had completed six laps and still passed him (Dictionary of Canadian Biography, 'Api-kai-ees')",
-  "sources": [
-   "https://www.biographi.ca/en/bio/api_kai_ees_12E.html",
-   "https://curiocity.com/deerfoot-trail-calgary-history/"
-  ],
-  "length_s": 30.2,
-  "video_path": "studio-videos/2026-11-10-PM/deerfoot-trail-runner.mp4",
-  "thumbnail_path": "studio-videos/2026-11-10-PM/deerfoot-trail-runner-thumb.jpg",
-  "package": "packages/2026-11-10-PM-deerfoot-trail-runner.md",
-  "audit": {
-   "rounds": 2,
-   "claims_checked": 11,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-10-PM.md"
   },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 423918973,
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-2642940042361552825",
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
+  {
+    "date": "2026-11-13",
+    "slot": "PM",
+    "type": "quick-insight",
+    "category": "Fun fact",
+    "title": "WestJet took off on a leap day",
+    "topic_used": "WestJet's first flight was on Feb 29, 1996 (a leap day); Calgary-based airline founded by Clive Beddoe and a team of partners; started with three aircraft and five destinations (Vancouver, Kelowna, Edmonton, Calgary, Winnipeg)",
+    "changed_from_calendar": null,
+    "why_this_story": "Calendar topic 'WestJet was founded in Calgary' kept and sharpened to its surprising angle (a leap-day first flight)",
+    "central_figure": "First flight Feb 29, 1996 (Global News, Feb 29, 2016; CTV Calgary)",
+    "sources": [
+      "https://globalnews.ca/news/2546957/calgary-based-airline-westjet-celebrates-20-year-anniversary",
+      "https://calgary.ctvnews.ca/westjet-celebrates-20-years-1.2767024"
     ],
-    "publish_at": "2026-11-10T20:20",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/DflZVMildiL/",
-     "facebook": "https://facebook.com/reel/1648173506987511",
-     "youtube": "https://www.youtube.com/shorts/O77c5pwYTqU"
-    }
-   }
-  ],
-  "post_note": "Scheduled 20:20 with custom thumbnail; confirmed PUBLISHED on all three at 20:23, no warnings."
- },
- {
-  "date": "2026-11-11",
-  "slot": "AM",
-  "type": "quick-insight",
-  "category": "Fun fact",
-  "title": "The Georgia town behind Calgary's Field of Crosses",
-  "topic_used": "Field of Crosses origin: Calgary businessman Murray McCann saw roadside crosses honouring the fallen in Menlo, Georgia, took the idea to the Calgary Poppy Fund; a few hundred crosses on Memorial Drive in 2009 (VAC 500; board chair 300), more than 3,700 in 2026, honouring thousands of southern Albertans who died defending Canada",
-  "changed_from_calendar": null,
-  "central_figure": "More than 3,700 crosses in 2026 (Global News, Nov 4, 2026), from a few hundred in 2009",
-  "sources": [
-   "https://ckc.calgaryfoundation.org/profile/field-of-crosses/",
-   "https://veterans.gc.ca/en/about-vac/who-we-are/department-officials/minister/minister-veterans-affairs-commendation/j-murray-mccann",
-   "https://globalnews.ca/news/12134683/field-of-crosses-2026/",
-   "https://www.cp24.com/news/canada/2026/11/01/annual-field-of-crosses-ceremony-highlights-wainwright-tragedy-importance-of-remembrance/"
-  ],
-  "length_s": 34.4,
-  "video_path": "studio-videos/2026-11-11-AM/field-of-crosses-georgia.mp4",
-  "thumbnail_path": "studio-videos/2026-11-11-AM/field-of-crosses-georgia-thumb.jpg",
-  "package": "packages/2026-11-11-AM-field-of-crosses-georgia.md",
-  "audit": {
-   "rounds": 2,
-   "claims_checked": 8,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-11-AM.md"
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 424671706,
-    "uuid": "6453527198449680992",
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=6453527198449680992",
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
-    ],
-    "publish_at": "2026-11-11T11:00",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/Dfm-sXliFoP/",
-     "facebook": "https://facebook.com/reel/2588474901665408",
-     "youtube": "https://www.youtube.com/shorts/0mFLe3d_N2M"
-    }
-   }
-  ],
-  "post_note": "Fixed 08:00 slot had passed (run started 10:31). Moved to 11:00: at least 10 min from scheduling, 80 min after the last post today (09:40) and 90 min before the 12:30 flagship slot. Playbook update at 10:45 (hook frame must match the thumbnail; no AI labels): the first 0.9 s now shows the designed thumbnail, video re-pushed (commit 91c05e0) and the scheduled post updated to that file (id 424669934 -> 424671706), isAiGenerated/isAiGeneratedContent false. Confirmed PUBLISHED on all three at 11:08, no warnings."
- },
- {
-  "date": "2026-11-11",
-  "slot": "FLAGSHIP",
-  "type": "flagship",
-  "category": "Calgary story",
-  "title": "Three Places, One Military Story",
-  "topic_used": "Remembrance Day story in three places: Mewata Armoury (1917-1918 Tudor Gothic drill hall; per Parks Canada completed too late to be of practical value in WWI; HQ for all Calgary militia units 1918-1939; WWII training camp; National Historic Site 1989), Currie Barracks (land acquired 1933, named for Gen. Sir Arthur Currie; Depression relief project; Queen Elizabeth II stayed overnight in the Officers' Mess; decommissioned 1997; now the Currie neighbourhood, Provincial Historic Resource 1999), The Military Museums (Sir Sam Steele Junior High made surplus, Calgarians raised $6.5M; opened by Queen Elizabeth II as the Museum of the Regiments in 1990; renamed 2006)",
-  "changed_from_calendar": null,
-  "central_figure": "Mewata Armoury was 'completed too late to be of practical value during World War I' (Parks Canada, Directory of Federal Heritage Designations), then served as headquarters for all Calgary militia units 1918-1939",
-  "sources": [
-   "https://www.pc.gc.ca/apps/dfhd/page_fhbro_eng.aspx?id=2405",
-   "https://historicplaces.ca/en/rep-reg/place-lieu.aspx?id=12607",
-   "https://www.veterans.gc.ca/en/node/158234",
-   "https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11075",
-   "https://calgaryheritage.org/wp/celebrating-calgary-150-calgary-at-war-part-two/",
-   "https://mural-atrium.themilitarymuseums.ca/panels/row1/15-sir-arthur-currie",
-   "https://www.clc-sic.ca/node/68",
-   "https://themilitarymuseums.ca/visit/about",
-   "https://mural.themilitarymuseums.ca/panels/row1/10-hrh-queen-elizabeth"
-  ],
-  "length_s": 115.9,
-  "teaser_length_s": 29.9,
-  "video_path": [
-   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-short.mp4",
-   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-youtube.mp4",
-   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-teaser.mp4"
-  ],
-  "thumbnail_path": [
-   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-thumb.jpg",
-   "studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-thumb-yt.jpg"
-  ],
-  "package": "packages/2026-11-11-FLAGSHIP-three-places-military-story.md",
-  "audit": {
-   "rounds": 2,
-   "claims_checked": 22,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-11-FLAGSHIP.md"
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 424705440,
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=8169461891680782963",
-    "providers": [
-     "instagram",
-     "youtube-short"
-    ],
-    "file": "three-places-military-story-short.mp4",
-    "publish_at": "2026-11-11T12:30",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/DfnISfljOeg/",
-     "youtube": "https://www.youtube.com/shorts/-88VVDIXXng"
+    "link": "https://calgaryinsight.ca/tourism-intelligence/?utm_source=facebook&utm_medium=social&utm_campaign=westjet-leap-day",
+    "link_check": "WebFetch could not reach calgaryinsight.ca this run (permission prompt unanswered in the unattended run); page confirmed from the site build on main (web/build_site.py builds tourism-intelligence/index.html, in the sitemap)",
+    "length_s": 22.2,
+    "video_path": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-PM/westjet-leap-day.mp4",
+    "thumbnail_path": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-PM/westjet-leap-day-thumb.jpg",
+    "package": "packages/2026-11-13-PM-westjet-leap-day.md",
+    "identity": "Data Explainer lead; Storyteller map dive; Civic schematic card",
+    "audit": {
+      "rounds": 1,
+      "claims_checked": 6,
+      "verdict": "APPROVED",
+      "report": "audits/2026-11-13-PM.md"
     },
-    "confirmed_by": "2026-11-11 CIVIC run (getScheduledPosts 13:13)"
-   },
-   {
-    "metricool_id": 424705605,
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-1105029241938621933",
-    "providers": [
-     "facebook",
-     "youtube-video"
-    ],
-    "file": "three-places-military-story-youtube.mp4",
-    "publish_at": "2026-11-11T17:30",
-    "status": "partial",
-    "provider_status": {
-     "facebook": "PUBLISHED",
-     "youtube": "ERROR: The user has exceeded the number of videos they may upload."
+    "qc": {
+      "stills": "pass",
+      "final": "pass",
+      "scores": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "notes": [
+        "calendar, grid, runway and map moved up after first stills to clear the caption band"
+      ]
     },
-    "publicUrls": {
-     "facebook": "https://facebook.com/122097271263547631/posts/1687232703011470"
-    },
-    "confirmed_by": "link-up task 2026-11-11 17:41 run (getScheduledPosts)"
-   },
-   {
-    "metricool_id": 425089703,
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7446808389422694413",
-    "providers": [
-     "facebook-reel"
+    "status": "done",
+    "posted": [
+      {
+        "metricool_id": 427585243,
+        "uuid": "7596444405315946305",
+        "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7596444405315946305",
+        "providers": [
+          "instagram",
+          "facebook",
+          "youtube"
+        ],
+        "publish_at": "2026-11-13T18:30",
+        "draft": false,
+        "status": "scheduled"
+      }
     ],
-    "file": "three-places-military-story-teaser.mp4",
-    "publish_at": "2026-11-11T21:00",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "facebook": "https://facebook.com/reel/1681419000299567"
-    },
-    "confirmed_by": "2026-11-12 PM run (getScheduledPosts 17:20)"
-   },
-   {
-    "metricool_id": 425090871,
-    "uuid": "-8675205878457286254",
-    "providers": [
-     "youtube-video"
-    ],
-    "file": "three-places-military-story-youtube.mp4",
-    "publish_at": "2026-11-12T11:00",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "youtube": "https://www.youtube.com/watch?v=0bPBqFZoxOs"
-    },
-    "note": "YouTube-only retry of the Nov 11 17:30 widescreen copy that hit the upload cap",
-    "confirmed_by": "2026-11-12 PM run (getScheduledPosts 17:20)"
-   }
-  ],
-  "pending_link": [
-   {
-    "file": "three-places-military-story-teaser.mp4",
-    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-teaser.mp4",
-    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-11-FLAGSHIP/three-places-military-story-thumb.jpg",
-    "providers": [
-     {
-      "network": "facebook",
-      "type": "REEL"
-     }
-    ],
-    "caption_without_link": "This Calgary drill hall was finished too late for the war of its day.\nMewata Armoury, a Depression-era army base and a school turned museum: Calgary's military story, hiding in plain sight.\nWhich one would you visit first? Drop your thoughts below 👇",
-    "hashtags": "#Calgary #yyc #RemembranceDay #CalgaryHistory",
-    "post_at": "2026-11-11T21:00",
-    "link_to": 424705605,
-    "scheduled": true,
-    "metricool_id": 425089703,
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7446808389422694413",
-    "publish_at": "2026-11-11T21:00",
-    "status": "PUBLISHED",
-    "link_used": "https://www.youtube.com/channel/UC5LiLMNGPjdreg5pjcNm_jg",
-    "link_note": "Film post 424705605 failed on YouTube (ERROR: 'The user has exceeded the number of videos they may upload'), so the channel link was used per PLAYBOOK 7b.",
-    "scheduled_by": "link-up task 2026-11-11 17:41 run",
-    "publicUrl": "https://facebook.com/reel/1681419000299567"
-   }
-  ],
-  "post_note": "Post A 12:30 and post B 17:30 scheduled at their fixed times with designed thumbnails and no AI labels. Post C (teaser Facebook Reel, 21:00) left as pending_link for the link-up task (PLAYBOOK 7b, updated during this run) so its caption carries the YouTube film link. Post B text is shared by Facebook and YouTube, so the chapter lines also appear on Facebook."
- },
- {
-  "date": "2026-11-11",
-  "slot": "CIVIC",
-  "type": "civic",
-  "category": "Calgary news",
-  "title": "Calgary's proposed budget: what it means for a typical home",
-  "topic_used": "News explained: City released its proposed 2027–2030 Budget on Nov 10, 2026 (15% increase in municipal property tax revenue from existing properties in 2027; City estimate for a typical single residential property +$53/month = +$37 municipal property tax + $16 water, waste & recycling; CAO cites growth, rising cost, aging assets; some councillors want proposed tax hikes brought down; public submissions and deliberations from the week of Nov 23; approval expected December 2026)",
-  "changed_from_calendar": null,
-  "repeat_note": "Follow-up to 2026-11-09 CIVIC (preliminary Sept 29 figures). New since then: the proposed budget itself was released Nov 10, with a combined typical-home estimate incl. utilities and approval now listed for December.",
-  "central_figure": "City estimate: typical single residential property pays about $53 more a month in 2027 ($37 municipal property tax + $16 water, waste and recycling)",
-  "sources": [
-   "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/",
-   "https://www.calgary.ca/our-finances/2027-budget.html",
-   "https://ca.news.yahoo.com/calgarys-4-budget-proposes-15-160138122.html",
-   "https://ca.news.yahoo.com/calgary-budget-proposes-15-property-171554543.html",
-   "https://ca.news.yahoo.com/calgarys-proposed-four-budget-draws-012412444.html"
-  ],
-  "length_s": 57.2,
-  "video_path": "studio-videos/2026-11-11-CIVIC/proposed-budget-explained.mp4",
-  "thumbnail_path": "studio-videos/2026-11-11-CIVIC/proposed-budget-explained-thumb.jpg",
-  "package": "packages/2026-11-11-CIVIC-proposed-budget-explained.md",
-  "audit": {
-   "rounds": 2,
-   "claims_checked": 14,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-11-CIVIC.md"
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 424849483,
-    "uuid": "4844832204137844080",
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4844832204137844080",
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
-    ],
-    "publish_at": "2026-11-11T15:00",
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/DfnZqcPlVwi/",
-     "facebook": "https://facebook.com/reel/2351127165426353",
-     "youtube": "https://www.youtube.com/shorts/T1V7weO-uj4"
-    },
-    "confirmed_by": "2026-11-11 PM run (getScheduledPosts 17:20)"
-   }
-  ],
-  "post_note": "Scheduled at the fixed 15:00 CIVIC slot (created 13:27) with designed thumbnail, NEWS_POLITICS, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1)."
- },
- {
-  "date": "2026-11-11",
-  "slot": "PM",
-  "type": "quick-insight",
-  "category": "Fun fact",
-  "title": "Who was Crowchild? The chief behind Crowchild Trail",
-  "topic_used": "Crowchild Trail is named after David Crowchild, chief of the Tsuut'ina Nation 1946-1953; he gave his blessing to the road name after city officials asked his permission (The Sprawl), and said 'May this be a symbol of cutting all barriers between all peoples for all times to come' (Alberta Champions; Imagine/mycalgary.com). Naming year not used (sources say 1966 / 1968 ribbon / 1971).",
-  "changed_from_calendar": null,
-  "central_figure": "David Crowchild, chief of the Tsuut'ina Nation 1946-1953 (Calgary Guardian; Avenue Calgary); gave his blessing when city officials asked to name the road after him (The Sprawl)",
-  "sources": [
-   "https://calgaryguardian.com/whats-in-a-name-part-i",
-   "https://www.avenuecalgary.com/City-Life/15-Famous-Calgary-Names-Nellie-McClung-Barb-Scott-Tom-Baker",
-   "https://www.sprawlcalgary.com/you-cant-just-take-a-name",
-   "https://albertachampions.org/?p=165",
-   "https://mycalgary.com/?p=134884",
-   "https://www.ammsa.com/publications/windspeaker/crowchild-award-cause-celebrate"
-  ],
-  "length_s": 34.5,
-  "video_path": "studio-videos/2026-11-11-PM/crowchild-trail-chief.mp4",
-  "thumbnail_path": "studio-videos/2026-11-11-PM/crowchild-trail-chief-thumb.jpg",
-  "package": "packages/2026-11-11-PM-crowchild-trail-chief.md",
-  "audit": {
-   "rounds": 2,
-   "claims_checked": 6,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-11-PM.md",
-   "note": "Round 1 approved the first script; the follow/subscribe playbook rule (committed during the run) required a revised script, approved in round 2 before re-narration."
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 425083845,
-    "previous_metricool_id": 425080274,
-    "uuid": "-909838119547745351",
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-909838119547745351",
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
-    ],
-    "publish_at": "2026-11-11T19:00",
-    "status": "partial",
-    "provider_status": {
-     "facebook": "PUBLISHED",
-     "instagram": "PUBLISHED",
-     "youtube": "ERROR: The user has exceeded the number of videos they may upload."
-    },
-    "publicUrls": {
-     "facebook": "https://facebook.com/reel/2593829781114038",
-     "instagram": "https://www.instagram.com/reel/Dfn1VUjgVtQ/"
-    },
-    "confirmed_by": "2026-11-12 PM run (getScheduledPosts 17:20)"
-   },
-   {
-    "metricool_id": 426357238,
-    "uuid": "2850276423014432948",
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=2850276423014432948",
-    "providers": [
-     "youtube-short"
-    ],
-    "file": "crowchild-trail-chief.mp4",
-    "publish_at": "2026-11-13T11:00",
-    "status": "PUBLISHED",
-    "note": "YouTube-only retry of the failed Nov 11 19:00 YouTube copy (PLAYBOOK 7). Nov 12 11:00/14:00 had already passed when found, and 11:00 Nov 13 is the first slot more than 24 h after the failure; YouTube 24-hour count stays under 8.",
-    "publicUrls": {
-     "youtube": "https://www.youtube.com/shorts/T8UKokVWQ5g"
-    },
-    "confirmed_by": "2026-11-13 FLAGSHIP run (getScheduledPosts 11:37)"
-   }
-  ],
-  "post_note": "Scheduled at the fixed 19:00 PM slot (created 17:29, updated 17:33 with the round-2 video with follow/subscribe prompt and new caption line; same post, not duplicated). Designed thumbnail, EDUCATION, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1). Earlier today's CIVIC post confirmed PUBLISHED in this run.",
-  "youtube_deferred": true
- },
- {
-  "date": "2026-11-12",
-  "slot": "PM",
-  "type": "quick-insight",
-  "category": "Fun fact",
-  "title": "Calgary cloned a war memorial",
-  "topic_used": "Memorial Drive's memorial poplars: first tree planted by Mayor Adams in 1922 on Sunnyside Boulevard (now Memorial Drive); the plan was a tree for each fallen soldier of the Great War; in 2001 the City harvested live cuttings from the remaining trees and grew cloned memorial trees at a tree farm in Grand Forks, B.C., so the memorial poplars can be replaced (City of Calgary; Veterans Affairs Canada). Tree counts and the exact day left out because the sources differ.",
-  "changed_from_calendar": "Kept the calendar topic, sharpened to its most surprising part (the clones).",
-  "central_figure": "2001: the City took cuttings from the remaining memorial poplars and grew clones in Grand Forks, B.C. (City of Calgary, Memorial Drive trees)",
-  "sources": [
-   "https://www.calgary.ca/parks/trees/memorial-drive-history.html",
-   "https://www.veterans.gc.ca/en/node/158192"
-  ],
-  "link": "https://calgaryinsight.ca/communities/sunnyside/?utm_source=facebook&utm_medium=social&utm_campaign=memorial-drive-clones",
-  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/seo_pages.py, slug 'sunnyside') instead",
-  "length_s": 24.76,
-  "video_path": "studio-videos/2026-11-12-PM/memorial-drive-clones.mp4",
-  "thumbnail_path": "studio-videos/2026-11-12-PM/memorial-drive-clones-thumb.jpg",
-  "package": "packages/2026-11-12-PM-memorial-drive-clones.md",
-  "production": "production/2026-11-12-PM/scene.js",
-  "identity": "Data Explainer lead; Storyteller riverbank drone; Civic cutaway/schematic card",
-  "audit": {
-   "rounds": 1,
-   "claims_checked": 6,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-12-PM.md"
-  },
-  "qc": {
-   "stills": "pass (after 4 fixes)",
-   "final": "pass",
-   "scores": [
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2
-   ],
-   "notes": [
-    "no 0s; ending 3.97 s; -15.0 LUFS"
-   ]
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 426361320,
-    "uuid": "8864068214155134845",
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=8864068214155134845",
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
-    ],
-    "publish_at": "2026-11-12T18:30",
-    "status": "PUBLISHED",
-    "firstCommentText": true,
-    "videoThumbnailUrl": true,
-    "publicUrls": {
-     "facebook": "https://facebook.com/reel/1326272009572632",
-     "instagram": "https://www.instagram.com/reel/DfqWWwwgXJH/",
-     "youtube": "https://www.youtube.com/shorts/tH1rt9vIS1g"
-    },
-    "confirmed_by": "2026-11-13 FLAGSHIP run (getScheduledPosts 10:50)"
-   }
-  ],
-  "post_note": "Scheduled at the fixed 18:30 fun-fact slot; only other post today was the 11:00 YouTube retry. Due more than 30 min after the run, so confirmation is left to the next run (section 1)."
- },
- {
-  "date": "2026-11-13",
-  "slot": "FLAGSHIP",
-  "type": "flagship",
-  "category": "Calgary story",
-  "title": "Forced Out Twice: The Story of Calgary's Chinatown",
-  "topic_used": "Calgary's Chinatown in three locations: first just east of the train station (today's Calgary Municipal Building); 1892 smallpox outbreak fuelled violence, a mob of over 300 smashed Chinese laundries' doors and windows, NWMP protected Chinatown for three weeks; from 1901 a second Chinatown across the tracks on 10 Ave SW (anti-Chinese sentiment and development pressure, CBC); 1910 Canadian Northern Railway route announced, property values soared, landlords evicted Chinese tenants and sold; Chinese merchants bought land at Centre St & 2 Ave, anti-Chinese protesters demanded it be elsewhere, they won a permit and built the Canton Block (1910-11, 200-216 Centre St SE, still standing); 1966 parkway would have eliminated half of Chinatown, defeated by Sien Lok; Cultural Centre 1992, modelled on the Temple of Heaven; there since 1910.",
-  "changed_from_calendar": "Kept the subject; reframed 'three moves' to three locations / two forced moves (City of Calgary). No founding year used (sources say 1883/1885/1888/c.1890).",
-  "central_figure": "Chinatown 'has been in three different locations in Calgary' (City of Calgary, Tomorrow's Chinatown); the Canton Block (1910-11) still stands (Heritage Calgary)",
-  "sources": [
-   "https://www.calgary.ca/pda/pd/current-studies-and-ongoing-activities/tomorrows-chinatown.html",
-   "https://www.sfu.ca/chinese-canadian-history/calgary_chinatown_en.html",
-   "https://www.lougheedhouse.com/story-early-chinese-community",
-   "https://calgaryjournal.ca/2021/10/29/lougheed-house-exhibit-showcases-the-citys-early-chinatowns/",
-   "https://amp.cbc.ca/lite/story/1.7018628",
-   "https://www.culturalcentre.ca/the-evolution-of-calgary-s-chinatow",
-   "https://heritagecalgary.ca/heritage-calgary-blog/canton-block",
-   "https://heritagecalgary.ca/heritage-calgary-blog/chinatown",
-   "https://www.heritageinspiresyyc.org/?p=894",
-   "https://historicplacesdays.ca/places/%e5%8d%a1%e5%9f%8e%e8%8f%af%e5%9f%a0-calgary-chinatown?a=36175",
-   "https://albertaviews.ca/china-town/"
-  ],
-  "link": "https://calgaryinsight.ca/communities/chinatown/?utm_source=<platform>&utm_medium=social&utm_campaign=chinatown-forced-out-twice",
-  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/seo_pages.py builds communities/<slug>/ for every community; CHINATOWN -> chinatown)",
-  "length_s": 86.95,
-  "short_length_s": 72.42,
-  "teaser_length_s": 26.39,
-  "video_path": [
-   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-short.mp4",
-   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-youtube.mp4",
-   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-teaser.mp4"
-  ],
-  "thumbnail_path": [
-   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-thumb.jpg",
-   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-thumb-yt.jpg"
-  ],
-  "package": "packages/2026-11-13-FLAGSHIP-chinatown-forced-out-twice.md",
-  "production": "production/2026-11-13-FLAGSHIP/scene.js",
-  "identity": "Storyteller lead (dusk/night drones over real OSM/City geometry, dissolves through time, letterbox on wide); Data Explainer counter slam + year stamps; Civic Analyst evidence chips + schematic map cards",
-  "audit": {
-   "rounds": 3,
-   "claims_checked": 21,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-13-FLAGSHIP.md"
-  },
-  "qc": {
-   "stills": "pass (after 9 layout fixes)",
-   "final": "pass",
-   "scores": [
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2
-   ],
-   "notes": [
-    "no 0s; ending 3.9-4.0 s; about -14.8 LUFS; Short 11.0 MB, film 15.7 MB, teaser 2.9 MB"
-   ]
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 427256036,
-    "uuid": "2982997679375664082",
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=2982997679375664082",
-    "providers": [
-     "instagram",
-     "youtube-short"
-    ],
-    "file": "chinatown-forced-out-twice-short.mp4",
-    "publish_at": "2026-11-13T12:30",
-    "status": "PUBLISHED",
-    "firstCommentText": true,
-    "videoThumbnailUrl": true,
-    "publicUrls": {
-     "instagram": "https://www.instagram.com/reel/DfsR3zPlcHH/",
-     "youtube": "https://www.youtube.com/shorts/IIMIYVjnBSo"
-    },
-    "confirmed_by": "2026-11-13 CIVIC run (getScheduledPosts ~13:30)"
-   },
-   {
-    "metricool_id": 427262064,
-    "uuid": "-4481465902319776585",
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-4481465902319776585",
-    "providers": [
-     "facebook",
-     "youtube-video"
-    ],
-    "file": "chinatown-forced-out-twice-youtube.mp4",
-    "publish_at": "2026-11-13T17:30",
-    "status": "scheduled",
-    "firstCommentText": true,
-    "videoThumbnailUrl": true
-   }
-  ],
-  "pending_link": [
-   {
-    "file": "chinatown-forced-out-twice-teaser.mp4",
-    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-teaser.mp4",
-    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-thumb.jpg",
-    "providers": [
-     {
-      "network": "facebook",
-      "type": "REEL"
-     }
-    ],
-    "caption_without_link": "Calgary's Chinatown was forced to move. Twice.\nDisplacement and discrimination forced the community to move, until Chinese merchants bought their own land and built a block that still stands.\nHave you been to Chinatown? Yes or no? Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔗 Link in the first comment\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca",
-    "hashtags": "#Calgary #yyc #Chinatown #CalgaryHistory",
-    "first_comment": "🔗 Explore Chinatown and every Calgary community: https://calgaryinsight.ca/communities/chinatown/?utm_source=facebook&utm_medium=social&utm_campaign=chinatown-forced-out-twice",
-    "first_comment_note": "PLAYBOOK 7b Facebook rule: firstCommentText = '▶ Full film: https://youtu.be/<id>' on the first line, then the first_comment line",
-    "post_at": "2026-11-13T20:00",
-    "link_to": 427262064,
-    "scheduled": false
-   }
-  ],
-  "post_note": "Post A scheduled 11:37 for the fixed 12:30 slot; post B scheduled 11:42 for the fixed 17:30 slot (both with designed thumbnails, first comment, no AI labels). YouTube 24-hour count stays at 4 or fewer (Nov 12 18:30, Nov 13 11:00, 12:30, 17:30). Teaser left as pending_link for the 17:41 link-up task. Confirmation of A and B is left to the next run (section 1)."
- },
- {
-  "date": "2026-11-13",
-  "slot": "CIVIC",
-  "type": "civic",
-  "category": "Calgary news",
-  "title": "Grey Cup Sunday in Calgary: what to know",
-  "topic_used": "113th Grey Cup at McMahon Stadium on Sun Nov 15, 2026 (Montreal Alouettes vs Edmonton Elks, 5 p.m.); Calgary's sixth time hosting, first since 2019; festival at Stampede Park Nov 11-14 with free family-friendly events; organizers expect roughly $50M in economic activity (estimate); Sunday 11 a.m.-11 p.m. University Drive NW closed 16-24 Ave NW, Crowchild Trail NW two lanes each way; City says take the Red Line CTrain to Banff Trail Station.",
-  "changed_from_calendar": null,
-  "why_this_story": "Most-talked-about Calgary story of the past 48 h (festival week, game in two days), practical road and transit changes; the budget was covered Nov 9 and Nov 11.",
-  "central_figure": "Sixth time Calgary hosts the Grey Cup, first since 2019 (Wikipedia, Tourism Calgary, City of Calgary 2019 release)",
-  "sources": [
-   "https://www.calgary.ca/events/grey-cup.html",
-   "https://www.cp24.com/news/sports/2026/11/13/grey-cup-celebrations-kick-off-in-calgary-as-fans-arrive-from-across-canada/",
-   "https://en.wikipedia.org/wiki/113th_Grey_Cup",
-   "https://www.greycupfestival.ca/tickets/113-grey-cup/",
-   "https://www.visitcalgary.com/events/113th-grey-cup-festival",
-   "https://newsroom.calgary.ca/calgary-is-ready-for-2019-grey-cup-game-and-festivities/"
-  ],
-  "link": "https://calgaryinsight.ca/news/2026-11-11-grey-cup-festival-opens-at-stampede-park-ahead-of-sunday-s-montreal-ed/?utm_source=facebook&utm_medium=social&utm_campaign=grey-cup-sunday",
-  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate; news/<id>/ pages are generated by web/news_pages.py and today's Website build (run 214) succeeded after the story was published.",
-  "length_s": 44.0,
-  "video_path": "studio-videos/2026-11-13-CIVIC/grey-cup-sunday.mp4",
-  "thumbnail_path": "studio-videos/2026-11-13-CIVIC/grey-cup-sunday-thumb.jpg",
-  "package": "packages/2026-11-13-CIVIC-grey-cup-sunday.md",
-  "identity": "Civic Analyst lead + Storyteller drone + Data Explainer counters",
-  "audit": {
-   "rounds": 2,
-   "claims_checked": 9,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-13-CIVIC.md"
-  },
-  "qc": {
-   "stills": "pass",
-   "final": "pass",
-   "scores": [
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2
-   ],
-   "notes": [
-    "Stampede Park label and Red Line text moved clear of the right 120 px after the stills check"
-   ]
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 427423095,
-    "previous_draft_id": 427381826,
-    "uuid": "7519967824730277000",
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7519967824730277000",
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
-    ],
-    "publish_at": "2026-11-13T15:00",
-    "draft": false,
-    "status": "PUBLISHED",
-    "publicUrls": {
-     "facebook": "https://facebook.com/reel/1677233067139775",
-     "instagram": "https://www.instagram.com/reel/DfsjZqFgqAp/",
-     "youtube": "https://www.youtube.com/shorts/kKnREt6U02Y"
-    },
-    "confirmed_by": "2026-11-13 PM run"
-   }
-  ],
-  "post_note": "One-time review: Hassan replied 'Post it' at 14:22; draft switched to draft:false, kept at the planned 15:00 Calgary slot (38 min away; 2.5 h from the 12:30 and 17:30 posts). Due >30 min after this update, so the next run confirms it (section 1).",
-  "approval": {
-   "by": "Hassan",
-   "at": "2026-11-13 14:22 Calgary",
-   "reply": "Post it",
-   "changes": null
+    "post_note": "Scheduled for the fixed 18:30 fun-fact slot (60 min after the 17:30 flagship post B, 90 min before the 20:00 teaser slot). YouTube 24-hour count within 8."
   }
- },
- {
-  "date": "2026-11-13",
-  "slot": "PM",
-  "type": "quick-insight",
-  "category": "Fun fact",
-  "title": "WestJet took off on a leap day",
-  "topic_used": "WestJet's first flight was on Feb 29, 1996 (a leap day); Calgary-based airline founded by Clive Beddoe and a team of partners; started with three aircraft and five destinations (Vancouver, Kelowna, Edmonton, Calgary, Winnipeg)",
-  "changed_from_calendar": null,
-  "why_this_story": "Calendar topic 'WestJet was founded in Calgary' kept and sharpened to its surprising angle (a leap-day first flight)",
-  "central_figure": "First flight Feb 29, 1996 (Global News, Feb 29, 2016; CTV Calgary)",
-  "sources": [
-   "https://globalnews.ca/news/2546957/calgary-based-airline-westjet-celebrates-20-year-anniversary",
-   "https://calgary.ctvnews.ca/westjet-celebrates-20-years-1.2767024"
-  ],
-  "link": "https://calgaryinsight.ca/tourism-intelligence/?utm_source=facebook&utm_medium=social&utm_campaign=westjet-leap-day",
-  "link_check": "WebFetch could not reach calgaryinsight.ca this run (permission prompt unanswered in the unattended run); page confirmed from the site build on main (web/build_site.py builds tourism-intelligence/index.html, in the sitemap)",
-  "length_s": 22.2,
-  "video_path": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-PM/westjet-leap-day.mp4",
-  "thumbnail_path": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-PM/westjet-leap-day-thumb.jpg",
-  "package": "packages/2026-11-13-PM-westjet-leap-day.md",
-  "identity": "Data Explainer lead; Storyteller map dive; Civic schematic card",
-  "audit": {
-   "rounds": 1,
-   "claims_checked": 6,
-   "verdict": "APPROVED",
-   "report": "audits/2026-11-13-PM.md"
-  },
-  "qc": {
-   "stills": "pass",
-   "final": "pass",
-   "scores": [
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2
-   ],
-   "notes": [
-    "calendar, grid, runway and map moved up after first stills to clear the caption band"
-   ]
-  },
-  "status": "done",
-  "posted": [
-   {
-    "metricool_id": 427585243,
-    "uuid": "7596444405315946305",
-    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7596444405315946305",
-    "providers": [
-     "instagram",
-     "facebook",
-     "youtube"
-    ],
-    "publish_at": "2026-11-13T18:30",
-    "draft": false,
-    "status": "scheduled"
-   }
-  ],
-  "post_note": "Scheduled for the fixed 18:30 fun-fact slot (60 min after the 17:30 flagship post B, 90 min before the 20:00 teaser slot). YouTube 24-hour count within 8."
- }
 ]
