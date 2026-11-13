@@ -1,5 +1,15 @@
 {
  "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13 2026.",
- "ur": {"رسولِ خدا": "رسولے خدا", "شیعہ": "شِیعہ", "بیت الاحزان": "بیت ال احزان", "بقیع": "جنت البقیع", "جنت البقیع": "جنت البقیع"},
- "ar": {}
+ "ur": {
+  "اللہ کے نبی ﷺ": "اللہ کے نبی",
+  "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
+  "رسولِ خدا": "اللہ کے نبی",
+  "ﷺ": "",
+  "شیعہ": "شِیعہ",
+  "بیت الاحزان": "بیت ال احزان",
+  "بقیع": "جنت البقیع",
+  "جنت البقیع": "جنت البقیع"
+ },
+ "ar": {},
+ "_rule_ur": "Urdu narration never says رسولِ خدا or the spoken salawat (mispronounced). Write اللہ کے نبی ﷺ in the script: the voice says 'Allah ke Nabi', the captions show ﷺ."
 }
