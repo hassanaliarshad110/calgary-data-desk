@@ -1,0 +1,555 @@
+{
+ "tax_path_compound_pct": 44.4,
+ "pop_growth_2026_2030_pct": 6.7,
+ "pop_growth_2021_2026_pct": 19.8,
+ "cpi_2027_2030_pct": 8.3,
+ "pop_plus_cpi_2026_2030_pct": 15.6,
+ "cpi_2021_2026_pct": 20.5,
+ "op_open_m": {
+  "2027": 6433.6,
+  "2028": 7009.9,
+  "2029": 7509.1,
+  "2030": 8156.6
+ },
+ "op_open_growth_pct": 26.8,
+ "op_per_resident": {
+  "2027": 3999,
+  "2028": 4288,
+  "2029": 4517,
+  "2030": 4828
+ },
+ "op_per_resident_growth_pct": 20.7,
+ "op_per_resident_real_2030_in_2027_dollars": 4554,
+ "op_per_resident_real_growth_pct": 13.9,
+ "pop_growth_2027_2030_pct": 5.0,
+ "cpi_2028_2030_pct": 6.0,
+ "op_dept": [
+  {
+   "dept": "Operational Services",
+   "2027": 2815.8,
+   "2028": 3122.0,
+   "2029": 3494.8,
+   "2030": 3873.7,
+   "change_m": 1057.9,
+   "change_pct": 37.6
+  },
+  {
+   "dept": "Corporate Programs",
+   "2027": 900.6,
+   "2028": 1150.2,
+   "2029": 1270.9,
+   "2030": 1480.0,
+   "change_m": 579.4,
+   "change_pct": 64.3
+  },
+  {
+   "dept": "Community Services",
+   "2027": 810.0,
+   "2028": 843.4,
+   "2029": 867.7,
+   "2030": 894.1,
+   "change_m": 84.1,
+   "change_pct": 10.4
+  },
+  {
+   "dept": "Calgary Police Service",
+   "2027": 742.2,
+   "2028": 770.4,
+   "2029": 790.5,
+   "2030": 809.5,
+   "change_m": 67.3,
+   "change_pct": 9.1
+  },
+  {
+   "dept": "Civic Partners",
+   "2027": 163.5,
+   "2028": 190.3,
+   "2029": 200.9,
+   "2030": 208.6,
+   "change_m": 45.1,
+   "change_pct": 27.6
+  },
+  {
+   "dept": "Infrastructure Services",
+   "2027": 137.7,
+   "2028": 143.9,
+   "2029": 152.4,
+   "2030": 160.9,
+   "change_m": 23.2,
+   "change_pct": 16.8
+  },
+  {
+   "dept": "Law, Legislative Services & Security",
+   "2027": 91.8,
+   "2028": 102.3,
+   "2029": 127.2,
+   "2030": 109.7,
+   "change_m": 17.8,
+   "change_pct": 19.4
+  },
+  {
+   "dept": "People & Corporate Services",
+   "2027": 218.5,
+   "2028": 225.5,
+   "2029": 228.5,
+   "2030": 233.8,
+   "change_m": 15.3,
+   "change_pct": 7.0
+  },
+  {
+   "dept": "Corporate Planning & Financial Services",
+   "2027": 99.4,
+   "2028": 102.4,
+   "2029": 101.8,
+   "2030": 102.7,
+   "change_m": 3.3,
+   "change_pct": 3.3
+  },
+  {
+   "dept": "Chief Administrator's Office",
+   "2027": 10.8,
+   "2028": 10.8,
+   "2029": 10.8,
+   "2030": 10.9,
+   "change_m": 0.1,
+   "change_pct": 0.9
+  },
+  {
+   "dept": "Council",
+   "2027": 19.3,
+   "2028": 17.2,
+   "2029": 17.7,
+   "2030": 18.0,
+   "change_m": -1.3,
+   "change_pct": -6.7
+  },
+  {
+   "dept": "Chief Operating Office",
+   "2027": 19.6,
+   "2028": 8.9,
+   "2029": 8.9,
+   "2030": 8.9,
+   "change_m": -10.7,
+   "change_pct": -54.6
+  },
+  {
+   "dept": "Planning & Development Services",
+   "2027": 404.4,
+   "2028": 322.6,
+   "2029": 237.0,
+   "2030": 245.9,
+   "change_m": -158.5,
+   "change_pct": -39.2
+  }
+ ],
+ "op_increase_2027_2030_m": 1723.0,
+ "capital_proposed_m": {
+  "2027": 1555.2,
+  "2028": 3017.6,
+  "2029": 4028.8,
+  "2030": 4427.8,
+  "2031": 26.7
+ },
+ "capital_approved_m": {
+  "2027": 2867.0,
+  "2028": 2569.6,
+  "2029": 989.8,
+  "2030": 522.8,
+  "2031": 145.8,
+  "2032": 452.6
+ },
+ "op_summary": {
+  "2026_b": 5.9,
+  "2030_b": 7.8,
+  "growth_pct": 32.2,
+  "per_resident_2026": 3727,
+  "per_resident_2030": 4617,
+  "per_resident_growth_pct": 23.9
+ },
+ "bc_counts": {
+  "cases": 384,
+  "operating": 124,
+  "capital": 260
+ },
+ "bc_totals": {
+  "capital_k": [
+   13051480,
+   1554053,
+   3016271,
+   4027534,
+   4426874,
+   26741
+  ],
+  "one_time_m": [
+   78.6,
+   213.8,
+   52.1,
+   41.1
+  ],
+  "ongoing_m": [
+   276.1,
+   168.0,
+   88.6,
+   62.9
+  ],
+  "ftes": [
+   855,
+   445,
+   279,
+   347
+  ]
+ },
+ "capital_requests_b": 13.05,
+ "capital_split_b": {
+  "maintenance": 5.53,
+  "growth": 4.52,
+  "enhancement": 2.64,
+  "transformative": 0.36
+ },
+ "capital_split_pct": {
+  "maintenance": 42.4,
+  "growth": 34.6,
+  "enhancement": 20.3,
+  "transformative": 2.7
+ },
+ "capital_named_ward_b": 1.07,
+ "capital_named_ward_pct": 8.2,
+ "capital_named_ward_cases": 34,
+ "capital_by_named_ward_m": {
+  "1": 47.5,
+  "2": 25.6,
+  "3": 80.9,
+  "4": 38.2,
+  "5": 41.9,
+  "6": 0.0,
+  "7": 223.3,
+  "8": 58.5,
+  "9": 162.1,
+  "10": 12.3,
+  "11": 0.0,
+  "12": 239.2,
+  "13": 70.9,
+  "14": 70.9
+ },
+ "capital_named_ward_case_count": {
+  "1": 6,
+  "2": 1,
+  "3": 6,
+  "4": 4,
+  "5": 2,
+  "6": 0,
+  "7": 16,
+  "8": 6,
+  "9": 9,
+  "10": 2,
+  "11": 0,
+  "12": 13,
+  "13": 1,
+  "14": 1
+ },
+ "top_named_ward_projects": [
+  {
+   "n": 209,
+   "title": "194 Avenue S and Macleod Trail Interchange",
+   "wards": [
+    13,
+    14
+   ],
+   "m": 141.9,
+   "split": [
+    0,
+    51,
+    49,
+    0
+   ],
+   "page": 445
+  },
+  {
+   "n": 128,
+   "title": "New Fire and Emergency Response Station Program",
+   "wards": [
+    1,
+    2,
+    3,
+    7
+   ],
+   "m": 102.4,
+   "split": [
+    34,
+    66,
+    0,
+    0
+   ],
+   "page": 283
+  },
+  {
+   "n": 18,
+   "title": "Municipal Complex Upgrades",
+   "wards": [
+    7
+   ],
+   "m": 81.0,
+   "split": [
+    100,
+    0,
+    0,
+    0
+   ],
+   "page": 43
+  },
+  {
+   "n": 181,
+   "title": "MAX Green Bus Rapid Transit (BRT) / North Central BRT / Max 301 North Improvements",
+   "wards": [
+    3,
+    4,
+    7
+   ],
+   "m": 80.4,
+   "split": [
+    0,
+    25,
+    75,
+    0
+   ],
+   "page": 389
+  },
+  {
+   "n": 208,
+   "title": "Peigan Trail Widening (Barlow Trail to Stoney Trail SE)",
+   "wards": [
+    9
+   ],
+   "m": 74.4,
+   "split": [
+    0,
+    51,
+    49,
+    0
+   ],
+   "page": 443
+  },
+  {
+   "n": 338,
+   "title": "Prairie Economic Gateway \u2013 114 Avenue SE Grade Separation at Canadian Pacific Kansas City (CPKC)",
+   "wards": [
+    12
+   ],
+   "m": 66.3,
+   "split": [
+    0,
+    49,
+    0,
+    51
+   ],
+   "page": 699
+  },
+  {
+   "n": 38,
+   "title": "Land Development",
+   "wards": [
+    3,
+    5,
+    9,
+    12
+   ],
+   "m": 59.0,
+   "split": [
+    14,
+    86,
+    0,
+    0
+   ],
+   "page": 91
+  },
+  {
+   "n": 37,
+   "title": "Calgary Parking Facilities",
+   "wards": [
+    7,
+    8,
+    9
+   ],
+   "m": 55.7,
+   "split": [
+    80,
+    10,
+    10,
+    0
+   ],
+   "page": 89
+  }
+ ],
+ "ongoing_requests_m_total": 595.6,
+ "ongoing_by_dept_m": {
+  "Operational Services": 201.0,
+  "Community Services": 166.0,
+  "Corporate Programs": 137.5,
+  "Calgary Police Service": 27.9,
+  "Law, Legislative Services & Security": 27.8,
+  "People, Innovation & Collaboration Services": 16.6,
+  "Corporate Planning & Financial Services": 7.1,
+  "Planning & Development Services": 5.5,
+  "Chief Operating Office": 4.5,
+  "Council": 1.7,
+  "Chief Administrator's Office": 0
+ },
+ "ongoing_by_bu_m": {
+  "Corporate Programs": 137.5,
+  "Calgary Transit": 123.1,
+  "Emergency Management & Community Safety": 66.2,
+  "Calgary Fire": 39.1,
+  "Civic Partners": 31.6,
+  "Mobility": 31.3,
+  "Parks & Open Spaces": 29.2,
+  "Calgary Police Service": 27.9,
+  "Community Strategies": 23.0,
+  "Corporate Security": 13.5
+ },
+ "ongoing_by_rationale_m": {
+  "Explicit Direction from Council": 256.5,
+  "Implicit Direction from Council": 153.9,
+  "Risk-based considerations": 129.1,
+  "Responding to Provincial Government Changes": 28.2,
+  "Commission Requested": 27.9
+ },
+ "ftes_total": 1926,
+ "ftes_by_dept": {
+  "Operational Services": 957,
+  "Community Services": 695,
+  "Law, Legislative Services & Security": 93,
+  "Calgary Police Service": 58,
+  "People, Innovation & Collaboration Services": 56,
+  "Corporate Planning & Financial Services": 37,
+  "Chief Operating Office": 14,
+  "Planning & Development Services": 11,
+  "Corporate Programs": 4,
+  "Council": 1,
+  "Chief Administrator's Office": 0
+ },
+ "household": {
+  "Municipal property tax": {
+   "item": "Municipal property tax",
+   "m2026": 229,
+   "m2027": 266,
+   "change": 37
+  },
+  "Water utilities, waste and recycling": {
+   "item": "Water utilities, waste and recycling",
+   "m2026": 140,
+   "m2027": 156,
+   "change": 16
+  },
+  "Total": {
+   "item": "Total",
+   "m2026": 369,
+   "m2027": 422,
+   "change": 53
+  }
+ },
+ "typical_tax_change_pct": 16.0,
+ "typical_value_change_pct": -2.55,
+ "implied_rate_multiplier": [
+  1.1881,
+  1.1903,
+  1.1925
+ ],
+ "implied_rate_change_pct": 19.0,
+ "implied_base_change_pct": -3.4,
+ "breakeven_value_change_pct": -3.39,
+ "who_pays_proxy": {
+  "Detached": {
+   "value_change_pct": -1.87,
+   "bill_change_pct": 16.8,
+   "bill_change_lo": 16.6,
+   "bill_change_hi": 17.0
+  },
+  "Semi-detached": {
+   "value_change_pct": 1.0,
+   "bill_change_pct": 20.2,
+   "bill_change_lo": 20.0,
+   "bill_change_hi": 20.4
+  },
+  "Row / townhouse": {
+   "value_change_pct": -5.0,
+   "bill_change_pct": 13.1,
+   "bill_change_lo": 12.9,
+   "bill_change_hi": 13.3
+  },
+  "Apartment condominium": {
+   "value_change_pct": -8.37,
+   "bill_change_pct": 9.1,
+   "bill_change_lo": 8.9,
+   "bill_change_hi": 9.3
+  },
+  "Total residential": {
+   "value_change_pct": -2.05,
+   "bill_change_pct": 16.6,
+   "bill_change_lo": 16.4,
+   "bill_change_hi": 16.8
+  }
+ },
+ "typical_factor": 1.0087,
+ "scenarios": {
+  "15": {
+   "revenue_m": 384.0,
+   "typical_month": 266.0,
+   "typical_month_change": 36.68,
+   "typical_year_change": 440,
+   "gap_vs_15_m": 0.0
+  },
+  "10": {
+   "revenue_m": 256.0,
+   "typical_month": 254.43,
+   "typical_month_change": 25.11,
+   "typical_year_change": 301,
+   "gap_vs_15_m": 128.0
+  },
+  "5": {
+   "revenue_m": 128.0,
+   "typical_month": 242.87,
+   "typical_month_change": 13.55,
+   "typical_year_change": 163,
+   "gap_vs_15_m": 256.0
+  }
+ },
+ "ongoing_requests_2027_m": 276.1,
+ "one_time_requests_2027_m": 78.6,
+ "typical_path_month": {
+  "2026": 229.32,
+  "2027": 266.0,
+  "2028": 292.6,
+  "2029": 315.13,
+  "2030": 334.04
+ },
+ "typical_2030_year_change": 1257,
+ "typical_2030_real_change_pct": 34.4,
+ "levy_2026": {
+  "municipal": {
+   "residential": 1378401552,
+   "non_residential": 1141158372,
+   "farm_land": 1305110,
+   "total": 2520865034
+  },
+  "education": {
+   "residential": 976684302,
+   "non_residential": 258940842,
+   "farm_land": 106056,
+   "total": 1235731200
+  }
+ },
+ "rates_2026": {
+  "municipal": {
+   "residential": 0.0038906,
+   "non_residential": 0.0179986,
+   "farm_land": 0.0339557
+  },
+  "education": {
+   "residential": 0.0027593,
+   "non_residential": 0.0041502,
+   "farm_land": 0.0027593
+  }
+ },
+ "municipal_res_share_pct": 54.7,
+ "one_pct_check_m": 25.2
+}
