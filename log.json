@@ -5,7 +5,7 @@
   "type": "quick-insight",
   "category": "Population",
   "title": "Calgary's migration boom cooled fast",
-  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023–Mar 2024, est.) → 40,500 (Apr 2024–Mar 2025, est.) → 15,500 forecast (Apr 2025–Mar 2026, made Jan 2026)",
+  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023\u2013Mar 2024, est.) \u2192 40,500 (Apr 2024\u2013Mar 2025, est.) \u2192 15,500 forecast (Apr 2025\u2013Mar 2026, made Jan 2026)",
   "changed_from_calendar": null,
   "central_figure": "Net migration to the City of Calgary fell from about 80,200 (year to April 2024) to about 40,500 (year to April 2025), City estimates",
   "sources": [
@@ -111,8 +111,8 @@
   "type": "civic",
   "category": "Civic intelligence",
   "title": "Calgary's 2027 budget: what the preliminary numbers say",
-  "topic_used": "Preliminary 2027–2030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2–5.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
-  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments … by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
+  "topic_used": "Preliminary 2027\u20132030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2\u20135.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
+  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments \u2026 by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
   "central_figure": "2027: $528M in new ongoing operating requests, $144M available funding, remaining $384M paired with a 15% property tax revenue increase (City of Calgary C2026-0749 Rev. Att. 1, slide 28, Sept 29, 2026)",
   "sources": [
    "https://www.calgary.ca/our-finances/2027-budget.html",
@@ -157,9 +157,9 @@
   "type": "quick-insight",
   "category": "Housing",
   "title": "A one-bedroom in the Calgary area: 2020 vs 2025",
-  "topic_used": "CMHC Rental Market Survey, Calgary CMA, row & apartment, October: average one-bedroom rent $1,086 (2020) → $1,111 → $1,222 → $1,463 → $1,584 → $1,581 (2025)",
+  "topic_used": "CMHC Rental Market Survey, Calgary CMA, row & apartment, October: average one-bedroom rent $1,086 (2020) \u2192 $1,111 \u2192 $1,222 \u2192 $1,463 \u2192 $1,584 \u2192 $1,581 (2025)",
   "changed_from_calendar": null,
-  "central_figure": "Average one-bedroom rent, Calgary CMA: $1,086 (Oct 2020) → $1,581 (Oct 2025), +$495/month, +45.6% (CMHC HMIP Table 2.2.11)",
+  "central_figure": "Average one-bedroom rent, Calgary CMA: $1,086 (Oct 2020) \u2192 $1,581 (Oct 2025), +$495/month, +45.6% (CMHC HMIP Table 2.2.11)",
   "sources": [
    "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/TableMapChart/Table?TableId=2.2.11&GeographyId=0140&GeographyTypeId=3&DisplayAs=Table",
    "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/Dashboard/Print?geographyId=0140"
@@ -200,9 +200,9 @@
   "type": "quick-insight",
   "category": "Construction",
   "title": "Calgary's permit value is up. Homes aren't why.",
-  "topic_used": "City of Calgary Building Permit Application Statement (period ending 2026/09/30), YTD estimated value: total $6,396,842,039 vs $5,798,100,988 (+10.3%); residential $3,828,082,150 vs $4,377,246,714 (−$549.2M, −12.5%); non-residential $2,515,244,773 vs $1,397,934,631 (+$1,117.3M, +79.9%)",
+  "topic_used": "City of Calgary Building Permit Application Statement (period ending 2026/09/30), YTD estimated value: total $6,396,842,039 vs $5,798,100,988 (+10.3%); residential $3,828,082,150 vs $4,377,246,714 (\u2212$549.2M, \u221212.5%); non-residential $2,515,244,773 vs $1,397,934,631 (+$1,117.3M, +79.9%)",
   "changed_from_calendar": null,
-  "central_figure": "Jan–Sep 2026 building permit applications listed $6.40B in estimated construction value (+10% vs Jan–Sep 2025); residential −$549M, non-residential +$1.12B (+80%) (City of Calgary, Building Permit Application Statement, Sept 2026)",
+  "central_figure": "Jan\u2013Sep 2026 building permit applications listed $6.40B in estimated construction value (+10% vs Jan\u2013Sep 2025); residential \u2212$549M, non-residential +$1.12B (+80%) (City of Calgary, Building Permit Application Statement, Sept 2026)",
   "sources": [
    "https://www.calgary.ca/content/dam/www/pda/pd/documents/building/2026-09-Building-Permit-Application-Statement.pdf",
    "https://www.calgary.ca/planning/application-statistics.html"
@@ -444,7 +444,7 @@
       "type": "REEL"
      }
     ],
-    "caption_without_link": "This Calgary drill hall was finished too late for the war of its day.\nMewata Armoury, a Depression-era army base and a school turned museum: Calgary's military story, hiding in plain sight.\nWhich one would you visit first? Drop your thoughts below 👇",
+    "caption_without_link": "This Calgary drill hall was finished too late for the war of its day.\nMewata Armoury, a Depression-era army base and a school turned museum: Calgary's military story, hiding in plain sight.\nWhich one would you visit first? Drop your thoughts below \ud83d\udc47",
     "hashtags": "#Calgary #yyc #RemembranceDay #CalgaryHistory",
     "post_at": "2026-11-11T21:00",
     "link_to": 424705605,
@@ -467,7 +467,7 @@
   "type": "civic",
   "category": "Calgary news",
   "title": "Calgary's proposed budget: what it means for a typical home",
-  "topic_used": "News explained: City released its proposed 2027–2030 Budget on Nov 10, 2026 (15% increase in municipal property tax revenue from existing properties in 2027; City estimate for a typical single residential property +$53/month = +$37 municipal property tax + $16 water, waste & recycling; CAO cites growth, rising cost, aging assets; some councillors want proposed tax hikes brought down; public submissions and deliberations from the week of Nov 23; approval expected December 2026)",
+  "topic_used": "News explained: City released its proposed 2027\u20132030 Budget on Nov 10, 2026 (15% increase in municipal property tax revenue from existing properties in 2027; City estimate for a typical single residential property +$53/month = +$37 municipal property tax + $16 water, waste & recycling; CAO cites growth, rising cost, aging assets; some councillors want proposed tax hikes brought down; public submissions and deliberations from the week of Nov 23; approval expected December 2026)",
   "changed_from_calendar": null,
   "repeat_note": "Follow-up to 2026-11-09 CIVIC (preliminary Sept 29 figures). New since then: the proposed budget itself was released Nov 10, with a combined typical-home estimate incl. utilities and approval now listed for December.",
   "central_figure": "City estimate: typical single residential property pays about $53 more a month in 2027 ($37 municipal property tax + $16 water, waste and recycling)",
@@ -573,8 +573,12 @@
     ],
     "file": "crowchild-trail-chief.mp4",
     "publish_at": "2026-11-13T11:00",
-    "status": "scheduled",
-    "note": "YouTube-only retry of the failed Nov 11 19:00 YouTube copy (PLAYBOOK 7). Nov 12 11:00/14:00 had already passed when found, and 11:00 Nov 13 is the first slot more than 24 h after the failure; YouTube 24-hour count stays under 8."
+    "status": "PUBLISHED",
+    "note": "YouTube-only retry of the failed Nov 11 19:00 YouTube copy (PLAYBOOK 7). Nov 12 11:00/14:00 had already passed when found, and 11:00 Nov 13 is the first slot more than 24 h after the failure; YouTube 24-hour count stays under 8.",
+    "publicUrls": {
+     "youtube": "https://www.youtube.com/shorts/T8UKokVWQ5g"
+    },
+    "confirmed_by": "2026-11-13 FLAGSHIP run (getScheduledPosts 11:37)"
    }
   ],
   "post_note": "Scheduled at the fixed 19:00 PM slot (created 17:29, updated 17:33 with the round-2 video with follow/subscribe prompt and new caption line; same post, not duplicated). Designed thumbnail, EDUCATION, no AI labels. Due >30 min after the run, so confirmation is left to the next run (section 1). Earlier today's CIVIC post confirmed PUBLISHED in this run.",
@@ -640,11 +644,136 @@
      "youtube"
     ],
     "publish_at": "2026-11-12T18:30",
+    "status": "PUBLISHED",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1326272009572632",
+     "instagram": "https://www.instagram.com/reel/DfqWWwwgXJH/",
+     "youtube": "https://www.youtube.com/shorts/tH1rt9vIS1g"
+    },
+    "confirmed_by": "2026-11-13 FLAGSHIP run (getScheduledPosts 10:50)"
+   }
+  ],
+  "post_note": "Scheduled at the fixed 18:30 fun-fact slot; only other post today was the 11:00 YouTube retry. Due more than 30 min after the run, so confirmation is left to the next run (section 1)."
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "Forced Out Twice: The Story of Calgary's Chinatown",
+  "topic_used": "Calgary's Chinatown in three locations: first just east of the train station (today's Calgary Municipal Building); 1892 smallpox outbreak fuelled violence, a mob of over 300 smashed Chinese laundries' doors and windows, NWMP protected Chinatown for three weeks; from 1901 a second Chinatown across the tracks on 10 Ave SW (anti-Chinese sentiment and development pressure, CBC); 1910 Canadian Northern Railway route announced, property values soared, landlords evicted Chinese tenants and sold; Chinese merchants bought land at Centre St & 2 Ave, anti-Chinese protesters demanded it be elsewhere, they won a permit and built the Canton Block (1910-11, 200-216 Centre St SE, still standing); 1966 parkway would have eliminated half of Chinatown, defeated by Sien Lok; Cultural Centre 1992, modelled on the Temple of Heaven; there since 1910.",
+  "changed_from_calendar": "Kept the subject; reframed 'three moves' to three locations / two forced moves (City of Calgary). No founding year used (sources say 1883/1885/1888/c.1890).",
+  "central_figure": "Chinatown 'has been in three different locations in Calgary' (City of Calgary, Tomorrow's Chinatown); the Canton Block (1910-11) still stands (Heritage Calgary)",
+  "sources": [
+   "https://www.calgary.ca/pda/pd/current-studies-and-ongoing-activities/tomorrows-chinatown.html",
+   "https://www.sfu.ca/chinese-canadian-history/calgary_chinatown_en.html",
+   "https://www.lougheedhouse.com/story-early-chinese-community",
+   "https://calgaryjournal.ca/2021/10/29/lougheed-house-exhibit-showcases-the-citys-early-chinatowns/",
+   "https://amp.cbc.ca/lite/story/1.7018628",
+   "https://www.culturalcentre.ca/the-evolution-of-calgary-s-chinatow",
+   "https://heritagecalgary.ca/heritage-calgary-blog/canton-block",
+   "https://heritagecalgary.ca/heritage-calgary-blog/chinatown",
+   "https://www.heritageinspiresyyc.org/?p=894",
+   "https://historicplacesdays.ca/places/%e5%8d%a1%e5%9f%8e%e8%8f%af%e5%9f%a0-calgary-chinatown?a=36175",
+   "https://albertaviews.ca/china-town/"
+  ],
+  "link": "https://calgaryinsight.ca/communities/chinatown/?utm_source=<platform>&utm_medium=social&utm_campaign=chinatown-forced-out-twice",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/seo_pages.py builds communities/<slug>/ for every community; CHINATOWN -> chinatown)",
+  "length_s": 86.95,
+  "short_length_s": 72.42,
+  "teaser_length_s": 26.39,
+  "video_path": [
+   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-short.mp4",
+   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-youtube.mp4",
+   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-teaser.mp4"
+  ],
+  "thumbnail_path": [
+   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-thumb.jpg",
+   "studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-thumb-yt.jpg"
+  ],
+  "package": "packages/2026-11-13-FLAGSHIP-chinatown-forced-out-twice.md",
+  "production": "production/2026-11-13-FLAGSHIP/scene.js",
+  "identity": "Storyteller lead (dusk/night drones over real OSM/City geometry, dissolves through time, letterbox on wide); Data Explainer counter slam + year stamps; Civic Analyst evidence chips + schematic map cards",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 21,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-13-FLAGSHIP.md"
+  },
+  "qc": {
+   "stills": "pass (after 9 layout fixes)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "no 0s; ending 3.9-4.0 s; about -14.8 LUFS; Short 11.0 MB, film 15.7 MB, teaser 2.9 MB"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 427256036,
+    "uuid": "2982997679375664082",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=2982997679375664082",
+    "providers": [
+     "instagram",
+     "youtube-short"
+    ],
+    "file": "chinatown-forced-out-twice-short.mp4",
+    "publish_at": "2026-11-13T12:30",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   },
+   {
+    "metricool_id": 427262064,
+    "uuid": "-4481465902319776585",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-4481465902319776585",
+    "providers": [
+     "facebook",
+     "youtube-video"
+    ],
+    "file": "chinatown-forced-out-twice-youtube.mp4",
+    "publish_at": "2026-11-13T17:30",
     "status": "scheduled",
     "firstCommentText": true,
     "videoThumbnailUrl": true
    }
   ],
-  "post_note": "Scheduled at the fixed 18:30 fun-fact slot; only other post today was the 11:00 YouTube retry. Due more than 30 min after the run, so confirmation is left to the next run (section 1)."
+  "pending_link": [
+   {
+    "file": "chinatown-forced-out-twice-teaser.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-teaser.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-FLAGSHIP/chinatown-forced-out-twice-thumb.jpg",
+    "providers": [
+     {
+      "network": "facebook",
+      "type": "REEL"
+     }
+    ],
+    "caption_without_link": "Calgary's Chinatown was forced to move. Twice.\nDisplacement and discrimination forced the community to move, until Chinese merchants bought their own land and built a block that still stands.\nHave you been to Chinatown? Yes or no? Drop your thoughts below \ud83d\udc47\n\n\u25b6 Full film on our YouTube channel: Calgary Insight\n\ud83d\udd17 Link in the first comment\n\ud83d\udd14 Follow @calgaryinsight for more Calgary stories\n\ud83c\udf10 More Calgary stories, studies and analysis: calgaryinsight.ca",
+    "hashtags": "#Calgary #yyc #Chinatown #CalgaryHistory",
+    "first_comment": "\ud83d\udd17 Explore Chinatown and every Calgary community: https://calgaryinsight.ca/communities/chinatown/?utm_source=facebook&utm_medium=social&utm_campaign=chinatown-forced-out-twice",
+    "first_comment_note": "PLAYBOOK 7b Facebook rule: firstCommentText = '\u25b6 Full film: https://youtu.be/<id>' on the first line, then the first_comment line",
+    "post_at": "2026-11-13T20:00",
+    "link_to": 427262064,
+    "scheduled": false
+   }
+  ],
+  "post_note": "Post A scheduled 11:37 for the fixed 12:30 slot; post B scheduled 11:42 for the fixed 17:30 slot (both with designed thumbnails, first comment, no AI labels). YouTube 24-hour count stays at 4 or fewer (Nov 12 18:30, Nov 13 11:00, 12:30, 17:30). Teaser left as pending_link for the 17:41 link-up task. Confirmation of A and B is left to the next run (section 1)."
  }
 ]
