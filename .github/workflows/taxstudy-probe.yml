@@ -1,0 +1,33 @@
+name: Tax study probe
+on:
+  push:
+    branches: [taxstudy-probe]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install cryptography numpy scipy openpyxl overturemaps pypdf
+      - uses: actions/cache/restore@v4
+        with:
+          path: .site-cache
+          key: site-cache-${{ github.run_id }}
+          restore-keys: site-cache-
+      - env:
+          TZ: America/Edmonton
+          CDD_SOCRATA_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
+        run: python probe/taxstudy.py _b .site-cache
+      - if: always()
+        run: |
+          mkdir -p _b && date -u > _b/ran_at.txt
+          cd _b
+          git init -q -b taxstudy-probe-out
+          git config user.name "Hassan Ali"
+          git config user.email "hassanaliarshad110@users.noreply.github.com"
+          git add -A && git commit -q -m "Tax study probe"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" taxstudy-probe-out
