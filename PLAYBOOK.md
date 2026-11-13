@@ -35,6 +35,9 @@ What the numbers showed (Metricool, Nov 8-11): Facebook Reels 107-549 views, Ins
 9. **Times follow the audience** (Metricool's best times for this Facebook page: weekdays 10:00 and 12:00, then 17:00-18:00; weekends about 10:00). See section 7's table.
 10. **Every Monday the weekly review** (its own scheduled task) reads last week's numbers (views, average watch, 3-second skip rate, shares, saves, comments, and site visits by utm_campaign where available), writes `insights.md`, and updates the "What's working" list below: which hooks, topics, lengths and times did best. Follow it when picking hooks and topics.
 
+### News explained (Hassan's review, Nov 13, 2026)
+- (Nov 13, 2026) Hassan approved the first reviewed news video ("Grey Cup Sunday in Calgary: what to know", 44 s) as made, with no changes: it is the standard for future news videos (map hook at frame 0 with a 3-word on-screen hook, Civic Analyst lead with counters and map scenes, practical "what happens next" for viewers, a two-option one-word closing question, caption with no numbers, first-comment link to our Calgary News article page). From now on news videos post automatically.
+
 ### What's working (updated by the weekly review)
 - (Nov 11, 2026) Best so far: timely money and "affects me" topics (Federal Budget, sewer pipes, migration, tourism). Weakest: long, number-heavy captions and slow openings.
 

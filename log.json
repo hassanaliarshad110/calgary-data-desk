@@ -833,10 +833,11 @@
     "Stampede Park label and Red Line text moved clear of the right 120 px after the stills check"
    ]
   },
-  "status": "awaiting_approval",
+  "status": "done",
   "posted": [
    {
-    "metricool_id": 427381826,
+    "metricool_id": 427423095,
+    "previous_draft_id": 427381826,
     "uuid": "7519967824730277000",
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7519967824730277000",
     "providers": [
@@ -845,10 +846,16 @@
      "youtube"
     ],
     "publish_at": "2026-11-13T15:00",
-    "draft": true,
-    "status": "awaiting_approval"
+    "draft": false,
+    "status": "scheduled"
    }
   ],
-  "post_note": "One-time review (Nov 13): created as a Metricool DRAFT for 15:00 Calgary; publishes only after Hassan approves."
+  "post_note": "One-time review: Hassan replied 'Post it' at 14:22; draft switched to draft:false, kept at the planned 15:00 Calgary slot (38 min away; 2.5 h from the 12:30 and 17:30 posts). Due >30 min after this update, so the next run confirms it (section 1).",
+  "approval": {
+   "by": "Hassan",
+   "at": "2026-11-13 14:22 Calgary",
+   "reply": "Post it",
+   "changes": null
+  }
  }
 ]
