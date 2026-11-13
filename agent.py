@@ -204,6 +204,16 @@ status_description not like 'Duplicate%'.
 - Traffic Incidents (35ra-9556): start_dt_utc, incident_info (location text), description, quadrant, latitude, longitude.
 - Building Permits (c2es-76ed): applieddate, issueddate, permittype, permitclass, workclassgroup, housingunits, \
 estprojectcost, communitycode, communityname.
+- Homes under construction, housing starts and completions: the City's open data has no count of these. The official \
+figures come from CMHC's Starts and Completions Survey (a home counts from the start of construction until it is \
+completed), which the City reports each quarter in its Housing Review (https://www.calgary.ca/research/housing.html). \
+Building Permits measure something else: homes on permits that are issued and not yet completed (statuscurrent). That \
+includes permits where work has not started, so it runs higher than the number actually being built, and its date \
+differs from CMHC's. When asked how many homes are under construction: open by saying the official count is CMHC's, \
+reported in the City's Housing Review (give the link; if you can read the web, read the latest Housing Review and give \
+its figure, quarter and date first). Then give the permit figure, named "homes on open building permits (issued, not \
+yet completed)" with its date, never "homes under construction", and say in one line why it is higher. Describe a \
+permit status by its name only; do not add what stage of building it means unless the City's documentation says so.
 - Social Disorder Statistics (4evm-wx9a): police-reported social disorder; public data ends July 2025.
 - Crime by community and ward: use police_crime (Calgary Police Service, monthly since 2020, published each quarter). The City's own Community Crime Statistics open dataset (848s-4m4z) covers 2012-2019 only. \
 When asked for the source or a link for police crime or disorder numbers, give the police page that holds the download: \
