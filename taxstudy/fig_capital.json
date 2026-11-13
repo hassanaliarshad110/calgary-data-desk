@@ -1,0 +1,602 @@
+{
+ "n_capital_requests": 260,
+ "new_capital_total_m": 13051.5,
+ "new_capital_by_year_m": {
+  "2027": 1554.1,
+  "2028": 3016.3,
+  "2029": 4027.5,
+  "2030": 4426.9,
+  "2031+": 26.7
+ },
+ "by_service_area": [
+  [
+   "Water Utilities",
+   5476.3,
+   42.0,
+   6
+  ],
+  [
+   "All Services",
+   2096.0,
+   16.1,
+   91
+  ],
+  [
+   "Roads & Pathways",
+   1986.6,
+   15.2,
+   70
+  ],
+  [
+   "Transit",
+   1312.3,
+   10.1,
+   29
+  ],
+  [
+   "Parks & Urban Forestry",
+   452.3,
+   3.5,
+   14
+  ],
+  [
+   "Waste & Recycling",
+   391.1,
+   3.0,
+   2
+  ],
+  [
+   "Recreation",
+   343.4,
+   2.6,
+   6
+  ],
+  [
+   "Fire",
+   229.2,
+   1.8,
+   8
+  ],
+  [
+   "Housing",
+   217.9,
+   1.7,
+   6
+  ],
+  [
+   "Community & Culture",
+   193.5,
+   1.5,
+   6
+  ],
+  [
+   "Police",
+   191.9,
+   1.5,
+   4
+  ],
+  [
+   "Emergency Management",
+   72.3,
+   0.6,
+   9
+  ],
+  [
+   "Bylaw",
+   61.9,
+   0.5,
+   5
+  ],
+  [
+   "Development & Building",
+   25.4,
+   0.2,
+   3
+  ],
+  [
+   "Business & Local Economy",
+   1.4,
+   0.0,
+   1
+  ]
+ ],
+ "by_service_area_2027": [
+  [
+   "Water Utilities",
+   688.6,
+   44.3,
+   6
+  ],
+  [
+   "All Services",
+   282.0,
+   18.1,
+   55
+  ],
+  [
+   "Roads & Pathways",
+   194.2,
+   12.5,
+   52
+  ],
+  [
+   "Transit",
+   125.1,
+   8.0,
+   23
+  ],
+  [
+   "Waste & Recycling",
+   84.9,
+   5.5,
+   2
+  ],
+  [
+   "Police",
+   59.4,
+   3.8,
+   4
+  ],
+  [
+   "Parks & Urban Forestry",
+   34.9,
+   2.2,
+   8
+  ],
+  [
+   "Fire",
+   29.7,
+   1.9,
+   7
+  ],
+  [
+   "Community & Culture",
+   17.3,
+   1.1,
+   4
+  ],
+  [
+   "Housing",
+   11.7,
+   0.8,
+   3
+  ],
+  [
+   "Recreation",
+   9.8,
+   0.6,
+   3
+  ],
+  [
+   "Bylaw",
+   7.8,
+   0.5,
+   5
+  ],
+  [
+   "Development & Building",
+   5.4,
+   0.3,
+   3
+  ],
+  [
+   "Emergency Management",
+   3.4,
+   0.2,
+   6
+  ]
+ ],
+ "by_stage": [
+  [
+   "Stage 4: Execute",
+   7617.9,
+   58.4,
+   96
+  ],
+  [
+   "Stage 3: Plan & Design",
+   2584.3,
+   19.8,
+   65
+  ],
+  [
+   "Stage 2: Assess & Select",
+   1484.6,
+   11.4,
+   59
+  ],
+  [
+   "Stage 1: Identify",
+   1364.7,
+   10.5,
+   40
+  ]
+ ],
+ "by_stage_2027": [
+  [
+   "Stage 4: Execute",
+   1081.1,
+   69.6,
+   77
+  ],
+  [
+   "Stage 3: Plan & Design",
+   198.6,
+   12.8,
+   42
+  ],
+  [
+   "Stage 1: Identify",
+   144.5,
+   9.3,
+   21
+  ],
+  [
+   "Stage 2: Assess & Select",
+   129.9,
+   8.4,
+   41
+  ]
+ ],
+ "by_kind": [
+  [
+   "Program",
+   9581.8,
+   73.4,
+   110
+  ],
+  [
+   "Annual Investment Program",
+   2723.8,
+   20.9,
+   102
+  ],
+  [
+   "Project",
+   745.8,
+   5.7,
+   48
+  ]
+ ],
+ "funding": [
+  [
+   "Includes self-supported debt (repaid from utility rates or, for fleet, charges to other City units)",
+   6343.4,
+   48.6
+  ],
+  [
+   "Includes tax-supported debt (repaid from property tax)",
+   4091.2,
+   31.3
+  ],
+  [
+   "Reserves, grants or developer contributions only",
+   2616.9,
+   20.1
+  ]
+ ],
+ "purpose_weighted": [
+  [
+   "Maintenance or replacement",
+   5529.5,
+   42.4
+  ],
+  [
+   "Growth",
+   4520.7,
+   34.6
+  ],
+  [
+   "Service enhancement",
+   2644.0,
+   20.3
+  ],
+  [
+   "Transformative",
+   357.3,
+   2.7
+  ]
+ ],
+ "size": {
+  "median_m": 12.1,
+  "mean_m": 50.2,
+  "n_under_10m": 119,
+  "n_100m_plus": 21,
+  "n_500m_plus": 4,
+  "top10_share_pct": 54.3,
+  "n_with_2027": 181,
+  "median_2027_m": 1.5,
+  "top10_share_2027_pct": 61.1
+ },
+ "top": [
+  {
+   "n": 31,
+   "title": "Wastewater Treatment Plants Program",
+   "bu": "Utilities Delivery",
+   "service_area": "Water Utilities",
+   "total_m": 2293.1,
+   "m_2027": 374.8,
+   "stage": "Stage 4: Execute",
+   "funding": "Reserves, Self-Supported Debt",
+   "page": 73
+  },
+  {
+   "n": 32,
+   "title": "Water Distribution Network Program",
+   "bu": "Utilities Delivery",
+   "service_area": "Water Utilities",
+   "total_m": 1143.0,
+   "m_2027": 81.5,
+   "stage": "Stage 4: Execute",
+   "funding": "Reserves, Self-Supported Debt",
+   "page": 76
+  },
+  {
+   "n": 33,
+   "title": "Water Treatment Plants Program",
+   "bu": "Utilities Delivery",
+   "service_area": "Water Utilities",
+   "total_m": 824.3,
+   "m_2027": 98.0,
+   "stage": "Stage 4: Execute",
+   "funding": "Reserves, Self-Supported Debt",
+   "page": 80
+  },
+  {
+   "n": 30,
+   "title": "Wastewater Collection Network Program",
+   "bu": "Utilities Delivery",
+   "service_area": "Water Utilities",
+   "total_m": 684.4,
+   "m_2027": 48.5,
+   "stage": "Stage 4: Execute",
+   "funding": "Reserves, Self-Supported Debt",
+   "page": 70
+  },
+  {
+   "n": 27,
+   "title": "Stormwater Management Program",
+   "bu": "Utilities Delivery",
+   "service_area": "Water Utilities",
+   "total_m": 455.0,
+   "m_2027": 63.0,
+   "stage": "Stage 4: Execute",
+   "funding": "Reserves, Self-Supported Debt",
+   "page": 62
+  },
+  {
+   "n": 55,
+   "title": "Pavement Rehabilitation Program",
+   "bu": "Mobility",
+   "service_area": "Roads & Pathways",
+   "total_m": 420.2,
+   "m_2027": 51.3,
+   "stage": "Stage 3: Plan & Design",
+   "funding": "Grants, Reserves, Tax-Supported Debt",
+   "page": 125
+  },
+  {
+   "n": 63,
+   "title": "Vehicle & Equipment Replacement",
+   "bu": "Fleet & Inventory",
+   "service_area": "All Services",
+   "total_m": 408.4,
+   "m_2027": 100.0,
+   "stage": "Stage 4: Execute",
+   "funding": "Self-Supported Debt",
+   "page": 141
+  },
+  {
+   "n": 178,
+   "title": "RouteAhead Implementation Plan Bus Fleet Procurement (Primary Transit Network)",
+   "bu": "Calgary Transit",
+   "service_area": "Transit",
+   "total_m": 300.0,
+   "m_2027": 0.0,
+   "stage": "Stage 2: Assess & Select",
+   "funding": "Grants, Reserves",
+   "page": 383
+  },
+  {
+   "n": 82,
+   "title": "GamePLAN - Wave 1 Projects",
+   "bu": "Recreation & Social Programs",
+   "service_area": "Recreation",
+   "total_m": 283.8,
+   "m_2027": 8.6,
+   "stage": "Stage 1: Identify",
+   "funding": "Reserves, Grants, Tax-Supported Debt",
+   "page": 180
+  },
+  {
+   "n": 34,
+   "title": "Facility Asset Sustainment Annual Investment Program",
+   "bu": "Facilities",
+   "service_area": "All Services",
+   "total_m": 275.9,
+   "m_2027": 43.0,
+   "stage": "Stage 3: Plan & Design",
+   "funding": "Reserves",
+   "page": 83
+  },
+  {
+   "n": 28,
+   "title": "Waste & Recycling Services - Facilities & Equipment Program",
+   "bu": "Utilities Delivery",
+   "service_area": "Waste & Recycling",
+   "total_m": 265.8,
+   "m_2027": 34.9,
+   "stage": "Stage 1: Identify",
+   "funding": "Reserves, Self-Supported Debt",
+   "page": 65
+  },
+  {
+   "n": 44,
+   "title": "Light Rail Vehicle Replacement \u2013 Series 5, 6, and 7",
+   "bu": "Calgary Transit",
+   "service_area": "Transit",
+   "total_m": 235.7,
+   "m_2027": 11.7,
+   "stage": "Stage 2: Assess & Select",
+   "funding": "Grants, Reserves",
+   "page": 103
+  }
+ ],
+ "needs_2027_2030_m": 19270.7,
+ "budget_2027_2030_m": 13024.8,
+ "needs_funded_pct": 67.6,
+ "n_budget_above_own_needs": 52,
+ "water_wastewater_excl_stormwater_m": 5021.3,
+ "green_line_in_new_requests_m": 16.6,
+ "top10_overall_share_of_2027_pct": 55.9,
+ "ftes_4y_by_bu_top": [
+  [
+   "Calgary Transit",
+   579
+  ],
+  [
+   "Emergency Management & Community Safety",
+   383
+  ],
+  [
+   "Calgary Fire",
+   194
+  ],
+  [
+   "Mobility",
+   160
+  ],
+  [
+   "Parks & Open Spaces",
+   159
+  ]
+ ],
+ "ftes_in_capital_requests": 0,
+ "history": {
+  "cap_2023": {
+   "budget_m": 2783.4,
+   "actual_m": 1461.4,
+   "rate_pct": 52.5
+  },
+  "cap_2024": {
+   "budget_m": 2091.6,
+   "actual_m": 1932.4,
+   "rate_pct": 92.4
+  },
+  "cap_2025_forecast_m": 2457.0,
+  "cap_2026_budget_approved_m": 3668.0,
+  "cap_2026_budget_june_m": 4467.0,
+  "cap_2026_spent_june_m": 1375.0,
+  "cap_2026_forecast_m": 4183.0,
+  "operating_actual_vs_budget_pct": {
+   "2023": 99.0,
+   "2024": 98.3,
+   "2025": 97.8
+  },
+  "operating_surplus_m": {
+   "2023": 236.4,
+   "2024": 276.3,
+   "2025": 259.3
+  }
+ },
+ "pace": {
+  "cap_2027_vs_2025_x": 1.79,
+  "cap_avg_2027_2030_b": 5.25,
+  "cap_avg_vs_2025_x": 2.14,
+  "cap_at_2025_pace_4y_b": 9.8,
+  "cap_2027_vs_2026f_x": 1.05,
+  "cap_avg_vs_2026f_x": 1.26,
+  "new_ftes_2027": 855,
+  "new_ftes_4y": 1926
+ },
+ "reported": {
+  "cap_2025_budget_b": {
+   "value": 2.7,
+   "source": "City Quarterly Report 2025 Q2-Q3: $2.7 billion capital budget"
+  },
+  "cap_2025_forecast_rate": {
+   "value": 0.91,
+   "source": "City Quarterly Report 2025 Q2-Q3: forecast year-end spend rate 91%"
+  },
+  "cap_2026_budget_approved_b": {
+   "value": 3.668,
+   "source": "City Budget 2026 as approved Dec 3 2025: $3,668M (\"$3.7 billion\")"
+  },
+  "cap_2026_budget_june_b": {
+   "value": 4.467,
+   "source": "City Quarterly Report 2026 Q2 (p.14): $4.467 billion capital budget at June 30 2026"
+  },
+  "cap_2026_spent_june_b": {
+   "value": 1.375,
+   "source": "City Quarterly Report 2026 Q2 (p.14): spent $1.375 billion (31%) as of June 30 2026"
+  },
+  "cap_2026_forecast_b": {
+   "value": 4.183,
+   "source": "City Quarterly Report 2026 Q2 (p.14): year-end forecast $4,183 million (94%)"
+  },
+  "cap_2025_forecast_history": {
+   "value": "101% (Q2), 91% (Q3)",
+   "source": "LiveWire Calgary Jul 22 2025 (Q2 forecast 101%); City Quarterly Report 2025 Q2-Q3 (91%)"
+  },
+  "cap_2027_b": {
+   "value": 4.4,
+   "source": "Global News, Nov 10 2026: $4.4 billion in capital funding in 2027"
+  },
+  "cap_2027_2030_b": {
+   "value": 21.0,
+   "source": "calgary.ca/our-finances/2027-budget: 2027-2030 capital budget $21 billion"
+  },
+  "cap_new_b": {
+   "value": 13.0,
+   "source": "calgary.ca: $13 billion for new infrastructure"
+  },
+  "recast_2025_m": {
+   "value": 893,
+   "source": "City capital budget recast, Feb 2025: $893M moved from 2025 to future years"
+  },
+  "debt_2027_b": {
+   "value": 4.2,
+   "source": "Global News, Nov 10 2026"
+  },
+  "debt_2030_b": {
+   "value": 10.0,
+   "source": "Global News, Nov 10 2026"
+  },
+  "debt_capacity_pct": {
+   "value": 80,
+   "source": "Global News, Nov 10 2026"
+  },
+  "ftes_by_2030": {
+   "value": 1800,
+   "source": "Global News / CTV, Nov 10 2026: about 1,800 positions by 2030"
+  },
+  "city_employees": {
+   "value": 16846,
+   "source": "LiveWire Calgary, Jul 27 2026, citing calgary.ca"
+  },
+  "staff_2022": {
+   "value": 13483,
+   "source": "CBC, City data: Dec 31 2022"
+  },
+  "staff_2024q3": {
+   "value": 15751,
+   "source": "CBC, City data: Sept 30 2024"
+  },
+  "ab_construction_workers_needed_2035": {
+   "value": 48800,
+   "source": "BuildForce Canada, Jul 20 2026"
+  },
+  "ab_construction_retirements_2035": {
+   "value": 43700,
+   "source": "BuildForce Canada 2026-2035 outlook: about 43,700 retirements"
+  },
+  "fish_creek_award_m": {
+   "value": 547.1,
+   "source": "Alberta Purchasing Connection via LiveWire Calgary: awarded Jan 29 2025"
+  },
+  "green_line_awarded_m": {
+   "value": 200,
+   "source": "City Green Line, Year One update: $200M+ awarded"
+  }
+ }
+}

@@ -20,12 +20,15 @@ python3 analysis_budget.py   # sections 2, 4, 8 -> fig_budget.json
 python3 analysis_assess.py   # section 5 (paired assessment changes) -> fig_assess.json
 python3 analysis_wards.py    # sections 3, 5 (wards), 6 -> fig_wards.json (needs fig_budget.json)
 python3 analysis_where.py business-cases.json   # v1.4: abstract and section 4.2.1 -> fig_where.json (needs fig_budget.json)
+python3 analysis_capital.py business-cases.json budget-vs-actual.json   # v1.5: sections 4.2.2-4.2.3 -> fig_capital.json (reported figures and sources are listed in the script)
 ```
 Then `python3 build_report.py` writes out/Calgary_15pct_Tax_Study_Technical_Report.pdf (needs matplotlib and reportlab; DejaVu fonts).
 
 Run in that order (Python 3.12 or later; standard library only). `STUDY` is the folder holding p1/, p2/, p3/; `REPO` is a main checkout of the repository. The `fig_*.json` files committed here are the outputs used in the draft; your run should match them exactly if the probe outputs are the same (dates in `ran_at.txt`).
 
 ## 3. Hard-coded inputs (with sources)
+- budget-vs-actual.json (v1.5): City capital and operating budget vs actual, read from the City's Annual Financial Reports 2023-2025, 2023 Progress Update and year-end 2024 update.
+- Reported 2025-2027 capital, debt, staff and labour figures (v1.5): see REPORTED in analysis_capital.py, each with its source.
 - business-cases.json (v1.4): pinned copy of ui/budget-intel/business-cases.json, every request in the City's "2027–2030 budget request business cases" (792 pp.); the SHA-256 of the City PDF it was read from is in its `source` field.
 - 5.4% needed to maintain services in 2027: City July documents as reported by Global News (Sept 2, 2026); $138M is 5.4 x $25.6M (our arithmetic).
 - City population, April 2021-2030: Calgary and Region Economic Outlook, Spring 2026, Table 4.
