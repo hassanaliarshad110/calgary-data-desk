@@ -1,0 +1,320 @@
+{
+ "title": "Growth or Spending? Calgary's proposed 15% property tax increase",
+ "subtitle": "A ward-level look at growth, spending, property assessments and amenities, 2021 to 2030. Independent analysis of a proposed budget; not an official City of Calgary report.",
+ "date": "November 13, 2026",
+ "summary": [
+  "The City proposes to raise the property tax it levies on existing properties by **15% in 2027**, then 10%, 7.7% and 6% (as reported). Compounded, that is **about 44% more by 2030**. A typical home would pay about **$37 a month more** in City tax in 2027 (+16%).",
+  "Population growth plus inflation adds up to **about 16%** from 2026 to 2030, so the proposed tax path is almost **three times that benchmark**. From 2027 on, the tax steps (+25.6%) move roughly in line with operating spending (+26.8%).",
+  "**Water Services is the biggest single increase** in operating spending: 43% of the increase from 2027 to 2030. It is paid mainly through water bills, not property tax. Without water, operating spending rises about 19%.",
+  "The 15% is not the same for every home. Because all homes share one tax rate, the tax follows value: estimated 2027 changes are about **+18% for semi-detached homes, +16% for detached and +8% for condo apartments** (±3 points, until 2027 assessments arrive in January). The same shift showed up on 2026 bills.",
+  "On our ward model, **five wards (5, 12, 13, 3 and 2) took about half of Calgary's growth** since 2021. They have about a third fewer transit stops and nearly three quarters fewer City recreation sites per resident than the other nine wards (counts of sites, not service quality).",
+  "**Growth or spending? Growth explains part of the increase, but the proposed tax rise is much higher than the growth-and-inflation benchmark.** That does not by itself mean the difference is waste: City costs can rise faster than consumer prices. It means Calgarians deserve to understand what they are paying for.",
+  "Council can still change the number: 10% instead of 15% would mean an estimated **$128 million less revenue** in 2027 (5%: about $256 million less). These are revenue gaps, not a list of cuts."
+ ],
+ "sections": [
+  {
+   "heading": "What is proposed",
+   "text": "On November 10, 2026, City administration presented the proposed 2027 to 2030 budget. Nothing in it is approved: public submissions begin on November 23, and Council is expected to decide in December.\n\nThe proposal raises the municipal property tax levied on existing properties by 15% in 2027. News reports of the presentation give the later steps as 10% in 2028, 7.7% in 2029 and 6% in 2030; compounded, that is about 44% by 2030. Each 1% is reported as about $25.6 million, so the 2027 step is about $384 million.\n\nThe 15% is a revenue figure, not a bill figure. On the City's typical home (assessed at $706,000 in 2026 and $688,000 in 2027), the City tax goes from $229 to $266 a month, about 16%.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "Monthly cost to a typical home (City figures)",
+     "columns": [
+      "",
+      "2026",
+      "2027",
+      "Change"
+     ],
+     "rows": [
+      [
+       "Municipal property tax",
+       "$229",
+       "$266",
+       "+$37"
+      ],
+      [
+       "Water, wastewater, stormwater, waste and recycling",
+       "$140",
+       "$156",
+       "+$16"
+      ],
+      [
+       "Total",
+       "$369",
+       "$422",
+       "+$53"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Growth and inflation against the tax path",
+   "text": "Calgary has grown fast: about 1.6 million people, roughly 21% more than in April 2021 on the City's estimates. The City now forecasts growth of about 1.6% a year.\n\nPopulation growth and consumer inflation together come to about 16% from 2026 to 2030. This is a benchmark, not a measure of what spending is justified: City costs such as wages, construction and ageing infrastructure can rise faster than consumer prices.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "Cumulative change on matching periods",
+     "columns": [
+      "Measure",
+      "2026 to 2030",
+      "2027 to 2030"
+     ],
+     "rows": [
+      [
+       "Population and inflation together (City forecasts)",
+       "+15.6%",
+       "+11.3%"
+      ],
+      [
+       "Operating spending, City budget data",
+       "not comparable",
+       "+26.8%"
+      ],
+      [
+       "Operating spending excluding Water Services",
+       "not comparable",
+       "+18.8%"
+      ],
+      [
+       "Property tax on existing properties (proposed path)",
+       "+44.4%",
+       "+25.6%"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Where the new spending goes",
+   "text": "From 2027 to 2030, operating spending in the City's budget data grows by about $1.72 billion a year. Water Services is the largest piece, at $743 million (43% of the increase), and is paid mainly through water bills. Calgary Transit adds $164 million and the Calgary Police Service $67 million.\n\nAfter inflation, operating spending per resident rises about 14% from 2027 to 2030 including water, and about 7% without it. Of the new ongoing money in the City's 384 budget requests, most cites direction from Council.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "Largest increases in operating spending, 2027 to 2030 (City budget data)",
+     "columns": [
+      "Area",
+      "2027",
+      "2030",
+      "Change"
+     ],
+     "rows": [
+      [
+       "Water Services",
+       "$1,222.0M",
+       "$1,965.3M",
+       "+$743.3M"
+      ],
+      [
+       "Corporate Programs",
+       "$900.6M",
+       "$1,480.0M",
+       "+$579.4M"
+      ],
+      [
+       "Calgary Transit",
+       "$659.9M",
+       "$823.6M",
+       "+$163.7M"
+      ],
+      [
+       "Mobility",
+       "$379.8M",
+       "$447.6M",
+       "+$67.8M"
+      ],
+      [
+       "Calgary Police Service",
+       "$742.2M",
+       "$809.5M",
+       "+$67.3M"
+      ],
+      [
+       "All areas",
+       "$6,433.6M",
+       "$8,156.6M",
+       "+$1,723.0M"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Who would pay more than 15%",
+   "text": "Calgary taxes all homes at one rate, so when some homes lose value faster than others, the tax moves toward the homes that held their value. The City's own typical-home figures imply the residential rate rises about 19%; a home whose assessment falls about 3.4% would see +15%.\n\nThis already happened on 2026 bills: matching every home on the 2025 and 2026 assessment rolls, condo apartments fell about 5.9% while detached houses rose 0.8%. For 2027 we used CREB's July 2026 prices as a guide. These are estimates until the 2027 assessments are mailed in January.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "Estimated 2027 change in City tax, by home type",
+     "columns": [
+      "Home type",
+      "Central estimate",
+      "Range"
+     ],
+     "rows": [
+      [
+       "Semi-detached / duplex",
+       "+18%",
+       "+15% to +21%"
+      ],
+      [
+       "Detached house (City's typical home)",
+       "+16%",
+       "+13% to +19%"
+      ],
+      [
+       "Row / townhouse",
+       "+11%",
+       "+8% to +14%"
+      ],
+      [
+       "Condo apartment",
+       "+8%",
+       "+5% to +11%"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Where Calgary grew, and amenities there",
+   "text": "On the calgaryinsight.ca growth model, five wards (5, 12, 13, 3 and 2) took about half of Calgary's population growth since 2021, and about half or more under every way we tested of spreading growth that new homes do not explain. These are model estimates, not official ward counts.\n\nThose five wards have about 33% fewer transit stops and 73% fewer City recreation sites per resident than the other nine wards. These are counts of sites, not measures of size, capacity or service quality. 311 requests are lower in these wards, which should not be read as evidence of better service.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "Five fastest-growing wards against the other nine, per resident",
+     "columns": [
+      "Measure",
+      "Five fastest-growing",
+      "Other nine",
+      "Difference"
+     ],
+     "rows": [
+      [
+       "Transit stops per 1,000",
+       "2.99",
+       "4.47",
+       "-33%"
+      ],
+      [
+       "City recreation sites per 100,000",
+       "2.67",
+       "9.87",
+       "-73%"
+      ],
+      [
+       "Local park hectares per 1,000",
+       "2.46",
+       "2.79",
+       "-12%"
+      ],
+      [
+       "311 requests per 1,000 a year",
+       "201",
+       "314",
+       "-36%"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "If Council chose 10% or 5%",
+   "text": "These are revenue gaps against the proposed 15%, not savings or cuts. They are estimates at about $25.6 million per percentage point.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "2027 scenarios",
+     "columns": [
+      "2027 increase",
+      "Revenue from existing properties",
+      "Typical home, City tax a month",
+      "Gap against 15%"
+     ],
+     "rows": [
+      [
+       "15% (proposed)",
+       "$384M",
+       "$266.00",
+       "-"
+      ],
+      [
+       "10%",
+       "$256M",
+       "$254.43",
+       "$128M"
+      ],
+      [
+       "5%",
+       "$128M",
+       "$242.87",
+       "$256M"
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "conclusion": "Growth or spending? Growth explains part of the increase: population growth and inflation come to about 16% to 2030, against about 44% for the proposed tax path. The study does not show that the difference is unnecessary; the City's costs can rise faster than consumer prices, and much of the new operating spending is water, which is paid mainly through water bills. What the numbers do show is that the proposed increase goes well beyond growth and inflation, that it would not fall evenly (houses would likely pay more than 15% and condos less), and that growth has concentrated in wards with fewer transit stops and recreation sites per resident. Calgarians deserve to understand what they are paying for; this study sets out the numbers behind that choice.",
+ "method": [
+  "Population: calgaryinsight.ca growth model. Every home on the City's assessment roll by community and year built, times 2021 Census people per home, scaled to the City's own monthly estimate. Ward figures are estimates.",
+  "Spending: City of Calgary 2027 to 2030 budget open data (operating spending after recoveries), compared on matching periods with the City's population and inflation forecasts.",
+  "Who pays: the residential rate change implied by the City's typical-home figures, applied to every home on the 2026 roll by type, using CREB July 2026 price changes. Back-tested on 2026 bills (error up to about 2.7 points).",
+  "Amenities: City recreation sites and transit stops in each ward divided by ward residents; 311 requests per 1,000 residents.",
+  "The full technical report (PDF) lists every formula, every source with a link, and how to repeat each figure."
+ ],
+ "limitations": [
+  "2027 assessments are not published yet; the estimates by home type and ward are indicative (about ±3 points).",
+  "The 2028 to 2030 tax steps and the $25.6 million per 1% figure come from news reports of the City's presentation.",
+  "Ward populations are model estimates, not official ward counts.",
+  "Site counts do not measure capacity or service quality; with 14 wards, patterns are descriptive only.",
+  "Consumer inflation is a benchmark; the City's own costs can rise faster."
+ ],
+ "data_sources": [
+  {
+   "name": "2027 Budget and financial impact",
+   "publisher": "The City of Calgary",
+   "url": "https://www.calgary.ca/our-finances/2027-budget.html"
+  },
+  {
+   "name": "2027–2030 Budget (open data)",
+   "publisher": "The City of Calgary",
+   "url": "https://data.calgary.ca/Government/2027-2030-Budget/nnnm-9sfh"
+  },
+  {
+   "name": "2027–2030 operating and capital budget requests",
+   "publisher": "The City of Calgary",
+   "url": "https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf"
+  },
+  {
+   "name": "Current Year Property Assessments",
+   "publisher": "The City of Calgary",
+   "url": "https://data.calgary.ca/d/4bsw-nn7w"
+  },
+  {
+   "name": "Historical Property Assessments",
+   "publisher": "The City of Calgary",
+   "url": "https://data.calgary.ca/d/4ur7-wsgc"
+  },
+  {
+   "name": "Calgary and Region Economic Outlook, Spring and Fall 2026",
+   "publisher": "The City of Calgary",
+   "url": "https://www.calgary.ca/economicoutlook"
+  },
+  {
+   "name": "Monthly statistics, July 2026",
+   "publisher": "CREB",
+   "url": "https://www.creb.com/Housing_Statistics/documents/07_2026_Calgary_Monthly_Stats_Package.pdf"
+  },
+  {
+   "name": "Calgary draft budget proposes largest increase (Nov 10, 2026)",
+   "publisher": "Calgary Herald via Yahoo News",
+   "url": "https://ca.news.yahoo.com/calgary-draft-budget-proposes-largest-160350073.html"
+  },
+  {
+   "name": "Four-year budget breakdown (Nov 10, 2026)",
+   "publisher": "LiveWire Calgary",
+   "url": "https://livewirecalgary.com/2026/11/10/calgary-four-year-budget-breakdown-money-spent/"
+  }
+ ]
+}

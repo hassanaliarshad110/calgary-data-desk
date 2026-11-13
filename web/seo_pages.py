@@ -327,6 +327,7 @@ def build(out, data_dir, method='city_actual'):
     urls += sewer_page(out, updated)
     urls += police_page(out, updated)
     urls += pay_page(out, updated)
+    urls += growth_page(out, updated)
     urls += studies_index(out, updated)
 
     # the list the dashboard uses to link each community to its page, and for its "find your community" box
@@ -669,6 +670,11 @@ def _paras(t):
 
 # Every study and report published on the site, newest first: the Studies page (studies/) and the home page list these.
 STUDIES = [
+    {'path': 'studies/growth-or-spending/', 'kind': 'Independent study', 'date': 'November 13, 2026',
+     'title': "Growth or Spending? Calgary's proposed 15% property tax increase",
+     'blurb': 'Is the proposed increase about growth or about spending? The tax path against population and inflation, where the new money goes, '
+              'who would pay more than 15% (houses) and less (condos), and how growth and amenities compare by ward. With a two-minute video.',
+     'extra': [('growth-or-spending-15-percent-tax-study.pdf', 'Full study (PDF)')]},
     {'path': 'studies/what-calgarians-pay/', 'kind': 'Independent study', 'date': 'November 10, 2026',
      'title': 'What Calgarians pay: the proposed budget, and Calgary against seven Canadian cities',
      'blurb': 'What the proposed 2027 to 2030 budget would cost a typical Calgary home, and how Calgary’s City property tax and water, '
@@ -709,7 +715,7 @@ def studies_index(out, updated):
     os.makedirs(os.path.join(out, 'studies'), exist_ok=True)
     with open(os.path.join(out, 'studies', 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page('studies/', 'Studies and reports on Calgary | Calgary Insight',
-                     'In-depth studies of Calgary from public data: what Calgarians pay against other cities, police performance and the budget request, ageing sewers, and who Calgary’s 311 hears.',
+                     'In-depth studies of Calgary from public data: the proposed 15% tax increase, what Calgarians pay against other cities, police performance and the budget request, ageing sewers, and who Calgary’s 311 hears.',
                      [('Calgary Insight', ''), ('Studies', 'studies/')], body, ld, updated))
     return ['studies/']
 
@@ -766,6 +772,54 @@ def police_page(out, updated):
         f.write(page(path, 'Calgary Police: performance, resources and the 2027 to 2030 budget request | Calgary Insight', desc,
                      [('Calgary Insight', ''), ('Studies', 'studies/'), ('Calgary Police study', path)], '\n'.join(body), ld, updated, og_type='article'))
     return [path, path + 'calculator.html']
+
+
+def growth_page(out, updated):
+    """calgaryinsight.ca/studies/growth-or-spending/: the proposed 15% property tax increase against growth, inflation and
+    spending, who would pay more than 15%, and growth against amenities by ward, with the full technical report (PDF) and the
+    video beside it (web/studies/growth-or-spending/, copied by build_site)."""
+    here = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'studies', 'growth-or-spending', 'spec.json')
+    if not os.path.exists(here):
+        return []
+    with open(here, encoding='utf-8') as f:
+        r = json.load(f)
+    path = 'studies/growth-or-spending/'
+    pdf = 'growth-or-spending-15-percent-tax-study.pdf'
+    body = [f'<p class="kicker">Independent study · Calgary Insight · {e(r.get("date") or "")}</p>',
+            f'<h1>{e(r["title"])}</h1>', f'<p class="lead">{e(r.get("subtitle") or "")}</p>',
+            '<div class="facts"><h2>In short</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r.get('summary') or []) + '</ul></div>',
+            f'<div class="study-open"><a class="cta" href="{pdf}">Read the full study (PDF)</a>'
+            '<p><a href="#video">Watch the two-minute video</a> · <a href="#s1">Read the findings on this page ↓</a></p></div>',
+            '<h2 id="video">The study in two minutes</h2>'
+            '<video controls preload="none" playsinline poster="../../video/growth-or-spending.jpg" style="width:100%;max-width:960px;border-radius:12px">'
+            '<source src="../../video/growth-or-spending.mp4" type="video/mp4">'
+            'Your browser can’t play this video. <a href="../../video/growth-or-spending.mp4">Download it (MP4)</a>.</video>']
+    for i, sec in enumerate(r.get('sections') or [], 1):
+        body.append(f'<h2 id="s{i}">{i}. {e(sec.get("heading") or "")}</h2>{_paras(sec.get("text"))}')
+        for t in [v for v in sec.get('visuals') or [] if v.get('type') == 'table'][:1]:
+            body.append(f'<h3>{e(t.get("title") or "")}</h3><div class="wrap"><table><thead><tr>' + ''.join(f'<th>{e(c)}</th>' for c in t['columns'])
+                        + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{e(x)}</td>' for x in row) + '</tr>' for row in t['rows'][:15]) + '</tbody></table></div>')
+    if r.get('conclusion'):
+        body.append('<h2>Conclusion</h2>' + _paras(r['conclusion']))
+    if r.get('method'):
+        body.append('<h2>Method</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r['method']) + '</ul>')
+    if r.get('limitations'):
+        body.append('<h2>Limits</h2><ul>' + ''.join(f'<li>{_md(x)}</li>' for x in r['limitations']) + '</ul>')
+    if r.get('data_sources'):
+        body.append('<h2>Data sources</h2><ul>' + ''.join(
+            f'<li><a href="{e(x.get("url") or "")}">{e(x.get("name") or "")}</a>, {e(x.get("publisher") or "")}</li>' for x in r['data_sources']) + '</ul>')
+    body += [f'<a class="cta" href="{pdf}">Read the full study (PDF)</a>',
+             '<p><a href="../what-calgarians-pay/">What Calgarians pay: Calgary against seven cities</a> · <a href="../../?view=budget-intelligence">Budget Intelligence</a></p>',
+             '<p class="note">Independent analysis of a proposed budget. Not affiliated with The City of Calgary. Corrections and responses: hello@calgaryinsight.ca.</p>']
+    ld = [{'@type': 'Report', 'name': r['title'], 'url': SITE + path, 'description': r.get('subtitle') or '', 'datePublished': '2026-11-13',
+           'spatialCoverage': {'@type': 'City', 'name': 'Calgary'}, 'encoding': [{'@type': 'MediaObject', 'contentUrl': SITE + path + pdf, 'encodingFormat': 'application/pdf'}],
+           'publisher': {'@type': 'Organization', 'name': 'Calgary Insight', 'url': SITE}}]
+    desc = re.sub(r'[*]', '', ' '.join((r.get('summary') or [])[:2]))[:300]
+    os.makedirs(os.path.join(out, path), exist_ok=True)
+    with open(os.path.join(out, path, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(page(path, "Growth or Spending? Calgary's proposed 15% property tax increase | Calgary Insight", desc,
+                     [('Calgary Insight', ''), ('Studies', 'studies/'), ('Growth or Spending?', path)], '\n'.join(body), ld, updated, og_type='article'))
+    return [path]
 
 
 def pay_page(out, updated):
