@@ -16,6 +16,12 @@
 - The full video's URL only exists after it publishes, so: schedule the Short/Reels with the channel link, then after 18:00 PKT read the full video's publicUrl (getScheduledPosts shows it once published) and update the Short/Reels text with it (use send_later to wake the session at ~13:10 UTC).
 Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param with `+05:00`.
 
+## Facebook rule (Hassan, Nov 13, 2026 — never break this)
+- Facebook Reels go out as a SEPARATE Metricool post with provider **facebook only** (never bundled with Instagram/TikTok).
+- **No YouTube link anywhere in a Facebook caption** (Facebook shows posts with YouTube links to fewer people). The caption is the same short social caption, but its YouTube line reads exactly `▶️ Poora episode YouTube par: Susuman channel` — no URL at all.
+- The YouTube link goes in `firstCommentText`: `▶️ Poora episode dekhein: <full-episode link, or the channel link until the full video is live>`.
+- Instagram Reel + TikTok stay together in one post (19:35) and keep the YouTube link in the caption.
+
 ## Metadata
 - YouTube (both): madeForKids **true**, category FILM_ANIMATION, isAiGeneratedContent false, privacy public, ~18 tags (susuman, suusuu man, susuman episode N, "<x> wala cartoon", hindi cartoon, urdu cartoon, kids cartoon, desi cartoon, superhero cartoon, cartoon kahani, moral story for kids, pakistani cartoon, bachon ka cartoon, …).
 - Short title: `<Devanagari hook>? 😱 <X> Wala Cartoon | Susuman Ep N | Hindi Urdu Cartoon #shorts` (≤100 chars).

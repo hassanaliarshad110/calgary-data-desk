@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body>
+<script src="engine/core.js"></script><script src="engine/chars.js"></script>
+<script>
+// Studio-skeleton sprite server for the SVG episode page: draws one ensemble character per call, returns a PNG data URL.
+// Canvas 420x760; ground point at (210, 720). Scale 1.3 for everyone so heights stay proportional.
+stage(420, 760);
+window.spr = function (key, move, mt, o = {}) {
+  C.setTransform(1, 0, 0, 1, 0, 0); C.clearRect(0, 0, 420, 760);
+  const p = (MOVES[move] || MOVES.idle)(mt, o);
+  if (o.yaw !== undefined) p.yaw = o.yaw;
+  if (o.expr) p.face.expr = o.expr;
+  if (o.amp !== undefined) { const a = o.amp, h = (Math.sin(mt * 37.3) + 1) / 2; p.face.mouth = a < .08 ? 'rest' : a > .55 ? (h < .6 ? 'AI' : 'O') : a > .25 ? ['E', 'AI', 'etc'][Math.floor(h * 3)] : ['etc', 'MBP', 'E'][Math.floor(h * 3)]; }
+  if (o.pose) o.pose(p);
+  drawChar(CAST[key], p, 210, 720, o.sc || 1.3, { t: mt, shadow: false });
+  return document.getElementById('stage').toDataURL('image/png');
+};
+window.SK_READY = true;
+</script></body></html>

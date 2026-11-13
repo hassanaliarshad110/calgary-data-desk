@@ -1,0 +1,286 @@
+{
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "dur": 7.256
+  },
+  {
+   "id": "intro",
+   "start": 7.256,
+   "dur": 8.043
+  },
+  {
+   "id": "kulfi",
+   "start": 15.299,
+   "dur": 10.389
+  },
+  {
+   "id": "home",
+   "start": 25.688,
+   "dur": 8.777
+  },
+  {
+   "id": "danger",
+   "start": 34.465,
+   "dur": 10.373
+  },
+  {
+   "id": "power",
+   "start": 44.838,
+   "dur": 8.425
+  },
+  {
+   "id": "rescue",
+   "start": 53.262,
+   "dur": 11.27
+  },
+  {
+   "id": "lesson",
+   "start": 64.533,
+   "dur": 12.653
+  },
+  {
+   "id": "tv",
+   "start": 77.186,
+   "dur": 12.886
+  },
+  {
+   "id": "ending",
+   "start": 90.072,
+   "dur": 9.53
+  },
+  {
+   "id": "endcard",
+   "start": 99.602,
+   "dur": 10.686
+  }
+ ],
+ "lines": {
+  "n1": {
+   "scene": "hook",
+   "s": 0.5,
+   "d": 4.756,
+   "abs": 0.5,
+   "sp": "NARR",
+   "txt": "Dhalaan par bhaagta thela...|aur saamne ek bachcha!~Kya koi use|rok paayega?"
+  },
+  "n2": {
+   "scene": "intro",
+   "s": 1.0,
+   "d": 3.291,
+   "abs": 8.256,
+   "sp": "NARR",
+   "txt": "Garmi ki dopahar... aur gali mein|aayi kulfi wale ki ghanti!"
+  },
+  "c1": {
+   "scene": "intro",
+   "s": 4.591,
+   "d": 2.552,
+   "abs": 11.847,
+   "sp": "KULFI CHACHA",
+   "txt": "Thandi thandi kulfi!|Malai kulfi!"
+  },
+  "d1": {
+   "scene": "kulfi",
+   "s": 0.5,
+   "d": 3.58,
+   "abs": 15.799,
+   "sp": "DADA ABU",
+   "txt": "Chacha! Sab bachchon ko kulfi do...~paise main dunga!"
+  },
+  "q1": {
+   "scene": "kulfi",
+   "s": 4.38,
+   "d": 1.572,
+   "abs": 19.679,
+   "sp": "QASIM",
+   "txt": "Mujhe mango wali kulfi!"
+  },
+  "o1": {
+   "scene": "kulfi",
+   "s": 6.352,
+   "d": 2.737,
+   "abs": 21.651,
+   "sp": "OFFICER GILL",
+   "txt": "Chacha, dhalaan par thela|dhyan se rokna!"
+  },
+  "q2": {
+   "scene": "home",
+   "s": 1.0,
+   "d": 1.257,
+   "abs": 26.688,
+   "sp": "QASIM",
+   "txt": "Ammi! Suusuu aayi hai!"
+  },
+  "a1": {
+   "scene": "home",
+   "s": 2.557,
+   "d": 1.735,
+   "abs": 28.245,
+   "sp": "AMMI",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "k1": {
+   "scene": "home",
+   "s": 4.692,
+   "d": 2.785,
+   "abs": 30.38,
+   "sp": "SAKINA",
+   "txt": "Jaa jaldi! Teri kulfi|main pakad leti hoon!"
+  },
+  "h1": {
+   "scene": "danger",
+   "s": 1.6,
+   "d": 1.873,
+   "abs": 36.065,
+   "sp": "DHARMENDER",
+   "txt": "Arre! Thela bhaag raha hai!"
+  },
+  "c2": {
+   "scene": "danger",
+   "s": 3.623,
+   "d": 1.639,
+   "abs": 38.088,
+   "sp": "KULFI CHACHA",
+   "txt": "Arre! Mera thela!"
+  },
+  "s1": {
+   "scene": "danger",
+   "s": 5.662,
+   "d": 0.891,
+   "abs": 40.126,
+   "sp": "BASIM",
+   "txt": "Meri ball!"
+  },
+  "o2": {
+   "scene": "danger",
+   "s": 7.053,
+   "d": 2.02,
+   "abs": 41.517,
+   "sp": "OFFICER GILL",
+   "txt": "Ruko! Neeche bachcha hai!"
+  },
+  "n3": {
+   "scene": "power",
+   "s": 0.7,
+   "d": 3.627,
+   "abs": 45.538,
+   "sp": "NARR",
+   "txt": "Sirf Sakina jaanti hai...|har flush ke saath Qasim ban jata hai..."
+  },
+  "q3": {
+   "scene": "power",
+   "s": 5.227,
+   "d": 1.598,
+   "abs": 50.065,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "o3": {
+   "scene": "rescue",
+   "s": 5.4,
+   "d": 1.729,
+   "abs": 58.662,
+   "sp": "OFFICER GILL",
+   "txt": "Wo superhero phir aa gaya!"
+  },
+  "s2": {
+   "scene": "rescue",
+   "s": 7.429,
+   "d": 1.941,
+   "abs": 60.692,
+   "sp": "BASIM",
+   "txt": "Thela ruk gaya!|Main bach gaya!"
+  },
+  "c3": {
+   "scene": "lesson",
+   "s": 0.9,
+   "d": 2.828,
+   "abs": 65.433,
+   "sp": "KULFI CHACHA",
+   "txt": "Shukriya! Aaj sab ko|do do kulfiyaan!"
+  },
+  "o4": {
+   "scene": "lesson",
+   "s": 4.128,
+   "d": 4.861,
+   "abs": 68.661,
+   "sp": "OFFICER GILL",
+   "txt": "Bachcho, sadak par mat khelo...~aur dhalaan par khadi gaadi|se door raho!"
+  },
+  "q5": {
+   "scene": "lesson",
+   "s": 9.489,
+   "d": 1.764,
+   "abs": 74.022,
+   "sp": "QASIM",
+   "txt": "Meri kulfi! Shukriya Baaji!"
+  },
+  "v1": {
+   "scene": "tv",
+   "s": 0.7,
+   "d": 5.099,
+   "abs": 77.886,
+   "sp": "DANIEL",
+   "txt": "Breaking news! Ek gali mein mystery hero ne~bhaagta hua thela rok liya!"
+  },
+  "v2": {
+   "scene": "tv",
+   "s": 6.099,
+   "d": 2.752,
+   "abs": 83.284,
+   "sp": "AMARA",
+   "txt": "Lekin wo hai kaun?|Kisi ko nahi pata!"
+  },
+  "d2": {
+   "scene": "tv",
+   "s": 9.251,
+   "d": 2.836,
+   "abs": 86.436,
+   "sp": "DADA ABU",
+   "txt": "Waah! Hamari gali mein bhi|koi hero hai!"
+  },
+  "q4": {
+   "scene": "ending",
+   "s": 0.7,
+   "d": 1.439,
+   "abs": 90.772,
+   "sp": "QASIM",
+   "txt": "Ammiii! Suusuu aayi hai!"
+  },
+  "a2": {
+   "scene": "ending",
+   "s": 2.439,
+   "d": 2.002,
+   "abs": 92.51,
+   "sp": "AMMI",
+   "txt": "Phir se?! Itni kulfi|kyun khaayi?!"
+  },
+  "k2": {
+   "scene": "ending",
+   "s": 4.741,
+   "d": 1.804,
+   "abs": 94.813,
+   "sp": "SAKINA",
+   "txt": "Ammi, garmi bahut hai na!"
+  },
+  "q6": {
+   "scene": "ending",
+   "s": 6.845,
+   "d": 1.085,
+   "abs": 96.917,
+   "sp": "QASIM",
+   "txt": "Kuch nahi Ammi!"
+  },
+  "n4": {
+   "scene": "endcard",
+   "s": 0.6,
+   "d": 6.686,
+   "abs": 100.202,
+   "sp": "NARR",
+   "txt": "Bachcho, sadak par mat khelo...|dhalaan par khadi gaadi se door raho!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
+  }
+ },
+ "total": 110.288
+}

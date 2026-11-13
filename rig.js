@@ -373,3 +373,65 @@ function proj(d, cam, x, y) {
   const k = 1 / d, z = cam.z ?? 1, s = 1 + (z - 1) * k, px = cam.px ?? 540, py = cam.py ?? 960;
   return { x: (x - px - (cam.x || 0) * k) * s + px, y: (y - py - (cam.y || 0) * k) * s + py, s: s * k };
 }
+
+// ---------- 2.5D extras (Episode 4) ----------
+// castShadow: long cast-shadow polygon on the floor for a prop of width w standing at (x, y); the sun is upper-right,
+// so the shadow falls to the lower-left. len = shadow length, sk = how far it slides left per px of length.
+function castShadow(x, y, w, len = 120, op = .22, sk = .9) {
+  return `<path d="M${x - w / 2},${y} L${x + w / 2},${y} L${x + w / 2 - len * sk},${y + len * .45} L${x - w / 2 - len * sk},${y + len * .45}Z" fill="#1a0f0a" opacity="${op}"/>`;
+}
+// heat shimmer: thin wavy bright bands over hot ground / far layers (y0..y1)
+function heatHaze(t, y0, y1, op = .18, n = 7) {
+  let g = '';
+  for (let i = 0; i < n; i++) { const y = y0 + (y1 - y0) * i / n + 6 * Math.sin(t * 2 + i); let p = `M-400,${y.toFixed(1)}`; for (let x = -400; x <= 1500; x += 60) p += ` Q${x + 30},${(y + 7 * Math.sin(t * 5 + x * .02 + i)).toFixed(1)} ${x + 60},${y.toFixed(1)}`; g += `<path d="${p}" stroke="#fff6dc" stroke-width="${3 + i % 3}" fill="none" opacity="${op}"/>`; }
+  return g;
+}
+
+// ---------- KULFI THELA (Episode 4 "Ice Cream Wala Thela") ----------
+// Blue kulfi cart: two spoked wheels, KULFI box with stars, two clay matkas, striped umbrella, brass bell on the handle.
+// o: x,y = ground point between the wheels; ang = tilt in degrees (slope); roll = wheel angle (rad); ring = bell shake 0..1;
+// rattle = lids/matkas jiggle 0..1; um = umbrella sway; flip = -1 to face the other way.
+function thela(o) {
+  o = Object.assign({ x: 0, y: 0, s: 1, ang: 0, roll: 0, ring: 0, rattle: 0, t: 0, flip: 1, um: 0 }, o);
+  const I = C.ink, j = o.rattle * 8 * Math.sin(o.t * 47), j2 = o.rattle * 7 * Math.sin(o.t * 53 + 1);
+  const wheel = (cx) => { let sp = ''; for (let k = 0; k < 8; k++) { const a = o.roll + k * Math.PI / 4; sp += `<path d="M${cx},-78 L${(cx + 66 * Math.cos(a)).toFixed(1)},${(-78 + 66 * Math.sin(a)).toFixed(1)}" stroke="#8a8f99" stroke-width="6"/>`; }
+    return `<circle cx="${cx}" cy="-78" r="78" fill="#2a2a30" stroke="${I}" stroke-width="6"/><circle cx="${cx}" cy="-78" r="66" fill="#d9dde3" stroke="${I}" stroke-width="4"/>${sp}<circle cx="${cx}" cy="-78" r="15" fill="#e5463b" stroke="${I}" stroke-width="4"/>`; };
+  let g = `<g transform="translate(${o.x.toFixed(1)},${o.y.toFixed(1)}) rotate(${o.ang.toFixed(2)}) scale(${(o.s * o.flip).toFixed(3)},${o.s.toFixed(3)})">`;
+  // stand leg + handles (left)
+  g += `<path d="M-215,-160 L-262,-4" stroke="#6b4a2a" stroke-width="16" stroke-linecap="round"/><path d="M-200,-250 L-345,-292 M-200,-205 L-345,-247" stroke="#8a8f99" stroke-width="13" stroke-linecap="round"/><rect x="-372" y="-306" width="40" height="72" rx="14" fill="#e5463b" stroke="${I}" stroke-width="4"/>`;
+  // bell on the handle
+  const br = o.ring * 22 * Math.sin(o.t * 40);
+  g += `<g transform="translate(-300,-300) rotate(${br.toFixed(1)})"><path d="M0,0 v-14" stroke="${I}" stroke-width="4"/><path d="M-18,-12 Q-18,-40 0,-42 Q18,-40 18,-12Z" fill="#e8b830" stroke="${I}" stroke-width="4"/><circle cx="0" cy="-8" r="6" fill="#b8860b"/></g>`;
+  if (o.ring > .2) g += `<path d="M-340,-360 l-26,-18 M-300,-370 v-30 M-262,-360 l24,-20" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity="${o.ring}"/>`;
+  // umbrella pole + dome
+  const us = o.um * 4 * Math.sin(o.t * 6);
+  g += `<g transform="rotate(${us.toFixed(1)} 40 -330)"><path d="M40,-330 V-640" stroke="#8a8f99" stroke-width="10"/>`;
+  const cols = ['#e5463b', '#fff', '#ffd34a', '#fff', '#e5463b', '#fff', '#ffd34a', '#fff'];
+  for (let k = 0; k < 8; k++) { const a0 = Math.PI + k * Math.PI / 8, a1 = a0 + Math.PI / 8; g += `<path d="M40,-735 L${(40 + 255 * Math.cos(a0)).toFixed(1)},${(-640 + 95 * Math.sin(a0) + 0).toFixed(1)} L${(40 + 255 * Math.cos(a1)).toFixed(1)},${(-640 + 95 * Math.sin(a1)).toFixed(1)}Z" fill="${cols[k]}" stroke="${I}" stroke-width="4" stroke-linejoin="round"/>`; }
+  g += `<path d="M-215,-640 ${[...Array(10)].map((_, k) => `q${25.5},${26} 51,0`).join(' ')}" fill="#e5463b" stroke="${I}" stroke-width="4"/><circle cx="40" cy="-742" r="12" fill="#ffd34a" stroke="${I}" stroke-width="4"/></g>`;
+  // box
+  g += `<rect x="-210" y="-345" width="440" height="200" rx="18" fill="#2f7fd6" stroke="${I}" stroke-width="7"/><rect x="-210" y="-345" width="440" height="34" rx="12" fill="#fff" stroke="${I}" stroke-width="5"/>
+    <rect x="-210" y="-178" width="440" height="30" rx="10" fill="#1f5fa8" stroke="${I}" stroke-width="5"/>`;
+  g += `<g transform="scale(${o.flip},1)">${T(o.flip * 10, -213, 74, 'KULFI', { fill: '#fff', stroke: '#173f73', sw: 8, ls: 4 })}</g>`;
+  [[-170, -250], [190, -250], [-150, -195], [170, -195]].forEach(([sx, sy]) => g += `<path d="M${sx},${sy - 14} l4,10 h11 l-9,7 l4,11 l-10,-7 l-10,7 l4,-11 l-9,-7 h11z" fill="#ffd34a" stroke="${I}" stroke-width="2"/>`);
+  // matkas (clay pots) with red cloth lids + a steel lid between
+  const matka = (mx, dy) => `<g transform="translate(${mx},${-345 + dy})"><path d="M-62,0 Q-74,-56 -40,-78 L40,-78 Q74,-56 62,0Z" fill="#b5532d" stroke="${I}" stroke-width="5"/><path d="M-60,-30 h120" stroke="#e6a35a" stroke-width="6" opacity=".8"/><path d="M-46,-78 Q0,-104 46,-78 Q50,-70 40,-66 Q0,-80 -40,-66 Q-50,-70 -46,-78Z" fill="#e5463b" stroke="${I}" stroke-width="4"/></g>`;
+  g += matka(-110, j) + matka(150, j2) + `<ellipse cx="20" cy="${-350 + j * .6}" rx="52" ry="14" fill="#c9ced6" stroke="${I}" stroke-width="4"/><circle cx="20" cy="${-366 + j * .6}" r="8" fill="#8a8f99" stroke="${I}" stroke-width="3"/>`;
+  // kulfi sign on the lid (stick kulfi icon)
+  g += `<g transform="translate(-178,-300) rotate(-14)">${kulfi(0, 0, .32, 0, 'mango')}</g>`;
+  g += wheel(-110) + wheel(150);
+  return g + '</g>';
+}
+// stick kulfi: tapered cone with nuts, wooden stick. flavor 'mango' | 'malai' | 'pista'; bite 0..1 takes the top off
+function kulfi(x, y, s, rot = 0, flavor = 'malai', bite = 0) {
+  const col = { mango: '#ffb330', malai: '#fff3d6', pista: '#b9d98a' }[flavor] || '#fff3d6', top = -150 + 70 * bite;
+  return `<g transform="translate(${x},${y}) rotate(${rot}) scale(${s})"><rect x="-9" y="-10" width="18" height="90" rx="6" fill="#e0b47a" stroke="${C.ink}" stroke-width="4"/>
+    <path d="M-34,0 L-46,${top + 20} Q-46,${top - 6} -20,${top - 8} ${bite > 0 ? `Q-8,${top + 8} 4,${top - 4} Q16,${top + 10} 22,${top - 8}` : 'L20,' + (top - 8)} Q46,${top - 6} 46,${top + 20} L34,0Z" fill="${col}" stroke="${C.ink}" stroke-width="5"/>
+    <circle cx="-12" cy="${top + 40}" r="5" fill="#7fb24a"/><circle cx="14" cy="${top + 70}" r="5" fill="#7fb24a"/><circle cx="-6" cy="${top + 100}" r="4" fill="#c98b5c"/><path d="M-22,${top + 30} q-6,40 4,90" stroke="#fff" stroke-width="6" fill="none" opacity=".6" stroke-linecap="round"/></g>`;
+}
+function brick(x, y, s = 1, rot = 0) {
+  return `<g transform="translate(${x},${y}) rotate(${rot}) scale(${s})"><rect x="-46" y="-40" width="92" height="40" rx="4" fill="#b5462e" stroke="${C.ink}" stroke-width="5"/><path d="M-30,-28 h20 M10,-14 h24" stroke="#8a3220" stroke-width="5"/></g>`;
+}
+function skateboard(x, y, s = 1, rot = 0, roll = 0) {
+  return `<g transform="translate(${x},${y}) rotate(${rot}) scale(${s})"><path d="M-110,-34 Q-124,-34 -120,-48 H120 Q124,-34 110,-34Z" fill="#e5463b" stroke="${C.ink}" stroke-width="5"/>${[-70, 70].map(cx => `<circle cx="${cx}" cy="-16" r="15" fill="#ffd34a" stroke="${C.ink}" stroke-width="4"/><path d="M${cx},-16 l${(10 * Math.cos(roll)).toFixed(1)},${(10 * Math.sin(roll)).toFixed(1)}" stroke="${C.ink}" stroke-width="3"/>`).join('')}</g>`;
+}

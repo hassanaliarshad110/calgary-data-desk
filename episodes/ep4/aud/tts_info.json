@@ -1,0 +1,74 @@
+{
+ "kokoro": {
+  "q1": {
+   "dur": 1.6,
+   "ph": "mˌʊɟʰeː mˈɛ̃ɡoː ʋˈaːli kˈʊlfi!"
+  },
+  "q5": {
+   "dur": 1.771,
+   "ph": "mˌeːɾi kˈʊlfi! ʃˈʊkɾɪjˌaː bˈaːɟi!"
+  },
+  "q3x": {
+   "dur": 1.408,
+   "ph": "sˈuːː sˈuːː mˈɛːn!"
+  },
+  "k1": {
+   "dur": 2.795,
+   "ph": "ɟˈaː ɟˈʌldi! tˈeːɾi kˈʊlfi mɛ̃ pˈʌkər. lˈeːti hũ!"
+  },
+  "k2": {
+   "dur": 1.813,
+   "ph": "ˈʌmmi, ɡˈʌrmi bˈʌhʊt hɛː nˈaː!"
+  },
+  "d1": {
+   "dur": 3.584,
+   "ph": "cˈaːcaː! sˈʌb bˈʌcːõ koː kˈʊlfi dˈoː... pˈɛːseː mɛ̃ dˈũnɡaː!"
+  },
+  "d2": {
+   "dur": 2.816,
+   "ph": "ʋˈaːh! həmˌaːɾi ɡˈʌli mẽː bʰˈi kˈoːi hˈiːɾoː hɛː!"
+  },
+  "s1": {
+   "dur": 0.917,
+   "ph": "mˌeːɾi bˈɔl!"
+  },
+  "s2": {
+   "dur": 1.963,
+   "ph": "ʈʰˈeːlaː ɾˈʊk ɡˈʌjaː! mɛ̃ bˈʌc ɡˈʌjaː!"
+  },
+  "v1": {
+   "dur": 5.099,
+   "ph": "bɾeːkˈĩɡ njˈuːz! ˈeːk ɡˈʌli mẽː mˈɪsʈɾi hˈiːɾoː nˈeː bʰˈaːɡtˌaː hˈʊaː ʈʰˈeːlaː ɾˈoːk lˈɪjaː!"
+  },
+  "v2": {
+   "dur": 2.752,
+   "ph": "lˈeːkɪn ʋoː hɛː kˈɔːn? kˈɪsi koː nˈʌhĩ pˈʌtaː!"
+  }
+ },
+ "edge": {
+  "n1": "ok",
+  "n2": "ok",
+  "c1": "ok",
+  "c2": "ok",
+  "c3": "ok",
+  "o1": "ok",
+  "o2": "ok",
+  "o3": "ok",
+  "o4": "ok",
+  "h1": "ok",
+  "a2": "ok",
+  "n4": "ok"
+ },
+ "asr": {
+  "o3": {
+   "en": "The superhero then came.",
+   "ur": "وہ سپر ہیرو پھر آ گیا",
+   "hi": "वो सुपर हीरो फेर आगया"
+  },
+  "n4": {
+   "en": "Children, do not play on the road and stay away from the car in Dhalan. If you like the video, then like and subscribe.",
+   "ur": "بچوں سڑک پر مد کھلو اور ڈھلان پر کھلی گاری سے دور رہو ویڈیو اچھی لگی تو لائک اور سبسکرائب کرو",
+   "hi": "बच्छो सड़क पर मत खेलो और दलान पर कھली गाडी से दूर रहु वीडियो अच्छी लगी तो लाएक और सबस्क्राइब करो"
+  }
+ }
+}

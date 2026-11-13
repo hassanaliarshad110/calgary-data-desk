@@ -1,0 +1,29 @@
+{
+ "kokoro": [
+  {"id": "q1", "voice": "hf_beta", "speed": 1.05, "text": "मुझे मैंगो वाली कुल्फ़ी!"},
+  {"id": "q5", "voice": "hf_beta", "speed": 1.05, "text": "मेरी कुल्फ़ी! शुक्रिया बाजी!"},
+  {"id": "q3x", "voice": "hf_beta", "speed": 0.8, "text": "सूऽऽ सूऽऽ मैन!"},
+  {"id": "k1", "voice": "hf_alpha", "speed": 1.05, "text": "जा जल्दी! तेरी कुल्फ़ी मैं पकड़ लेती हूँ!"},
+  {"id": "k2", "voice": "hf_alpha", "speed": 1.05, "text": "अम्मी, गर्मी बहुत है ना!"},
+  {"id": "d1", "voice": "hm_omega", "speed": 0.92, "text": "चाचा! सब बच्चों को कुल्फ़ी दो... पैसे मैं दूँगा!"},
+  {"id": "d2", "voice": "hm_omega", "speed": 0.92, "text": "वाह! हमारी गली में भी कोई हीरो है!"},
+  {"id": "s1", "voice": "hm_psi", "speed": 1.05, "text": "मेरी बॉल!"},
+  {"id": "s2", "voice": "hm_psi", "speed": 1.05, "text": "ठेला रुक गया! मैं बच गया!"},
+  {"id": "v1", "voice": "hm_omega", "speed": 1.0, "text": "ब्रेकिंग न्यूज़! एक गली में मिस्ट्री हीरो ने भागता हुआ ठेला रोक लिया!"},
+  {"id": "v2", "voice": "hf_alpha", "speed": 1.0, "text": "लेकिन वो है कौन? किसी को नहीं पता!"}
+ ],
+ "edge": [
+  {"id": "n1", "text": "ڈھلان پر بھاگتا ٹھیلا... اور سامنے ایک بچہ! کیا کوئی اسے روک پائے گا؟", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "n2", "text": "گرمی کی دوپہر... اور گلی میں آئی کلفی والے کی گھنٹی!", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "c1", "text": "ٹھنڈی ٹھنڈی کلفی! ملائی کلفی!", "voice": "ur-IN-SalmanNeural", "rate": "+0%", "pitch": "-30Hz"},
+  {"id": "c2", "text": "ارے! میرا ٹھیلا!", "voice": "ur-IN-SalmanNeural", "rate": "+0%", "pitch": "-30Hz"},
+  {"id": "c3", "text": "شکریہ! آج سب کو دو دو کلفیاں!", "voice": "ur-IN-SalmanNeural", "rate": "+0%", "pitch": "-30Hz"},
+  {"id": "o1", "text": "चाचा, ढलान पर ठेला ध्यान से रोकना!", "voice": "hi-IN-MadhurNeural", "rate": "-5%", "pitch": "-20Hz"},
+  {"id": "o2", "text": "रुको! नीचे बच्चा है!", "voice": "hi-IN-MadhurNeural", "rate": "-5%", "pitch": "-20Hz"},
+  {"id": "o3", "text": "वो सुपरहीरो फिर आ गया!", "voice": "hi-IN-MadhurNeural", "rate": "-5%", "pitch": "-20Hz", "asr": 1},
+  {"id": "o4", "text": "बच्चो, सड़क पर मत खेलो... और ढलान पर खड़ी गाड़ी से दूर रहो!", "voice": "hi-IN-MadhurNeural", "rate": "-5%", "pitch": "-20Hz"},
+  {"id": "h1", "text": "अरे! ठेला भाग रहा है!", "voice": "hi-IN-MadhurNeural", "rate": "+8%", "pitch": "+25Hz"},
+  {"id": "a2", "text": "پھر سے؟! اتنی کلفی کیوں کھائی؟!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  {"id": "n4", "text": "بچو، سڑک پر مت کھیلو... اور ڈھلان پر کھڑی گاڑی سے دور رہو! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1}
+ ]
+}
