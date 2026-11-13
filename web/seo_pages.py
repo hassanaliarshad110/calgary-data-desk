@@ -796,7 +796,7 @@ def growth_page(out, updated):
             'Your browser can’t play this video. <a href="../../video/growth-or-spending.mp4">Download it (MP4)</a>.</video>']
     for i, sec in enumerate(r.get('sections') or [], 1):
         body.append(f'<h2 id="s{i}">{i}. {e(sec.get("heading") or "")}</h2>{_paras(sec.get("text"))}')
-        for t in [v for v in sec.get('visuals') or [] if v.get('type') == 'table'][:1]:
+        for t in [v for v in sec.get('visuals') or [] if v.get('type') == 'table'][:3]:
             body.append(f'<h3>{e(t.get("title") or "")}</h3><div class="wrap"><table><thead><tr>' + ''.join(f'<th>{e(c)}</th>' for c in t['columns'])
                         + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{e(x)}</td>' for x in row) + '</tr>' for row in t['rows'][:15]) + '</tbody></table></div>')
     if r.get('conclusion'):

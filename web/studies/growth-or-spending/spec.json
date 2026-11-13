@@ -5,10 +5,12 @@
  "summary": [
   "The City proposes to raise the property tax it levies on existing properties by **15% in 2027**, then 10%, 7.7% and 6% (as reported). Compounded, that is **about 44% more by 2030**. A typical home would pay about **$37 a month more** in City tax in 2027 (+16%).",
   "Population growth plus inflation adds up to **about 16%** from 2026 to 2030, so the proposed tax path is almost **three times that benchmark**. From 2027 on, the tax steps (+25.6%) move roughly in line with operating spending (+26.8%).",
+  "**Where the 2027 new money would go (proposed):** the City's 2027 operating requests ask for **$354.7 million** of new money, mostly in its **Safe city (31%) and infrastructure (29%)** themes. The largest is infrastructure maintenance: $62.4 million a year from 2027, with further yearly additions requested to 2030. About 78% is ongoing, which, if approved, would carry into later budgets. The business cases do not show how much would be paid by property tax.",
+  "**The capital plan (proposed):** about **$21 billion over 2027–2030**, with about $4.4 billion in 2027. That is **close to the $4.2 billion the City forecasts spending in 2026**, and about 1.8 times its 2025 forecast; the four-year average, about $5.25 billion a year, would be higher still. Of the $13 billion in new requests, 42% is water, wastewater and stormwater, and the ten largest requests are more than half. Large projects are built by contractors, and the City lists a tight labour market as a risk; capital that is not spent is re-timed to later years.",
   "**Water Services is the biggest single increase** in operating spending: 43% of the increase from 2027 to 2030. It is paid mainly through water bills, not property tax. Without water, operating spending rises about 19%.",
   "The 15% is not the same for every home. Because all homes share one tax rate, the tax follows value: estimated 2027 changes are about **+18% for semi-detached homes, +16% for detached and +8% for condo apartments** (±3 points, until 2027 assessments arrive in January). The same shift showed up on 2026 bills.",
   "On our ward model, **five wards (5, 12, 13, 3 and 2) took about half of Calgary's growth** since 2021. They have about a third fewer transit stops and nearly three quarters fewer City recreation sites per resident than the other nine wards (counts of sites, not service quality).",
-  "**Growth or spending? Growth explains part of the increase, but the proposed tax rise is much higher than the growth-and-inflation benchmark.** That does not by itself mean the difference is waste: City costs can rise faster than consumer prices. It means Calgarians deserve to understand what they are paying for.",
+  "**Growth or spending? Growth explains part of the increase, but the proposed tax rise is much higher than the growth-and-inflation benchmark.** That does not by itself mean the difference is waste: City costs can rise faster than consumer prices. If spent in full, the capital plan would hold spending near the level the City forecasts for 2026 (about $4.2 billion) in 2027 and above it on average to 2030, well above 2023–2025. Calgarians deserve to understand what they are paying for.",
   "Council can still change the number: 10% instead of 15% would mean an estimated **$128 million less revenue** in 2027 (5%: about $256 million less). These are revenue gaps, not a list of cuts."
  ],
  "sections": [
@@ -86,12 +88,130 @@
    ]
   },
   {
-   "heading": "Where the new spending goes",
-   "text": "From 2027 to 2030, operating spending in the City's budget data grows by about $1.72 billion a year. Water Services is the largest piece, at $743 million (43% of the increase), and is paid mainly through water bills. Calgary Transit adds $164 million and the Calgary Police Service $67 million.\n\nAfter inflation, operating spending per resident rises about 14% from 2027 to 2030 including water, and about 7% without it. Of the new ongoing money in the City's 384 budget requests, most cites direction from Council.",
+   "heading": "The proposal, broken down: new operating money (proposed)",
+   "text": "The proposed 15% would raise about $384 million more in 2027. Separately, the City's 124 operating budget requests (98 with a 2027 amount) ask for **$354.7 million of new money** that year: $276.1 million ongoing (78%) and $78.6 million one-time, with 855 new full-time equivalent (FTE) positions.\n\nThe two figures should not be subtracted. The requests do not say which would be paid by property tax and which by reserves, fees or other sources, and the 15% must also cover cost growth in existing services, which the business cases do not itemize. July City documents, as reported by Global News, put the increase needed only to maintain services at 5.4% (roughly $138 million at $25.6 million per point, our arithmetic).\n\nBy the City's own themes, most of the 2027 new money falls under **Safe city (31%)** and **Reliable and sustainable infrastructure (29%)**. The single largest request is for **infrastructure maintenance: $62.4 million a year from 2027**, with further yearly additions requested to 2030. The top three (infrastructure maintenance, the Safer Together community safety plan and a low-income transit pass) are a third of the total. By the City's own rationale categories, about 49% of the money cites explicit direction from Council and 21% implicit direction.\n\nFrom 2027 to 2030, yearly operating spending in the City's proposed budget data would rise by about $1.72 billion (from $6.43 billion in 2027 to $8.16 billion in 2030). Water Services is the largest piece, at $743 million (43%), paid mainly through water bills; Corporate Programs adds $579 million, Calgary Transit $164 million, and Mobility and the Calgary Police Service about $67 million each. After inflation, operating spending per resident rises about 14% from 2027 to 2030 including water, and about 7% without it.",
    "visuals": [
     {
      "type": "table",
-     "title": "Largest increases in operating spending, 2027 to 2030 (City budget data)",
+     "title": "New money requested for 2027, by the City's theme (proposed; shares may not sum to 100 because of rounding)",
+     "columns": [
+      "Theme",
+      "2027",
+      "Share"
+     ],
+     "rows": [
+      [
+       "Safe city",
+       "$110.1M",
+       "31.0%"
+      ],
+      [
+       "Reliable and sustainable infrastructure",
+       "$101.7M",
+       "28.7%"
+      ],
+      [
+       "Functional transportation network",
+       "$64.0M",
+       "18.0%"
+      ],
+      [
+       "Trusted and collaborative government",
+       "$37.0M",
+       "10.4%"
+      ],
+      [
+       "Community livability and well-being",
+       "$26.6M",
+       "7.5%"
+      ],
+      [
+       "Balanced growth and evolving neighbourhoods",
+       "$15.3M",
+       "4.3%"
+      ],
+      [
+       "All 2027 requests",
+       "$354.7M",
+       "100%"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "The ten largest 2027 requests (City titles, proposed)",
+     "columns": [
+      "Request",
+      "Business unit",
+      "2027",
+      "Page"
+     ],
+     "rows": [
+      [
+       "Securing Sustainable Funding for Infrastructure Maintenance",
+       "Corporate Programs",
+       "$62.4M",
+       "20"
+      ],
+      [
+       "Implement the cross-corporate strategies of the Safer Together plan to…",
+       "Community Strategies",
+       "$28.8M",
+       "275"
+      ],
+      [
+       "Reducing financial barriers to accessing transit - Low Income Transit Pass",
+       "Calgary Transit",
+       "$25.1M",
+       "369"
+      ],
+      [
+       "Renew The City’s digital infrastructure supporting finance, supply chain…",
+       "Corporate Programs",
+       "$20.4M",
+       "35"
+      ],
+      [
+       "Calgary Police Budget Request",
+       "Calgary Police Service",
+       "$20.3M",
+       "224"
+      ],
+      [
+       "Increase the number of Transit Peace Officers to improve visibility…",
+       "Emergency Management & Community Safety",
+       "$18.2M",
+       "271"
+      ],
+      [
+       "Parks Maintenance Funding Levels 2026",
+       "Parks & Open Spaces",
+       "$14.0M",
+       "467"
+      ],
+      [
+       "Increasing Transit service for customers - RouteAhead Investment",
+       "Calgary Transit",
+       "$12.0M",
+       "359"
+      ],
+      [
+       "Industrial Development Incentive Program",
+       "City & Regional Planning",
+       "$10.0M",
+       "537"
+      ],
+      [
+       "Resourcing Prairie Economic Gateway Delivery",
+       "Chief Operating Officer",
+       "$7.5M",
+       "609"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "Largest proposed increases in operating spending, 2027 to 2030 (City budget data)",
      "columns": [
       "Area",
       "2027",
@@ -134,6 +254,281 @@
        "$6,433.6M",
        "$8,156.6M",
        "+$1,723.0M"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "The proposal, broken down: the capital plan (proposed)",
+   "text": "The City proposes about **$21 billion of capital spending from 2027 to 2030**; its chief financial officer called it the largest capital program the City has seen. About $13 billion of it is in 260 new capital requests (42% of that is maintenance or replacement). The rest is capital approved in earlier budgets: the City's open data lists $6.9 billion of it for 2027–2030, and the published totals do not fully reconcile. About **$4.4 billion** would fall in 2027 (as reported). The new requests climb each year: $1.55 billion in 2027, $3.0 billion in 2028, $4.0 billion in 2029 and $4.4 billion in 2030.\n\n**The Water Utilities service area (water, wastewater and stormwater) is the largest piece: $5.48 billion (42%)** of the new requests, led by the wastewater treatment plants program ($2.29 billion). Utilities Delivery, which also runs waste and recycling, is $5.87 billion. Roads and pathways take $1.99 billion (15%), transit $1.31 billion (10%), and corporate needs across all services (fleet, facilities, project development, land and technology) $2.10 billion (16%). Weighted by the City's own purpose split, about 42% is maintenance or replacement, 35% growth, 20% service enhancement and 3% transformative.\n\nMost of the money sits in a few large programs. The median request is $12.1 million, and 119 of the 260 are under $10 million, but the ten largest are **54% of the total**, and the four above $500 million are all water or wastewater. In 2027, the ten largest amounts are 61% of the year's new capital.\n\nHow it would be paid: requests whose funding includes self-supported debt (repaid from utility rates or, for fleet, from charges to other City units) are 49% of the new capital; requests that include tax-supported debt, repaid from property tax, are 31%; the other 20% uses only reserves, grants or developer contributions. Requests often combine sources, so these are groupings, not exact splits. As reported, City debt would rise from $4.2 billion in 2027 to $10 billion in 2030, about 80% of its debt capacity.\n\nThe plan funds about **two-thirds (68%)** of what the same requests list as 2027–2030 infrastructure needs ($13.0 billion of $19.3 billion). This is an aggregate: 52 requests are budgeted above their own listed 2027–2030 needs, partly because of timing.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "New capital requested, by year (proposed; the City's $21 billion total also includes capital approved in earlier budgets)",
+     "columns": [
+      "Year",
+      "New capital requests"
+     ],
+     "rows": [
+      [
+       "2027",
+       "$1.55B"
+      ],
+      [
+       "2028",
+       "$3.02B"
+      ],
+      [
+       "2029",
+       "$4.03B"
+      ],
+      [
+       "2030",
+       "$4.43B"
+      ],
+      [
+       "2027–2030",
+       "$13.02B"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "New capital by service area (proposed; shares may not sum to 100 because of rounding)",
+     "columns": [
+      "Service area",
+      "Total 2027–2031+",
+      "Share",
+      "Requests"
+     ],
+     "rows": [
+      [
+       "Water Utilities (water, wastewater, stormwater)",
+       "$5,476M",
+       "42.0%",
+       "6"
+      ],
+      [
+       "All services (fleet, facilities, project development, land, technology)",
+       "$2,096M",
+       "16.1%",
+       "91"
+      ],
+      [
+       "Roads & Pathways",
+       "$1,987M",
+       "15.2%",
+       "70"
+      ],
+      [
+       "Transit",
+       "$1,312M",
+       "10.1%",
+       "29"
+      ],
+      [
+       "Parks & Urban Forestry",
+       "$452M",
+       "3.5%",
+       "14"
+      ],
+      [
+       "Waste & Recycling",
+       "$391M",
+       "3.0%",
+       "2"
+      ],
+      [
+       "Recreation",
+       "$343M",
+       "2.6%",
+       "6"
+      ],
+      [
+       "Fire",
+       "$229M",
+       "1.8%",
+       "8"
+      ],
+      [
+       "Other service areas",
+       "$764M",
+       "5.9%",
+       "34"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "The ten largest capital requests (City titles, proposed)",
+     "columns": [
+      "Request",
+      "Total",
+      "2027",
+      "City stage",
+      "Page"
+     ],
+     "rows": [
+      [
+       "Wastewater Treatment Plants Program",
+       "$2,293M",
+       "$375M",
+       "Execute",
+       "73"
+      ],
+      [
+       "Water Distribution Network Program",
+       "$1,143M",
+       "$82M",
+       "Execute",
+       "76"
+      ],
+      [
+       "Water Treatment Plants Program",
+       "$824M",
+       "$98M",
+       "Execute",
+       "80"
+      ],
+      [
+       "Wastewater Collection Network Program",
+       "$684M",
+       "$48M",
+       "Execute",
+       "70"
+      ],
+      [
+       "Stormwater Management Program",
+       "$455M",
+       "$63M",
+       "Execute",
+       "62"
+      ],
+      [
+       "Pavement Rehabilitation Program",
+       "$420M",
+       "$51M",
+       "Plan & Design",
+       "125"
+      ],
+      [
+       "Vehicle & Equipment Replacement",
+       "$408M",
+       "$100M",
+       "Execute",
+       "141"
+      ],
+      [
+       "RouteAhead Implementation Plan Bus Fleet Procurement (Primary Transit…",
+       "$300M",
+       "$0M",
+       "Assess & Select",
+       "383"
+      ],
+      [
+       "GamePLAN - Wave 1 Projects",
+       "$284M",
+       "$9M",
+       "Identify",
+       "180"
+      ],
+      [
+       "Facility Asset Sustainment Annual Investment Program",
+       "$276M",
+       "$43M",
+       "Plan & Design",
+       "83"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "What pace would the plan require?",
+   "text": "The City spent $1.46 billion on capital in 2023 (52.5% of budget) and $1.93 billion in 2024 (92.4%). For 2025 it forecast about $2.46 billion (91% of a $2.7 billion budget; its forecasts during 2025 moved between 91% and 101%), and the year-end figure is in a report this study could not retrieve. **The City forecasts higher spending in 2026:** the capital budget, approved at $3.7 billion, stood at $4.47 billion at June 30, 2026; the City had spent $1.38 billion (31%) and forecast about **$4.18 billion (94%)** by year-end.\n\nIf spent in full, the proposed 2027 capital budget of about $4.4 billion would be **close to the 2026 forecast (about 1.05 times)** and about 1.8 times the 2025 forecast. The four-year average of about $5.25 billion a year would be about 1.26 times the 2026 forecast and about 2.1 times the 2025 forecast. Both are the City's own forecasts: the 2025 figure was made before that year ended, and the 2026 figure can still change.\n\n**Readiness.** By the City's own stage labels, 58% of the new capital (70% of the 2027 amount) is at Stage 4, Execute. About 22% is at Identify or Assess & Select, including the first wave of GamePLAN recreation projects, transit bus purchases and light rail vehicle replacement. A stage label is not a signed contract, and contract status is not in the budget documents. Among works in the four-year plan, the Fish Creek wastewater plant upgrade contract was awarded in January 2025 ($547 million; the contractor lists completion in 2030). The Green Line, funded mainly from earlier approvals (the new requests carry $16.6 million for it), reports more than $200 million of construction contracts awarded, station contracts expected late in 2026 and its track contract out for proposals since July 2026.\n\n**People.** The operating requests (not the capital requests) add 855 full-time equivalent positions in 2027 and 1,926 over four years (about 1,800 as reported), mostly in transit, community safety and fire. For scale, the City's website lists 16,846 employees (basis and scope not stated). City staff, excluding police, civic partners and on-call, student and seasonal staff, rose from 13,483 at the end of 2022 to 15,751 in September 2024; the website figure and this series are on different bases. Separately, the City attributes part of its first-half 2026 operating savings to vacancies and delayed hiring (Q2 2026 quarterly report).\n\n**Building it.** Large projects are built by contractors, for example Graham on the Fish Creek plant and PCL and Graham on Green Line packages. The City's 2026 budget lists cost escalation from a tight labour market and supply chain challenges as a risk to capital delivery, and BuildForce Canada forecasts that Alberta's construction labour force will need to add 48,800 workers by 2035, including replacing about 43,700 retirements.\n\n**If money is not spent.** Capital budget that is not spent is re-timed to later years; in February 2025 the City moved $893 million of its 2025 budget to 2027 and later, so it now falls in or after the 2027–2030 plan period. Separately, on the operating side, consolidated expenses were 99.0%, 98.3% and 97.8% of budget in 2023 to 2025 (Annual Financial Reports). The year-end operating surpluses ($236 million, $276 million and $259 million) reflect both spending below budget and revenue above it, such as investment income, and were transferred to the Fiscal Stability Reserve the following year.\n\nThis study does not predict whether the plan will be delivered. It shows the pace the plan would require.",
+   "visuals": [
+    {
+     "type": "table",
+     "title": "City capital: spent 2023–2024, City forecasts for 2025–2026, 2027 proposed",
+     "columns": [
+      "Year",
+      "Capital budget",
+      "Spent",
+      "Spend rate"
+     ],
+     "rows": [
+      [
+       "2023",
+       "$2.78B",
+       "$1.46B",
+       "52.5%"
+      ],
+      [
+       "2024",
+       "$2.09B",
+       "$1.93B",
+       "92.4%"
+      ],
+      [
+       "2025",
+       "$2.7B",
+       "about $2.46B (City forecast)",
+       "91% (forecast)"
+      ],
+      [
+       "2026",
+       "$3.7B approved; $4.47B at June 30",
+       "$1.38B to June 30; about $4.18B (City forecast)",
+       "94% (forecast)"
+      ],
+      [
+       "2027 (proposed)",
+       "about $4.4B",
+       "–",
+       "–"
+      ],
+      [
+       "2027–2030 average (proposed)",
+       "about $5.25B a year",
+       "–",
+       "–"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "title": "New capital by the City's stage label (proposed)",
+     "columns": [
+      "Stage",
+      "Total",
+      "Share",
+      "Share of 2027 amount"
+     ],
+     "rows": [
+      [
+       "Stage 4: Execute",
+       "$7,618M",
+       "58.4%",
+       "69.6%"
+      ],
+      [
+       "Stage 3: Plan & Design",
+       "$2,584M",
+       "19.8%",
+       "12.8%"
+      ],
+      [
+       "Stage 2: Assess & Select",
+       "$1,485M",
+       "11.4%",
+       "8.4%"
+      ],
+      [
+       "Stage 1: Identify",
+       "$1,365M",
+       "10.5%",
+       "9.3%"
       ]
      ]
     }
@@ -255,7 +650,7 @@
    ]
   }
  ],
- "conclusion": "Growth or spending? Growth explains part of the increase: population growth and inflation come to about 16% to 2030, against about 44% for the proposed tax path. The study does not show that the difference is unnecessary; the City's costs can rise faster than consumer prices, and much of the new operating spending is water, which is paid mainly through water bills. What the numbers do show is that the proposed increase goes well beyond growth and inflation, that it would not fall evenly (houses would likely pay more than 15% and condos less), and that growth has concentrated in wards with fewer transit stops and recreation sites per resident. Calgarians deserve to understand what they are paying for; this study sets out the numbers behind that choice.",
+ "conclusion": "Growth or spending? Growth explains part of the increase: population growth and inflation come to about 16% to 2030, against about 44% for the proposed tax path. The study does not show that the difference is unnecessary; the City's costs can rise faster than consumer prices, and much of the new operating spending is water, which is paid mainly through water bills. What the numbers do show is that the proposed increase goes well beyond growth and inflation, that it would not fall evenly (houses would likely pay more than 15% and condos less), and that growth has concentrated in wards with fewer transit stops and recreation sites per resident. If spent in full, the capital plan would hold spending near the level the City forecasts for 2026 (about $4.2 billion) in 2027 and above it on average to 2030, well above 2023–2025. Calgarians deserve to understand what they are paying for; this study sets out the numbers behind that choice.",
  "method": [
   "Population: calgaryinsight.ca growth model. Every home on the City's assessment roll by community and year built, times 2021 Census people per home, scaled to the City's own monthly estimate. Ward figures are estimates.",
   "Spending: City of Calgary 2027 to 2030 budget open data (operating spending after recoveries), compared on matching periods with the City's population and inflation forecasts.",
