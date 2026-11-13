@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Nastaliq;src:url(fonts/NotoNastaliqUrdu.ttf)}
+@font-face{font-family:Amiri;src:url(fonts/Amiri-Regular.ttf)}
+@font-face{font-family:AmiriB;src:url(fonts/Amiri-Bold.ttf)}
+@font-face{font-family:Cinzel;src:url(fonts/Cinzel.ttf)}
+html,body{margin:0;background:#000}
+canvas{display:block}
+</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+const W = 1080, H = 1920;
+const cv = document.getElementById('c'), X = cv.getContext('2d');
+let CFG = null; // {lang, caps:[...], durs:[...], scenes:[{start,dur}], labels}
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, k) => a + (b - a) * k;
+const ease = k => k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+const easeOut = k => 1 - Math.pow(1 - k, 3);
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+function rng(seed) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+
+// ---------- pre-rendered textures ----------
+const STARS = (() => { const r = rng(7), a = []; for (let i = 0; i < 260; i++) a.push([r() * W, r() * 1150, r() * 1.8 + .3, r() * 6.28, r() * 2 + .5]); return a; })();
+const GRAIN = (() => { const c = document.createElement('canvas'); c.width = 540; c.height = 960; const g = c.getContext('2d'); const d = g.createImageData(540, 960); const r = rng(3); for (let i = 0; i < d.data.length; i += 4) { const v = r() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 22; } g.putImageData(d, 0, 0); return c; })();
+const WALL = (() => {
+  const c = document.createElement('canvas'); c.width = W; c.height = 760; const g = c.getContext('2d');
+  const gr = g.createLinearGradient(0, 0, 0, 760); gr.addColorStop(0, '#6b5038'); gr.addColorStop(1, '#3d2c1f');
+  g.fillStyle = gr; g.fillRect(0, 0, W, 760);
+  const r = rng(11);
+  for (let row = 0; row < 26; row++) {
+    const y = row * 30, off = (row % 2) * 45;
+    for (let x = -90 + off; x < W; x += 90) {
+      const s = r() * .22 - .11;
+      g.fillStyle = `rgba(${s > 0 ? '255,230,200' : '0,0,0'},${Math.abs(s) * .5})`;
+      g.fillRect(x + 2, y + 2, 86, 26);
+      g.strokeStyle = 'rgba(30,18,10,.35)'; g.lineWidth = 2; g.strokeRect(x + 1, y + 1, 88, 28);
+    }
+  }
+  for (let i = 0; i < 1800; i++) { g.fillStyle = `rgba(0,0,0,${r() * .12})`; g.fillRect(r() * W, r() * 760, r() * 5 + 1, r() * 3 + 1); }
+  return c;
+})();
+const PLANK = (() => {
+  const c = document.createElement('canvas'); c.width = 205; c.height = 600; const g = c.getContext('2d');
+  const r = rng(21);
+  for (let p = 0; p < 5; p++) {
+    const x = p * 41; const base = 52 + r() * 14;
+    g.fillStyle = `rgb(${base + 30},${base + 4},${base - 22})`; g.fillRect(x, 0, 41, 600);
+    for (let k = 0; k < 40; k++) { g.strokeStyle = `rgba(20,10,4,${r() * .25})`; g.lineWidth = r() * 1.5 + .4; g.beginPath(); const xx = x + r() * 41; g.moveTo(xx, 0); g.bezierCurveTo(xx + r() * 6 - 3, 200, xx + r() * 6 - 3, 400, xx + r() * 4 - 2, 600); g.stroke(); }
+    g.fillStyle = 'rgba(10,5,2,.7)'; g.fillRect(x + 39, 0, 2, 600);
+  }
+  // iron bands with studs
+  for (const by of [70, 300, 530]) {
+    g.fillStyle = '#26211d'; g.fillRect(0, by - 11, 205, 22);
+    g.fillStyle = 'rgba(255,255,255,.08)'; g.fillRect(0, by - 11, 205, 3);
+    for (let sx = 14; sx < 205; sx += 36) { g.fillStyle = '#3d362f'; g.beginPath(); g.arc(sx, by, 5.5, 0, 6.28); g.fill(); g.fillStyle = 'rgba(255,255,255,.18)'; g.beginPath(); g.arc(sx - 1.5, by - 1.5, 2, 0, 6.28); g.fill(); }
+  }
+  return c;
+})();
+
+// ---------- primitives ----------
+function sky(c1, c2, c3) { const g = X.createLinearGradient(0, 0, 0, 1250); g.addColorStop(0, c1); g.addColorStop(.6, c2); g.addColorStop(1, c3); X.fillStyle = g; X.fillRect(0, 0, W, H); }
+function stars(t, a = 1) { for (const [x, y, r, ph, sp] of STARS) { X.globalAlpha = a * (.45 + .55 * Math.sin(t * sp + ph) ** 2) * (1 - y / 1300); X.fillStyle = '#fff'; X.beginPath(); X.arc(x, y, r, 0, 6.28); X.fill(); } X.globalAlpha = 1; }
+const MOONC = document.createElement('canvas'); MOONC.width = MOONC.height = 200;
+function crescent(x, y, r, a = 1) { X.save(); X.globalAlpha = a; const g = X.createRadialGradient(x, y, r * .5, x, y, r * 4); g.addColorStop(0, 'rgba(255,240,200,.22)'); g.addColorStop(1, 'rgba(255,240,200,0)'); X.fillStyle = g; X.fillRect(x - r * 4, y - r * 4, r * 8, r * 8);
+  const m = MOONC.getContext('2d'); m.clearRect(0, 0, 200, 200); m.globalCompositeOperation = 'source-over'; m.fillStyle = '#fff3d6'; m.beginPath(); m.arc(100, 100, r, 0, 6.28); m.fill();
+  m.globalCompositeOperation = 'destination-out'; m.beginPath(); m.arc(100 + r * .45, 100 - r * .2, r * .9, 0, 6.28); m.fill(); m.globalCompositeOperation = 'source-over';
+  X.drawImage(MOONC, x - 100, y - 100); X.restore(); }
+function glow(x, y, r, col, a) { const g = X.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, `rgba(${col},${a})`); g.addColorStop(1, `rgba(${col},0)`); X.fillStyle = g; X.fillRect(x - r, y - r, r * 2, r * 2); }
+// holy light — never a face or hands, only light
+function holyLight(x, y, rx, ry, I, t, rays = true) {
+  X.save(); X.globalCompositeOperation = 'lighter';
+  glow(x, y, Math.max(rx, ry) * 3.2, '255,214,140', .22 * I);
+  if (rays) {
+    X.translate(x, y);
+    for (let i = 0; i < 16; i++) {
+      const a = i / 16 * 6.283 + t * .12, L = Math.max(rx, ry) * (2.2 + .5 * Math.sin(t * 1.3 + i * 2.1));
+      X.globalAlpha = .07 * I; X.fillStyle = '#ffe2a8';
+      X.beginPath(); X.moveTo(0, 0); X.lineTo(Math.cos(a - .045) * L, Math.sin(a - .045) * L); X.lineTo(Math.cos(a + .045) * L, Math.sin(a + .045) * L); X.closePath(); X.fill();
+    }
+    X.globalAlpha = 1; X.translate(-x, -y);
+  }
+  X.save(); X.translate(x, y); X.scale(rx / ry, 1);
+  const g = X.createRadialGradient(0, 0, 0, 0, 0, ry); g.addColorStop(0, `rgba(255,255,250,${I})`); g.addColorStop(.35, `rgba(255,236,190,${.75 * I})`); g.addColorStop(1, 'rgba(255,200,120,0)');
+  X.fillStyle = g; X.beginPath(); X.arc(0, 0, ry, 0, 6.28); X.fill(); X.restore();
+  X.restore();
+}
+function flame(x, by, h, w, t, s, a = 1) {
+  X.save(); X.globalCompositeOperation = 'lighter';
+  const layers = [['255,70,10', 1, .55], ['255,150,30', .72, .65], ['255,230,140', .42, .8]];
+  for (const [col, k, al] of layers) {
+    const hh = h * k * (0.85 + .15 * Math.sin(t * 9 + s * 3)), ww = w * k;
+    const sw = Math.sin(t * 6 + s) * ww * .35 + Math.sin(t * 13 + s * 2) * ww * .12;
+    X.globalAlpha = al * a; X.fillStyle = `rgb(${col})`;
+    X.beginPath(); X.moveTo(x - ww / 2, by);
+    X.bezierCurveTo(x - ww * .6, by - hh * .45, x + sw - ww * .2, by - hh * .7, x + sw, by - hh);
+    X.bezierCurveTo(x + sw + ww * .2, by - hh * .7, x + ww * .6, by - hh * .45, x + ww / 2, by);
+    X.closePath(); X.fill();
+  }
+  X.restore();
+}
+function fireRow(x0, x1, by, h, t, a, seed = 1) { const r = rng(seed); for (let x = x0; x <= x1; x += 26) { const k = r(); flame(x + r() * 10, by, h * (.55 + k * .6), 46 + r() * 20, t, k * 10 + x * .01, a); } }
+function embers(x0, x1, by, t, n, a, seed = 5) { const r = rng(seed); X.save(); X.globalCompositeOperation = 'lighter'; for (let i = 0; i < n; i++) { const sp = 60 + r() * 120, ph = r() * 10, life = 3 + r() * 2; const k = ((t + ph) % life) / life; const x = lerp(x0, x1, r()) + Math.sin((t + ph) * 2) * 30 * k; const y = by - k * sp * life; X.globalAlpha = a * (1 - k) * .9; X.fillStyle = r() > .5 ? '#ffb347' : '#ff7a1a'; X.beginPath(); X.arc(x, y, 2 + r() * 2.5, 0, 6.28); X.fill(); } X.restore(); }
+function palm(x, gy, s, col = '#0b0a12') {
+  X.save(); X.translate(x, gy); X.scale(s, s); X.fillStyle = col; X.strokeStyle = col;
+  X.lineWidth = 14; X.beginPath(); X.moveTo(0, 0); X.quadraticCurveTo(14, -150, 4, -300); X.stroke();
+  for (let i = 0; i < 9; i++) { const a = -Math.PI / 2 + (i - 4) * .38; X.save(); X.translate(4, -300); X.rotate(a); X.beginPath(); X.moveTo(0, 0); X.quadraticCurveTo(70, -26, 150, 22); X.quadraticCurveTo(70, -6, 0, 8); X.fill(); X.restore(); }
+  X.restore();
+}
+function houses(gy, col, seed, hmin = 80, hmax = 220) { const r = rng(seed); X.fillStyle = col; let x = -20; while (x < W + 40) { const w = 90 + r() * 140, h = hmin + r() * (hmax - hmin); X.fillRect(x, gy - h, w, h + 2); if (r() > .5) X.fillRect(x + w * .2, gy - h - 16, w * .6, 18); x += w - 6; } }
+// a person drawn only as a dark silhouette (no features) — used for crowds, never for the Ahlul Bayt
+function figure(x, gy, h, t, s, torch = true, face = 1) {
+  const bob = Math.sin(t * 4 + s) * 4; X.save(); X.translate(x, gy + bob); X.fillStyle = '#07060a';
+  X.beginPath(); X.moveTo(-h * .2, 0); X.quadraticCurveTo(-h * .2, -h * .62, -h * .11, -h * .78); X.lineTo(h * .11, -h * .78); X.quadraticCurveTo(h * .2, -h * .62, h * .2, 0); X.closePath(); X.fill();
+  X.beginPath(); X.arc(0, -h * .86, h * .095, 0, 6.28); X.fill();
+  X.beginPath(); X.moveTo(-h * .13, -h * .94); X.quadraticCurveTo(0, -h * 1.02, h * .13, -h * .94); X.lineTo(h * .16, -h * .7); X.lineTo(-h * .16, -h * .7); X.fill();
+  if (torch) { const tx = face * h * .26, ty = -h * 1.05; X.strokeStyle = '#1a120a'; X.lineWidth = h * .035; X.beginPath(); X.moveTo(face * h * .1, -h * .62); X.lineTo(tx, ty); X.stroke(); X.restore(); flame(x + tx, gy + bob + ty + 4, h * .32, h * .14, t, s); glow(x + tx, gy + bob + ty - h * .1, h * 1.1, '255,120,30', .16); return; }
+  X.restore();
+}
+
+// house front: wall + door. opts: gap (light through cracks), push (0..1 right leaf swings in), lightCol
+function houseFront(t, o = {}) {
+  const gy = 1200, dx = 330, dy = 600, dw = 420, dh = 600;
+  X.drawImage(WALL, 0, 440, W, 760);
+  X.fillStyle = 'rgba(0,0,0,.25)'; X.fillRect(0, 440, W, 18);
+  // ground
+  const g = X.createLinearGradient(0, gy, 0, H); g.addColorStop(0, '#3a2a1c'); g.addColorStop(1, '#0d0906'); X.fillStyle = g; X.fillRect(0, gy, W, H - gy);
+  // door frame (lintel + posts)
+  X.fillStyle = '#24170d'; X.fillRect(dx - 34, dy - 46, dw + 68, 46); X.fillRect(dx - 34, dy, 34, dh); X.fillRect(dx + dw, dy, 34, dh);
+  X.fillStyle = 'rgba(255,255,255,.06)'; X.fillRect(dx - 34, dy - 46, dw + 68, 4);
+  // light behind
+  const L = o.light ?? .8;
+  X.fillStyle = `rgba(255,232,180,${.15 + L * .85})`; X.fillRect(dx, dy, dw, dh);
+  const push = o.push || 0;
+  // left leaf
+  X.drawImage(PLANK, dx, dy, 205, dh);
+  // right leaf, hinged at the right edge, swings inward
+  const rw = 205 * Math.cos(push * 1.15);
+  X.save(); X.globalAlpha = 1; X.drawImage(PLANK, dx + dw - rw, dy, rw, dh); X.fillStyle = `rgba(0,0,0,${push * .5})`; X.fillRect(dx + dw - rw, dy, rw, dh); X.restore();
+  if (o.char) { X.save(); X.globalCompositeOperation = 'multiply'; const cg = X.createLinearGradient(0, dy + dh, 0, dy + dh * (1 - o.char)); cg.addColorStop(0, 'rgba(20,10,5,1)'); cg.addColorStop(1, 'rgba(255,255,255,1)'); X.fillStyle = cg; X.fillRect(dx, dy, dw, dh); X.restore(); }
+  // ring knockers
+  for (const kx of [dx + 185, dx + dw - Math.max(20, rw) + 20]) { X.strokeStyle = '#4a4036'; X.lineWidth = 5; X.beginPath(); X.arc(kx, dy + 330, 14, 0, 6.28); X.stroke(); }
+  // light spill through the crack and under the door
+  X.save(); X.globalCompositeOperation = 'lighter';
+  const pulse = .85 + .15 * Math.sin(t * 2.1);
+  const gl = (o.gap ?? 1) * L * pulse;
+  const cg = X.createLinearGradient(dx + 190, 0, dx + 230, 0); cg.addColorStop(0, 'rgba(255,220,150,0)'); cg.addColorStop(.5, `rgba(255,236,190,${.9 * gl})`); cg.addColorStop(1, 'rgba(255,220,150,0)');
+  X.fillStyle = cg; X.fillRect(dx + 190, dy, 40, dh);
+  glow(dx + dw / 2, gy, 330, '255,214,150', .35 * gl);
+  X.fillStyle = `rgba(255,236,190,${.8 * gl})`; X.fillRect(dx, gy - 4, dw, 4);
+  if (push > 0) { holyLight(dx + dw - rw - (205 - rw) / 2, dy + dh * .45, 60 + 60 * push, 160, L * (.4 + push * .6), t, false); }
+  X.restore();
+  return { dx, dy, dw, dh, gy, rw };
+}
+
+// ---------- text ----------
+function urFont(px) { return CFG.lang === 'ar' ? `${px}px AmiriB` : `${px}px Nastaliq`; }
+function rtlText(s, x, y, px, col, maxW, lh, align = 'center') {
+  X.save(); X.direction = 'rtl'; X.textAlign = align; X.font = urFont(px); X.fillStyle = col; X.textBaseline = 'middle';
+  const words = s.split(' '), lines = []; let cur = '';
+  for (const w of words) { const tr = cur ? cur + ' ' + w : w; if (X.measureText(tr).width > maxW && cur) { lines.push(cur); cur = w; } else cur = tr; }
+  if (cur) lines.push(cur);
+  const y0 = y - (lines.length - 1) * lh / 2;
+  lines.forEach((l, i) => { X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 14; X.fillText(l, x, y0 + i * lh); });
+  X.restore(); return lines.length;
+}
+function header() {
+  X.save(); X.textAlign = 'center'; X.textBaseline = 'middle';
+  X.font = '600 36px Cinzel'; X.fillStyle = '#e8c374'; X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 10;
+  X.letterSpacing = '6px'; X.fillText('SHIA VOICE DUBAI', 540, 150); X.letterSpacing = '0px';
+  X.fillStyle = 'rgba(232,195,116,.6)'; X.fillRect(380, 182, 320, 2);
+  X.restore();
+}
+function kicker(s, y, a = 1, px = 46, col = '#f3d58c') { X.save(); X.globalAlpha = a; rtlText(s, 540, y, px, col, 900, px * 1.9); X.restore(); }
+function chip(s, x, y, px, a = 1, latin = false) {
+  X.save(); X.globalAlpha = a; X.font = latin ? `600 ${px}px Cinzel` : urFont(px); X.direction = latin ? 'ltr' : 'rtl'; X.textAlign = 'center'; X.textBaseline = 'middle';
+  const w = X.measureText(s).width + px * 1.4, h = px * (latin ? 1.9 : 2.1);
+  X.fillStyle = 'rgba(20,12,4,.65)'; X.strokeStyle = '#e8c374'; X.lineWidth = 3;
+  X.beginPath(); X.roundRect(x - w / 2, y - h / 2, w, h, h / 2); X.fill(); X.stroke();
+  X.fillStyle = '#f6dc9c'; X.fillText(s, x, y + (latin ? 2 : 4)); X.restore();
+}
+// captions: split line into sentences, time each by its length
+function captions(i, lt) {
+  const cap = CFG.caps[i]; if (!cap) return;
+  const d = CFG.durs[i], lead = i === 0 ? CFG.lead : 0, k = lt - lead;
+  if (k < -0.05 || k > d + 0.25) return;
+  const parts = cap.match(/[^۔.؟?:!]+[۔.؟?:!]*/g).map(s => s.trim()).filter(Boolean);
+  const tot = parts.reduce((a, s) => a + s.length, 0); let acc = 0, cur = parts[parts.length - 1];
+  for (const p of parts) { acc += p.length; if (k <= acc / tot * d) { cur = p; break; } }
+  const px = CFG.lang === 'ar' ? 50 : 46, lh = CFG.lang === 'ar' ? 86 : 104;
+  // band
+  const g = X.createLinearGradient(0, 1215, 0, 1470); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(.25, 'rgba(0,0,0,.62)'); g.addColorStop(1, 'rgba(0,0,0,.62)');
+  X.fillStyle = g; X.fillRect(0, 1215, W, 255);
+  rtlText(cur, 540, 1345, px, '#ffffff', 820, lh);
+}
+function vignette(a = .75) { const g = X.createRadialGradient(540, 860, 300, 540, 960, 1150); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(0,0,0,${a})`); X.fillStyle = g; X.fillRect(0, 0, W, H); }
+function grain(t) { X.save(); X.globalCompositeOperation = 'overlay'; const ox = (t * 977 % 1) * 200, oy = (t * 613 % 1) * 300; X.drawImage(GRAIN, -ox, -oy, W + 200, H + 300); X.restore(); }
+function cam(s, cx = 540, cy = 900, dx = 0, dy = 0) { X.translate(cx + dx, cy + dy); X.scale(s, s); X.translate(-cx, -cy); }
+
+// ---------- scenes ----------
+const T = () => CFG.labels;
+const SCENES = [
+  // 0 hook: a fragile light in a dark room; 18 years; 95 days
+  (t, d) => {
+    X.fillStyle = '#050304'; X.fillRect(0, 0, W, H);
+    X.fillStyle = '#100a08'; X.fillRect(0, 520, W, 700);
+    X.fillStyle = '#18202f'; X.fillRect(820, 820, 130, 180); X.fillStyle = '#100a08'; X.fillRect(880, 820, 10, 180); X.fillRect(820, 905, 130, 10);
+    const dim = 1 - .5 * seg(t, d * .6, d), fl = .85 + .15 * Math.sin(t * 7) * Math.sin(t * 2.7);
+    holyLight(420, 1000, 44, 110, dim * fl, t, false);
+    X.fillStyle = '#080506'; X.fillRect(0, 1180, W, 120);
+    const a = seg(t, .3, 1.6);
+    X.save(); X.globalAlpha = a; rtlText(T().title1, 540, 255, CFG.lang === 'ar' ? 88 : 80, '#f6dc9c', 980, 120); rtlText(T().title2, 540, 395, CFG.lang === 'ar' ? 58 : 52, '#ffffff', 980, 100); X.restore();
+    const n = seg(t, d * .45, d * .8);
+    if (n > 0) { X.save(); X.globalAlpha = clamp(n * 3); X.font = '700 150px Cinzel'; X.textAlign = 'center'; X.textBaseline = 'middle'; X.fillStyle = '#ffd79a'; X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 20; X.fillText(String(Math.round(95 * ease(n))), 540, 640); X.restore(); X.save(); X.globalAlpha = clamp(n * 3); rtlText(T().daysAfter, 540, 770, 46, '#f3d58c', 900, 80); X.restore(); }
+  },
+  // 1 timeline: born in the 5th year of bi'that, gone in 11 AH
+  (t, d) => {
+    sky('#05040c', '#0d0b1f', '#1d1530'); stars(t); crescent(180, 330, 34, .8);
+    houses(1200, '#060509', 21, 40, 160); X.fillStyle = '#060509'; X.fillRect(0, 1195, W, H);
+    const k = ease(seg(t, 1, d * .8)), x0 = 170, x1 = 910, y = 780;
+    X.fillStyle = 'rgba(232,195,116,.35)'; X.fillRect(x0, y - 3, x1 - x0, 6);
+    X.fillStyle = '#e8c374'; X.fillRect(x0, y - 3, (x1 - x0) * k, 6);
+    holyLight(x0, y, 26, 26, seg(t, .3, 1.2), t, false);
+    holyLight(x0 + (x1 - x0) * k, y, 16, 16, .9, t, false);
+    X.fillStyle = '#e8c374'; X.beginPath(); X.arc(x1, y, 9, 0, 6.28); X.fill();
+    rtlText(T().tlL, x0 + 40, 860, 34, '#f3d58c', 300, 60);
+    rtlText(T().tlR, x1 - 30, 860, 34, '#f3d58c', 300, 60);
+    X.save(); X.globalAlpha = seg(t, 1, 2); rtlText(T().birth, 540, 640, 44, '#ffffff', 900, 80); X.restore();
+    const g = seg(t, d * .55, d * .7);
+    if (g > 0) { X.save(); X.globalAlpha = g; X.font = CFG.lang === 'ar' ? '120px AmiriB' : '110px Nastaliq'; X.textAlign = 'center'; X.direction = 'rtl'; X.textBaseline = 'middle'; X.fillStyle = '#f6dc9c'; X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 18; X.fillText(T().age, 540, 1000); X.restore(); }
+  },
+  // 2 the Prophet's last moments: two lights, one dimming
+  (t, d) => {
+    X.fillStyle = '#060405'; X.fillRect(0, 0, W, H); X.fillStyle = '#120c09'; X.fillRect(0, 420, W, 800);
+    glow(540, 900, 700, '255,190,120', .08);
+    const dimP = 1 - .55 * seg(t, 1, d);
+    holyLight(380, 930, 70, 190, dimP, t, true);
+    holyLight(700, 980, 36, 95, .8 + .1 * Math.sin(t * 3), t, false);
+    X.fillStyle = '#0a0706'; X.fillRect(0, 1180, W, 120);
+    const q = seg(t, d * .35, d * .5);
+    if (q > 0) { X.save(); X.globalAlpha = q; rtlText(T().q2, 540, 330, CFG.lang === 'ar' ? 56 : 44, '#ffe2a8', 990, CFG.lang === 'ar' ? 90 : 105); X.restore(); }
+    const b = seg(t, d * .7, d * .82); if (b > 0) chip(T().bukhari, 540, 520, 34, b);
+  },
+  // 3 the door: injuries (named, never shown)
+  (t, d) => {
+    const imp = d * .25, k = seg(t, imp - .4, imp + .4);
+    const shake = t > imp && t < imp + .6 ? Math.sin(t * 90) * 12 * (1 - (t - imp) / .6) : 0;
+    X.save(); cam(1.03, 540, 950, shake, shake * .4);
+    sky('#030206', '#08050c', '#1a0a08'); houses(470, '#020104', 4, 40, 120);
+    const fire = seg(t, 0, 1.5);
+    houseFront(t, { light: lerp(.8, .3, seg(t, imp, d * .9)), push: easeOut(k) * .9, char: fire * .7 });
+    fireRow(345, 735, 1205, 260 * fire * (1 - .6 * seg(t, d * .5, d)), t, .9 * fire, 17);
+    embers(330, 750, 1150, t, 60, fire); glow(540, 1050, 700, '255,90,20', .25 * fire);
+    X.restore();
+    [T().c1, T().c2, T().c3].forEach((c, i) => { const a = seg(t, d * (.42 + i * .16), d * (.5 + i * .16)); if (a > 0) chip(c, 540, 260 + i * 92, 34, a); });
+  },
+  // 4 Fadak, the sermon, Bayt al-Ahzan
+  (t, d) => {
+    sky('#04040b', '#0a0a18', '#15111f'); stars(t, .8); crescent(900, 330, 30, .7);
+    X.fillStyle = '#07060a'; X.fillRect(0, 1150, W, H);
+    palm(180, 1155, 1.15); palm(930, 1155, 1.0);
+    // the hut of palm fronds
+    X.fillStyle = '#1c140d'; X.beginPath(); X.moveTo(380, 1150); X.lineTo(380, 930); X.lineTo(540, 860); X.lineTo(700, 930); X.lineTo(700, 1150); X.closePath(); X.fill();
+    X.strokeStyle = '#2e2216'; X.lineWidth = 3; for (let i = 0; i < 14; i++) { X.beginPath(); X.moveTo(390 + i * 22, 935 - Math.min(i, 13 - i) * 8); X.lineTo(392 + i * 22, 1150); X.stroke(); }
+    X.fillStyle = 'rgba(255,220,160,.9)'; X.fillRect(505, 1040, 70, 110);
+    holyLight(540, 1090, 22, 40, .6 + .15 * Math.sin(t * 2.2), t, false);
+    const w = seg(t, d * .55, d * .7);
+    const lab = t < d * .3 ? T().fadak : t < d * .55 ? T().khutba : T().ahzan;
+    const la = t < d * .3 ? seg(t, .3, 1) : t < d * .55 ? seg(t, d * .3, d * .3 + .6) : w;
+    kicker(lab, 330, la, 54);
+  },
+  // 5 Sunni books record it too
+  (t, d) => {
+    X.fillStyle = '#0b0806'; X.fillRect(0, 0, W, H); glow(540, 800, 800, '255,190,110', .12);
+    [[T().b1, 330, -0.06], [T().b2, 750, 0.06]].forEach(([name, x, rot], j) => {
+      const a = seg(t, .4 + j * .9, 1.6 + j * .9), y = 770 + Math.sin(t * 1.2 + j) * 10 + (1 - easeOut(a)) * 80;
+      X.save(); X.globalAlpha = a; X.translate(x, y); X.rotate(rot);
+      X.fillStyle = '#3d1f12'; X.beginPath(); X.roundRect(-160, -230, 320, 460, 14); X.fill();
+      X.fillStyle = j ? '#2c3a2a' : '#5a2e19'; X.beginPath(); X.roundRect(-148, -218, 296, 436, 10); X.fill();
+      X.strokeStyle = '#c99a4d'; X.lineWidth = 4; X.strokeRect(-120, -190, 240, 380);
+      X.fillStyle = '#e8c374'; X.beginPath(); X.arc(0, -110, 26, 0, 6.28); X.fill(); X.fillStyle = j ? '#2c3a2a' : '#5a2e19'; X.beginPath(); X.arc(0, -110, 16, 0, 6.28); X.fill();
+      rtlText(name, 0, 30, CFG.lang === 'ar' ? 42 : 36, '#f6dc9c', 210, CFG.lang === 'ar' ? 64 : 80);
+      X.restore();
+    });
+    kicker(T().k5, 380, seg(t, .2, 1.4), 50);
+    const hi = seg(t, d * .35, d * .5); if (hi > 0) chip(T().k5b, 540, 1100, 36, hi);
+  },
+  // 6 the will; the night burial procession of light
+  (t, d) => {
+    sky('#020208', '#06061a', '#0c0a1a'); stars(t, .9);
+    houses(1120, '#040309', 33, 60, 200); palm(140, 1125, 1.1); palm(950, 1125, .9);
+    X.fillStyle = '#030206'; X.fillRect(0, 1115, W, H);
+    const k = seg(t, d * .35, d), x = lerp(1180, -120, k);
+    if (k > 0) {
+      holyLight(x, 1040, 90, 22, .75, t, false);
+      for (const dx of [-120, -60, 60, 120]) holyLight(x + dx, 1070 + Math.sin(t * 4 + dx) * 3, 16, 34, .7, t, false);
+      holyLight(x + 200, 1070, 14, 30, .55, t, false); holyLight(x + 240, 1075, 12, 26, .55, t, false);
+    }
+    kicker(T().will, 340, seg(t, .3, 1.4), 50);
+    const b = seg(t, d * .7, d * .82); if (b > 0) chip(T().k6b, 540, 470, 32, b);
+  },
+  // 7 Baqi at night: unmarked graves, one unknown
+  (t, d) => {
+    sky('#03030a', '#090818', '#14101e'); stars(t, .9);
+    X.fillStyle = '#2a2018'; X.fillRect(0, 900, W, H);
+    const g = X.createLinearGradient(0, 900, 0, 1250); g.addColorStop(0, 'rgba(0,0,0,.2)'); g.addColorStop(1, 'rgba(0,0,0,.75)'); X.fillStyle = g; X.fillRect(0, 900, W, 400);
+    const r = rng(77); for (let i = 0; i < 36; i++) { const x = r() * W, y = 930 + r() * 260, s = .5 + (y - 930) / 300; X.fillStyle = `rgba(150,130,105,${.35 + r() * .2})`; X.fillRect(x, y, 14 * s, 26 * s); }
+    const a = seg(t, 1, 3);
+    holyLight(540, 820 + Math.sin(t) * 8, 30, 30, .55 * a, t, true);
+    X.save(); X.globalAlpha = a; X.font = '700 150px Cinzel'; X.textAlign = 'center'; X.textBaseline = 'middle'; X.fillStyle = 'rgba(255,215,150,.85)'; X.fillText('?', 540, 640); X.restore();
+    kicker(T().date, 300, seg(t, .2, 1.2), 46);
+    const c = seg(t, d * .65, d * .8); if (c > 0) chip(T().grave, 540, 1110, 36, c);
+  },
+  // 8 end card
+  (t, d) => {
+    sky('#05040c', '#0d0b1f', '#1d1530'); stars(t, .7);
+    X.fillStyle = '#05040a'; X.fillRect(0, 1180, W, H);
+    holyLight(540, 1000, 40, 100, .7 + .1 * Math.sin(t * 2), t, true);
+    const a = easeOut(seg(t, .2, 1.4));
+    X.save(); X.globalAlpha = a; X.textAlign = 'center'; X.textBaseline = 'middle';
+    X.font = '700 74px Cinzel'; X.fillStyle = '#f6dc9c'; X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 16; X.letterSpacing = '4px';
+    X.fillText('SHIA VOICE', 540, 300 + (1 - a) * 30); X.font = '600 48px Cinzel'; X.letterSpacing = '14px'; X.fillStyle = '#e8c374'; X.fillText('DUBAI', 540, 385); X.letterSpacing = '0px';
+    X.restore();
+    X.save(); X.globalAlpha = a; rtlText(T().brand, 540, 470, CFG.lang === 'ar' ? 54 : 46, '#ffffff', 900, 80); X.restore();
+    const c = seg(t, 1.6, 2.6); chip('FOLLOW', 400, 568, 34, c, true); chip('COMMENT', 680, 568, 34, c, true);
+    const b = seg(t, 2.4, 3.4); X.save(); X.globalAlpha = b; rtlText(T().ask, 540, 690, CFG.lang === 'ar' ? 50 : 44, '#f3d58c', 860, CFG.lang === 'ar' ? 84 : 100); X.restore();
+    const n = seg(t, d * .6, d * .72); if (n > 0) chip(T().next, 540, 850, 34, n);
+  },
+];
+
+function draw(si, lt) {
+  const d = CFG.scenes[si].dur;
+  X.setTransform(1, 0, 0, 1, 0, 0); X.globalAlpha = 1; X.globalCompositeOperation = 'source-over'; X.fillStyle = '#000'; X.fillRect(0, 0, W, H);
+  SCENES[si](lt, d);
+  X.setTransform(1, 0, 0, 1, 0, 0);
+  vignette(); grain(lt + si * 3.1);
+  if (si !== 0 && si !== SCENES.length - 1) header();
+  if (!CFG.thumb) captions(si, lt);
+  // dip to and from black
+  const fin = 1 - seg(lt, 0, .45), fout = seg(lt, d - .3, d);
+  const f = CFG.thumb ? 0 : Math.max(si === 0 ? 1 - seg(lt, 0, .8) : fin, fout);
+  if (f > 0) { X.fillStyle = `rgba(0,0,0,${f})`; X.fillRect(0, 0, W, H); }
+}
+window.setup = async cfg => { CFG = cfg; await Promise.all(['40px Nastaliq', '40px Amiri', '40px AmiriB', '40px Cinzel'].map(f => document.fonts.load(f, 'ابپ abc ﷺ'))); return document.fonts.check('40px Nastaliq'); };
+window.frame = (si, lt, q = .92) => { draw(si, lt); return cv.toDataURL('image/jpeg', q); };
+</script></body></html>
