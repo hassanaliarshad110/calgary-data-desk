@@ -5,7 +5,7 @@
   "type": "quick-insight",
   "category": "Population",
   "title": "Calgary's migration boom cooled fast",
-  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023\u2013Mar 2024, est.) \u2192 40,500 (Apr 2024\u2013Mar 2025, est.) \u2192 15,500 forecast (Apr 2025\u2013Mar 2026, made Jan 2026)",
+  "topic_used": "City of Calgary net migration: 80,200 (Apr 2023–Mar 2024, est.) → 40,500 (Apr 2024–Mar 2025, est.) → 15,500 forecast (Apr 2025–Mar 2026, made Jan 2026)",
   "changed_from_calendar": null,
   "central_figure": "Net migration to the City of Calgary fell from about 80,200 (year to April 2024) to about 40,500 (year to April 2025), City estimates",
   "sources": [
@@ -111,8 +111,8 @@
   "type": "civic",
   "category": "Civic intelligence",
   "title": "Calgary's 2027 budget: what the preliminary numbers say",
-  "topic_used": "Preliminary 2027\u20132030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2\u20135.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
-  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments \u2026 by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
+  "topic_used": "Preliminary 2027–2030 budget figures Council released Sept 29, 2026 (C2026-0749 Rev. Att. 1): 2027 new ongoing operating requests $528M, available funding $144M, remaining $384M paired with a 15% tax revenue increase (council's July 28 guidance); City scenarios hold 4.2–5.0%/yr, improve 20.2% in 2027; +$36/month City property tax on the $706,000 median home; proposed budget out Nov 10, deliberations Nov 23",
+  "changed_from_calendar": "Calendar asked for 2027 'budget adjustments … by service'. 2027 starts a new four-year cycle, and the proposed budget with service-level detail is only released Nov 10, 2026 (the day after this run); the only official figures public today (Sept 29 released deck) have no per-service breakdown, so the angle became the 2027 operating numbers, scenarios and typical-home impact.",
   "central_figure": "2027: $528M in new ongoing operating requests, $144M available funding, remaining $384M paired with a 15% property tax revenue increase (City of Calgary C2026-0749 Rev. Att. 1, slide 28, Sept 29, 2026)",
   "sources": [
    "https://www.calgary.ca/our-finances/2027-budget.html",
@@ -157,9 +157,9 @@
   "type": "quick-insight",
   "category": "Housing",
   "title": "A one-bedroom in the Calgary area: 2020 vs 2025",
-  "topic_used": "CMHC Rental Market Survey, Calgary CMA, row & apartment, October: average one-bedroom rent $1,086 (2020) \u2192 $1,111 \u2192 $1,222 \u2192 $1,463 \u2192 $1,584 \u2192 $1,581 (2025)",
+  "topic_used": "CMHC Rental Market Survey, Calgary CMA, row & apartment, October: average one-bedroom rent $1,086 (2020) → $1,111 → $1,222 → $1,463 → $1,584 → $1,581 (2025)",
   "changed_from_calendar": null,
-  "central_figure": "Average one-bedroom rent, Calgary CMA: $1,086 (Oct 2020) \u2192 $1,581 (Oct 2025), +$495/month, +45.6% (CMHC HMIP Table 2.2.11)",
+  "central_figure": "Average one-bedroom rent, Calgary CMA: $1,086 (Oct 2020) → $1,581 (Oct 2025), +$495/month, +45.6% (CMHC HMIP Table 2.2.11)",
   "sources": [
    "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/TableMapChart/Table?TableId=2.2.11&GeographyId=0140&GeographyTypeId=3&DisplayAs=Table",
    "https://www03.cmhc-schl.gc.ca/hmip-pimh/en/Dashboard/Print?geographyId=0140"
@@ -200,9 +200,9 @@
   "type": "quick-insight",
   "category": "Construction",
   "title": "Calgary's permit value is up. Homes aren't why.",
-  "topic_used": "City of Calgary Building Permit Application Statement (period ending 2026/09/30), YTD estimated value: total $6,396,842,039 vs $5,798,100,988 (+10.3%); residential $3,828,082,150 vs $4,377,246,714 (\u2212$549.2M, \u221212.5%); non-residential $2,515,244,773 vs $1,397,934,631 (+$1,117.3M, +79.9%)",
+  "topic_used": "City of Calgary Building Permit Application Statement (period ending 2026/09/30), YTD estimated value: total $6,396,842,039 vs $5,798,100,988 (+10.3%); residential $3,828,082,150 vs $4,377,246,714 (−$549.2M, −12.5%); non-residential $2,515,244,773 vs $1,397,934,631 (+$1,117.3M, +79.9%)",
   "changed_from_calendar": null,
-  "central_figure": "Jan\u2013Sep 2026 building permit applications listed $6.40B in estimated construction value (+10% vs Jan\u2013Sep 2025); residential \u2212$549M, non-residential +$1.12B (+80%) (City of Calgary, Building Permit Application Statement, Sept 2026)",
+  "central_figure": "Jan–Sep 2026 building permit applications listed $6.40B in estimated construction value (+10% vs Jan–Sep 2025); residential −$549M, non-residential +$1.12B (+80%) (City of Calgary, Building Permit Application Statement, Sept 2026)",
   "sources": [
    "https://www.calgary.ca/content/dam/www/pda/pd/documents/building/2026-09-Building-Permit-Application-Statement.pdf",
    "https://www.calgary.ca/planning/application-statistics.html"
@@ -444,7 +444,7 @@
       "type": "REEL"
      }
     ],
-    "caption_without_link": "This Calgary drill hall was finished too late for the war of its day.\nMewata Armoury, a Depression-era army base and a school turned museum: Calgary's military story, hiding in plain sight.\nWhich one would you visit first? Drop your thoughts below \ud83d\udc47",
+    "caption_without_link": "This Calgary drill hall was finished too late for the war of its day.\nMewata Armoury, a Depression-era army base and a school turned museum: Calgary's military story, hiding in plain sight.\nWhich one would you visit first? Drop your thoughts below 👇",
     "hashtags": "#Calgary #yyc #RemembranceDay #CalgaryHistory",
     "post_at": "2026-11-11T21:00",
     "link_to": 424705605,
@@ -467,7 +467,7 @@
   "type": "civic",
   "category": "Calgary news",
   "title": "Calgary's proposed budget: what it means for a typical home",
-  "topic_used": "News explained: City released its proposed 2027\u20132030 Budget on Nov 10, 2026 (15% increase in municipal property tax revenue from existing properties in 2027; City estimate for a typical single residential property +$53/month = +$37 municipal property tax + $16 water, waste & recycling; CAO cites growth, rising cost, aging assets; some councillors want proposed tax hikes brought down; public submissions and deliberations from the week of Nov 23; approval expected December 2026)",
+  "topic_used": "News explained: City released its proposed 2027–2030 Budget on Nov 10, 2026 (15% increase in municipal property tax revenue from existing properties in 2027; City estimate for a typical single residential property +$53/month = +$37 municipal property tax + $16 water, waste & recycling; CAO cites growth, rising cost, aging assets; some councillors want proposed tax hikes brought down; public submissions and deliberations from the week of Nov 23; approval expected December 2026)",
   "changed_from_calendar": null,
   "repeat_note": "Follow-up to 2026-11-09 CIVIC (preliminary Sept 29 figures). New since then: the proposed budget itself was released Nov 10, with a combined typical-home estimate incl. utilities and approval now listed for December.",
   "central_figure": "City estimate: typical single residential property pays about $53 more a month in 2027 ($37 municipal property tax + $16 water, waste and recycling)",
@@ -735,9 +735,14 @@
     ],
     "file": "chinatown-forced-out-twice-short.mp4",
     "publish_at": "2026-11-13T12:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/DfsR3zPlcHH/",
+     "youtube": "https://www.youtube.com/shorts/IIMIYVjnBSo"
+    },
+    "confirmed_by": "2026-11-13 CIVIC run (getScheduledPosts ~13:30)"
    },
    {
     "metricool_id": 427262064,
@@ -765,15 +770,85 @@
       "type": "REEL"
      }
     ],
-    "caption_without_link": "Calgary's Chinatown was forced to move. Twice.\nDisplacement and discrimination forced the community to move, until Chinese merchants bought their own land and built a block that still stands.\nHave you been to Chinatown? Yes or no? Drop your thoughts below \ud83d\udc47\n\n\u25b6 Full film on our YouTube channel: Calgary Insight\n\ud83d\udd17 Link in the first comment\n\ud83d\udd14 Follow @calgaryinsight for more Calgary stories\n\ud83c\udf10 More Calgary stories, studies and analysis: calgaryinsight.ca",
+    "caption_without_link": "Calgary's Chinatown was forced to move. Twice.\nDisplacement and discrimination forced the community to move, until Chinese merchants bought their own land and built a block that still stands.\nHave you been to Chinatown? Yes or no? Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔗 Link in the first comment\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca",
     "hashtags": "#Calgary #yyc #Chinatown #CalgaryHistory",
-    "first_comment": "\ud83d\udd17 Explore Chinatown and every Calgary community: https://calgaryinsight.ca/communities/chinatown/?utm_source=facebook&utm_medium=social&utm_campaign=chinatown-forced-out-twice",
-    "first_comment_note": "PLAYBOOK 7b Facebook rule: firstCommentText = '\u25b6 Full film: https://youtu.be/<id>' on the first line, then the first_comment line",
+    "first_comment": "🔗 Explore Chinatown and every Calgary community: https://calgaryinsight.ca/communities/chinatown/?utm_source=facebook&utm_medium=social&utm_campaign=chinatown-forced-out-twice",
+    "first_comment_note": "PLAYBOOK 7b Facebook rule: firstCommentText = '▶ Full film: https://youtu.be/<id>' on the first line, then the first_comment line",
     "post_at": "2026-11-13T20:00",
     "link_to": 427262064,
     "scheduled": false
    }
   ],
   "post_note": "Post A scheduled 11:37 for the fixed 12:30 slot; post B scheduled 11:42 for the fixed 17:30 slot (both with designed thumbnails, first comment, no AI labels). YouTube 24-hour count stays at 4 or fewer (Nov 12 18:30, Nov 13 11:00, 12:30, 17:30). Teaser left as pending_link for the 17:41 link-up task. Confirmation of A and B is left to the next run (section 1)."
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "CIVIC",
+  "type": "civic",
+  "category": "Calgary news",
+  "title": "Grey Cup Sunday in Calgary: what to know",
+  "topic_used": "113th Grey Cup at McMahon Stadium on Sun Nov 15, 2026 (Montreal Alouettes vs Edmonton Elks, 5 p.m.); Calgary's sixth time hosting, first since 2019; festival at Stampede Park Nov 11-14 with free family-friendly events; organizers expect roughly $50M in economic activity (estimate); Sunday 11 a.m.-11 p.m. University Drive NW closed 16-24 Ave NW, Crowchild Trail NW two lanes each way; City says take the Red Line CTrain to Banff Trail Station.",
+  "changed_from_calendar": null,
+  "why_this_story": "Most-talked-about Calgary story of the past 48 h (festival week, game in two days), practical road and transit changes; the budget was covered Nov 9 and Nov 11.",
+  "central_figure": "Sixth time Calgary hosts the Grey Cup, first since 2019 (Wikipedia, Tourism Calgary, City of Calgary 2019 release)",
+  "sources": [
+   "https://www.calgary.ca/events/grey-cup.html",
+   "https://www.cp24.com/news/sports/2026/11/13/grey-cup-celebrations-kick-off-in-calgary-as-fans-arrive-from-across-canada/",
+   "https://en.wikipedia.org/wiki/113th_Grey_Cup",
+   "https://www.greycupfestival.ca/tickets/113-grey-cup/",
+   "https://www.visitcalgary.com/events/113th-grey-cup-festival",
+   "https://newsroom.calgary.ca/calgary-is-ready-for-2019-grey-cup-game-and-festivities/"
+  ],
+  "link": "https://calgaryinsight.ca/news/2026-11-11-grey-cup-festival-opens-at-stampede-park-ahead-of-sunday-s-montreal-ed/?utm_source=facebook&utm_medium=social&utm_campaign=grey-cup-sunday",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate; news/<id>/ pages are generated by web/news_pages.py and today's Website build (run 214) succeeded after the story was published.",
+  "length_s": 44.0,
+  "video_path": "studio-videos/2026-11-13-CIVIC/grey-cup-sunday.mp4",
+  "thumbnail_path": "studio-videos/2026-11-13-CIVIC/grey-cup-sunday-thumb.jpg",
+  "package": "packages/2026-11-13-CIVIC-grey-cup-sunday.md",
+  "identity": "Civic Analyst lead + Storyteller drone + Data Explainer counters",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 9,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-13-CIVIC.md"
+  },
+  "qc": {
+   "stills": "pass",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "Stampede Park label and Red Line text moved clear of the right 120 px after the stills check"
+   ]
+  },
+  "status": "awaiting_approval",
+  "posted": [
+   {
+    "metricool_id": 427381826,
+    "uuid": "7519967824730277000",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7519967824730277000",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-13T15:00",
+    "draft": true,
+    "status": "awaiting_approval"
+   }
+  ],
+  "post_note": "One-time review (Nov 13): created as a Metricool DRAFT for 15:00 Calgary; publishes only after Hassan approves."
  }
 ]
