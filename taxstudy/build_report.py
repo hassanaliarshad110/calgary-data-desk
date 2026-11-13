@@ -11,8 +11,8 @@ from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-S = os.environ.get('STUDY', '.'); OUT = f'{S}/out'; os.makedirs(OUT, exist_ok=True)
-B = json.load(open(f'{S}/fig_budget.json')); A = json.load(open(f'{S}/fig_assess.json')); W = json.load(open(f'{S}/fig_wards.json'))
+S = '/home/claude/study'; OUT = f'{S}/out'; os.makedirs(OUT, exist_ok=True)
+B = json.load(open(f'{S}/fig_budget.json')); A = json.load(open(f'{S}/fig_assess.json')); W = json.load(open(f'{S}/fig_wards.json')); WH = json.load(open(f'{S}/fig_where.json'))
 COMMIT = '2cb5947'
 D = '/usr/share/fonts/truetype/dejavu/'
 pdfmetrics.registerFont(TTFont('DV', D + 'DejaVuSans.ttf')); pdfmetrics.registerFont(TTFont('DVB', D + 'DejaVuSans-Bold.ttf'))
@@ -142,7 +142,7 @@ story = []
 story += [P('calgaryinsight.ca · Technical report · Independent analysis of a proposed budget. Not an official City of Calgary report.', small),
           P("Growth or Spending? Calgary's Proposed 15% Property Tax Increase", ParagraphStyle('t', parent=h1, fontSize=17, leading=21, spaceBefore=4)),
           P('A ward-level analysis of growth, spending, property assessments and amenity provision, 2021–2030', ParagraphStyle('st', parent=base, fontSize=10.5, textColor=colors.HexColor(MUTED))),
-          P(f'Data pulled 13 November 2026 · Code and data: github.com/hassanaliarshad110/calgary-data-desk, release tags <font name="DVM">taxstudy-v1.3</font> (scripts) and <font name="DVM">taxstudy-v1.3-data-p1/p2/p3</font> (raw data) · Independent audit: 5 passes (Section 5)', small),
+          P(f'Data pulled 13 November 2026 · Code and data: github.com/hassanaliarshad110/calgary-data-desk, frozen snapshot branches <font name="DVM">taxstudy-v1.4</font> (scripts, commit a7fce24) and <font name="DVM">taxstudy-v1.3-data-p1/p2/p3</font> (raw data) · Independent audit: 5 passes, plus a v1.4 section audit (Section 5)', small),
           Spacer(1, 6)]
 
 story += [P('Abstract', h1), P(
@@ -155,6 +155,7 @@ story += [P('Abstract', h1), P(
     f"Real operating spending per resident rises {B['op_per_resident_real_growth_pct']}% (2027–2030) including the water utility and {B['op_ex_water']['real_per_resident_growth_pct']}% without it. "
     "Because Calgary taxes homes at one rate, the 15% revenue increase translates to roughly +18% for semi-detached homes, +16% for detached and +8% for condo apartments "
     "(indicative, back-tested error up to 2.7 points). On modelled estimates, five wards absorbed 51% of population growth since 2021; they have lower amenity provision by site count per resident than the other nine (amenity provision by inventory count: 33% fewer transit stops and 73% fewer City recreation sites per resident), which is not a measure of capacity or service quality. "
+    f"Separately from the ~${WH['levy_step_2027_m']:.0f}M the proposed 2027 step would raise, the City's {WH['n_operating_requests']} operating requests ask for ${WH['total_2027_m']}M of new money in 2027 ({WH['ongoing_share_pct']:.0f}% ongoing), mostly under the City's Safe city ({WH['by_theme'][0][2]:.0f}%) and Reliable and sustainable infrastructure ({WH['by_theme'][1][2]:.0f}%) themes; the business cases do not show how much would be funded by property tax. "
     "The study does not argue for or against the increase. It compares the proposed tax trajectory with population growth, inflation and operating expenditure, examines the distribution of estimated tax changes across property types and wards, and identifies areas where growth and amenity inventories diverge.")]
 
 story += [P('Three different "increases"', h2), table([
@@ -252,6 +253,25 @@ story += [PageBreak(), P('4. Results', h1), P('4.1 The tax path against growth a
           P("<b>Two spending series, not one.</b> The City's open data (2027–2030, operating expenditures net of recoveries) and the Calgary Herald totals (2026 base and end-of-cycle total operating budget) "
             "use different accounting scopes, and no reconciliation between them has been published. They are reported side by side as separate comparisons and are never joined into one trend.", small)]
 
+story += [P('4.2.1 What the 2027 requests would fund', h2),
+          P(f"The proposed 15% step would raise about ${WH['levy_step_2027_m']:.0f}M in 2027 (at the reported ${WH['per_point_m_reported']}M per point). Separately, the City's {WH['n_operating_requests']} operating budget requests "
+            f"({WH['n_with_2027_money']} with a 2027 amount) ask for ${WH['total_2027_m']}M of new money that year: ${WH['ongoing_2027_m']}M ongoing ({WH['ongoing_share_pct']:.0f}%) and ${WH['one_time_2027_m']}M one-time, with {WH['ftes_2027']} new full-time equivalent (FTE) positions. "
+            "The two figures should not be subtracted. The business cases do not state which requests would be paid by property tax and which by reserves, fees or other sources, "
+            f"and the levy step must also cover cost growth in existing services, which the business cases do not itemize; July City documents, as reported by Global News, put the increase needed only to maintain services at {WH['maintain_services_pct_reported']}% (roughly ${WH['maintain_services_m_approx']:.0f}M at ${WH['per_point_m_reported']}M per point, our arithmetic). "
+            "Amounts are proposed and grouped by the City's own theme for each request; shares may not sum to 100 because of rounding."),
+          table([['City theme', '2027 new money ($M)', 'Share']] + [[t, f"{v:,.1f}", f"{pc:.1f}%"] for t, v, pc in WH['by_theme']] +
+                [['All 2027 requests', f"{WH['total_2027_m']:,.1f}", '100%']], [3.6 * inch, 1.5 * inch, 1.4 * inch]),
+          Spacer(1, 6),
+          table([['Request (City title, shortened)', 'Business unit', '2027 ($M)', 'Type', 'City rationale', 'Page']] +
+                [[r['title'] if len(r['title']) <= 76 else r['title'][:74].rsplit(' ', 1)[0].rstrip(' -,') + '…', r['bu'], f"{r['m_2027']:.1f}", r['kind'], r['rationale'].replace('Direction from Council', 'Council direction'), str(r['page'])] for r in WH['top'][:10]],
+                [2.2 * inch, 1.3 * inch, 0.6 * inch, 0.7 * inch, 1.2 * inch, 0.5 * inch]),
+          P(f"The ten largest requests are {sum(r['m_2027'] for r in WH['top'][:10]) / WH['total_2027_m'] * 100:.0f}% of 2027 new money; the top three are {WH['top3_share_pct']:.0f}%. "
+            f"By the City's own rationale categories, {WH['rationale_pct']['Explicit Direction from Council']:.0f}% cites explicit direction from Council and {WH['rationale_pct']['Implicit Direction from Council']:.0f}% implicit direction (the City's inference), "
+            f"{WH['rationale']['Risk-based considerations'] / WH['total_2027_m'] * 100:.0f}% risk-based considerations and {WH['rationale']['Commission Requested'] / WH['total_2027_m'] * 100:.0f}% the Police Commission's request. "
+            "Some 2027 amounts start larger programs: the City's note puts the full one-time request for renewing finance, supply-chain and HR systems at "
+            f"${[r for r in WH['top'] if r['n'] == 14][0]['full_one_time_m']}M, and the Industrial Development Incentive Program at ${[r for r in WH['top'] if r['n'] == 255][0]['full_one_time_m']}M. "
+            "The infrastructure maintenance request starts at $62.4M a year in 2027, with further yearly additions requested to 2030 ($18.8M, $15.7M, $11.9M). Page = page of the City's 792-page business-case document. 'Mixed' = ongoing and one-time money in 2027.", small)]
+
 story += [KeepTogether([P('4.3 Who pays more than 15%', h2), img(figs['paired'])]),
           P('Figure 3. Same-home assessment change by type, 2025→2026 roll (valuation dates 1 Jul 2024 → 1 Jul 2025). Dot = median; bar = interquartile range.', cap),
           table([['Home type', 'Homes 2026', 'Median value', 'Median Δ 25→26', 'Δ 23→26', 'Share above base']] +
@@ -309,7 +329,7 @@ story += [P('4.5 Amenity provision by inventory count, and 311', h2), table([['M
                 [0.7 * inch, 0.9 * inch, 0.85 * inch, 0.85 * inch, 0.55 * inch, 1.05 * inch, 1.6 * inch])]),
           P(f"Four-year path on the typical home: ${B['typical_path_month']['2026']:.0f} → ${B['typical_path_month']['2027']:.0f} → ${B['typical_path_month']['2028']:.0f} → "
             f"${B['typical_path_month']['2029']:.0f} → ${B['typical_path_month']['2030']:.0f} a month (+${B['typical_2030_year_change']:,}/yr by 2030; +{B['typical_2030_real_change_pct']}% real). "
-            "The gap ratios are a scale comparison, not a cut list: the 15% also funds cost growth in the existing budget.", small),
+            "The gap ratios are a scale comparison, not a cut list: the 15% also funds cost growth in the existing budget, and the business cases do not state how much of the requests would be paid by property tax (Section 4.2.1).", small),
           P("How the scenarios are calculated: revenue = increase × $25.6M per 1% (reported City figure). Typical-home bill = $229.32 × (1 + increase) × 1.0087, where 1.0087 = 266 ÷ 229.32 ÷ 1.15 "
             "is the City's own ratio between its typical-home change and the 15% revenue change; it is held constant across scenarios. "
             "Denominators for the gap ratios: all new 2027 requests = $276.1M ongoing + $78.6M one-time = $354.7M (e.g. $128M ÷ $354.7M = 36.1%); "
@@ -317,7 +337,7 @@ story += [P('4.5 Amenity provision by inventory count, and 311', h2), table([['M
 
 story += [P('5. Validation and sensitivity', h1), table([
     ['Check', 'Result'],
-    ['Independent re-run of all scripts', 'Figure files byte-identical (auditor pass 1 and 2)'],
+    ['Independent re-run of all scripts', 'Figure files byte-identical (auditor pass 1 and 2; analysis_where.py re-run byte-identical in the v1.4 audit)'],
     ['Rate multiplier R', f"{B['implied_rate_multiplier'][0]}–{B['R_bylaw']} from $1 rounding of $266 and the 2026 bylaw rate ($228.90/month); reported as ~19% (18.7–19.5%)"],
     ['Anchoring consistency', f"Type changes applied to every home give a citywide residential increase of +{W['city']['bill_change_2027_pct']}% (target 15%)"],
     ['CREB back-test (2026 roll)', 'Direction correct for all types; absolute error ≤ 2.7 points; apartment decline understated'],
@@ -327,7 +347,7 @@ story += [P('5. Validation and sensitivity', h1), table([
     ['Ward tax ranking', 'Wards 8 and 7 lowest, 10 and 4 highest under the central, raw-CREB and apartments −2.7-point assumptions'],
     ['Correlation robustness', 'Transit and recreation associations keep their sign after dropping the fastest one or two wards and under leave-one-out; n = 14'],
     ['Recreation rate', 'Count and rate on one base (all sites ÷ ward residents): 17 ÷ 635,573 = 2.67 per 100,000'],
-    ['Audit', 'Pass 1 (Claude Fable): 7 high, 12 medium, 3 low findings, all addressed. Pass 2: 1 new error (span mismatch) and 4 minor, fixed. Pass 3 (external review of the PDF, 8/10): baseline, terminology, 311 interpretation, model qualification and amenity wording, all addressed in v1.1. Pass 4 (second external review): recreation base, levied vs collected, model-implied correlation, Census wording, population and correlation sensitivity, capital periods, spending series, ±3-point ranges, gap labelling; all addressed in v1.2. Pass 5 (third external review, 9/10): operating growth excluding water, four questions, subtitle, abstract scope, $25.6M qualification, full links and release tags; all addressed in v1.3'],
+    ['Audit', 'Pass 1 (Claude Fable): 7 high, 12 medium, 3 low findings, all addressed. Pass 2: 1 new error (span mismatch) and 4 minor, fixed. Pass 3 (external review of the PDF, 8/10): baseline, terminology, 311 interpretation, model qualification and amenity wording, all addressed in v1.1. Pass 4 (second external review): recreation base, levied vs collected, model-implied correlation, Census wording, population and correlation sensitivity, capital periods, spending series, ±3-point ranges, gap labelling; all addressed in v1.2. Pass 5 (third external review, 9/10): operating growth excluding water, four questions, subtitle, abstract scope, $25.6M qualification, full links and frozen snapshot branches; all addressed in v1.3. v1.4 (new Section 4.2.1): audit with independent recomputation, 12 findings (levy step not to be netted against requests, approval wording, theme labels, rounding), all addressed; final check by Claude Fable'],
 ], [1.9 * inch, 4.6 * inch])]
 
 story += [P('6. Limitations', h1)] + [P(f'{i}. {t}', base) for i, t in enumerate([
@@ -341,12 +361,12 @@ story += [P('6. Limitations', h1)] + [P(f'{i}. {t}', base) for i, t in enumerate
     'Consumer inflation is used as a benchmark; City cost inflation (wages, construction) can differ.',
     'Property tax figures are tax levied (billed), estimated from the roll and the 2026 bylaw, not tax collected.'], 1)]
 
-story += [KeepTogether([P('7. Reproducibility', h1), P('Repository: <link href="https://github.com/hassanaliarshad110/calgary-data-desk" color="#2b6cb0">github.com/hassanaliarshad110/calgary-data-desk</link>. Permanent snapshot: tag <font name="DVM">taxstudy-v1.3</font> (scripts, figure files, this report builder) and tags <font name="DVM">taxstudy-v1.3-data-p1</font>, <font name="DVM">-p2</font>, <font name="DVM">-p3</font> (raw probe outputs pulled 13 Nov 2026). Requirements: Python 3.12+ (standard library for the analysis; matplotlib and reportlab for the PDF) and a checkout of the main branch.'),
-          P("git clone -b taxstudy-v1.3 https://github.com/hassanaliarshad110/calgary-data-desk.git ta<br/>"
+story += [KeepTogether([P('7. Reproducibility', h1), P('Repository: <link href="https://github.com/hassanaliarshad110/calgary-data-desk" color="#2b6cb0">github.com/hassanaliarshad110/calgary-data-desk</link>. Frozen snapshot branches (not updated after release): <font name="DVM">taxstudy-v1.4</font> at commit <font name="DVM">a7fce24</font> (scripts, figure files, this report builder) and <font name="DVM">taxstudy-v1.3-data-p1</font> (d050cc6), <font name="DVM">-p2</font> (7e1713b), <font name="DVM">-p3</font> (56cc601) (raw probe outputs pulled 13 Nov 2026). Requirements: Python 3.12+ (standard library for the analysis; matplotlib and reportlab for the PDF) and a checkout of the main branch.'),
+          P("git clone -b taxstudy-v1.4 https://github.com/hassanaliarshad110/calgary-data-desk.git ta<br/>"
             "for b in taxstudy-v1.3-data-p1:p1 taxstudy-v1.3-data-p2:p2 taxstudy-v1.3-data-p3:p3; do<br/>"
             "&nbsp;&nbsp;git clone -q --depth 1 -b ${b%%:*} https://github.com/hassanaliarshad110/calgary-data-desk.git ta/taxstudy/${b##*:}; done<br/>"
             "cd ta/taxstudy &amp;&amp; export STUDY=$(pwd) REPO=/path/to/calgary-data-desk<br/>"
-            "python3 analysis_budget.py &amp;&amp; python3 analysis_assess.py &amp;&amp; python3 analysis_wards.py", mono)]),
+            "python3 analysis_budget.py &amp;&amp; python3 analysis_assess.py &amp;&amp; python3 analysis_wards.py<br/>python3 analysis_where.py business-cases.json", mono)]),
           table([['Script', 'Output', 'Feeds']], [1.8 * inch, 1.5 * inch, 3.2 * inch]),
           ]
 story[-1] = table([['Script', 'Output', 'Feeds'],
@@ -355,14 +375,15 @@ story[-1] = table([['Script', 'Output', 'Feeds'],
                    ['probe/taxstudy3.py', 'p3/ (rolls 2022–2026 by roll number)', 'Paired changes, back-test, ward bill change'],
                    ['analysis_budget.py', 'fig_budget.json', 'Sections 4.1, 4.2, 4.3 (rule), 4.6'],
                    ['analysis_assess.py', 'fig_assess.json', 'Section 4.3 (paired, back-test)'],
-                   ['analysis_wards.py', 'fig_wards.json', 'Sections 4.3 (ward), 4.4, 4.5']],
+                   ['analysis_wards.py', 'fig_wards.json', 'Sections 4.3 (ward), 4.4, 4.5'],
+                   ['analysis_where.py', 'fig_where.json', 'Abstract and Section 4.2.1 (reads business-cases.json, pinned in the snapshot; SHA-256 of the City PDF recorded in the file; and fig_budget.json)']],
                   [1.8 * inch, 2.3 * inch, 2.4 * inch])
 story += [P('Hard-coded inputs and their sources are listed in taxstudy/README.md. Ward figures move slightly with the run date because the City total is interpolated monthly.', small),
           P('Sources', h1), P('Every title and address is a clickable link; addresses are given in full.', small), table([['Source (click to open)', 'Full address']] + [['<link href="%s" color="#2b6cb0">%s</link>' % (u, t), '<link href="%s" color="#2b6cb0"><font name="DVM" size="6.3">%s</font></link>' % (u, u)] for t, u in [('City of Calgary, 2027 Budget page and financial impact (15%, typical home $229 to $266, $21B capital)', 'https://www.calgary.ca/our-finances/2027-budget.html'), ('City of Calgary, 2026 budget adjustments (typical home $229.32 a month)', 'https://www.calgary.ca/adjustments'), ('City of Calgary, proposed 2027–2030 Budget document (Nov 10, 2026)', 'https://pub-calgary.escribemeetings.com/FileStream.ashx?DocumentId=377372'), ('City of Calgary, 2027–2030 operating and capital budget requests (792 pp.)', 'https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf'), ('Open data: 2027–2030 Budget (nnnm-9sfh)', 'https://data.calgary.ca/Government/2027-2030-Budget/nnnm-9sfh'), ('Open data: Current Year Property Assessments (4bsw-nn7w)', 'https://data.calgary.ca/d/4bsw-nn7w'), ('Open data: Historical Property Assessments (4ur7-wsgc)', 'https://data.calgary.ca/d/4ur7-wsgc'), ('Open data: Recreation facilities (hxfu-6d96)', 'https://data.calgary.ca/d/hxfu-6d96'), ('2026 Property Tax Bylaw 9M2026 (rates and levy)', 'https://municipalaffairs.gov.ab.ca/cfml/FinancialTaxRateSearch/pdf/tr_bylaws/2026_Bylaw_CALGARY_0046.pdf'), ('Calgary and Region Economic Outlook, Spring 2026 (Table 4, population)', 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Spring.pdf'), ('Calgary and Region Economic Outlook, Fall 2026 (Table 1, inflation)', 'https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/calgary-and-region-economic-outlook/Calgary-and-Region-Economic-Outlook-2026-Fall.pdf'), ('CREB Calgary Monthly Statistics, July 2026', 'https://www.creb.com/Housing_Statistics/documents/07_2026_Calgary_Monthly_Stats_Package.pdf'), ('CREB Calgary Monthly Statistics, July 2025', 'https://www.creb.com/Housing_Statistics/documents/07_2025_Calgary_Monthly_Stats_Package.pdf'), ('Calgary Herald via Yahoo News (Nov 10, 2026): operating totals, +$204/month by 2030', 'https://ca.news.yahoo.com/calgary-draft-budget-proposes-largest-160350073.html'), ('CTV News (Nov 10, 2026): 15/10/7.7/6 path', 'https://www.ctvnews.ca/calgary/article/calgary-budget-proposes-largest-single-year-property-tax-increase-in-about-30-years/'), ('LiveWire Calgary (Nov 10, 2026): $25.6M per 1%', 'https://livewirecalgary.com/2026/11/10/calgary-four-year-budget-breakdown-money-spent/'), ('Global News (Sept 2, 2026): 20.2% request list, 5.4% to maintain services', 'https://globalnews.ca/news/12044564/calgary-2027-budget-requests-property-tax-estimate/'), ('CBC News (Nov 2026): Edmonton proposed budget', 'https://www.cbc.ca/news/canada/edmonton/proposed-edmonton-operating-budget-calls-for-property-tax-hikes-between-3-9-and-4-9-9.7406008')]], [2.7 * inch, 3.8 * inch], col_styles={1: urlst})]
 
 def frame(c, d):
     c.saveState(); c.setFont('DV', 7); c.setFillColor(colors.HexColor(MUTED))
-    c.drawString(0.75 * inch, 0.5 * inch, "calgaryinsight.ca · 15% property tax study · technical report v1.3 · 13 Nov 2026 · independent analysis, not a City of Calgary report")
+    c.drawString(0.75 * inch, 0.5 * inch, "calgaryinsight.ca · 15% property tax study · technical report v1.4 · 13 Nov 2026 · independent analysis, not a City of Calgary report")
     c.drawRightString(letter[0] - 0.75 * inch, 0.5 * inch, f'{d.page}'); c.restoreState()
 
 doc = SimpleDocTemplate(f'{OUT}/Calgary_15pct_Tax_Study_Technical_Report.pdf', pagesize=letter, leftMargin=0.75 * inch, rightMargin=0.75 * inch,

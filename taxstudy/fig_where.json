@@ -1,0 +1,324 @@
+{
+ "source": {
+  "title": "2027\u20132030 budget request business cases",
+  "publisher": "The City of Calgary",
+  "url": "https://www.calgary.ca/content/dam/www/ca/city-manager/documents/2027-2030-budget/2027-2030-operating-capital-budget-requests.pdf",
+  "pages": 792,
+  "sha256": "b4deb3927d24afb142426127662c8be76751b6a041d6bb85a3358869da85c3d0",
+  "modified": "2026-11-09",
+  "read": "2026-11-11"
+ },
+ "status": "Proposed by Administration; before Council. Nothing here is approved until Council votes on the 2027\u20132030 budget.",
+ "n_operating_requests": 124,
+ "n_with_2027_money": 98,
+ "total_2027_m": 354.7,
+ "ongoing_2027_m": 276.1,
+ "one_time_2027_m": 78.6,
+ "ongoing_share_pct": 77.8,
+ "ftes_2027": 855,
+ "levy_step_2027_m": 384.0,
+ "maintain_services_pct_reported": 5.4,
+ "per_point_m_reported": 25.6,
+ "maintain_services_m_approx": 138.0,
+ "rationale_pct": {
+  "Explicit Direction from Council": 48.9,
+  "Risk-based considerations": 23.9,
+  "Implicit Direction from Council": 21.4,
+  "Commission Requested": 5.7,
+  "Responding to Provincial Government Changes": 0.1
+ },
+ "by_theme": [
+  [
+   "Safe city",
+   110.1,
+   31.0
+  ],
+  [
+   "Reliable and sustainable infrastructure",
+   101.7,
+   28.7
+  ],
+  [
+   "Functional transportation network",
+   64.0,
+   18.0
+  ],
+  [
+   "Trusted and collaborative government",
+   37.0,
+   10.4
+  ],
+  [
+   "Community livability and well-being",
+   26.6,
+   7.5
+  ],
+  [
+   "Balanced growth and evolving neighbourhoods",
+   15.3,
+   4.3
+  ]
+ ],
+ "by_bu": [
+  [
+   "Corporate Programs",
+   85.2,
+   24.0
+  ],
+  [
+   "Calgary Transit",
+   57.6,
+   16.2
+  ],
+  [
+   "Emergency Management & Community Safety",
+   32.3,
+   9.1
+  ],
+  [
+   "Community Strategies",
+   28.8,
+   8.1
+  ],
+  [
+   "City & Regional Planning",
+   22.9,
+   6.5
+  ],
+  [
+   "Parks & Open Spaces",
+   21.9,
+   6.2
+  ],
+  [
+   "Calgary Police Service",
+   20.3,
+   5.7
+  ],
+  [
+   "Mobility",
+   16.3,
+   4.6
+  ],
+  [
+   "Corporate Security",
+   7.9,
+   2.2
+  ],
+  [
+   "Calgary Fire",
+   7.7,
+   2.2
+  ]
+ ],
+ "by_dept": [
+  [
+   "Operational Services",
+   105.8,
+   29.8
+  ],
+  [
+   "Corporate Programs",
+   85.2,
+   24.0
+  ],
+  [
+   "Community Services",
+   72.7,
+   20.5
+  ],
+  [
+   "Planning & Development Services",
+   28.4,
+   8.0
+  ],
+  [
+   "Calgary Police Service",
+   20.3,
+   5.7
+  ],
+  [
+   "Law, Legislative Services & Security",
+   14.1,
+   4.0
+  ],
+  [
+   "People, Innovation & Collaboration Services",
+   12.5,
+   3.5
+  ],
+  [
+   "Chief Operating Office",
+   7.5,
+   2.1
+  ],
+  [
+   "Corporate Planning & Financial Services",
+   6.6,
+   1.9
+  ],
+  [
+   "Council",
+   1.5,
+   0.4
+  ],
+  [
+   "Chief Administrator's Office",
+   0.1,
+   0.0
+  ]
+ ],
+ "top": [
+  {
+   "n": 6,
+   "title": "Securing Sustainable Funding for Infrastructure Maintenance",
+   "bu": "Corporate Programs",
+   "theme": "Reliable and sustainable infrastructure",
+   "m_2027": 62.4,
+   "kind": "ongoing",
+   "rationale": "Explicit Direction from Council",
+   "page": 20,
+   "full_one_time_m": null
+  },
+  {
+   "n": 124,
+   "title": "Implement the cross-corporate strategies of the Safer Together plan to coordinate community safety and wellbeing improvements",
+   "bu": "Community Strategies",
+   "theme": "Safe city",
+   "m_2027": 28.8,
+   "kind": "mixed",
+   "rationale": "Explicit Direction from Council",
+   "page": 275,
+   "full_one_time_m": 23.9
+  },
+  {
+   "n": 171,
+   "title": "Reducing financial barriers to accessing transit - Low Income Transit Pass",
+   "bu": "Calgary Transit",
+   "theme": "Functional transportation network",
+   "m_2027": 25.1,
+   "kind": "ongoing",
+   "rationale": "Implicit Direction from Council",
+   "page": 369,
+   "full_one_time_m": null
+  },
+  {
+   "n": 14,
+   "title": "Renew The City\u2019s digital infrastructure supporting finance, supply chain, and human resources to reduce operational risk, strengthen data and governance, and improve reliable service delivery.",
+   "bu": "Corporate Programs",
+   "theme": "Reliable and sustainable infrastructure",
+   "m_2027": 20.4,
+   "kind": "one-time",
+   "rationale": "Risk-based considerations",
+   "page": 35,
+   "full_one_time_m": 302.9
+  },
+  {
+   "n": 104,
+   "title": "Calgary Police Budget Request",
+   "bu": "Calgary Police Service",
+   "theme": "Safe city",
+   "m_2027": 20.3,
+   "kind": "mixed",
+   "rationale": "Commission Requested",
+   "page": 224,
+   "full_one_time_m": null
+  },
+  {
+   "n": 122,
+   "title": "Increase the number of Transit Peace Officers to improve visibility, response times and rider engagement on the transit system",
+   "bu": "Emergency Management & Community Safety",
+   "theme": "Safe city",
+   "m_2027": 18.2,
+   "kind": "mixed",
+   "rationale": "Implicit Direction from Council",
+   "page": 271,
+   "full_one_time_m": null
+  },
+  {
+   "n": 220,
+   "title": "Parks Maintenance Funding Levels 2026",
+   "bu": "Parks & Open Spaces",
+   "theme": "Community livability and well-being",
+   "m_2027": 14.0,
+   "kind": "ongoing",
+   "rationale": "Explicit Direction from Council",
+   "page": 467,
+   "full_one_time_m": null
+  },
+  {
+   "n": 166,
+   "title": "Increasing Transit service for customers - RouteAhead Investment",
+   "bu": "Calgary Transit",
+   "theme": "Functional transportation network",
+   "m_2027": 12.0,
+   "kind": "ongoing",
+   "rationale": "Explicit Direction from Council",
+   "page": 359,
+   "full_one_time_m": null
+  },
+  {
+   "n": 255,
+   "title": "Industrial Development Incentive Program",
+   "bu": "City & Regional Planning",
+   "theme": "Balanced growth and evolving neighbourhoods",
+   "m_2027": 10.0,
+   "kind": "one-time",
+   "rationale": "Explicit Direction from Council",
+   "page": 537,
+   "full_one_time_m": 40.0
+  },
+  {
+   "n": 292,
+   "title": "Resourcing Prairie Economic Gateway Delivery",
+   "bu": "Chief Operating Officer",
+   "theme": "Trusted and collaborative government",
+   "m_2027": 7.5,
+   "kind": "mixed",
+   "rationale": "Explicit Direction from Council",
+   "page": 609,
+   "full_one_time_m": null
+  },
+  {
+   "n": 288,
+   "title": "Civic Census Program",
+   "bu": "City & Regional Planning",
+   "theme": "Trusted and collaborative government",
+   "m_2027": 6.3,
+   "kind": "mixed",
+   "rationale": "Explicit Direction from Council",
+   "page": 602,
+   "full_one_time_m": null
+  },
+  {
+   "n": 102,
+   "title": "Hire 9-1-1 staff to keep pace with growing demand for fire, police and emergency services",
+   "bu": "Emergency Management & Community Safety",
+   "theme": "Safe city",
+   "m_2027": 6.1,
+   "kind": "ongoing",
+   "rationale": "Implicit Direction from Council",
+   "page": 220,
+   "full_one_time_m": null
+  }
+ ],
+ "top3_share_pct": 32.8,
+ "rationale": {
+  "Explicit Direction from Council": 173.3,
+  "Risk-based considerations": 84.9,
+  "Implicit Direction from Council": 75.9,
+  "Commission Requested": 20.3,
+  "Responding to Provincial Government Changes": 0.3
+ },
+ "council_direction_pct": 70.3,
+ "ongoing_later_years_m": [
+  168.0,
+  88.6,
+  62.9
+ ],
+ "one_time_later_years_m": [
+  213.8,
+  52.1,
+  41.1
+ ]
+}
