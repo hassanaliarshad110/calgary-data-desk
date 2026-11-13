@@ -143,6 +143,82 @@
   }
  ],
  "op_increase_2027_2030_m": 1723.0,
+ "op_bu_top_change": [
+  {
+   "bu": "Water Services",
+   "2027": 1222.0,
+   "2030": 1965.3,
+   "change_m": 743.3
+  },
+  {
+   "bu": "Corporate Programs",
+   "2027": 900.6,
+   "2030": 1480.0,
+   "change_m": 579.4
+  },
+  {
+   "bu": "Calgary Transit",
+   "2027": 659.9,
+   "2030": 823.6,
+   "change_m": 163.7
+  },
+  {
+   "bu": "Mobility",
+   "2027": 379.8,
+   "2030": 447.6,
+   "change_m": 67.8
+  },
+  {
+   "bu": "Calgary Police Service",
+   "2027": 742.2,
+   "2030": 809.5,
+   "change_m": 67.3
+  },
+  {
+   "bu": "Emergency Management & Community Safety",
+   "2027": 184.7,
+   "2030": 231.3,
+   "change_m": 46.6
+  },
+  {
+   "bu": "Civic Partners",
+   "2027": 163.5,
+   "2030": 208.6,
+   "change_m": 45.1
+  },
+  {
+   "bu": "Waste & Recycling Services",
+   "2027": 254.1,
+   "2030": 295.7,
+   "change_m": 41.6
+  }
+ ],
+ "op_ex_water": {
+  "2027_m": 5211.6,
+  "2030_m": 6191.3,
+  "growth_pct": 18.8,
+  "per_resident_2027": 3240,
+  "per_resident_2030": 3665,
+  "per_resident_growth_pct": 13.1,
+  "real_per_resident_growth_pct": 6.7
+ },
+ "op_ex_utilities": {
+  "2027_m": 4957.5,
+  "2030_m": 5895.6,
+  "growth_pct": 18.9,
+  "per_resident_2027": 3082,
+  "per_resident_2030": 3490,
+  "per_resident_growth_pct": 13.2,
+  "real_per_resident_growth_pct": 6.8
+ },
+ "water_share_of_increase_pct": 43.1,
+ "op_herald": {
+  "2026_b": 5.118,
+  "2027_b": 5.963,
+  "2030_b": 7.867,
+  "growth_2027_2030_pct": 31.9,
+  "growth_2026_2027_pct": 16.5
+ },
  "capital_proposed_m": {
   "2027": 1555.2,
   "2028": 3017.6,
@@ -212,6 +288,15 @@
   "enhancement": 20.3,
   "transformative": 2.7
  },
+ "capital_utilities_b": 5.87,
+ "capital_utilities_pct": 45.0,
+ "capital_split_ex_utilities_pct": {
+  "maintenance": 58.8,
+  "growth": 25.5,
+  "enhancement": 12.6,
+  "transformative": 3.1
+ },
+ "capital_2031_k": 26741,
  "capital_named_ward_b": 1.07,
  "capital_named_ward_pct": 8.2,
  "capital_named_ward_cases": 34,
@@ -457,6 +542,28 @@
  "implied_rate_change_pct": 19.0,
  "implied_base_change_pct": -3.4,
  "breakeven_value_change_pct": -3.39,
+ "who_pays_anchored": {
+  "Detached": {
+   "value_change_pct": -2.55,
+   "bill_change_pct": 16.0
+  },
+  "Semi-detached": {
+   "value_change_pct": -0.98,
+   "bill_change_pct": 17.9
+  },
+  "Row": {
+   "value_change_pct": -6.78,
+   "bill_change_pct": 11.0
+  },
+  "Apartment condominium": {
+   "value_change_pct": -9.05,
+   "bill_change_pct": 8.3
+  },
+  "Total residential": {
+   "value_change_pct": -2.73,
+   "bill_change_pct": 15.8
+  }
+ },
  "who_pays_proxy": {
   "Detached": {
    "value_change_pct": -1.87,
@@ -465,16 +572,16 @@
    "bill_change_hi": 17.0
   },
   "Semi-detached": {
-   "value_change_pct": 1.0,
-   "bill_change_pct": 20.2,
-   "bill_change_lo": 20.0,
-   "bill_change_hi": 20.4
+   "value_change_pct": -0.3,
+   "bill_change_pct": 18.7,
+   "bill_change_lo": 18.4,
+   "bill_change_hi": 18.9
   },
-  "Row / townhouse": {
-   "value_change_pct": -5.0,
-   "bill_change_pct": 13.1,
-   "bill_change_lo": 12.9,
-   "bill_change_hi": 13.3
+  "Row": {
+   "value_change_pct": -6.1,
+   "bill_change_pct": 11.8,
+   "bill_change_lo": 11.6,
+   "bill_change_hi": 12.0
   },
   "Apartment condominium": {
    "value_change_pct": -8.37,
@@ -515,6 +622,16 @@
  },
  "ongoing_requests_2027_m": 276.1,
  "one_time_requests_2027_m": 78.6,
+ "gap_share_of_2027_requests_pct": {
+  "10": 36.1,
+  "5": 72.2
+ },
+ "gap_share_of_2027_ongoing_pct": {
+  "10": 46.4,
+  "5": 92.7
+ },
+ "bylaw_typical_month_2026": 228.9,
+ "R_bylaw": 1.1925,
  "typical_path_month": {
   "2026": 229.32,
   "2027": 266.0,

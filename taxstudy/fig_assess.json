@@ -13,13 +13,13 @@
     "p25": 6.9,
     "p75": 10.9
    },
-   "Townhouse condo (R401)": {
+   "Row house / townhouse (code R401)": {
     "n": 10968,
     "median_pct": 15.1,
     "p25": 6.5,
     "p75": 23.3
    },
-   "Row / townhouse condo (R402)": {
+   "Townhouse condo (code R402)": {
     "n": 44827,
     "median_pct": 16.0,
     "p25": 10.9,
@@ -57,13 +57,13 @@
     "p25": 12.1,
     "p75": 17.7
    },
-   "Townhouse condo (R401)": {
+   "Row house / townhouse (code R401)": {
     "n": 11424,
     "median_pct": 15.8,
     "p25": 12.4,
     "p75": 22.7
    },
-   "Row / townhouse condo (R402)": {
+   "Townhouse condo (code R402)": {
     "n": 46144,
     "median_pct": 19.5,
     "p25": 15.6,
@@ -101,13 +101,13 @@
     "p25": 0.2,
     "p75": 3.8
    },
-   "Townhouse condo (R401)": {
+   "Row house / townhouse (code R401)": {
     "n": 12466,
     "median_pct": -1.9,
     "p25": -4.5,
     "p75": 1.4
    },
-   "Row / townhouse condo (R402)": {
+   "Townhouse condo (code R402)": {
     "n": 47964,
     "median_pct": -0.1,
     "p25": -3.1,
@@ -145,13 +145,13 @@
     "p25": 22.9,
     "p75": 33.3
    },
-   "Townhouse condo (R401)": {
+   "Row house / townhouse (code R401)": {
     "n": 10750,
     "median_pct": 33.6,
     "p25": 20.1,
     "p75": 44.6
    },
-   "Row / townhouse condo (R402)": {
+   "Townhouse condo (code R402)": {
     "n": 44765,
     "median_pct": 39.9,
     "p25": 32.2,
@@ -182,9 +182,9 @@
  "paired_2025_2026": 486475,
  "share_above_base_2025_2026": {
   "Detached house": 46.0,
-  "Row / townhouse condo (R402)": 41.3,
+  "Townhouse condo (code R402)": 41.3,
   "Semi-detached / duplex": 63.2,
-  "Townhouse condo (R401)": 27.2,
+  "Row house / townhouse (code R401)": 27.2,
   "Low-rise condo apartment": 9.2,
   "High-rise condo apartment": 6.1
  },
@@ -192,17 +192,50 @@
  "median_value_2026": {
   "Detached house": 718000.0,
   "Semi-detached / duplex": 580000.0,
-  "Townhouse condo (R401)": 519500.0,
-  "Row / townhouse condo (R402)": 427000.0,
+  "Row house / townhouse (code R401)": 519500.0,
+  "Townhouse condo (code R402)": 427000.0,
   "Low-rise condo apartment": 291000.0,
   "High-rise condo apartment": 329500.0
  },
  "count_2026": {
   "Detached house": 306536,
   "Semi-detached / duplex": 36820,
-  "Townhouse condo (R401)": 12760,
-  "Row / townhouse condo (R402)": 49917,
+  "Row house / townhouse (code R401)": 12760,
+  "Townhouse condo (code R402)": 49917,
   "Low-rise condo apartment": 51411,
   "High-rise condo apartment": 29723
- }
+ },
+ "backtest_2026": {
+  "Detached house": {
+   "predicted_pct": 0.8,
+   "actual_pct": 0.8,
+   "error_pts": 0.0
+  },
+  "Semi-detached / duplex": {
+   "predicted_pct": 2.6,
+   "actual_pct": 1.8,
+   "error_pts": 0.8
+  },
+  "Row house / townhouse (code R401)": {
+   "predicted_pct": -2.4,
+   "actual_pct": -1.9,
+   "error_pts": -0.5
+  },
+  "Townhouse condo (code R402)": {
+   "predicted_pct": -2.4,
+   "actual_pct": -0.1,
+   "error_pts": -2.3
+  },
+  "Low-rise condo apartment": {
+   "predicted_pct": -3.4,
+   "actual_pct": -5.9,
+   "error_pts": 2.5
+  },
+  "High-rise condo apartment": {
+   "predicted_pct": -3.4,
+   "actual_pct": -5.9,
+   "error_pts": 2.5
+  }
+ },
+ "same_type_pairs_2025_2026": 485541
 }

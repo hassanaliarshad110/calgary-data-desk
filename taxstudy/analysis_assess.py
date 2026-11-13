@@ -1,4 +1,5 @@
-"""Paired assessment changes (same roll number, same home type) by home type, 2023-2026, from the City's rolls (probe 3)."""
+"""Home-type labels for R401 and R402 are inferred from values, zoning and building age (no City code list cited).
+Paired assessment changes (same roll number, same home type) by home type, 2023-2026, from the City's rolls (probe 3)."""
 import os
 import gzip, csv, statistics as st, json, collections
 MAP = {'RE0110': 'R110', 'RE0111': 'R111', 'RE0120': 'R120', 'RE0121': 'R121', 'RE0201': 'R201', 'RE0210': 'R202',
@@ -14,7 +15,7 @@ def load(y):
         out[(r['roll_number'] or '').lstrip('0')] = (code, r['comm_code'], v)   # historical roll drops leading zeros
     return out
 Y = {y: load(y) for y in (2023, 2024, 2025, 2026)}
-T = {'R110': 'Detached house', 'R120': 'Semi-detached / duplex', 'R401': 'Townhouse condo (R401)', 'R402': 'Row / townhouse condo (R402)',
+T = {'R110': 'Detached house', 'R120': 'Semi-detached / duplex', 'R401': 'Row house / townhouse (code R401)', 'R402': 'Townhouse condo (code R402)',
      'R201': 'Low-rise condo apartment', 'R301': 'High-rise condo apartment'}
 def paired(a, b, k=None):
     return [b[r][2] / a[r][2] - 1 for r in b if r in a and a[r][2] > 0 and b[r][2] > 0 and a[r][0] == b[r][0] and (k is None or b[r][0] == k)]
@@ -41,3 +42,17 @@ F['median_value_2026'] = {T[k]: st.median(v[2] for v in b.values() if v[0] == k)
 F['count_2026'] = {T[k]: sum(1 for v in b.values() if v[0] == k) for k in T}
 json.dump(F, open(os.environ.get('STUDY', '.') + '/fig_assess.json', 'w'), indent=1)
 print(json.dumps(F, indent=1))
+# Back-test of the Section 5 method: CREB July 2025 year-over-year gaps, anchored to the actual detached median,
+# against the actual 2025 -> 2026 paired medians (the 2026 roll values homes at July 1, 2025).
+# CREB July 2025, Calgary (city): detached -0.8, semi-detached +1, row -4, apartment -5 (rounded as published).
+creb25 = {'Detached house': -0.8, 'Semi-detached / duplex': 1.0, 'Row house / townhouse (code R401)': -4.0,
+          'Townhouse condo (code R402)': -4.0, 'Low-rise condo apartment': -5.0, 'High-rise condo apartment': -5.0}
+LAB = {'Detached house': 'Detached house', 'Semi-detached / duplex': 'Semi-detached / duplex',
+       'Row house / townhouse (code R401)': 'Row house / townhouse (code R401)', 'Townhouse condo (code R402)': 'Townhouse condo (code R402)',
+       'Low-rise condo apartment': 'Low-rise condo apartment', 'High-rise condo apartment': 'High-rise condo apartment'}
+act = F['pairs']['2025-2026']; anchor = act['Detached house']['median_pct']
+F['backtest_2026'] = {k: {'predicted_pct': round(anchor + g - creb25['Detached house'], 1), 'actual_pct': act[LAB[k]]['median_pct'],
+                          'error_pts': round(anchor + g - creb25['Detached house'] - act[LAB[k]]['median_pct'], 1)} for k, g in creb25.items()}
+F['same_type_pairs_2025_2026'] = act['All homes']['n']
+json.dump(F, open(os.environ.get('STUDY', '.') + '/fig_assess.json', 'w'), indent=1)
+print(F['backtest_2026'])

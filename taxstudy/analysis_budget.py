@@ -49,6 +49,22 @@ F['op_dept'] = sorted([{'dept': d, **{str(y): round(v[y], 1) for y in sorted(v)}
                         'change_pct': round((v[2030] / v[2027] - 1) * 100, 1) if v[2027] else None} for d, v in dept.items()],
                       key=lambda x: -x['change_m'])
 F['op_increase_2027_2030_m'] = round(op[2030] - op[2027], 1)
+bu_op = collections.defaultdict(lambda: collections.defaultdict(float))
+for r in rows:
+    if r['fund'] != 'Capital': bu_op[r['bu']][int(r['year'])] += float(r['budget_millions'] or 0)
+F['op_bu_top_change'] = sorted([{'bu': b, '2027': round(v[2027], 1), '2030': round(v[2030], 1), 'change_m': round(v[2030] - v[2027], 1)}
+                                for b, v in bu_op.items()], key=lambda x: -x['change_m'])[:8]
+for excl, key in ((('Water Services',), 'ex_water'), (('Water Services', 'Waste & Recycling Services'), 'ex_utilities')):
+    o = {y: op[y] - sum(bu_op[b][y] for b in excl) for y in (2027, 2030)}
+    pr = {y: o[y] / POP[y] * 1000 for y in o}
+    F['op_' + key] = {'2027_m': round(o[2027], 1), '2030_m': round(o[2030], 1), 'growth_pct': round((o[2030] / o[2027] - 1) * 100, 1),
+                      'per_resident_2027': round(pr[2027]), 'per_resident_2030': round(pr[2030]),
+                      'per_resident_growth_pct': round((pr[2030] / pr[2027] - 1) * 100, 1),
+                      'real_per_resident_growth_pct': round((pr[2030] / compound([CPI[y] for y in (2028, 2029, 2030)]) / pr[2027] - 1) * 100, 1)}
+F['water_share_of_increase_pct'] = round((bu_op['Water Services'][2030] - bu_op['Water Services'][2027]) / (op[2030] - op[2027]) * 100, 1)
+# press figures (Calgary Herald, Nov 10, 2026): total operating $5.118B (2026), $5.963B (2027), $7.867B (end of cycle)
+F['op_herald'] = {'2026_b': 5.118, '2027_b': 5.963, '2030_b': 7.867, 'growth_2027_2030_pct': round((7.867 / 5.963 - 1) * 100, 1),
+                  'growth_2026_2027_pct': round((5.963 / 5.118 - 1) * 100, 1)}
 F['capital_proposed_m'] = {y: round(cap[('Proposed', y)], 1) for y in range(2027, 2032)}
 F['capital_approved_m'] = {y: round(cap[('Approved', y)], 1) for y in range(2027, 2033)}
 # City/press summary basis: $5.9B (2026) to $7.8B (2030)
@@ -68,6 +84,15 @@ F['bc_counts'] = bc['counts']; F['bc_totals'] = bc['totals']
 F['capital_requests_b'] = round(total_k / 1e6, 2)
 F['capital_split_b'] = {k: round(v / 1e6, 2) for k, v in split.items()}
 F['capital_split_pct'] = {k: round(v / total_k * 100, 1) for k, v in split.items()}
+util_k = sum(c['cap_k'][0] or 0 for c in capc if c['bu'] == 'Utilities Delivery')
+F['capital_utilities_b'] = round(util_k / 1e6, 2); F['capital_utilities_pct'] = round(util_k / total_k * 100, 1)
+split2 = collections.Counter()
+for c in capc:
+    if c['bu'] == 'Utilities Delivery': continue
+    for lab, p in zip(('maintenance', 'growth', 'enhancement', 'transformative'), c['split'] or []):
+        split2[lab] += (c['cap_k'][0] or 0) * (p or 0) / 100
+F['capital_split_ex_utilities_pct'] = {k: round(v / (total_k - util_k) * 100, 1) for k, v in split2.items()}
+F['capital_2031_k'] = bc['totals']['capital_k'][5]
 named = [c for c in capc if c['wards'] != 'all']
 F['capital_named_ward_b'] = round(sum(c['cap_k'][0] or 0 for c in named) / 1e6, 2)
 F['capital_named_ward_pct'] = round(sum(c['cap_k'][0] or 0 for c in named) / total_k * 100, 1)
@@ -107,8 +132,12 @@ F['implied_rate_change_pct'] = round((R - 1) * 100, 1)
 F['implied_base_change_pct'] = round((1.15 / R - 1) * 100, 1)
 # a property's bill change for a given assessment change g: (1+g)*R - 1; break-even g where bill change = 15%
 F['breakeven_value_change_pct'] = round((1.15 / R - 1) * 100, 2)
-proxy = {  # CREB benchmark, year over year, July 2026 (the assessment valuation date is July 1, 2026); semi and row from August
-    'Detached': -1.87, 'Semi-detached': 1.0, 'Row / townhouse': -5.0, 'Apartment condominium': -8.37, 'Total residential': -2.05}
+proxy = {  # CREB benchmark, Calgary (city), year over year, July 2026 (the assessment valuation date is July 1, 2026)
+    'Detached': -1.87, 'Semi-detached': -0.30, 'Row': -6.10, 'Apartment condominium': -8.37, 'Total residential': -2.05}
+# anchored: detached = the City's typical home (-2.55%); other types keep CREB's gap to detached
+F['who_pays_anchored'] = {k: {'value_change_pct': round(F['typical_value_change_pct'] + g - proxy['Detached'], 2),
+                              'bill_change_pct': round(((1 + (F['typical_value_change_pct'] + g - proxy['Detached']) / 100) * R - 1) * 100, 1)}
+                          for k, g in proxy.items()}
 F['who_pays_proxy'] = {k: {'value_change_pct': g, 'bill_change_pct': round(((1 + g / 100) * R - 1) * 100, 1),
                            'bill_change_lo': round(((1 + g / 100) * Rlo - 1) * 100, 1), 'bill_change_hi': round(((1 + g / 100) * Rhi - 1) * 100, 1)}
                        for k, g in proxy.items()}
@@ -124,6 +153,11 @@ for p in (15, 10, 5):
              'typical_year_change': round((m - base_m) * 12), 'gap_vs_15_m': round((15 - p) * ONE_PCT_M, 1)}
 F['scenarios'] = sc
 F['ongoing_requests_2027_m'] = bc['totals']['ongoing_m'][0]; F['one_time_requests_2027_m'] = bc['totals']['one_time_m'][0]
+req27 = bc['totals']['ongoing_m'][0] + bc['totals']['one_time_m'][0]
+F['gap_share_of_2027_requests_pct'] = {p: round((15 - p) * ONE_PCT_M / req27 * 100, 1) for p in (10, 5)}
+F['gap_share_of_2027_ongoing_pct'] = {p: round((15 - p) * ONE_PCT_M / bc['totals']['ongoing_m'][0] * 100, 1) for p in (10, 5)}
+F['bylaw_typical_month_2026'] = round(706000 * 0.0038906 / 12, 2)
+F['R_bylaw'] = round((266 / F['bylaw_typical_month_2026']) / (688000 / 706000), 4)
 # four-year path on the typical home (no further relative assessment shift after 2027)
 path = {2026: base_m}; m = base_m * 1.15 * TYP_FACTOR; path[2027] = m
 for y in (2028, 2029, 2030):

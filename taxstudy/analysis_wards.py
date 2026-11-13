@@ -25,7 +25,8 @@ F['municipal_res_city'] = T['city']['municipal']['residential']
 # indicative 2027 change by ward: each home's 2026 municipal tax (value x 2026 rate) moved by its type's value change and R
 R = FB['implied_rate_multiplier'][1]
 city_typ = FB['typical_value_change_pct']                     # the City's typical home: -2.55% (taken as the detached anchor)
-creb = {'R110': -1.87, 'R120': 1.0, 'R121': 1.0, 'R401': -5.0, 'R402': -5.0, 'R201': -8.37, 'R202': -8.37, 'R301': -8.37, 'R302': -8.37}
+# CREB July 2026, Calgary (city), year over year
+creb = {'R110': -1.87, 'R120': -0.30, 'R121': -0.30, 'R401': -6.10, 'R402': -6.10, 'R201': -8.37, 'R202': -8.37, 'R301': -8.37, 'R302': -8.37}
 anch = {k: city_typ + (g - creb['R110']) for k, g in creb.items()}  # same gap between types as CREB, detached anchored to the City
 other = city_typ + (-2.05 - creb['R110'])                           # other residential codes: CREB total residential gap
 rate = T['rates']['municipal']['residential']
@@ -79,12 +80,15 @@ for w in range(1, 15):
         'local_park_ha_per_1000': (r.get('amenities') or {}).get('local_park_ha'),
         'libraries_per_1000': (r.get('amenities') or {}).get('libraries'),
         'named_capital_m': round(named[w] / 1000, 1),
+        'rec_facilities_count': (r.get('amenity_counts') or {}).get('rec_facilities'), 'transit_stops_count': (r.get('amenity_counts') or {}).get('transit_stops'),
     })
 tot_added = sum(x['added'] for x in rows)
 for x in rows:
     x['share_of_city_growth_pct'] = round(x['added'] / tot_added * 100, 1)
     x['named_capital_per_new_resident'] = round(x['named_capital_m'] * 1e6 / x['added']) if x['added'] > 0 else None
 F['wards'] = rows
+F['growth_like_for_like_pct'] = round((CITY['residents'] / 1321600 - 1) * 100, 1)  # City April 2021 estimate
+F['five_share_homes_only_pct'] = round(sum(x['homes_added'] for x in sorted(rows, key=lambda x: -x['growth_pct'])[:5]) / sum(x['homes_added'] for x in rows) * 100, 1)
 F['city'] = {'residents_now': CITY['residents'], 'census2021': CITY['census2021'], 'growth_pct': CITY['growth_pct'],
              'growth_model_pct': CITY['growth_pct_by_method'].get('model'), 'homes_now': CITY['homes_now'], 'homes_2021': CITY['homes_census'],
              'homes_growth_pct': CITY['homes_growth_pct'], 'requests_per_1000': CITY['requests_per_1000'],
@@ -119,7 +123,7 @@ for x in rows: print('\t'.join(str(x[c]) for c in cols))
 FAST = sorted(rows, key=lambda x: -x['growth_pct'])[:5]
 REST = [x for x in rows if x not in FAST]
 wavg = lambda xs, k: sum(x[k] * x['residents_now'] for x in xs) / sum(x['residents_now'] for x in xs)
-F['fast_vs_rest'] = {'fast_wards': [x['ward'] for x in FAST],
+F['fast_vs_rest'] = {'fast_wards': [x['ward'] for x in FAST], 'fast_residents': sum(x['residents_now'] for x in FAST), 'fast_rec_count': sum(x['rec_facilities_count'] or 0 for x in FAST),
                      **{k: {'fast': round(wavg(FAST, k), 4), 'rest': round(wavg(REST, k), 4), 'gap_pct': round((wavg(FAST, k) / wavg(REST, k) - 1) * 100, 1)}
                         for k in ('transit_stops_per_1000', 'rec_facilities_per_1000', 'local_park_ha_per_1000', 'requests_per_1000')}}
 json.dump(F, open(f'{S}/fig_wards.json', 'w'), indent=1)
