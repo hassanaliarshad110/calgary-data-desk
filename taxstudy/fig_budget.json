@@ -4,6 +4,9 @@
  "pop_growth_2021_2026_pct": 19.8,
  "cpi_2027_2030_pct": 8.3,
  "pop_plus_cpi_2026_2030_pct": 15.6,
+ "tax_path_2027_2030_pct": 25.6,
+ "pop_plus_cpi_2027_2030_pct": 11.3,
+ "herald_2026_2030_pct": 53.7,
  "cpi_2021_2026_pct": 20.5,
  "op_open_m": {
   "2027": 6433.6,

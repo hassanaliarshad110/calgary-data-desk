@@ -44,9 +44,9 @@ json.dump(F, open(os.environ.get('STUDY', '.') + '/fig_assess.json', 'w'), inden
 print(json.dumps(F, indent=1))
 # Back-test of the Section 5 method: CREB July 2025 year-over-year gaps, anchored to the actual detached median,
 # against the actual 2025 -> 2026 paired medians (the 2026 roll values homes at July 1, 2025).
-# CREB July 2025, Calgary (city): detached -0.8, semi-detached +1, row -4, apartment -5 (rounded as published).
-creb25 = {'Detached house': -0.8, 'Semi-detached / duplex': 1.0, 'Row house / townhouse (code R401)': -4.0,
-          'Townhouse condo (code R402)': -4.0, 'Low-rise condo apartment': -5.0, 'High-rise condo apartment': -5.0}
+# CREB July 2025 package, Calgary (city), year over year: detached -0.78, semi +1.40, row -3.88, apartment -4.82.
+creb25 = {'Detached house': -0.78, 'Semi-detached / duplex': 1.40, 'Row house / townhouse (code R401)': -3.88,
+          'Townhouse condo (code R402)': -3.88, 'Low-rise condo apartment': -4.82, 'High-rise condo apartment': -4.82}
 LAB = {'Detached house': 'Detached house', 'Semi-detached / duplex': 'Semi-detached / duplex',
        'Row house / townhouse (code R401)': 'Row house / townhouse (code R401)', 'Townhouse condo (code R402)': 'Townhouse condo (code R402)',
        'Low-rise condo apartment': 'Low-rise condo apartment', 'High-rise condo apartment': 'High-rise condo apartment'}

@@ -212,29 +212,29 @@
    "error_pts": 0.0
   },
   "Semi-detached / duplex": {
-   "predicted_pct": 2.6,
+   "predicted_pct": 3.0,
    "actual_pct": 1.8,
-   "error_pts": 0.8
+   "error_pts": 1.2
   },
   "Row house / townhouse (code R401)": {
-   "predicted_pct": -2.4,
+   "predicted_pct": -2.3,
    "actual_pct": -1.9,
-   "error_pts": -0.5
+   "error_pts": -0.4
   },
   "Townhouse condo (code R402)": {
-   "predicted_pct": -2.4,
+   "predicted_pct": -2.3,
    "actual_pct": -0.1,
-   "error_pts": -2.3
+   "error_pts": -2.2
   },
   "Low-rise condo apartment": {
-   "predicted_pct": -3.4,
+   "predicted_pct": -3.2,
    "actual_pct": -5.9,
-   "error_pts": 2.5
+   "error_pts": 2.7
   },
   "High-rise condo apartment": {
-   "predicted_pct": -3.4,
+   "predicted_pct": -3.2,
    "actual_pct": -5.9,
-   "error_pts": 2.5
+   "error_pts": 2.7
   }
  },
  "same_type_pairs_2025_2026": 485541

@@ -28,7 +28,7 @@ Run in that order (Python 3.12 or later; standard library only). `STUDY` is the 
 - Tax path 15 / 10 / 7.7 / 6: City budget page (2027); news reports of Nov 10, 2026 (2028-2030).
 - $25.6M per 1%: City of Calgary (as reported by LiveWire Calgary, in data/budget_2027.json).
 - Typical home $706,000 -> $688,000; tax $229.32 -> $266: City 2027 Budget financial impact; 2026 budget adjustments.
-- CREB benchmark year-over-year, Calgary (city), July 2026 package p.1-2: detached -1.87, semi-detached -0.30, row -6.10, apartment -8.37, total -2.05. Back-test: CREB July 2025 (detached -0.8, semi +1, row -4, apartment -5, as published rounded).
+- CREB benchmark year-over-year, Calgary (city), July 2026 package p.1-2: detached -1.87, semi-detached -0.30, row -6.10, apartment -8.37, total -2.05. Back-test: CREB July 2025 package (detached -0.78, semi +1.40, row -3.88, apartment -4.82).
 - Historical roll code map (RE0110 -> R110 etc.): checked by pairing roll numbers 2025 vs 2026 (see analysis_assess.py).
 - Population, Spring 2026 Economic Outlook, Table 4 (page 19); CPI, Fall 2026 Economic Outlook, Table 1.
 - $229.32: City of Calgary, 2026 budget adjustments (typical single residential property, monthly). The 2026 bylaw rate gives $228.90 (706,000 x 0.0038906 / 12); both are reported as a range for R.

@@ -25,6 +25,9 @@ F['pop_growth_2026_2030_pct'] = round((POP[2030] / POP[2026] - 1) * 100, 1)
 F['pop_growth_2021_2026_pct'] = round((POP[2026] / POP[2021] - 1) * 100, 1)
 F['cpi_2027_2030_pct'] = round((compound([CPI[y] for y in (2027, 2028, 2029, 2030)]) - 1) * 100, 1)
 F['pop_plus_cpi_2026_2030_pct'] = round((POP[2030] / POP[2026] * compound([CPI[y] for y in (2027, 2028, 2029, 2030)]) - 1) * 100, 1)
+F['tax_path_2027_2030_pct'] = round((compound([TAX_PATH[y] for y in (2028, 2029, 2030)]) - 1) * 100, 1)
+F['pop_plus_cpi_2027_2030_pct'] = round((POP[2030] / POP[2027] * compound([CPI[y] for y in (2028, 2029, 2030)]) - 1) * 100, 1)
+F['herald_2026_2030_pct'] = round((7.867 / 5.118 - 1) * 100, 1)
 F['cpi_2021_2026_pct'] = round((compound([CPI[y] for y in (2022, 2023, 2024, 2025, 2026)]) - 1) * 100, 1)
 
 # Operating budget, open data (net of recoveries), 2027-2030
