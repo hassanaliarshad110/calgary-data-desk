@@ -847,7 +847,13 @@
     ],
     "publish_at": "2026-11-13T15:00",
     "draft": false,
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1677233067139775",
+     "instagram": "https://www.instagram.com/reel/DfsjZqFgqAp/",
+     "youtube": "https://www.youtube.com/shorts/kKnREt6U02Y"
+    },
+    "confirmed_by": "2026-11-13 PM run"
    }
   ],
   "post_note": "One-time review: Hassan replied 'Post it' at 14:22; draft switched to draft:false, kept at the planned 15:00 Calgary slot (38 min away; 2.5 h from the 12:30 and 17:30 posts). Due >30 min after this update, so the next run confirms it (section 1).",
@@ -857,5 +863,71 @@
    "reply": "Post it",
    "changes": null
   }
+ },
+ {
+  "date": "2026-11-13",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "WestJet took off on a leap day",
+  "topic_used": "WestJet's first flight was on Feb 29, 1996 (a leap day); Calgary-based airline founded by Clive Beddoe and a team of partners; started with three aircraft and five destinations (Vancouver, Kelowna, Edmonton, Calgary, Winnipeg)",
+  "changed_from_calendar": null,
+  "why_this_story": "Calendar topic 'WestJet was founded in Calgary' kept and sharpened to its surprising angle (a leap-day first flight)",
+  "central_figure": "First flight Feb 29, 1996 (Global News, Feb 29, 2016; CTV Calgary)",
+  "sources": [
+   "https://globalnews.ca/news/2546957/calgary-based-airline-westjet-celebrates-20-year-anniversary",
+   "https://calgary.ctvnews.ca/westjet-celebrates-20-years-1.2767024"
+  ],
+  "link": "https://calgaryinsight.ca/tourism-intelligence/?utm_source=facebook&utm_medium=social&utm_campaign=westjet-leap-day",
+  "link_check": "WebFetch could not reach calgaryinsight.ca this run (permission prompt unanswered in the unattended run); page confirmed from the site build on main (web/build_site.py builds tourism-intelligence/index.html, in the sitemap)",
+  "length_s": 22.2,
+  "video_path": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-PM/westjet-leap-day.mp4",
+  "thumbnail_path": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-13-PM/westjet-leap-day-thumb.jpg",
+  "package": "packages/2026-11-13-PM-westjet-leap-day.md",
+  "identity": "Data Explainer lead; Storyteller map dive; Civic schematic card",
+  "audit": {
+   "rounds": 1,
+   "claims_checked": 6,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-13-PM.md"
+  },
+  "qc": {
+   "stills": "pass",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "calendar, grid, runway and map moved up after first stills to clear the caption band"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 427585243,
+    "uuid": "7596444405315946305",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7596444405315946305",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-13T18:30",
+    "draft": false,
+    "status": "scheduled"
+   }
+  ],
+  "post_note": "Scheduled for the fixed 18:30 fun-fact slot (60 min after the 17:30 flagship post B, 90 min before the 20:00 teaser slot). YouTube 24-hour count within 8."
  }
 ]
