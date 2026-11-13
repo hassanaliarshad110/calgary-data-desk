@@ -10,6 +10,7 @@ Hard rules
 - Background score on every video (score.py, original, maqam Hijaz: drone, strings, oud, ney, daf), one mood per scene in moods.json:
   lament, tender, tension (with impact = fraction of the scene), evidence, procession, grave, end. Plus wind / fire crackle / door thud. Music sits ~8-12 dB under the voice and ducks.
 - Every video: a hook first line, an engaging question, follow CTA for Shia Voice Dubai, a teaser for tomorrow.
+- Urdu: the Prophet is called «اللہ کے نبی» — never «رسولِ خدا», no spoken salawat (Hassan's rule, Nov 13 2026: the voice mispronounces them). Script writes «اللہ کے نبی ﷺ»; lexicon.json makes the voice say only "Allah ke Nabi" and the captions keep ﷺ. Arabic keeps «رسول الله ﷺ».
 - Urdu subtitles in Nastaliq, Arabic in Amiri. Honorifics: ﷺ, (س)/(ع) on screen; spoken in full in the narration.
 
 Pipeline
