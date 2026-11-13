@@ -1,0 +1,5 @@
+{
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13 2026.",
+ "ur": {"رسولِ خدا": "رسولے خدا", "شیعہ": "شِیعہ", "بیت الاحزان": "بیت ال احزان", "بقیع": "جنت البقیع", "جنت البقیع": "جنت البقیع"},
+ "ar": {}
+}

@@ -28,7 +28,7 @@ for LANG, J in ALL.items():
 try:
     import numpy as np
     from faster_whisper import WhisperModel
-    mdl = WhisperModel('small', device='cpu', compute_type='int8')
+    mdl = WhisperModel('medium', device='cpu', compute_type='int8')
     for LANG, J in ALL.items():
         for i in range(len(J['lines'])):
             raw = subprocess.run([ff, '-v', 'error', '-i', os.path.join(out, f'{LANG}_{i}.mp3'), '-f', 'f32le', '-ac', '1', '-ar', '16000', '-'], capture_output=True).stdout

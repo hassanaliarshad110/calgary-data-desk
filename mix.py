@@ -23,7 +23,7 @@ for k in (0.02, 0.02): w = np.convolve(w, np.ones(int(SR * k)) / int(SR * k), mo
 w = w / (np.abs(w).max() + 1e-9) * (0.5 + 0.5 * np.sin(2 * np.pi * t / 9.0) ** 2)
 # low drone (D) with slow beating
 drone = (np.sin(2 * np.pi * 73.4 * t) * .5 + np.sin(2 * np.pi * 110.0 * t + .3) * .3 + np.sin(2 * np.pi * 146.8 * t) * .12) * (0.75 + 0.25 * np.sin(2 * np.pi * t / 7))
-bed = w * 0.10 + drone.astype(np.float32) * 0.035
+bed = w * 0.05
 # fire crackle in scenes 4 and 6 (and the hook's last seconds)
 def crackle(a, b, lvl):
     s, e = int(a * SR), int(b * SR); n = e - s
@@ -37,10 +37,18 @@ crackle(starts[3], starts[4] - .2, .35)
 imp = starts[3] + cfg['scenes'][3]['dur'] * .25; s = int(imp * SR); n = int(SR * 1.2); tt = np.arange(n) / SR
 thud = (np.sin(2 * np.pi * 55 * tt) + .5 * rng.standard_normal(n) * np.exp(-tt * 30)) * np.exp(-tt * 5)
 bed[s:s + n] += thud.astype(np.float32) * .55
+# score (per-scene moods)
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+from score import build_score
+MOODS = json.load(open(OUT.parent / 'moods.json'))
+moods, imps = MOODS['moods'], {int(k): v * cfg['scenes'][int(k)]['dur'] for k, v in MOODS.get('impacts', {}).items()}
+sc = build_score(starts, [s['dur'] for s in cfg['scenes']], moods, imps)
+sc = np.pad(sc, (0, max(0, N - len(sc))))[:N]
 # duck bed under voice
 env = np.abs(vo); win = int(SR * .3); env = np.convolve(env, np.ones(win) / win, mode='same')
 duck = 1 - 0.45 * np.clip(env / (env.max() * .25 + 1e-9), 0, 1)
-mix = vo * 1.0 + bed * duck
+duck_m = 1 - 0.6 * np.clip(env / (env.max() * .25 + 1e-9), 0, 1)
+mix = vo * 1.0 + bed * duck + sc * 0.30 * duck_m
 fade = int(SR * 2.0); end = int(total * SR); mix = mix[:end]; mix[-fade:] *= np.linspace(1, 0, fade)
 mix = mix / (np.abs(mix).max() + 1e-9) * 0.89
 with wave.open(str(OUT / 'mix.wav'), 'wb') as f:

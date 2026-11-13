@@ -167,8 +167,8 @@ function rtlText(s, x, y, px, col, maxW, lh, align = 'center') {
 function header() {
   X.save(); X.textAlign = 'center'; X.textBaseline = 'middle';
   X.font = '600 36px Cinzel'; X.fillStyle = '#e8c374'; X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 10;
-  X.letterSpacing = '6px'; X.fillText('SHIA VOICE DUBAI', 540, 150); X.letterSpacing = '0px';
-  X.fillStyle = 'rgba(232,195,116,.6)'; X.fillRect(380, 182, 320, 2);
+  X.letterSpacing = '6px'; X.fillText('SHIA VOICE', 540, 150); X.letterSpacing = '0px';
+  X.fillStyle = 'rgba(232,195,116,.6)'; X.fillRect(430, 182, 220, 2);
   X.restore();
 }
 function kicker(s, y, a = 1, px = 46, col = '#f3d58c') { X.save(); X.globalAlpha = a; rtlText(s, 540, y, px, col, 900, px * 1.9); X.restore(); }
@@ -318,8 +318,8 @@ const SCENES = [
     holyLight(540, 1000, 40, 100, .7 + .1 * Math.sin(t * 2), t, true);
     const a = easeOut(seg(t, .2, 1.4));
     X.save(); X.globalAlpha = a; X.textAlign = 'center'; X.textBaseline = 'middle';
-    X.font = '700 74px Cinzel'; X.fillStyle = '#f6dc9c'; X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 16; X.letterSpacing = '4px';
-    X.fillText('SHIA VOICE', 540, 300 + (1 - a) * 30); X.font = '600 48px Cinzel'; X.letterSpacing = '14px'; X.fillStyle = '#e8c374'; X.fillText('DUBAI', 540, 385); X.letterSpacing = '0px';
+    X.font = '700 92px Cinzel'; X.fillStyle = '#f6dc9c'; X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 16; X.letterSpacing = '6px';
+    X.fillText('SHIA VOICE', 540, 330 + (1 - a) * 30); X.letterSpacing = '0px'; X.fillStyle = 'rgba(232,195,116,.7)'; X.fillRect(400, 395, 280, 2);
     X.restore();
     X.save(); X.globalAlpha = a; rtlText(T().brand, 540, 470, CFG.lang === 'ar' ? 54 : 46, '#ffffff', 900, 80); X.restore();
     const c = seg(t, 1.6, 2.6); chip('FOLLOW', 400, 568, 34, c, true); chip('COMMENT', 680, 568, 34, c, true);
