@@ -128,3 +128,52 @@ F['fast_vs_rest'] = {'fast_wards': [x['ward'] for x in FAST], 'fast_residents': 
                         for k in ('transit_stops_per_1000', 'rec_facilities_per_1000', 'local_park_ha_per_1000', 'requests_per_1000')}}
 json.dump(F, open(f'{S}/fig_wards.json', 'w'), indent=1)
 print(F['fast_vs_rest'])
+# ---- v1.2 additions (second external review) ----
+# Recreation on one base: City recreation sites in each ward (all communities) / ward residents
+fr = sum(x['rec_facilities_count'] or 0 for x in FAST); rr = sum(x['rec_facilities_count'] or 0 for x in REST)
+fp = sum(x['residents_now'] for x in FAST); rp = sum(x['residents_now'] for x in REST)
+F['rec_count_based'] = {'fast_sites': fr, 'fast_residents': fp, 'fast_per_100k': round(fr / fp * 1e5, 2),
+                        'rest_sites': rr, 'rest_residents': rp, 'rest_per_100k': round(rr / rp * 1e5, 2),
+                        'gap_pct': round((fr / fp) / (rr / rp) * 100 - 100, 1)}
+ts_f = sum(x['transit_stops_count'] or 0 for x in FAST); ts_r = sum(x['transit_stops_count'] or 0 for x in REST)
+F['transit_count_based'] = {'fast_per_1000': round(ts_f / fp * 1e3, 2), 'rest_per_1000': round(ts_r / rp * 1e3, 2),
+                            'gap_pct': round((ts_f / fp) / (ts_r / rp) * 100 - 100, 1)}
+# Population-allocation sensitivity: five-ward share of added residents under three allocations of growth homes do not explain
+mod = {x['ward']: x['census2021'] * x['growth_model_pct'] / 100 for x in rows}      # growth from new homes only
+resid_total = sum(x['added'] for x in rows) - sum(mod.values())
+five = [x['ward'] for x in FAST]
+def share(alloc):
+    add = {w: mod[w] + alloc[w] * resid_total for w in mod}
+    return round(sum(add[w] for w in five) / sum(add.values()) * 100, 1)
+c21 = {x['ward']: x['census2021'] for x in rows}; tc = sum(c21.values())
+F['five_share_sensitivity'] = {
+    'even_by_2021_population (main)': share({w: c21[w] / tc for w in c21}),
+    'proportional_to_new_home_growth': share({w: mod[w] / sum(mod.values()) for w in mod}),
+    'equal_per_ward': share({w: 1 / 14 for w in mod}),
+    'new_homes_only_no_residual': round(sum(mod[w] for w in five) / sum(mod.values()) * 100, 1)}
+# Ward bill sensitivity: raw CREB (no anchoring), and apartments a further 2.7 points lower (back-test error)
+F['ward_bill_sensitivity'] = {}
+for label, ov in (('raw_creb', None), ('apartments_minus_2_7', -2.7)):
+    bef = collections.Counter(); aft = collections.Counter()
+    for r in csv.DictReader(gzip.open(f'{S}/p3/homes_2026.csv.gz', 'rt')):
+        try: v = float(r['re_assessed_value'])
+        except (TypeError, ValueError): continue
+        if r['assessment_class'] != 'RE' or v <= 0: continue
+        w = comm_ward.get(r['comm_code'])
+        if not w: continue
+        k = r['sub_property_use']; b = v * rate
+        g = (creb.get(k, -2.05) if ov is None else anch.get(k, other) + (ov if k in APT else 0)) / 100
+        bef[w] += b; aft[w] += b * (1 + g) * R; bef[0] += b; aft[0] += b * (1 + g) * R
+    F['ward_bill_sensitivity'][label] = {w: round((aft[w] / bef[w] - 1) * 100, 1) for w in sorted(bef)}
+# Correlation sensitivity (n = 14): drop the fastest ward, the two fastest, and leave-one-out range
+def corr_of(rs, k):
+    return corr([x['growth_pct'] for x in rs], [x[k] for x in rs])
+srt = sorted(rows, key=lambda x: -x['growth_pct'])
+F['corr_sensitivity'] = {}
+for k in ('transit_stops_per_1000', 'rec_facilities_per_1000', 'requests_per_1000'):
+    loo = [corr_of([x for x in rows if x is not y], k) for y in rows]
+    F['corr_sensitivity'][k] = {'all': corr_of(rows, k), 'drop_fastest': corr_of(srt[1:], k), 'drop_two_fastest': corr_of(srt[2:], k),
+                                'drop_fastest_and_slowest': corr_of(srt[1:-1], k), 'leave_one_out_min': min(loo), 'leave_one_out_max': max(loo)}
+json.dump(F, open(f'{S}/fig_wards.json', 'w'), indent=1)
+print(json.dumps({k: F[k] for k in ('rec_count_based', 'transit_count_based', 'five_share_sensitivity', 'corr_sensitivity')}, indent=1))
+print({k: (min(v[w] for w in v if w), max(v[w] for w in v if w), v[0]) for k, v in F['ward_bill_sensitivity'].items()})

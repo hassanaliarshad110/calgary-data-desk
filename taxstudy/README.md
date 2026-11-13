@@ -20,6 +20,8 @@ python3 analysis_budget.py   # sections 2, 4, 8 -> fig_budget.json
 python3 analysis_assess.py   # section 5 (paired assessment changes) -> fig_assess.json
 python3 analysis_wards.py    # sections 3, 5 (wards), 6 -> fig_wards.json (needs fig_budget.json)
 ```
+Then `python3 build_report.py` writes out/Calgary_15pct_Tax_Study_Technical_Report.pdf (needs matplotlib and reportlab; DejaVu fonts).
+
 Run in that order (Python 3.12 or later; standard library only). `STUDY` is the folder holding p1/, p2/, p3/; `REPO` is a main checkout of the repository. The `fig_*.json` files committed here are the outputs used in the draft; your run should match them exactly if the probe outputs are the same (dates in `ran_at.txt`).
 
 ## 3. Hard-coded inputs (with sources)

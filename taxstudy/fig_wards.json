@@ -632,5 +632,87 @@
    "rest": 314.405,
    "gap_pct": -36.2
   }
+ },
+ "rec_count_based": {
+  "fast_sites": 17,
+  "fast_residents": 635573,
+  "fast_per_100k": 2.67,
+  "rest_sites": 95,
+  "rest_residents": 962502,
+  "rest_per_100k": 9.87,
+  "gap_pct": -72.9
+ },
+ "transit_count_based": {
+  "fast_per_1000": 2.99,
+  "rest_per_1000": 4.47,
+  "gap_pct": -32.9
+ },
+ "five_share_sensitivity": {
+  "even_by_2021_population (main)": 50.8,
+  "proportional_to_new_home_growth": 60.5,
+  "equal_per_ward": 50.2,
+  "new_homes_only_no_residual": 60.5
+ },
+ "ward_bill_sensitivity": {
+  "raw_creb": {
+   "0": 15.9,
+   "1": 16.1,
+   "2": 16.0,
+   "3": 16.1,
+   "4": 16.4,
+   "5": 16.0,
+   "6": 15.8,
+   "7": 15.1,
+   "8": 14.9,
+   "9": 15.8,
+   "10": 16.5,
+   "11": 16.1,
+   "12": 15.7,
+   "13": 16.0,
+   "14": 16.2
+  },
+  "apartments_minus_2_7": {
+   "0": 14.8,
+   "1": 15.1,
+   "2": 15.0,
+   "3": 15.1,
+   "4": 15.5,
+   "5": 15.0,
+   "6": 14.8,
+   "7": 13.6,
+   "8": 13.4,
+   "9": 14.7,
+   "10": 15.6,
+   "11": 15.1,
+   "12": 14.7,
+   "13": 15.0,
+   "14": 15.3
+  }
+ },
+ "corr_sensitivity": {
+  "transit_stops_per_1000": {
+   "all": -0.71,
+   "drop_fastest": -0.64,
+   "drop_two_fastest": -0.53,
+   "drop_fastest_and_slowest": -0.8,
+   "leave_one_out_min": -0.83,
+   "leave_one_out_max": -0.64
+  },
+  "rec_facilities_per_1000": {
+   "all": -0.55,
+   "drop_fastest": -0.52,
+   "drop_two_fastest": -0.46,
+   "drop_fastest_and_slowest": -0.69,
+   "leave_one_out_min": -0.68,
+   "leave_one_out_max": -0.47
+  },
+  "requests_per_1000": {
+   "all": -0.29,
+   "drop_fastest": -0.2,
+   "drop_two_fastest": -0.11,
+   "drop_fastest_and_slowest": -0.31,
+   "leave_one_out_min": -0.49,
+   "leave_one_out_max": -0.2
+  }
  }
 }
