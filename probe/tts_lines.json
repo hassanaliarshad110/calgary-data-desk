@@ -1,32 +1,23 @@
 {
- "_cfg": {
-  "voice": {
-   "v": "am_michael",
-   "f": "am_fenrir"
-  },
-  "speed": {
-   "v": 0.9,
-   "f": 0.9
-  }
- },
  "v": [
-  "They built this city with their own hands.",
-  "Then someone decided to own it.",
-  "Every contract. Every permit. Every street.",
-  "But they forgot one thing.",
-  "Calgarians don't sell.",
-  "This winter, the city fights back.",
-  "Calgarians versus the Corrupt Mafia.",
-  "An original series. Coming soon, on calgary insight dot c a."
+  "Calgary's Chinatown was forced to move. Twice.",
+  "Today it sits at the foot of the Centre Street Bridge. But it didn't start here.",
+  "The first Chinatown grew up just east of the train station, where the City's Municipal Building stands today.",
+  "In eighteen ninety-two, a smallpox outbreak fuelled violence. A mob of more than three hundred men smashed the doors and windows of Chinese laundries.",
+  "For three weeks, the North West Mounted Police had to protect Chinatown.",
+  "In nineteen-oh-one, anti-Chinese sentiment and development pressure prompted a second Chinatown, across the railway tracks on Tenth Avenue Southwest.",
+  "Then, in nineteen-ten, the Canadian Northern Railway announced its route into Calgary. Property values soared. Landlords evicted their Chinese tenants, and sold.",
+  "So a group of Chinese merchants bought land of their own, at Centre Street and Second Avenue.",
+  "Anti-Chinese protesters demanded Chinatown go somewhere else. The merchants won a permit, and built the Canton Block. It still stands.",
+  "In the nineteen-sixties, a proposed road would have wiped out half of Chinatown. The community organized, and the plan was defeated.",
+  "In nineteen ninety-two, the Chinese Cultural Centre opened, modelled on Beijing's Temple of Heaven.",
+  "Pushed out twice. Since nineteen-ten, Chinatown has stayed put.",
+  "Have you been to Calgary's Chinatown? Yes or no? Drop your thoughts below."
  ],
- "f": [
-  "They built this city with their own hands.",
-  "Then someone decided to own it.",
-  "Every contract. Every permit. Every street.",
-  "But they forgot one thing.",
-  "Calgarians don't sell.",
-  "This winter, the city fights back.",
-  "Calgarians versus the Corrupt Mafia.",
-  "An original series. Coming soon, on calgary insight dot c a."
+ "t": [
+  "Calgary's Chinatown was forced to move. Twice.",
+  "Anti-Chinese sentiment and development pressure prompted a second Chinatown across the tracks. Then a railway sent property values soaring, and landlords evicted their Chinese tenants.",
+  "So Chinese merchants bought land of their own, and built the Canton Block. It still stands.",
+  "The full story is on our page. Have you been to Chinatown? Yes or no? Drop your thoughts below."
  ]
 }
