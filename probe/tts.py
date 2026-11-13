@@ -8,11 +8,12 @@ from kokoro_onnx import Kokoro
 import soundfile as sf
 k = Kokoro('kokoro-v1.0.onnx', 'voices-v1.0.bin')
 L = json.load(open(os.path.join(os.path.dirname(__file__), 'tts_lines.json')))
+cfg = L.pop('_cfg', {})  # optional {"voice": {key: voice}, "speed": {key: speed}}; default af_heart, 1.0
 durs = {}
 for name, lines in L.items():
     durs[name] = []
     for i, t in enumerate(lines):
-        a, sr = k.create(t, voice='af_heart', speed=1.0, lang='en-us')
+        a, sr = k.create(t, voice=cfg.get('voice', {}).get(name, 'af_heart'), speed=cfg.get('speed', {}).get(name, 1.0), lang='en-us')
         sf.write(os.path.join(out, f'{name}_{i}.wav'), a, sr)
         durs[name].append(round(len(a) / sr, 3))
 json.dump(durs, open(os.path.join(out, 'durs.json'), 'w'))

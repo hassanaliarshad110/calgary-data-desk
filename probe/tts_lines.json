@@ -1,10 +1,32 @@
 {
+ "_cfg": {
+  "voice": {
+   "v": "am_michael",
+   "f": "am_fenrir"
+  },
+  "speed": {
+   "v": 0.9,
+   "f": 0.9
+  }
+ },
  "v": [
-  "Calgary cloned a war memorial.",
-  "In nineteen twenty-two, the mayor planted the first tree on what is now Memorial Drive.",
-  "The plan: a tree for each fallen soldier of the Great War.",
-  "In two thousand one, the City took cuttings from the trees still standing, and grew clones in B.C.",
-  "So the memorial poplars can be replaced by their own clones.",
-  "Did you know? Yes or no. Drop your thoughts below."
+  "They built this city with their own hands.",
+  "Then someone decided to own it.",
+  "Every contract. Every permit. Every street.",
+  "But they forgot one thing.",
+  "Calgarians don't sell.",
+  "This winter, the city fights back.",
+  "Calgarians versus the Corrupt Mafia.",
+  "An original series. Coming soon, on calgary insight dot c a."
+ ],
+ "f": [
+  "They built this city with their own hands.",
+  "Then someone decided to own it.",
+  "Every contract. Every permit. Every street.",
+  "But they forgot one thing.",
+  "Calgarians don't sell.",
+  "This winter, the city fights back.",
+  "Calgarians versus the Corrupt Mafia.",
+  "An original series. Coming soon, on calgary insight dot c a."
  ]
 }
