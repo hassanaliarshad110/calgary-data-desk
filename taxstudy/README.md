@@ -42,3 +42,10 @@ Run in that order (Python 3.12 or later; standard library only). `STUDY` is the 
 - 2025 -> 2026 pairs: 486,475 matched accounts; 485,541 with the same home type (the medians).
 - Historical code map (RE0110 -> R110, RE0410 -> R402, RE0210 -> R202, RE0310 -> R302 ...): derived by cross-tabulating roll numbers present in both 2025 and 2026 (see analysis_assess.py). R401/R402 labels are inferred, not from a City code list.
 - Ward populations come from the growth model on the run date and shift slightly with each run (the City's monthly total moves).
+
+## 5. Source document fingerprint
+- Business-case book (2027-2030 operating and capital budget requests, 792 pp.), SHA-256 b4deb3927d24afb142426127662c8be76751b6a041d6bb85a3358869da85c3d0 (file dated 2026-11-09, read 2026-11-11).
+
+## 6. Frozen snapshot branches
+- branch taxstudy-v1.3: these scripts, figure files and the report builder.
+- branches taxstudy-v1.3-data-p1 / -p2 / -p3: the raw probe outputs used (snapshots of taxstudy-probe-out, taxstudy2-probe-out, taxstudy3-probe-out on 13 Nov 2026).
