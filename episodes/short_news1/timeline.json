@@ -1,0 +1,119 @@
+{
+"scenes": [
+{
+"id": "s01",
+"start": 0,
+"dur": 3.532,
+"lines": [
+"s01"
+]
+},
+{
+"id": "s02",
+"start": 3.532,
+"dur": 5.05,
+"lines": [
+"s02"
+]
+},
+{
+"id": "s03",
+"start": 8.582,
+"dur": 4.582,
+"lines": [
+"s03"
+]
+},
+{
+"id": "s04",
+"start": 13.164,
+"dur": 4.682,
+"lines": [
+"s04"
+]
+},
+{
+"id": "s05",
+"start": 17.846,
+"dur": 5.507,
+"lines": [
+"s05"
+]
+},
+{
+"id": "s06",
+"start": 23.353,
+"dur": 5.676,
+"lines": [
+"s06"
+]
+},
+{
+"id": "s07",
+"start": 29.029,
+"dur": 6.542,
+"lines": [
+"s07"
+]
+},
+{
+"id": "s08",
+"start": 35.571,
+"dur": 7.851,
+"lines": [
+"s08"
+]
+}
+],
+"lines": {
+"s01": {
+"start": 0.15,
+"dur": 3.132,
+"spk": "N",
+"roman": "America mein sirf 3 din… aur 5 bade jhatke!"
+},
+"s02": {
+"start": 3.532,
+"dur": 4.8,
+"spk": "N",
+"roman": "Ek! NVIDIA ke boss Jensen Huang ka istifa — jasoosi vivaad ke beech."
+},
+"s03": {
+"start": 8.582,
+"dur": 4.332,
+"spk": "N",
+"roman": "Do! Microsoft ka Outlook aur Teams — poori duniya mein ghanton thapp."
+},
+"s04": {
+"start": 13.164,
+"dur": 4.432,
+"spk": "N",
+"roman": "Teen! New York ke Brooklyn mein ek imaarat dhah gayi, log malbe mein dab gaye."
+},
+"s05": {
+"start": 17.846,
+"dur": 5.257,
+"spk": "N",
+"roman": "Chaar! New Orleans mein ek tanker ne cruise jahaaz ko takkar maari — aur jahaaz palat gaya."
+},
+"s06": {
+"start": 23.353,
+"dur": 5.426,
+"spk": "N",
+"roman": "Aur paanch! Ek communication kharaabi… aur poore America mein udaanein zameen par rok di gayin."
+},
+"s07": {
+"start": 29.029,
+"dur": 6.292,
+"spk": "N",
+"roman": "To kya ye sab juda hai? Ab tak — nahi. Har ghatna ki wajah alag hai, aur kisi hamle ka sanket nahi."
+},
+"s08": {
+"start": 35.571,
+"dur": 6.451,
+"spk": "N",
+"roman": "Sabak? Ek system, ek gadbad… aur poora desh ruk jaata hai. Awazzzz ko SUBSCRIBE kijiye!"
+}
+},
+"total": 43.422000000000004
+}

@@ -12,7 +12,7 @@ if len(M)<N: M=np.vstack([M,np.zeros((N-len(M),2))])
 # duck
 e=lfilter([1-0.9995],[1,-0.9995],np.abs(V))*30; e=np.clip(e,0,1)
 e=np.maximum.accumulate(e[::-1])[::-1]*0+e
-g=0.20*(1-0.55*e)
+g=0.42*(1-0.5*e)   # Nov 13 2026: audible bed (was 0.20*(1-0.55e), which buried the score)
 M=M*g[:,None]
 S=np.zeros((N,2)); rng=np.random.default_rng(5)
 def put(sig,t,gain=1.0):
