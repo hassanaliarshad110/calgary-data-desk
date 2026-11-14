@@ -1,20 +1,25 @@
-import json, os, sys, subprocess, urllib.request
+import csv, io, json, os, sys, time, urllib.request
 out = sys.argv[1]; os.makedirs(out, exist_ok=True)
-subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'kokoro-onnx', 'soundfile'], check=True)
-base = 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/'
-for f in ('kokoro-v1.0.onnx', 'voices-v1.0.bin'):
-    if not os.path.exists(f): urllib.request.urlretrieve(base + f, f)
-from kokoro_onnx import Kokoro
-import soundfile as sf
-k = Kokoro('kokoro-v1.0.onnx', 'voices-v1.0.bin')
-L = json.load(open(os.path.join(os.path.dirname(__file__), 'tts_lines.json')))
-cfg = L.pop('_cfg', {})  # optional {"voice": {key: voice}, "speed": {key: speed}}; default af_heart, 1.0
-durs = {}
-for name, lines in L.items():
-    durs[name] = []
-    for i, t in enumerate(lines):
-        a, sr = k.create(t, voice=cfg.get('voice', {}).get(name, 'af_heart'), speed=cfg.get('speed', {}).get(name, 1.0), lang='en-us')
-        sf.write(os.path.join(out, f'{name}_{i}.wav'), a, sr)
-        durs[name].append(round(len(a) / sr, 3))
-json.dump(durs, open(os.path.join(out, 'durs.json'), 'w'))
-print(durs)
+def get(url):
+    for i in range(3):
+        try:
+            return urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=60).read().decode('utf-8-sig', 'replace')
+        except Exception as e:
+            err = str(e); time.sleep(2)
+    return 'ERR ' + err
+B = 'https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID={s}&Year={y}&Month=11&Day=14&timeframe={tf}&submit=Download+Data'
+res = {}
+for y in range(1926, 2027):
+    for s in ([2205] if y < 2012 else [2205, 50430] if y == 2012 else [50430]):
+        txt = get(B.format(s=s, y=y, tf=2))
+        if txt.startswith('ERR'): res[f'{y}_{s}'] = txt; continue
+        for r in csv.DictReader(io.StringIO(txt)):
+            d = r.get('Date/Time', '')
+            if d.endswith('-11-14') or d.endswith('-11-13') or d.endswith('-11-15'):
+                res[f'{d}_{s}'] = {'max': r.get('Max Temp (°C)'), 'min': r.get('Min Temp (°C)'), 'flag': r.get('Max Temp Flag'), 'station': r.get('Station Name'), 'climate_id': r.get('Climate ID')}
+for s in (50430, 27211):
+    txt = get(B.format(s=s, y=2026, tf=1))
+    rows = [ {k: r.get(k) for k in ('Date/Time (LST)', 'Temp (°C)', 'Station Name')} for r in csv.DictReader(io.StringIO(txt)) if '2026-11-14' in (r.get('Date/Time (LST)') or '')] if not txt.startswith('ERR') else txt
+    res[f'hourly_2026-11-14_{s}'] = rows
+json.dump(res, open(os.path.join(out, 'ec_nov14.json'), 'w'), indent=1, ensure_ascii=False)
+print(len(res))
