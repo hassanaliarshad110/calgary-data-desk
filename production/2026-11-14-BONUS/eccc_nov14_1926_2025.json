@@ -1,0 +1,1012 @@
+[
+ {
+  "year": 1926,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1926-11-14",
+  "max_c": "10.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1926&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1927,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1927-11-14",
+  "max_c": "-13.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1927&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1928,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1928-11-14",
+  "max_c": "-1.7",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1928&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1929,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1929-11-14",
+  "max_c": "12.2",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1929&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1930,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1930-11-14",
+  "max_c": "-12.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1930&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1931,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1931-11-14",
+  "max_c": "-7.2",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1931&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1932,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1932-11-14",
+  "max_c": "-17.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1932&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1933,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1933-11-14",
+  "max_c": "7.2",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1933&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1934,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1934-11-14",
+  "max_c": "8.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1934&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1935,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1935-11-14",
+  "max_c": "-15.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1935&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1936,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1936-11-14",
+  "max_c": "16.7",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1936&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1937,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1937-11-14",
+  "max_c": "-10.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1937&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1938,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1938-11-14",
+  "max_c": "2.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1938&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1939,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1939-11-14",
+  "max_c": "8.3",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1939&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1940,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1940-11-14",
+  "max_c": "13.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1940&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1941,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1941-11-14",
+  "max_c": "12.2",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1941&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1942,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1942-11-14",
+  "max_c": "10.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1942&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1943,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1943-11-14",
+  "max_c": "8.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1943&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1944,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1944-11-14",
+  "max_c": "3.3",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1944&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1945,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1945-11-14",
+  "max_c": "-15.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1945&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1946,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1946-11-14",
+  "max_c": "4.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1946&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1947,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1947-11-14",
+  "max_c": "-5.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1947&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1948,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1948-11-14",
+  "max_c": "9.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1948&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1949,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1949-11-14",
+  "max_c": "13.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1949&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1950,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1950-11-14",
+  "max_c": "-2.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1950&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1951,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1951-11-14",
+  "max_c": "-2.2",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1951&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1952,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1952-11-14",
+  "max_c": "3.3",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1952&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1953,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1953-11-14",
+  "max_c": "16.1",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1953&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1954,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1954-11-14",
+  "max_c": "12.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1954&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1955,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1955-11-14",
+  "max_c": "-20.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1955&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1956,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1956-11-14",
+  "max_c": "-0.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1956&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1957,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1957-11-14",
+  "max_c": "-2.2",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1957&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1958,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1958-11-14",
+  "max_c": "-7.2",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1958&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1959,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1959-11-14",
+  "max_c": "-11.1",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1959&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1960,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1960-11-14",
+  "max_c": "5.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1960&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1961,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1961-11-14",
+  "max_c": "6.7",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1961&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1962,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1962-11-14",
+  "max_c": "-2.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1962&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1963,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1963-11-14",
+  "max_c": "3.3",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1963&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1964,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1964-11-14",
+  "max_c": "-3.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1964&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1965,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1965-11-14",
+  "max_c": "-3.3",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1965&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1966,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1966-11-14",
+  "max_c": "-6.7",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1966&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1967,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1967-11-14",
+  "max_c": "11.7",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1967&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1968,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1968-11-14",
+  "max_c": "3.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1968&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1969,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1969-11-14",
+  "max_c": "10.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1969&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1970,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1970-11-14",
+  "max_c": "6.7",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1970&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1971,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1971-11-14",
+  "max_c": "11.1",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1971&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1972,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1972-11-14",
+  "max_c": "-1.1",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1972&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1973,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1973-11-14",
+  "max_c": "-7.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1973&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1974,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1974-11-14",
+  "max_c": "8.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1974&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1975,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1975-11-14",
+  "max_c": "15.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1975&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1976,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1976-11-14",
+  "max_c": "11.1",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1976&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1977,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1977-11-14",
+  "max_c": "8.5",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1977&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1978,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1978-11-14",
+  "max_c": "5.3",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1978&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1979,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1979-11-14",
+  "max_c": "18.7",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1979&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1980,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1980-11-14",
+  "max_c": "9.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1980&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1981,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1981-11-14",
+  "max_c": "5.1",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1981&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1982,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1982-11-14",
+  "max_c": "9.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1982&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1983,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1983-11-14",
+  "max_c": "8.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1983&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1984,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1984-11-14",
+  "max_c": "-8.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1984&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1985,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1985-11-14",
+  "max_c": "11.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1985&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1986,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1986-11-14",
+  "max_c": "-6.2",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1986&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1987,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1987-11-14",
+  "max_c": "5.2",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1987&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1988,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1988-11-14",
+  "max_c": "-3.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1988&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1989,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1989-11-14",
+  "max_c": "-0.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1989&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1990,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1990-11-14",
+  "max_c": "4.5",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1990&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1991,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1991-11-14",
+  "max_c": "3.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1991&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1992,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1992-11-14",
+  "max_c": "10.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1992&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1993,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1993-11-14",
+  "max_c": "9.3",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1993&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1994,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1994-11-14",
+  "max_c": "6.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1994&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1995,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1995-11-14",
+  "max_c": "4.5",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1995&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1996,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1996-11-14",
+  "max_c": "-3.5",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1996&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1997,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1997-11-14",
+  "max_c": "-5.7",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1997&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1998,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1998-11-14",
+  "max_c": "0.3",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1998&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 1999,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "1999-11-14",
+  "max_c": "12.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=1999&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2000,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2000-11-14",
+  "max_c": "3.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2000&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2001,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2001-11-14",
+  "max_c": "13.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2001&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2002,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2002-11-14",
+  "max_c": "7.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2002&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2003,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2003-11-14",
+  "max_c": "9.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2003&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2004,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2004-11-14",
+  "max_c": "10.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2004&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2005,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2005-11-14",
+  "max_c": "-2.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2005&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2006,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2006-11-14",
+  "max_c": "0.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2006&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2007,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2007-11-14",
+  "max_c": "5.5",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2007&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2008,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2008-11-14",
+  "max_c": "2.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2008&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2009,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2009-11-14",
+  "max_c": "1.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2009&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2010,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2010-11-14",
+  "max_c": "9.7",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2010&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2011,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2011-11-14",
+  "max_c": "0.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2011&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2012,
+  "station_id": 2205,
+  "station": "CALGARY INT'L A",
+  "climate_id": "3031093",
+  "date": "2012-11-14",
+  "max_c": "",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=2012&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2012,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2012-11-14",
+  "max_c": "6.1",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2012&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2013,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2013-11-14",
+  "max_c": "7.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2013&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2014,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2014-11-14",
+  "max_c": "-11.0",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2014&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2015,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2015-11-14",
+  "max_c": "1.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2015&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2016,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2016-11-14",
+  "max_c": "10.9",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2016&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2017,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2017-11-14",
+  "max_c": "1.6",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2017&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2018,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2018-11-14",
+  "max_c": "11.1",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2018&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2019,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2019-11-14",
+  "max_c": "7.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2019&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2020,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2020-11-14",
+  "max_c": "1.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2020&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2021,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2021-11-14",
+  "max_c": "10.3",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2021&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2022,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2022-11-14",
+  "max_c": "2.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2022&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2023,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2023-11-14",
+  "max_c": "6.4",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2023&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2024,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2024-11-14",
+  "max_c": "8.1",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2024&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ },
+ {
+  "year": 2025,
+  "station_id": 50430,
+  "station": "CALGARY INTL A",
+  "climate_id": "3031092",
+  "date": "2025-11-14",
+  "max_c": "2.8",
+  "max_flag": "",
+  "url": "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2025&Month=11&Day=14&timeframe=2&submit=Download+Data"
+ }
+]
