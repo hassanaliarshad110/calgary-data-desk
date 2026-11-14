@@ -1,0 +1,44 @@
+{
+ "about": "Calgary Transit ridership by year, checked by hand, with the break in method: Calgary Transit now counts CTrain riders with automated passenger counters (APC), and restated 2024 on that basis. Figures from the two methods must not be compared. Read with read_source key=data:transit_ridership. For months, the City's open data Calgary Transit Ridership (iema-jbc4) has monthly figures under the old method to June 2025.",
+ "keywords": "transit ridership riders trips Calgary Transit CTrain bus passengers boardings yearly annual APC automated passenger counting",
+ "checked": "2026-11-14",
+ "current_method": {
+  "name": "Automated passenger counting (APC) on CTrains, with modelling for the system-wide total",
+  "years": {
+   "2024 (restated)": 93700000,
+   "2025": 93100000
+  },
+  "note": "Calgary Transit says the method relies on modelling and assumptions, so a year-to-year change can reflect sampling rather than a real change in riders.",
+  "sources": [
+   {
+    "title": "City of Calgary Newsroom, New technology counting CTrain riders",
+    "url": "https://newsroom.calgary.ca/new-technology-counting-ctrain-riders-will-improve-service-and-value-for-calgarians/"
+   },
+   {
+    "title": "City of Calgary, RouteAhead Annual Status Report (IP2026-0142, May 2026)"
+   }
+  ]
+ },
+ "previous_method": {
+  "name": "Manual passenger counts and periodic sampling",
+  "years": {
+   "2022": 56900000,
+   "2023": 90000000,
+   "2024": 101100000,
+   "2025 (to June)": 48500000
+  },
+  "note": "The 2025 Mobility Status Report labels the 48.5 million '2025 YTD' (the City's web page says Jan-Oct); it equals the open data's January to June 2025 total, so it covers the first half of 2025. Not comparable with the APC figures above.",
+  "sources": [
+   {
+    "title": "City of Calgary, 2025 Mobility Status Report",
+    "url": "https://www.calgary.ca/content/dam/www/transportation/roads/documents/2025-mobility-status-report.pdf"
+   },
+   {
+    "title": "City of Calgary open data, Calgary Transit Ridership (iema-jbc4)",
+    "url": "https://data.calgary.ca/d/iema-jbc4"
+   }
+  ]
+ },
+ "year_2026": "No 2026 total or year-to-date figure was found in a City report as of the check date. Search the City's open data catalogue for ridership (a yearly table with the current year to date may be there) before saying there is none, and name the method it uses.",
+ "limits": "Do not compare 101.1 million (2024, old method) with 93.1 million (2025, APC): on the same method 2024 was 93.7 million, so ridership was about flat (down 0.6%)."
+}
