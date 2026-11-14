@@ -1,0 +1,73 @@
+{
+ "about": "New communities Council approved in 2026 (growth applications, GA numbers), checked by hand from Council records and news, with sources: the count so far, the October 27, 2026 votes, the four applications going to the 2027-2030 budget, and the total of new communities in development. Also explains why approved rezoning or outline plans (LOC numbers in the City's open data) are not new communities. Read with read_source key=data:new_communities.",
+ "keywords": "new communities approved council growth applications GA suburbs neighbourhoods greenfield outskirts Glacier Ridge Belvedere Providence homes 2026 approved communities residential new community growth",
+ "checked": "2026-11-14",
+ "definition": "A growth application (numbers like GA2026-009) is where Council decides whether a new community can go ahead; once approved, the City takes on the long-term cost of the roads, water, transit, fire service and parks it needs. Applications that need no new City capital can be approved at any council meeting; those that need capital are decided in the November budget. This is the only Council approval that counts as 'a new community approved'.",
+ "not_the_same": "Land use redesignation applications (numbers like LOC2025-0046; open data 33vi-ew4s) are rezonings, often with an outline plan, for one site or subdivision. An 'Approved' LOC is a rezoning or outline plan decision, mostly inside communities that already exist or were approved earlier; it is not a new community and must not be counted as one. Council's open vote records list motions, not a register of new communities.",
+ "approved_2026": {
+  "count": 9,
+  "how": "6 approved before October 24, 2026 (The Sprawl: 'so far in 2026, council has approved six new neighbourhoods', each 225 to 1,110 anticipated homes; not named individually in that source) + 3 approved on October 27, 2026.",
+  "october_27": {
+   "date": "2026-10-27",
+   "homes": 3965,
+   "applications": [
+    {
+     "id": "GA2026-009",
+     "name": "Glacier Ridge 1",
+     "ward": 2,
+     "vote": "Passed 9-6"
+    },
+    {
+     "id": "GA2026-010",
+     "name": "Belvedere",
+     "ward": 9,
+     "vote": "Passed 11-4"
+    },
+    {
+     "id": "GA2026-011",
+     "name": "Glacier Ridge 2",
+     "ward": 2,
+     "vote": "Passed 9-6"
+    }
+   ],
+   "note": "None needs new City capital to start; Council directed their operating costs be added in the 2028 adjustments to the 2027-2030 budget.",
+   "sources": [
+    {
+     "title": "City of Calgary, Ward 8 Council Debriefs (October 27, 2026 meeting)",
+     "url": "https://www.calgary.ca/council/ward-8/council-debriefs.html"
+    },
+    {
+     "title": "CBC News via Yahoo, Calgary council approves three new communities (Oct 29, 2026)",
+     "url": "https://ca.news.yahoo.com/calgary-council-approves-three-communities-131552614.html"
+    },
+    {
+     "title": "The Sprawl, City council approves 3 new neighbourhoods, 4 still to come (Nov 4, 2026)",
+     "url": "https://www.sprawlcalgary.com/city-council-approves-3-new-neighbourhoods"
+    }
+   ]
+  },
+  "earlier_source": {
+   "title": "The Sprawl, Calgary city council to decide on 7 new neighbourhoods (Oct 24, 2026)",
+   "url": "https://www.sprawlcalgary.com/city-council-7-new-communities-urban-sprawl"
+  }
+ },
+ "pending_budget_2027_2030": {
+  "count": 4,
+  "homes": 17176,
+  "capital_2027_2030": 377000000,
+  "note": "Go to Council during the 2027-2030 budget deliberations in November 2026; they include Providence (west edge, 9,590 anticipated homes, about $236 million capital). Nearly a billion dollars more capital would be needed in later budget cycles. If all four pass, 13 growth applications would be approved in 2026.",
+  "status": "Not decided as of 2026-11-14",
+  "sources": [
+   {
+    "title": "The Sprawl, City council approves 3 new neighbourhoods, 4 still to come",
+    "url": "https://www.sprawlcalgary.com/city-council-approves-3-new-neighbourhoods"
+   }
+  ]
+ },
+ "in_development_total": {
+  "count": 39,
+  "note": "New communities in the works around the city (The Sprawl, Oct 24, 2026).",
+  "url": "https://www.sprawlcalgary.com/city-council-7-new-communities-urban-sprawl"
+ },
+ "limits": "The six approved before October 24, 2026 are counted from The Sprawl; the source does not name them one by one. Update this file after the November 2026 budget decisions."
+}

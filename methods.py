@@ -331,7 +331,8 @@ METHODS = [
          '(for example R-CG to DC).'],
      'excel': ['Download 33vi-ew4s, filter applieddate to the period (or statuscurrent to the open ones) and keep the '
                'rows whose latitude and longitude fall in the area (a map check; Calgary Insight tests the boundary exactly).'],
-     'cautions': ['Public hearing dates are on Council agendas, not in the open data.',
+     'cautions': ['An approved LOC is a rezoning or outline plan, not a new community: new communities are Council growth applications (GA numbers; read_source key=data:new_communities).',
+                  'Public hearing dates are on Council agendas, not in the open data.',
                   'A large application can list several districts at once, separated by commas, in the same order.']},
 
     {'key': 'traffic', 'name': 'Traffic Incidents', 'dataset': '35ra-9556', 'publisher': 'City of Calgary',

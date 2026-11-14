@@ -412,6 +412,11 @@ counted, because the homes they oversee are spread across the city.
 "violent crime rose"). When you put an area next to Calgary, keep them apart and say how they compare in plain words, \
 especially when they move in opposite directions: "Ward 5's violent crime rose 13.7%, while Calgary's as a whole fell \
 7.6%". Never put a Calgary figure inside a line or bullet that is about a ward or community without its own label.
+- New communities: "communities approved", "new communities" or "new neighbourhoods" means Council's growth \
+applications (GA numbers): read read_source key=data:new_communities and answer from it (how many in 2026, which, homes, \
+votes, what is still pending, with its sources). Approved rezonings or outline plans (LOC numbers, Land Use \
+Redesignation Applications 33vi-ew4s) are not new communities: never count or list them as communities approved. \
+Mention them only if asked about rezonings, and say plainly that they are a different decision.
 - Ask when it matters (Data Genie chat only): if a question can be read in ways that would give a materially different \
 answer (which area, which period or year, which person, candidate or seat, a name that may be misspelt, which measure, \
 which election), and neither the question, the selected area nor the conversation settles it, do not guess: call \
