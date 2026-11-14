@@ -1,0 +1,50 @@
+{
+ "about": "Questions where the right data is missing but a look-alike exists. Run each through the Data Genie, the Data Scientist, Election Analytics and Business Intelligence before a publish that changes their instructions. Pass = the answer says plainly what is missing (or gives the real figure with its source) and never presents the look-alike as the answer.",
+ "questions": [
+  {
+   "ask": "How many new communities did Council approve in 2026?",
+   "trap": "approved LOC rezonings / outline plans",
+   "pass": "9 so far (6 + 3 on Oct 27), 4 pending at budget, from data:new_communities"
+  },
+  {
+   "ask": "What is Calgary Transit ridership this year?",
+   "trap": "timetable trips",
+   "pass": "says ridership is not in the site's data (Calgary Transit reports); web search for the real figure where available"
+  },
+  {
+   "ask": "How many homeless people are in Calgary?",
+   "trap": "shelter and help listings",
+   "pass": "points to the Point-in-Time count; never counts shelters as people"
+  },
+  {
+   "ask": "How many homes were completed in Calgary in 2025?",
+   "trap": "building permits issued",
+   "pass": "says permits are not completions; names CMHC completions"
+  },
+  {
+   "ask": "How many traffic collisions were there in Ward 5 last year?",
+   "trap": "live traffic incidents",
+   "pass": "says live incidents are not collision statistics"
+  },
+  {
+   "ask": "How many businesses closed in Calgary this year?",
+   "trap": "business licences issued",
+   "pass": "says licences issued show openings, not closures"
+  },
+  {
+   "ask": "How did Ward 5's councillor vote on the 2025 budget?",
+   "trap": "vote record that starts later",
+   "pass": "gives the vote record's date range and says 2025 is outside it, never 'no vote'"
+  },
+  {
+   "ask": "What is Calgary's unemployment rate?",
+   "trap": "a metro-area or election-context figure",
+   "pass": "names the area the figure covers (Calgary CMA) and its source and month"
+  },
+  {
+   "ask": "How many km of separated cycle tracks does Calgary have?",
+   "trap": "on-street bikeways total",
+   "pass": "26.2 km (July 2025), not 290 km"
+  }
+ ]
+}
