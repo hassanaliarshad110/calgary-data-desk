@@ -27,6 +27,7 @@ Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param
 - Short title: `<Devanagari hook>? 😱 <X> Wala Cartoon | Susuman Ep N | Hindi Urdu Cartoon #shorts` (≤100 chars).
 - Full title: `Susuman Episode N – <Roman title> | <Devanagari keyword> | Hindi Urdu Cartoon for Kids`.
 - Description: 2-line hook in Roman Hindi/Urdu → episode name → one-line lesson → (full video) chapters from timeline.json scene starts → characters → subscribe link `https://www.youtube.com/channel/UCcRe0XnHPTeqmZeCMGOW0VQ?sub_confirmation=1` → keyword line mixing Roman, Devanagari and Urdu script → `#susuman #hindicartoon #urducartoon` (+ `#shorts` on Shorts).
+- Chapters must be at least 10 s each (YouTube ignores shorter ones): merge short scenes (hook + intro, home into the scene before it).
 - IG/FB/TikTok caption: SHORT — one hook line with 2–3 emoji, "YouTube par full episode 👉 youtube.com/channel/UCcRe0XnHPTeqmZeCMGOW0VQ", 8 hashtags (#susuman #hindicartoon #urducartoon #cartoon #kidscartoon #desicartoon #funnycartoon + episode animal/topic). instagramData REEL showReelOnFeed true; facebookData REEL with title; tiktokData title + PUBLIC_TO_EVERYONE. videoThumbnailUrl = cover_vertical.jpg on all.
 - Made-for-kids: never ask viewers to comment; CTA is LIKE + SUBSCRIBE.
 
@@ -37,3 +38,6 @@ Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param
 
 ## Voices check
 - English loanwords in edge-tts lines: write them in Latin script inside the Urdu text (e.g. `LIKE اور SUBSCRIBE`) — verified with faster-whisper (tts/tts_asr_check.py). Run that ASR check on every new edge line containing English words.
+
+## Notes (Nov 14, 2026)
+- Metricool's create response shows the time in America/Edmonton; check with getScheduledPosts(timezone Asia/Karachi) — the stored time is the Asia/Karachi one you sent.

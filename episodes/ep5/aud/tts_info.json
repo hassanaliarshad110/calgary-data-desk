@@ -1,0 +1,78 @@
+{
+ "kokoro": {
+  "q1": {
+   "dur": 1.685,
+   "ph": "dˈaːdi, mˌʊɟʰeː bʰˈi! mˌʊɟʰeː bʰˈi!"
+  },
+  "q5": {
+   "dur": 2.496,
+   "ph": "bˈʌndəɾ mˈaːmaː, jeː lˈoː kˈeːlaː... cˈʌʃmaː dˈeː dˈoː!"
+  },
+  "q3x": {
+   "dur": 1.408,
+   "ph": "sˈuːː sˈuːː mˈɛːn!"
+  },
+  "k1": {
+   "dur": 2.667,
+   "ph": "ɟˈaː ɟˈʌldi! dˈaːdi koː mɛ̃ səmbʰˈaːltˌi hũ!"
+  },
+  "k2": {
+   "dur": 1.877,
+   "ph": "ˈʌmmi, sˈʌɾdi bˈʌhʊt hɛː nˈaː!"
+  },
+  "d1": {
+   "dur": 3.669,
+   "ph": "dˈeːkʰaː! mɛ̃ kˈʌhətˌaː tʰaː, həmˌaːɾi ɡˈʌli mẽː bʰˈi hˈiːɾoː hɛː!"
+  },
+  "s1": {
+   "dur": 3.029,
+   "ph": "bˈʌndəɾ mˈaːmaː! kˈeːlaː lˈoː... hˈaː hˈaː, nˈʌhĩ mɪlˈeːɡaː!"
+  },
+  "s2": {
+   "dur": 3.115,
+   "ph": "sˈɔɾi bˈʌndəɾ mˈaːmaː! jeː lˈoː, pˈuːɾaː kˈeːlaː tʊmhˌaːɾaː!"
+  },
+  "v1": {
+   "dur": 4.885,
+   "ph": "bɾeːkˈĩɡ njˈuːz! mˈɪsʈɾi hˈiːɾoː nˈeː bˈʌndəɾ koː bˈɪɟlˌi keː tˈaːɾõ seː bəcˈaːjaː!"
+  },
+  "v2": {
+   "dur": 2.645,
+   "ph": "ɔːɾ dˈaːdi kaː cˈʌʃmaː bʰˈi lˈɔːʈaː dˈɪjaː!"
+  }
+ },
+ "edge": {
+  "n1": "ok",
+  "n2": "ok",
+  "i1": "ok",
+  "i2": "ok",
+  "i3": "ok",
+  "i5": "ok",
+  "i6": "ok",
+  "l1": "ok",
+  "l2": "ok",
+  "z1": "ok",
+  "z2": "ok",
+  "z3": "ok",
+  "z4": "ok",
+  "a2": "ok",
+  "n4": "ok"
+ },
+ "asr": {
+  "l2": {
+   "en": "He became a superhero.",
+   "ur": "وہ سپر ہیرو پھر آ گیا",
+   "hi": "वो सुपःहेरो फेरा गया"
+  },
+  "z2": {
+   "en": "Koi upar mat jaana. Taaro mein karand hai.",
+   "ur": "کوئی اوپر مجھ جانا تاروں میں کرند ہے",
+   "hi": "कोई उपर मज जाना तारो में करन्द है"
+  },
+  "n4": {
+   "en": "Don't kill children and animals. Love them. If you like the video, then like and subscribe.",
+   "ur": "بچوں جانوروں کو تنمت کرو ان سے پیار کرو ویڈیو اچھی لگی تو لائیک اور سبسکرائب کرو",
+   "hi": "बच्यो जान्वरों को तन्मत करो, उनसे प्यार करो, वीडियो अच्छी लगी तो लाइक और सबस्क्राइब करो."
+  }
+ }
+}

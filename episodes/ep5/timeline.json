@@ -1,0 +1,294 @@
+{
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "dur": 6.904
+  },
+  {
+   "id": "intro",
+   "start": 6.904,
+   "dur": 9.521
+  },
+  {
+   "id": "tease",
+   "start": 16.425,
+   "dur": 12.671
+  },
+  {
+   "id": "home",
+   "start": 29.096,
+   "dur": 7.959
+  },
+  {
+   "id": "chase",
+   "start": 37.055,
+   "dur": 10.533
+  },
+  {
+   "id": "power",
+   "start": 47.588,
+   "dur": 8.325
+  },
+  {
+   "id": "rescue",
+   "start": 55.912,
+   "dur": 12.469
+  },
+  {
+   "id": "lesson",
+   "start": 68.382,
+   "dur": 13.291
+  },
+  {
+   "id": "tv",
+   "start": 81.673,
+   "dur": 12.531
+  },
+  {
+   "id": "ending",
+   "start": 94.204,
+   "dur": 9.259
+  },
+  {
+   "id": "endcard",
+   "start": 103.463,
+   "dur": 9.658
+  }
+ ],
+ "lines": {
+  "n1": {
+   "scene": "hook",
+   "s": 0.4,
+   "d": 4.804,
+   "abs": 0.4,
+   "sp": "NARR",
+   "txt": "Bandar ke haath mein|Dadi ka chashma...~aur saamne bijli ke taar!|Ab kya hoga?"
+  },
+  "n2": {
+   "scene": "intro",
+   "s": 0.8,
+   "d": 3.285,
+   "abs": 7.704,
+   "sp": "NARR",
+   "txt": "Sardi ki dhoop... aur chhat par|Dadi ki garam garam moongphali!"
+  },
+  "i1": {
+   "scene": "intro",
+   "s": 4.285,
+   "d": 2.886,
+   "abs": 11.19,
+   "sp": "DADI",
+   "txt": "Aao bachcho!|Garam garam moongphali khao!"
+  },
+  "q1": {
+   "scene": "intro",
+   "s": 7.371,
+   "d": 1.55,
+   "abs": 14.275,
+   "sp": "QASIM",
+   "txt": "Dadi, mujhe bhi!|Mujhe bhi!"
+  },
+  "s1": {
+   "scene": "tease",
+   "s": 0.4,
+   "d": 2.896,
+   "abs": 16.825,
+   "sp": "BASIM",
+   "txt": "Bandar Mama! Kela lo...~haha, nahi milega!"
+  },
+  "i2": {
+   "scene": "tease",
+   "s": 3.496,
+   "d": 2.886,
+   "abs": 19.921,
+   "sp": "DADI",
+   "txt": "Basim beta!|Bandar ko tang mat karo!"
+  },
+  "i3": {
+   "scene": "tease",
+   "s": 8.081,
+   "d": 3.69,
+   "abs": 24.506,
+   "sp": "DADI",
+   "txt": "Arre! Mera chashma!~Mujhe kuch nahi dikh raha!"
+  },
+  "q2": {
+   "scene": "home",
+   "s": 0.7,
+   "d": 1.257,
+   "abs": 29.796,
+   "sp": "QASIM",
+   "txt": "Ammi! Suusuu aayi hai!"
+  },
+  "a1": {
+   "scene": "home",
+   "s": 2.207,
+   "d": 1.735,
+   "abs": 31.303,
+   "sp": "AMMI",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "k1": {
+   "scene": "home",
+   "s": 4.242,
+   "d": 2.517,
+   "abs": 33.338,
+   "sp": "SAKINA",
+   "txt": "Jaa jaldi! Dadi ko|main sambhaalti hoon!"
+  },
+  "l1": {
+   "scene": "chase",
+   "s": 1.0,
+   "d": 1.504,
+   "abs": 38.055,
+   "sp": "LATIFA",
+   "txt": "Arre! Meri kitaabein!"
+  },
+  "z1": {
+   "scene": "chase",
+   "s": 3.104,
+   "d": 3.427,
+   "abs": 40.158,
+   "sp": "ZAHRA MISS",
+   "txt": "Dekho! Bandar bijli ke|khambe par chadh gaya!"
+  },
+  "z2": {
+   "scene": "chase",
+   "s": 6.73,
+   "d": 2.802,
+   "abs": 43.785,
+   "sp": "ZAHRA MISS",
+   "txt": "Koi upar mat jaana!|Taaron mein current hai!"
+  },
+  "n3": {
+   "scene": "power",
+   "s": 0.7,
+   "d": 3.627,
+   "abs": 48.288,
+   "sp": "NARR",
+   "txt": "Sirf Sakina jaanti hai...|har flush ke saath Qasim ban jata hai..."
+  },
+  "q3": {
+   "scene": "power",
+   "s": 5.227,
+   "d": 1.598,
+   "abs": 52.815,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "q5": {
+   "scene": "rescue",
+   "s": 2.2,
+   "d": 2.359,
+   "abs": 58.112,
+   "sp": "QASIM",
+   "txt": "Bandar Mama, ye lo kela...|chashma de do!"
+  },
+  "l2": {
+   "scene": "rescue",
+   "s": 7.159,
+   "d": 1.331,
+   "abs": 63.071,
+   "sp": "LATIFA",
+   "txt": "Wo superhero phir aa gaya!"
+  },
+  "z3": {
+   "scene": "rescue",
+   "s": 8.69,
+   "d": 2.779,
+   "abs": 64.603,
+   "sp": "ZAHRA MISS",
+   "txt": "Bandar bhi bach gaya...|aur chashma bhi!"
+  },
+  "i5": {
+   "scene": "lesson",
+   "s": 0.6,
+   "d": 3.02,
+   "abs": 68.982,
+   "sp": "DADI",
+   "txt": "Shukriya beta!|Par... tum ho kaun?"
+  },
+  "s2": {
+   "scene": "lesson",
+   "s": 4.02,
+   "d": 2.965,
+   "abs": 72.401,
+   "sp": "BASIM",
+   "txt": "Sorry Bandar Mama!~Ye lo, poora kela tumhara!"
+  },
+  "z4": {
+   "scene": "lesson",
+   "s": 7.285,
+   "d": 5.006,
+   "abs": 75.667,
+   "sp": "ZAHRA MISS",
+   "txt": "Bachcho, janwaron ko|tang mat karo...~woh dar kar cheezein|chheen lete hain!"
+  },
+  "v1": {
+   "scene": "tv",
+   "s": 0.6,
+   "d": 4.755,
+   "abs": 82.273,
+   "sp": "DANIEL",
+   "txt": "Breaking news! Mystery hero ne bandar ko~bijli ke taaron se bachaya!"
+  },
+  "v2": {
+   "scene": "tv",
+   "s": 5.555,
+   "d": 2.515,
+   "abs": 87.228,
+   "sp": "AMARA",
+   "txt": "Aur Dadi ka chashma|bhi lauta diya!"
+  },
+  "d1": {
+   "scene": "tv",
+   "s": 8.37,
+   "d": 3.561,
+   "abs": 90.043,
+   "sp": "DADA ABU",
+   "txt": "Dekha! Main kehta tha, hamari|gali mein bhi hero hai!"
+  },
+  "q4": {
+   "scene": "ending",
+   "s": 0.6,
+   "d": 1.439,
+   "abs": 94.804,
+   "sp": "QASIM",
+   "txt": "Ammiii! Suusuu aayi hai!"
+  },
+  "a2": {
+   "scene": "ending",
+   "s": 2.289,
+   "d": 2.14,
+   "abs": 96.493,
+   "sp": "AMMI",
+   "txt": "Phir se?! Itni moongphali|kyun khaayi?!"
+  },
+  "k2": {
+   "scene": "ending",
+   "s": 4.678,
+   "d": 1.746,
+   "abs": 98.883,
+   "sp": "SAKINA",
+   "txt": "Ammi, sardi bahut hai na!"
+  },
+  "q6": {
+   "scene": "ending",
+   "s": 6.674,
+   "d": 1.085,
+   "abs": 100.878,
+   "sp": "QASIM",
+   "txt": "Kuch nahi Ammi!"
+  },
+  "n4": {
+   "scene": "endcard",
+   "s": 0.5,
+   "d": 5.958,
+   "abs": 103.963,
+   "sp": "NARR",
+   "txt": "Bachcho, janwaron ko tang mat karo...|unse pyaar karo!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
+  }
+ },
+ "total": 113.121
+}

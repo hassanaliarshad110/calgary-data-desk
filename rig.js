@@ -435,3 +435,82 @@ function brick(x, y, s = 1, rot = 0) {
 function skateboard(x, y, s = 1, rot = 0, roll = 0) {
   return `<g transform="translate(${x},${y}) rotate(${rot}) scale(${s})"><path d="M-110,-34 Q-124,-34 -120,-48 H120 Q124,-34 110,-34Z" fill="#e5463b" stroke="${C.ink}" stroke-width="5"/>${[-70, 70].map(cx => `<circle cx="${cx}" cy="-16" r="15" fill="#ffd34a" stroke="${C.ink}" stroke-width="4"/><path d="M${cx},-16 l${(10 * Math.cos(roll)).toFixed(1)},${(10 * Math.sin(roll)).toFixed(1)}" stroke="${C.ink}" stroke-width="3"/>`).join('')}</g>`;
 }
+
+// =====================================================================
+// 2.5D for 16:9 renders (Episode 5): the depth-of-field filter regions in depthDefs() are clipped to the vertical frame
+// (x -20..1100) for speed. A widescreen frame shows more of each layer, so use depthDefsW() there or blurred layers get cut off.
+function depthDefsW(haze) { return depthDefs(haze).replace(/x="-20" y="-20" width="1120" height="1960"/g, 'x="-1600" y="-400" width="4300" height="2800"'); }
+
+// ---------- EPISODE 5 "Bandar Ne Chashma Churaya": props + BANDAR MAMA ----------
+function chashma(x, y, s = 1, rot = 0, glint = 0) {   // Dadi's round brown glasses
+  return `<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot.toFixed(1)}) scale(${s})"><path d="M-12,-2 Q0,-12 12,-2" stroke="#7a5c3c" stroke-width="6" fill="none"/>
+    ${[-34, 34].map(cx => `<circle cx="${cx}" cy="0" r="24" fill="#dff1fb" fill-opacity=".55" stroke="#7a5c3c" stroke-width="7"/><path d="M${cx - 12},-8 l10,-8" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="${.6 + .4 * glint}"/>`).join('')}
+    <path d="M-58,-4 l-34,-10 M58,-4 l34,-10" stroke="#7a5c3c" stroke-width="6" stroke-linecap="round"/>${glint > 0 ? `<g opacity="${glint}"><path d="M30,-30 l6,-22 l6,22 l22,6 l-22,6 l-6,22 l-6,-22 l-22,-6z" fill="#fff"/></g>` : ''}</g>`;
+}
+function kela(x, y, s = 1, rot = 0, peel = 0) {   // banana; peel 0..1 opens the skin
+  let g = `<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot.toFixed(1)}) scale(${s})">`;
+  if (peel > 0) g += `<path d="M-6,-58 Q${-40 * peel},${-30 + 10 * peel} ${-46 * peel},${10 * peel}" stroke="${C.ink}" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M-6,-58 Q${-40 * peel},${-30 + 10 * peel} ${-46 * peel},${10 * peel}" stroke="#ffd23a" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M6,-58 Q${40 * peel},${-30 + 10 * peel} ${46 * peel},${10 * peel}" stroke="${C.ink}" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M6,-58 Q${40 * peel},${-30 + 10 * peel} ${46 * peel},${10 * peel}" stroke="#ffd23a" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M0,-60 Q-10,-110 4,-140" stroke="${C.ink}" stroke-width="26" fill="none" stroke-linecap="round"/><path d="M0,-60 Q-10,-110 4,-140" stroke="#fff4c8" stroke-width="17" fill="none" stroke-linecap="round"/>`;
+  g += `<path d="M-14,40 Q-30,-40 0,-${peel > 0 ? 62 : 110} Q${peel > 0 ? 0 : -6},-30 14,40Z" fill="#ffd23a" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>${peel > 0 ? '' : '<path d="M0,-110 l4,-16 h6 l-2,16z" fill="#6b4a2a"/>'}<path d="M-6,30 Q-16,-20 -4,-60" stroke="#e8b220" stroke-width="5" fill="none"/><path d="M-12,40 h24 v8 h-24z" fill="#6b4a2a"/></g>`;
+  return g;
+}
+function moongPlate(x, y, s = 1) {   // steel plate of roasted peanuts (moongphali) on a little stool
+  let g = `<g transform="translate(${x},${y}) scale(${s})"><rect x="-60" y="-70" width="120" height="70" fill="#8a5a32" stroke="${C.ink}" stroke-width="5"/><ellipse cx="0" cy="-74" rx="86" ry="22" fill="#c9cdd3" stroke="${C.ink}" stroke-width="5"/>`;
+  for (let i = 0; i < 16; i++) { const a = hs(i + 500) * 6.28, r = hs(i + 520) * 52; g += `<ellipse cx="${(Math.cos(a) * r).toFixed(1)}" cy="${(-84 + Math.sin(a) * r * .22 - (i % 3) * 5).toFixed(1)}" rx="14" ry="8" fill="#d9a35e" stroke="${C.ink}" stroke-width="2.5" transform="rotate(${(a * 50).toFixed(0)} ${(Math.cos(a) * r).toFixed(1)} ${(-84 + Math.sin(a) * r * .22).toFixed(1)})"/>`; }
+  return g + '</g>';
+}
+function kitaab(x, y, s = 1, rot = 0, col = '#e5463b') { return `<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot.toFixed(1)}) scale(${s})"><rect x="-56" y="-38" width="112" height="76" rx="6" fill="${col}" stroke="${C.ink}" stroke-width="5"/><rect x="-48" y="-30" width="96" height="60" fill="#f6f1e2"/><path d="M0,-30 v60" stroke="${col}" stroke-width="6"/></g>`; }
+function page(x, y, s, rot, op = 1) { return `<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot.toFixed(1)}) scale(${s})" opacity="${op}"><rect x="-34" y="-44" width="68" height="88" fill="#fbfaf4" stroke="${C.ink}" stroke-width="3"/>${[0, 1, 2, 3, 4].map(k => `<path d="M-24,${-30 + k * 14} h48" stroke="#8aa4c8" stroke-width="3"/>`).join('')}</g>`; }
+function sparks(x, y, t, k = 1, n = 9, r = 90) {   // electric sparks (crackle) at a wire
+  if (k <= 0) return ''; let g = `<circle cx="${x}" cy="${y}" r="${r * .7 * k}" fill="#bfe9ff" opacity="${.45 * k}" filter="url(#glow)"/>`;
+  for (let i = 0; i < n; i++) { const a = i / n * 6.28 + t * 9, l = r * (.5 + .6 * hs(i + Math.floor(t * 20))); let p = `M${x},${y}`; for (let j = 1; j <= 3; j++) p += ` L${(x + Math.cos(a + (j % 2 ? .3 : -.3)) * l * j / 3).toFixed(1)},${(y + Math.sin(a + (j % 2 ? .3 : -.3)) * l * j / 3).toFixed(1)}`; g += `<path d="${p}" stroke="${i % 2 ? '#fff' : '#7fd8ff'}" stroke-width="${4 + i % 3}" fill="none" stroke-linecap="round" opacity="${k}"/>`; }
+  return g;
+}
+
+// ---------- BANDAR MAMA (rhesus-style gali monkey): brown fur, pink heart face, long tail ----------
+// pose: sit | run | leap | hang (origin = the gripping hand) | angry (sit + screech). item: 'chashma' | 'kela' | 'peel' in the front hand.
+function bandar(o) {
+  o = Object.assign({ x: 0, y: 0, s: 1, flip: 1, rot: 0, pose: 'sit', t: 0, angry: 0, look: [0, 0], blink: 0, item: null, chew: 0, wave: 0, peel: 0 }, o);
+  const F = '#9a7350', D = '#6e4f35', BL = '#e2c29a', FC = '#f0a98f', PALM = '#c98468', I = C.ink;
+  const limb = (x1, y1, x2, y2, bend, w = 22) => { const mx = (x1 + x2) / 2 + bend, my = (y1 + y2) / 2 - Math.abs(bend) * .3; const d = `M${x1.toFixed(1)},${y1.toFixed(1)} Q${mx.toFixed(1)},${my.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}`; return `<path d="${d}" stroke="${I}" stroke-width="${w + 9}" fill="none" stroke-linecap="round"/><path d="${d}" stroke="${F}" stroke-width="${w}" fill="none" stroke-linecap="round"/>`; };
+  const hand = (x, y, r = 12) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${PALM}" stroke="${I}" stroke-width="4"/>`;
+  const ph = o.t * 16, s1 = Math.sin(ph), c1 = Math.cos(ph);
+  let P;
+  if (o.pose === 'run') P = { body: [0, -88, 66, 40, -6], sh: [44, -98], hip: [-44, -86], head: [96, -126], hF: [64 + 40 * s1, -6 + Math.min(0, 30 * c1)], hB: [40 - 40 * s1, -4 + Math.min(0, -30 * c1)], fF: [-36 - 44 * s1, -2 + Math.min(0, -26 * c1)], fB: [-60 + 44 * s1, -2 + Math.min(0, 26 * c1)], tail: [-60, -96, -150, -150 + 20 * s1, -120, -210], dy: -10 * Math.abs(s1) };
+  else if (o.pose === 'leap') P = { body: [0, -110, 70, 38, -24], sh: [44, -128], hip: [-46, -96], head: [100, -168], hF: [140, -190], hB: [124, -170], fF: [-120, -70], fB: [-110, -50], tail: [-60, -96, -170, -60, -230, -130], dy: 0 };
+  else if (o.pose === 'hang') P = { body: [0, 130, 40, 58, 8], sh: [8, 84], hip: [-4, 176], head: [-30, 66], hF: [0, 0], hB: [80 + 10 * Math.sin(o.t * 3), 120 + 8 * Math.sin(o.t * 5)], fF: [16 + 10 * Math.sin(o.t * 4), 250], fB: [-26 + 10 * Math.sin(o.t * 4 + 1), 240], tail: [-30, 170, -110, 230, -70, 300], dy: 0 };
+  else P = { body: [0, -88, 44, 58, -10], sh: [18, -122], hip: [-12, -58], head: [30, -170], hF: [56 + (o.item ? 0 : 0), -100 - 30 * o.wave], hB: [30, -86], fF: [26, -2], fB: [-16, -2], tail: [-40, -50, -130, -30, -120, -120], dy: o.angry ? -8 * Math.abs(Math.sin(o.t * 22)) : 0 };
+  if (o.item === 'chashma' && o.pose === 'sit') P.hF = [70, -150 - 12 * Math.sin(o.t * 6)];
+  if (o.chew && o.pose === 'sit') P.hF = [52, -150 + 6 * Math.sin(o.t * 14)];
+  let g = `<g transform="translate(${o.x.toFixed(1)},${(o.y).toFixed(1)}) rotate(${o.rot.toFixed(1)}) scale(${(o.s * o.flip).toFixed(3)},${o.s.toFixed(3)})"><g transform="translate(0,${P.dy.toFixed(1)})">`;
+  // tail
+  const sw = 14 * Math.sin(o.t * 3), [a0, a1, b0, b1, c0, c1_] = P.tail, td = `M${a0},${a1} Q${b0},${b1 + sw} ${c0 + sw},${c1_}`;
+  g += `<path d="${td}" stroke="${I}" stroke-width="22" fill="none" stroke-linecap="round"/><path d="${td}" stroke="${F}" stroke-width="13" fill="none" stroke-linecap="round"/>`;
+  // far limbs
+  g += limb(P.hip[0] - 6, P.hip[1], P.fB[0], P.fB[1], o.pose === 'sit' ? 30 : 10, 24) + hand(P.fB[0], P.fB[1], 13);
+  g += limb(P.sh[0] - 8, P.sh[1], P.hB[0], P.hB[1], o.pose === 'hang' ? -20 : 14, 18) + hand(P.hB[0], P.hB[1]);
+  // body
+  const [bx, by, rx, ry, br] = P.body;
+  g += `<g transform="rotate(${br} ${bx} ${by})"><ellipse cx="${bx}" cy="${by}" rx="${rx}" ry="${ry}" fill="${F}" stroke="${I}" stroke-width="6"/><ellipse cx="${bx + rx * .25}" cy="${by + ry * .2}" rx="${rx * .55}" ry="${ry * .6}" fill="${BL}"/></g>`;
+  // near leg (sitting: knee up)
+  if (o.pose === 'sit') g += `<ellipse cx="${P.hip[0] + 18}" cy="${P.hip[1] + 10}" rx="34" ry="26" fill="${F}" stroke="${I}" stroke-width="5"/>` + limb(P.hip[0] + 34, P.hip[1] + 12, P.fF[0], P.fF[1], 8, 20) + `<ellipse cx="${P.fF[0] + 10}" cy="${P.fF[1] - 4}" rx="20" ry="10" fill="${PALM}" stroke="${I}" stroke-width="4"/>`;
+  else g += limb(P.hip[0] + 6, P.hip[1], P.fF[0], P.fF[1], o.pose === 'hang' ? 14 : -12, 24) + hand(P.fF[0], P.fF[1], 13);
+  // head
+  const [hx, hy] = P.head, ang = o.angry, bl = o.blink > .5;
+  g += `<g transform="translate(${hx},${hy}) rotate(${o.pose === 'run' ? 8 : o.pose === 'hang' ? -6 : 0})">
+    <circle cx="-40" cy="-6" r="17" fill="${FC}" stroke="${I}" stroke-width="4"/><circle cx="40" cy="-6" r="15" fill="${FC}" stroke="${I}" stroke-width="4"/>
+    <circle r="46" fill="${F}" stroke="${I}" stroke-width="6"/><path d="M-34,-30 Q0,-58 34,-30" stroke="${D}" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M0,-18 C-14,-38 -42,-28 -36,0 C-32,22 -14,38 0,40 C14,38 32,22 36,0 C42,-28 14,-38 0,-18Z" fill="${FC}" stroke="${I}" stroke-width="4"/>
+    ${bl ? `<path d="M-24,-6 h16 M8,-6 h16" stroke="${I}" stroke-width="5" stroke-linecap="round"/>` : `<ellipse cx="-16" cy="-6" rx="9" ry="${ang ? 8 : 11}" fill="#fff" stroke="${I}" stroke-width="3"/><ellipse cx="16" cy="-6" rx="9" ry="${ang ? 8 : 11}" fill="#fff" stroke="${I}" stroke-width="3"/><circle cx="${-15 + o.look[0]}" cy="${-5 + o.look[1]}" r="5.5" fill="#2b1a0e"/><circle cx="${17 + o.look[0]}" cy="${-5 + o.look[1]}" r="5.5" fill="#2b1a0e"/><circle cx="${-17 + o.look[0]}" cy="${-8 + o.look[1]}" r="2" fill="#fff"/><circle cx="${15 + o.look[0]}" cy="${-8 + o.look[1]}" r="2" fill="#fff"/>`}
+    ${ang ? `<path d="M-28,-22 L-6,-14 M28,-22 L6,-14" stroke="${I}" stroke-width="6" stroke-linecap="round"/>` : `<path d="M-26,-22 q10,-6 18,-2 M26,-22 q-10,-6 -18,-2" stroke="${D}" stroke-width="5" fill="none" stroke-linecap="round"/>`}
+    <ellipse cx="0" cy="18" rx="20" ry="14" fill="#f6bca6" stroke="${I}" stroke-width="3"/><circle cx="-5" cy="12" r="2.6" fill="${I}"/><circle cx="5" cy="12" r="2.6" fill="${I}"/>
+    ${ang ? `<path d="M-14,24 Q0,${44 + 6 * Math.sin(o.t * 30)} 14,24Z" fill="#7a1a2a" stroke="${I}" stroke-width="3"/><path d="M-11,25 l4,6 l4,-5 l4,5 l4,-5 l4,6" stroke="#fff" stroke-width="2.5" fill="none"/>` : o.chew ? `<ellipse cx="0" cy="28" rx="${8 + 4 * Math.abs(Math.sin(o.t * 14))}" ry="${3 + 4 * Math.abs(Math.sin(o.t * 14))}" fill="#7a1a2a"/>` : `<path d="M-9,27 q9,6 18,0" stroke="${I}" stroke-width="3" fill="none"/>`}
+    ${o.item === 'wear' ? chashma(0, -6, .5, 0) : ''}</g>`;
+  // near arm + item
+  g += limb(P.sh[0] + 4, P.sh[1], P.hF[0], P.hF[1], o.pose === 'hang' ? 6 : -16, 19);
+  const IH = o.pose === 'hang' ? P.hB : P.hF;
+  if (o.item === 'chashma') g += chashma(IH[0] + 8, IH[1] - 8, .62, -14 + 8 * Math.sin(o.t * 6));
+  if (o.item === 'kela') g += kela(IH[0] + 4, IH[1] - 10, .5, 20, o.peel);
+  g += hand(P.hF[0], P.hF[1]) + (o.pose === 'hang' && o.item ? hand(P.hB[0], P.hB[1]) : '');
+  return g + '</g></g>';
+}
+
