@@ -936,5 +936,47 @@
    }
   ],
   "post_note": "Scheduled for the fixed 18:30 fun-fact slot (60 min after the 17:30 flagship post B, 90 min before the 20:00 teaser slot). YouTube 24-hour count within 8."
+ },
+ {
+  "date": "2026-11-14",
+  "slot": "BONUS",
+  "type": "quick-insight",
+  "category": "Fun fact (weather)",
+  "title": "Almost fourteen degrees in mid-November: tied 5th since 1926",
+  "topic_used": "Today's Calgary airport high vs every Nov 14 since 1926 (requested by Hassan)",
+  "changed_from_calendar": "Extra video requested by Hassan on Nov 14, 2026; not a calendar slot",
+  "central_figure": "13.9 °C today (preliminary, ECCC SWOB); only 4 Nov 14ths 1926-2025 warmer; tied with 1940 and 1949",
+  "sources": [
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261114/CYYC/",
+   "https://climate.weather.gc.ca/ (bulk daily, stations 2205 and 50430)",
+   "https://www.extremeweatherwatch.com/cities/calgary/day/november-14",
+   "https://weather.gc.ca/past_conditions/index_e.html?station=yyc"
+  ],
+  "length_s": 26.3,
+  "video_path": "studio-videos/2026-11-14-BONUS/warm-november-14.mp4",
+  "identity": "explainer",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 6,
+   "verdict": "APPROVED (round 3; condition met: 5 p.m. reading 12.4, day max 13.9)"
+  },
+  "qc": {
+   "stills": "pass after fixes (hook frame, overlaps, source lines, tie display)",
+   "final": "pass: 1080x1920, 26.3 s, -14.8 LUFS, captions burned in, ends on question, no end card"
+  },
+  "site": "calgaryinsight.ca Video briefs card + Data Genie published fact (main 2c6f334)",
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 428433777,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=1260796643522069279",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube-short"
+    ],
+    "publish_at": "2026-11-14T19:30"
+   }
+  ]
  }
 ]
