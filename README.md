@@ -22,10 +22,10 @@ Pipeline
 2. Narration (free): branch `budget-probe` of this repo. Put `{"ur":{voice:"ur-PK-AsadNeural",rate:"-6%",pitch:"-2Hz",lines:[...]}, "ar":{voice:"ar-SA-HamedNeural",...}}`
    in `probe/sv_lines.json`, point `.github/workflows/budget-probe.yml` at `python probe/tts_sv.py _b` (copy of tts_sv.py here),
    commit as Hassan Ali, force-push `budget-probe`, wait for the run, clone `budget-probe-out` → `ur_0.wav… ar_8.wav` + `sv_info.json` (durations and a Whisper transcript to check pronunciation).
-3. Scenes: copy the last episode's `page.html` + `render.py`, rewrite `SCENES` (one function per narration line) and `LABELS`.
-   `python3 render.py <ur|ar> <audio_dir> preview <scene>:<t> ...` → look at the frames; then `full`.
-4. Write episodes/epNN/moods.json, then `python3 mix.py <lang> <audio_dir>` (edit the `ep2_` folder name and crackle/thud scene numbers), then concat scenes with `-c copy`, mux `mix.wav`, re-encode at `-crf 27 -preset veryfast` (~10 MB).
-   `python3 thumb.py` for the cover (scene 0 without captions).
+3. Scenes: copy the last episode's `page.html` + `render.py` (ep03 onward: reads `lines.json`/`page.html` in its own folder, writes `out_<lang>/`; symlink `fonts -> ../../fonts`), rewrite `SCENES` (one function per narration line), `REPL` and `LABELS`.
+   `python3 render.py <ur|ar> <audio_dir> preview <scene>:<t> ...` → look at the frames; then `full`. Lex test + narration can run in one Actions job (tts_sv.py first, then lex_test.py with continue-on-error); re-voice only the lines whose names came out wrong.
+4. Write episodes/epNN/moods.json (moods, impacts, and sound effects: `"thud": [[scene, fraction]]`, `"crackle": [[scene, level]]`), then `python3 mix.py <lang> <audio_dir> episodes/epNN`, then concat scenes with `-c copy`, mux `mix.wav`, re-encode at `-crf 27 -preset veryfast` (~7-10 MB).
+   `python3 thumb.py episodes/epNN` for the covers (scene 0 without captions).
 5. Publish: push the MP4s and JPG covers to branch `social-media` under `shia-voice/epNN_<slug>_<lang>.mp4|jpg`,
    then Metricool createScheduledPost with the raw.githubusercontent.com URLs, facebookData type REEL, videoThumbnailUrl = cover.
 6. Mark the day's row Posted in the "Shia Voice Dubai — Daily Video Calendar" sheet (https://claude.ai/artifact/Jy7cecLM6RCFTDJHUVVXsW).

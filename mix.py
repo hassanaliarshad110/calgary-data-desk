@@ -1,7 +1,12 @@
-"""Build narration + ambience for one language: python3 mix.py <lang> <audio_dir>"""
+"""Build narration + ambience + score for one language:
+    python3 mix.py <lang> <audio_dir> [episode_dir]   (default episodes/ep02)
+Sound effects come from the episode's moods.json: "crackle": [[scene, level]], "thud": [[scene, fraction_of_scene]].
+Renders write cfg.json into <episode_dir>/out_<lang> (or ep2_<lang> for ep02)."""
 import json, sys, subprocess, numpy as np, wave, pathlib
 lang, adir = sys.argv[1], pathlib.Path(sys.argv[2])
-OUT = pathlib.Path(__file__).parent / f'ep2_{lang}'
+EP = pathlib.Path(sys.argv[3]) if len(sys.argv) > 3 else pathlib.Path(__file__).parent / 'episodes' / 'ep02'
+OUT = EP / f'out_{lang}' if (EP / f'out_{lang}').exists() else EP / f'ep2_{lang}'
+MOODS = json.load(open(EP / 'moods.json'))
 cfg = json.load(open(OUT / 'cfg.json'))
 SR = 44100
 starts, acc = [], 0.0
@@ -32,15 +37,15 @@ def crackle(a, b, lvl):
     roar = rng.standard_normal(n).astype(np.float32); roar = np.convolve(roar, np.ones(400) / 400, mode='same') * 6
     env = np.minimum(1, np.minimum(np.arange(n) / (SR * 1.5), (n - np.arange(n)) / (SR * 1.5)))
     bed[s:e] += (c * .5 + roar * .3) * env * lvl
-crackle(starts[3], starts[4] - .2, .35)
-# door impact thud in scene 3
-imp = starts[3] + cfg['scenes'][3]['dur'] * .25; s = int(imp * SR); n = int(SR * 1.2); tt = np.arange(n) / SR
-thud = (np.sin(2 * np.pi * 55 * tt) + .5 * rng.standard_normal(n) * np.exp(-tt * 30)) * np.exp(-tt * 5)
-bed[s:s + n] += thud.astype(np.float32) * .55
+for sc_i, lvl in MOODS.get('crackle', []):
+    crackle(starts[sc_i], starts[sc_i] + cfg['scenes'][sc_i]['dur'] - .2, lvl)
+for sc_i, frac in MOODS.get('thud', []):
+    imp = starts[sc_i] + cfg['scenes'][sc_i]['dur'] * frac; s = int(imp * SR); n = int(SR * 1.2); tt = np.arange(n) / SR
+    thud = (np.sin(2 * np.pi * 55 * tt) + .5 * rng.standard_normal(n) * np.exp(-tt * 30)) * np.exp(-tt * 5)
+    bed[s:s + n] += thud.astype(np.float32)[:max(0, N - s)] * .55
 # score (per-scene moods)
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from score import build_score
-MOODS = json.load(open(OUT.parent / 'moods.json'))
 moods, imps = MOODS['moods'], {int(k): v * cfg['scenes'][int(k)]['dur'] for k, v in MOODS.get('impacts', {}).items()}
 sc = build_score(starts, [s['dur'] for s in cfg['scenes']], moods, imps)
 sc = np.pad(sc, (0, max(0, N - len(sc))))[:N]
