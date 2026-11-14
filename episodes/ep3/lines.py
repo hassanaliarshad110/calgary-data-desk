@@ -61,7 +61,7 @@ L = [
 ("h4e",N,"असली केस जानने के लिए, पूरी कहानी देखिए, आवाज़ चैनल पर।","Asli case jaanne ke liye, poori kahaani dekhiye Awazzzz channel par."),
 ]
 VOICE = {
- 'N': dict(name='hi-IN-MadhurNeural', rate='+4%', pitch='-2Hz'),
+ 'N': dict(name='hi-IN-SwaraNeural', rate='+12%', pitch='+3Hz'),
  'S': dict(name='hi-IN-SwaraNeural', rate='+0%', pitch='+2Hz'),
 }
 if __name__=='__main__':
