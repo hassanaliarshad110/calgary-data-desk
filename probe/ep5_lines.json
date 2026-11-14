@@ -1,0 +1,31 @@
+{
+ "kokoro": [
+  {"id": "q1", "voice": "hf_beta", "speed": 1.05, "text": "दादी, मुझे भी! मुझे भी!"},
+  {"id": "q5", "voice": "hf_beta", "speed": 1.0, "text": "बंदर मामा, ये लो केला... चश्मा दे दो!"},
+  {"id": "q3x", "voice": "hf_beta", "speed": 0.8, "text": "सूऽऽ सूऽऽ मैन!"},
+  {"id": "k1", "voice": "hf_alpha", "speed": 1.05, "text": "जा जल्दी! दादी को मैं संभालती हूँ!"},
+  {"id": "k2", "voice": "hf_alpha", "speed": 1.05, "text": "अम्मी, सर्दी बहुत है ना!"},
+  {"id": "d1", "voice": "hm_omega", "speed": 0.92, "text": "देखा! मैं कहता था, हमारी गली में भी हीरो है!"},
+  {"id": "s1", "voice": "hm_psi", "speed": 1.05, "text": "बंदर मामा! केला लो... हा हा, नहीं मिलेगा!"},
+  {"id": "s2", "voice": "hm_psi", "speed": 1.05, "text": "सॉरी बंदर मामा! ये लो, पूरा केला तुम्हारा!"},
+  {"id": "v1", "voice": "hm_omega", "speed": 1.0, "text": "ब्रेकिंग न्यूज़! मिस्ट्री हीरो ने बंदर को बिजली के तारों से बचाया!"},
+  {"id": "v2", "voice": "hf_alpha", "speed": 1.0, "text": "और दादी का चश्मा भी लौटा दिया!"}
+ ],
+ "edge": [
+  {"id": "n1", "text": "بندر کے ہاتھ میں دادی کا چشمہ... اور سامنے بجلی کے تار! اب کیا ہوگا؟", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "n2", "text": "سردی کی دھوپ... اور چھت پر دادی کی گرم گرم مونگ پھلی!", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "i1", "text": "آؤ بچو! گرم گرم مونگ پھلی کھاؤ!", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz"},
+  {"id": "i2", "text": "باسم بیٹا! بندر کو تنگ مت کرو!", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz"},
+  {"id": "i3", "text": "ارے! میرا چشمہ! مجھے کچھ نہیں دکھ رہا!", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz"},
+  {"id": "i5", "text": "شکریہ بیٹا! پر... تم ہو کون؟", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz"},
+  {"id": "i6", "text": "مجھے تو سب دھندلا دکھا... پر دل کا بہت اچھا تھا!", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz"},
+  {"id": "l1", "text": "ارے! میری کتابیں!", "voice": "ur-IN-GulNeural", "rate": "+8%", "pitch": "+20Hz"},
+  {"id": "l2", "text": "وہ SUPERHERO پھر آ گیا!", "voice": "ur-IN-GulNeural", "rate": "+8%", "pitch": "+20Hz", "asr": 1},
+  {"id": "z1", "text": "देखो! बंदर बिजली के खंभे पर चढ़ गया!", "voice": "hi-IN-SwaraNeural", "rate": "+0%"},
+  {"id": "z2", "text": "कोई ऊपर मत जाना! तारों में करंट है!", "voice": "hi-IN-SwaraNeural", "rate": "+0%", "asr": 1},
+  {"id": "z3", "text": "बंदर भी बच गया... और चश्मा भी!", "voice": "hi-IN-SwaraNeural", "rate": "+0%"},
+  {"id": "z4", "text": "बच्चो, जानवरों को तंग मत करो... वो डर कर चीज़ें छीन लेते हैं!", "voice": "hi-IN-SwaraNeural", "rate": "+0%"},
+  {"id": "a2", "text": "پھر سے؟! اتنی مونگ پھلی کیوں کھائی؟!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  {"id": "n4", "text": "بچو، جانوروں کو تنگ مت کرو... ان سے پیار کرو! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1}
+ ]
+}
