@@ -210,7 +210,8 @@ def auto_files(out=None):
                if big else f'read_source key=data:{f[:-5]} (outline, then part or find)')
         entries.append({'key': 'data:' + f[:-5], 'view': None, 'title': f[:-5].replace('_', ' ').capitalize() + ' (data file)', 'what': what,
                         'read': how, 'too_large': big, 'files': [[f, src]], 'section': None,
-                        'scientist': None, 'keywords': f[:-5].replace('_', ' '), 'registered': True, 'auto': True, 'bytes': size,
+                        'scientist': None, 'keywords': (f[:-5].replace('_', ' ') + ' ' + (d.get('keywords') if isinstance(d, dict) and isinstance(d.get('keywords'), str) else '')).strip(),
+                        'registered': True, 'auto': True, 'bytes': size,
                         'described': f in DESCRIBE or (isinstance(d, dict) and any(isinstance(d.get(k), str) for k in ('note', 'description', 'about')))})
     return entries
 

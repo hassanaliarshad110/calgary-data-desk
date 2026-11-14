@@ -1,0 +1,113 @@
+{
+ "about": "Active transportation in Calgary, checked by hand: kilometres of multi-use pathways, trails, on-street bikeways and separated (protected) cycle tracks; the share of the transportation capital budget spent on cycling; and leading pedestrian intervals (LPIs) at traffic signals. Every figure has its date and source. Read with read_source key=data:active_transportation.",
+ "keywords": "active transportation pathways multi-use pathway trails bikeways bike lanes cycle tracks protected separated cycling bicycle bike infrastructure budget capital leading pedestrian intervals LPI walk signal pedestrian safety Vision Zero",
+ "checked": "2026-11-14",
+ "figures": [
+  {
+   "id": "pathways",
+   "measure": "Regional (multi-use) pathways maintained by The City",
+   "value": 1000,
+   "unit": "km",
+   "qualifier": "approximately",
+   "as_of": "City page, read November 2026",
+   "note": "Off-street and mostly paved. The City reached its 1,000th km of paved pathway in July 2020. About 400 km of paved pathways are cleared of snow, usually within 24 hours of a snowfall.",
+   "source": "City of Calgary, Pathways and trails",
+   "url": "https://calgary.ca/pathways"
+  },
+  {
+   "id": "trails",
+   "measure": "Trails (unpaved) maintained by The City",
+   "value": 96,
+   "unit": "km",
+   "as_of": "City page, read November 2026",
+   "source": "City of Calgary, Pathways and trails",
+   "url": "https://calgary.ca/pathways"
+  },
+  {
+   "id": "on_street",
+   "measure": "On-street bikeways and cycle tracks combined",
+   "value": 290,
+   "unit": "km",
+   "as_of": "City page, read November 2026",
+   "note": "Bikeways are on-street routes (the City's definition); the length that is physically separated from traffic is given under cycle_tracks. The Rotary/Mattamy Greenway is a 138 km pathway loop around the city (part of the pathway total).",
+   "source": "City of Calgary, Bike, walk and roll: pathways",
+   "url": "https://www.calgary.ca/bike-walk-roll/pathways.html"
+  },
+  {
+   "id": "cycle_tracks",
+   "measure": "Separated (protected) cycle tracks, city-wide",
+   "value": 26.2,
+   "unit": "km",
+   "as_of": "July 2025 (figure from city hall)",
+   "note": "Of this, 9.9 km is the downtown protected network (10.7 km with Mission). City hall's larger 20 km figure for downtown counts each direction as its own lane. There were also 45.6 km of painted bike lanes. The 2011 Cycling Strategy aimed for 30 km of protected cycle tracks and 180 km of painted lanes by 2020. No newer City total was found.",
+   "source": "The Sprawl, Calgary bike lanes and cycle tracks (July 26, 2025, corrected July 30, 2025)",
+   "url": "https://www.sprawlcalgary.com/calgary-bike-lanes-cycle-tracks"
+  },
+  {
+   "id": "painted_lanes",
+   "measure": "Painted bike lanes",
+   "value": 45.6,
+   "unit": "km",
+   "as_of": "July 2025 (figure from city hall)",
+   "source": "The Sprawl, Calgary bike lanes and cycle tracks",
+   "url": "https://www.sprawlcalgary.com/calgary-bike-lanes-cycle-tracks"
+  },
+  {
+   "id": "cycling_budget_share",
+   "measure": "Share of the transportation capital budget spent on cycling",
+   "value": null,
+   "unit": "%",
+   "note": "The City publishes no current figure. Two older figures exist and are not the same measure: (1) 2012 to 2016 Cycling Strategy: $22.7 million of $2.1 billion of transportation capital went to cycling, about 1.1%. (2) CBC fact check (2015): of transportation capital since 2009, about 63% went to transit, 34% to roads and 3% to pedestrians and cyclists combined. Do not give either as today's share.",
+   "history": [
+    {
+     "period": "2012-2016",
+     "cycling_capital": 22700000,
+     "transportation_capital": 2100000000,
+     "share_pct": 1.1,
+     "source": "City of Calgary, Cycling Strategy factsheet",
+     "url": "https://www.calgary.ca/Transportation/TP/Documents/cycling/Cycling-Strategy/cycling-strategy-factsheet.pdf"
+    },
+    {
+     "period": "2009-2015",
+     "transit_pct": 63,
+     "roads_pct": 34,
+     "pedestrians_and_cyclists_pct": 3,
+     "source": "CBC News fact check (2015)",
+     "url": "https://amp.cbc.ca/lite/story/1.3028226"
+    }
+   ]
+  },
+  {
+   "id": "lpi",
+   "measure": "Signalized intersections with a leading pedestrian interval (LPI)",
+   "value": 65,
+   "unit": "locations",
+   "as_of": "late September 2026",
+   "note": "An LPI gives people walking a head start of a few seconds before cars get the green. The figure was given by a City official to CBC; the City reported collisions down 34% where LPIs were installed, and Council then voted to add LPIs across the city. Earlier counts differ: the City's Vision Zero page said 52 installed (12 of them in 2025) and The Sprawl said 53 in September 2026. Calgary has more than 1,300 signalized intersections, so LPIs are at about 5% of them.",
+   "by_year": {
+    "2022": 2,
+    "2023": 11,
+    "2024": 9,
+    "2025": 12,
+    "2026 (ongoing)": 15
+   },
+   "by_year_source": "City of Calgary report CD2026-0674, Attachment 2",
+   "by_year_url": "https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=373512",
+   "sources": [
+    {
+     "title": "CBC News, leading pedestrian intervals (September 2026)",
+     "url": "https://www.cbc.ca/news/canada/calgary/calgary-leading-pedestrian-intervals-dj-kelly-9.7356090"
+    },
+    {
+     "title": "City of Calgary, Vision Zero",
+     "url": "https://www.calgary.ca/roads/safety/vision-zero.html"
+    },
+    {
+     "title": "The Sprawl, pedestrian deaths and Vision Zero",
+     "url": "https://www.sprawlcalgary.com/calgary-pedestrian-deaths-fatalities-vision-zero"
+    }
+   ]
+  }
+ ],
+ "limits": "Pathway, trail and bikeway lengths come from City web pages that are updated without a date for each figure. The cycle-track length is from July 2025. Counts of leading pedestrian intervals differ by source and date; the newest (65) is given first."
+}
