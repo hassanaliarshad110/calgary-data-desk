@@ -754,9 +754,14 @@
     ],
     "file": "chinatown-forced-out-twice-youtube.mp4",
     "publish_at": "2026-11-13T17:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "facebook": "https://facebook.com/122097271263547631/posts/2563584660794911",
+     "youtube": "https://www.youtube.com/watch?v=L2FDPlOiUE4"
+    },
+    "confirmed_by": "2026-11-14 PM run (getScheduledPosts 17:20)"
    }
   ],
   "pending_link": [
@@ -932,7 +937,13 @@
     ],
     "publish_at": "2026-11-13T18:30",
     "draft": false,
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/2386678015433380",
+     "instagram": "https://www.instagram.com/reel/Dfs7NBJGT-Q/",
+     "youtube": "https://www.youtube.com/shorts/bDCNn1ix5g8"
+    },
+    "confirmed_by": "2026-11-14 PM run (getScheduledPosts 17:20)"
    }
   ],
   "post_note": "Scheduled for the fixed 18:30 fun-fact slot (60 min after the 17:30 flagship post B, 90 min before the 20:00 teaser slot). YouTube 24-hour count within 8."
@@ -976,6 +987,57 @@
      "youtube-short"
     ],
     "publish_at": "2026-11-14T19:30"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-14",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Calgary built its library over a working CTrain line",
+  "topic_used": "The Central Library was built over and around an active CTrain line (150 m of track encased in concrete, 18 months, nine weekend shutdowns, a Calgary first)",
+  "changed_from_calendar": "Kept the calendar topic, corrected its wording: the CTrain runs through a concrete enclosure under/around the building, not through the library itself",
+  "central_figure": "150 metres of LRT track encased in concrete; 18-month program with only nine weekend shutdowns (CMLC, Sep 30, 2015)",
+  "sources": [
+   "https://www.calgarymlc.ca/articles/vertical-construction-of-the-new-central-library-now-under-way",
+   "https://www.calgarymlc.ca/articles/new-central-library-construction-begins-with-engineering-magic",
+   "https://www.archpaper.com/2018/11/snohetta-dialog-complete-railroad-straddling-calgary-central-library/"
+  ],
+  "length_s": 23.4,
+  "video_path": "studio-videos/2026-11-14-PM/library-over-ctrain.mp4",
+  "thumbnail_path": "studio-videos/2026-11-14-PM/library-over-ctrain-thumb.jpg",
+  "identity": "explainer (lead) + storyteller 3D dive/orbit + civic cutaway",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 7,
+   "verdict": "APPROVED (round 2)"
+  },
+  "qc": {
+   "stills": "pass after fixes (CTrain label and tunnel label clear of captions, top-view scale made uniform and lifted, S3 tiles above captions, S4 stamp inside safe area, north cue removed from orbit)",
+   "final": "pass: 1080x1920, 23.4 s, -14.9 LUFS, 7.7 MB, captions burned in, hook on screen at frame 0, ends on the question, no end card",
+   "scores": "all items 2 except scene variety 1 (two 2D graphic scenes in a row: S2 top view, S3 tiles); no 0s"
+  },
+  "link": "https://calgaryinsight.ca/visit/downtown/?utm_source=facebook&utm_medium=social&utm_campaign=library-over-ctrain",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site source on main (web/visit_content.py `downtown` guide lists the Central Library; built to visit/downtown/ by web/build_site.py)",
+  "post_time_note": "18:30 slot moved to 20:30: 18:30 is 30 min after the 18:00 Part 3 post (FB/IG) and the 19:30 bonus fun fact is also today; 20:30 is the earliest time at least 60 min from every post today (PLAYBOOK 7 fallback, no posts together)",
+  "youtube_24h_count": "6 YouTube posts within 24 h either side of 20:30 (limit 8)",
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 428450108,
+    "uuid": "515706560948092949",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=515706560948092949",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-14T20:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
    }
   ]
  }
