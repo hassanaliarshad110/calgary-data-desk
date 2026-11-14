@@ -9,7 +9,8 @@
   "AMMI": {
     "engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script",
     "voice": "ur-PK-UzmaNeural",
-    "rate": "+5%"
+    "rate": "+5%",
+    "display_name": "MAMA (the kids say \"Mama\", never \"Ammi\")"
   },
   "NARRATOR": {
     "engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script",
@@ -48,7 +49,8 @@
     "engine": "Kokoro, lang hi, Devanagari",
     "voice": "hf_alpha",
     "speed": 1.05,
-    "post_ffmpeg": "asetrate=24000*1.08,aresample=24000,atempo=0.926"
+    "post_ffmpeg": "asetrate=24000*1.08,aresample=24000,atempo=0.926",
+    "crying_note": "For her crying-girl act: same voice, add a wobbly sob (ffmpeg vibrato=f=6:d=0.4) on the wail lines like 'Mamaaa…' / 'Babaaa…'"
   },
   "BASIM (proposed)": {
     "engine": "Kokoro, lang hi, Devanagari",
@@ -88,5 +90,12 @@
   "TV ANCHORS (proposed)": {
     "DANIEL": "Kokoro hm_omega, speed 1.0, no filter",
     "AMARA": "Kokoro hf_alpha, speed 1.0, no filter"
+  },
+  "BABA (proposed)": {
+    "engine": "edge-tts, Urdu script",
+    "voice": "ur-IN-SalmanNeural",
+    "rate": "-3%",
+    "pitch": "-8Hz",
+    "note": "Qasim and Sakina's father (new Nov 14, 2026); untested — check pronunciation on his first episode"
   }
 }

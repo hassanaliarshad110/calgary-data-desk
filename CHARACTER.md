@@ -9,20 +9,21 @@ Reference: `Susuman_model_sheet.jpg`. Drawing code: `rig.js` (`susu()`, `ammi()`
 - Silver kara on his right wrist. Dark joggers, white sneakers with red stripe.
 - Power form (after the flush): gold aura, red cape, floating gold/white crown, bigger chest emblem.
 - Power rule: every washroom trip + flush fills the SUSU POWER bar. The washroom is never shown inside: door closes, gold light under the door, "FLUUSH!", he bursts out.
-- Catchphrase gag: "Ammi! Susu aayi hai!" → Ammi: "Phir se?! Abhi to gaye the!"
-- THE SECRET: only SAKINA (his elder sister, Baaji) knows Qasim is Susuman. Nobody else knows: not Ammi, not Abbu, not Dada Abu, not Dadi, not Basim, not the gali. Sakina covers for him and keeps the secret.
+- Catchphrase gag: "Mama! Susu aayi hai!" → Mama: "Phir se?! Abhi to gaye the!"
+- THE SECRET: only SAKINA (his elder sister, Baaji) knows Qasim is Susuman. Nobody else knows: not Mama, not Baba, not Dada Abu, not Dadi, not Basim, not the gali. Sakina covers for him and keeps the secret.
 
-## Ammi
+## Mama (Qasim's mother)
+- NAME ON SCREEN AND IN DIALOGUE (Hassan, Nov 14, 2026): the kids call her **"Mama"** — never "Ammi". Every line, caption, speaker chip (MAMA), title and social caption says Mama. The code function is still `ammi()` / `CAST.ammi`; only the word changes.
 - Teal kurta, pink dupatta, white shalwar, black hair in a bun with centre parting, gold earrings, usually on her phone.
 
 ## Voices — see voices/voices.json
-- Qasim: Kokoro hf_beta pitched up ×1.28 (child voice). Ammi: ur-PK-UzmaNeural. Narrator: ur-PK-AsadNeural (Edge neural TTS, Urdu script). Reference clips in voices/.
+- Qasim: Kokoro hf_beta pitched up ×1.28 (child voice). Mama: ur-PK-UzmaNeural. Narrator: ur-PK-AsadNeural (Edge neural TTS, Urdu script). Reference clips in voices/.
 
 ## Music
 - music.py: synthesised desi cartoon band (dholak/tabla kaharwa groove, harmonium chords, bansuri theme in D major, rubab-style plucks for sneaky moments, big hit for the Susuman reveal). Keep the bansuri THEME as the show's signature tune.
 
 ## Style
-- Titles: Bangers (white, black stroke, red shadow). Subtitles: Baloo 2 ExtraBold, Roman script, speaker chip (QASIM red, AMMI teal).
+- Titles: Bangers (white, black stroke, red shadow). Subtitles: Baloo 2 ExtraBold, Roman script, speaker chip (QASIM red, MAMA teal).
 - Vertical 1080×1920 for Shorts; captions y≈1290–1420; first 2 s = text hook + visual hook.
 - Audience: India + Pakistan. Hindustani words common to both. Kids content (YouTube "Made for Kids" → no comment CTA; use Like/Subscribe).
 
@@ -50,7 +51,7 @@ Same flat 2D characters from rig.js (never redrawn); the DEPTH comes from stagin
 `depthDefs()`, `layer(d, cam, svg)`, `proj(d, cam, x, y)`, `veil()`, `shadow()`/`liftShadow()`, `lightPool()`, `shafts()`, `haze()`, `motes()`; episodes/ep2/ep2.js adds `at(d, cam, x, y, rigFn, opts)` to place any character at a depth with its shadow.
 - **Layers (at least 4 per shot):** sky/sun (d≈50) → clouds (d≈12) → far city + far kites (d=6, blurred, hazy) → mid rooftops (d=3) → near set pieces (rival roof d=1.7, neem d=1.45, courtyard wall d=1.3) → action plane (d=1: floor, characters) → foreground (d≈.55–.8: wires, leaves, clothesline, plants; strongly blurred). Put a `veil()` after the far and mid layers (aerial haze).
 - **Camera:** one `cam = {x, y, z, px, py}` per frame; every layer gets it. Pans/cranes move near layers more than far ones; push-ins (z) grow near layers more (real dolly parallax). Never a static frame: always a pan, crane, push-in or pull-back, blended with `lerpCam`.
-- **Depth of field:** far layers (d≥5) soft blur, foreground (d≤.8) strong blur; the action plane stays sharp. Foreground characters (e.g. Ammi in front of the WC door) go in a `dofNear2` group.
+- **Depth of field:** far layers (d≥5) soft blur, foreground (d≤.8) strong blur; the action plane stays sharp. Foreground characters (e.g. Mama in front of the WC door) go in a `dofNear2` group.
 - **Scale with distance:** a character at depth d is `1/d` of its action-plane size (use `at()`/`proj()`); walking from the stairs (d=1.3) to the floor (d=1) or into the WC door (back to d=1.3) changes size smoothly.
 - **Shadows:** every character/object on a floor gets a soft contact shadow, pushed away from the light (sun upper-right → shadows to the lower-left, skewX ≈ 35); lifted/flying characters get smaller, fainter shadows (`liftShadow`). Big props (water tank, charpai, mumty) get long cast-shadow polygons.
 - **Light:** a visible light source per scene (sun with glow + `shafts()` god rays; bulbs with `poolW`), sun patches on floors/walls, and the washroom-door gold light: glow strip under the door → `lightPool()` spilling across the floor in perspective → rays when it bursts open.
@@ -67,18 +68,20 @@ Same flat 2D characters from rig.js (never redrawn); the DEPTH comes from stagin
 - PAPPU: kid on the rival roof, red shirt with white stripe, side-parted hair (kid() in ep2.js). Kite rival, friendly.
 - Props in rig.js: `patang()` (kite), `dor()` (kite string), `charkhi()` (spool; red = manjha, white = cotton thread), `feather()`.
 - Sets (episodes/ep2/ep2.js): `chhat()` rooftop (sky, far city, mid rooftops with tanks/clotheslines/kite-flyers, rival roof, neem tree, our roof with jaali parapet, mumty stair room, water tank; foreground wires with a stuck kite) and `aangan()` courtyard (neighbours' rooftops above the wall, stairs to the roof, WC door with bulb, window, blue room door, charpai with Mano, chai stool; foreground clothesline).
-- Running detail: a white pigeon feather stays in Qasim's curls after the rescue (Ammi notices: "ye pankh kahan se aaya?").
+- Running detail: a white pigeon feather stays in Qasim's curls after the rescue (Mama notices: "ye pankh kahan se aaya?").
 
 ## Studio skeleton version (Nov 2026)
-Qasim, Susuman and Ammi are also rigged on the studio skeleton (branch `animation-studio`, `CAST.qasim / CAST.susuman / CAST.ammi`) with the same colours as `rig.js`: 31 motions, turnarounds, 16 expressions, lip-sync. Sheets and a motion test are in `studio_rig/`. Use either rig; keep the look identical to this bible.
+Qasim, Susuman and Mama (`CAST.ammi`) are also rigged on the studio skeleton (branch `animation-studio`, `CAST.qasim / CAST.susuman / CAST.ammi`) with the same colours as `rig.js`: 31 motions, turnarounds, 16 expressions, lip-sync. Sheets and a motion test are in `studio_rig/`. Use either rig; keep the look identical to this bible.
 
 ## The ensemble (from Nov 12, 2026) — reference: `studio_rig/susuman_ensemble.png`
 All on the studio skeleton (`CAST.<key>` in engine/chars.js, branch `animation-studio`).
 - **Family**
-  - DADA ABU (`dadaAbu`): Qasim's grandfather (Abbu's father). White kurta, glasses, moustache, walking slowly; loves chai, the newspaper and old stories.
+  - BABA (`baba`, NEW Nov 14, 2026): Qasim and Sakina's father — the kids call him **"Baba"**. Mid-30s, kind and a bit tired after work; neat black hair, short trimmed beard-and-moustache, rectangular glasses; light-blue shirt with rolled sleeves (office) or a grey kurta at home, dark trousers, office bag and a tiffin. Loves chai with Dada Abu and cricket on TV; soft-hearted — the easiest adult for Sakina's crying to win over. He does NOT know the secret. Build him on the studio skeleton in the same style as the ensemble (CAST.baba) and add him to the model sheet the first time he appears.
+  - DADA ABU (`dadaAbu`): Qasim's grandfather (Baba's father). White kurta, glasses, moustache, walking slowly; loves chai, the newspaper and old stories.
   - DADI (`dadi`): Qasim's grandmother. Purple suit, white dupatta, glasses; feeds everyone, worries, says duas.
-  - SAKINA (`sakina`): Qasim's elder sister, Baaji, 14. Teal hoodie. **The only person who knows he is Susuman.** She covers for him ("Ammi, woh mere saath tha!"), hands him water before missions, and keeps the secret from everyone.
-  - AMMI: as above. Abbu is mentioned but kept off-screen for now.
+  - SAKINA (`sakina`): Qasim's elder sister, Baaji, 14. Teal hoodie. **The only person who knows he is Susuman.** She covers for him ("Mama, woh mere saath tha!"), hands him water before missions, and keeps the secret from everyone.
+    - **"CRYING GIRL" (NEW Nov 14, 2026):** Sakina is also known as the crying girl. Her own funny "power": when she wants something from the grown-ups (ice cream, the TV remote, a later bedtime, a trip to the mela, or a cover story for Qasim) she switches on huge cartoon tears — wobbling lip, a slow "Mamaaa…" / "Babaaa…" wail, two fountain streams of tears — and the adult melts and says yes. Show it as a comic set-piece (tear streams, a puddle, a sad violin sting from the score, the adult caving in seconds, then her instant grin and wink to the camera). It is a running gag: use it in most episodes, often to help Qasim slip away for a rescue. Keep it light and kind (made for kids): no lying that hurts anyone, and now and then it backfires (Dadi sees through it, or Qasim copies it and fails) so the lesson stays balanced.
+  - MAMA (`ammi`): as above — always called Mama.
 - **Gali, school & TV**
   - BASIM (`basim`): Qasim's best friend from the gali, about his age, spiky hair, orange kurta. Does not know the secret; often the one Susuman saves or plays with.
   - ZAHRA MISS (`zahra`): Qasim's school teacher, glasses, blue kameez.
@@ -90,7 +93,7 @@ All on the studio skeleton (`CAST.<key>` in engine/chars.js, branch `animation-s
 - Old names map automatically in code (chacha→dadaAbu, zoya→sakina, rafi→basim, nani→dadi, maya→zahra, marcus→ammar, layla→latifa, jamal→dharmender).
 
 ### Rotation rule (every episode)
-- Every episode: Qasim/Susuman + Ammi + **at least 2 other family members** (Sakina in most) + **at least 2 from the gali/school/TV list**.
+- Every episode: Qasim/Susuman + Mama + **at least 2 other family members** (Sakina in most; bring Baba in regularly) + **at least 2 from the gali/school/TV list**.
 - Rotate the featured cast so nobody is absent for more than 3 episodes in a row; keep a "Cast:" line in each episode's notes and check the last 3 before choosing.
 - Give each a story function, not just a cameo: Dada Abu/Dadi set up problems and moral endings, Basim is the friend in trouble, Zahra Miss the school stories, Ammar the building/height rescues, Officer Gill the lost things/traffic, Latifa and Dharmender bhaiya the neighbourhood events, Daniel/Amara report the "mystery hero" on TV.
 - The secret never slips: only Sakina may react knowingly (a wink, a cover story); everyone else credits "koi superhero" on TV.
