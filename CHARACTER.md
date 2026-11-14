@@ -20,6 +20,7 @@ Reference: `Susuman_model_sheet.jpg`. Drawing code: `rig.js` (`susu()`, `ammi()`
 - Qasim: Kokoro hf_beta pitched up ×1.28 (child voice). Mama: ur-PK-UzmaNeural. Narrator: ur-PK-AsadNeural (Edge neural TTS, Urdu script). Reference clips in voices/.
 
 ## Music
+- DIALOGUE FIRST (Hassan, Nov 14, 2026): sound effects and music must never be so loud that a line of dialogue is hard to hear. In the mix, duck the score AND every SFX under dialogue (sidechain on the voice track); an SFX that overlaps a spoken line peaks at least 10 dB below the voice, and loud hits (FLUUSH, booms, crashes, cheers) go in the gaps between lines, not on top of words. Check before publishing: for every dialogue line, measure the voice stem vs the music+SFX stem over the line's time span (speech band 300-3400 Hz) — the voice must be at least 10 dB louder; fix and re-mix any line that fails. Final mix -14 LUFS, true peak -1 dB.
 - music.py: synthesised desi cartoon band (dholak/tabla kaharwa groove, harmonium chords, bansuri theme in D major, rubab-style plucks for sneaky moments, big hit for the Susuman reveal). Keep the bansuri THEME as the show's signature tune.
 
 ## Style
