@@ -393,7 +393,7 @@ DRAW.caveat = (t, d) => {
   withT(960, 300, 1, tilt, () => { line(-460, 0, 460, 0, C.amber, 12); for (const s of [-1, 1]) { line(s * 440, 0, s * 440 - 120, 260, C.ink, 4); line(s * 440, 0, s * 440 + 120, 260, C.ink, 4); P(ell(s * 440, 270, 170, 30), C.amber2, C.ink, 5); } });
   withT(960 - 440 * Math.cos(tilt), 300 - 440 * Math.sin(tilt) + 190, 1, 0, () => { P(rr(-150, -80, 300, 110, 12), C.paper, C.ink, 4); txt('REPORTS', 0, -24, 48, C.ink); });
   withT(960 + 440 * Math.cos(tilt), 300 + 440 * Math.sin(tilt) + 190, 1, 0, () => { P(rr(-150, -80, 300, 110, 12), C.paper, C.ink, 4); txt('CHARGES: 0', 0, -24, 48, C.ink); });
-  const chips = [['KOI CHARGE NAHI', 0.4], ['BOARD: LEAK KI WAJAH NAHI DIKHTI', LINES.n31.dur * 0.38], ['CHINA: "BEBUNIYAAD"', LINES.n31.dur * 0.75]];
+  const chips = [['KOI CHARGE NAHI', 0.4], ['BOARD KI JAANCH JAARI', LINES.n31.dur * 0.38], ['CHINA: "BEBUNIYAAD"', LINES.n31.dur * 0.75]];
   chips.forEach(([s, at], i) => { const k = back(seg(t, at, at + 0.3)); if (k > 0) withT(960, 900 + (i - 1) * 0 , 1, 0, () => {}); if (k > 0) withT(330 + i * 630, 880, k, 0, () => { ctx.font = '700 30px Oswald'; const w = ctx.measureText(s).width + 44; P(rr(-w / 2, -32, w, 64, 32), C.green, C.ink, 4); txt(s, 0, 2, 30, C.ink); }); });
   banner('JENSEN KA MAAMLA', 'ABHI TAK SIRF REPORTS', 70, 120, t - 0.3, C.amber);
   vignette();
@@ -414,8 +414,8 @@ DRAW.next = (t, d) => {
   const second = after('n37', -0.2);
   if (!second) {
     depth([{ z: 0.05, draw: () => { sky('#0A1022', '#141C33'); stars(80); } }, { z: 0.5, draw: () => { ctx.fillStyle = '#0E1A33'; ctx.fillRect(-200, 760, W + 400, 500); capitol(760, 800, 1.3, '#D9D3C2'); glow(760, 520, 500, C.amber, 0.12); } }], drift(t, d, 40), 0, lerp(1.0, 1.06, ease(t / d)));
-    withT(1500, 470, back(seg(t, 0.4, 0.8)), 0.06, () => { shadow(0, 230, 170); P(rr(-170, -200, 340, 380, 14), C.white, C.ink, 6); P(rr(-170, -200, 340, 90, [14, 14, 0, 0]), C.red, C.ink, 6); txt('NOV', 0, -152, 54, C.white); txt('18', 0, 30, 170, C.ink); txt('BAND KAMRA', 0, 140, 34, '#555', 'Oswald', 500); });
-    banner('JENSEN · CONGRESS', 'BRIEFING KE LIYE BULAAYA', 70, 120, t - 0.3, C.amber);
+    withT(1500, 470, back(seg(t, 0.4, 0.8)), 0.06, () => { shadow(0, 230, 170); P(rr(-170, -200, 340, 380, 14), C.white, C.ink, 6); P(rr(-170, -200, 340, 90, [14, 14, 0, 0]), C.red, C.ink, 6); txt('NOV', 0, -152, 54, C.white); txt('12', 0, 30, 170, C.ink); txt('ISTIFA', 0, 140, 40, C.red, 'Oswald', 700); });
+    banner('JENSEN NE ISTIFA DIYA', 'AB CONGRESS MEIN GAWAAHI', 70, 120, t - 0.3, C.amber);
   } else {
     const u = lt('n37') + 0.2; fillAll('#0B0F17'); paperTex(0, 0, W, H, 71); glow(960, 520, 600, C.amber, 0.2);
     const k = easeOut(seg(u, 0, 0.8)); folder(lerp(-300, 960, k), 520, 3.2, '#E8B04A');

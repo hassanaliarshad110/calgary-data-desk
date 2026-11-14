@@ -1,0 +1,540 @@
+{
+"scenes": [
+{
+"id": "stock",
+"start": 0,
+"dur": 6.143,
+"lines": [
+"n01"
+]
+},
+{
+"id": "memo",
+"start": 6.143,
+"dur": 7.591,
+"lines": [
+"n02"
+]
+},
+{
+"id": "mss",
+"start": 13.734,
+"dur": 8.521,
+"lines": [
+"n03"
+]
+},
+{
+"id": "world",
+"start": 22.255,
+"dur": 5.652,
+"lines": [
+"n04"
+]
+},
+{
+"id": "india",
+"start": 27.907,
+"dur": 15.727,
+"lines": [
+"n05",
+"n06"
+]
+},
+{
+"id": "title",
+"start": 43.634,
+"dur": 3.6,
+"lines": []
+},
+{
+"id": "ch1",
+"start": 47.234,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "honey",
+"start": 49.834,
+"dur": 5.709,
+"lines": [
+"n07"
+]
+},
+{
+"id": "chat",
+"start": 55.543,
+"dur": 11.574,
+"lines": [
+"n08",
+"d01",
+"d02"
+]
+},
+{
+"id": "phone",
+"start": 67.117,
+"dur": 10.435,
+"lines": [
+"n09"
+]
+},
+{
+"id": "ch2",
+"start": 77.552,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "nagpur",
+"start": 80.152,
+"dur": 8.858,
+"lines": [
+"n10"
+]
+},
+{
+"id": "engineer",
+"start": 89.01,
+"dur": 5.169,
+"lines": [
+"n11"
+]
+},
+{
+"id": "profiles",
+"start": 94.179,
+"dur": 8.646,
+"lines": [
+"n12"
+]
+},
+{
+"id": "arrest",
+"start": 102.825,
+"dur": 7.357,
+"lines": [
+"n13"
+]
+},
+{
+"id": "files",
+"start": 110.182,
+"dur": 9.25,
+"lines": [
+"n14"
+]
+},
+{
+"id": "verdict",
+"start": 119.432,
+"dur": 8.551,
+"lines": [
+"n15"
+]
+},
+{
+"id": "rewind",
+"start": 127.983,
+"dur": 3.031,
+"lines": [
+"n16"
+]
+},
+{
+"id": "hc",
+"start": 131.014,
+"dur": 23.014,
+"lines": [
+"n17",
+"n18"
+]
+},
+{
+"id": "lesson",
+"start": 154.028,
+"dur": 6.145,
+"lines": [
+"n19"
+]
+},
+{
+"id": "ch3",
+"start": 160.173,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "pune",
+"start": 162.773,
+"dur": 7.258,
+"lines": [
+"n20"
+]
+},
+{
+"id": "zchat",
+"start": 170.031,
+"dur": 17.903,
+"lines": [
+"n21",
+"n22"
+]
+},
+{
+"id": "quote",
+"start": 187.934,
+"dur": 10.576,
+"lines": [
+"n23"
+]
+},
+{
+"id": "list",
+"start": 198.51,
+"dur": 11.092,
+"lines": [
+"n24"
+]
+},
+{
+"id": "court2",
+"start": 209.602,
+"dur": 17.919,
+"lines": [
+"n25",
+"n26"
+]
+},
+{
+"id": "wanted",
+"start": 227.521,
+"dur": 5.81,
+"lines": [
+"n27"
+]
+},
+{
+"id": "ch4",
+"start": 233.331,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "pattern",
+"start": 235.931,
+"dur": 10.199,
+"lines": [
+"n28"
+]
+},
+{
+"id": "compare",
+"start": 246.13,
+"dur": 13.513,
+"lines": [
+"n29",
+"n30"
+]
+},
+{
+"id": "caveat",
+"start": 259.643,
+"dur": 12.069,
+"lines": [
+"n31"
+]
+},
+{
+"id": "ch5",
+"start": 271.712,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "tips",
+"start": 274.312,
+"dur": 30.134,
+"lines": [
+"n32",
+"n33",
+"n34",
+"n35"
+]
+},
+{
+"id": "next",
+"start": 304.446,
+"dur": 18.208,
+"lines": [
+"n36",
+"n37"
+]
+},
+{
+"id": "question",
+"start": 322.654,
+"dur": 8.406,
+"lines": [
+"n38"
+]
+},
+{
+"id": "end",
+"start": 331.06,
+"dur": 9.06,
+"lines": [
+"n39"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.5,
+"dur": 5.243,
+"spk": "N",
+"roman": "9 November. Share bazaar khulte hi, NVIDIA kareeb 7% gir gaya."
+},
+"n02": {
+"start": 6.343,
+"dur": 7.091,
+"spk": "N",
+"roman": "Ek raat pehle, uske boss Jensen Huang ne apne staff ko likha… ki unhone apni patni se bewafaai ki."
+},
+"n03": {
+"start": 13.934,
+"dur": 7.821,
+"spk": "N",
+"roman": "Aur reports ke mutabiq, ek khufiya American memo kehta hai ki us aurat ko China ki khufiya agency ne bharti kiya tha."
+},
+"n04": {
+"start": 22.455,
+"dur": 5.052,
+"spk": "N",
+"roman": "Poori duniya ye kahaani dekh rahi hai. Lekin ek sawaal koi nahi pooch raha."
+},
+"n05": {
+"start": 28.107,
+"dur": 6.525,
+"spk": "N",
+"roman": "Agar duniya ke sabse taaqatwar tech boss tak ye jaal pahunch sakta hai… to Bharat ke missile scientists ka kya?"
+},
+"n06": {
+"start": 34.952,
+"dur": 8.082,
+"spk": "N",
+"roman": "Kyunki ye khel Bharat mein pehle khela ja chuka hai. Bas khiladi alag the. Aaj hum kholenge… Honey Trap ki files."
+},
+"n07": {
+"start": 50.134,
+"dur": 5.109,
+"spk": "N",
+"roman": "Honey trap, yaani shahad ka jaal. Jasoosi ki duniya ki sabse puraani chaal."
+},
+"n08": {
+"start": 55.743,
+"dur": 4.131,
+"spk": "N",
+"roman": "Pehle dosti. Phir bharosa. Phir chhoti-chhoti jaankaari."
+},
+"d01": {
+"start": 60.324,
+"dur": 3.062,
+"spk": "S",
+"roman": "Hi! Aapki profile bahut impressive hai."
+},
+"d02": {
+"start": 63.736,
+"dur": 2.781,
+"spk": "S",
+"roman": "Bas wo ek file bhej do na… please."
+},
+"n09": {
+"start": 67.317,
+"dur": 9.735,
+"spk": "N",
+"roman": "Aur jab tak shikaar ko samajh aaye, jaal band ho chuka hota hai. Farq bas itna hai — aaj ye jaal kisi hotel mein nahi, aapke phone mein bichhta hai."
+},
+"n10": {
+"start": 80.452,
+"dur": 8.258,
+"spk": "N",
+"roman": "File number 1. Nagpur. BrahMos Aerospace — jahaan Bharat aur Russia milkar supersonic cruise missile banaate hain."
+},
+"n11": {
+"start": 89.21,
+"dur": 4.669,
+"spk": "N",
+"roman": "Yahaan kaam karte the ek senior systems engineer — Nishant Agrawal."
+},
+"n12": {
+"start": 94.379,
+"dur": 7.946,
+"spk": "N",
+"roman": "Prosecution ke mutabiq, Facebook par unse auraton ke naam waali farzi profiles ne sampark kiya. Jaise — Sejal Kapoor."
+},
+"n13": {
+"start": 103.025,
+"dur": 6.757,
+"spk": "N",
+"roman": "October 2018. Uttar Pradesh aur Maharashtra ki ATS ne unhein giraftaar kar liya."
+},
+"n14": {
+"start": 110.382,
+"dur": 8.55,
+"spk": "N",
+"roman": "Aarop tha ki unhone BrahMos ki 19 gopniya files apne personal laptop par rakhin… aur malware ke zariye data bahar gaya."
+},
+"n15": {
+"start": 119.632,
+"dur": 7.851,
+"spk": "N",
+"roman": "2024 mein Nagpur ki adaalat ne unhein umrqaid suna di. Headline bani: honey trap mein phansa jasoos."
+},
+"n16": {
+"start": 128.183,
+"dur": 2.331,
+"spk": "N",
+"roman": "Lekin kahaani yahin khatm nahi hoti."
+},
+"n17": {
+"start": 131.214,
+"dur": 12.107,
+"spk": "N",
+"roman": "December 2025. Bombay High Court ne jasoosi ke aarop khaarij kar diye. Court ne kaha: ye saabit nahi hua ki data kabhi Pakistan ya kisi aur tak pahuncha."
+},
+"n18": {
+"start": 143.641,
+"dur": 9.787,
+"spk": "N",
+"roman": "Bas ek aarop bacha: gopniya files bina ijaazat apne laptop par rakhna. Saza — 3 saal. Jo wo pehle hi kaat chuke the."
+},
+"n19": {
+"start": 154.228,
+"dur": 5.245,
+"spk": "N",
+"roman": "Sabak number 1: har honey trap ki headline, adaalat mein sach saabit nahi hoti."
+},
+"n20": {
+"start": 163.073,
+"dur": 6.658,
+"spk": "N",
+"roman": "File number 2. Pune. DRDO ki ek aham lab ke director rahe — Pradeep Kurulkar."
+},
+"n21": {
+"start": 170.231,
+"dur": 11.342,
+"spk": "N",
+"roman": "ATS ki chargesheet ke mutabiq, unhein WhatsApp par messages aate the 'Zara Dasgupta' naam ki ek aurat se — jo khud ko London ki software engineer batati thi."
+},
+"n22": {
+"start": 181.893,
+"dur": 5.541,
+"spk": "N",
+"roman": "Jaanch agency ka daawa hai ki 'Zara' asal mein ek Pakistani khufiya operative thi."
+},
+"n23": {
+"start": 188.134,
+"dur": 9.776,
+"spk": "N",
+"roman": "Chargesheet mein darj ek chat ke mutabiq, Kurulkar ne likha: 'mere paas BrahMos ke sabhi versions ki 184 pannon ki shuruaati design report hai.'"
+},
+"n24": {
+"start": 198.71,
+"dur": 10.392,
+"spk": "N",
+"roman": "Aarop hai ki baatein isse aage bhi gayin — Agni-6, Rafale, drone projects. Aur 'Zara' ne aise app links bheje, jinmein baad mein malware nikla."
+},
+"n25": {
+"start": 209.802,
+"dur": 7.259,
+"spk": "N",
+"roman": "2023 mein giraftaari hui. Aur June 2026 mein Pune ki adaalat ne aarop tay kiye."
+},
+"n26": {
+"start": 217.381,
+"dur": 9.54,
+"spk": "N",
+"roman": "Kurulkar aaropon se inkaar karte hain. Unke vakeel kehte hain, jo jaankaari share hui, wo pehle se public thi. Muqadma abhi chal raha hai."
+},
+"n27": {
+"start": 227.721,
+"dur": 4.91,
+"spk": "N",
+"roman": "Aur 'Zara Dasgupta'? Jaanch agency ke mutabiq, wo aaj tak faraar hai."
+},
+"n28": {
+"start": 236.231,
+"dur": 9.399,
+"spk": "N",
+"roman": "Ye akele maamle nahi hain. Navy ke naavikon se lekar Air Force ke jawaanon tak, kai maamlon mein aise hi online jaal ke aarop lage hain."
+},
+"n29": {
+"start": 246.33,
+"dur": 3.796,
+"spk": "N",
+"roman": "Ab Jensen waali kahaani se milaaiye. Pattern ek hi hai."
+},
+"n30": {
+"start": 250.446,
+"dur": 8.597,
+"spk": "N",
+"roman": "Nishaana: wo insaan jiske paas chaabi hai. Tareeqa: dosti aur taareef. Aur maqsad: jaankaari, ya bade faislon par asar."
+},
+"n31": {
+"start": 259.843,
+"dur": 11.169,
+"spk": "N",
+"roman": "Farq ye hai ki Jensen ke maamle mein ab tak kisi par koi charge nahi laga. NVIDIA ke board ki jaanch abhi jaari hai. Aur China in aaropon ko bebuniyaad batata hai."
+},
+"n32": {
+"start": 274.612,
+"dur": 5.963,
+"spk": "N",
+"roman": "To aap kaise bachein? Kyunki agla nishaana koi scientist nahi… aap bhi ho sakte hain."
+},
+"n33": {
+"start": 280.895,
+"dur": 7.764,
+"spk": "N",
+"roman": "Ek: jo ajnabi profile bahut jaldi kareeb aaye, aur aapke kaam mein zyaada dilchaspi le — wo khatre ki ghanti hai."
+},
+"n34": {
+"start": 288.979,
+"dur": 5.769,
+"spk": "N",
+"roman": "Do: kisi anjaan link se koi app ya APK file kabhi install mat kijiye."
+},
+"n35": {
+"start": 295.068,
+"dur": 8.578,
+"spk": "N",
+"roman": "Teen: daftar ki file personal phone ya laptop par nahi. BrahMos waale case mein jo saza bachi, wo isi baat ki thi."
+},
+"n36": {
+"start": 304.646,
+"dur": 12.107,
+"spk": "N",
+"roman": "Aur taaza khabar: 12 November ko Jensen Huang ne NVIDIA ke CEO pad se istifa de diya. Ab woh American Congress ke saamne gawaahi denge. Hum update laate rahenge."
+},
+"n37": {
+"start": 317.073,
+"dur": 4.981,
+"spk": "N",
+"roman": "Aur agli file mein: Islamabad mein tainaat ek Bharatiya diplomat ki kahaani."
+},
+"n38": {
+"start": 322.854,
+"dur": 7.706,
+"spk": "N",
+"roman": "Aapki kya raay hai? Kya social media aaj jasooson ka sabse bada hathiyaar ban gaya hai? Comment mein zaroor bataaiye."
+},
+"n39": {
+"start": 331.26,
+"dur": 5.86,
+"spk": "N",
+"roman": "Video achha laga ho, to LIKE kijiye, SHARE kijiye, aur Awazzzz ko SUBSCRIBE kijiye."
+}
+},
+"total": 340.11999999999983
+}

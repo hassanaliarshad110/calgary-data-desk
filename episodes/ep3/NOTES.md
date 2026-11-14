@@ -6,3 +6,6 @@
 - Avoid the 'grey' hair style for Indian men: it reads as a prayer cap. Use 'short' or 'buzz'.
 - edge-tts refused some lines repeatedly ("No audio"): send 2-3 reworded variants and keep the one that works.
 - Render: python3 render.py full 0 170 partA.tmp.mp4 & python3 render.py full 170 END partB.tmp.mp4 (2 cores), then concat + mix.
+
+## Update 14 Nov 2026
+n31 and n36 rewritten after Jensen Huang resigned (12 Nov, SEC 8-K): board probe ongoing; he will testify before Congress. Caveat chip and the 'next' calendar card changed (12 NOV · ISTIFA). Lines kept in the Madhur voice for consistency inside this episode. Music bed raised to 0.42 with 50% ducking.
