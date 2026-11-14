@@ -135,6 +135,7 @@ GENIE, SCIENTIST = _make('genie'), _make('scientist')
 SCIENTIST.who = 'The Data Scientist'
 GENIE.memory = True                       # Data Genie keeps the notes the visitor lets it (in their browser or account)
 SCIENTIST.web = True                     # the Data Scientist can search the web and read pages (Claude only)
+GENIE.web, GENIE.web_max = True, 4       # Data Genie can too, for what the City's data does not hold (at most 4 searches and 4 pages a question)
 
 
 def _today():

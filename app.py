@@ -95,6 +95,7 @@ class Api:
         self._agent.tax_provider = self._analyst.tax_provider = self._tax_for_agent
         self._analyst.who = 'The Data Scientist'
         self._analyst.web = True              # it can search the web and read pages (Claude only)
+        self._agent.web, self._agent.web_max = True, 4   # Data Genie too, for what the City's data does not hold
         self._analyst_busy = False
         self._cams = camfeed.CameraFeed(os.path.join(DATA_DIR, 'camera_replay'))
         self._cams.start()
