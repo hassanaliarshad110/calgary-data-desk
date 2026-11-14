@@ -1791,6 +1791,7 @@ class Agent:
         self.emit = emit                          # (event dict) -> None, sends to the app window
         self.who = 'Data Genie'                   # how errors name it (the Data Scientist and the auditor set their own)
         self.web = False                          # the internet (web search and reading pages): the Data Scientist has it
+        self.web_max = 0                          # a lower cap on searches and page reads per question (0 = the tools' own)
         self.memory = False                       # notes the visitor lets it keep (Data Genie on the website)
         self.user_notes = ''                      # those notes, sent with each question
         self.earlier = []                         # earlier reports' research, sent by the page (the website keeps it per visitor)
@@ -2585,7 +2586,8 @@ class Agent:
                 self._compact()
             try:
                 tools = self.tools + (MEMORY_TOOLS if self.memory else [])
-                tools = tools + WEB_TOOLS if self.web and e['provider'] == 'claude' else tools
+                tools = tools + [dict(t, max_uses=min(t['max_uses'], self.web_max)) if self.web_max else t for t in WEB_TOOLS] \
+                    if self.web and e['provider'] == 'claude' else tools
                 r = engines.call(e, e[tier], system, tools, self._messages_to_send(), self._out_cap or MAX_OUTPUT,
                                  anthropic_post=post_messages, chat_post=post_chat, cache_mark=with_cache_mark,
                                  options=self._options(e))
