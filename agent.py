@@ -63,6 +63,22 @@ Use a note only where it changes the answer (their area, their role, what they f
 "I remember" unless they ask what you know. When they tell you something durable about themselves that would help later \
 (their community, role, interests), save it with remember; when they ask you to forget something, use forget."""
 WEB_SEARCH_USD = 0.01          # each web search (reading a page costs only its tokens)
+
+def join_text(content):
+    """The reply's text. A web-cited answer arrives as many text blocks, often mid-sentence, one per cited passage: those
+    run on with nothing between them. Text on the far side of a search or a page read starts a new paragraph."""
+    out, after_tool = [], False
+    for b in content or []:
+        if b.get('type') != 'text':
+            after_tool = after_tool or bool(out)
+            continue
+        t = b.get('text', '')
+        if out and after_tool:
+            out.append('\n\n')
+        out.append(t)
+        after_tool = False
+    return ''.join(out)
+
 WEB_NOTE = """
 
 THE INTERNET: you can search the web (web_search) and read a page or PDF it finds (web_fetch). Use them for what the City's \
@@ -2462,7 +2478,7 @@ class Agent:
             if not t:
                 continue
             if len(json.dumps(t, default=str)) > 40000:
-                answer = next(('\n\n'.join(b.get('text', '') for b in m['content'] if b.get('type') == 'text').strip()
+                answer = next((join_text(m['content']).strip()
                                for m in reversed(t) if m['role'] == 'assistant' and isinstance(m['content'], list)
                                and any(b.get('type') == 'text' and b.get('text') for b in m['content'])), '')
                 calls = sum(1 for m in t if m['role'] == 'assistant' and isinstance(m['content'], list)
@@ -2850,7 +2866,7 @@ class Agent:
             done = {'model': model, 'tier': tier, 'tokens': used, 'free': all(f for _, _, f in services),
                     'engine': ' then '.join(f'{n} ({m})' for n, m, _ in services), 'skipped': skipped}
             if resp.get('stop_reason') != 'tool_use':
-                text = '\n\n'.join(b.get('text', '') for b in content if b.get('type') == 'text').strip()
+                text = join_text(content).strip()
                 if self._cut_text:
                     text = (self._cut_text + text).strip()
                 if rewritten is None and NEGATIVE_OPENING.search(_first_sentence(text)):
@@ -2877,7 +2893,7 @@ class Agent:
         cut = [b for b in calls if b.get('_partial') is not None]
         notes = [self._salvage(b['name'], b['_partial']) for b in cut]
         if not calls:                                        # a written answer too long for one reply: continue it
-            self._cut_text += '\n\n'.join(b['text'] for b in texts)       # continued from exactly where it stopped
+            self._cut_text += join_text(texts)       # continued from exactly where it stopped
             self.history.append({'role': 'assistant', 'content': texts or [{'type': 'text', 'text': '(cut off)'}]})
             self.history.append({'role': 'user', 'content': [{'type': 'text', 'text':
                 ('Your reply ran over the length limit. Continue it from exactly where it stopped, without repeating what you '
