@@ -19,22 +19,31 @@ for name, lines in L.items():
 json.dump(durs, open(os.path.join(out, 'durs.json'), 'w'))
 print(durs)
 
-# --- one-off: today's precise Calgary airport readings (Environment Canada), Nov 14, 2026 ---
+# --- one-off evidence pull for the Nov 14, 2026 fun fact (ECCC raw rows + latest CYYC observations) ---
 try:
-    import re, urllib.request as U
+    import csv, io, re, time, urllib.request as U
     def g(u):
-        try: return U.urlopen(U.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=60).read().decode('utf-8', 'replace')
-        except Exception as e: return 'ERR ' + str(e)
-    res = {}
-    res['hourly_api'] = g('https://api.weather.gc.ca/collections/climate-hourly/items?CLIMATE_IDENTIFIER=3031092&LOCAL_DATE=2026-11-14T00:00:00/2026-11-15T06:00:00&f=json&limit=100&properties=LOCAL_DATE,TEMP')[:20000]
-    for base in ('https://dd.weather.gc.ca/today/observations/swob-ml/20261114/CYYC/', 'https://dd.weather.gc.ca/observations/swob-ml/20261114/CYYC/'):
-        idx = g(base); res['idx_' + base] = idx[:3000]
-        files = sorted(set(re.findall(r'href="([^"]+\.xml)"', idx)))
-        for f in files:
-            x = g(base + f)
-            keep = {k: v for k, v in re.findall(r'<element name="([^"]*(?:air_temp|max_air|min_air)[^"]*)"[^>]*value="([^"]*)"', x)}
-            res[f] = keep
-        if files: break
-    json.dump(res, open(os.path.join(out, 'today_obs.json'), 'w'), indent=1)
+        for _ in range(3):
+            try: return U.urlopen(U.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=60).read().decode('utf-8-sig', 'replace')
+            except Exception as e: err = str(e); time.sleep(2)
+        return 'ERR ' + err
+    B = 'https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID={s}&Year={y}&Month=11&Day=14&timeframe=2&submit=Download+Data'
+    rows = []
+    for y in range(1926, 2026):
+        for s in ([2205] if y < 2012 else [2205, 50430] if y == 2012 else [50430]):
+            txt = g(B.format(s=s, y=y))
+            if txt.startswith('ERR'): rows.append({'year': y, 'station_id': s, 'error': txt}); continue
+            for r in csv.DictReader(io.StringIO(txt)):
+                if r.get('Date/Time', '').endswith('-11-14'):
+                    rows.append({'year': y, 'station_id': s, 'station': r.get('Station Name'), 'climate_id': r.get('Climate ID'), 'date': r.get('Date/Time'), 'max_c': r.get('Max Temp (°C)'), 'max_flag': r.get('Max Temp Flag'), 'url': B.format(s=s, y=y)})
+    json.dump(rows, open(os.path.join(out, 'eccc_nov14_1926_2025.json'), 'w'), indent=1, ensure_ascii=False)
+    obs = {}
+    base = 'https://dd.weather.gc.ca/today/observations/swob-ml/20261114/CYYC/'
+    for f in sorted(set(re.findall(r'href="([^"]+\.xml)"', g(base)))):
+        x = g(base + f); obs[f] = {k: v for k, v in re.findall(r'<element name="([^"]*air_temp[^"]*)"[^>]*value="([^"]*)"', x)}
+    base2 = 'https://dd.weather.gc.ca/today/observations/swob-ml/20261115/CYYC/'
+    for f in sorted(set(re.findall(r'href="([^"]+\.xml)"', g(base2)))):
+        x = g(base2 + f); obs[f] = {k: v for k, v in re.findall(r'<element name="([^"]*air_temp[^"]*)"[^>]*value="([^"]*)"', x)}
+    json.dump(obs, open(os.path.join(out, 'cyyc_swob_2026-11-14.json'), 'w'), indent=1)
 except Exception as e:
-    open(os.path.join(out, 'today_obs_err.txt'), 'w').write(str(e))
+    open(os.path.join(out, 'evidence_err.txt'), 'w').write(str(e))
