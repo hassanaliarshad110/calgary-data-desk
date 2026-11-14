@@ -1,0 +1,271 @@
+#### Genie: How many new communities did Council approve in 2026?
+TRAP: approved LOC rezonings / outline plans
+PASS IF: 9 so far (6 + 3 on Oct 27), 4 pending at budget, from data:new_communities
+secs: 6  cost: {"input": 136475, "output": 997, "cache_read": 90049, "cost_usd": 0.0072}
+steps: ["Reading data:new_communities's own data", "Reading data:new_communities's own data"]
+ANSWER:
+**Council approved 9 new communities in 2026**, as of November 14, 2026: six before October 24 and three on October 27.
+
+- **Before October 24:** six new neighbourhoods, each with 225 to 1,110 anticipated homes. The Sprawl reports the count but does not name them.
+- **October 27 votes:** three growth applications passed, with about 3,965 anticipated homes:
+  - GA2026-009, Glacier Ridge 1 (Ward 2), passed 9-6
+  - GA2026-010, Belvedere (Ward 9), passed 11-4
+  - GA2026-011, Glacier Ridge 2 (Ward 2), passed 9-6
+
+Four more applications are going to Council in the 2027-2030 budget deliberations, with about 17,176 anticipated homes. Council has not decided them yet. Providence, on the west edge, is one of them.
+
+These are growth applications (GA numbers), not rezonings. Rezonings with LOC numbers are a different decision and are not counted here.
+
+Sources:
+- Calgary Insight, New communities data file (data:new_communities), checked 2026-11-14, compiled by hand from Council records and news
+- City of Calgary, Ward 8 Council Debriefs, October 27, 2026 meeting: https://www.calgary.ca/council/ward-8/council-debriefs.html
+- CBC News via Yahoo, "Calgary council approves three new communities," October 29, 2026: https://ca.news.yahoo.com/calgary-council-approves-three-communities-131552614.html
+- The Sprawl, "City council approves 3 new neighbourhoods, 4 still to come," November 4, 2026: https://www.sprawlcalgary.com/city-council-approves-3-new-neighbourhoods
+- The Sprawl, "Calgary city council to decide on 7 new neighbourhoods," October 24, 2026: https://www.sprawlcalgary.com/city-council-7-new-communities-urban-sprawl
+
+#### Genie: What is Calgary Transit ridership this year?
+TRAP: timetable trips
+PASS IF: says ridership is not in the site's data (Calgary Transit reports); web search for the real figure where available
+secs: 24  cost: {"input": 460733, "output": 3374, "cache_read": 440106, "cost_usd": 0.0288}
+steps: ["Checking the list of sources for transit ridership", "Searching the City's datasets for \u201ctransit ridership\u201d", "Reading the columns of iema-jbc4", "Querying iema-jbc4", "Querying iema-jbc4", "Working out 3 figures", "Searching the web: Calgary Transit ridership 2026", "Querying nypk-snzd", "Querying nypk-snzd"]
+ANSWER:
+Calgary Transit's 2026 ridership is not in the City data I can reach. The latest City figure I found is for the first half of 2025: **48,514,300 riders from January to June 2025**, about 8.1 million a month.
+
+- **City open data (Calgary Transit Ridership 2007–2025, iema-jbc4, updated 1 March 2026):** January to June 2025 total 48,514,300. Monthly figures ran from 7.0 million (February) to 8.8 million (May). July to September 2025 are blank. Full-year totals are 101,149,900 for 2024 and 89,965,700 for 2023.
+- **City Mobility Status Reports:** the City's table gives 
+
+2022: 57 million; 2023: 90 million; 2024: 101.1 million; 2025 (Jan-Oct): 48.5 million
+
+. The Jan–Oct 2025 figure matches the open data's Jan–Jun total, so the City's own sources disagree on what period that figure covers.
+- **RouteAhead Annual Status Report (7 May 2026):** this report gives 2025 ridership as 93.1 million, against 93.7 million in 2024. It uses a different count: 
+
+Calgary Transit recently modernized its process for counting riders by installing automated passenger counting technology on CTrains
+
+. So its 2024 figure is not the same measure as the 101.1 million above, and the two series should not be added or compared directly.
+
+For 2026 itself, the open data page says a yearly ridership table is 
+
+Yearly Ridership (current year is year-to-date)
+
+, last updated 28 August 2026. I could not read that table with my tools, so the year-to-date 2026 figure should be taken from the City's data page directly.
+
+Sources:
+- Calgary Transit Ridership (2007–2025), City of Calgary open data, iema-jbc4 (https://data.calgary.ca/d/iema-jbc4). Period: January 2010 to June 2025 in the file; last updated 1 March 2026.
+- Mobility Status Reports, City of Calgary (https://www.calgary.ca/roads/mobility-status-reports.html). Period: 2022 to October 2025.
+- RouteAhead Annual Status Report, IP2026-0142, City of Calgary, 7 May 2026. Period: 2024 and 2025.
+
+#### Genie: How many homeless people are in Calgary?
+TRAP: shelter and help listings
+PASS IF: points to the Point-in-Time count; never counts shelters as people
+secs: 9  cost: {"input": 99100, "output": 1259, "cache_read": 89015, "cost_usd": 0.0128}
+steps: ["Checking the list of sources for homeless point-in-time count", "Searching the web: "]
+ANSWER:
+Calgary's most recent count is **3,314 people experiencing homelessness**, counted on the night of October 9, 2025. That is up from 3,121 in 2024, but the Calgary Homeless Foundation says the rate has stayed flat. 
+
+Calgary's 2025 PiT Count took place on October 9, 2025.
+
+ 
+
+On the night of the count, 3,314 individuals were identified as experiencing homelessness in Calgary, compared to 3,121 in 2024.
+
+ 
+
+About 2 in every 1,000 people are experiencing homelessness right now.
+
+
+
+The count is a snapshot. 
+
+It captures people accessing shelters and living unsheltered, but it may not reflect the full scope of hidden homelessness in our community.
+
+
+
+The City's open data and the police do not publish a homeless count. The official count is the Calgary Homeless Foundation's Point-in-Time count, which 
+
+Calgary has conducted every two years since 1992.
+
+ The 2025 count is a yearly update in the Foundation's reporting, so check its report page for the latest.
+
+Sources:
+- Calgary Homeless Foundation, 2025 Point-in-Time Count, Calgary Report (count night October 9, 2025): https://www.calgaryhomeless.com/wp-content/uploads/2026/03/PiT-Report_2025.F2.pdf
+- Calgary Homeless Foundation, 2024 Point-in-Time Count, Calgary Report: https://www.calgaryhomeless.com/wp-content/uploads/2025/08/2024_PIT-Report_Final.pdf
+- Calgary Homeless Foundation, About homelessness and Point-in-Time reports: https://www.calgaryhomeless.com/learn/about-homelessness/
+- Figures are from web sources, not City open data. The City's catalogue has no homeless count (checked via the site's source registry, 14 Nov 2026).
+
+#### Genie: How many homes were completed in Calgary in 2025?
+TRAP: building permits issued
+PASS IF: says permits are not completions; names CMHC completions
+secs: 9  cost: {"input": 103028, "output": 1230, "cache_read": 89019, "cost_usd": 0.0133}
+steps: ["Reading the dashboard", "Searching the web: "]
+ANSWER:
+Calgary recorded **20,414 housing completions in 2025**, according to CMHC's Starts and Completions Survey as reported in the City's Q4 2025 Housing Review. That is down slightly from 21,084 in 2024 but still the second-highest level on record. 
+
+Housing completions reached 20,414 units in 2025, down slightly from 21,084 units in 2024 but still the second highest level on record.
+
+
+
+Completions are the official count of homes finished in the year. Building permits are a different measure. The same review reports that building permits issued in 2025 covered about 23,000 housing units, which is not the number of homes completed.
+
+Calgary's 2025 figure is a year-end number, so use the Q4 2025 review rather than the quarterly reports. The Q1 2026 review reports 5,457 completions for the first quarter of 2026, which is outside the 2025 count.
+
+Sources:
+- CMHC Starts and Completions Survey, Calgary, calendar year 2025, as reported in City of Calgary, Housing Review Q4 2025: https://www.calgary.ca/content/dam/www/cfod/finance/documents/corporate-economics/housing-review/housing-review-q4-2025.pdf
+- Quarterly figures (Q1 to Q3 2025) from the same series of City of Calgary Housing Reviews.
+
+#### Genie: How many traffic collisions were there in Ward 5 last year?
+TRAP: live traffic incidents
+PASS IF: says live incidents are not collision statistics
+secs: 22  cost: {"input": 242436, "output": 3368, "cache_read": 214075, "cost_usd": 0.0074}
+steps: ["Checking the list of sources for collision traffic incidents", "Searching the City's datasets for \u201ctraffic collisions\u201d", "Reading the dashboard (wards)", "Reading how the app counts traffic", "Reading the columns of 35ra-9556", "Reading the dashboard (traffic)", "Querying 35ra-9556"]
+ANSWER:
+Ward 5 had **819 traffic incidents** in the 12 months from November 2025 to October 2026, up 22.2% from the year before. These are incidents the City reports, not confirmed collisions, so the count is not a collision total.
+
+- **Ward 5 vs Calgary:** Calgary had 8,408 incidents in the same period, up 24.7%. Ward 5 ranks 4th of 14 wards by count.
+- **Per resident:** Ward 5 had 5.6 incidents per 1,000 residents, against Calgary's 5.3. That ranks 6th of 14.
+- **What the count includes:** The dataset covers stalled vehicles, signal faults, hazards and unverified collisions, and does not flag collisions separately. Many entries are "Traffic incident" with no detail.
+- **Calendar 2025:** The site reports Ward 5 on a November to October basis, so it has no figure for January to December 2025. I can count that period from the City's raw incident records if you need it, but the ward has to be assigned by location, which takes more work.
+
+Sources: City of Calgary, Traffic Incidents (dataset 35ra-9556, https://data.calgary.ca/d/35ra-9556), incidents from Nov 1, 2025 to Oct 31, 2026, placed in Ward 5 by exact location against Ward Boundaries (tz8z-hyaz); residents counted under the site's default method (City actual), 148,092 in Ward 5.
+
+#### Genie: How many businesses closed in Calgary this year?
+TRAP: business licences issued
+PASS IF: says licences issued show openings, not closures
+secs: 11  cost: {"input": 251567, "output": 1451, "cache_read": 241079, "cost_usd": 0.0045}
+steps: ["Reading the dashboard (business)", "Searching the City's datasets for \u201cbusiness licences closed cancelled\u201d", "Reading the columns of vdjc-pybd", "Querying vdjc-pybd", "Searching the City's datasets for \u201cbusiness closures cancelled licences\u201d"]
+ANSWER:
+The City's open data does not count business closures in Calgary this year, so I can't give you a number. The closest figure is 3 businesses whose licences are marked "Close in Progress" in the City's business licence file, which is a snapshot of current status rather than a count of closures in 2026.
+
+The file (Calgary Business Licenses, vdjc-pybd, updated 14 November 2026) has no closure date or cancellation date. Its status counts are:
+
+- Renewal Licensed: 15,417
+- Pending Renewal: 3,537
+- Licensed: 2,587
+- Renewal Invoiced: 1,496
+- Move in Progress: 199
+- Renewal Notification Sent: 3
+- Close in Progress: 3
+
+Because the file has no closure dates, a business that closed without formally closing its licence would not appear. Licences first issued in 2026 are openings, not closures, so they don't help here. The Invest in Calgary business page (dashboard section "business") counts businesses by community, not closures.
+
+For a real count, the City's business licensing office (Development and Business Services) would hold cancellation records. I'd suggest asking them for licences cancelled or closed between 1 January and 14 November 2026.
+
+Sources: Calgary Business Licenses, City of Calgary open data, vdjc-pybd (https://data.calgary.ca/d/vdjc-pybd), last updated 14 November 2026; Invest in Calgary business counts, Calgary Insight dashboard, built 14 November 2026.
+
+#### Genie: How did Ward 5's councillor vote on the 2025 budget?
+TRAP: vote record that starts later
+PASS IF: gives the vote record's date range and says 2025 is outside it, never 'no vote'
+secs: 33  cost: {"input": 450126, "output": 4346, "cache_read": 392551, "cost_usd": 0.0405}
+steps: ["Reading accountability's own data", "Reading the dashboard (elections)", "Reading accountability's own data", "Reading the dashboard (wards)", "Reading accountability's own data", "Reading accountability's own data", "Reading accountability's own data", "Reading the dashboard (elections)", "Searching the web: "]
+ANSWER:
+Raj Dhaliwal, Ward 5's councillor, is on record in the news coverage of the 2025 budget, but I could not confirm how he voted on the main budget vote. The City's voting records I can read only cover September 24 to October 27, 2026, so the November 2024 vote is not in them.
+
+**What the sources show**
+
+- Council approved the 2025 budget adjustments on November 22, 2024. 
+
+On Nov. 22 2024, Council approved adjustments to the 2023-2026 Service Plans and Budgets.
+
+ The overall package 
+
+was approved in a 9-6 vote, with council unanimously voting to forgo a debate on the budget overall
+
+.
+- Dhaliwal proposed an amendment to fund parks and playground upgrades. 
+
+Raj Dhaliwal put forward this amendment to use cash for parks and playgrounds amenity upgrades. "What this is trying to do, at least for next year, is fill that gap, to support the projects that are already down the pipeline"
+
+, he said. I could not find the vote count for that amendment.
+- On the Inglewood pool, CBC reports that 
+
+councillors Jennifer Wyness, Raj Dhaliwal and Evan Spencer voting to keep the pool closed.
+
+ That was a separate reconsideration vote in the same budget week, and the report's vote count is cut off in the text I could read.
+
+**What is missing**
+
+The official vote-by-councillor record for November 2024 would be in the City's council minutes (the eSCRIBE meeting record for the November 2024 Council meeting). I could not read the individual votes from it, so the main 9-6 vote is not attributed to any councillor here.
+
+Sources:
+- Civic Accountability, Legislative & Voting Records, council votes (read_source key=accountability): covers 2026-09-24 to 2026-10-27 only.
+- Ward figures and councillor names: City of Calgary wards data, Calgary Insight dashboard, section wards (Raj Dhaliwal, Ward 5).
+- CBC News, "Calgary council approves budget, 3.6% property tax increase", November 23, 2024: https://www.cbc.ca/lite/story/1.7387152
+- LiveWire Calgary, "Calgary 2025 budget: What extra investments you are getting and what wasn't approved", November 25, 2024: https://livewirecalgary.com/2024/11/25/calgary-2025-budget-extra-investments-not-approved/
+- City of Calgary, 2025 Budget page, approved November 22, 2024: https://www.calgary.ca/our-finances/2025-budget.html
+
+#### Genie: What is Calgary's unemployment rate?
+TRAP: a metro-area or election-context figure
+PASS IF: names the area the figure covers (Calgary CMA) and its source and month
+secs: 7  cost: {"input": 150043, "output": 1145, "cache_read": 140924, "cost_usd": 0.0031}
+steps: ["Checking the list of sources for unemployment rate labour force", "Searching the City's datasets for \u201cunemployment rate labour force Calgary\u201d", "Querying 7cvb-8ame"]
+ANSWER:
+Calgary's unemployment rate was 6.7% in August 2026, the latest month published, down from 7.5% in August 2025. Over the same months, Alberta's rate went from 7.7% to 7.0%, and Canada's from 7.2% to 6.7%.
+
+Calgary's rate peaked at 8.0% in September 2025 and has eased since. It was 6.4% in December 2025 and has been between 6.7% and 7.2% since February 2026. Calgary's employment was about 1,118,800 people in August 2026, up from about 1,065,100 a year earlier.
+
+The figures are Calgary Economic Region estimates from the City's monthly economic indicators, which draw on Statistics Canada's Labour Force Survey. This is a monthly estimate, so it moves a little from month to month.
+
+Sources: City of Calgary, Monthly Economic Indicators (dataset 7cvb-8ame, https://data.calgary.ca/d/7cvb-8ame), Finance-Director, August 2025 to August 2026, updated 23 October 2026. Original survey: Statistics Canada Labour Force Survey.
+
+#### Genie: How many km of separated cycle tracks does Calgary have?
+TRAP: on-street bikeways total
+PASS IF: 26.2 km (July 2025), not 290 km
+secs: 5  cost: {"input": 90522, "output": 808, "cache_read": 89021, "cost_usd": 0.0015}
+steps: ["Reading data:active_transportation's own data", "Reading data:active_transportation's own data"]
+ANSWER:
+Calgary has about **26.2 km** of separated (protected) cycle tracks citywide, according to the latest figure I found, from July 2025. Downtown's protected network is 9.9 km of that total.
+
+- **Painted bike lanes:** about 45.6 km, separate from the protected tracks.
+- **On-street bikeways and cycle tracks combined:** about 290 km, per the City's pathways page (read November 2026).
+- **Limit:** the 26.2 km figure comes from a July 2025 article that cites City Hall, and I found no newer citywide total. The City's own pages don't give a separated-track length, so check with Transportation before quoting it as current.
+
+Sources:
+- Separated cycle tracks: "The Sprawl, Calgary bike lanes and cycle tracks" (July 26, 2025, corrected July 30, 2025), https://www.sprawlcalgary.com/calgary-bike-lanes-cycle-tracks, figure attributed to City Hall, July 2025. Recorded in the Active transportation data file (data:active_transportation).
+- Combined bikeways: City of Calgary, "Bike, walk and roll: pathways", https://www.calgary.ca/bike-walk-roll/pathways.html, read November 2026.
+
+#### Scientist: How many new communities did Council approve in 2026?
+TRAP: approved LOC rezonings / outline plans
+PASS IF: 9 so far (6 + 3 on Oct 27), 4 pending at budget, from data:new_communities
+secs: 9  cost: {"input": 136583, "output": 858, "cache_read": 90156, "cost_usd": 0.1426}
+steps: ["Reading data:new_communities's own data", "Reading data:new_communities's own data"]
+ANSWER:
+Council has approved **9 new communities so far in 2026**, as of the file's check on November 14, 2026.
+
+- **Six were approved before October 24, 2026.** The Sprawl reported that "so far in 2026, council has approved six new neighbourhoods", each with 225 to 1,110 anticipated homes. That source doesn't name them.
+- **Three were approved on October 27, 2026**, with 3,965 anticipated homes in total:
+  - Glacier Ridge 1 (GA2026-009, Ward 2) passed 9-6.
+  - Belvedere (GA2026-010, Ward 9) passed 11-4.
+  - Glacier Ridge 2 (GA2026-011, Ward 2) passed 9-6.
+  - None of the three needs new City capital to start. Council directed that their operating costs be added in the 2028 adjustments to the 2027-2030 budget.
+- **Four more applications are still pending.** They total 17,176 homes and about $377 million in capital for 2027-2030. One is Providence, on the west edge, with 9,590 anticipated homes. They go to Council during the 2027-2030 budget deliberations in November 2026 and had not been decided as of November 14.
+
+These are Council's growth applications (GA numbers). They are not the same as rezonings or outline plans (LOC numbers), which are a different decision. The count may change after the November budget deliberations.
+
+Sources:
+- New communities data file, checked by hand from Council records and news (checked 2026-11-14). Source pages:
+  - [City of Calgary, Ward 8 Council Debriefs, Oct 27, 2026](https://www.calgary.ca/council/ward-8/council-debriefs.html)
+  - [CBC News via Yahoo, Oct 29, 2026](https://ca.news.yahoo.com/calgary-council-approves-three-communities-131552614.html)
+  - [The Sprawl, Nov 4, 2026](https://www.sprawlcalgary.com/city-council-approves-3-new-neighbourhoods)
+  - [The Sprawl, Oct 24, 2026](https://www.sprawlcalgary.com/city-council-7-new-communities-urban-sprawl)
+
+#### Scientist: How many km of separated cycle tracks does Calgary have?
+TRAP: on-street bikeways total
+PASS IF: 26.2 km (July 2025), not 290 km
+secs: 8  cost: {"input": 137346, "output": 792, "cache_read": 134276, "cost_usd": 0.0425}
+steps: ["Reading data:active_transportation's own data", "Reading data:active_transportation's own data", "Reading data:active_transportation's own data"]
+ANSWER:
+Calgary has about **26.2 km of separated (protected) cycle tracks**. This is the figure city hall gave in July 2025. I found no newer City total.
+
+- **Downtown:** 9.9 km of that is the downtown protected network, or 10.7 km if you include Mission. City hall has also used a larger figure of 20 km for downtown. That figure counts each direction as its own lane, so it isn't comparable.
+- **Painted lanes:** Calgary also had 45.6 km of painted bike lanes at the same date.
+- **Targets:** The 2011 Cycling Strategy aimed for 30 km of protected cycle tracks and 180 km of painted lanes by 2020. Cycle tracks are about 3.8 km short of the 30 km target.
+- **Other routes:** The City lists about 290 km of on-street bikeways and cycle tracks combined. It also lists about 1,000 km of regional pathways, which are off-street, and 96 km of unpaved trails. These are different measures and shouldn't be added to the 26.2 km.
+
+The 26.2 km comes from a news report quoting city hall, not from a City dataset. It may be out of date if tracks have opened since July 2025.
+
+Sources:
+- The Sprawl, "Calgary bike lanes and cycle tracks" (July 26, 2025, corrected July 30, 2025): https://www.sprawlcalgary.com/calgary-bike-lanes-cycle-tracks
+- City of Calgary, "Bike, walk and roll: pathways": https://www.calgary.ca/bike-walk-roll/pathways.html
+- City of Calgary, "Pathways and trails": https://calgary.ca/pathways
+- Both are in the site's Active transportation file (data:active_transportation), checked 2026-11-14.
+
+TOTAL USD (reported): 0.0000

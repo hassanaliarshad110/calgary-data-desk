@@ -1,0 +1,34 @@
+ill pending.** They total 17,176 homes and about $377 million in capital for 2027-2030. One is Providence, on the west edge, with 9,590 anticipated homes. They go to Council during the 2027-2030 budget deliberations in November 2026 and had not been decided as of November 14.
+
+These are Council's growth applications (GA numbers). They are not the same as rezonings or outline plans (LOC numbers), which are a different decision. The count may change after the November budget deliberations.
+
+Sources:
+- New communities data file, checked by hand from Council records and news (checked 2026-11-14). Source pages:
+  - [City of Calgary, Ward 8 Council Debriefs, Oct 27, 2026](https://www.calgary.ca/council/ward-8/council-debriefs.html)
+  - [CBC News via Yahoo, Oct 29, 2026](https://ca.news.yahoo.com/calgary-council-approves-three-communities-131552614.html)
+  - [The Sprawl, Nov 4, 2026](https://www.sprawlcalgary.com/city-council-approves-3-new-neighbourhoods)
+  - [The Sprawl, Oct 24, 2026](https://www.sprawlcalgary.com/city-council-7-new-communities-urban-sprawl)
+
+#### Scientist: How many km of separated cycle tracks does Calgary have?
+TRAP: on-street bikeways total
+PASS IF: 26.2 km (July 2025), not 290 km
+secs: 8  cost: {"input": 137346, "output": 792, "cache_read": 134276, "cost_usd": 0.0425}
+steps: ["Reading data:active_transportation's own data", "Reading data:active_transportation's own data", "Reading data:active_transportation's own data"]
+ANSWER:
+Calgary has about **26.2 km of separated (protected) cycle tracks**. This is the figure city hall gave in July 2025. I found no newer City total.
+
+- **Downtown:** 9.9 km of that is the downtown protected network, or 10.7 km if you include Mission. City hall has also used a larger figure of 20 km for downtown. That figure counts each direction as its own lane, so it isn't comparable.
+- **Painted lanes:** Calgary also had 45.6 km of painted bike lanes at the same date.
+- **Targets:** The 2011 Cycling Strategy aimed for 30 km of protected cycle tracks and 180 km of painted lanes by 2020. Cycle tracks are about 3.8 km short of the 30 km target.
+- **Other routes:** The City lists about 290 km of on-street bikeways and cycle tracks combined. It also lists about 1,000 km of regional pathways, which are off-street, and 96 km of unpaved trails. These are different measures and shouldn't be added to the 26.2 km.
+
+The 26.2 km comes from a news report quoting city hall, not from a City dataset. It may be out of date if tracks have opened since July 2025.
+
+Sources:
+- The Sprawl, "Calgary bike lanes and cycle tracks" (July 26, 2025, corrected July 30, 2025): https://www.sprawlcalgary.com/calgary-bike-lanes-cycle-tracks
+- City of Calgary, "Bike, walk and roll: pathways": https://www.calgary.ca/bike-walk-roll/pathways.html
+- City of Calgary, "Pathways and trails": https://calgary.ca/pathways
+- Both are in the site's Active transportation file (data:active_transportation), checked 2026-11-14.
+
+TOTAL USD (reported): 0.0000
+
