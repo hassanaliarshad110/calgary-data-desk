@@ -17,7 +17,10 @@ const S = M.script([
   { text: 'Nearly two years later, police found part of it. Only part.', dur: 3.194 },
   { text: "And number one. North Hill Shopping Centre, nineteen ninety-eight. Two men in military fatigues ambushed a Brink's cash delivery with assault rifles and tear gas.", dur: 9.655 },
   { text: 'More than eighty shots were fired. No one was hurt. And they left with nothing.', dur: 4.142 },
-  { text: "The men behind it? A former Brink's employee and a Canadian soldier. Both went to prison.", dur: 5.327 },
+  { text: "The men behind it? A former Brink's employee and a Canadian soldier.", dur: 4.046 },
+  { text: 'So, what happened next? For the plaques, the walls and the bobsled, no arrests have been reported.', dur: 5.229 },
+  { text: 'At Market Mall, police charged one man, and kept looking for a second suspect.', dur: 4.348 },
+  { text: 'And North Hill? Both men went to prison.', dur: 2.203 },
   { text: 'Which one is the wildest? Comment below.', dur: 2.32 },
 ], { lead: .3, gap: .3, tail: 1.4 });
 const sc = S.scenes;
@@ -166,6 +169,33 @@ function chapter(c, t, num, title, o = {}) {   // countdown chapter card (mini h
 }
 const src = (c, s) => M.source(c, s, 40, 1486, { size: 17 });
 
+// conclusion board: what happened next (rows stay in countdown order; statuses fill in as the narration names them)
+function board(c, T) {
+  night(c, T, { seed: 6 });
+  const L11 = 0, L12 = sc[11].sceneDur, L13 = sc[11].sceneDur + sc[12].sceneDur;
+  band(c, 290, 560, .72); M.kinetic(c, 'So, what happened next?', T, CX, 318, { t0: -.1, size: 96, maxW: 880, highlight: ['next?'] });
+  M.text(c, 'CASE FILES', CX, 545, { size: 34, weight: 800, align: 'center', color: '#9fb0c8', tracking: .2, alpha: M.seg(T, .3, .6) });
+  const rows = [
+    ['5', 'Plaques', '2022–23', 'NO ARRESTS REPORTED', RED, '#fff', L11 + 1.5, (x, y) => plaque(c, x, y, 74, 56)],
+    ['4', 'Through the walls', '2018', 'NO ARRESTS REPORTED', RED, '#fff', L11 + 2.3, (x, y) => { c.fillStyle = '#8a6b4f'; c.fillRect(x - 32, y - 36, 64, 72); c.fillStyle = '#05080f'; c.beginPath(); c.arc(x, y, 20, 0, 7); c.fill(); }],
+    ['3', 'Market Mall', '2012', '1 MAN CHARGED · 2ND SUSPECT SOUGHT', GOLD, '#06101f', L12 + .4, (x, y) => suv(c, x - 50, y + 30, .28)],
+    ['2', 'The bobsled', '2020', 'NO ARRESTS REPORTED · PART FOUND 2022', RED, '#fff', L11 + 3.1, (x, y) => sled(c, x - 52, y + 18, .3)],
+    ['1', 'North Hill', '1998', 'BOTH WENT TO PRISON', TEAL, '#06101f', L13 + .6, (x, y) => truck(c, x - 50, y + 30, .2)],
+  ];
+  rows.forEach(([n, name, yr, status, bg, fg, at, icon], i) => {
+    const y = 598 + i * 124, a = M.seg(T, .25 + i * .1, .55 + i * .1);
+    c.save(); c.globalAlpha = a; c.fillStyle = 'rgba(255,255,255,.06)'; M.rr(c, 60, y, 880, 116, 18); c.fill();
+    c.fillStyle = 'rgba(7,13,24,.7)'; M.rr(c, 72, y + 10, 96, 96, 14); c.fill(); icon(120, y + 58);
+    M.text(c, '#' + n, 190, y + 10, { size: 42, weight: 900, color: GOLD });
+    M.text(c, name, 266, y + 10, { size: 42, weight: 800, color: '#fff' }); M.text(c, yr, 920, y + 14, { size: 30, weight: 700, align: 'right', color: '#9fb0c8' });
+    c.restore();
+    const k = M.seg(T, at, at + .3); if (k > 0) { c.save(); c.globalAlpha = Math.min(1, k * 1.5); const sc2 = M.lerp(1.4, 1, M.ease.outBack(k)); c.translate(190, y + 86); c.scale(sc2, sc2); M.chip(c, status, 0, -24, { size: 30, bg, color: fg }); c.restore(); }
+    if (n === '1') { const b = M.seg(T, L13 + .3, L13 + .65, 'outCubic'); if (b > 0) { const by = M.lerp(y - 400, y, b); c.save(); c.beginPath(); c.rect(72, y + 10, 96, 96); c.clip(); c.fillStyle = 'rgba(160,170,185,.95)'; for (let j = 0; j < 5; j++) { M.rr(c, 78 + j * 20, by + 10, 8, 96, 3); c.fill(); } c.restore(); } }
+  });
+  src(c, 'Sources: Calgary Police Service; CTV News Calgary; Global News; Calgary Herald; Daily Hive');
+}
+
+
 window.BUILD = () => M.film({ W, H, identity: 'storyteller', scenes: [
   // 0 HOOK: frame 0 an SUV is already bursting through mall doors at night; then walls, then the empty bobsled outline
   { dur: sc[0].sceneDur, trans: { kind: 'whip', dur: .35 }, draw: (c, t) => {
@@ -304,14 +334,16 @@ window.BUILD = () => M.film({ W, H, identity: 'storyteller', scenes: [
       figure(c, 300, 1150, 1.25, { seed: 3, col: '#1b2638', hl: t > .9 && t < 2.6 }); figure(c, 720, 1150, 1.25, { seed: 8, col: '#2f3a24', hl: t > 2.4 && t < 3.9 });
       M.text(c, "FORMER BRINK'S EMPLOYEE", 290, 620, { size: 50, weight: 800, align: 'center', maxW: 400, color: GOLD, alpha: M.seg(t, .9, 1.2) });
       M.text(c, 'CANADIAN SOLDIER', 730, 620, { size: 50, weight: 800, align: 'center', maxW: 380, color: GOLD, alpha: M.seg(t, 2.4, 2.7) });
-      const bars = M.seg(t, 3.7, 4.1, 'outCubic'); if (bars > 0) { const by = M.lerp(-500, 790, bars); c.fillStyle = '#7d8796'; for (let i = 0; i < 9; i++) { M.rr(c, 90 + i * 100, by, 20, 400, 8); c.fill(); } c.fillRect(70, by - 10, 880, 24); }
       band(c, 290, 600, .7); M.kinetic(c, 'Who was behind it?', t, CX, 330, { t0: -.1, size: 104, maxW: 880, highlight: ['who'] });
-      stamp(c, 'BOTH WENT TO PRISON', CX, 1210, M.seg(t, 4.1, 4.5), { size: 56, color: GOLD });
       src(c, 'Sources: Calgary Herald; Mail & Guardian; Global News');
   } },
-  // 11 CLOSER: the five icons and the one-word question; no end card (video under 2:00)
-  { dur: sc[11].sceneDur, draw: (c, t) => {
-      night(c, t, { seed: 11 }); const p = M.seg(t, 0, sc[11].sceneDur, 'linear');
+  // 11–13 CONCLUSION: the case-files board fills in line by line (same picture across three narration lines)
+  { dur: sc[11].sceneDur, trans: { kind: 'cut' }, draw: (c, t) => board(c, t) },
+  { dur: sc[12].sceneDur, trans: { kind: 'cut' }, draw: (c, t) => board(c, t + sc[11].sceneDur) },
+  { dur: sc[13].sceneDur, trans: { kind: 'flash', dur: .3 }, draw: (c, t) => board(c, t + sc[11].sceneDur + sc[12].sceneDur) },
+  // 14 CLOSER: the five icons and the one-word question; no end card (video under 2:00)
+  { dur: sc[14].sceneDur, draw: (c, t) => {
+      night(c, t, { seed: 11 }); const p = M.seg(t, 0, sc[14].sceneDur, 'linear');
       M.kinetic(c, 'Which one is the wildest?', p * 3, CX, 380, { size: 112, maxW: 880, every: .06, highlight: ['wildest?'] });
       const ic = [['5', x => plaque(c, x, 900, 120, 90)], ['4', x => { c.fillStyle = '#8a6b4f'; c.fillRect(x - 50, 850, 100, 110); c.fillStyle = '#05080f'; c.beginPath(); c.arc(x, 905, 32, 0, 7); c.fill(); }], ['3', x => suv(c, x - 75, 950, .42)], ['2', x => sled(c, x - 75, 930, .42)], ['1', x => truck(c, x - 70, 950, .3)]];
       ic.forEach(([n, f], i) => { const x = 150 + i * 180, a = M.seg(t, .2 + i * .1, .5 + i * .1); c.save(); c.globalAlpha = a; c.fillStyle = 'rgba(255,255,255,.06)'; M.rr(c, x - 82, 800, 164, 200, 18); c.fill(); f(x); M.text(c, '#' + n, x, 1020, { size: 48, weight: 900, align: 'center', color: GOLD }); c.restore(); });
@@ -337,8 +369,10 @@ window.CUES = [
   { t: s_(7) - .18, sfx: 'whoosh', gain: -9 }, { t: s_(7) + 1.4, sfx: 'thud', gain: -10 }, { t: s_(7) + 2.05, sfx: 'stamp', gain: -7 },
   { t: s_(8) - 1.4, sfx: 'riser', gain: -12 }, { t: s_(8), sfx: 'boom', gain: -6 }, { t: s_(8) + 3.6 + 3.4, sfx: 'whoosh_rev', gain: -11 },
   { t: s_(9) - .18, sfx: 'whoosh', gain: -9 }, { t: s_(9) + .15, sfx: 'ticks', dur: 1.45, gain: -12 }, { t: s_(9) + 1.6, sfx: 'impact', gain: -7 }, { t: s_(9) + 1.85, sfx: 'pop', gain: -9 }, { t: s_(9) + 3.0, sfx: 'pop', gain: -9 },
-  { t: s_(10) - .18, sfx: 'whoosh', gain: -9 }, { t: s_(10) + 3.7, sfx: 'thud', gain: -5 }, { t: s_(10) + 4.1, sfx: 'stamp', gain: -7 },
-  { t: s_(11) - .2, sfx: 'whoosh', gain: -9 }, { t: s_(11) + .2, sfx: 'pop', gain: -11 },
+  { t: s_(10) - .18, sfx: 'whoosh', gain: -9 }, { t: s_(10) + .9, sfx: 'pop', gain: -11 }, { t: s_(10) + 2.4, sfx: 'pop', gain: -11 },
+  { t: s_(11) - .2, sfx: 'whoosh', gain: -8 }, { t: s_(11) + 1.6, sfx: 'stamp', gain: -10 }, { t: s_(11) + 2.4, sfx: 'stamp', gain: -10 }, { t: s_(11) + 3.2, sfx: 'stamp', gain: -10 },
+  { t: s_(12) + .5, sfx: 'stamp', gain: -9 }, { t: s_(13) + .3, sfx: 'thud', gain: -5 }, { t: s_(13) + .7, sfx: 'stamp', gain: -7 },
+  { t: s_(14) - .2, sfx: 'whoosh', gain: -9 }, { t: s_(14) + .2, sfx: 'pop', gain: -11 },
 ];
 
 // ---------- designed cover / thumbnail (render.py --param format=thumb --stills 0): key content inside the centre 1080×1350 ----------
