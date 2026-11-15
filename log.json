@@ -1214,5 +1214,62 @@
    }
   ],
   "post_note": "Post A scheduled 11:39 for the fixed 12:30 slot; post B scheduled 11:42 for the fixed 17:30 slot (designed thumbnails, first comment, no AI labels). YouTube 24-hour count stays at 8 or fewer (Nov 14 19:30, 20:30; Nov 15 10:00, 12:30, 13:30, 17:30, 18:00). Teaser left as pending_link (Facebook Reel 20:00) for the 17:41 link-up task. Confirmation of A and B is left to the next run (section 1). Nov 14 BONUS and PM posts confirmed PUBLISHED on all three platforms."
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "SPECIAL",
+  "type": "special",
+  "category": "Calgary story (history, true crime)",
+  "title": "Calgary's strangest heists",
+  "topic_used": "Countdown of five odd Calgary thefts: Currie VC plaques 2022 + Hangar plaques 2023; NE jewellery store via walls (Oct 12, 2018); Market Mall SUV (Nov 5, 2012); Cool Runnings bobsled shell from old Ranchman's (Oct 2020, part found Aug 2022); North Hill Brink's ambush (Mar 19, 1998)",
+  "approved_by": "Hassan Ali, Nov 15, 2026 (one-off)",
+  "changed_from_calendar": null,
+  "central_figure": "More than 80 shots, no one hurt, robbers left empty-handed (North Hill, Mar 19, 1998; Global News, Calgary Herald, Mail & Guardian)",
+  "sources": [
+   "https://newsroom.calgary.ca/police-seek-public-assistance-in-theft-of-jewellery-and-cash/",
+   "https://newsroom.calgary.ca/charges--mall-break-in/",
+   "https://calgary.ctvnews.ca/cool-runnings-sled-stolen-from-building-formerly-known-as-ranchman-s-1.5162126",
+   "https://calgary.ctvnews.ca/police-say-part-of-stolen-cool-runnings-bobsled-has-been-found-returned-to-owner-1.6022383",
+   "https://calgary.ctvnews.ca/8-memorial-plaques-honouring-canadian-war-heroes-stolen-from-victoria-cross-blvd-1.5994552",
+   "https://www.ctvnews.ca/calgary/article/thieves-steal-7-plaques-honouring-allied-air-efforts-from-calgary-museum/",
+   "https://globalnews.ca/news/256699/looking-back-calgarys-infamous-brinks-heist",
+   "https://www.pressreader.com/canada/calgary-herald/20120616/281642482247495"
+  ],
+  "length_s": 77.3,
+  "video_path": "studio-videos/heists/calgary-strangest-heists.mp4",
+  "thumbnail": "studio-videos/heists/calgary-strangest-heists-thumb.jpg",
+  "package": "packages/2026-11-20-SPECIAL-calgary-strangest-heists.md",
+  "production": "production/2026-11-20-HEISTS/",
+  "identity": "Storyteller lead (night grade, countdown chapter cards, match-cut map dives pin to pin); Data Explainer kinetic hook and counters; Civic Analyst north-up map pins with community highlights, chips, wall cutaway",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 18,
+   "verdict": "NOT APPROVED (round 3: all 18 claims PASS; two caption/table flags fixed exactly as the auditor specified; no 4th round under the 3-round cap)",
+   "report": "audits/2026-11-20-SPECIAL.md"
+  },
+  "qc": {
+   "stills": "pass (hook 0/0.5/1/1.5 s, busiest frames, closer)",
+   "final": "pass (contact sheet production/2026-11-20-HEISTS/final_sheet.jpg)",
+   "loudness": "-14.0 LUFS, -2.9 dBTP",
+   "size_mb": 11.9
+  },
+  "link": "https://calgaryinsight.ca/?view=videos&utm_source=social&utm_campaign=heists",
+  "status": "made-awaiting-go-ahead",
+  "posted": [],
+  "draft": [
+   {
+    "metricool_id": 429351971,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=1475736486284773189",
+    "providers": [
+     "instagram REEL",
+     "facebook REEL",
+     "youtube short"
+    ],
+    "publish_at": "2026-11-20T19:30",
+    "draft": true,
+    "note": "Saved as a Metricool DRAFT (not auto-publishing) because the third audit round did not formally return APPROVED. 19:30 instead of 19:00 because the calendar's PM fun fact posts at 18:30 (60-minute rule). Media and designed thumbnail accepted. To publish: approve in Metricool (turn off draft) or ask a run to update the post."
+   }
+  ],
+  "notes": "Calendar PM fun fact on the same day (Nov 20) is 'The Jamaican bobsled team's 1988 Calgary story' and overlaps with heist #2; consider moving it. Left out (thin sourcing): Brink's cash amount, ferry-in-France arrest detail, $650,000 figure, store reopening, Aug 2026 replica-plaque theft, sea-can fraud."
  }
 ]
