@@ -41,3 +41,7 @@ Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param
 
 ## Notes (Nov 14, 2026)
 - Metricool's create response shows the time in America/Edmonton; check with getScheduledPosts(timezone Asia/Karachi) — the stored time is the Asia/Karachi one you sent.
+
+## Weekly compilation (from Nov 15, 2026)
+- "Susuman Saare Episodes" long video (true 16:9) built with `compilations/` (see compilations/README.md), hosted on `susuman-media/compilations/`, one YouTube video at 17:00 Asia/Karachi. Only episodes already live on YouTube go in; chapters = each episode card start, first chapter 0:00 = Ep 1.
+- GitHub rejects files > 100 MB and Git LFS uploads are blocked from the sandbox, so a crf 18 master over ~95 MB is fitted with `compilations/fit_github.sh` (two-pass x264 tune animation; Nov 15 test: SSIM 0.993 / PSNR 43-45 dB vs the crf 18 master).
