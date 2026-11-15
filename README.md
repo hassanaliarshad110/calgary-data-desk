@@ -7,6 +7,10 @@ Hard rules
 - Never show the face or hands of the Prophet, the Ahlul Bayt or any holy personality: they appear only as light (`holyLight`).
 - Other people are dark silhouettes with no features. Nothing graphic.
 - Shia perspective, factual tone, sources named on screen (Shia narrations and, where they exist, Sunni books). People are named as history names them, no insults.
+- ABU BAKR, UMAR, UTHMAN (Hassan's rule, Nov 15 2026): nothing on the page is favorable or neutral towards them. Mention them only where
+  the Ahlul Bayt's story needs them (Fadak, the door, the pen and paper...), presented from the Shia perspective with the sourced facts.
+  No praise, no honorifics, no neutral biography (e.g. drop "she married Abu Bakr" from a companion's life story). Still no insults or
+  curses, and every claim about them sourced like any other.
 - Background score on every video (score.py, original, maqam Hijaz: drone, strings, oud, ney, daf), one mood per scene in moods.json:
   lament, tender, tension (with impact = fraction of the scene), evidence, procession, grave, end. Plus wind / fire crackle / door thud. Music sits ~8-12 dB under the voice and ducks.
 - Every video: a hook first line, an engaging question, follow CTA for Shia Voice Dubai, a teaser for tomorrow.
