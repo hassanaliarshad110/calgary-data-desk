@@ -10,7 +10,8 @@
     "engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script",
     "voice": "ur-PK-UzmaNeural",
     "rate": "+5%",
-    "display_name": "MAMA (the kids say \"Mama\", never \"Ammi\")"
+    "display_name": "MAMA (the kids say \"Mama\", never \"Ammi\")",
+    "note": "JSON key kept for old scripts; on screen and in every line she is MAMA"
   },
   "NARRATOR": {
     "engine": "Microsoft Edge neural TTS (edge-tts, free), text in Urdu script",
@@ -96,6 +97,13 @@
     "voice": "ur-IN-SalmanNeural",
     "rate": "-3%",
     "pitch": "-8Hz",
-    "note": "Qasim and Sakina's father (new Nov 14, 2026); untested — check pronunciation on his first episode"
+    "note": "Qasim and Sakina's father (new Nov 14, 2026); first used in Ep 6 (Mele Mein Gum) — ASR check OK; Hassan to confirm the voice"
+  },
+  "PARI (proposed)": {
+    "engine": "Kokoro, lang hi, Devanagari",
+    "voice": "hf_alpha",
+    "speed": 1.0,
+    "post_ffmpeg": "asetrate=24000*1.25,aresample=24000,atempo=0.8,highpass=f=120",
+    "note": "Pari, the lost girl in Ep 6"
   }
 }

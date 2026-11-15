@@ -1,0 +1,292 @@
+{
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "dur": 9.611
+  },
+  {
+   "id": "home",
+   "start": 9.611,
+   "dur": 17.95
+  },
+  {
+   "id": "mela",
+   "start": 27.561,
+   "dur": 14.927
+  },
+  {
+   "id": "cry",
+   "start": 42.487,
+   "dur": 13.513
+  },
+  {
+   "id": "power",
+   "start": 56.001,
+   "dur": 8.327
+  },
+  {
+   "id": "rescue",
+   "start": 64.328,
+   "dur": 15.884
+  },
+  {
+   "id": "reunite",
+   "start": 80.212,
+   "dur": 13.853
+  },
+  {
+   "id": "ending",
+   "start": 94.066,
+   "dur": 11.682
+  },
+  {
+   "id": "endcard",
+   "start": 105.748,
+   "dur": 10.71
+  }
+ ],
+ "lines": {
+  "n1": {
+   "scene": "hook",
+   "s": 0.5,
+   "d": 2.912,
+   "abs": 0.5,
+   "sp": "NARR",
+   "txt": "Mama ko nahi pata...|ye nanha sa Qasim hi hai..."
+  },
+  "qh": {
+   "scene": "hook",
+   "s": 3.512,
+   "d": 1.599,
+   "abs": 3.512,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "n1b": {
+   "scene": "hook",
+   "s": 5.461,
+   "d": 2.55,
+   "abs": 5.461,
+   "sp": "NARR",
+   "txt": "Aur aaj mele ki bheed mein|ek nanhi bachchi kho gayi hai!"
+  },
+  "k1": {
+   "scene": "home",
+   "s": 1.6,
+   "d": 2.57,
+   "abs": 11.211,
+   "sp": "SAKINA",
+   "txt": "Baba! Mele chalo na!|Sab ja rahe hain!"
+  },
+  "b1": {
+   "scene": "home",
+   "s": 4.47,
+   "d": 2.569,
+   "abs": 14.08,
+   "sp": "BABA",
+   "txt": "Aaj nahi beta...|bahut thak gaya hoon."
+  },
+  "k2": {
+   "scene": "home",
+   "s": 7.389,
+   "d": 2.402,
+   "abs": 17.0,
+   "sp": "SAKINA",
+   "txt": "Babaaa...|mujhe mela dekhna haiii..."
+  },
+  "b2": {
+   "scene": "home",
+   "s": 10.891,
+   "d": 4.565,
+   "abs": 20.502,
+   "sp": "BABA",
+   "txt": "Achha achha, rona band!~Chalo, sab mele chalte hain!"
+  },
+  "q1": {
+   "scene": "home",
+   "s": 15.756,
+   "d": 1.194,
+   "abs": 25.367,
+   "sp": "QASIM",
+   "txt": "Yay! Mela! Mela!"
+  },
+  "m1": {
+   "scene": "mela",
+   "s": 3.2,
+   "d": 3.181,
+   "abs": 30.761,
+   "sp": "AMMAR",
+   "txt": "Aaiye aaiye!|Mele ka sab se bada jhoola!"
+  },
+  "p1": {
+   "scene": "mela",
+   "s": 9.781,
+   "d": 2.038,
+   "abs": 37.342,
+   "sp": "PARI",
+   "txt": "Mama! Papa!|Aap kahan ho?"
+  },
+  "q2": {
+   "scene": "mela",
+   "s": 12.22,
+   "d": 2.107,
+   "abs": 39.78,
+   "sp": "QASIM",
+   "txt": "Baaji, woh bachchi|akeli ro rahi hai!"
+  },
+  "q3": {
+   "scene": "cry",
+   "s": 0.5,
+   "d": 1.276,
+   "abs": 42.987,
+   "sp": "QASIM",
+   "txt": "Mama! Suusuu aayi hai!"
+  },
+  "a1": {
+   "scene": "cry",
+   "s": 2.026,
+   "d": 1.736,
+   "abs": 44.513,
+   "sp": "MAMA",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "k3": {
+   "scene": "cry",
+   "s": 4.161,
+   "d": 2.488,
+   "abs": 46.649,
+   "sp": "SAKINA",
+   "txt": "Mamaaa...|mujhe woh choodiyan chahiyeee..."
+  },
+  "a2": {
+   "scene": "cry",
+   "s": 7.65,
+   "d": 2.992,
+   "abs": 50.137,
+   "sp": "MAMA",
+   "txt": "Achha achha, rona band!|Chalo choodi wale ke paas!"
+  },
+  "k4": {
+   "scene": "cry",
+   "s": 10.941,
+   "d": 0.972,
+   "abs": 53.429,
+   "sp": "SAKINA",
+   "txt": "Jaa jaldi!"
+  },
+  "n2": {
+   "scene": "power",
+   "s": 0.7,
+   "d": 3.628,
+   "abs": 56.701,
+   "sp": "NARR",
+   "txt": "Sirf Sakina jaanti hai...|har flush ke saath Qasim ban jata hai..."
+  },
+  "qp": {
+   "scene": "power",
+   "s": 5.228,
+   "d": 1.599,
+   "abs": 61.229,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "q4": {
+   "scene": "rescue",
+   "s": 2.8,
+   "d": 1.834,
+   "abs": 67.128,
+   "sp": "QASIM",
+   "txt": "Daro mat!|Tumhara naam kya hai?"
+  },
+  "p2": {
+   "scene": "rescue",
+   "s": 4.934,
+   "d": 3.346,
+   "abs": 69.262,
+   "sp": "PARI",
+   "txt": "Mera naam Pari hai!~Hum Gulmohar Gali mein rehte hain!"
+  },
+  "q5": {
+   "scene": "rescue",
+   "s": 8.579,
+   "d": 1.726,
+   "abs": 72.907,
+   "sp": "QASIM",
+   "txt": "Chalo, upar se|dhoondte hain!"
+  },
+  "p3": {
+   "scene": "rescue",
+   "s": 12.905,
+   "d": 1.98,
+   "abs": 77.233,
+   "sp": "PARI",
+   "txt": "Woh rahe mere Mama Papa!"
+  },
+  "o1": {
+   "scene": "reunite",
+   "s": 0.8,
+   "d": 3.298,
+   "abs": 81.012,
+   "sp": "OFFICER GILL",
+   "txt": "Pari ke Mummy Papa,|Khoya-Paaya booth par aaiye!"
+  },
+  "o2": {
+   "scene": "reunite",
+   "s": 7.498,
+   "d": 5.356,
+   "abs": 87.71,
+   "sp": "OFFICER GILL",
+   "txt": "Bachcho, apna naam, ghar ka pata~aur Mummy Papa ka naam|hamesha yaad rakho!"
+  },
+  "a3": {
+   "scene": "ending",
+   "s": 0.8,
+   "d": 1.615,
+   "abs": 94.866,
+   "sp": "MAMA",
+   "txt": "Qasim! Kahan the tum?"
+  },
+  "q6": {
+   "scene": "ending",
+   "s": 2.665,
+   "d": 1.102,
+   "abs": 96.731,
+   "sp": "QASIM",
+   "txt": "Kuch nahi Mama!"
+  },
+  "b3": {
+   "scene": "ending",
+   "s": 4.117,
+   "d": 2.949,
+   "abs": 98.183,
+   "sp": "BABA",
+   "txt": "Suna? Mele mein koi|SUPERHERO aaya tha!"
+  },
+  "q7": {
+   "scene": "ending",
+   "s": 7.667,
+   "d": 1.685,
+   "abs": 101.733,
+   "sp": "QASIM",
+   "txt": "Mamaaa!|Phir se suusuu aayi hai!"
+  },
+  "a4": {
+   "scene": "ending",
+   "s": 9.551,
+   "d": 0.431,
+   "abs": 103.617,
+   "sp": "MAMA",
+   "txt": "Phir se?!"
+  },
+  "n3": {
+   "scene": "endcard",
+   "s": 0.5,
+   "d": 7.01,
+   "abs": 106.248,
+   "sp": "NARR",
+   "txt": "Bachcho, mele mein Mama Baba ka|haath pakad ke rakho...~aur apna naam-pata yaad rakho!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
+  }
+ },
+ "total": 116.458
+}

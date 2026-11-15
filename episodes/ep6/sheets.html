@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Bangers';src:url(../../fonts/Bangers.ttf)}
+@font-face{font-family:'Baloo2';src:url(../../fonts/Baloo2.ttf);font-weight:400 800}</style></head><body>
+<script src="engine/core.js"></script><script src="engine/chars.js"></script>
+<script>
+// Susuman sheets: mode=ensemble (the whole cast incl. BABA, labels say MAMA) | mode=cast (Episode 6 new cast: Baba, Pari + parents, Sakina's crying act)
+function label(x, y, s, txt, col = '#1d120c', font = 'Bangers') { C.save(); C.setTransform(1, 0, 0, 1, 0, 0); C.font = `${s}px ${font}`; C.textAlign = 'center'; C.fillStyle = col; C.fillText(txt, x, y); C.restore(); }
+function bg(w, h) { C.setTransform(1, 0, 0, 1, 0, 0); C.fillStyle = '#f3ead9'; C.fillRect(0, 0, w, h); }
+function idleP(yaw = 0) { const p = MOVES.idle(.3); p.yaw = yaw; return p; }
+window.draw = async (mode) => {
+  await Promise.all([document.fonts.load('60px Bangers'), document.fonts.load('800 40px Baloo2')]);
+  if (mode === 'ensemble') {
+    stage(2240, 1820); bg(2240, 1820);
+    label(1120, 110, 96, 'SUSUMAN — THE ENSEMBLE'); label(1120, 165, 38, 'everyone rotates through the storylines · all on the same skeleton', '#555', '800 38px Baloo2'.replace('800 38px ', ''));
+    label(170, 255, 56, 'FAMILY', '#d62828');
+    const fam = [['dadaAbu', 'DADA ABU'], ['dadi', 'DADI'], ['baba', 'BABA (NEW)'], ['ammi', 'MAMA'], ['sakina', 'SAKINA'], ['qasim', 'QASIM'], ['susuman', 'SUSUMAN']];
+    fam.forEach(([k, n], i) => { const x = 170 + i * 315; drawChar(CAST[k], k === 'susuman' ? MOVES.powerPose(1) : k === 'ammi' ? MOVES.holdPhone(.3) : idleP(), x, 880, k === 'qasim' || k === 'susuman' ? 1.55 : 1.3, { t: .3, power: 1 }); label(x, 950, 50, n, k === 'baba' ? '#3f7fbf' : '#1d120c'); });
+    label(230, 1040, 56, 'GALI, SCHOOL & TV', '#1f7a78');
+    const gal = [['basim', 'BASIM'], ['zahra', 'ZAHRA MISS'], ['ammar', 'AMMAR'], ['officer', 'OFFICER GILL'], ['latifa', 'LATIFA'], ['dharmender', 'DHARMENDER'], ['daniel', 'DANIEL (TV)'], ['amara', 'AMARA (TV)']];
+    gal.forEach(([k, n], i) => { const x = 150 + i * 277; drawChar(CAST[k], idleP(), x, 1700, k === 'basim' ? 1.5 : 1.25, { t: .3 }); label(x, 1775, 44, n); });
+  } else {
+    stage(1080, 1920); bg(1080, 1920);
+    label(540, 100, 72, 'SUSUMAN EP 6 — NEW CAST'); label(540, 150, 34, 'BABA (Qasim aur Sakina ke Baba) · PARI · Pari ke Mama Papa', '#555');
+    label(540, 230, 52, 'BABA', '#3f7fbf');
+    drawChar(CAST.baba, idleP(.2), 170, 800, 1.2, { t: .3 }); drawChar(CAST.baba, MOVES.talk(.6, { yaw: .5, expr: 'happy' }), 410, 800, 1.2, { t: .6 });
+    drawChar(CAST.babaKurta, idleP(-.3), 660, 800, 1.2, { t: .3 }); drawChar(CAST.baba, MOVES.sit(5, { k: 1, yaw: -.4 }), 900, 800, 1.2, { t: 5 });
+    label(170, 850, 30, 'office shirt', '#555', 'Baloo2'); label(410, 850, 30, 'talk', '#555', 'Baloo2'); label(660, 850, 30, 'home kurta', '#555', 'Baloo2'); label(900, 850, 30, 'tired, sits', '#555', 'Baloo2');
+    label(300, 950, 52, "SAKINA'S CRYING ACT", '#17917f');
+    const cp = MOVES.cry(.4); drawChar(CAST.sakina, cp, 170, 1480, 1.25, { t: .4 }); const wk = MOVES.thumbsUp(.5); drawChar(CAST.sakina, wk, 430, 1480, 1.25, { t: .5 });
+    C.setTransform(1, 0, 0, 1, 0, 0); C.strokeStyle = 'rgba(80,180,255,.8)'; C.lineWidth = 12; for (const s of [-1, 1]) { C.beginPath(); C.moveTo(170 + s * 22, 1110); C.quadraticCurveTo(170 + s * 90, 1000, 170 + s * 130, 1300); C.stroke(); }
+    C.fillStyle = 'rgba(140,214,255,.8)'; C.beginPath(); C.ellipse(170, 1488, 170, 26, 0, 0, Math.PI * 2); C.fill();
+    label(170, 1540, 30, 'fake tears → adult gives in', '#555', 'Baloo2'); label(430, 1540, 30, '→ instant grin + wink', '#555', 'Baloo2');
+    label(800, 950, 52, 'PARI + MAMA PAPA', '#e0479a');
+    drawChar(CAST.pariPa, idleP(.3), 660, 1480, 1.1, { t: .3 }); drawChar(CAST.pariMa, idleP(-.3), 940, 1480, 1.1, { t: .3 }); drawChar(CAST.pari, idleP(0), 800, 1480, 1.25, { t: .3 });
+    drawChar(CAST.pari, MOVES.cry(.4), 540, 1820, 1.0, { t: .4 }); label(540, 1885, 30, 'Pari lost at the mela (cry)', '#555', 'Baloo2');
+  }
+  window.DONE = true;
+};
+</script></body></html>

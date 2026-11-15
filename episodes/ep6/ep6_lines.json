@@ -1,0 +1,35 @@
+{
+ "kokoro": [
+  {"id": "q3x", "voice": "hf_beta", "speed": 0.8, "text": "सूऽऽ सूऽऽ मैन!"},
+  {"id": "q1", "voice": "hf_beta", "speed": 1.05, "text": "याय! मेला! मेला!"},
+  {"id": "q2", "voice": "hf_beta", "speed": 1.0, "text": "बाजी, वो बच्ची अकेली रो रही है!"},
+  {"id": "q3", "voice": "hf_beta", "speed": 1.05, "text": "मामा! सूसू आई है!"},
+  {"id": "q4", "voice": "hf_beta", "speed": 1.0, "text": "डरो मत! तुम्हारा नाम क्या है?"},
+  {"id": "q5", "voice": "hf_beta", "speed": 1.0, "text": "चलो, ऊपर से ढूँढते हैं!"},
+  {"id": "q6", "voice": "hf_beta", "speed": 1.05, "text": "कुछ नहीं मामा!"},
+  {"id": "q7", "voice": "hf_beta", "speed": 1.05, "text": "मामाऽ! फिर से सूसू आई है!"},
+  {"id": "k1", "voice": "hf_alpha", "speed": 1.05, "text": "बाबा! मेले चलो ना! सब जा रहे हैं!"},
+  {"id": "k2", "voice": "hf_alpha", "speed": 0.85, "text": "बाबाऽऽ... मुझे मेला देखना हैऽऽ..."},
+  {"id": "k3", "voice": "hf_alpha", "speed": 0.85, "text": "मामाऽऽ... मुझे वो चूड़ियाँ चाहिएऽऽ..."},
+  {"id": "k4", "voice": "hf_alpha", "speed": 1.05, "text": "जा जल्दी!"},
+  {"id": "p1", "voice": "hf_alpha", "speed": 0.95, "text": "मामा! पापा! आप कहाँ हो?"},
+  {"id": "p2", "voice": "hf_alpha", "speed": 1.0, "text": "मेरा नाम परी है! हम गुलमोहर गली में रहते हैं!"},
+  {"id": "p3", "voice": "hf_alpha", "speed": 1.0, "text": "वो रहे मेरे मामा पापा!"}
+ ],
+ "edge": [
+  {"id": "n1", "text": "ماما کو نہیں پتہ... یہ ننھا سا قاسم ہی ہے...", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "n1b", "text": "اور آج میلے کی بھیڑ میں ایک ننھی بچی کھو گئی ہے!", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "n2", "text": "صرف سکینہ جانتی ہے... ہر فلش کے ساتھ قاسم بن جاتا ہے...", "voice": "ur-PK-AsadNeural", "rate": "+8%"},
+  {"id": "n3", "text": "بچو، میلے میں ماما بابا کا ہاتھ پکڑ کر رکھو، اور اپنا نام پتہ یاد رکھو! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1},
+  {"id": "b1", "text": "آج نہیں بیٹا... بہت تھک گیا ہوں۔", "voice": "ur-IN-SalmanNeural", "rate": "-3%", "pitch": "-8Hz", "asr": 1},
+  {"id": "b2", "text": "اچھا اچھا، رونا بند! چلو، سب میلے چلتے ہیں!", "voice": "ur-IN-SalmanNeural", "rate": "-3%", "pitch": "-8Hz", "asr": 1},
+  {"id": "b3", "text": "سنا؟ میلے میں کوئی SUPERHERO آیا تھا!", "voice": "ur-IN-SalmanNeural", "rate": "-3%", "pitch": "-8Hz", "asr": 1},
+  {"id": "a1", "text": "پھر سے؟! ابھی تو گئے تھے!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  {"id": "a2", "text": "اچھا اچھا، رونا بند! چلو چوڑی والے کے پاس!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  {"id": "a3", "text": "قاسم! کہاں تھے تم؟", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  {"id": "a4", "text": "پھر سے؟!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
+  {"id": "m1", "text": "آئیے آئیے! میلے کا سب سے بڑا جھولا!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz"},
+  {"id": "o1", "text": "परी के मम्मी पापा, खोया-पाया बूथ पर आइए!", "voice": "hi-IN-MadhurNeural", "rate": "-5%", "pitch": "-20Hz", "asr": 1},
+  {"id": "o2", "text": "बच्चो, अपना नाम, घर का पता, और मम्मी पापा का नाम हमेशा याद रखो!", "voice": "hi-IN-MadhurNeural", "rate": "-5%", "pitch": "-20Hz"}
+ ]
+}

@@ -20,7 +20,7 @@ Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param
 - Facebook Reels go out as a SEPARATE Metricool post with provider **facebook only** (never bundled with Instagram/TikTok).
 - **No YouTube link anywhere in a Facebook caption** (Facebook shows posts with YouTube links to fewer people). The caption is the same short social caption, but its YouTube line reads exactly `▶️ Poora episode YouTube par: Susuman channel` — no URL at all.
 - The YouTube link goes in `firstCommentText`: `▶️ Poora episode dekhein: <full-episode link, or the channel link until the full video is live>`.
-- Instagram Reel + TikTok stay together in one post (19:35) and keep the YouTube link in the caption.
+- The Instagram Reel is its own post (provider instagram only, 19:35) and keeps the YouTube link in the caption.
 
 ## Metadata
 - YouTube (both): madeForKids **true**, category FILM_ANIMATION, isAiGeneratedContent false, privacy public, ~18 tags (susuman, suusuu man, susuman episode N, "<x> wala cartoon", hindi cartoon, urdu cartoon, kids cartoon, desi cartoon, superhero cartoon, cartoon kahani, moral story for kids, pakistani cartoon, bachon ka cartoon, …).
@@ -45,3 +45,26 @@ Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param
 ## Weekly compilation (from Nov 15, 2026)
 - "Susuman Saare Episodes" long video (true 16:9) built with `compilations/` (see compilations/README.md), hosted on `susuman-media/compilations/`, one YouTube video at 17:00 Asia/Karachi. Only episodes already live on YouTube go in; chapters = each episode card start, first chapter 0:00 = Ep 1.
 - GitHub rejects files > 100 MB and Git LFS uploads are blocked from the sandbox, so a crf 18 master over ~95 MB is fitted with `compilations/fit_github.sh` (two-pass x264 tune animation; Nov 15 test: SSIM 0.993 / PSNR 43-45 dB vs the crf 18 master).
+
+## No TikTok (Nov 14, 2026 — decided as co-founder with Hassan's go-ahead)
+- Do NOT post to TikTok. 6 videos got 3 views in total; TikTok is a 13+ app and does not push kids' content. The account stays connected in Metricool — just never add the tiktok provider.
+
+## Daily-run schedule (from Nov 15, 2026)
+- Check getScheduledPosts for the next 7 days first; publish on the first day from tomorrow that has no Susuman episode.
+- YouTube Short 19:30 Asia/Karachi · Instagram Reel 19:35 (instagram only) · Facebook Reel 19:35 (separate post, facebook only, Facebook rule above) · YouTube full 16:9 video 19:40.
+- If Metricool rejects a custom thumbnail, retry that post without videoThumbnailUrl.
+- The full 16:9 video is a TRUE 16:9 render (drawFrameW), never the vertical on a branded side-panel frame (Hassan's Nov 12 rule above wins over older prompts that say "wide_bg style").
+
+## Secret hook first (performance check, Nov 14, 2026)
+- Reels that opened on Qasim's secret ("4 saal ka bachcha… aur ek SECRET POWER!", "Sirf Sakina Baaji jaanti hai Qasim ka raaz!") got 912 and 1,556 IG views with the lowest swipe-away; reels that opened on the rescue alone got 134-176.
+- So the opening text hook, the first spoken line, the Short's first caption line and EVERY social caption/description lead with the secret (e.g. "Mama ko nahi pata… Qasim hi hai SUUU-SUUU-MAN! 🤫"), then the episode's problem in one line.
+
+## Family rules (Hassan, Nov 14, 2026)
+- Qasim and Sakina call their mother **Mama** — never "Ammi" — in every line, caption, speaker chip (MAMA), title and social caption. Code keeps `ammi()` / `CAST.ammi`.
+- **Baba** (their father, CAST.baba / CAST.babaKurta, built in Ep 6) appears regularly; he does NOT know the secret.
+- **Sakina, "the crying girl"**: fake fountain tears, wobbling lip, "Mamaaa…/Babaaa…" wail, sad sarangi sting → the adult gives in → instant grin + wink to camera. In most episodes, often to help Qasim slip away; light and kind; now and then it backfires.
+
+## Sound rule (Hassan, Nov 14, 2026)
+- Music and SFX must never make dialogue hard to hear: duck the score AND every SFX under the voice (sidechain); an SFX overlapping a line peaks >= 10 dB below the voice; loud hits (FLUUSH, booms, crashes, cheers) go in the gaps between lines.
+- Before publishing, for every dialogue line measure voice stem vs music+SFX stem over the line's span in the 300-3400 Hz band: voice >= 10 dB louder. Fix and re-mix any failing line. (episodes/ep6/ep6_audio.py does this automatically and writes dialogue_check.json.)
+- Final mix -14 LUFS, true peak -1 dB (ep6: volume + 4x-oversampled alimiter). Same for the 16:9 version and the Shorts.
