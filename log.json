@@ -1177,9 +1177,14 @@
     ],
     "file": "why-its-called-calgary-short.mp4",
     "publish_at": "2026-11-15T12:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/Dfxbb20AsKE/",
+     "youtube": "https://www.youtube.com/shorts/Jv6JI8wIFKA"
+    },
+    "confirmed_by": "2026-11-15 PM run"
    },
    {
     "metricool_id": 429105037,
@@ -1314,5 +1319,71 @@
   "status": "dropped",
   "reason": "Fact audit not approved after 3 rounds (round 3 flags: stamp read as outright record, YouTube title scope, claims-table completeness); fixes applied but not re-audited, so not posted. Ready for Hassan's review.",
   "notes": "Auditor round 2/3 says 22:00 UTC = 3 p.m. MST mid-November; container tz data gave UTC-6. On-screen clock time removed."
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Who was the Stephen in Stephen Avenue?",
+  "topic_used": "Stephen Avenue named after George Stephen (named 1884), first CPR president (1881), earlier Bank of Montreal president (from 1876), later Baron Mount Stephen (1891), title from a Rockies peak beside the CPR line",
+  "changed_from_calendar": null,
+  "central_figure": "Named 1884 after George Stephen, first president of the CPR",
+  "sources": [
+   "https://www.calgary.ca/PDA/pd/Documents/Heritage-planning/heritage-walking-tours/heritage-stephen-ave-student-walk-tour-teacher-guide.pdf",
+   "https://www.calgary.ca/PDA/pd/Documents/Heritage-planning/heritage-walking-tours/heritage-historic-dwtn-calgary-brochure.pdf",
+   "https://www.biographi.ca/en/bio/stephen_george_15E.html"
+  ],
+  "length_s": 21.46,
+  "video_path": "studio-videos/2026-11-15-PM/stephen-avenue-name.mp4",
+  "thumbnail_path": "studio-videos/2026-11-15-PM/stephen-avenue-name-thumb.jpg",
+  "package": "packages/2026-11-15-PM-stephen-avenue-name.md",
+  "identity": "explainer (borrows storyteller dive/orbit + parallax, civic stamp)",
+  "link": "https://calgaryinsight.ca/visit/downtown/ (Stephen Avenue entry dt-stephen; verified from site source on main)",
+  "qc": {
+   "stills": "pass",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "8: Bank of Montreal stamp edge just inside the right 120 px for ~3 s"
+   ],
+   "loudness_lufs": -15.1
+  },
+  "audit": {
+   "rounds": 1,
+   "claims_checked": 6,
+   "verdict": "APPROVED"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 429403238,
+    "uuid": "327040027561250543",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=327040027561250543",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-15T19:00",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "note": "18:30 slot moved to 19:00: a YouTube Short (budget Part 3) is scheduled at 18:00; kept 60 min apart. YouTube 24 h count 8 incl. this."
+   }
+  ]
  }
 ]
