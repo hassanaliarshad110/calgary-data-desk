@@ -89,7 +89,7 @@
 "b": 1.0
 },
 {
-"clip": "title",
+"clip": "river",
 "dur": 8.832,
 "a": 0.0,
 "b": 1.0
@@ -369,14 +369,25 @@
 ],
 [
 2.1,
-"Explore CALGARY'S real map today. PART 1",
+"Explore CALGARY'S real map today.",
 [
 "CALGARY",
 "CALGARY'S",
-"CALGARY?",
-"PART"
+"CALGARY?"
 ],
 80
+],
+[
+3.4,
+"PART 1 \u00b7 THE CITY",
+[
+"PART",
+"1",
+"2",
+"3",
+"\u00b7"
+],
+62
 ]
 ]
 }

@@ -14,7 +14,11 @@
 "clip": "bus",
 "dur": 1.1,
 "a": 0.3,
-"b": 0.5
+"b": 0.5,
+"z0": 1.25,
+"z1": 1.3,
+"cx": 0.5,
+"cy": 0.55
 },
 {
 "clip": "r311",
@@ -32,13 +36,21 @@
 "clip": "bus",
 "dur": 2.4,
 "a": 0,
-"b": 0.3
+"b": 0.3,
+"z0": 1.25,
+"z1": 1.3,
+"cx": 0.5,
+"cy": 0.55
 },
 {
 "clip": "bus",
 "dur": 5.347,
 "a": 0.3,
-"b": 1
+"b": 1,
+"z0": 1.25,
+"z1": 1.3,
+"cx": 0.5,
+"cy": 0.55
 },
 {
 "clip": "ctrain",
@@ -63,8 +75,10 @@
 "dur": 6.388,
 "a": 0.58,
 "b": 1,
-"z0": 1.0,
-"z1": 1.12
+"z0": 1.25,
+"z1": 1.3,
+"cx": 0.5,
+"cy": 0.55
 },
 {
 "clip": "river",
@@ -244,14 +258,25 @@
 ],
 [
 2.1,
-"Real transit and 311 in a free CALGARY game. PART 2",
+"Real transit and 311 in a free CALGARY game.",
 [
 "CALGARY",
 "CALGARY'S",
-"CALGARY?",
-"PART"
+"CALGARY?"
 ],
 80
+],
+[
+3.4,
+"PART 2 \u00b7 GETTING AROUND",
+[
+"PART",
+"1",
+"2",
+"3",
+"\u00b7"
+],
+62
 ]
 ]
 }

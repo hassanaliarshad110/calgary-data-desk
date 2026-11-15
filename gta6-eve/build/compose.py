@@ -120,7 +120,7 @@ class Ov:
         if a < 1: layer.putalpha(layer.getchannel('A').point(lambda v: int(v * a)))
         img.alpha_composite(layer)
     def gameplay_tag(self, img):
-        if self.P: self.chip(img, 'Gameplay: YYC City Stories', 60, 1150, 30)
+        if self.P: self.chip(img, 'Gameplay: YYC City Stories', 60, 238, 28)
         else: self.chip(img, 'Gameplay: YYC City Stories', 44, 112 + 16, 24)
     def label(self, img, kicker, title, tl, dur):
         # slides in from the left, holds, fades out
@@ -133,7 +133,7 @@ class Ov:
         else:
             x, y, maxw = 44 + off, 196, 1000; fk, ft = font('b', 28), font('b', 54)
         lines = wrap(title, ft, maxw, d); lh = ft.size * 1.08
-        bw = max([d.textlength(kicker, font=fk)] + [d.textlength(l, font=ft) for l in lines]) + 56
+        bw = max([d.textlength(kicker.upper(), font=fk)] + [d.textlength(l, font=ft) for l in lines]) + 56
         bh = fk.size * 1.5 + lh * len(lines) + 34
         rrect(d, (x - 4, y, x + bw, y + bh), 24, (8, 21, 48, 205))
         d.rectangle((x - 4, y + 18, x + 6, y + bh - 18), fill=GOLD + (255,))
@@ -157,7 +157,7 @@ class Ov:
         txt = 'Follow @calgaryinsight for more Calgary stories'
         layer = Image.new('RGBA', img.size, (0, 0, 0, 0)); d = ImageDraw.Draw(layer)
         f = font('b', int((40 if self.P else 34) * s)); tw = d.textlength(txt, font=f); h = f.size * 1.9; bell = h * 0.8
-        cx = (60 + (self.W - 210) / 2) if self.P else self.W / 2; y = 250 if self.P else 132
+        cx = (60 + (self.W - 210) / 2) if self.P else self.W / 2; y = 1158 if self.P else 132
         x0 = cx - (tw + bell + 70) / 2
         rrect(d, (x0, y, x0 + tw + bell + 70, y + h), h / 2, (200, 16, 46, 235))
         self.bell(d, x0 + 22 + bell / 2, y + h / 2, bell * 0.8, tl)
@@ -179,9 +179,11 @@ class Ov:
         # parts: [(t0, text, gold_words, size)]
         layer = Image.new('RGBA', img.size, (0, 0, 0, 0)); d = ImageDraw.Draw(layer)
         # darken top for legibility
-        grad = Image.new('L', (1, 256)); [grad.putpixel((0, i), int(150 * (1 - i / 255) ** 1.4)) for i in range(256)]
-        g = grad.resize((self.W, int(self.H * (0.62 if self.P else 0.7))))
-        dark = Image.new('RGBA', g.size, (0, 0, 0, 255)); dark.putalpha(g); layer.alpha_composite(dark, (0, 360 if self.P else 0))
+        hh = int(self.H * (0.68 if self.P else 0.7)); grad = Image.new('L', (1, hh))
+        for i in range(hh):
+            u = i / hh; grad.putpixel((0, i), int(150 * (1.0 if u < 0.45 else max(0.0, 1 - (u - 0.45) / 0.55) ** 1.5)))
+        g = grad.resize((self.W, hh))
+        dark = Image.new('RGBA', g.size, (0, 0, 0, 255)); dark.putalpha(g); layer.alpha_composite(dark, (0, 0))
         y = 420 if self.P else 110
         for (t0, text, golds, size) in parts:
             if t < t0: break
@@ -199,7 +201,7 @@ class Ov:
                 y += size * 1.12
             y += size * 0.25
         img.alpha_composite(layer)
-        small = 'Not affiliated with Rockstar Games.'
+        small = 'Not affiliated with Rockstar Games or the Calgary Stampede.'
         if self.P: self.chip(img, small, 60, 1340, 26, fill=(0, 0, 0, 150))
         else: self.chip(img, small, self.W - 44, self.H - 76, 22, fill=(0, 0, 0, 150), anchor='r')
 
@@ -252,7 +254,7 @@ class Ov:
                 d.ellipse((bx + bw * 0.7 - r, by + bh / 2 - r, bx + bw * 0.7 + r, by + bh / 2 + r), outline=(255, 255, 255, al), width=5)
         tx('Facebook · Instagram · YouTube', font('m', 32 if P else 30), (200, 210, 225), (by + (92 + 30 + 92 + 40) if P else by + 84 + 40), 1.1)
         tx('More at calgaryinsight.ca', font('s', 38 if P else 36), WHITE, (by + 330 if P else by + 84 + 95), 1.2)
-        tx('Not affiliated with Rockstar Games or the City of Calgary.', font('r', 26 if P else 24), (170, 180, 195), (1400 if P else H - 60), 1.2)
+        tx('Not affiliated with Rockstar Games, the City of Calgary or the Calgary Stampede.', font('r', 26 if P else 24), (170, 180, 195), (1400 if P else H - 60), 1.2)
         img.alpha_composite(layer)
 
 # ------------------------------------------------------------------ main
@@ -285,8 +287,9 @@ def build(spec, out, stills=None):
         for h in hook: O.hook(img, tt - h['t0'], h['parts'])
         for lb in spec.get('labels', []):
             if lb['t0'] <= tt < lb['t0'] + lb['dur']: O.label(img, lb['k'], lb['title'], tt - lb['t0'], lb['dur'])
+        pill_on = any(pf['t0'] - 0.2 <= tt < pf['t0'] + pf['dur'] + 0.2 for pf in spec.get('pills', []))
         for n in spec.get('notes', []):
-            if n['t0'] <= tt < n['t1']:
+            if n['t0'] <= tt < n['t1'] and not (pill_on and O.P):
                 a = min(1, (tt - n['t0']) / 0.3, (n['t1'] - tt) / 0.3)
                 if O.P: O.chip(img, n['text'], 60, 1210 if not n.get('y') else n['y'], 26, fill=(0, 0, 0, 160), a=a)
                 else: O.chip(img, n['text'], W - 44, H - 222, 22, fill=(0, 0, 0, 150), anchor='r', a=a)
