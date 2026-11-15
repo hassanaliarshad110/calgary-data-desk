@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Nastaliq;src:url(fonts/NotoNastaliqUrdu.ttf)}
+@font-face{font-family:Amiri;src:url(fonts/Amiri-Regular.ttf)}
+@font-face{font-family:AmiriB;src:url(fonts/Amiri-Bold.ttf)}
+@font-face{font-family:Cinzel;src:url(fonts/Cinzel.ttf)}
+html,body{margin:0;background:#000}
+canvas{display:block}
+</style></head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+const W = 1080, H = 1920;
+const cv = document.getElementById('c'), X = cv.getContext('2d');
+let CFG = null; // {lang, caps:[...], durs:[...], scenes:[{start,dur}], labels}
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, k) => a + (b - a) * k;
+const ease = k => k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+const easeOut = k => 1 - Math.pow(1 - k, 3);
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+function rng(seed) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+
+// ---------- pre-rendered textures ----------
+const STARS = (() => { const r = rng(7), a = []; for (let i = 0; i < 260; i++) a.push([r() * W, r() * 1150, r() * 1.8 + .3, r() * 6.28, r() * 2 + .5]); return a; })();
+const GRAIN = (() => { const c = document.createElement('canvas'); c.width = 540; c.height = 960; const g = c.getContext('2d'); const d = g.createImageData(540, 960); const r = rng(3); for (let i = 0; i < d.data.length; i += 4) { const v = r() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 22; } g.putImageData(d, 0, 0); return c; })();
+const WALL = (() => {
+  const c = document.createElement('canvas'); c.width = W; c.height = 760; const g = c.getContext('2d');
+  const gr = g.createLinearGradient(0, 0, 0, 760); gr.addColorStop(0, '#6b5038'); gr.addColorStop(1, '#3d2c1f');
+  g.fillStyle = gr; g.fillRect(0, 0, W, 760);
+  const r = rng(11);
+  for (let row = 0; row < 26; row++) {
+    const y = row * 30, off = (row % 2) * 45;
+    for (let x = -90 + off; x < W; x += 90) {
+      const s = r() * .22 - .11;
+      g.fillStyle = `rgba(${s > 0 ? '255,230,200' : '0,0,0'},${Math.abs(s) * .5})`;
+      g.fillRect(x + 2, y + 2, 86, 26);
+      g.strokeStyle = 'rgba(30,18,10,.35)'; g.lineWidth = 2; g.strokeRect(x + 1, y + 1, 88, 28);
+    }
+  }
+  for (let i = 0; i < 1800; i++) { g.fillStyle = `rgba(0,0,0,${r() * .12})`; g.fillRect(r() * W, r() * 760, r() * 5 + 1, r() * 3 + 1); }
+  return c;
+})();
+const PLANK = (() => {
+  const c = document.createElement('canvas'); c.width = 205; c.height = 600; const g = c.getContext('2d');
+  const r = rng(21);
+  for (let p = 0; p < 5; p++) {
+    const x = p * 41; const base = 52 + r() * 14;
+    g.fillStyle = `rgb(${base + 30},${base + 4},${base - 22})`; g.fillRect(x, 0, 41, 600);
+    for (let k = 0; k < 40; k++) { g.strokeStyle = `rgba(20,10,4,${r() * .25})`; g.lineWidth = r() * 1.5 + .4; g.beginPath(); const xx = x + r() * 41; g.moveTo(xx, 0); g.bezierCurveTo(xx + r() * 6 - 3, 200, xx + r() * 6 - 3, 400, xx + r() * 4 - 2, 600); g.stroke(); }
+    g.fillStyle = 'rgba(10,5,2,.7)'; g.fillRect(x + 39, 0, 2, 600);
+  }
+  // iron bands with studs
+  for (const by of [70, 300, 530]) {
+    g.fillStyle = '#26211d'; g.fillRect(0, by - 11, 205, 22);
+    g.fillStyle = 'rgba(255,255,255,.08)'; g.fillRect(0, by - 11, 205, 3);
+    for (let sx = 14; sx < 205; sx += 36) { g.fillStyle = '#3d362f'; g.beginPath(); g.arc(sx, by, 5.5, 0, 6.28); g.fill(); g.fillStyle = 'rgba(255,255,255,.18)'; g.beginPath(); g.arc(sx - 1.5, by - 1.5, 2, 0, 6.28); g.fill(); }
+  }
+  return c;
+})();
+
+// ---------- primitives ----------
+function sky(c1, c2, c3) { const g = X.createLinearGradient(0, 0, 0, 1250); g.addColorStop(0, c1); g.addColorStop(.6, c2); g.addColorStop(1, c3); X.fillStyle = g; X.fillRect(0, 0, W, H); }
+function stars(t, a = 1) { for (const [x, y, r, ph, sp] of STARS) { X.globalAlpha = a * (.45 + .55 * Math.sin(t * sp + ph) ** 2) * (1 - y / 1300); X.fillStyle = '#fff'; X.beginPath(); X.arc(x, y, r, 0, 6.28); X.fill(); } X.globalAlpha = 1; }
+const MOONC = document.createElement('canvas'); MOONC.width = MOONC.height = 200;
+function crescent(x, y, r, a = 1) { X.save(); X.globalAlpha = a; const g = X.createRadialGradient(x, y, r * .5, x, y, r * 4); g.addColorStop(0, 'rgba(255,240,200,.22)'); g.addColorStop(1, 'rgba(255,240,200,0)'); X.fillStyle = g; X.fillRect(x - r * 4, y - r * 4, r * 8, r * 8);
+  const m = MOONC.getContext('2d'); m.clearRect(0, 0, 200, 200); m.globalCompositeOperation = 'source-over'; m.fillStyle = '#fff3d6'; m.beginPath(); m.arc(100, 100, r, 0, 6.28); m.fill();
+  m.globalCompositeOperation = 'destination-out'; m.beginPath(); m.arc(100 + r * .45, 100 - r * .2, r * .9, 0, 6.28); m.fill(); m.globalCompositeOperation = 'source-over';
+  X.drawImage(MOONC, x - 100, y - 100); X.restore(); }
+function glow(x, y, r, col, a) { const g = X.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, `rgba(${col},${a})`); g.addColorStop(1, `rgba(${col},0)`); X.fillStyle = g; X.fillRect(x - r, y - r, r * 2, r * 2); }
+// holy light — never a face or hands, only light
+function holyLight(x, y, rx, ry, I, t, rays = true) {
+  X.save(); X.globalCompositeOperation = 'lighter';
+  glow(x, y, Math.max(rx, ry) * 3.2, '255,214,140', .22 * I);
+  if (rays) {
+    X.translate(x, y);
+    for (let i = 0; i < 16; i++) {
+      const a = i / 16 * 6.283 + t * .12, L = Math.max(rx, ry) * (2.2 + .5 * Math.sin(t * 1.3 + i * 2.1));
+      X.globalAlpha = .07 * I; X.fillStyle = '#ffe2a8';
+      X.beginPath(); X.moveTo(0, 0); X.lineTo(Math.cos(a - .045) * L, Math.sin(a - .045) * L); X.lineTo(Math.cos(a + .045) * L, Math.sin(a + .045) * L); X.closePath(); X.fill();
+    }
+    X.globalAlpha = 1; X.translate(-x, -y);
+  }
+  X.save(); X.translate(x, y); X.scale(rx / ry, 1);
+  const g = X.createRadialGradient(0, 0, 0, 0, 0, ry); g.addColorStop(0, `rgba(255,255,250,${I})`); g.addColorStop(.35, `rgba(255,236,190,${.75 * I})`); g.addColorStop(1, 'rgba(255,200,120,0)');
+  X.fillStyle = g; X.beginPath(); X.arc(0, 0, ry, 0, 6.28); X.fill(); X.restore();
+  X.restore();
+}
+function flame(x, by, h, w, t, s, a = 1) {
+  X.save(); X.globalCompositeOperation = 'lighter';
+  const layers = [['255,70,10', 1, .55], ['255,150,30', .72, .65], ['255,230,140', .42, .8]];
+  for (const [col, k, al] of layers) {
+    const hh = h * k * (0.85 + .15 * Math.sin(t * 9 + s * 3)), ww = w * k;
+    const sw = Math.sin(t * 6 + s) * ww * .35 + Math.sin(t * 13 + s * 2) * ww * .12;
+    X.globalAlpha = al * a; X.fillStyle = `rgb(${col})`;
+    X.beginPath(); X.moveTo(x - ww / 2, by);
+    X.bezierCurveTo(x - ww * .6, by - hh * .45, x + sw - ww * .2, by - hh * .7, x + sw, by - hh);
+    X.bezierCurveTo(x + sw + ww * .2, by - hh * .7, x + ww * .6, by - hh * .45, x + ww / 2, by);
+    X.closePath(); X.fill();
+  }
+  X.restore();
+}
+function fireRow(x0, x1, by, h, t, a, seed = 1) { const r = rng(seed); for (let x = x0; x <= x1; x += 26) { const k = r(); flame(x + r() * 10, by, h * (.55 + k * .6), 46 + r() * 20, t, k * 10 + x * .01, a); } }
+function embers(x0, x1, by, t, n, a, seed = 5) { const r = rng(seed); X.save(); X.globalCompositeOperation = 'lighter'; for (let i = 0; i < n; i++) { const sp = 60 + r() * 120, ph = r() * 10, life = 3 + r() * 2; const k = ((t + ph) % life) / life; const x = lerp(x0, x1, r()) + Math.sin((t + ph) * 2) * 30 * k; const y = by - k * sp * life; X.globalAlpha = a * (1 - k) * .9; X.fillStyle = r() > .5 ? '#ffb347' : '#ff7a1a'; X.beginPath(); X.arc(x, y, 2 + r() * 2.5, 0, 6.28); X.fill(); } X.restore(); }
+function palm(x, gy, s, col = '#0b0a12') {
+  X.save(); X.translate(x, gy); X.scale(s, s); X.fillStyle = col; X.strokeStyle = col;
+  X.lineWidth = 14; X.beginPath(); X.moveTo(0, 0); X.quadraticCurveTo(14, -150, 4, -300); X.stroke();
+  for (let i = 0; i < 9; i++) { const a = -Math.PI / 2 + (i - 4) * .38; X.save(); X.translate(4, -300); X.rotate(a); X.beginPath(); X.moveTo(0, 0); X.quadraticCurveTo(70, -26, 150, 22); X.quadraticCurveTo(70, -6, 0, 8); X.fill(); X.restore(); }
+  X.restore();
+}
+function houses(gy, col, seed, hmin = 80, hmax = 220) { const r = rng(seed); X.fillStyle = col; let x = -20; while (x < W + 40) { const w = 90 + r() * 140, h = hmin + r() * (hmax - hmin); X.fillRect(x, gy - h, w, h + 2); if (r() > .5) X.fillRect(x + w * .2, gy - h - 16, w * .6, 18); x += w - 6; } }
+// a person drawn only as a dark silhouette (no features) — used for crowds, never for the Ahlul Bayt
+function figure(x, gy, h, t, s, torch = true, face = 1) {
+  const bob = Math.sin(t * 4 + s) * 4; X.save(); X.translate(x, gy + bob); X.fillStyle = '#07060a';
+  X.beginPath(); X.moveTo(-h * .2, 0); X.quadraticCurveTo(-h * .2, -h * .62, -h * .11, -h * .78); X.lineTo(h * .11, -h * .78); X.quadraticCurveTo(h * .2, -h * .62, h * .2, 0); X.closePath(); X.fill();
+  X.beginPath(); X.arc(0, -h * .86, h * .095, 0, 6.28); X.fill();
+  X.beginPath(); X.moveTo(-h * .13, -h * .94); X.quadraticCurveTo(0, -h * 1.02, h * .13, -h * .94); X.lineTo(h * .16, -h * .7); X.lineTo(-h * .16, -h * .7); X.fill();
+  if (torch) { const tx = face * h * .26, ty = -h * 1.05; X.strokeStyle = '#1a120a'; X.lineWidth = h * .035; X.beginPath(); X.moveTo(face * h * .1, -h * .62); X.lineTo(tx, ty); X.stroke(); X.restore(); flame(x + tx, gy + bob + ty + 4, h * .32, h * .14, t, s); glow(x + tx, gy + bob + ty - h * .1, h * 1.1, '255,120,30', .16); return; }
+  X.restore();
+}
+
+// house front: wall + door. opts: gap (light through cracks), push (0..1 right leaf swings in), lightCol
+function houseFront(t, o = {}) {
+  const gy = 1200, dx = 330, dy = 600, dw = 420, dh = 600;
+  X.drawImage(WALL, 0, 440, W, 760);
+  X.fillStyle = 'rgba(0,0,0,.25)'; X.fillRect(0, 440, W, 18);
+  // ground
+  const g = X.createLinearGradient(0, gy, 0, H); g.addColorStop(0, '#3a2a1c'); g.addColorStop(1, '#0d0906'); X.fillStyle = g; X.fillRect(0, gy, W, H - gy);
+  // door frame (lintel + posts)
+  X.fillStyle = '#24170d'; X.fillRect(dx - 34, dy - 46, dw + 68, 46); X.fillRect(dx - 34, dy, 34, dh); X.fillRect(dx + dw, dy, 34, dh);
+  X.fillStyle = 'rgba(255,255,255,.06)'; X.fillRect(dx - 34, dy - 46, dw + 68, 4);
+  // light behind
+  const L = o.light ?? .8;
+  X.fillStyle = `rgba(255,232,180,${.15 + L * .85})`; X.fillRect(dx, dy, dw, dh);
+  const push = o.push || 0;
+  // left leaf
+  X.drawImage(PLANK, dx, dy, 205, dh);
+  // right leaf, hinged at the right edge, swings inward
+  const rw = 205 * Math.cos(push * 1.15);
+  X.save(); X.globalAlpha = 1; X.drawImage(PLANK, dx + dw - rw, dy, rw, dh); X.fillStyle = `rgba(0,0,0,${push * .5})`; X.fillRect(dx + dw - rw, dy, rw, dh); X.restore();
+  if (o.char) { X.save(); X.globalCompositeOperation = 'multiply'; const cg = X.createLinearGradient(0, dy + dh, 0, dy + dh * (1 - o.char)); cg.addColorStop(0, 'rgba(20,10,5,1)'); cg.addColorStop(1, 'rgba(255,255,255,1)'); X.fillStyle = cg; X.fillRect(dx, dy, dw, dh); X.restore(); }
+  // ring knockers
+  for (const kx of [dx + 185, dx + dw - Math.max(20, rw) + 20]) { X.strokeStyle = '#4a4036'; X.lineWidth = 5; X.beginPath(); X.arc(kx, dy + 330, 14, 0, 6.28); X.stroke(); }
+  // light spill through the crack and under the door
+  X.save(); X.globalCompositeOperation = 'lighter';
+  const pulse = .85 + .15 * Math.sin(t * 2.1);
+  const gl = (o.gap ?? 1) * L * pulse;
+  const cg = X.createLinearGradient(dx + 190, 0, dx + 230, 0); cg.addColorStop(0, 'rgba(255,220,150,0)'); cg.addColorStop(.5, `rgba(255,236,190,${.9 * gl})`); cg.addColorStop(1, 'rgba(255,220,150,0)');
+  X.fillStyle = cg; X.fillRect(dx + 190, dy, 40, dh);
+  glow(dx + dw / 2, gy, 330, '255,214,150', .35 * gl);
+  X.fillStyle = `rgba(255,236,190,${.8 * gl})`; X.fillRect(dx, gy - 4, dw, 4);
+  if (push > 0) { holyLight(dx + dw - rw - (205 - rw) / 2, dy + dh * .45, 60 + 60 * push, 160, L * (.4 + push * .6), t, false); }
+  X.restore();
+  return { dx, dy, dw, dh, gy, rw };
+}
+
+// ---------- text ----------
+function urFont(px) { return CFG.lang === 'ar' ? `${px}px AmiriB` : `${px}px Nastaliq`; }
+function rtlText(s, x, y, px, col, maxW, lh, align = 'center') {
+  X.save(); X.direction = 'rtl'; X.textAlign = align; X.font = urFont(px); X.fillStyle = col; X.textBaseline = 'middle';
+  const words = s.split(' '), lines = []; let cur = '';
+  for (const w of words) { const tr = cur ? cur + ' ' + w : w; if (X.measureText(tr).width > maxW && cur) { lines.push(cur); cur = w; } else cur = tr; }
+  if (cur) lines.push(cur);
+  const y0 = y - (lines.length - 1) * lh / 2;
+  lines.forEach((l, i) => { X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 14; X.fillText(l, x, y0 + i * lh); });
+  X.restore(); return lines.length;
+}
+function header() {
+  X.save(); X.textAlign = 'center'; X.textBaseline = 'middle';
+  X.font = '600 36px Cinzel'; X.fillStyle = '#e8c374'; X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 10;
+  X.letterSpacing = '6px'; X.fillText('SHIA VOICE', 540, 150); X.letterSpacing = '0px';
+  X.fillStyle = 'rgba(232,195,116,.6)'; X.fillRect(430, 182, 220, 2);
+  X.restore();
+}
+function kicker(s, y, a = 1, px = 46, col = '#f3d58c') { X.save(); X.globalAlpha = a; rtlText(s, 540, y, px, col, 900, px * 1.9); X.restore(); }
+function chip(s, x, y, px, a = 1, latin = false) {
+  X.save(); X.globalAlpha = a; X.font = latin ? `600 ${px}px Cinzel` : urFont(px); X.direction = latin ? 'ltr' : 'rtl'; X.textAlign = 'center'; X.textBaseline = 'middle';
+  const w = X.measureText(s).width + px * 1.4, h = px * (latin ? 1.9 : 2.1);
+  X.fillStyle = 'rgba(20,12,4,.65)'; X.strokeStyle = '#e8c374'; X.lineWidth = 3;
+  X.beginPath(); X.roundRect(x - w / 2, y - h / 2, w, h, h / 2); X.fill(); X.stroke();
+  X.fillStyle = '#f6dc9c'; X.fillText(s, x, y + (latin ? 2 : 4)); X.restore();
+}
+// captions: split line into sentences, time each by its length
+function captions(i, lt) {
+  const cap = CFG.caps[i]; if (!cap) return;
+  const d = CFG.durs[i], lead = i === 0 ? CFG.lead : 0, k = lt - lead;
+  if (k < -0.05 || k > d + 0.25) return;
+  const parts = cap.match(/[^۔.؟?:!]+[۔.؟?:!]*/g).map(s => s.trim()).filter(Boolean);
+  const px0 = CFG.lang === 'ar' ? 50 : 46; X.save(); X.font = urFont(px0); X.direction = 'rtl';
+  const nl = s => { let n = 1, cur = ''; for (const w of s.split(' ')) { const tr = cur ? cur + ' ' + w : w; if (X.measureText(tr).width > 820 && cur) { n++; cur = w; } else cur = tr; } return n; };
+  for (let pi = 0; pi < parts.length; pi++) {
+    if (nl(parts[pi]) <= 3) continue;
+    const bits = parts[pi].split(/(?<=،)\s*/); const out = []; let cur = '';
+    for (const b of bits) { const tr = cur ? cur + ' ' + b : b; if (cur && nl(tr) > 3) { out.push(cur); cur = b; } else cur = tr; }
+    if (cur) out.push(cur); parts.splice(pi, 1, ...out); pi += out.length - 1;
+  }
+  X.restore();
+  const tot = parts.reduce((a, s) => a + s.length, 0); let acc = 0, cur = parts[parts.length - 1];
+  for (const p of parts) { acc += p.length; if (k <= acc / tot * d) { cur = p; break; } }
+  const px = CFG.lang === 'ar' ? 50 : 46, lh = CFG.lang === 'ar' ? 86 : 104;
+  // band
+  const g = X.createLinearGradient(0, 1215, 0, 1470); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(.25, 'rgba(0,0,0,.62)'); g.addColorStop(1, 'rgba(0,0,0,.62)');
+  X.fillStyle = g; X.fillRect(0, 1215, W, 255);
+  rtlText(cur, 540, 1345, px, '#ffffff', 820, lh);
+}
+function vignette(a = .75) { const g = X.createRadialGradient(540, 860, 300, 540, 960, 1150); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, `rgba(0,0,0,${a})`); X.fillStyle = g; X.fillRect(0, 0, W, H); }
+function grain(t) { X.save(); X.globalCompositeOperation = 'overlay'; const ox = (t * 977 % 1) * 200, oy = (t * 613 % 1) * 300; X.drawImage(GRAIN, -ox, -oy, W + 200, H + 300); X.restore(); }
+function cam(s, cx = 540, cy = 900, dx = 0, dy = 0) { X.translate(cx + dx, cy + dy); X.scale(s, s); X.translate(-cx, -cy); }
+
+// ---------- scenes ----------
+const T = () => CFG.labels;
+// a covered bier: a low frame with arched palm stalks and a cloth over them (k = how much is built, 0..1)
+function bier(x, y, w, k, t, cloth = 1) {
+  X.save(); X.translate(x, y);
+  X.fillStyle = '#2a1a0e'; X.fillRect(-w / 2, 0, w, 22); X.fillRect(-w / 2 + 10, 22, 16, 50); X.fillRect(w / 2 - 26, 22, 16, 50);
+  X.fillRect(-w / 2 - 60, 6, 60, 10); X.fillRect(w / 2, 6, 60, 10);
+  const n = 7;
+  for (let i = 0; i < n; i++) {
+    const a = seg(k, i / n * .7, i / n * .7 + .3); if (a <= 0) continue;
+    const xx = lerp(-w / 2 + 14, w / 2 - 14, i / (n - 1));
+    X.strokeStyle = `rgba(120,150,70,${a})`; X.lineWidth = 7; X.beginPath(); X.moveTo(xx, 0);
+    X.quadraticCurveTo(xx * .15, -230 * a, -xx, 0); X.stroke();
+    // little leaves along the stalk
+    X.fillStyle = `rgba(110,140,60,${a * .8})`;
+    for (let q = 1; q < 6; q++) { const u = q / 6, px = (1 - u) * (1 - u) * xx + 2 * u * (1 - u) * xx * .15 + u * u * -xx, py = 2 * u * (1 - u) * -230 * a; X.beginPath(); X.ellipse(px, py, 12, 4, u * 3, 0, 6.28); X.fill(); }
+  }
+  if (cloth > 0) { const c = seg(k, .75, 1) * cloth; if (c > 0) { X.globalAlpha = c; const g = X.createLinearGradient(0, -120, 0, 0); g.addColorStop(0, '#2b4a2f'); g.addColorStop(1, '#16281a'); X.fillStyle = g;
+    X.beginPath(); X.moveTo(-w / 2, 2); X.bezierCurveTo(-w / 2, -150, w / 2, -150, w / 2, 2); X.closePath(); X.fill();
+    X.strokeStyle = 'rgba(201,154,77,.7)'; X.lineWidth = 3; X.beginPath(); X.moveTo(-w / 2 + 20, -10); X.bezierCurveTo(-w / 2 + 20, -130, w / 2 - 20, -130, w / 2 - 20, -10); X.stroke(); X.globalAlpha = 1; } }
+  X.restore();
+}
+function sea(t, y0) {
+  const g = X.createLinearGradient(0, y0, 0, 1260); g.addColorStop(0, '#0c1a2c'); g.addColorStop(1, '#03070e'); X.fillStyle = g; X.fillRect(0, y0, W, H - y0);
+  for (let i = 0; i < 18; i++) { const yy = y0 + 12 + i * i * 1.3; X.strokeStyle = `rgba(150,190,230,${.12 - i * .005})`; X.lineWidth = 2; X.beginPath(); for (let x = 0; x <= W; x += 20) { const v = Math.sin(x * .02 + t * 1.2 + i) * (2 + i * .3); x ? X.lineTo(x, yy + v) : X.moveTo(x, yy + v); } X.stroke(); }
+}
+function lamp(x, y, t, a = 1) { X.save(); X.globalAlpha = a; X.fillStyle = '#5a3e1c'; X.beginPath(); X.ellipse(x, y, 34, 12, 0, 0, 6.28); X.fill(); X.restore(); flame(x + 26, y - 4, 50, 18, t, x, a); glow(x + 26, y - 30, 260, '255,170,80', .22 * a); }
+const SCENES = [
+  // 0 hook: a door glowing at night; a woman's dark silhouette waits beside it
+  (t, d) => {
+    sky('#020208', '#07061a', '#120d1c'); stars(t, .8); crescent(860, 330, 30, .8); houses(470, '#020104', 3, 40, 120);
+    houseFront(t, { light: .55 + .1 * Math.sin(t * 1.4), gap: .9 });
+    X.save(); X.globalAlpha = .96; figure(lerp(880, 840, easeOut(seg(t, 0, d * .5))), 1240, 330, 0, 2, false); X.restore();
+    const a = seg(t, .3, 1.6);
+    X.save(); X.globalAlpha = a; rtlText(T().title1, 540, 265, CFG.lang === 'ar' ? 72 : 66, '#f6dc9c', 960, CFG.lang === 'ar' ? 112 : 124); X.restore();
+    const q = seg(t, d * .25, d * .4);
+    if (q > 0) { X.save(); X.globalAlpha = q; rtlText(T().q0, 540, 420, CFG.lang === 'ar' ? 48 : 42, '#ffe2a8', 900, CFG.lang === 'ar' ? 86 : 98); X.restore(); }
+    const w = seg(t, d * .7, d * .82); if (w > 0) chip(T().why, 540, 545, 36, w);
+  },
+  // 1 who she was: the sea crossing to Abyssinia
+  (t, d) => {
+    sky('#050816', '#0c1530', '#1a2340'); stars(t, .7); crescent(240, 340, 26, .7);
+    X.fillStyle = '#07090f'; X.beginPath(); X.moveTo(0, 860); X.quadraticCurveTo(200, 820, 360, 870); X.lineTo(0, 880); X.fill();
+    sea(t, 870);
+    const k = seg(t, 0, d), bx = lerp(150, 760, k), by = 940 + Math.sin(t * 1.5) * 6;
+    X.save(); X.translate(bx, by); X.rotate(Math.sin(t * 1.3) * .03); X.fillStyle = '#05060a';
+    X.beginPath(); X.moveTo(-170, 0); X.lineTo(170, 0); X.lineTo(120, 50); X.lineTo(-120, 50); X.closePath(); X.fill();
+    X.fillRect(-4, -260, 8, 260); X.beginPath(); X.moveTo(6, -250); X.quadraticCurveTo(120, -150, 6, -40); X.fill(); X.restore();
+    [[-60, 140, 1], [10, 120, 2], [70, 130, 3]].forEach(([ox, h, sd]) => figure(bx + ox, by + 2, h, 0, sd, false));
+    kicker(T().k1, 270, seg(t, .3, 1.3), CFG.lang === 'ar' ? 56 : 52);
+    const c = seg(t, d * .1, d * .2); if (c > 0) chip(T().tribe, 540, 385, 34, c);
+    const e = seg(t, d * .25, d * .35); if (e > 0) chip(T().early, 540, 480, 32, e);
+    const h = seg(t, d * .45, d * .55); if (h > 0) chip(T().hijra, 540, 575, 34, h);
+    T().sons.forEach((s2, i) => { const a = seg(t, d * (.68 + i * .07), d * (.75 + i * .07)); if (a > 0) chip(s2, [780, 540, 300][i], 670, 32, a); });
+  },
+  // 2 the wedding night narration — and the historians' doubt
+  (t, d) => {
+    sky('#04030a', '#0a0816', '#140e1c'); stars(t, .6); houses(470, '#020104', 17, 40, 120);
+    houseFront(t, { light: .75, gap: 1 });
+    for (const [x, y] of [[150, 1180], [930, 1180]]) lamp(x, y, t);
+    X.save(); X.globalAlpha = .95; figure(870, 1240, 320, 0, 4, false); X.restore();
+    kicker(T().k2, 270, seg(t, .2, 1.1), CFG.lang === 'ar' ? 50 : 46);
+    const b1 = seg(t, d * .08, d * .18); if (b1 > 0) chip(T().books2a, 540, 385, 30, b1);
+    const b2 = seg(t, d * .35, d * .45); if (b2 > 0) chip(T().books2b, 540, 475, 30, b2);
+    const s = seg(t, d * .6, d * .7);
+    if (s > 0) { X.save(); X.globalAlpha = s; X.fillStyle = 'rgba(0,0,0,.6)'; X.beginPath(); X.roundRect(70, 545, 940, 190, 24); X.fill(); X.strokeStyle = 'rgba(232,195,116,.6)'; X.lineWidth = 2; X.stroke();
+      rtlText(T().doubt, 540, 640, CFG.lang === 'ar' ? 44 : 38, '#f6dc9c', 880, CFG.lang === 'ar' ? 76 : 92); X.restore(); }
+  },
+  // 3 timeline: return, Mu'ta, Muhammad b. Abi Bakr, the Prophet's last illness
+  (t, d) => {
+    X.fillStyle = '#08060a'; X.fillRect(0, 0, W, H); glow(540, 820, 760, '255,190,110', .08);
+    sky('#06050c', '#0b0912', '#100c12'); stars(t, .25);
+    X.fillStyle = '#060408'; X.fillRect(0, 1120, W, H); palm(120, 1130, .7); palm(980, 1130, .6);
+    const ev = T().tl, n = ev.length, y = 830;
+    const L = easeOut(seg(t, .2, d * .85));
+    X.strokeStyle = 'rgba(232,195,116,.55)'; X.lineWidth = 4; X.beginPath(); X.moveTo(940, y); X.lineTo(lerp(940, 140, L), y); X.stroke();
+    ev.forEach(([yr, txt], i) => {
+      const x = lerp(900, 180, i / (n - 1)), a = seg(t, d * (.04 + i * .22), d * (.12 + i * .22)); if (a <= 0) return;
+      X.save(); X.globalAlpha = a; X.fillStyle = '#e8c374'; X.beginPath(); X.arc(x, y, 14, 0, 6.28); X.fill();
+      const up = i % 2 === 0; rtlText(yr, x, up ? y - 70 : y + 70, CFG.lang === 'ar' ? 40 : 36, '#f6dc9c', 300, 60);
+      rtlText(txt, x, up ? y - 170 : y + 175, CFG.lang === 'ar' ? 34 : 30, '#ffffff', 250, CFG.lang === 'ar' ? 56 : 66); X.restore();
+    });
+    kicker(T().k3, 270, seg(t, .2, 1.1), CFG.lang === 'ar' ? 52 : 48);
+  },
+  // 4 her illness: the bed of light; Asma beside her; the covered bier is built from palm stalks
+  (t, d) => {
+    X.fillStyle = '#060405'; X.fillRect(0, 0, W, H); X.fillStyle = '#120c09'; X.fillRect(0, 560, W, 700);
+    X.save(); X.beginPath(); X.rect(760, 600, 200, 240); X.clip(); sky('#020208', '#06061a', '#0c0a1a'); stars(t, .8); X.restore();
+    X.fillStyle = '#0d0907'; X.fillRect(750, 590, 220, 12); X.fillRect(750, 838, 220, 12);
+    lamp(150, 1000, t, .9);
+    const bk = seg(t, d * .5, d * .95);
+    // bed with her light, left; the bier takes shape on the right
+    X.fillStyle = '#2a1a0e'; X.fillRect(90, 1060, 420, 30); X.fillStyle = '#d8d0bf'; X.fillRect(100, 1042, 400, 22);
+    holyLight(300, 1025, 170, 38, .78 + .06 * Math.sin(t * 2), t, false);
+    X.save(); X.globalAlpha = .95; figure(600, 1230, 300, 0, 5, false); X.restore();
+    if (bk > 0) bier(830, 1110, 300, bk, t);
+    kicker(T().k4, 270, seg(t, .2, 1.1), CFG.lang === 'ar' ? 50 : 46);
+    const c1 = seg(t, d * .12, d * .22); if (c1 > 0) chip(T().fear, 540, 390, 32, c1);
+    const c2 = seg(t, d * .45, d * .55); if (c2 > 0) chip(T().habasha, 540, 485, 32, c2);
+    const c3 = seg(t, d * .72, d * .82); if (c3 > 0) chip(T().palms, 540, 580, 32, c3);
+  },
+  // 5 she smiled — the light warms and blooms
+  (t, d) => {
+    X.fillStyle = '#070405'; X.fillRect(0, 0, W, H); X.fillStyle = '#140d09'; X.fillRect(0, 560, W, 700);
+    const w = easeOut(seg(t, d * .05, d * .45));
+    glow(540, 980, 900, '255,200,130', .08 + .14 * w);
+    X.fillStyle = '#2a1a0e'; X.fillRect(160, 1060, 360, 30); X.fillStyle = '#d8d0bf'; X.fillRect(170, 1042, 340, 22);
+    holyLight(340, 1022, 150 + 30 * w, 36 + 10 * w, .78 + .22 * w, t, w > .5);
+    bier(800, 1110, 280, 1, t);
+    const a = seg(t, .3, 1.3);
+    if (a > 0) { X.save(); X.globalAlpha = a; rtlText(T().smile, 540, 330, CFG.lang === 'ar' ? 66 : 60, '#f6dc9c', 920, CFG.lang === 'ar' ? 108 : 120); X.restore(); }
+    const q = seg(t, d * .4, d * .52);
+    if (q > 0) { X.save(); X.globalAlpha = q; X.fillStyle = 'rgba(0,0,0,.5)'; X.beginPath(); X.roundRect(80, 470, 920, 200, 24); X.fill(); rtlText(T().never, 540, 570, CFG.lang === 'ar' ? 46 : 40, '#ffffff', 860, CFG.lang === 'ar' ? 80 : 96); X.restore(); }
+    const s = seg(t, d * .7, d * .8); if (s > 0) chip(T().src5, 540, 750, 30, s);
+  },
+  // 6 the last night: a small night procession with the covered bier
+  (t, d) => {
+    sky('#010103', '#04030a', '#0a0710'); stars(t, .9); crescent(820, 330, 24, .6);
+    glow(540, 980, 900, '110,90,140', .28); houses(980, '#030205', 23, 60, 200); { const g = X.createLinearGradient(0, 975, 0, 1300); g.addColorStop(0, '#2a2232'); g.addColorStop(1, '#0c0a10'); X.fillStyle = g; X.fillRect(0, 975, W, H); }
+    palm(110, 990, .8); palm(990, 985, .7);
+    const k = seg(t, d * .05, d); const bx = lerp(-200, 660, k);
+    // two bearers in front and behind, the covered bier on their shoulders
+    figure(bx - 210, 1230, 300, t * .6, 1, false); figure(bx + 210, 1230, 300, t * .6, 2, false);
+    bier(bx, 1010 + Math.sin(t * 2.4) * 4, 330, 1, t);
+    figure(bx - 420, 1235, 280, t * .6, 3, false); figure(bx - 560, 1235, 270, t * .6, 4, false);
+    glow(bx, 950, 300, '255,214,150', .12);
+    kicker(T().k6, 270, seg(t, .2, 1.1), CFG.lang === 'ar' ? 52 : 48);
+    const c1 = seg(t, d * .15, d * .25); if (c1 > 0) chip(T().ghusl, 540, 390, 32, c1);
+    const c2 = seg(t, d * .25, d * .35); if (c2 > 0) chip(T().src6a, 540, 482, 28, c2);
+    const c3 = seg(t, d * .55, d * .65); if (c3 > 0) chip(T().few, 540, 580, 32, c3);
+    const c4 = seg(t, d * .62, d * .72); if (c4 > 0) chip(T().src6b, 540, 672, 28, c4);
+  },
+  // 7 later life and praise: the road from Abyssinia to Madinah
+  (t, d) => {
+    X.fillStyle = '#0b0806'; X.fillRect(0, 0, W, H); glow(540, 820, 800, '255,190,110', .1);
+    // a parchment-like map band
+    X.fillStyle = 'rgba(70,52,30,.55)'; X.beginPath(); X.roundRect(90, 700, 900, 430, 28); X.fill();
+    X.strokeStyle = 'rgba(201,154,77,.6)'; X.lineWidth = 3; X.stroke();
+    const A = [800, 1020], M = [300, 800], p = easeOut(seg(t, d * .5, d * .9));
+    X.setLineDash([16, 14]); X.strokeStyle = 'rgba(246,220,156,.85)'; X.lineWidth = 5; X.beginPath(); X.moveTo(A[0], A[1]);
+    X.quadraticCurveTo(640, 760, lerp(A[0], M[0], p), lerp(A[1], M[1], p)); X.stroke(); X.setLineDash([]);
+    for (const [pt, lb] of [[A, T().abys], [M, T().madina]]) { X.fillStyle = '#e8c374'; X.beginPath(); X.arc(pt[0], pt[1], 12, 0, 6.28); X.fill(); rtlText(lb, pt[0], pt[1] + 52, CFG.lang === 'ar' ? 38 : 34, '#f6dc9c', 300, 60); }
+    holyLight(M[0], M[1] - 4, 26, 26, .55 * p, t, false);
+    kicker(T().k7, 270, seg(t, .2, 1.1), CFG.lang === 'ar' ? 50 : 46);
+    const c1 = seg(t, d * .12, d * .22); if (c1 > 0) chip(T().yahya, 540, 390, 32, c1);
+    const c2 = seg(t, d * .38, d * .48); if (c2 > 0) chip(T().praise7, 540, 485, 32, c2);
+    const c3 = seg(t, d * .45, d * .55); if (c3 > 0) chip(T().src7, 540, 580, 28, c3);
+  },
+  // 8 end card
+  (t, d) => {
+    sky('#05040c', '#0d0b1f', '#1d1530'); stars(t, .7);
+    X.fillStyle = '#05040a'; X.fillRect(0, 1180, W, H);
+    holyLight(540, 1040, 150, 34, .7 + .1 * Math.sin(t * 2), t, true);
+    const a = easeOut(seg(t, .2, 1.4));
+    X.save(); X.globalAlpha = a; X.textAlign = 'center'; X.textBaseline = 'middle';
+    X.font = '700 92px Cinzel'; X.fillStyle = '#f6dc9c'; X.shadowColor = 'rgba(0,0,0,.8)'; X.shadowBlur = 16; X.letterSpacing = '6px';
+    X.fillText('SHIA VOICE', 540, 330 + (1 - a) * 30); X.letterSpacing = '0px'; X.fillStyle = 'rgba(232,195,116,.7)'; X.fillRect(400, 395, 280, 2);
+    X.restore();
+    X.save(); X.globalAlpha = a; rtlText(T().brand, 540, 470, CFG.lang === 'ar' ? 54 : 46, '#ffffff', 900, 80); X.restore();
+    const c = seg(t, 1.6, 2.6); chip('FOLLOW', 400, 568, 34, c, true); chip('COMMENT', 680, 568, 34, c, true);
+    const b = seg(t, 2.4, 3.4); X.save(); X.globalAlpha = b; rtlText(T().ask, 540, 710, CFG.lang === 'ar' ? 50 : 44, '#f3d58c', 860, CFG.lang === 'ar' ? 84 : 100); X.restore();
+    const n = seg(t, d * .6, d * .72); if (n > 0) chip(T().next, 540, 900, 32, n);
+  },
+];
+
+function draw(si, lt) {
+  const d = CFG.scenes[si].dur;
+  X.setTransform(1, 0, 0, 1, 0, 0); X.globalAlpha = 1; X.globalCompositeOperation = 'source-over'; X.fillStyle = '#000'; X.fillRect(0, 0, W, H);
+  SCENES[si](lt, d);
+  X.setTransform(1, 0, 0, 1, 0, 0);
+  vignette(); grain(lt + si * 3.1);
+  if (si !== 0 && si !== SCENES.length - 1) header();
+  if (!CFG.thumb) captions(si, lt);
+  // dip to and from black
+  const fin = 1 - seg(lt, 0, .45), fout = seg(lt, d - .3, d);
+  const f = CFG.thumb ? 0 : Math.max(si === 0 ? 1 - seg(lt, 0, .8) : fin, fout);
+  if (f > 0) { X.fillStyle = `rgba(0,0,0,${f})`; X.fillRect(0, 0, W, H); }
+}
+window.setup = async cfg => { CFG = cfg; await Promise.all(['40px Nastaliq', '40px Amiri', '40px AmiriB', '40px Cinzel'].map(f => document.fonts.load(f, 'ابپ abc ﷺ'))); return document.fonts.check('40px Nastaliq'); };
+window.frame = (si, lt, q = .92) => { draw(si, lt); return cv.toDataURL('image/jpeg', q); };
+</script></body></html>

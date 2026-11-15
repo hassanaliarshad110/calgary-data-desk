@@ -1,5 +1,5 @@
 {
- "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-14 2026.",
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-15 2026.",
  "ur": {
   "اللہ کے نبی ﷺ": "اللہ کے نبی",
   "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
@@ -12,7 +12,10 @@
   "تاریخِ یعقوبی": "تاریخ یعقوبی",
   "ابنِ قتیبہ": "ابنِ قُتیبہ",
   "ابوالحسن": "ابو الحسن",
-  "ابنِ طیفور": "ابن تیفور"
+  "ابنِ طیفور": "ابن تیفور",
+  "قبیلۂ خثعم": "قبیلہ خثعم",
+  "الاستیعاب": "اَل اِستی عاب",
+  "یحییٰ": "یحیی"
  },
  "ar": {
   "رسول الله ﷺ": "رسولِ الله، صلّى اللهُ عليه وآله وسلّم،",
@@ -22,7 +25,8 @@
   "ولم يكن": "ولَمْ يَكُنْ",
   "إليكم عنّي": "إليكُم عَنِّي",
   "ابنُ أبي الحديد": "ابنُ أبي الحَديد",
-  "فراش المرض": "فِراشِ المَرَض"
+  "فراش المرض": "فِراشِ المَرَض",
+  "يحيى": "يَحْيى"
  },
  "_rule_ur": "Urdu narration never says رسولِ خدا or the spoken salawat (mispronounced). Write اللہ کے نبی ﷺ in the script: the voice says 'Allah ke Nabi', the captions show ﷺ."
 }
