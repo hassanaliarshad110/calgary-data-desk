@@ -1,0 +1,212 @@
+[
+ {
+  "name": "skyline",
+  "n": 30,
+  "story": "leo",
+  "setup": "game.clock=14; game.teleport(-330,60); __hidePlayer();",
+  "frame": "game.paused=false; game.clock=14; const R=H>W?1150:950, a=0.95+0.3*__ease(k); __cam(-330-Math.sin(a)*R,60-Math.cos(a)*R,__lerp(300,260,k),-330,60,__lerp(110,95,k))",
+  "pre": "game.paused=false; game.clock=14; const R=H>W?1150:950, a=0.95; __cam(-330-Math.sin(a)*R,60-Math.cos(a)*R,300,-330,60,110)",
+  "css": "#hud,#dialog,#card,#quiz,#toast,#cine,#ride,#busbox,#metro{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "tower",
+  "n": 30,
+  "story": "leo",
+  "setup": "game.clock=16; game.teleport(-352,-112); __hidePlayer();",
+  "frame": "game.paused=false; game.clock=16; const e=__ease(k), b=H>W?1.25:1; __cam(-352-160*b+__lerp(0,42,e),-112-220*b+__lerp(0,32,e),__lerp(20,150,e),-352,-112,__lerp(120,175,e))",
+  "pre": "game.paused=false; game.clock=16; const b=H>W?1.25:1; __cam(-352-160*b,-112-220*b,20,-352,-112,120)",
+  "css": "#hud,#dialog,#card,#quiz,#toast,#cine,#ride,#busbox,#metro{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "cityhall",
+  "n": 30,
+  "story": "leo",
+  "setup": "game.clock=13; game.teleport(104,-40); __hidePlayer();",
+  "frame": "game.paused=false; game.clock=13; const e=__ease(k), b=H>W?1.3:1; __cam(104+(__lerp(-110,-80,e))*b,16+(__lerp(100,110,e))*b,__lerp(48,38,e),104,16,14)",
+  "pre": "game.paused=false; game.clock=13; const b=H>W?1.3:1; __cam(104-110*b,16+100*b,48,104,16,14)",
+  "css": "#hud,#dialog,#card,#quiz,#toast,#cine,#ride,#busbox,#metro{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "river",
+  "n": 36,
+  "story": "leo",
+  "setup": "game.clock=15; game.teleport(-900,1000); __hidePlayer();",
+  "frame": "game.paused=false; game.clock=15; const e=__ease(k); __cam(__lerp(-480,-640,e),__lerp(1085,1060,e),__lerp(75,62,e),-1200,1000,10)",
+  "pre": "game.paused=false; game.clock=15; __cam(-480,1085,75,-1200,1000,10)",
+  "css": "#hud,#dialog,#card,#quiz,#toast,#cine,#ride,#busbox,#metro{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "homes",
+  "n": 36,
+  "story": "leo",
+  "setup": "game.clock=13; game.teleport(1430,1375); window.__s=null; __hidePlayer();",
+  "frame": "game.paused=false; game.clock=13; if(!window.__s) window.__s=game.findRoadSpot(1430,1375,0,120); const s=window.__s||{x:1430,y:1375,h:0}; const dx=Math.sin(s.h), dy=Math.cos(s.h), d=__lerp(-24,-6,__ease(k)); __cam(s.x+dx*d, s.y+dy*d, 7, s.x+dx*(d+50), s.y+dy*(d+50), 3)",
+  "pre": "game.paused=false; game.clock=13; if(!window.__s) window.__s=game.findRoadSpot(1430,1375,0,120); const s=window.__s||{x:1430,y:1375,h:0}; const dx=Math.sin(s.h), dy=Math.cos(s.h); __cam(s.x-dx*24, s.y-dy*24, 7, s.x+dx*26, s.y+dy*26, 3)",
+  "css": "#hud,#dialog,#card,#quiz,#toast,#cine,#ride,#busbox,#metro{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "fireworks",
+  "n": 36,
+  "story": "leo",
+  "setup": "game.clock=22; game.teleport(420,-1000); __hidePlayer(); game.stampede.showFireworks && game.stampede.showFireworks(16);",
+  "frame": "game.paused=false; game.clock=22; const e=__ease(k); __cam(420,__lerp(-1050,-1075,e),__lerp(4,6,e),420,-1215,__lerp(32,40,e))",
+  "pre": "game.paused=false; game.clock=22; __cam(420,-1050,4,420,-1215,32)",
+  "css": "#hud,#dialog,#card,#quiz,#toast,#cine,#ride,#busbox,#metro{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "saddledome",
+  "n": 36,
+  "story": "leo",
+  "setup": "game.clock=21.9; game.teleport(330,-760); __hidePlayer();",
+  "frame": "game.paused=false; game.clock=21.9; const e=__ease(k), b=H>W?1.3:1; __cam(431+__lerp(-171,-130,e)*b,-877+__lerp(177,195,e)*b,__lerp(45,38,e),431,-877,18)",
+  "pre": "game.paused=false; game.clock=21.9; const b=H>W?1.3:1; __cam(431-171*b,-877+177*b,45,431,-877,18)",
+  "css": "#hud,#dialog,#card,#quiz,#toast,#cine,#ride,#busbox,#metro{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "midway",
+  "n": 36,
+  "story": "leo",
+  "setup": "game.clock=21.6; game.teleport(470,-620); __hidePlayer();",
+  "frame": "game.paused=false; game.clock=21.6; const e=__ease(k); __cam(__lerp(425,462,e),__lerp(-598,-612,e),8,520,-645,13)",
+  "pre": "game.paused=false; game.clock=21.6; __cam(425,-598,8,520,-645,13)",
+  "css": "#hud,#dialog,#card,#quiz,#toast,#cine,#ride,#busbox,#metro{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "bus",
+  "n": 24,
+  "story": "leo",
+  "setup": "game.clock=13; game.teleport(-297.6,-95); window.__b=0;",
+  "frame": "game.paused=false; game.clock=13; __cam(-280,-128,4,-340,-90,40); if(!window.__b && game.buses){const s=game.buses.stopAt(-297.6,-88.1); if(s){game.buses.open(s); window.__b=1;}}",
+  "pre": "game.paused=false; game.clock=13; __cam(-280,-128,4,-340,-90,40); if(!window.__b && game.buses){const s=game.buses.stopAt(-297.6,-88.1); if(s){game.buses.open(s); window.__b=1;}}",
+  "css": "#dialog,#card,#quiz,#toast,#cine{display:none!important} #realbtn{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "ctrain",
+  "n": 30,
+  "story": "leo",
+  "setup": "game.clock=13; game.cineCam=null; const L=game.metro.lines.find(L=>/Blue/.test(L.p.route.n)); const st=L.stops.find(s=>/Bridgeland/.test(s.name)); game.teleport(st.x+3, st.y+3); window.__mo=0;",
+  "frame": "game.paused=false; game.clock=13; game.cineCam=null; if(game.rideVehicle) game.rideVehicle.fast=3;",
+  "pre": "game.paused=false; game.clock=13; game.cineCam=null; window.__mo=(window.__mo||0)+1; if(window.__mo===15){ game.metro.open(game.player.x, game.player.y); const bs=[...document.querySelectorAll('#metro button')]; const b=bs.find(x=>/Centre Street/.test(x.textContent))||bs[0]; if(b) b.click(); } if(game.metro.boardWait) game.metro.boardWait(); if(game.rideVehicle) game.rideVehicle.fast=3;",
+  "css": "#dialog,#card,#quiz,#cine{display:none!important} #realbtn{display:none!important}",
+  "preroll": 20,
+  "until": "game.player.mode==='ride'",
+  "untilmax": 900,
+  "preroll3": 45,
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "r311",
+  "n": 36,
+  "story": "leo",
+  "setup": "game.clock=13; game.teleport(7645,5001); window.__q=null; __hidePlayer();",
+  "frame": "game.clock=13; if(!window.__q){const L=game.r311.near(game.player.x,game.player.y,350); window.__q=L.find(q=>/Cart|Debris|Snow|Pothole|Streetlight|Graffiti/i.test(q.svc))||L[2]||null;} const q=window.__q||{x:7645,y:5001}; const e=__ease(Math.min(1,k/0.5)); __cam(q.x-__lerp(40,16,e),q.y-__lerp(48,20,e),__lerp(26,9,e),q.x,q.y,2); if(f===Math.round(n*0.55) && window.__q) game.r311.open(window.__q)",
+  "pre": "game.clock=13; if(!window.__q){const L=game.r311.near(game.player.x,game.player.y,350); window.__q=L.find(q=>/Cart|Debris|Snow|Pothole|Streetlight|Graffiti/i.test(q.svc))||L[2]||null;} const q=window.__q||{x:7645,y:5001}; __cam(q.x-40,q.y-48,26,q.x,q.y,2)",
+  "css": "#dialog,#quiz,#toast,#cine{display:none!important} #realbtn{display:none!important}",
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "card",
+  "n": 24,
+  "story": "ali",
+  "setup": "game.clock=13;",
+  "frame": "game.clock=13; const p=game.player; __cam(p.x-55,p.y-70,38,p.x,p.y,4)",
+  "pre": "game.clock=13;",
+  "css": "#toast,#cine{display:none!important} #realbtn{display:none!important}",
+  "progress": {
+   "ali": [
+    "ali-arrive",
+    "ali-newcomers",
+    "ali-registry",
+    "ali-roadtest",
+    "ali-insurance"
+   ]
+  },
+  "auto": {
+   "next": true,
+   "goal": true,
+   "stopAtCard": true
+  },
+  "until": "!document.querySelector('#card').hidden",
+  "untilmax": 900,
+  "preroll": 30,
+  "preroll3": 10,
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "natalia",
+  "n": 36,
+  "story": "natalia",
+  "setup": "game.clock=13;",
+  "frame": "game.clock=13; if(f===Math.round(n*0.5)){ const g=game.missions.goal; const d=document.querySelector('#dialog .next'); if(d && !document.querySelector('#dialog').hidden) d.click(); }; if(f>=Math.round(n*0.5)+1){ const g=game.missions.goal; if(g) game.teleport(g.x+0.5,g.y+0.5); }",
+  "pre": "game.clock=13;",
+  "css": "#toast,#cine{display:none!important} #realbtn{display:none!important}",
+  "progress": {
+   "natalia": [
+    "nat-school"
+   ]
+  },
+  "until": "!document.querySelector('#dialog').hidden",
+  "untilmax": 600,
+  "preroll": 30,
+  "preroll3": 20,
+  "m": 3,
+  "pr": 0.6
+ },
+ {
+  "name": "chars",
+  "n": 150,
+  "story": "leo",
+  "setup": "",
+  "frame": "if(f%30===0){ const bs=document.querySelectorAll('.char-btn'); const b=bs[(f/30)%bs.length]; if(b) b.click(); }",
+  "pre": "",
+  "css": ".credits,.controls-help,#loading,.lang-note{display:none!important}",
+  "start": "none",
+  "norender": true,
+  "preroll": 5
+ },
+ {
+  "name": "langs",
+  "n": 130,
+  "story": "leo",
+  "setup": "document.querySelector('#btn-lang').click();",
+  "frame": "if(f===50){ document.querySelectorAll('.langs button')[2].click(); } if(f===90){ document.querySelector('#btn-lang').click(); } if(f===100){ document.querySelectorAll('.langs button')[5].click(); }",
+  "pre": "",
+  "css": ".credits,.controls-help,#loading,.lang-note{display:none!important}",
+  "start": "none",
+  "norender": true,
+  "preroll": 5
+ },
+ {
+  "name": "title",
+  "n": 75,
+  "story": "leo",
+  "setup": "for (const s of ['#intro-presents','#intro-lang','#intro-who']) document.querySelector(s).hidden=true; document.querySelector('#intro-title').hidden=false;",
+  "frame": "",
+  "pre": "",
+  "css": ".credits,.controls-help,#loading,.lang-note{display:none!important}",
+  "start": "none",
+  "norender": true,
+  "preroll": 5
+ }
+]

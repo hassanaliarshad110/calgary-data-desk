@@ -1,0 +1,423 @@
+{
+"W": 1080,
+"H": 1920,
+"orient": "port",
+"dur": 66.713,
+"shots": [
+{
+"clip": "skyline",
+"dur": 1.1,
+"a": 0.55,
+"b": 0.7
+},
+{
+"clip": "tower",
+"dur": 1.1,
+"a": 0.6,
+"b": 0.75
+},
+{
+"clip": "river",
+"dur": 1.1,
+"a": 0.3,
+"b": 0.45
+},
+{
+"clip": "cityhall",
+"dur": 1.2,
+"a": 0.3,
+"b": 0.5
+},
+{
+"clip": "skyline",
+"dur": 3.298,
+"a": 0.7,
+"b": 0.9
+},
+{
+"clip": "skyline",
+"dur": 6.0,
+"a": 0,
+"b": 0.55
+},
+{
+"clip": "river",
+"dur": 4.371,
+"a": 0,
+"b": 0.6
+},
+{
+"clip": "homes",
+"dur": 6.552,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "cityhall",
+"dur": 5.4,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "tower",
+"dur": 5.4,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "skyline",
+"dur": 4.008,
+"a": 0.5,
+"b": 1
+},
+{
+"clip": "midway",
+"dur": 5.6,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "fireworks",
+"dur": 4.771,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "saddledome",
+"dur": 7.981,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "title",
+"dur": 8.832,
+"a": 0.0,
+"b": 1.0
+}
+],
+"caps": [
+{
+"t0": 7.798,
+"t1": 8.973,
+"text": "Start with the map."
+},
+{
+"t0": 8.973,
+"t1": 10.272,
+"text": "The streets come from"
+},
+{
+"t0": 10.272,
+"t1": 11.137,
+"text": "OpenStreetMap."
+},
+{
+"t0": 11.137,
+"t1": 12.684,
+"text": "The buildings, the parks,"
+},
+{
+"t0": 12.684,
+"t1": 14.23,
+"text": "and even the shape of the"
+},
+{
+"t0": 14.23,
+"t1": 15.652,
+"text": "ground mostly come from"
+},
+{
+"t0": 15.652,
+"t1": 17.26,
+"text": "the City of Calgary's open"
+},
+{
+"t0": 17.26,
+"t1": 17.919,
+"text": "data."
+},
+{
+"t0": 18.169,
+"t1": 19.308,
+"text": "So when you drive down"
+},
+{
+"t0": 19.308,
+"t1": 20.653,
+"text": "your own street, the homes"
+},
+{
+"t0": 20.653,
+"t1": 21.999,
+"text": "are where they really are,"
+},
+{
+"t0": 21.999,
+"t1": 23.034,
+"text": "fitted to their real"
+},
+{
+"t0": 23.034,
+"t1": 24.471,
+"text": "footprint and height."
+},
+{
+"t0": 24.721,
+"t1": 26.3,
+"text": "In and around downtown,"
+},
+{
+"t0": 26.3,
+"t1": 27.947,
+"text": "the skyline is real too."
+},
+{
+"t0": 27.947,
+"t1": 29.526,
+"text": "Landmarks like Historic"
+},
+{
+"t0": 29.526,
+"t1": 31.242,
+"text": "City Hall, The Bow, TELUS"
+},
+{
+"t0": 31.242,
+"t1": 33.026,
+"text": "Sky and the Saddledome are"
+},
+{
+"t0": 33.026,
+"t1": 34.262,
+"text": "built as their own"
+},
+{
+"t0": 34.262,
+"t1": 35.566,
+"text": "detailed 3D models."
+},
+{
+"t0": 35.566,
+"t1": 37.007,
+"text": "And the Calgary Tower"
+},
+{
+"t0": 37.007,
+"t1": 38.449,
+"text": "stands right where it"
+},
+{
+"t0": 38.449,
+"t1": 39.279,
+"text": "should."
+},
+{
+"t0": 39.529,
+"t1": 41.075,
+"text": "In this game, it's always"
+},
+{
+"t0": 41.075,
+"t1": 41.941,
+"text": "Stampede time."
+},
+{
+"t0": 41.941,
+"t1": 43.363,
+"text": "There's a midway with a"
+},
+{
+"t0": 43.363,
+"t1": 44.662,
+"text": "Ferris wheel and food"
+},
+{
+"t0": 44.662,
+"t1": 46.022,
+"text": "booths, the Grandstand"
+},
+{
+"t0": 46.022,
+"t1": 47.321,
+"text": "Show, a country music"
+},
+{
+"t0": 47.321,
+"t1": 48.929,
+"text": "stage, and fireworks every"
+},
+{
+"t0": 48.929,
+"t1": 49.65,
+"text": "night."
+},
+{
+"t0": 49.9,
+"t1": 51.28,
+"text": "Next to the Saddledome,"
+},
+{
+"t0": 51.28,
+"t1": 52.72,
+"text": "there's a concert of the"
+},
+{
+"t0": 52.72,
+"t1": 54.041,
+"text": "game's own title song,"
+},
+{
+"t0": 54.041,
+"t1": 54.881,
+"text": "Under One Sky."
+},
+{
+"t0": 54.881,
+"t1": 56.201,
+"text": "That's the song you're"
+},
+{
+"t0": 56.201,
+"t1": 57.631,
+"text": "hearing right now."
+}
+],
+"labels": [
+{
+"t0": 7.997999999999999,
+"dur": 6,
+"k": "The real map",
+"title": "OpenStreetMap + City of Calgary open data"
+},
+{
+"t0": 18.369,
+"dur": 5.0,
+"k": "Real homes",
+"title": "Real footprints and heights"
+},
+{
+"t0": 25.021,
+"dur": 5.0,
+"k": "Landmark",
+"title": "Historic City Hall"
+},
+{
+"t0": 30.521,
+"dur": 4.8,
+"k": "Landmark",
+"title": "Calgary Tower"
+},
+{
+"t0": 39.729,
+"dur": 6,
+"k": "Stampede Park",
+"title": "Midway \u00b7 Grandstand Show \u00b7 fireworks"
+},
+{
+"t0": 50.1,
+"dur": 6,
+"k": "Music",
+"title": "Under One Sky, the game's title song"
+}
+],
+"notes": [
+{
+"t0": 39.528999999999996,
+"t1": 57.281,
+"text": "Re-created in the game \u00b7 not affiliated with the Calgary Stampede"
+},
+{
+"t0": 7.797999999999999,
+"t1": 17.569,
+"text": "Not affiliated with Rockstar Games or the City of Calgary"
+},
+{
+"t0": 57.881,
+"t1": 66.713,
+"text": "Drop your thoughts below",
+"y": 1060
+}
+],
+"ctas": [
+{
+"t0": 57.881,
+"t1": 66.713,
+"top": "Play free: calgaryinsight.ca/game",
+"big": "Which landmark would you visit first?"
+}
+],
+"pills": [
+{
+"t0": 25.221,
+"dur": 2.4
+}
+],
+"hook": [
+{
+"t0": 0,
+"t1": 7.598,
+"parts": [
+[
+0.0,
+"GTA 6 drops TOMORROW.",
+[
+"GTA",
+"6",
+"TOMORROW"
+],
+96
+],
+[
+2.1,
+"Explore CALGARY'S real map today. PART 1",
+[
+"CALGARY",
+"CALGARY'S",
+"CALGARY?",
+"PART"
+],
+80
+]
+]
+}
+],
+"header_from": 7.797999999999999,
+"end": [],
+"voice": [
+[
+"p",
+0,
+0.35
+],
+[
+"f",
+3,
+7.798
+],
+[
+"f",
+4,
+18.169
+],
+[
+"f",
+5,
+24.721
+],
+[
+"f",
+7,
+39.529
+],
+[
+"f",
+8,
+49.9
+],
+[
+"p",
+1,
+57.881
+]
+]
+}

@@ -1,0 +1,1205 @@
+{
+"W": 1920,
+"H": 1080,
+"orient": "land",
+"dur": 226.258,
+"shots": [
+{
+"clip": "skyline",
+"dur": 1.0,
+"a": 0.55,
+"b": 0.7
+},
+{
+"clip": "fireworks",
+"dur": 0.95,
+"a": 0.3,
+"b": 0.45
+},
+{
+"clip": "ctrain",
+"dur": 0.95,
+"a": 0.5,
+"b": 0.65
+},
+{
+"clip": "midway",
+"dur": 0.95,
+"a": 0.3,
+"b": 0.5
+},
+{
+"clip": "saddledome",
+"dur": 2.179,
+"a": 0.2,
+"b": 0.4
+},
+{
+"clip": "homes",
+"dur": 2.6,
+"a": 0,
+"b": 0.5
+},
+{
+"clip": "car",
+"dur": 3.0,
+"a": 0.1,
+"b": 0.8
+},
+{
+"clip": "heli",
+"dur": 3.087,
+"a": 0.3,
+"b": 1
+},
+{
+"clip": "title",
+"dur": 3.2,
+"a": 0,
+"b": 1,
+"z0": 1.75,
+"z1": 1.8375000000000001,
+"cy": 0.55
+},
+{
+"clip": "chars",
+"dur": 5.343,
+"a": 0.82,
+"b": 0.98,
+"z0": 1.75,
+"z1": 1.75,
+"cy": 0.42
+},
+{
+"clip": "skyline",
+"dur": 7.0,
+"a": 0,
+"b": 0.55
+},
+{
+"clip": "river",
+"dur": 3.671,
+"a": 0,
+"b": 0.5
+},
+{
+"clip": "homes",
+"dur": 6.852,
+"a": 0.3,
+"b": 1
+},
+{
+"clip": "cityhall",
+"dur": 5.6,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "tower",
+"dur": 5.6,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "skyline",
+"dur": 5.508,
+"a": 0.5,
+"b": 1
+},
+{
+"clip": "river",
+"dur": 2.6,
+"a": 0.5,
+"b": 0.8
+},
+{
+"clip": "saddledome",
+"dur": 2.78,
+"a": 0,
+"b": 0.4
+},
+{
+"clip": "midway",
+"dur": 6.0,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "fireworks",
+"dur": 4.671,
+"a": 0,
+"b": 0.6
+},
+{
+"clip": "saddledome",
+"dur": 7.2,
+"a": 0.3,
+"b": 1
+},
+{
+"clip": "fireworks",
+"dur": 2.681,
+"a": 0.6,
+"b": 1
+},
+{
+"clip": "bus",
+"dur": 2.4,
+"a": 0,
+"b": 0.3
+},
+{
+"clip": "bus",
+"dur": 5.647,
+"a": 0.3,
+"b": 1,
+"z0": 1.0,
+"z1": 1.7,
+"cx": 0.5,
+"cy": 0.45
+},
+{
+"clip": "ctrain",
+"dur": 7.044,
+"a": 0,
+"b": 1
+},
+{
+"clip": "r311",
+"dur": 4.761,
+"a": 0,
+"b": 0.4
+},
+{
+"clip": "r311",
+"dur": 6.5,
+"a": 0.4,
+"b": 0.58
+},
+{
+"clip": "r311",
+"dur": 8.288,
+"a": 0.58,
+"b": 1,
+"z0": 1.35,
+"z1": 1.75,
+"cx": 0.5,
+"cy": 0.5
+},
+{
+"clip": "chars",
+"dur": 2.479,
+"a": 0,
+"b": 0.02,
+"z0": 1.75,
+"z1": 1.75,
+"cy": 0.42
+},
+{
+"clip": "chars",
+"dur": 3.7,
+"a": 0.0,
+"b": 0.19,
+"z0": 1.75,
+"z1": 1.75,
+"cy": 0.42
+},
+{
+"clip": "chars",
+"dur": 4.0,
+"a": 0.2,
+"b": 0.39,
+"z0": 1.75,
+"z1": 1.75,
+"cy": 0.42
+},
+{
+"clip": "chars",
+"dur": 3.4,
+"a": 0.4,
+"b": 0.59,
+"z0": 1.75,
+"z1": 1.75,
+"cy": 0.42
+},
+{
+"clip": "chars",
+"dur": 3.6,
+"a": 0.6,
+"b": 0.79,
+"z0": 1.75,
+"z1": 1.75,
+"cy": 0.42
+},
+{
+"clip": "chars",
+"dur": 5.016,
+"a": 0.8,
+"b": 1,
+"z0": 1.75,
+"z1": 1.75,
+"cy": 0.42
+},
+{
+"clip": "card",
+"dur": 6.0,
+"a": 0.2,
+"b": 1,
+"z0": 1.4,
+"z1": 1.6,
+"cx": 0.5,
+"cy": 0.5
+},
+{
+"clip": "natalia",
+"dur": 5.225,
+"a": 0,
+"b": 0.45
+},
+{
+"clip": "card",
+"dur": 5.0,
+"a": 0,
+"b": 0.6,
+"z0": 1.6,
+"z1": 1.7
+},
+{
+"clip": "natalia",
+"dur": 4.86,
+"a": 0.55,
+"b": 1,
+"z0": 1.45,
+"z1": 1.55,
+"cy": 0.4
+},
+{
+"clip": "natalia",
+"dur": 5.764,
+"a": 0,
+"b": 0.5,
+"z0": 1.2,
+"z1": 1.35,
+"cy": 0.72
+},
+{
+"clip": "langs",
+"dur": 8.239,
+"a": 0,
+"b": 1,
+"z0": 1.75,
+"z1": 1.75,
+"cy": 0.45
+},
+{
+"clip": "heli",
+"dur": 4.0,
+"a": 0,
+"b": 0.6
+},
+{
+"clip": "car",
+"dur": 3.5,
+"a": 0.3,
+"b": 1
+},
+{
+"clip": "river",
+"dur": 2.715,
+"a": 0.6,
+"b": 1
+},
+{
+"clip": "tower",
+"dur": 5.2,
+"a": 0.2,
+"b": 1
+},
+{
+"clip": "skyline",
+"dur": 5.023,
+"a": 0.2,
+"b": 0.7
+},
+{
+"clip": "river",
+"dur": 9.052,
+"a": 0,
+"b": 1
+},
+{
+"clip": "skyline",
+"dur": 3.78,
+"a": 0.6,
+"b": 1
+},
+{
+"clip": "fireworks",
+"dur": 4.292,
+"a": 0.2,
+"b": 0.8
+},
+{
+"clip": "saddledome",
+"dur": 6.851,
+"a": 0,
+"b": 0.7
+},
+{
+"clip": "saddledome",
+"dur": 6.5,
+"a": 0.7,
+"b": 1
+}
+],
+"caps": [
+{
+"t0": 6.029,
+"t1": 7.428,
+"text": "You know these streets."
+},
+{
+"t0": 7.428,
+"t1": 10.044,
+"text": "Now you can walk them, drive them, and even"
+},
+{
+"t0": 10.044,
+"t1": 12.599,
+"text": "fly over them, in a free game built on the"
+},
+{
+"t0": 12.599,
+"t1": 14.166,
+"text": "real map of Calgary."
+},
+{
+"t0": 14.716,
+"t1": 16.683,
+"text": "It's called YYC City Stories."
+},
+{
+"t0": 16.683,
+"t1": 19.531,
+"text": "It runs right in your web browser, with no"
+},
+{
+"t0": 19.531,
+"t1": 21.509,
+"text": "download and no account."
+},
+{
+"t0": 23.259,
+"t1": 25.732,
+"text": "Start with the map. The streets come from"
+},
+{
+"t0": 25.732,
+"t1": 28.386,
+"text": "OpenStreetMap. The buildings, the parks, and"
+},
+{
+"t0": 28.386,
+"t1": 30.798,
+"text": "even the shape of the ground mostly come"
+},
+{
+"t0": 30.798,
+"t1": 33.38,
+"text": "from the City of Calgary's open data."
+},
+{
+"t0": 33.93,
+"t1": 36.117,
+"text": "So when you drive down your own street, the"
+},
+{
+"t0": 36.117,
+"t1": 38.254,
+"text": "homes are where they really are, fitted to"
+},
+{
+"t0": 38.254,
+"t1": 40.232,
+"text": "their real footprint and height."
+},
+{
+"t0": 40.782,
+"t1": 43.677,
+"text": "In and around downtown, the skyline is real"
+},
+{
+"t0": 43.677,
+"t1": 46.573,
+"text": "too. Landmarks like Historic City Hall, The"
+},
+{
+"t0": 46.573,
+"t1": 49.468,
+"text": "Bow, TELUS Sky and the Saddledome are built"
+},
+{
+"t0": 49.468,
+"t1": 51.623,
+"text": "as their own detailed 3D models."
+},
+{
+"t0": 51.623,
+"t1": 54.519,
+"text": "And the Calgary Tower stands right where it"
+},
+{
+"t0": 54.519,
+"t1": 55.34,
+"text": "should."
+},
+{
+"t0": 57.49,
+"t1": 59.888,
+"text": "But the skyline is only the beginning."
+},
+{
+"t0": 59.888,
+"t1": 62.32,
+"text": "Wait until you see Stampede Park."
+},
+{
+"t0": 62.87,
+"t1": 65.283,
+"text": "In this game, it's always Stampede time."
+},
+{
+"t0": 65.283,
+"t1": 67.695,
+"text": "There's a midway with a Ferris wheel and"
+},
+{
+"t0": 67.695,
+"t1": 70.289,
+"text": "food booths, the Grandstand Show, a country"
+},
+{
+"t0": 70.289,
+"t1": 72.991,
+"text": "music stage, and fireworks every night."
+},
+{
+"t0": 73.541,
+"t1": 76.118,
+"text": "Next to the Saddledome, there's a concert of"
+},
+{
+"t0": 76.118,
+"t1": 78.52,
+"text": "the game's own title song, Under One Sky."
+},
+{
+"t0": 78.52,
+"t1": 81.272,
+"text": "That's the song you're hearing right now."
+},
+{
+"t0": 83.422,
+"t1": 85.948,
+"text": "Need to get around? Calgary Transit is in"
+},
+{
+"t0": 85.948,
+"t1": 88.351,
+"text": "the game, with real bus routes and real"
+},
+{
+"t0": 88.351,
+"t1": 90.919,
+"text": "stops from the City's own timetable."
+},
+{
+"t0": 91.469,
+"t1": 94.138,
+"text": "Walk up to a stop, catch a bus, or ride the"
+},
+{
+"t0": 94.138,
+"t1": 96.558,
+"text": "CTrain on the Red and Blue lines, right"
+},
+{
+"t0": 96.558,
+"t1": 97.963,
+"text": "through downtown."
+},
+{
+"t0": 98.513,
+"t1": 101.176,
+"text": "Now here's something a little different:"
+},
+{
+"t0": 101.176,
+"t1": 102.724,
+"text": "real 311 requests."
+},
+{
+"t0": 103.274,
+"t1": 105.886,
+"text": "Recent service requests from the City's open"
+},
+{
+"t0": 105.886,
+"t1": 108.498,
+"text": "data show up as icons in the community where"
+},
+{
+"t0": 108.498,
+"t1": 111.11,
+"text": "they were reported. Tap one to see what it's"
+},
+{
+"t0": 111.11,
+"t1": 113.544,
+"text": "about, when it was reported, whether it's"
+},
+{
+"t0": 113.544,
+"t1": 115.912,
+"text": "still open, and who's handling it."
+},
+{
+"t0": 118.062,
+"t1": 119.991,
+"text": "And then, there are the stories."
+},
+{
+"t0": 120.541,
+"t1": 122.436,
+"text": "Pick one of five characters."
+},
+{
+"t0": 122.436,
+"t1": 125.279,
+"text": "Ali, who just landed at YYC to start a new"
+},
+{
+"t0": 125.279,
+"t1": 127.986,
+"text": "life. Natalia, a high school student who"
+},
+{
+"t0": 127.986,
+"t1": 129.408,
+"text": "stands up to bullies."
+},
+{
+"t0": 129.408,
+"t1": 131.912,
+"text": "Chris, a seventy-two-year-old senior."
+},
+{
+"t0": 131.912,
+"t1": 134.89,
+"text": "Jean, who has lived in Martindale for years."
+},
+{
+"t0": 134.89,
+"t1": 137.8,
+"text": "And Leo, a visitor who arrives right in the"
+},
+{
+"t0": 137.8,
+"t1": 139.707,
+"text": "middle of the Stampede."
+},
+{
+"t0": 140.257,
+"t1": 142.929,
+"text": "Across twenty-seven missions, they learn how"
+},
+{
+"t0": 142.929,
+"t1": 144.266,
+"text": "the city really works."
+},
+{
+"t0": 144.266,
+"t1": 145.845,
+"text": "How to pay a transit fare."
+},
+{
+"t0": 145.845,
+"t1": 147.91,
+"text": "Where newcomers can get free help."
+},
+{
+"t0": 147.91,
+"t1": 150.218,
+"text": "What Fair Entry and the public library"
+},
+{
+"t0": 150.218,
+"t1": 150.932,
+"text": "offer."
+},
+{
+"t0": 151.482,
+"t1": 153.863,
+"text": "How to sort your black, blue and green"
+},
+{
+"t0": 153.863,
+"t1": 156.557,
+"text": "carts. Why you clear your sidewalk after it"
+},
+{
+"t0": 156.557,
+"t1": 159.001,
+"text": "snows. When to call Health Link at 811."
+},
+{
+"t0": 159.001,
+"t1": 160.792,
+"text": "And how to spot a scam."
+},
+{
+"t0": 161.342,
+"t1": 163.537,
+"text": "Natalia's story takes on bullying and"
+},
+{
+"t0": 163.537,
+"t1": 165.85,
+"text": "cyberbullying, and it ends with a music"
+},
+{
+"t0": 165.85,
+"t1": 166.556,
+"text": "video."
+},
+{
+"t0": 167.106,
+"t1": 169.108,
+"text": "You can play in six languages:"
+},
+{
+"t0": 169.108,
+"t1": 171.976,
+"text": "English, French, Punjabi, Urdu, Tagalog and"
+},
+{
+"t0": 171.976,
+"t1": 174.795,
+"text": "Arabic, with voice lines in each one."
+},
+{
+"t0": 175.345,
+"t1": 177.789,
+"text": "And when you just want to explore, there's"
+},
+{
+"t0": 177.789,
+"t1": 180.175,
+"text": "free roam. Grab a car, call a helicopter,"
+},
+{
+"t0": 180.175,
+"t1": 182.445,
+"text": "hunt for landmarks, or play online with"
+},
+{
+"t0": 182.445,
+"t1": 183.61,
+"text": "other players."
+},
+{
+"t0": 185.56,
+"t1": 187.167,
+"text": "So, is this GTA? No."
+},
+{
+"t0": 187.167,
+"t1": 190.463,
+"text": "GTA 6 comes out tomorrow on PlayStation 5"
+},
+{
+"t0": 190.463,
+"t1": 192.392,
+"text": "and Xbox Series X and S."
+},
+{
+"t0": 192.392,
+"t1": 195.233,
+"text": "If you're playing it, have fun!"
+},
+{
+"t0": 195.783,
+"t1": 198.3,
+"text": "YYC City Stories is something different:"
+},
+{
+"t0": 198.3,
+"t1": 200.566,
+"text": "a small, free game about the city we"
+},
+{
+"t0": 200.566,
+"t1": 203.685,
+"text": "actually live in. And you can play it today."
+},
+{
+"t0": 204.835,
+"t1": 208.065,
+"text": "Play free at calgaryinsight.ca/game."
+},
+{
+"t0": 208.615,
+"t1": 210.694,
+"text": "Which Calgary spot should we add next?"
+},
+{
+"t0": 210.694,
+"t1": 212.357,
+"text": "Tell us in the comments."
+},
+{
+"t0": 212.907,
+"t1": 215.306,
+"text": "Follow Calgary Insight on Facebook and"
+},
+{
+"t0": 215.306,
+"t1": 217.832,
+"text": "Instagram, and subscribe on YouTube, for"
+},
+{
+"t0": 217.832,
+"t1": 219.508,
+"text": "more Calgary stories."
+}
+],
+"labels": [
+{
+"t0": 14.915999999999999,
+"dur": 5.0,
+"k": "Free game \u00b7 in your browser",
+"title": "YYC City Stories"
+},
+{
+"t0": 23.459,
+"dur": 6,
+"k": "The real map",
+"title": "OpenStreetMap + City of Calgary open data"
+},
+{
+"t0": 34.13,
+"dur": 5.0,
+"k": "Real homes",
+"title": "Real footprints and heights"
+},
+{
+"t0": 41.081999999999994,
+"dur": 5.0,
+"k": "Landmark",
+"title": "Historic City Hall"
+},
+{
+"t0": 46.681999999999995,
+"dur": 4.8,
+"k": "Landmark",
+"title": "Calgary Tower"
+},
+{
+"t0": 63.07,
+"dur": 6,
+"k": "Stampede Park",
+"title": "Midway \u00b7 Grandstand Show \u00b7 fireworks"
+},
+{
+"t0": 73.741,
+"dur": 6,
+"k": "Music",
+"title": "Under One Sky, the game's title song"
+},
+{
+"t0": 83.622,
+"dur": 6,
+"k": "Calgary Transit",
+"title": "Real routes and stops"
+},
+{
+"t0": 91.669,
+"dur": 5.0,
+"k": "Ride the CTrain",
+"title": "Red Line and Blue Line"
+},
+{
+"t0": 98.713,
+"dur": 7,
+"k": "Real 311 requests",
+"title": "From the City's open data"
+},
+{
+"t0": 146.35699999999997,
+"dur": 4.5,
+"k": "Twenty-seven missions",
+"title": "Learn how the city works"
+},
+{
+"t0": 156.58199999999997,
+"dur": 4.4,
+"k": "Missions teach",
+"title": "Carts \u00b7 snow \u00b7 Health Link 811 \u00b7 scams"
+},
+{
+"t0": 161.54199999999997,
+"dur": 5.0,
+"k": "Natalia's story",
+"title": "Bullying and cyberbullying"
+},
+{
+"t0": 175.545,
+"dur": 6,
+"k": "Free roam",
+"title": "Cars \u00b7 helicopter \u00b7 landmarks \u00b7 online"
+},
+{
+"t0": 195.983,
+"dur": 5.0,
+"k": "Free \u00b7 no download \u00b7 no account",
+"title": "Play it today"
+}
+],
+"notes": [
+{
+"t0": 62.87,
+"t1": 81.52199999999999,
+"text": "Stampede Park is re-created in the game \u00b7 not affiliated with the Calgary Stampede"
+},
+{
+"t0": 83.422,
+"t1": 115.56199999999998,
+"text": "Not affiliated with the City of Calgary"
+},
+{
+"t0": 185.56,
+"t1": 195.383,
+"text": "Not affiliated with Rockstar Games"
+}
+],
+"ctas": [
+{
+"t0": 204.835,
+"t1": 208.315,
+"top": "PLAY FREE",
+"big": "calgaryinsight.ca/game"
+},
+{
+"t0": 208.615,
+"t1": 212.857,
+"top": "Drop your thoughts below",
+"big": "Which Calgary spot should we add next?"
+},
+{
+"t0": 212.907,
+"t1": 219.758,
+"top": "Follow @calgaryinsight",
+"big": "Facebook \u00b7 Instagram \u00b7 YouTube"
+}
+],
+"pills": [
+{
+"t0": 118.26199999999999,
+"dur": 2.6
+}
+],
+"hook": [
+{
+"t0": 0,
+"t1": 5.629,
+"parts": [
+[
+0.0,
+"GTA 6 drops TOMORROW.",
+[
+"GTA",
+"6",
+"TOMORROW"
+],
+104
+],
+[
+2.2,
+"But what if your next open world\u2026",
+[],
+70
+],
+[
+3.6,
+"is CALGARY?",
+[
+"CALGARY"
+],
+116
+]
+]
+}
+],
+"header_from": 6.029,
+"end": [
+{
+"t0": 219.758
+}
+],
+"endcard": "YYC City Stories \u00b7 free on the real map of Calgary",
+"voice": [
+[
+"f",
+0,
+0.35
+],
+[
+"f",
+1,
+6.029
+],
+[
+"f",
+2,
+14.716
+],
+[
+"f",
+3,
+23.259
+],
+[
+"f",
+4,
+33.93
+],
+[
+"f",
+5,
+40.782
+],
+[
+"f",
+6,
+57.49
+],
+[
+"f",
+7,
+62.87
+],
+[
+"f",
+8,
+73.541
+],
+[
+"f",
+9,
+83.422
+],
+[
+"f",
+10,
+91.469
+],
+[
+"f",
+11,
+98.513
+],
+[
+"f",
+12,
+103.274
+],
+[
+"f",
+13,
+118.062
+],
+[
+"f",
+14,
+120.541
+],
+[
+"f",
+15,
+140.257
+],
+[
+"f",
+16,
+151.482
+],
+[
+"f",
+17,
+161.342
+],
+[
+"f",
+18,
+167.106
+],
+[
+"f",
+19,
+175.345
+],
+[
+"f",
+20,
+185.56
+],
+[
+"f",
+21,
+195.783
+],
+[
+"f",
+22,
+204.835
+],
+[
+"f",
+23,
+208.615
+],
+[
+"f",
+24,
+212.907
+]
+],
+"lines_t": [
+[
+0,
+0.35,
+5.129
+],
+[
+1,
+6.029,
+13.816
+],
+[
+2,
+14.716,
+21.159
+],
+[
+3,
+23.259,
+33.03
+],
+[
+4,
+33.93,
+39.882
+],
+[
+5,
+40.782,
+54.99
+],
+[
+6,
+57.49,
+61.97
+],
+[
+7,
+62.87,
+72.641
+],
+[
+8,
+73.541,
+80.922
+],
+[
+9,
+83.422,
+90.569
+],
+[
+10,
+91.469,
+97.613
+],
+[
+11,
+98.513,
+102.374
+],
+[
+12,
+103.274,
+115.562
+],
+[
+13,
+118.062,
+119.641
+],
+[
+14,
+120.541,
+139.357
+],
+[
+15,
+140.257,
+150.582
+],
+[
+16,
+151.482,
+160.442
+],
+[
+17,
+161.342,
+166.206
+],
+[
+18,
+167.106,
+174.445
+],
+[
+19,
+175.345,
+183.26
+],
+[
+20,
+185.56,
+194.883
+],
+[
+21,
+195.783,
+203.335
+],
+[
+22,
+204.835,
+207.715
+],
+[
+23,
+208.615,
+212.007
+],
+[
+24,
+212.907,
+219.158
+]
+]
+}

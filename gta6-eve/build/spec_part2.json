@@ -1,0 +1,293 @@
+{
+"W": 1080,
+"H": 1920,
+"orient": "port",
+"dur": 48.235,
+"shots": [
+{
+"clip": "ctrain",
+"dur": 1.2,
+"a": 0.5,
+"b": 0.65
+},
+{
+"clip": "bus",
+"dur": 1.1,
+"a": 0.3,
+"b": 0.5
+},
+{
+"clip": "r311",
+"dur": 1.2,
+"a": 0.2,
+"b": 0.35
+},
+{
+"clip": "ctrain",
+"dur": 3.999,
+"a": 0.65,
+"b": 1
+},
+{
+"clip": "bus",
+"dur": 2.4,
+"a": 0,
+"b": 0.3
+},
+{
+"clip": "bus",
+"dur": 5.347,
+"a": 0.3,
+"b": 1
+},
+{
+"clip": "ctrain",
+"dur": 6.744,
+"a": 0.0,
+"b": 1.0
+},
+{
+"clip": "r311",
+"dur": 4.461,
+"a": 0,
+"b": 0.4
+},
+{
+"clip": "r311",
+"dur": 6.5,
+"a": 0.4,
+"b": 0.58
+},
+{
+"clip": "r311",
+"dur": 6.388,
+"a": 0.58,
+"b": 1,
+"z0": 1.0,
+"z1": 1.12
+},
+{
+"clip": "river",
+"dur": 8.896,
+"a": 0.0,
+"b": 1.0
+}
+],
+"caps": [
+{
+"t0": 7.499,
+"t1": 8.69,
+"text": "Need to get around?"
+},
+{
+"t0": 8.69,
+"t1": 10.257,
+"text": "Calgary Transit is in the"
+},
+{
+"t0": 10.257,
+"t1": 11.888,
+"text": "game, with real bus routes"
+},
+{
+"t0": 11.888,
+"t1": 13.329,
+"text": "and real stops from the"
+},
+{
+"t0": 13.329,
+"t1": 14.996,
+"text": "City's own timetable."
+},
+{
+"t0": 15.246,
+"t1": 16.876,
+"text": "Walk up to a stop, catch a"
+},
+{
+"t0": 16.876,
+"t1": 18.506,
+"text": "bus, or ride the CTrain on"
+},
+{
+"t0": 18.506,
+"t1": 19.948,
+"text": "the Red and Blue lines,"
+},
+{
+"t0": 19.948,
+"t1": 21.74,
+"text": "right through downtown."
+},
+{
+"t0": 21.99,
+"t1": 23.48,
+"text": "Now here's something a"
+},
+{
+"t0": 23.48,
+"t1": 24.632,
+"text": "little different:"
+},
+{
+"t0": 24.632,
+"t1": 26.201,
+"text": "real 311 requests."
+},
+{
+"t0": 26.451,
+"t1": 27.843,
+"text": "Recent service requests"
+},
+{
+"t0": 27.843,
+"t1": 29.357,
+"text": "from the City's open data"
+},
+{
+"t0": 29.357,
+"t1": 30.749,
+"text": "show up as icons in the"
+},
+{
+"t0": 30.749,
+"t1": 32.262,
+"text": "community where they were"
+},
+{
+"t0": 32.262,
+"t1": 33.715,
+"text": "reported. Tap one to see"
+},
+{
+"t0": 33.715,
+"t1": 35.168,
+"text": "what it's about, when it"
+},
+{
+"t0": 35.168,
+"t1": 36.741,
+"text": "was reported, whether it's"
+},
+{
+"t0": 36.741,
+"t1": 38.013,
+"text": "still open, and who's"
+},
+{
+"t0": 38.013,
+"t1": 39.089,
+"text": "handling it."
+}
+],
+"labels": [
+{
+"t0": 7.699,
+"dur": 6,
+"k": "Calgary Transit",
+"title": "Real routes and stops"
+},
+{
+"t0": 15.445999999999998,
+"dur": 5.0,
+"k": "Ride the CTrain",
+"title": "Red Line and Blue Line"
+},
+{
+"t0": 22.189999999999998,
+"dur": 7,
+"k": "Real 311 requests",
+"title": "From the City's open data"
+}
+],
+"notes": [
+{
+"t0": 7.499,
+"t1": 38.739000000000004,
+"text": "Not affiliated with the City of Calgary or Rockstar Games"
+},
+{
+"t0": 39.339,
+"t1": 48.235,
+"text": "Drop your thoughts below",
+"y": 1060
+}
+],
+"ctas": [
+{
+"t0": 39.339,
+"t1": 48.235,
+"top": "Play free: calgaryinsight.ca/game",
+"big": "Have you ever made a 311 request?"
+}
+],
+"pills": [
+{
+"t0": 22.49,
+"dur": 2.4
+}
+],
+"hook": [
+{
+"t0": 0,
+"t1": 7.299,
+"parts": [
+[
+0.0,
+"GTA 6 drops TOMORROW.",
+[
+"GTA",
+"6",
+"TOMORROW"
+],
+96
+],
+[
+2.1,
+"Real transit and 311 in a free CALGARY game. PART 2",
+[
+"CALGARY",
+"CALGARY'S",
+"CALGARY?",
+"PART"
+],
+80
+]
+]
+}
+],
+"header_from": 7.499,
+"end": [],
+"voice": [
+[
+"p",
+2,
+0.35
+],
+[
+"f",
+9,
+7.499
+],
+[
+"f",
+10,
+15.246
+],
+[
+"f",
+11,
+21.99
+],
+[
+"f",
+12,
+26.451
+],
+[
+"p",
+3,
+39.339
+]
+]
+}
