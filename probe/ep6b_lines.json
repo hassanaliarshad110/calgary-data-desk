@@ -1,0 +1,23 @@
+{
+ "kokoro": [],
+ "edge": [
+  {
+   "id": "n1b",
+   "text": "اور آج میلے کی بھیڑ میں ایک ننھی بچی کھو گئی ہے!",
+   "voice": "ur-PK-AsadNeural",
+   "rate": "+8%"
+  },
+  {
+   "id": "a2",
+   "text": "اچھا اچھا، رونا بند! چلو چوڑی والے کے پاس!",
+   "voice": "ur-PK-UzmaNeural",
+   "rate": "+5%"
+  },
+  {
+   "id": "a3",
+   "text": "قاسم! کہاں تھے تم؟",
+   "voice": "ur-PK-UzmaNeural",
+   "rate": "+5%"
+  }
+ ]
+}
