@@ -14,3 +14,7 @@
 | Follow pop-up | mid-video pill in every version over 25 s |
 | Music | "Under One Sky" from the chorus under every version, about 16 dB under the voice, +7 dB between lines |
 | Loudness | see the measured table below |
+
+Measured (ffmpeg ebur128 on the final files): full 3:46, -14.0 LUFS, peak -1.7 dBFS; teaser 30.6 s, -14.0 LUFS, -1.8 dBFS; Part 1 66.7 s, -14.1 LUFS, -1.7 dBFS; Part 2 48.2 s, -14.1 LUFS, -0.8 dBFS; Part 3 61.3 s, -14.1 LUFS, -1.6 dBFS.
+Voice vs music (stems, before the final file): music under the voice 15.7-16.0 dB below the voice in every version; between lines the song comes up about 7 dB (full: -23.3 LUFS vs voice -13.5).
+Contact sheets of every output were reviewed; fixed before posting: label/UI overlaps on zoomed game screens (labels dropped or moved), hook gradient band in 9:16, "PART 1" wrap, follow pill vs note chip, kicker overflow, game title screen behind end CTAs (swapped for gameplay).
