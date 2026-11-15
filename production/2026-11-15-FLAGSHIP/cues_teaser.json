@@ -1,0 +1,65 @@
+[
+ {
+  "t": 0,
+  "sfx": "impact",
+  "gain": -5
+ },
+ {
+  "t": 0.2,
+  "sfx": "whoosh",
+  "gain": -12
+ },
+ {
+  "t": 2.4,
+  "sfx": "thud",
+  "gain": -10
+ },
+ {
+  "t": 0,
+  "sfx": "wind",
+  "dur": 19.462,
+  "gain": -24
+ },
+ {
+  "t": 2.7969999999999997,
+  "sfx": "whoosh",
+  "gain": -11
+ },
+ {
+  "t": 3.097,
+  "sfx": "stamp",
+  "gain": -8
+ },
+ {
+  "t": 3.497,
+  "sfx": "ticks",
+  "gain": -18,
+  "dur": 2.5
+ },
+ {
+  "t": 8.397,
+  "sfx": "stamp",
+  "gain": -5
+ },
+ {
+  "t": 11.339,
+  "sfx": "whoosh_rev",
+  "gain": -16
+ },
+ {
+  "t": 11.839,
+  "sfx": "riser",
+  "gain": -16,
+  "dur": 3
+ },
+ {
+  "t": 16.339,
+  "sfx": "ping",
+  "gain": -11
+ },
+ {
+  "t": 19.262,
+  "sfx": "whoosh_rev",
+  "gain": -16
+ }
+]

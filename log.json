@@ -986,7 +986,14 @@
      "facebook",
      "youtube-short"
     ],
-    "publish_at": "2026-11-14T19:30"
+    "publish_at": "2026-11-14T19:30",
+    "status": "PUBLISHED",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1706620387772145",
+     "instagram": "https://www.instagram.com/reel/Dfvm8fimTYN/",
+     "youtube": "https://www.youtube.com/shorts/FkGbc05uwnM"
+    },
+    "confirmed_by": "2026-11-15 FLAGSHIP run (getScheduledPosts)"
    }
   ]
  },
@@ -1035,9 +1042,15 @@
     ],
     "publish_at": "2026-11-14T20:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1816644319485402",
+     "instagram": "https://www.instagram.com/reel/DfvtzojGfrK/",
+     "youtube": "https://www.youtube.com/shorts/PLkChcTiOwA"
+    },
+    "confirmed_by": "2026-11-15 FLAGSHIP run (getScheduledPosts)"
    }
   ]
  },
@@ -1088,5 +1101,118 @@
    }
   ],
   "note": "Link-up task 2026-11-14 17:41 run (PLAYBOOK 7b, step 5): the three YouTube-only Shorts said 'Full video on our channel' with no link; text rewritten to the 7b layout with the film's youtu.be link. YouTube only, so no Facebook exception applied. No pending_link items were unscheduled; no Facebook post today or tomorrow carried a YouTube link."
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "Almost Fort Brisebois: Why It's Called Calgary",
+  "topic_used": "How Calgary got its name: the 1875 NWMP fort at the Bow-Elbow confluence was first 'The Elbow', then 'Fort Brisebois' (named by Inspector Brisebois after himself, by Jan 1876); Assistant Commissioner Irvine cancelled the order and wrote to Ottawa on Feb 29, 1876 that Colonel Macleod supported 'Calgary' ('which I believe in Scotch means clear running water'); Macleod took it from a favourite place on the Isle of Mull (Calgary Bay); Mull guides translate the Gaelic as 'beach of the meadow' / 'the meadow beside the bay'; approved by Ottawa, confirmed April 1876; Brisebois quit in August; Brisebois Drive NW; 150 years in 2026",
+  "changed_from_calendar": null,
+  "central_figure": "Irvine's letter to Ottawa, Feb. 29, 1876: 'Colonel Macleod has supported the name of Calgary which I believe in Scotch means clear running water' (City of Calgary Archives, via City of Calgary Newsroom)",
+  "sources": [
+   "https://newsroom.calgary.ca/planting-the-seed-to-name-calgary/",
+   "https://www.biographi.ca/en/bio/macleod_james_farquharson_12E.html",
+   "https://nwmp.galtmuseum.com/major-posts/fort-calgary",
+   "https://legionmagazine.com/almost-calgary",
+   "https://www.undiscoveredscotland.co.uk/mull/calgary/index.html",
+   "https://scotlandsplaces.gov.uk/digital-volumes/ordnance-survey-name-books/argyll-os-name-books-1868-1878/argyll-volume-69/47",
+   "https://www.isle-of-mull.net/locations/calgary/",
+   "https://www.scottish-places.info/features/featuredetails3986.html"
+  ],
+  "link": "https://calgaryinsight.ca/visit/river/?utm_source=<platform>&utm_medium=social&utm_campaign=why-its-called-calgary",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/visit_pages.py builds visit/river/ on every build; its intro opens on the Bow-Elbow confluence and Fort Calgary)",
+  "length_s": 84.5,
+  "short_length_s": 69.0,
+  "teaser_length_s": 25.9,
+  "video_path": [
+   "studio-videos/2026-11-15-FLAGSHIP/why-its-called-calgary-short.mp4",
+   "studio-videos/2026-11-15-FLAGSHIP/why-its-called-calgary-youtube.mp4",
+   "studio-videos/2026-11-15-FLAGSHIP/why-its-called-calgary-teaser.mp4"
+  ],
+  "thumbnail_path": [
+   "studio-videos/2026-11-15-FLAGSHIP/why-its-called-calgary-thumb.jpg",
+   "studio-videos/2026-11-15-FLAGSHIP/why-its-called-calgary-thumb-yt.jpg"
+  ],
+  "package": "packages/2026-11-15-FLAGSHIP-why-its-called-calgary.md",
+  "production": "production/2026-11-15-FLAGSHIP/",
+  "identity": "Storyteller lead (dusk drone over the real confluence, 1875 world without modern roads or towers, night crane over downtown, letterbox on wide); Data Explainer kinetic hook, stamps and 150-year counter; Civic Analyst document card (Irvine's letter) and popular-story vs record cards; Natural Earth map flights (Calgary→Ottawa, Calgary→Mull) from the studio animation library",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 18,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-15-FLAGSHIP.md"
+  },
+  "qc": {
+   "stills": "pass (after layout fixes: name sizes, caption overlaps, timeline, wide pill)",
+   "final": "pass (counter flash through a dissolve fixed and re-rendered)",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "no 0s; ending 3.99 s; -14.7 LUFS (teaser -14.8); Short 12.7 MB, film 14.8 MB, teaser 4.3 MB"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 429102195,
+    "uuid": "3084639078792579874",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=3084639078792579874",
+    "providers": [
+     "instagram",
+     "youtube-short"
+    ],
+    "file": "why-its-called-calgary-short.mp4",
+    "publish_at": "2026-11-15T12:30",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   },
+   {
+    "metricool_id": 429105037,
+    "uuid": "-1029161424146380112",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-1029161424146380112",
+    "providers": [
+     "facebook",
+     "youtube-video"
+    ],
+    "file": "why-its-called-calgary-youtube.mp4",
+    "publish_at": "2026-11-15T17:30",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   }
+  ],
+  "pending_link": [
+   {
+    "file": "why-its-called-calgary-teaser.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-15-FLAGSHIP/why-its-called-calgary-teaser.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-15-FLAGSHIP/why-its-called-calgary-thumb.jpg",
+    "providers": [
+     {
+      "network": "facebook",
+      "type": "REEL"
+     }
+    ],
+    "caption_without_link": "Calgary was almost called Fort Brisebois.\nThe officer in charge named the new fort after himself, until the Mounted Police cancelled it and a colonel put forward a name from a Scottish island.\nCalgary or Brisebois? Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔗 Link in the first comment\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca\n\n#Calgary #yyc #CalgaryHistory #FortCalgary",
+    "first_comment": "🌊 Visit the spot where the Bow meets the Elbow, where the fort stood: https://calgaryinsight.ca/visit/river/?utm_source=facebook&utm_medium=social&utm_campaign=why-its-called-calgary",
+    "post_at": "2026-11-15T20:00",
+    "link_to": 429105037
+   }
+  ],
+  "post_note": "Post A scheduled 11:39 for the fixed 12:30 slot; post B scheduled 11:42 for the fixed 17:30 slot (designed thumbnails, first comment, no AI labels). YouTube 24-hour count stays at 8 or fewer (Nov 14 19:30, 20:30; Nov 15 10:00, 12:30, 13:30, 17:30, 18:00). Teaser left as pending_link (Facebook Reel 20:00) for the 17:41 link-up task. Confirmation of A and B is left to the next run (section 1). Nov 14 BONUS and PM posts confirmed PUBLISHED on all three platforms."
  }
 ]
