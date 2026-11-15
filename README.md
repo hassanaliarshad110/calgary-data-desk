@@ -13,7 +13,7 @@ Hard rules
   curses, and every claim about them sourced like any other.
 - Background score on every video (score.py, original, maqam Hijaz: drone, strings, oud, ney, daf), one mood per scene in moods.json:
   lament, tender, tension (with impact = fraction of the scene), evidence, procession, grave, end. Plus wind / fire crackle / door thud. Music sits ~8-12 dB under the voice and ducks.
-- Every video: a hook first line, an engaging question, follow CTA for Shia Voice Dubai, a teaser for tomorrow.
+- Every video: a hook first line, an engaging question, follow CTA for Shia Voice (never "Dubai"), a teaser for tomorrow's topic in the same topic column.
 - Urdu: the Prophet is called «اللہ کے نبی» — never «رسولِ خدا», no spoken salawat (Hassan's rule, Nov 13 2026: the voice mispronounces them). Script writes «اللہ کے نبی ﷺ»; lexicon.json makes the voice say only "Allah ke Nabi" and the captions keep ﷺ. Arabic keeps «رسول الله ﷺ».
 - DIALOGUE VOICES (Hassan's rule, Nov 15 2026): whenever the script quotes what another person said (e.g. «Umar said: "So what?"»),
   the quoted words are voiced by a SECOND voice, not the narrator, and delivered with the intensity of that moment
@@ -30,9 +30,16 @@ Hard rules
   Check sv_info.json "segments" and the ASR of dialogue lines like any other line.
 - Urdu subtitles in Nastaliq, Arabic in Amiri. Honorifics: ﷺ, (س)/(ع) on screen; spoken in full in the narration.
 
+Posting schedule (since Nov 14 2026: two topics a day, each in Urdu and Arabic, Facebook Reels, Asia/Dubai)
+- Topic 2 (calendar columns H-K): 13:00 Urdu, 16:00 Arabic.
+- Topic 1 (calendar columns C-G, tied to the Hijri date): 19:00 Urdu, 21:00 Arabic.
+- If a slot has passed: next time at least 15 min from now and 60 min from every other Shia Voice post that day, Urdu before Arabic. No teaser cuts.
+- Two daily tasks share this repo: the episode number is the next after the highest folder in episodes/; always `git pull --rebase` before pushing.
+
 Pipeline
 1. Script: 9 lines per language (hook, 6-7 story beats, CTA). Numbers written as words for the voice.
    PRONUNCIATION: the display lines (captions) keep correct spelling; the TTS lines are the display lines with lexicon.json applied
+   in ONE regex pass, longest key first (so self-mapping keys like جنت البقیع are not replaced twice)
    (e.g. رسولِ خدا→رسولے خدا, شیعہ→شِیعہ, بیت الاحزان→بیت ال احزان, بقیع→جنت البقیع). For any new hard name (Arabic proper nouns, places),
    first test 2-4 spellings with lex_test.py on Actions (Whisper medium judges) and add the winner to lexicon.json. Arabic: add tashkeel to rare words.
    After the narration run, read sv_info.json ASR (Whisper medium) line by line and re-voice any line where a key name is wrong.
