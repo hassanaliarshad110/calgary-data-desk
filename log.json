@@ -1272,5 +1272,47 @@
   ],
   "notes": "Calendar PM fun fact on the same day (Nov 20) is 'The Jamaican bobsled team's 1988 Calgary story' and overlaps with heist #2; consider moving it. Left out (thin sourcing): Brink's cash amount, ferry-in-France arrest detail, $650,000 figure, store reopening, Aug 2026 replica-plaque theft, sea-can fraud.",
   "revision": "Nov 15, 2026: Hassan asked for a conclusion on what happened in each heist; added the CASE FILES board (no arrests reported for plaques, walls, bobsled; one man charged and a second suspect sought at Market Mall; both North Hill men went to prison)."
+ },
+ {
+  "date": "2026-11-15",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (weather)",
+  "title": "Thirteen warm days in the first half of November: tied most since 1926",
+  "topic_used": "Days with a high of 10 °C or warmer at Calgary airport, Nov 1-15: 2026 = 13 (Nov 7 daily max missing, hourly peak 13.7; Nov 15 preliminary 14.2 so far), tied with 2016 for the most since 1926; next 11 (1954, 1962, 1981, 1999, 2001, 2004)",
+  "detection": {
+   "today_high_so_far_c": 14.2,
+   "today_high_rank_nov15": "9th of 99 (8 warmer) - not top 5",
+   "rise_today_c": 15.4,
+   "alerts": "none (api.weather.gc.ca)",
+   "gust_ge_80": false,
+   "traffic_incidents_today_so_far": 9,
+   "traffic_365d_max": 110,
+   "traffic_365d_p99": 63
+  },
+  "central_figure": "13 of 15 days >= 10 °C, Nov 1-15, 2026; ties 2016 (1926-2025 series)",
+  "sources": [
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=15&timeframe=2&submit=Download+Data",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=<y>&Month=11&Day=15&timeframe=2&submit=Download+Data",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=15&timeframe=1&submit=Download+Data",
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261115/CYYC/",
+   "https://data.calgary.ca/resource/35ra-9556.json"
+  ],
+  "length_s": 27.1,
+  "video_path": "production/2026-11-15-MOMENT-warm-days/warm-days-nov15.mp4",
+  "identity": "explainer",
+  "qc": {
+   "stills": "checked (hook 0-1.5 s, calendar, bars, closer)",
+   "final": "contact sheet checked",
+   "loudness_lufs": -15.1
+  },
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 7,
+   "verdict": "NOT APPROVED (wording flags each round; all figures passed)"
+  },
+  "status": "dropped",
+  "reason": "Fact audit not approved after 3 rounds (round 3 flags: stamp read as outright record, YouTube title scope, claims-table completeness); fixes applied but not re-audited, so not posted. Ready for Hassan's review.",
+  "notes": "Auditor round 2/3 says 22:00 UTC = 3 p.m. MST mid-November; container tz data gave UTC-6. On-screen clock time removed."
  }
 ]
