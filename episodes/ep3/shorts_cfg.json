@@ -1,0 +1,26 @@
+{
+ "segs": "segs_f.json",
+ "timeline": "timeline_f.json",
+ "media": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/awazzz-media/ep3",
+ "hook": {
+  "h2o": "Ek friend request… aur Bharat ke missile raaz khatre mein?",
+  "h2e": "Lekin High Court mein kahaani palat gayi. Poori kahaani Awazzzz channel par.",
+  "h3o": "London ki software engineer… ya Pakistani operative? DRDO ki sabse badi chargesheet.",
+  "h3e": "Aur 'Zara' aaj tak faraar hai. Poori kahaani Awazzzz channel par.",
+  "h4o": "Agla nishaana aap ho sakte hain. Honey trap se bachne ke 3 niyam.",
+  "h4e": "Asli case jaanne ke liye, poori kahaani dekhiye Awazzzz channel par."
+ },
+ "shorts": {
+  "3": {
+   "hook": "hook3",
+   "end": "end3",
+   "line": "LONDON KI ENGINEER… YA OPERATIVE?"
+  },
+  "4": {
+   "hook": "hook4",
+   "end": "end4",
+   "line": "AGLA NISHAANA AAP HO SAKTE HAIN"
+  }
+ },
+ "focus": {}
+}

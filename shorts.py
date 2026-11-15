@@ -1,79 +1,153 @@
-import json, subprocess, os, sys
-from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
-segs=json.load(open('short_segs.json')); os.makedirs('shorts',exist_ok=True)
-SRC='Awazzzz_Nvidia_Boss_Chini_Jasoos.mp4'
-def F(path,size,var=None):
-    f=ImageFont.truetype(path,size)
-    if var:
-        try: f.set_variation_by_name(var)
-        except Exception: pass
-    return f
-OSW=lambda s:F('fonts/Oswald.ttf',s,'Bold'); KAL=lambda s:F('fonts/Kalam-Bold.ttf',s); BAL=lambda s:F('fonts/Baloo2.ttf',s,'ExtraBold')
-AMBER=(244,208,111); ORANGE=(255,138,30); WHITE=(246,242,232); RED=(226,72,61)
-HEAD={'1':('NVIDIA BOSS KE BAGAL MEIN','CHINI JASOOS?'),'2':('TOILET SE','$5 TRILLION TAK'),'3':('$2 ARAB KI CHIPS...','AUR SIRF DIBBE?'),'4':('AMERICA KO PATA THA...','JENSEN KO KYUN NAHI?')}
-HOOK={'h1o':'Ek dinner. Duniya ka sabse bada tech boss. Aur bagal mein — China ki jasoos?','h1e':'Ye aurat aakhir thi kaun? Poori kahaani, Awazzzz channel par.',
-'h2o':'Toilet saaf karne waala bachcha, trillion dollar company ka maalik kaise bana?','h2e':'Lekin isi aadmi ke peeche, China ki jasoos thi? Poori kahaani, Awazzzz channel par.',
-'h3o':'Arabon dollar ki chips… aur data center mein sirf dibbe?','h3e':'To ye chips aakhir kiske kaam aa rahi thin? Poori kahaani, Awazzzz channel par.',
-'h4o':'America ko sab pata tha. To Jensen ko kyun nahi bataaya?','h4e':'Aur phir, Jensen ne apne staff ko ek khat likha. Poori kahaani, Awazzzz channel par.'}
-logo=Image.open('logo.jpg').convert('RGB')
-def circ_logo(r):
-    l=logo.resize((2*r,2*r)); m=Image.new('L',(2*r,2*r),0); ImageDraw.Draw(m).ellipse((0,0,2*r-1,2*r-1),fill=255); o=Image.new('RGBA',(2*r,2*r)); o.paste(l,(0,0),m)
-    ImageDraw.Draw(o).ellipse((0,0,2*r-1,2*r-1),outline=AMBER,width=max(3,r//14)); return o
-def ctext(d,y,s,font,fill,stroke=0,sc=(11,15,23),W=1080):
-    w=d.textlength(s,font=font); d.text(((W-w)/2,y),s,font=font,fill=fill,stroke_width=stroke,stroke_fill=sc)
-def wrap(d,s,font,maxw):
-    rows=['']
-    for w in s.split():
-        t=(rows[-1]+' '+w).strip()
-        if d.textlength(t,font=font)>maxw and rows[-1]: rows.append(w)
-        else: rows[-1]=t
-    return rows
-def background(k):
-    im=Image.new('RGB',(1080,1920),(10,16,34)); px=Image.new('RGB',(1080,1920)); d=ImageDraw.Draw(px)
-    for y in range(1920):
-        c=int(10+8*(1-y/1920)); d.line([(0,y),(1080,y)],fill=(c,c+5,c+20))
-    im=px; g=Image.new('RGB',(1080,1920),(0,0,0)); gd=ImageDraw.Draw(g); gd.ellipse((140,180,940,900),fill=(120,90,30)); g=g.filter(ImageFilter.GaussianBlur(160)); im=Image.blend(im,Image.composite(g,im,Image.new('L',(1080,1920),255)),0.45)
-    im=im.convert('RGBA'); d=ImageDraw.Draw(im)
-    # brand
-    L=circ_logo(46); f=OSW(46); w1=d.textlength('Awazzzz ',font=f); w2=d.textlength('ORIGINALS',font=f); x0=(1080-(92+16+w1+w2))/2
-    im.alpha_composite(L,(int(x0),70)); d.text((x0+108,80),'Awazzzz ',font=f,fill=WHITE); d.text((x0+108+w1,80),'ORIGINALS',font=f,fill=ORANGE)
-    h1,h2=HEAD[k]
-    def fit(t,sz):
-        while d.textlength(t,font=OSW(sz))>1000: sz-=4
-        return OSW(sz)
-    ctext(d,230,h1,fit(h1,92),WHITE,8); ctext(d,350,h2,fit(h2,118),AMBER,9)
-    d.rounded_rectangle((-10,592,1090,1216),radius=0,outline=AMBER,width=6)
-    # bottom
-    d.rounded_rectangle((390,1270,690,1340),radius=35,fill=RED); ctext(d,1276,f'PART {k}/4',OSW(46),WHITE)
-    ctext(d,1385,'Poori kahaani — Awazzzz channel par',BAL(50),WHITE)
-    d.rounded_rectangle((300,1475,780,1565),radius=45,fill=(230,33,23)); ctext(d,1482,'SUBSCRIBE',OSW(58),WHITE)
-    return im
-def still(t,out): subprocess.run(['ffmpeg','-y','-loglevel','error','-ss',str(t),'-i',SRC,'-frames:v','1',out],check=True)
-def card(bg,frame,text,end):
-    im=bg.copy(); fr=Image.open(frame).convert('RGB').resize((1080,608)); fr=ImageEnhance.Brightness(fr.filter(ImageFilter.GaussianBlur(3))).enhance(0.35); im.paste(fr,(0,600))
-    d=ImageDraw.Draw(im); f=KAL(70 if len(text)<70 else 62); rows=wrap(d,text,f,960); y=600+304-len(rows)*44
-    for r in rows: ctext(d,y,r,f,AMBER if end else WHITE,4); y+=88
-    if end:
-        im.alpha_composite(circ_logo(70),(470,1060-70)) if False else None
-    return im.convert('RGB')
-def dur(p): return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',p]).decode())
-for k,(a,b) in segs.items():
-    if len(sys.argv)>1 and k not in sys.argv[1:]: continue
-    o=f'shorts/s{k}'; os.makedirs(o,exist_ok=True)
-    bg=background(k); bg.convert('RGB').save(f'{o}/bg.png')
-    still(a+0.6,f'{o}/in.jpg'); still(b-0.4,f'{o}/out.jpg')
-    for tag,fr,end in (('o',f'{o}/in.jpg',False),('e',f'{o}/out.jpg',True)):
-        hid=f'h{k}{tag}'; card(bg,fr,HOOK[hid],end).save(f'{o}/{tag}.png')
-        subprocess.run(['ffmpeg','-y','-loglevel','error','-i',f'../nvout3/{hid}.mp3','-af','silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse','-ar','44100','-ac','2',f'{o}/{tag}.wav'],check=True)
-        vd=dur(f'{o}/{tag}.wav'); D=vd+0.9
-        ms=a if tag=='o' else b
-        subprocess.run(['ffmpeg','-y','-loglevel','error','-loop','1','-framerate','30','-i',f'{o}/{tag}.png','-i',f'{o}/{tag}.wav','-ss',str(ms),'-i','music.wav',
-          '-filter_complex',f"[1:a]adelay=300|300,apad[v];[2:a]volume=0.12,afade=t=in:d=0.3,afade=t=out:st={D-0.5}:d=0.5[m];[v][m]amix=inputs=2:duration=longest:normalize=0[a];[0:v]scale=1080:1920,fps=30,format=yuv420p[vv]",
-          '-map','[vv]','-map','[a]','-t',str(D),'-c:v','libx264','-crf','19','-preset','veryfast','-pix_fmt','yuv420p','-c:a','aac','-ar','44100',f'{o}/{tag}.mp4'],check=True)
-    subprocess.run(['ffmpeg','-y','-loglevel','error','-ss',str(a),'-to',str(b),'-i',SRC,'-loop','1','-i',f'{o}/bg.png',
-      '-filter_complex',"[0:v]scale=1080:608[v];[1:v][v]overlay=0:600:shortest=1,fps=30,format=yuv420p[vv]",'-map','[vv]','-map','0:a','-c:v','libx264','-crf','19','-preset','veryfast','-c:a','aac','-ar','44100',f'{o}/main.mp4'],check=True)
-    subprocess.run(['ffmpeg','-y','-loglevel','error','-i',f'{o}/o.mp4','-i',f'{o}/main.mp4','-i',f'{o}/e.mp4','-filter_complex','[0:v][0:a][1:v][1:a][2:v][2:a]concat=n=3:v=1:a=1[v][a];[a]loudnorm=I=-14:TP=-1.5[aa]',
-      '-map','[v]','-map','[aa]','-c:v','libx264','-crf','20','-preset','veryfast','-pix_fmt','yuv420p','-c:a','aac','-b:a','160k','-ar','44100','-movflags','+faststart',f'shorts/Awazzzz_Short_{k}.mp4'],check=True)
-    # cover
-    cv=Image.open(f'{o}/o.png'); cv.save(f'shorts/cover_{k}.jpg',quality=92)
-    print(k,round(dur(f'shorts/Awazzzz_Short_{k}.mp4'),1))
+"""Awazzzz Shorts — FULL-SCREEN VERTICAL (README: "SHORTS ARE FULL-SCREEN VERTICAL", Hassan Nov 15 2026).
+
+Every Short is a full-bleed 1080x1920 video. No title bars, no blurred bands, no empty background.
+  * Preferred: each scene of the Short is re-drawn natively in portrait (episode scenes_v.js: DRAWV.<scene>,
+    same rig / characters / 2.5D layers, recomposed for 9:16).
+  * Fallback per scene (no DRAWV entry): the 16:9 timeline is rendered at 3840x2160 and a 1215x2160
+    window (-> 1080x1920) pans smoothly to follow the action ("focus" keyframes in shorts_cfg.json, default a slow pan —
+    never a static centre crop). A hook/closing scene without a portrait version crops a held frame the same way.
+  * Overlays (kit-root shorts_v.js): logo watermark top-left (84 px), captions y 1250-1450 (Baloo 2, 2 lines, 60% box),
+    PART n/4 chip 0-2.5 s, the opening hook as one line (<= 80 px) 0-2 s, compact 2 s end card.
+  * Audio: the female-voice mix (opening hook + segment + closing hook, ducked score) is taken unchanged from
+    the voiced Short (short{k}_f.mp4, commit f45ae42) — only the picture is rebuilt.
+
+usage: python3 shorts.py [3 4 ...] [--preview]      (run inside the episode dir; settings in shorts_cfg.json)
+writes shorts/short{k}_fs.mp4, shorts/cover{k}_fs.jpg, shorts/sheet{k}_fs.jpg (5-frame contact sheet)
+"""
+import json, os, sys, base64, subprocess, re, urllib.request
+from playwright.sync_api import sync_playwright
+
+HERE = os.getcwd()                                  # run inside the episode dir (or a work dir with the root files)
+KIT = next(d for d in (HERE, os.path.dirname(os.path.abspath(__file__)), os.path.join(HERE, '..', '..')) if os.path.exists(os.path.join(d, 'rig.js')) and os.path.exists(os.path.join(d, 'shorts_v.js')))
+KIT = os.path.abspath(KIT); os.makedirs('shorts', exist_ok=True)
+FPS = 30
+# shorts_cfg.json (episode dir): {"segs": "segs_f.json", "timeline": "timeline_f.json", "media": "<raw url of folder with the voiced short{k}_f.mp4>",
+#   "hook": {"h3o": "...", "h3e": "..."}, "shorts": {"3": {"hook": "hook3", "end": "end3", "line": "ON-SCREEN HOOK"}}, "focus": {"scene": [[t, x1920], ...]}}
+CFG = json.load(open('shorts_cfg.json'))
+segs = json.load(open(CFG.get('segs', 'short_segs.json')))
+HOOK = CFG['hook']; SHORTS = CFG['shorts']; FOCUS = CFG.get('focus', {}); MEDIA = CFG.get('media', '')
+TIMELINE = CFG.get('timeline', 'timeline.json')
+
+def sh(*a): return subprocess.run(a, check=True, capture_output=True, text=True)
+def dur(p): return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', p]).decode())
+
+def build_js():
+    t = json.load(open(TIMELINE))
+    open('timeline_v.js', 'w').write('const SCENES=' + json.dumps(t['scenes']) + ';\nconst LINES=' + json.dumps(t['lines'], ensure_ascii=False) + ';\nconst AMP={};\nconst TOTAL=' + str(round(t['total'], 3)) + ';\n')
+    rig = open(os.path.join(KIT, 'rig.js')).read()
+    open('rig_v.js', 'w').write(rig.replace('const W = 1920, H = 1080;', 'const W = 1080, H = 1920;', 1))
+    f = os.path.relpath(os.path.join(KIT, 'fonts'), HERE); lg = os.path.relpath(os.path.join(KIT, 'logo.jpg'), HERE)
+    head = (f'<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face{{font-family:Oswald;src:url({f}/Oswald.ttf);font-weight:200 700}}'
+            f'@font-face{{font-family:Kalam;src:url({f}/Kalam-Bold.ttf);font-weight:700}}@font-face{{font-family:Inter;src:url({f}/Inter.ttf);font-weight:100 900}}'
+            f'@font-face{{font-family:Baloo2;src:url({f}/Baloo2.ttf);font-weight:400 800}}body{{margin:0;background:#000}}canvas{{display:block}}</style></head><body>'
+            f'<img id="logo" src="{lg}" style="display:none">')
+    open('portrait.html', 'w').write(head + '<canvas id="c" width="1080" height="1920"></canvas>'
+        f'<script src="timeline_v.js"></script><script src="rig_v.js"></script><script src="scenes.js"></script><script src="{os.path.relpath(os.path.join(KIT, "shorts_v.js"), HERE)}"></script>'
+        + ('<script src="scenes_v.js"></script>' if os.path.exists('scenes_v.js') else '') +
+        '<script>ctx=document.getElementById("c").getContext("2d");'
+        'function useFallback(ids){for(const id of ids)DRAWV[id]=()=>{ctx.drawImage(window.__img,window.__sx,0,1215,2160,0,0,W,H);};}'
+        'function grabFB(o,src,sx){return new Promise(r=>{const im=new Image();im.onload=()=>{window.__img=im;window.__sx=sx;r(grabV(o));};im.src="data:image/jpeg;base64,"+src;});}'
+        '</script></body></html>')
+    rig16 = os.path.relpath(os.path.join(KIT, 'rig.js'), HERE)
+    open('wide2x.html', 'w').write(head + '<canvas id="c" width="3840" height="2160"></canvas>'
+        f'<script src="timeline_v.js"></script><script src="{rig16}"></script><script src="scenes.js"></script>'
+        '<script>ctx=document.getElementById("c").getContext("2d");'   # clean 16:9 frame at 2x: no subtitles, no watermark
+        'function clean(T){GT=T;ctx.setTransform(2,0,0,2,0,0);ctx.globalAlpha=1;ctx.clearRect(0,0,W,H);const s=SCENES.find(s=>T>=s.start&&T<s.start+s.dur);'
+        'ctx.save();DRAW[s.id](T-s.start,s.dur,T);ctx.restore();return document.getElementById("c").toDataURL("image/jpeg",0.9).split(",")[1];}</script></body></html>')
+
+def page(p, html, w, h):
+    """headless page with the kit fonts loaded."""
+    b = p.chromium.launch(args=['--allow-file-access-from-files'])
+    pg = b.new_page(viewport={'width': w, 'height': h}); msgs = []
+    pg.on('console', lambda m: msgs.append(m.text)); pg.on('pageerror', lambda e: msgs.append('ERR ' + str(e)))
+    pg.goto('file://' + os.path.join(HERE, html)); pg.wait_for_function("document.getElementById('logo').complete")
+    pg.evaluate("Promise.all(['700 50px Oswald','700 50px Kalam','800 50px Baloo2','600 20px Inter'].map(f=>document.fonts.load(f)))"); pg.wait_for_timeout(300)
+    return b, pg, msgs
+
+def source(k):
+    src = f'shorts/short{k}_f.mp4'
+    if not os.path.exists(src): urllib.request.urlretrieve(MEDIA.rstrip('/') + f'/short{k}_f.mp4', src)
+    return src
+
+def layout(k, src):
+    """frame counts of [opening hook, segment, closing hook] in the voiced Short (its hook cards were static)."""
+    a, b = segs[k]
+    log = subprocess.run(['ffmpeg', '-hide_banner', '-i', src, '-vf', 'freezedetect=n=0.001:d=1', '-map', '0:v', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    do = float(re.search(r'freeze_end: ([\d.]+)', log).group(1))
+    total = round(dur(src) * FPS); fo = round(do * FPS); fm = round((b - a) * FPS)
+    return fo, fm, total - fo - fm
+
+def frames(k, fo, fm, fe):
+    a, b = segs[k]; S = SHORTS[k]; total = (fo + fm + fe) / FPS; out = []
+    for i in range(fo + fm + fe):
+        T = i / FPS; o = dict(T=T, total=total, part=int(k), hookLine=S['line'] if i < fo else None)
+        if i < fo: o.update(kind='hook', scene=S['hook'], t=T, d=fo / FPS, capText=HOOK[f'h{k}o'], vstart=0.3, vdur=fo / FPS - 0.9)
+        elif i < fo + fm: o.update(kind='main', t=(i - fo) / FPS, GT=a + (i - fo) / FPS)
+        else: o.update(kind='end', scene=S['end'], t=(i - fo - fm) / FPS, d=fe / FPS, capText=HOOK[f'h{k}e'], vstart=0.3, vdur=fe / FPS - 0.9)
+        out.append(o)
+    return out
+
+def focus_x(sid, t, d):
+    kf = FOCUS.get(sid) or [[0, 1920 * 0.40], [d, 1920 * 0.60]]   # default: slow pan across the frame, never a static centre crop
+    x = kf[0][1] if t <= kf[0][0] else kf[-1][1]
+    for (t0, x0), (t1, x1) in zip(kf, kf[1:]):
+        if t0 <= t <= t1: u = (t - t0) / max(1e-6, t1 - t0); u = u * u * (3 - 2 * u); x = x0 + (x1 - x0) * u; break
+    return int(max(0, min(3840 - 1215, x * 2 - 1215 / 2)))
+
+def render(k, preview=False):
+    src = source(k); fo, fm, fe = layout(k, src); F = frames(k, fo, fm, fe)
+    print(k, 'frames hook/seg/end', fo, fm, fe, flush=True)
+    tl = json.load(open(TIMELINE))['scenes']; a, b_ = segs[k]
+    vout = f'shorts/v{k}.tmp.mp4'
+    with sync_playwright() as p:
+        b, pg, msgs = page(p, 'portrait.html', 1080, 1920)
+        native = set(pg.evaluate('Object.keys(DRAWV)'))
+        need = {s['id'] for s in tl if s['start'] < b_ - 0.01 and s['start'] + s['dur'] > a + 0.01}
+        fb = sorted(need - native); print(k, 'native portrait', sorted(need & native), 'fallback crop', fb, flush=True)
+        fbx = [S for S in (SHORTS[k]['hook'], SHORTS[k]['end']) if S not in native]   # hook/end without a portrait scene: crop a held 16:9 frame
+        if fb or fbx: pg.evaluate('ids=>useFallback(ids)', fb + fbx); b2, pw, _ = page(p, 'wide2x.html', 1920, 1080)
+        sel = [(i, F[i]) for i in ([int(x * (len(F) - 1)) for x in (0.02, 0.25, 0.5, 0.75, 0.97)] if preview else range(len(F)))]
+        ff = None if preview else subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', str(FPS), '-c:v', 'mjpeg', '-i', '-',
+              '-c:v', 'libx264', '-crf', '19', '-preset', 'veryfast', '-pix_fmt', 'yuv420p', vout], stdin=subprocess.PIPE)
+        shots = []
+        for i, o in sel:
+            s = next((s for s in tl if o['kind'] == 'main' and s['start'] <= o['GT'] + 1e-4 < s['start'] + s['dur']), None)
+            if o['kind'] != 'main' and o['scene'] in fbx:
+                g = a + 0.6 if o['kind'] == 'hook' else b_ - 0.4; s0 = next(s for s in tl if s['start'] <= g < s['start'] + s['dur'])
+                img = pw.evaluate(f"clean({g})")
+                data = pg.evaluate('([o,src,sx])=>grabFB(o,src,sx)', [o, img, focus_x(s0['id'], o['t'] / o['d'] * s0['dur'], s0['dur'])])
+            elif s and s['id'] in fb:
+                img = pw.evaluate(f"clean({o['GT']})")
+                data = pg.evaluate('([o,src,sx])=>grabFB(o,src,sx)', [o, img, focus_x(s['id'], o['GT'] - s['start'], s['dur'])])
+            else: data = pg.evaluate('o=>grabV(o)', o)
+            raw = base64.b64decode(data)
+            if ff: ff.stdin.write(raw)
+            else: pth = f'shorts/prev{k}_{i:04d}.jpg'; open(pth, 'wb').write(raw); shots.append(pth)
+        if ff: ff.stdin.close(); ff.wait()
+        if msgs: print('\n'.join(msgs[:20]))
+        b.close()
+    if preview: return shots
+    out = f'shorts/short{k}_fs.mp4'
+    sh('ffmpeg', '-y', '-loglevel', 'error', '-i', vout, '-i', src, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'copy', '-shortest', '-movflags', '+faststart', out)
+    os.remove(vout)
+    sh('ffmpeg', '-y', '-loglevel', 'error', '-ss', str(fo / FPS + 1.0), '-i', out, '-frames:v', '1', '-q:v', '2', f'shorts/cover{k}_fs.jpg')
+    sheet(k, out)
+    print(k, 'done', round(dur(out), 2), 's (voiced source', round(dur(src), 2), 's)', flush=True)
+    return out
+
+def sheet(k, out):
+    """5-frame contact sheet (check: picture fills every frame, no cut faces/labels, captions readable)."""
+    D = dur(out); ts = [0.5, D * 0.25, D * 0.5, D * 0.75, D - 0.6]; parts = []
+    for j, t in enumerate(ts):
+        pth = f'shorts/sh{k}_{j}.jpg'; sh('ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{t:.2f}', '-i', out, '-frames:v', '1', '-vf', 'scale=432:768', pth); parts.append(pth)
+    args = ['ffmpeg', '-y', '-loglevel', 'error']
+    for pth in parts: args += ['-i', pth]
+    sh(*args, '-filter_complex', ''.join(f'[{j}:v]' for j in range(5)) + 'hstack=inputs=5', f'shorts/sheet{k}_fs.jpg')
+    for pth in parts: os.remove(pth)
+
+if __name__ == '__main__':
+    build_js()
+    ks = [a for a in sys.argv[1:] if not a.startswith('-')] or list(SHORTS)
+    for k in ks:
+        r = render(k, preview='--preview' in sys.argv)
+        if isinstance(r, list): print('preview', r)
