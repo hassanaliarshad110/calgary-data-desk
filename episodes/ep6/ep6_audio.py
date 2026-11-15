@@ -8,8 +8,18 @@ sys.argv = ['x', str(DUR)]
 import musiclib as M
 def _onepole(x, k): return lfilter([k], [1, -(1 - k)], np.asarray(x, np.float64)).astype(np.float32)
 M.onepole = _onepole
+M.shaker = lambda g=1.0: np.zeros(10, np.float32)          # v2: no shaker hiss (sounded like wheezing under the voices)
+_slap = M.slap; M.slap = lambda g=1.0, d=.06: _slap(g * .35, d)
+_rng_std = M.rng.standard_normal
+def _bansuri(f, d, g=1.0, f_from=None, vib=1.0):
+    x = M.tt(d); fr = np.full_like(x, f)
+    if f_from: fr = f + (f_from - f) * np.exp(-x * 40)
+    fr = fr * (1 + .006 * vib * np.clip(x / .25, 0, 1) * np.sin(2 * np.pi * 5.6 * x))
+    ph = 2 * np.pi * np.cumsum(fr) / M.SR; s = np.sin(ph) + .18 * np.sin(2 * ph) + .06 * np.sin(3 * ph)
+    return s * np.clip(x / .05, 0, 1) * np.clip((d - x) / .08, 0, 1) * g * .32          # v2: pure tone, no breath noise
+M.bansuri = _bansuri
 from musiclib import *
-onepole = _onepole
+onepole = _onepole; bansuri = _bansuri; shaker = M.shaker; slap = M.slap
 S = {s['id']: s['start'] for s in TL['scenes']}; D = {s['id']: s['dur'] for s in TL['scenes']}
 Lb = TL['lines']; LA = lambda i: Lb[i]['abs']; LE = lambda i: Lb[i]['abs'] + Lb[i]['d']
 bar = 8 * E
@@ -216,13 +226,28 @@ def sniffle(): x = tt(.35); n = rng.standard_normal(len(x)).astype(np.float32); 
 def megaphone(d=.25): return sweep(900, 1100, d, .05)
 def squeal(d=.5): return sweep(2400, 2600, d, .03)
 for lid, l in Lb.items():
-    a = rd(f'aud/{lid}.wav'); a = a / (np.abs(a).max() + 1e-6) * .85; P(voice, a, l['abs'])
+    a = rd(f'aud/{lid}.wav'); act = a[np.abs(a) > .02]; r = np.sqrt(np.mean(act ** 2)) if len(act) else .1
+    a = a * (.16 / r); pk = np.abs(a).max()
+    if pk > .7: a = a * (.7 / pk)          # keep headroom; no clipping, no limiter needed on the voice
+    P(voice, a, l['abs'])
 # ambience: evening birds at home; mela crowd everywhere else
-P(sfx, birds(D['home'], .3), S['home'])
-for sid, g in [('hook', .7), ('mela', 1.0), ('cry', .8), ('power', .5), ('rescue', .7), ('reunite', .8), ('ending', .8)]: P(sfx, crowd(D[sid], .5 * g), S[sid])
+# v2: no continuous noise beds (crowd/birds) — they pumped under the ducking and sounded like wheezing.
+# Every SFX is placed only in the GAPS between lines (P_gap trims anything that would touch a line).
+SPANS = sorted((l['abs'] - .12, l['abs'] + l['d'] + .12) for l in Lb.values())
+_P = P
+def P(buf, a, t, g=1.0):
+    if buf is not sfx: return _P(buf, a, t, g)
+    a = np.asarray(a, np.float32); t1 = t + len(a) / SR
+    for s0, s1 in SPANS:
+        if s0 <= t < s1: return                       # starts inside a line: drop it
+        if t < s0 < t1:                                 # runs into the next line: cut it before the line, 60 ms fade
+            n = max(0, int((s0 - t) * SR)); a = a[:n].copy(); f = min(len(a), int(.06 * SR))
+            if f: a[-f:] *= np.linspace(1, 0, f)
+            break
+    if len(a): _P(buf, a, t, g)
 h = S['hook']; P(sfx, whoosh(1.4), h + .2, .7); P(sfx, sparkle(.8), h + 1.0, .3); P(sfx, rewind(1.6), rw, .9)
 hm = S['home']; P(sfx, creak(.6), hm + .05, .8); steps(hm + .2, 12, .2, .25); P(sfx, thump(90, .3), hm + 2.6, .5)
-P(sfx, sniffle(), LE('b1') + .05, .8); P(sfx, whoosh(.4), LE('k2') + .1, .3)
+P(sfx, whoosh(.4), LE('k2') + .1, .3)
 P(sfx, ding(1760, .5), LA('b2') + 1.0, .25); P(sfx, cheer(1.0), LE('q1') + .05, .35)
 for k in range(4): P(sfx, pop(1100 + 100 * k, .06), LE('q1') + .05 + .1 * k, .3)
 m0 = S['mela']; P(sfx, whoosh(1.5), m0, .5); steps(m0 + 1.2, 26, .18, .2)
@@ -230,9 +255,9 @@ P(sfx, megaphone(.2), LA('m1') - .25, .4); P(sfx, whoosh(.6), m0 + 6.3, .5)
 steps(m0 + 6.6, 12, .17, .2); P(sfx, slide(1200, 500, .7), LA('p1') - .9, 1.0)
 c0 = S['cry']
 for i in range(3): P(sfx, pop(700 + i * 120, .1), LE('a1') - .3 + i * .1, .2)
-P(sfx, sniffle(), LE('k3') + .1, .8); P(sfx, ding(1600, .4), LE('a2') + .1, .45)
+P(sfx, ding(1600, .4), LE('a2') + .1, .45)
 P(sfx, whoosh(.9), LE('k4') + .05, 1.0); steps(LE('k4') + .1, 8, .1, .3); P(sfx, thump(80, .3), LE('k4') + 1.15, .8)
-p0 = S['power']; P(sfx, flush(), p0 + .8, .55); P(sfx, sweep(200, 900, LE('n2') - p0 - 1.0, .1), p0 + 1.0)
+p0 = S['power']; P(sfx, flush(.6), p0 + .02, .5); P(sfx, sweep(200, 900, LE('n2') - p0 - 1.0, .1), p0 + 1.0)
 P(sfx, thump(45, 1.2, 1.2), q - .45); P(sfx, whoosh(.8), q - .5, .9); P(sfx, sparkle(1.0), LE('qp') + .05, .6); P(sfx, whoosh(1.0), LE('qp') + .5, .8)
 r0 = S['rescue']; P(sfx, whoosh(2.0), r0, .9); P(sfx, sweep(1500, 2500, 1.2, .05), r0 + .5); P(sfx, thump(60, .4), r0 + 2.55, .6)
 P(sfx, sparkle(.8), LE('p2') + .02, .7); P(sfx, whoosh(1.4), LE('q5') + .1, .9); P(sfx, ding(1760, .6), LA('p3') - .4, .5)
@@ -247,12 +272,11 @@ cl = S['endcard'] + Lb['n3']['s'] + Lb['n3']['d'] * .55 + 2.1; P(sfx, pop(1400, 
 
 # ---------------- DIALOGUE-FIRST MIX ----------------
 # sidechain: duck BOTH the score and the SFX under the voice (fast attack, smooth release)
-venv = np.convolve(np.abs(voice), np.ones(1323) / 1323, 'same')
-key = np.clip(venv / .03, 0, 1)
-duckM = 1 - .72 * key; duckS = 1 - .6 * key
 sm = lambda x, n: np.convolve(x, np.ones(n) / n, 'same')
-duckM = sm(duckM, 2646); duckS = sm(duckS, 2646)
-MUS_G, SFX_G = .42, .55
+act = np.zeros(N, np.float32)
+for l in Lb.values(): act[int((l['abs'] - .15) * SR):int((l['abs'] + l['d'] + .2) * SR)] = 1
+duckM = sm(1 - .82 * act, int(.25 * SR)); duckS = np.ones(N, np.float32)      # music ducks smoothly over whole lines (no word-by-word pumping)
+MUS_G, SFX_G = .36, .5
 musS = mus * MUS_G * duckM; sfxS = sfx * SFX_G * duckS
 band = butter(4, [300, 3400], btype='band', fs=SR, output='sos')
 def db(x): return 10 * np.log10(np.mean(x ** 2) + 1e-12)
@@ -265,7 +289,7 @@ def check():
         fr = 2205; idx = [k for k in range(0, len(v) - fr, fr) if db(v[k:k + fr]) > db(v) - 12]
         vv = np.concatenate([v[k:k + fr] for k in idx]) if idx else v; bb2 = np.concatenate([b[k:k + fr] for k in idx]) if idx else b
         sp = 20 * np.log10(np.abs(sfxS[i0:i1]).max() + 1e-9) - 20 * np.log10(np.abs(voice[i0:i1]).max() + 1e-9)
-        res[lid] = (round(min(db(vv) - db(bb2), db(v) - db(b)), 1), round(sp, 1))   # worst of speech-frames and whole-span
+        res[lid] = (round(float(min(db(vv) - db(bb2), db(v) - db(b))), 1), round(float(sp), 1))   # worst of speech-frames and whole-span
     return res
 for it in range(6):
     R = check(); bad = {k: v for k, v in R.items() if v[0] < 11.0 or v[1] > -10.5}
@@ -280,7 +304,7 @@ R = check()
 json.dump({'lines': R, 'rule': 'voice - (music+sfx) in 300-3400 Hz >= 10 dB; sfx peak <= voice peak - 10 dB'}, open('dialogue_check.json', 'w'), indent=1)
 print('FINAL', R); print('min SNR', min(v[0] for v in R.values()), 'max sfx-peak rel', max(v[1] for v in R.values()))
 mix = voice + musS + sfxS
-mix /= np.abs(mix).max() / .9
+mix /= np.abs(mix).max() / .89
 def wr(fn, x):
     w = wave.open(fn, 'wb'); w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((np.clip(x, -1, 1) * 32767).astype(np.int16).tobytes()); w.close()
 wr('ep6_mix.wav', mix); wr('stem_voice.wav', voice / np.abs(mix).max() * .9 if False else voice); wr('stem_bed.wav', musS + sfxS)
