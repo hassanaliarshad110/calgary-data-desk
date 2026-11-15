@@ -88,7 +88,18 @@
    "id": "2026-11-15-calgary-hosts-the-113th-grey-cup-as-montreal-and-edmonton-meet-at-mcma",
    "date": "2026-11-15",
    "published_at": "2026-11-15T23:36:16Z",
-   "words": 421
+   "words": 421,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/McMahon_Stadium_in_Calgary%2C_Alberta.jpg/1280px-McMahon_Stadium_in_Calgary%2C_Alberta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:McMahon_Stadium_in_Calgary,_Alberta.jpg",
+    "credit": "Quintin Soloviev",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "alt": "McMahon Stadium in Calgary, Alberta",
+    "query": "McMahon Stadium Calgary",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "McMahon Stadium Calgary"
   },
   {
    "title": "Man found dead after shooting in Bowness grocery store parking lot; police say no active risk to public",
@@ -132,7 +143,18 @@
    "id": "2026-11-15-man-found-dead-after-shooting-in-bowness-grocery-store-parking-lot-pol",
    "date": "2026-11-15",
    "published_at": "2026-11-15T23:36:16Z",
-   "words": 276
+   "words": 276,
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Calgary_Police_Vehicle_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Calgary_Police_Vehicle_2.jpg",
+    "credit": "Politcalguru",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "alt": "Calgary Police Vehicle 2",
+    "query": "Calgary police car",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Calgary police car"
   },
   {
    "title": "Calgary stays under the water-use limit through Grey Cup Saturday as Stage 4 rules continue",
@@ -197,7 +219,18 @@
    "id": "2026-11-15-calgary-stays-under-the-water-use-limit-through-grey-cup-saturday-as-s",
    "date": "2026-11-15",
    "published_at": "2026-11-15T23:36:16Z",
-   "words": 286
+   "words": 286,
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Calgary_Skyline_from_North_near_Kensington.jpg/1280px-Calgary_Skyline_from_North_near_Kensington.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Calgary_Skyline_from_North_near_Kensington.jpg",
+    "credit": "Ash-M-Bishop",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "alt": "Calgary Skyline from North near Kensington",
+    "query": "Calgary skyline",
+    "via": "Wikimedia Commons"
+   },
+   "image_tried": "Bearspaw Water Treatment Plant Calgary"
   }
  ]
 }
