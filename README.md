@@ -12,3 +12,10 @@ Episode 1: "NVIDIA ke Boss ke Peeche Chini Jasoos?" (6:23) — source files in t
 
 ## Style
 Paper Billions-like flat vector look, palette #121B2B / #F4D06F / #2BFF88, bean-body characters. From Nov 12 2026 the standing style is **2.5D**: same 2D characters, but every scene built from 3-4 parallax layers, camera moves through them, soft shadows, light pools/glow, haze on far layers, slight blur on nearest/farthest layers.
+
+## SHORTS ARE FULL-SCREEN VERTICAL (Hassan, Nov 15, 2026)
+The old Shorts put the 16:9 video in a 1080x608 band with big title text above and PART/SUBSCRIBE blocks below, so two thirds of the phone screen was text. Never again. Every Short is a full-bleed 1080x1920 video: the animation fills the whole screen edge to edge.
+- Preferred: render each Short's scenes natively in portrait (same rig, characters and 2.5D layers, recomposed for 9:16: characters larger, layers stacked vertically, labels moved into the frame).
+- Fallback for a scene that cannot be recomposed: render that part of the 16:9 timeline at 2x (3840x2160) and cut a 9:16 window (1215x2160 -> 1080x1920) that pans to follow the speaker/action (never a static centre crop that cuts characters or key labels in half); move any label that falls outside the window into it.
+- Overlays allowed, all small and inside the picture: Awazzzz logo watermark in a top corner (<= 90 px); burned-in captions at y 1250-1450 (2 lines max, Baloo 2, dark box at 60%); a small "PART n/4" chip for the first 2.5 s only; the spoken opening hook as on-screen text for the first 2 s only (one line, <= 80 px); the last 2 s a compact end card ("Poori kahaani Awazzzz channel par" + SUBSCRIBE). No title bars, no blurred bands, no empty background above or below the video.
+- Keep the right 140 px and bottom 300 px free of key content (YouTube buttons and title overlay). Check a 5-frame contact sheet of every Short: the picture must cover the whole frame in every frame.
