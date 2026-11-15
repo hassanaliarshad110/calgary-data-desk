@@ -44,7 +44,7 @@ def segments(line, J, lang):
     for m in MARK.finditer(line):
         if line[pos:m.start()].strip(): segs.append((line[pos:m.start()].strip(), base, False))
         who, how, txt = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
-        c = cast.get(who, {'voice': J['voice'], 'pitch': -6})
+        c = {'voice': J['voice']} if who == 'narrator' else cast.get(who, {'voice': J['voice'], 'pitch': -6})
         dr, dp, dv = INTENSITY.get(how, INTENSITY['calm'])
         segs.append((txt, dict(voice=c['voice'], rate=c.get('rate', base['rate']) + dr, pitch=c.get('pitch', base['pitch']) + dp,
                                volume=c.get('volume', 0) + dv), True))
