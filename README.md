@@ -11,6 +11,19 @@ Hard rules
   lament, tender, tension (with impact = fraction of the scene), evidence, procession, grave, end. Plus wind / fire crackle / door thud. Music sits ~8-12 dB under the voice and ducks.
 - Every video: a hook first line, an engaging question, follow CTA for Shia Voice Dubai, a teaser for tomorrow.
 - Urdu: the Prophet is called «اللہ کے نبی» — never «رسولِ خدا», no spoken salawat (Hassan's rule, Nov 13 2026: the voice mispronounces them). Script writes «اللہ کے نبی ﷺ»; lexicon.json makes the voice say only "Allah ke Nabi" and the captions keep ﷺ. Arabic keeps «رسول الله ﷺ».
+- DIALOGUE VOICES (Hassan's rule, Nov 15 2026): whenever the script quotes what another person said (e.g. «Umar said: "So what?"»),
+  the quoted words are voiced by a SECOND voice, not the narrator, and delivered with the intensity of that moment
+  (a curt dismissal sounds curt, a threat sounds hard, grief sounds broken). Mark it inline in lines.json:
+  `[[speaker|intensity|quoted words]]`, e.g. `عمر نے کہا: [[man|dismissive|تو کیا ہوا؟]]`.
+  Speakers (tts_sv.py CAST, override per episode with "cast" in lines.json): man, man2, woman, woman2
+  (ur: ur-IN-SalmanNeural / ur-PK-UzmaNeural / ur-IN-GulNeural; ar: ar-AE-HamdanNeural / ar-IQ-BasselNeural / ar-SA-ZariyahNeural / ar-AE-FatimaNeural);
+  match the speaker's gender, and keep one voice per person within an episode (two different men in one scene -> man and man2).
+  Intensities: calm, tender, grief, firm, dismissive, angry, urgent, fearful, proud, whisper.
+  `narrator` as the speaker keeps the narrator's voice but applies the intensity.
+  The Prophet ﷺ, the Ahlul Bayt (a.s.) and other holy personalities are NOT acted by a character voice: their words stay in the
+  narrator's voice (use `[[narrator|<intensity>|...]]` if the moment needs it), just as they are never drawn.
+  Captions strip the markup (render.py) and show only the words; the lexicon is applied to the whole line, markup included.
+  Check sv_info.json "segments" and the ASR of dialogue lines like any other line.
 - Urdu subtitles in Nastaliq, Arabic in Amiri. Honorifics: ﷺ, (س)/(ع) on screen; spoken in full in the narration.
 
 Pipeline
@@ -20,7 +33,7 @@ Pipeline
    first test 2-4 spellings with lex_test.py on Actions (Whisper medium judges) and add the winner to lexicon.json. Arabic: add tashkeel to rare words.
    After the narration run, read sv_info.json ASR (Whisper medium) line by line and re-voice any line where a key name is wrong.
 2. Narration (free): branch `budget-probe` of this repo. Put `{"ur":{voice:"ur-PK-AsadNeural",rate:"-6%",pitch:"-2Hz",lines:[...]}, "ar":{voice:"ar-SA-HamedNeural",...}}`
-   in `probe/sv_lines.json`, point `.github/workflows/budget-probe.yml` at `python probe/tts_sv.py _b` (copy of tts_sv.py here),
+   in `probe/sv_lines.json` (dialogue marked `[[speaker|intensity|words]]`, optional "cast" per language), point `.github/workflows/budget-probe.yml` at `python probe/tts_sv.py _b` (copy of tts_sv.py here),
    commit as Hassan Ali, force-push `budget-probe`, wait for the run, clone `budget-probe-out` → `ur_0.wav… ar_8.wav` + `sv_info.json` (durations and a Whisper transcript to check pronunciation).
 3. Scenes: copy the last episode's `page.html` + `render.py` (ep03 onward: reads `lines.json`/`page.html` in its own folder, writes `out_<lang>/`; symlink `fonts -> ../../fonts`), rewrite `SCENES` (one function per narration line), `REPL` and `LABELS`.
    `python3 render.py <ur|ar> <audio_dir> preview <scene>:<t> ...` → look at the frames; then `full`. Lex test + narration can run in one Actions job (tts_sv.py first, then lex_test.py with continue-on-error); re-voice only the lines whose names came out wrong.

@@ -2,7 +2,7 @@
 usage: python3 render.py <lang> <audio_dir> preview <scene>:<t> [...]
        python3 render.py <lang> <audio_dir> full [scene ids]
 """
-import json, sys, os, base64, subprocess, pathlib
+import json, sys, os, re, base64, subprocess, pathlib
 from playwright.sync_api import sync_playwright
 
 HERE = pathlib.Path(__file__).parent.resolve()
@@ -18,6 +18,7 @@ REPL = {
 }
 caps = []
 for l in lines:
+    l = re.sub(r'\[\[[^|\]]+\|[^|\]]+\|(.+?)\]\]', r'\1', l)  # dialogue markup [[speaker|intensity|words]] -> words
     for a, b in REPL[lang]: l = l.replace(a, b)
     caps.append(l)
 LABELS = {
