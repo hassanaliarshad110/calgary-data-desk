@@ -20,3 +20,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T17:15:01Z | check verdict | APPROVED round 1 (independent agent; 7 real details verified on worldhistory.org + Wikipedia); contact sheet: picture fills all 5 frames
 2026-11-16T17:15:51Z | scheduled | Metricool uuid 1356014357519483025 at 2026-11-17 00:30 IST (1:00 PM Regina, 16 Nov); topic 3 posted; files in gta_blitz/mahabharat-map/
 2026-11-16T18:51:47Z | started | run 4 (scheduled)
+2026-11-16T18:51:55Z | topic claimed | #4 FACT Rockstar India Bengaluru (slug rockstar-india)

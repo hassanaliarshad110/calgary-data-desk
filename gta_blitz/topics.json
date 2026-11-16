@@ -38,7 +38,9 @@
    "id": 4,
    "type": "FACT",
    "idea": "Bengaluru mein Rockstar: Indian engineers GTA mein kya banate hain?",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-16T18:51Z",
+   "slug": "rockstar-india"
   },
   {
    "id": 5,
