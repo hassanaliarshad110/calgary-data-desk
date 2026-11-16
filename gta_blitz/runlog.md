@@ -15,3 +15,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T15:07:20Z | scheduled | Metricool uuid 3510613470097131065 at 2026-11-16 22:30 IST (11:00 AM Regina); topic 2 posted; files in gta_blitz/ps5-emi/
 2026-11-16T16:51:44Z | started | run 3 (scheduled)
 2026-11-16T16:52:00Z | topic claimed | #3 FAN-THEORY Mahabharat open-world map (slug mahabharat-map)
+2026-11-16T17:04:41Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions
