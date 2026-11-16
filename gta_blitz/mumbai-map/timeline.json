@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "intro",
+"start": 0,
+"dur": 5.171,
+"lines": [
+"n01"
+]
+},
+{
+"id": "marine",
+"start": 5.171,
+"dur": 9.135,
+"lines": [
+"n02"
+]
+},
+{
+"id": "train",
+"start": 14.306,
+"dur": 5.594,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 19.9,
+"dur": 9.074,
+"lines": [
+"n04"
+]
+},
+{
+"id": "monsoon",
+"start": 28.974,
+"dur": 6.429,
+"lines": [
+"n05"
+]
+},
+{
+"id": "sealink",
+"start": 35.403,
+"dur": 4.963,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.2,
+"dur": 4.671,
+"spk": "N",
+"roman": "Ye sirf kalpana hai, ek fan theory! Koi asli game ya elaan nahi."
+},
+"n02": {
+"start": 5.321,
+"dur": 8.685,
+"spk": "N",
+"roman": "Pehla zone: Marine Drive. Raat mein street lights ki chamakti maala, jise Queen's Necklace kehte hain. Night drive, perfect!"
+},
+"n03": {
+"start": 14.456,
+"dur": 5.144,
+"spk": "N",
+"roman": "Side mission: peak time mein local train pakdo! Game ka sabse mushkil level."
+},
+"n04": {
+"start": 20.25,
+"dur": 8.424,
+"spk": "N",
+"roman": "Par twist! Yahan sabse bada dushman police nahi, traffic jam hai! Wanted level full, aur gaadi ek inch bhi na hile!"
+},
+"n05": {
+"start": 29.124,
+"dur": 5.979,
+"spk": "N",
+"roman": "Aur mausam? Monsoon mode! Sadkon par paani, aur car ki jagah naav wala mission!"
+},
+"n06": {
+"start": 35.553,
+"dur": 4.413,
+"spk": "N",
+"roman": "Final mission: Bandra-Worli Sea Link par, samandar ke upar chase!"
+}
+},
+"total": 40.36599999999999
+}

@@ -33,3 +33,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T21:03:39Z | check round 1 | APPROVED (independent agent; page fetches blocked for it too, judged 6 real details on established knowledge, high confidence); optional Hindi fixes applied (n04 'bhi', h1e 'jaayenge')
 2026-11-16T21:03:39Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (n04/h1e re-voiced after check)
 2026-11-16T21:06:09Z | rendered | short1_fs.mp4 1080x1920 48.4 s, -14.4 LUFS, all scenes native portrait; contact sheet: picture fills all 5 frames; media on awazzz-media gta_blitz/mumbai-map.mp4 + _thumb.jpg
+2026-11-16T21:06:42Z | scheduled | Metricool uuid -1623121401363544848 at 2026-11-17 04:30 IST (5:00 PM Regina, 16 Nov); topic 6 posted; files in gta_blitz/mumbai-map/. NOTE: page fetches blocked this run -> FACT topics need readable sources
