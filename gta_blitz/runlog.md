@@ -16,3 +16,5 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T16:51:44Z | started | run 3 (scheduled)
 2026-11-16T16:52:00Z | topic claimed | #3 FAN-THEORY Mahabharat open-world map (slug mahabharat-map)
 2026-11-16T17:04:41Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions
+2026-11-16T17:15:01Z | rendered | short1_fs.mp4 1080x1920 52.8 s, -14.3 LUFS, all scenes native portrait
+2026-11-16T17:15:01Z | check verdict | APPROVED round 1 (independent agent; 7 real details verified on worldhistory.org + Wikipedia); contact sheet: picture fills all 5 frames
