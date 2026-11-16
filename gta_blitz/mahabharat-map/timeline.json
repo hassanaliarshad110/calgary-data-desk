@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "intro",
+"start": 0,
+"dur": 4.957,
+"lines": [
+"n01"
+]
+},
+{
+"id": "hast",
+"start": 4.957,
+"dur": 5.973,
+"lines": [
+"n02"
+]
+},
+{
+"id": "indra",
+"start": 10.93,
+"dur": 8.448,
+"lines": [
+"n03"
+]
+},
+{
+"id": "side",
+"start": 19.378,
+"dur": 7.442,
+"lines": [
+"n04"
+]
+},
+{
+"id": "twist",
+"start": 26.82,
+"dur": 8.754,
+"lines": [
+"n05"
+]
+},
+{
+"id": "size",
+"start": 35.574,
+"dur": 8.053,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.2,
+"dur": 4.457,
+"spk": "N",
+"roman": "Ye sirf kalpana hai, ek fan theory! Par map asli mahakavya se."
+},
+"n02": {
+"start": 5.107,
+"dur": 5.523,
+"spk": "N",
+"roman": "Pehla region: Hastinapur. Woh singhasan, jiske liye Kurukshetra ka yuddh hua."
+},
+"n03": {
+"start": 11.08,
+"dur": 7.998,
+"spk": "N",
+"roman": "Doosra region: Indraprastha, Pandavon ka basaaya rajya. Aksar Dilli ke Purana Qila se joda jaata hai, par pakka nahi."
+},
+"n04": {
+"start": 19.528,
+"dur": 6.392,
+"spk": "N",
+"roman": "Aur side mission? Draupadi ke swayamvar wala nishaana! Arjun ne ghoomti machhli ki aankh bhedi thi."
+},
+"n05": {
+"start": 27.12,
+"dur": 8.154,
+"spk": "N",
+"roman": "Par twist suno! Is game mein number 18 har jagah hai. Yuddh 18 din chala, aur senaayein thi 18 akshauhini!"
+},
+"n06": {
+"start": 35.724,
+"dur": 7.603,
+"spk": "N",
+"roman": "Aur size? Kareeb 1 lakh shlok: ab tak ka sabse lamba mahakavya! Yaani ye game kabhi khatm hi na ho!"
+}
+},
+"total": 43.626999999999995
+}
