@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "price",
+"start": 0,
+"dur": 5.639,
+"lines": [
+"n01"
+]
+},
+{
+"id": "pay",
+"start": 5.639,
+"dur": 11.712,
+"lines": [
+"n02"
+]
+},
+{
+"id": "days",
+"start": 17.351,
+"dur": 6.532,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 23.883,
+"dur": 6.962,
+"lines": [
+"n04"
+]
+},
+{
+"id": "bill",
+"start": 30.845,
+"dur": 7.631,
+"lines": [
+"n05"
+]
+},
+{
+"id": "months",
+"start": 38.476,
+"dur": 5.909,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.3,
+"dur": 4.939,
+"spk": "N",
+"roman": "Bharat mein GTA 6 ka Standard Edition: ₹5,999."
+},
+"n02": {
+"start": 5.839,
+"dur": 11.112,
+"spk": "N",
+"roman": "Sarkaari survey PLFS ke mutabiq, naukripesha purush ki average kamaai ₹24,217 mahina. Mahila ki ₹18,353."
+},
+"n03": {
+"start": 17.551,
+"dur": 5.832,
+"spk": "N",
+"roman": "Yaani game = purush ki kareeb saadhe saat din ki kamaai. Mahila ki kareeb 10 din."
+},
+"n04": {
+"start": 24.333,
+"dur": 6.212,
+"spk": "N",
+"roman": "Par twist baaki hai! Ye game sirf PS5 aur Xbox Series X/S par aa raha hai."
+},
+"n05": {
+"start": 31.045,
+"dur": 7.031,
+"spk": "N",
+"roman": "PS5 Slim Digital ₹64,990. Game milaakar: ₹70,989!"
+},
+"n06": {
+"start": 38.676,
+"dur": 5.359,
+"spk": "N",
+"roman": "Yaani purush ki kareeb 3 mahine ki kamaai. Aur mahila ki? Kareeb 4 mahine!"
+}
+},
+"total": 44.385000000000005
+}
