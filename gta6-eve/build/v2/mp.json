@@ -1,0 +1,101 @@
+{
+ "clients": [
+  {
+   "key": "ali",
+   "name": "Ali",
+   "char": "ali"
+  },
+  {
+   "key": "nat",
+   "name": "Natalia",
+   "char": "natalia"
+  },
+  {
+   "key": "chris",
+   "name": "Chris",
+   "char": "chris"
+  }
+ ],
+ "shots": [
+  {
+   "name": "mpgroup",
+   "n": 110,
+   "m": 2,
+   "global": "window.__S = {x:-238.55, y:-81.65, h:1.6085}; const S=__S, fx=Math.sin(S.h), fy=Math.cos(S.h), rx=Math.cos(S.h), ry=-Math.sin(S.h);window.__at = (a, s) => [S.x + fx*a + rx*s, S.y + fy*a + ry*s]; game.paused=false; game.clock=14;window.__key = (c, down) => dispatchEvent(new KeyboardEvent(down ? 'keydown' : 'keyup', {code: c}));window.__tap = (c) => { __key(c, true); __key(c, false); };window.__other = (nm) => { for (const o of game.mp.others.values()) if (o.name === nm) return o; return null; };window.__face = (x, y) => { const P = game.player; P.h = Math.atan2(x - P.x, y - P.y); };",
+   "preroll": 40,
+   "setup": {
+    "ali": "game.signs.update = () => {}; const p=__at(-3.2,7.0); game.teleport(p[0],p[1],S.h);",
+    "nat": "const p=__at(1.6,7.6); game.teleport(p[0],p[1],S.h+Math.PI+0.3);",
+    "chris": "const p=__at(3.4,6.0); game.teleport(p[0],p[1],S.h+Math.PI-0.5);"
+   },
+   "pre": {},
+   "frame": {
+    "ali": "if(f===80) game.mp.chat('Race you there!'); if(f===88) game.mp.setTalk(true); const e=__ease(k), P=H>W; if(P){ const c=__at(__lerp(9.5,8.3,e), __lerp(6.4,6.9,e)), tg=__at(-1.0,7.1); __cam(c[0],c[1],__lerp(2.0,1.8,e),tg[0],tg[1],1.25); } else { const a=__lerp(0.4,-0.4,e), c=__at(a,0.6), tg=__at(0.2,7.0); __cam(c[0],c[1],__lerp(2.3,2.0,e),tg[0],tg[1],1.35); }",
+    "nat": "if(f===8) game.mp.chat('Meet at the Tower?');",
+    "chris": "if(f===32) game.mp.chat('On my way!'); if(f===56) game.mp.chat('Who wants a ride?');"
+   }
+  },
+  {
+   "name": "mpcar",
+   "n": 60,
+   "m": 2,
+   "global": "window.__S = {x:-238.55, y:-81.65, h:1.6085}; const S=__S, fx=Math.sin(S.h), fy=Math.cos(S.h), rx=Math.cos(S.h), ry=-Math.sin(S.h);window.__at = (a, s) => [S.x + fx*a + rx*s, S.y + fy*a + ry*s]; game.paused=false; game.clock=14;window.__key = (c, down) => dispatchEvent(new KeyboardEvent(down ? 'keydown' : 'keyup', {code: c}));window.__tap = (c) => { __key(c, true); __key(c, false); };window.__other = (nm) => { for (const o of game.mp.others.values()) if (o.name === nm) return o; return null; };window.__face = (x, y) => { const P = game.player; P.h = Math.atan2(x - P.x, y - P.y); };",
+   "preroll": 50,
+   "setup": {
+    "ali": "const p=__at(-20,0); game.teleport(p[0],p[1],S.h); window.__c=game.spawnCar(p[0]+fx*3,p[1]+fy*3,S.h,'family');",
+    "nat": "const p=__at(-14.2,5.6); game.teleport(p[0],p[1],S.h-2.0);",
+    "chris": "const p=__at(-12,8); game.teleport(p[0],p[1],S.h+Math.PI);"
+   },
+   "pre": {
+    "ali": "if(game.player.mode!=='car' && window.__c){ game.traffic.take(window.__c); game.player.enter(window.__c); }"
+   },
+   "frame": {
+    "ali": "if(f>=30) __key('KeyW',true); const P=game.player, V=H>W; if(V){ __cam(P.x - fx*__lerp(9,10,k) + rx*__lerp(2.2,1.2,k), P.y - fy*__lerp(9,10,k) + ry*__lerp(2.2,1.2,k), 3.4, P.x + fx*4 + rx*__lerp(2.6,0.5,k), P.y + fy*4 + ry*__lerp(2.6,0.5,k), 1.2); } else { __cam(P.x - fx*__lerp(7,9,k) + rx*__lerp(5.5,3.2,k), P.y - fy*__lerp(7,9,k) + ry*__lerp(5.5,3.2,k), 3.0, P.x + fx*6, P.y + fy*6, 1.2); }",
+    "nat": "if(game.player.mode==='foot'){ const o=__other('Ali'); if(o){ const d=Math.hypot(o.x-game.player.x,o.y-game.player.y); if(d>3.6){ __face(o.x,o.y); __key('KeyW',true);} else { __key('KeyW',false); if(!window.__hop){ window.__hop=1; __tap('KeyF'); } } } }",
+    "chris": "if(f===36) game.mp.chat('See you there!');"
+   }
+  },
+  {
+   "name": "mpheliboard",
+   "n": 72,
+   "m": 2,
+   "global": "window.__S = {x:-238.55, y:-81.65, h:1.6085}; const S=__S, fx=Math.sin(S.h), fy=Math.cos(S.h), rx=Math.cos(S.h), ry=-Math.sin(S.h);window.__at = (a, s) => [S.x + fx*a + rx*s, S.y + fy*a + ry*s]; game.paused=false; game.clock=14;window.__key = (c, down) => dispatchEvent(new KeyboardEvent(down ? 'keydown' : 'keyup', {code: c}));window.__tap = (c) => { __key(c, true); __key(c, false); };window.__other = (nm) => { for (const o of game.mp.others.values()) if (o.name === nm) return o; return null; };window.__face = (x, y) => { const P = game.player; P.h = Math.atan2(x - P.x, y - P.y); };const HX=-862, HY=1062, HH=2.49;",
+   "preroll": 60,
+   "setup": {
+    "chris": "game.teleport(HX,HY,HH); window.__h=0;",
+    "ali": "game.teleport(HX-9*Math.cos(HH)-4*Math.sin(HH),HY+9*Math.sin(HH)-4*Math.cos(HH),HH);",
+    "nat": "game.teleport(HX+14,HY+16,HH+2.2);"
+   },
+   "pre": {
+    "chris": "window.__h++; if(window.__h===3) __tap('KeyK'); if(window.__h===12 && game.heli) game.player.enterHeli(game.heli); if(game.player.heli) game.player.heli.h=HH;",
+    "ali": "const o=__other('Chris'); if(o && o.mode==='heli'){ window.__hw=(window.__hw||0)+1; if(window.__hw===15){ game.teleport(o.tx-7.5*Math.sin(HH)+3*Math.cos(HH), o.ty-7.5*Math.cos(HH)-3*Math.sin(HH), HH); } if(window.__hw>15) __face(o.tx,o.ty); }"
+   },
+   "frame": {
+    "ali": "if(game.player.mode==='foot'){ const o=__other('Chris'); if(o && o.mode==='heli'){ const d=Math.hypot(o.tx-game.player.x,o.ty-game.player.y); __face(o.tx,o.ty); if(d>4.5) __key('KeyW',true); else { __key('KeyW',false); if(!window.__hop){ window.__hop=1; __tap('KeyF'); } } } }",
+    "chris": "if(game.player.heli) game.player.heli.h=HH; const tt=document.querySelector('#toast'); if(!window.__go && tt && /hopped in/.test(tt.textContent)) window.__go=f; if(window.__go && f>window.__go+6) __key('Space',true);",
+    "nat": "if(f===40) game.mp.chat('Have fun up there!');"
+   }
+  },
+  {
+   "name": "mpheli",
+   "n": 90,
+   "m": 3,
+   "global": "window.__S = {x:-238.55, y:-81.65, h:1.6085}; const S=__S, fx=Math.sin(S.h), fy=Math.cos(S.h), rx=Math.cos(S.h), ry=-Math.sin(S.h);window.__at = (a, s) => [S.x + fx*a + rx*s, S.y + fy*a + ry*s]; game.paused=false; game.clock=14;window.__key = (c, down) => dispatchEvent(new KeyboardEvent(down ? 'keydown' : 'keyup', {code: c}));window.__tap = (c) => { __key(c, true); __key(c, false); };window.__other = (nm) => { for (const o of game.mp.others.values()) if (o.name === nm) return o; return null; };window.__face = (x, y) => { const P = game.player; P.h = Math.atan2(x - P.x, y - P.y); };const HX=-862, HY=1062, HH=2.49;",
+   "preroll": 260,
+   "setup": {
+    "chris": "game.teleport(HX,HY,HH); window.__h=0;",
+    "ali": "game.teleport(HX-9*Math.cos(HH)-4*Math.sin(HH),HY+9*Math.sin(HH)-4*Math.cos(HH),HH);",
+    "nat": "game.teleport(HX+6,HY+12,HH+2.2);"
+   },
+   "pre": {
+    "chris": "window.__h++; if(window.__h===3) __tap('KeyK'); if(window.__h===12 && game.heli) game.player.enterHeli(game.heli); if(game.player.heli) game.player.heli.h=HH; if(window.__h>60) __key('Space',true); if(window.__h>235) __key('Space',false);",
+    "ali": "if(game.player.mode==='foot' && !window.__hop){ const o=__other('Chris'); if(o && o.mode==='heli' && o.car){ game.teleport(o.x+2.5,o.y+1.5,HH); window.__w=(window.__w||0)+1; if(window.__w>6){ window.__hop=1; __tap('KeyF'); } } }"
+   },
+   "frame": {
+    "chris": "if(game.player.heli) game.player.heli.h=HH; __key('Space',false); if(f<22) __key('KeyW',true); else __key('KeyW',false);",
+    "nat": "",
+    "ali": ""
+   }
+  }
+ ]
+}

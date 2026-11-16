@@ -322,3 +322,57 @@ Audit: round 1 (independent agent) returned CHANGES NEEDED: "real homes" in the 
 Measured (ffmpeg ebur128 on the final files): full 3:46, -14.0 LUFS, peak -1.7 dBFS; teaser 30.6 s, -14.0 LUFS, -1.8 dBFS; Part 1 66.7 s, -14.1 LUFS, -1.7 dBFS; Part 2 48.2 s, -14.1 LUFS, -0.8 dBFS; Part 3 61.3 s, -14.1 LUFS, -1.6 dBFS.
 Voice vs music (stems, before the final file): music under the voice 15.7-16.0 dB below the voice in every version; between lines the song comes up about 7 dB (full: -23.3 LUFS vs voice -13.5).
 Contact sheets of every output were reviewed; fixed before posting: label/UI overlaps on zoomed game screens (labels dropped or moved), hook gradient band in 9:16, "PART 1" wrap, follow pill vs note chip, kicker overflow, game title screen behind end CTAs (swapped for gameplay).
+
+---
+
+## v2 revision (Nov 15, 2026): "Take the stage" + "Play together"
+
+Requested by Hassan on Nov 15, 2026: a scene of our character on stage at the Stampede with the lyrics on the big screen, and a proper explanation that you can play online together (ride in a friend's car, fly a helicopter together, explore, text and voice chat). Made unattended; no paid credits (Kokoro on GitHub Actions, Playwright + SwiftShader capture, PIL/ffmpeg).
+
+### What changed
+| Output | Change | New length |
+|---|---|---|
+| Full video (YouTube 11:00, Facebook 13:00) | + "Take the stage" beat after the Saddledome concert line (Stampede section); + new "Play together" section (title card "PLAY TOGETHER", 5 lines) after the free-roam line, before "So, is this GTA?" | 4:29 (268.8 s, was 3:46) |
+| Teaser (8:00) | + one line before the closing question: "Take the stage at Stampede Park. Or go online, and explore the city together with other Calgarians." Stage shot, two multiplayer shots, label "Play together online" | 37.1 s (was 30.6 s) |
+| Part 1 (15:00) | + "Take the stage" beat before the closing question | 78.2 s (was 66.7 s) |
+| Part 3 (20:00) | + "Play together" section before the closing question | 87.3 s (was 61.3 s) |
+| Part 2 (17:30) | unchanged (transit/311; no natural place) | 48.2 s |
+
+Method: the approved v1 picture is kept frame for frame; the new segments are drawn with the same compositor (compose.py: same header, gameplay chip, labels, notes, captions) and spliced in at line boundaries (build_v2.py); the whole soundtrack is re-mixed on the new timeline with audio.py (voice + "Under One Sky" from the chorus, about 16 dB under the voice, lifted between lines, -14 LUFS).
+
+### New narration (Kokoro af_heart, budget-probe Actions run on Nov 15)
+- s0 (10.5 s): "And you don't just watch the show. At Stampede Park, walk up on stage, grab the mic and perform, while the crowd in cowboy hats dances and the lyrics light up the big screen."
+- n0 (2.8 s): "And here's the best part: you don't have to play alone."
+- n1 (6.6 s): "Go online, and dozens of Calgarians can share the same city at the same time, up to forty players at once."
+- n2 (6.5 s): "Explore together. Hop in a friend's car and ride along, or fly over the skyline together in a helicopter."
+- n3 (4.8 s): "Chat by text, or hold the mic button and talk with voice chat to the players near you."
+- n4 (2.2 s): "It's all free, right in your web browser."
+- q0 (5.9 s, teaser): "Take the stage at Stampede Park. Or go online, and explore the city together with other Calgarians."
+
+Multiplayer number: the game's server allows 40 players per room (server/src/worker.js: `const MAX = 40`, re-checked on yyc-story commit 4c69164) and every client joins the one room "calgary" (city-stories/js/mp.js). So the video says "dozens ... up to forty players at once"; post captions say "room for dozens of players" (no numerals). "Hundreds" would need the room limit raised in the game first.
+
+### New gameplay clips (both 1920×1080 and native 1080×1920)
+- Stage (Grandstand Show stage, Stampede Park, 9:36 pm game time): stagewalk (Natalia walks up the steps to the mic, chase camera), stagewide (crowd in cowboy hats, stage, big screen), stageclose (Natalia dancing at the mic, lyrics behind), stagecrowd (from the deck: Natalia performing to the crowd, skyline and Saddledome behind), stagescreen ("🎤 LIVE ON STAGE: Natalia" and the lyrics). Song time follows the game clock (media.js) so the on-screen lyrics play at the right speed; filmed from the chorus ("Oh-oh, Calgary!").
+- Multiplayer (free roam is online): three real game clients in the same room, named Ali, Natalia and Chris, each its own character. mpgroup (the three together on 9 Avenue SE downtown, name tags, chat bubbles and the chat feed, the 🎤 talk button lit), mpcar (Natalia walks to Ali's car and hops in: "🚗 Natalia hopped in — you drive!", then they drive off), mpheliboard (Ali walks to Chris's helicopter at Prince's Island Park and gets in: "You're riding with Chris"), mpheli (Ali riding in Chris's helicopter over Eau Claire towards the downtown skyline).
+- How the online capture was done: the live server (yyc-city-stories-mp…workers.dev) is blocked by the sandbox's network policy (proxy 403), so the three game clients were connected to a local copy of the game's own relay (mpsrv/relay.js: server/src/worker.js's Room logic, same protocol, same 40-player limit) on localhost. Everything on screen is drawn by the unmodified game client from those three real connections; nothing was composited or faked. Off-screen clients skipped loading city tiles (memory); the filmed client is the normal game. The game's storefront signs were hidden in the group shot (a real business name sat behind the players).
+- Every clip was checked frame by frame (contact sheets); first takes with problems were re-shot (players too far, cut-off chat bubble, objective box under the header, wrong boarding spot, business sign).
+
+### Fact audit
+See audit_v2.md: round 1 CHANGES NEEDED (teaser line implied dozens of people are actually online → reworded), round 2 APPROVED (claims 33-44, every label and the post lines).
+
+### QC (v2 outputs)
+| Check | Result |
+|---|---|
+| Fact audit | APPROVED in round 2 (independent agents; audit_v2.md) |
+| Narration = approved lines | lines_used.json on budget-probe-out = gta6v2_lines.json (q0 is the corrected wording) |
+| Hooks / openings | unchanged v1 hooks; the "Play together" section opens with a title card "PLAY TOGETHER · online · free · in your browser" |
+| Real gameplay only, labelled | all new shots captured from the game; "Gameplay: YYC City Stories" chip on every new frame |
+| Disclaimers | Stampede not-affiliated chip on every stage shot; v1 chips kept |
+| No personal names | the stage screen reads "LIVE ON STAGE: Natalia" (the character); player names are Ali, Natalia, Chris; no byline, credits or real business names in the new shots |
+| Captions | burned in, white on dark; vertical y≈1250-1350, clear of the right 120 px; "forty" spoken and shown as a word |
+| Vertical layout | native 1080×1920 captures, full-bleed; HUD shots lightly zoomed so the game's top bar sits outside the frame |
+| Music | "Under One Sky" under every version, 15.7-15.9 dB under the voice, lifted between lines |
+| Loudness (ebur128 on the final files) | full -14.1 LUFS / -1.3 dBFS; teaser -14.0 / -1.6; Part 1 -14.1 / -1.3; Part 3 -14.0 / -1.1 |
+| Files | full 1920×1080 268.8 s 82 MB; teaser 1080×1920 37.1 s; Part 1 78.2 s; Part 3 87.3 s; all 30 fps H.264 + AAC 48 kHz |
+| Contact sheets | every changed output reviewed; fixed before posting: HUD objective box under the header, chat bubbles under labels, group shot re-shot (players too far, business sign), boarding re-shot, portrait group re-framed |
+| Covers / thumbnail | unchanged (a multiplayer Part 3 cover was tried and was less readable than the current one) |
