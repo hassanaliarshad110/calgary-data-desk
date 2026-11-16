@@ -314,6 +314,20 @@ def fonts2():
                 if rel.endswith('.ttf'): MAN.append(dict(path=rel, source='Google Fonts', url='https://fonts.google.com/specimen/Luckiest+Guy', category='fonts', format='ttf', bytes=os.path.getsize(os.path.join(OUT, rel)), note='', licence='Apache 2.0', commercial=True, modify=True, attribution=False))
 
 
+@step('fonts3')
+def fonts3():
+    hdr = {'Authorization': f'Bearer {GH}'} if GH else {}
+    for fam in ('pacifico', 'yellowtail', 'bowlbyone', 'bungee', 'monoton'):
+        try:
+            lst = json.loads(get(f'https://api.github.com/repos/google/fonts/contents/ofl/{fam}', headers=hdr))
+            for x in lst:
+                if (x['name'].endswith('.ttf') and 'Italic' not in x['name']) or x['name'] == 'OFL.txt':
+                    rel = f'fonts/{fam}/{x["name"]}'; save(rel, get(x['download_url']))
+                    if rel.endswith('.ttf'): rec(rel, 'Google Fonts', f'https://fonts.google.com/?query={fam}', 'OFL', 'fonts')
+        except Exception as e:
+            LOG.append(dict(step=f'font:{fam}', ok=False, err=repr(e)[:150]))
+
+
 @step('roads')
 def roads():
     Q = {'major_roads': '[out:json][timeout:120];way["highway"~"^(motorway|trunk|primary)$"](50.84,-114.32,51.21,-113.86);out geom tags;',
