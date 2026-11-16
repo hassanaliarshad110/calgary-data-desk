@@ -36,3 +36,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T21:06:42Z | scheduled | Metricool uuid -1623121401363544848 at 2026-11-17 04:30 IST (5:00 PM Regina, 16 Nov); topic 6 posted; files in gta_blitz/mumbai-map/. NOTE: page fetches blocked this run -> FACT topics need readable sources
 2026-11-16T22:52:00Z | started | run 6 (scheduled)
 2026-11-16T22:52:07Z | topic claimed | #5 FACT car chori GTA vs BNS saza (slug car-chori-saza), retry after run 5 release
+2026-11-16T23:01:18Z | check round 1 | PROBLEMS: n06 'chot lagi' too broad for s.309(6) (needs voluntarily caused hurt) -> 'jaan-boojhkar chot pahunchaayi'; n03 adds 'jaan ya chot ka darr'. Sources: advocatekhoj BNS s.309 (read) + caseon.in s.309 (read by checker). Re-voicing
