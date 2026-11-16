@@ -49,8 +49,10 @@
    "id": 5,
    "type": "FACT",
    "idea": "GTA mein jo karte ho, Bharat mein kitni saza? (car chori - BNS)",
-   "status": "todo",
-   "note": "run 5 (16 Nov 21:0xZ) released it: web page fetches were blocked (permission prompt unanswered in the unattended run), so no source could be read; retry when page reading works"
+   "status": "making",
+   "note": "run 5 (16 Nov 21:0xZ) released it: web page fetches were blocked (permission prompt unanswered in the unattended run), so no source could be read; retry when page reading works",
+   "started": "2026-11-16T22:52Z",
+   "slug": "car-chori-saza"
   },
   {
    "id": 6,
