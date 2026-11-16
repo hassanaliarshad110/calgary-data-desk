@@ -467,8 +467,8 @@
   "slot": "PM",
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
-  "category": "Fun fact",
-  "topic": "Calgary's sister cities around the world",
+  "category": "Nature & science",
+  "topic": "Calgary's rock is too young for dinosaurs: the bedrock under the city formed after they died out, and it holds early mammal fossils instead (verify the formation, its age and the fossil finds with the Alberta Geological Survey / Royal Tyrrell Museum)",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
  },
@@ -610,8 +610,8 @@
   "slot": "PM",
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
-  "category": "Fun fact",
-  "topic": "Calgary's tallest building",
+  "category": "Nature & science",
+  "topic": "Calgary once had an inland sea to its east: the ancient seaway that covered much of Alberta, and the sea reptiles found in Alberta rock (verify with the Royal Tyrrell Museum / Alberta Geological Survey; say 'Alberta', not 'under Calgary', unless a source says so)",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
  },
@@ -885,8 +885,8 @@
   "slot": "PM",
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
-  "category": "Fun fact",
-  "topic": "Calgary's off-leash dog parks",
+  "category": "Myth or fact",
+  "topic": "The downtown tunnel legend: myth or fact? Calgary's real utility and service tunnels vs the stories of a secret tunnel city (only what records or reputable reporting confirm; call the rest a legend)",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
  },
@@ -1391,8 +1391,8 @@
   "slot": "PM",
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
-  "category": "Fun fact",
-  "topic": "Calgary's urban beekeepers and bees",
+  "category": "Hidden Calgary",
+  "topic": "Calgary's lost creeks: streams that were piped or buried as the city grew (name only creeks a City or historical source documents; if none can be confirmed, use another verified fun fact instead)",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
  },
@@ -1733,7 +1733,7 @@
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
   "category": "Fun fact",
-  "topic": "Open pick: a surprising, verified Calgary fun fact or mini-story not used before",
+  "topic": "Calgary's sister cities around the world",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
  },
@@ -1766,7 +1766,7 @@
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
   "category": "Fun fact",
-  "topic": "Open pick: a surprising, verified Calgary fun fact or mini-story not used before",
+  "topic": "Calgary's tallest building",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
  },
@@ -1777,7 +1777,7 @@
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
   "category": "Fun fact",
-  "topic": "Open pick: a surprising, verified Calgary fun fact or mini-story not used before",
+  "topic": "Calgary's off-leash dog parks",
   "length": "15-35 s",
   "format": "1080x1920 vertical"
  },
