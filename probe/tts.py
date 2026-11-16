@@ -11,18 +11,20 @@ def _get(u, fn, t=60):
     except Exception as e:
         open(os.path.join(out, fn+'.err'),'w').write(repr(e)); return b''
 _mf=os.path.join(out,'moment'); os.makedirs(_mf, exist_ok=True)
-for day in ('20261114','20261115','20261116'):
-    base_u='https://dd.weather.gc.ca/today/observations/swob-ml/%s/CYYC/'%day
-    idx=_get(base_u, 'moment/swob_idx_%s.html'%day).decode('utf8','ignore')
-    files=sorted(set(_re.findall(r'href="([^"]+\.xml)"', idx)))
-    files=[f for f in files if 'minute' not in f]
-    os.makedirs(os.path.join(_mf,day), exist_ok=True)
-    for f in files: _get(base_u+f, 'moment/%s/%s'%(day,f.split('/')[-1]), 30)
-_get('https://api.weather.gc.ca/collections/weather-alerts/items?f=json&lang=en&limit=500', 'moment/alerts_all.json')
-_get('https://data.calgary.ca/resource/35ra-9556.json?$order=start_dt%20DESC&$limit=60', 'moment/traffic_latest.json')
-_get('https://data.calgary.ca/resource/35ra-9556.json?$select=date_trunc_ymd(start_dt)%20as%20d,count(*)%20as%20n&$where=start_dt%3E%272025-11-01%27&$group=d&$order=d&$limit=5000', 'moment/traffic_daily.json')
-_get('https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=15&timeframe=1&submit=Download+Data', 'moment/eccc_hourly_2026_11.csv')
-_get('https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=15&timeframe=2&submit=Download+Data', 'moment/eccc_daily_2026.csv')
+import urllib.parse as _up
+_get('https://data.calgary.ca/api/views/35ra-9556.json', 'moment/traffic_meta.json')
+smp=_get('https://data.calgary.ca/resource/35ra-9556.json?%24limit=3', 'moment/traffic_sample.json')
+try:
+    meta=json.load(open(os.path.join(_mf,'traffic_meta.json')))
+    cols=[c['fieldName'] for c in meta['columns'] if c.get('dataTypeName') in ('calendar_date','floating_timestamp')]
+except Exception as ex:
+    cols=['start_dt']
+open(os.path.join(_mf,'traffic_cols.txt'),'w').write(repr(cols))
+for c in cols:
+    q={'$select':'date_trunc_ymd(%s) as d, count(*) as n'%c,'$where':"%s > '2025-11-01T00:00:00'"%c,'$group':'d','$order':'d','$limit':'5000'}
+    _get('https://data.calgary.ca/resource/35ra-9556.json?'+_up.urlencode(q), 'moment/traffic_daily_%s.json'%c)
+    q2={'$order':'%s DESC'%c,'$limit':'40'}
+    _get('https://data.calgary.ca/resource/35ra-9556.json?'+_up.urlencode(q2), 'moment/traffic_latest_%s.json'%c)
 sys.exit(0)
 # --- end fetch block ---
 
