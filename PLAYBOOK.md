@@ -45,8 +45,11 @@ The Nov 14 "almost 14 °C" reel reached 1,790 people on Instagram (2,109 views; 
 - (Nov 13, 2026) Hassan approved the first reviewed news video ("Grey Cup Sunday in Calgary: what to know", 44 s) as made, with no changes: it is the standard for future news videos (map hook at frame 0 with a 3-word on-screen hook, Civic Analyst lead with counters and map scenes, practical "what happens next" for viewers, a two-option one-word closing question, caption with no numbers, first-comment link to our Calgary News article page). From now on news videos post automatically.
 
 ### What's working (updated by the weekly review)
-- (Nov 11, 2026) Best so far: timely money and "affects me" topics (Federal Budget, sewer pipes, migration, tourism). Weakest: long, number-heavy captions and slow openings.
-- (Nov 15, 2026) Instagram breakout: same-day weather moment ("almost 14 °C in mid-November, tied 5th since 1926") 2,109 views, 15 shares, 5 saves, 12 follows. Same-day, lived-experience topics with a rank against history travel on Instagram (section 9).
+- (Nov 16, 2026) Same-day lived moments win by far: the "almost 14 °C" reel reached 10,915 views (58% of the week's Instagram views), 66 Instagram shares, 13 saves, 37% 3-s skip. Make one whenever section 9's test is met.
+- (Nov 16, 2026) Best hooks: one short, number-free twist on something every Calgarian knows ("Calgary was almost called Fort Brisebois.", "Calgary built a library on top of an active CTrain line."): Instagram skip under 40%. Worst: headline or theme openings ("…hiding in plain sight", "Calgary's police have asked for 309 more officers…"): 75-91% skip.
+- (Nov 16, 2026) Topics by median views: places 649, news 542, history 318, growth 268, money and bills 234 (83% Instagram skip). Money videos open on a house/street/bill picture with a "you" line, never a chart, and lean on Facebook/YouTube.
+- (Nov 16, 2026) Length: fun facts of 25 s or less did best (median 655 views, 38% skip); 26-35 s median 234. Flagship Shorts of about 70 s work only with a twist opening (Brisebois 2,672 vs Military 102).
+- (Nov 16, 2026) Times: weekday 12:30 and 17:30-18:30 and weekend posts did best; Facebook's best hours are unchanged (10:00, 12:00, 16:00-18:00). Avoid bunching: posts minutes apart and 9 Facebook posts on Nov 11 left later reels with 5-16 Facebook views.
 
 ## Content direction (Hassan, Nov 10, 2026): stories, fun facts and news. No independent studies.
 - **Quick slots (AM/PM): a Calgary fun fact or mini-story.** Surprising, shareable, light: places, names, people, firsts, history, nature, culture. Not a statistics study. Use a number only when the fact itself is a number, and never compute or model anything ourselves.
