@@ -1,0 +1,10 @@
+{
+  "channel": "Cricket Kahani (YouTube) / The Cricket Stories (Facebook)",
+  "metricool_brand": "The Cricket Kahani (blogId 8137061)",
+  "logo": { "full": "channels/cricketkahani/logo_full.jpg", "badge": "channels/cricketkahani/logo_badge.png", "use": "header (~76px) on every scene except the hook; big badge (~540px) on the end card" },
+  "format": "vertical 1080x1920, 30 fps; captions: Roman Hindi (Inter 800, 44px) + English line (Inter 500, 28px, tan), bottom of box at y=1500",
+  "theme": { "green": "#0E3B2C", "stripe": "#114535", "tan": "#D8BC85", "cream": "#F4ECD8", "red": "#B3202A", "amber": "#FFB703", "display": "Anton", "text": "Inter" },
+  "voice": { "engine": "edge-tts on GitHub Actions (probe/tts_ck.py, lines in probe/ck_lines.json)", "voice": "hi-IN-MadhurNeural", "rate": "+6%", "script": "Devanagari, numbers written as words" },
+  "mix": { "rule": "voice must stay clearly on top: Hassan found the first mix's background too loud (Nov 15, 2026)", "music_gain": 0.14, "music_duck": 0.18, "sfx_scale": 0.35, "crowd_bed": 0.06 },
+  "template": "demos/ck_shoaib (index.html + build.py: timeline -> render -> mix)"
+}

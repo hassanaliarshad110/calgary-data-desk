@@ -1,0 +1,166 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../engine/fonts.css">
+<style>
+@font-face { font-family: 'Anton'; src: url('../../acquired/fonts/anton/Anton-Regular.ttf'); }
+@font-face { font-family: 'InterV'; src: url('../../acquired/fonts/inter/Inter[opsz,wght].ttf'); font-weight: 100 900; }
+</style></head><body>
+<script src="../../engine/core.js"></script><script src="../../engine/chars.js"></script><script src="../../engine/props.js"></script>
+<script src="../../engine/sets.js"></script><script src="../../engine/fx.js"></script><script src="../../engine/graphics.js"></script>
+<script>
+/* CRICKET KAHANI #1 — Shoaib Akhtar, 161.3 km/h (Newlands, 22 Feb 2003). Vertical 1080x1920. */
+window.PAGE_READY = false; stage(1080, 1920);
+let TL; const LOGO = new Image(); LOGO.src = '../../channels/cricketkahani/logo_badge.png';
+const G = '#0E3B2C', G2 = '#114535', G3 = '#1B5644', TAN = '#D8BC85', CR = '#F4ECD8', RED = '#B3202A', DRED = '#7E1219', AMB = '#FFB703';
+const AF = s => `400 ${s}px Anton`, IF = (w, s) => `${w} ${s}px InterV`;
+const CAP_R = [
+ '161.3 km/h! Cricket itihaas ki sabse tez gend.',
+ '22 February 2003. Cape Town mein World Cup ka match — Pakistan vs England.',
+ 'Rawalpindi Express, Shoaib Akhtar, poori raftaar se daudte hue aaye. Saamne the England ke opener, Nick Knight.',
+ 'Us over ki har gend 150 se upar thi. Aur aakhri gend par speed gun ne dikhaya: 161.3!',
+ 'Itni raftaar par gend aadhe second se bhi kam mein batsman tak pahunch jaati hai.',
+ 'Aur hamara dimaag, kuch dekh kar react karne mein hi, lagbhag paav second le leta hai.',
+ 'Yaani batsman ke paas faisla karne ke liye bas palak jhapakne jitna waqt.',
+ 'Phir bhi Nick Knight ne woh gend rok di. Over maiden raha — aur bana woh record jo aaj tak nahi toota.',
+ 'Aapke hisaab se aaj ka sabse tez bowler kaun hai? Comment mein bataiye!'];
+const CAP_E = [
+ 'The fastest ball in cricket history.',
+ '22 Feb 2003 · World Cup · Cape Town · Pakistan vs England',
+ 'The "Rawalpindi Express" charges in. Facing him: England opener Nick Knight.',
+ 'Every ball of that over was above 150 km/h. The last one: 161.3.',
+ 'At that speed the ball reaches the batter in under half a second.',
+ 'Your brain needs about a quarter of a second just to react.',
+ 'That leaves the batter roughly one blink to decide.',
+ 'Knight blocked it. A maiden over — and a record that still stands.',
+ 'Who is the fastest bowler today? Tell us in the comments!'];
+
+const BOWLER = { name: 'Bowler', height: 430, age: 'adult', build: 'muscular', skin: '#a8714a', hair: { style: 'long', color: '#17100b' }, eyes: '#2a1a10', top: { type: 'shirt', color: '#1f7a3a', sleeve: 'short' }, bottom: { type: 'pants', color: '#1f7a3a' }, shoes: '#f2f2f2', brows: 1.1 };
+const BATTER = { name: 'Batter', height: 430, age: 'adult', build: 'average', skin: '#e2b48f', hair: { style: 'short', color: '#5a3b22' }, eyes: '#2a3a50', top: { type: 'shirt', color: '#1d4f9a', sleeve: 'long' }, bottom: { type: 'pants', color: '#1d4f9a' }, shoes: '#f2f2f2', brows: 1.0 };
+
+/* ---------- shared drawing ---------- */
+function stripes(off = 0, hz = false) { C.fillStyle = G; C.fillRect(0, 0, 1080, 1920); C.fillStyle = G2;
+  if (hz) { for (let x = -360 + ((off % 360) + 360) % 360; x < 1080; x += 360) C.fillRect(x, 0, 180, 1920); }
+  else { for (let y = -360 + ((off % 360) + 360) % 360; y < 1920; y += 360) C.fillRect(0, y, 1080, 180); } }
+function seamPath(sx) { C.beginPath(); C.moveTo(sx * -8, -46); C.bezierCurveTo(sx * -17, -20, sx * -17, 20, sx * -8, 46); }
+function ball(x, y, r, { rot = 0, letters = null, a = 1 } = {}) { withT(() => { const k = 1 / 48; C.save(); C.scale(r * k, r * k);
+  circle(0, 0, 48); fillPath(RED); C.save(); circle(0, 0, 48); C.clip();
+  for (const sx of [1, -1]) { seamPath(sx); C.strokeStyle = DRED; C.lineWidth = 1.6; C.stroke();
+    C.save(); C.translate(sx * -2.6, 0); seamPath(sx); C.setLineDash([1.4, 2.4]); C.lineCap = 'round'; C.strokeStyle = CR; C.lineWidth = 1.8; C.stroke(); C.restore(); }
+  C.restore();
+  if (letters) { text(letters[0], -33, 3, { font: AF(30), fill: CR }); text(letters[1], 33, 3, { font: AF(30), fill: CR }); }
+  C.restore(); }, { x, y, r: rot, a }); }
+function logo(x, y, r) { C.drawImage(LOGO, x - r, y - r, 2 * r, 2 * r); }
+function header(a = 1) { if (a <= 0) return; C.save(); C.globalAlpha = a; C.font = AF(46); const w = C.measureText('CRICKET KAHANI').width + 16 + 64; const x0 = 540 - w / 2;
+  logo(x0 + 32, 168, 38); text('CRICKET KAHANI', x0 + 80, 170, { font: AF(46), fill: CR, align: 'left', ls: 2 }); C.restore(); }
+function wrap(str, font, maxW) { C.font = font; const words = str.split(' '), lines = []; let cur = '';
+  for (const w of words) { const t = cur ? cur + ' ' + w : w; if (C.measureText(t).width > maxW && cur) { lines.push(cur); cur = w; } else cur = t; } if (cur) lines.push(cur); return lines; }
+function caption(i, t, d) { const a = clamp(t * 5) * clamp((d - t) * 5); if (a <= 0) return;
+  const fr = IF(800, 44), fe = IF(500, 28); const L1 = wrap(CAP_R[i], fr, 900), L2 = wrap(CAP_E[i], fe, 900);
+  const h = L1.length * 54 + 12 + L2.length * 36 + 40; const y0 = 1500 - h;
+  C.save(); C.globalAlpha = a; rr(60, y0, 960, h, 22); fillPath('rgba(5,24,17,0.80)');
+  L1.forEach((l, k) => text(l, 540, y0 + 20 + 27 + k * 54, { font: fr, fill: '#fff' }));
+  L2.forEach((l, k) => text(l, 540, y0 + 20 + L1.length * 54 + 12 + 18 + k * 36, { font: fe, fill: TAN })); C.restore(); }
+function chip(str, x, y, { bg = RED, fg = '#fff', font = IF(800, 30), a = 1, padX = 26, h = 60 } = {}) { C.save(); C.globalAlpha = a; C.font = font; const w = C.measureText(str).width + padX * 2; rr(x - w / 2, y - h / 2, w, h, h / 2); fillPath(bg); text(str, x, y + 1, { font, fill: fg }); C.restore(); return w; }
+function nightSky() { C.fillStyle = '#071d16'; C.fillRect(0, 0, 1080, 1920); }
+function floodlight(x, y, s, t, on = 1) { withT(() => { C.fillStyle = G3; C.fillRect(-8, 60, 16, 520); rr(-90, -10, 180, 100, 10); fillPath(G3);
+  for (let r = 0; r < 2; r++) for (let c = 0; c < 4; c++) { rr(-78 + c * 41, 2 + r * 42, 32, 32, 5); fillPath(on > 0.5 ? CR : '#3b5a4e'); } }, { x, y, s });
+  if (on > 0.5) FX.glow(x, y + 40 * s, 260 * s, '255,240,200', 0.35 * on); }
+function crowd(y0, rows, t, seed = 1) { for (let r = 0; r < rows; r++) for (let i = 0; i < 26; i++) { const x = i * 44 + (r % 2) * 22 + hash(i + r * 31 + seed) * 10; const bob = Math.sin(t * 6 + i * 1.7 + r) * 3 * (hash(i * 7 + r) > 0.6 ? 1 : 0);
+  circle(x, y0 + r * 40 + bob, 15); C.fillStyle = r % 2 ? '#0b2a20' : '#0d3226'; C.fill(); rr(x - 17, y0 + r * 40 + 12 + bob, 34, 30, 10); C.fill(); } }
+function bat(x, y, ang, s = 1) { withT(() => { rr(-6, -70, 12, 72, 5); fillPath('#2b2b2b'); rr(-17, 0, 34, 150, 8); fillPath('#e8d2a0', '#8a6a3a', 3); }, { x, y, r: ang, s }); }
+function stamp(str, x, y, t, t0, { col = RED, size = 120, r = -0.12 } = {}) { const k = t - t0; if (k < 0) return; const s = 1 + 1.6 * (1 - ease('expoOut', k / 0.35));
+  withT(() => { C.font = AF(size); const w = C.measureText(str).width + 60; rr(-w / 2, -size * 0.72, w, size * 1.4, 18); fillPath(null, col, 10); text(str, 0, 6, { font: AF(size), fill: col }); }, { x, y, s, r, a: clamp(k / 0.15) }); }
+
+/* ---------- scenes ---------- */
+function speedPanel(t, v, x, y, s = 1, flash = 0) { withT(() => { rr(-400, -170, 800, 340, 34); fillPath('#0b1410', flash > 0 ? `rgba(255,183,3,${flash})` : '#2a3a33', 8);
+  text(v.toFixed(1), 30, 10, { font: AF(230), fill: AMB }); text('KM/H', 300, 120, { font: IF(800, 38), fill: '#c9b27a', ls: 3 });
+  text('SPEED', -300, -120, { font: IF(800, 30), fill: '#7d8b84', ls: 4 }); circle(330, -120, 12); fillPath(flash > 0.2 ? '#ff4040' : '#5a1a1a'); }, { x, y, s }); }
+const DRAW_FN = {
+  s0: t => { const d = TL.shot('s0').dur; nightSky(); stripes(t * 900); C.fillStyle = 'rgba(4,20,14,0.55)'; C.fillRect(0, 0, 1080, 1920);
+    const hit = 0.55; if (t > 0.1) FX.speedLines(t, { cx: 540, cy: 840, n: 70, a: 0.35 * clamp((t - 0.1) * 3), inner: 300 });
+    const bx = lerp(-200, 1300, ease('in', clamp((t - 0.15) / 0.45))); if (t < 0.62) { for (let k = 0; k < 8; k++) { C.globalAlpha = 0.12 * (8 - k) / 8; ball(bx - k * 60, 840, 70); } C.globalAlpha = 1; ball(bx, 840, 70, { rot: t * 20 }); }
+    const sh = t > hit && t < hit + 0.4 ? (1 - (t - hit) / 0.4) * 18 : 0; C.save(); C.translate((hash(t * 99 | 0) - 0.5) * sh, (hash(t * 77 | 0) - 0.5) * sh);
+    const v = 161.3 * ease('expoOut', clamp((t - hit) / 1.3)); const fl = t > hit + 1.3 ? 0.5 + 0.5 * Math.sin(t * 10) : 0;
+    if (t > hit - 0.05) speedPanel(t, v, 540, 840, ease('back', (t - hit + 0.05) / 0.35), fl);
+    C.restore(); if (t > hit && t < hit + 0.25) { C.fillStyle = `rgba(255,255,240,${0.8 * (1 - (t - hit) / 0.25)})`; C.fillRect(0, 0, 1080, 1920); }
+    TXT.fadeUp ? null : 0; const ka = clamp((t - 1.2) * 3); text('CRICKET KI SABSE', 540, 500, { font: AF(96), fill: CR, a: ka }); text('TEZ GEND', 540, 605, { font: AF(120), fill: AMB, a: clamp((t - 1.45) * 3) });
+    chip('100.2 MPH · WORLD RECORD', 540, 1090, { a: clamp((t - 2.0) * 3), bg: RED });
+    header(clamp((t - 2.6) * 2)); caption(0, t - 0.5, d - 0.5); },
+  s1: t => { const d = TL.shot('s1').dur; nightSky(); const on = t > 0.4 ? 1 : 0, on2 = t > 0.75 ? 1 : 0;
+    crowd(820, 6, t, 3); floodlight(170, 360, 1.0, t, on); floodlight(910, 360, 1.0, t, on2);
+    C.fillStyle = G; C.fillRect(0, 1060, 1080, 860); C.beginPath(); C.moveTo(470, 1060); C.lineTo(610, 1060); C.lineTo(700, 1500); C.lineTo(380, 1500); C.closePath(); fillPath(TAN);
+    const k1 = ease('back', (t - 0.9) / 0.5), k2 = ease('back', (t - 1.6) / 0.5), k3 = ease('back', (t - 2.4) / 0.5);
+    if (k1 > 0) withT(() => { rr(-330, -95, 660, 190, 24); fillPath(CR); text('22 FEB 2003', 0, 8, { font: AF(120), fill: G }); }, { x: 540, y: 470, s: k1 });
+    if (k2 > 0) withT(() => { text('NEWLANDS · CAPE TOWN', 0, 0, { font: IF(800, 40), fill: CR, ls: 3 }); text('WORLD CUP 2003', 0, 56, { font: IF(700, 32), fill: TAN, ls: 3 }); }, { x: 540, y: 640, s: k2 });
+    if (k3 > 0) withT(() => { chip('PAKISTAN', -170, 0, { bg: '#1f7a3a', font: AF(52), h: 86, padX: 34 }); text('vs', 0, 2, { font: AF(48), fill: CR }); chip('ENGLAND', 170, 0, { bg: '#1d4f9a', font: AF(52), h: 86, padX: 34 }); }, { x: 540, y: 790, s: k3 });
+    header(); caption(1, t - 0.1, d - 0.1); },
+  s2: t => { const d = TL.shot('s2').dur, cut = d * 0.52;
+    if (t < cut) { nightSky(); crowd(560, 5, t, 5); stripes(0); C.fillStyle = '#071d16'; C.fillRect(0, 0, 1080, 760); crowd(560, 5, t, 5);
+      for (let i = -1; i < 8; i++) { const x = ((i * 300 - t * 1100) % 2400 + 2400) % 2400 - 300; rr(x, 760, 260, 90, 6); fillPath(i % 2 ? '#1d4f3f' : RED); text(i % 2 ? 'CRICKET' : 'KAHANI', x + 130, 806, { font: AF(44), fill: CR }); }
+      C.fillStyle = G; C.fillRect(0, 850, 1080, 1070); for (let i = 0; i < 14; i++) { const x = ((i * 160 - t * 1100) % 2240 + 2240) % 2240 - 200; C.fillStyle = G2; C.fillRect(x, 850, 80, 1070); }
+      FX.speedLines(t, { cx: 1400, cy: 1000, n: 40, a: 0.18, inner: 600 });
+      drawChar(BOWLER, MOVES.run(t, { speed: 1.5 }), 520, 1180, 1.4, { t });
+      const k = ease('back', (t - 0.4) / 0.4); if (k > 0) withT(() => { rr(-330, -70, 660, 140, 18); fillPath('rgba(5,24,17,0.88)', '#1f7a3a', 6); text('SHOAIB AKHTAR', 0, -14, { font: AF(64), fill: CR }); text('"RAWALPINDI EXPRESS"', 0, 40, { font: IF(800, 28), fill: AMB, ls: 3 }); }, { x: 540, y: 330, s: k });
+    } else { const u = t - cut; nightSky(); crowd(560, 5, t, 9); C.fillStyle = G; C.fillRect(0, 850, 1080, 1070); C.beginPath(); C.moveTo(0, 1180); C.lineTo(1080, 1180); C.lineTo(1080, 1300); C.lineTo(0, 1300); fillPath(TAN);
+      const z = 1 + 0.08 * ease('inOut', clamp(u / 3)); withT(() => {
+        for (let k = 0; k < 3; k++) { rr(800 + k * 34, 880, 16, 300, 5); fillPath(CR); } rr(796, 872, 54, 9, 4); fillPath(RED); rr(852, 872, 54, 9, 4); fillPath(RED);
+        const p = MOVES.idle(t, { seed: 3 }); p.yaw = -1.25; p.legL.kn = p.legR.kn = 0.35; p.lean = 0.12; p.armL.sw = p.armR.sw = 0.55; p.armL.el = p.armR.el = 0.9; p.handL = p.handR = 'fist';
+        drawChar(BATTER, p, 700, 1180, 1.4, { t }); const [hx, hy] = jointPos(BATTER, p, 700, 1180, 1.4, 'wriR'); bat(hx, hy, 0.35, 1.2); }, { x: 540 * (1 - z) + 0 , y: 1100 * (1 - z), s: z });
+      const k = ease('back', (u - 0.3) / 0.4); if (k > 0) withT(() => { rr(-300, -70, 600, 140, 18); fillPath('rgba(5,24,17,0.88)', '#1d4f9a', 6); text('NICK KNIGHT', 0, -14, { font: AF(64), fill: CR }); text('ENGLAND OPENER', 0, 40, { font: IF(800, 28), fill: '#9cc0ff', ls: 3 }); }, { x: 540, y: 330, s: k }); }
+    header(); caption(2, t - 0.1, d - 0.1); },
+  s3: t => { const d = TL.shot('s3').dur; stripes(t * 40); const SP = [153.3, 158.4, 158.5, 157.4, 159.5, 161.3]; const step = d * 0.62 / 6;
+    text('WOH OVER', 540, 290, { font: AF(110), fill: CR }); text('Shoaib Akhtar → Nick Knight', 540, 365, { font: IF(700, 34), fill: TAN });
+    SP.forEach((v, i) => { const t0 = 0.5 + i * step, k = clamp((t - t0) / 0.45); if (t < t0) return; const y = 420 + i * 110, last = i === 5;
+      rr(70, y, 940, 92, 16); fillPath(last ? 'rgba(179,32,42,0.95)' : 'rgba(5,24,17,0.85)'); ball(130, y + 46, 30);
+      text(`BALL ${i + 1}`, 190, y + 47, { font: IF(800, 32), fill: CR, align: 'left' });
+      const w = 500 * ease('out', k) * (v - 140) / 21.3; rr(350, y + 28, w, 36, 10); fillPath(last ? AMB : TAN);
+      text((v * ease('out', k)).toFixed(1), 990, y + 47, { font: AF(56), fill: last ? '#fff' : AMB, align: 'right' }); });
+    const tr = 0.5 + 5 * step + 0.5; if (t > tr) { stamp('161.3 KM/H', 540, 1150, t, tr, { col: AMB, size: 110 }); }
+    if (t > tr - 0.5 && t < tr) { C.fillStyle = `rgba(255,240,200,${0.35 * (1 - (tr - t) / 0.5)})`; }
+    header(); caption(3, t - 0.1, d - 0.1); },
+  s4: t => { const d = TL.shot('s4').dur; stripes(0, true); const top = 300, bot = 1180;
+    rr(330, top, 420, bot - top, 6); fillPath(TAN); C.fillStyle = CR; C.fillRect(330, top + 90, 420, 6); C.fillRect(330, bot - 96, 420, 6);
+    for (const yy of [top + 40, bot - 40]) for (let k = -1; k <= 1; k++) { circle(540 + k * 24, yy, 9); fillPath('#5a3b22'); }
+    const k = ease('inOut', clamp((t - 0.6) / 3.2)); const by = lerp(top + 60, bot - 70, k), bxx = 540 + Math.sin(k * Math.PI) * 20;
+    if (k > 0.62) { circle(552, top + (bot - top) * 0.66, 18); fillPath('rgba(120,90,50,0.5)'); }
+    for (let j = 1; j < 6; j++) { const kk = clamp(k - j * 0.025); C.globalAlpha = 0.15; ball(540 + Math.sin(kk * Math.PI) * 20, lerp(top + 60, bot - 70, kk), 22); } C.globalAlpha = 1; ball(bxx, by, 24, { rot: t * 12 });
+    const tm = 0.45 * k; withT(() => { rr(-150, -70, 300, 140, 20); fillPath('rgba(5,24,17,0.9)', AMB, 5); text(tm.toFixed(2) + ' s', 0, 6, { font: AF(80), fill: AMB }); }, { x: 870, y: 700, s: 0.85 });
+    text('BOWLER', 210, top + 40, { font: IF(800, 28), fill: CR }); text('BATTER', 210, bot - 40, { font: IF(800, 28), fill: CR });
+    if (t > 4.0) chip('< ½ SECOND', 870, 860, { a: clamp((t - 4.0) * 3), bg: RED, font: AF(46), h: 76 });
+    header(); caption(4, t - 0.1, d - 0.1); },
+  s5: t => { const d = TL.shot('s5').dur; stripes(t * 30);
+    withT(() => { circle(0, 0, 190); fillPath('rgba(5,24,17,0.9)', CR, 6); C.strokeStyle = '#f3a6b0'; C.lineWidth = 14; C.lineCap = 'round';
+      for (let i = 0; i < 6; i++) { C.beginPath(); C.arc(-60 + (i % 3) * 60, -40 + (i > 2 ? 80 : 0), 52, Math.PI * (0.9 + i * 0.1), Math.PI * (2.1 + i * 0.1)); C.stroke(); }
+      const pulse = 0.5 + 0.5 * Math.sin(t * 8); FX.glow(0, 0, 220, '255,120,140', 0.25 * pulse); }, { x: 540, y: 620, s: 1 + 0.03 * Math.sin(t * 8) });
+    const x0 = 120, w = 840, y = 980; rr(x0, y, w, 70, 35); fillPath('rgba(5,24,17,0.9)', CR, 4);
+    const k = ease('out', clamp((t - 0.8) / 2.2)); rr(x0 + 6, y + 6, (w / 2 - 6) * k, 58, 29); fillPath(RED);
+    text('0', x0, y + 120, { font: IF(800, 34), fill: CR }); text('0.25 s', x0 + w / 2, y + 120, { font: IF(800, 34), fill: AMB }); text('0.5 s', x0 + w, y + 120, { font: IF(800, 34), fill: CR });
+    if (k > 0.3) text('SIRF REACT KARNE MEIN', x0 + w / 4, y - 40, { font: IF(800, 30), fill: '#f3a6b0', a: clamp((k - 0.3) * 3) });
+    header(); caption(5, t - 0.1, d - 0.1); },
+  s6: t => { const d = TL.shot('s6').dur; stripes(0); const bl = Math.max(0, 1 - Math.abs((t - d * 0.45) / 0.18)); const open = 1 - bl;
+    withT(() => { C.save(); C.beginPath(); C.moveTo(-300, 0); C.quadraticCurveTo(0, -260 * open - 4, 300, 0); C.quadraticCurveTo(0, 260 * open + 4, -300, 0); C.closePath(); fillPath('#fff', CR, 10); C.clip();
+      circle(0, 0, 120); fillPath('#5a3b22'); circle(0, 0, 58); fillPath('#111'); circle(-30, -34, 20); fillPath('rgba(255,255,255,0.85)'); C.restore();
+      C.strokeStyle = CR; C.lineWidth = 12; C.beginPath(); C.moveTo(-300, 0); C.quadraticCurveTo(0, -260 * open - 4, 300, 0); C.stroke(); }, { x: 540, y: 640 });
+    const x0 = 120, w = 840, y = 980; rr(x0, y, w, 70, 35); fillPath('rgba(5,24,17,0.9)', CR, 4); rr(x0 + 6, y + 6, w / 2 - 6, 58, 29); fillPath('rgba(179,32,42,0.6)');
+    const k = ease('out', clamp((t - 1.0) / 1.2)); rr(x0 + w / 2, y + 6, (w / 2 - 6) * k, 58, 29); fillPath(AMB);
+    text('REACT', x0 + w / 4, y + 36, { font: IF(800, 30), fill: CR }); if (k > 0.5) text('FAISLA ≈ 1 PALAK', x0 + w * 0.75, y + 36, { font: IF(900, 30), fill: G });
+    chip('ROUGHLY ONE BLINK', 540, 1150, { a: clamp((t - 2.2) * 3), bg: RED, font: AF(46), h: 76 });
+    header(); caption(6, t - 0.1, d - 0.1); },
+  s7: t => { const d = TL.shot('s7').dur; nightSky(); crowd(560, 5, t, 11); C.fillStyle = G; C.fillRect(0, 850, 1080, 1070); C.beginPath(); C.moveTo(0, 1180); C.lineTo(1080, 1180); C.lineTo(1080, 1300); C.lineTo(0, 1300); fillPath(TAN);
+    for (let k = 0; k < 3; k++) { rr(800 + k * 34, 880, 16, 300, 5); fillPath(CR); } rr(796, 872, 54, 9, 4); fillPath(RED); rr(852, 872, 54, 9, 4); fillPath(RED);
+    const hitT = 0.95; const p = MOVES.idle(t, { seed: 3 }); p.yaw = -1.25; p.legL.kn = p.legR.kn = 0.35; p.lean = t > hitT - 0.25 ? 0.28 : 0.12; p.legR.sw = t > hitT - 0.25 ? -0.45 : 0; p.armL.sw = p.armR.sw = t > hitT - 0.25 ? 0.95 : 0.55; p.armL.el = p.armR.el = 0.9; p.handL = p.handR = 'fist';
+    drawChar(BATTER, p, 700, 1180, 1.4, { t }); const [hx, hy] = jointPos(BATTER, p, 700, 1180, 1.4, 'wriR'); const ba = t > hitT - 0.25 ? -0.05 : 0.35; bat(hx, hy, ba, 1.25);
+    const bx0 = -80, bx1 = hx - 40, by1 = hy + 150; if (t < hitT) { const k = ease('in', clamp((t - 0.45) / (hitT - 0.45))); const bx = lerp(bx0, bx1, k), by = lerp(1000, by1, k) - Math.sin(k * Math.PI) * 60; if (t > 0.45) { for (let j = 1; j < 6; j++) { C.globalAlpha = 0.12; ball(bx - j * 40, by + j * 4, 22); } C.globalAlpha = 1; ball(bx, by, 22, { rot: t * 20 }); } }
+    else { const u = t - hitT; ball(bx1 - 30 * u, by1 + Math.min(1, u * 2) * 70, 22, { rot: t * 4 }); FX.dust(t, { x: bx1, y: 1200, t0: hitT, n: 10, size: 0.6 }); if (u < 0.3) { FX.glow(bx1, by1, 160, '255,255,220', 0.8 * (1 - u / 0.3)); } }
+    if (t > 3.3) { C.fillStyle = `rgba(4,20,14,${0.55 * clamp((t - 3.3) * 3)})`; C.fillRect(0, 0, 1080, 1920); }
+    stamp('MAIDEN OVER', 540, 340, t, 1.6, { col: CR, size: 92, r: -0.08 });
+    if (t > 3.4) withT(() => { rr(-380, -120, 760, 240, 26); fillPath('rgba(5,24,17,0.92)', AMB, 6); text('161.3 KM/H', 0, -30, { font: AF(108), fill: AMB }); text('RECORD — ABHI TAK NAHI TOOTA', 0, 72, { font: IF(800, 30), fill: CR, ls: 2 }); }, { x: 540, y: 640, s: ease('back', (t - 3.4) / 0.45) });
+    header(); caption(7, t - 0.1, d - 0.1); },
+  s8: t => { const d = TL.shot('s8').dur; stripes(t * 20); FX.glow(540, 640, 520, '255,210,140', 0.18);
+    const k = ease('back', (t - 0.1) / 0.6); if (k > 0) withT(() => logo(0, 0, 270), { x: 540, y: 640, s: k, r: (1 - k) * 0.6 });
+    text('CRICKET KAHANI', 540, 980, { font: AF(96), fill: CR, a: clamp((t - 0.6) * 3) });
+    text('Har gend ke peeche ek kahani', 540, 1060, { font: IF(700, 40), fill: TAN, a: clamp((t - 0.9) * 3) });
+    const q = ease('back', (t - 1.4) / 0.5); if (q > 0) withT(() => { chip('FOLLOW', -150, 0, { bg: RED, font: AF(50), h: 90, padX: 40 }); chip('SUBSCRIBE', 150, 0, { bg: CR, fg: G, font: AF(50), h: 90, padX: 40 }); }, { x: 540, y: 1180, s: q });
+    caption(8, t - 0.1, TL.shot('s8').vo + 0.6); },
+};
+Promise.all([fetch('timeline.json').then(r => r.json()), LOGO.decode(), ...['400 40px Anton', '800 40px InterV', '700 40px InterV', '500 40px InterV', '900 40px InterV'].map(f => document.fonts.load(f))]).then(([tl]) => {
+  TL = tl; TL.shot = id => TL.shots.find(s => s.id === id); TL.shots.forEach(s => scene(s.id, s.dur, DRAW_FN[s.id])); window.PAGE_READY = true; });
+</script></body></html>
