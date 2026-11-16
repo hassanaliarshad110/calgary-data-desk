@@ -49,10 +49,12 @@
    "id": 5,
    "type": "FACT",
    "idea": "GTA mein jo karte ho, Bharat mein kitni saza? (car chori - BNS)",
-   "status": "making",
-   "note": "run 5 (16 Nov 21:0xZ) released it: web page fetches were blocked (permission prompt unanswered in the unattended run), so no source could be read; retry when page reading works",
+   "status": "posted",
    "started": "2026-11-16T22:52Z",
-   "slug": "car-chori-saza"
+   "slug": "car-chori-saza",
+   "metricool_uuid": "-3601933510939556318",
+   "post_time_ist": "2026-11-17T06:30+05:30",
+   "title": "GTA जैसी गाड़ी छीनी तो भारत में कितनी सज़ा? BNS 309 Robbery Law | GTA 6 India #GTA6 #shorts"
   },
   {
    "id": 6,

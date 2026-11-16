@@ -1,0 +1,105 @@
+{
+"scenes": [
+{
+"id": "intro",
+"start": 0,
+"dur": 5.869,
+"lines": [
+"n01"
+]
+},
+{
+"id": "law",
+"start": 5.869,
+"dur": 4.982,
+"lines": [
+"n02"
+]
+},
+{
+"id": "twist",
+"start": 10.851,
+"dur": 10.423,
+"lines": [
+"n03"
+]
+},
+{
+"id": "ten",
+"start": 21.274,
+"dur": 4.421,
+"lines": [
+"n04"
+]
+},
+{
+"id": "highway",
+"start": 25.695,
+"dur": 7.042,
+"lines": [
+"n05"
+]
+},
+{
+"id": "more",
+"start": 32.737,
+"dur": 7.673,
+"lines": [
+"n06"
+]
+},
+{
+"id": "respawn",
+"start": 40.41,
+"dur": 3.386,
+"lines": [
+"n07"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.15,
+"dur": 5.469,
+"spk": "N",
+"roman": "Game mein ek button: driver bahar, gaadi aapki. Par asli kanoon kya kehta hai?"
+},
+"n02": {
+"start": 6.019,
+"dur": 4.582,
+"spk": "N",
+"roman": "Bharatiya Nyaya Sanhita, 2023. Section 309."
+},
+"n03": {
+"start": 11.201,
+"dur": 9.873,
+"spk": "N",
+"roman": "Twist: chori ke liye kisi ko chot pahunchaayi… zabardasti roka… ya fauran jaan ya chot ka darr dikhaaya… to ye sirf chori nahi: loot yaani robbery hai!"
+},
+"n04": {
+"start": 21.424,
+"dur": 4.021,
+"spk": "N",
+"roman": "Saza? Das saal tak ki kathor qaid, aur jurmana bhi."
+},
+"n05": {
+"start": 25.845,
+"dur": 6.642,
+"spk": "N",
+"roman": "Aur agar ye highway par, suraj dhalne se suraj ugne ke beech hua? To qaid 14 saal tak ja sakti hai!"
+},
+"n06": {
+"start": 32.887,
+"dur": 7.273,
+"spk": "N",
+"roman": "Sirf koshish ki? Phir bhi 7 saal tak. Aur loot mein kisi ko jaan-boojhkar chot pahunchaayi? To umrqaid tak!"
+},
+"n07": {
+"start": 40.56,
+"dur": 2.936,
+"spk": "N",
+"roman": "Game mein respawn hota hai, asli zindagi mein nahi."
+}
+},
+"total": 43.79599999999999
+}

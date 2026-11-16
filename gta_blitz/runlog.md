@@ -40,3 +40,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T23:11:52Z | voice done | 9/9 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 after check round 1)
 2026-11-16T23:11:52Z | rendered | short1_fs.mp4 1080x1920 53.2 s, -14.4 LUFS, all scenes native portrait; contact sheet: picture fills all 5 frames
 2026-11-16T23:11:52Z | check verdict | APPROVED round 2 (fresh independent agent read advocatekhoj + caseon BNS s.309; all claims verified, high confidence)
+2026-11-16T23:12:28Z | scheduled | Metricool uuid -3601933510939556318 at 2026-11-17 06:30 IST (7:00 PM Regina, 16 Nov); topic 5 posted; files in gta_blitz/car-chori-saza/
