@@ -12,3 +12,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T14:59:54Z | voice done | 8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions
 2026-11-16T15:04:58Z | rendered | short1_fs.mp4 1080x1920 49.3 s, -14.4 LUFS, all scenes native portrait
 2026-11-16T15:06:17Z | check verdict | APPROVED round 1 (independent agent; all 8 claims verified); contact sheet: picture fills all 5 frames
+2026-11-16T15:07:20Z | scheduled | Metricool uuid 3510613470097131065 at 2026-11-16 22:30 IST (11:00 AM Regina); topic 2 posted; files in gta_blitz/ps5-emi/

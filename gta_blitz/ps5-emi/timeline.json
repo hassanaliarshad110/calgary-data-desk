@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "bill",
+"start": 0,
+"dur": 8.404,
+"lines": [
+"n01"
+]
+},
+{
+"id": "total",
+"start": 8.404,
+"dur": 3.458,
+"lines": [
+"n02"
+]
+},
+{
+"id": "emi12",
+"start": 11.862,
+"dur": 5.08,
+"lines": [
+"n03"
+]
+},
+{
+"id": "emi24",
+"start": 16.942,
+"dur": 4.657,
+"lines": [
+"n04"
+]
+},
+{
+"id": "twist",
+"start": 21.599,
+"dur": 10.314,
+"lines": [
+"n05"
+]
+},
+{
+"id": "fine",
+"start": 31.913,
+"dur": 7.948,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.3,
+"dur": 7.704,
+"spk": "N",
+"roman": "PS5 Slim Digital ₹64,990. Upar se GTA 6: ₹5,999."
+},
+"n02": {
+"start": 8.604,
+"dur": 2.858,
+"spk": "N",
+"roman": "Kul bill: ₹70,989!"
+},
+"n03": {
+"start": 12.062,
+"dur": 4.48,
+"spk": "N",
+"roman": "12 mahinon mein baanto: kareeb ₹5,916 mahina."
+},
+"n04": {
+"start": 17.142,
+"dur": 4.057,
+"spk": "N",
+"roman": "24 mahinon mein: kareeb ₹2,958 mahina."
+},
+"n05": {
+"start": 22.049,
+"dur": 9.514,
+"spk": "N",
+"roman": "Par twist suno! 24 mahine ki EMI: game Nov 2026 mein, aakhri kist kareeb Nov 2028 mein!"
+},
+"n06": {
+"start": 32.113,
+"dur": 7.398,
+"spk": "N",
+"roman": "Aur ye sirf seedha bhaag hai. Asli EMI mein byaaj aur charges jud sakte hain, isliye pehle poora hisaab padhiye!"
+}
+},
+"total": 39.861
+}
