@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "assets",
+"start": 0,
+"dur": 6.62,
+"lines": [
+"n01"
+]
+},
+{
+"id": "techni",
+"start": 6.62,
+"dur": 6.345,
+"lines": [
+"n02"
+]
+},
+{
+"id": "twist",
+"start": 12.965,
+"dur": 8.052,
+"lines": [
+"n03"
+]
+},
+{
+"id": "rdr",
+"start": 21.017,
+"dur": 4.381,
+"lines": [
+"n04"
+]
+},
+{
+"id": "dhruva",
+"start": 25.398,
+"dur": 8.598,
+"lines": [
+"n05"
+]
+},
+{
+"id": "today",
+"start": 33.996,
+"dur": 8.157,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.3,
+"dur": 5.92,
+"spk": "N",
+"roman": "GTA V ke Los Santos ki gaadiyan aur saamaan banane mein Bengaluru ki ek team ka haath tha."
+},
+"n02": {
+"start": 6.82,
+"dur": 5.745,
+"spk": "N",
+"roman": "Naam tha Technicolor Games. Chehre ka animation aur motion capture ki safaai bhi inhone ki."
+},
+"n03": {
+"start": 13.415,
+"dur": 7.252,
+"spk": "N",
+"roman": "Ab twist! 2016 ke aaspaas Rockstar ne Bengaluru mein apna studio khola: Rockstar India!"
+},
+"n04": {
+"start": 21.217,
+"dur": 3.781,
+"spk": "N",
+"roman": "Ye studio Red Dead Redemption 2 ki development team ka hissa bana."
+},
+"n05": {
+"start": 25.598,
+"dur": 7.998,
+"spk": "N",
+"roman": "May 2019 mein ismein mila Dhruva Interactive, Bharat ka sabse purana game developer. Team: kareeb 800 log!"
+},
+"n06": {
+"start": 34.196,
+"dur": 7.607,
+"spk": "N",
+"roman": "Aaj iski ek job post kehti hai: yahan ki team motion capture se kirdaron ki harkatein banati hai, saare Rockstar games ke liye."
+}
+},
+"total": 42.153
+}
