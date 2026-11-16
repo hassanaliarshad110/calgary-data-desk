@@ -1,0 +1,383 @@
+{
+ "rules": "FACT: every claim true and sourced. FAN-THEORY: on-screen KALPANA / FAN THEORY tag throughout, title has Agar/What if/Fan theory, narrator says 'socho agar'; never claim invented things as fact or as any community's belief; deities never playable, never violent or comic; epics treated with respect.",
+ "topics": [
+  {
+   "id": 1,
+   "type": "FACT",
+   "idea": "GTA 6 ki keemat = kitne din ki salary? (India price vs median monthly pay)",
+   "status": "todo"
+  },
+  {
+   "id": 2,
+   "type": "FACT",
+   "idea": "PS5 + GTA 6 ka total bill: EMI pe kitne mahine?",
+   "status": "todo"
+  },
+  {
+   "id": 3,
+   "type": "FAN-THEORY",
+   "idea": "Agar Mahabharat ek open-world game hota? (Kurukshetra map)",
+   "status": "todo"
+  },
+  {
+   "id": 4,
+   "type": "FACT",
+   "idea": "Bengaluru mein Rockstar: Indian engineers GTA mein kya banate hain?",
+   "status": "todo"
+  },
+  {
+   "id": 5,
+   "type": "FACT",
+   "idea": "GTA mein jo karte ho, Bharat mein kitni saza? (car chori - BNS)",
+   "status": "todo"
+  },
+  {
+   "id": 6,
+   "type": "FAN-THEORY",
+   "idea": "Agar GTA ka next map Mumbai hota? Fan theory",
+   "status": "todo"
+  },
+  {
+   "id": 7,
+   "type": "FACT",
+   "idea": "GTA 6 download size vs India ka mobile data: kitne GB, kitne rupaye?",
+   "status": "todo"
+  },
+  {
+   "id": 8,
+   "type": "FACT",
+   "idea": "GTA V ki kamaai vs Bollywood ki sabse badi film: kaun aage?",
+   "status": "todo"
+  },
+  {
+   "id": 9,
+   "type": "FAN-THEORY",
+   "idea": "Agar Abhimanyu ka chakravyuh ek game mission hota?",
+   "status": "todo"
+  },
+  {
+   "id": 10,
+   "type": "FACT",
+   "idea": "Kitne Indians ke paas PS5/Xbox hai? (console reality check)",
+   "status": "todo"
+  },
+  {
+   "id": 11,
+   "type": "FACT",
+   "idea": "GTA myth vs fact: 'GTA khelne se log criminal bante hain' - research kya kehti hai?",
+   "status": "todo"
+  },
+  {
+   "id": 12,
+   "type": "FAN-THEORY",
+   "idea": "Desi GTA: Hastinapur ki sadkon par chase (kalpana)",
+   "status": "todo"
+  },
+  {
+   "id": 13,
+   "type": "FACT",
+   "idea": "GTA 6 launch: 19 Nov ko India mein kis time unlock?",
+   "status": "todo"
+  },
+  {
+   "id": 14,
+   "type": "FACT",
+   "idea": "Speeding in GTA vs Motor Vehicles Act: asli challan kitna?",
+   "status": "todo"
+  },
+  {
+   "id": 15,
+   "type": "FAN-THEORY",
+   "idea": "Agar GTA ka map Delhi hota - kaunse landmarks?",
+   "status": "todo"
+  },
+  {
+   "id": 16,
+   "type": "FACT",
+   "idea": "Raji: An Ancient Epic - Mahabharat-Ramayan se inspired Indian game",
+   "status": "todo"
+  },
+  {
+   "id": 17,
+   "type": "FACT",
+   "idea": "GTA 6 India mein ban ho sakta hai? Record par kya hai?",
+   "status": "todo"
+  },
+  {
+   "id": 18,
+   "type": "FAN-THEORY",
+   "idea": "Fan theory: Vice City aur Mumbai itne milte-julte kyun lagte hain?",
+   "status": "todo"
+  },
+  {
+   "id": 19,
+   "type": "FACT",
+   "idea": "Dhruva Interactive: Bharat ka pehla game studio ki kahani",
+   "status": "todo"
+  },
+  {
+   "id": 20,
+   "type": "FACT",
+   "idea": "GTA V ne kitni copies bechi - India ki aabadi se tulna",
+   "status": "todo"
+  },
+  {
+   "id": 21,
+   "type": "FAN-THEORY",
+   "idea": "Agar Ramayan ka Lanka setu ek racing level hota?",
+   "status": "todo"
+  },
+  {
+   "id": 22,
+   "type": "FACT",
+   "idea": "GTA mein helicopter chori vs asli helicopter ki keemat India mein",
+   "status": "todo"
+  },
+  {
+   "id": 23,
+   "type": "FACT",
+   "idea": "Indian gaming market kitna bada? (FICCI-EY numbers)",
+   "status": "todo"
+  },
+  {
+   "id": 24,
+   "type": "FAN-THEORY",
+   "idea": "Agar GTA Varanasi mein hota - ghats par mission?",
+   "status": "todo"
+  },
+  {
+   "id": 25,
+   "type": "FACT",
+   "idea": "Red light jump in GTA vs India: challan aur points",
+   "status": "todo"
+  },
+  {
+   "id": 26,
+   "type": "FACT",
+   "idea": "Kya GTA 6 PC par aayega? Indian PC gamers ke liye kya pata hai",
+   "status": "todo"
+  },
+  {
+   "id": 27,
+   "type": "FAN-THEORY",
+   "idea": "What if: Arjun ka teer-andaazi ek mini-game hota",
+   "status": "todo"
+  },
+  {
+   "id": 28,
+   "type": "FACT",
+   "idea": "GTA online paisa vs asli paisa: Shark Card ki keemat rupaye mein",
+   "status": "todo"
+  },
+  {
+   "id": 29,
+   "type": "FACT",
+   "idea": "Mumbai ki traffic vs Vice City ki traffic: average speed ka sach",
+   "status": "todo"
+  },
+  {
+   "id": 30,
+   "type": "FAN-THEORY",
+   "idea": "Agar GTA ka hero Indian auto-rickshaw driver hota?",
+   "status": "todo"
+  },
+  {
+   "id": 31,
+   "type": "FACT",
+   "idea": "Game banane mein kitna kharcha: GTA 6 budget vs Indian space mission",
+   "status": "todo"
+  },
+  {
+   "id": 32,
+   "type": "FACT",
+   "idea": "Indian streamers aur GTA RP: kitne log dekhte hain?",
+   "status": "todo"
+  },
+  {
+   "id": 33,
+   "type": "FAN-THEORY",
+   "idea": "Agar Bengaluru traffic ek GTA level hota (kalpana)",
+   "status": "todo"
+  },
+  {
+   "id": 34,
+   "type": "FACT",
+   "idea": "Bina helmet bike in GTA vs India: asli fine",
+   "status": "todo"
+  },
+  {
+   "id": 35,
+   "type": "FACT",
+   "idea": "GTA 6 ke liye chhutti: Indian offices mein 'launch leave' ka trend?",
+   "status": "todo"
+  },
+  {
+   "id": 36,
+   "type": "FAN-THEORY",
+   "idea": "Fan theory: GTA 7 ka map Asia mein hoga?",
+   "status": "todo"
+  },
+  {
+   "id": 37,
+   "type": "FACT",
+   "idea": "Indian game studios jo Rockstar ke liye kaam karte hain",
+   "status": "todo"
+  },
+  {
+   "id": 38,
+   "type": "FACT",
+   "idea": "GTA ki 'wanted stars' vs Indian police ka asli response time data",
+   "status": "todo"
+  },
+  {
+   "id": 39,
+   "type": "FAN-THEORY",
+   "idea": "Agar Karna ka rath ek upgradeable vehicle hota?",
+   "status": "todo"
+  },
+  {
+   "id": 40,
+   "type": "FACT",
+   "idea": "Video game age ratings: India mein PEGI/IARC kaise lagta hai?",
+   "status": "todo"
+  },
+  {
+   "id": 41,
+   "type": "FACT",
+   "idea": "Indian gamers ki average age aur kitna kharch karte hain",
+   "status": "todo"
+  },
+  {
+   "id": 42,
+   "type": "FAN-THEORY",
+   "idea": "What if: Kolkata ki tram GTA mein chalti",
+   "status": "todo"
+  },
+  {
+   "id": 43,
+   "type": "FACT",
+   "idea": "GTA series ke 25+ saal: pehla GTA India mein kab aaya?",
+   "status": "todo"
+  },
+  {
+   "id": 44,
+   "type": "FACT",
+   "idea": "Drunk driving in GTA vs India: saza aur fine",
+   "status": "todo"
+  },
+  {
+   "id": 45,
+   "type": "FAN-THEORY",
+   "idea": "Agar Mughal-era Agra ek open-world game hota?",
+   "status": "todo"
+  },
+  {
+   "id": 46,
+   "type": "FACT",
+   "idea": "Indian rupee mein GTA 6 vs GTA V launch price ka farak",
+   "status": "todo"
+  },
+  {
+   "id": 47,
+   "type": "FACT",
+   "idea": "Mobile vs console: India mein 90% gamers phone par kyun?",
+   "status": "todo"
+  },
+  {
+   "id": 48,
+   "type": "FAN-THEORY",
+   "idea": "Agar Bhima ki gada ek power-up hoti (kalpana)",
+   "status": "todo"
+  },
+  {
+   "id": 49,
+   "type": "FACT",
+   "idea": "Rockstar India mein job kaise milti hai? (public hiring posts)",
+   "status": "todo"
+  },
+  {
+   "id": 50,
+   "type": "FACT",
+   "idea": "GTA ki cheat codes ka asli itihaas",
+   "status": "todo"
+  },
+  {
+   "id": 51,
+   "type": "FAN-THEORY",
+   "idea": "What if: Goa ke beaches GTA 6 ki Vice Beach se compare",
+   "status": "todo"
+  },
+  {
+   "id": 52,
+   "type": "FACT",
+   "idea": "Ek AAA game banane mein kitne saal: GTA 6 timeline",
+   "status": "todo"
+  },
+  {
+   "id": 53,
+   "type": "FACT",
+   "idea": "Indian esports ka paisa vs GTA ki kamaai",
+   "status": "todo"
+  },
+  {
+   "id": 54,
+   "type": "FAN-THEORY",
+   "idea": "Agar Chanakya ek GTA strategy mission ka planner hota?",
+   "status": "todo"
+  },
+  {
+   "id": 55,
+   "type": "FACT",
+   "idea": "GTA 6 ki Vice City asli Miami jaisi kitni?",
+   "status": "todo"
+  },
+  {
+   "id": 56,
+   "type": "FACT",
+   "idea": "Gaming disorder: WHO kya kehta hai (myth vs fact)",
+   "status": "todo"
+  },
+  {
+   "id": 57,
+   "type": "FAN-THEORY",
+   "idea": "Agar Jaipur ek heist-game ka map hota?",
+   "status": "todo"
+  },
+  {
+   "id": 58,
+   "type": "FACT",
+   "idea": "Indian cities jahan sabse zyada gamers hain (survey data)",
+   "status": "todo"
+  },
+  {
+   "id": 59,
+   "type": "FACT",
+   "idea": "GTA 6 pre-order kaise aur kitne mein India mein",
+   "status": "todo"
+  },
+  {
+   "id": 60,
+   "type": "FAN-THEORY",
+   "idea": "Fan theory: Indian side-character GTA 6 mein hoga?",
+   "status": "todo"
+  },
+  {
+   "id": 61,
+   "type": "FACT",
+   "idea": "Pirated games ka risk: India ka cyber law kya kehta hai",
+   "status": "todo"
+  },
+  {
+   "id": 62,
+   "type": "FACT",
+   "idea": "Online gaming law 2025: GTA jaise games par asar?",
+   "status": "todo"
+  },
+  {
+   "id": 63,
+   "type": "FAN-THEORY",
+   "idea": "Agar Pandavon ka vanvaas ek survival game hota?",
+   "status": "todo"
+  }
+ ]
+}
