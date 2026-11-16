@@ -43,6 +43,7 @@ The Nov 14 "almost 14 °C" reel reached 1,790 people on Instagram (2,109 views; 
 
 ### News explained (Hassan's review, Nov 13, 2026)
 - (Nov 13, 2026) Hassan approved the first reviewed news video ("Grey Cup Sunday in Calgary: what to know", 44 s) as made, with no changes: it is the standard for future news videos (map hook at frame 0 with a 3-word on-screen hook, Civic Analyst lead with counters and map scenes, practical "what happens next" for viewers, a two-option one-word closing question, caption with no numbers, first-comment link to our Calgary News article page). From now on news videos post automatically.
+- (Nov 16, 2026) Hassan: the narrator read "a.m." / "p.m." as separate letters with a silence ("a … m", "p … m") in the Nov 13 video. Never again: times are spoken in words ("five in the afternoon", "eleven at night"), never "a.m."/"p.m.", and every narration passes `motion/engine/narration_check.py` before it goes to Kokoro (section 4).
 
 ### What's working (updated by the weekly review)
 - (Nov 16, 2026) Same-day lived moments win by far: the "almost 14 °C" reel reached 10,915 views (58% of the week's Instagram views), 66 Instagram shares, 13 saves, 37% 3-s skip. Make one whenever section 9's test is met.
@@ -144,6 +145,7 @@ cd /home/claude/sp && git add -A && git -c user.name="Hassan Ali" -c user.email=
 gh run list --repo hassanaliarshad110/calgary-data-desk --branch studio-probe -L 1 --json status,conclusion   # poll until completed success
 git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110/calgary-data-desk /home/claude/sp_out
 ```
+- **Spoken-words rule (Hassan, Nov 16, 2026: the Nov 13 Grey Cup video read "p.m." as "p … m", two letters with a pause).** Narration never contains "a.m." / "p.m." / "am" / "pm" or any dotted abbreviation (B.C., U.S., St., Ave.). Say times in words: "five in the afternoon", "eleven in the morning", "eleven at night", "noon", "midnight"; spell places and names out in full ("British Columbia"). On-screen chips may still show "5 p.m.". Write the package narration this way from the start (so the audit approves the spoken wording), and **before every push to studio-probe run `python3 /home/claude/studio/motion/engine/narration_check.py probe/tts_lines.json`; if it fails, fix the lines, the package and the captions, re-audit if the wording changed, and only then push.** After the WAVs come back, listen-check any line with a time in it (its duration should not show a long gap).
 - Check that `sp_out/lines_used.json` equals the JSON you sent. If it doesn't (another run overwrote it), wait one minute, re-clone, and push again if needed.
 - Voice `af_heart` is the house voice. Verify the WAVs with `ffprobe` and `volumedetect`.
 
