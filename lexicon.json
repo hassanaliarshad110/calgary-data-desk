@@ -1,5 +1,5 @@
 {
- "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-15 2026.",
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-16 2026.",
  "ur": {
   "اللہ کے نبی ﷺ": "اللہ کے نبی",
   "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
@@ -19,7 +19,10 @@
   "جعفر": "جاعفر",
   "من لا یحضرہ الفقیہ": "مَن لا یَحضُرُہو الفَقیہ",
   "فتحِ مکہ": "فتح مکہ",
-  "کعبہ پر": "کعبے پر"
+  "کعبہ پر": "کعبے پر",
+  "سیرتِ حلبیہ": "سیرت حلبیہ",
+  "تاریخِ طبری": "تاریخ طبری",
+  "خطبۂ فدکیہ": "خطبہ فدکیہ"
  },
  "ar": {
   "رسول الله ﷺ": "رسولِ الله، صلّى اللهُ عليه وآله وسلّم،",
