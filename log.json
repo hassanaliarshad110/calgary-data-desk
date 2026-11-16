@@ -1253,8 +1253,8 @@
    "https://globalnews.ca/news/256699/looking-back-calgarys-infamous-brinks-heist",
    "https://www.pressreader.com/canada/calgary-herald/20120616/281642482247495"
   ],
-  "length_s": 88.7,
-  "video_path": "studio-videos/heists/calgary-strangest-heists-v2.mp4",
+  "length_s": 88.9,
+  "video_path": "studio-videos/heists/calgary-strangest-heists-v3.mp4",
   "thumbnail": "studio-videos/heists/calgary-strangest-heists-thumb.jpg",
   "package": "packages/2026-11-20-SPECIAL-calgary-strangest-heists.md",
   "production": "production/2026-11-20-HEISTS/",
@@ -1264,19 +1264,19 @@
    "claims_checked": 23,
    "verdict": "APPROVED (revision 2, round B)",
    "report": "audits/2026-11-20-SPECIAL.md",
-   "history": "v1: 3 rounds, last NOT APPROVED on caption wording only; v2 (conclusion added at Hassan's request): round A NOT APPROVED (framing), round B APPROVED"
+   "history": "v1: 3 rounds, last NOT APPROVED on caption wording only; v2 (conclusion added at Hassan's request): round A NOT APPROVED (framing), round B APPROVED; v3 (Nov 16, wording only: \"four a.m.\" -> \"four in the morning\"): fresh auditor APPROVED"
   },
   "qc": {
    "stills": "pass (hook, busiest frames, conclusion board, closer)",
    "final": "pass (production/2026-11-20-HEISTS/final_sheet.jpg)",
-   "loudness": "-14.1 LUFS, -3.0 dBTP",
-   "size_mb": 12.9
+   "loudness": "-14.8 LUFS, -3.9 dBTP",
+   "size_mb": 12.4
   },
   "link": "https://calgaryinsight.ca/?view=videos&utm_source=social&utm_campaign=heists",
   "status": "done",
   "posted": [
    {
-    "metricool_id": 429366661,
+    "metricool_id": 430743993,
     "uuid": "1475736486284773189",
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=1475736486284773189",
     "providers": [
@@ -1285,7 +1285,8 @@
      "youtube short"
     ],
     "publish_at": "2026-11-20T19:30",
-    "note": "Scheduled (autoPublish, not draft) after the revision audit APPROVED and Hassan's review. 19:30 rather than 19:00 because the calendar's PM fun fact posts at 18:30 (60-minute rule). Designed thumbnail and first comment set."
+    "note": "Scheduled (autoPublish, not draft) after the revision audit APPROVED and Hassan's review. 19:30 rather than 19:00 because the calendar's PM fun fact posts at 18:30 (60-minute rule). Designed thumbnail and first comment set. Nov 16: media swapped to v3 (narration fix) with updateScheduledPost; time, text, thumbnail and first comment unchanged.",
+    "previous_metricool_id": 429366661
    }
   ],
   "notes": "Calendar PM fun fact on the same day (Nov 20) is 'The Jamaican bobsled team's 1988 Calgary story' and overlaps with heist #2; consider moving it. Left out (thin sourcing): Brink's cash amount, ferry-in-France arrest detail, $650,000 figure, store reopening, Aug 2026 replica-plaque theft, sea-can fraud.",

@@ -7,21 +7,21 @@
 const W = 1080, H = 1920, CX = (W - 120) / 2 + 30;
 // measured Kokoro af_heart line durations (studio-probe run, then atempo 1.05)
 const S = M.script([
-  { text: 'Thieves broke through walls, rammed a mall, and stole a bobsled. In Calgary.', dur: 4.175 },
-  { text: "Here are five of Calgary's strangest heists.", dur: 2.326 },
+  { text: 'Thieves broke through walls, rammed a mall, and stole a bobsled. In Calgary.', dur: 4.176 },
+  { text: "Here are five of Calgary's strangest heists.", dur: 2.328 },
   { text: 'Number five. In twenty twenty-two, eight brass plaques honouring Victoria Cross recipients were stolen from a memorial in Currie.', dur: 7.491 },
-  { text: 'The next year, plaques were taken from the Hangar Flight Museum too. The likely lure? The metal.', dur: 4.983 },
-  { text: 'Number four. October twenty eighteen, northeast Calgary. Thieves broke through the walls of two businesses to reach a jewellery store.', dur: 7.47 },
-  { text: 'Number three. November twenty twelve, just before four a.m. An SUV smashed into Market Mall, aiming for a jewellery store. No one was hurt.', dur: 8.789 },
-  { text: "Number two. In October twenty twenty, a bobsled shell from the movie Cool Runnings, inspired by Jamaica's team at Calgary's nineteen eighty-eight Olympics, was stolen from outside the old Ranchman's building.", dur: 12.422 },
-  { text: 'Nearly two years later, police found part of it. Only part.', dur: 3.194 },
-  { text: "And number one. North Hill Shopping Centre, nineteen ninety-eight. Two men in military fatigues ambushed a Brink's cash delivery with assault rifles and tear gas.", dur: 9.655 },
+  { text: 'The next year, plaques were taken from the Hangar Flight Museum too. The likely lure? The metal.', dur: 4.985 },
+  { text: 'Number four. October twenty eighteen, northeast Calgary. Thieves broke through the walls of two businesses to reach a jewellery store.', dur: 7.469 },
+  { text: 'Number three. November twenty twelve, just before four in the morning. An SUV smashed into Market Mall, aiming for a jewellery store. No one was hurt.', dur: 9.068 },
+  { text: "Number two. In October twenty twenty, a bobsled shell from the movie Cool Runnings, inspired by Jamaica's team at Calgary's nineteen eighty-eight Olympics, was stolen from outside the old Ranchman's building.", dur: 12.425 },
+  { text: 'Nearly two years later, police found part of it. Only part.', dur: 3.195 },
+  { text: "And number one. North Hill Shopping Centre, nineteen ninety-eight. Two men in military fatigues ambushed a Brink's cash delivery with assault rifles and tear gas.", dur: 9.635 },
   { text: 'More than eighty shots were fired. No one was hurt. And they left with nothing.', dur: 4.142 },
   { text: "The men behind it? A former Brink's employee and a Canadian soldier.", dur: 4.046 },
   { text: 'So, what happened next? For the plaques, the walls and the bobsled, no arrests have been reported.', dur: 5.229 },
   { text: 'At Market Mall, police charged one man, and kept looking for a second suspect.', dur: 4.348 },
   { text: 'And North Hill? Both men went to prison.', dur: 2.203 },
-  { text: 'Which one is the wildest? Comment below.', dur: 2.32 },
+  { text: 'Which one is the wildest? Comment below.', dur: 2.320 },
 ], { lead: .3, gap: .3, tail: 1.4 });
 const sc = S.scenes;
 const MAPC = 'Map data © OpenStreetMap contributors · City of Calgary Open Data · pins approximate';

@@ -121,7 +121,9 @@ def hz(n): return 440 * 2 ** ((n - 69) / 12)
 def music(kind, d):
     n = int(d * SR) + SR; y = np.zeros(n)
     def put(sig, at, g=1.0):
-        i = int(at * SR); j = min(n, i + len(sig)); y[i:j] += sig[:j - i] * g
+        i = int(at * SR)
+        if i >= n: return
+        j = min(n, i + len(sig)); y[i:j] += sig[:j - i] * g
     if kind == 'none': return y[:int(d * SR)]
     if kind in ('story', 'suspense'):
         prog = [(57, 60, 64), (53, 57, 60), (48, 52, 55), (55, 59, 62)] if kind == 'story' else [(50, 53, 57), (50, 53, 56), (46, 50, 53), (49, 52, 56)]

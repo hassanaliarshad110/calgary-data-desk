@@ -17,7 +17,7 @@
 | L2 | Number five. In twenty twenty-two, eight brass plaques honouring Victoria Cross recipients were stolen from a memorial in Currie. |
 | L3 | The next year, plaques were taken from the Hangar Flight Museum too. The likely lure? The metal. |
 | L4 | Number four. October twenty eighteen, northeast Calgary. Thieves broke through the walls of two businesses to reach a jewellery store. |
-| L5 | Number three. November twenty twelve, just before four a.m. An SUV smashed into Market Mall, aiming for a jewellery store. No one was hurt. |
+| L5 | Number three. November twenty twelve, just before four in the morning. An SUV smashed into Market Mall, aiming for a jewellery store. No one was hurt. |
 | L6 | Number two. In October twenty twenty, a bobsled shell from the movie Cool Runnings, inspired by Jamaica's team at Calgary's nineteen eighty-eight Olympics, was stolen from outside the old Ranchman's building. |
 | L7 | Nearly two years later, police found part of it. Only part. |
 | L8 | And number one. North Hill Shopping Centre, nineteen ninety-eight. Two men in military fatigues ambushed a Brink's cash delivery with assault rifles and tear gas. |
@@ -136,3 +136,8 @@ Total 77.3 s in v1; v2 adds S11–S13, the CASE FILES conclusion board (rows fil
 | Sound and loudness | 2 | −14.0 LUFS, voice on top |
 | Size | 1 | 12.9 MB, 88.7 s after the conclusion was added (aim ≤ 10 MB; accepted for social) |
 Captions were checked against the narration (fixed a split of "a.m." before the final render).
+
+
+## Revision 3 (Hassan, Nov 16, 2026: Kokoro read "a.m." as separate letters with a pause)
+- L5 now says "just before four in the morning" (on screen still "Just before 4 a.m."). Fresh auditor: C5-C7 PASS, APPROVED (audits/2026-11-20-SPECIAL.md).
+- All 15 lines re-narrated on studio-probe (lines_used matched; passed motion/engine/narration_check.py), atempo 1.05, lead .3, gap .3, tail 1.4; film 88.9 s; mix -14.8 LUFS, -3.9 dBTP; v3 file studio-videos/heists/calgary-strangest-heists-v3.mp4 (12.4 MB). Metricool post updated in place (same time, text, thumbnail and first comment).
