@@ -1,6 +1,6 @@
 {
  "note": "Major projects being built or planned in Ward 5 that the City's open data lists of facilities do not have yet. Each entry is checked against the owner's page or a news report (sources). When a project opens, the app marks it completed by itself once the City lists it: 'match' gives words of its name to look for in the City's recreation facilities and school lists, and a listed facility or school within 400 m of lat/lon also counts. 'expected_by' (YYYY-MM) flags a project that should have opened but is not listed yet. To mark one by hand, set \"state\": \"completed\" and \"opened\": \"YYYY-MM\".",
- "checked": "2026-11-09",
+ "checked": "2026-11-16",
  "projects": [
   {
    "title": "Northeast Athletic Complex",
@@ -38,7 +38,7 @@
    "owner": "City of Calgary",
    "amenity": true,
    "status": "Design (30% design due about end of 2026)",
-   "budget": "About $160 million (estimate). Design funded by the City and Alberta; Alberta announced $43.3M toward construction in 2024; the rest is not yet secured",
+   "budget": "About $160 million (estimate). Design funded by the City and Alberta; Alberta announced $43.3M toward construction in 2024; the rest is not yet secured. The City's proposed 2027-2030 budget (released November 10, 2026, for Council's decision in December 2026) includes $71 million to advance the extension",
    "cost": 160000000,
    "completion": "Construction tentatively 2028 (2027 if other governments fund it sooner)",
    "address": "Saddletowne Station to a new station at 88 Avenue NE and 60 Street NE (about 1 km)",
@@ -47,7 +47,8 @@
    "url": "https://www.calgary.ca/major-projects/transit-blue-line-lrt-extension.html",
    "sources": [
     "https://www.calgary.ca/major-projects/transit-blue-line-lrt-extension.html",
-    "https://livewirecalgary.com/2026/08/19/blue-line-extension-saddletowne-country-hills/"
+    "https://livewirecalgary.com/2026/08/19/blue-line-extension-saddletowne-country-hills/",
+    "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/"
    ],
    "match": []
   },
@@ -89,10 +90,11 @@
    "comm": "SAD",
    "lat": 51.135636,
    "lon": -113.956327,
-   "what": "Grades 5 to 9, 1,225 students.",
+   "what": "Grades 5 to 9. Alberta's project listing gives 1,225 students; the Calgary Board of Education's project page (September 2026) gives a capacity of 925, with design ongoing and the opening date to be determined.",
    "url": "https://majorprojects.alberta.ca/details/New-5-9-School-in-Saddle-Ridge/11437",
    "sources": [
-    "https://majorprojects.alberta.ca/details/New-5-9-School-in-Saddle-Ridge/11437"
+    "https://majorprojects.alberta.ca/details/New-5-9-School-in-Saddle-Ridge/11437",
+    "https://www.cbe.ab.ca/saddle-ridge-middle-school"
    ],
    "cost_partial": true,
    "match": [],

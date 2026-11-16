@@ -112,11 +112,11 @@ TOP = [
     {'id': 'oval', 'match': ['Olympic Oval'], 'name': 'Olympic Oval', 'kind': 'Sports venue', 'area': 'University and Motel Village', 'lat': 51.07702, 'lon': -114.13577, 'indoor': True,
      'what': 'The 1988 Olympic speed skating oval at the University of Calgary, with public skating sessions on the fast ice.', 'url': 'https://oval.ucalgary.ca/', 'fit': ['cold', 'wet', 'cool']},
     {'id': 'spruce', 'name': 'Spruce Meadows', 'kind': 'Sports venue', 'area': 'South', 'lat': 50.88617, 'lon': -114.10056, 'indoor': False,
-     'what': 'The show jumping grounds at the south edge of the city, with tournaments from June to September (the Masters in September), Cavalry FC soccer from April to October and the Christmas Market in November.', 'url': 'https://www.sprucemeadows.com/', 'fit': ['warm', 'cool']},
+     'what': 'The show jumping grounds at the south edge of the city, with tournaments from June to September (the Masters in September), Cavalry FC soccer from April to October, the GlobalFest fireworks in August (from 2027) and the Christmas Market from mid-November.', 'url': 'https://www.sprucemeadows.com/', 'fit': ['warm', 'cool']},
     {'id': 'calaway', 'name': 'Calaway Park', 'kind': 'Theme park', 'area': 'West and northwest', 'lat': 51.08606, 'lon': -114.35856, 'indoor': False,
      'what': 'Western Canada\'s largest outdoor family amusement park, just west of the city on the Trans-Canada Highway, open from May to October.', 'url': 'https://www.calawaypark.com/', 'fit': ['warm']},
     {'id': 'lougheed', 'name': 'Lougheed House', 'kind': 'Historic site', 'area': 'Beltline and Stampede Park', 'lat': 51.0406, 'lon': -114.07717, 'indoor': True,
-     'what': 'The 1891 sandstone mansion of Senator James Lougheed in the Beltline, a National Historic Site with gardens and a restaurant; the house is closed in January.', 'url': 'https://www.lougheedhouse.com/', 'fit': ['cold', 'wet', 'cool', 'warm']},
+     'what': 'The 1891 sandstone mansion of Senator James Lougheed in the Beltline, a National Historic Site with gardens; the house is closed in January.', 'url': 'https://www.lougheedhouse.com/', 'fit': ['cold', 'wet', 'cool', 'warm']},
     {'id': 'farmers', 'name': "Calgary Farmers' Market", 'kind': 'Market', 'area': 'South', 'lat': 50.98512, 'lon': -114.05156, 'indoor': True,
      'what': 'Indoor markets open all year: the South market on 77 Avenue SE, Thursday to Sunday, and the West market at Greenbriar, Wednesday to Sunday.', 'url': 'https://calgaryfarmersmarket.ca/', 'fit': ['cold', 'wet', 'cool']},
     {'id': 'pathways', 'name': 'The Bow River pathway', 'kind': 'Pathway', 'area': 'Downtown', 'lat': 51.0500, 'lon': -114.0600, 'indoor': False,
@@ -140,8 +140,8 @@ MONTHS = [
     (2, 'February', 'Still cold, with the most sunshine of the winter months and the Chinook Blast festival downtown.',
      [('Chinook Blast', 'Light art, music and winter sport downtown through mid-February (January 30 to February 16 in 2026)', 'https://www.chinookblast.ca/'), ('Family Day weekend', 'The Alberta long weekend in the middle of the month', 'https://www.alberta.ca/alberta-general-holidays'),
       ('Skiing and tubing', 'WinSport in the city; Banff, Lake Louise and Nakiska within two hours', 'https://www.winsport.ca/')]),
-    (3, 'March', 'Melting and freezing by turns; the restaurant festival and the end of the hockey regular season.',
-     [('Big Taste', 'The restaurant festival\'s set menus across the city', 'https://www.bigtastecalgary.com/'), ('Calgary Roughnecks lacrosse', 'National Lacrosse League games at the Saddledome, December to May', 'https://calgaryroughnecks.com/')]),
+    (3, 'March', 'Melting and freezing by turns, and the end of the hockey regular season.',
+     [('Calgary Roughnecks lacrosse', 'National Lacrosse League games at the Saddledome, December to May', 'https://calgaryroughnecks.com/')]),
     (4, 'April', 'Spring arrives, with snow still possible; the comic expo and the start of the outdoor season.',
      [('Calgary Expo', 'The comic and entertainment expo at Stampede Park', 'https://fanexpohq.com/calgaryexpo/'), ('Cavalry FC', 'Canadian Premier League soccer at Spruce Meadows, April to October', 'https://www.cplsoccer.com/cavalryfc'),
       ('Stanley Cup playoffs', 'If the Flames are in, 17 Avenue becomes the Red Mile', 'https://www.nhl.com/flames')]),
@@ -156,8 +156,8 @@ MONTHS = [
      [('Calgary Stampede', 'July 9 to 18, 2027: the rodeo, chuckwagons, the parade on the first Friday, the midway and the evening show (July 3 to 12 in 2026)', 'https://www.calgarystampede.com/'),
       ('Canada Day', 'July 1 celebrations downtown and in the parks', 'https://www.calgary.ca/events/canada-day.html'), ('Calgary Folk Music Festival', 'Four days on Prince\'s Island at the end of July', 'https://www.calgaryfolkfest.com/'),
       ('Calgary International Blues Festival', 'Late July or early August', 'https://www.calgarybluesfest.com/')]),
-    (8, 'August', 'Warm days and cool nights, fireworks over Elliston Park and the Fringe.',
-     [('GlobalFest', 'The international fireworks competition and cultural pavilions at Elliston Park', 'https://www.globalfest.ca/'), ('Calgary Fringe Festival', 'Theatre in Inglewood, early August', 'https://www.calgaryfringe.ca/'),
+    (8, 'August', 'Warm days and cool nights, GlobalFest\'s fireworks and the Fringe.',
+     [('GlobalFest', 'The international fireworks competition and cultural pavilions, held at Spruce Meadows from 2027 after 24 years at Elliston Park', 'https://www.globalfest.ca/'), ('Calgary Fringe Festival', 'Theatre in Inglewood, early August', 'https://www.calgaryfringe.ca/'),
       ('Taste of Calgary', 'The food festival downtown', 'https://tasteofcalgary.com/'), ('Calgary Pride', 'The parade and festival at the end of August into September', 'https://calgarypride.ca/')]),
     (9, 'September', 'Often the finest weather of the year: warm, dry days; the Masters and the film festival.',
      [('Spruce Meadows Masters', 'The show jumping tournament in the first half of September', 'https://www.sprucemeadows.com/'), ('Calgary International Film Festival', 'Eleven days of films at the end of September', 'https://www.ciffcalgary.ca/'), ('Larch season', 'The larches turn gold in the mountains in the last two weeks', 'https://parks.canada.ca/pn-np/ab/banff')]),
@@ -165,7 +165,7 @@ MONTHS = [
      [('Flames opening night', 'The NHL season opens', 'https://www.nhl.com/flames'), ('Wordfest', 'The writers\' festival downtown', 'https://wordfest.com/'),
       ('Thanksgiving weekend', 'Heritage Park\'s last weekend of the summer season', 'https://heritagepark.ca/'), ('Halloween at the zoo and Heritage Park', 'Family events through the month', 'https://www.calgaryzoo.com/')]),
     (11, 'November', 'Winter sets in; the Christmas markets open and Zoolights begins.',
-     [('Spruce Meadows International Christmas Market', 'Weekends from mid-November', 'https://www.sprucemeadows.com/'), ('Zoolights', 'From mid-November to early January', 'https://www.calgaryzoo.com/'),
+     [('Spruce Meadows International Christmas Market', 'Weekends from mid-November (in 2026 through December 6)', 'https://www.sprucemeadows.com/'), ('Zoolights', 'From mid-November to early January', 'https://www.calgaryzoo.com/'),
       ('Grey Cup', 'If the Stampeders reach it, the CFL final in late November', 'https://stampeders.com/')]),
     (12, 'December', 'Short, bright days; lights, skating and the markets.',
      [('Zoolights', 'Every evening at the zoo', 'https://www.calgaryzoo.com/'), ('Skating opens', 'Bowness Park lagoon and the outdoor rinks when the ice is ready', 'https://www.calgary.ca/parks/activities/outdoor-skating-rinks.html'),
@@ -173,7 +173,7 @@ MONTHS = [
 ]
 
 GETTING_AROUND = [
-    ('From the airport', 'Calgary International Airport (YYC) is 17 km northeast of downtown. Calgary Transit\'s Route 300 bus runs between the airport and downtown along Centre Street for the regular adult fare, about 45 to 55 minutes; Route 100 links the airport to the Blue Line CTrain. A taxi to downtown is about $40 to $50 and 25 to 35 minutes; rideshares pick up at the terminal.',
+    ('From the airport', 'Calgary International Airport (YYC) is 17 km northeast of downtown. Calgary Transit\'s Route 500 Airport Express bus (Route 300 until August 2026) runs between the airport and downtown along Centre Street for the regular adult fare, about 45 to 55 minutes; Route 100 links the airport to the Blue Line CTrain. A taxi to downtown is about $40 to $50 and 25 to 35 minutes; rideshares pick up at the terminal.',
      'https://yyc.com/Transportation'),
     ('Calgary Transit', 'In 2026 an adult single fare is $4.00 (valid 90 minutes), a day pass $12.65, youth $2.65 and children 12 and under ride at no charge; buy fares with Calgary Transit\'s My Fare on a phone or at CTrain stations. The Red and Blue CTrain lines cross downtown along 7 Avenue, where a trip between the downtown stations costs nothing.',
      'https://www.calgarytransit.com/fares---passes.html'),
@@ -473,5 +473,5 @@ def build(cache_dir, today=None, force=False):
     out['stats'] = [{'n': a, 'what': b, 'source': c} for a, b, c in STATS]
     out['areas_about'] = [{'area': a, 'about': b} for a, b, _ in AREAS]
     out['sources'] = SOURCES
-    out['checked'] = '2026-11-09'
+    out['checked'] = '2026-11-16'
     return out

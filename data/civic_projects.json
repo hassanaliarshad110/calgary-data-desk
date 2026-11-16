@@ -1,6 +1,6 @@
 {
  "note": "City facilities and pathways being built or planned that the Government of Alberta's Major Projects inventory does not list (it covers $5 million and up, and misses some City projects), checked by hand against the City's or the library's own page. Each one is placed by its community (comm) and shown in that community's ward. 'measured' says which Growth vs amenities amenity it adds when it opens; 'opens' (YYYY) and 'funded' decide whether the Forecast to 2030 counts it. The weekly check reviews every entry.",
- "checked": "2026-11-09",
+ "checked": "2026-11-16",
  "projects": [
   {
    "title": "Skyview Library",
@@ -73,6 +73,31 @@
    ],
    "match": [
     "Hotchkiss Fire"
+   ]
+  },
+  {
+   "title": "Walden fire station and library",
+   "kind": "Fire station and library",
+   "owner": "Calgary Fire Department and Calgary Public Library",
+   "amenity": true,
+   "measured": "library",
+   "status": "Under construction (began October 2026)",
+   "budget": "$34.2 million (estimate)",
+   "cost": 34200000,
+   "completion": "Expected to open in 2028",
+   "opens": 2028,
+   "funded": true,
+   "expected_by": "2028-12",
+   "address": "969 Walden Drive SE: a permanent two-bay fire station (about 15,000 sq. ft.) and a Calgary Public Library location (about 11,000 sq. ft.) in one building",
+   "comm": "WAL",
+   "url": "https://www.calgary.ca/planning/projects/walden-fire-station-and-library.html",
+   "sources": [
+    "https://newsroom.calgary.ca/construction-begins-on-walden-fire-station-and-library/",
+    "https://www.calgary.ca/planning/projects/walden-fire-station-and-library.html"
+   ],
+   "match": [
+    "Walden Library",
+    "Walden Fire"
    ]
   },
   {
