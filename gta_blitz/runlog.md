@@ -11,3 +11,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T14:52:24Z | topic claimed | #2 FACT PS5 + GTA 6 total bill / EMI months (slug ps5-emi)
 2026-11-16T14:59:54Z | voice done | 8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions
 2026-11-16T15:04:58Z | rendered | short1_fs.mp4 1080x1920 49.3 s, -14.4 LUFS, all scenes native portrait
+2026-11-16T15:06:17Z | check verdict | APPROVED round 1 (independent agent; all 8 claims verified); contact sheet: picture fills all 5 frames
