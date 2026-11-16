@@ -41,7 +41,7 @@ date,day,slot,type,skill,category,topic,length,format
 2026-11-21,Sat,FLAGSHIP,flagship,calgary-storyteller,Calgary story,"The Chinook: the warm wind that can lift Calgary's temperature dramatically in hours, and what it does to the city",60-120 s,1080x1920 Short + 1920x1080 YouTube + teaser
 2026-11-21,Sat,PM,quick-insight,calgary-data-explainer,Fun fact,The Calgary Flames' 1989 Stanley Cup,15-35 s,1080x1920 vertical
 2026-11-22,Sun,AM,quick-insight,calgary-data-explainer,Fun fact,The white cowboy hat and the 1948 Grey Cup,15-35 s,1080x1920 vertical
-2026-11-22,Sun,PM,quick-insight,calgary-data-explainer,Nature & science,"Calgary's rock is too young for dinosaurs: the bedrock under the city formed after they died out, and it holds early mammal fossils instead (verify the formation, its age and the fossil finds with the Alberta Geological Survey / Royal Tyrrell Museum)",15-35 s,1080x1920 vertical
+2026-11-22,Sun,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's sister cities around the world,15-35 s,1080x1920 vertical
 2026-11-23,Mon,AM,quick-insight,calgary-data-explainer,Fun fact,Calgary's first mayor,15-35 s,1080x1920 vertical
 2026-11-23,Mon,FLAGSHIP,flagship,calgary-storyteller,Calgary story,From 1894 to today: how annexation grew Calgary from a small town into one of Canada's largest cities by land area,60-120 s,1080x1920 Short + 1920x1080 YouTube + teaser
 2026-11-23,Mon,CIVIC,civic,calgary-storyteller,Calgary news,"Calgary news explained: the biggest Calgary story of the past two days, picked at run time and explained neutrally",30-60 s,1080x1920 vertical
@@ -54,7 +54,7 @@ date,day,slot,type,skill,category,topic,length,format
 2026-11-25,Wed,CIVIC,civic,calgary-storyteller,Calgary news,"Calgary news explained: the biggest Calgary story of the past two days, picked at run time and explained neutrally",30-60 s,1080x1920 vertical
 2026-11-25,Wed,PM,quick-insight,calgary-data-explainer,Fun fact,The big blue ring: Calgary's most argued-about sculpture,15-35 s,1080x1920 vertical
 2026-11-26,Thu,AM,quick-insight,calgary-data-explainer,Fun fact,The Bow tower's crescent shape,15-35 s,1080x1920 vertical
-2026-11-26,Thu,PM,quick-insight,calgary-data-explainer,Nature & science,"Calgary once had an inland sea to its east: the ancient seaway that covered much of Alberta, and the sea reptiles found in Alberta rock (verify with the Royal Tyrrell Museum / Alberta Geological Survey; say 'Alberta', not 'under Calgary', unless a source says so)",15-35 s,1080x1920 vertical
+2026-11-26,Thu,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's tallest building,15-35 s,1080x1920 vertical
 2026-11-27,Fri,AM,quick-insight,calgary-data-explainer,Fun fact,Telus Spark: Calgary's science centre,15-35 s,1080x1920 vertical
 2026-11-27,Fri,FLAGSHIP,flagship,calgary-storyteller,Calgary story,"June 2013: the flood that reshaped Calgary, and the reservoirs and barriers built since",60-120 s,1080x1920 Short + 1920x1080 YouTube + teaser
 2026-11-27,Fri,CIVIC,civic,calgary-storyteller,Calgary news,"Calgary news explained: the biggest Calgary story of the past two days, picked at run time and explained neutrally",30-60 s,1080x1920 vertical
@@ -79,7 +79,7 @@ date,day,slot,type,skill,category,topic,length,format
 2026-12-03,Thu,PM,quick-insight,calgary-data-explainer,Fun fact,Stampede pancake breakfasts,15-35 s,1080x1920 vertical
 2026-12-04,Fri,AM,quick-insight,calgary-data-explainer,Fun fact,Why Calgary is called Cowtown,15-35 s,1080x1920 vertical
 2026-12-04,Fri,CIVIC,civic,calgary-storyteller,Calgary news,"Calgary news explained: the biggest Calgary story of the past two days, picked at run time and explained neutrally",30-60 s,1080x1920 vertical
-2026-12-04,Fri,PM,quick-insight,calgary-data-explainer,Myth or fact,The downtown tunnel legend: myth or fact? Calgary's real utility and service tunnels vs the stories of a secret tunnel city (only what records or reputable reporting confirm; call the rest a legend),15-35 s,1080x1920 vertical
+2026-12-04,Fri,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's off-leash dog parks,15-35 s,1080x1920 vertical
 2026-12-05,Sat,AM,quick-insight,calgary-data-explainer,Fun fact,Calgary's outdoor community rinks,15-35 s,1080x1920 vertical
 2026-12-05,Sat,FLAGSHIP,flagship,calgary-storyteller,Calgary story,"Zoolights and the Calgary Zoo: a century on St. George's Island, floods included",60-120 s,1080x1920 Short + 1920x1080 YouTube + teaser
 2026-12-05,Sat,PM,quick-insight,calgary-data-explainer,Fun fact,"Edworthy Park's Douglas firs, far from home",15-35 s,1080x1920 vertical
@@ -125,7 +125,7 @@ date,day,slot,type,skill,category,topic,length,format
 2026-12-18,Fri,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's ski hill inside city limits,15-35 s,1080x1920 vertical
 2026-12-19,Sat,AM,quick-insight,calgary-data-explainer,Fun fact,The Bow River's world-famous trout fishing,15-35 s,1080x1920 vertical
 2026-12-19,Sat,FLAGSHIP,flagship,calgary-storyteller,Calgary story,"The Peace Bridge: the red bridge Calgary argued about, and how it is used today",60-120 s,1080x1920 Short + 1920x1080 YouTube + teaser
-2026-12-19,Sat,PM,quick-insight,calgary-data-explainer,Hidden Calgary,"Calgary's lost creeks: streams that were piped or buried as the city grew (name only creeks a City or historical source documents; if none can be confirmed, use another verified fun fact instead)",15-35 s,1080x1920 vertical
+2026-12-19,Sat,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's urban beekeepers and bees,15-35 s,1080x1920 vertical
 2026-12-20,Sun,AM,quick-insight,calgary-data-explainer,Fun fact,Prairie dogs? No: Calgary's ground squirrels,15-35 s,1080x1920 vertical
 2026-12-20,Sun,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's mule deer and moose sightings,15-35 s,1080x1920 vertical
 2026-12-21,Mon,AM,quick-insight,calgary-data-explainer,Fun fact,Daylight on Calgary's shortest day of the year,15-35 s,1080x1920 vertical
@@ -159,7 +159,7 @@ date,day,slot,type,skill,category,topic,length,format
 2026-12-30,Wed,AM,quick-insight,calgary-data-explainer,Hidden Calgary,"Calgary's Cold War bunker: the emergency-government and civil-defence shelters built for a nuclear attack (verify exactly what existed in or near Calgary with archives and reputable sources; if nothing can be confirmed, say so and use another verified fun fact)",15-35 s,1080x1920 vertical
 2026-12-30,Wed,ORIGINS,origins,calgary-origins-documentary,Calgary Origins,"Ep 8: Ringing in the New Year: how Calgary has welcomed each new year, from frontier Hogmanay to downtown fireworks",~10 min film + 4 parts,1920x1080 film + 4 x 1080x1920 parts (Parts 2-4 posted Thu/Fri/Sat 10:00)
 2026-12-30,Wed,CIVIC,civic,calgary-storyteller,Calgary news,"Calgary news explained: the biggest Calgary story of the past two days, picked at run time and explained neutrally",30-60 s,1080x1920 vertical
-2026-12-30,Wed,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's tallest building,15-35 s,1080x1920 vertical
-2026-12-31,Thu,AM,quick-insight,calgary-data-explainer,Fun fact,Calgary's off-leash dog parks,15-35 s,1080x1920 vertical
+2026-12-30,Wed,PM,quick-insight,calgary-data-explainer,Fun fact,"Open pick: a surprising, verified Calgary fun fact or mini-story not used before",15-35 s,1080x1920 vertical
+2026-12-31,Thu,AM,quick-insight,calgary-data-explainer,Fun fact,"Open pick: a surprising, verified Calgary fun fact or mini-story not used before",15-35 s,1080x1920 vertical
 2026-12-31,Thu,FLAGSHIP,flagship,calgary-storyteller,Calgary story,The Big Four: the four ranchers who bankrolled the first Calgary Stampede in 1912,60-120 s,1080x1920 Short + 1920x1080 YouTube + teaser
 2026-12-31,Thu,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's coldest and warmest New Year's Eves on record,15-35 s,1080x1920 vertical
