@@ -1196,9 +1196,14 @@
     ],
     "file": "why-its-called-calgary-youtube.mp4",
     "publish_at": "2026-11-15T17:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "facebook": "https://facebook.com/122097271263547631/posts/1797916081511942",
+     "youtube": "https://www.youtube.com/watch?v=lpCOreVvGEQ"
+    },
+    "confirmed_by": "2026-11-16 CIVIC run"
    }
   ],
   "pending_link": [
@@ -1387,11 +1392,95 @@
      "youtube"
     ],
     "publish_at": "2026-11-15T19:00",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "note": "18:30 slot moved to 19:00: a YouTube Short (budget Part 3) is scheduled at 18:00; kept 60 min apart. YouTube 24 h count 8 incl. this."
+    "note": "18:30 slot moved to 19:00: a YouTube Short (budget Part 3) is scheduled at 18:00; kept 60 min apart. YouTube 24 h count 8 incl. this.",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1665273138536271",
+     "instagram": "https://www.instagram.com/reel/DfyIgK_CFPw/",
+     "youtube": "https://www.youtube.com/shorts/rf5pNogIHGs"
+    },
+    "confirmed_by": "2026-11-16 CIVIC run"
    }
   ]
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "CIVIC",
+  "type": "civic",
+  "category": "Calgary news",
+  "title": "Edmonton won the Grey Cup in Calgary: what happened",
+  "topic_used": "113th Grey Cup result at McMahon Stadium, Sun Nov 15, 2026: Elks 37, Alouettes 30; Elks' first since 2015 and 15th title; Cody Fajardo Grey Cup MVP; sixth Grey Cup held in Calgary, first since 2019; 114th Grey Cup in Regina in 2027; CFL field shortened from 2027.",
+  "changed_from_calendar": null,
+  "why_this_story": "Most-talked-about Calgary story of the past 48 h (national coverage of the final played in Calgary). Follow-up to the Nov 13 preview: the result is new. Budget and water restrictions were covered recently.",
+  "central_figure": "Elks 37, Alouettes 30 at McMahon Stadium (TSN, theScore, Nov 15, 2026)",
+  "sources": [
+   "https://www.tsn.ca/cfl/article/fajardo-elks-take-down-alouettes-claim-113th-grey-cup/",
+   "https://www.thescore.com/cfl/news/3470949/elks-beat-alouettes-to-claim-1-st-grey-cup-since-2015",
+   "https://calgaryjournal.ca/2026/11/15/%F0%9F%94%B4-live-grey-cup-113-in-calgary/",
+   "https://www.visitcalgary.com/events/113th-grey-cup-festival",
+   "https://www.tsn.ca/cfl/article/regina-to-host-114th-grey-cup-in-2027/",
+   "https://globalnews.ca/news/11496475/grey-cup-regina-2027-hosting",
+   "https://www.cbc.ca/lite/story/1.7640149",
+   "https://3downnation.com/2025/09/22/cfl-modifies-rouge-and-clock-for-2026-shortens-field-and-moves-uprights-for-2027/"
+  ],
+  "link": "https://calgaryinsight.ca/news/2026-11-15-calgary-hosts-the-113th-grey-cup-as-montreal-and-edmonton-meet-at-mcma/?utm_source=facebook&utm_medium=social&utm_campaign=elks-win-grey-cup-in-calgary",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate; the article is in news/index.json (Nov 15) and the Website build run 226 (Nov 16 11:12 UTC) succeeded after it was published.",
+  "length_s": 37.9,
+  "video_path": "studio-videos/2026-11-16-CIVIC/elks-win-grey-cup-in-calgary.mp4",
+  "thumbnail_path": "studio-videos/2026-11-16-CIVIC/elks-win-grey-cup-in-calgary-thumb.jpg",
+  "package": "packages/2026-11-16-CIVIC-elks-win-grey-cup-in-calgary.md",
+  "identity": "Civic Analyst lead + Storyteller dusk drone + Data Explainer counters",
+  "audit": {
+   "rounds": 1,
+   "claims_checked": 8,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-16-CIVIC.md"
+  },
+  "qc": {
+   "stills": "pass (after layout fixes)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "hook re-stacked to three lines",
+    "MVP card redrawn",
+    "chips and labels moved above caption band",
+    "score counters start early (no 0-0 frame)",
+    "closing hold 0.35 s to keep the ending at 3.98 s"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 430566515,
+    "uuid": "7721943759174585409",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7721943759174585409",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-16T15:00",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   }
+  ],
+  "post_note": "Scheduled for the fixed 15:00 news slot; YouTube 24 h count 4 incl. this; no other Calgary Insight post within 60 min. Due >30 min after scheduling, so the next run confirms it (section 1)."
  }
 ]
