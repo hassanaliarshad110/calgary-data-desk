@@ -37,3 +37,6 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T22:52:00Z | started | run 6 (scheduled)
 2026-11-16T22:52:07Z | topic claimed | #5 FACT car chori GTA vs BNS saza (slug car-chori-saza), retry after run 5 release
 2026-11-16T23:01:18Z | check round 1 | PROBLEMS: n06 'chot lagi' too broad for s.309(6) (needs voluntarily caused hurt) -> 'jaan-boojhkar chot pahunchaayi'; n03 adds 'jaan ya chot ka darr'. Sources: advocatekhoj BNS s.309 (read) + caseon.in s.309 (read by checker). Re-voicing
+2026-11-16T23:11:52Z | voice done | 9/9 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 after check round 1)
+2026-11-16T23:11:52Z | rendered | short1_fs.mp4 1080x1920 53.2 s, -14.4 LUFS, all scenes native portrait; contact sheet: picture fills all 5 frames
+2026-11-16T23:11:52Z | check verdict | APPROVED round 2 (fresh independent agent read advocatekhoj + caseon BNS s.309; all claims verified, high confidence)
