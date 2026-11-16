@@ -21,3 +21,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T17:15:51Z | scheduled | Metricool uuid 1356014357519483025 at 2026-11-17 00:30 IST (1:00 PM Regina, 16 Nov); topic 3 posted; files in gta_blitz/mahabharat-map/
 2026-11-16T18:51:47Z | started | run 4 (scheduled)
 2026-11-16T18:51:55Z | topic claimed | #4 FACT Rockstar India Bengaluru (slug rockstar-india)
+2026-11-16T18:55:05Z | check round 1 | PROBLEMS: on-screen hook 'GTA ki gaadiyan Bengaluru mein bani?' overstated (no game named, 'made') -> hook names GTA V + 'haath'; n06 tightened to 'ek job post'. Re-voicing h1o/n06
