@@ -5,7 +5,9 @@
    "id": 1,
    "type": "FACT",
    "idea": "GTA 6 ki keemat = kitne din ki salary? (India price vs median monthly pay)",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-16T13:05Z",
+   "slug": "salary-days"
   },
   {
    "id": 2,
