@@ -376,3 +376,14 @@ See audit_v2.md: round 1 CHANGES NEEDED (teaser line implied dozens of people ar
 | Files | full 1920×1080 268.8 s 82 MB; teaser 1080×1920 37.1 s; Part 1 78.2 s; Part 3 87.3 s; all 30 fps H.264 + AAC 48 kHz |
 | Contact sheets | every changed output reviewed; fixed before posting: HUD objective box under the header, chat bubbles under labels, group shot re-shot (players too far, business sign), boarding re-shot, portrait group re-framed |
 | Covers / thumbnail | unchanged (a multiplayer Part 3 cover was tried and was less readable than the current one) |
+
+### Metricool (brand 7089421, America/Edmonton), swapped Nov 15-16, 2026
+| Post | Time Nov 18 | uuid (unchanged) | new id | media now |
+|---|---|---|---|---|
+| Teaser (FB Reel + IG Reel + YT Short) | 08:00 | -4106170589206459640 | 429459827 | gta6-eve-teaser-v2.mp4 |
+| Full, YouTube | 11:00 | 8813243528655556352 | 429459982 | gta6-eve-full-v2.mp4 |
+| Full, Facebook video | 13:00 | -6850499379735608285 | 429460070 | gta6-eve-full-v2.mp4 |
+| Part 1 | 15:00 | -6050349263285304598 | 429460251 | gta6-eve-part1-v2.mp4 |
+| Part 2 | 17:30 | 4290377413255446574 | 428868677 | unchanged |
+| Part 3 | 20:00 | 4084820982645016873 | 429460288 | gta6-eve-part3-v2.mp4 |
+Times, networks, titles, first comments and cover images kept; texts updated as in posts_v2.json (no numerals added; "Not affiliated with Rockstar Games." kept where it was).
