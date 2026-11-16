@@ -49,15 +49,16 @@
    "id": 5,
    "type": "FACT",
    "idea": "GTA mein jo karte ho, Bharat mein kitni saza? (car chori - BNS)",
-   "status": "making",
-   "started": "2026-11-16T20:52Z",
-   "slug": "car-chori-saza"
+   "status": "todo",
+   "note": "run 5 (16 Nov 21:0xZ) released it: web page fetches were blocked (permission prompt unanswered in the unattended run), so no source could be read; retry when page reading works"
   },
   {
    "id": 6,
    "type": "FAN-THEORY",
    "idea": "Agar GTA ka next map Mumbai hota? Fan theory",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-16T20:58Z",
+   "slug": "mumbai-map"
   },
   {
    "id": 7,

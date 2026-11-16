@@ -28,3 +28,5 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T19:06:20Z | scheduled | Metricool uuid 5489154610813944320 at 2026-11-17 02:30 IST (3:00 PM Regina, 16 Nov); topic 4 posted; files in gta_blitz/rockstar-india/
 2026-11-16T20:52:11Z | started | run 5 (scheduled)
 2026-11-16T20:52:22Z | topic claimed | #5 FACT car chori GTA vs BNS saza (slug car-chori-saza)
+2026-11-16T20:58:44Z | topic released | #5 back to todo: page fetches blocked (WebFetch permission prompt unanswered in unattended run), BNS text could not be read -> no sourced FACT possible this run
+2026-11-16T20:58:44Z | topic claimed | #6 FAN-THEORY Agar GTA ka next map Mumbai hota (slug mumbai-map); only common-knowledge real details
