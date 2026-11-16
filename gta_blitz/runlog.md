@@ -5,3 +5,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T13:05:18Z | topic claimed | #1 FACT GTA 6 price vs monthly pay (slug salary-days)
 2026-11-16T13:13:20Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions
 2026-11-16T13:18:14Z | check round 1 | PROBLEMS: spoken hook said 'kitne din kaam' but maths is calendar days of earnings -> re-voicing hook as 'kitne din ki kamaai lagegi'
+2026-11-16T13:20:25Z | rendered | short1_fs.mp4 1080x1920 53.5 s; check round 2 APPROVED
