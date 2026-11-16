@@ -11,6 +11,7 @@
 - Full quality: libx264 crf 18, 30 fps, AAC 192k, -14 LUFS-ish mix. Don't compromise quality for speed.
 
 ## Order + time (India + Pakistan prime time; no DST there)
+- NOTE (Nov 16, 2026): the times below are the OLD Nov 12 order. The "Daily-run schedule" section further down (Short 19:30 · IG Reel + FB Reel 19:35 · full 16:9 19:40 Asia/Karachi, NO TikTok) is the one in force.
 - **The full 16:9 YouTube video goes out FIRST: 18:00 Asia/Karachi** (= 18:30 IST).
 - Then the YouTube Short **19:30** and IG Reel + FB Reel + TikTok **19:35** — their captions/descriptions must **link to the full YouTube video** ("Poora episode dekhein 👉 <full video URL>").
 - The full video's URL only exists after it publishes, so: schedule the Short/Reels with the channel link, then after 18:00 PKT read the full video's publicUrl (getScheduledPosts shows it once published) and update the Short/Reels text with it (use send_later to wake the session at ~13:10 UTC).
@@ -69,3 +70,10 @@ Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param
 - Before publishing, for every dialogue line measure voice stem vs music+SFX stem over the line's span in the 300-3400 Hz band: voice >= 10 dB louder. Fix and re-mix any failing line. (episodes/ep6/ep6_audio.py does this automatically and writes dialogue_check.json.)
 - Final mix -14 LUFS, true peak -1 dB. Same for the 16:9 version and the Shorts.
 - NO WHEEZE (Hassan, Nov 15, 2026 — Ep 6 v1 "sound effect distort voice… wheezing"): never use continuous noise beds (crowd/street/birds noise) or shaker/breath noise in the score; never let ANY SFX overlap a spoken line (SFX only in the gaps — ep6_audio.py trims/drops them automatically); duck the music smoothly over whole lines (no word-by-word pumping); no hard limiter on the master — normalise each line by RMS, gentle 2.5:1 voice compression, one static gain to -14 LUFS and only a look-ahead peak trim on rare overs (episodes/ep6/finalize_mix.py). Keep Sakina's sob vibrato light (vibrato f=5 d=0.12). Check: HF noise (4-10 kHz) in pauses between lines should be below -60 dBFS (Ep 6 v1 was -30, v2 is -71).
+
+## Daily-run checklist (kept in one place, Nov 16, 2026)
+- Facebook: separate post, provider facebook only, no YouTube URL in the caption ("▶️ Poora episode YouTube par: Susuman channel"), link only in firstCommentText.
+- No TikTok (never add the tiktok provider).
+- Secret hook first: opening text hook, first spoken line, the Short's first caption line and every caption lead with "Mama ko nahi pata… Qasim hi hai SUUU-SUUU-MAN! 🤫", then the episode's problem.
+- Family rules: Mama (never Ammi) in every line/chip/title/caption; Baba regularly (doesn't know the secret); Sakina's crying-girl gag in most episodes, sometimes backfiring.
+- Sound rule: score + every SFX ducked under dialogue, SFX only in the gaps, every line's voice >= 10 dB over music+SFX (300-3400 Hz) — epN_audio.py + finalize_mix.py write dialogue_check.json; -14 LUFS, -1 dBTP; same mix for the Short and the 16:9 video.

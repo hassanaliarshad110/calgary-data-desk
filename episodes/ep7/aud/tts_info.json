@@ -1,0 +1,122 @@
+{
+ "kokoro": {
+  "q1": {
+   "dur": 2.368,
+   "ph": "nˈʌhĩ! ĩɟˈeːkʃən nˈʌhĩ! mˌʊɟʰeː ɖˈʌɾ lˈʌɡtˌaː hɛː!"
+  },
+  "q3": {
+   "dur": 1.707,
+   "ph": "mˈaːnoː! ɖˈʌɾoː mˈʌt, mɛ̃ ˈaː ɡˈʌjaː!"
+  },
+  "q4": {
+   "dur": 2.944,
+   "ph": "sˈʌc bətˈaːũ? mˌʊɟʰeː bʰˈi ĩɟˈeːkʃən seː ɖˈʌɾ lˈʌɡtˌaː hɛː..."
+  },
+  "q5": {
+   "dur": 2.667,
+   "ph": "pˈʌɾ cˈʌloː, dˈoːnõ sˈaːtʰ mẽː bəhˈaːdʊɾ bˈʌntˌeː hɛ̃!"
+  },
+  "q7": {
+   "dur": 1.664,
+   "ph": "ʈʰˈiːk hɛː... mɛ̃ bʰˈi bəhˈaːdʊɾ hũ!"
+  },
+  "q8": {
+   "dur": 1.173,
+   "ph": "bˈʌs? ˈɪtnˌaː sˈaː?!"
+  },
+  "k1": {
+   "dur": 3.499,
+   "ph": "mˈaːmaː! mˈaːnoː bʰˈi bimˈaːɾ hɛː... kˈʌl seː kˈʊcʰ nˈʌhĩ kʰˈaːjaː!"
+  },
+  "k3": {
+   "dur": 3.968,
+   "ph": "maːmˈaːː... mˌʊɟʰeː bʰˈi ɖˈʌɾ lˈʌɡ ɾˌəhaː hˈɛːː... mˌeːɾaː hˈaːtʰ pˌəkr.ˈoːː..."
+  },
+  "k4": {
+   "dur": 2.987,
+   "ph": "maːmˈaːː... mˌʊɟʰeː ĩɟˈeːkʃən nˈʌhĩ lˌəɡʋaːnˈaːː..."
+  }
+ },
+ "edge": {
+  "n1b": "ok",
+  "a1": "ok",
+  "b1": "ok",
+  "a2": "ok",
+  "l1": "ok",
+  "d1": "NoAudioReceived('No audio was received. Please verify that your parameters are correct.')",
+  "a4": "ok",
+  "a6": "ok",
+  "l2": "ok",
+  "l3": "ok",
+  "a8": "ok",
+  "b2": "ok",
+  "n3": "ok"
+ },
+ "asr": {
+  "n1b": {
+   "en": "But today our hero is scared of a small take.",
+   "ur": "لیکن آج ہمارا ہی رو ایک چھوٹے سے ٹیکہ سے در رہا ہے",
+   "hi": "लिकिन आज हमारा हीरो एक चोटे से टेके से दर रहा है"
+  },
+  "a1": {
+   "en": "Kasim, Chulukalinik has to take your place today.",
+   "ur": "کاسم، چلو کلینک آج تمہارا ٹیکہ لگنا ہے",
+   "hi": "खासिम, चुलु कलीनिक आज तुमहारा तेका लगना है"
+  },
+  "b1": {
+   "en": "Oh my lion son, I will also go with you.",
+   "ur": "ارے میرا شیر بیٹا میں بھی ساتھ چلوں گا",
+   "hi": "एरे मेरा शेर बेटा, मैं भी साथ चिलोंगा"
+  },
+  "a2": {
+   "en": "Let's take good people to the clinic as well.",
+   "ur": "اچھا مانوں کو بھی کلینک لے چلتے ہیں",
+   "hi": "अच्छा मानु को भी कलीनिक ले चलते हैं"
+  },
+  "l1": {
+   "en": "Come, come. First listen to me, then listen to me.",
+   "ur": "آئیے آئیے پہلے مانو کی باری پھر قاسم کی",
+   "hi": "आये आये पहले मानु की बारी फिर कासिन की"
+  },
+  "d1": {
+   "en": "",
+   "ur": "",
+   "hi": ""
+  },
+  "a4": {
+   "en": "Pehle Tikka Peh",
+   "ur": "پہلے ٹیکہ پھر",
+   "hi": "पहले तेका फिर"
+  },
+  "a6": {
+   "en": "Arre arre rona bandh. Aav meri bahadur beti.",
+   "ur": "آرے آرے رونا بند آو میری بہادور بیٹی",
+   "hi": "औरे औरे रोना बन्द आव मेरी बहादुर भेटी"
+  },
+  "l2": {
+   "en": "Look, the human dog is dead. And he didn't even cry.",
+   "ur": "دیکھو، مانوں کوٹے کا لگیا اور وہ روی بھی نہیں۔",
+   "hi": "देखो मानो कुत्ते का लग्या और वो रूई भी नहीं"
+  },
+  "l3": {
+   "en": "Dr. Dushman nahi, Dost hote hain.",
+   "ur": "دکتر دشمن نہیں، دوست ہوتے ہیں",
+   "hi": "दुक्तर दुश्मन नहीं, दुस्त होते हैं"
+  },
+  "a8": {
+   "en": "Sakeena, your tikka is also here today.",
+   "ur": "اچھا یاد دلائیا سکینہ تمہارا ٹکہ بھی آجی ہے",
+   "hi": "अच्छा याद दिलाया सकीना तुमहारा तिका भी आजी है"
+  },
+  "b2": {
+   "en": "Listen, there was a superhero coming to the clinic.",
+   "ur": "سنہ کلینیک کے پاس کوئی سوپر ہیرو آیا تھا",
+   "hi": "सुना कलीनिक के पास कोई सुपर हिरो आया था"
+  },
+  "n3": {
+   "en": "Children should not draw with a doctor, they are our friends. If you like the video, then like and subscribe.",
+   "ur": "بچوں ڈوکٹر سے ڈرو مک ڈوکٹر ہمارے دوست ہوتے ہیں ویڈیو اچھی لگی تو لائیک اور سبسکرائب کرو",
+   "hi": "बच्छो डोक्टर से ड्रो मक्ट डोक्टर हमारे दोस्त होते है वीडियो अच्छी लगी तो लाइक और स्ब्स्क्राइब करो"
+  }
+ }
+}

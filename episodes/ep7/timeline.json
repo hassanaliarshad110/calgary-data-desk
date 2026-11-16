@@ -1,0 +1,308 @@
+{
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "dur": 10.438
+  },
+  {
+   "id": "home",
+   "start": 10.438,
+   "dur": 15.017
+  },
+  {
+   "id": "clinic",
+   "start": 25.455,
+   "dur": 11.906
+  },
+  {
+   "id": "cry",
+   "start": 37.361,
+   "dur": 15.273
+  },
+  {
+   "id": "power",
+   "start": 52.634,
+   "dur": 8.227
+  },
+  {
+   "id": "rescue",
+   "start": 60.861,
+   "dur": 13.57
+  },
+  {
+   "id": "brave",
+   "start": 74.432,
+   "dur": 15.984
+  },
+  {
+   "id": "ending",
+   "start": 90.416,
+   "dur": 16.119
+  },
+  {
+   "id": "endcard",
+   "start": 106.535,
+   "dur": 9.296
+  }
+ ],
+ "lines": {
+  "n1": {
+   "scene": "hook",
+   "s": 0.5,
+   "d": 2.912,
+   "abs": 0.5,
+   "sp": "NARR",
+   "txt": "Mama ko nahi pata...|ye nanha sa Qasim hi hai..."
+  },
+  "qh": {
+   "scene": "hook",
+   "s": 3.512,
+   "d": 1.599,
+   "abs": 3.512,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "n1b": {
+   "scene": "hook",
+   "s": 5.411,
+   "d": 3.526,
+   "abs": 5.411,
+   "sp": "NARR",
+   "txt": "Lekin aaj hamara hero...|ek chhote se teeke se darr raha hai!"
+  },
+  "a1": {
+   "scene": "home",
+   "s": 0.9,
+   "d": 3.042,
+   "abs": 11.338,
+   "sp": "MAMA",
+   "txt": "Qasim! Chalo clinic,|aaj tumhara teeka lagna hai!"
+  },
+  "q1": {
+   "scene": "home",
+   "s": 4.242,
+   "d": 2.226,
+   "abs": 14.679,
+   "sp": "QASIM",
+   "txt": "Nahi! Injection nahi!|Mujhe dar lagta hai!"
+  },
+  "b1": {
+   "scene": "home",
+   "s": 6.968,
+   "d": 3.276,
+   "abs": 17.406,
+   "sp": "BABA",
+   "txt": "Arre mera sher beta!|Main bhi saath chalunga."
+  },
+  "k1": {
+   "scene": "home",
+   "s": 10.645,
+   "d": 3.372,
+   "abs": 21.082,
+   "sp": "SAKINA",
+   "txt": "Mama! Mano bhi bimaar hai...|kal se kuch nahi khaya!"
+  },
+  "l1": {
+   "scene": "clinic",
+   "s": 2.2,
+   "d": 3.405,
+   "abs": 27.655,
+   "sp": "LATIFA",
+   "txt": "Aaiye aaiye! Pehle Mano ki baari,|phir Qasim ki!"
+  },
+  "d1": {
+   "scene": "clinic",
+   "s": 8.555,
+   "d": 2.751,
+   "abs": 34.009,
+   "sp": "DHARMENDER",
+   "txt": "Arre! Billi to upar|machaan pe chadh gayi!"
+  },
+  "qs": {
+   "scene": "cry",
+   "s": 0.4,
+   "d": 1.276,
+   "abs": 37.761,
+   "sp": "QASIM",
+   "txt": "Mama! Suusuu aayi hai!"
+  },
+  "pf": {
+   "scene": "cry",
+   "s": 1.926,
+   "d": 1.736,
+   "abs": 39.286,
+   "sp": "MAMA",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "a4": {
+   "scene": "cry",
+   "s": 3.861,
+   "d": 0.757,
+   "abs": 41.222,
+   "sp": "MAMA",
+   "txt": "Pehle teeka, phir!"
+  },
+  "k3": {
+   "scene": "cry",
+   "s": 5.068,
+   "d": 3.802,
+   "abs": 42.429,
+   "sp": "SAKINA",
+   "txt": "Mamaaa... mujhe bhi dar lag raha haiii...|mera haath pakdooo..."
+  },
+  "a6": {
+   "scene": "cry",
+   "s": 9.771,
+   "d": 2.781,
+   "abs": 47.131,
+   "sp": "MAMA",
+   "txt": "Arre arre, rona band!|Aao, meri bahadur beti!"
+  },
+  "jj": {
+   "scene": "cry",
+   "s": 12.802,
+   "d": 0.972,
+   "abs": 50.162,
+   "sp": "SAKINA",
+   "txt": "Jaa jaldi!"
+  },
+  "n2": {
+   "scene": "power",
+   "s": 0.7,
+   "d": 3.628,
+   "abs": 53.334,
+   "sp": "NARR",
+   "txt": "Sirf Sakina jaanti hai...|har flush ke saath Qasim ban jata hai..."
+  },
+  "qp": {
+   "scene": "power",
+   "s": 5.228,
+   "d": 1.599,
+   "abs": 57.862,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "q3": {
+   "scene": "rescue",
+   "s": 2.2,
+   "d": 1.547,
+   "abs": 63.061,
+   "sp": "QASIM",
+   "txt": "Mano! Daro mat,|main aa gaya!"
+  },
+  "q4": {
+   "scene": "rescue",
+   "s": 6.447,
+   "d": 2.784,
+   "abs": 67.308,
+   "sp": "QASIM",
+   "txt": "Sach bataun? Mujhe bhi|injection se dar lagta hai..."
+  },
+  "q5": {
+   "scene": "rescue",
+   "s": 9.531,
+   "d": 2.54,
+   "abs": 70.392,
+   "sp": "QASIM",
+   "txt": "Par chalo, dono saath mein|bahadur bante hain!"
+  },
+  "kt": {
+   "scene": "brave",
+   "s": 1.6,
+   "d": 1.615,
+   "abs": 76.032,
+   "sp": "MAMA",
+   "txt": "Qasim! Kahan the tum?"
+  },
+  "kn": {
+   "scene": "brave",
+   "s": 3.465,
+   "d": 1.102,
+   "abs": 77.897,
+   "sp": "QASIM",
+   "txt": "Kuch nahi Mama!"
+  },
+  "l2": {
+   "scene": "brave",
+   "s": 4.967,
+   "d": 3.504,
+   "abs": 79.399,
+   "sp": "LATIFA",
+   "txt": "Dekho, Mano ko teeka lag gaya...|aur woh roi bhi nahi!"
+  },
+  "q7": {
+   "scene": "brave",
+   "s": 8.771,
+   "d": 1.517,
+   "abs": 83.203,
+   "sp": "QASIM",
+   "txt": "Theek hai...|main bhi bahadur hoon!"
+  },
+  "q8": {
+   "scene": "brave",
+   "s": 11.988,
+   "d": 1.039,
+   "abs": 86.419,
+   "sp": "QASIM",
+   "txt": "Bas? Itna sa?!"
+  },
+  "l3": {
+   "scene": "brave",
+   "s": 13.327,
+   "d": 2.158,
+   "abs": 87.758,
+   "sp": "LATIFA",
+   "txt": "Doctor dushman nahi,|dost hote hain!"
+  },
+  "k4": {
+   "scene": "ending",
+   "s": 0.3,
+   "d": 2.785,
+   "abs": 90.716,
+   "sp": "SAKINA",
+   "txt": "Mamaaa...|mujhe injection nahi lagwanaaa..."
+  },
+  "a8": {
+   "scene": "ending",
+   "s": 3.885,
+   "d": 3.411,
+   "abs": 94.3,
+   "sp": "MAMA",
+   "txt": "Achha yaad dilaya! Sakina,|tumhara teeka bhi aaj hi hai!"
+  },
+  "b2": {
+   "scene": "ending",
+   "s": 8.396,
+   "d": 3.207,
+   "abs": 98.812,
+   "sp": "BABA",
+   "txt": "Suna? Clinic ke paas koi|SUPERHERO aaya tha!"
+  },
+  "qs2": {
+   "scene": "ending",
+   "s": 12.103,
+   "d": 1.685,
+   "abs": 102.519,
+   "sp": "QASIM",
+   "txt": "Mamaaa!|Phir se suusuu aayi hai!"
+  },
+  "pf2": {
+   "scene": "ending",
+   "s": 13.988,
+   "d": 0.431,
+   "abs": 104.404,
+   "sp": "MAMA",
+   "txt": "Phir se?!"
+  },
+  "n3": {
+   "scene": "endcard",
+   "s": 0.5,
+   "d": 5.596,
+   "abs": 107.035,
+   "sp": "NARR",
+   "txt": "Bachcho, doctor se daro mat,|doctor hamare dost hote hain!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
+  }
+ },
+ "total": 115.831
+}
