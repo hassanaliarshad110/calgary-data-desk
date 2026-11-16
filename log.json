@@ -1477,11 +1477,92 @@
     ],
     "publish_at": "2026-11-16T15:00",
     "draft": false,
+    "status": "PUBLISHED",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1722692242709587",
+     "instagram": "https://www.instagram.com/reel/Df0R4oIie2g/",
+     "youtube": "https://www.youtube.com/shorts/eRUxQ7cZL_w"
+    },
+    "confirmed_by": "2026-11-16 PM run (getScheduledPosts)"
+   }
+  ],
+  "post_note": "Scheduled for the fixed 15:00 news slot; YouTube 24 h count 4 incl. this; no other Calgary Insight post within 60 min. Due >30 min after scheduling, so the next run confirms it (section 1)."
+ },
+ {
+  "date": "2026-11-16",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "A provincial park inside Calgary: Fish Creek",
+  "topic_used": "Fish Creek Provincial Park: within Calgary city limits; one of the largest urban parks in Canada (Alberta Parks); First Nations in the valley for thousands of years (people 6500 BC, bison pounds 2500 BC to 1800s); Pat Burns bought the Bow Valley Ranch in 1902; the province bought the ranch (1972); park opened 1975.",
+  "changed_from_calendar": null,
+  "why_this_angle": "Calendar topic kept but told as a mini-story (bison valley → ranch → park) with a number-free place hook; no size or visitor figure narrated.",
+  "central_figure": "One of the largest urban parks in Canada (Alberta Parks, Park Research & Management page)",
+  "sources": [
+   "https://albertaparks.ca/parks/kananaskis/fish-creek-pp/information-facilities/",
+   "https://albertaparks.ca/parks/kananaskis/fish-creek-pp/park-research-management/",
+   "https://albertaparks.ca/parks/kananaskis/fish-creek-pp/information-facilities/history/",
+   "https://albertaparks.ca/parks/kananaskis/fish-creek-pp/information-facilities/history/european-settlers-industrial-developments",
+   "https://albertaparks.ca/media/123496/burns-family-aug-2006.pdf",
+   "https://www.bowvalleyranche.com/history",
+   "https://albertaparks.ca/parks/kananaskis/fish-creek-pp/information-facilities/day-use/bow-valley-ranch/"
+  ],
+  "link": "https://calgaryinsight.ca/visit/explore/?utm_source=facebook&utm_medium=social&utm_campaign=fish-creek-park",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate; web/visit/explore/index.html exists on main and the planner data includes Fish Creek Provincial Park (visit.py fishcreek).",
+  "length_s": 21.61,
+  "video_path": "studio-videos/2026-11-16-PM/fish-creek-provincial-park.mp4",
+  "thumbnail_path": "studio-videos/2026-11-16-PM/fish-creek-provincial-park-thumb.jpg",
+  "package": "packages/2026-11-16-PM-fish-creek-provincial-park.md",
+  "identity": "Data Explainer lead + Storyteller map dive/orbit/fly and parallax valley",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 10,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-16-PM.md"
+  },
+  "qc": {
+   "stills": "pass (after layout fixes)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "timeline moved up out of the caption band",
+    "1902 stamp and ranch house repositioned",
+    "tail 0.55 s so the ending is 3.9 s"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 430816810,
+    "uuid": "171427594692411621",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=171427594692411621",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-16T18:30",
+    "draft": false,
     "status": "scheduled",
     "firstCommentText": true,
     "videoThumbnailUrl": true
    }
   ],
-  "post_note": "Scheduled for the fixed 15:00 news slot; YouTube 24 h count 4 incl. this; no other Calgary Insight post within 60 min. Due >30 min after scheduling, so the next run confirms it (section 1)."
+  "post_note": "Fixed 18:30 fun-fact slot; only other post today is the 15:00 news reel (PUBLISHED); YouTube 24 h count well under 8. Due >30 min after scheduling, so the next run confirms it."
  }
 ]
