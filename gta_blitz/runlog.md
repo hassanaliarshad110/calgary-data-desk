@@ -25,3 +25,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T18:55:56Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 after check fixes)
 2026-11-16T19:01:58Z | rendered | short1_fs.mp4 1080x1920 50.5 s, all scenes native portrait
 2026-11-16T19:04:57Z | check verdict | APPROVED round 2 (fresh independent agent; all claims verified on technicolor.com, Wikipedia, 2 Greenhouse posts); job-post quotes split per note; contact sheet: picture fills all 5 frames; 50.5 s, -14.4 LUFS
+2026-11-16T19:06:20Z | scheduled | Metricool uuid 5489154610813944320 at 2026-11-17 02:30 IST (3:00 PM Regina, 16 Nov); topic 4 posted; files in gta_blitz/rockstar-india/
