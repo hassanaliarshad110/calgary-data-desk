@@ -1,5 +1,15 @@
 import json, os, sys, subprocess, urllib.request
 out = sys.argv[1]; os.makedirs(out, exist_ok=True)
+
+# --- temporary moment-watch traffic block (2026-11-16) ---
+_mw=os.path.join(out,'moment'); os.makedirs(_mw, exist_ok=True)
+for _n,_u in [('traffic_rows_365d.json','https://data.calgary.ca/resource/35ra-9556.json?$select=start_dt_utc,id&$where=start_dt_utc%3E%3D%272025-11-01T00:00:00%27&$order=start_dt_utc&$limit=60000'),
+              ('traffic_latest.json','https://data.calgary.ca/resource/35ra-9556.json?$order=start_dt_utc%20DESC&$limit=120')]:
+    try: _d=urllib.request.urlopen(urllib.request.Request(_u, headers={'User-Agent':'Mozilla/5.0'}), timeout=120).read()
+    except Exception as _e: _d=('ERR '+repr(_e)).encode()
+    open(os.path.join(_mw,_n),'wb').write(_d)
+sys.exit(0)
+# --- end block ---
 subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'kokoro-onnx', 'soundfile'], check=True)
 base = 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/'
 for f in ('kokoro-v1.0.onnx', 'voices-v1.0.bin'):
