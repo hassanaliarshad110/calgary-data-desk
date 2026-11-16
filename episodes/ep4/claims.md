@@ -1,0 +1,33 @@
+# Claims table — GTA 6 Special #1 (Rockstar India)
+
+| # | Claim in script (line ids) | Source URL(s) |
+|---|---|---|
+| 1 | GTA VI releases 19 Nov 2026 (n02, n38) | https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026 ; https://www.sec.gov/Archives/edgar/data/0000946581/000162828026072175/ttwo2q27earningsrelease.htm |
+| 2 | Unlocks at midnight ("aadhi raat"): Rockstar says midnight local time; Indian store listings say 12:00 AM IST Thu 19 Nov (n02) | https://www.forbes.com/sites/brianmazique/2026/11/12/gta-6-unlocks-at-midnight-on-november-19-but-millions-of-americans-can-start-playing-the-night-before/ ; https://www.businesstoday.in/latest/trends/photo/gta-6-arrives-at-midnight-on-19-november-india-price-preload-and-editions-565630-2026-11-04 |
+| 3 | Take-Two says pre-orders far above expectations (n03): 8-K Nov 9 2026 "pre-orders continuing to reach unprecedented levels"; Zelnick "far in excess of our initial expectations" | SEC 8-K above ; https://outputlag.com/news/gta-6-officially-goes-gold-take-two-pre-orders-unprecedented/ |
+| 4 | Reports say the largest GTA 6 team is Rockstar India, Bengaluru, ~1,615 developers, out of nearly 6,000 Rockstar developers (over a quarter); reports (The Week Jun 2025, Bridge Chronicle Jul 2025) cite no source; no Rockstar confirmation found (n01, n14, n15, n16, n18, n19) | https://www.theweek.in/news/sci-tech/2025/06/10/grand-theft-auto-vi-has-an-entire-location-designed-in-india.html ; https://www.thebridgechronicle.com/tech/gta-6-majority-developers-from-india |
+| 5 | Reports say Rockstar India was given responsibility for building Vice Beach (n17) | same two URLs |
+| 6 | Dhruva Interactive founded 1997 in Bengaluru by programmer Rajesh Rao; described as India's first game studio / India's oldest game developer (n07, n08, n12) | https://en.wikipedia.org/wiki/Dhruva_Interactive ; https://en.wikipedia.org/wiki/Rockstar_India ; PC Gamer: "one of India's first and largest game studios" https://www.pcgamer.com/rockstar-buys-dollar79-million-studio-from-struggling-starbreeze |
+| 7 | Rockstar Games set up Rockstar India in Bangalore in (around August) 2016 (n09) | https://en.wikipedia.org/wiki/Rockstar_India |
+| 8 | Rockstar India was part of the Red Dead Redemption 2 (2018) development team (n10) | https://en.wikipedia.org/wiki/Rockstar_India |
+| 9 | May 2019: Rockstar bought Starbreeze's ~91.8% stake in Dhruva for US$7.9 million (= 79 lakh dollars); ~300-person Dhruva team joined Rockstar India (n11, n12) | https://www.pcgamer.com/rockstar-buys-dollar79-million-studio-from-struggling-starbreeze ; https://en.wikipedia.org/wiki/Dhruva_Interactive ; https://en.wikipedia.org/wiki/Rockstar_India |
+| 10 | Per GameSpot (May 2019, cited by Wikipedia), Rockstar India had grown to ~500 employees (n19) | https://en.wikipedia.org/wiki/Rockstar_India (cites GameSpot, Jeremy Winslow, 15 May 2019) |
+| 11 | March 2026 LinkedIn post: Rockstar India hiring game testers; recruitment drive 18 April 2026 in Bengaluru; full-time, in-office (n20, n21). Rockstar did not link it to GTA 6 (script does not claim it did) | https://techwiser.com/rockstar-india-game-testers-gta-6/ ; https://khelnow.com/gaming/rockstar-games-hiring-testers-gta-6-bangalore-possible-final-testing-phase-202603 |
+| 12 | 1 May 2026 anonymous 2-star Glassdoor review by a "quality assurance analyst" at Rockstar India Bengaluru (per Eastern Eye): 5-6 month tasks squeezed into 2-3 months, unpaid overtime, some colleagues working from morning until 3 AM (n23, n24) | https://www.easterneye.biz/rockstar-india-crunch-debate/ ; https://80.lv/articles/rockstar-employees-report-intense-crunch-to-finish-gta-6 |
+| 13 | Review unverified; some observers suggest it could be fabricated; 80.lv: a gaming insider (Kiwi Talkz) pointed to other reviews praising work-life balance; company has not responded to requests for comment (n26, n27) | Eastern Eye: "has not responded to requests for comment", "have not been verified", "Some observers suggest the review could be fabricated"; 80.lv: other reviews praise work-life balance |
+| 14 | 9 Nov 2026 earnings call: Take-Two CEO Strauss Zelnick said Rockstar has completed development of GTA VI (n28) | https://outputlag.com/news/gta-6-officially-goes-gold-take-two-pre-orders-unprecedented/ |
+| 15 | Take-Two FY2027 (to 31 Mar 2027) Net Bookings guidance US$8.0–8.2 billion (n29) | SEC 8-K Q2 FY27 release, Nov 9 2026 |
+| 16 | Metaphor math: 7.9 million / 8,000 million × ₹1,000 = ₹0.99 → "less than ₹1" (n30) | derived from rows 9 and 15 |
+| 17 | India prices: Standard ₹5,999, Ultimate ₹7,499 (PlayStation India listing) (n31, n38) | Business Today Nov 4 2026 (URL above) |
+| 18 | Platforms PS5 and Xbox Series X|S; no PC version announced (n32) | Business Today; SEC 8-K product table |
+| 19 | New PS5 Slim Digital (₹64,990 on Amazon India) + Standard edition = ₹70,989 (Business Today); 64,990/5,999 ≈ 10.8 → "kareeb 11 guna" (n33); "₹70,000 ka ticket" (n38) rounds it | Business Today |
+| 20 | India gamer base 515–525 million in 2025 ("kareeb 52 crore"); mobile games dominant (FICCI-EY report, Mar 2026) (n34) | https://www.animationxpress.com/latest-news/ficci-ey-report-2026-indias-gamer-base-crosses-520-million-amid-regulatory-shifts/ |
+| 21 | Lumikai (Nov 2025 report): 22% report console usage (n34); hence "most Indian gamers don't use a console" (n35) | https://respawn.outlookindia.com/gaming/gaming-news/lumikai-women-now-make-up-45-of-indias-gamers |
+| 22 | d01 and d02 are short generic dramatised lines (a tester finding a bug; a gamer reacting to console price), labelled NAATYA RUPANTAR on screen, not attributed to any real person | — |
+| 24 | Take-Two CEO Strauss Zelnick told Business Insider (reported by Fortune, 6 May 2026, and Beebom, 7 May 2026): "You do your homework, you don't pull an all-nighter"; Beebom quotes crunch "isn't part of how Take-Two operates today". He did not address the Bengaluru review specifically (n27 says 'May mein… kaha' as general stance) | https://fortune.com/2026/05/06/ceo-take-two-interactive-software-strauss-zelnick-doesnt-play-video-games-grand-theft-auto-vi ; https://beebom.com/gta-6-development-crunch-is-not-how-take-two-operates-strauss-zelnick-clears-the-air/ |
+| 23 | n36 is a summary/opinion framing: bookings go to Take-Two, experience to developers, the cost to the buyer | rows 15, 19 |
+
+On-screen: no Rockstar/GTA footage, logos, characters or artwork; own 2.5D art only. People shown are generic symbolic characters (SANKETIK CHITRAN tag). Allegations are said as "aarop"/"reports ke mutabiq".
+
+
+Working title / YouTube title: "GTA 6 और बेंगलुरु का Rockstar: दावे, सच और पैसा | Explained" (statement, not a question).

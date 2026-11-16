@@ -1,0 +1,520 @@
+{
+"scenes": [
+{
+"id": "blr",
+"start": 0,
+"dur": 5.94,
+"lines": [
+"n01"
+]
+},
+{
+"id": "midnight",
+"start": 5.94,
+"dur": 5.825,
+"lines": [
+"n02"
+]
+},
+{
+"id": "preorder",
+"start": 11.765,
+"dur": 7.832,
+"lines": [
+"n03"
+]
+},
+{
+"id": "who",
+"start": 19.597,
+"dur": 15.417,
+"lines": [
+"n04",
+"n05"
+]
+},
+{
+"id": "promise",
+"start": 35.014,
+"dur": 8.288,
+"lines": [
+"n06"
+]
+},
+{
+"id": "title",
+"start": 43.302,
+"dur": 3.6,
+"lines": []
+},
+{
+"id": "ch1",
+"start": 46.902,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "y1997",
+"start": 49.502,
+"dur": 12.101,
+"lines": [
+"n07",
+"n08"
+]
+},
+{
+"id": "y2016",
+"start": 61.603,
+"dur": 15.894,
+"lines": [
+"n09",
+"n10"
+]
+},
+{
+"id": "deal",
+"start": 77.497,
+"dur": 18.115,
+"lines": [
+"n11",
+"n12"
+]
+},
+{
+"id": "tease1",
+"start": 95.612,
+"dur": 3.674,
+"lines": [
+"n13"
+]
+},
+{
+"id": "ch2",
+"start": 99.286,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "reports",
+"start": 101.886,
+"dur": 9.58,
+"lines": [
+"n14"
+]
+},
+{
+"id": "quarter",
+"start": 111.466,
+"dur": 12.553,
+"lines": [
+"n15",
+"n16"
+]
+},
+{
+"id": "vicebeach",
+"start": 124.019,
+"dur": 8.4,
+"lines": [
+"n17"
+]
+},
+{
+"id": "check",
+"start": 132.419,
+"dur": 24.837,
+"lines": [
+"n18",
+"n19"
+]
+},
+{
+"id": "ch3",
+"start": 157.256,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "hiring",
+"start": 159.856,
+"dur": 13.386,
+"lines": [
+"n20",
+"n21"
+]
+},
+{
+"id": "tester",
+"start": 173.242,
+"dur": 10.66,
+"lines": [
+"d01",
+"n22"
+]
+},
+{
+"id": "review",
+"start": 183.902,
+"dur": 18.078,
+"lines": [
+"n23",
+"n24"
+]
+},
+{
+"id": "syllabus",
+"start": 201.98,
+"dur": 4.529,
+"lines": [
+"n25"
+]
+},
+{
+"id": "sides",
+"start": 206.509,
+"dur": 32.897,
+"lines": [
+"n26",
+"n27"
+]
+},
+{
+"id": "ch4",
+"start": 239.406,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "done",
+"start": 242.006,
+"dur": 8.563,
+"lines": [
+"n28"
+]
+},
+{
+"id": "bookings",
+"start": 250.569,
+"dur": 15.082,
+"lines": [
+"n29",
+"n30"
+]
+},
+{
+"id": "price",
+"start": 265.651,
+"dur": 9.173,
+"lines": [
+"n31"
+]
+},
+{
+"id": "twist",
+"start": 274.824,
+"dur": 18.314,
+"lines": [
+"n32",
+"d02"
+]
+},
+{
+"id": "ticket",
+"start": 293.138,
+"dur": 10.731,
+"lines": [
+"n33"
+]
+},
+{
+"id": "mobile",
+"start": 303.869,
+"dur": 22.529,
+"lines": [
+"n34",
+"n35"
+]
+},
+{
+"id": "jeb",
+"start": 326.398,
+"dur": 10.98,
+"lines": [
+"n36"
+]
+},
+{
+"id": "question",
+"start": 337.378,
+"dur": 9.959,
+"lines": [
+"n37"
+]
+},
+{
+"id": "next",
+"start": 347.337,
+"dur": 12.013,
+"lines": [
+"n38"
+]
+},
+{
+"id": "end",
+"start": 359.35,
+"dur": 8.978,
+"lines": [
+"n39"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.3,
+"dur": 5.24,
+"spk": "N",
+"roman": "Reports ke mutabiq, GTA 6 par sabse badi team… Bengaluru mein baithi hai!"
+},
+"n02": {
+"start": 6.14,
+"dur": 5.325,
+"spk": "N",
+"roman": "19 November, aadhi raat! Gamers ka saalon ka intezaar khatm hone waala hai."
+},
+"n03": {
+"start": 11.965,
+"dur": 7.332,
+"spk": "N",
+"roman": "Take-Two kehta hai, pre-orders ummeed se kahin zyaada hain. Sab pooch rahe hain — game kaisa hoga? Kitne ka hoga?"
+},
+"n04": {
+"start": 19.797,
+"dur": 4.651,
+"spk": "N",
+"roman": "Lekin ek sawaal koi nahi pooch raha: is game ko banaaya kisne?"
+},
+"n05": {
+"start": 24.768,
+"dur": 9.846,
+"spk": "N",
+"roman": "Kyunki is sawaal ke jawaab mein reports Bharat ka naam leti hain! Bengaluru ka ek studio, jo Red Dead Redemption 2 jaise bade game par kaam kar chuka hai."
+},
+"n06": {
+"start": 35.214,
+"dur": 7.588,
+"spk": "N",
+"roman": "Aaj jaanenge Rockstar India ki poori kahaani. Paisa, mehnat… aur ek bada twist! Aakhir tak rahiye."
+},
+"n07": {
+"start": 49.802,
+"dur": 8.23,
+"spk": "N",
+"roman": "Kahaani shuru hoti hai 1997 mein. Bengaluru mein Rajesh Rao naam ke ek programmer ne Dhruva Interactive banaayi."
+},
+"n08": {
+"start": 58.352,
+"dur": 2.751,
+"spk": "N",
+"roman": "Ise Bharat ka pehla game studio maana jaata hai!"
+},
+"n09": {
+"start": 61.803,
+"dur": 7.767,
+"spk": "N",
+"roman": "Phir, 2016. Rockstar Games ne Bengaluru mein apna studio khola. Naam — Rockstar India."
+},
+"n10": {
+"start": 69.89,
+"dur": 7.107,
+"spk": "N",
+"roman": "2018 mein aaya Red Dead Redemption 2. Aur uski development team mein Rockstar India bhi tha."
+},
+"n11": {
+"start": 77.697,
+"dur": 9.086,
+"spk": "N",
+"roman": "Phir May 2019. Rockstar ne Dhruva ki kareeb 92% hissedaari khareed li. Keemat? 79 lakh dollar!"
+},
+"n12": {
+"start": 87.103,
+"dur": 8.009,
+"spk": "N",
+"roman": "Kareeb 300 logon ki team Rockstar India mein aa gayi. Bharat ka sabse puraana game studio, ab Rockstar ka hissa tha."
+},
+"n13": {
+"start": 95.812,
+"dur": 2.874,
+"spk": "N",
+"roman": "Lekin asli khel to ab shuru hone waala tha!"
+},
+"n14": {
+"start": 102.186,
+"dur": 8.88,
+"spk": "N",
+"roman": "2025. The Bridge Chronicle jaisi reports ne daawa kiya: Rockstar ke duniya bhar ke studios mein kareeb 6,000 developers hain."
+},
+"n15": {
+"start": 111.666,
+"dur": 7.878,
+"spk": "N",
+"roman": "Aur The Week ke mutabiq, GTA 6 par sabse badi team? Rockstar India! Kareeb 1,615 developers!"
+},
+"n16": {
+"start": 119.864,
+"dur": 3.555,
+"spk": "N",
+"roman": "Yaani har chaar developers mein se ek… Bengaluru mein!"
+},
+"n17": {
+"start": 124.219,
+"dur": 7.8,
+"spk": "N",
+"roman": "Reports ye bhi kehti hain ki game ki ek aham jagah — Vice Beach — banaane ki zimmedaari Rockstar India ko mili."
+},
+"n18": {
+"start": 132.619,
+"dur": 10.193,
+"spk": "N",
+"roman": "Ab zara rukiye! Ye aankde aaye kahaan se? In reports mein koi source nahi bataaya gaya. Aur humein Rockstar ki taraf se inki koi pushti nahi mili."
+},
+"n19": {
+"start": 143.132,
+"dur": 13.424,
+"spk": "N",
+"roman": "Haan, GameSpot ke mutabiq 2019 mein hi Rockstar India mein kareeb 500 log the. Upar se Dhruva ke 300. Team badi hai… lekin sabse badi? Ye abhi reports ka daawa hai."
+},
+"n20": {
+"start": 160.156,
+"dur": 7.328,
+"spk": "N",
+"roman": "March 2026. LinkedIn par ek post aayi: Rockstar India ko chahiye… game testers!"
+},
+"n21": {
+"start": 167.804,
+"dur": 5.038,
+"spk": "N",
+"roman": "18 April ko Bengaluru mein bharti drive. Full-time, office se kaam."
+},
+"d01": {
+"start": 173.442,
+"dur": 3.173,
+"spk": "S",
+"roman": "Bug mila! Gaadi deewar ke andar ghus gayi!"
+},
+"n22": {
+"start": 177.065,
+"dur": 6.437,
+"spk": "N",
+"roman": "Tester ka kaam? Game ko baar-baar khelkar gadbadiyaan dhoondhna. Sunne mein mazedaar… lekin…"
+},
+"n23": {
+"start": 184.102,
+"dur": 8.247,
+"spk": "N",
+"roman": "1 May ko Glassdoor par ek gumnaam review aaya. Eastern Eye ke mutabiq, Rockstar India ke ek QA analyst ki taraf se."
+},
+"n24": {
+"start": 192.669,
+"dur": 8.811,
+"spk": "N",
+"roman": "Aarop? Paanch-chhe mahine ka kaam, do-teen mahine mein. Bina paise ka overtime. Aur kuch log subah se raat 3 baje tak!"
+},
+"n25": {
+"start": 202.18,
+"dur": 3.829,
+"spk": "N",
+"roman": "Sochiye — board exam ka poora syllabus, aadhe time mein!"
+},
+"n26": {
+"start": 206.709,
+"dur": 13.959,
+"spk": "N",
+"roman": "Lekin ye ek gumnaam review hai. Iski pushti nahi hui. Kuch log ise farzi bhi bataate hain. Aur 80.lv ke mutabiq, ek gaming insider ne kaha ki doosre reviews mein work-life balance ki taareef bhi hai."
+},
+"n27": {
+"start": 220.988,
+"dur": 17.718,
+"spk": "N",
+"roman": "Aur company? Eastern Eye ke mutabiq, is review par koi jawaab nahi aaya. Haan, May mein Take-Two ke CEO Strauss Zelnick ne Business Insider se kaha: 'homework time par karo, all-nighter ki zaroorat nahi.' Yaani wo crunch ko apna tareeka nahi maante."
+},
+"n28": {
+"start": 242.306,
+"dur": 7.863,
+"spk": "N",
+"roman": "Ab baat paise ki! 9 November ko Take-Two ke CEO ne kaha: Rockstar ne GTA 6 ka development poora kar liya hai."
+},
+"n29": {
+"start": 250.769,
+"dur": 5.454,
+"spk": "N",
+"roman": "Aur is financial year ka anumaan? 8 se 8.2 arab dollar ki bookings!"
+},
+"n30": {
+"start": 256.543,
+"dur": 8.508,
+"spk": "N",
+"roman": "Ab ek mazedaar hisaab: agar Take-Two ki ye ummeed ₹1,000 hoti… to Dhruva ka sauda ₹1 se bhi kam ka hota!"
+},
+"n31": {
+"start": 265.851,
+"dur": 8.573,
+"spk": "N",
+"roman": "Bharat mein game ki keemat? Standard Edition ₹5,999. Ultimate ₹7,499."
+},
+"n32": {
+"start": 275.424,
+"dur": 14.076,
+"spk": "N",
+"roman": "Aur yahin hai asli twist! Jis game mein Bharat ka itna bada haath bataaya jaata hai, use khelne ke liye chahiye PS5, ya Xbox Series X ya S. PC version? Abhi tak announce nahi hua."
+},
+"d02": {
+"start": 289.95,
+"dur": 2.688,
+"spk": "G",
+"roman": "Game to chhe hazaar ka hai… par console?!"
+},
+"n33": {
+"start": 293.338,
+"dur": 10.031,
+"spk": "N",
+"roman": "Business Today ke hisaab se, naya PS5 Digital aur game milaakar: ₹70,989! Console ki keemat game se kareeb 11 guna."
+},
+"n34": {
+"start": 304.069,
+"dur": 12.92,
+"spk": "N",
+"roman": "Aur Bharat ke kareeb 52 crore gamers? FICCI-EY ke mutabiq yahaan mobile games ka raaj hai. Aur Lumikai ke ek survey mein sirf 22% ne console use karne ki baat kahi."
+},
+"n35": {
+"start": 317.309,
+"dur": 8.489,
+"spk": "N",
+"roman": "Yaani jis game mein Bengaluru ka bada haath bataaya jaata hai… uske liye zyaadatar Bharatiya gamers console use hi nahi karte!"
+},
+"n36": {
+"start": 326.598,
+"dur": 10.08,
+"spk": "N",
+"roman": "To paisa kiski jeb mein? Bookings — Take-Two ke khaate mein. Naam aur tajurba — Bengaluru ke developers ke paas. Aur kharcha? Aapki jeb se!"
+},
+"n37": {
+"start": 337.678,
+"dur": 9.059,
+"spk": "N",
+"roman": "Aapki kya raay hai? Kya Bharat sirf doosron ke games banaata rahega… ya ek din apna GTA banaayega? Comment mein zaroor bataaiye!"
+},
+"n38": {
+"start": 347.537,
+"dur": 11.213,
+"spk": "N",
+"roman": "Aur agle video mein: ₹5,999 ka game, ₹70,000 ka ticket! GTA 6 Bharat mein kaun khel paayega? Poora hisaab, launch se theek pehle."
+},
+"n39": {
+"start": 359.55,
+"dur": 5.778,
+"spk": "N",
+"roman": "Video achha laga ho, to LIKE kijiye, SHARE kijiye, aur Awazzzz ko SUBSCRIBE kijiye."
+}
+},
+"total": 368.328
+}
