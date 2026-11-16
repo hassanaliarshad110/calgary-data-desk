@@ -1,0 +1,28 @@
+{
+ "kokoro": [
+  {"id": "q1", "voice": "hf_beta", "speed": 1.05, "text": "नहीं! इंजेक्शन नहीं! मुझे डर लगता है!"},
+  {"id": "q3", "voice": "hf_beta", "speed": 1.0, "text": "मानो! डरो मत, मैं आ गया!"},
+  {"id": "q4", "voice": "hf_beta", "speed": 1.0, "text": "सच बताऊँ? मुझे भी इंजेक्शन से डर लगता है..."},
+  {"id": "q5", "voice": "hf_beta", "speed": 1.0, "text": "पर चलो, दोनों साथ में बहादुर बनते हैं!"},
+  {"id": "q7", "voice": "hf_beta", "speed": 1.0, "text": "ठीक है... मैं भी बहादुर हूँ!"},
+  {"id": "q8", "voice": "hf_beta", "speed": 1.05, "text": "बस? इतना सा?!"},
+  {"id": "k1", "voice": "hf_alpha", "speed": 1.05, "text": "मामा! मानो भी बीमार है... कल से कुछ नहीं खाया!"},
+  {"id": "k3", "voice": "hf_alpha", "speed": 0.85, "text": "मामाऽऽ... मुझे भी डर लग रहा हैऽऽ... मेरा हाथ पकड़ोऽऽ..."},
+  {"id": "k4", "voice": "hf_alpha", "speed": 0.85, "text": "मामाऽऽ... मुझे इंजेक्शन नहीं लगवानाऽऽ..."}
+ ],
+ "edge": [
+  {"id": "n1b", "text": "لیکن آج ہمارا ہیرو... ایک چھوٹے سے ٹیکے سے ڈر رہا ہے!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1},
+  {"id": "a1", "text": "قاسم! چلو کلینک، آج تمہارا ٹیکا لگنا ہے!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1},
+  {"id": "b1", "text": "ارے میرا شیر بیٹا! میں بھی ساتھ چلوں گا۔", "voice": "ur-IN-SalmanNeural", "rate": "-3%", "pitch": "-8Hz", "asr": 1},
+  {"id": "a2", "text": "اچھا، مانو کو بھی کلینک لے چلتے ہیں!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1},
+  {"id": "l1", "text": "آئیے آئیے! پہلے مانو کی باری، پھر قاسم کی!", "voice": "ur-IN-GulNeural", "rate": "+8%", "pitch": "+20Hz", "asr": 1},
+  {"id": "d1", "text": "अरे! बिल्ली तो ऊपर मचान पे चढ़ गई!", "voice": "hi-IN-MadhurNeural", "rate": "+8%", "pitch": "+25Hz", "asr": 1},
+  {"id": "a4", "text": "پہلے ٹیکا، پھر!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1},
+  {"id": "a6", "text": "ارے ارے، رونا بند! آؤ، میری بہادر بیٹی!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1},
+  {"id": "l2", "text": "دیکھو، مانو کو ٹیکا لگ گیا... اور وہ روئی بھی نہیں!", "voice": "ur-IN-GulNeural", "rate": "+8%", "pitch": "+20Hz", "asr": 1},
+  {"id": "l3", "text": "ڈاکٹر دشمن نہیں، دوست ہوتے ہیں!", "voice": "ur-IN-GulNeural", "rate": "+8%", "pitch": "+20Hz", "asr": 1},
+  {"id": "a8", "text": "اچھا یاد دلایا! سکینہ، تمہارا ٹیکا بھی آج ہی ہے!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1},
+  {"id": "b2", "text": "سنا؟ کلینک کے پاس کوئی SUPERHERO آیا تھا!", "voice": "ur-IN-SalmanNeural", "rate": "-3%", "pitch": "-8Hz", "asr": 1},
+  {"id": "n3", "text": "بچو، ڈاکٹر سے ڈرو مت، ڈاکٹر ہمارے دوست ہوتے ہیں! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1}
+ ]
+}
