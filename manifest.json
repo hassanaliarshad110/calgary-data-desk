@@ -1,0 +1,59 @@
+{
+ "generated": "2026-11-16T09:33:36Z",
+ "files": 4,
+ "bytes": 559836,
+ "assets": [
+  {
+   "path": "fonts/pacifico/Pacifico-Regular.ttf",
+   "source": "Google Fonts",
+   "url": "https://fonts.google.com/?query=pacifico",
+   "category": "fonts",
+   "format": "ttf",
+   "bytes": 329380,
+   "note": "",
+   "licence": "SIL Open Font License 1.1",
+   "commercial": true,
+   "modify": true,
+   "attribution": false
+  },
+  {
+   "path": "fonts/bowlbyone/BowlbyOne-Regular.ttf",
+   "source": "Google Fonts",
+   "url": "https://fonts.google.com/?query=bowlbyone",
+   "category": "fonts",
+   "format": "ttf",
+   "bytes": 59856,
+   "note": "",
+   "licence": "SIL Open Font License 1.1",
+   "commercial": true,
+   "modify": true,
+   "attribution": false
+  },
+  {
+   "path": "fonts/bungee/Bungee-Regular.ttf",
+   "source": "Google Fonts",
+   "url": "https://fonts.google.com/?query=bungee",
+   "category": "fonts",
+   "format": "ttf",
+   "bytes": 118996,
+   "note": "",
+   "licence": "SIL Open Font License 1.1",
+   "commercial": true,
+   "modify": true,
+   "attribution": false
+  },
+  {
+   "path": "fonts/monoton/Monoton-Regular.ttf",
+   "source": "Google Fonts",
+   "url": "https://fonts.google.com/?query=monoton",
+   "category": "fonts",
+   "format": "ttf",
+   "bytes": 51604,
+   "note": "",
+   "licence": "SIL Open Font License 1.1",
+   "commercial": true,
+   "modify": true,
+   "attribution": false
+  }
+ ]
+}
