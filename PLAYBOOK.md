@@ -127,6 +127,11 @@ Every video is directed, not assembled from text cards. Load the skill **`calgar
 - **Save the source:** `production/<date>-<slot>/scene.js` and `cues.json` in this branch, so any video can be re-rendered.
 - AI video and image prompts are written for every scene (one action per shot, continuity tags) but never run here; a photoreal paid version only on Hassan's request.
 
+### 3d. GTA-RELATED POSTS (Hassan, Nov 16, 2026: "when GTA related video goes out on Calgary Insight we use GTA type game hook… but related to Calgary")
+- Whenever a Calgary Insight post rides GTA or open-world-game hype, its covers and thumbnails, and its first 1.5-2 s, use the Calgary game box-art poster style: 6-9 tilted comic panels (our own gameplay or motion-engine frames, stylised), a chunky white outlined wordmark (e.g. "GRAND TOUR / CALGARY"), a hot-pink neon script tag (e.g. "Cowtown City"), and calgaryinsight.ca + "FREE" chips. The animated version: panels slam in, wordmark punch with camera shake, neon flicker, whip into the video's first frame, music already under it; the video's own spoken hook follows unchanged.
+- Template, fonts and scripts: `motion/templates/game_poster/` (README there). Covers: 1080×1920 for Reels/Shorts (PART badge on series), 1280×720 for the YouTube thumbnail, 1080×1350 when a 4:5 cover helps.
+- Trademark limits (always): never "GTA" or "Grand Theft Auto" in the wordmark ("GTA 6" only in the small hook line, in Fira Sans); never the Pricedown font or any Rockstar logo, font, key art or character, and no look-alikes; no brand logos or real people. "Not affiliated with Rockstar Games." stays in the descriptions (and small on vertical covers).
+
 ## 4. Narration (free, dedicated lane)
 Use the **`studio-probe`** branch, not `budget-probe` (that one is Hassan's own lane).
 ```
