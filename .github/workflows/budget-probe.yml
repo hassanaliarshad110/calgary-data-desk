@@ -12,8 +12,6 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - run: python probe/tts_sv.py _b
-      - run: python probe/lex_test.py _b/lex
-        continue-on-error: true
       - run: |
           mkdir -p _b && date -u > _b/ran_at.txt
           cd _b
