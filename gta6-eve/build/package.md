@@ -387,3 +387,32 @@ See audit_v2.md: round 1 CHANGES NEEDED (teaser line implied dozens of people ar
 | Part 2 | 17:30 | 4290377413255446574 | 428868677 | unchanged |
 | Part 3 | 20:00 | 4084820982645016873 | 429460288 | gta6-eve-part3-v2.mp4 |
 Times, networks, titles, first comments and cover images kept; texts updated as in posts_v2.json (no numerals added; "Not affiliated with Rockstar Games." kept where it was).
+
+---
+
+## v3 revision (Nov 16, 2026): "game box-art" poster hook + covers
+
+Requested by Hassan on Nov 16, 2026 ("when GTA related video goes out on Calgary Insight we use GTA type game hook… something like this but related to Calgary"). Made unattended; no credits (Playwright + ffmpeg + OpenCV on our own gameplay frames).
+
+### What it is
+- An homage to open-world box art, all Calgary and all ours: tilted comic panels with thick black borders, saturated sunset/neon grade, the chunky white wordmark "GRAND TOUR / CALGARY" (Bowlby One, black outline, 3D extrude), the hot-pink neon script tag "Cowtown City" (Pacifico), sub-line "YYC City Stories · a free game on the real map of Calgary", chips "calgaryinsight.ca/game" and "FREE • PLAY IN YOUR BROWSER", hook line "GTA 6 drops tomorrow. Calgary is playable today." in Fira Sans (house font), small "Not affiliated with Rockstar Games." on the vertical and 4:5 covers.
+- Trademark limits kept: no "GTA"/"Grand Theft Auto" in the wordmark (only in the small Fira Sans hook line), no Pricedown, no Rockstar logo/font/key art/characters or look-alikes, no brand logos, no real people.
+- Panels (all from the v2 outputs' own gameplay frames, stylised with bilateral smoothing, a sunset sky replacement on day skies, posterize, halftone shadows and Canny ink lines; build/v3/stylise.py): Calgary Tower + skyline at sunset, the Grandstand Show stage with "Oh-oh, Calgary!" lyrics on the big screen, the helicopter over downtown, the Elbow/Bow river and park, the Stampede midway Ferris wheel, the CTrain on the Blue Line, a 311 pin popping over the Temple field (pin drawn by us over the game's real 311 view), a Chinook-arch-over-the-Rockies panel drawn from code (build/v3/chinook.py), the Saddledome at night. Not used: a character on a bike (the game has no bicycles; nothing invented).
+- Variants: A "GRAND TOUR / CALGARY" (box-art layout, hero tower panel) vs B "YYC CITY / STORIES" (even 3×3 grid, Anton). A chosen: the wordmark reads at a glance, the neon tag stays clear, and the game name still appears in the sub-line (build/v3/variants_A_vs_B_*.jpg).
+
+### Animated hook (first 1.8 s of every Nov 18 output)
+- 1.8 s, 54 frames, 1080×1920 and 1920×1080: panels slam in (overshoot scale + white flash, 0.1 s apart, three already on screen at frame 0 with the hook line), wordmark punches in at 0.76 s with a 0.3 s camera shake, neon tag flickers on at 0.94 s, horizontal whip (motion blur) from 1.5 s that lands exactly on the original video's first frame; then the existing spoken "GTA 6 drops tomorrow" hook plays unchanged.
+- Sound: "Under One Sky" (web/visit/chorus.mp3, the game's title song) from the bars just before the point where the videos' own music starts, at about -17 LUFS under the poster, synthesised slams/impact/pop/whoosh (motion/engine/sfx.py), easing out under the video's first 0.35 s.
+- Assembly: only the hook is encoded (x264 medium, same CRF as each original, High, yuv420p, 30 fps, timescale 15360, VUI matched: SPS/PPS byte-identical to the originals), joined with the concat demuxer (-c copy); the soundtrack is rebuilt once (hook + original mix untouched) and encoded AAC 192 kb/s 48 kHz.
+
+### QC (v3)
+| Output | Length | Frames | Integrated | Sample peak | Decode errors |
+|---|---|---|---|---|---|
+| teaser-v3 | 38.9 s | 1167 | -14.0 LUFS | -1.6 dBFS | 0 |
+| full-v3 (16:9) | 4:30.6 | 8118 | -14.0 LUFS | -1.5 dBFS | 0 |
+| part1-v3 | 80.0 s | 2400 | -14.0 LUFS | -1.2 dBFS | 0 |
+| part2-v3 | 50.0 s | 1501 | -14.0 LUFS | -1.4 dBFS | 0 |
+| part3-v3 | 89.1 s | 2673 | -14.0 LUFS | -1.4 dBFS | 0 |
+- Frame counts = hook 54 + original, every output. Contact sheet of the first 4 s of each: build/v3/contact_first4s.jpg (reviewed).
+- Frame 0 shows moving art and the hook line (rule 0b.1); no logo/title card; captions/labels of the original untouched.
+- Covers: poster-teaser-9x16.jpg, poster-part1/2/3-9x16.jpg (with a PART badge), poster-yt-thumb.jpg (1280×720), poster-fb-4x5.jpg (1080×1350). Template saved to content-studio motion/templates/game_poster/.

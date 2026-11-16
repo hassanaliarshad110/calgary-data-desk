@@ -1,0 +1,131 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Calgary Insight "game box-art" poster template (GTA-related posts rule, PLAYBOOK.md).
+     Homage to open-world box art, never a copy: no Pricedown, no Rockstar logos/fonts/art/characters,
+     the words "GTA"/"Grand Theft Auto" never in the wordmark (only in the small hook line, in Fira Sans).
+     Usage: set window.CFG (see poster.py) then call render(t). t >= 9 draws the finished still. -->
+<style>
+@font-face{font-family:Bowlby;src:url(fonts/BowlbyOne-Regular.ttf)}
+@font-face{font-family:Anton;src:url(fonts/Anton-Regular.ttf)}
+@font-face{font-family:Bungee;src:url(fonts/Bungee-Regular.ttf)}
+@font-face{font-family:Pacifico;src:url(fonts/Pacifico-Regular.ttf)}
+@font-face{font-family:Fira;src:url(fonts/fira-sans-bold.woff);font-weight:700}
+@font-face{font-family:Fira;src:url(fonts/fira-sans-semibold.woff);font-weight:600}
+html,body{margin:0;padding:0;background:#000;overflow:hidden}
+#stage{position:relative;overflow:hidden}
+#poster{position:absolute;inset:0;transform-origin:50% 50%}
+.bg{position:absolute;inset:0}
+.panel{position:absolute;box-sizing:border-box;border:solid #0b0b0f;background:#222;overflow:hidden;box-shadow:0 0 0 var(--gut) #fbf3e4}
+.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.panel .flash{position:absolute;inset:0;background:#fff;opacity:0}
+.wm{position:absolute;left:0;right:0;text-align:center;line-height:.86;white-space:nowrap}
+.wm .l{display:block;position:relative}
+.wm .back{position:absolute;left:0;right:0;color:#0b0b0f;-webkit-text-stroke:var(--sw) #0b0b0f}
+.wm .front{position:relative;color:#fff}
+.tag{position:absolute;left:0;right:0;text-align:center;font-family:Pacifico;color:#fff2fb;white-space:nowrap}
+.tag span{display:inline-block;-webkit-text-stroke:var(--ts) #3a0030;paint-order:stroke fill}
+.chips{position:absolute;left:0;right:0;display:flex;justify-content:center;gap:var(--cg)}
+.chip{font-family:Fira;font-weight:700;border-radius:999px;padding:.32em .9em;border:solid #0b0b0f;white-space:nowrap}
+.chip.a{background:#ffc531;color:#0b0b0f}.chip.b{background:#0b0b0f;color:#fff;border-color:#fff}
+.hook{position:absolute;left:0;right:0;text-align:center}
+.hook span{display:inline-block;font-family:Fira;font-weight:700;color:#fff;background:#0b0b0f;padding:.28em .8em;border-radius:.4em;border:solid #ff2bd6}
+.sub{position:absolute;left:0;right:0;text-align:center;font-family:Fira;font-weight:700;color:#fff;text-shadow:0 2px 0 #000,0 0 8px #000}
+.pin{position:absolute;transform:translate(-50%,-100%)}
+.pin .b{font-family:Bungee;color:#fff;background:#e8202a;border:solid #0b0b0f;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center}
+.pin .b i{font-style:normal;transform:rotate(45deg)}
+.burst{position:absolute;pointer-events:none}
+.legal{position:absolute;left:0;right:0;text-align:center;font-family:Fira;font-weight:600;color:#fff;opacity:.9;text-shadow:0 1px 2px #000}
+#whip{position:absolute;inset:0;opacity:0}
+#whip img{width:100%;height:100%;display:block}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<filter id="mb" x="-20%" y="0" width="140%" height="100%"><feGaussianBlur id="mbs" stdDeviation="0 0"/></filter>
+</defs></svg>
+<div id="stage"><div id="poster"><div class="bg" id="bg"></div></div><div id="whip"><img id="whipimg"></div></div>
+<script>
+const C = window.CFG;
+const S = document.getElementById('stage'), P = document.getElementById('poster');
+S.style.width = C.W + 'px'; S.style.height = C.H + 'px';
+const U = C.W / 1080 * (C.H / C.W < 1 ? 1.5 : 1);   // unit scale for borders etc.
+document.getElementById('bg').style.background = C.bg || 'repeating-linear-gradient(45deg,#fbf3e4 0 6px,#f3e7d2 6px 12px)';
+// seeded rng
+function rng(s){return()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296}}
+const ease = {outBack:x=>{const c=1.9;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)}, outCubic:x=>1-Math.pow(1-x,3), inCubic:x=>x*x*x};
+const cl = x => Math.max(0, Math.min(1, x));
+// panels
+const PN = C.panels.map((p, i) => {
+  const d = document.createElement('div'); d.className = 'panel';
+  Object.assign(d.style, {left: p.x + 'px', top: p.y + 'px', width: p.w + 'px', height: p.h + 'px', borderWidth: (p.bw || C.bw) + 'px', zIndex: p.z || (i + 1)});
+  d.style.setProperty('--gut', (C.gut || 7) + 'px');
+  const im = document.createElement('img'); im.src = 'panels/' + p.img + '.jpg'; im.style.objectPosition = p.pos || '50% 50%'; d.appendChild(im);
+  if (p.pin) { const pn = document.createElement('div'); pn.className = 'pin'; pn.style.left = p.pin[0] + '%'; pn.style.top = p.pin[1] + '%';
+    const sz = p.pin[2]; pn.innerHTML = `<div class="b" style="width:${sz}px;height:${sz}px;border-width:${sz*.08}px;font-size:${sz*.3}px"><i>311</i></div>`; d.appendChild(pn); p._pin = pn; }
+  const f = document.createElement('div'); f.className = 'flash'; d.appendChild(f);
+  P.appendChild(d); return {el: d, fl: f, p};
+});
+// wordmark
+const WM = document.createElement('div'); WM.className = 'wm'; WM.style.top = C.wm.y + 'px'; WM.style.zIndex = 50; WM.style.fontFamily = C.wm.font;
+WM.style.setProperty('--sw', C.wm.stroke + 'px');
+C.wm.lines.forEach(([txt, size, col]) => {
+  const l = document.createElement('span'); l.className = 'l'; l.style.fontSize = size + 'px';
+  const ext = []; for (let k = 1; k <= C.wm.depth; k++) ext.push(`${k}px ${k}px 0 #0b0b0f`);
+  l.innerHTML = `<span class="back" style="text-shadow:${ext.join(',')}">${txt}</span><span class="front" style="color:${col||'#fff'}">${txt}</span>`;
+  WM.appendChild(l);
+});
+P.appendChild(WM);
+// neon tag
+const TG = document.createElement('div'); TG.className = 'tag'; TG.style.top = C.tag.y + 'px'; TG.style.zIndex = 51; TG.style.fontSize = C.tag.size + 'px';
+TG.style.setProperty('--ts', (C.tag.size * .06) + 'px');
+TG.innerHTML = `<span style="transform:rotate(${C.tag.rot}deg)">${C.tag.text}</span>`; P.appendChild(TG);
+const glow = s => `0 0 ${s*.04}px #fff, 0 0 ${s*.09}px #ff2bd6, 0 0 ${s*.18}px #ff2bd6, 0 0 ${s*.35}px #ff00a8, 0 0 ${s*.6}px #ff00a8`;
+// sub line, chips, hook line, legal
+let SB = null; if (C.sub) { SB = document.createElement('div'); SB.className = 'sub'; SB.style.top = C.sub.y + 'px'; SB.style.fontSize = C.sub.size + 'px'; SB.style.zIndex = 52; SB.textContent = C.sub.text; P.appendChild(SB); }
+const CH = document.createElement('div'); CH.className = 'chips'; CH.style.top = C.chips.y + 'px'; CH.style.zIndex = 53; CH.style.setProperty('--cg', C.chips.gap + 'px');
+C.chips.items.forEach(([txt, cls]) => { const c = document.createElement('span'); c.className = 'chip ' + cls; c.textContent = txt; c.style.fontSize = C.chips.size + 'px'; c.style.borderWidth = (C.chips.size * .09) + 'px'; CH.appendChild(c); });
+P.appendChild(CH);
+let HK = null; if (C.hook) { HK = document.createElement('div'); HK.className = 'hook'; HK.style.top = C.hook.y + 'px'; HK.style.zIndex = 54;
+  HK.innerHTML = `<span style="font-size:${C.hook.size}px;border-width:${C.hook.size*.08}px">${C.hook.text}</span>`; P.appendChild(HK); }
+if (C.badge) { const bd = document.createElement('div'); bd.textContent = C.badge.text;
+  Object.assign(bd.style, {position: 'absolute', right: (C.badge.r || 28) + 'px', top: C.badge.y + 'px', zIndex: 56, fontFamily: 'Bungee', fontSize: C.badge.size + 'px', color: '#0b0b0f',
+    background: '#ffc531', border: (C.badge.size * .12) + 'px solid #0b0b0f', padding: '.18em .55em', transform: 'rotate(4deg)', boxShadow: `${C.badge.size*.18}px ${C.badge.size*.18}px 0 #0b0b0f`});
+  P.appendChild(bd); }
+let LG = null; if (C.legal) { LG = document.createElement('div'); LG.className = 'legal'; LG.style.top = C.legal.y + 'px'; LG.style.fontSize = C.legal.size + 'px'; LG.style.zIndex = 55; LG.textContent = C.legal.text; P.appendChild(LG); }
+// fit wordmark lines to max width
+function fit() { WM.querySelectorAll('.l').forEach(l => { const f = l.querySelector('.front'); const w = f.getBoundingClientRect().width; if (w > C.wm.maxW) l.style.fontSize = parseFloat(l.style.fontSize) * C.wm.maxW / w + 'px'; }); }
+// ---------------- animation ----------------
+// timeline (seconds): panel i slams at C.anim.hits[i]; wordmark at C.anim.wm; tag flicker from C.anim.tag; whip from C.anim.whip to C.anim.end
+function render(t) {
+  const A = C.anim || {}, still = !C.anim || t >= 9;
+  PN.forEach(({el, fl, p}, i) => {
+    if (still) { el.style.transform = `rotate(${p.rot||0}deg)`; el.style.opacity = 1; fl.style.opacity = 0; if (p._pin) p._pin.style.transform = 'translate(-50%,-100%)'; return; }
+    const h = A.hits[i] ?? 0, k = cl((t - h) / .13);
+    if (t < h) { el.style.opacity = 0; return; }
+    const sc = 1 + (1 - ease.outBack(k)) * .55, r = (p.rot||0) + (1 - ease.outCubic(k)) * (i % 2 ? 9 : -9);
+    el.style.opacity = 1; el.style.transform = `rotate(${r}deg) scale(${sc})`; fl.style.opacity = Math.max(0, .85 - (t - h) / .1);
+    if (p._pin) { const kp = cl((t - h - .12) / .16); p._pin.style.transform = `translate(-50%,-100%) scale(${kp < 1 ? ease.outBack(kp) : 1})`; }
+  });
+  // wordmark punch + shake
+  let shx = 0, shy = 0, wmS = 1, wmO = 1;
+  if (!still) {
+    const k = cl((t - A.wm) / .12); wmO = t < A.wm ? 0 : 1; wmS = 1 + (1 - ease.outCubic(k)) * 1.3;
+    const sh = t - A.wm; if (sh > .08 && sh < .38) { const r = rng(Math.floor(t * 30) + 7), amp = 22 * U * (1 - (sh - .08) / .3); shx = (r() - .5) * 2 * amp; shy = (r() - .5) * 2 * amp; }
+  }
+  WM.style.opacity = wmO; WM.style.transform = `scale(${wmS})`; WM.style.transformOrigin = `50% ${C.wm.cy || 50}%`;
+  [CH, SB, LG].forEach(e => { if (e) e.style.opacity = still ? 1 : (t > A.wm + .05 ? 1 : 0); });
+  if (HK) HK.style.opacity = 1;
+  // neon flicker
+  let on = 1; if (!still) { const s = t - A.tag; on = s < 0 ? 0 : (s < .3 ? ([1,0,1,1,0,0,1,0,1,1][Math.floor(s * 30) % 10] * (.55 + .45 * (s / .3))) : 1); }
+  TG.querySelector('span').style.textShadow = on > .1 ? glow(C.tag.size) : 'none'; TG.style.opacity = on > 0 ? Math.max(.25, on) : 0;
+  // whip
+  const W = document.getElementById('whip');
+  if (!still && A.whip !== undefined && t >= A.whip) {
+    const k = cl((t - A.whip) / (A.end - A.whip)), e = ease.inCubic(k) * .5 + ease.outCubic(k) * .5;
+    P.style.transform = `translate(${shx - e * C.W * 1.05}px,${shy}px)`; P.style.filter = 'url(#mb)';
+    W.style.opacity = 1; W.style.transform = `translateX(${(1 - e) * C.W}px)`; W.style.filter = k < .999 ? 'url(#mb)' : 'none';
+    document.getElementById('mbs').setAttribute('stdDeviation', `${Math.sin(Math.PI * Math.min(1, k * 1.05)) * 70 * U} 0`);
+  } else { P.style.transform = `translate(${shx}px,${shy}px)`; P.style.filter = 'none'; W.style.opacity = 0; }
+}
+window.render = render;
+if (C.whipImg) document.getElementById('whipimg').src = C.whipImg;
+window.READY = document.fonts.ready.then(() => Promise.all([...document.images].filter(i => i.getAttribute("src")).map(i => i.complete ? 1 : new Promise(r => { i.onload = i.onerror = r; })))).then(() => { fit(); render(99); return true; });
+</script></body></html>
