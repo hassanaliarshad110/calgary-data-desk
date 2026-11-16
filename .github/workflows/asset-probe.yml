@@ -17,13 +17,18 @@ jobs:
         with: { python-version: '3.12' }
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
-      - run: python probe/acquire.py _b
-        env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}', STEPS: 'fonts3' }
+      - run: |
+          mkdir -p _b/fonts && cd _b/fonts
+          B=https://raw.githubusercontent.com/google/fonts/main/ofl
+          for f in pacifico/Pacifico-Regular.ttf pacifico/OFL.txt yellowtail/Yellowtail-Regular.ttf bowlbyone/BowlbyOne-Regular.ttf bowlbyone/OFL.txt bungee/Bungee-Regular.ttf bungee/OFL.txt monoton/Monoton-Regular.ttf; do d=$(dirname $f); mkdir -p $d; curl -fsSL -o $f $B/$f || echo "fail $f"; done
+          curl -fsSL -o yellowtail/LICENSE.txt https://raw.githubusercontent.com/google/fonts/main/apache/yellowtail/LICENSE.txt || true
+          [ -s yellowtail/Yellowtail-Regular.ttf ] || curl -fsSL -o yellowtail/Yellowtail-Regular.ttf https://raw.githubusercontent.com/google/fonts/main/apache/yellowtail/Yellowtail-Regular.ttf || true
+          ls -laR
       - run: |
           mkdir -p _b && date -u > _b/ran_at.txt
           cd _b
-          git init -q -b asset-probe-out3
+          git init -q -b asset-probe-out4
           git config user.name "Hassan Ali"
           git config user.email "hassanaliarshad110@users.noreply.github.com"
           git add -A && git commit -q -m "Acquired assets"
-          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" asset-probe-out3
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" asset-probe-out4
