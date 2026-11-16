@@ -16,7 +16,9 @@
    "id": 2,
    "type": "FACT",
    "idea": "PS5 + GTA 6 ka total bill: EMI pe kitne mahine?",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-16T14:52Z",
+   "slug": "ps5-emi"
   },
   {
    "id": 3,
