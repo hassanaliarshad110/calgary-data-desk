@@ -416,3 +416,14 @@ Requested by Hassan on Nov 16, 2026 ("when GTA related video goes out on Calgary
 - Frame counts = hook 54 + original, every output. Contact sheet of the first 4 s of each: build/v3/contact_first4s.jpg (reviewed).
 - Frame 0 shows moving art and the hook line (rule 0b.1); no logo/title card; captions/labels of the original untouched.
 - Covers: poster-teaser-9x16.jpg, poster-part1/2/3-9x16.jpg (with a PART badge), poster-yt-thumb.jpg (1280×720), poster-fb-4x5.jpg (1080×1350). Template saved to content-studio motion/templates/game_poster/.
+
+### Metricool (brand 7089421, America/Edmonton), swapped Nov 16, 2026
+| Post | Time Nov 18 | uuid (unchanged) | new id | media now | cover |
+|---|---|---|---|---|---|
+| Teaser (FB Reel + IG Reel + YT Short) | 08:00 | -4106170589206459640 | 429815032 | gta6-eve-teaser-v3.mp4 | poster-teaser-9x16.jpg |
+| Full, YouTube | 11:00 | 8813243528655556352 | 429815326 | gta6-eve-full-v3.mp4 | poster-yt-thumb.jpg |
+| Full, Facebook video | 13:00 | -6850499379735608285 | 429815359 | gta6-eve-full-v3.mp4 | poster-yt-thumb.jpg (16:9 like the video; poster-fb-4x5.jpg kept as a spare) |
+| Part 1 | 15:00 | -6050349263285304598 | 429815755 | gta6-eve-part1-v3.mp4 | poster-part1-9x16.jpg |
+| Part 2 | 17:30 | 4290377413255446574 | 429815802 | gta6-eve-part2-v3.mp4 | poster-part2-9x16.jpg |
+| Part 3 | 20:00 | 4084820982645016873 | 429815871 | gta6-eve-part3-v3.mp4 | poster-part3-9x16.jpg |
+Texts, times, networks, titles, tags and first comments unchanged; every thumbnail accepted (no retries needed). Rule added to the studio PLAYBOOK (section 3d) and template saved in content-studio motion/templates/game_poster/.
