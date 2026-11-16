@@ -9,3 +9,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T13:22:52Z | scheduled | Metricool uuid 2732058055269436536 at 2026-11-16 20:30 IST (9:00 AM Regina); topic 1 posted; files in gta_blitz/salary-days/
 2026-11-16T14:52Z | started
 2026-11-16T14:52:24Z | topic claimed | #2 FACT PS5 + GTA 6 total bill / EMI months (slug ps5-emi)
+2026-11-16T14:59:54Z | voice done | 8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions
