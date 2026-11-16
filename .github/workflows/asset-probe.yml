@@ -18,16 +18,18 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
       - run: |
+          set +e
           mkdir -p _b/song && cd _b/song
+          touch audio_refs.txt
           B=https://calgaryinsight.ca/city-stories
           curl -fsSL -A "Mozilla/5.0" -o cs.html $B/ || echo fail-index
           grep -o -E '(src|href)="[^"]+"' cs.html | sort -u > assets.txt || true
-          for j in $(grep -o -E 'src="[^"]+\.js[^"]*"' cs.html | sed 's/src="//;s/"$//' | head -40); do curl -fsSL -A "Mozilla/5.0" "$B/$j" 2>/dev/null | grep -o -E "[A-Za-z0-9_./-]*\.(mp3|ogg|m4a)" >> audio_refs.txt; done
+          for j in $(grep -o -E 'src="[^"]+\.js[^"]*"' cs.html | sed 's/src="//;s/"$//' | head -40); do curl -fsSL -A "Mozilla/5.0" "$B/$j" 2>/dev/null | grep -o -E "[A-Za-z0-9_./-]*\.(mp3|ogg|m4a)" >> audio_refs.txt || true; done
           sort -u audio_refs.txt -o audio_refs.txt || true
           for p in audio/under-one-sky.mp3 $(grep -i "under" audio_refs.txt); do
             if curl -fsSL -A "Mozilla/5.0" -o under-one-sky.mp3 "$B/$p"; then echo "ok $B/$p" > found.txt; break; fi
           done
-          ls -la; cat audio_refs.txt found.txt 2>/dev/null || true
+          ls -la; cat audio_refs.txt found.txt 2>/dev/null; true
       - run: |
           mkdir -p _b && date -u > _b/ran_at.txt
           cd _b
