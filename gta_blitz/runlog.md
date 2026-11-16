@@ -30,3 +30,5 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T20:52:22Z | topic claimed | #5 FACT car chori GTA vs BNS saza (slug car-chori-saza)
 2026-11-16T20:58:44Z | topic released | #5 back to todo: page fetches blocked (WebFetch permission prompt unanswered in unattended run), BNS text could not be read -> no sourced FACT possible this run
 2026-11-16T20:58:44Z | topic claimed | #6 FAN-THEORY Agar GTA ka next map Mumbai hota (slug mumbai-map); only common-knowledge real details
+2026-11-16T21:03:39Z | check round 1 | APPROVED (independent agent; page fetches blocked for it too, judged 6 real details on established knowledge, high confidence); optional Hindi fixes applied (n04 'bhi', h1e 'jaayenge')
+2026-11-16T21:03:39Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (n04/h1e re-voiced after check)
