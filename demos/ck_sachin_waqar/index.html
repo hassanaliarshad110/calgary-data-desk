@@ -1,0 +1,207 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../engine/fonts.css">
+<style>
+@font-face { font-family: 'Anton'; src: url('../../acquired/fonts/anton/Anton-Regular.ttf'); }
+@font-face { font-family: 'InterV'; src: url('../../acquired/fonts/inter/Inter[opsz,wght].ttf'); font-weight: 100 900; }
+</style></head><body>
+<script src="../../engine/core.js"></script><script src="../../engine/chars.js"></script><script src="../../engine/props.js"></script>
+<script src="../../engine/sets.js"></script><script src="../../engine/fx.js"></script><script src="../../engine/graphics.js"></script>
+<script>
+/* CRICKET KAHANI — 16-year-old Sachin and Waqar: one debut Test, two legends (Karachi, 15 Nov 1989). Vertical 1080x1920. */
+window.PAGE_READY = false; stage(1080, 1920);
+let TL; const LOGO = new Image(); LOGO.src = '../../channels/cricketkahani/logo_badge.png';
+const G = '#0E3B2C', G2 = '#114535', G3 = '#1B5644', TAN = '#D8BC85', CR = '#F4ECD8', RED = '#B3202A', DRED = '#7E1219', AMB = '#FFB703';
+const IND = '#1d4f9a', PAK = '#1f7a3a', WHITE = '#f4f1e8';
+const AF = s => `400 ${s}px Anton`, IF = (w, s) => `${w} ${s}px InterV`;
+const CAP_R = [
+ '16 saal ka batsman, 17 saal ka bowler. Aur dono ka pehla Test, ek hi match mein!',
+ '15 November 1989. Karachi — Pakistan vs India.',
+ 'India se Sachin Tendulkar. Pakistan se, Waqar Younis.',
+ 'Sachin ne Waqar ko do chauke jade. Phir Waqar ki ek tez gend — aur Sachin bowled! Sirf 15 run.',
+ 'Waqar ne pehle hi Test mein 4 wicket liye — Kapil Dev ka bhi.',
+ 'Ek mahine baad, Sialkot. Waqar ka bouncer Sachin ki naak par laga, khoon behne laga.',
+ 'Kaha gaya, ilaaj ke liye jao. Sachin bole: "Main khelega!" 57 run banaye, aur India ne Test bacha liya.',
+ 'Aage chalkar, Sachin ke 15,000 se zyada Test run, Waqar ke 373 wicket. Ek din, do legends. Aapka favourite kaun?'];
+const CAP_E = [
+ 'A 16-year-old batter, a 17-year-old bowler: both on Test debut, in the same match.',
+ '15 Nov 1989 · National Stadium, Karachi · Pakistan vs India',
+ 'Debut for India: Sachin Tendulkar. Debut for Pakistan: Waqar Younis.',
+ 'Sachin hit Waqar for two fours. Then Waqar bowled him for 15.',
+ 'Waqar took 4 wickets on debut, Kapil Dev among them.',
+ 'A month later in Sialkot, a Waqar bouncer hit Sachin on the nose.',
+ 'Told to go off for treatment, he said "I will play", made 57, and India saved the Test.',
+ '15,921 Test runs for Sachin, 373 Test wickets for Waqar. One day, two legends. Your favourite?'];
+
+const SACHIN = { name: 'Sachin', height: 370, age: 'teen', build: 'slim', skin: '#b47b52', hair: { style: 'curly', color: '#1a120c' }, eyes: '#2a1a10', top: { type: 'shirt', color: WHITE, sleeve: 'long' }, bottom: { type: 'pants', color: WHITE }, shoes: '#f2f2f2', brows: 1.0, hat: { type: 'cap', color: IND } };
+const WAQAR = { name: 'Waqar', height: 430, age: 'adult', build: 'average', skin: '#a8714a', hair: { style: 'side', color: '#17100b' }, eyes: '#2a1a10', top: { type: 'shirt', color: WHITE, sleeve: 'short' }, bottom: { type: 'pants', color: WHITE }, shoes: '#f2f2f2', brows: 1.15, hat: { type: 'cap', color: PAK } };
+
+/* ---------- shared drawing ---------- */
+function stripes(off = 0, hz = false) { C.fillStyle = G; C.fillRect(0, 0, 1080, 1920); C.fillStyle = G2;
+  if (hz) { for (let x = -360 + ((off % 360) + 360) % 360; x < 1080; x += 360) C.fillRect(x, 0, 180, 1920); }
+  else { for (let y = -360 + ((off % 360) + 360) % 360; y < 1920; y += 360) C.fillRect(0, y, 1080, 180); } }
+function seamPath(sx) { C.beginPath(); C.moveTo(sx * -8, -46); C.bezierCurveTo(sx * -17, -20, sx * -17, 20, sx * -8, 46); }
+function ball(x, y, r, { rot = 0, letters = null, a = 1 } = {}) { withT(() => { const k = 1 / 48; C.save(); C.scale(r * k, r * k);
+  circle(0, 0, 48); fillPath(RED); C.save(); circle(0, 0, 48); C.clip();
+  for (const sx of [1, -1]) { seamPath(sx); C.strokeStyle = DRED; C.lineWidth = 1.6; C.stroke();
+    C.save(); C.translate(sx * -2.6, 0); seamPath(sx); C.setLineDash([1.4, 2.4]); C.lineCap = 'round'; C.strokeStyle = CR; C.lineWidth = 1.8; C.stroke(); C.restore(); }
+  C.restore();
+  if (letters) { text(letters[0], -33, 3, { font: AF(30), fill: CR }); text(letters[1], 33, 3, { font: AF(30), fill: CR }); }
+  C.restore(); }, { x, y, r: rot, a }); }
+function logo(x, y, r) { C.drawImage(LOGO, x - r, y - r, 2 * r, 2 * r); }
+function header(a = 1) { if (a <= 0) return; C.save(); C.globalAlpha = a; C.font = AF(46); const w = C.measureText('CRICKET KAHANI').width + 16 + 64; const x0 = 540 - w / 2;
+  logo(x0 + 32, 168, 38); text('CRICKET KAHANI', x0 + 80, 170, { font: AF(46), fill: CR, align: 'left', ls: 2 }); C.restore(); }
+function wrap(str, font, maxW) { C.font = font; const words = str.split(' '), lines = []; let cur = '';
+  for (const w of words) { const t = cur ? cur + ' ' + w : w; if (C.measureText(t).width > maxW && cur) { lines.push(cur); cur = w; } else cur = t; } if (cur) lines.push(cur); return lines; }
+function caption(i, t, d) { const a = clamp(t * 5) * clamp((d - t) * 5); if (a <= 0) return;
+  const fr = IF(800, 44), fe = IF(500, 28); const L1 = wrap(CAP_R[i], fr, 900), L2 = wrap(CAP_E[i], fe, 900);
+  const h = L1.length * 54 + 12 + L2.length * 36 + 40; const y0 = 1500 - h;
+  C.save(); C.globalAlpha = a; rr(60, y0, 960, h, 22); fillPath('rgba(5,24,17,0.80)');
+  L1.forEach((l, k) => text(l, 540, y0 + 20 + 27 + k * 54, { font: fr, fill: '#fff' }));
+  L2.forEach((l, k) => text(l, 540, y0 + 20 + L1.length * 54 + 12 + 18 + k * 36, { font: fe, fill: TAN })); C.restore(); }
+function chip(str, x, y, { bg = RED, fg = '#fff', font = IF(800, 30), a = 1, padX = 26, h = 60 } = {}) { C.save(); C.globalAlpha = a; C.font = font; const w = C.measureText(str).width + padX * 2; rr(x - w / 2, y - h / 2, w, h, h / 2); fillPath(bg); text(str, x, y + 1, { font, fill: fg }); C.restore(); return w; }
+function nightSky() { C.fillStyle = '#071d16'; C.fillRect(0, 0, 1080, 1920); }
+function floodlight(x, y, s, t, on = 1) { withT(() => { C.fillStyle = G3; C.fillRect(-8, 60, 16, 520); rr(-90, -10, 180, 100, 10); fillPath(G3);
+  for (let r = 0; r < 2; r++) for (let c = 0; c < 4; c++) { rr(-78 + c * 41, 2 + r * 42, 32, 32, 5); fillPath(on > 0.5 ? CR : '#3b5a4e'); } }, { x, y, s });
+  if (on > 0.5) FX.glow(x, y + 40 * s, 260 * s, '255,240,200', 0.35 * on); }
+function crowd(y0, rows, t, seed = 1) { for (let r = 0; r < rows; r++) for (let i = 0; i < 26; i++) { const x = i * 44 + (r % 2) * 22 + hash(i + r * 31 + seed) * 10; const bob = Math.sin(t * 6 + i * 1.7 + r) * 3 * (hash(i * 7 + r) > 0.6 ? 1 : 0);
+  circle(x, y0 + r * 40 + bob, 15); C.fillStyle = r % 2 ? '#0b2a20' : '#0d3226'; C.fill(); rr(x - 17, y0 + r * 40 + 12 + bob, 34, 30, 10); C.fill(); } }
+function bat(x, y, ang, s = 1) { withT(() => { rr(-6, -70, 12, 72, 5); fillPath('#2b2b2b'); rr(-17, 0, 34, 150, 8); fillPath('#e8d2a0', '#8a6a3a', 3); }, { x, y, r: ang, s }); }
+function stamp(str, x, y, t, t0, { col = RED, size = 120, r = -0.12 } = {}) { const k = t - t0; if (k < 0) return; const s = 1 + 1.6 * (1 - ease('expoOut', k / 0.35));
+  withT(() => { C.font = AF(size); const w = C.measureText(str).width + 60; rr(-w / 2, -size * 0.72, w, size * 1.4, 18); fillPath(null, col, 10); text(str, 0, 6, { font: AF(size), fill: col }); }, { x, y, s, r, a: clamp(k / 0.15) }); }
+
+
+/* ---------- episode helpers ---------- */
+function daySky(top = '#9fd0e6', bot = '#f1e2bf') { C.fillStyle = grad(0, 0, 0, 1000, [[0, top], [1, bot]]); C.fillRect(0, 0, 1080, 1920); }
+function dayCrowd(y0, rows, t, seed = 1) { const P = ['#c9a27a', '#7a5a3a', '#e8e1d0', '#3b6b8a', '#9b3a3a', '#2e6b3f', '#d9c27a'];
+  C.fillStyle = '#5d6b63'; C.fillRect(0, y0 - 30, 1080, rows * 40 + 40);
+  for (let r = 0; r < rows; r++) for (let i = 0; i < 26; i++) { const x = i * 44 + (r % 2) * 22 + hash(i + r * 31 + seed) * 10; const bob = Math.sin(t * 6 + i * 1.7 + r) * 3 * (hash(i * 7 + r) > 0.6 ? 1 : 0);
+    circle(x, y0 + r * 40 + bob, 13); C.fillStyle = '#8a5a3a'; C.fill(); rr(x - 16, y0 + r * 40 + 11 + bob, 32, 28, 10); C.fillStyle = P[(hash(i * 3 + r * 11 + seed) * P.length) | 0]; C.fill(); } }
+function field(gy = 1180) { C.fillStyle = '#2f7d46'; C.fillRect(0, 850, 1080, 1070); for (let i = 0; i < 8; i++) { C.fillStyle = i % 2 ? '#2f7d46' : '#2a7340'; C.fillRect(0, 850 + i * 60, 1080, 60); }
+  C.beginPath(); C.moveTo(0, gy); C.lineTo(1080, gy); C.lineTo(1080, gy + 120); C.lineTo(0, gy + 120); fillPath('#d9c08a'); }
+function stumps(t, hitT = 1e9) { const u = t - hitT;
+  for (let k = 0; k < 3; k++) { const tilt = u > 0 && k === 1 ? Math.min(0.28, u * 1.4) : 0; withT(() => { rr(-8, -300, 16, 300, 5); fillPath(CR); }, { x: 808 + k * 34, y: 1180, r: tilt }); }
+  if (u < 0) { rr(796, 872, 54, 9, 4); fillPath(RED); rr(852, 872, 54, 9, 4); fillPath(RED); }
+  else for (const j of [0, 1]) { const dir = j ? 1 : -1; const x = 823 + j * 56 + dir * 260 * u, y = 876 - 700 * u + 1500 * u * u; if (y < 1250) withT(() => { rr(-27, -4.5, 54, 9, 4); fillPath(RED); }, { x, y, r: u * 14 * dir }); } }
+function plate(title, sub, col, y, k) { if (k <= 0) return; withT(() => { C.font = AF(64); const w = Math.max(600, C.measureText(title).width + 90); rr(-w / 2, -72, w, 144, 18); fillPath('rgba(5,24,17,0.9)', col, 6);
+  text(title, 0, -16, { font: AF(64), fill: CR }); text(sub, 0, 40, { font: IF(800, 28), fill: AMB, ls: 2 }); }, { x: 540, y, s: k }); }
+function bubble(str, x, y, k, { size = 96, tailX = -200, tailY = 200, bg = CR, fg = RED } = {}) { if (k <= 0) return;
+  withT(() => { C.font = AF(size); const w = C.measureText(str).width + 110, h = size * 1.6;
+    C.beginPath(); C.moveTo(-60, h / 2 - 6); C.lineTo(tailX, tailY); C.lineTo(20, h / 2 - 6); C.closePath(); fillPath(bg, G, 8);
+    rr(-w / 2, -h / 2, w, h, h / 2); fillPath(bg, G, 8); C.beginPath(); C.moveTo(-58, h / 2 - 10); C.lineTo(18, h / 2 - 10); C.strokeStyle = bg; C.lineWidth = 14; C.stroke();
+    text(str, 0, 6, { font: AF(size), fill: fg }); }, { x, y, s: k }); }
+function battingPose(t, swing = 0, beaten = 0) { const p = MOVES.idle(t, { seed: 3 }); p.yaw = -1.25; p.legL.kn = p.legR.kn = 0.35; p.handL = p.handR = 'fist';
+  p.lean = 0.12 + 0.16 * swing + 0.1 * beaten; p.legR.sw = -0.45 * swing; p.armL.sw = p.armR.sw = 0.55 + 0.45 * swing; p.armL.el = p.armR.el = 0.9; return p; }
+function count(v, k) { return Math.round(v * ease('out', clamp(k))).toLocaleString('en-US'); }
+
+/* ---------- scenes ---------- */
+const DRAW_FN = {
+  s0: t => { const S = TL.shot('s0'), d = S.dur; stripes(t * 200); C.fillStyle = 'rgba(4,20,14,0.55)'; C.fillRect(0, 0, 1080, 1920);
+    const k = ease('expoOut', clamp((t - 0.15) / 0.6));
+    C.fillStyle = 'rgba(29,79,154,0.42)'; C.fillRect(-540 + 540 * k, 0, 540, 1920); C.fillStyle = 'rgba(31,122,58,0.42)'; C.fillRect(1080 - 540 * k, 0, 540, 1920);
+    if (t < 0.6) { FX.speedLines(t, { cx: 540, cy: 760, n: 70, a: 0.3, inner: 260 }); const bx = lerp(-120, 1200, ease('in', clamp(t / 0.55))); for (let j = 0; j < 7; j++) { C.globalAlpha = 0.12 * (7 - j) / 7; ball(bx - j * 60, 760, 60); } C.globalAlpha = 1; ball(bx, 760, 60, { rot: t * 20 }); }
+    if (t > 0.55 && t < 0.8) { C.fillStyle = `rgba(255,255,240,${0.7 * (1 - (t - 0.55) / 0.25)})`; C.fillRect(0, 0, 1080, 1920); }
+    const n1 = ease('back', (t - 0.55) / 0.4), n2 = ease('back', (t - 0.9) / 0.4);
+    if (n1 > 0) withT(() => { text('16', 0, 0, { font: AF(280), fill: AMB }); text('SAAL', 0, 150, { font: IF(800, 40), fill: CR, ls: 4 }); }, { x: 270, y: 620, s: n1 });
+    if (n2 > 0) withT(() => { text('17', 0, 0, { font: AF(280), fill: AMB }); text('SAAL', 0, 150, { font: IF(800, 40), fill: CR, ls: 4 }); }, { x: 810, y: 620, s: n2 });
+    chip('BATSMAN · INDIA', 270, 835, { bg: IND, a: clamp((t - 1.1) * 3), font: IF(800, 28), h: 54 }); chip('BOWLER · PAKISTAN', 810, 835, { bg: PAK, a: clamp((t - 1.3) * 3), font: IF(800, 28), h: 54 });
+    if (t > 0.7) { const pS = MOVES.idle(t, { seed: 1 }); pS.yaw = 0.45; const pW = MOVES.idle(t, { seed: 4 }); pW.yaw = -0.45; pW.armL.sw = pW.armR.sw = 0.1;
+      C.globalAlpha = clamp((t - 0.7) * 3); drawChar(SACHIN, pS, 270, 1260, 1.0, { t }); drawChar(WAQAR, pW, 810, 1260, 0.88, { t }); C.globalAlpha = 1; }
+    const tk = ease('back', (t - 1.6) / 0.45); if (tk > 0) withT(() => { rr(-470, -70, 940, 140, 22); fillPath(RED); text('DONO KA PEHLA TEST', 0, 6, { font: AF(84), fill: '#fff' }); }, { x: 540, y: 300, s: tk });
+    chip('EK HI MATCH MEIN!', 540, 410, { bg: CR, fg: G, a: clamp((t - 2.4) * 3), font: AF(46), h: 76 });
+    header(clamp((t - 3.2) * 2) * 0); caption(0, t - 0.5, d - 0.5); },
+  s1: t => { const d = TL.shot('s1').dur; daySky(); dayCrowd(700, 5, t, 3);
+    C.fillStyle = '#2f7d46'; C.fillRect(0, 920, 1080, 1000); C.beginPath(); C.moveTo(480, 920); C.lineTo(600, 920); C.lineTo(690, 1400); C.lineTo(390, 1400); C.closePath(); fillPath('#d9c08a');
+    const k1 = ease('back', (t - 0.3) / 0.5), k2 = ease('back', (t - 1.2) / 0.5), k3 = ease('back', (t - 2.3) / 0.5);
+    if (k1 > 0) withT(() => { rr(-350, -95, 700, 190, 24); fillPath(CR, G, 6); text('15 NOV 1989', 0, 8, { font: AF(120), fill: G }); }, { x: 540, y: 330, s: k1 });
+    if (k2 > 0) withT(() => { rr(-400, -60, 800, 120, 18); fillPath('rgba(5,24,17,0.88)'); text('NATIONAL STADIUM · KARACHI', 0, -12, { font: IF(800, 38), fill: CR, ls: 2 }); text('1st TEST · 4-TEST SERIES', 0, 36, { font: IF(700, 28), fill: TAN, ls: 3 }); }, { x: 540, y: 500, s: k2 });
+    if (k3 > 0) withT(() => { chip('PAKISTAN', -180, 0, { bg: PAK, font: AF(52), h: 86, padX: 34 }); text('vs', 0, 2, { font: AF(48), fill: G }); chip('INDIA', 160, 0, { bg: IND, font: AF(52), h: 86, padX: 34 }); }, { x: 540, y: 1030, s: k3 });
+    header(); caption(1, t - 0.1, d - 0.1); },
+  s2: t => { const S = TL.shot('s2'), d = S.dur, cut = S.vo_at + S.vo * 0.47;
+    if (t < cut) { stripes(t * 60, true); C.fillStyle = 'rgba(29,79,154,0.25)'; C.fillRect(0, 0, 1080, 1920);
+      const kx = ease('out', clamp((t - 0.1) / 1.4)); const x = lerp(-120, 540, kx); const p = kx < 1 ? MOVES.walk(t, { speed: 1.1 }) : MOVES.idle(t, { seed: 2 }); if (kx >= 1) p.yaw = 0.25;
+      bat(x + 120, 1150, 0.25, 1.1); drawChar(SACHIN, p, x, 1230, 1.6, { t });
+      plate('SACHIN TENDULKAR', '16 SAAL 205 DIN · TEST DEBUT', IND, 320, ease('back', (t - 0.35) / 0.4));
+      chip('INDIA', 540, 450, { bg: IND, a: clamp((t - 0.8) * 3), font: AF(40), h: 66 });
+    } else { const u = t - cut; stripes(0); for (let i = -1; i < 8; i++) { const x = ((i * 300 - t * 1100) % 2400 + 2400) % 2400 - 300; rr(x, 760, 260, 90, 6); fillPath(i % 2 ? '#1d4f3f' : RED); text(i % 2 ? 'CRICKET' : 'KAHANI', x + 130, 806, { font: AF(44), fill: CR }); }
+      C.fillStyle = G; C.fillRect(0, 850, 1080, 1070); for (let i = 0; i < 14; i++) { const x = ((i * 160 - t * 1100) % 2240 + 2240) % 2240 - 200; C.fillStyle = G2; C.fillRect(x, 850, 80, 1070); }
+      C.fillStyle = 'rgba(31,122,58,0.18)'; C.fillRect(0, 0, 1080, 1920); FX.speedLines(t, { cx: 1400, cy: 1000, n: 40, a: 0.18, inner: 600 });
+      drawChar(WAQAR, MOVES.run(t, { speed: 1.5 }), 520, 1230, 1.4, { t });
+      plate('WAQAR YOUNIS', '17 SAAL 364 DIN · TEST DEBUT', PAK, 320, ease('back', (u - 0.2) / 0.4));
+      chip('PAKISTAN', 540, 450, { bg: PAK, a: clamp((u - 0.6) * 3), font: AF(40), h: 66 }); }
+    header(); caption(2, t - 0.1, d - 0.1); },
+  s3: t => { const S = TL.shot('s3'), d = S.dur, va = S.vo_at, vo = S.vo;
+    const H = [{ hit: va + 0.5, type: 'four' }, { hit: va + vo * 0.2, type: 'four' }, { hit: va + vo * 0.62, type: 'bowled' }];
+    const bH = H[2].hit; daySky('#a9cfe0', '#efe0bd'); dayCrowd(620, 5, t, 7); field(1180); stumps(t, bH);
+    let swing = 0; for (const h of H) if (h.type === 'four') { const u = t - h.hit; if (u > -0.22 && u < 0.45) swing = Math.max(swing, u < 0 ? 1 + u / 0.22 * 0 : 1 - u / 0.45); }
+    const beaten = t > bH - 0.1 ? 1 : 0; const p = battingPose(t, swing, beaten); drawChar(SACHIN, p, 690, 1180, 1.5, { t });
+    const [hx, hy] = jointPos(SACHIN, p, 690, 1180, 1.5, 'wriR'); bat(hx, hy, swing > 0.2 ? -0.05 - 0.5 * (1 - swing) : 0.35, 1.25);
+    for (const h of H) { const t0 = h.hit - 0.45; if (t < t0 || t > h.hit + 0.9) continue; const tx = h.type === 'four' ? hx - 40 : 834, ty = h.type === 'four' ? hy + 150 : 1060;
+      let bx, by; if (t < h.hit) { const k = ease('in', (t - t0) / 0.45); bx = lerp(-80, tx, k); by = lerp(1000, ty, k) - Math.sin(k * Math.PI) * 60; for (let j = 1; j < 6; j++) { C.globalAlpha = 0.12; ball(bx - j * 40, by + j * 4, 22); } C.globalAlpha = 1; }
+      else { const u = t - h.hit; if (h.type === 'four') { bx = lerp(tx, -160, clamp(u / 0.5)); by = lerp(ty, 520, clamp(u / 0.5)); } else { bx = tx + 40 * u; by = Math.min(1190, ty + 300 * u * u); } if (u < 0.25) FX.glow(tx, ty, 150, '255,255,220', 0.8 * (1 - u / 0.25)); }
+      ball(bx, by, 22, { rot: t * 20 }); }
+    if (t < bH) { const n = H.filter(h => h.type === 'four' && t > h.hit).length; H.forEach((h, i) => { if (h.type === 'four' && t > h.hit) stamp('FOUR!', 300 + i * 0, 380 + i * 0, t, h.hit, { col: AMB, size: 100, r: -0.1 }); });
+      if (n) chip(`${n} × 4  vs  WAQAR`, 540, 520, { bg: 'rgba(5,24,17,0.88)', fg: AMB, font: IF(800, 34), h: 64 }); }
+    else { if (t < bH + 0.3) { C.fillStyle = `rgba(179,32,42,${0.3 * (1 - (t - bH) / 0.3)})`; C.fillRect(0, 0, 1080, 1920); }
+      stamp('BOWLED!', 540, 360, t, bH + 0.05, { col: RED, size: 130, r: -0.1 });
+      const k = ease('back', (t - bH - 0.8) / 0.45); if (k > 0) withT(() => { rr(-330, -95, 660, 190, 24); fillPath('rgba(5,24,17,0.92)', AMB, 6); text('SACHIN 15 (24)', 0, -22, { font: AF(76), fill: CR }); text('b WAQAR YOUNIS', 0, 50, { font: IF(800, 32), fill: AMB, ls: 3 }); }, { x: 540, y: 560, s: k }); }
+    header(); caption(3, t - 0.1, d - 0.1); },
+  s4: t => { const S = TL.shot('s4'), d = S.dur; stripes(t * 40);
+    text('WAQAR KA DEBUT', 540, 270, { font: AF(100), fill: CR }); text('Pehli paari · Karachi 1989', 540, 345, { font: IF(700, 34), fill: TAN });
+    const kf = ease('back', (t - 0.3) / 0.45); if (kf > 0) withT(() => { rr(-300, -85, 600, 170, 24); fillPath('rgba(5,24,17,0.9)', AMB, 6); text('4 / 80', 0, -8, { font: AF(120), fill: AMB }); text('19 OVERS', 0, 58, { font: IF(800, 26), fill: CR, ls: 4 }); }, { x: 540, y: 490, s: kf });
+    const W = ['SANJAY MANJREKAR', 'MANOJ PRABHAKAR', 'SACHIN TENDULKAR', 'KAPIL DEV']; const step = (S.vo * 0.55) / 4;
+    W.forEach((nm, i) => { const t0 = 0.7 + i * step; if (t < t0) return; const k = ease('out', clamp((t - t0) / 0.35)), y = 640 + i * 100, last = i === 3;
+      withT(() => { rr(70, y, 940, 84, 16); fillPath(last ? 'rgba(179,32,42,0.95)' : 'rgba(5,24,17,0.85)'); ball(128, y + 42, 26); text(nm, 180, y + 44, { font: IF(800, 36), fill: last ? '#fff' : CR, align: 'left' }); text('OUT', 960, y + 44, { font: AF(40), fill: last ? AMB : TAN, align: 'right' }); }, { x: (1 - k) * 300, a: k }); });
+    header(); caption(4, t - 0.1, d - 0.1); },
+  s5: t => { const S = TL.shot('s5'), d = S.dur, hitT = S.vo_at + S.vo * 0.52;
+    if (t < hitT - 0.7) { daySky('#9db7c4', '#dcd6bf'); dayCrowd(640, 5, t, 13); field(1180);
+      const k1 = ease('back', (t - 0.15) / 0.45); if (k1 > 0) withT(() => { rr(-320, -100, 640, 200, 24); fillPath(CR, G, 6); text('SIALKOT', 0, -10, { font: AF(120), fill: G }); text('4th TEST · DEC 1989', 0, 64, { font: IF(800, 30), fill: RED, ls: 3 }); }, { x: 540, y: 340, s: k1 });
+      chip('INDIA 38/4', 540, 520, { bg: RED, a: clamp((t - 1.0) * 3), font: AF(56), h: 90, padX: 40 });
+    } else { const u = t - hitT; daySky('#9db7c4', '#dcd6bf'); C.fillStyle = '#2f7d46'; C.fillRect(0, 1100, 1080, 820);
+      const sh = u > 0 && u < 0.45 ? (1 - u / 0.45) * 22 : 0; C.save(); C.translate((hash(t * 99 | 0) - 0.5) * sh, (hash(t * 77 | 0) - 0.5) * sh);
+      const p = MOVES.idle(t, { seed: 5 }); p.yaw = -0.5; p.armL.sw = p.armR.sw = 0.5; p.armL.el = p.armR.el = 1.0; p.handL = p.handR = 'fist';
+      if (u > 0) { const r = Math.min(1, u / 0.12) * Math.max(0.35, 1 - u * 0.6); p.head.pitch = -0.35 * r; p.lean = -0.12 * r; p.face.expr = 'scared'; }
+      drawChar(SACHIN, p, 560, 1780, 2.5, { t }); const fx = 520, fy = 1780 - 370 * 2.5 * 0.86;
+      if (u < 0) { const k = ease('in', clamp((u + 0.7) / 0.7)); const bx = lerp(-80, fx, k), by = lerp(1250, fy, k); for (let j = 1; j < 6; j++) { C.globalAlpha = 0.12; ball(bx - j * 34, by + j * 22, 30); } C.globalAlpha = 1; ball(bx, by, 30, { rot: t * 20 }); }
+      else { ball(fx - 260 * u, fy + 200 * u + 600 * u * u, 30, { rot: t * 6 }); FX.impactStar(t, { x: fx - 40, y: fy - 60, t0: hitT, size: 1.1, word: 'THWACK!' });
+        if (u > 0.5) for (let j = 0; j < 3; j++) { const v = ((u - 0.5 + j * 0.35) % 1.05); circle(fx + 14 + j * 6, fy + 40 + v * 110, 7 - v * 3); fillPath(`rgba(176,24,30,${0.85 * (1 - v)})`); } }
+      C.restore(); if (u > 0 && u < 0.3) { C.fillStyle = `rgba(255,240,230,${0.6 * (1 - u / 0.3)})`; C.fillRect(0, 0, 1080, 1920); }
+      chip('BOUNCER · WAQAR YOUNIS', 540, 330, { bg: PAK, a: clamp((u + 0.6) * 3), font: IF(800, 34), h: 66 }); }
+    header(); caption(5, t - 0.1, d - 0.1); },
+  s6: t => { const S = TL.shot('s6'), d = S.dur, va = S.vo_at, vo = S.vo; const t1 = va + 0.2, t2 = va + vo * 0.33, t3 = va + vo * 0.55, t4 = va + vo * 0.78;
+    daySky('#9db7c4', '#dcd6bf'); dayCrowd(640, 5, t, 17); field(1180);
+    const p = MOVES.idle(t, { seed: 6 }); p.yaw = 0.35; if (t > t2 && t < t2 + 0.6) { p.lean = 0.08; p.head.pitch = -0.08; }
+    bat(380, 1170, 0.2, 1.1); drawChar(SACHIN, p, 300, 1230, 1.55, { t });
+    const nx = 300 + 18, ny = 1230 - 370 * 1.55 * 0.86 + 22; rr(nx - 16, ny - 6, 32, 12, 4); fillPath('#f7f7f2', '#c9c2b0', 2);
+    if (t > t1 && t < t2 + 0.2) bubble('ILAAJ KE LIYE JAO!', 700, 420, ease('back', (t - t1) / 0.35) * clamp((t2 + 0.2 - t) * 5), { size: 56, tailX: -260, tailY: 180, bg: '#e9e4d6', fg: G });
+    if (t > t2) bubble('MAIN KHELEGA!', 560, 400, ease('back', (t - t2) / 0.4), { size: 104, tailX: -150, tailY: 230, bg: CR, fg: RED });
+    const k3 = ease('back', (t - t3) / 0.45); if (k3 > 0) withT(() => { rr(-190, -130, 380, 260, 26); fillPath('rgba(5,24,17,0.92)', AMB, 6); text('57', 0, -20, { font: AF(170), fill: AMB }); text('SACHIN · SIALKOT', 0, 92, { font: IF(800, 24), fill: CR, ls: 2 }); }, { x: 790, y: 830, s: k3 });
+    chip('TEST DRAW · INDIA BACH GAYA', 790, 1020, { bg: G, fg: CR, a: clamp((t - t4) * 3), font: IF(800, 32), h: 66 });
+    header(); caption(6, t - 0.1, d - 0.1); },
+  s7: t => { const S = TL.shot('s7'), d = S.dur, va = S.vo_at, vo = S.vo, tEnd = va + vo * 0.82;
+    if (t < tEnd) { stripes(t * 20); text('AAGE CHALKAR…', 540, 250, { font: IF(800, 40), fill: TAN, ls: 3 });
+      C.fillStyle = 'rgba(29,79,154,0.30)'; C.fillRect(0, 300, 540, 900); C.fillStyle = 'rgba(31,122,58,0.30)'; C.fillRect(540, 300, 540, 900);
+      const k1 = clamp((t - 0.3) / 1.4), k2 = clamp((t - va - vo * 0.38) / 1.0);
+      text(count(15921, k1), 270, 560, { font: AF(120), fill: AMB }); text('TEST RUNS · SACHIN', 270, 640, { font: IF(800, 28), fill: CR, ls: 2 });
+      if (t > va + vo * 0.38) { text(count(373, k2), 810, 560, { font: AF(120), fill: AMB }); text('TEST WICKETS · WAQAR', 810, 640, { font: IF(800, 28), fill: CR, ls: 2 }); }
+      const pS = MOVES.idle(t, { seed: 1 }); pS.yaw = 0.35; const pW = MOVES.idle(t, { seed: 4 }); pW.yaw = -0.35;
+      drawChar(SACHIN, pS, 270, 1190, 1.0, { t }); drawChar(WAQAR, pW, 810, 1190, 0.9, { t });
+      stamp('EK DIN, DO LEGENDS', 540, 390, t, va + vo * 0.6, { col: CR, size: 76, r: -0.05 });
+      header(); }
+    else { const u = t - tEnd; stripes(t * 20); FX.glow(540, 520, 480, '255,210,140', 0.18);
+      const k = ease('back', u / 0.6); if (k > 0) withT(() => logo(0, 0, 220), { x: 540, y: 520, s: k, r: (1 - k) * 0.6 });
+      text('CRICKET KAHANI', 540, 820, { font: AF(92), fill: CR, a: clamp((u - 0.3) * 3) }); text('Har gend ke peeche ek kahani', 540, 895, { font: IF(700, 38), fill: TAN, a: clamp((u - 0.5) * 3) });
+      const q = ease('back', (u - 0.4) / 0.5); if (q > 0) withT(() => { chip('SACHIN', -170, 0, { bg: IND, font: AF(52), h: 86, padX: 34 }); text('ya', 0, 2, { font: AF(46), fill: CR }); chip('WAQAR?', 170, 0, { bg: PAK, font: AF(52), h: 86, padX: 34 }); }, { x: 540, y: 1000, s: q });
+      const f = ease('back', (u - 1.2) / 0.5); if (f > 0) withT(() => { chip('FOLLOW', -150, 0, { bg: RED, font: AF(46), h: 84, padX: 38 }); chip('SUBSCRIBE', 150, 0, { bg: CR, fg: G, font: AF(46), h: 84, padX: 38 }); }, { x: 540, y: 1110, s: f }); }
+    caption(7, t - 0.1, S.vo_at + S.vo + 0.5); },
+};
+window.drawCover = () => { stripes(0); FX.glow(540, 1050, 700, '255,210,140', 0.22);
+  C.fillStyle = 'rgba(29,79,154,0.35)'; C.fillRect(0, 640, 540, 1000); C.fillStyle = 'rgba(31,122,58,0.35)'; C.fillRect(540, 640, 540, 1000);
+  rr(60, 210, 960, 160, 26); fillPath(RED); text('16 SAAL KA LADKA', 540, 296, { font: AF(118), fill: '#fff' });
+  text('vs WAQAR YOUNIS', 540, 460, { font: AF(108), fill: AMB }); chip('KARACHI 1989 · DONO KA PEHLA TEST', 540, 570, { bg: CR, fg: G, font: IF(900, 36), h: 74 });
+  const pS = MOVES.idle(0, { seed: 1 }); pS.yaw = 0.45; const pW = MOVES.idle(0, { seed: 4 }); pW.yaw = -0.45;
+  bat(400, 1400, 0.25, 1.4); drawChar(SACHIN, pS, 290, 1500, 1.75, { t: 0 }); drawChar(WAQAR, pW, 800, 1500, 1.55, { t: 0 }); ball(940, 1210, 40, { rot: 0.4 });
+  circle(540, 1060, 74); fillPath(RED, CR, 8); text('VS', 540, 1066, { font: AF(70), fill: '#fff' });
+  chip('16 · INDIA', 290, 1570, { bg: IND, font: AF(46), h: 80 }); chip('17 · PAKISTAN', 800, 1570, { bg: PAK, font: AF(46), h: 80 });
+  logo(370, 1740, 60); text('CRICKET KAHANI', 450, 1745, { font: AF(64), fill: CR, align: 'left', ls: 2 }); };
+Promise.all([fetch('timeline.json').then(r => r.json()), LOGO.decode(), ...['400 40px Anton', '800 40px InterV', '700 40px InterV', '500 40px InterV', '900 40px InterV'].map(f => document.fonts.load(f))]).then(([tl]) => {
+  TL = tl; TL.shot = id => TL.shots.find(s => s.id === id); TL.shots.forEach(s => scene(s.id, s.dur, DRAW_FN[s.id])); window.PAGE_READY = true; });
+</script></body></html>

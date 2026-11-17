@@ -1,0 +1,28 @@
+/* CRICKET KAHANI — 16-year-old Sachin and Waqar: one debut Test, two legends (Karachi, 15 Nov 1989). Vertical 1080x1920. */
+window.PAGE_READY = false; stage(1080, 1920);
+let TL; const LOGO = new Image(); LOGO.src = '../../channels/cricketkahani/logo_badge.png';
+const G = '#0E3B2C', G2 = '#114535', G3 = '#1B5644', TAN = '#D8BC85', CR = '#F4ECD8', RED = '#B3202A', DRED = '#7E1219', AMB = '#FFB703';
+const IND = '#1d4f9a', PAK = '#1f7a3a', WHITE = '#f4f1e8';
+const AF = s => `400 ${s}px Anton`, IF = (w, s) => `${w} ${s}px InterV`;
+const CAP_R = [
+ '16 saal ka batsman, 17 saal ka bowler. Aur dono ka pehla Test, ek hi match mein!',
+ '15 November 1989. Karachi — Pakistan vs India.',
+ 'India se Sachin Tendulkar. Pakistan se, Waqar Younis.',
+ 'Sachin ne Waqar ko do chauke jade. Phir Waqar ki ek tez gend — aur Sachin bowled! Sirf 15 run.',
+ 'Waqar ne pehle hi Test mein 4 wicket liye — Kapil Dev ka bhi.',
+ 'Ek mahine baad, Sialkot. Waqar ka bouncer Sachin ki naak par laga, khoon behne laga.',
+ 'Kaha gaya, ilaaj ke liye jao. Sachin bole: "Main khelega!" 57 run banaye, aur India ne Test bacha liya.',
+ 'Aage chalkar, Sachin ke 15,000 se zyada Test run, Waqar ke 373 wicket. Ek din, do legends. Aapka favourite kaun?'];
+const CAP_E = [
+ 'A 16-year-old batter, a 17-year-old bowler: both on Test debut, in the same match.',
+ '15 Nov 1989 · National Stadium, Karachi · Pakistan vs India',
+ 'Debut for India: Sachin Tendulkar. Debut for Pakistan: Waqar Younis.',
+ 'Sachin hit Waqar for two fours. Then Waqar bowled him for 15.',
+ 'Waqar took 4 wickets on debut, Kapil Dev among them.',
+ 'A month later in Sialkot, a Waqar bouncer hit Sachin on the nose.',
+ 'Told to go off for treatment, he said "I will play", made 57, and India saved the Test.',
+ '15,921 Test runs for Sachin, 373 Test wickets for Waqar. One day, two legends. Your favourite?'];
+
+const SACHIN = { name: 'Sachin', height: 370, age: 'teen', build: 'slim', skin: '#b47b52', hair: { style: 'curly', color: '#1a120c' }, eyes: '#2a1a10', top: { type: 'shirt', color: WHITE, sleeve: 'long' }, bottom: { type: 'pants', color: WHITE }, shoes: '#f2f2f2', brows: 1.0, hat: { type: 'cap', color: IND } };
+const WAQAR = { name: 'Waqar', height: 430, age: 'adult', build: 'average', skin: '#a8714a', hair: { style: 'side', color: '#17100b' }, eyes: '#2a1a10', top: { type: 'shirt', color: WHITE, sleeve: 'short' }, bottom: { type: 'pants', color: WHITE }, shoes: '#f2f2f2', brows: 1.15, hat: { type: 'cap', color: PAK } };
+
