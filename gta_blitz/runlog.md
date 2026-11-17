@@ -71,3 +71,6 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T08:51:53Z | started | run 11 (scheduled)
 2026-11-17T08:52:02Z | topic claimed | #11 FACT GTA khelne se criminal? myth vs research (slug criminal-myth)
 2026-11-17T08:59:47Z | check round 1 | PROBLEMS: hook said 'criminal' but sources (Oxford 2019, APA 2020) study aggression/violence, not crime -> h1o 'hinsak ban jaate hain', on-screen 'GTA KHELO = HINSAK?'. n01-n05 verified (both pages read by checker)
+2026-11-17T09:10:58Z | voice done | 7/7 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2: tightened to fit 55 s after check round 1 fix). Note: lane race with Susuman Ep 8 (my force-push replaced its commit; that session re-pushed its commit on top, its run re-ran)
+2026-11-17T09:10:58Z | rendered | short1_fs.mp4 1080x1920 52.6 s, -14.4 LUFS, score under voice rms 0.025 vs 0.044 alone (~57%), all scenes native portrait; contact sheet: picture fills all 5 frames; media on awazzz-media gta_blitz/criminal-myth.mp4 + _thumb.jpg
+2026-11-17T09:10:58Z | check verdict | APPROVED round 2 (fresh independent agent read Oxford 13 Feb 2019 release + APA 3 Mar 2020 release; all claims verified, no crime claim); optional note applied (quote chip says 'Hindi anuvaad')
