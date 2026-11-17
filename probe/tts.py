@@ -60,11 +60,43 @@ def fade(a, ms=12):
         r = np.linspace(0, 1, n, dtype=np.float32); a = a.copy(); a[:n] *= r; a[-n:] *= r[::-1]
     return a
 
+LEX_RX = re.compile('|'.join(r'(?<![\w\'’])' + re.escape(w) + r'(?![\w\'’])' for w in sorted(LEX, key=len, reverse=True))) if LEX else None
+
+def to_phonemes(sentence):
+    """Phonemise the sentence with Kokoro's own G2P, but put each listed word's exact IPA in place. None if nothing listed."""
+    if not LEX_RX or not any(isinstance(LEX.get(m.group(0)), dict) and LEX[m.group(0)].get('ipa') for m in LEX_RX.finditer(sentence)):
+        return None
+    out_p, pos = [], 0
+    for m in LEX_RX.finditer(sentence):
+        e = LEX[m.group(0)]
+        if not (isinstance(e, dict) and e.get('ipa')): continue
+        frag = sentence[pos:m.start()]
+        if frag.strip(): out_p.append(k.tokenizer.phonemize(frag, 'en-us').strip())
+        out_p.append(e['ipa']); pos = m.end()
+    tail = sentence[pos:]
+    if tail.strip():
+        tp = k.tokenizer.phonemize(tail, 'en-us').strip()
+        out_p.append(tp) if not re.fullmatch(r'[.,!?;:]+', tail.strip()) else out_p.append(tail.strip())
+    ph = ' '.join(out_p)
+    return re.sub(r'\s+([.,!?;:])', r'\1', ph)
+
+PHON_LOG = []
+
+def voice_sentence(s, voice, speed):
+    try:
+        ph = to_phonemes(s)
+        if ph:
+            PHON_LOG.append({'sentence': s, 'phonemes': ph})
+            return k.create(ph, voice=voice, speed=speed, lang='en-us', is_phonemes=True)
+    except Exception as e:
+        print('phoneme mode failed, using respelling:', repr(e)[:160], flush=True)
+    return k.create(spoken(s), voice=voice, speed=speed, lang='en-us')
+
 def voice_line(text, voice, speed):
     chunks = []
-    sents = sentences(spoken(text))
+    sents = sentences(text)
     for j, s in enumerate(sents):
-        a, sr = k.create(s, voice=voice, speed=speed, lang='en-us')
+        a, sr = voice_sentence(s, voice, speed)
         a = fade(np.asarray(a, dtype=np.float32)); chunks.append(a)
         if j < len(sents) - 1:
             chunks.append(np.zeros(int(SR * GAP.get(s.rstrip()[-1:], .30)), dtype=np.float32))
@@ -206,6 +238,13 @@ for name, lines in L.items():
                              'speed': best['speed'], 'takes': [{'speed': t['speed'], 'acc': None if t['acc'] is None else round(t['acc'], 3)} for t in takes],
                              'dur': d, 'input_lufs': in_lufs, 'status': status})
         print(name, i, status, best['acc'], d, (best['heard'] or '')[:90], flush=True)
+
+try:
+    json.dump({'lexicon': {w: {'kokoro_default': k.tokenizer.phonemize(w, 'en-us').strip(),
+                               'listed': (LEX[w].get('ipa') if isinstance(LEX[w], dict) else None)} for w in LEX},
+               'sentences': PHON_LOG}, open(os.path.join(out, 'phonemes.json'), 'w'), indent=1, ensure_ascii=False)
+except Exception as e:
+    print('phoneme dump failed:', repr(e)[:160])
 
 summary = {key: {'lines': len(v), 'check': [r['i'] for r in v if r['status'] == 'check'],
                  'mean_acc': round(sum(r['acc'] for r in v if r['acc'] is not None) / max(1, sum(1 for r in v if r['acc'] is not None)), 3) if asr else None}

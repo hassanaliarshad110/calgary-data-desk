@@ -1,29 +1,138 @@
 {
- "_note": "Calgary Insight pronunciation list for Kokoro (studio-probe probe/tts.py). Key = word exactly as written in the script (case-sensitive, whole word); say = respelling Kokoro reads instead. Captions keep the script's spelling. Add a word whenever a listen-back check (asr_report.json) or Hassan flags it; keep only pronunciations confirmed by a local or official source.",
- "Bow": {"say": "Boe", "why": "Bow River / The Bow rhymes with 'go', not 'cow'"},
- "Bowness": {"say": "Bo-ness", "why": "Calgary community, said BO-ness"},
- "Macleod": {"say": "Muh-cloud", "why": "Macleod Trail, Fort Macleod, Colonel James Macleod"},
- "Brisebois": {"say": "Breez-bwah", "why": "Inspector Ephrem Brisebois, Brisebois Drive (French name)"},
- "Éphrem": {"say": "Ay-frem", "why": "French first name of Inspector Brisebois"},
- "Ephrem": {"say": "Ay-frem", "why": "same, written without the accent"},
- "Gaelic": {"say": "Gallick", "why": "Scottish Gaelic is said GAL-ik"},
- "Chinook": {"say": "Shinook", "why": "Calgary's warm wind, said shi-NOOK"},
- "chinook": {"say": "shinook", "why": "same, lower case"},
- "Chinooks": {"say": "Shinooks", "why": "plural"},
- "chinooks": {"say": "shinooks", "why": "plural, lower case"},
- "Lougheed": {"say": "Law-heed", "why": "Peter Lougheed, Lougheed House"},
- "Tsuut'ina": {"say": "Soo-tin-ah", "why": "Tsuut'ina Nation"},
- "Tsuut’ina": {"say": "Soo-tin-ah", "why": "same, curly apostrophe"},
- "Métis": {"say": "May-tee", "why": "French pronunciation used in Canada"},
- "Metis": {"say": "May-tee", "why": "same, without the accent"},
- "TELUS": {"say": "Tellus", "why": "TELUS Sky, TELUS Spark: a word, not letters"},
- "CTrain": {"say": "See-Train", "why": "Calgary's light rail"},
- "CTrains": {"say": "See-Trains", "why": "plural"},
- "YYC": {"say": "Y Y C", "why": "airport code, letter by letter"},
- "LRT": {"say": "L R T", "why": "letter by letter"},
- "Rouleauville": {"say": "Roo-low-ville", "why": "the French settlement that became Mission"},
- "Kananaskis": {"say": "Can-uh-nass-kiss", "why": "Kananaskis Country"},
- "Okotoks": {"say": "Oh-kuh-toks", "why": "town south of Calgary"},
- "Shaganappi": {"say": "Shag-uh-nappy", "why": "Shaganappi Trail"},
- "Mohkinstsis": {"say": "Mo-kin-stsis", "why": "Blackfoot name for the Calgary area"}
+ "_note": "Calgary Insight pronunciation list for Kokoro (studio-probe probe/tts.py). Key = word exactly as written in the script (case-sensitive, whole word). ipa = the exact phonemes Kokoro speaks (preferred; espeak-style IPA with stress marks); say = plain respelling used only if phoneme mode is unavailable (no hyphens or spaces: QC on Nov 17, 2026 showed 'Breez-bwah' is read as two words). Captions keep the script's spelling. Add a word whenever asr_report.json or Hassan flags it; check phonemes.json for how Kokoro says it by default.",
+ "Bow": {
+  "say": "Boe",
+  "why": "Bow River / The Bow rhymes with 'go', not 'cow'",
+  "ipa": "bˈoʊ"
+ },
+ "Bowness": {
+  "say": "Boness",
+  "why": "Calgary community, said BO-ness",
+  "ipa": "bˈoʊnəs"
+ },
+ "Macleod": {
+  "say": "Muhcloud",
+  "why": "Macleod Trail, Fort Macleod, Colonel James Macleod",
+  "ipa": "məklˈaʊd"
+ },
+ "Brisebois": {
+  "say": "Breezbwah",
+  "why": "Inspector Ephrem Brisebois, Brisebois Drive (French name)",
+  "ipa": "bɹiːzbwˈɑː"
+ },
+ "Éphrem": {
+  "say": "Ayfrem",
+  "why": "French first name of Inspector Brisebois",
+  "ipa": "ˈeɪfɹɛm"
+ },
+ "Ephrem": {
+  "say": "Ayfrem",
+  "why": "same, written without the accent",
+  "ipa": "ˈeɪfɹɛm"
+ },
+ "Gaelic": {
+  "say": "Gallick",
+  "why": "Scottish Gaelic is said GAL-ik",
+  "ipa": "ɡˈælɪk"
+ },
+ "Chinook": {
+  "say": "Shinook",
+  "why": "Calgary's warm wind, said shi-NOOK",
+  "ipa": "ʃɪnˈʊk"
+ },
+ "chinook": {
+  "say": "shinook",
+  "why": "same, lower case",
+  "ipa": "ʃɪnˈʊk"
+ },
+ "Chinooks": {
+  "say": "Shinooks",
+  "why": "plural",
+  "ipa": "ʃɪnˈʊks"
+ },
+ "chinooks": {
+  "say": "shinooks",
+  "why": "plural, lower case",
+  "ipa": "ʃɪnˈʊks"
+ },
+ "Lougheed": {
+  "say": "Lawheed",
+  "why": "Peter Lougheed, Lougheed House",
+  "ipa": "lˈɔːhiːd"
+ },
+ "Tsuut'ina": {
+  "say": "Sootinah",
+  "why": "Tsuut'ina Nation",
+  "ipa": "suːtˈɪnə"
+ },
+ "Tsuut’ina": {
+  "say": "Sootinah",
+  "why": "same, curly apostrophe",
+  "ipa": "suːtˈɪnə"
+ },
+ "Métis": {
+  "say": "May-tee",
+  "why": "French pronunciation used in Canada",
+  "ipa": "meɪtˈiː"
+ },
+ "Metis": {
+  "say": "May-tee",
+  "why": "same, without the accent",
+  "ipa": "meɪtˈiː"
+ },
+ "TELUS": {
+  "say": "Tellus",
+  "why": "TELUS Sky, TELUS Spark: a word, not letters",
+  "ipa": "tˈɛləs"
+ },
+ "CTrain": {
+  "say": "SeeTrain",
+  "why": "Calgary's light rail",
+  "ipa": "sˈiːtɹeɪn"
+ },
+ "CTrains": {
+  "say": "SeeTrains",
+  "why": "plural",
+  "ipa": "sˈiːtɹeɪnz"
+ },
+ "YYC": {
+  "say": "Y Y C",
+  "why": "airport code, letter by letter",
+  "ipa": "wˌaɪwˌaɪsˈiː"
+ },
+ "LRT": {
+  "say": "L R T",
+  "why": "letter by letter",
+  "ipa": "ˌɛlɑːɹtˈiː"
+ },
+ "Rouleauville": {
+  "say": "Roolowville",
+  "why": "the French settlement that became Mission",
+  "ipa": "ɹˈuːloʊvɪl"
+ },
+ "Kananaskis": {
+  "say": "Canuhnasskiss",
+  "why": "Kananaskis Country",
+  "ipa": "kˌænənˈæskɪs"
+ },
+ "Okotoks": {
+  "say": "Ohkuhtoks",
+  "why": "town south of Calgary",
+  "ipa": "ˈoʊkətˌɑːks"
+ },
+ "Shaganappi": {
+  "say": "Shaguhnappy",
+  "why": "Shaganappi Trail",
+  "ipa": "ʃˌæɡənˈæpi"
+ },
+ "Mohkinstsis": {
+  "say": "Mokinstsis",
+  "why": "Blackfoot name for the Calgary area",
+  "ipa": "moʊkˈɪnstsɪs"
+ },
+ "Acheson": {
+  "say": "Atchesun",
+  "ipa": "ˈætʃəsən",
+  "why": "Assistant Commissioner Acheson Irvine; Kokoro said 'Aixson' (QC Nov 17, 2026)"
+ }
 }
