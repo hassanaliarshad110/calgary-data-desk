@@ -1,26 +1,51 @@
 {
- "kokoro": [
-  {"id": "k1", "voice": "hf_alpha", "speed": 1.05, "text": "बाबा, देखो! गाय का बछड़ा बस के पीछे फँस गया!"},
-  {"id": "k2", "voice": "hf_alpha", "speed": 0.85, "text": "मामाऽऽ... मुझे अकेले गाड़ी में डर लगता हैऽऽ... मत जाओऽऽ..."},
-  {"id": "k3", "voice": "hf_alpha", "speed": 0.85, "text": "बाबाऽऽ... मुझे आइसक्रीम चाहिएऽऽ..."},
-  {"id": "bs", "voice": "hm_psi", "speed": 1.05, "text": "याय! शेर देखेंगे, हाथी देखेंगे!"},
-  {"id": "bs2", "voice": "hm_psi", "speed": 1.05, "text": "क़ासिम, तूने देखा? एक सुपरहीरो ने गाय को हटा दिया!"},
-  {"id": "q3", "voice": "hf_beta", "speed": 1.0, "text": "डरो मत, छोटू! चलो, अपनी माँ के पास!"},
-  {"id": "q4", "voice": "hf_beta", "speed": 1.0, "text": "सब लोग, हॉर्न बंद करो! गाय डर रही है!"},
-  {"id": "q5", "voice": "hf_beta", "speed": 1.0, "text": "आराम से, गाय जी... वहाँ हरी-हरी घास है!"},
-  {"id": "q6", "voice": "hf_beta", "speed": 1.05, "text": "अच्छा? मुझे तो सूसू आई थी!"},
-  {"id": "dd", "voice": "hm_omega", "speed": 0.92, "text": "हॉर्न बजाने से गाय नहीं हिलेगी। सब्र करो, सब्र!"},
-  {"id": "dm", "voice": "hm_omega", "speed": 0.92, "text": "माँ अपने बच्चे के बिना कहीं नहीं जाती।"},
-  {"id": "dd2", "voice": "hm_omega", "speed": 0.92, "text": "देखा? सब्र से काम लो, तो हर जाम खुल जाता है!"}
- ],
+ "kokoro": [],
  "edge": [
-  {"id": "n1b", "text": "اور آج بیچ سڑک پر ایک گائے نے پورا شہر روک دیا!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1},
-  {"id": "b1", "text": "چلو بچو! آج اتوار ہے، سیدھا چڑیا گھر!", "voice": "ur-IN-SalmanNeural", "rate": "-3%", "pitch": "-8Hz", "asr": 1},
-  {"id": "a2", "text": "یہاں بیچ سڑک پہ؟! اچھا چلو، میں ساتھ چلتی ہوں!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1},
-  {"id": "a3", "text": "ارے ارے، رونا بند! میں یہیں ہوں، میری جان!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1},
-  {"id": "b3", "text": "اچھا اچھا، رونا بند! سب کو آئس کریم ملے گی!", "voice": "ur-IN-SalmanNeural", "rate": "-3%", "pitch": "-8Hz", "asr": 1},
-  {"id": "o1", "text": "हटो भाई, हटो! गाय जी, थोड़ा साइड हो जाइए!", "voice": "hi-IN-MadhurNeural", "rate": "-5%", "pitch": "-20Hz", "asr": 1},
-  {"id": "o2", "text": "शाबाश! लेकिन ये था कौन?!", "voice": "hi-IN-MadhurNeural", "rate": "-5%", "pitch": "-20Hz", "asr": 1},
-  {"id": "n3", "text": "بچو، صبر کرو، ہارن نہیں، پیار! اور سڑک پر جانوروں سے دور رہو۔ ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1}
+  {
+   "id": "o1",
+   "text": "हटो भाई, हटो! गाय जी, थोड़ा साइड हो जाइए!",
+   "voice": "hi-IN-MadhurNeural",
+   "rate": "-5%",
+   "pitch": "-20Hz",
+   "asr": 1
+  },
+  {
+   "id": "o1b",
+   "text": "हटो भाई, हटो! गाय जी, थोड़ा साइड हो जाइए!",
+   "voice": "hi-IN-MadhurNeural",
+   "rate": "-5%",
+   "pitch": "-18Hz",
+   "asr": 1
+  },
+  {
+   "id": "o2",
+   "text": "शाबाश! लेकिन ये था कौन?!",
+   "voice": "hi-IN-MadhurNeural",
+   "rate": "-5%",
+   "pitch": "-20Hz",
+   "asr": 1
+  },
+  {
+   "id": "o2b",
+   "text": "शाबाश! लेकिन ये था कौन?!",
+   "voice": "hi-IN-MadhurNeural",
+   "rate": "-5%",
+   "pitch": "-18Hz",
+   "asr": 1
+  },
+  {
+   "id": "n3",
+   "text": "بچو، صبر کرو، بار بار HORN مت بجاؤ! اور سڑک پر جانوروں سے دور رہو۔ ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!",
+   "voice": "ur-PK-AsadNeural",
+   "rate": "+8%",
+   "asr": 1
+  },
+  {
+   "id": "n3b",
+   "text": "بچو، صبر کرو، بار بار ہارن مت بجاؤ! اور سڑک پر جانوروں سے دور رہو۔ ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!",
+   "voice": "ur-PK-AsadNeural",
+   "rate": "+8%",
+   "asr": 1
+  }
  ]
 }
