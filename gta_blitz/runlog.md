@@ -105,3 +105,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T18:51:46Z | started | run 16 (scheduled)
 2026-11-17T18:51:55Z | topic claimed | #16 FACT Raji: An Ancient Epic - Mahabharat-Ramayan se inspired Indian game (slug raji-epic)
 2026-11-17T18:59:39Z | check round 1 | PROBLEMS: n03 founders (not team) paid salaries from savings -> 'Founders ne apni savings se team ko salary di'; h1o 'founder' -> 'co-founder'; hook text 'FLAT BECHKAR BANA YE GAME?' overstated -> 'IS GAME KE LIYE FLAT BECHA!'; nomination card must say NOMINEE (no trophy). All 7 claims verified (checker read Unreal Engine interview, Gematsu, TechRadar, Sportskeeda). Re-voicing
+2026-11-17T19:00:33Z | check verdict | APPROVED round 2 (fresh independent agent read Unreal Engine interview, Gematsu, TechRadar, Sportskeeda; all 7 claims verified, NOMINEE card no trophy, no 'first Indian' claim); optional notes applied on screen: 'TEAM (2020)' chip, 'NOMINEE · jeeta nahi' chip
