@@ -1,0 +1,9 @@
+# GTA blitz #14 — speeding-challan (FACT): "Speeding in GTA vs Motor Vehicles Act: asli challan kitna?"
+- Sources read this run (web-fetch agents): courtbook.in s.183 (2019 amended text), lawgist.in s.189 (2019 amended text), PIB MVA.pdf (Amendment Act 2019 sections in force 1 Sep 2019; item 41 s.183), advocatekhoj + myadvo s.183 (old 1988 text: up to Rs 400). caseon.in, devgan 210A, advocatekhoj 189 refused; lawgist /183 and courtbook /189 empty.
+- PIB item 46 (s.189) is WRONG vs the Act (says 1 month / Rs 500) — never cite it for s.189.
+- s.210A (state multiplier) not verified, so the Short makes no state-wise claim; on screen "ACT MEIN LIKHI RAKAM". Bikes not named (motor cycle is not an LMV).
+- Check round 1 APPROVED (fresh independent agent; also read indiankanoon s.189 + drishtiias LMV definition). Applied: n05 "ya dono" for repeat offence; s.189 scope chip.
+- Build: work dir = these files + episodes/ep4/scenes.js + ep4 prep_audio.py/score_mix.py/index.html over budget-probe mp3s (/home/claude/nvout; mkdir aud first); `python3 /home/claude/kit/shorts.py 1`; `python3 thumb.py`; `python3 peek.py <scene>:<frac> ...` renders single portrait frames for layout checks.
+- Gotcha: rig.js already declares `const easeOut` — do not redeclare it in scenes_v.js (whole file fails to load -> shorts.py falls back to the 16:9 crop and crashes on DRAW[s.id]).
+- Studio assets: PRP-030 car, PRP-031 bus, PRP-033 truck (ported to kit ctx, no text), VFX-011 impactStar, VFX-012 speedLines, VFX-015 stars, VFX-019 question. Own drawings: perspective road, speedometer, speed-limit sign (no number), e-challan slip, law book, generic licence card (no emblem), IMPOUND stamp, chequered flag, jail-bars icon. No police uniforms, no maps.
+- Output 51.6 s, -14.3 LUFS, score ~59% under voice. Metricool uuid -827792087653070097, 18 Nov 2026 05:30 IST (6:00 PM Regina, 17 Nov).

@@ -1,0 +1,8 @@
+[HOOK 0-2 s, on screen "GTA SPEED = ASLI CHALLAN?"] h1o: GTA mein 200 ki speed, koi challan nahi. Lekin India ki asli sadak par?
+n01: Motor Vehicles Act ki dhaara 183: car jaisi light motor vehicle se speed limit todi, to jurmana kam se kam 1,000, aur 2,000 rupaye tak.
+n02: Truck ya bus jaisi bhaari gaadi? 2,000 se 4,000 rupaye.
+n03 (TWIST): Twist: 2019 ke sanshodhan se pehle, yahi jurmana sirf 400 rupaye tak tha!
+n04: Aur doosri baar pakde gaye? To driving licence impound, yaani zabt hoga.
+n05 (PAYOFF): Aur GTA jaisi sadak par race? Dhaara 189: pehli baar mein 3 mahine tak jail, ya 5,000 jurmana, ya dono. Dobaara: 1 saal tak jail, ya 10,000 jurmana, ya dono.
+h1e (COMMENT Q): Aapka kabhi speed ka challan kata hai? Kitne ka? Comment karo!
+[END CARD 2 s: Follow Awazzzz + SUBSCRIBE]
