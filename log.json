@@ -1564,5 +1564,69 @@
    }
   ],
   "post_note": "Fixed 18:30 fun-fact slot; only other post today is the 15:00 news reel (PUBLISHED); YouTube 24 h count well under 8. Due >30 min after scheduling, so the next run confirms it."
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (weather)",
+  "title": "Fourteen degrees on Sunday, a snowfall warning today",
+  "topic_used": "ECCC snowfall warning for the City of Calgary, Nov 17, 2026 (issued 10:47 UTC; updated 16:46 UTC: 15-20 cm expected, Calgary at the lower end, tapering off Wednesday evening), after a 14.2 C high on Sunday Nov 15 and no snow at the airport Nov 1-16; history: 21 of 100 Novembers (1926-2025) had 15 cm+ over two consecutive days, last 2024 (23.1 cm Nov 22-23)",
+  "changed_from_calendar": null,
+  "detection": {
+   "trigger": "ECCC snowfall warning issued for City of Calgary today",
+   "today_temp_so_far_c": "-2.0 to 1.1, no precipitation by 17:00 UTC",
+   "gust_ge_80": false,
+   "chinook": false,
+   "traffic_incidents_today_so_far": 8,
+   "traffic_365d_max": 111,
+   "traffic_365d_p99": 62,
+   "aqhi": "feed 404"
+  },
+  "central_figure": "Snowfall warning, 15-20 cm expected (Calgary lower end); 21 of 100 Novembers since 1926 had 15 cm+ in two days (about 1 in 5), last 2024",
+  "sources": [
+   "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
+   "https://weather.gc.ca/warnings/report_e.html?ab52",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=17&timeframe=2&submit=Download+Data",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=2205&Year=<1926-2011>&Month=11&Day=17&timeframe=2&submit=Download+Data",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=<2012-2025>&Month=11&Day=17&timeframe=2&submit=Download+Data",
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261117/CYYC/",
+   "https://data.calgary.ca/resource/35ra-9556.json"
+  ],
+  "length_s": 36.0,
+  "video_path": "production/2026-11-17-MOMENT-snowfall-warning/snowfall-warning-nov17.mp4",
+  "identity": "explainer",
+  "qc": {
+   "stills": "checked (hook 0/0.5/1.0 s, warning, calendar, dots, closer); overlaps fixed",
+   "final": "contact sheet checked after warning update",
+   "loudness_lufs": -14.6,
+   "asr": "mean accuracy 0.993, 0 lines to check"
+  },
+  "audit": {
+   "rounds": 4,
+   "claims_checked": 9,
+   "verdict": "APPROVED (round 2 script; round 3 shortened variant rejected and not used; round 4 re-audit after ECCC changed the amount to 15-20 cm: all claims PASS, render redone)"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 431761078,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=650856282189088545",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-17T10:45 America/Edmonton (published about 11:14, right after scheduling)",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1954397502202468",
+     "instagram": "https://www.instagram.com/reel/Df2cb4mEYYz/",
+     "youtube": "https://www.youtube.com/shorts/iTd5hr4UyA4"
+    },
+    "youtube_warning": "Could not upload video thumbnail (published)"
+   }
+  ],
+  "site": "main 3596e28: card vid-snowwarnnov17 + agent.py published fact",
+  "notes": "Length 36 s (over the 30 s target): the shorter variant failed audit round 3, so the approved wording was kept. Time-zone slip: Alberta is on year-round Alberta Time (UTC-6); I scheduled 10:45 believing it was 10:13 MST when it was 11:13, so Metricool published immediately (about 75 min before the 12:30 flagship slot). The posted reel's small source line reads 'updated 9:46 MST' (should be 10:46 a.m. Alberta time); the post was already publishing and could not be edited. Corrected in scene.js, site video, site card and agent.py. Future runs: Calgary = UTC-6 year-round."
  }
 ]

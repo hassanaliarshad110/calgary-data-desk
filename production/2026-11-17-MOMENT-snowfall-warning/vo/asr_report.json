@@ -1,0 +1,140 @@
+{
+ "summary": {
+  "v": {
+   "lines": 6,
+   "check": [],
+   "mean_acc": 0.993
+  }
+ },
+ "lexicon_entries": 27,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "Fourteen degrees on Sunday. A snowfall warning today.",
+    "said": "Fourteen degrees on Sunday. A snowfall warning today.",
+    "heard": "14 degrees on Sunday, a snowfall warning today.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.372,
+    "input_lufs": -21.7,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "Environment Canada has put Calgary under a snowfall warning: fifteen to twenty centimetres expected, with Calgary at the lower end.",
+    "said": "Environment Canada has put Calgary under a snowfall warning: fifteen to twenty centimetres expected, with Calgary at the lower end.",
+    "heard": "Environment Canada has put Calgary under a snowfall warning, 15 to 20 centimetres expected with Calgary at the lower end.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 8.299,
+    "input_lufs": -21.9,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "Sunday's high at the airport was fourteen point two. And through Monday, the airport had measured no snow at all this month.",
+    "said": "Sunday's high at the airport was fourteen point two. And through Monday, the airport had measured no snow at all this month.",
+    "heard": "Sundays high at the airport was 14.2, and through Monday, the airport had measured no snow at all this month.",
+    "acc": 0.955,
+    "mismatches": [
+     "point->(missing)"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.955
+     }
+    ],
+    "dur": 6.615,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "We checked every November since nineteen twenty-six. Fifteen centimetres or more over two days happened in twenty-one of them.",
+    "said": "We checked every November since nineteen twenty-six. Fifteen centimetres or more over two days happened in twenty-one of them.",
+    "heard": "We checked every November since 1926. 15 centimeters, or more over two days, happened in 21 of them.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 7.383,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "About one November in five. The last time was twenty twenty-four.",
+    "said": "About one November in five. The last time was twenty twenty-four.",
+    "heard": "about one November in five. The last time was 2024.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.969,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "Winter tires on yet? Yes or no?",
+    "said": "Winter tires on yet? Yes or no?",
+    "heard": "Winter tires on yet. Yes or no.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.832,
+    "input_lufs": -21.5,
+    "status": "ok"
+   }
+  ]
+ }
+}
