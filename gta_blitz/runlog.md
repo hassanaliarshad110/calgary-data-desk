@@ -112,3 +112,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T20:52:05Z | started | run 17 (scheduled)
 2026-11-17T20:52:12Z | topic claimed | #17 FACT GTA 6 India mein ban ho sakta hai? Record par kya hai? (slug ban-record)
 2026-11-17T21:01:01Z | check round 1 | PROBLEMS: n04 'GTA V par ban tha' disputed (never formal ban) -> 'officially bika hi nahi, July 2025 21+ rating'; n02 motive -> 'bayaan mein maar-dhaad ka zikr tak nahi'; n03 'sirf' -> adds ads/payments. n01/n05 verified (checker read Inc42, TechRadar, Mondaq, GTA BOOM, Sunday Guardian x2, Push Square, Notebookcheck). Re-voicing
+2026-11-17T21:02:31Z | check verdict | APPROVED round 2 (fresh independent agent read Inc42, TechRadar, Mondaq, Upstox, Notebookcheck, Push Square, GTA BOOM, Sunday Guardian x2; all 5 claims verified; script also trimmed for length, price dropped from voice)
