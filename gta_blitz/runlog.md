@@ -91,3 +91,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T13:05:20Z | rendered | short1_fs.mp4 1080x1920 52.4 s, -14.3 LUFS, score under voice rms 0.025 vs 0.043 alone (~57%), all scenes native portrait; contact sheet: picture fills all 5 frames; media on awazzz-media gta_blitz/unlock-time.mp4 + _thumb.jpg
 2026-11-17T13:06:28Z | scheduled | Metricool uuid -427866126321039969 at 2026-11-18 03:30 IST (4:00 PM Regina, 17 Nov); topic 13 posted; files in gta_blitz/unlock-time/; media on awazzz-media gta_blitz/unlock-time.mp4 + _thumb.jpg. Slot: 2 h after the 01:30 IST post. Upload-limit status: Part 3/4 (17:30 IST) published OK
 2026-11-17T14:52:26Z | started | run 14 (scheduled)
+2026-11-17T14:52:33Z | topic claimed | #14 FACT Speeding in GTA vs Motor Vehicles Act: asli challan kitna? (slug speeding-challan)

@@ -148,7 +148,9 @@
    "id": 14,
    "type": "FACT",
    "idea": "Speeding in GTA vs Motor Vehicles Act: asli challan kitna?",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-17T14:52Z",
+   "slug": "speeding-challan"
   },
   {
    "id": 15,
