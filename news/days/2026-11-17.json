@@ -1,0 +1,440 @@
+{
+ "date": "2026-11-17",
+ "published_at": "2026-11-17T23:41:44Z",
+ "articles": [
+  {
+   "title": "Snowfall warning for Calgary as 15 to 20 centimetres of heavy, wet snow moves in",
+   "dek": "Environment Canada expects heavy, wet snow from Tuesday into Wednesday evening across southern Alberta, with travel likely to be difficult through both commutes.",
+   "section": "Environment and weather",
+   "body": [
+    "Environment Canada issued a yellow-level snowfall warning for Calgary and much of southern Alberta late Tuesday morning, Nov. 17, after an unseasonably warm autumn [1][2].",
+    "The warning area stretches from the foothills in the west to the Canada-U.S. border in the south and the Saskatchewan boundary in the east, and reaches north of Calgary about halfway to Red Deer [1]. Forecasters expect general totals of 15 to 20 centimetres, with Calgary at the lower end of that range [1]. Up to 25 centimetres is possible in the foothills, the Cypress Hills and rural areas near Brooks, Medicine Hat and Lethbridge [1]. The Calgary Citizen's morning forecast put the expected window for Calgary at about noon Tuesday through Wednesday evening [4].",
+    "The system is moving north and east through the day. Areas near the Saskatchewan border were expected to see rain first, turning to heavy snow Tuesday evening, before the snow tapers off Wednesday evening as the system moves into Saskatchewan [1]. Environment and Climate Change Canada also issued special weather statements for parts of central Alberta, where 5 to 10 centimetres is expected around Red Deer [1][2].",
+    "Environment Canada said travel will likely be challenging and could significantly affect the Tuesday evening rush hour, and advised drivers to prepare for conditions that change quickly [1]. Calgarians were also being encouraged to drive with care ahead of the snowfall [3].",
+    "Temperatures are expected to hover near the freezing mark, with a forecast high of 1 C on Tuesday and Wednesday and a high of minus 1 C on Thursday, according to the Calgary Citizen's daily forecast [4]. The snow arrives while Stage 4 outdoor water restrictions remain in effect in the city [4]."
+   ],
+   "key_facts": [
+    "Yellow-level snowfall warning issued late Tuesday morning, Nov. 17",
+    "15 to 20 cm generally expected; Calgary at the lower end",
+    "Up to 25 cm possible in the foothills and southeastern Alberta",
+    "Snow expected to taper off Wednesday evening"
+   ],
+   "topics": [
+    "Weather",
+    "Roads and traffic",
+    "Environment"
+   ],
+   "image_query": "Calgary snow street",
+   "charts": [
+    {
+     "title": "Expected snowfall by area (upper end of range)",
+     "kind": "hbar",
+     "labels": [
+      "Red Deer area (special statement)",
+      "Most of warning area",
+      "Foothills and southeast Alberta"
+     ],
+     "series": [
+      {
+       "name": "Up to",
+       "values": [
+        10,
+        20,
+        25
+       ]
+      }
+     ],
+     "unit": "cm",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Snowfall warning for southern Alberta with up to 25 cm expected",
+     "outlet": "Global News",
+     "url": "https://globalnews.ca/news/12154536/calgary-southern-alberta-snowfall-warning-november-17/",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "Calgary weather: Up to 25 centimetres of heavy, wet snow possible",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/calgary-weather-up-to-25-centimetres-of-heavy-wet-snow-possible/",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "'Slippery for sure': Calgary drivers asked to prepare for snowfall",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/slippery-for-sure-calgary-drivers-asked-to-prepare-for-snowfall/",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "Calgary Citizen newsletter, Tuesday, Nov. 17, 2026",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/tuesday-nov-17-2026",
+     "published": "2026-11-17"
+    }
+   ],
+   "id": "2026-11-17-snowfall-warning-for-calgary-as-15-to-20-centimetres-of-heavy-wet-snow",
+   "date": "2026-11-17",
+   "published_at": "2026-11-17T23:41:44Z",
+   "words": 282
+  },
+  {
+   "title": "Council moves ahead on data centre rules, with bylaw options due by March 2027",
+   "dek": "Calgary city council directed staff to prepare land-use changes that could allow a moratorium on large data centres and to study their effects on water, power and noise.",
+   "section": "City Hall",
+   "updated_from": "2026-11-05-committee-backs-a-pause-on-large-data-centre-applications-council-to-d",
+   "body": [
+    "Calgary city council has agreed to move forward with work on rules for large-scale data centres, following a committee recommendation earlier this month that came in response to a large data centre land-use application in the city's far northeast [1].",
+    "Council directed city administration to prepare options for changes to the Land Use Bylaw that could allow a moratorium on development applications for new and emerging sectors [1]. Administration was also told to bring back possible bylaw amendments to govern the buildings themselves, and to research how large data centres affect water, electricity and noise [1]. The report did not give a vote count [1].",
+    "Administration is expected to report back on the bylaw changes, including moratorium powers and any data-centre-specific updates, by March 2027 [1]. The research on impacts is expected in the fourth quarter of 2027 [1].",
+    "Ward 2 Coun. Jennifer Wyness, who led the push for data centre guidelines, said the city's bylaws have a gap because they do not specifically provide for a moratorium, and noted that other Alberta municipalities have adopted one [1]. She also raised concern that, according to administration, there is industrial land already inside city limits where a data centre would not need a land-use change [1]. Administration said its development permit process is robust enough to identify concerns [1].",
+    "Ward 13 Coun. Dan McLean said he wants strong safeguards around construction, while Ward 14 Coun. Landon Johnston said he wants the facts right and no bias toward a particular outcome [1]. Mayor Jeromy Farkas said the city has a vacuum when it comes to mega-scale data centres and called for strict rules on noise, water and electricity [1].",
+    "Provincial guidance covers data centres of 75 megawatts or more and gives priority to projects that generate their own power [1]. The Alberta Utilities Commission recently rejected a power generation site for a proposed data centre near Olds [1]."
+   ],
+   "key_facts": [
+    "Council directs staff to prepare bylaw options, including possible moratorium powers",
+    "Bylaw report due by March 2027; impact research due in Q4 2027",
+    "Study to cover water, electricity and noise",
+    "Provincial guidance applies to data centres of 75 MW or more"
+   ],
+   "topics": [
+    "City Council",
+    "Development",
+    "Technology",
+    "Energy",
+    "Water"
+   ],
+   "image_query": "Calgary Municipal Building",
+   "sources": [
+    {
+     "title": "Calgary forges ahead with research, land-use amendments for large-scale data centres",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/17/calgary-research-land-use-amendments-large-scale-data-centres/",
+     "published": "2026-11-17"
+    }
+   ],
+   "id": "2026-11-17-council-moves-ahead-on-data-centre-rules-with-bylaw-options-due-by-mar",
+   "date": "2026-11-17",
+   "published_at": "2026-11-17T23:41:44Z",
+   "words": 316
+  },
+  {
+   "title": "Country Hills Boulevard N.E. widening finished: six lanes between Barlow Trail and 36 Street",
+   "dek": "The $19-million project took 18 months and turned a two-lane stretch used by more than 24,000 drivers a day into a six-lane arterial.",
+   "section": "Transit and roads",
+   "body": [
+    "The City of Calgary says the widening of Country Hills Boulevard N.E. between Barlow Trail and 36 Street N.E. is complete, and the roughly 800-metre stretch is now fully open as a six-lane arterial road [1][2]. It was previously two lanes [1][2].",
+    "The project cost $19 million and took 18 months of construction, and the City said it was finished on time and on budget [1][2]. More than 24,000 drivers use the corridor each day, and the City kept traffic moving during the work on a paved and lit temporary detour [1].",
+    "Crews removed old overhead power and communication lines and poles and moved them into new underground ducts [1][2]. They installed new deep utilities, including 700 metres of new water feeder main for a future connection, upgraded intersections and added new traffic signals [1]. The finished road has a regional pathway on the south side and a sidewalk on the north side [1][2].",
+    "The release quoted Mayor Jeromy Farkas, Ward 5 Coun. Raj Dhaliwal and Ryan Atkinson, the City's director of public spaces delivery [1][2]. The City pointed to the proposed Airport Trail N.E. twinning project as an example of further planned work in the area [1][2].",
+    "More information on the project is available at calgary.ca/CountryHillsWidening [1]."
+   ],
+   "key_facts": [
+    "About 800 metres widened from two lanes to six",
+    "Cost: $19 million; 18 months of construction",
+    "More than 24,000 drivers use the corridor daily",
+    "Includes 700 m of new water feeder main and a south-side regional pathway"
+   ],
+   "topics": [
+    "Roads and traffic",
+    "City services"
+   ],
+   "image_query": "Country Hills Boulevard Calgary",
+   "wards": [
+    5
+   ],
+   "sources": [
+    {
+     "title": "Country Hills Boulevard N.E. Widening project complete, bringing six lanes and smoother travel to northeast Calgary",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/country-hills-boulevard-ne-widening-project-complete-bringing-six-lanes-and-smoother-travel-to-northeast-calgary/",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "Country Hills widening project opens six paved lanes in the north",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/17/country-hills-widening-north-calgary/",
+     "published": "2026-11-17"
+    }
+   ],
+   "id": "2026-11-17-country-hills-boulevard-n-e-widening-finished-six-lanes-between-barlow",
+   "date": "2026-11-17",
+   "published_at": "2026-11-17T23:41:44Z",
+   "words": 208
+  },
+  {
+   "title": "Police identify man killed in Bowness Superstore parking lot shooting; suspects still sought",
+   "dek": "The victim was a 43-year-old man, and police say a burned-out stolen vehicle found in Silver Springs is believed to be connected.",
+   "section": "Public safety",
+   "updated_from": "2026-11-15-man-found-dead-after-shooting-in-bowness-grocery-store-parking-lot-pol",
+   "body": [
+    "Calgary police have identified the man who was shot and killed Sunday morning in the parking lot of a Real Canadian Superstore in the northwest community of Bowness [1]. Police said he was a 43-year-old man, identified after an autopsy by the Office of the Chief Medical Examiner [1].",
+    "Officers were called to the store at 3400 69 St. N.W. at about 8:50 a.m. on Sunday, Nov. 15, after reports of shots fired, and found a man dead [1]. Police have said they believe the attack was isolated [2].",
+    "In Tuesday's update, police said a burned-out vehicle found in the 100 block of Silverthorn Road N.W. was later determined to be stolen, and investigators believe it is related to the shooting [1]. Investigators are working to locate the suspects [1]. Police did not report any arrests or charges [1].",
+    "Police are asking anyone who saw the shooting, or who has dashcam or security camera footage from the Silver Springs area around that time, to call 403-266-1234 and quote case number CA26527754/4159 [1].",
+    "The shooting happened on the morning of Grey Cup Sunday, the day Calgary hosted the 113th Grey Cup at McMahon Stadium [2]."
+   ],
+   "key_facts": [
+    "Victim was a 43-year-old man",
+    "Shooting happened about 8:50 a.m. Sunday, Nov. 15, at 3400 69 St. N.W.",
+    "Burned-out stolen vehicle in the 100 block of Silverthorn Road N.W. believed related",
+    "No arrests reported; tips to 403-266-1234"
+   ],
+   "topics": [
+    "Public safety"
+   ],
+   "communities": [
+    "Bowness",
+    "Silver Springs"
+   ],
+   "image_query": "Calgary police car",
+   "sources": [
+    {
+     "title": "Update: Victim identified in fatal shooting",
+     "outlet": "Calgary Police Service",
+     "url": "https://newsroom.calgary.ca/update-victim-identified-in-fatal-shooting/",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "Calgary Citizen newsletter, Tuesday, Nov. 17, 2026",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/tuesday-nov-17-2026",
+     "published": "2026-11-17"
+    }
+   ],
+   "id": "2026-11-17-police-identify-man-killed-in-bowness-superstore-parking-lot-shooting-",
+   "date": "2026-11-17",
+   "published_at": "2026-11-17T23:41:44Z",
+   "words": 194
+  },
+  {
+   "title": "City proposes $3.1 million to protect bridges after encampment fires cost $2.7 million in repairs",
+   "dek": "Five major fires under Calgary bridges since 2021 led to about $2.688 million in repairs, and the proposed budget would fund fencing, lighting and fire-retardant coatings.",
+   "section": "City Hall",
+   "body": [
+    "Five major fires at encampments under Calgary bridges since 2021 have cost the city about $2.688 million in repairs, according to figures reported ahead of budget deliberations [1].",
+    "The proposed 2027-2030 budget includes $3.1 million in capital funding for physical deterrents under some bridges, a program that was not funded in the 2023-2026 budget [1]. The money would be spent in 2027 and 2028, with nothing set aside for 2029 or 2030 [1].",
+    "The measures under consideration include heavy-duty perimeter fencing, high-visibility lighting and fire-retardant coatings, and placing rock riprap or changing slopes was also mentioned [1]. About 50 bridges are candidate sites, and the city would finalize and rank the list if the funding is approved [1]. The city said the measures' effectiveness cannot be guaranteed [1].",
+    "Ward 9 Coun. Harrison Clark questioned the value of the lighting and said fire-retardant coatings would be the most suitable fix if the goal is to prevent bridge fires [1]. Ward 8 Coun. Nathan Schmidt said the spending may be needed now but addresses symptoms, and pointed to housing, a delayed 60-unit HomeSpace housing site and the size of the city's encampment team [1].",
+    "Council has not voted on the item. Budget deliberations begin Nov. 23 [1], and council will hear from members of the public that day, with registration required to speak [2]."
+   ],
+   "key_facts": [
+    "Five major encampment fires under bridges since 2021",
+    "Repairs cost about $2.688 million",
+    "$3.1 million proposed for 2027 and 2028 for fencing, lighting and coatings",
+    "About 50 bridges are candidate sites; budget debate starts Nov. 23"
+   ],
+   "topics": [
+    "Budget and taxes",
+    "City Council",
+    "Public safety",
+    "Housing"
+   ],
+   "image_query": "Calgary bridge Bow River",
+   "charts": [
+    {
+     "title": "Bridge encampment fires: repair costs vs proposed prevention money",
+     "kind": "bar",
+     "labels": [
+      "Repairs since 2021",
+      "Proposed for 2027-2028"
+     ],
+     "series": [
+      {
+       "name": "Amount",
+       "values": [
+        2.688,
+        3.1
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Encampment fire repairs under Calgary bridges cost $2.688 million since 2021",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/16/encampment-fire-repairs-under-calgary-bridges-cost-2-688-million-since-2021/",
+     "published": "2026-11-16"
+    },
+    {
+     "title": "Calgary Citizen newsletter, Tuesday, Nov. 17, 2026",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/tuesday-nov-17-2026",
+     "published": "2026-11-17"
+    }
+   ],
+   "id": "2026-11-17-city-proposes-3-1-million-to-protect-bridges-after-encampment-fires-co",
+   "date": "2026-11-17",
+   "published_at": "2026-11-17T23:41:44Z",
+   "words": 222
+  },
+  {
+   "title": "Water use stays under the limit for a 13th straight day as Bearspaw connection work stays on schedule",
+   "dek": "Calgarians used 487 million litres on Monday, and the City says crews are welding replacement pipe at several sites while Stage 4 restrictions continue.",
+   "section": "Environment and weather",
+   "updated_from": "2026-11-16-water-use-rose-to-490-million-litres-on-grey-cup-sunday-but-stayed-und",
+   "body": [
+    "Calgary's water use came in at 487 million litres on Monday, Nov. 16, keeping the city in the green zone below its 500-million-litre daily limit for a 13th day in a row [1][2]. Use was 474 million litres on Saturday and 490 million on Sunday over Grey Cup weekend [4].",
+    "The City says use above 500 million litres a day puts it in a red zone, with risks that include not enough water for firefighting, low pressure, a possible boil water advisory and failure of the treatment plants or system [1]. During the shutdown, the two plants can supply 500 million litres a day, with the Glenmore plant serving about 80 per cent of the city and region [3].",
+    "In its Tuesday update, the City said work on connecting the new Bearspaw South Feeder Main is on schedule [1]. Tie-in work is underway at the Shaganappi Pump Station, where welding is complete on installed pipe sections [1]. At 33 Avenue and 89 Street N.W., crews are installing the final pipe segments that link the new feeder main and valve chamber to the steel pipe running to the Bearspaw Water Treatment Plant, with construction around the clock until it is done [1]. Excavation is underway at 33 Avenue and 83 Street N.W., and replacement pipe is being welded at five locations along Parkdale Boulevard [1].",
+    "Stage 4 restrictions, in effect since Nov. 4, ban most outdoor water use, with fines starting at $3,000 [3]. The City has said the feeder main would be out of service for about four weeks, with commissioning of the new pipe planned for December [3]."
+   ],
+   "key_facts": [
+    "487 million litres used Monday, Nov. 16",
+    "13th straight day under the 500-million-litre limit",
+    "Connection work on schedule at four sites",
+    "Stage 4 restrictions continue; fines start at $3,000"
+   ],
+   "topics": [
+    "Water",
+    "City services",
+    "Environment"
+   ],
+   "image_query": "Bearspaw Water Treatment Plant Calgary",
+   "charts": [
+    {
+     "title": "Daily water use vs limit over Grey Cup weekend",
+     "kind": "bar",
+     "labels": [
+      "Sat Nov 14",
+      "Sun Nov 15"
+     ],
+     "series": [
+      {
+       "name": "Water use",
+       "values": [
+        474,
+        490
+       ]
+      },
+      {
+       "name": "Daily limit",
+       "values": [
+        500,
+        500
+       ]
+      }
+     ],
+     "unit": "million litres",
+     "source": 4
+    }
+   ],
+   "sources": [
+    {
+     "title": "Water use still in the green zone as Bearspaw connection work progresses on schedule",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/water-use-still-in-the-green-zone-as-bearspaw-connection-work-progresses-on-schedule/",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "Calgary water use remains below target for 13th day straight",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/calgary-water-use-remains-below-target-for-13th-day-straight/",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "Stage 4 water restrictions in effect",
+     "outlet": "City of Calgary",
+     "url": "https://www.calgary.ca/planning/water/bearspaw-feeder-main/water-restrictions.html",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "Calgary Citizen newsletter, Tuesday, Nov. 17, 2026",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/tuesday-nov-17-2026",
+     "published": "2026-11-17"
+    }
+   ],
+   "id": "2026-11-17-water-use-stays-under-the-limit-for-a-13th-straight-day-as-bearspaw-co",
+   "date": "2026-11-17",
+   "published_at": "2026-11-17T23:41:44Z",
+   "words": 269
+  },
+  {
+   "title": "Calgary police run child car seat check stops across the city through November",
+   "dek": "Drivers carrying a child in an improperly secured seat could be fined up to $211.",
+   "section": "Public safety",
+   "body": [
+    "Calgary police are running check stops around the city throughout November to make sure children's car seats are properly installed and secured [1][2].",
+    "Drivers with a child in a seat that is not properly secured could face a fine of up to $211, police said in a release issued Monday, Nov. 16 [1][2]. The checks are taking place at locations across the city rather than in a single area, and will continue until the end of the month [1][2].",
+    "Police listed several common mistakes: chest clips placed too low, internal harness straps that are too loose, seats that are not tethered, and seats that are installed loosely [1]. Police pointed parents and caregivers to Alberta's car seat guidelines and to provincial health information on rear-facing, forward-facing and booster seats [1]. Those resources include separate pages on myhealth.alberta.ca for rear-facing seats, forward-facing seats and booster seats [1].",
+    "The check stops are part of the City's Vision Zero road safety campaign, and more information on that program is posted at calgary.ca/VisionZero [1]. The Calgary Citizen also highlighted the check stops in its Tuesday morning newsletter [2].",
+    "The check stops coincide with a snowfall warning for Calgary that runs from Tuesday through Wednesday evening [2]."
+   ],
+   "key_facts": [
+    "Check stops citywide throughout November",
+    "Fines of up to $211 for an improperly secured child seat",
+    "Common errors: low chest clips, loose straps, untethered or loosely installed seats",
+    "Part of the City's Vision Zero campaign"
+   ],
+   "topics": [
+    "Public safety",
+    "Roads and traffic"
+   ],
+   "image_query": "child car seat",
+   "sources": [
+    {
+     "title": "Check stops for child safety",
+     "outlet": "Calgary Police Service",
+     "url": "https://newsroom.calgary.ca/check-stops-for-child-safety/",
+     "published": "2026-11-16"
+    },
+    {
+     "title": "Calgary Citizen newsletter, Tuesday, Nov. 17, 2026",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/tuesday-nov-17-2026",
+     "published": "2026-11-17"
+    }
+   ],
+   "id": "2026-11-17-calgary-police-run-child-car-seat-check-stops-across-the-city-through-",
+   "date": "2026-11-17",
+   "published_at": "2026-11-17T23:41:44Z",
+   "words": 202
+  },
+  {
+   "title": "Ken Newans, longtime voice of Calgary sports and the Stampeders, dies at 95",
+   "dek": "The former CFCN sports director covered 30 Grey Cups and called Stampeders games, and tributes came in over Grey Cup weekend in Calgary.",
+   "section": "Community and events",
+   "body": [
+    "Ken Newans, a Calgary sports broadcaster whose career spanned decades, died on Saturday, Nov. 14, at the age of 95 [1][2].",
+    "Newans was sports director at CFCN in Calgary in the 1970s and was the Calgary Stampeders' play-by-play voice as well as their public address announcer [1]. He brought Calgarians sports on CFCN for almost three decades, covered 30 Grey Cups and seven Olympic Games, and called Stampeders games for 12 seasons [2].",
+    "He was also the public address voice of University of Calgary Dinos football for 27 seasons [1][2]. When the Dinos won the 1995 Vanier Cup, he was the only person outside the team to receive a championship ring [2]. He was the only person to win the Fred Sgambati Award twice for coverage of Canadian university sport, and received the University of Calgary athletics department's Distinguished Service Award in 1992 [1].",
+    "Newans was inducted into the CFL reporters' Hall of Fame in 1991 and into the Alberta Sports Hall of Fame in 2011 as a multisport builder, and is also a member of the Canadian Boxing Hall of Fame [1].",
+    "Tributes came in as Calgary hosted the 113th Grey Cup on Sunday [1]. The Stampeders posted a tribute on social media, and broadcasters including longtime Stampeders play-by-play announcer Mark Stephen and CTV Calgary sports anchor Glenn Campbell spoke of him as a mentor and supporter [1]. Campbell said Newans \"took a chance on me and was my mentor\" [1]."
+   ],
+   "key_facts": [
+    "Died Saturday, Nov. 14, at 95",
+    "Covered 30 Grey Cups and seven Olympics",
+    "Stampeders play-by-play voice; Dinos football PA announcer for 27 seasons",
+    "Alberta Sports Hall of Fame inductee, 2011"
+   ],
+   "topics": [
+    "Sports",
+    "Community"
+   ],
+   "image_query": "McMahon Stadium Calgary",
+   "sources": [
+    {
+     "title": "Tributes pour in on Grey Cup Sunday for Calgary sports legend Ken Newans",
+     "outlet": "CP24 / CTV News",
+     "url": "https://www.cp24.com/news/sports/2026/11/15/tributes-pour-in-on-grey-cup-sunday-for-calgary-sports-legend-ken-newans/",
+     "published": "2026-11-15"
+    },
+    {
+     "title": "Calgary Citizen newsletter, Tuesday, Nov. 17, 2026",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/tuesday-nov-17-2026",
+     "published": "2026-11-17"
+    }
+   ],
+   "id": "2026-11-17-ken-newans-longtime-voice-of-calgary-sports-and-the-stampeders-dies-at",
+   "date": "2026-11-17",
+   "published_at": "2026-11-17T23:41:44Z",
+   "words": 242
+  }
+ ]
+}
