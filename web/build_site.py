@@ -231,6 +231,32 @@ def count_visits(out):
     return n
 
 
+def metricool_tracker(out):
+    """Metricool's web analytics tag on every page (brand hash in web/metricool-hash.txt), so page views, visitors,
+    top pages and traffic sources show in Metricool next to the social accounts, and in Hassan HQ."""
+    path = os.path.join(ROOT, 'web', 'metricool-hash.txt')
+    h = open(path, encoding='utf-8').read().strip() if os.path.exists(path) else ''
+    if not re.fullmatch(r'[0-9a-f]{32}', h):
+        return 0
+    tag = ('<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");'
+           'c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,'
+           'b.appendChild(c)}loadScript(function(){beTracker.t({hash:"%s"})});</script>\n</body>' % h)
+    n = 0
+    for root, dirs, files in os.walk(out):
+        dirs[:] = [d for d in dirs if d not in ('pyodide', 'vendor')]
+        for name in files:
+            if not name.endswith('.html'):
+                continue
+            fp = os.path.join(root, name)
+            with open(fp, encoding='utf-8') as f:
+                s = f.read()
+            if '</body>' in s and 'tracker.metricool.com' not in s:
+                with open(fp, 'w', encoding='utf-8') as f:
+                    f.write(s.replace('</body>', tag, 1))
+                n += 1
+    return n
+
+
 def bundle_scripts(out, idx):
     """The page's own scripts (not the vendor ones) joined into one file named by its content, so a visitor fetches
     one script instead of two dozen and keeps it cached until it changes. The source files stay published for anyone
@@ -685,6 +711,7 @@ def main():
         print(f'pages for search engines: {len(urls)}')
     step('ward and community pages for search engines', search_pages)
     step('visit counter on every page', lambda: print('pages counted:', count_visits(out)))
+    step('Metricool web analytics on every page', lambda: print('pages tagged:', metricool_tracker(out)))
     lock_key(out)
     if a.pyodide:
         shutil.copytree(a.pyodide, os.path.join(out, 'pyodide'), dirs_exist_ok=True)
