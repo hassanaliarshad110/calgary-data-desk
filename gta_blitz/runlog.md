@@ -44,3 +44,5 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T00:51:45Z | started | run 7 (scheduled)
 2026-11-17T00:51:53Z | topic claimed | #7 FACT GTA 6 download size vs India mobile data (slug download-data)
 2026-11-17T00:54:55Z | check round 1 | PROBLEMS: n03 'aam Bharatiya' -> 'ausat mobile data user'; 212 GB is 'up to' -> 'poore 212 GB' in n03/n04 + '212 GB TAK' on screen; n02 spoken 28.4 to match caption; n05 Rs 1,500 framed as companies' average revenue, not price. Sources: GamesRadar, IBTimes, TRAI PR 135/2026 (read). Re-voicing
+2026-11-17T01:01:52Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v3: fixes from check round 1 + tightened to fit 55 s)
+2026-11-17T01:01:52Z | check verdict | APPROVED round 2 (fresh independent agent read GamesRadar, IBTimes, TRAI PR 135/2026; all 7 claims verified); optional note applied (source chip says 'per wireless data subscriber')

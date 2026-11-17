@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "intro",
+"start": 0,
+"dur": 7.1,
+"lines": [
+"n01"
+]
+},
+{
+"id": "avg",
+"start": 7.1,
+"dur": 7.307,
+"lines": [
+"n02"
+]
+},
+{
+"id": "twist",
+"start": 14.407,
+"dur": 6.706,
+"lines": [
+"n03"
+]
+},
+{
+"id": "daily",
+"start": 21.113,
+"dur": 5.299,
+"lines": [
+"n04"
+]
+},
+{
+"id": "money",
+"start": 26.412,
+"dur": 8.367,
+"lines": [
+"n05"
+]
+},
+{
+"id": "tip",
+"start": 34.779,
+"dur": 7.374,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.15,
+"dur": 6.7,
+"spk": "N",
+"roman": "Rockstar ke mutabik, GTA 6 ka pre-load, device ke hisaab se, 212 GB tak hai."
+},
+"n02": {
+"start": 7.25,
+"dur": 6.907,
+"spk": "N",
+"roman": "TRAI kehta hai: Bharat mein ek mobile data user, mahine mein ausatan 28.4 GB chalaata hai."
+},
+"n03": {
+"start": 14.757,
+"dur": 6.156,
+"spk": "N",
+"roman": "Twist: poore 212 GB… yaani ek ausat user ka lagbhag saadhe saat mahine ka data!"
+},
+"n04": {
+"start": 21.263,
+"dur": 4.899,
+"spk": "N",
+"roman": "2 GB roz waala plan? To ismein poore 106 din ka data jaayega!"
+},
+"n05": {
+"start": 26.562,
+"dur": 7.967,
+"spk": "N",
+"roman": "Paison mein? Companiyon ki ausat kamaai, ₹7.13 prati GB… yaani lagbhag ₹1,500 ka data!"
+},
+"n06": {
+"start": 34.929,
+"dur": 6.924,
+"spk": "N",
+"roman": "Sabak: itna bada game Wi-Fi par download karo, aur 212 GB tak jagah pehle se khaali rakho."
+}
+},
+"total": 42.15299999999999
+}
