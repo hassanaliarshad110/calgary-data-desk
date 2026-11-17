@@ -3,3 +3,4 @@ TYPE: short · public · GAMING · madeForKids false · isAiGeneratedContent fal
 TAGS: gta 6, gta 6 india, gta 6 download size, gta 6 212 gb, gta 6 preload, gta 6 hindi, mobile data india, trai data usage, data plan india, gta 6 wifi download, जीटीए 6, मोबाइल डेटा, gaming india, awazzzz
 SOURCES: https://gamesradar.com/games/grand-theft-auto/rockstar-confirms-gta-6-is-212gb-pre-loading-opens-earlier-than-previously-announced-for-digital-orders ; https://trai.gov.in/sites/default/files/2026-10/PR_No135of2026.pdf ; https://www.ibtimes.co.uk/sony-declares-gta-6-plays-best-ps5-massive-212gb-pre-loads-begin-ahead-official-launch-1831662
 MEDIA: awazzz-media gta_blitz/download-data.mp4 + download-data_thumb.jpg
+POST: 2026-11-17 08:30 IST (9:00 PM Regina, 16 Nov) · Metricool uuid 8696432819444335494

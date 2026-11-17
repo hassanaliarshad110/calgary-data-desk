@@ -47,3 +47,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T01:01:52Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v3: fixes from check round 1 + tightened to fit 55 s)
 2026-11-17T01:01:52Z | check verdict | APPROVED round 2 (fresh independent agent read GamesRadar, IBTimes, TRAI PR 135/2026; all 7 claims verified); optional note applied (source chip says 'per wireless data subscriber')
 2026-11-17T01:04:53Z | rendered | short1_fs.mp4 1080x1920 53.5 s, -14.4 LUFS, score ducked ~57% under voice, all scenes native portrait; contact sheet: picture fills all 5 frames (scene boundaries padded so no frame sits in a fade dip); media on awazzz-media gta_blitz/download-data.mp4 + _thumb.jpg
+2026-11-17T01:05:28Z | scheduled | Metricool uuid 8696432819444335494 at 2026-11-17 08:30 IST (9:00 PM Regina, 16 Nov); topic 7 posted; files in gta_blitz/download-data/
