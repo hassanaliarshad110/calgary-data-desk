@@ -42,3 +42,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-16T23:11:52Z | check verdict | APPROVED round 2 (fresh independent agent read advocatekhoj + caseon BNS s.309; all claims verified, high confidence)
 2026-11-16T23:12:28Z | scheduled | Metricool uuid -3601933510939556318 at 2026-11-17 06:30 IST (7:00 PM Regina, 16 Nov); topic 5 posted; files in gta_blitz/car-chori-saza/
 2026-11-17T00:51:45Z | started | run 7 (scheduled)
+2026-11-17T00:51:53Z | topic claimed | #7 FACT GTA 6 download size vs India mobile data (slug download-data)
