@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "mission",
+"start": 0,
+"dur": 8.392,
+"lines": [
+"n02"
+]
+},
+{
+"id": "player",
+"start": 8.392,
+"dur": 7.697,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 16.089,
+"dur": 8.684,
+"lines": [
+"n04"
+]
+},
+{
+"id": "lock",
+"start": 24.773,
+"dur": 7.159,
+"lines": [
+"n05"
+]
+},
+{
+"id": "alone",
+"start": 31.932,
+"dur": 5.801,
+"lines": [
+"n06"
+]
+},
+{
+"id": "lesson",
+"start": 37.733,
+"dur": 5.518,
+"lines": [
+"n07"
+]
+}
+],
+"lines": {
+"n02": {
+"start": 0.12,
+"dur": 7.972,
+"spk": "N",
+"roman": "Mission: Chakravyuh. Yuddh ka terahva din. Dronacharya ne sena ko pahiye jaisi gol vyuh-rachna mein sajaaya."
+},
+"n03": {
+"start": 8.512,
+"dur": 7.277,
+"spk": "N",
+"roman": "Player: Arjun aur Subhadra ka beta, Abhimanyu. Par us din Arjun door, Samshaptakon se lad rahe the."
+},
+"n04": {
+"start": 16.389,
+"dur": 8.084,
+"spk": "N",
+"roman": "Ab twist! Katha kehti hai: Abhimanyu ne maa ke garbh mein hi — vyuh mein ghusne ka tareeka sun liya tha. Par bahar nikalne ka nahi!"
+},
+"n05": {
+"start": 24.893,
+"dur": 6.739,
+"spk": "N",
+"roman": "Yaani game mein: entry khuli, exit lock! Aur peeche aane waale Pandavon ko Jayadrath ne rok diya."
+},
+"n06": {
+"start": 32.052,
+"dur": 5.381,
+"spk": "N",
+"roman": "Abhimanyu andar akela reh gaya. Phir bhi uski himmat uski umar se kahin badi nikli."
+},
+"n07": {
+"start": 37.853,
+"dur": 5.098,
+"spk": "N",
+"roman": "Toh is mission ka sabak? Andar jaane se pehle, bahar aane ka raasta bhi seekho!"
+}
+},
+"total": 43.251
+}
