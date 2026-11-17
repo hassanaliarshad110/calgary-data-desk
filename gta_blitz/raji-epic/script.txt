@@ -1,0 +1,8 @@
+[HOOK 0-2 s, on screen "IS GAME KE LIYE FLAT BECHA!"] h1o: GTA 6 ke shor mein ek desi game, jiske liye co-founder ne apna flat bech diya!
+n01: Raji: An Ancient Epic. Pune ke Nodding Heads studio ka game, Mahabharat-Ramayan se inspired.
+n02: Ek ladki, Raji, raakshason se insaanon ko bachaati hai, aur apne bhai Golu ko dhoondhti hai.
+n03 (TWIST): Twist: Kickstarter fail! Founders ne savings se team ko salary di, aur co-founder Shruti Ghosh ne apna flat bech diya.
+n04: Phir Unreal Dev Grant mila. Team? Sirf 13 log, paanch deshon se.
+n05 (PAYOFF): 2020 mein Switch, phir PC, PS4 aur Xbox par launch. Aur The Game Awards mein, Best Debut Indie Game ka nomination!
+h1e (COMMENT Q): Aap GTA 6 ke saath koi Indian game kheloge? Kaun sa? Comment karo!
+[END CARD 2 s: Follow Awazzzz + SUBSCRIBE]

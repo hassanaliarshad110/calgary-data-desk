@@ -1,0 +1,9 @@
+# GTA blitz #16 — raji-epic (FACT): "Raji: An Ancient Epic — Mahabharat-Ramayan se inspired Indian game"
+- Sources: Unreal Engine developer interview, Gematsu (Nintendo.com text), TechRadar, Sportskeeda (see claims.md). Wikipedia fetch timed out (permission prompt unanswered); the other four pages fetched fine via web-fetch agents.
+- Check round 1 PROBLEMS -> fixed; round 2 APPROVED. Optional notes applied on screen ("TEAM (2020)", "JEETA NAHI, PAR NOMINATE HUA!").
+- Voice v2 ran 61 s -> v3 trimmed every line (villain name dropped; same claims). Final 48.4 s, -14.4 LUFS, score ~57% under voice.
+- Build: work dir = these files + episodes/ep4/scenes.js + ep4 prep_audio.py/score_mix.py/index.html over budget-probe mp3s (/home/claude/nvout; mkdir aud shorts); `python3 /home/claude/kit/shorts.py 1`; `python3 thumb.py`; `python3 peek.py <scene>:<frac>`.
+- Gotcha: scenes.js (ep4) already declares `const TEAL` (plus rig.js `easeOut`) — redeclaring kills scenes_v.js and shorts.py falls back + crashes on DRAW[s.id].
+- Studio assets: PRP-052 coins, VFX-001 fire (ported as fireV torches), VFX-011 impactStar, VFX-015 stars, VFX-019 question. Own drawings: generic stone colonnade (no idols/symbols), own-design acrobat girl (not the game model), playful horned masks, piggy bank, flat block with SOLD sign, Kickstarter progress card (text only, no logo), grant cheque, globe + country chips, 13 tokens, generic handheld, NOMINEE certificate (no trophy). No deities, no maps, no game art.
+- Thumbnail text uses the approved wording "IS GAME KE LIYE FLAT BECHA!" (not "flat becha, game banaya", which the checker called overstated).
+- Metricool uuid -3149466415610770840, 18 Nov 2026 18:30 IST (7:00 AM Regina, 18 Nov). Slot: Hassan had moved #13-15 to 12:00/14:00/16:30 IST 18 Nov (daytime), so this went 2 h after 16:30.

@@ -1,0 +1,77 @@
+{
+"scenes": [
+{
+"id": "studio",
+"start": 0,
+"dur": 6.992,
+"lines": [
+"n01"
+]
+},
+{
+"id": "story",
+"start": 6.992,
+"dur": 6.36,
+"lines": [
+"n02"
+]
+},
+{
+"id": "twist",
+"start": 13.352,
+"dur": 8.488,
+"lines": [
+"n03"
+]
+},
+{
+"id": "team",
+"start": 21.84,
+"dur": 5.422,
+"lines": [
+"n04"
+]
+},
+{
+"id": "launch",
+"start": 27.262,
+"dur": 9.543,
+"lines": [
+"n05"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 6.692,
+"spk": "N",
+"roman": "Raji: An Ancient Epic. Pune ke Nodding Heads studio ka game, Mahabharat-Ramayan se inspired."
+},
+"n02": {
+"start": 7.072,
+"dur": 6.08,
+"spk": "N",
+"roman": "Ek ladki, Raji, raakshason se insaanon ko bachaati hai, aur apne bhai Golu ko dhoondhti hai."
+},
+"n03": {
+"start": 13.502,
+"dur": 8.138,
+"spk": "N",
+"roman": "Twist: Kickstarter fail! Founders ne savings se team ko salary di, aur co-founder Shruti Ghosh ne apna flat bech diya."
+},
+"n04": {
+"start": 21.92,
+"dur": 5.142,
+"spk": "N",
+"roman": "Phir Unreal Dev Grant mila. Team? Sirf 13 log, paanch deshon se."
+},
+"n05": {
+"start": 27.342,
+"dur": 9.163,
+"spk": "N",
+"roman": "2020 mein Switch, phir PC, PS4 aur Xbox par launch. Aur The Game Awards mein, Best Debut Indie Game ka nomination!"
+}
+},
+"total": 36.80499999999999
+}
