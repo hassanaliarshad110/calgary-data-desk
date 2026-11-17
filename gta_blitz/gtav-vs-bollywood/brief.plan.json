@@ -1,0 +1,381 @@
+{
+ "brief": {
+  "channel": "news",
+  "title": "GTA V ki kamaai vs Bollywood ki sabse badi film",
+  "script": "cinema film reel movie theatre ticket box office money rupee coins, China, video game console controller launch day sales dollar money bag, exchange rate, record trophy, calendar 19 November, comment question",
+  "keywords": [
+   "film",
+   "cinema",
+   "ticket",
+   "popcorn",
+   "coin",
+   "money",
+   "bag",
+   "trophy",
+   "console",
+   "controller",
+   "calendar",
+   "clock",
+   "question",
+   "sparkle",
+   "chart",
+   "scale"
+  ],
+  "format": "9x16",
+  "characters": 1,
+  "mood": "upbeat"
+ },
+ "channel": "news",
+ "matched_terms": [
+  "badi",
+  "bag",
+  "bars",
+  "bollywood",
+  "box",
+  "calendar",
+  "chart",
+  "china",
+  "cinema",
+  "clock",
+  "coin",
+  "coins",
+  "comment",
+  "console",
+  "controller",
+  "counter",
+  "day",
+  "dollar",
+  "donut",
+  "exchange",
+  "film",
+  "game",
+  "gta",
+  "kamaai",
+  "launch",
+  "line",
+  "money",
+  "movie",
+  "november",
+  "office",
+  "popcorn",
+  "question",
+  "rate",
+  "record",
+  "reel",
+  "rupee",
+  "sabse",
+  "sales",
+  "scale",
+  "sparkle",
+  "theatre",
+  "ticket",
+  "trophy",
+  "video"
+ ],
+ "slots": {
+  "characters": [
+   {
+    "id": "CHR-009",
+    "name": "Officer Gill (Police officer; in Susuman: the friendly beat-police uncle)",
+    "score": 5.0,
+    "path": "engine/chars.js#CAST.officer",
+    "usage": "drawChar(CAST.officer, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   }
+  ],
+  "motions": [
+   {
+    "id": "MOV-017",
+    "name": "Motion: celebrate",
+    "score": 5.0,
+    "path": "engine/chars.js#MOVES.celebrate",
+    "usage": "MOVES.celebrate(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-008",
+    "name": "Motion: talk",
+    "score": 4.5,
+    "path": "engine/chars.js#MOVES.talk",
+    "usage": "MOVES.talk(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-031",
+    "name": "Motion: present",
+    "score": 4.5,
+    "path": "engine/chars.js#MOVES.present",
+    "usage": "MOVES.present(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   }
+  ],
+  "environments": [
+   {
+    "id": "ENV-002",
+    "name": "Environment: office",
+    "score": 7.0,
+    "path": "engine/sets.js#SETS.office",
+    "usage": "drawSet('office', t, cam)",
+    "attribution": false
+   },
+   {
+    "id": "ENV-008",
+    "name": "Environment: newsroom",
+    "score": 6.5,
+    "path": "engine/sets.js#SETS.newsroom",
+    "usage": "drawSet('newsroom', t, cam)",
+    "attribution": false
+   },
+   {
+    "id": "ENV-012",
+    "name": "Environment: calgary skyline",
+    "score": 5.0,
+    "path": "engine/sets.js#SETS.calgary_skyline",
+    "usage": "drawSet('calgary_skyline', t, cam)",
+    "attribution": false
+   }
+  ],
+  "props": [
+   {
+    "id": "PRP-052",
+    "name": "Prop: coins",
+    "score": 9.0,
+    "path": "engine/props.js#PROPS.coins",
+    "usage": "PROPS.coins(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-003",
+    "name": "Prop: officeChair",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.officeChair",
+    "usage": "PROPS.officeChair(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-013",
+    "name": "Prop: clock",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.clock",
+    "usage": "PROPS.clock(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-051",
+    "name": "Prop: bill",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.bill",
+    "usage": "PROPS.bill(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-053",
+    "name": "Prop: moneyStack",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.moneyStack",
+    "usage": "PROPS.moneyStack(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-054",
+    "name": "Prop: document",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.document",
+    "usage": "PROPS.document(x, y, scale, ...)",
+    "attribution": false
+   }
+  ],
+  "vfx": [
+   {
+    "id": "VFX-012",
+    "name": "Effect: speedLines",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.speedLines",
+    "usage": "FX.speedLines(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-019",
+    "name": "Effect: question",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.question",
+    "usage": "FX.question(t, {...})",
+    "attribution": false
+   }
+  ],
+  "graphics": [
+   {
+    "id": "GFX-001",
+    "name": "Graphic: bars",
+    "score": 8.5,
+    "path": "engine/graphics.js#GFX.bars",
+    "usage": "GFX.bars(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-002",
+    "name": "Graphic: hbars",
+    "score": 8.5,
+    "path": "engine/graphics.js#GFX.hbars",
+    "usage": "GFX.hbars(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-003",
+    "name": "Graphic: line",
+    "score": 7.0,
+    "path": "engine/graphics.js#GFX.line",
+    "usage": "GFX.line(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-004",
+    "name": "Graphic: donut",
+    "score": 7.0,
+    "path": "engine/graphics.js#GFX.donut",
+    "usage": "GFX.donut(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-005",
+    "name": "Graphic: counter",
+    "score": 7.0,
+    "path": "engine/graphics.js#GFX.counter",
+    "usage": "GFX.counter(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-014",
+    "name": "Graphic: clockBug",
+    "score": 6.5,
+    "path": "engine/graphics.js#GFX.clockBug",
+    "usage": "GFX.clockBug(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-016",
+    "name": "Graphic: headline",
+    "score": 6.5,
+    "path": "engine/graphics.js#GFX.headline",
+    "usage": "GFX.headline(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "LOT-002",
+    "name": "Lottie: bars_grow",
+    "score": 6.5,
+    "path": "assets/lottie/bars_grow.json",
+    "usage": "lottie.loadAnimation({path}); or drop into any Lottie player",
+    "attribution": false
+   }
+  ],
+  "maps_data": [
+   {
+    "id": "GEO-006",
+    "name": "ne_50m_rivers_lake_centerlines.geojson",
+    "score": 6.5,
+    "path": "acquired/geo/naturalearth/ne_50m_rivers_lake_centerlines.geojson",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": false
+   },
+   {
+    "id": "GEO-001",
+    "name": "ne_110m_admin_0_countries.geojson",
+    "score": 4.5,
+    "path": "acquired/geo/naturalearth/ne_110m_admin_0_countries.geojson",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": false
+   },
+   {
+    "id": "GEO-002",
+    "name": "ne_50m_admin_0_countries.geojson",
+    "score": 4.5,
+    "path": "acquired/geo/naturalearth/ne_50m_admin_0_countries.geojson",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": false
+   }
+  ],
+  "camera": [],
+  "transitions": [
+   {
+    "id": "TRN-013",
+    "name": "Transition: newsSwoosh",
+    "score": 4.5,
+    "path": "engine/core.js#TRANS.newsSwoosh",
+    "usage": "transition('newsSwoosh', t, t0, dur, drawA, drawB)",
+    "attribution": false
+   }
+  ],
+  "music": [
+   {
+    "id": "MUS-002",
+    "name": "Music: news bed 120bpm",
+    "score": 4.5,
+    "path": "assets/audio/music/news_bed_120bpm.wav",
+    "usage": "from audio import *; M.add(news_bed_120bpm(), at, gain)  (or the WAV file)",
+    "attribution": false
+   }
+  ],
+  "sfx": [
+   {
+    "id": "AMB-005",
+    "name": "Ambience: office",
+    "score": 5.0,
+    "path": "assets/audio/ambience/office.wav",
+    "usage": "from audio import *; M.add(office(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-002",
+    "name": "Sfx: swoosh news",
+    "score": 4.5,
+    "path": "assets/audio/sfx/swoosh_news.wav",
+    "usage": "from audio import *; M.add(swoosh_news(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-021",
+    "name": "Sfx: ticker blip",
+    "score": 4.5,
+    "path": "assets/audio/sfx/ticker_blip.wav",
+    "usage": "from audio import *; M.add(ticker_blip(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-030",
+    "name": "Sfx: news sting",
+    "score": 4.5,
+    "path": "assets/audio/sfx/news_sting.wav",
+    "usage": "from audio import *; M.add(news_sting(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "AMB-006",
+    "name": "Ambience: newsroom",
+    "score": 4.5,
+    "path": "assets/audio/ambience/newsroom.wav",
+    "usage": "from audio import *; M.add(newsroom(), at, gain)  (or the WAV file)",
+    "attribution": false
+   }
+  ],
+  "fonts": [
+   {
+    "id": "FNT-002",
+    "name": "Oswald[wght].ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/oswald/Oswald[wght].ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   },
+   {
+    "id": "FNT-003",
+    "name": "BebasNeue-Regular.ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/bebasneue/BebasNeue-Regular.ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   }
+  ]
+ },
+ "licence_notes": []
+}

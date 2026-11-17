@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "dangal",
+"start": 0,
+"dur": 7.298,
+"lines": [
+"n01"
+]
+},
+{
+"id": "china",
+"start": 7.298,
+"dur": 3.885,
+"lines": [
+"n02"
+]
+},
+{
+"id": "gta",
+"start": 11.183,
+"dur": 9.941,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 21.124,
+"dur": 10.147,
+"lines": [
+"n04"
+]
+},
+{
+"id": "record",
+"start": 31.271,
+"dur": 5.472,
+"lines": [
+"n05"
+]
+},
+{
+"id": "next",
+"start": 36.743,
+"dur": 5.84,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.15,
+"dur": 6.798,
+"spk": "N",
+"roman": "Bharat ki sabse zyada kamaane waali film: Dangal. Duniya bhar mein, lagbhag ₹2,070 crore."
+},
+"n02": {
+"start": 7.448,
+"dur": 3.435,
+"spk": "N",
+"roman": "Aur ismein ₹1,300 crore se zyada, sirf China se aaye!"
+},
+"n03": {
+"start": 11.333,
+"dur": 9.491,
+"spk": "N",
+"roman": "Ab ek game. September 2013, GTA V. Take-Two ke mutabik, pehle hi din ki bikri: $800 million se zyada!"
+},
+"n04": {
+"start": 21.374,
+"dur": 9.497,
+"spk": "N",
+"roman": "Twist: us din ke dollar rate se, ye ₹5,000 crore se zyada… yaani Dangal ki poori kamaai ka do guna se bhi zyada, sirf ek din mein!"
+},
+"n05": {
+"start": 31.421,
+"dur": 5.022,
+"spk": "N",
+"roman": "Aur teen din mein? $1 billion paar. Gaming ki duniya ka naya record!"
+},
+"n06": {
+"start": 36.893,
+"dur": 5.34,
+"spk": "N",
+"roman": "Ab 19 November ko aa raha hai GTA 6. Kya ye apne bade bhai ka record todega?"
+}
+},
+"total": 42.58299999999999
+}

@@ -53,3 +53,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T03:01:47Z | check verdict | APPROVED round 1 (independent agent read sacnilk, The Week, BoxOfficeWorldwide, Koimoi, Engadget/Take-Two, Gematsu x2, Business Standard 17+18 Sep 2013, Fox10; all 7 claims verified); optional: on-screen source note added
 2026-11-17T03:01:59Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions
 2026-11-17T03:09:15Z | rendered | short1_fs.mp4 1080x1920 54.1 s, -14.3 LUFS, score ducked ~57% under voice, all scenes native portrait; contact sheet: picture fills all 5 frames
+2026-11-17T03:11:18Z | scheduled | Metricool uuid -5708818767217013874 at 2026-11-17 10:30 IST (11:00 PM Regina, 16 Nov); topic 8 posted; files in gta_blitz/gtav-vs-bollywood/; media on awazzz-media gta_blitz/gtav-vs-bollywood.mp4 + _thumb.jpg
