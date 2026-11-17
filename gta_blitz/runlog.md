@@ -102,3 +102,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T17:03:09Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2: script trimmed for length + hook 'agla' dropped)
 2026-11-17T17:07:13Z | rendered | short1_fs.mp4 1080x1920 43.6 s, -14.4 LUFS, score under voice rms 0.0245 vs 0.0439 alone (~56%), all scenes native portrait; contact sheet: picture fills all 5 frames; media on awazzz-media gta_blitz/delhi-map.mp4 + _thumb.jpg
 2026-11-17T17:07:54Z | scheduled | Metricool uuid 2615350166014019591 at 2026-11-18 07:30 IST (8:00 PM Regina, 17 Nov); topic 15 posted; files in gta_blitz/delhi-map/; media on awazzz-media gta_blitz/delhi-map.mp4 + _thumb.jpg. Slot: 2 h after the 05:30 IST post
+2026-11-17T18:51:46Z | started | run 16 (scheduled)
