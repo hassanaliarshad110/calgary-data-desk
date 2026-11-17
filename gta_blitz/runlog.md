@@ -49,3 +49,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T01:04:53Z | rendered | short1_fs.mp4 1080x1920 53.5 s, -14.4 LUFS, score ducked ~57% under voice, all scenes native portrait; contact sheet: picture fills all 5 frames (scene boundaries padded so no frame sits in a fade dip); media on awazzz-media gta_blitz/download-data.mp4 + _thumb.jpg
 2026-11-17T01:05:28Z | scheduled | Metricool uuid 8696432819444335494 at 2026-11-17 08:30 IST (9:00 PM Regina, 16 Nov); topic 7 posted; files in gta_blitz/download-data/
 2026-11-17T02:51:45Z | started | run 8 (scheduled)
+2026-11-17T02:51:54Z | topic claimed | #8 FACT GTA V kamaai vs Bollywood ki sabse badi film (slug gtav-vs-bollywood)
