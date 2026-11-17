@@ -78,3 +78,5 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T10:52Z | started
 2026-11-17T10:52:32Z | topic claimed | #12 FAN-THEORY Desi GTA: Hastinapur ki sadkon par chase (slug hastinapur-chase)
 2026-11-17T10:57:03Z | check round 1 | PROBLEMS: n02 'Hastinapur sirf kahaani mein nahi' implied epic city = today's town -> 'Hastinapur naam sirf kahaani mein nahi milta'; n04 'katha bhi kehti hai' after the dig implied proof -> 'Puraani katha mein likha hai … Par dono ko jodna pakka saboot nahi maana jaata'. All 5 real claims verified (checker read Wikipedia Hastinapur/B.B. Lal + Open Magazine). Script also tightened for length; re-voicing
+2026-11-17T11:01:42Z | check verdict | APPROVED round 2 (fresh independent agent read Wikipedia Hastinapur + B.B. Lal, Open Magazine; all 5 real claims verified, flood attributed to Lal + 'pakka saboot nahi' caveat ok)
+2026-11-17T11:01:42Z | voice done | 7/7 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v3: n01/n04 trimmed for length after check fixes)
