@@ -97,9 +97,19 @@ def similar(a, b, lex=False):
     return a == b or difflib.SequenceMatcher(None, a, b).ratio() >= (.5 if lex else .8)
 
 LEX_WORDS = set(w for key in LEX for w in norm_words(key))
+NAMES = set()   # capitalised words of the script being voiced (filled per key)
+
+def merge_compounds(a, b):
+    """Join two words in `a` when together they make one word of `b` ('north west' vs 'northwest')."""
+    bs, out_a, j = set(b), [], 0
+    while j < len(a):
+        if j + 1 < len(a) and a[j] + a[j + 1] in bs and a[j] not in bs: out_a.append(a[j] + a[j + 1]); j += 2
+        else: out_a.append(a[j]); j += 1
+    return out_a
 
 def accuracy(ref_text, heard):
     ref, hyp = norm_words(ref_text), norm_words(heard)
+    hyp, ref = merge_compounds(hyp, ref), merge_compounds(ref, hyp)
     if not ref: return 1.0, []
     sm = difflib.SequenceMatcher(None, ref, hyp, autojunk=False)
     ok, miss = 0, []
@@ -108,7 +118,7 @@ def accuracy(ref_text, heard):
         r, h = ref[i1:i2], hyp[j1:j2]
         if tag == 'replace':
             for x, y in zip(r, h):
-                if similar(x, y, x in LEX_WORDS): ok += 1
+                if similar(x, y, x in LEX_WORDS or x in NAMES): ok += 1
                 else: miss.append(f'{x}->{y}')
             miss += [f'{x}->(missing)' for x in r[len(h):]]
         elif tag == 'delete':
@@ -132,7 +142,7 @@ def hear(audio, prompt):
     try:
         n16 = int(len(audio) * 16000 / SR)
         a16 = np.interp(np.linspace(0, len(audio) - 1, n16), np.arange(len(audio)), audio).astype(np.float32)
-        segs, _ = asr.transcribe(a16, language='en', beam_size=5, initial_prompt=prompt or None, vad_filter=False,
+        segs, _ = asr.transcribe(a16, language='en', beam_size=5, vad_filter=False,
                                  condition_on_previous_text=False)
         return ' '.join(s.text.strip() for s in segs).strip()
     except Exception as e:                      # the check is advisory: narration still ships, the report says why
@@ -141,15 +151,18 @@ def hear(audio, prompt):
 
 # ---------- 5. audio polish ----------
 def master(src, dst):
+    """Clean the voice, then set the line to exactly LUFS with one measured gain and a -2 dB peak limiter.
+    (Per-line loudnorm was tried first: on short lines it falls back to dynamic mode and made levels LESS even.)"""
     chain = 'highpass=f=70,deesser=i=0.35,acompressor=threshold=0.09:ratio=2.5:attack=8:release=90:makeup=1.5'
-    p = subprocess.run(['ffmpeg', '-hide_banner', '-nostats', '-i', src, '-af', f'{chain},loudnorm=I={LUFS}:TP=-2:LRA=9:print_format=json',
-                        '-f', 'null', '-'], capture_output=True, text=True)
-    m = json.loads(p.stderr[p.stderr.rfind('{'):p.stderr.rfind('}') + 1])
-    ln = (f"loudnorm=I={LUFS}:TP=-2:LRA=9:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}"
-          f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-af', f'{chain},{ln}', '-ar', str(SR), '-ac', '1', '-c:a', 'pcm_s16le', dst],
-                   check=True)
-    return float(m['input_i'])
+    def measure(path, af):
+        e = subprocess.run(['ffmpeg', '-hide_banner', '-nostats', '-i', path, '-af', f'{af},ebur128=framelog=quiet', '-f', 'null', '-'],
+                           capture_output=True, text=True).stderr
+        return float(re.search(r'I:\s+(-?[\d.]+) LUFS', e.split('Summary:')[-1]).group(1))
+    before = measure(src, 'anull')
+    gain = LUFS - measure(src, chain)
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-af', f'{chain},volume={gain:.2f}dB,alimiter=limit=0.79:attack=5:release=60:level=false',
+                    '-ar', str(SR), '-ac', '1', '-c:a', 'pcm_s16le', dst], check=True)
+    return before
 
 # ---------- run ----------
 durs, report = {}, {}
@@ -157,6 +170,7 @@ for name, lines in L.items():
     voice = cfg.get('voice', {}).get(name, 'af_heart'); spd0 = cfg.get('speed', {}).get(name, 1.0)
     baseline = cfg.get('mode', {}).get(name) == 'baseline'
     prompt = proper_nouns(lines)
+    NAMES.clear(); NAMES.update(w for n in prompt.split(', ') for w in norm_words(n))
     durs[name], report[name] = [], []
     for i, text in enumerate(lines):
         last, first = i == len(lines) - 1, i == 0
