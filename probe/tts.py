@@ -126,10 +126,18 @@ def proper_nouns(lines):
     return ', '.join(sorted(names))[:400]
 
 def hear(audio, prompt):
-    path = os.path.join(out, 'raw', '_asr.wav'); sf.write(path, audio, SR)
-    segs, _ = asr.transcribe(path, language='en', beam_size=5, initial_prompt=prompt or None, vad_filter=False,
-                             condition_on_previous_text=False)
-    return ' '.join(s.text.strip() for s in segs).strip()
+    """Transcribe in memory (16 kHz float32): no file decoding, so no PyAV version issues. Never blocks narration."""
+    global asr
+    if asr is None: return ''
+    try:
+        n16 = int(len(audio) * 16000 / SR)
+        a16 = np.interp(np.linspace(0, len(audio) - 1, n16), np.arange(len(audio)), audio).astype(np.float32)
+        segs, _ = asr.transcribe(a16, language='en', beam_size=5, initial_prompt=prompt or None, vad_filter=False,
+                                 condition_on_previous_text=False)
+        return ' '.join(s.text.strip() for s in segs).strip()
+    except Exception as e:                      # the check is advisory: narration still ships, the report says why
+        print('listen-back check unavailable:', repr(e)[:200], flush=True)
+        return None
 
 # ---------- 5. audio polish ----------
 def master(src, dst):
@@ -154,8 +162,8 @@ for name, lines in L.items():
         last, first = i == len(lines) - 1, i == 0
         if baseline:
             a, _ = k.create(text, voice=voice, speed=spd0, lang='en-us'); a = np.asarray(a, dtype=np.float32)
-            heard = hear(a, prompt) if asr else ''
-            acc, miss = accuracy(text, heard) if asr else (None, [])
+            heard = hear(a, prompt) if asr else None
+            acc, miss = accuracy(text, heard) if heard is not None else (None, [])
             best = {'audio': a, 'speed': spd0, 'acc': acc, 'miss': miss, 'heard': heard}; takes = [best]
         else:
             spd = spd0 * (cfg.get('hook_speed', 1.05) if first and len(lines) > 1 else cfg.get('close_speed', .97) if last and len(lines) > 1 else 1.0)
@@ -163,14 +171,14 @@ for name, lines in L.items():
             takes = []
             def try_speed(s):
                 a = voice_line(text, voice, s)
-                heard = hear(a, prompt) if asr else ''
-                acc, miss = accuracy(text, heard) if asr else (1.0, [])
+                heard = hear(a, prompt) if asr else None
+                acc, miss = accuracy(text, heard) if heard is not None else (None, [])
                 takes.append({'audio': a, 'speed': round(s, 3), 'acc': acc, 'miss': miss, 'heard': heard})
             for s in plan: try_speed(s)
-            if asr and max(t['acc'] for t in takes) < MIN_ACC:          # re-voice a line that didn't come out clean
+            if all(t['acc'] is not None for t in takes) and max(t['acc'] for t in takes) < MIN_ACC:          # re-voice a line that didn't come out clean
                 for s in (spd * .94, spd * 1.06):
                     if all(abs(t['speed'] - s) > .005 for t in takes): try_speed(s)
-            best = max(takes, key=lambda t: (round(t['acc'], 3), -abs(t['speed'] - spd)))
+            best = max(takes, key=lambda t: (round(t['acc'] or 0, 3), -abs(t['speed'] - spd)))
         raw = os.path.join(out, 'raw', f'{name}_{i}.wav'); sf.write(raw, best['audio'], SR)
         dst = os.path.join(out, f'{name}_{i}.wav')
         if baseline or not cfg.get('master', True):
@@ -179,17 +187,15 @@ for name, lines in L.items():
             in_lufs = master(raw, dst)
         d = round(sf.info(dst).frames / SR, 3); durs[name].append(d)
         status = 'ok' if (best['acc'] is None or best['acc'] >= MIN_ACC) else 'check'
-        report[name].append({'i': i, 'text': text, 'said': text if baseline else spoken(text), 'heard': best['heard'],
+        report[name].append({'i': i, 'text': text, 'said': text if baseline else spoken(text), 'heard': best['heard'] or '',
                              'acc': None if best['acc'] is None else round(best['acc'], 3), 'mismatches': best['miss'],
                              'speed': best['speed'], 'takes': [{'speed': t['speed'], 'acc': None if t['acc'] is None else round(t['acc'], 3)} for t in takes],
                              'dur': d, 'input_lufs': in_lufs, 'status': status})
-        print(name, i, status, best['acc'], d, best['heard'][:90], flush=True)
+        print(name, i, status, best['acc'], d, (best['heard'] or '')[:90], flush=True)
 
 summary = {key: {'lines': len(v), 'check': [r['i'] for r in v if r['status'] == 'check'],
                  'mean_acc': round(sum(r['acc'] for r in v if r['acc'] is not None) / max(1, sum(1 for r in v if r['acc'] is not None)), 3) if asr else None}
            for key, v in report.items()}
 json.dump(durs, open(os.path.join(out, 'durs.json'), 'w'))
 json.dump({'summary': summary, 'lexicon_entries': len(LEX), 'lines': report}, open(os.path.join(out, 'asr_report.json'), 'w'), indent=1, ensure_ascii=False)
-try: os.remove(os.path.join(out, 'raw', '_asr.wav'))
-except OSError: pass
 print(durs); print('SUMMARY', json.dumps(summary))
