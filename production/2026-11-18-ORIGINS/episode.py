@@ -49,7 +49,7 @@ line(1, "The first big player was a senator from Montreal, Matthew Cochrane.",
 line(1, "In eighteen eighty-one, he launched what is recognized as Alberta's first large-scale ranch, the Cochrane Ranche, on land west of Calgary.",
      dict(kind='map', view='region', pins=['calgary', 'cochrane'], focus='cochrane', area='cochrane', chip='1881', lower='Cochrane Ranche'),
      ['C5'], ai='Map flies from Calgary west to a pin on Big Hill Creek; a lease square outlines on the grass. 6 s.')
-line(1, "Its headquarters sat in a sheltered valley on Big Hill Creek, near today's town of Cochrane.",
+line(1, "Its home base sat in a sheltered valley on Big Hill Creek, near today's town of Cochrane.",
      dict(kind='land', tod='day', valley=True, ranch=True, creek=True, lower='Big Hill Creek', sub='near today\'s Cochrane'),
      ['C5'], ai='Sheltered valley with a creek and log ranch buildings, crane-down from the ridge. 5 s.')
 line(1, "Others followed in eighteen eighty-two. To the south, the Oxley Ranch secured a lease of two hundred thousand acres.",
@@ -67,9 +67,9 @@ line(1, "Would you have bet on cattle here? Yes or no?",
 
 # ---------------- CHAPTER 2 ----------------
 line(2, "Alberta's first big ranch lost thousands of cattle in just two winters.",
-     dict(kind='hook', bg='land', tod='storm', snow=True, hook='Two winters. Thousands lost.', hi=['thousands'], chip='1881–1883'),
+     dict(kind='hook', bg='land', tod='storm', snow=True, hook='Two winters. Thousands lost.', hi=['thousands'], chip='1881–1883', cattle=12),
      ['C5', 'C10', 'C12'], ai='Blizzard over open range, snow streaking past the lens, dark cattle shapes hunched against the wind. 4 s.')
-line(2, "In eighteen eighty-one, the Cochrane Ranche bought its herd in Montana.",
+line(2, "In eighteen eighty-one, the Cochrane Ranche bought most of its herd in Montana.",
      dict(kind='map', view='drive', pins=['benton', 'calgary', 'cochrane'], focus='benton', chip='1881', lower='Bought in Montana'),
      ['C8'], ai='Map: a pin in Montana, the border line glowing. 4 s.')
 line(2, "A trading firm from Fort Benton, Montana, was contracted to drive the cattle north.",
@@ -126,7 +126,7 @@ line(2, "Cochrane or the Bar U: which ranch would you have ridden for?",
 
 # ---------------- CHAPTER 3 ----------------
 line(3, "Calgary's first millionaire built his fortune on beef.",
-     dict(kind='hook', bg='city', shot='elbow', tod='dusk', hook="Calgary's first millionaire?", hi=['millionaire?'], chip='BEEF'),
+     dict(kind='hook', bg='city', shot='elbow', tod='dusk', hook="Calgary's first millionaire?", hi=['millionaire?']),
      ['C19'], ai='Dusk drone low over the Elbow River in today\'s Calgary toward downtown towers; a gold title punches in. 4 s.')
 line(3, "But first, the railway.",
      dict(kind='land', tod='day', train=True, lower='The railway'),
@@ -188,7 +188,7 @@ line(3, "Did you know Calgary's first millionaire was a meat packer? Yes or no?"
 
 # ---------------- CHAPTER 4 ----------------
 line(4, "One winter, the chinook never came.",
-     dict(kind='hook', bg='land', tod='storm', snow=True, hook='No chinook.', hi=['chinook.'], chip='1906–07', arch=True),
+     dict(kind='hook', bg='land', tod='storm', snow=True, hook='No chinook.', hi=['chinook.'], chip='1906–07', arch=True, fences=True, cattle=5),
      ['C34', 'C37'], ai='A chinook arch that never opens: grey lid of cloud over a frozen range, snow blowing. 4 s.')
 line(4, "But the open range was already shrinking.",
      dict(kind='land', tod='day', fences=True, cattle=6, lower='The range shrinks'),
@@ -221,8 +221,8 @@ line(4, "Parks Canada's plaque says that hard winter marked the end of the era o
      dict(kind='doc', title='Parks Canada · Ranching Industry plaque', quote='marked the end of the era of the big ranches', src='Parks Canada, Directory of Federal Heritage Designations'),
      ['C34'], ai='Bronze plaque, a line highlighted. 5 s.')
 line(4, "Before then, says the Canadian Encyclopedia, the open-range cattle industry was Calgary's dominant economic activity.",
-     dict(kind='timeline', from_=1879, to=1912, events=[[1881, 'Leases'], [1883, 'Railway'], [1890, "Burns' first slaughterhouse"], [1892, 'Notice'], [1896, 'Stock growers'], [1906, 'Hard winter', '1906–07']], src='The Canadian Encyclopedia · Calgary'),
-     ['C38'], ai='Timeline sweep across the ranch era. 6 s.')
+     dict(kind='timeline', from_=1879, to=1912, events=[[1881, 'Leases'], [1883, 'Railway'], [1890, "Burns' first slaughterhouse"], [1892, 'Notice'], [1896, 'Stock growers'], [1906, 'Hard winter', '1906–07']], src='Sources: W. Naftel, Parks Canada · Dictionary of Canadian Biography · The Canadian Encyclopedia · WSGA'),
+     ['C38', 'C1', 'C20', 'C25', 'C33', 'C35', 'C37'], ai='Timeline sweep across the ranch era. 6 s.')
 line(4, "But the ranchers had one more idea.",
      dict(kind='land', tod='dusk', cattle=4, lower='One more idea'),
      [], gap=0.8, ai='Dusk, a rider pauses on a ridge above the city lights. 3 s.')

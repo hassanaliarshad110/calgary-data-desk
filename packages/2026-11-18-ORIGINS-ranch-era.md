@@ -32,13 +32,13 @@ Alternatives considered: “Calgary’s first millionaire was a meat packer.” 
 | L10 | 1 | One lease could cover up to one hundred thousand acres. It could run for twenty-one years. And the rent was one cent an acre. | same | C1 |
 | L11 | 1 | The first big player was a senator from Montreal, Matthew Cochrane. | same | C5 |
 | L12 | 1 | In eighteen eighty-one, he launched what is recognized as Alberta's first large-scale ranch, the Cochrane Ranche, on land west of Calgary. | same | C5 |
-| L13 | 1 | Its headquarters sat in a sheltered valley on Big Hill Creek, near today's town of Cochrane. | same | C5 |
+| L13 | 1 | Its home base sat in a sheltered valley on Big Hill Creek, near today's town of Cochrane. | same | C5 |
 | L14 | 1 | Others followed in eighteen eighty-two. To the south, the Oxley Ranch secured a lease of two hundred thousand acres. | same | C6 |
 | L15 | 1 | East of Calgary, an army officer, Thomas Bland Strange, took a ranching lease to raise cavalry horses for the British army. | same | C7 |
 | L16 | 1 | On paper, it looked like an easy fortune. The grass was cheap. The cattle were coming. | same | none (transition/question) |
 | L17 | 1 | Would you have bet on cattle here? Yes or no? | same | none (transition/question) |
 | L18 | 2 | Alberta's first big ranch lost thousands of cattle in just two winters. | same | C5, C10, C12 |
-| L19 | 2 | In eighteen eighty-one, the Cochrane Ranche bought its herd in Montana. | same | C8 |
+| L19 | 2 | In eighteen eighty-one, the Cochrane Ranche bought most of its herd in Montana. | same | C8 |
 | L20 | 2 | A trading firm from Fort Benton, Montana, was contracted to drive the cattle north. | same | C8 |
 | L21 | 2 | The main herd numbered six or seven thousand head, at sixteen dollars a head, delivered at the border. | same | C8 |
 | L22 | 2 | The drivers pushed hard. Steers covered fifteen to eighteen miles a day. | same | C9 |
@@ -87,7 +87,7 @@ Alternatives considered: “Calgary’s first millionaire was a meat packer.” 
 | L65 | 4 | Then came the winter of nineteen oh six to oh seven. The usual chinook never came. | same | C37 |
 | L66 | 4 | Stock losses ran into the thousands. | same | C37 |
 | L67 | 4 | Parks Canada's plaque says that hard winter marked the end of the era of the big ranches. | same | C34 |
-| L68 | 4 | Before then, says the Canadian Encyclopedia, the open-range cattle industry was Calgary's dominant economic activity. | same | C38 |
+| L68 | 4 | Before then, says the Canadian Encyclopedia, the open-range cattle industry was Calgary's dominant economic activity. | same | C38, C1, C20, C25, C33, C35, C37 |
 | L69 | 4 | But the ranchers had one more idea. | same | none (transition/question) |
 | L70 | 4 | In nineteen twelve, four of them, Pat Burns, Alfred Ernest Cross, George Lane and Archibald McLean, guaranteed one hundred thousand dollars to stage the first Calgary Stampede. | same | C39 |
 | L71 | 4 | It ran from September second to fifth, nineteen twelve. | same | C40 |
@@ -150,7 +150,7 @@ Motifs:          the gold line of a cattle trail on the map; the branding iron (
 | L10 | One lease could cover up to one hundred thousand acres. It could run for twenty-one years. And the rent was one cent an acre. | HOW MUCH | counter slam to the audited value (Data Explainer) | 100,000 ACRES (UP TO); 21 YEARS; 1¢ AN ACRE; source line: Order in council, 20 May 1881 · W. Naftel, Parks Canada | dissolve |
 | L11 | The first big player was a senator from Montreal, Matthew Cochrane. | WHO | silhouette lower-third, no likeness (Storyteller) | Matthew Cochrane / Senator · Montreal | dissolve |
 | L12 | In eighteen eighty-one, he launched what is recognized as Alberta's first large-scale ranch, the Cochrane Ranche, on land west of Calgary. | WHERE the ranches, routes and towns were | schematic regional map dive, pins, herd routes (Explainer/Civic) | lower third “Cochrane Ranche”; chip 1881; map pins: calgary, cochrane (schematic regional map, north up) | dissolve |
-| L13 | Its headquarters sat in a sheltered valley on Big Hill Creek, near today's town of Cochrane. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | lower third “Big Hill Creek” / “near today's Cochrane” | dissolve |
+| L13 | Its home base sat in a sheltered valley on Big Hill Creek, near today's town of Cochrane. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | lower third “Big Hill Creek” / “near today's Cochrane” | dissolve |
 | L14 | Others followed in eighteen eighty-two. To the south, the Oxley Ranch secured a lease of two hundred thousand acres. | WHERE the ranches, routes and towns were | schematic regional map dive, pins, herd routes (Explainer/Civic) | 200,000 ACRES · OXLEY LEASE; chip 1882; map pins: calgary, cochrane, oxley (schematic regional map, north up) | dissolve |
 | L15 | East of Calgary, an army officer, Thomas Bland Strange, took a ranching lease to raise cavalry horses for the British army. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | lower third “Thomas Bland Strange” / “Horses for the British army” | dissolve |
 | L16 | On paper, it looked like an easy fortune. The grass was cheap. The cattle were coming. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | lower third “An easy fortune?”; chip INTERPRETATION | dissolve |
@@ -160,7 +160,7 @@ Motifs:          the gold line of a cattle trail on the map; the branding iron (
 | beat | narration (exact) | purpose | technique | on-screen text / figures | transition out |
 |---|---|---|---|---|---|
 | L18 | Alberta's first big ranch lost thousands of cattle in just two winters. | grab: the twist of the chapter | cinematic cold open + kinetic hook (Storyteller) + number slam (Explainer) | “TWO WINTERS. THOUSANDS LOST.”; chip 1881–1883 | dissolve |
-| L19 | In eighteen eighty-one, the Cochrane Ranche bought its herd in Montana. | WHERE the ranches, routes and towns were | schematic regional map dive, pins, herd routes (Explainer/Civic) | lower third “Bought in Montana”; chip 1881; map pins: benton, calgary, cochrane (schematic regional map, north up) | dissolve |
+| L19 | In eighteen eighty-one, the Cochrane Ranche bought most of its herd in Montana. | WHERE the ranches, routes and towns were | schematic regional map dive, pins, herd routes (Explainer/Civic) | lower third “Bought in Montana”; chip 1881; map pins: benton, calgary, cochrane (schematic regional map, north up) | dissolve |
 | L20 | A trading firm from Fort Benton, Montana, was contracted to drive the cattle north. | WHERE the ranches, routes and towns were | schematic regional map dive, pins, herd routes (Explainer/Civic) | lower third “Fort Benton → north”; map pins: benton, cochrane (schematic regional map, north up) | dissolve |
 | L21 | The main herd numbered six or seven thousand head, at sixteen dollars a head, delivered at the border. | HOW MUCH | counter slam to the audited value (Data Explainer) | 6,000–7,000 HEAD (MAIN HERD); $16 A HEAD, AT THE BORDER; source line: W. Naftel, The Cochrane Ranch, Parks Canada | dissolve |
 | L22 | The drivers pushed hard. Steers covered fifteen to eighteen miles a day. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | 15–18 MILES A DAY | dissolve |
@@ -182,7 +182,7 @@ Motifs:          the gold line of a cattle trail on the map; the branding iron (
 #### Part 3: The Beef King
 | beat | narration (exact) | purpose | technique | on-screen text / figures | transition out |
 |---|---|---|---|---|---|
-| L37 | Calgary's first millionaire built his fortune on beef. | grab: the twist of the chapter | cinematic cold open + kinetic hook (Storyteller) + number slam (Explainer) | “CALGARY'S FIRST MILLIONAIRE?”; chip BEEF | dissolve |
+| L37 | Calgary's first millionaire built his fortune on beef. | grab: the twist of the chapter | cinematic cold open + kinetic hook (Storyteller) + number slam (Explainer) | “CALGARY'S FIRST MILLIONAIRE?” | dissolve |
 | L38 | But first, the railway. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | lower third “The railway” | dissolve |
 | L39 | The Canadian Pacific Railway reached Calgary in eighteen eighty-three. | WHERE the ranches, routes and towns were | schematic regional map dive, pins, herd routes (Explainer/Civic) | lower third “The railway reaches Calgary”; chip 1883; map pins: calgary (schematic regional map, north up) | dissolve |
 | L40 | Calgary became the distributing and shipping point for the ranch country around it. | WHERE the ranches, routes and towns were | schematic regional map dive, pins, herd routes (Explainer/Civic) | lower third “The shipping point”; map pins: calgary, cochrane, baru, highriver, oxley (schematic regional map, north up) | dissolve |
@@ -217,7 +217,7 @@ Motifs:          the gold line of a cattle trail on the map; the branding iron (
 | L65 | Then came the winter of nineteen oh six to oh seven. The usual chinook never came. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | lower third “No chinook”; chip 1906–07 | flash |
 | L66 | Stock losses ran into the thousands. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | THOUSANDS STOCK LOST | dissolve |
 | L67 | Parks Canada's plaque says that hard winter marked the end of the era of the big ranches. | the exact wording of the source | document card, exact words highlighted (Civic Analyst) | doc card “Parks Canada · Ranching Industry plaque”: highlighted “marked the end of the era of the big ranches” · source Parks Canada, Directory of Federal Heritage Designations | dissolve |
-| L68 | Before then, says the Canadian Encyclopedia, the open-range cattle industry was Calgary's dominant economic activity. | WHEN | timeline scrub (Storyteller/Civic) | timeline 1881 Leases, 1883 Railway, 1890 Burns' first slaughterhouse, 1892 Notice, 1896 Stock growers, 1906–07 Hard winter; source line: The Canadian Encyclopedia · Calgary | dissolve |
+| L68 | Before then, says the Canadian Encyclopedia, the open-range cattle industry was Calgary's dominant economic activity. | WHEN | timeline scrub (Storyteller/Civic) | timeline 1881 Leases, 1883 Railway, 1890 Burns' first slaughterhouse, 1892 Notice, 1896 Stock growers, 1906–07 Hard winter; source line: Sources: W. Naftel, Parks Canada · Dictionary of Canadian Biography · The Canadian Encyclopedia · WSGA | dissolve |
 | L69 | But the ranchers had one more idea. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | lower third “One more idea” | dissolve |
 | L70 | In nineteen twelve, four of them, Pat Burns, Alfred Ernest Cross, George Lane and Archibald McLean, guaranteed one hundred thousand dollars to stage the first Calgary Stampede. | WHO paid and HOW MUCH | four silhouettes + guarantee stamp (Explainer) | $100,000 GUARANTEED · 1912; Pat Burns · A. E. Cross · George Lane · Archibald McLean; source line: Dictionary of Canadian Biography · Archibald James McLean | dissolve |
 | L71 | It ran from September second to fifth, nineteen twelve. | WHAT it looked like / what happened on the land | 2.5D parallax landscape, weather, herd motion (Storyteller) | lower third “The first Stampede”; chip 2–5 SEPT 1912 | dissolve |
@@ -316,7 +316,85 @@ Camera/composition per scene type: **land** = layered parallax (sky, far Rockies
 
 ### E. Editing timeline (EDL)
 
-Built from the measured narration after APPROVED (scene i = line i; in/out = line start to next line start; see production/2026-11-18-ORIGINS/cues.json). Subtitle rules: burned-in from the narration, site name shown as calgaryinsight.ca; vertical caption band y 1240-1420, never in the right-hand 120 px; wide captions bottom centre; on-screen numbers in digits exactly as in the claims table; source line bottom-left on every data and document scene; logo header from 3 s, not on the closing/end frames; ‘PART n OF 4’ chip top-left on reels.
+| # | in | out | dur | scene | transition in | caption | key sound |
+|---|---|---|---|---|---|---|---|
+| S00 | 00:00.00 | 00:05.78 | 5.78 | P1 hook | — | L0 | impact |
+| S01 | 00:05.78 | 00:11.07 | 5.29 | P1 city | — | L1 | city, click |
+| S02 | 00:11.07 | 00:15.80 | 4.73 | P1 chapter | — | L2 | wind |
+| S03 | 00:15.80 | 00:19.51 | 3.71 | P1 land | — | L3 | wind |
+| S04 | 00:19.51 | 00:28.87 | 9.36 | P1 timeline | — | L4 | music bed |
+| S05 | 00:28.87 | 00:36.47 | 7.59 | P1 doc | — | L5 | click, shutter |
+| S06 | 00:36.47 | 00:46.81 | 10.34 | P1 map | — | L6 | click, impact, pop |
+| S07 | 00:46.81 | 00:55.49 | 8.68 | P1 land | — | L7 | wind |
+| S08 | 00:55.49 | 01:02.98 | 7.48 | P1 map | — | L8 | click, pop |
+| S09 | 01:02.98 | 01:11.59 | 8.62 | P1 doc | — | L9 | click, shutter, whoosh |
+| S10 | 01:11.59 | 01:19.81 | 8.22 | P1 stats | — | L10 | impact, ticks |
+| S11 | 01:19.81 | 01:24.40 | 4.58 | P1 name | — | L11 | wind |
+| S12 | 01:24.40 | 01:33.63 | 9.23 | P1 map | — | L12 | click, ping, pop |
+| S13 | 01:33.63 | 01:39.60 | 5.97 | P1 land | — | L13 | wind |
+| S14 | 01:39.60 | 01:46.74 | 7.14 | P1 map | — | L14 | click, impact, ping, pop |
+| S15 | 01:46.74 | 01:55.10 | 8.36 | P1 land | — | L15 | wind |
+| S16 | 01:55.10 | 02:01.40 | 6.29 | P1 land | — | L16 | click, wind |
+| S17 | 02:01.40 | 02:05.56 | 4.16 | P1 question | — | L17 | swell, wind |
+| S18 | 02:05.56 | 02:10.33 | 4.78 | P2 hook | — | L18 | impact, wind |
+| S19 | 02:10.33 | 02:15.38 | 5.05 | P2 map | — | L19 | click, ping, pop |
+| S20 | 02:15.38 | 02:21.35 | 5.97 | P2 map | — | L20 | pop, whoosh |
+| S21 | 02:21.35 | 02:28.03 | 6.67 | P2 stats | — | L21 | impact, ticks |
+| S22 | 02:28.03 | 02:33.04 | 5.01 | P2 land | — | L22 | impact, wind |
+| S23 | 02:33.04 | 02:41.76 | 8.72 | P2 land | — | L23 | impact, whoosh, wind |
+| S24 | 02:41.76 | 02:49.27 | 7.51 | P2 stats | — | L24 | impact, ticks |
+| S25 | 02:49.27 | 02:55.42 | 6.15 | P2 land | — | L25 | boom, impact, wind |
+| S26 | 02:55.42 | 02:59.66 | 4.24 | P2 doc | — | L26 | click, shutter |
+| S27 | 02:59.66 | 03:05.76 | 6.1 | P2 map | — | L27 | click, pop |
+| S28 | 03:05.76 | 03:12.84 | 7.08 | P2 land | — | L28 | wind |
+| S29 | 03:12.84 | 03:17.57 | 4.73 | P2 map | — | L29 | ping, pop |
+| S30 | 03:17.57 | 03:27.68 | 10.11 | P2 name | — | L30 | whoosh, wind |
+| S31 | 03:27.68 | 03:35.25 | 7.57 | P2 brand | — | L31 | stamp, swell |
+| S32 | 03:35.25 | 03:42.50 | 7.25 | P2 map | — | L32 | impact, pop, whoosh |
+| S33 | 03:42.50 | 03:53.91 | 11.41 | P2 stats | — | L33 | click, impact, ticks |
+| S34 | 03:53.91 | 04:01.76 | 7.85 | P2 land | — | L34 | wind |
+| S35 | 04:01.76 | 04:09.41 | 7.66 | P2 name | — | L35 | wind |
+| S36 | 04:09.41 | 04:14.07 | 4.66 | P2 question | — | L36 | swell, wind |
+| S37 | 04:14.07 | 04:17.82 | 3.75 | P3 hook | — | L37 | impact |
+| S38 | 04:17.82 | 04:20.06 | 2.24 | P3 land | — | L38 | wind |
+| S39 | 04:20.06 | 04:24.70 | 4.65 | P3 map | — | L39 | click, pop |
+| S40 | 04:24.70 | 04:29.76 | 5.05 | P3 map | — | L40 | ping, pop |
+| S41 | 04:29.76 | 04:38.44 | 8.68 | P3 export | — | L41 | music bed |
+| S42 | 04:38.44 | 04:47.71 | 9.28 | P3 land | — | L42 | click, crowd_murmur, impact, wind |
+| S43 | 04:47.71 | 04:50.03 | 2.31 | P3 name | — | L43 | wind |
+| S44 | 04:50.03 | 04:58.45 | 8.42 | P3 doc | — | L44 | click, shutter |
+| S45 | 04:58.45 | 05:04.87 | 6.42 | P3 city | — | L45 | city, click |
+| S46 | 05:04.87 | 05:09.71 | 4.84 | P3 land | — | L46 | click, wind |
+| S47 | 05:09.71 | 05:13.65 | 3.94 | P3 doc | — | L47 | click, shutter |
+| S48 | 05:13.65 | 05:24.36 | 10.71 | P3 map | — | L48 | click, pop |
+| S49 | 05:24.36 | 05:33.08 | 8.72 | P3 doc | — | L49 | click, shutter, whoosh |
+| S50 | 05:33.08 | 05:42.00 | 8.92 | P3 stats | — | L50 | click, impact, ticks |
+| S51 | 05:42.00 | 05:48.10 | 6.1 | P3 land | — | L51 | click, whoosh, wind |
+| S52 | 05:48.10 | 05:57.48 | 9.38 | P3 brand | — | L52 | stamp, swell |
+| S53 | 05:57.48 | 06:02.41 | 4.93 | P3 land | — | L53 | click, wind |
+| S54 | 06:02.41 | 06:09.06 | 6.65 | P3 land | — | L54 | click, wind |
+| S55 | 06:09.06 | 06:17.16 | 8.1 | P3 land | — | L55 | click, wind |
+| S56 | 06:17.16 | 06:22.56 | 5.4 | P3 question | — | L56 | swell, wind |
+| S57 | 06:22.56 | 06:25.50 | 2.94 | P4 hook | — | L57 | impact, wind |
+| S58 | 06:25.50 | 06:28.70 | 3.2 | P4 land | — | L58 | wind |
+| S59 | 06:28.70 | 06:36.44 | 7.74 | P4 doc | — | L59 | click, shutter |
+| S60 | 06:36.44 | 06:44.82 | 8.38 | P4 land | — | L60 | wind |
+| S61 | 06:44.82 | 06:54.76 | 9.94 | P4 map | — | L61 | click, ping, pop |
+| S62 | 06:54.76 | 07:01.03 | 6.27 | P4 name | — | L62 | whoosh, wind |
+| S63 | 07:01.03 | 07:07.21 | 6.18 | P4 stats | — | L63 | impact, ticks |
+| S64 | 07:07.21 | 07:13.33 | 6.12 | P4 land | — | L64 | impact, wind |
+| S65 | 07:13.33 | 07:19.14 | 5.81 | P4 land | — | L65 | boom, click, wind |
+| S66 | 07:19.14 | 07:22.23 | 3.09 | P4 land | — | L66 | impact, wind |
+| S67 | 07:22.23 | 07:28.18 | 5.95 | P4 doc | — | L67 | click, shutter |
+| S68 | 07:28.18 | 07:36.96 | 8.79 | P4 timeline | — | L68 | music bed |
+| S69 | 07:36.96 | 07:39.92 | 2.95 | P4 land | — | L69 | wind |
+| S70 | 07:39.92 | 07:52.05 | 12.13 | P4 bigfour | — | L70 | stamp |
+| S71 | 07:52.05 | 07:56.00 | 3.94 | P4 land | — | L71 | click, crowd_murmur, wind |
+| S72 | 07:56.00 | 08:06.79 | 10.79 | P4 city | — | L72 | city, whoosh |
+| S73 | 08:06.79 | 08:19.84 | 13.05 | P4 stats | — | L73 | click, impact, ticks |
+| S74 | 08:19.84 | 08:25.24 | 5.39 | P4 city | — | L74 | city, click |
+| S75 | 08:25.24 | 08:29.82 | 4.58 | P4 question | — | L75 | swell, wind |
+| END | 08:29.82 | 08:44.81 | 15.0 | end card (Comment below · Follow + Subscribe · More at calgaryinsight.ca) | dissolve | E-film | swell, click |
 
 ### F. Figure-to-claim map (every on-screen figure, label and map)
 | on-screen | claim |
@@ -369,7 +447,7 @@ Built from the measured narration after APPROVED (scene i = line i; in/out = lin
 | L63: $220,000 BAR U SALE · 1902; source line: Dictionary of Canadian Biography · Stimson, Lane | C36 |
 | L65: lower third “No chinook”; chip 1906–07 | C37 |
 | L67: doc card “Parks Canada · Ranching Industry plaque”: highlighted “marked the end of the era of the big ranches” · source Parks Canada, Directory of Federal Heritage Designations | C34 |
-| L68: timeline 1881 Leases, 1883 Railway, 1890 Burns' first slaughterhouse, 1892 Notice, 1896 Stock growers, 1906–07 Hard winter; source line: The Canadian Encyclopedia · Calgary | C38 |
+| L68: timeline 1881 Leases, 1883 Railway, 1890 Burns' first slaughterhouse, 1892 Notice, 1896 Stock growers, 1906–07 Hard winter; source line: Sources: W. Naftel, Parks Canada · Dictionary of Canadian Biography · The Canadian Encyclopedia · WSGA | C38, C1, C20, C25, C33, C35, C37 |
 | L70: $100,000 GUARANTEED · 1912; Pat Burns · A. E. Cross · George Lane · Archibald McLean; source line: Dictionary of Canadian Biography · Archibald James McLean | C39 |
 | L71: lower third “The first Stampede”; chip 2–5 SEPT 1912 | C40 |
 | L72: lower third “Burns Building” / “8 Avenue SE · 1912–1913” | C41 |
@@ -384,14 +462,16 @@ Filled in after the stills check and the final render (see ‘QC gate’ below).
 **YouTube film** (type video, public, not made for kids, EDUCATION) title: “Grass for a Penny: How Ranching Built Calgary | Calgary Origins”
 ```
 How did a police fort on the Bow become a cattle town?
-Ottawa rented out prairie grass for almost nothing, Montreal money built giant ranches, brutal winters drove the first one south, and a meat-packing millionaire and his friends backed the first Stampede.
+Ottawa rented out prairie grass for almost nothing, Montreal money built giant ranches, brutal winters drove the first big ranch south, and a meat-packing millionaire and his friends backed the first Stampede.
 Is Calgary still a cattle town at heart? Yes or no? Drop your thoughts below 👇
 
 🔔 Follow @calgaryinsight for more Calgary stories
 More Calgary stories, studies and analysis: calgaryinsight.ca
 
 0:00 Part 1 · Grass for a Penny
-(chapter times added from the final render)
+2:05 Part 2 · Two Hard Winters
+4:14 Part 3 · The Beef King
+6:22 Part 4 · The End of the Open Range
 
 #Calgary #yyc #CalgaryHistory #Ranching #Alberta
 ```
@@ -415,7 +495,7 @@ Did you know this? Yes or no? Drop your thoughts below 👇
 ```
 **Part 4 of 4** (Instagram Reel, Facebook Reel, YouTube Short) caption_without_link:
 ```
-One winter, the chinook never came.
+The winter the chinook never came.
 Part 4 of 4: homesteaders move in, a hard winter ends the era of the big ranches, and a group of ranchers back the first Stampede.
 Is Calgary still a cattle town at heart? Yes or no? Drop your thoughts below 👇
 ```
@@ -433,10 +513,10 @@ First comment (Facebook, Instagram): `🔗 The Stampede those ranchers backed, t
 | C2 | Glenbow's history of the Blackfoot says the buffalo disappeared from the Canadian prairies in 1879; by 1880 they were gone; many people starved | 1879; by 1880; Canadian prairies | fact | https://glenbow.org/blackfoot/EN/html/after_the_treaties.htm | Glenbow, Niitsitapiisini: Our Way of Life, 'After the Treaties': 'In 1879 the buffalo disappeared from the Canadian prairies.' / 'The buffalo had disappeared by 1880.' / 'Many people starved.' |
 | C3 | In fall 1874 a man named Shaw drove 500 beef cattle across the mountains from British Columbia and stayed at the urging of Rev. John McDougall; in 1875 Joe McFarland and Henry Olsen arrived from Montana with a herd of dairy cattle | fall 1874; 500 beef cattle; 1875 dairy herd | fact | https://parkscanadahistory.com/series/chs/16/chs16-4d.htm | Naftel, ch. on early ranching: 'In the fall of 1874 a man named Shaw drove 500 beef cattle across the mountains from British Columbia' / 'where he remained at the urging of the Reverend John McDougall' / 'Joe McFarland and Henry Olsen arrived from Montana in 1875 with a herd of dairy cattle' |
 | C4 | The McDougalls kept their own herd near their mission at Morleyville, today's Morley | Morleyville = Morley, Alberta | fact | https://www.thecanadianencyclopedia.ca/en/article/ranching-history | The Canadian Encyclopedia, Ranching History: 'George and John McDougall established a herd near their mission at Morleyville [Morley, Alta]' |
-| C5 | Senator Matthew Cochrane of Montreal launched what is recognized as Alberta's first large-scale ranch, the Cochrane Ranche, in 1881 on land west of Calgary; HQ in a sheltered valley on Big Hill Creek near today's Cochrane | 1881 (operated 1881-1888); west of Calgary; Big Hill Creek | fact | https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11541 | Canadian Register of Historic Places, Cochrane Ranche: 'the site of Alberta's first large-scale ranch, which operated between 1881 and 1888' / 'under the leadership of Senator Matthew Cochrane of Montreal' / 'located in a sheltered valley on the west bank of Big Hill Creek' / '109,000 acres west of Calgary' |
-| C6 | In 1882 the Oxley Ranch secured a lease of 200,000 acres (to the south) | 1882; 200,000 acres; Dominion lease | fact | https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11967 | Canadian Register, Leavings at Willow Creek / Oxley: 'In 1882, the New Oxley Ranch secured a lease for 200,000 acres from the Dominion Government' |
+| C5 | Senator Matthew Cochrane of Montreal launched what is recognized as Alberta's first large-scale ranch, the Cochrane Ranche, in 1881 on land west of Calgary; home base in a sheltered valley on Big Hill Creek near today's Cochrane | 1881 (operated 1881-1888); west of Calgary; Big Hill Creek | fact | https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11541 | Canadian Register of Historic Places, Cochrane Ranche: 'the site of Alberta's first large-scale ranch, which operated between 1881 and 1888' / 'under the leadership of Senator Matthew Cochrane of Montreal' / 'located in a sheltered valley on the west bank of Big Hill Creek' / '109,000 acres west of Calgary' |
+| C6 | In 1882 the Oxley Ranch (the New Oxley Ranch in the Register) secured a lease of 200,000 acres (to the south) | 1882; 200,000 acres; Dominion lease | fact | https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11967 | Canadian Register, Leavings at Willow Creek / Oxley: 'In 1882, the New Oxley Ranch secured a lease for 200,000 acres from the Dominion Government' |
 | C7 | East of Calgary, army officer Thomas Bland Strange took a ranching lease (1882) to raise cavalry horses for the British army | 1882; east of Calgary | fact | https://www.biographi.ca/en/bio/strange_thomas_bland_15E.html | DCB, Strange: 'In 1882 he acquired a homestead and ranching lease east of Calgary.' / 'His plan was to raise cavalry horses for the British army.' |
-| C8 | In 1881 the Cochrane Ranche bought its herd in Montana; a Fort Benton firm was contracted to drive the cattle north; main herd six or seven thousand head at $16 a head delivered at the border | 1881; 6,000-7,000 head; $16 a head at the boundary | fact | https://parkscanadahistory.com/series/chs/16/chs16-4h.htm ; https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11541 | Naftel ch. 'The First Herds': 'the main herd, numbering six or seven thousand, cost $16 a head delivered at the boundary'; Register: 'I.G. Baker Co. of Fort Benton ... was contracted to drive cattle up from Montana' |
+| C8 | In 1881 the Cochrane Ranche bought most of its herd in Montana ('Most of the cattle were purchased in Montana'); a Fort Benton firm was contracted to drive the cattle north; main herd six or seven thousand head at $16 a head delivered at the border | 1881; 6,000-7,000 head; $16 a head at the boundary | fact | https://parkscanadahistory.com/series/chs/16/chs16-4h.htm ; https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11541 | Naftel ch. 'The First Herds': 'the main herd, numbering six or seven thousand, cost $16 a head delivered at the boundary'; Register: 'I.G. Baker Co. of Fort Benton ... was contracted to drive cattle up from Montana' |
 | C9 | Steers covered fifteen to eighteen miles a day on the drive | 15-18 miles per day (steers) | fact | https://parkscanadahistory.com/series/chs/16/chs16-4h.htm | Naftel: 'The pace was wicked, the steers averaging 15 to 18 miles per day, the cows and calves close to 14.' |
 | C10 | Winter 1881-82 losses were heavy: close to a thousand head, by one account | close to 1,000 head; winter 1881-82; account of (James) Walker | fact | https://parkscanadahistory.com/series/chs/16/chs16-4h.htm | Naftel: 'losses were heavy, close to a thousand head according to Walker' |
 | C11 | In 1882 a second herd arrived: 4,290 head, on October 19 | 4,290 head; 19 October 1882 | fact | https://parkscanadahistory.com/series/chs/16/chs16-4h.htm | Naftel: 'The new herd, numbering 4,290 head, appeared on 19 October' |
@@ -449,7 +529,7 @@ First comment (Facebook, Instagram): `🔗 The Stampede those ranchers backed, t
 | C18 | Parks Canada protects the Bar U as a national historic site for its role in Canada's ranching story; the Sundance Kid (Harry Longabaugh) broke horses there | Bar U Ranch National Historic Site | fact | https://parks.canada.ca/lhn-nhs/ab/baru/culture ; https://thecanadianencyclopedia.ca/en/article/bar-u-ranch | Parks Canada: 'commemorates the importance of ranching to Canada'; TCE Bar U: 'Harry Longabaugh, better known as the Sundance Kid, broke horses at the ranch' |
 | C19 | Calgary's first millionaire built his fortune on beef; The Canadian Encyclopedia calls Pat Burns the city's first millionaire, and his company the largest integrated meat business in Canada | city of Calgary; Canada | fact | https://thecanadianencyclopedia.ca/en/article/calgary-3 | TCE, Calgary: 'The city's first millionaire, Pat Burns, built up the largest integrated meat business in Canada.' |
 | C20 | The Canadian Pacific Railway reached Calgary in 1883 | 1883 | fact | https://thecanadianencyclopedia.ca/en/article/calgary-3 | TCE, Calgary: 'The railway reached Fort Calgary in 1883' |
-| C21 | Calgary became the distributing and shipping point for the ranch country around it | — | fact | https://parkscanadahistory.com/series/chs/16/chs16-4g.htm | Naftel: 'Calgary became the distributing and shipping point for the area.' |
+| C21 | Calgary became the distributing and shipping point for the ranch country around it | not dated in the narration (Naftel ties it to the railway; TCE dates the railway's arrival 1883) | fact | https://parkscanadahistory.com/series/chs/16/chs16-4g.htm | Naftel: 'Calgary became the distributing and shipping point for the area.' |
 | C22 | Live cattle went to London, Liverpool and Glasgow; until the turn of the twentieth century that trade mattered more to Canada than wheat | until ~1900 | fact | https://thecanadianencyclopedia.ca/en/article/bar-u-ranch | TCE Bar U: 'The export of live cattle to London, Liverpool and Glasgow became a major contributor to Canada's trade; in fact, it was more important than wheat until the turn of the 20th century.' |
 | C23 | In 1886 the Calgary District and Agricultural Society held the first exhibition, in a town of about a thousand people | 1886; about 1,000 people | fact | https://samcentre.calgarystampede.com/explore-and-learn/stampede-through-the-years/chapter-1 | Calgary Stampede SAM Centre, Stampede Through the Years ch. 1: 'In 1886 the Calgary District and Agricultural Society held the first Exhibition' / 'about 1000 people' |
 | C24 | In 1887 contractors William Mackenzie and Donald Mann hired Patrick Burns to supply meat to their construction camps (he made his name selling beef to construction camps) | 1887 | fact | https://www.biographi.ca/en/bio/burns_patrick_16E.html | DCB Burns: hired in 1887 'by William Mackenzie, Donald Mann, and others to supply meat to their construction camps' |
@@ -464,12 +544,12 @@ First comment (Facebook, Instagram): `🔗 The Stampede those ranchers backed, t
 | C31b | His house in east Calgary, built in 1891, is a provincial historic resource today | 1891; A. E. Cross House, 1240 8 Ave SE (Old Town area of East Calgary) | fact | https://historicplaces.ca/en/rep-reg/place-lieu.aspx?id=5133 | Canadian Register, A.E. Cross House: built 1891; Provincial Historic Resource (1977) |
 | C32 | In 1891 the Ranchmen's Club was founded in Calgary, largely based on the St. James Club in Montreal | 1891 (Heritage Calgary brochure says 1892; club, Lougheed House and City say 1891) | fact | https://www.calgary.ca/PDA/pd/Documents/Heritage-planning/heritage-walking-tours/heritage-connaught-beltline-heritage-walk-tour.pdf | City of Calgary Connaught-Beltline heritage walk: 'largely based on the St. James Club in Montreal, was founded in 1891' |
 | C33 | In 1892 ranchers got four years' notice that the old leases that kept homesteaders out would be cancelled | 1892; 4 years' notice | fact | https://www.thecanadianencyclopedia.ca/en/article/ranching-history | TCE Ranching History: 'in 1892 the ranchers received 4 years' notice that all old leases restricting homestead entry would be cancelled' |
-| C34 | A Parks Canada plaque says pressure from farmers and smaller ranchers reduced the large ranges, and that the hard winter marked the end of the era of the big ranches | plaque wording: 'the hard winter of 1906' | fact | https://pc.gc.ca/apps/dfhd/page_nhs_eng.aspx?id=11911 | Parks Canada, Ranching Industry plaque: 'Pressure from farmers and from smaller ranchers reduced the large ranges' / 'the hard winter of 1906 marked the end of the era of the big ranches' |
+| C34 | A Parks Canada plaque says pressure from farmers and smaller ranchers reduced the large ranges, and that the hard winter marked the end of the era of the big ranches | plaque wording: 'the hard winter of 1906' (= the winter of 1906-07 in TCE, C37) | fact | https://pc.gc.ca/apps/dfhd/page_nhs_eng.aspx?id=11911 | Parks Canada, Ranching Industry plaque: 'Pressure from farmers and from smaller ranchers reduced the large ranges' / 'the hard winter of 1906 marked the end of the era of the big ranches' |
 | C35 | In 1896 cattlemen met at Macleod (now Fort Macleod) and formed the Western Stock Growers' Association | 1896 | fact | https://wsga.ca/pdf/2021/Celebrating-125-Years.pdf | WSGA, Celebrating 125 Years: 'In 1896 ... a group of cattlemen met in what was then called Macleod (now Fort Macleod)' |
 | C36 | George Lane came to the Bar U as foreman in 1884; in 1902 he and his partners bought the ranch for $220,000; he built what his biography calls the largest pure-bred Percheron stud in the world | 1884; 1902; $220,000 | fact | https://www.biographi.ca/en/bio/lane_george_15E.html ; https://www.biographi.ca/en/bio/stimson_frederick_smith_14E.html | DCB Lane: 'In 1884 Lane moved to the District of Alberta to take up the job of foreman on the North-West Cattle Company's Bar U Ranch' / 'In 1902 he and his partners purchased the Bar U Ranch' / 'the largest pure-bred Percheron stud in the world'; DCB Stimson: 'the Allan family accepted an offer of $220,000 for the ranch from George Lane and the Winnipeg meat-packing firm of Gordon, Ironside, and Fares' |
 | C37 | One winter, the chinook never came (hook); the winter of 1906-07 came without the usual chinook; stock losses ran into the thousands | winter 1906-07 | fact | https://www.thecanadianencyclopedia.ca/en/article/ranching-history | TCE Ranching History: 'the winter of 1906-07 was without the accustomed chinook, bringing stock losses in the thousands' |
 | C38 | Before then (1906), the open-range cattle industry was Calgary's dominant economic activity | before 1906 | fact | https://thecanadianencyclopedia.ca/en/article/Calgary | TCE, Calgary: 'Before 1906 the open-range cattle industry was the dominant economic activity.' |
-| C39 | In 1912 Pat Burns, A. E. Cross, George Lane and A. J. McLean guaranteed $100,000 to stage the first Calgary Stampede | 1912; $100,000 | fact | https://www.biographi.ca/en/bio/mclean_archibald_james_16E.html | DCB McLean: the Big Four 'guaranteed $100,000 to stage the first Calgary Stampede in 1912' |
+| C39 | In 1912 Pat Burns, A. E. Cross, George Lane and Archibald McLean (the Big Four; DCB McLean also says he pledged $25,000) guaranteed $100,000 to stage the first Calgary Stampede | 1912; $100,000 | fact | https://www.biographi.ca/en/bio/mclean_archibald_james_16E.html | DCB McLean: the Big Four 'guaranteed $100,000 to stage the first Calgary Stampede in 1912' |
 | C40 | The first Stampede ran September 2 to 5, 1912 | 2-5 Sept 1912 | fact | https://www.biographi.ca/en/bio/burns_patrick_16E.html | DCB Burns: '2 to 5 Sept. 1912' |
 | C41 | Downtown, the Burns Building, home to one of his (Burns') retail meat markets, went up in 1912 and 1913; it still stands, a provincial historic resource (on screen: 8 Avenue SE · 1912–1913) | 1912-1913; 237 8 Ave SE; Provincial Historic Resource (1987) | fact | https://historicplaces.ca/en/rep-reg/place-lieu.aspx?id=5101 | Canadian Register, Burns Building: 'Constructed between 1912 and 1913'; '237 - 8 Avenue SE'; 'One of Burns' retail meat markets was located on the ground floor'; designated Provincial Historic Resource 1987 |
 | C42 | In 1931, at a huge celebration of Burns' approaching 75th birthday, a 3,000-pound cake was shared with some 15,000 people; that day he was named to the Senate | 1931; 3,000 lb; some 15,000 people; announced 4 July | fact | https://www.biographi.ca/en/bio/burns_patrick_16E.html | DCB Burns: 'A 3,000-pound birthday cake was distributed to some 15,000 people' / 'The appointment was announced on 4 July during Calgary's huge celebration of his approaching 75th birthday' |
@@ -480,9 +560,32 @@ First comment (Facebook, Instagram): `🔗 The Stampede those ranchers backed, t
 
 Interpretation lines (chip ‘INTERPRETATION’ on screen): L1 (“That cheap grass helped turn a police fort on the Bow River into a cattle town.”); L16 (“On paper, it looked like an easy fortune. The grass was cheap. The cattle were coming.”); L74 (“The ranch era was short. But the Stampede those ranchers backed is still going.”).
 
-## Fact audit result: BLOCKED (PLAYBOOK 3b, three rounds used)
-Status: **blocked-by-audit**. Nothing was narrated, rendered or published. Full report: `audits/2026-11-18-ORIGINS.md`.
-- Round 1: NOT APPROVED (C41 FAIL, C31b UNSUPPORTED, 16 flags) → all fixed.
-- Round 2: NOT APPROVED (every claim PASS; 3 blocking flags: number words in captions, the 3,000-head loss needing a hedge, a garbled timeline label) → all fixed.
-- Round 3: NOT APPROVED (all 47 claims PASS; 4 blocking flags: L29 "southwest of Calgary" not in the claims table; L58 "the open range was already shrinking" not tied to a claim; L74 "The ranch era was short" is an interpretation without the chip; the Part 1 caption "started with grass rented…" contradicted the 1874 cattle).
-- The four round-3 fixes are applied in this package (C45 added from Parks Canada's Bar U visit page; L58 → C33, C34; L74 carries the INTERPRETATION chip; Part 1 caption → "Calgary's cattle boom took off with grass rented for almost nothing.") but have **not** been re-audited. A fourth audit round needs Hassan's go-ahead.
+## Fact audit result: APPROVED (round 5)
+Rounds 1-3 ran in the scheduled run (blocked at round 3 on four small flags); rounds 4-5 ran on Hassan's go-ahead ("Re audit nd publish if good to go"). Round 5: all 47 claims PASS, no blocking flags. Full report: `audits/2026-11-18-ORIGINS.md`. Nothing was narrated or rendered before APPROVED; narration and burned-in captions are built directly from the approved lines (captions differ only in showing calgaryinsight.ca).
+
+## Production record
+- Narration: studio-probe lane v2, runs 79 (80 lines) and 80 (the seven "Cochrane" lines re-voiced after adding `Cochrane` → kˈɑːkɹən to probe/lexicon.json; Kokoro had said "cock-rain"). Also added to the lexicon: Ranche, Pekisko, Percheron, Longabaugh. ASR listen-back: main lines mean accuracy 0.983 (76 lines; lines 21, 63 and 65 flagged "check" only because the recogniser writes numbers as digits: "6 or 7,000", "$220,000", "1906-07"; audio matches the script), re-voiced lines 0.98, end lines 0.92 (recogniser writes "calgaryinsight.ca").
+- Timing: lead 0.3 s, 0.85 s between lines (0.9 s before the loss numbers, 1.2 s after each chapter question), end card hold 4.2 s (film) / 3.2 s (reels).
+- Engine: motion/engine (canvas 2D painted parallax landscapes, weather, herds; 3D Calgary from the geo pack for the confluence, the Elbow and the Burns Building; schematic regional maps from Natural Earth boundaries via the studio library's GEO-003 asset; counters, document cards, timelines, branding-iron stamps). Studio library: asset plan run (`select_assets.py`); reused Natural Earth provinces/rivers (GEO-003/GEO-006, public domain) and the 3D Calgary geo pack; the library's characters were not used (no explainer hosts in a documentary about real people; silhouettes only).
+- Sound: `sfx.py mix` with the `story` bed and the generated cue sheet (wind, city, crowd beds; impacts, ticks, stamps, pops, whooshes, booms); -14.5 LUFS.
+- Files: `production/2026-11-18-ORIGINS/scene.js` (+ `scene_tpl.js`, `build_scene.py`, `episode.py`, `claims.py`), `cues_film.json`, `cues_part1..4.json`.
+
+## QC gate (motion/references/quality-control.md)
+Stills (frames 0.0/0.5/1.0/1.5 s of the film and every part, the busiest scenes, the closing frames, 270-px thumbnails) → fixes → full render → contact sheets (film 9 + 6 frames, each part 6-9 frames) → fixes (name-card overlap, map labels under titles, vertical map numbers, "THOUSANDS" width) → re-render of the affected files → final check.
+
+| # | Item | Score | Note |
+|---|---|---|---|
+| 1 | Opening compelling, hook word at frame 0, matches thumbnail | 2 | each part opens moving (grass/coin, blizzard herd, dusk 3D Elbow drone, frozen range) with the hook word at frame 0; thumbnails are the same designs |
+| 2 | Every scene adds information | 2 | map = where, timeline = when, counters = how much, document cards = exact words, brand stamps = what the ranch was called |
+| 3 | Technically achievable / no placeholders | 2 | all engine-built; render finished |
+| 4 | Smooth transitions | 2 | dissolve/match/flash/whip only; negative-time effects clamped |
+| 5 | Consistent style | 2 | one painted-foothills look, navy/gold, Fira Sans; Rockies always west |
+| 6 | Data accurate | 2 | every on-screen figure = claims table (figure map, section F); source line on data/doc scenes; maps labelled schematic + Natural Earth/OSM credits |
+| 7 | Professional documentary, not a slideshow | 2 | camera/subject motion throughout (parallax drift, herds, weather, map zooms, 3D drones); 9 techniques; never three text cards in a row |
+| 7b | No step back in type size | 2 | vertical hook 132 px, names/lower thirds 110 px, chips 48 px, quotes 64-72 px, closing question 110 px |
+| 8 | Safe areas, no overlaps | 1 | vertical key content inside y 300-1420 and clear of the right 120 px; maps clipped below titles; vertical map band is compact (640-1240) |
+| 9 | Captions = audited narration | 2 | built from the approved lines (site name shown as calgaryinsight.ca) |
+| 10 | Sound | 2 | voice on top, story bed ducked, cue sheet tied to visuals; -14.5 LUFS film and parts |
+| 11 | Ending (> 2:00) | 2 | full CTA + end card (Comment below, SUBSCRIBE tapped, Follow @calgaryinsight, More at calgaryinsight.ca) held 4.2 s film / 3.2 s reels; reels show "PART n+1 OF 4 IS NEXT" |
+
+`qc: {stills: "pass", final: "pass", scores: [2,2,2,2,2,2,2,2,1,2,2,2]}`

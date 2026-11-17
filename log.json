@@ -1777,20 +1777,219 @@
    "https://thecanadianencyclopedia.ca/en/article/calgary-3"
   ],
   "link": "https://calgaryinsight.ca/visit/stampede/?utm_source=<platform>&utm_medium=social&utm_campaign=origins-ranch-era",
-  "link_check": "not checked: run stopped at the audit gate before posting",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator on main (web/visit_content.py slug 'stampede', built by web/visit_pages.py: the Calgary Stampede visitor guide).",
   "package": "packages/2026-11-18-ORIGINS-ranch-era.md",
   "production": "production/2026-11-18-ORIGINS/",
-  "identity": "Storyteller lead (planned) + Data Explainer counters/brand stamps + Civic Analyst document cards/timelines",
+  "identity": "Storyteller lead (painted 2.5D foothills, weather, herds, 3D Calgary drones) + Data Explainer counters and branding-iron stamps + Civic Analyst document cards and timelines; schematic regional maps from Natural Earth",
   "audit": {
-   "rounds": 3,
+   "rounds": 5,
    "claims_checked": 47,
-   "verdict": "NOT APPROVED",
+   "verdict": "APPROVED",
    "report": "audits/2026-11-18-ORIGINS.md"
   },
-  "status": "blocked-by-audit",
-  "blocked_reason": "Round 3 auditor: all 47 claims PASS but 4 blocking flags (L29 'southwest of Calgary' not in claims table; L58 'open range was already shrinking' not tied to a claim; L74 'The ranch era was short' interpretation without chip; Part 1 caption contradicted the 1874 cattle). Fixes applied in the package but not re-audited; PLAYBOOK 3b allows at most 3 rounds, so nothing was narrated, rendered or posted. Needs Hassan's go-ahead for a 4th audit round, then narration/render/posting.",
-  "posted": [],
-  "pending_link": []
+  "status": "done",
+  "blocked_reason": null,
+  "posted": [
+   {
+    "metricool_id": 432179277,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7690868289270859482",
+    "providers": [
+     "youtube-video"
+    ],
+    "file": "ranch-era-film.mp4",
+    "publish_at": "2026-11-18T09:30",
+    "status": "scheduled"
+   }
+  ],
+  "pending_link": [
+   {
+    "part": 1,
+    "file": "ranch-era-part1.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/social-media/social/calgary-origins-ranch-era/ranch-era-part1.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/social-media/social/calgary-origins-ranch-era/ranch-era-part1-thumb.jpg",
+    "providers": [
+     {
+      "network": "instagram",
+      "type": "REEL",
+      "showReelOnFeed": true
+     },
+     {
+      "network": "facebook",
+      "type": "REEL"
+     },
+     {
+      "network": "youtube",
+      "type": "short",
+      "title": "Grass for a Penny: Calgary's Ranch Era, Part 1 of 4 #Shorts",
+      "category": "EDUCATION",
+      "tags": [
+       "Calgary",
+       "Calgary history",
+       "ranching",
+       "Calgary Origins"
+      ]
+     }
+    ],
+    "caption_without_link": "Calgary's cattle boom took off with grass rented for almost nothing.\nPart 1 of 4: the buffalo vanished, Ottawa opened the range to giant leases, and Montreal money rode west.\nWould you have bet on cattle here? Yes or no? Drop your thoughts below 👇",
+    "hashtags": "#Calgary #yyc #CalgaryHistory #Ranching",
+    "first_comment": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=facebook&utm_medium=social&utm_campaign=origins-ranch-era-part1",
+    "first_comment_instagram": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=instagram&utm_medium=social&utm_campaign=origins-ranch-era-part1",
+    "post_at": "2026-11-18T10:00",
+    "link_to": 432179277,
+    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url."
+   },
+   {
+    "part": 2,
+    "file": "ranch-era-part2.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/social-media/social/calgary-origins-ranch-era/ranch-era-part2.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/social-media/social/calgary-origins-ranch-era/ranch-era-part2-thumb.jpg",
+    "providers": [
+     {
+      "network": "instagram",
+      "type": "REEL",
+      "showReelOnFeed": true
+     },
+     {
+      "network": "facebook",
+      "type": "REEL"
+     },
+     {
+      "network": "youtube",
+      "type": "short",
+      "title": "Two Hard Winters: Calgary's Ranch Era, Part 2 of 4 #Shorts",
+      "category": "EDUCATION",
+      "tags": [
+       "Calgary",
+       "Calgary history",
+       "ranching",
+       "Calgary Origins"
+      ]
+     }
+    ],
+    "caption_without_link": "Alberta's first big ranch was battered by its first hard winters.\nPart 2 of 4: a cattle drive from Montana, heavy losses on the Cochrane Ranche, and the rise of the Bar U.\nCochrane or the Bar U: which ranch would you have ridden for? Drop your thoughts below 👇",
+    "hashtags": "#Calgary #yyc #CalgaryHistory #Ranching",
+    "first_comment": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=facebook&utm_medium=social&utm_campaign=origins-ranch-era-part2",
+    "first_comment_instagram": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=instagram&utm_medium=social&utm_campaign=origins-ranch-era-part2",
+    "post_at": "2026-11-19T10:00",
+    "link_to": 432179277,
+    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url."
+   },
+   {
+    "part": 3,
+    "file": "ranch-era-part3.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/social-media/social/calgary-origins-ranch-era/ranch-era-part3.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/social-media/social/calgary-origins-ranch-era/ranch-era-part3-thumb.jpg",
+    "providers": [
+     {
+      "network": "instagram",
+      "type": "REEL",
+      "showReelOnFeed": true
+     },
+     {
+      "network": "facebook",
+      "type": "REEL"
+     },
+     {
+      "network": "youtube",
+      "type": "short",
+      "title": "Calgary's Beef King: Ranch Era, Part 3 of 4 #Shorts",
+      "category": "EDUCATION",
+      "tags": [
+       "Calgary",
+       "Calgary history",
+       "ranching",
+       "Calgary Origins"
+      ]
+     }
+    ],
+    "caption_without_link": "Calgary's first millionaire built his fortune on beef.\nPart 3 of 4: the railway arrives, cattle ship to Britain, and Pat Burns becomes the beef king of the West.\nDid you know this? Yes or no? Drop your thoughts below 👇",
+    "hashtags": "#Calgary #yyc #CalgaryHistory #Ranching",
+    "first_comment": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=facebook&utm_medium=social&utm_campaign=origins-ranch-era-part3",
+    "first_comment_instagram": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=instagram&utm_medium=social&utm_campaign=origins-ranch-era-part3",
+    "post_at": "2026-11-20T10:00",
+    "link_to": 432179277,
+    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url."
+   },
+   {
+    "part": 4,
+    "file": "ranch-era-part4.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/social-media/social/calgary-origins-ranch-era/ranch-era-part4.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/social-media/social/calgary-origins-ranch-era/ranch-era-part4-thumb.jpg",
+    "providers": [
+     {
+      "network": "instagram",
+      "type": "REEL",
+      "showReelOnFeed": true
+     },
+     {
+      "network": "facebook",
+      "type": "REEL"
+     },
+     {
+      "network": "youtube",
+      "type": "short",
+      "title": "No Chinook: The End of the Open Range, Part 4 of 4 #Shorts",
+      "category": "EDUCATION",
+      "tags": [
+       "Calgary",
+       "Calgary history",
+       "ranching",
+       "Calgary Origins"
+      ]
+     }
+    ],
+    "caption_without_link": "The winter the chinook never came.\nPart 4 of 4: homesteaders move in, a hard winter ends the era of the big ranches, and a group of ranchers back the first Stampede.\nIs Calgary still a cattle town at heart? Yes or no? Drop your thoughts below 👇",
+    "hashtags": "#Calgary #yyc #CalgaryHistory #Ranching",
+    "first_comment": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=facebook&utm_medium=social&utm_campaign=origins-ranch-era-part4",
+    "first_comment_instagram": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=instagram&utm_medium=social&utm_campaign=origins-ranch-era-part4",
+    "post_at": "2026-11-21T10:00",
+    "link_to": 432179277,
+    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url."
+   }
+  ],
+  "resumed": "Blocked at audit round 3 in the scheduled run; Hassan replied 'Re audit nd publish if good to go' (Nov 17): rounds 4-5 run, APPROVED in round 5, then narrated, rendered and scheduled.",
+  "length_s": 524.73,
+  "part_lengths_s": [
+   138.09,
+   141.42,
+   142.44,
+   141.51
+  ],
+  "video_path": "social-media/social/calgary-origins-ranch-era/ranch-era-film.mp4, ranch-era-part1..4.mp4",
+  "thumbnail_path": "social-media/social/calgary-origins-ranch-era/ranch-era-thumb-yt.jpg, ranch-era-part1..4-thumb.jpg",
+  "narration": {
+   "lane": "studio-probe runs 79-80",
+   "asr_mean_acc": 0.983,
+   "lines": 80,
+   "check_lines": [
+    21,
+    63,
+    65
+   ],
+   "note": "checks are recogniser number-format artefacts (digits); 7 'Cochrane' lines re-voiced after adding Cochrane to the lexicon"
+  },
+  "qc": {
+   "stills": "pass (fixes: map labels under titles, name-card overlap, vertical map numbers, THOUSANDS width, chip size 48)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "no 0s; item 8 = 1: vertical map band compact (640-1240)",
+    "-14.5 LUFS film and parts; film 77.8 MB (1100 kbps), parts ~32 MB"
+   ]
+  }
  },
  {
   "date": "2026-11-17",

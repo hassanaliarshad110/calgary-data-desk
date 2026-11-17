@@ -41,12 +41,16 @@ PURPOSE = {'hook': 'grab: the twist of the chapter', 'city': 'WHERE in today\'s 
            'timeline': 'WHEN', 'doc': 'the exact wording of the source', 'map': 'WHERE the ranches, routes and towns were', 'stats': 'HOW MUCH', 'name': 'WHO',
            'brand': 'WHAT the ranch was called and why', 'question': 'invite a one-word answer', 'export': 'WHERE the cattle went and why it mattered', 'bigfour': 'WHO paid and HOW MUCH'}
 
+def chapters_text():
+    if TIMINGS and TIMINGS.get('chapters'):
+        return '\n'.join(f"{c['t']} Part {c['n']} · {c['title']}" for c in TIMINGS['chapters'])
+    return '0:00 Part 1 · Grass for a Penny\n2:2x Part 2 · Two Hard Winters\n4:4x Part 3 · The Beef King\n7:0x Part 4 · The End of the Open Range\n(exact times set from the measured narration before posting)'
 def caption_of(t): return re.sub(r'calgary insight dot c a', 'calgaryinsight.ca', t, flags=re.I)
 
 POSTS = {
  'yt_title': "Grass for a Penny: How Ranching Built Calgary | Calgary Origins",
  'yt_desc': ("How did a police fort on the Bow become a cattle town?\n"
-             "Ottawa rented out prairie grass for almost nothing, Montreal money built giant ranches, brutal winters drove the first one south, and a meat-packing millionaire and his friends backed the first Stampede.\n"
+             "Ottawa rented out prairie grass for almost nothing, Montreal money built giant ranches, brutal winters drove the first big ranch south, and a meat-packing millionaire and his friends backed the first Stampede.\n"
              "Is Calgary still a cattle town at heart? Yes or no? Drop your thoughts below 👇\n\n"
              "🔔 Follow @calgaryinsight for more Calgary stories\n"
              "More Calgary stories, studies and analysis: calgaryinsight.ca\n\n"
@@ -61,7 +65,7 @@ POSTS = {
   3: ("Calgary's first millionaire built his fortune on beef.\n"
       "Part 3 of 4: the railway arrives, cattle ship to Britain, and Pat Burns becomes the beef king of the West.\n"
       "Did you know this? Yes or no? Drop your thoughts below 👇"),
-  4: ("One winter, the chinook never came.\n"
+  4: ("The winter the chinook never came.\n"
       "Part 4 of 4: homesteaders move in, a hard winter ends the era of the big ranches, and a group of ranchers back the first Stampede.\n"
       "Is Calgary still a cattle town at heart? Yes or no? Drop your thoughts below 👇"),
  },
@@ -125,7 +129,7 @@ def build():
     A("| all map scenes: town positions (schematic) | geography; ‘Schematic map’ label; 3D Calgary scenes credited ‘Map data © OpenStreetMap contributors · City of Calgary Open Data’ |")
     A("\n### G. QC table\nFilled in after the stills check and the final render (see ‘QC gate’ below).\n")
     A("## 4. Post texts (short, no figures; section 7b layout added by the link-up task)\n")
-    A("**YouTube film** (type video, public, not made for kids, EDUCATION) title: “" + POSTS['yt_title'] + "”\n```\n" + POSTS['yt_desc'].replace('{chapters}', '0:00 Part 1 · Grass for a Penny\n(chapter times added from the final render)') + "\n```")
+    A("**YouTube film** (type video, public, not made for kids, EDUCATION) title: “" + POSTS['yt_title'] + "”\n```\n" + POSTS['yt_desc'].replace('{chapters}', chapters_text()) + "\n```")
     for n in range(1, 5):
         A(f"**Part {n} of 4** (Instagram Reel, Facebook Reel, YouTube Short) caption_without_link:\n```\n{POSTS['parts'][n]}\n```")
     A("Then (link-up task): `▶ Full film: https://youtu.be/<id>` (Facebook: `▶ Full film on our YouTube channel: Calgary Insight`, link in the first comment) · `🌐 More Calgary stories, studies and analysis: calgaryinsight.ca` · `🔔 Follow @calgaryinsight for more Calgary stories` · hashtags `" + POSTS['hashtags'] + "`.")

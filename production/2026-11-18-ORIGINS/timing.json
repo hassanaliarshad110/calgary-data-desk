@@ -1,0 +1,797 @@
+{
+ "film": [
+  {
+   "i": "S00",
+   "in": "00:00.00",
+   "out": "00:05.78",
+   "dur": 5.78,
+   "scene": "P1 hook",
+   "trans": "\u2014",
+   "cap": "L0",
+   "sfx": "impact"
+  },
+  {
+   "i": "S01",
+   "in": "00:05.78",
+   "out": "00:11.07",
+   "dur": 5.29,
+   "scene": "P1 city",
+   "trans": "\u2014",
+   "cap": "L1",
+   "sfx": "city, click"
+  },
+  {
+   "i": "S02",
+   "in": "00:11.07",
+   "out": "00:15.80",
+   "dur": 4.73,
+   "scene": "P1 chapter",
+   "trans": "\u2014",
+   "cap": "L2",
+   "sfx": "wind"
+  },
+  {
+   "i": "S03",
+   "in": "00:15.80",
+   "out": "00:19.51",
+   "dur": 3.71,
+   "scene": "P1 land",
+   "trans": "\u2014",
+   "cap": "L3",
+   "sfx": "wind"
+  },
+  {
+   "i": "S04",
+   "in": "00:19.51",
+   "out": "00:28.87",
+   "dur": 9.36,
+   "scene": "P1 timeline",
+   "trans": "\u2014",
+   "cap": "L4",
+   "sfx": "music bed"
+  },
+  {
+   "i": "S05",
+   "in": "00:28.87",
+   "out": "00:36.47",
+   "dur": 7.59,
+   "scene": "P1 doc",
+   "trans": "\u2014",
+   "cap": "L5",
+   "sfx": "click, shutter"
+  },
+  {
+   "i": "S06",
+   "in": "00:36.47",
+   "out": "00:46.81",
+   "dur": 10.34,
+   "scene": "P1 map",
+   "trans": "\u2014",
+   "cap": "L6",
+   "sfx": "click, impact, pop"
+  },
+  {
+   "i": "S07",
+   "in": "00:46.81",
+   "out": "00:55.49",
+   "dur": 8.68,
+   "scene": "P1 land",
+   "trans": "\u2014",
+   "cap": "L7",
+   "sfx": "wind"
+  },
+  {
+   "i": "S08",
+   "in": "00:55.49",
+   "out": "01:02.98",
+   "dur": 7.48,
+   "scene": "P1 map",
+   "trans": "\u2014",
+   "cap": "L8",
+   "sfx": "click, pop"
+  },
+  {
+   "i": "S09",
+   "in": "01:02.98",
+   "out": "01:11.59",
+   "dur": 8.62,
+   "scene": "P1 doc",
+   "trans": "\u2014",
+   "cap": "L9",
+   "sfx": "click, shutter, whoosh"
+  },
+  {
+   "i": "S10",
+   "in": "01:11.59",
+   "out": "01:19.81",
+   "dur": 8.22,
+   "scene": "P1 stats",
+   "trans": "\u2014",
+   "cap": "L10",
+   "sfx": "impact, ticks"
+  },
+  {
+   "i": "S11",
+   "in": "01:19.81",
+   "out": "01:24.40",
+   "dur": 4.58,
+   "scene": "P1 name",
+   "trans": "\u2014",
+   "cap": "L11",
+   "sfx": "wind"
+  },
+  {
+   "i": "S12",
+   "in": "01:24.40",
+   "out": "01:33.63",
+   "dur": 9.23,
+   "scene": "P1 map",
+   "trans": "\u2014",
+   "cap": "L12",
+   "sfx": "click, ping, pop"
+  },
+  {
+   "i": "S13",
+   "in": "01:33.63",
+   "out": "01:39.60",
+   "dur": 5.97,
+   "scene": "P1 land",
+   "trans": "\u2014",
+   "cap": "L13",
+   "sfx": "wind"
+  },
+  {
+   "i": "S14",
+   "in": "01:39.60",
+   "out": "01:46.74",
+   "dur": 7.14,
+   "scene": "P1 map",
+   "trans": "\u2014",
+   "cap": "L14",
+   "sfx": "click, impact, ping, pop"
+  },
+  {
+   "i": "S15",
+   "in": "01:46.74",
+   "out": "01:55.10",
+   "dur": 8.36,
+   "scene": "P1 land",
+   "trans": "\u2014",
+   "cap": "L15",
+   "sfx": "wind"
+  },
+  {
+   "i": "S16",
+   "in": "01:55.10",
+   "out": "02:01.40",
+   "dur": 6.29,
+   "scene": "P1 land",
+   "trans": "\u2014",
+   "cap": "L16",
+   "sfx": "click, wind"
+  },
+  {
+   "i": "S17",
+   "in": "02:01.40",
+   "out": "02:05.56",
+   "dur": 4.16,
+   "scene": "P1 question",
+   "trans": "\u2014",
+   "cap": "L17",
+   "sfx": "swell, wind"
+  },
+  {
+   "i": "S18",
+   "in": "02:05.56",
+   "out": "02:10.33",
+   "dur": 4.78,
+   "scene": "P2 hook",
+   "trans": "\u2014",
+   "cap": "L18",
+   "sfx": "impact, wind"
+  },
+  {
+   "i": "S19",
+   "in": "02:10.33",
+   "out": "02:15.38",
+   "dur": 5.05,
+   "scene": "P2 map",
+   "trans": "\u2014",
+   "cap": "L19",
+   "sfx": "click, ping, pop"
+  },
+  {
+   "i": "S20",
+   "in": "02:15.38",
+   "out": "02:21.35",
+   "dur": 5.97,
+   "scene": "P2 map",
+   "trans": "\u2014",
+   "cap": "L20",
+   "sfx": "pop, whoosh"
+  },
+  {
+   "i": "S21",
+   "in": "02:21.35",
+   "out": "02:28.03",
+   "dur": 6.67,
+   "scene": "P2 stats",
+   "trans": "\u2014",
+   "cap": "L21",
+   "sfx": "impact, ticks"
+  },
+  {
+   "i": "S22",
+   "in": "02:28.03",
+   "out": "02:33.04",
+   "dur": 5.01,
+   "scene": "P2 land",
+   "trans": "\u2014",
+   "cap": "L22",
+   "sfx": "impact, wind"
+  },
+  {
+   "i": "S23",
+   "in": "02:33.04",
+   "out": "02:41.76",
+   "dur": 8.72,
+   "scene": "P2 land",
+   "trans": "\u2014",
+   "cap": "L23",
+   "sfx": "impact, whoosh, wind"
+  },
+  {
+   "i": "S24",
+   "in": "02:41.76",
+   "out": "02:49.27",
+   "dur": 7.51,
+   "scene": "P2 stats",
+   "trans": "\u2014",
+   "cap": "L24",
+   "sfx": "impact, ticks"
+  },
+  {
+   "i": "S25",
+   "in": "02:49.27",
+   "out": "02:55.42",
+   "dur": 6.15,
+   "scene": "P2 land",
+   "trans": "\u2014",
+   "cap": "L25",
+   "sfx": "boom, impact, wind"
+  },
+  {
+   "i": "S26",
+   "in": "02:55.42",
+   "out": "02:59.66",
+   "dur": 4.24,
+   "scene": "P2 doc",
+   "trans": "\u2014",
+   "cap": "L26",
+   "sfx": "click, shutter"
+  },
+  {
+   "i": "S27",
+   "in": "02:59.66",
+   "out": "03:05.76",
+   "dur": 6.1,
+   "scene": "P2 map",
+   "trans": "\u2014",
+   "cap": "L27",
+   "sfx": "click, pop"
+  },
+  {
+   "i": "S28",
+   "in": "03:05.76",
+   "out": "03:12.84",
+   "dur": 7.08,
+   "scene": "P2 land",
+   "trans": "\u2014",
+   "cap": "L28",
+   "sfx": "wind"
+  },
+  {
+   "i": "S29",
+   "in": "03:12.84",
+   "out": "03:17.57",
+   "dur": 4.73,
+   "scene": "P2 map",
+   "trans": "\u2014",
+   "cap": "L29",
+   "sfx": "ping, pop"
+  },
+  {
+   "i": "S30",
+   "in": "03:17.57",
+   "out": "03:27.68",
+   "dur": 10.11,
+   "scene": "P2 name",
+   "trans": "\u2014",
+   "cap": "L30",
+   "sfx": "whoosh, wind"
+  },
+  {
+   "i": "S31",
+   "in": "03:27.68",
+   "out": "03:35.25",
+   "dur": 7.57,
+   "scene": "P2 brand",
+   "trans": "\u2014",
+   "cap": "L31",
+   "sfx": "stamp, swell"
+  },
+  {
+   "i": "S32",
+   "in": "03:35.25",
+   "out": "03:42.50",
+   "dur": 7.25,
+   "scene": "P2 map",
+   "trans": "\u2014",
+   "cap": "L32",
+   "sfx": "impact, pop, whoosh"
+  },
+  {
+   "i": "S33",
+   "in": "03:42.50",
+   "out": "03:53.91",
+   "dur": 11.41,
+   "scene": "P2 stats",
+   "trans": "\u2014",
+   "cap": "L33",
+   "sfx": "click, impact, ticks"
+  },
+  {
+   "i": "S34",
+   "in": "03:53.91",
+   "out": "04:01.76",
+   "dur": 7.85,
+   "scene": "P2 land",
+   "trans": "\u2014",
+   "cap": "L34",
+   "sfx": "wind"
+  },
+  {
+   "i": "S35",
+   "in": "04:01.76",
+   "out": "04:09.41",
+   "dur": 7.66,
+   "scene": "P2 name",
+   "trans": "\u2014",
+   "cap": "L35",
+   "sfx": "wind"
+  },
+  {
+   "i": "S36",
+   "in": "04:09.41",
+   "out": "04:14.07",
+   "dur": 4.66,
+   "scene": "P2 question",
+   "trans": "\u2014",
+   "cap": "L36",
+   "sfx": "swell, wind"
+  },
+  {
+   "i": "S37",
+   "in": "04:14.07",
+   "out": "04:17.82",
+   "dur": 3.75,
+   "scene": "P3 hook",
+   "trans": "\u2014",
+   "cap": "L37",
+   "sfx": "impact"
+  },
+  {
+   "i": "S38",
+   "in": "04:17.82",
+   "out": "04:20.06",
+   "dur": 2.24,
+   "scene": "P3 land",
+   "trans": "\u2014",
+   "cap": "L38",
+   "sfx": "wind"
+  },
+  {
+   "i": "S39",
+   "in": "04:20.06",
+   "out": "04:24.70",
+   "dur": 4.65,
+   "scene": "P3 map",
+   "trans": "\u2014",
+   "cap": "L39",
+   "sfx": "click, pop"
+  },
+  {
+   "i": "S40",
+   "in": "04:24.70",
+   "out": "04:29.76",
+   "dur": 5.05,
+   "scene": "P3 map",
+   "trans": "\u2014",
+   "cap": "L40",
+   "sfx": "ping, pop"
+  },
+  {
+   "i": "S41",
+   "in": "04:29.76",
+   "out": "04:38.44",
+   "dur": 8.68,
+   "scene": "P3 export",
+   "trans": "\u2014",
+   "cap": "L41",
+   "sfx": "music bed"
+  },
+  {
+   "i": "S42",
+   "in": "04:38.44",
+   "out": "04:47.71",
+   "dur": 9.28,
+   "scene": "P3 land",
+   "trans": "\u2014",
+   "cap": "L42",
+   "sfx": "click, crowd_murmur, impact, wind"
+  },
+  {
+   "i": "S43",
+   "in": "04:47.71",
+   "out": "04:50.03",
+   "dur": 2.31,
+   "scene": "P3 name",
+   "trans": "\u2014",
+   "cap": "L43",
+   "sfx": "wind"
+  },
+  {
+   "i": "S44",
+   "in": "04:50.03",
+   "out": "04:58.45",
+   "dur": 8.42,
+   "scene": "P3 doc",
+   "trans": "\u2014",
+   "cap": "L44",
+   "sfx": "click, shutter"
+  },
+  {
+   "i": "S45",
+   "in": "04:58.45",
+   "out": "05:04.87",
+   "dur": 6.42,
+   "scene": "P3 city",
+   "trans": "\u2014",
+   "cap": "L45",
+   "sfx": "city, click"
+  },
+  {
+   "i": "S46",
+   "in": "05:04.87",
+   "out": "05:09.71",
+   "dur": 4.84,
+   "scene": "P3 land",
+   "trans": "\u2014",
+   "cap": "L46",
+   "sfx": "click, wind"
+  },
+  {
+   "i": "S47",
+   "in": "05:09.71",
+   "out": "05:13.65",
+   "dur": 3.94,
+   "scene": "P3 doc",
+   "trans": "\u2014",
+   "cap": "L47",
+   "sfx": "click, shutter"
+  },
+  {
+   "i": "S48",
+   "in": "05:13.65",
+   "out": "05:24.36",
+   "dur": 10.71,
+   "scene": "P3 map",
+   "trans": "\u2014",
+   "cap": "L48",
+   "sfx": "click, pop"
+  },
+  {
+   "i": "S49",
+   "in": "05:24.36",
+   "out": "05:33.08",
+   "dur": 8.72,
+   "scene": "P3 doc",
+   "trans": "\u2014",
+   "cap": "L49",
+   "sfx": "click, shutter, whoosh"
+  },
+  {
+   "i": "S50",
+   "in": "05:33.08",
+   "out": "05:42.00",
+   "dur": 8.92,
+   "scene": "P3 stats",
+   "trans": "\u2014",
+   "cap": "L50",
+   "sfx": "click, impact, ticks"
+  },
+  {
+   "i": "S51",
+   "in": "05:42.00",
+   "out": "05:48.10",
+   "dur": 6.1,
+   "scene": "P3 land",
+   "trans": "\u2014",
+   "cap": "L51",
+   "sfx": "click, whoosh, wind"
+  },
+  {
+   "i": "S52",
+   "in": "05:48.10",
+   "out": "05:57.48",
+   "dur": 9.38,
+   "scene": "P3 brand",
+   "trans": "\u2014",
+   "cap": "L52",
+   "sfx": "stamp, swell"
+  },
+  {
+   "i": "S53",
+   "in": "05:57.48",
+   "out": "06:02.41",
+   "dur": 4.93,
+   "scene": "P3 land",
+   "trans": "\u2014",
+   "cap": "L53",
+   "sfx": "click, wind"
+  },
+  {
+   "i": "S54",
+   "in": "06:02.41",
+   "out": "06:09.06",
+   "dur": 6.65,
+   "scene": "P3 land",
+   "trans": "\u2014",
+   "cap": "L54",
+   "sfx": "click, wind"
+  },
+  {
+   "i": "S55",
+   "in": "06:09.06",
+   "out": "06:17.16",
+   "dur": 8.1,
+   "scene": "P3 land",
+   "trans": "\u2014",
+   "cap": "L55",
+   "sfx": "click, wind"
+  },
+  {
+   "i": "S56",
+   "in": "06:17.16",
+   "out": "06:22.56",
+   "dur": 5.4,
+   "scene": "P3 question",
+   "trans": "\u2014",
+   "cap": "L56",
+   "sfx": "swell, wind"
+  },
+  {
+   "i": "S57",
+   "in": "06:22.56",
+   "out": "06:25.50",
+   "dur": 2.94,
+   "scene": "P4 hook",
+   "trans": "\u2014",
+   "cap": "L57",
+   "sfx": "impact, wind"
+  },
+  {
+   "i": "S58",
+   "in": "06:25.50",
+   "out": "06:28.70",
+   "dur": 3.2,
+   "scene": "P4 land",
+   "trans": "\u2014",
+   "cap": "L58",
+   "sfx": "wind"
+  },
+  {
+   "i": "S59",
+   "in": "06:28.70",
+   "out": "06:36.44",
+   "dur": 7.74,
+   "scene": "P4 doc",
+   "trans": "\u2014",
+   "cap": "L59",
+   "sfx": "click, shutter"
+  },
+  {
+   "i": "S60",
+   "in": "06:36.44",
+   "out": "06:44.82",
+   "dur": 8.38,
+   "scene": "P4 land",
+   "trans": "\u2014",
+   "cap": "L60",
+   "sfx": "wind"
+  },
+  {
+   "i": "S61",
+   "in": "06:44.82",
+   "out": "06:54.76",
+   "dur": 9.94,
+   "scene": "P4 map",
+   "trans": "\u2014",
+   "cap": "L61",
+   "sfx": "click, ping, pop"
+  },
+  {
+   "i": "S62",
+   "in": "06:54.76",
+   "out": "07:01.03",
+   "dur": 6.27,
+   "scene": "P4 name",
+   "trans": "\u2014",
+   "cap": "L62",
+   "sfx": "whoosh, wind"
+  },
+  {
+   "i": "S63",
+   "in": "07:01.03",
+   "out": "07:07.21",
+   "dur": 6.18,
+   "scene": "P4 stats",
+   "trans": "\u2014",
+   "cap": "L63",
+   "sfx": "impact, ticks"
+  },
+  {
+   "i": "S64",
+   "in": "07:07.21",
+   "out": "07:13.33",
+   "dur": 6.12,
+   "scene": "P4 land",
+   "trans": "\u2014",
+   "cap": "L64",
+   "sfx": "impact, wind"
+  },
+  {
+   "i": "S65",
+   "in": "07:13.33",
+   "out": "07:19.14",
+   "dur": 5.81,
+   "scene": "P4 land",
+   "trans": "\u2014",
+   "cap": "L65",
+   "sfx": "boom, click, wind"
+  },
+  {
+   "i": "S66",
+   "in": "07:19.14",
+   "out": "07:22.23",
+   "dur": 3.09,
+   "scene": "P4 land",
+   "trans": "\u2014",
+   "cap": "L66",
+   "sfx": "impact, wind"
+  },
+  {
+   "i": "S67",
+   "in": "07:22.23",
+   "out": "07:28.18",
+   "dur": 5.95,
+   "scene": "P4 doc",
+   "trans": "\u2014",
+   "cap": "L67",
+   "sfx": "click, shutter"
+  },
+  {
+   "i": "S68",
+   "in": "07:28.18",
+   "out": "07:36.96",
+   "dur": 8.79,
+   "scene": "P4 timeline",
+   "trans": "\u2014",
+   "cap": "L68",
+   "sfx": "music bed"
+  },
+  {
+   "i": "S69",
+   "in": "07:36.96",
+   "out": "07:39.92",
+   "dur": 2.95,
+   "scene": "P4 land",
+   "trans": "\u2014",
+   "cap": "L69",
+   "sfx": "wind"
+  },
+  {
+   "i": "S70",
+   "in": "07:39.92",
+   "out": "07:52.05",
+   "dur": 12.13,
+   "scene": "P4 bigfour",
+   "trans": "\u2014",
+   "cap": "L70",
+   "sfx": "stamp"
+  },
+  {
+   "i": "S71",
+   "in": "07:52.05",
+   "out": "07:56.00",
+   "dur": 3.94,
+   "scene": "P4 land",
+   "trans": "\u2014",
+   "cap": "L71",
+   "sfx": "click, crowd_murmur, wind"
+  },
+  {
+   "i": "S72",
+   "in": "07:56.00",
+   "out": "08:06.79",
+   "dur": 10.79,
+   "scene": "P4 city",
+   "trans": "\u2014",
+   "cap": "L72",
+   "sfx": "city, whoosh"
+  },
+  {
+   "i": "S73",
+   "in": "08:06.79",
+   "out": "08:19.84",
+   "dur": 13.05,
+   "scene": "P4 stats",
+   "trans": "\u2014",
+   "cap": "L73",
+   "sfx": "click, impact, ticks"
+  },
+  {
+   "i": "S74",
+   "in": "08:19.84",
+   "out": "08:25.24",
+   "dur": 5.39,
+   "scene": "P4 city",
+   "trans": "\u2014",
+   "cap": "L74",
+   "sfx": "city, click"
+  },
+  {
+   "i": "S75",
+   "in": "08:25.24",
+   "out": "08:29.82",
+   "dur": 4.58,
+   "scene": "P4 question",
+   "trans": "\u2014",
+   "cap": "L75",
+   "sfx": "swell, wind"
+  },
+  {
+   "i": "END",
+   "in": "08:29.82",
+   "out": "08:44.81",
+   "dur": 15.0,
+   "scene": "end card (Comment below \u00b7 Follow + Subscribe \u00b7 More at calgaryinsight.ca)",
+   "trans": "dissolve",
+   "cap": "E-film",
+   "sfx": "swell, click"
+  }
+ ],
+ "chapters": [
+  {
+   "n": 1,
+   "title": "Grass for a Penny",
+   "t": "0:00"
+  },
+  {
+   "n": 2,
+   "title": "Two Hard Winters",
+   "t": "2:05"
+  },
+  {
+   "n": 3,
+   "title": "The Beef King",
+   "t": "4:14"
+  },
+  {
+   "n": 4,
+   "title": "The End of the Open Range",
+   "t": "6:22"
+  }
+ ],
+ "total": 524.81
+}
