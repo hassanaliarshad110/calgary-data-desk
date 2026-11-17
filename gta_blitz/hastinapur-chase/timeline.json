@@ -1,0 +1,77 @@
+{
+"scenes": [
+{
+"id": "mission",
+"start": 0,
+"dur": 6.739,
+"lines": [
+"n01"
+]
+},
+{
+"id": "twist",
+"start": 6.739,
+"dur": 7.958,
+"lines": [
+"n02"
+]
+},
+{
+"id": "dig",
+"start": 14.697,
+"dur": 10.944,
+"lines": [
+"n03"
+]
+},
+{
+"id": "katha",
+"start": 25.641,
+"dur": 11.38,
+"lines": [
+"n04"
+]
+},
+{
+"id": "final",
+"start": 37.021,
+"dur": 7.019,
+"lines": [
+"n05"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.08,
+"dur": 6.539,
+"spk": "N",
+"roman": "Mission: Hastinapur Rath Chase! Mahabharat ki Kuru rajdhani. Yahan gaadi nahi — rath!"
+},
+"n02": {
+"start": 6.819,
+"dur": 7.758,
+"spk": "N",
+"roman": "Ab twist! Hastinapur naam sirf kahaani mein nahi milta. Meerut zile mein, Ganga kinare, aaj bhi ye shehar hai."
+},
+"n03": {
+"start": 14.777,
+"dur": 10.744,
+"spk": "N",
+"roman": "1950 se 1952 tak, B.B. Lal ne yahan khudaai ki. Unke mutabik, teele mein Ganga ki badi baadh ke nishaan dikhe — shaayad 800 isa purv ke."
+},
+"n04": {
+"start": 25.721,
+"dur": 11.18,
+"spk": "N",
+"roman": "Puraani katha mein likha hai: Raja Nichakshu ke samay baadh Hastinapur ka bada hissa baha le gayi, aur rajdhani Kaushambi chali gayi. Par dono ko jodna pakka saboot nahi."
+},
+"n05": {
+"start": 37.101,
+"dur": 6.819,
+"spk": "N",
+"roman": "Toh game ka final level? Chase police se nahi — baadh se! Paani se pehle Kaushambi pahuncho!"
+}
+},
+"total": 44.03999999999999
+}

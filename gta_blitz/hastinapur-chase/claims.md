@@ -1,0 +1,14 @@
+# Claims table — GTA blitz #12: Desi GTA: Agar Hastinapur ki sadkon par chase hota? (FAN-THEORY / kalpana)
+
+Framing: whole Short labelled "KALPANA / FAN THEORY" on screen every frame; narrator opens "Socho agar…"; a "SIRF KALPANA" stamp opens the mission scene. The chase is a chariot race / escape from a flood (no police, crime, combat or violence shown). No deity or epic character drawn; B.B. Lal not drawn (only tools, soil layers). No map of India — city pins on an abstract board only. No religious or political claim; the archaeology is NOT presented as proof of the Mahabharata.
+
+| # | Real detail (line) | Source URL (read this run) |
+|---|---|---|
+| 1 | In the Mahabharata, Hastinapur is the capital of the Kuru kingdom (n01) | https://en.wikipedia.org/wiki/Hastinapur ("In the Mahabharata, Hastinapur is portrayed as the capital of the Kuru kingdom of the Kauravas."); https://openthemagazine.com/features/history/hastinapur-calling ("the ancient capital of the Kauravas") |
+| 2 | Today a town/city named Hastinapur exists in Meerut district, Uttar Pradesh, by the Ganga (n02) | https://en.wikipedia.org/wiki/Hastinapur ("a city in the Meerut district in the Indian state of Uttar Pradesh"; "located on the right bank of the Ganga river"; "about 37 kilometres … from Meerut") |
+| 3 | Archaeologist B.B. Lal excavated there between 1950 and 1952 (n03) | https://en.wikipedia.org/wiki/B._B._Lal ("Between 1950 and 1952, Lal worked on the archaeology of sites..., including Hastinapura"; report "Excavations at Hastinapura … 1950-52"); https://en.wikipedia.org/wiki/Hastinapur ("carried out in the early 1950s by B. B. Lal") |
+| 4 | According to Lal, the mound shows signs of a major Ganga flood, perhaps around 800 BCE (n03, attributed "unke mutabik", "shaayad") | https://en.wikipedia.org/wiki/Hastinapur ("Perhaps around 800 BCE, according to Lal, there seems to have been a major flood in the Ganga, which is suggested by a major 'erosional scar' in the mound.") |
+| 5 | Old tradition: in King Nichakshu's reign a Ganga flood carried away a large part of Hastinapur, and the capital moved to Kaushambi (n04, framed "puraani katha kehti hai") | https://en.wikipedia.org/wiki/Hastinapur ("during the reign of the Kuru king Nichakshu, 'a great flood occurred in the Gangā which carried away a considerable portion of Hastināpura', after which the capital was moved to Kaushambi"); https://openthemagazine.com/features/history/hastinapur-calling (Nichaksu "abandoned it to dwell in Kaushambi") |
+
+Imagined (labelled kalpana, not claimed as fact): the game, "Mission: Hastinapur Rath Chase", chariot racing through streets, the "final level" escaping the flood to Kaushambi, the comment question.
+Caveat kept: Lal's flood reading is attributed to him ("unke mutabik … shaayad"); no claim that the dig proves the epic.
