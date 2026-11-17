@@ -1,0 +1,8 @@
+# GTA blitz #13 — unlock-time (FACT): "GTA 6 launch: 19 Nov ko India mein kis time unlock?"
+- Sources read this run (web-fetch agents): Digit 8 Sep 2026, GamerFuzion (upd 11 Nov), GamesRadar 3 Nov (Rockstar pre-load quotes), News24 17 Nov, IBTimes UK 9 Nov, Notebookcheck, tbreak, MP1st (has an 18-Nov date error, not used). godisageek, playday, gizbot failed. Checker additionally read Rockstar Support release-times page + pre-load FAQ, FPJ, Forbes, Push Square.
+- Check round 1 APPROVED (fresh independent agent). Rockstar Support (upd 3 Nov): "midnight local time on November 19, 2026, in all regions" -> source chip names Rockstar Support. US stores are keyed to Eastern time (West Coast plays 9 PM PT 18 Nov), hence "Eastern time waale" in n04.
+- Voice v2: n02-n05 + hook trimmed after v1 ran 57 s (same claims). 7 lines hi-IN-SwaraNeural +12%/+3Hz.
+- Build: work dir = these files + episodes/ep4/scenes.js + ep4 prep_audio.py/score_mix.py/index.html over budget-probe mp3s (/home/claude/nvout; mkdir aud first); `python3 /home/claude/kit/shorts.py 1`; `python3 thumb.py`.
+- Studio assets (select_assets.py on brief.json): PRP-013 clock (SP.clock + bigClock/midClock), VFX-011 impactStar (TWIST), VFX-015 stars, VFX-019 question, GFX-014 clockBug (cityClock), GFX-020 timeline (rollTimeline, vertical port). Clocks, calendar cards, generic store tags (text only, no logos), TV + progress bar, console tower, night skyline are own drawings. No maps.
+- Bug fixed: clocks animated hour/minute separately (showed ~12:15 mid-move) -> midClock interpolates 11:50 -> 12:00.
+- Output 52.4 s, -14.3 LUFS, score ~57% under voice. Metricool uuid -427866126321039969, 18 Nov 2026 03:30 IST (4:00 PM Regina, 17 Nov).

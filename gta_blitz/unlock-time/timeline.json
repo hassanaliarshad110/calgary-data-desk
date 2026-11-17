@@ -1,0 +1,77 @@
+{
+"scenes": [
+{
+"id": "rule",
+"start": 0,
+"dur": 7.165,
+"lines": [
+"n01"
+]
+},
+{
+"id": "india",
+"start": 7.165,
+"dur": 7.333,
+"lines": [
+"n02"
+]
+},
+{
+"id": "twist",
+"start": 14.498,
+"dur": 9.119,
+"lines": [
+"n03"
+]
+},
+{
+"id": "usa",
+"start": 23.617,
+"dur": 9.203,
+"lines": [
+"n04"
+]
+},
+{
+"id": "payoff",
+"start": 32.82,
+"dur": 8.718,
+"lines": [
+"n05"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 6.815,
+"spk": "N",
+"roman": "PlayStation aur Xbox store ki listing ke hisaab se, GTA 6 har desh mein wahan ki aadhi raat ko khulega."
+},
+"n02": {
+"start": 7.265,
+"dur": 6.983,
+"spk": "N",
+"roman": "Matlab India mein: 19 November, raat 12 baje. Yaani 18 ki raat, jaise hi 12 bajein!"
+},
+"n03": {
+"start": 14.698,
+"dur": 8.669,
+"spk": "N",
+"roman": "Twist: sabse pehle New Zealand! India ke time se 18 November, shaam saadhe chaar baje. Humse saadhe saat ghante pehle!"
+},
+"n04": {
+"start": 23.717,
+"dur": 8.853,
+"spk": "N",
+"roman": "Aur America ke Eastern time waale? India ke time se 19 November, subah saadhe das baje. Hum unse das ghante se zyaada aage!"
+},
+"n05": {
+"start": 32.92,
+"dur": 8.318,
+"spk": "N",
+"roman": "Rockstar ke mutabik, digital pre-load 10 November se khula hai, 212 GB tak. To raat 12 se pehle download kar lo!"
+}
+},
+"total": 41.538
+}
