@@ -18,3 +18,6 @@ Sources read this run:
 | 7 | Comment question: midnight or morning? (h1e) | question only |
 
 Framing: unlock times come from store listings (Rockstar has not announced a region-by-region schedule) — spoken in n01 ("store ki listing ke hisaab se") and on screen as a source chip. "212 GB tak" = Rockstar's "up to 212 GB depending on your device". No game footage, logos, official fonts, key art or characters; no maps (clock faces + city name chips only).
+
+Check round 1: APPROVED (fresh independent agent). It also read Rockstar Support "GTA VI regional pre-load and release times" (https://support.rockstargames.com/articles/29jV3Cv2cCgvwM1XgtMO5o/grand-theft-auto-vi-regional-pre-load-and-release-times-on-playstation-5-and-xbox-series-x-or-s, upd. 3 Nov 2026: "will release midnight local time on November 19, 2026, in all regions") and Rockstar Pre-Load FAQ (https://support.rockstargames.com/articles/7nPqOA2uCbpEQHXx7KVrYd/grand-the-theft-auto-vi-pre-load-faq: PS5 midnight local 10 Nov; Xbox 12 a.m. GMT 10 Nov; "up to 212 GB"), Free Press Journal (India pre-load PS5 12:00 AM IST, Xbox 5:30 AM IST, 10 Nov), Forbes 12 Nov (US stores keyed to Eastern time), Push Square, thetechhacker 17 Nov (19 Nov unchanged).
+Applied: on-screen source chips name Rockstar Support + store listings; GamerFuzion not used for the pre-load claim.

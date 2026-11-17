@@ -86,3 +86,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T12:52:27Z | started | run 13 (scheduled)
 2026-11-17T12:52:34Z | topic claimed | #13 FACT GTA 6 launch: 19 Nov ko India mein kis time unlock? (slug unlock-time)
 2026-11-17T12:56:19Z | research | sources read: Digit 8 Sep, GamerFuzion (upd 11 Nov), GamesRadar 3 Nov (Rockstar pre-load quotes), News24 17 Nov, IBTimes 9 Nov, Notebookcheck, tbreak; godisageek/playday/gizbot failed. Script v1 written; voice job pushed to budget-probe
+2026-11-17T12:58:33Z | check verdict | APPROVED round 1 (fresh independent agent read Digit, GamerFuzion, IBTimes, GamesRadar, News24, Rockstar Support release-times page + pre-load FAQ, FPJ, Forbes, Push Square; all times/arithmetic verified; Rockstar support confirms 'midnight local time ... in all regions'); optional note applied: source chips add Rockstar Support
