@@ -100,3 +100,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T16:52:01Z | topic claimed | #15 FAN-THEORY Agar GTA ka map Delhi hota (slug delhi-map)
 2026-11-17T17:00:08Z | check verdict | APPROVED round 1 (fresh independent agent; WebFetch blocked for it too (permission prompt unanswered), search titles corroborate Delhi Metro size; judged all 6 real details on established knowledge); optional note applied: hook 'agla' dropped (no rumor-bait). Script trimmed for length before check
 2026-11-17T17:03:09Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2: script trimmed for length + hook 'agla' dropped)
+2026-11-17T17:07:13Z | rendered | short1_fs.mp4 1080x1920 43.6 s, -14.4 LUFS, score under voice rms 0.0245 vs 0.0439 alone (~56%), all scenes native portrait; contact sheet: picture fills all 5 frames; media on awazzz-media gta_blitz/delhi-map.mp4 + _thumb.jpg
