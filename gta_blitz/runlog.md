@@ -58,3 +58,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T04:52:08Z | topic claimed | #9 FAN-THEORY Agar Abhimanyu ka chakravyuh ek game mission hota (slug chakravyuh-mission)
 2026-11-17T05:01:39Z | check verdict | APPROVED round 1 (fresh independent agent read hindupedia Abhimanyu, vyasaonline 13th day, Rajaji ch.79/80 on mahabharataonline; all 8 real details verified); optional notes applied (h1e 'Tum hote', n04 'ghusne ka tareeka'); visuals: no GAME OVER/WASTED overlays, characters only as abstract tokens
 2026-11-17T05:02:38Z | voice done | 9/9 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (run after check fixes)
+2026-11-17T05:09:31Z | rendered | short1_fs.mp4 1080x1920 52.7 s, -14.4 LUFS, score ducked ~56% under voice, all scenes native portrait; n01 (spoken disclaimer) cut for length, 'SIRF KALPANA' stamp moved on screen; contact sheet: picture fills all 5 frames
