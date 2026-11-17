@@ -115,7 +115,9 @@
    "id": 11,
    "type": "FACT",
    "idea": "GTA myth vs fact: 'GTA khelne se log criminal bante hain' - research kya kehti hai?",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-17T08:52Z",
+   "slug": "criminal-myth"
   },
   {
    "id": 12,
