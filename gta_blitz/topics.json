@@ -104,7 +104,9 @@
    "id": 10,
    "type": "FACT",
    "idea": "Kitne Indians ke paas PS5/Xbox hai? (console reality check)",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-17T06:52Z",
+   "slug": "console-count"
   },
   {
    "id": 11,
