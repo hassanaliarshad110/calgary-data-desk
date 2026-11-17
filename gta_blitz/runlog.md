@@ -51,3 +51,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T02:51:45Z | started | run 8 (scheduled)
 2026-11-17T02:51:54Z | topic claimed | #8 FACT GTA V kamaai vs Bollywood ki sabse badi film (slug gtav-vs-bollywood)
 2026-11-17T03:01:47Z | check verdict | APPROVED round 1 (independent agent read sacnilk, The Week, BoxOfficeWorldwide, Koimoi, Engadget/Take-Two, Gematsu x2, Business Standard 17+18 Sep 2013, Fox10; all 7 claims verified); optional: on-screen source note added
+2026-11-17T03:01:59Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions
