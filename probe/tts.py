@@ -22,25 +22,6 @@ _cfg (all optional):
 import json, os, re, sys, subprocess, urllib.request, difflib, unicodedata
 
 out = sys.argv[1]; os.makedirs(os.path.join(out, 'raw'), exist_ok=True)
-
-# --- temporary moment-watch fetch block (2026-11-17 recheck) ---
-def _get(u, t=60):
-    try:
-        r = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=t)
-        return r.read().decode('utf-8', 'replace')
-    except Exception as e:
-        return 'ERR ' + repr(e)
-mw = os.path.join(out, 'moment'); os.makedirs(mw, exist_ok=True)
-open(os.path.join(mw, 'alerts_api.txt'), 'w').write(_get('https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50'))
-base = 'https://dd.weather.gc.ca/today/observations/swob-ml/20261117/CYYC/'
-idx = _get(base); files = sorted(set(re.findall(r'href="([^"]+\.xml)"', idx)))[-4:]
-obs = {}
-for f in files:
-    x = _get(base + f); obs[f] = {m.group(1): m.group(2) for m in re.finditer(r'<element name="([^"]+)"[^>]*?value="([^"]*)"', x)}
-json.dump(obs, open(os.path.join(mw, 'swob_latest.json'), 'w'), indent=0)
-open(os.path.join(mw, 'daily_2026_11.csv'), 'w').write(_get('https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=17&timeframe=2&submit=Download+Data', 90))
-print('recheck done'); sys.exit(0)
-# --- end block ---
 HERE = os.path.dirname(os.path.abspath(__file__))
 L = json.load(open(os.path.join(HERE, 'tts_lines.json')))
 cfg = L.pop('_cfg', {})
