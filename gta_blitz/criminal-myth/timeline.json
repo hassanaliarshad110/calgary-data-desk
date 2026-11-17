@@ -1,0 +1,77 @@
+{
+"scenes": [
+{
+"id": "oxford",
+"start": 0,
+"dur": 5.595,
+"lines": [
+"n01"
+]
+},
+{
+"id": "result",
+"start": 5.595,
+"dur": 7.615,
+"lines": [
+"n02"
+]
+},
+{
+"id": "apa",
+"start": 13.21,
+"dur": 9.163,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 22.373,
+"dur": 11.696,
+"lines": [
+"n04"
+]
+},
+{
+"id": "payoff",
+"start": 34.069,
+"dur": 10.473,
+"lines": [
+"n05"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.12,
+"dur": 5.175,
+"spk": "N",
+"roman": "2019 mein Oxford ne Britain ke lagbhag 1,000 teenagers par study ki."
+},
+"n02": {
+"start": 5.715,
+"dur": 7.195,
+"spk": "N",
+"roman": "Natija? Violent games par kitna time bitaaya, iska teenagers ke aggressive bartaav se koi rishta nahi mila."
+},
+"n03": {
+"start": 13.33,
+"dur": 8.743,
+"spk": "N",
+"roman": "2020 mein American Psychological Association: violent games se hinsak bartaav hota hai, iska scientific saboot naakaafi hai."
+},
+"n04": {
+"start": 22.623,
+"dur": 11.096,
+"spk": "N",
+"roman": "Twist: APA maanta hai ki violent games aur chhote aggressive bartaav, jaise chillaana ya dhakka dena, mein chhota sa rishta hai. Par ise badi hinsa se jodna mushkil hai."
+},
+"n05": {
+"start": 34.189,
+"dur": 10.003,
+"spk": "N",
+"roman": "Matlab, 'GTA khelo, hinsak bano', iska pakka saboot nahi. APA President: hinsa ka dosh games par daalna scientifically sahi nahi."
+}
+},
+"total": 44.542
+}
