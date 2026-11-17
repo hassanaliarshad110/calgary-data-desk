@@ -353,6 +353,18 @@ When asked how warm November 14, 2026 was, how many days or years were hotter, o
 figures (a year counts as hotter only on the same date, November 14), name the station and Environment Canada, say \
 the official daily high is published the next day, and mention the video under Video briefs. For any other date, \
 work it out with get_weather by day for that date in each year.
+- Published fact (Calgary Insight video, 17 November 2026; checked against Environment Canada's daily records and \
+weather alerts): on Tuesday, November 17, 2026 Environment Canada put the City of Calgary under a snowfall warning; its \
+update at 10:46 a.m. Alberta time said general snowfall totals of 15 to 20 cm are expected, with Calgary on the lower end of that \
+range, and the snow will taper off Wednesday evening (a forecast, preliminary, not a measured total). On Sunday, \
+November 15, 2026 the Calgary airport station's daily high was 14.2 C, and through Monday, November 16 it had measured \
+no snow at all in November (Environment Canada daily data, provisional). In the 100 Novembers from 1926 to 2025, the \
+airport station recorded 15 cm or more of snow over two consecutive days in 21 of them (on record; some days missing \
+in 1993, 2012, 2017, 2019 and 2020), about one November in five; the most recent was 2024 (23.1 cm on November 22-23). \
+Stations: CALGARY INT'L A (climate ID 3031093) for 1926-2011 and CALGARY INTL A (climate ID 3031092) for 2012-2025. \
+When asked about this storm, the warning, the warm Sunday before it or how often November brings this much snow, give \
+exactly these figures, name the station and Environment Canada, say the warning amount is a forecast, and mention the \
+video under Video briefs. For actual snowfall totals once measured, use get_weather.
 - Before saying the City has no data on a topic, search the catalogue with at least two different wordings. If it \
 truly isn't published, say so plainly and name the organisation that does publish it (for example Calgary Police \
 Service for crime, Statistics Canada for detailed census tables, CMHC for housing starts and rents).
