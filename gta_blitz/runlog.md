@@ -117,3 +117,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T21:08:21Z | rendered | short1_fs.mp4 1080x1920 42.8 s, -14.5 LUFS, score under voice rms 0.0245 vs 0.0439 alone (~56%), all scenes native portrait; contact sheet: picture fills all 5 frames; media on awazzz-media gta_blitz/ban-record.mp4 + _thumb.jpg
 2026-11-17T21:09:17Z | scheduled | Metricool uuid -2642456538005026165 at 2026-11-18 20:30 IST (9:00 AM Regina, 18 Nov); topic 17 posted; files in gta_blitz/ban-record/; media on awazzz-media gta_blitz/ban-record.mp4 + _thumb.jpg. Slot: 2 h after the 18:30 IST post. Note: 01:30 IST post (#12) shows ERROR status in Metricool but did publish (thumbnail warning only)
 2026-11-17T22:51:54Z | started | run 18 (scheduled)
+2026-11-17T22:52:06Z | topic claimed | #18 FAN-THEORY Vice City aur Mumbai itne milte-julte kyun lagte hain? (slug vicecity-mumbai)

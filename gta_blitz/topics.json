@@ -192,7 +192,9 @@
    "id": 18,
    "type": "FAN-THEORY",
    "idea": "Fan theory: Vice City aur Mumbai itne milte-julte kyun lagte hain?",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-17T22:52Z",
+   "slug": "vicecity-mumbai"
   },
   {
    "id": 19,
