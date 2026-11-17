@@ -119,3 +119,5 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T22:51:54Z | started | run 18 (scheduled)
 2026-11-17T22:52:06Z | topic claimed | #18 FAN-THEORY Vice City aur Mumbai itne milte-julte kyun lagte hain? (slug vicecity-mumbai)
 2026-11-17T23:01:18Z | check verdict | APPROVED round 1 (fresh independent agent read Dexerto mirror, GTABase, Wikipedia Marine Drive, AFP via Manila Bulletin, The Star, Outlook Traveller, Quartz, UNESCO decision 42 COM 8B.19, Business Standard/PTI; all 7 claims verified, 'maana jaata hai' hedge correct); optional notes applied: n01 'game mein aisa kuch nahi, na Rockstar ka koi elaan', n04 'Marine Drive ki ye imaaratein ... hissa', title without '×'
+2026-11-17T23:09:04Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 after check notes on n01/n04; v1 already trimmed for length)
+2026-11-17T23:09:04Z | rendered | short1_fs.mp4 1080x1920 54.5 s, -14.4 LUFS, score under voice rms 0.0248 vs 0.0438 alone (~57%), all scenes native portrait; contact sheet: picture fills all 5 frames
