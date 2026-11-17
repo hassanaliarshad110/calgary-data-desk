@@ -85,3 +85,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T11:06:04Z | WARNING | Metricool shows the 13:00 IST 17 Nov post (Special #1 Part 2/4, uuid -6593897045793092952) FAILED on YouTube: upload limit exceeded; #9 (14:30) did publish. Hassan messaged
 2026-11-17T12:52:27Z | started | run 13 (scheduled)
 2026-11-17T12:52:34Z | topic claimed | #13 FACT GTA 6 launch: 19 Nov ko India mein kis time unlock? (slug unlock-time)
+2026-11-17T12:56:19Z | research | sources read: Digit 8 Sep, GamerFuzion (upd 11 Nov), GamesRadar 3 Nov (Rockstar pre-load quotes), News24 17 Nov, IBTimes 9 Nov, Notebookcheck, tbreak; godisageek/playday/gizbot failed. Script v1 written; voice job pushed to budget-probe

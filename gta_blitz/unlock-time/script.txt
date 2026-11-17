@@ -1,0 +1,8 @@
+[HOOK 0-2 s, on screen "GTA 6 INDIA MEIN KITNE BAJE?"] h1o: GTA 6 19 November ko aa raha hai. Lekin India mein asal mein kitne baje khulega?
+n01: PlayStation aur Xbox store ki listing ke hisaab se, GTA 6 har desh mein wahan ki aadhi raat ko khulega.
+n02: Matlab India mein: 19 November, raat 12 baje. Yaani 18 ki raat, jaise hi ghadi mein 12 bajein!
+n03 (TWIST): Twist: sabse pehle khelega New Zealand. India ke time se 18 November, shaam saadhe chaar baje. Yaani humse saadhe saat ghante pehle!
+n04: Lekin America ke Eastern time waale? India ke time se 19 November, subah saadhe das baje. Yaani India unse das ghante se bhi zyaada aage!
+n05 (PAYOFF): Aur Rockstar ke mutabik, digital pre-load 10 November se khula hai, size 212 GB tak. To aadhi raat se pehle download poora kar lo!
+h1e (COMMENT Q): Aap raat 12 baje jaagkar kheloge, ya subah aaram se? Comment karo!
+[END CARD 2 s: Follow Awazzzz + SUBSCRIBE]
