@@ -1750,5 +1750,40 @@
    }
   ],
   "post_note": "Fixed times kept (12:30 post A, 17:30 post B); the 11:13 snowfall-warning moment is 77 min before post A. YouTube 24-hour count stays at 8 or fewer around both posts."
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "category": "Calgary Origins",
+  "title": "Grass for a Penny: Calgary's Ranch Era (Calgary Origins Ep 2)",
+  "topic_used": "Ranch era 1874-1912: 1881 grazing-lease order in council (up to 100,000 acres, 21 years, one cent an acre); Cochrane Ranche (1881) and its 1881-83 winter losses; Bar U / North-West Cattle Company; railway 1883 and live-cattle exports; Pat Burns (first slaughterhouse 1890, beef king, largest integrated meat business); A. E. Cross (A7, Calgary Brewing and Malting); Ranchmen's Club; 1892 lease notice; WSGA 1896; winter 1906-07 without a chinook; Big Four's $100,000 guarantee for the 1912 Stampede.",
+  "changed_from_calendar": "Kept; the nickname 'Cowtown' is not claimed (no authoritative source for its origin found), the film says 'cattle town'.",
+  "central_figure": "1881 order in council: leases up to 100,000 acres for 21 years at one cent an acre (W. Naftel, The Cochrane Ranch, Parks Canada)",
+  "sources": [
+   "https://parkscanadahistory.com/series/chs/16/chs16-4e.htm",
+   "https://parkscanadahistory.com/series/chs/16/chs16-4h.htm",
+   "https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=11541",
+   "https://www.biographi.ca/en/bio/stimson_frederick_smith_14E.html",
+   "https://www.biographi.ca/en/bio/burns_patrick_16E.html",
+   "https://www.biographi.ca/en/bio/mclean_archibald_james_16E.html",
+   "https://www.thecanadianencyclopedia.ca/en/article/ranching-history",
+   "https://thecanadianencyclopedia.ca/en/article/calgary-3"
+  ],
+  "link": "https://calgaryinsight.ca/visit/stampede/?utm_source=<platform>&utm_medium=social&utm_campaign=origins-ranch-era",
+  "link_check": "not checked: run stopped at the audit gate before posting",
+  "package": "packages/2026-11-18-ORIGINS-ranch-era.md",
+  "production": "production/2026-11-18-ORIGINS/",
+  "identity": "Storyteller lead (planned) + Data Explainer counters/brand stamps + Civic Analyst document cards/timelines",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 47,
+   "verdict": "NOT APPROVED",
+   "report": "audits/2026-11-18-ORIGINS.md"
+  },
+  "status": "blocked-by-audit",
+  "blocked_reason": "Round 3 auditor: all 47 claims PASS but 4 blocking flags (L29 'southwest of Calgary' not in claims table; L58 'open range was already shrinking' not tied to a claim; L74 'The ranch era was short' interpretation without chip; Part 1 caption contradicted the 1874 cattle). Fixes applied in the package but not re-audited; PLAYBOOK 3b allows at most 3 rounds, so nothing was narrated, rendered or posted. Needs Hassan's go-ahead for a 4th audit round, then narration/render/posting.",
+  "posted": [],
+  "pending_link": []
  }
 ]
