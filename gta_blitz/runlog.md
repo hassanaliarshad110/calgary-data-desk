@@ -56,3 +56,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T03:11:18Z | scheduled | Metricool uuid -5708818767217013874 at 2026-11-17 10:30 IST (11:00 PM Regina, 16 Nov); topic 8 posted; files in gta_blitz/gtav-vs-bollywood/; media on awazzz-media gta_blitz/gtav-vs-bollywood.mp4 + _thumb.jpg
 2026-11-17T04:51:56Z | started | run 9 (scheduled)
 2026-11-17T04:52:08Z | topic claimed | #9 FAN-THEORY Agar Abhimanyu ka chakravyuh ek game mission hota (slug chakravyuh-mission)
+2026-11-17T05:01:39Z | check verdict | APPROVED round 1 (fresh independent agent read hindupedia Abhimanyu, vyasaonline 13th day, Rajaji ch.79/80 on mahabharataonline; all 8 real details verified); optional notes applied (h1e 'Tum hote', n04 'ghusne ka tareeka'); visuals: no GAME OVER/WASTED overlays, characters only as abstract tokens
