@@ -93,3 +93,5 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T14:52:26Z | started | run 14 (scheduled)
 2026-11-17T14:52:33Z | topic claimed | #14 FACT Speeding in GTA vs Motor Vehicles Act: asli challan kitna? (slug speeding-challan)
 2026-11-17T15:02:18Z | check verdict | APPROVED round 1 (fresh independent agent read courtbook s.183 (2019 text), myadvo s.183 old text, PIB MVA.pdf item 41, lawgist + indiankanoon s.189, drishtiias LMV definition; all claims verified); optional notes applied (n05 'ya dono'; on-screen 'Act mein likhi rakam' + s.189 scope chip); PIB item 46 not used (wrong vs Act)
+2026-11-17T15:09:20Z | voice done | 7/7 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 after check note on n05)
+2026-11-17T15:09:20Z | rendered | short1_fs.mp4 1080x1920 51.6 s, -14.3 LUFS, score under voice rms 0.025 vs 0.042 alone (~59%), all scenes native portrait; contact sheet: picture fills all 5 frames
