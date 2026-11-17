@@ -44,3 +44,15 @@ if __name__ == '__main__':
         print('\n'.join(probs))
         sys.exit(1)
     print(f'narration check: OK ({len(lines)} lines)')
+    # Information only (narration lane v2): names not yet in the pronunciation list. After voicing, check them in
+    # sp_out/phonemes.json -> script_names and add any Kokoro gets wrong to probe/lexicon.json on studio-probe.
+    import os
+    lex_path = os.path.join(os.path.dirname(os.path.abspath(path)), 'lexicon.json')
+    if os.path.exists(lex_path):
+        lex = set(json.load(open(lex_path)))
+        common = set('''January February March April May June July August September October November December Monday Tuesday
+            Wednesday Thursday Friday Saturday Sunday Calgary Calgarians Calgarian Alberta Albertans Canada Canadian Canadians Ottawa Edmonton
+            City Council River Drive Trail Road Street Avenue Park Fort Police Mounted North South East West North-West Inspector Commissioner
+            Mayor Premier Prime Minister Province Government The A An And But Or It In On At Of To Our We You Stampede Downtown'''.split())
+        names = sorted({w for ln in lines for w in re.findall(r"(?<=[a-z,;:] )[A-Z][\w'’-]+", ln) if w not in lex and w not in common})
+        if names: print('names not in the pronunciation list (check phonemes.json after voicing):', ', '.join(names))
