@@ -242,6 +242,8 @@ for name, lines in L.items():
 try:
     json.dump({'lexicon': {w: {'kokoro_default': k.tokenizer.phonemize(w, 'en-us').strip(),
                                'listed': (LEX[w].get('ipa') if isinstance(LEX[w], dict) else None)} for w in LEX},
+               'script_names': {w: k.tokenizer.phonemize(w, 'en-us').strip() for w in sorted(set(
+                   n for lines in L.values() for n in proper_nouns(lines).split(', ') if n and n not in LEX))},
                'sentences': PHON_LOG}, open(os.path.join(out, 'phonemes.json'), 'w'), indent=1, ensure_ascii=False)
 except Exception as e:
     print('phoneme dump failed:', repr(e)[:160])
