@@ -1,0 +1,77 @@
+{
+"scenes": [
+{
+"id": "gamers",
+"start": 0,
+"dur": 6.46,
+"lines": [
+"n01"
+]
+},
+{
+"id": "mobile",
+"start": 6.46,
+"dur": 4.323,
+"lines": [
+"n02"
+]
+},
+{
+"id": "platforms",
+"start": 10.783,
+"dur": 8.433,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 19.216,
+"dur": 12.866,
+"lines": [
+"n04"
+]
+},
+{
+"id": "payoff",
+"start": 32.082,
+"dur": 7.48,
+"lines": [
+"n05"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.12,
+"dur": 6.04,
+"spk": "N",
+"roman": "Niko Partners ke mutabik, 2025 mein Bharat mein 51 crore se zyada gamers the."
+},
+"n02": {
+"start": 6.58,
+"dur": 3.903,
+"spk": "N",
+"roman": "Lekin inmein se lagbhag 95% phone par khelte hain."
+},
+"n03": {
+"start": 10.903,
+"dur": 8.013,
+"spk": "N",
+"roman": "Aur GTA 6? 19 November ko sirf PS5 aur Xbox Series X|S par. Na phone, na PC."
+},
+"n04": {
+"start": 19.466,
+"dur": 12.266,
+"spk": "N",
+"roman": "Twist: India Gaming Report 2025 ke hisaab se, console gamers? Sirf lagbhag 2 crore. Yaani us report ke 59 crore gamers mein se, sirf lagbhag saadhe teen percent!"
+},
+"n05": {
+"start": 32.202,
+"dur": 7.01,
+"spk": "N",
+"roman": "Matlab, Bharat ke zyaadatar gamers jis device par khelte hain, yaani phone, us par GTA 6 hai hi nahi."
+}
+},
+"total": 39.562
+}

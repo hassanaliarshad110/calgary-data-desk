@@ -1,0 +1,10 @@
+TOPIC TYPE: FACT
+On-screen hook (0-2 s): "50 CRORE+ GAMERS… GTA 6 KITNE?"
+h1o (spoken hook): Bharat mein 50 crore se zyada gamers. Lekin GTA 6 kitne khel paayenge?
+n01: Niko Partners ke mutabik, 2025 mein Bharat mein 51 crore se zyada gamers the.
+n02: Lekin inmein se lagbhag 95% phone par khelte hain.
+n03: Aur GTA 6? 19 November ko sirf PS5 aur Xbox Series X|S par. Na phone, na PC.
+n04: Twist: India Gaming Report 2025 ke hisaab se, console gamers? Sirf lagbhag 2 crore. Yaani us report ke 59 crore gamers mein se, sirf lagbhag saadhe teen percent!  [on screen: '2 CRORE · SAB CONSOLES MILAAKAR' and '59 CRORE MEIN SE ~3.5%']
+n05: Matlab, Bharat ke zyaadatar gamers jis device par khelte hain, yaani phone, us par GTA 6 hai hi nahi.
+h1e (closing): Aap GTA 6 kis par kheloge: PS5, Xbox, ya PC ka intezaar? Comment karo!
+On-screen source chips: "Niko Partners (Aug 2026)", "Niko Partners (Nov 2025)", "Gematsu / PCWorld", "India Gaming Report 2025 (WinZO-IEIC) via Outlook Respawn / DemandSage · 59 crore gamers mein se, 2024 data".
