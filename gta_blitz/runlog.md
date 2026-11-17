@@ -83,3 +83,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T11:05:21Z | rendered | short1_fs.mp4 1080x1920 54.6 s, -14.4 LUFS, score under voice rms 0.025 vs 0.043 alone (~57%), all scenes native portrait; contact sheet: picture fills all 5 frames; media on awazzz-media gta_blitz/hastinapur-chase.mp4 + _thumb.jpg
 2026-11-17T11:06:04Z | scheduled | Metricool uuid 3148399153105488223 at 2026-11-18 01:30 IST (2:00 PM Regina, 17 Nov); topic 12 posted; files in gta_blitz/hastinapur-chase/; media on awazzz-media gta_blitz/hastinapur-chase.mp4 + _thumb.jpg. Slot: 2 h after the 23:30 IST post
 2026-11-17T11:06:04Z | WARNING | Metricool shows the 13:00 IST 17 Nov post (Special #1 Part 2/4, uuid -6593897045793092952) FAILED on YouTube: upload limit exceeded; #9 (14:30) did publish. Hassan messaged
+2026-11-17T12:52:27Z | started | run 13 (scheduled)
