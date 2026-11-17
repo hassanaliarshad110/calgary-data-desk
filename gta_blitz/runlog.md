@@ -50,3 +50,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T01:05:28Z | scheduled | Metricool uuid 8696432819444335494 at 2026-11-17 08:30 IST (9:00 PM Regina, 16 Nov); topic 7 posted; files in gta_blitz/download-data/
 2026-11-17T02:51:45Z | started | run 8 (scheduled)
 2026-11-17T02:51:54Z | topic claimed | #8 FACT GTA V kamaai vs Bollywood ki sabse badi film (slug gtav-vs-bollywood)
+2026-11-17T03:01:47Z | check verdict | APPROVED round 1 (independent agent read sacnilk, The Week, BoxOfficeWorldwide, Koimoi, Engadget/Take-Two, Gematsu x2, Business Standard 17+18 Sep 2013, Fox10; all 7 claims verified); optional: on-screen source note added
