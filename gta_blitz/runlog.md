@@ -64,3 +64,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T06:52:05Z | started | run 10 (scheduled)
 2026-11-17T06:52:35Z | topic claimed | #10 FACT Kitne Indians ke paas PS5/Xbox (slug console-count)
 2026-11-17T07:02:53Z | check round 1 | PROBLEMS: n04 3.5% is of IGR's 59 crore (2024 data), not Niko's 51 crore -> 'us report ke 59 crore gamers mein se, lagbhag saadhe teen percent', 'console gamers'; n05 'mobile gamers ke liye launch par nahi' overstated -> 'zyaadatar gamers jis device par khelte hain, yaani phone, us par GTA 6 hai hi nahi'. Sources: Niko Partners x2, Outlook Respawn x2, DemandSage, Gematsu, PCWorld, TechRadar (read). Re-voicing n04/n05
+2026-11-17T07:04:47Z | check verdict | APPROVED round 2 (fresh independent agent read Niko x2, Outlook Respawn x2, DemandSage, Gematsu, PCWorld, TechRadar + Gameluster/KitGuru for 19 Nov still on track; all claims verified); note: IGR 20M/3.5% split is via Outlook Respawn/DemandSage, chip says so
