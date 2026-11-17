@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "intro",
+"start": 0,
+"dur": 3.498,
+"lines": [
+"n01"
+]
+},
+{
+"id": "chandni",
+"start": 3.498,
+"dur": 7.319,
+"lines": [
+"n02"
+]
+},
+{
+"id": "metro",
+"start": 10.817,
+"dur": 4.829,
+"lines": [
+"n03"
+]
+},
+{
+"id": "cp",
+"start": 15.646,
+"dur": 8.657,
+"lines": [
+"n04"
+]
+},
+{
+"id": "smog",
+"start": 24.303,
+"dur": 5.832,
+"lines": [
+"n05"
+]
+},
+{
+"id": "gate",
+"start": 30.135,
+"dur": 6.065,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.2,
+"dur": 2.998,
+"spk": "N",
+"roman": "Sirf kalpana hai, koi asli game ya elaan nahi!"
+},
+"n02": {
+"start": 3.648,
+"dur": 6.869,
+"spk": "N",
+"roman": "Zone 1: Chandni Chowk! Sadiyon purana bazaar, galiyan itni tang ki car nahi, rickshaw mission!"
+},
+"n03": {
+"start": 10.967,
+"dur": 4.379,
+"spk": "N",
+"roman": "Fast travel? Delhi Metro, Bharat ka sabse bada metro network!"
+},
+"n04": {
+"start": 15.996,
+"dur": 8.007,
+"spk": "N",
+"roman": "Twist! Boss level: Connaught Place ke gol chakkar! Asli mein bhi sadkein gol gheron mein hain. Chase mein gol-gol ghoomte raho!"
+},
+"n05": {
+"start": 24.453,
+"dur": 5.382,
+"spk": "N",
+"roman": "Sardi mein smog mode! Asli Dilli mein bhi smog aur kohra visibility ghata dete hain."
+},
+"n06": {
+"start": 30.285,
+"dur": 5.515,
+"spk": "N",
+"roman": "Aakhri scene: raat mein jagmagata India Gate, sainikon ki yaad mein bana yudh smarak!"
+}
+},
+"total": 36.199999999999996
+}
