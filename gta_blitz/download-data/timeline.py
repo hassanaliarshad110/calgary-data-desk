@@ -1,6 +1,6 @@
 import json,sys
 info=json.load(open('aud_info.json'))
-PLAN=[('intro',['n01'],0.15,0.25),('avg',['n02'],0.15,0.25),('twist',['n03'],0.35,0.2),('daily',['n04'],0.15,0.25),('money',['n05'],0.15,0.25),('tip',['n06'],0.15,0.3)]
+PLAN=[('intro',['n01'],0.15,0.55),('avg',['n02'],0.15,0.55),('twist',['n03'],0.35,0.6),('daily',['n04'],0.15,0.25),('money',['n05'],0.15,0.25),('tip',['n06'],0.15,0.3)]
 T=0; scenes=[]; lines={}
 for sid,ls,pre,post in PLAN:
     st=T; t=st+pre; li=[]
