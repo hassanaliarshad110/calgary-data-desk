@@ -110,3 +110,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T19:05:54Z | rendered | short1_fs.mp4 1080x1920 48.4 s, -14.4 LUFS, score under voice rms 0.0246 vs 0.0432 alone (~57%), all scenes native portrait; contact sheet: picture fills all 5 frames
 2026-11-17T19:08:33Z | scheduled | Metricool uuid -3149466415610770840 at 2026-11-18 18:30 IST (7:00 AM Regina, 18 Nov); topic 16 posted; files in gta_blitz/raji-epic/; media on awazzz-media gta_blitz/raji-epic.mp4 + _thumb.jpg. NOTE: Metricool shows #13/#14/#15 were moved (00:25 IST 18 Nov, by the account owner) from 03:30/05:30/07:30 to 12:00/14:00/16:30 IST 18 Nov; slot chosen 2 h after 16:30. Next free slot: 20:30 IST 18 Nov or later
 2026-11-17T20:52:05Z | started | run 17 (scheduled)
+2026-11-17T20:52:12Z | topic claimed | #17 FACT GTA 6 India mein ban ho sakta hai? Record par kya hai? (slug ban-record)

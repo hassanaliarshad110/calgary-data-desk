@@ -181,7 +181,9 @@
    "id": 17,
    "type": "FACT",
    "idea": "GTA 6 India mein ban ho sakta hai? Record par kya hai?",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-17T20:52Z",
+   "slug": "ban-record"
   },
   {
    "id": 18,
