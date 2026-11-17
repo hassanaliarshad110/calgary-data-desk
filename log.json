@@ -1713,9 +1713,15 @@
     ],
     "file": "avenues-had-names-short.mp4",
     "publish_at": "2026-11-17T12:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/Df2lMd-gW-3/",
+     "youtube": "https://www.youtube.com/shorts/XwA5uIkBI8Q"
+    },
+    "youtube_warning": "Could not upload video thumbnail (published)",
+    "confirmed_by": "2026-11-17 PM run"
    },
    {
     "metricool_id": 431794423,
@@ -1785,5 +1791,66 @@
   "blocked_reason": "Round 3 auditor: all 47 claims PASS but 4 blocking flags (L29 'southwest of Calgary' not in claims table; L58 'open range was already shrinking' not tied to a claim; L74 'The ranch era was short' interpretation without chip; Part 1 caption contradicted the 1874 cattle). Fixes applied in the package but not re-audited; PLAYBOOK 3b allows at most 3 rounds, so nothing was narrated, rendered or posted. Needs Hassan's go-ahead for a 4th audit round, then narration/render/posting.",
   "posted": [],
   "pending_link": []
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Calgary's top predator lives in the city: the coyote",
+  "topic_used": "City of Calgary 'Urban coyotes' page (updated Nov 4, 2026): coyotes are the top predator in Calgary's wildlife; found all over the city (parks and urban areas); help control rodents; can run up to 64 km/h for short distances; if one approaches: don't run, shout and wave, back away slowly.",
+  "changed_from_calendar": null,
+  "why_this_angle": "Calendar topic kept; number-free 'top predator' twist hook, one number that is the fact itself (top speed), a practical tip, one-word question.",
+  "central_figure": "Coyotes can run up to 64 km/h for short distances (City of Calgary, Urban coyotes)",
+  "sources": [
+   "https://www.calgary.ca/parks/wildlife/urban-coyotes.html"
+  ],
+  "link": "https://calgaryinsight.ca/visit/river/?utm_source=facebook&utm_medium=social&utm_campaign=coyotes-all-over",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/visit_pages.py builds visit/river/ from web/visit_content.py slug 'river', which lists Fish Creek, Nose Hill and Edworthy parks).",
+  "length_s": 21.25,
+  "video_path": "studio-videos/2026-11-17-PM/coyotes-all-over.mp4",
+  "thumbnail_path": "studio-videos/2026-11-17-PM/coyotes-all-over-thumb.jpg",
+  "package": "packages/2026-11-17-PM-coyotes-all-over.md",
+  "production": "production/2026-11-17-PM/",
+  "identity": "Data Explainer lead (kinetic hook, stamps, counter, chips) + Storyteller night map dive/orbit over real Calgary + Civic Analyst step cards",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 8,
+   "verdict": "APPROVED in rounds 1 and 2 (round-2 script used); round 3 (closing-line variant) NOT APPROVED: auditor asked 'In short bursts' -> 'Over short distances' (C4); variant not used",
+   "report": "audits/2026-11-17-PM.md"
+  },
+  "narration": {
+   "lane": "studio-probe v2, 2 runs",
+   "asr_mean_acc": 0.982,
+   "lines": 6,
+   "check_lines": [
+    5
+   ],
+   "note": "L5 'seen' heard as 'scene' (homophone); closing line atempo 1.10 (same words) for a 3.99 s ending"
+  },
+  "qc": {
+   "stills": "pass (after layout fixes)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "S1 chips moved above captions; S4 coyote moved below cards",
+    "-14.4 LUFS; ending 3.99 s; 8.3 MB"
+   ]
+  },
+  "status": "made-not-posted",
+  "post_error": "Metricool createScheduledPost (18:30, IG Reel + FB Reel + YT Short) was refused by the run's permission check before it reached Metricool; not retried."
  }
 ]
