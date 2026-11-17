@@ -104,3 +104,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T17:07:54Z | scheduled | Metricool uuid 2615350166014019591 at 2026-11-18 07:30 IST (8:00 PM Regina, 17 Nov); topic 15 posted; files in gta_blitz/delhi-map/; media on awazzz-media gta_blitz/delhi-map.mp4 + _thumb.jpg. Slot: 2 h after the 05:30 IST post
 2026-11-17T18:51:46Z | started | run 16 (scheduled)
 2026-11-17T18:51:55Z | topic claimed | #16 FACT Raji: An Ancient Epic - Mahabharat-Ramayan se inspired Indian game (slug raji-epic)
+2026-11-17T18:59:39Z | check round 1 | PROBLEMS: n03 founders (not team) paid salaries from savings -> 'Founders ne apni savings se team ko salary di'; h1o 'founder' -> 'co-founder'; hook text 'FLAT BECHKAR BANA YE GAME?' overstated -> 'IS GAME KE LIYE FLAT BECHA!'; nomination card must say NOMINEE (no trophy). All 7 claims verified (checker read Unreal Engine interview, Gematsu, TechRadar, Sportskeeda). Re-voicing
