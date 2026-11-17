@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "intro",
+"start": 0,
+"dur": 5.535,
+"lines": [
+"n01"
+]
+},
+{
+"id": "miami",
+"start": 5.535,
+"dur": 6.837,
+"lines": [
+"n02"
+]
+},
+{
+"id": "marine",
+"start": 12.372,
+"dur": 7.624,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 19.996,
+"dur": 12.792,
+"lines": [
+"n04"
+]
+},
+{
+"id": "necklace",
+"start": 32.788,
+"dur": 9.06,
+"lines": [
+"n05"
+]
+},
+{
+"id": "twins",
+"start": 41.848,
+"dur": 4.407,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.15,
+"dur": 5.135,
+"spk": "N",
+"roman": "Sirf fan theory hai! Game mein aisa kuch nahi, na Rockstar ka koi elaan!"
+},
+"n02": {
+"start": 5.655,
+"dur": 6.467,
+"spk": "N",
+"roman": "GTA 6 ki Vice City, Miami se inspired hai: samandar kinara, pastel Art Deco hotel."
+},
+"n03": {
+"start": 12.492,
+"dur": 7.254,
+"spk": "N",
+"roman": "Ab Marine Drive dekho! Teen kilometre samandar kinara, aur peeli, gulabi, neeli Art Deco imaaratein."
+},
+"n04": {
+"start": 20.296,
+"dur": 12.242,
+"spk": "N",
+"roman": "Twist! Maana jaata hai, Miami ke baad duniya ka doosra sabse bada Art Deco collection Mumbai mein hai! 2018 mein Marine Drive ki ye imaaratein UNESCO World Heritage ka hissa baneen!"
+},
+"n05": {
+"start": 32.908,
+"dur": 8.69,
+"spk": "N",
+"roman": "Raat mein lights motiyon ki maala jaisi, isiliye naam Queen's Necklace! Farak bas itna: Miami ka Deco neon, Mumbai ka shaant."
+},
+"n06": {
+"start": 41.968,
+"dur": 4.037,
+"spk": "N",
+"roman": "Toh fan theory: Vice City ka desi judwaan? Marine Drive!"
+}
+},
+"total": 46.25499999999999
+}
