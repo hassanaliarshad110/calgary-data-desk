@@ -77,3 +77,9 @@ Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param
 - Secret hook first: opening text hook, first spoken line, the Short's first caption line and every caption lead with "Mama ko nahi pata… Qasim hi hai SUUU-SUUU-MAN! 🤫", then the episode's problem.
 - Family rules: Mama (never Ammi) in every line/chip/title/caption; Baba regularly (doesn't know the secret); Sakina's crying-girl gag in most episodes, sometimes backfiring.
 - Sound rule: score + every SFX ducked under dialogue, SFX only in the gaps, every line's voice >= 10 dB over music+SFX (300-3400 Hz) — epN_audio.py + finalize_mix.py write dialogue_check.json; -14 LUFS, -1 dBTP; same mix for the Short and the 16:9 video.
+
+## Daily-run notes (Nov 17, 2026 — Ep 8)
+- All the standing rules above were applied again: Facebook as its own post (provider facebook only, no YouTube URL in the caption, link in firstCommentText), NO TikTok, secret hook first in the opening text/first line/captions, Mama (never Ammi) + Baba + Sakina's crying-girl act, and the sound rule (dialogue_check.json in the episode folder, -14 LUFS / -1 dBTP).
+- budget-probe is SHARED with the Awazzzz runs, which push to it too: always `git fetch` + `git reset --hard origin/budget-probe` right before committing, push without -f, and after pushing check `git log origin/budget-probe` that your commit is still the tip. On Nov 17 one Susuman TTS commit was overwritten by a parallel run and had to be pushed again. When budget-probe-out arrives, check its commit message is yours before using it.
+- hi-IN-MadhurNeural (Officer Gill, Dharmender) sometimes returns NoAudioReceived on the first try — just re-run those lines.
+- Recurring catchphrase clips are reused from the previous episode's aud/ (same voice + text) so they sound identical every episode; only new lines go to Actions.
