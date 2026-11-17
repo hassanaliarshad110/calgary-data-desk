@@ -68,3 +68,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T07:09:15Z | voice done | 7/7 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 after check round 1)
 2026-11-17T07:09:15Z | rendered | short1_fs.mp4 1080x1920 52.9 s, -14.4 LUFS, score under voice rms 0.025 vs 0.042 alone (~60%), all scenes native portrait; contact sheet: picture fills all 5 frames
 2026-11-17T07:11:00Z | scheduled | Metricool uuid 33856123692271927 at 2026-11-17 19:30 IST (8:00 AM Regina, 17 Nov); topic 10 posted; files in gta_blitz/console-count/; media on awazzz-media gta_blitz/console-count.mp4 + _thumb.jpg. RISK: YouTube upload limit hit at 10:30 IST (#8 failed); 19:30 slot chosen so the 24 h window has rolled past yesterday's 19:30 upload
+2026-11-17T08:51:53Z | started | run 11 (scheduled)
