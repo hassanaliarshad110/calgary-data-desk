@@ -76,3 +76,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T09:10:58Z | check verdict | APPROVED round 2 (fresh independent agent read Oxford 13 Feb 2019 release + APA 3 Mar 2020 release; all claims verified, no crime claim); optional note applied (quote chip says 'Hindi anuvaad')
 2026-11-17T09:11:43Z | scheduled | Metricool uuid -4874384983765201165 at 2026-11-17 23:30 IST (12:00 PM Regina, 17 Nov); topic 11 posted; files in gta_blitz/criminal-myth/; media on awazzz-media gta_blitz/criminal-myth.mp4 + _thumb.jpg. Upload-limit status: #9 (14:30 IST) published OK, so the limit has cleared for now
 2026-11-17T10:52Z | started
+2026-11-17T10:52:32Z | topic claimed | #12 FAN-THEORY Desi GTA: Hastinapur ki sadkon par chase (slug hastinapur-chase)
