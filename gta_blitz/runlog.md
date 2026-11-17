@@ -97,3 +97,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T15:09:20Z | rendered | short1_fs.mp4 1080x1920 51.6 s, -14.3 LUFS, score under voice rms 0.025 vs 0.042 alone (~59%), all scenes native portrait; contact sheet: picture fills all 5 frames
 2026-11-17T15:10:35Z | scheduled | Metricool uuid -827792087653070097 at 2026-11-18 05:30 IST (6:00 PM Regina, 17 Nov); topic 14 posted; files in gta_blitz/speeding-challan/; media on awazzz-media gta_blitz/speeding-challan.mp4 + _thumb.jpg. Slot: 2 h after the 03:30 IST post
 2026-11-17T16:51:50Z | started
+2026-11-17T16:52:01Z | topic claimed | #15 FAN-THEORY Agar GTA ka map Delhi hota (slug delhi-map)
