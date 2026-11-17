@@ -1,0 +1,77 @@
+{
+"scenes": [
+{
+"id": "blocked",
+"start": 0,
+"dur": 6.564,
+"lines": [
+"n01"
+]
+},
+{
+"id": "reason",
+"start": 6.564,
+"dur": 5.871,
+"lines": [
+"n02"
+]
+},
+{
+"id": "law",
+"start": 12.435,
+"dur": 7.877,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 20.312,
+"dur": 7.951,
+"lines": [
+"n04"
+]
+},
+{
+"id": "india",
+"start": 28.263,
+"dur": 6.957,
+"lines": [
+"n05"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 6.264,
+"spk": "N",
+"roman": "2020 mein PUBG samet 118 apps block hue, IT Act ki dhaara 69A se."
+},
+"n02": {
+"start": 6.644,
+"dur": 5.591,
+"spk": "N",
+"roman": "Sarkaari wajah: suraksha aur users ka data. Game ki maar-dhaad ka zikr tak nahi."
+},
+"n03": {
+"start": 12.515,
+"dur": 7.597,
+"spk": "N",
+"roman": "2025 ka Gaming kanoon? Ban paisa lagaao, paisa jeeto wale money games par. E-sports ko badhaava."
+},
+"n04": {
+"start": 20.462,
+"dur": 7.601,
+"spk": "N",
+"roman": "Twist: Saudi aur UAE mein GTA V 12 saal officially nahi bika. Aaj wahaan GTA 6 ke pre-order chaalu hain!"
+},
+"n05": {
+"start": 28.343,
+"dur": 6.577,
+"spk": "N",
+"roman": "Aur Bharat? Koi ban report nahi. PlayStation India par pre-order chaalu, 19 November ko launch."
+}
+},
+"total": 35.21999999999999
+}
