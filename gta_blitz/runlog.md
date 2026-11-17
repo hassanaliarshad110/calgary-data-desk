@@ -61,3 +61,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T05:09:31Z | rendered | short1_fs.mp4 1080x1920 52.7 s, -14.4 LUFS, score ducked ~56% under voice, all scenes native portrait; n01 (spoken disclaimer) cut for length, 'SIRF KALPANA' stamp moved on screen; contact sheet: picture fills all 5 frames
 2026-11-17T05:10:44Z | scheduled | Metricool uuid 2674264393260682146 at 2026-11-17 14:30 IST (3:00 AM Regina, 17 Nov); topic 9 posted; files in gta_blitz/chakravyuh-mission/; media on awazzz-media gta_blitz/chakravyuh-mission.mp4 + _thumb.jpg
 2026-11-17T05:10:44Z | WARNING | Metricool shows #8 (10:30 IST, uuid -5708818767217013874) FAILED on YouTube: 'The user has exceeded the number of videos they may upload.' -> YouTube upload limit; Hassan messaged
+2026-11-17T06:52:05Z | started | run 10 (scheduled)
