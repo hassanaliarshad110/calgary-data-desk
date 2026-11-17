@@ -1558,9 +1558,15 @@
     ],
     "publish_at": "2026-11-16T18:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1618486352666622",
+     "instagram": "https://www.instagram.com/reel/Df0pkZ4DmpS/",
+     "youtube": "https://www.youtube.com/shorts/WMz8PR2kv-g"
+    },
+    "confirmed_by": "2026-11-17 FLAGSHIP run"
    }
   ],
   "post_note": "Fixed 18:30 fun-fact slot; only other post today is the 15:00 news reel (PUBLISHED); YouTube 24 h count well under 8. Due >30 min after scheduling, so the next run confirms it."
@@ -1628,5 +1634,121 @@
   ],
   "site": "main 3596e28: card vid-snowwarnnov17 + agent.py published fact",
   "notes": "Length 36 s (over the 30 s target): the shorter variant failed audit round 3, so the approved wording was kept. Time-zone slip: Alberta is on year-round Alberta Time (UTC-6); I scheduled 10:45 believing it was 10:13 MST when it was 11:13, so Metricool published immediately (about 75 min before the 12:30 flagship slot). The posted reel's small source line reads 'updated 9:46 MST' (should be 10:46 a.m. Alberta time); the post was already publishing and could not be edited. Corrected in scene.js, site video, site card and agent.py. Future runs: Calgary = UTC-6 year-round."
+ },
+ {
+  "date": "2026-11-17",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "Before the Numbers: When Calgary's Avenues Had Names",
+  "topic_used": "1884 CPR townsite avenues named for company officials (Angus, McIntyre, Smith, Van Horne; Stephen Avenue; Atlantic Avenue/Whisky Row = today's 9 Ave SE); By-law No. 528 of 1904 changed avenue names to numbers; Stephen Avenue name back on the pedestrian mall in 1981; how the quadrants work today (Centre Street / Bow River, simplified); Centre Street and Centre Avenue meet, in theory, mid-Centre Street Bridge; downtown avenues follow the railway.",
+  "changed_from_calendar": "Kept, but narrowed: the historian's account says the 1904 bylaw changed AVENUE names to numbers (not 'streets'); no source found dating the start of the quadrant system, so the film explains how quadrants work today without a start date.",
+  "central_figure": "By-law No. 528 of 1904 changed avenue names to numbers (Harry Sanders, CBC Calgary)",
+  "sources": [
+   "https://amp.cbc.ca/news/canada/calgary/george-stephen-avenue-history-harry-sanders-1.5392807",
+   "https://www.calgary.ca/PDA/pd/Documents/Heritage-planning/heritage-walking-tours/heritage-stephen-ave-student-walk-tour-teacher-guide.pdf",
+   "https://everydaytourist.ca/calgary-visitor-information/stephen-avenue-walk-a-unique-sense-of-time-amp-place",
+   "https://everydaytourist.ca/street-views/grid-vs-curvilinear-streets-which-one-is-betternbsp",
+   "https://everydaytourist.ca/city-planning-101/calgarys-history-why-we-live-work-and-play-where-we-do",
+   "https://www.ucalgary.ca/complexity/contacts/visitor-information/getting-around-calgary",
+   "https://dailyhive.com/calgary/calgary-streets-history",
+   "https://www.calgary.ca/pda/pd/addressing.html"
+  ],
+  "link": "https://calgaryinsight.ca/visit/downtown/?utm_source=<platform>&utm_medium=social&utm_campaign=avenues-had-names",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/visit_pages.py builds visit/downtown/ from web/visit_content.py slug 'downtown', which lists Stephen Avenue).",
+  "length_s": 98.37,
+  "short_length_s": 68.45,
+  "teaser_length_s": 27.94,
+  "video_path": "studio-videos/2026-11-17-FLAGSHIP/avenues-had-names-{short,youtube,teaser}.mp4",
+  "thumbnail_path": "studio-videos/2026-11-17-FLAGSHIP/avenues-had-names-thumb.jpg, avenues-had-names-thumb-yt.jpg",
+  "package": "packages/2026-11-17-FLAGSHIP-avenues-had-names.md",
+  "production": "production/2026-11-17-FLAGSHIP/",
+  "identity": "Storyteller lead (dusk/night drones over real OSM downtown, map dives) + Data Explainer sign flips/stamps + Civic Analyst document/address cards",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 14,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-17-FLAGSHIP.md"
+  },
+  "narration": {
+   "lane": "studio-probe run 78",
+   "asr_mean_acc": 0.99,
+   "lines": 16,
+   "check_lines": [
+    5
+   ],
+   "note": "L5 'check' is a recogniser number-format artefact (528); audio matches script"
+  },
+  "qc": {
+   "stills": "pass (after layout fixes: grid/caption overlaps, chip splits, quadrant letters, wide letterbox removed)",
+   "final": "pass (Short L6 re-rendered to clear the ad cards)",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "no 0s; ending 3.99 s; -14.6 LUFS all three; Short 21 MB, film 31 MB, teaser 11 MB",
+    "wide L6 ad cards brush the chip edge at scene end (minor)"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 431794130,
+    "uuid": "1078160341859453813",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=1078160341859453813",
+    "providers": [
+     "instagram",
+     "youtube-short"
+    ],
+    "file": "avenues-had-names-short.mp4",
+    "publish_at": "2026-11-17T12:30",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   },
+   {
+    "metricool_id": 431794423,
+    "uuid": "-6876386325189932647",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-6876386325189932647",
+    "providers": [
+     "facebook",
+     "youtube-video"
+    ],
+    "file": "avenues-had-names-youtube.mp4",
+    "publish_at": "2026-11-17T17:30",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   }
+  ],
+  "pending_link": [
+   {
+    "file": "avenues-had-names-teaser.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-17-FLAGSHIP/avenues-had-names-teaser.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-17-FLAGSHIP/avenues-had-names-thumb.jpg",
+    "providers": [
+     {
+      "network": "facebook",
+      "type": "REEL"
+     }
+    ],
+    "caption_without_link": "Calgary's avenues once had names, not numbers.\nA bylaw swapped them for numbers. And in theory, Centre Street and Centre Avenue meet somewhere you might not expect.\nNames or numbers? Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔗 Link in the first comment\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca\n\n#Calgary #yyc #CalgaryHistory #StephenAvenue",
+    "first_comment": "🚶 Walk Stephen Avenue with our downtown guide: https://calgaryinsight.ca/visit/downtown/?utm_source=facebook&utm_medium=social&utm_campaign=avenues-had-names",
+    "post_at": "2026-11-17T20:00",
+    "link_to": 431794423
+   }
+  ],
+  "post_note": "Fixed times kept (12:30 post A, 17:30 post B); the 11:13 snowfall-warning moment is 77 min before post A. YouTube 24-hour count stays at 8 or fewer around both posts."
  }
 ]
