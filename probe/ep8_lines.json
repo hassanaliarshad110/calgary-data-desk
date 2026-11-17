@@ -2,47 +2,15 @@
  "kokoro": [],
  "edge": [
   {
-   "id": "o1",
-   "text": "हटो भाई, हटो! गाय जी, थोड़ा साइड हो जाइए!",
-   "voice": "hi-IN-MadhurNeural",
-   "rate": "-5%",
-   "pitch": "-20Hz",
-   "asr": 1
-  },
-  {
-   "id": "o1b",
-   "text": "हटो भाई, हटो! गाय जी, थोड़ा साइड हो जाइए!",
-   "voice": "hi-IN-MadhurNeural",
-   "rate": "-5%",
-   "pitch": "-18Hz",
-   "asr": 1
-  },
-  {
-   "id": "o2",
-   "text": "शाबाश! लेकिन ये था कौन?!",
-   "voice": "hi-IN-MadhurNeural",
-   "rate": "-5%",
-   "pitch": "-20Hz",
-   "asr": 1
-  },
-  {
-   "id": "o2b",
-   "text": "शाबाश! लेकिन ये था कौन?!",
-   "voice": "hi-IN-MadhurNeural",
-   "rate": "-5%",
-   "pitch": "-18Hz",
-   "asr": 1
-  },
-  {
    "id": "n3",
-   "text": "بچو، صبر کرو، بار بار HORN مت بجاؤ! اور سڑک پر جانوروں سے دور رہو۔ ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!",
+   "text": "بچو، سڑک پر صبر کرو، اور جانوروں سے دور رہو! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!",
    "voice": "ur-PK-AsadNeural",
    "rate": "+8%",
    "asr": 1
   },
   {
-   "id": "n3b",
-   "text": "بچو، صبر کرو، بار بار ہارن مت بجاؤ! اور سڑک پر جانوروں سے دور رہو۔ ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!",
+   "id": "n3c",
+   "text": "بچو، سڑک پر صبر سے کام لو، اور جانوروں کو تنگ مت کرو! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!",
    "voice": "ur-PK-AsadNeural",
    "rate": "+8%",
    "asr": 1
