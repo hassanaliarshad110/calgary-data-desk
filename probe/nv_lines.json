@@ -8,7 +8,7 @@
 },
 {
 "id": "n02",
-"text": "TomTom Traffic Index, दो हज़ार पच्चीस: मुंबई में दस किलोमीटर जाने में औसतन अट्ठाईस मिनट इक्यावन सेकंड।",
+"text": "TomTom Index, दो हज़ार पच्चीस: मुंबई में दस किलोमीटर, औसतन अट्ठाईस मिनट इक्यावन सेकंड।",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
@@ -29,7 +29,7 @@
 },
 {
 "id": "n05",
-"text": "Rush hour में औसत speed? मुंबई: सिर्फ़ सत्रह दशमलव छह km/h. Miami: सत्ताईस दशमलव चार।",
+"text": "Rush hour की औसत speed? मुंबई: सिर्फ़ सत्रह point छह। Miami: सत्ताईस point चार!",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
