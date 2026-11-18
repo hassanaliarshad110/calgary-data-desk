@@ -159,3 +159,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T09:11:12Z | scheduled | Metricool uuid 6483669157055056241 at 2026-11-19 08:30 IST (9:00 PM Regina, 18 Nov); topic 23 posted; files in gta_blitz/gaming-market/; media on awazzz-media gta_blitz/gaming-market.mp4 + _thumb.jpg. Slot: 2 h after the 06:30 IST post. No report this run (next at 24th)
 2026-11-18T10:52:27Z | started | run 24 (scheduled)
 2026-11-18T10:52:27Z | topic claimed | #24 FAN-THEORY Agar GTA Varanasi mein hota - ghats par mission? (slug varanasi-ghats)
+2026-11-18T11:00:35Z | check round 1 | PROBLEMS: n04/n06 made every ghat (incl. cremation ghats Manikarnika/Harishchandra) a race checkpoint -> 'checkpoint sirf paani par chamakte rings', 'Toh 84 ghaat, ek lambi race! Rule: race sirf paani mein, aur ghaaton ka samman pehle'. All 5 facts verified (Wikipedia Ghats in Varanasi). Optional: no bathers/crowds near the race (kept)
