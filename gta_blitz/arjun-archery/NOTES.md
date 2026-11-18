@@ -1,0 +1,9 @@
+# GTA blitz #27 — arjun-archery (FAN-THEORY): "What if: Arjun ka teer-andaazi ek mini-game hota"
+- Angle: Drona's test of aim as "Level 1" of an archery mini-game (kalpana). Real details only from K.M. Ganguli, Adi Parva, Sambhava Parva CXXXIV-CXXXV: artificial bird on a treetop; Yudhishthira (tree, teacher, brothers, bird) told to stand apart; Duryodhana, Bhima and the rest the same, nobody shot; Arjuna: only the bird, then only its head; 'Shoot'; head brought down to the ground. Note: Ganguli says head, not eye (the popular 'aankh' wording is not used).
+- Sources read (web-fetch agent): ibiblio sripedia m01135 + m01136, mahabharataonline 01136. Checker read the same three pages.
+- Check: round 1 APPROVED; optional notes applied (n04 'nakli chidiya ka sir, seedha zameen par', n03 'ka mauka', h1e 'dikhega', 'GTA 6 WEEK SPECIAL' chip on the hook).
+- Voice v3 (8 lines, 46.4 s): v2 was 56 s voiced, so lines were tightened (spoken 'Ye sirf kalpana hai' dropped; hook says 'Socho agar', KALPANA chip every frame + SIRF KALPANA stamp). Final 49.2 s, -14.5 LUFS, score ~56% under voice.
+- Visuals: pupils = abstract game pawns with name labels, target = wooden toy bird on a peg; no epic character or deity drawn; no blood. Own drawings: treeV, toyBird, pawn, hudBar, focusMeter, crosshair, arrowV, bowV, sparkles, forestBG, grassV. Library: VFX-011 impactStar, VFX-015 stars.
+- PERF: ctx.filter blur cost ~2.9 s/frame (render timed out at 10 min) -> replaced with ghosted copies + haze (0.06 s/frame). Avoid ctx.filter in scenes.
+- Build: work dir = these files + episodes/ep4 scenes.js/prep_audio.py/score_mix.py/index.html; `python3 /home/claude/kit/shorts.py 1`; `python3 thumb.py`.
+- Metricool uuid -3121081438855083120, 18 Nov 2026 23:30 IST (18:00Z; 12:00 PM Regina), 60 min between the 22:30 and 00:30 IST posts.

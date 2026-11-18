@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "lvl",
+"start": 0,
+"dur": 6.078,
+"lines": [
+"n01"
+]
+},
+{
+"id": "ask",
+"start": 6.078,
+"dur": 8.445,
+"lines": [
+"n02"
+]
+},
+{
+"id": "rest",
+"start": 14.523,
+"dur": 5.567,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 20.09,
+"dur": 10.628,
+"lines": [
+"n04"
+]
+},
+{
+"id": "rule",
+"start": 30.718,
+"dur": 6.469,
+"lines": [
+"n05"
+]
+},
+{
+"id": "lesson",
+"start": 37.187,
+"dur": 2.67,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.06,
+"dur": 5.898,
+"spk": "N",
+"roman": "Level 1, Mahabharat se: Guru Drona ne ped ki choti par ek nakli chidiya rakhwaayi."
+},
+"n02": {
+"start": 6.128,
+"dur": 8.275,
+"spk": "N",
+"roman": "Sawaal: tumhe kya dikh raha hai? Yudhishthir bole: ped, aap, bhai aur chidiya. Drona: alag hat jaao!"
+},
+"n03": {
+"start": 14.573,
+"dur": 5.397,
+"spk": "N",
+"roman": "Duryodhan, Bhim, sabka wahi jawaab. Kisi ko teer chalaane ka mauka hi nahi!"
+},
+"n04": {
+"start": 20.15,
+"dur": 10.218,
+"spk": "N",
+"roman": "Twist: Arjun bole, sirf chidiya dikh rahi hai. Phir: sirf uska sir! Drona: chalaao! Aur nakli chidiya ka sir, seedha zameen par!"
+},
+"n05": {
+"start": 30.768,
+"dur": 6.299,
+"spk": "N",
+"roman": "Toh mini-game ka rule: sab dhundhla, sirf target saaf. Focus full, tabhi teer chalega!"
+},
+"n06": {
+"start": 37.237,
+"dur": 2.37,
+"spk": "N",
+"roman": "Sabak: jahan focus, wahin jeet!"
+}
+},
+"total": 39.85699999999999
+}

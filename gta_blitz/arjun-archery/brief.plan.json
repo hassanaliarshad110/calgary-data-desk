@@ -1,0 +1,425 @@
+{
+ "brief": {
+  "channel": "news",
+  "title": "What if: Arjun ki teer-andaazi ek mini-game hoti",
+  "script": "fan theory kalpana, archery mini-game level 1, tree with wooden toy bird target on top, teacher's test what do you see, pupils told to stand aside, focus meter, background blur only target sharp, arrow hits target sparkle, lesson focus wins, comment question",
+  "keywords": [
+   "tree",
+   "bird",
+   "target",
+   "arrow",
+   "bow",
+   "focus",
+   "meter",
+   "sparkle",
+   "star",
+   "impact",
+   "question",
+   "forest",
+   "sun",
+   "light",
+   "glow",
+   "level"
+  ],
+  "format": "9x16",
+  "characters": 1,
+  "mood": "upbeat"
+ },
+ "channel": "news",
+ "matched_terms": [
+  "andaazi",
+  "archery",
+  "arjun",
+  "arrow",
+  "aside",
+  "background",
+  "bird",
+  "blur",
+  "bow",
+  "comment",
+  "fan",
+  "focus",
+  "forest",
+  "game",
+  "glow",
+  "hits",
+  "hoti",
+  "impact",
+  "kalpana",
+  "lesson",
+  "level",
+  "light",
+  "meter",
+  "mini",
+  "only",
+  "pupils",
+  "question",
+  "see",
+  "sharp",
+  "sparkle",
+  "stand",
+  "star",
+  "sun",
+  "target",
+  "teacher",
+  "teer",
+  "test",
+  "theory",
+  "told",
+  "top",
+  "toy",
+  "tree",
+  "wins",
+  "wooden",
+  "you"
+ ],
+ "slots": {
+  "characters": [
+   {
+    "id": "CHR-007",
+    "name": "Zahra (Explainer host; in Susuman: Zahra Miss, Qasim's school teacher)",
+    "score": 5.0,
+    "path": "engine/chars.js#CAST.zahra",
+    "usage": "drawChar(CAST.zahra, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   }
+  ],
+  "motions": [
+   {
+    "id": "MOV-006",
+    "name": "Motion: stand",
+    "score": 5.0,
+    "path": "engine/chars.js#MOVES.stand",
+    "usage": "MOVES.stand(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-008",
+    "name": "Motion: talk",
+    "score": 4.5,
+    "path": "engine/chars.js#MOVES.talk",
+    "usage": "MOVES.talk(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-031",
+    "name": "Motion: present",
+    "score": 4.5,
+    "path": "engine/chars.js#MOVES.present",
+    "usage": "MOVES.present(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   }
+  ],
+  "environments": [
+   {
+    "id": "ENV-008",
+    "name": "Environment: newsroom",
+    "score": 6.5,
+    "path": "engine/sets.js#SETS.newsroom",
+    "usage": "drawSet('newsroom', t, cam)",
+    "attribution": false
+   },
+   {
+    "id": "3DS-001",
+    "name": "Realistic 3D downtown Calgary (OpenStreetMap buildings, river, parks, LRT, Plus 15 footbridges)",
+    "score": 6.0,
+    "path": "engine/city3d.js",
+    "usage": "await City3D.init(); composite(City3D.render(CAM3D.orbit(t), {p15glow:1}), 0,0,1920,1080)",
+    "attribution": true
+   },
+   {
+    "id": "ENV-003",
+    "name": "Environment: city street",
+    "score": 5.0,
+    "path": "engine/sets.js#SETS.city_street",
+    "usage": "drawSet('city_street', t, cam)",
+    "attribution": false
+   }
+  ],
+  "props": [
+   {
+    "id": "PRP-044",
+    "name": "Prop: kite",
+    "score": 7.0,
+    "path": "engine/props.js#PROPS.kite",
+    "usage": "PROPS.kite(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-015",
+    "name": "Prop: laptop",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.laptop",
+    "usage": "PROPS.laptop(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-029",
+    "name": "Prop: ivStand",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.ivStand",
+    "usage": "PROPS.ivStand(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-042",
+    "name": "Prop: streetLamp",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.streetLamp",
+    "usage": "PROPS.streetLamp(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-043",
+    "name": "Prop: hydrant",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.hydrant",
+    "usage": "PROPS.hydrant(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-045",
+    "name": "Prop: peaceBridge",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.peaceBridge",
+    "usage": "PROPS.peaceBridge(x, y, scale, ...)",
+    "attribution": false
+   }
+  ],
+  "vfx": [
+   {
+    "id": "VFX-011",
+    "name": "Effect: impactStar",
+    "score": 7.0,
+    "path": "engine/fx.js#FX.impactStar",
+    "usage": "FX.impactStar(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-007",
+    "name": "Effect: lightning",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.lightning",
+    "usage": "FX.lightning(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-015",
+    "name": "Effect: stars",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.stars",
+    "usage": "FX.stars(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-019",
+    "name": "Effect: question",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.question",
+    "usage": "FX.question(t, {...})",
+    "attribution": false
+   }
+  ],
+  "graphics": [
+   {
+    "id": "TXT-008",
+    "name": "Animated text: highlight",
+    "score": 5.0,
+    "path": "engine/core.js#TXT.highlight",
+    "usage": "TXT.highlight(...)",
+    "attribution": false
+   },
+   {
+    "id": "LOT-001",
+    "name": "Lottie: arrow_bounce",
+    "score": 5.0,
+    "path": "assets/lottie/arrow_bounce.json",
+    "usage": "lottie.loadAnimation({path}); or drop into any Lottie player",
+    "attribution": false
+   },
+   {
+    "id": "LOT-006",
+    "name": "Lottie: impact_burst",
+    "score": 5.0,
+    "path": "assets/lottie/impact_burst.json",
+    "usage": "lottie.loadAnimation({path}); or drop into any Lottie player",
+    "attribution": false
+   },
+   {
+    "id": "LOT-015",
+    "name": "Lottie: weather_sun",
+    "score": 5.0,
+    "path": "assets/lottie/weather_sun.json",
+    "usage": "lottie.loadAnimation({path}); or drop into any Lottie player",
+    "attribution": false
+   },
+   {
+    "id": "GFX-001",
+    "name": "Graphic: bars",
+    "score": 4.5,
+    "path": "engine/graphics.js#GFX.bars",
+    "usage": "GFX.bars(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-002",
+    "name": "Graphic: hbars",
+    "score": 4.5,
+    "path": "engine/graphics.js#GFX.hbars",
+    "usage": "GFX.hbars(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-008",
+    "name": "Graphic: map",
+    "score": 4.5,
+    "path": "engine/graphics.js#GFX.map",
+    "usage": "GFX.map(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-009",
+    "name": "Graphic: pin",
+    "score": 4.5,
+    "path": "engine/graphics.js#GFX.pin",
+    "usage": "GFX.pin(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   }
+  ],
+  "maps_data": [
+   {
+    "id": "GEO-001",
+    "name": "ne_110m_admin_0_countries.geojson",
+    "score": 4.5,
+    "path": "acquired/geo/naturalearth/ne_110m_admin_0_countries.geojson",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": false
+   },
+   {
+    "id": "GEO-002",
+    "name": "ne_50m_admin_0_countries.geojson",
+    "score": 4.5,
+    "path": "acquired/geo/naturalearth/ne_50m_admin_0_countries.geojson",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": false
+   },
+   {
+    "id": "GEO-003",
+    "name": "ne_50m_admin_1_states_provinces.geojson",
+    "score": 4.5,
+    "path": "acquired/geo/naturalearth/ne_50m_admin_1_states_provinces.geojson",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": false
+   }
+  ],
+  "camera": [],
+  "transitions": [
+   {
+    "id": "TRN-012",
+    "name": "Transition: lightLeak",
+    "score": 5.0,
+    "path": "engine/core.js#TRANS.lightLeak",
+    "usage": "transition('lightLeak', t, t0, dur, drawA, drawB)",
+    "attribution": false
+   },
+   {
+    "id": "TRN-013",
+    "name": "Transition: newsSwoosh",
+    "score": 4.5,
+    "path": "engine/core.js#TRANS.newsSwoosh",
+    "usage": "transition('newsSwoosh', t, t0, dur, drawA, drawB)",
+    "attribution": false
+   }
+  ],
+  "music": [
+   {
+    "id": "ACM-012",
+    "name": "Mining_by_Moonlight.mp3",
+    "score": 6.5,
+    "path": "acquired/audio/music_ccby/Mining_by_Moonlight.mp3",
+    "usage": "Music bed. Credit in description: \"Mining by Moonlight Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0\"",
+    "attribution": true
+   },
+   {
+    "id": "MUS-002",
+    "name": "Music: news bed 120bpm",
+    "score": 4.5,
+    "path": "assets/audio/music/news_bed_120bpm.wav",
+    "usage": "from audio import *; M.add(news_bed_120bpm(), at, gain)  (or the WAV file)",
+    "attribution": false
+   }
+  ],
+  "sfx": [
+   {
+    "id": "SFX-010",
+    "name": "Sfx: impact boom",
+    "score": 5.0,
+    "path": "assets/audio/sfx/impact_boom.wav",
+    "usage": "from audio import *; M.add(impact_boom(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "AMB-004",
+    "name": "Ambience: park birds",
+    "score": 5.0,
+    "path": "assets/audio/ambience/park_birds.wav",
+    "usage": "from audio import *; M.add(park_birds(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-002",
+    "name": "Sfx: swoosh news",
+    "score": 4.5,
+    "path": "assets/audio/sfx/swoosh_news.wav",
+    "usage": "from audio import *; M.add(swoosh_news(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-021",
+    "name": "Sfx: ticker blip",
+    "score": 4.5,
+    "path": "assets/audio/sfx/ticker_blip.wav",
+    "usage": "from audio import *; M.add(ticker_blip(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-030",
+    "name": "Sfx: news sting",
+    "score": 4.5,
+    "path": "assets/audio/sfx/news_sting.wav",
+    "usage": "from audio import *; M.add(news_sting(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "AMB-006",
+    "name": "Ambience: newsroom",
+    "score": 4.5,
+    "path": "assets/audio/ambience/newsroom.wav",
+    "usage": "from audio import *; M.add(newsroom(), at, gain)  (or the WAV file)",
+    "attribution": false
+   }
+  ],
+  "fonts": [
+   {
+    "id": "FNT-002",
+    "name": "Oswald[wght].ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/oswald/Oswald[wght].ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   },
+   {
+    "id": "FNT-003",
+    "name": "BebasNeue-Regular.ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/bebasneue/BebasNeue-Regular.ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   }
+  ]
+ },
+ "licence_notes": [
+  "3DS-001 Realistic 3D downtown Calgary (OpenStreetMap buildings, river, parks, LRT, Plus 15 footbridges): Code original; map data ODbL (credit \"\u00a9 OpenStreetMap contributors\")",
+  "ACM-012 Mining_by_Moonlight.mp3: CC BY 4.0 - credit \"Kevin MacLeod (incompetech.com)\""
+ ]
+}
