@@ -154,3 +154,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T08:52:16Z | topic claimed | #23 FACT Indian gaming market kitna bada? (FICCI-EY numbers) (slug gaming-market)
 2026-11-18T09:01:04Z | check round 1 | PROBLEMS: n05 'asli video games' implies money games aren't real games -> 'video games mein'. All numbers verified (EY report page, AnimationXpress ?p=1636098 + ?p=1636107, Tribune India/UNFPA). Optional applied: n01 '2026 wali report', n07 'video games badh rahe hain', cites tightened
 2026-11-18T09:02:54Z | check verdict | APPROVED round 2 (fresh independent agent read EY report page, AnimationXpress ?p=1636098 + ?p=1636107, Tribune India/UNFPA; all claims + arithmetic verified); optional notes applied: n07 'paise wale games', n06 'ki kamaai ... thi', n02 chip 'UN 2025 aabadi se hisaab'
+2026-11-18T09:03:47Z | voice done | 9/9 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 = round-2 approved wording + optional notes; 47.5 s voiced)
