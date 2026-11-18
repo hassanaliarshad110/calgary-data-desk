@@ -150,3 +150,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T07:07:30Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 = round-2 approved wording)
 2026-11-18T07:07:30Z | rendered | short1_fs.mp4 1080x1920 45.6 s, -14.2 LUFS, score under voice rms 0.025 vs 0.0406 alone (~62%), all scenes native portrait; contact sheet: picture fills all 5 frames
 2026-11-18T07:08:28Z | scheduled | Metricool uuid -1913240597984229066 at 2026-11-19 06:30 IST (7:00 PM Regina, 18 Nov); topic 22 posted; files in gta_blitz/heli-price/; media on awazzz-media gta_blitz/heli-price.mp4 + _thumb.jpg. Slot: 2 h after the 04:30 IST post. No report this run (next at 24th)
+2026-11-18T08:52:05Z | started | run 23 (scheduled)
