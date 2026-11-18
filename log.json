@@ -2021,26 +2021,26 @@
   ],
   "link": "https://calgaryinsight.ca/visit/river/?utm_source=facebook&utm_medium=social&utm_campaign=coyotes-all-over",
   "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/visit_pages.py builds visit/river/ from web/visit_content.py slug 'river', which lists Fish Creek, Nose Hill and Edworthy parks).",
-  "length_s": 21.25,
+  "length_s": 21.63,
   "video_path": "studio-videos/2026-11-17-PM/coyotes-all-over.mp4",
   "thumbnail_path": "studio-videos/2026-11-17-PM/coyotes-all-over-thumb.jpg",
   "package": "packages/2026-11-17-PM-coyotes-all-over.md",
   "production": "production/2026-11-17-PM/",
   "identity": "Data Explainer lead (kinetic hook, stamps, counter, chips) + Storyteller night map dive/orbit over real Calgary + Civic Analyst step cards",
   "audit": {
-   "rounds": 3,
-   "claims_checked": 8,
-   "verdict": "APPROVED in rounds 1 and 2 (round-2 script used); round 3 (closing-line variant) NOT APPROVED: auditor asked 'In short bursts' -> 'Over short distances' (C4); variant not used",
+   "rounds": 4,
+   "claims_checked": 9,
+   "verdict": "APPROVED (round 4: line 3 changed to the round-3 auditor's fix 'Over short distances…' on Hassan's request; rounds 1-2 approved earlier wording, round 3 variant not approved)",
    "report": "audits/2026-11-17-PM.md"
   },
   "narration": {
-   "lane": "studio-probe v2, 2 runs",
+   "lane": "studio-probe v2, run 3",
    "asr_mean_acc": 0.982,
    "lines": 6,
    "check_lines": [
     5
    ],
-   "note": "L5 'seen' heard as 'scene' (homophone); closing line atempo 1.10 (same words) for a 3.99 s ending"
+   "note": "L5 'seen' heard as 'scene' (homophone, audio correct); closing line atempo 1.10 (same words) so the ending is 3.99 s"
   },
   "qc": {
    "stills": "pass (after layout fixes)",
@@ -2061,10 +2061,29 @@
    ],
    "notes": [
     "S1 chips moved above captions; S4 coyote moved below cards",
-    "-14.4 LUFS; ending 3.99 s; 8.3 MB"
+    "-14.4 LUFS; ending 3.99 s; 8.3 MB",
+    "re-rendered with corrected line 3; -14.5 LUFS; 21.6 s; 8.4 MB"
    ]
   },
-  "status": "made-not-posted",
-  "post_error": "Metricool createScheduledPost (18:30, IG Reel + FB Reel + YT Short) was refused by the run's permission check before it reached Metricool; not retried."
+  "status": "done",
+  "history": "First attempt (scheduled run) was refused by the run's permission check because the round-3 audit flag on line 3 was unresolved; Hassan asked to fix it; line 3 corrected, round 4 APPROVED, re-voiced, re-rendered and posted.",
+  "posted": [
+   {
+    "metricool_id": 432196728,
+    "uuid": "4025456365825838967",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4025456365825838967",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-17T18:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "media_commit": "studio-videos 559e3da"
+   }
+  ]
  }
 ]

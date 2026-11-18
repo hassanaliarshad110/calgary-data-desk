@@ -9,7 +9,7 @@ const S = M.script([
   { text: "Calgary's top predator lives right here in the city.", dur: DUR[0] },
   { text: "It's the coyote, and the City says they're found all over Calgary.", dur: DUR[1] },
   { text: 'They help keep rodents in check.', dur: DUR[2] },
-  { text: 'In short bursts, they can run up to sixty-four kilometres an hour.', dur: DUR[3] },
+  { text: 'Over short distances, they can run up to sixty-four kilometres an hour.', dur: DUR[3] },
   { text: "If one approaches, don't run. Shout, wave your arms and back away slowly.", dur: DUR[4] },
   { text: 'Seen one? Yes or no? Drop your thoughts below.', dur: DUR[5] },
 ], { lead: .25, gap: .22, tail: .21 });   // tail .21: closing line (3.78 s after atempo 1.10) to last frame = 3.99 s (PLAYBOOK 3)

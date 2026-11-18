@@ -23,7 +23,7 @@ Twist on something every Calgarian has seen (number-free hook, best performer pe
 0. Calgary's top predator lives right here in the city.
 1. It's the coyote, and the City says they're found all over Calgary.
 2. They help keep rodents in check.
-3. In short bursts, they can run up to sixty-four kilometres an hour.
+3. Over short distances, they can run up to sixty-four kilometres an hour. (Was "In short bursts…"; changed to the round-3 auditor's exact fix on Hassan's request, re-audited in round 4.)
 4. If one approaches, don't run. Shout, wave your arms and back away slowly.
 5. Seen one? Yes or no? Drop your thoughts below.
 (Round 1 wording was "Seen one near your home? Yes or no? Drop your thoughts below."; shortened after the first voice take ran 4.7 s, which made the ending longer than the 4 s house limit. Re-audited in round 2.)
@@ -113,7 +113,7 @@ Filled in after the stills and the final contact sheet (see section 12).
 | C1 | "Calgary's top predator lives right here in the city." / "It's the coyote" / on screen "TOP PREDATOR", "COYOTE" | Coyotes are the top predator in Calgary's wildlife (City of Calgary) | fact | https://www.calgary.ca/parks/wildlife/urban-coyotes.html | "Coyotes are the top predator in Calgary's wildlife." |
 | C2 | "the City says they're found all over Calgary" / "FOUND ALL OVER CALGARY" (caption: "found all over Calgary") | City of Calgary | fact | same | "They can be found all over our city, as they adapt well to both park environments and urban areas." |
 | C3 | "They help keep rodents in check." / "KEEPS RODENTS IN CHECK" | — | fact | same | "Urban coyotes help control populations of other wildlife (especially rodents)…" |
-| C4 | "In short bursts, they can run up to sixty-four kilometres an hour." / "64 km/h", "SHORT DISTANCES" | up to 64 km/h, short distances | fact | same | Coyote facts: "Coyotes have a distinctive quick gait, and can run up to 64 km/h for short distances" |
+| C4 | "Over short distances, they can run up to sixty-four kilometres an hour." / "64 km/h", "SHORT DISTANCES" | up to 64 km/h, short distances | fact | same | Coyote facts: "Coyotes have a distinctive quick gait, and can run up to 64 km/h for short distances" |
 | C5 | "If one approaches, don't run. Shout, wave your arms and back away slowly." / step cards | City advice if a coyote seems aggressive or approaches you | fact (official advice) | same | Section on conflict "or if a coyote seems aggressive or approaches you": "Do NOT run or turn away." "Scare the coyote by shouting and waving your arms overhead." "Maintain eye contact and back away slowly." |
 | C6 | (visual only) coyote drawn with reddish-brown fur, bushy black-tipped tail, yellow eyes | — | fact (appearance) | same | Coyote facts: "Fur is brown with reddish tinges", "Has a bushy tail with distinctive black tip", "Yellow eyes help them see well in low light" |
 | C7 | (map scenes) Calgary boundary, rivers, parks, communities | geometry | fact (map data) | motion/geo/calgary_base.json (OpenStreetMap + City of Calgary Open Data), credited on screen | — |
@@ -137,4 +137,4 @@ Questions (not facts): opening "Calgary's top predator?" (on screen, answered by
 | 10 | Sound | 2 | -14.4 LUFS, voice on top, cues tied to events |
 | 11 | Ending ≤ 4 s, no end card | 2 | 3.99 s |
 | 12 | Never list | 2 | |
-- Posting: the Metricool post (18:30, Instagram Reel + Facebook Reel + YouTube Short) was refused by this run's permission check, so the video was NOT posted (status made-not-posted).
+- Posting: the first attempt was refused by the run's permission check (round-3 flag on line 3 unresolved). On Hassan's request line 3 was changed to "Over short distances…", re-audited (round 4 APPROVED), re-voiced and re-rendered (21.6 s, -14.5 LUFS, ending 3.99 s), then scheduled: Metricool 432196728 at 18:30 to Instagram Reel, Facebook Reel and YouTube Short.
