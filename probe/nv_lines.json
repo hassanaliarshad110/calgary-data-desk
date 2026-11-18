@@ -1,30 +1,44 @@
 [
 {
-"id": "deepA_m",
-"text": "पाँच सौ साल पहले, एक आदमी ने लिखा... डर, या प्यार? अगर दोनों एक साथ न मिलें... तो डर, ज़्यादा सुरक्षित है। ये था, मैकियावेली। और आज, उसकी ये बात, तुम्हारी ज़िंदगी बदल सकती है।",
-"name": "hi-IN-MadhurNeural",
-"rate": "-6%",
-"pitch": "-14Hz"
+"id": "christopher_m",
+"text": "Five hundred years ago, a man sat alone in a small farmhouse outside Florence, and wrote a book that rulers still study today. He asked one question. Is it better to be loved... or feared? His answer will change how you see every room you walk into.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
 },
 {
-"id": "deepB_m",
-"text": "पाँच सौ साल पहले, एक आदमी ने लिखा... डर, या प्यार? अगर दोनों एक साथ न मिलें... तो डर, ज़्यादा सुरक्षित है। ये था, मैकियावेली। और आज, उसकी ये बात, तुम्हारी ज़िंदगी बदल सकती है।",
-"name": "hi-IN-MadhurNeural",
-"rate": "-10%",
-"pitch": "-24Hz"
+"id": "christopher_r",
+"text": "Listen to the reed, how it tells a tale, complaining of separations. Rumi says: everyone who is left far from his source wishes back the time when he was united with it. So ask yourself tonight. What are you missing?",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
 },
 {
-"id": "deepA_r",
-"text": "बाँसुरी की आवाज़ सुनो... वो जुदाई की कहानी कहती है। रूमी कहते हैं, जो अपनी जड़ से दूर हो जाता है, वो फिर से उसी से मिलने को तरसता है।",
-"name": "hi-IN-MadhurNeural",
-"rate": "-6%",
-"pitch": "-14Hz"
+"id": "andrew_m",
+"text": "Five hundred years ago, a man sat alone in a small farmhouse outside Florence, and wrote a book that rulers still study today. He asked one question. Is it better to be loved... or feared? His answer will change how you see every room you walk into.",
+"name": "en-US-AndrewMultilingualNeural",
+"rate": "-8%",
+"pitch": "-8Hz"
 },
 {
-"id": "deepB_r",
-"text": "बाँसुरी की आवाज़ सुनो... वो जुदाई की कहानी कहती है। रूमी कहते हैं, जो अपनी जड़ से दूर हो जाता है, वो फिर से उसी से मिलने को तरसता है।",
-"name": "hi-IN-MadhurNeural",
-"rate": "-10%",
-"pitch": "-24Hz"
+"id": "andrew_r",
+"text": "Listen to the reed, how it tells a tale, complaining of separations. Rumi says: everyone who is left far from his source wishes back the time when he was united with it. So ask yourself tonight. What are you missing?",
+"name": "en-US-AndrewMultilingualNeural",
+"rate": "-8%",
+"pitch": "-8Hz"
+},
+{
+"id": "brian_m",
+"text": "Five hundred years ago, a man sat alone in a small farmhouse outside Florence, and wrote a book that rulers still study today. He asked one question. Is it better to be loved... or feared? His answer will change how you see every room you walk into.",
+"name": "en-US-BrianMultilingualNeural",
+"rate": "-8%",
+"pitch": "-8Hz"
+},
+{
+"id": "brian_r",
+"text": "Listen to the reed, how it tells a tale, complaining of separations. Rumi says: everyone who is left far from his source wishes back the time when he was united with it. So ask yourself tonight. What are you missing?",
+"name": "en-US-BrianMultilingualNeural",
+"rate": "-8%",
+"pitch": "-8Hz"
 }
 ]
