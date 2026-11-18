@@ -56,4 +56,4 @@ jobs:
           U=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.txt | head -1)
           echo "Connector address: $U/mcp"
           echo "### Connector address: $U/mcp" >> "$GITHUB_STEP_SUMMARY"
-          curl -s -X POST "$U/mcp" -H 'Content-Type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const j=JSON.parse(s);console.log('Live check:',j.result.tools.length,'tools')})"
+          node livecheck.mjs "$U/mcp" calgary_overview
