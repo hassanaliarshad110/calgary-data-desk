@@ -247,7 +247,9 @@
    "id": 23,
    "type": "FACT",
    "idea": "Indian gaming market kitna bada? (FICCI-EY numbers)",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-18T08:56Z",
+   "slug": "gaming-market"
   },
   {
    "id": 24,
