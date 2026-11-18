@@ -130,3 +130,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T01:05:31Z | rendered | short1_fs.mp4 1080x1920 53.2 s, -14.3 LUFS, score under voice rms 0.0245 vs 0.0434 alone (~56%), all scenes native portrait; contact sheet: picture fills all 5 frames; counters replaced by static pops (no wrong in-between values on screen)
 2026-11-18T01:06:51Z | scheduled | Metricool uuid 2943692866003816394 at 2026-11-19 00:30 IST (1:00 PM Regina, 18 Nov); topic 19 posted; files in gta_blitz/dhruva-studio/; media on awazzz-media gta_blitz/dhruva-studio.mp4 + _thumb.jpg. Slot: 2 h after the 22:30 IST post (lands at GTA 6 India unlock midnight). No report this run (last sent at 18th; next at 24th)
 2026-11-18T02:52:40Z | started | run 20 (scheduled)
+2026-11-18T02:52:42Z | topic claimed | #20 FACT GTA V ne kitni copies bechi - India ki aabadi se tulna (slug gtav-copies)
