@@ -1,10 +1,27 @@
 {
- "v": [
-  "Calgary's top predator lives right here in the city.",
-  "It's the coyote, and the City says they're found all over Calgary.",
-  "They help keep rodents in check.",
-  "Over short distances, they can run up to sixty-four kilometres an hour.",
-  "If one approaches, don't run. Shout, wave your arms and back away slowly.",
-  "Seen one? Yes or no? Drop your thoughts below."
- ]
+ "fenrir": [
+  "Five hundred years ago, a man sat alone in a small farmhouse outside Florence, and wrote a book that rulers still study today. He asked one question. Is it better to be loved... or feared? His answer will change how you see every room you walk into.",
+  "Listen to the reed, how it tells a tale, complaining of separations. Rumi says: everyone who is left far from his source wishes back the time when he was united with it. So ask yourself tonight. What are you missing?"
+ ],
+ "george": [
+  "Five hundred years ago, a man sat alone in a small farmhouse outside Florence, and wrote a book that rulers still study today. He asked one question. Is it better to be loved... or feared? His answer will change how you see every room you walk into.",
+  "Listen to the reed, how it tells a tale, complaining of separations. Rumi says: everyone who is left far from his source wishes back the time when he was united with it. So ask yourself tonight. What are you missing?"
+ ],
+ "onyx": [
+  "Five hundred years ago, a man sat alone in a small farmhouse outside Florence, and wrote a book that rulers still study today. He asked one question. Is it better to be loved... or feared? His answer will change how you see every room you walk into.",
+  "Listen to the reed, how it tells a tale, complaining of separations. Rumi says: everyone who is left far from his source wishes back the time when he was united with it. So ask yourself tonight. What are you missing?"
+ ],
+ "_cfg": {
+  "voice": {
+   "fenrir": "am_fenrir",
+   "george": "bm_george",
+   "onyx": "am_onyx"
+  },
+  "speed": {
+   "fenrir": 0.9,
+   "george": 0.9,
+   "onyx": 0.9
+  },
+  "asr": false
+ }
 }
