@@ -69,6 +69,13 @@ jobs:
           CDD_GOOGLE_VERIFY: ${{ vars.GOOGLE_SITE_VERIFICATION }}  # Google Search Console's verification tag (or its code)
         run: python web/build_site.py _site --cache .site-cache --pyodide pyodide
 
+      # the answers the connector (connector/, for AI apps) reads: Data Genie's own tools run once for every section and
+      # ward into _site/data/mcp/. Separate from the build above, so it can never stop the website from publishing.
+      - name: Answers for the connector (AI apps)
+        continue-on-error: true
+        timeout-minutes: 20
+        run: python web/mcp_answers.py _site
+
       - uses: actions/cache/save@v4
         if: always()
         with:
