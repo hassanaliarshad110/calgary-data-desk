@@ -185,3 +185,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T17:13:48Z | rendered | short1_fs.mp4 1080x1920 49.2 s, -14.5 LUFS, score under voice rms 0.0247 vs 0.0443 alone (~56%), all scenes native portrait; contact sheet: picture fills all 5 frames, KALPANA chip every frame; pupils = abstract pawns, target = wooden toy bird
 2026-11-18T17:14:52Z | scheduled | Metricool uuid -3121081438855083120 at 2026-11-18 23:30 IST (12:00 PM Regina, 18 Nov); topic 27 posted; files in gta_blitz/arjun-archery/; media on awazzz-media gta_blitz/arjun-archery.mp4 + _thumb.jpg. Slot: 60 min after 22:30 IST, 60 min before 00:30 IST. Remaining odd-hour slots before the cut-off: 01:30, 03:30, 05:30, 07:30, 09:30 IST. No report this run (27th; next at 31st or the last run)
 2026-11-18T18:54:20Z | started | run 28 (scheduled)
+2026-11-18T18:54:34Z | topic claimed | #28 FACT GTA Online paisa vs asli paisa: Shark Card ki keemat rupaye mein (slug shark-card)
