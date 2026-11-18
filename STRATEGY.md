@@ -48,4 +48,4 @@ List what is on screen each second for the first 15 s of the final file: danger 
 3. After 48 h, check each new episode's Reach (impressions) and Engagement (average view duration). Goal: average % viewed ≥ 45%.
 
 ## Log
-- Nov 18, 2026: Ep 8 re-cut before release: the first 19.3 s (narrator recap + car setup) cut, so it opens on the cow in the traffic jam (1:40). New danger-first title and chapters. File: susuman-media/ep8/susuman_ep8_16x9_coldopen.mp4.
+- Nov 18, 2026: Hassan chose to release Ep 8 unchanged (original opening). The new rules apply from Ep 9 (Fri Nov 20). A cold-open cut of Ep 8 exists at susuman-media/ep8/susuman_ep8_16x9_coldopen.mp4 (opens on the traffic jam), for compilations only.
