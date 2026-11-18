@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "card",
+"start": 0,
+"dur": 6.299,
+"lines": [
+"n01"
+]
+},
+{
+"id": "mega",
+"start": 6.299,
+"dur": 9.633,
+"lines": [
+"n02"
+]
+},
+{
+"id": "rate",
+"start": 15.932,
+"dur": 3.316,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 19.248,
+"dur": 10.389,
+"lines": [
+"n04"
+]
+},
+{
+"id": "jet",
+"start": 29.637,
+"dur": 9.521,
+"lines": [
+"n05"
+]
+},
+{
+"id": "payoff",
+"start": 39.158,
+"dur": 4.964,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 5.999,
+"spk": "N",
+"roman": "GTA 5 ke GTA Online mein asli paise se game ka paisa khareeda jaata hai: Shark Card."
+},
+"n02": {
+"start": 6.379,
+"dur": 9.303,
+"spk": "N",
+"roman": "Sabse bada, Megalodon Shark Card: 1 crore GTA dollar. PlayStation Store India par poori keemat: ₹5,799."
+},
+"n03": {
+"start": 16.012,
+"dur": 3.036,
+"spk": "N",
+"roman": "Yaani 1 rupaye mein kareeb 1,700 GTA dollar!"
+},
+"n04": {
+"start": 19.368,
+"dur": 10.019,
+"spk": "N",
+"roman": "Twist: ye card lagbhag GTA 6 jitna mehnga hai! GTA 6 ka Standard Edition: ₹5,999. Farq sirf ₹200!"
+},
+"n05": {
+"start": 29.717,
+"dur": 9.191,
+"spk": "N",
+"roman": "Aur GTA Online ki sabse mehngi sawaari, Luxor Deluxe jet: poore 1 crore GTA dollar! Yaani poora card, ek hi jet mein khatam."
+},
+"n06": {
+"start": 39.238,
+"dur": 4.584,
+"spk": "N",
+"roman": "Toh game mein crorepati banna aasaan hai... bas asli jeb dheeli karni padti hai!"
+}
+},
+"total": 44.122
+}
