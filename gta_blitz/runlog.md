@@ -124,3 +124,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T23:10:09Z | scheduled | Metricool uuid 2544609233924082169 at 2026-11-18 22:30 IST (11:00 AM Regina, 18 Nov); topic 18 posted; files in gta_blitz/vicecity-mumbai/; media on awazzz-media gta_blitz/vicecity-mumbai.mp4 + _thumb.jpg. Slot: 2 h after the 20:30 IST post. Report sent (18th Short). Note: #12 (01:30 IST) still shows ERROR in Metricool (thumbnail warning only; video published)
 2026-11-18T00:53Z | started
 2026-11-18T00:54:02Z | topic claimed | #19 FACT Dhruva Interactive: Bharat ka pehla game studio ki kahani (slug dhruva-studio)
+2026-11-18T00:57:49Z | check round 1 | PROBLEMS: n02 chronology (loan+modem were 1995 one-person company, not 1997) -> 'Asli shuruaat 1995 mein: ...'. h1o/n01/n03-n06/h1e verified (checker read Wikipedia, PocketGamer.biz, 80.lv, PC Gamer, MobyGeek)
