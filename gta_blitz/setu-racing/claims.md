@@ -1,0 +1,13 @@
+# Claims table — GTA blitz #21: Agar Ramayan ka Lanka setu ek racing level hota? (FAN-THEORY / kalpana)
+
+Framing: "KALPANA / FAN THEORY" chip on screen in every frame; spoken hook "Socho agar, Ramayan ka setu ek racing level hota!"; n01 says it is only imagination. The game, the "level", "Setu Sprint", "stages", "engineer", the race, the rule in n06 and the comment question are imagined. No deity or epic character is drawn or playable (the player is a generic car/boat token; the vanar team is shown only as abstract glowing rock-carrying tokens/paw-print chips, never comic); no combat; no religious or political claim (we do NOT say whether the real shoal chain is or isn't the epic's bridge, natural or man-made — we only give its names, place, length and depth). Only the real details below are stated as fact. No game footage/logos/characters; no outline map of India (place pins only).
+
+| # | Real detail (line) | Source URL (read this run) |
+|---|---|---|
+| 1 | In Valmiki Ramayana (Yuddha Kanda, sarga 22) the bridge was built by Nala, son of Vishvakarma (n01, n02) | https://www.valmikiramayan.net/utf8/yuddha/sarga22/yuddharoman22.htm (v.44 "This one, named Nala, a glorious person, is the son of Vishvakarma") |
+| 2 | It was built in five days: 14, 20, 21, 22 and 23 yojanas on days 1-5 (n03) | same page, v.66-70 ("On the first day, fourteen Yojanas…", "second day twenty Yojanas…", "third day twenty-one…", "twenty-two Yojanas…", "twenty-three yojanas of the bridge up to the other seashore") |
+| 3 | Total 100 yojanas (n04) | same page, v.74 ("a width of ten yojanas and a length of hundred yojanas") |
+| 4 | Built by huge numbers of vanaras (monkeys) together, bringing rocks and trees (n04, "hazaaron" is an understatement of the text's numbers) | same page, v.52 "hundreds and thousands of monkey heroes", v.53 "broke the rocks and trees there and dragged them away towards the sea", v.61 "built … with the cooperation of other monkeys" |
+| 5 | Today a 48 km chain of shoals/rocks runs from Pamban (Rameswaram) Island, Tamil Nadu, to Mannar Island, Sri Lanka (n05) | https://en.wikipedia.org/wiki/Adam%27s_Bridge ("The feature is 48 km (30 mi) long"; "a chain of natural limestone shoals, between Pamban Island, also known as Rameswaram Island … and Mannar Island, off the northwestern coast of Sri Lanka") |
+| 6 | It is called Ram Setu (Rama Setu) or Adam's Bridge (n05) | Wikipedia (above): "also known as Rama Setu"; "also spelled Ram Sethu, Ramasethu" |
+| 7 | The water there is typically only 1-3 m deep (n05) | Wikipedia (above): "In the vicinity of Adam's Bridge, the water is typically only 1–3 m … deep"; "the sea in the area rarely exceeds 1 metre (3 ft) in depth" |
