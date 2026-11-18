@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "heli",
+"start": 0,
+"dur": 5.613,
+"lines": [
+"n01"
+]
+},
+{
+"id": "price",
+"start": 5.613,
+"dur": 8.911,
+"lines": [
+"n02"
+]
+},
+{
+"id": "rupee",
+"start": 14.524,
+"dur": 6.908,
+"lines": [
+"n03"
+]
+},
+{
+"id": "alto",
+"start": 21.432,
+"dur": 5.58,
+"lines": [
+"n04"
+]
+},
+{
+"id": "twist",
+"start": 27.012,
+"dur": 4.835,
+"lines": [
+"n05"
+]
+},
+{
+"id": "payoff",
+"start": 31.847,
+"dur": 4.062,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 5.313,
+"spk": "N",
+"roman": "Ek naya, 4 seat wala chhota helicopter lo: Robinson R44 Raven II."
+},
+"n02": {
+"start": 5.693,
+"dur": 8.631,
+"spk": "N",
+"roman": "America ke ek authorized Robinson dealer ke mutabik, 1 January 2026 se iski base keemat hai 6,46,000 dollar."
+},
+"n03": {
+"start": 14.604,
+"dur": 6.628,
+"spk": "N",
+"roman": "Rupaye mein? Kareeb 6 crore! Aur ye sirf America ki base keemat hai, options jodo toh aur zyada."
+},
+"n04": {
+"start": 21.512,
+"dur": 5.3,
+"spk": "N",
+"roman": "Itne mein 160 se zyada Alto K10 aa jaayen, Delhi ki ex-showroom keemat par!"
+},
+"n05": {
+"start": 27.132,
+"dur": 4.515,
+"spk": "N",
+"roman": "Twist: isi paise mein GTA 6 ki 10 hazaar se zyada copies aa jaayen!"
+},
+"n06": {
+"start": 31.927,
+"dur": 3.682,
+"spk": "N",
+"roman": "Matlab helicopter wala shauq, game mein hi sabse sasta hai!"
+}
+},
+"total": 35.90899999999999
+}

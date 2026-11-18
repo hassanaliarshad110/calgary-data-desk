@@ -1,0 +1,18 @@
+# Claims table — GTA blitz #22: GTA wala helicopter asli mein kitne ka? (FACT)
+
+| # | Claim (line) | Source URL(s) |
+|---|---|---|
+| 1 | Hook (h1o): "GTA jaisa helicopter asli mein khareedo, toh kitne ka padega?" — question only, no gameplay claim | — |
+| 2 | Robinson R44 Raven II is a new 4-seat small helicopter (n01) | https://www.fairlifts.com/helicopters/guide-to-2026-helicopter-prices/ (table "Robinson R44 Raven II ... 4" seats; "light helicopter"); https://www.aircraft.com/aircraft/258527649/2027-robinson-r44-raven-ii (new, authorized Robinson dealer Apex Helicopters) |
+| 3 | Per a US authorized Robinson dealer, base price from 1 Jan 2026 = US$646,000 (n02) | https://www.aircraft.com/aircraft/258527649/2027-robinson-r44-raven-ii ("Base MSRP: $646,000, effective January 1, 2026."; seller Apex Helicopters, authorized Robinson dealer) |
+| 4 | In rupees ~6 crore: 646,000 x 93.70 = ₹6.05 crore (rupee closed at 93.70/US$ on 11 Nov 2026) (n03) | https://telanganatoday.com/rupee-rises-to-93-70-against-us-dollar-as-domestic-markets-strengthen ("The rupee gained 7 paise to close at 93.70 (provisional) against the US dollar", 11 Nov 2026) |
+| 5 | That is only the US base price ("sirf America ki base keemat"); with options it costs more (n03) | aircraft.com listing above ("Final pricing will depend on factory pricing in effect at the time of purchase and selected options."); a factory-new 2026 R44 Raven II listed at "USD 708,870": https://sprinkle.com/aircraft/for-sale/2026-robinson-r44-raven-ii-las-vegas-nv-united-states-25642.md |
+| 6 | ₹6.05 crore buys 160+ Maruti Alto K10 at the Delhi ex-showroom starting price ₹3.70 lakh (6.053 cr / 3.70 L = 163.6) (n04) | https://www.autocarindia.com/car-news/maruti-suzuki-prices-after-gst-cuts-the-swift-gets-a-lakh-cheaper-437189 (Alto K10 STD new price 3.70 lakh, "All prices are ex-showroom, Delhi", from 22 Sep 2025); https://www.autocarindia.com/cars/maruti-suzuki/alto-k10/price-in-delhi (1.0 Petrol Std (O) MT ₹3,69,900 ex-showroom Delhi, last updated 30 Oct 2026 -> still current); https://www.cardekho.com/india-car-news/not-maruti-alto-k10-maruti-spresso-is-the-most-affordable-car-in-india-after-gst-rate-cut-35090.htm (Alto K10 Std (O) Rs 3.70 lakh) |
+| 7 | Twist: same money buys 10,000+ copies of GTA 6 at the India Standard Edition price ₹5,999 (6.053 cr / 5,999 = 10,090) (n05) | https://www.businesstoday.in/latest/trends/photo/gta-6-arrives-at-midnight-on-19-november-india-price-preload-and-editions-565630-2026-11-04 ("PlayStation India lists the Standard Edition at ₹5,999"); https://www.digit.in/news/gaming/gta-6-pre-orders-now-live-india-price-benefits-and-other-details.html ; https://www.mysmartprice.com/gear/gaming/gaming-news/gta-6-pre-orders-go-live-in-india-standard-edition-costs-rs-5999-ultimate-edition-priced-at-rs-7499/ |
+| 8 | Payoff (n06): "helicopter wala shauq, game mein hi sabse sasta hai" — opinion/joke derived from 3-7 | — |
+| 9 | Comment question (h1e): "Tum kya loge: ek helicopter ya 160 Alto?" | question only |
+
+Not claimed: Indian import duty/GST on helicopters, Indian dealer prices, running/pilot-licence costs, any GTA gameplay mechanics.
+On screen: "ROBINSON R44 RAVEN II · 4 SEAT", "$646,000 BASE (1 JAN 2026)", "x ₹93.70 = ~₹6.05 CRORE", "OPTIONS = AUR ZYADA", "÷ ₹3.70 LAKH = 163 ALTO K10", "÷ ₹5,999 = 10,090 COPIES", source chips. Generic own-design helicopter (no Robinson logo/livery), generic small hatchback cars (no Maruti logo), generic game boxes "GTA 6" in Oswald.
+
+Check: round 1 PROBLEMS (h1o 'GTA wala' -> 'GTA jaisa'); round 2 APPROVED. Fairlifts cited only for 4 seats/light helicopter (its $375-400k figure is outdated, not used). Rate chip dated 11 NOV.

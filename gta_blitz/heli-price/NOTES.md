@@ -1,0 +1,7 @@
+# GTA blitz #22 — heli-price (FACT): "GTA mein helicopter chori vs asli helicopter ki keemat India mein"
+- Angle: GTA-like helicopter bought for real. Robinson R44 Raven II base MSRP $646,000 (eff. 1 Jan 2026, Apex Helicopters, authorized Robinson dealer, aircraft.com) x ₹93.70 (PTI close 11 Nov 2026) = ₹6.05 cr -> 163 Alto K10 (₹3.70 L ex-showroom Delhi) -> twist 10,090 GTA 6 copies (₹5,999). Robinson's own site gives no aircraft prices; Fairlifts' $375-400k figure is outdated (used only for 4 seats).
+- Check: round 1 PROBLEMS (hook 'GTA wala helicopter' implied the R44 is the in-game helicopter -> 'GTA jaisa'); round 2 APPROVED. n03 says 'sirf America ki base keemat'. No Indian import duty/GST claims (no source).
+- Voice v2 (106 words, 42.4 s trimmed). Final 45.6 s, -14.2 LUFS, score ~62% under voice.
+- Build: work dir = these files + episodes/ep4 scenes.js/prep_audio.py/score_mix.py/index.html over budget-probe mp3s (/home/claude/nvout); `python3 /home/claude/kit/shorts.py 1`; `python3 thumb.py`; `python3 peek.py <scene>:<frac>`. scenes_v.js = gtav-copies helpers (lines 5-256) + new #22 drawings.
+- Studio assets (select_assets.py): PRP-030 car (carV), PRP-051 bill (billV), PRP-053 moneyStack, PRP-052 coins, VFX-011 impactStar, VFX-019 question. Own drawings: generic helicopter (no livery), price tag, helipad, seat icons, game boxes "GTA 6" in Oswald.
+- Metricool uuid -1913240597984229066, 19 Nov 2026 06:30 IST (7:00 PM Regina, 18 Nov). Slot: 2 h after the 04:30 IST post.
