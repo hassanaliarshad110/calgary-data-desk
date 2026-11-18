@@ -1812,7 +1812,8 @@
     ],
     "file": "ranch-era-film.mp4",
     "publish_at": "2026-11-18T09:30",
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "publicUrl": "https://www.youtube.com/watch?v=a8albnvDFMg"
    }
   ],
   "pending_link": [
@@ -1850,7 +1851,21 @@
     "first_comment_instagram": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=instagram&utm_medium=social&utm_campaign=origins-ranch-era-part1",
     "post_at": "2026-11-18T10:00",
     "link_to": 432179277,
-    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url."
+    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url.",
+    "scheduled": true,
+    "metricool_ids": {
+     "instagram_youtube": 433017074,
+     "facebook": 433017119
+    },
+    "plannerUrls": {
+     "instagram_youtube": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-2501301468057415845",
+     "facebook": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7500309408737937331"
+    },
+    "publish_at": "2026-11-18T10:00",
+    "status": "scheduled",
+    "link_used": "https://youtu.be/a8albnvDFMg",
+    "link_placement": "Instagram/YouTube caption '▶ Full film: <link>'; Facebook is a separate post with '▶ Full film on our YouTube channel: Calgary Insight' and the link as line 1 of firstCommentText",
+    "scheduled_by": "link-up task 2026-11-18 09:41 run"
    },
    {
     "part": 2,
@@ -1886,7 +1901,21 @@
     "first_comment_instagram": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=instagram&utm_medium=social&utm_campaign=origins-ranch-era-part2",
     "post_at": "2026-11-19T10:00",
     "link_to": 432179277,
-    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url."
+    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url.",
+    "scheduled": true,
+    "metricool_ids": {
+     "instagram_youtube": 433018011,
+     "facebook": 433018036
+    },
+    "plannerUrls": {
+     "instagram_youtube": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=1961078745412292283",
+     "facebook": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=6146830787105670125"
+    },
+    "publish_at": "2026-11-19T10:00",
+    "status": "scheduled",
+    "link_used": "https://youtu.be/a8albnvDFMg",
+    "link_placement": "Instagram/YouTube caption '▶ Full film: <link>'; Facebook is a separate post with '▶ Full film on our YouTube channel: Calgary Insight' and the link as line 1 of firstCommentText",
+    "scheduled_by": "link-up task 2026-11-18 09:41 run"
    },
    {
     "part": 3,
@@ -1922,7 +1951,21 @@
     "first_comment_instagram": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=instagram&utm_medium=social&utm_campaign=origins-ranch-era-part3",
     "post_at": "2026-11-20T10:00",
     "link_to": 432179277,
-    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url."
+    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url.",
+    "scheduled": true,
+    "metricool_ids": {
+     "instagram_youtube": 433018118,
+     "facebook": 433018154
+    },
+    "plannerUrls": {
+     "instagram_youtube": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=3695906212613212063",
+     "facebook": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4074609118501486771"
+    },
+    "publish_at": "2026-11-20T10:00",
+    "status": "scheduled",
+    "link_used": "https://youtu.be/a8albnvDFMg",
+    "link_placement": "Instagram/YouTube caption '▶ Full film: <link>'; Facebook is a separate post with '▶ Full film on our YouTube channel: Calgary Insight' and the link as line 1 of firstCommentText",
+    "scheduled_by": "link-up task 2026-11-18 09:41 run"
    },
    {
     "part": 4,
@@ -1958,7 +2001,21 @@
     "first_comment_instagram": "🔗 The Stampede those ranchers backed, today: https://calgaryinsight.ca/visit/stampede/?utm_source=instagram&utm_medium=social&utm_campaign=origins-ranch-era-part4",
     "post_at": "2026-11-21T10:00",
     "link_to": 432179277,
-    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url."
+    "note": "Section 7b layout: Instagram/YouTube caption gets '▶ Full film: https://youtu.be/<id>'; Facebook is its own post with '▶ Full film on our YouTube channel: Calgary Insight' and the YouTube link as the first line of firstCommentText, then first_comment. No AI labels (isAiGenerated/isAiGeneratedContent false); videoThumbnailUrl = thumbnail_url.",
+    "scheduled": true,
+    "metricool_ids": {
+     "instagram_youtube": 433018234,
+     "facebook": 433018277
+    },
+    "plannerUrls": {
+     "instagram_youtube": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7755991294476372482",
+     "facebook": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=8448697520296578473"
+    },
+    "publish_at": "2026-11-21T10:00",
+    "status": "scheduled",
+    "link_used": "https://youtu.be/a8albnvDFMg",
+    "link_placement": "Instagram/YouTube caption '▶ Full film: <link>'; Facebook is a separate post with '▶ Full film on our YouTube channel: Calgary Insight' and the link as line 1 of firstCommentText",
+    "scheduled_by": "link-up task 2026-11-18 09:41 run"
    }
   ],
   "resumed": "Blocked at audit round 3 in the scheduled run; Hassan replied 'Re audit nd publish if good to go' (Nov 17): rounds 4-5 run, APPROVED in round 5, then narrated, rendered and scheduled.",
@@ -2004,7 +2061,7 @@
     "-14.5 LUFS film and parts; film 77.8 MB (1100 kbps), parts ~32 MB"
    ]
   },
-  "link_up_note": "2026-11-17 17:41: Origins film 432179277 still PENDING (due 2026-11-18 09:30); parts 1-4 left for the next link-up run."
+  "link_up_note": "2026-11-18 09:41: film 432179277 PUBLISHED (https://youtu.be/a8albnvDFMg); parts 1-4 scheduled (Wed-Sat 10:00), each as an Instagram+YouTube post and a separate Facebook post. YouTube count with Part 1: 8 in any rolling 24 h (limit 8). Step 5 check of Nov 18-19 scheduled posts: nothing to fix."
  },
  {
   "date": "2026-11-17",
