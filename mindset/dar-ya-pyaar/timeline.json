@@ -1,0 +1,154 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 3.913
+},
+{
+"id": "sc2",
+"start": 3.913,
+"lines": [
+"n2"
+],
+"dur": 3.099
+},
+{
+"id": "sc3",
+"start": 7.012,
+"lines": [
+"n3",
+"n4"
+],
+"dur": 8.167
+},
+{
+"id": "sc4",
+"start": 15.179,
+"lines": [
+"q1"
+],
+"dur": 10.956
+},
+{
+"id": "sc5",
+"start": 26.135,
+"lines": [
+"n6"
+],
+"dur": 4.645
+},
+{
+"id": "sc6",
+"start": 30.78,
+"lines": [
+"q2"
+],
+"dur": 5.61
+},
+{
+"id": "sc7",
+"start": 36.39,
+"lines": [
+"n7"
+],
+"dur": 9.688
+},
+{
+"id": "sc8",
+"start": 46.078,
+"lines": [
+"n8"
+],
+"dur": 4.707
+},
+{
+"id": "sc9",
+"start": 50.785,
+"lines": [
+"n9"
+],
+"dur": 4.58
+},
+{
+"id": "sc10",
+"start": 55.365,
+"lines": [
+"n10"
+],
+"dur": 3.481
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 3.753,
+"kind": "N",
+"cap": "Loved... or feared? Which makes you stronger?"
+},
+"n2": {
+"start": 3.973,
+"dur": 2.979,
+"kind": "N",
+"cap": "Machiavelli asked this over 500 years ago."
+},
+"n3": {
+"start": 7.072,
+"dur": 5.064,
+"kind": "N",
+"cap": "Picture a new team leader who never says no. She just wants to be liked."
+},
+"n4": {
+"start": 12.256,
+"dur": 2.663,
+"kind": "N",
+"cap": "Soon... nobody takes her seriously."
+},
+"q1": {
+"start": 15.239,
+"dur": 10.636,
+"kind": "Q",
+"cap": "His answer? Ideally, both. But if you must choose... \"it is much safer to be feared than loved, when, of the two, either must be dispensed with.\""
+},
+"n6": {
+"start": 26.195,
+"dur": 4.525,
+"kind": "N",
+"cap": "But here's the catch. He also says: avoid hatred."
+},
+"q2": {
+"start": 30.84,
+"dur": 5.49,
+"kind": "Q",
+"cap": "\"A wise prince should establish himself on that which is in his own control and not in that of others.\""
+},
+"n7": {
+"start": 36.45,
+"dur": 9.568,
+"kind": "N",
+"cap": "He meant fear. My take? Love depends on others. Respect, you can earn, with clear, fair standards."
+},
+"n8": {
+"start": 46.138,
+"dur": 4.587,
+"kind": "N",
+"cap": "Your action today: set one clear standard... and keep it, calmly."
+},
+"n9": {
+"start": 50.845,
+"dur": 4.46,
+"kind": "N",
+"cap": "Loved or respected... which would you choose? Comment below."
+},
+"n10": {
+"start": 55.425,
+"dur": 2.321,
+"kind": "N",
+"cap": "Follow Awazzzz for your daily mindset."
+}
+},
+"total": 58.846
+}
