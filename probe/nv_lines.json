@@ -1,44 +1,58 @@
 [
 {
-"id": "christopher_m",
-"text": "Five hundred years ago, a man sat alone in a small farmhouse outside Florence, and wrote a book that rulers still study today. He asked one question. Is it better to be loved... or feared? His answer will change how you see every room you walk into.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
+"id": "n01",
+"text": "सिर्फ़ कल्पना, एक फ़ैन थ्योरी! पर नक़्शा, वाल्मीकि रामायण से।",
+"name": "hi-IN-SwaraNeural",
+"rate": "+12%",
+"pitch": "+3Hz"
 },
 {
-"id": "christopher_r",
-"text": "Listen to the reed, how it tells a tale, complaining of separations. Rumi says: everyone who is left far from his source wishes back the time when he was united with it. So ask yourself tonight. What are you missing?",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
+"id": "n02",
+"text": "लेवल: सेतु स्प्रिंट। इंजीनियर? विश्वकर्मा के बेटे, नल!",
+"name": "hi-IN-SwaraNeural",
+"rate": "+12%",
+"pitch": "+3Hz"
 },
 {
-"id": "andrew_m",
-"text": "Five hundred years ago, a man sat alone in a small farmhouse outside Florence, and wrote a book that rulers still study today. He asked one question. Is it better to be loved... or feared? His answer will change how you see every room you walk into.",
-"name": "en-US-AndrewMultilingualNeural",
-"rate": "-8%",
-"pitch": "-8Hz"
+"id": "n03",
+"text": "ट्विस्ट! ये ट्रैक एक दिन में नहीं बना। पाँच दिन, पाँच स्टेज: चौदह, बीस, इक्कीस, बाईस, और तेईस योजन!",
+"name": "hi-IN-SwaraNeural",
+"rate": "+12%",
+"pitch": "+3Hz"
 },
 {
-"id": "andrew_r",
-"text": "Listen to the reed, how it tells a tale, complaining of separations. Rumi says: everyone who is left far from his source wishes back the time when he was united with it. So ask yourself tonight. What are you missing?",
-"name": "en-US-AndrewMultilingualNeural",
-"rate": "-8%",
-"pitch": "-8Hz"
+"id": "n04",
+"text": "कुल सौ योजन! और बनाने वाले? हज़ारों वानर, एक टीम बनकर, चट्टानें और पेड़ ले आए!",
+"name": "hi-IN-SwaraNeural",
+"rate": "+12%",
+"pitch": "+3Hz"
 },
 {
-"id": "brian_m",
-"text": "Five hundred years ago, a man sat alone in a small farmhouse outside Florence, and wrote a book that rulers still study today. He asked one question. Is it better to be loved... or feared? His answer will change how you see every room you walk into.",
-"name": "en-US-BrianMultilingualNeural",
-"rate": "-8%",
-"pitch": "-8Hz"
+"id": "n05",
+"text": "और आज? रामेश्वरम के पंबन द्वीप से श्रीलंका के मन्नार तक, अड़तालीस किलोमीटर की चट्टानों की कड़ी है, राम सेतु, या एडम्स ब्रिज। पानी आम तौर पर एक से तीन मीटर!",
+"name": "hi-IN-SwaraNeural",
+"rate": "+12%",
+"pitch": "+3Hz"
 },
 {
-"id": "brian_r",
-"text": "Listen to the reed, how it tells a tale, complaining of separations. Rumi says: everyone who is left far from his source wishes back the time when he was united with it. So ask yourself tonight. What are you missing?",
-"name": "en-US-BrianMultilingualNeural",
-"rate": "-8%",
-"pitch": "-8Hz"
+"id": "n06",
+"text": "तो लेवल का रूल? ये रेस अकेले नहीं, टीम से जीती जाती है!",
+"name": "hi-IN-SwaraNeural",
+"rate": "+12%",
+"pitch": "+3Hz"
+},
+{
+"id": "h1o",
+"text": "सोचो अगर, रामायण का सेतु एक रेसिंग लेवल होता!",
+"name": "hi-IN-SwaraNeural",
+"rate": "+12%",
+"pitch": "+3Hz"
+},
+{
+"id": "h1e",
+"text": "इस लेवल में आप क्या चलाते: कार, बाइक या बोट? कमेंट करो!",
+"name": "hi-IN-SwaraNeural",
+"rate": "+12%",
+"pitch": "+3Hz"
 }
 ]
