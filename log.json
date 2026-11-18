@@ -2142,5 +2142,34 @@
     "media_commit": "studio-videos 559e3da"
    }
   ]
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (watch)",
+  "title": "Watching: snow day traffic incidents and Nov 18 snowfall",
+  "status": "watching",
+  "checked_at": "2026-11-18 10:43 Calgary (16:43 UTC)",
+  "detection": {
+   "traffic_incidents_today_so_far": "21 by 09:38 Calgary time (22 rows dated today incl. latest 09:38; City feed lags)",
+   "traffic_morning_rank": "5th-highest count by 09:38 among the past 364 days (tied with 2026-04-06, 21); above it: 2026-04-02 (38), 2026-03-25 (37), 2026-04-16 (25), 2026-09-16 (24)",
+   "traffic_365d_daily_max": 110,
+   "traffic_365d_daily_p99": 63,
+   "traffic_threshold_to_qualify": "final daily count >= 63 (top 1%) or > 110 (365-day high)",
+   "snow": "CYYC SWOB snow depth 6 cm at 06Z, 13 cm at 12Z; precip 6.1 mm 00-06Z, 5.0 mm 06-12Z; air temp -0.2 to -1.0 C. ECCC daily Nov 17: 7.7 cm snow (prelim).",
+   "snow_history_nov18": "ECCC Nov 18 snowfall 1926-2025 (100 yrs): record 16.5 cm (1926), 7.6 (1946), 6.4 (2024), 4.2 (1982), 3.0 (1981). Today's official daily total not yet published; needs ECCC daily (usually next day) - same-day claim only if SWOB/daily give a defensible figure",
+   "alerts": "ECCC snowfall warning continued for City of Calgary (16:31 UTC): additional 5-10 cm today, totals 15-30 cm, tapering this evening. Warning itself already reported in the Nov 17 moment (not a new moment).",
+   "gust_ge_80": false,
+   "chinook": false
+  },
+  "next_check": "16:41: refetch traffic (35ra-9556) + SWOB; post a traffic moment only if the day's count reaches top 1% (>=63) of the past 365 days; snow-for-the-date moment only with an official Nov 18 total",
+  "evidence": "production/2026-11-18-MOMENT-watch/",
+  "sources": [
+   "https://data.calgary.ca/resource/35ra-9556.json",
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261118/CYYC/",
+   "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=18&timeframe=2&submit=Download+Data"
+  ]
  }
 ]
