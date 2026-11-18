@@ -152,3 +152,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T07:08:28Z | scheduled | Metricool uuid -1913240597984229066 at 2026-11-19 06:30 IST (7:00 PM Regina, 18 Nov); topic 22 posted; files in gta_blitz/heli-price/; media on awazzz-media gta_blitz/heli-price.mp4 + _thumb.jpg. Slot: 2 h after the 04:30 IST post. No report this run (next at 24th)
 2026-11-18T08:52:05Z | started | run 23 (scheduled)
 2026-11-18T08:52:16Z | topic claimed | #23 FACT Indian gaming market kitna bada? (FICCI-EY numbers) (slug gaming-market)
+2026-11-18T09:01:04Z | check round 1 | PROBLEMS: n05 'asli video games' implies money games aren't real games -> 'video games mein'. All numbers verified (EY report page, AnimationXpress ?p=1636098 + ?p=1636107, Tribune India/UNFPA). Optional applied: n01 '2026 wali report', n07 'video games badh rahe hain', cites tightened
