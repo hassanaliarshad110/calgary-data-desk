@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "founded",
+"start": 0,
+"dur": 8.646,
+"lines": [
+"n01"
+]
+},
+{
+"id": "modem",
+"start": 8.646,
+"dur": 8.99,
+"lines": [
+"n02"
+]
+},
+{
+"id": "contract",
+"start": 17.636,
+"dur": 5.63,
+"lines": [
+"n03"
+]
+},
+{
+"id": "art",
+"start": 23.266,
+"dur": 6.162,
+"lines": [
+"n04"
+]
+},
+{
+"id": "twist",
+"start": 29.428,
+"dur": 8.013,
+"lines": [
+"n05"
+]
+},
+{
+"id": "team",
+"start": 37.441,
+"dur": 5.979,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 8.346,
+"spk": "N",
+"roman": "1997, Bengaluru. Rajesh Rao ne shuru kiya Dhruva Interactive, jise Bharat ka pehla game studio maana jaata hai."
+},
+"n02": {
+"start": 8.726,
+"dur": 8.71,
+"spk": "N",
+"roman": "Asli shuruaat 1995 mein: bank loan, papa se mile paise, ek computer aur 14.4 kbps ka modem."
+},
+"n03": {
+"start": 17.716,
+"dur": 5.35,
+"spk": "N",
+"roman": "Pehla game contract 1998 mein mila. Lekin wo game kabhi release hi nahi hua!"
+},
+"n04": {
+"start": 23.346,
+"dur": 5.882,
+"spk": "N",
+"roman": "Phir Dhruva ne duniya ke bade games ke art mein haath bataya: Forza, Halo, Sea of Thieves."
+},
+"n05": {
+"start": 29.578,
+"dur": 7.663,
+"spk": "N",
+"roman": "Twist: 2019 mein GTA banane wali Rockstar Games ne Dhruva ko khareed liya, 7.9 million dollar mein!"
+},
+"n06": {
+"start": 37.521,
+"dur": 5.599,
+"spk": "N",
+"roman": "Kareeb 300 log Rockstar India mein shaamil ho gaye. Ek modem se GTA wali company tak!"
+}
+},
+"total": 43.41999999999999
+}
