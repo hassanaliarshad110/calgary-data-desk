@@ -1,7 +1,7 @@
 [
 {
 "id": "n01",
-"text": "मोटर व्हीकल्स ऐक्ट की धारा एक सौ चौरासी, दो हज़ार उन्नीस के संशोधन के बाद, साफ़ कहती है: red light jump करना, ख़तरनाक driving है।",
+"text": "मोटर व्हीकल्स ऐक्ट की धारा एक सौ चौरासी में, दो हज़ार उन्नीस से लिखा है: red light jump करना, ख़तरनाक driving है।",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
@@ -22,35 +22,35 @@
 },
 {
 "id": "n04",
-"text": "ट्विस्ट: दिल्ली ट्रैफ़िक पुलिस की list में इसका कोई fixed जुर्माना नहीं। लिखा है, court challan: रक़म court तय करेगा!",
+"text": "ट्विस्ट: दिल्ली ट्रैफ़िक पुलिस की list में इसका fixed जुर्माना नहीं, court challan है: रक़म court तय करेगा!",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
 },
 {
 "id": "n05",
-"text": "और licence पर points? वो अभी लागू नहीं हुआ, सिर्फ़ Road Transport Ministry का प्रस्ताव है, विचार चल रहा है।",
+"text": "और licence points? अभी सिर्फ़ Ministry का प्रस्ताव। पर दो हज़ार छब्बीस के नए नियम से, साल में पाँच या ज़्यादा offences पर licence पर action हो सकता है।",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
 },
 {
 "id": "n06",
-"text": "Game में signal तोड़ना एक button है, असली में जुर्माना, जेल, या दोनों!",
+"text": "Game में बस एक button, असली में जुर्माना या जेल!",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
 },
 {
 "id": "h1o",
-"text": "GTA में red light तोड़ना आम बात लगती है। पर भारत की असली सड़क पर, कितना पड़ेगा?",
+"text": "GTA में red light तोड़ना आम लगता है। पर भारत की असली सड़क पर?",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
 },
 {
 "id": "h1e",
-"text": "Licence पर points system आना चाहिए? हाँ या ना, कमेंट करो!",
+"text": "Points system आना चाहिए? हाँ या ना, कमेंट करो!",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
