@@ -122,3 +122,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-17T23:09:04Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 after check notes on n01/n04; v1 already trimmed for length)
 2026-11-17T23:09:04Z | rendered | short1_fs.mp4 1080x1920 54.5 s, -14.4 LUFS, score under voice rms 0.0248 vs 0.0438 alone (~57%), all scenes native portrait; contact sheet: picture fills all 5 frames
 2026-11-17T23:10:09Z | scheduled | Metricool uuid 2544609233924082169 at 2026-11-18 22:30 IST (11:00 AM Regina, 18 Nov); topic 18 posted; files in gta_blitz/vicecity-mumbai/; media on awazzz-media gta_blitz/vicecity-mumbai.mp4 + _thumb.jpg. Slot: 2 h after the 20:30 IST post. Report sent (18th Short). Note: #12 (01:30 IST) still shows ERROR in Metricool (thumbnail warning only; video published)
+2026-11-18T00:53Z | started
