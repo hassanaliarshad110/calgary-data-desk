@@ -1,0 +1,315 @@
+{
+ "date": "2026-11-18",
+ "published_at": "2026-11-18T23:37:06Z",
+ "articles": [
+  {
+   "title": "More than 60 crashes in eight hours as heavy, wet snow hits Calgary's morning commute",
+   "dek": "Police counted 16 injury collisions and eight hit-and-runs between midnight and 8 a.m. Wednesday, while Calgary Transit ran its snow detours and trains and buses were delayed.",
+   "section": "Transit and roads",
+   "updated_from": "2026-11-17-snowfall-warning-for-calgary-as-15-to-20-centimetres-of-heavy-wet-snow",
+   "body": [
+    "The snowfall forecast on Tuesday arrived overnight, and Calgary drivers paid for it on Wednesday morning, Nov. 18. Calgary police responded to more than 60 collisions between midnight and 8 a.m. [1]. Of those, 16 involved injuries, eight were hit-and-runs and 37 caused no injuries [1].",
+    "The most serious crash happened shortly before 7 a.m., when four vehicles collided in the southbound lanes of Deerfoot Trail near Cranston Avenue S.E. [1]. Police said one person was taken to hospital with serious injuries described as life-altering [1]. Global News reported that none of the other collisions that morning were as serious [1]. On Abbot Avenue N.E., a Global News photographer saw three collisions within five minutes [1].",
+    "The snow followed several weeks of unseasonably warm November weather [2]. Environment and Climate Change Canada's yellow snowfall warning for Calgary and much of southern Alberta stayed in effect through Wednesday [2][3]. On Tuesday, the agency said 15 to 25 centimetres could fall in some areas, with Calgary expected at the lower end [1]. Another 5 to 10 centimetres was expected on Wednesday [1][3], with final totals of 15 to 30 centimetres across the region before the system eased off Wednesday evening [1]. None of the reports read gave a measured total for the city.",
+    "Calgary Transit put all of its snow detours in place, and road conditions delayed buses and trains on both CTrain lines [1]. Global News reported that City crews had a head start on clearing priority routes [1].",
+    "Outside the city, Alberta RCMP said roads were in extremely poor condition Wednesday morning, with officers called to collisions across southern Alberta and vehicles stuck in ditches [1]. Several jackknifed semi-trailers closed westbound Highway 1 between Highway 56 and Gleichen, east of Calgary [1].",
+    "Calgary Police Service Staff Sgt. Andy Woodward urged drivers to brake early and, if they begin to slide, to steer toward the curb. \"Bear in mind your stopping distances,\" he said [1]. Police also asked drivers to clear snow from their whole vehicle before setting out [1]."
+   ],
+   "key_facts": [
+    "More than 60 collisions in Calgary between midnight and 8 a.m. Wednesday",
+    "16 with injuries, 8 hit-and-runs, 37 with no injuries",
+    "Four-vehicle crash on southbound Deerfoot Trail near Cranston Avenue left one person seriously hurt",
+    "Calgary Transit ran all snow detours; both CTrain lines delayed"
+   ],
+   "topics": [
+    "Roads and traffic",
+    "Transit",
+    "Weather",
+    "Public safety"
+   ],
+   "image_query": "Deerfoot Trail Calgary winter",
+   "charts": [
+    {
+     "title": "Calgary collisions, midnight to 8 a.m., Nov. 18",
+     "kind": "hbar",
+     "labels": [
+      "No injuries",
+      "Injuries",
+      "Hit-and-run"
+     ],
+     "series": [
+      {
+       "name": "Collisions",
+       "values": [
+        37,
+        16,
+        8
+       ]
+      }
+     ],
+     "unit": "collisions",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Heavy snow creates treacherous road conditions in Calgary, southern Alberta",
+     "outlet": "Global News",
+     "url": "https://globalnews.ca/news/12156611/calgary-southern-alberta-heavy-snow-november-18/",
+     "published": "2026-11-18"
+    },
+    {
+     "title": "Calgary weather: Heavy wet snow coats roads, highways",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/messy-morning-commute-for-calgary-drivers/",
+     "published": "2026-11-18"
+    },
+    {
+     "title": "Calgary weather: Snowfall warning remains in place with 5 to 10 cm expected",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/calgary-weather-snowfall-warning-remains-in-place-with-5-to-10-cm-expected/",
+     "published": "2026-11-18"
+    }
+   ],
+   "id": "2026-11-18-more-than-60-crashes-in-eight-hours-as-heavy-wet-snow-hits-calgary-s-m",
+   "date": "2026-11-18",
+   "published_at": "2026-11-18T23:37:06Z",
+   "words": 339
+  },
+  {
+   "title": "Council vote count: data centre pause passed 13-2 and heads to a public hearing in March",
+   "dek": "Calgary council unanimously ordered new zoning rules for data centres and voted 13-2 to send a temporary pause on applications to a public hearing.",
+   "section": "City Hall",
+   "updated_from": "2026-11-17-council-moves-ahead-on-data-centre-rules-with-bylaw-options-due-by-mar",
+   "body": [
+    "More details have emerged from Tuesday's council decision on large data centres, including how councillors voted [1]. The motion came from Ward 2 Coun. Jennifer Wyness and was co-signed by Couns. Raj Dhaliwal, Andrew Yule and John Pantazopoulos and Mayor Jeromy Farkas [1].",
+    "The part of the motion dealing with oversight passed unanimously [1]. It directs city administration to create a new zoning district that defines data centres, taking different sizes of facility into account, with that work due by March [1]. Administration is also to study the risks, implications and opportunities of data centres, including environmental and economic effects and the impact on regional water, in a report expected by the end of 2027 [1].",
+    "A separate amendment dealing with a temporary pause on data centre applications passed 13-2, with Couns. Myke Atkinson and Landon Johnston opposed [1]. That pause is expected to go to a public hearing in March [1]. Wyness said a gap in the land use bylaw has to be closed before a moratorium can be imposed under Alberta's Municipal Government Act [1].",
+    "Global News noted that Rocky View County has frozen data centre applications, and that Oakville, Mississauga, Cumberland and Saskatoon have adopted moratoriums [1]. In Calgary, an application to rezone undeveloped land east of 52 Street N.E., north of Redstone, for a large data centre is under review, and the city has asked for studies before a decision is made [1].",
+    "The Canadian Coalition for Digital Infrastructure opposes a pause [1]. Farkas, who co-signed the motion, also stressed investment. \"Calgary needs to be open for business,\" he said [1]."
+   ],
+   "key_facts": [
+    "Zoning and oversight work passed unanimously; zoning district due by March",
+    "Temporary pause passed 13-2 (Atkinson and Johnston opposed)",
+    "Pause goes to a public hearing expected in March",
+    "Impact study on water, environment and economy due by end of 2027"
+   ],
+   "topics": [
+    "City Council",
+    "Technology",
+    "Development",
+    "Water"
+   ],
+   "image_query": "Calgary Municipal Building",
+   "wards": [
+    2
+   ],
+   "charts": [
+    {
+     "title": "Council vote on the data centre pause amendment",
+     "kind": "bar",
+     "labels": [
+      "For",
+      "Against"
+     ],
+     "series": [
+      {
+       "name": "Votes",
+       "values": [
+        13,
+        2
+       ]
+      }
+     ],
+     "unit": "votes",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Calgary to explore new rules for data centres but temporary pause will go to public hearing",
+     "outlet": "Global News",
+     "url": "https://globalnews.ca/news/12154507/calgary-to-explore-new-rules-for-data-centres-but-temporary-pause-will-go-to-public-hearing/",
+     "published": "2026-11-18"
+    }
+   ],
+   "id": "2026-11-18-council-vote-count-data-centre-pause-passed-13-2-and-heads-to-a-public",
+   "date": "2026-11-18",
+   "published_at": "2026-11-18T23:37:06Z",
+   "words": 265
+  },
+  {
+   "title": "City picks a site for long-delayed Belvedere police and fire station; land deal expected by 2028",
+   "dek": "Police have held $32.5 million for an east Calgary district office since 2021 but cannot spend it until the City buys land, which it now expects to do in late 2027 or early 2028.",
+   "section": "Public safety",
+   "body": [
+    "The City of Calgary says it has found land in Belvedere for a long-planned emergency response station in east Calgary, five years after money for a police district office there was set aside [1].",
+    "The Calgary Police Service has carried $32.5 million on its books since 2021 for a new Belvedere district office, but cannot spend it because the City has not bought land [1]. The police service's 2027-2030 budget submission says the money came from greenfield development levies, and that the office was planned as part of a shared police and fire site [1]. The police and fire projects are now expected to proceed separately, on different timelines [1]. In late October, Police Chief Katie McLellan confirmed the $32.5 million figure when reporters asked about unspent capital [1].",
+    "In an emailed response, the City said the land is meant for the Belvedere Emergency Response Station and a household hazardous waste drop-off, and that negotiations to buy it are underway [1]. The site is south of 17 Avenue S.E. and west of 100 Street S.E., and its land use was approved as part of a developer's outline plan [1]. The City expects to buy the parcel in late 2027 or early 2028, depending on development phasing, servicing and subdivision [1].",
+    "Conceptual design is underway, with detailed design and permits expected in 2028 and 2029 and construction to follow [1]. The City said the $32.5 million is not the full cost: the original figure used an assumed rate from an older benchmarking study, and no current estimate is available [1].",
+    "Councillors differ on what the station would mean. Ward 9 Coun. Harrison Clark welcomed it for the fast-growing area on the city's eastern edge and said car prowlings and minor thefts are rising there [1]. Ward 10 Coun. Andre Chabot said he doubts a building in the far east would much change police response in either ward, and that faster fire response would be the bigger gain [1]. Chabot also said the developer-levy money should not be moved to other uses, even though it has gone unspent [1].",
+    "Council begins deliberations on the City's 2027-2030 budget on Nov. 23, where the police service is seeking a 73 per cent increase in capital spending over four years [1]."
+   ],
+   "key_facts": [
+    "$32.5 million held for a Belvedere police office since 2021",
+    "Site: south of 17 Avenue S.E., west of 100 Street S.E.",
+    "Land purchase expected late 2027 or early 2028; design and permits 2028-2029",
+    "Budget deliberations begin Nov. 23"
+   ],
+   "topics": [
+    "Public safety",
+    "Budget and taxes",
+    "City Council",
+    "Development"
+   ],
+   "image_query": "Calgary Police Service vehicle",
+   "communities": [
+    "Belvedere"
+   ],
+   "wards": [
+    9,
+    10
+   ],
+   "sources": [
+    {
+     "title": "City finds potential land for Calgary police Belvedere station",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/18/city-finds-potential-land-for-calgary-police-belvedere-station/",
+     "published": "2026-11-18"
+    }
+   ],
+   "id": "2026-11-18-city-picks-a-site-for-long-delayed-belvedere-police-and-fire-station-l",
+   "date": "2026-11-18",
+   "published_at": "2026-11-18T23:37:06Z",
+   "words": 376
+  },
+  {
+   "title": "Two weeks under the water limit: Calgary is halfway through the Bearspaw shutdown",
+   "dek": "Water use was 482 million litres on Tuesday, and the City says snow and cold are not expected to slow the feeder main connection work.",
+   "section": "Environment and weather",
+   "updated_from": "2026-11-17-water-use-stays-under-the-limit-for-a-13th-straight-day-as-bearspaw-co",
+   "body": [
+    "Calgarians used 482 million litres of water on Tuesday, Nov. 17, keeping the city under its 500-million-litre daily limit and marking two weeks in what the City calls the green zone [1]. The City said Wednesday that the city is now halfway through the expected four-week shutdown of the Bearspaw South Feeder Main [1]. The day before, Monday, use was 487 million litres [2].",
+    "The limit exists because the City can move only about 500 million litres a day while the feeder main is out of service [1][2]. During the shutdown, the Glenmore plant supplies about 80 per cent of the water and the Bearspaw plant about 20 per cent [2]. Use above the limit would push the city into a red zone, with risks that include not enough water for firefighting, low pressure and a possible boil-water advisory [2].",
+    "Work is active at three tie-in locations, and the City said the week's snow and cold are not expected to delay the schedule [1]. Near the Shaganappi Pump Station, welding is complete on installed pipe sections [1]. At 33 Avenue and 89 Street N.W., crews working around the clock are installing the final pipe segments that link the new feeder main and valve chamber to the steel pipe running to the Bearspaw Water Treatment Plant [1]. At 33 Avenue and 83 Street N.W., extra work on an existing pipe has widened the excavation, but the City says that site is on schedule [1]. On Parkdale Boulevard, one of five additional pipe-repair segments is fully installed, and crews are installing and welding the other four [1].",
+    "Stage 4 restrictions remain in effect city-wide, and no outdoor water use is allowed, with fines starting at $3,000 [2]. The feeder main has been shut since Nov. 4 for about four weeks [2]. The City says it does not expect restrictions during the commissioning phase in December, but because the old pipe stays in use until the new one is running, restrictions could return on short notice [2]. Neither City page gives a firm end date."
+   ],
+   "key_facts": [
+    "482 million litres used Tuesday, Nov. 17; 487 million Monday",
+    "Two weeks in the green zone; halfway through the four-week shutdown",
+    "Three tie-in sites active; snow not expected to delay work",
+    "Stage 4 rules continue; fines from $3,000"
+   ],
+   "topics": [
+    "Water",
+    "City services",
+    "Environment"
+   ],
+   "image_query": "Bearspaw Water Treatment Plant Calgary",
+   "sources": [
+    {
+     "title": "Two weeks in the green zone as Bearspaw connection work advances",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/two-weeks-in-the-green-zone-as-bearspaw-connection-work-advances",
+     "published": "2026-11-18"
+    },
+    {
+     "title": "Stage 4 water restrictions in effect",
+     "outlet": "City of Calgary",
+     "url": "https://www.calgary.ca/planning/water/bearspaw-feeder-main/water-restrictions.html",
+     "published": "2026-11-17"
+    }
+   ],
+   "id": "2026-11-18-two-weeks-under-the-water-limit-calgary-is-halfway-through-the-bearspa",
+   "date": "2026-11-18",
+   "published_at": "2026-11-18T23:37:06Z",
+   "words": 342
+  },
+  {
+   "title": "Educators raise literacy and university-entry concerns over Alberta's new graduation rules",
+   "dek": "A University of Alberta education dean and the Alberta Teachers' Association warn that cutting required core courses could leave students less prepared and facing costly upgrades.",
+   "section": "Alberta and Canada",
+   "updated_from": "2026-11-13-alberta-overhauls-high-school-graduation-rules-giving-students-more-co",
+   "body": [
+    "Five days after the Alberta government released new high school graduation requirements, education leaders are raising concerns about what the changes could mean for literacy and for students who later decide to go to university [1].",
+    "Under the rules released Nov. 13, mandatory credits in English language arts, social studies, math and science drop by 15, equal to three fewer core classes at the 20 and 30 levels [1]. Students entering Grade 11 in fall 2029 and Grade 12 in fall 2030 may take half the original number of core classes, while new compulsory physical education-related classes will be required in all three years [1]. Students can still take extra core courses, and those not planning on university may earn their 100 credits with more electives, but must write at least one 30-level diploma exam [1]. Education Minister Demetrios Nicolaides has said the change is about giving students more choice [1].",
+    "Jennifer Tupper, dean of education at the University of Alberta, said in a statement that the changes may not be a step in the right direction, and raised questions of equity for students who want post-secondary education [1]. She pointed to the 2025 PISA results, in which Alberta scored highest in Canada in science and reading, but reading scores across Canada fell 17 points from 2022 [1]. The Calgary Board of Education's 2024-25 annual report showed Grade 9 language arts results declining and most Grade 12 language arts and math diploma results below the standard of excellence [1].",
+    "Most Alberta and Canadian universities require at least three Grade 12 core courses, and nearly all require English 30-1 [1]. LiveWire Calgary reported that students who change their minds after graduating could need to upgrade two to four courses under the new rules, compared with one or two now for students who skip math or science [1].",
+    "Alberta Teachers' Association president Jason Schilling said late last week that the changes risk leaving students less prepared, and asked the province to disclose whose input shaped the proposal [1]. The province has not said whether it will adjust the plan."
+   ],
+   "key_facts": [
+    "Mandatory core credits drop by 15 (three classes) at the 20 and 30 levels",
+    "Applies to Grade 11 from fall 2029 and Grade 12 from fall 2030",
+    "Most universities require at least three Grade 12 core courses, almost all English 30-1",
+    "ATA and U of A education dean raise concerns"
+   ],
+   "topics": [
+    "Education",
+    "Provincial"
+   ],
+   "image_query": "Alberta Legislature Building",
+   "sources": [
+    {
+     "title": "Alberta's new high school graduation requirements raise literacy and university entrance concerns",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/18/alberta-high-school-graduation-requirements-literacy-university-admission/",
+     "published": "2026-11-18"
+    }
+   ],
+   "id": "2026-11-18-educators-raise-literacy-and-university-entry-concerns-over-alberta-s-",
+   "date": "2026-11-18",
+   "published_at": "2026-11-18T23:37:06Z",
+   "words": 347
+  },
+  {
+   "title": "Kensington lights its tree Thursday as Cavalry FC hosts Saturday's CPL Final at Spruce Meadows",
+   "dek": "The Kensington Kick-Off to Christmas runs Thursday evening, and Cavalry FC plays Atlético Ottawa for the Canadian Premier League title on Saturday afternoon.",
+   "section": "Community and events",
+   "body": [
+    "Two of the week's biggest community events are coming up in Calgary, starting in Kensington on Thursday and ending at Spruce Meadows on Saturday [1][2][3].",
+    "The Kensington Business Improvement Area's Kick-Off to Christmas runs Thursday, Nov. 19, from 5:30 p.m., with the tree lighting at 6:20 p.m. [1][2]. Admission costs nothing [1]. Visitors can expect photos with Santa, live duelling pianos, hot chocolate and late shopping, with more than 20 shops staying open, and the evening ends with a 9 p.m. screening of Love Actually at the Plaza Theatre, with tickets through the BIA [1][2]. Environment Canada's forecast for Thursday called for cloud, a 40 per cent chance of flurries and a high of minus 2 [2]. Horse-drawn carriage rides return on Sundays, Nov. 22 and Dec. 20, from noon to 3 p.m. [2]. \"Christmas in Kensington is a community celebration,\" said Gwyneth Midgley, the BIA's executive director [2].",
+    "On Saturday, Nov. 21, Cavalry FC plays Atlético Ottawa in the Canadian Premier League Final at 2 p.m. at ATCO Field at Spruce Meadows, 18011 Spruce Meadows Way S.W. [1][3]. It is Cavalry's fourth straight trip to the final [3]. Cavalry reached it by beating FC Supra du Québec 2-0 at home in the second leg of the semifinal, a 3-2 win on aggregate in front of 5,199 fans [3]. Ottawa beat Forge FC 5-4 on aggregate [3].",
+    "Cavalry won the regular-season CPL Shield, went 11-0-3 at home and had not lost at ATCO Field since July 2025, according to the Calgary Citizen [3]. The two clubs met in last year's final in Ottawa, which Atlético won 2-1 in extra time [3]. The game will be shown on TSN, CBC and OneSoccer, and the stadium's record crowd is 7,052, set at the 2024 final [3]."
+   ],
+   "key_facts": [
+    "Kensington Kick-Off to Christmas: Thursday, Nov. 19, from 5:30 p.m.; tree lighting 6:20 p.m.",
+    "Carriage rides Sundays Nov. 22 and Dec. 20",
+    "CPL Final: Cavalry FC vs. Atlético Ottawa, Saturday, Nov. 21, 2 p.m., ATCO Field",
+    "Cavalry's fourth straight final"
+   ],
+   "topics": [
+    "Events",
+    "Community",
+    "Sports"
+   ],
+   "image_query": "Kensington Road Calgary",
+   "communities": [
+    "Kensington"
+   ],
+   "sources": [
+    {
+     "title": "Calgary Citizen newsletter, Tuesday, Nov. 17, 2026",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/tuesday-nov-17-2026",
+     "published": "2026-11-17"
+    },
+    {
+     "title": "Kensington kicks off Christmas Thursday with a tree lighting, Santa and a late showing of Love Actually",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/kensington-kick-off-to-christmas-2026",
+     "published": "2026-11-16"
+    },
+    {
+     "title": "Cavalry FC heads to a fourth straight CPL Final, with a league first on the line at Spruce Meadows",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/cavalry-fc-cpl-final-2026",
+     "published": "2026-11-09"
+    }
+   ],
+   "id": "2026-11-18-kensington-lights-its-tree-thursday-as-cavalry-fc-hosts-saturday-s-cpl",
+   "date": "2026-11-18",
+   "published_at": "2026-11-18T23:37:06Z",
+   "words": 294
+  }
+ ]
+}
