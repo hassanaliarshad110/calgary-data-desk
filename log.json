@@ -2267,10 +2267,15 @@
     ],
     "publish_at": "2026-11-18T15:00",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "media_commit": "studio-videos 796e4db"
+    "media_commit": "studio-videos 796e4db",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/899519286540901",
+     "instagram": "https://www.instagram.com/reel/Df5bd31CJt3/"
+    },
+    "confirmed_by": "2026-11-18 PM run"
    },
    {
     "metricool_id": 433308721,
@@ -2288,5 +2293,98 @@
    }
   ],
   "post_note": "Instagram + Facebook at the fixed 15:00 news slot (14:00 GTA Part 1 is 60 min earlier). YouTube deferred (section 7 cap): the 24 h before 15:00 already held 8 YouTube uploads (Nov 17 17:30, 18:30; Nov 18 08:00, 08:45, 09:30, 10:00, 11:00, 14:00), so the Short is its own post at Nov 19 11:00 (24 h counts 6 and 2 incl. it; Nov 19 10:00 is Origins Part 2). Both due >30 min after scheduling, so the next run confirms them (section 1)."
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Calgary's 333 days of sun has a catch",
+  "topic_used": "Calgary is the sunniest of Canada's large cities (2,396 hours of bright sunshine a year, Environment Canada normals 1981-2010); the famous '333 days of sunshine' counts any day with any measurable sunshine (CurrentResults.com definition; Visit Calgary's 'approximate average of 333 days of sunshine').",
+  "changed_from_calendar": "Kept (\"Calgary's claim to be one of Canada's sunniest cities\"), sharpened into a myth-with-a-catch hook. Travel Alberta's unsourced '312 days' for Alberta not used.",
+  "central_figure": "333 days a year with some measurable sunshine; 2,396 hours of bright sunshine a year (1981-2010 averages)",
+  "sources": [
+   "https://currentresults.com/Weather-Extremes/Canada/sunniest-cities.php",
+   "https://www.currentresults.com/Weather/Canada/Cities/sunshine-annual-average.php",
+   "https://www.visitcalgary.com/sites/default/files/2025-05/025-TCMD-324%20BraggingRights_8.5x11_P1.pdf"
+  ],
+  "link": "https://calgaryinsight.ca/visit/explore/?utm_source=<platform>&utm_medium=social&utm_campaign=333-days-of-sun",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/build_site.py builds visit/explore/ and lists it in the sitemap).",
+  "length_s": 19.87,
+  "video_path": "studio-videos/2026-11-18-PM/333-days-of-sun.mp4",
+  "thumbnail_path": "studio-videos/2026-11-18-PM/333-days-of-sun-thumb.jpg",
+  "package": "packages/2026-11-18-PM-333-days-of-sun.md",
+  "production": "production/2026-11-18-PM/ (scene.js, cues.json, durs.json, thumb.html)",
+  "identity": "Data Explainer lead (kinetic hook, stamp, bars, counter, grid ticker) + Storyteller map dive and skyline orbit + Civic definition card and stamp",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 6,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-18-PM.md"
+  },
+  "narration": {
+   "lane": "studio-probe run 44421251975",
+   "asr_mean_acc": 0.968,
+   "lines_checked": 5,
+   "check_lines": 0,
+   "lines_used_match": true
+  },
+  "qc": {
+   "stills": "pass (after layout fixes)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "S1 chip/unit moved above bars; last bar easing fixed so Saskatoon lands on 2,268",
+    "S3 card moved above captions",
+    "closer 3.75 s (question to last frame)",
+    "-14.6 LUFS, 5.7 MB"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 433565421,
+    "uuid": "-4094480395456919459",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-4094480395456919459",
+    "providers": [
+     "instagram",
+     "facebook"
+    ],
+    "publish_at": "2026-11-18T18:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "media_commit": "studio-videos 4b90992"
+   },
+   {
+    "metricool_id": 433565441,
+    "uuid": "-9220691421210722021",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-9220691421210722021",
+    "providers": [
+     "youtube-short"
+    ],
+    "publish_at": "2026-11-19T14:00",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "youtube_deferred": true
+   }
+  ],
+  "post_note": "Instagram + Facebook at the fixed 18:30 fun-fact slot (60 min after the 17:30 GTA Part 2 post, 90 min before 20:00 Part 3). YouTube deferred (section 7 cap): the 24 h before 18:30 already held 8 YouTube uploads (Nov 17 18:30; Nov 18 08:00, 08:45, 09:30, 10:00, 11:00, 14:00, 17:30), and Nov 19 10:00/11:00 are taken (Origins Part 2, civic Short), so the Short is its own post at Nov 19 14:00 (24 h before counts about 7 incl. it and tomorrow's 12:30 flagship Short). Both due >30 min after scheduling, so the next run confirms them (section 1). Earlier posts confirmed this run: 2026-11-18 CIVIC 433308591 PUBLISHED on Facebook and Instagram."
  }
 ]
