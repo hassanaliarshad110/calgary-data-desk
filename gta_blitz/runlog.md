@@ -132,3 +132,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T02:52:40Z | started | run 20 (scheduled)
 2026-11-18T02:52:42Z | topic claimed | #20 FACT GTA V ne kitni copies bechi - India ki aabadi se tulna (slug gtav-copies)
 2026-11-18T02:57:25Z | check verdict | APPROVED round 1 (fresh independent agent read Motley Fool Q2 FY27 transcript (Zelnick 9 Nov 2026: 'nearly 235 million units'), Outlook Respawn, ThePrint/UNFPA, statisticstimes countries + Brazil, UNFPA Brazil, GamesBeat, GTA BOOM; all claims verified, rank 7 holds in 2025 and 2026); optional notes applied: n04 'aabadi mein', leaderboard '(UN, 2025)', n03 chip 'duniya bhar ki copies, sirf hisaab'
+2026-11-18T02:59:14Z | voice done | 7/7 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v1 incl. check note n04 'aabadi mein')
