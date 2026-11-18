@@ -1,0 +1,105 @@
+{
+"scenes": [
+{
+"id": "city",
+"start": 0,
+"dur": 6.298,
+"lines": [
+"n01"
+]
+},
+{
+"id": "mum10",
+"start": 6.298,
+"dur": 6.899,
+"lines": [
+"n02"
+]
+},
+{
+"id": "mia10",
+"start": 13.197,
+"dur": 7.203,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 20.4,
+"dur": 7.313,
+"lines": [
+"n04"
+]
+},
+{
+"id": "speed",
+"start": 27.713,
+"dur": 6.934,
+"lines": [
+"n05"
+]
+},
+{
+"id": "lost",
+"start": 34.647,
+"dur": 6.963,
+"lines": [
+"n06"
+]
+},
+{
+"id": "payoff",
+"start": 41.61,
+"dur": 3.971,
+"lines": [
+"n07"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.06,
+"dur": 6.118,
+"spk": "N",
+"roman": "GTA 6 ki Vice City, asli Miami par based hai. Toh chalo: Miami vs Mumbai!"
+},
+"n02": {
+"start": 6.358,
+"dur": 6.699,
+"spk": "N",
+"roman": "TomTom Index 2025: Mumbai mein 10 km, ausatan 28 minute 51 second."
+},
+"n03": {
+"start": 13.257,
+"dur": 7.023,
+"spk": "N",
+"roman": "Miami mein? Sirf 17 minute 45 second. Yaani Mumbai mein har 10 km par 11 minute zyada!"
+},
+"n04": {
+"start": 20.48,
+"dur": 7.093,
+"spk": "N",
+"roman": "Twist: Miami, America ke top 5 sabse congested shehron mein hai. Phir bhi Mumbai usse kaafi dheema!"
+},
+"n05": {
+"start": 27.773,
+"dur": 6.734,
+"spk": "N",
+"roman": "Rush hour ki ausat speed? Mumbai: sirf 17.6 km/h. Miami: 27.4 km/h!"
+},
+"n06": {
+"start": 34.707,
+"dur": 6.763,
+"spk": "N",
+"roman": "Aur rush hour ke traffic mein, Mumbai ka driver saal mein 126 ghante khota hai: 5 din se zyada!"
+},
+"n07": {
+"start": 41.67,
+"dur": 3.711,
+"spk": "N",
+"roman": "Toh GTA 6 ka traffic? Asli boss level toh Mumbai hai!"
+}
+},
+"total": 45.581
+}
