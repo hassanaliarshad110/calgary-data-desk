@@ -1,0 +1,77 @@
+{
+"scenes": [
+{
+"id": "plat",
+"start": 0,
+"dur": 6.808,
+"lines": [
+"n01"
+]
+},
+{
+"id": "nopc",
+"start": 6.808,
+"dur": 4.641,
+"lines": [
+"n02"
+]
+},
+{
+"id": "gtav",
+"start": 11.449,
+"dur": 10.716,
+"lines": [
+"n03"
+]
+},
+{
+"id": "rdr2",
+"start": 22.165,
+"dur": 8.328,
+"lines": [
+"n04"
+]
+},
+{
+"id": "payoff",
+"start": 30.493,
+"dur": 10.75,
+"lines": [
+"n05"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 6.508,
+"spk": "N",
+"roman": "Rockstar ne GTA 6 abhi tak sirf PS5 aur Xbox Series X|S ke liye announce kiya hai."
+},
+"n02": {
+"start": 6.888,
+"dur": 4.361,
+"spk": "N",
+"roman": "PC ki koi official date nahi, aur PC par koi pre-order bhi nahi."
+},
+"n03": {
+"start": 11.569,
+"dur": 10.396,
+"spk": "N",
+"roman": "Twist: pichhli baar bhi yahi hua tha! GTA V console par September 2013 mein aaya, aur PC par April 2015 mein: kareeb 19 mahine baad."
+},
+"n04": {
+"start": 22.245,
+"dur": 8.048,
+"spk": "N",
+"roman": "Red Dead Redemption 2? Console par October 2018, PC par November 2019: kareeb ek saal baad."
+},
+"n05": {
+"start": 30.573,
+"dur": 10.37,
+"spk": "N",
+"roman": "Toh PC waalon, purana pattern intezaar ka hai, par GTA 6 PC ki koi tareekh pakki nahi. Jab tak Rockstar khud na bole, rumours par bharosa mat karna!"
+}
+},
+"total": 41.24299999999999
+}
