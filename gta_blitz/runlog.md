@@ -189,3 +189,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T19:04:01Z | check round 1 | PROBLEMS: n01 must say GTA 5's GTA Online (not GTA 6 online) -> fixed; optional 'farq sirf ₹200' applied; GTA 6 ₹5,999 corroborated by checker via MySmartPrice + Tech2
 2026-11-18T19:04:18Z | check verdict | APPROVED round 2 (fresh independent agent read PS Store India PS5+PS4 Megalodon pages, playstation.com/en-in GTA V, GamesRadar, GTABase most-expensive list (Nov 2026), MySmartPrice + Tech2 for GTA 6 ₹5,999; Business Today/Esquire fetch blocked for checker)
 2026-11-18T19:04:50Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 = approved wording)
+2026-11-18T19:09:06Z | rendered | short1_fs.mp4 1080x1920 52.0 s, -14.3 LUFS, score under voice rms 0.0248 vs 0.0433 alone (~57%), all scenes native portrait; contact sheet: picture fills all 5 frames
