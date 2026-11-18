@@ -1,0 +1,9 @@
+# GTA blitz #24 — varanasi-ghats (FAN-THEORY): "Agar GTA Varanasi mein hota - ghats par mission?"
+- Source read this run: Wikipedia "Ghats in Varanasi" (84 ghats; list from Assi to Adi Keshava; most rebuilt 18th c. under Maratha patronage; morning boat ride popular with visitors; "narrow lanes of Kashi"). The Assi Ghat Wikipedia page could not be fetched.
+- Check: round 1 PROBLEMS (every ghat as a checkpoint would include the cremation ghats -> checkpoints only glowing rings on the water). Round 2 PROBLEMS (full-stretch "lambi race" passes the cremation ghats -> race only mid-river, shaant zone near every ghat). Round 3 APPROVED (fresh agent); optional notes applied (n05 "Wikipedia ke hisaab se", "yatriyon mein bahut popular", n06 explicit "ghaaton ke paas race ruk jaati hai", h1e "paidal mission").
+- n06 then trimmed to the rule only (dropped "Toh 84 ghaat, ek lambi race!") so the Short fits 55 s — deletion only, no new claim.
+- Guardrails: no temple, religious symbol, aarti, cremation, bathers or crowds; ghats = empty steps + plain buildings; one city pin, no map; REAL DUNIYA card without race/rings; KALPANA / FAN THEORY chip every frame. No gun/theft.
+- Voice v4: 7 lines, hi-IN-SwaraNeural +12%/+3Hz. Final 54.3 s, -14.6 LUFS, score ~60% under voice.
+- Build: work dir = these files + episodes/ep4/scenes.js + ep4 prep_audio.py/score_mix.py/index.html over budget-probe mp3s (/home/claude/nvout); `python3 /home/claude/kit/shorts.py 1`; `python3 thumb.py`; `python3 peek.py <scene>:<frac>`.
+- Studio assets (select_assets.py): PRP-030 car, PRP-037 cone, PRP-038 barrier, GFX-009 pin, VFX-011 impactStar, VFX-019 question, GFX-010 route. Own drawings: generic riverfront buildings + steps, river, rowing boats, glowing water rings, narrow lane, shaant-zone sign, kulhad.
+- Metricool uuid 3777531118014189567, 19 Nov 2026 10:30 IST (11:00 PM Regina, 18 Nov). Slot: 2 h after the 08:30 IST post.

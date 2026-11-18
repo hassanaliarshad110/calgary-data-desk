@@ -1,0 +1,77 @@
+{
+"scenes": [
+{
+"id": "intro",
+"start": 0,
+"dur": 7.351,
+"lines": [
+"n02"
+]
+},
+{
+"id": "twist",
+"start": 7.351,
+"dur": 7.064,
+"lines": [
+"n03"
+]
+},
+{
+"id": "route",
+"start": 14.415,
+"dur": 6.38,
+"lines": [
+"n04"
+]
+},
+{
+"id": "real",
+"start": 20.795,
+"dur": 14.234,
+"lines": [
+"n05"
+]
+},
+{
+"id": "rule",
+"start": 35.029,
+"dur": 7.889,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n02": {
+"start": 0.12,
+"dur": 7.031,
+"spk": "N",
+"roman": "Game wala hissa sirf kalpana hai! Mission: subah ki naav race. Koi gun nahi, koi chori nahi!"
+},
+"n03": {
+"start": 7.551,
+"dur": 6.664,
+"spk": "N",
+"roman": "Twist! Is level mein car ka kya kaam? Kashi ki patli galiyon mein, mission paidal ya naav se hi hoga!"
+},
+"n04": {
+"start": 14.515,
+"dur": 6.08,
+"spk": "N",
+"roman": "Race ka route: Assi Ghat se Adi Keshav Ghat tak, checkpoint sirf paani par chamakte rings!"
+},
+"n05": {
+"start": 20.915,
+"dur": 13.864,
+"spk": "N",
+"roman": "Ab asli duniya: Wikipedia ke hisaab se, Varanasi mein 84 ghaat hain. Zyaadatar 18vi sadi mein, Maratha sanrakshan mein dobara bane. Aur Ganga par subah ki naav ki sair, yatriyon mein bahut popular hai."
+},
+"n06": {
+"start": 35.129,
+"dur": 7.589,
+"spk": "N",
+"roman": "Rule: race sirf beech dhaar ke khule paani mein. Ghaaton ke paas race ruk jaati hai: shaant zone, samman pehle!"
+}
+},
+"total": 42.918
+}
