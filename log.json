@@ -2171,13 +2171,26 @@
    "gust_ge_80": false,
    "chinook": false
   },
-  "next_check": "16:41: refetch traffic (35ra-9556) + SWOB; post a traffic moment only if the day's count reaches top 1% (>=63) of the past 365 days; snow-for-the-date moment only with an official Nov 18 total",
+  "next_check": "19:41: refetch traffic (35ra-9556) + ECCC daily; post only if traffic >= 63 (top 1%) or an official Nov 18 snowfall total ranks top 10 for the date",
   "evidence": "production/2026-11-18-MOMENT-watch/",
   "sources": [
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://dd.weather.gc.ca/today/observations/swob-ml/20261118/CYYC/",
    "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=18&timeframe=2&submit=Download+Data"
+  ],
+  "checks": [
+   {
+    "checked_at": "2026-11-18 16:41 Calgary (22:41 UTC)",
+    "traffic_incidents_today_so_far": "33 rows dated today, latest 15:24 Calgary (feed lags)",
+    "traffic_rank_by_same_time": "8th among past 364 days by 15:24 (7 days had >= 33 by then); 365-day daily max 111, p99 ~62-63; not qualifying",
+    "snow": "CYYC SWOB snow depth 6 cm (06Z), 13 cm (12Z), 16 cm (18Z); precip 5.0 mm 06-12Z and 5.0 mm 12-18Z; 21Z depth missing. ECCC daily Nov 18 row still empty (no official total)",
+    "alerts": "Snowfall warning for City of Calgary ENDED (19:59 UTC)",
+    "temp": "air temp -1.0 to 0.1 C so far; no chinook, no 80 km/h gust",
+    "news": "no other confirmed rare Calgary event found",
+    "decision": "nothing qualifies yet; keep watching. 19:41: traffic only if final count reaches >=63; snow-for-date only if ECCC publishes an official Nov 18 total",
+    "evidence": "production/2026-11-18-MOMENT-watch/check-1641/"
+   }
   ]
  },
  {
