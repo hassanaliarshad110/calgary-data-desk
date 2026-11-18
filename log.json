@@ -1629,7 +1629,9 @@
      "instagram": "https://www.instagram.com/reel/Df2cb4mEYYz/",
      "youtube": "https://www.youtube.com/shorts/iTd5hr4UyA4"
     },
-    "youtube_warning": "Could not upload video thumbnail (published)"
+    "youtube_warning": "Could not upload video thumbnail (published; channel not verified for custom thumbnails)",
+    "status": "PUBLISHED",
+    "confirmed_by": "2026-11-18 CIVIC run (getScheduledPosts)"
    }
   ],
   "site": "main 3596e28: card vid-snowwarnnov17 + agent.py published fact",
@@ -2136,10 +2138,16 @@
     ],
     "publish_at": "2026-11-17T18:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "media_commit": "studio-videos 559e3da"
+    "media_commit": "studio-videos 559e3da",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/2263469584382984",
+     "instagram": "https://www.instagram.com/reel/Df3OXRQFDq5/",
+     "youtube": "https://www.youtube.com/shorts/nruW2or2WMk"
+    },
+    "confirmed_by": "2026-11-18 CIVIC run (getScheduledPosts)"
    }
   ]
  },
@@ -2171,5 +2179,101 @@
    "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=18&timeframe=2&submit=Download+Data"
   ]
+ },
+ {
+  "date": "2026-11-18",
+  "slot": "CIVIC",
+  "type": "civic",
+  "category": "Calgary news",
+  "title": "Would you pause giant data centres in Calgary? Council's vote explained",
+  "topic_used": "Calgary city council voted 13-2 on Tue Nov 17, 2026 to explore a land-use bylaw amendment that could allow a temporary pause on new hyperscale/large data centres; no pause yet (bylaw change + public hearing, expected spring 2027); proposed bylaw changes by March 2027; report on risks, implications and opportunities by end of 2027; one large application under review in the far northeast near Redstone; mayor cited electricity and water limits; CCDI says a pause would send the wrong signal.",
+  "changed_from_calendar": null,
+  "why_this_story": "Most-talked-about City Hall decision of the past 48 h (Calgary Herald, Global News, LiveWire Calgary, CTV). The snowfall is covered by the same-day moments watch. Not in log.json; published in Calgary News on Nov 17.",
+  "central_figure": "Council vote 13-2 (Calgary Herald, Nov 17, 2026; Global News, Nov 18, 2026)",
+  "sources": [
+   "https://ca.news.yahoo.com/council-takes-step-toward-restricting-212614508.html",
+   "https://globalnews.ca/news/12154507/calgary-to-explore-new-rules-for-data-centres-but-temporary-pause-will-go-to-public-hearing/",
+   "https://livewirecalgary.com/2026/11/17/calgary-research-land-use-amendments-large-scale-data-centres/",
+   "https://www.ctvnews.ca/calgary/article/city-council-considers-pause-on-large-scale-data-centre-developments/"
+  ],
+  "link": "https://calgaryinsight.ca/news/2026-11-17-council-moves-ahead-on-data-centre-rules-with-bylaw-options-due-by-mar/?utm_source=facebook&utm_medium=social&utm_campaign=data-centre-pause-vote",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (no answer); the article is in news/index.json (Nov 17) and the Website build run 234 (Nov 18 15:30-17:44 UTC) succeeded after it was published.",
+  "length_s": 37.98,
+  "video_path": "studio-videos/2026-11-18-CIVIC/data-centre-pause-vote.mp4",
+  "thumbnail_path": "studio-videos/2026-11-18-CIVIC/data-centre-pause-vote-thumb.jpg",
+  "package": "packages/2026-11-18-CIVIC-data-centre-pause-vote.md",
+  "identity": "Civic Analyst lead (map + community boundary, vote tally, document cards, stage stepper) + Storyteller drone orbits + Data Explainer counter slams",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 9,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-18-CIVIC.md"
+  },
+  "narration": {
+   "lane": "studio-probe run 44380776020",
+   "asr_mean_acc": 0.992,
+   "lines_checked": 7,
+   "check_lines": 0,
+   "lines_used_match": true
+  },
+  "qc": {
+   "stills": "pass (after layout fixes)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "hook re-stacked PAUSE / GIANT DATA / CENTRES?",
+    "S2 labels and hearing chip moved above the caption band",
+    "S5 stepper tightened; ANNOUNCED chip moved under the title",
+    "S3 card shortened to clear captions",
+    "closer 3.44 s (question to last frame)",
+    "-14.5 LUFS, peak -3.9 dB, 9.0 MB"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 433308591,
+    "uuid": "-2538025321121691636",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-2538025321121691636",
+    "providers": [
+     "instagram",
+     "facebook"
+    ],
+    "publish_at": "2026-11-18T15:00",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "media_commit": "studio-videos 796e4db"
+   },
+   {
+    "metricool_id": 433308721,
+    "uuid": "-4866386948133796394",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-4866386948133796394",
+    "providers": [
+     "youtube-short"
+    ],
+    "publish_at": "2026-11-19T11:00",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "youtube_deferred": true
+   }
+  ],
+  "post_note": "Instagram + Facebook at the fixed 15:00 news slot (14:00 GTA Part 1 is 60 min earlier). YouTube deferred (section 7 cap): the 24 h before 15:00 already held 8 YouTube uploads (Nov 17 17:30, 18:30; Nov 18 08:00, 08:45, 09:30, 10:00, 11:00, 14:00), so the Short is its own post at Nov 19 11:00 (24 h counts 6 and 2 incl. it; Nov 19 10:00 is Origins Part 2). Both due >30 min after scheduling, so the next run confirms them (section 1)."
  }
 ]
