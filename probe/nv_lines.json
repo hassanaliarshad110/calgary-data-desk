@@ -1,7 +1,7 @@
 [
 {
 "id": "n01",
-"text": "GTA 6 की Vice City, असली Miami पर based है। तो चलो, Miami और मुंबई की race कराते हैं!",
+"text": "GTA 6 की Vice City, असली Miami पर based है। तो चलो: Miami vs मुंबई!",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
@@ -15,7 +15,7 @@
 },
 {
 "id": "n03",
-"text": "और Miami में? सिर्फ़ सत्रह मिनट पैंतालीस सेकंड। यानी मुंबई में हर दस किलोमीटर पर ग्यारह मिनट ज़्यादा!",
+"text": "Miami में? सिर्फ़ सत्रह मिनट पैंतालीस सेकंड। यानी मुंबई में हर दस किलोमीटर पर ग्यारह मिनट ज़्यादा!",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
@@ -29,7 +29,7 @@
 },
 {
 "id": "n05",
-"text": "Rush hour में मुंबई की औसत speed: सिर्फ़ सत्रह दशमलव छह किलोमीटर प्रति घंटा। Miami: सत्ताईस दशमलव चार।",
+"text": "Rush hour में औसत speed? मुंबई: सिर्फ़ सत्रह दशमलव छह km/h. Miami: सत्ताईस दशमलव चार।",
 "name": "hi-IN-SwaraNeural",
 "rate": "+12%",
 "pitch": "+3Hz"
