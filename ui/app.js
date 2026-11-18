@@ -142,6 +142,7 @@ function show(view) {
   if (view === 'infra' && window.renderInfra) renderInfra();
   if (view === 'capmkt' && window.renderCapMkt) renderCapMkt();
   if (view === 'help' && window.renderHelp) renderHelp();
+  if (view === 'connect' && window.renderConnect) renderConnect();
   if (view === 'citynews' && window.renderCityNews) renderCityNews();
   if (view === 'livemap' && window.renderLiveMap) renderLiveMap();
   if (view === 'elanalytics' && window.renderElAnalytics) renderElAnalytics();

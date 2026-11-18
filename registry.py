@@ -126,6 +126,8 @@ PAGES = [
     page('news', 'Newsletter', 'A newsletter for the selected ward, ready to send.', 'The newsletter is drawn from the Dashboard and Calgary News.', keywords='newsletter email'),
     page('settings', 'Settings', 'How residents are counted, the theme and the Data Genie service.', 'get_method topic=population_choice', keywords='settings theme population method'),
     page('files', 'Files', 'The tables and reports Data Genie has saved.', 'list_saved_files'),
+    page('connect', 'Connect your AI', 'How to add Calgary Insight to Claude, ChatGPT or another AI app as a connector, so it can read the site\'s figures and the City\'s open data.',
+         'none: the page explains the connector; its answers are the get_dashboard sections above', keywords='connector claude chatgpt ai app mcp'),
 ]
 BY_KEY = {p['key']: p for p in PAGES}
 

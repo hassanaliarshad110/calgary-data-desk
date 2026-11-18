@@ -55,6 +55,7 @@ SCREENS = [
     ('methods', "How it's counted", 'Every formula, filter and threshold, with its datasets and how to check it yourself', 'methods formula method how counted definitions', []),
     ('sources', 'Data sources', 'Every dataset the site reads, its publisher, when it was last updated, and the refresh schedule', 'sources datasets refresh schedule open data publisher', []),
     ('settings', 'Settings', 'How residents are counted, the theme and the Data Genie service', 'settings theme dark light population method', []),
+    ('connect', 'Connect your AI', 'Use Calgary Insight inside Claude, ChatGPT or another AI app', 'connector claude chatgpt ai app assistant mcp', []),
 ]
 
 ICONS = {'screen': 'i-dashboard', 'part': 'i-next', 'community': 'i-pin', 'ward': 'i-users', 'method': 'i-sigma', 'dataset': 'i-database',
