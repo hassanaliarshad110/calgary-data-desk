@@ -1,0 +1,11 @@
+# Calgary Insight connector (MCP server for Claude, ChatGPT and other AI apps). Deployed by .github/workflows/connector.yml
+# from main once the repository variable PUBLISH_CONNECTOR is "true". It reads the answers the website publishes in
+# data/mcp/ (web/mcp_answers.py) and City of Calgary open data. Address: https://calgary-insight-mcp.<account>.workers.dev/mcp
+name = "calgary-insight-mcp"
+main = "worker.js"
+account_id = "fe741fb73102fe3e36536c88b45be6ec"
+compatibility_date = "2025-06-01"
+workers_dev = true
+
+[vars]
+SITE_URL = "https://calgaryinsight.ca/"
