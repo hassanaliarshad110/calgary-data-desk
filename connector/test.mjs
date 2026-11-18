@@ -49,6 +49,7 @@ if (MIRROR) {
     check(!x.r.isError, `get_dashboard ${s} ward 3: ${x.len} characters${x.r.isError ? ' ' + x.r.content[0].text : ''}`);
   }
   for (const [s, p] of [['wards'], ['budget_intelligence'], ['budget_intelligence', 'departments'], ['tourism', 'countries'], ['school_tax', 'boards'], ['police_study'], ['city_news'], ['federal_budget', 'chapter'], ['visiting', 'sights'], ['safest_cities']]) {
+    if (idx.failed[`city/${s}`]) { console.log(`skip ${s}: not written in this copy (${idx.failed[`city/${s}`]})`); continue; }
     const x = await tool('get_dashboard', { section: s, part: p, chapter: p === 'chapter' ? 2 : undefined });
     check(!x.r.isError, `get_dashboard ${s}${p ? ' ' + p : ''}: ${x.len} characters${x.r.isError ? ' ' + x.r.content[0].text : ''}`);
   }
