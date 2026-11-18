@@ -126,3 +126,5 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T00:54:02Z | topic claimed | #19 FACT Dhruva Interactive: Bharat ka pehla game studio ki kahani (slug dhruva-studio)
 2026-11-18T00:57:49Z | check round 1 | PROBLEMS: n02 chronology (loan+modem were 1995 one-person company, not 1997) -> 'Asli shuruaat 1995 mein: ...'. h1o/n01/n03-n06/h1e verified (checker read Wikipedia, PocketGamer.biz, 80.lv, PC Gamer, MobyGeek)
 2026-11-18T00:59:17Z | check verdict | APPROVED round 2 (fresh independent agent read Wikipedia, PC Gamer, PocketGamer.biz, 80.lv, MobyGeek; all lines verified); optional note applied: n04 'art mein haath bataya' (not 'art banaya')
+2026-11-18T01:05:31Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v3 = round-2 approved wording + optional n04 'art mein haath bataya')
+2026-11-18T01:05:31Z | rendered | short1_fs.mp4 1080x1920 53.2 s, -14.3 LUFS, score under voice rms 0.0245 vs 0.0434 alone (~56%), all scenes native portrait; contact sheet: picture fills all 5 frames; counters replaced by static pops (no wrong in-between values on screen)
