@@ -1,0 +1,77 @@
+{
+"scenes": [
+{
+"id": "copies",
+"start": 0,
+"dur": 7.677,
+"lines": [
+"n01"
+]
+},
+{
+"id": "india",
+"start": 7.677,
+"dur": 6.676,
+"lines": [
+"n02"
+]
+},
+{
+"id": "divide",
+"start": 14.353,
+"dur": 4.941,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 19.294,
+"dur": 8.995,
+"lines": [
+"n04"
+]
+},
+{
+"id": "payoff",
+"start": 28.289,
+"dur": 6.337,
+"lines": [
+"n05"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 7.377,
+"spk": "N",
+"roman": "9 November ko Take-Two ke CEO ne bataya: GTA V ab tak duniya bhar mein kareeb 23.5 crore units bik chuka hai."
+},
+"n02": {
+"start": 7.757,
+"dur": 6.396,
+"spk": "N",
+"roman": "Aur Bharat ki aabadi? UN ke anumaan se, 2025 mein kareeb 146 crore."
+},
+"n03": {
+"start": 14.433,
+"dur": 4.661,
+"spk": "N",
+"roman": "Matlab ye saari copies Bharat mein baant do, toh har 6-7 logon par ek copy!"
+},
+"n04": {
+"start": 19.414,
+"dur": 8.675,
+"spk": "N",
+"roman": "Twist: agar har copy ek insaan hoti, toh ye GTA desh aabadi mein duniya ka saatvaan sabse bada desh hota, Brazil se bhi bada!"
+},
+"n05": {
+"start": 28.369,
+"dur": 5.957,
+"spk": "N",
+"roman": "Aur ye kamaal ek hi game ka hai, jo 2013 mein aaya tha. 13 saal baad bhi bik raha hai!"
+}
+},
+"total": 34.62599999999999
+}
