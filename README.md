@@ -20,10 +20,11 @@ The old Shorts put the 16:9 video in a 1080x608 band with big title text above a
 - Overlays allowed, all small and inside the picture: Awazzzz logo watermark in a top corner (<= 90 px); burned-in captions at y 1250-1450 (2 lines max, Baloo 2, dark box at 60%); a small "PART n/4" chip for the first 2.5 s only; the spoken opening hook as on-screen text for the first 2 s only (one line, <= 80 px); the last 2 s a compact end card ("Poori kahaani Awazzzz channel par" + SUBSCRIBE). No title bars, no blurred bands, no empty background above or below the video.
 - Keep the right 140 px and bottom 300 px free of key content (YouTube buttons and title overlay). Check a 5-frame contact sheet of every Short: the picture must cover the whole frame in every frame.
 
-## Awazzzz Mindset (from Nov 19, 2026) — Machiavelli & Rumi
-Hassan, Nov 17 2026: after the GTA blitz, Awazzzz moves to motivational content built on the philosophy of Machiavelli and Rumi, narrated in a DEEP voice.
-- VOICE (overrides the female-only rule for this series only; the GTA blitz keeps Swara): narrator hi-IN-MadhurNeural, rate -10%, pitch -24Hz (slow, deep, calm authority; pauses written with "..." and commas). Lighter option tested: -6% / -14Hz.
-- Topic queue and hard rules: mindset/topics.json ("rules": series, truth, tone, visual). Series: Machiavelli ke Niyam · Rumi ki Awaaz · Dimaag vs Dil.
-- Quotes only from public-domain translations actually read (Marriott's Prince 1908, Thomson's Discourses 1883, Whinfield's Masnavi, Nicholson's pre-1929 Rumi); our own Hindi rendering; book + chapter shown on screen. No fake/Barks "Rumi quotes".
+## Awazzzz Mindset (from Nov 19, 2026) — Machiavelli & Rumi, in ENGLISH
+Hassan, Nov 17 2026: after the GTA blitz, Awazzzz moves to motivational content built on the philosophy of Machiavelli and Rumi — narrated in ENGLISH with English subtitles, in a deep, natural male voice.
+- VOICE (overrides the female-only rule for this series only; the GTA blitz keeps Swara): en-US-ChristopherNeural, rate -8%, pitch -6Hz, on the budget-probe edge-tts lane (tts_nv.py). Tested alternatives (Nov 17): en-US-AndrewMultilingualNeural -8%/-8Hz (most natural, warm), Kokoro am_onyx speed 0.9 on the studio-probe lane (deepest). Write in short spoken sentences with "..." pauses; numbers as words.
+- SUBTITLES: English, word-synced chunks of ≤ 5 words, bold white with a dark outline, key word highlighted in gold; quote cards in a serif.
+- Topic queue and hard rules: mindset/topics.json ("rules": series, truth, tone, visual). Series: "Machiavelli's Rules" · "Rumi's Voice" · "Mind vs Heart".
+- Quotes only from public-domain translations actually read (Marriott's Prince 1908, Thomson's Discourses 1883, Whinfield's Masnavi, Nicholson's pre-1929 Rumi), quoted in their own English wording with book + chapter on screen. No fake or Coleman Barks "Rumi quotes".
 - Score: dark cinematic (low strings/pad drone, sparse piano, heartbeat kick, risers into the key line), clearly audible, ducked ~45% under the voice, -14 LUFS.
 - Shorts: full-bleed vertical 2.5D picture, minimal text (Nov 15 rule), quote card for the key line, ends with one action for today + comment question + "Follow Awazzzz".
