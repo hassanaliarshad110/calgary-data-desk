@@ -22,6 +22,44 @@ _cfg (all optional):
 import json, os, re, sys, subprocess, urllib.request, difflib, unicodedata
 
 out = sys.argv[1]; os.makedirs(os.path.join(out, 'raw'), exist_ok=True)
+
+# --- temporary moment-watch fetch block (2026-11-18 morning) ---
+import csv, io, concurrent.futures as cf
+def _get(u, t=60):
+    try:
+        r = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=t)
+        return r.read().decode('utf-8', 'replace')
+    except Exception as e:
+        return 'ERR ' + repr(e)
+mw = os.path.join(out, 'moment'); os.makedirs(mw, exist_ok=True)
+res = {}
+for day in ['20261118','20261117','20261116','20261115','20261114','20261113','20261112','20261111','20261110','20261109']:
+    base = f'https://dd.weather.gc.ca/today/observations/swob-ml/{day}/CYYC/'
+    idx = _get(base)
+    if idx.startswith('ERR'): res[base] = idx; continue
+    files = sorted(set(re.findall(r'href="([^"]+\.xml)"', idx)))
+    res[base] = files
+    obs = {}
+    def one(f):
+        x = _get(base + f)
+        d = {}
+        for m in re.finditer(r'<element name="([^"]+)"[^>]*?value="([^"]*)"', x):
+            d[m.group(1)] = m.group(2)
+        return f, d
+    with cf.ThreadPoolExecutor(16) as ex:
+        for f, d in ex.map(one, files): obs[f] = d
+    json.dump(obs, open(os.path.join(mw, f'swob_{day}.json'), 'w'), indent=0)
+json.dump(res, open(os.path.join(mw, 'swob_index.json'), 'w'), indent=1)
+for nm, u in [('eccc_daily_2026_11.csv','https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=18&timeframe=2&submit=Download+Data'),
+              ('eccc_hourly_2026_11.csv','https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=18&timeframe=1&submit=Download+Data'),
+              ('alerts_api.txt','https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50'),
+              ('warnings_calgary.txt','https://weather.gc.ca/warnings/report_e.html?ab52'),
+              ('traffic_rows_365d.json','https://data.calgary.ca/resource/35ra-9556.json?$select=start_dt_utc,id&$where=start_dt_utc%3E%3D%272025-11-01T00:00:00%27&$order=start_dt_utc&$limit=60000'),
+              ('traffic_latest.json','https://data.calgary.ca/resource/35ra-9556.json?$order=start_dt_utc%20DESC&$limit=150')]:
+    open(os.path.join(mw, nm), 'w').write(_get(u, 120))
+print('moment fetch done')
+sys.exit(0)
+# --- end block ---
 HERE = os.path.dirname(os.path.abspath(__file__))
 L = json.load(open(os.path.join(HERE, 'tts_lines.json')))
 cfg = L.pop('_cfg', {})
