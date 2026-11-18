@@ -186,3 +186,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T17:14:52Z | scheduled | Metricool uuid -3121081438855083120 at 2026-11-18 23:30 IST (12:00 PM Regina, 18 Nov); topic 27 posted; files in gta_blitz/arjun-archery/; media on awazzz-media gta_blitz/arjun-archery.mp4 + _thumb.jpg. Slot: 60 min after 22:30 IST, 60 min before 00:30 IST. Remaining odd-hour slots before the cut-off: 01:30, 03:30, 05:30, 07:30, 09:30 IST. No report this run (27th; next at 31st or the last run)
 2026-11-18T18:54:20Z | started | run 28 (scheduled)
 2026-11-18T18:54:34Z | topic claimed | #28 FACT GTA Online paisa vs asli paisa: Shark Card ki keemat rupaye mein (slug shark-card)
+2026-11-18T19:04:01Z | check round 1 | PROBLEMS: n01 must say GTA 5's GTA Online (not GTA 6 online) -> fixed; optional 'farq sirf ₹200' applied; GTA 6 ₹5,999 corroborated by checker via MySmartPrice + Tech2
