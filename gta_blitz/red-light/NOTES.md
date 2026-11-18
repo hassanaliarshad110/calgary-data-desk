@@ -1,0 +1,7 @@
+# GTA blitz #25 — red-light (FACT): "Red light jump in GTA vs India: challan aur points"
+- Angle: MV Act s.184 Explanation (a) (2019): jumping a red light = dangerous driving; 1st: Rs 1,000-5,000 or 6 months-1 year or both; again within 3 years: up to 2 years or Rs 10,000 or both. Twist: Delhi Traffic Police table lists it as "court challan" (no fixed fine). Points system = Ministry proposal only; CMV Rules 2026: 5+ offences in a year can lead to licensing action (not automatic).
+- Sources read (web-fetch agents): courtbook + lawgist + caseon s.184, traffic.delhipolice.gov.in/traffic-offences, channeliam (9 Sep 2026), carhp (Oct 2026), cars24 (Aug 2025, background); checker also read Business Standard (22 Jan 2026). No state-wise compounding amounts, no ban duration claimed.
+- Check: round 1 PROBLEMS (n05 'points abhi laagu nahi' could be heard as 'licence safe' -> added 2026 five-offence rule); round 2 APPROVED. Optional applied: n06 'jurmana, jail, ya dono'.
+- Voice v3 (128 words, 50.7 s). Final 53.8 s, -14.3 LUFS, score ~59% under voice.
+- Build: same as speeding-challan (ep4 scenes.js/prep_audio.py/score_mix.py/index.html + these files; `python3 /home/claude/kit/shorts.py 1`). New drawings: signalV (3-lamp signal), junction (zebra + stop line), gavelV, pointsCard, calYears, ruleCard; ported PRP-037 cone, PRP-038 barrier. penaltyRow shrinks long items.
+- Metricool uuid 8046105779929108150, 19 Nov 2026 11:30 IST (06:00Z, 60 min after the 10:30 IST post) — last GTA slot before the cut-off.

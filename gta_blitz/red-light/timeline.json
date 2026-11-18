@@ -1,0 +1,91 @@
+{
+"scenes": [
+{
+"id": "sec184",
+"start": 0,
+"dur": 8.316,
+"lines": [
+"n01"
+]
+},
+{
+"id": "first",
+"start": 8.316,
+"dur": 7.284,
+"lines": [
+"n02"
+]
+},
+{
+"id": "repeat",
+"start": 15.6,
+"dur": 6.468,
+"lines": [
+"n03"
+]
+},
+{
+"id": "twist",
+"start": 22.068,
+"dur": 7.243,
+"lines": [
+"n04"
+]
+},
+{
+"id": "points",
+"start": 29.311,
+"dur": 10.752,
+"lines": [
+"n05"
+]
+},
+{
+"id": "payoff",
+"start": 40.063,
+"dur": 4.481,
+"lines": [
+"n06"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 8.016,
+"spk": "N",
+"roman": "Motor Vehicles Act ki dhaara 184 mein, 2019 se likha hai: red light jump karna, khatarnaak driving hai."
+},
+"n02": {
+"start": 8.396,
+"dur": 7.004,
+"spk": "N",
+"roman": "Pehli baar: ₹1,000 se ₹5,000 tak jurmana, ya 6 mahine se 1 saal tak jail, ya dono."
+},
+"n03": {
+"start": 15.68,
+"dur": 6.188,
+"spk": "N",
+"roman": "3 saal ke andar dobaara? 2 saal tak jail, ya ₹10,000 jurmana, ya dono."
+},
+"n04": {
+"start": 22.188,
+"dur": 6.923,
+"spk": "N",
+"roman": "Twist: Delhi Traffic Police ki list mein iska fixed jurmana nahi, 'court challan' hai: rakam court tay karega!"
+},
+"n05": {
+"start": 29.391,
+"dur": 10.472,
+"spk": "N",
+"roman": "Aur licence points? Abhi sirf Ministry ka prastaav. Par 2026 ke naye niyam se, saal mein 5 ya zyada offences par licence par action ho sakta hai."
+},
+"n06": {
+"start": 40.143,
+"dur": 4.101,
+"spk": "N",
+"roman": "Game mein bas ek button, asli mein jurmana, jail, ya dono!"
+}
+},
+"total": 44.54399999999999
+}
