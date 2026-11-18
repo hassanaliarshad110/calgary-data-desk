@@ -2,8 +2,8 @@ name: Connector
 
 # The Calgary Insight connector (connector/): an MCP server that lets Claude, ChatGPT and other AI apps read the
 # website's data. Every run checks it against the published website (a copy of what Data Genie reads, put through
-# web/mcp_answers.py) and City open data. It deploys to Cloudflare Workers only from main, and only once the
-# repository variable PUBLISH_CONNECTOR is "true" (the CLOUDFLARE_API_TOKEN secret is the one the AI gateway uses).
+# web/mcp_answers.py) and City open data. It deploys to Cloudflare Workers from main (approved Nov 18, 2026), with the
+# CLOUDFLARE_API_TOKEN secret the AI gateway uses. To switch deploys off, set the repository variable PUBLISH_CONNECTOR to "false".
 on:
   push:
     branches: [main, connector]
@@ -35,7 +35,7 @@ jobs:
 
   deploy:
     needs: check
-    if: github.ref == 'refs/heads/main' && vars.PUBLISH_CONNECTOR == 'true'
+    if: github.ref == 'refs/heads/main' && vars.PUBLISH_CONNECTOR != 'false'
     runs-on: ubuntu-latest
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
