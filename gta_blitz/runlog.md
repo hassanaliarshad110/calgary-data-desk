@@ -191,3 +191,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T19:04:50Z | voice done | 8/8 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v2 = approved wording)
 2026-11-18T19:09:06Z | rendered | short1_fs.mp4 1080x1920 52.0 s, -14.3 LUFS, score under voice rms 0.0248 vs 0.0433 alone (~57%), all scenes native portrait; contact sheet: picture fills all 5 frames
 2026-11-18T19:11:19Z | scheduled | Metricool uuid 8967841027137159628 at 2026-11-19 01:30 IST (2:00 PM Regina, 18 Nov; 20:00Z); topic 28 posted; files in gta_blitz/shark-card/; media on awazzz-media gta_blitz/shark-card.mp4 + _thumb.jpg. Slot: 60 min after 00:30 IST, 60 min before 02:30 IST. Remaining odd-hour slots before the cut-off: 03:30, 05:30, 07:30, 09:30 IST. No report this run (28th; next at 31st or the last run)
+2026-11-18T20:52:25Z | started | run 29 (scheduled)
