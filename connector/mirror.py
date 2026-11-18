@@ -31,7 +31,7 @@ def main():
     jobs = [(site + 'py/' + f, os.path.join(out, 'py', f)) for f in man['files']]
     jobs += [(site + 'data/cache/' + f, os.path.join(out, 'data', 'cache', f)) for f in man.get('cache') or []]
     jobs += [(site + f'data/city_actual/w{w}.json', os.path.join(out, 'data', 'city_actual', f'w{w}.json')) for w in range(15)]
-    jobs += [(site + 'data/' + f, os.path.join(out, 'data', f)) for f in ('tax.json', 'catalog.json', 'methods.json', 'built.json')]
+    jobs += [(site + 'data/' + f, os.path.join(out, 'data', f)) for f in ('tax.json', 'catalog.json', 'methods.json', 'built.json', 'safety_rank.json')]
     with cf.ThreadPoolExecutor(8) as ex:
         sizes = list(ex.map(lambda j: get(*j), jobs))
     print(f'copied {sum(1 for s in sizes if s)} of {len(jobs)} files, {sum(sizes) / 1e6:.1f} MB')

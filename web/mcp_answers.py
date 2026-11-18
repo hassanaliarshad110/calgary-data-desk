@@ -88,6 +88,11 @@ def main():
             os.makedirs(os.path.dirname(dst), exist_ok=True)
             with open(src, 'rb') as f, open(dst, 'wb') as g:
                 g.write(f.read())
+    for name in ('safety_rank.json',):                         # built by the site and read from appdata by its module
+        src = os.path.join(data, name)
+        if os.path.exists(src):
+            with open(src, 'rb') as f, open(os.path.join(appdata, name), 'wb') as g:
+                g.write(f.read())
     import agent                                               # noqa: E402  (from py/)
 
     tax = None
