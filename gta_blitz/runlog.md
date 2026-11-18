@@ -125,3 +125,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T00:53Z | started
 2026-11-18T00:54:02Z | topic claimed | #19 FACT Dhruva Interactive: Bharat ka pehla game studio ki kahani (slug dhruva-studio)
 2026-11-18T00:57:49Z | check round 1 | PROBLEMS: n02 chronology (loan+modem were 1995 one-person company, not 1997) -> 'Asli shuruaat 1995 mein: ...'. h1o/n01/n03-n06/h1e verified (checker read Wikipedia, PocketGamer.biz, 80.lv, PC Gamer, MobyGeek)
+2026-11-18T00:59:17Z | check verdict | APPROVED round 2 (fresh independent agent read Wikipedia, PC Gamer, PocketGamer.biz, 80.lv, MobyGeek; all lines verified); optional note applied: n04 'art mein haath bataya' (not 'art banaya')
