@@ -143,3 +143,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T05:03:41Z | voice done | 7/7 lines hi-IN-SwaraNeural +12%/+3Hz via budget-probe Actions (v3 = round-2 fixed wording; 48.4 s voiced)
 2026-11-18T05:08:48Z | rendered | short1_fs.mp4 1080x1920 51.8 s, -14.6 LUFS, score under voice rms 0.025 vs 0.043 alone (~58%), all scenes native portrait; contact sheet: picture fills all 5 frames; REAL DUNIYA card separate (no vehicle), KALPANA chip kept on every frame
 2026-11-18T05:09:27Z | scheduled | Metricool uuid 5476534462218063208 at 2026-11-19 04:30 IST (5:00 PM Regina, 18 Nov); topic 21 posted; files in gta_blitz/setu-racing/; media on awazzz-media gta_blitz/setu-racing.mp4 + _thumb.jpg. Slot: 2 h after the 02:30 IST post. No report this run (next at 24th)
+2026-11-18T06:52:04Z | started | run 22 (scheduled)
