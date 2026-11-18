@@ -280,7 +280,9 @@
    "id": 26,
    "type": "FACT",
    "idea": "Kya GTA 6 PC par aayega? Indian PC gamers ke liye kya pata hai",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-18T14:52Z",
+   "slug": "pc-release"
   },
   {
    "id": 27,
