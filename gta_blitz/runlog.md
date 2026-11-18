@@ -187,3 +187,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T18:54:20Z | started | run 28 (scheduled)
 2026-11-18T18:54:34Z | topic claimed | #28 FACT GTA Online paisa vs asli paisa: Shark Card ki keemat rupaye mein (slug shark-card)
 2026-11-18T19:04:01Z | check round 1 | PROBLEMS: n01 must say GTA 5's GTA Online (not GTA 6 online) -> fixed; optional 'farq sirf ₹200' applied; GTA 6 ₹5,999 corroborated by checker via MySmartPrice + Tech2
+2026-11-18T19:04:18Z | check verdict | APPROVED round 2 (fresh independent agent read PS Store India PS5+PS4 Megalodon pages, playstation.com/en-in GTA V, GamesRadar, GTABase most-expensive list (Nov 2026), MySmartPrice + Tech2 for GTA 6 ₹5,999; Business Today/Esquire fetch blocked for checker)
