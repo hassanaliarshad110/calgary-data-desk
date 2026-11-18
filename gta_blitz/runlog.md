@@ -179,3 +179,4 @@ Each run appends: UTC time | step reached | note.
 2026-11-18T15:05:32Z | rendered | short1_fs.mp4 1080x1920 50.8 s, -14.3 LUFS, score under voice rms 0.025 vs 0.0417 alone (~60%), all scenes native portrait; contact sheet: picture fills all 5 frames; hook calendar moved clear of the hook text
 2026-11-18T15:07:16Z | scheduled | Metricool uuid -6879634561631961066 at 2026-11-18 21:30 IST (10:00 AM Regina, 18 Nov); topic 26 posted; files in gta_blitz/pc-release/; media on awazzz-media gta_blitz/pc-release.mp4 + _thumb.jpg. Slot: 60 min after 20:30 IST, 60 min before 22:30 IST. Remaining odd-hour slots before the cut-off: 23:30, 01:30, 03:30, 05:30, 07:30, 09:30 IST. Note sent to Hassan (run 25 had reported the blitz finished)
 2026-11-18T16:52:13Z | started | run 27 (scheduled)
+2026-11-18T16:52:28Z | topic claimed | #27 FAN-THEORY What if: Arjun ka teer-andaazi ek mini-game hota (slug arjun-archery)
