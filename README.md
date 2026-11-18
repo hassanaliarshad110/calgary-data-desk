@@ -22,7 +22,7 @@ The old Shorts put the 16:9 video in a 1080x608 band with big title text above a
 
 ## Awazzzz Mindset (from Nov 19, 2026) — Machiavelli & Rumi, in ENGLISH
 Hassan, Nov 17 2026: after the GTA blitz, Awazzzz moves to motivational content built on the philosophy of Machiavelli and Rumi — narrated in ENGLISH with English subtitles, in a deep, natural male voice.
-- VOICE (overrides the female-only rule for this series only; the GTA blitz keeps Swara): en-US-ChristopherNeural, rate -8%, pitch -6Hz, on the budget-probe edge-tts lane (tts_nv.py). Tested alternatives (Nov 17): en-US-AndrewMultilingualNeural -8%/-8Hz (most natural, warm), Kokoro am_onyx speed 0.9 on the studio-probe lane (deepest). Write in short spoken sentences with "..." pauses; numbers as words.
+- VOICE (APPROVED by Hassan, Nov 17 2026; overrides the female-only rule for this series only; the GTA blitz keeps Swara): en-US-ChristopherNeural, rate -8%, pitch -6Hz, on the budget-probe edge-tts lane (tts_nv.py). Tested alternatives (Nov 17): en-US-AndrewMultilingualNeural -8%/-8Hz (most natural, warm), Kokoro am_onyx speed 0.9 on the studio-probe lane (deepest). Write in short spoken sentences with "..." pauses; numbers as words.
 - SUBTITLES: English, word-synced chunks of ≤ 5 words, bold white with a dark outline, key word highlighted in gold; quote cards in a serif.
 - Topic queue and hard rules: mindset/topics.json ("rules": series, truth, tone, visual). Series: "Machiavelli's Rules" · "Rumi's Voice" · "Mind vs Heart".
 - Quotes only from public-domain translations actually read (Marriott's Prince 1908, Thomson's Discourses 1883, Whinfield's Masnavi, Nicholson's pre-1929 Rumi), quoted in their own English wording with book + chapter on screen. No fake or Coleman Barks "Rumi quotes".
