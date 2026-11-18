@@ -1,0 +1,8 @@
+# GTA blitz #23 — gaming-market (FACT): "Indian gaming market kitna bada? (FICCI-EY numbers)"
+- Angle: FICCI-EY 2026 M&E report (24 Mar 2026, covers 2025): ~52 crore gamers (515-525 M) = more than 1 in 3 Indians (UNFPA 2025 1,463.9 M), 10 crore+ daily -> twist: online gaming revenue -17% after the money-gaming ban (money games -26%) -> video game in-app +15%; video games + esports ₹6,300 cr (2025) -> ₹9,200 cr est. (2028).
+- The EY report PDF could not be fetched (client error / permission timeout); no rupee total for the whole online-gaming segment is claimed.
+- Check: round 1 PROBLEMS (n05 'asli video games' implied money games aren't real games); round 2 APPROVED. Optional notes applied (n01 '2026 wali report', n06 'ki kamaai ... thi', n07 'paise wale games ... video games', n02 chip 'UN 2025 aabadi se hisaab').
+- Voice v2 (115 words, 47.5 s trimmed). Final 50.9 s, -14.4 LUFS, score ~57% under voice.
+- Build: work dir = these files + episodes/ep4 scenes.js/prep_audio.py/score_mix.py/index.html over budget-probe mp3s (/home/claude/nvout); `python3 /home/claude/kit/shorts.py 1`; `python3 thumb.py`; `python3 peek.py <scene>:<frac>`. scenes_v.js = heli-price helpers (lines 5-281) + new #23 drawings.
+- Studio assets (select_assets.py): PRP-017 phone (SP.phone), PRP-052 coins, PRP-051 bill (billV), GFX-001 bars (own barV), VFX-011 impactStar, VFX-019 question. Own drawings: generic controller (padV), up/down arrows, coin rain, bar charts. No maps, flags or logos.
+- Metricool uuid 6483669157055056241, 19 Nov 2026 08:30 IST (9:00 PM Regina, 18 Nov). Slot: 2 h after the 06:30 IST post.

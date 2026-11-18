@@ -1,0 +1,105 @@
+{
+"scenes": [
+{
+"id": "crowdS",
+"start": 0,
+"dur": 7.204,
+"lines": [
+"n01"
+]
+},
+{
+"id": "third",
+"start": 7.204,
+"dur": 6.123,
+"lines": [
+"n02"
+]
+},
+{
+"id": "drop",
+"start": 13.327,
+"dur": 4.472,
+"lines": [
+"n03"
+]
+},
+{
+"id": "ban",
+"start": 17.799,
+"dur": 5.198,
+"lines": [
+"n04"
+]
+},
+{
+"id": "iap",
+"start": 22.997,
+"dur": 3.833,
+"lines": [
+"n05"
+]
+},
+{
+"id": "grow",
+"start": 26.83,
+"dur": 11.104,
+"lines": [
+"n06"
+]
+},
+{
+"id": "payoff",
+"start": 37.934,
+"dur": 3.805,
+"lines": [
+"n07"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.1,
+"dur": 6.904,
+"spk": "N",
+"roman": "FICCI-EY ki 2026 wali report kehti hai: 2025 mein Bharat mein kareeb 52 crore gamers the!"
+},
+"n02": {
+"start": 7.284,
+"dur": 5.843,
+"spk": "N",
+"roman": "Matlab har teen Bharatiyon mein se ek se zyada! Aur 10 crore se zyada log roz khelte hain."
+},
+"n03": {
+"start": 13.427,
+"dur": 4.172,
+"spk": "N",
+"roman": "Par twist: usi saal online gaming ki kamaai 17% gir gayi!"
+},
+"n04": {
+"start": 17.879,
+"dur": 4.918,
+"spk": "N",
+"roman": "Wajah? Paise wale games par ban. Unki kamaai 26% ghati."
+},
+"n05": {
+"start": 23.077,
+"dur": 3.553,
+"spk": "N",
+"roman": "Lekin video games mein, in-app khareedari 15% badhi!"
+},
+"n06": {
+"start": 26.91,
+"dur": 10.824,
+"spk": "N",
+"roman": "Video games aur esports ki kamaai milakar, 2025 mein 6,300 crore rupaye thi. Aur 2028 tak 9,200 crore ka anumaan!"
+},
+"n07": {
+"start": 38.014,
+"dur": 3.425,
+"spk": "N",
+"roman": "Yaani paise wale games gire, aur video games badh rahe hain!"
+}
+},
+"total": 41.73899999999998
+}
