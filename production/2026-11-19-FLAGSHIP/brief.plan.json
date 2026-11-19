@@ -1,0 +1,432 @@
+{
+ "brief": {
+  "channel": "calgaryinsight",
+  "title": "Calgary's Forgotten Streetcars: How Rail Vanished and Came Back as the CTrain",
+  "script": "Long before the CTrain, Calgary had streetcars. In 1909 the first cars rolled to the exhibition grounds. Streetcar suburbs like South Calgary, Marda Loop, Bowness Park. 1946 trolley coaches and gas buses. Last streetcar 1950. CTrain opened 1981 from Anderson Road to 7 Avenue downtown. Retired streetcar motor-conductors rode the first run. The last streetcar sits at Heritage Park."
+ },
+ "channel": "calgaryinsight",
+ "matched_terms": [
+  "1909",
+  "1946",
+  "1950",
+  "1981",
+  "3d",
+  "anderson",
+  "avenue",
+  "back",
+  "barrier",
+  "bowness",
+  "buses",
+  "calgary",
+  "came",
+  "car",
+  "cars",
+  "city",
+  "coaches",
+  "conductors",
+  "cone",
+  "ctrain",
+  "downtown",
+  "exhibition",
+  "first",
+  "forgotten",
+  "gas",
+  "grounds",
+  "had",
+  "heritage",
+  "how",
+  "last",
+  "like",
+  "long",
+  "loop",
+  "marda",
+  "motor",
+  "office",
+  "opened",
+  "park",
+  "plus15",
+  "rail",
+  "retired",
+  "road",
+  "rode",
+  "rolled",
+  "run",
+  "sits",
+  "skyline",
+  "south",
+  "street",
+  "streetcar",
+  "streetcars",
+  "suburbs",
+  "trolley",
+  "vanished"
+ ],
+ "slots": {
+  "characters": [
+   {
+    "id": "CHR-008",
+    "name": "Ammar (Construction foreman; in Susuman: Ammar mistri, the mohalla builder uncle)",
+    "score": 6.5,
+    "path": "engine/chars.js#CAST.ammar",
+    "usage": "drawChar(CAST.ammar, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   },
+   {
+    "id": "CHR-009",
+    "name": "Officer Gill (Police officer; in Susuman: the friendly beat-police uncle)",
+    "score": 5.0,
+    "path": "engine/chars.js#CAST.officer",
+    "usage": "drawChar(CAST.officer, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   },
+   {
+    "id": "CHR-007",
+    "name": "Zahra (Explainer host; in Susuman: Zahra Miss, Qasim's school teacher)",
+    "score": 4.5,
+    "path": "engine/chars.js#CAST.zahra",
+    "usage": "drawChar(CAST.zahra, MOVES.talk(t), x, groundY, scale, {t}); set pose.face.mouth = visemeAt(amp, t) for lip-sync",
+    "attribution": false
+   }
+  ],
+  "motions": [
+   {
+    "id": "MOV-003",
+    "name": "Motion: run",
+    "score": 5.0,
+    "path": "engine/chars.js#MOVES.run",
+    "usage": "MOVES.run(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-025",
+    "name": "Motion: scared",
+    "score": 5.0,
+    "path": "engine/chars.js#MOVES.scared",
+    "usage": "MOVES.scared(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-002",
+    "name": "Motion: walk",
+    "score": 4.5,
+    "path": "engine/chars.js#MOVES.walk",
+    "usage": "MOVES.walk(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-008",
+    "name": "Motion: talk",
+    "score": 4.5,
+    "path": "engine/chars.js#MOVES.talk",
+    "usage": "MOVES.talk(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   },
+   {
+    "id": "MOV-019",
+    "name": "Motion: point",
+    "score": 4.5,
+    "path": "engine/chars.js#MOVES.point",
+    "usage": "MOVES.point(t, opts) -> pose; blend with perform([...]) or blendPose()",
+    "attribution": false
+   }
+  ],
+  "environments": [
+   {
+    "id": "3DS-001",
+    "name": "Realistic 3D downtown Calgary (OpenStreetMap buildings, river, parks, LRT, Plus 15 footbridges)",
+    "score": 17.5,
+    "path": "engine/city3d.js",
+    "usage": "await City3D.init(); composite(City3D.render(CAM3D.orbit(t), {p15glow:1}), 0,0,1920,1080)",
+    "attribution": true
+   },
+   {
+    "id": "ENV-012",
+    "name": "Environment: calgary skyline",
+    "score": 12.0,
+    "path": "engine/sets.js#SETS.calgary_skyline",
+    "usage": "drawSet('calgary_skyline', t, cam)",
+    "attribution": false
+   },
+   {
+    "id": "ENV-003",
+    "name": "Environment: city street",
+    "score": 10.5,
+    "path": "engine/sets.js#SETS.city_street",
+    "usage": "drawSet('city_street', t, cam)",
+    "attribution": false
+   }
+  ],
+  "props": [
+   {
+    "id": "M3D-003",
+    "name": "Camera_01_1k.gltf",
+    "score": 6.5,
+    "path": "acquired/polyhaven/models/Camera_01/Camera_01_1k.gltf",
+    "usage": "GLTFLoader().load(path); AnimationMixer for clips",
+    "attribution": false
+   },
+   {
+    "id": "PRP-003",
+    "name": "Prop: officeChair",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.officeChair",
+    "usage": "PROPS.officeChair(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-018",
+    "name": "Prop: camera",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.camera",
+    "usage": "PROPS.camera(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-030",
+    "name": "Prop: car",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.car",
+    "usage": "PROPS.car(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-037",
+    "name": "Prop: cone",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.cone",
+    "usage": "PROPS.cone(x, y, scale, ...)",
+    "attribution": false
+   },
+   {
+    "id": "PRP-038",
+    "name": "Prop: barrier",
+    "score": 5.0,
+    "path": "engine/props.js#PROPS.barrier",
+    "usage": "PROPS.barrier(x, y, scale, ...)",
+    "attribution": false
+   }
+  ],
+  "vfx": [
+   {
+    "id": "VFX-004",
+    "name": "Effect: rain",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.rain",
+    "usage": "FX.rain(t, {...})",
+    "attribution": false
+   },
+   {
+    "id": "VFX-008",
+    "name": "Effect: sparks",
+    "score": 5.0,
+    "path": "engine/fx.js#FX.sparks",
+    "usage": "FX.sparks(t, {...})",
+    "attribution": false
+   }
+  ],
+  "graphics": [
+   {
+    "id": "SVG-001",
+    "name": "Animated SVG: cartoon_eyes_blink",
+    "score": 7.0,
+    "path": "assets/svg/cartoon_eyes_blink.svg",
+    "usage": "<img src> or <object>; edit text/colours in the file",
+    "attribution": false
+   },
+   {
+    "id": "SVG-002",
+    "name": "Animated SVG: ci_data_bars_loop",
+    "score": 7.0,
+    "path": "assets/svg/ci_data_bars_loop.svg",
+    "usage": "<img src> or <object>; edit text/colours in the file",
+    "attribution": false
+   },
+   {
+    "id": "SVG-006",
+    "name": "Animated SVG: rain_loop",
+    "score": 7.0,
+    "path": "assets/svg/rain_loop.svg",
+    "usage": "<img src> or <object>; edit text/colours in the file",
+    "attribution": false
+   },
+   {
+    "id": "GFX-018",
+    "name": "Graphic: titleCard",
+    "score": 6.5,
+    "path": "engine/graphics.js#GFX.titleCard",
+    "usage": "GFX.titleCard(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "GFX-024",
+    "name": "Graphic: endCard",
+    "score": 6.5,
+    "path": "engine/graphics.js#GFX.endCard",
+    "usage": "GFX.endCard(t, t0, { th: THEME.ci|news|cartoon, ... })",
+    "attribution": false
+   },
+   {
+    "id": "SVG-003",
+    "name": "Animated SVG: live_bug",
+    "score": 5.0,
+    "path": "assets/svg/live_bug.svg",
+    "usage": "<img src> or <object>; edit text/colours in the file",
+    "attribution": false
+   },
+   {
+    "id": "SVG-004",
+    "name": "Animated SVG: map_ping",
+    "score": 5.0,
+    "path": "assets/svg/map_ping.svg",
+    "usage": "<img src> or <object>; edit text/colours in the file",
+    "attribution": false
+   },
+   {
+    "id": "SVG-005",
+    "name": "Animated SVG: news_ticker",
+    "score": 5.0,
+    "path": "assets/svg/news_ticker.svg",
+    "usage": "<img src> or <object>; edit text/colours in the file",
+    "attribution": false
+   }
+  ],
+  "maps_data": [
+   {
+    "id": "GEO-014",
+    "name": "downtown_parks_water.json",
+    "score": 10.0,
+    "path": "acquired/geo/osm/downtown_parks_water.json",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": true
+   },
+   {
+    "id": "GEO-010",
+    "name": "downtown_buildings.json",
+    "score": 8.0,
+    "path": "acquired/geo/osm/downtown_buildings.json",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": true
+   },
+   {
+    "id": "GEO-011",
+    "name": "plus15_bridges.json",
+    "score": 8.0,
+    "path": "acquired/geo/osm/plus15_bridges.json",
+    "usage": "fetch(path) -> GFX.map(t, t0, { features, bbox })",
+    "attribution": true
+   }
+  ],
+  "camera": [
+   {
+    "id": "CAM-006",
+    "name": "Camera preset: kenBurns",
+    "score": 6.5,
+    "path": "engine/core.js#CAM.kenBurns",
+    "usage": "const cam = CAM.kenBurns(...); drawSet(name, t, cam)",
+    "attribution": false
+   },
+   {
+    "id": "CAM-001",
+    "name": "Camera preset: still",
+    "score": 5.0,
+    "path": "engine/core.js#CAM.still",
+    "usage": "const cam = CAM.still(...); drawSet(name, t, cam)",
+    "attribution": false
+   },
+   {
+    "id": "CAM-002",
+    "name": "Camera preset: pan",
+    "score": 5.0,
+    "path": "engine/core.js#CAM.pan",
+    "usage": "const cam = CAM.pan(...); drawSet(name, t, cam)",
+    "attribution": false
+   }
+  ],
+  "transitions": [
+   {
+    "id": "TRN-002",
+    "name": "Transition: dissolve",
+    "score": 4.5,
+    "path": "engine/core.js#TRANS.dissolve",
+    "usage": "transition('dissolve', t, t0, dur, drawA, drawB)",
+    "attribution": false
+   }
+  ],
+  "music": [
+   {
+    "id": "MUS-001",
+    "name": "Music: documentary calm 72bpm",
+    "score": 4.5,
+    "path": "assets/audio/music/documentary_calm_72bpm.wav",
+    "usage": "from audio import *; M.add(documentary_calm_72bpm(), at, gain)  (or the WAV file)",
+    "attribution": false
+   }
+  ],
+  "sfx": [
+   {
+    "id": "SFX-027",
+    "name": "Sfx: cartoon run",
+    "score": 7.0,
+    "path": "assets/audio/sfx/cartoon_run.wav",
+    "usage": "from audio import *; M.add(cartoon_run(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "SFX-019",
+    "name": "Sfx: camera shutter",
+    "score": 5.0,
+    "path": "assets/audio/sfx/camera_shutter.wav",
+    "usage": "from audio import *; M.add(camera_shutter(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "AMB-003",
+    "name": "Ambience: city",
+    "score": 5.0,
+    "path": "assets/audio/ambience/city.wav",
+    "usage": "from audio import *; M.add(city(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "AMB-004",
+    "name": "Ambience: park birds",
+    "score": 5.0,
+    "path": "assets/audio/ambience/park_birds.wav",
+    "usage": "from audio import *; M.add(park_birds(), at, gain)  (or the WAV file)",
+    "attribution": false
+   },
+   {
+    "id": "AMB-005",
+    "name": "Ambience: office",
+    "score": 5.0,
+    "path": "assets/audio/ambience/office.wav",
+    "usage": "from audio import *; M.add(office(), at, gain)  (or the WAV file)",
+    "attribution": false
+   }
+  ],
+  "fonts": [
+   {
+    "id": "FNT-005",
+    "name": "Inter[opsz,wght].ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/inter/Inter[opsz,wght].ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   },
+   {
+    "id": "FNT-007",
+    "name": "FiraSans-Black.ttf",
+    "score": 6.0,
+    "path": "acquired/fonts/firasans/FiraSans-Black.ttf",
+    "usage": "Add @font-face, use in text()",
+    "attribution": false
+   }
+  ]
+ },
+ "licence_notes": [
+  "3DS-001 Realistic 3D downtown Calgary (OpenStreetMap buildings, river, parks, LRT, Plus 15 footbridges): Code original; map data ODbL (credit \"\u00a9 OpenStreetMap contributors\")",
+  "GEO-014 downtown_parks_water.json: ODbL 1.0 - credit \"\u00a9 OpenStreetMap contributors\"",
+  "GEO-010 downtown_buildings.json: ODbL 1.0 - credit \"\u00a9 OpenStreetMap contributors\"",
+  "GEO-011 plus15_bridges.json: ODbL 1.0 - credit \"\u00a9 OpenStreetMap contributors\""
+ ]
+}

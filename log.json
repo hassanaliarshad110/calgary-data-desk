@@ -2375,10 +2375,15 @@
     ],
     "publish_at": "2026-11-18T18:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "media_commit": "studio-videos 4b90992"
+    "media_commit": "studio-videos 4b90992",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/2361055024651362",
+     "instagram": "https://www.instagram.com/reel/Df5zLUpgb_0/"
+    },
+    "confirmed_by": "2026-11-19 FLAGSHIP run (getScheduledPosts)"
    },
    {
     "metricool_id": 433565441,
@@ -2421,6 +2426,126 @@
    "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=19&timeframe=2&submit=Download+Data"
+  ]
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "Calgary's Forgotten Streetcars: How Rail Vanished and Came Back as the CTrain",
+  "topic_used": "1907 vote for a city-owned street railway; first cars July 5, 1909 to the exhibition grounds (12 cars, 25.7 km, a community of 30,000); growth to 1913; streetcar suburbs (South Calgary, Marda Loop's name); Hextall's islands-for-streetcars deal that became Bowness Park (1911); 1946 rename to Calgary Transit System and the switch to trolley coaches and gas buses; last streetcar 1950; more than thirty years without rails; CTrain construction 1978, opened May 25, 1981 (10.9 km Anderson Road to 7 Avenue SW); four retired streetcar motor-conductors on the first run and Percy Langley's quote; the possible Blue Line nod; the last streetcar restored at Heritage Park.",
+  "changed_from_calendar": "Kept, narrowed: no source gives the reason the city chose buses or says the CTrain reused streetcar routes, so the film states what happened and when only.",
+  "central_figure": "First streetcars: 12 cars on 25.7 km of track for a community of 30,000 (Calgary Transit, History); CTrain opened May 25, 1981, 10.9 km Anderson Road to 7 Avenue SW",
+  "sources": [
+   "https://www.calgarytransit.com/about-calgary-transit/corporate-information/history.html",
+   "https://thecanadianencyclopedia.ca/en/article/ctrain",
+   "https://en.wikipedia.org/wiki/Calgary_municipal_railway",
+   "https://www.sprawlcalgary.com/bowness-park-streetcar-calgary-transit-railway",
+   "https://www.visitmardaloop.com/marda-loop-blog/last-run-of-the-no-7-south-calgary-streetcar/",
+   "https://calgary.skyrisecities.com/news/2016/09/once-upon-tram-taking-short-turn-calgary-municipal-railway"
+  ],
+  "link": "https://calgaryinsight.ca/visit/explore/?utm_source=<platform>&utm_medium=social&utm_campaign=forgotten-streetcars",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/build_site.py builds visit/explore/ via web/explore.py; visit.py lists Heritage Park Historical Village).",
+  "length_s": 107.0,
+  "short_length_s": 68.0,
+  "teaser_length_s": 24.0,
+  "video_path": "studio-videos/2026-11-19-FLAGSHIP/forgotten-streetcars-{short,youtube,teaser}.mp4",
+  "thumbnail_path": "studio-videos/2026-11-19-FLAGSHIP/forgotten-streetcars-thumb.jpg, forgotten-streetcars-thumb-yt.jpg",
+  "package": "packages/2026-11-19-FLAGSHIP-forgotten-streetcars.md",
+  "production": "production/2026-11-19-FLAGSHIP/",
+  "identity": "Storyteller lead (dusk drone over real OSM downtown, map dives, river flight, ghosting) + Data Explainer counters/stamps/timelines + Civic Analyst document and quote cards",
+  "library": "animation-studio select_assets.py plan reviewed; engine OSM 3D downtown and synthesised story bed used",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 18,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-19-FLAGSHIP.md",
+   "note": "round 1: number in teaser caption + caption wording; round 2 APPROVED; round 3 APPROVED the shortened closing line"
+  },
+  "narration": {
+   "lane": "studio-probe (2 runs)",
+   "asr_mean_acc": 0.988,
+   "lines": 19,
+   "check_lines": [
+    3
+   ],
+   "note": "L3 'check' is a recogniser number-format artefact (25.7, 30,000); closing line re-voiced (acc 1.0) and atempo 1.1"
+  },
+  "qc": {
+   "stills": "pass after layout fixes (labels under chips, wide streetcars over captions, quote card height, L8 route visibility)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "no 0s; ending 3.96 s; -14.5 LUFS Short/film, -14.6 teaser; Short 12.4 MB, film 18.9 MB, teaser 4.3 MB",
+    "timeline scrub head shows in-between years while moving; motor-conductors title 92 px"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 434510529,
+    "uuid": "7383987739310113311",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=7383987739310113311",
+    "providers": [
+     "instagram",
+     "youtube-short"
+    ],
+    "file": "forgotten-streetcars-short.mp4",
+    "publish_at": "2026-11-19T12:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "media_commit": "studio-videos 26fa2ff"
+   },
+   {
+    "metricool_id": 434513228,
+    "uuid": "3273278497962281423",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=3273278497962281423",
+    "providers": [
+     "facebook",
+     "youtube-video"
+    ],
+    "file": "forgotten-streetcars-youtube.mp4",
+    "publish_at": "2026-11-19T17:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "media_commit": "studio-videos 42a11f8"
+   }
+  ],
+  "pending_link": [
+   {
+    "file": "forgotten-streetcars-teaser.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-19-FLAGSHIP/forgotten-streetcars-teaser.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-19-FLAGSHIP/forgotten-streetcars-thumb.jpg",
+    "providers": [
+     {
+      "network": "facebook",
+      "type": "REEL"
+     }
+    ],
+    "caption_without_link": "Long before the CTrain, Calgary had streetcars.\nThey rolled for decades, then vanished. When rail came back, retired streetcar motor-conductors rode the very first run.\nStreetcars or the CTrain? Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔗 Link in the first comment\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca\n\n#Calgary #yyc #CalgaryHistory #CTrain",
+    "first_comment": "🚋 See the last streetcar: find Heritage Park on our Calgary map: https://calgaryinsight.ca/visit/explore/?utm_source=facebook&utm_medium=social&utm_campaign=forgotten-streetcars-teaser",
+    "post_at": "2026-11-19T20:00",
+    "link_to": 434513228,
+    "note": "Section 7b Facebook layout: own Facebook-only post; caption keeps '▶ Full film on our YouTube channel: Calgary Insight' with no URL; firstCommentText = '▶ Full film: https://youtu.be/<id>' on the first line, then first_comment. No AI labels; videoThumbnailUrl = thumbnail_url."
+   }
   ]
  }
 ]
