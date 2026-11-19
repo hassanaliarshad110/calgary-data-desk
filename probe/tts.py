@@ -22,6 +22,58 @@ _cfg (all optional):
 import json, os, re, sys, subprocess, urllib.request, difflib, unicodedata
 
 out = sys.argv[1]; os.makedirs(os.path.join(out, 'raw'), exist_ok=True)
+
+# --- temporary moment-watch fetch block (2026-11-19 morning) ---
+import csv, io, concurrent.futures as cf
+def _get(u, t=60):
+    for _ in range(3):
+        try:
+            r = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=t)
+            return r.read().decode('utf-8', 'replace')
+        except Exception as e:
+            err = 'ERR ' + repr(e)
+    return err
+mw = os.path.join(out, 'moment'); os.makedirs(mw, exist_ok=True)
+res = {}
+for day in ['20261118','20261119']:
+    base = f'https://dd.weather.gc.ca/today/observations/swob-ml/{day}/CYYC/'
+    idx = _get(base)
+    if idx.startswith('ERR'): res[base] = idx; continue
+    files = sorted(set(re.findall(r'href="([^"]+\.xml)"', idx)))
+    res[base] = files
+    obs = {}
+    def one(f):
+        x = _get(base + f)
+        d = {}
+        for m in re.finditer(r'<element name="([^"]+)"[^>]*?value="([^"]*)"', x):
+            d[m.group(1)] = m.group(2)
+        return f, d
+    with cf.ThreadPoolExecutor(16) as ex:
+        for f, d in ex.map(one, files): obs[f] = d
+    json.dump(obs, open(os.path.join(mw, f'swob_{day}.json'), 'w'), indent=0)
+json.dump(res, open(os.path.join(mw, 'swob_index.json'), 'w'), indent=1)
+B = 'https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID={s}&Year={y}&Month=11&Day=19&timeframe=2&submit=Download+Data'
+for nm, u in [('eccc_daily_2026.csv', B.format(s=50430, y=2026)),
+              ('alerts_api.txt','https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50'),
+              ('traffic_latest.json','https://data.calgary.ca/resource/35ra-9556.json?$order=start_dt_utc%20DESC&$limit=400'),
+              ('traffic_rows_365d.json',"https://data.calgary.ca/resource/35ra-9556.json?$select=start_dt_utc,id&$where=start_dt_utc%3E'2025-11-18T00:00:00'&$limit=50000")]:
+    open(os.path.join(mw, nm), 'w').write(_get(u, 120))
+jobs = [(2205, y) for y in range(1926, 2013)] + [(50430, y) for y in range(2012, 2026)]
+def hist(j):
+    s, y = j
+    t = _get(B.format(s=s, y=y), 90)
+    rows = []
+    if not t.startswith('ERR'):
+        for r in csv.DictReader(io.StringIO(t.lstrip('﻿'))):
+            if r.get('Month') == '11' and r.get('Day') in ('17','18','19','20'):
+                rows.append(r)
+    return {'station': s, 'year': y, 'err': t[:200] if t.startswith('ERR') else None, 'rows': rows}
+with cf.ThreadPoolExecutor(8) as ex:
+    H = list(ex.map(hist, jobs))
+json.dump(H, open(os.path.join(mw, 'eccc_nov17_20_history.json'), 'w'))
+print('moment fetch done')
+sys.exit(0)
+# --- end block ---
 HERE = os.path.dirname(os.path.abspath(__file__))
 L = json.load(open(os.path.join(HERE, 'tts_lines.json')))
 cfg = L.pop('_cfg', {})
