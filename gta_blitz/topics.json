@@ -324,7 +324,9 @@
    "id": 30,
    "type": "FAN-THEORY",
    "idea": "Agar GTA ka hero Indian auto-rickshaw driver hota?",
-   "status": "todo"
+   "status": "making",
+   "started": "2026-11-19T02:52:19Z",
+   "slug": "auto-hero"
   },
   {
    "id": 31,
