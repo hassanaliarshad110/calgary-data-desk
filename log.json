@@ -2396,5 +2396,31 @@
    }
   ],
   "post_note": "Instagram + Facebook at the fixed 18:30 fun-fact slot (60 min after the 17:30 GTA Part 2 post, 90 min before 20:00 Part 3). YouTube deferred (section 7 cap): the 24 h before 18:30 already held 8 YouTube uploads (Nov 17 18:30; Nov 18 08:00, 08:45, 09:30, 10:00, 11:00, 14:00, 17:30), and Nov 19 10:00/11:00 are taken (Origins Part 2, civic Short), so the Short is its own post at Nov 19 14:00 (24 h before counts about 7 incl. it and tomorrow's 12:30 flagship Short). Both due >30 min after scheduling, so the next run confirms them (section 1). Earlier posts confirmed this run: 2026-11-18 CIVIC 433308591 PUBLISHED on Facebook and Instagram."
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (watch)",
+  "title": "Watching: Nov 19 (nothing rare so far)",
+  "status": "watching",
+  "checked_at": "2026-11-19 10:44 Calgary (16:44 UTC)",
+  "detection": {
+   "temp": "CYYC SWOB since 06Z: -1.8 to -3.8 C so far (air temp -2.2 at 16Z); Nov 19 history 1926-2025 (97 yrs) ranges max -21.1..20.0, min -26.1..6.7: not near top/bottom 5",
+   "gust_ge_80": false,
+   "chinook": false,
+   "alerts": "ECCC fog advisory continued for City of Calgary (16:32 UTC); advisory, not a warning",
+   "traffic_incidents_today_so_far": "9 by 09:04 Calgary (feed lags); 50th by same time among past 365 days; 365-day max 110, p99 62",
+   "news": "no confirmed rare Calgary event found",
+   "noted_not_used": "ECCC daily (preliminary) now shows Nov 18 snow 10.0 cm (2nd for Nov 18 since 1926 after 16.5 in 1926) and Nov 17-18 total 17.7 cm (most for those two dates since 1926; 1926 had 16.5). Not used: event was yesterday (not same-day) and the storm was already the Nov 17 moment."
+  },
+  "next_check": "16:41 / 19:41: refetch SWOB, alerts, traffic (35ra-9556)",
+  "evidence": "production/2026-11-19-MOMENT-watch/",
+  "sources": [
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261119/CYYC/",
+   "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
+   "https://data.calgary.ca/resource/35ra-9556.json",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=19&timeframe=2&submit=Download+Data"
+  ]
  }
 ]
