@@ -1,0 +1,161 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 2.803
+},
+{
+"id": "sc2",
+"start": 2.803,
+"lines": [
+"n2"
+],
+"dur": 4.805
+},
+{
+"id": "sc3",
+"start": 7.608,
+"lines": [
+"q1"
+],
+"dur": 5.656
+},
+{
+"id": "sc4",
+"start": 13.264,
+"lines": [
+"n3"
+],
+"dur": 5.84
+},
+{
+"id": "sc5",
+"start": 19.104,
+"lines": [
+"n4"
+],
+"dur": 7.355
+},
+{
+"id": "sc6",
+"start": 26.459,
+"lines": [
+"q2"
+],
+"dur": 5.434
+},
+{
+"id": "sc7",
+"start": 31.893,
+"lines": [
+"n6"
+],
+"dur": 5.243
+},
+{
+"id": "sc8",
+"start": 37.136,
+"lines": [
+"n7"
+],
+"dur": 4.374
+},
+{
+"id": "sc9",
+"start": 41.51,
+"lines": [
+"n8"
+],
+"dur": 5.517
+},
+{
+"id": "sc10",
+"start": 47.027,
+"lines": [
+"n9"
+],
+"dur": 3.775
+},
+{
+"id": "sc11",
+"start": 50.802,
+"lines": [
+"n10"
+],
+"dur": 3.712
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 2.513,
+"kind": "N",
+"cap": "Why does a flute... sound so sad?"
+},
+"n2": {
+"start": 2.863,
+"dur": 4.255,
+"kind": "N",
+"cap": "Rumi opens his great poem, the Masnavi, with a crying flute."
+},
+"q1": {
+"start": 7.668,
+"dur": 5.056,
+"kind": "Q",
+"cap": "\"Hearken to the reed-flute, how it complains, lamenting its banishment from its home.\""
+},
+"n3": {
+"start": 13.324,
+"dur": 5.59,
+"kind": "N",
+"cap": "The flute was cut from its reed bed. Its song... is the sound of missing home."
+},
+"n4": {
+"start": 19.164,
+"dur": 6.805,
+"kind": "N",
+"cap": "Like a student in a new city, far from family. Life looks fine... but something keeps calling."
+},
+"q2": {
+"start": 26.519,
+"dur": 4.734,
+"kind": "Q",
+"cap": "\"He who abides far away from his home is ever longing for the day he shall return.\""
+},
+"n6": {
+"start": 31.953,
+"dur": 4.793,
+"kind": "N",
+"cap": "But here's the catch... the reed only sings because it was cut... and hollowed."
+},
+"n7": {
+"start": 37.196,
+"dur": 3.974,
+"kind": "N",
+"cap": "Your longing is not weakness. It is a compass."
+},
+"n8": {
+"start": 41.57,
+"dur": 5.167,
+"kind": "N",
+"cap": "Your action today: name one thing you miss... and take one small step toward it."
+},
+"n9": {
+"start": 47.087,
+"dur": 3.475,
+"kind": "N",
+"cap": "What does your heart miss most? Tell me below."
+},
+"n10": {
+"start": 50.862,
+"dur": 2.352,
+"kind": "N",
+"cap": "Follow Awazzzz for your daily mindset."
+}
+},
+"total": 54.514
+}
