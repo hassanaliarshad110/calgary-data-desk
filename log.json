@@ -2157,7 +2157,7 @@
   "type": "moment",
   "category": "Same-day moment (watch)",
   "title": "Watching: snow day traffic incidents and Nov 18 snowfall",
-  "status": "watching",
+  "status": "closed_no_moment",
   "checked_at": "2026-11-18 10:43 Calgary (16:43 UTC)",
   "detection": {
    "traffic_incidents_today_so_far": "21 by 09:38 Calgary time (22 rows dated today incl. latest 09:38; City feed lags)",
@@ -2190,6 +2190,16 @@
     "news": "no other confirmed rare Calgary event found",
     "decision": "nothing qualifies yet; keep watching. 19:41: traffic only if final count reaches >=63; snow-for-date only if ECCC publishes an official Nov 18 total",
     "evidence": "production/2026-11-18-MOMENT-watch/check-1641/"
+   },
+   {
+    "checked_at": "2026-11-18 19:41 Calgary (01:41 UTC Nov 19)",
+    "traffic_incidents_today_so_far": "41 rows dated Nov 18 (Calgary time), latest 19:33; well below top-1% threshold (~63) and 365-day max (111)",
+    "snow": "ECCC daily Nov 18 row still empty (no official total); CYYC SWOB snow depth 15 cm at 00Z Nov 19",
+    "alerts": "Snowfall warning for City of Calgary ended (no active alerts)",
+    "temp": "-0.8 to -1.1 C at 00-01Z; no chinook, no 80 km/h gust",
+    "news": "no other confirmed rare Calgary event found",
+    "decision": "nothing qualifies; no Nov 18 moment. Watch closed.",
+    "evidence": "production/2026-11-18-MOMENT-watch/check-1941/"
    }
   ]
  },
