@@ -1,0 +1,286 @@
+{
+ "scenes": [
+  {
+   "id": "cold",
+   "start": 0.0,
+   "dur": 6.009
+  },
+  {
+   "id": "garmi",
+   "start": 6.009,
+   "dur": 8.096
+  },
+  {
+   "id": "gag",
+   "start": 14.105,
+   "dur": 17.03
+  },
+  {
+   "id": "power",
+   "start": 31.136,
+   "dur": 7.827
+  },
+  {
+   "id": "rescue",
+   "start": 38.963,
+   "dur": 15.372
+  },
+  {
+   "id": "fix",
+   "start": 54.335,
+   "dur": 11.088
+  },
+  {
+   "id": "secret",
+   "start": 65.423,
+   "dur": 10.602
+  },
+  {
+   "id": "tv",
+   "start": 76.025,
+   "dur": 8.001
+  },
+  {
+   "id": "lesson",
+   "start": 84.026,
+   "dur": 6.022
+  },
+  {
+   "id": "cliff",
+   "start": 90.048,
+   "dur": 4.092
+  },
+  {
+   "id": "endcard",
+   "start": 94.14,
+   "dur": 14.175
+  }
+ ],
+ "lines": {
+  "b1": {
+   "scene": "cold",
+   "s": 0.3,
+   "d": 1.312,
+   "abs": 0.3,
+   "sp": "BASIM",
+   "txt": "Arre!|Chidiya gir gayi!"
+  },
+  "d1": {
+   "scene": "cold",
+   "s": 2.612,
+   "d": 2.997,
+   "abs": 2.612,
+   "sp": "DADI",
+   "txt": "Haaye! Garmi se|behosh ho gayi bechaari!"
+  },
+  "z1": {
+   "scene": "garmi",
+   "s": 0.3,
+   "d": 2.727,
+   "abs": 6.309,
+   "sp": "ZAHRA MISS",
+   "txt": "Itni garmi mein parindon ko|paani kahan se milega?"
+  },
+  "q1": {
+   "scene": "garmi",
+   "s": 3.327,
+   "d": 1.805,
+   "abs": 9.336,
+   "sp": "QASIM",
+   "txt": "Dadi, chidiya ko|paani chahiye!"
+  },
+  "zs": {
+   "scene": "garmi",
+   "s": 5.432,
+   "d": 2.164,
+   "abs": 11.441,
+   "sp": "ZAHRA MISS",
+   "txt": "Bachcho,|kinaare se door raho!"
+  },
+  "qs": {
+   "scene": "gag",
+   "s": 0.3,
+   "d": 1.276,
+   "abs": 14.405,
+   "sp": "QASIM",
+   "txt": "Mama! Suusuu aayi hai!"
+  },
+  "pf": {
+   "scene": "gag",
+   "s": 1.776,
+   "d": 1.736,
+   "abs": 15.881,
+   "sp": "MAMA",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "a2": {
+   "scene": "gag",
+   "s": 3.711,
+   "d": 3.204,
+   "abs": 17.817,
+   "sp": "MAMA",
+   "txt": "Itni garmi mein neeche akele?|Chalo, main saath chalti hoon!"
+  },
+  "k2": {
+   "scene": "gag",
+   "s": 7.315,
+   "d": 4.076,
+   "abs": 21.42,
+   "sp": "SAKINA",
+   "txt": "Mamaaa... mujhe pehle thanda thanda|nimbu paani chahiye... abhi..."
+  },
+  "a3": {
+   "scene": "gag",
+   "s": 11.991,
+   "d": 2.718,
+   "abs": 26.096,
+   "sp": "MAMA",
+   "txt": "Achha achha, rona band!|Pehle tumhein deti hoon!"
+  },
+  "jj": {
+   "scene": "gag",
+   "s": 14.959,
+   "d": 0.972,
+   "abs": 29.064,
+   "sp": "SAKINA",
+   "txt": "Jaa jaldi!"
+  },
+  "n2": {
+   "scene": "power",
+   "s": 0.6,
+   "d": 3.628,
+   "abs": 31.736,
+   "sp": "NARR",
+   "txt": "Sirf Sakina jaanti hai...|har flush ke saath Qasim ban jata hai..."
+  },
+  "qp": {
+   "scene": "power",
+   "s": 5.028,
+   "d": 1.599,
+   "abs": 36.164,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "q3": {
+   "scene": "rescue",
+   "s": 3.4,
+   "d": 1.952,
+   "abs": 42.363,
+   "sp": "QASIM",
+   "txt": "Daro mat, nanhi chidiya!|Main aa gaya!"
+  },
+  "z2": {
+   "scene": "rescue",
+   "s": 6.552,
+   "d": 2.875,
+   "abs": 45.515,
+   "sp": "ZAHRA MISS",
+   "txt": "Tanki phat gayi!|Chidiya neeche gir rahi hai!"
+  },
+  "q4": {
+   "scene": "rescue",
+   "s": 10.827,
+   "d": 0.744,
+   "abs": 49.79,
+   "sp": "QASIM",
+   "txt": "Pakad liya!"
+  },
+  "d3": {
+   "scene": "rescue",
+   "s": 12.371,
+   "d": 2.401,
+   "abs": 51.334,
+   "sp": "DADI",
+   "txt": "Arre!|Saara paani beh jayega!"
+  },
+  "q5": {
+   "scene": "fix",
+   "s": 3.0,
+   "d": 2.033,
+   "abs": 57.335,
+   "sp": "QASIM",
+   "txt": "Lo! Ab sab parindon ko|paani milega!"
+  },
+  "b2": {
+   "scene": "fix",
+   "s": 6.433,
+   "d": 1.655,
+   "abs": 60.768,
+   "sp": "BASIM",
+   "txt": "Waah!|Chidiya ne paani pi liya!"
+  },
+  "kt": {
+   "scene": "secret",
+   "s": 0.5,
+   "d": 1.615,
+   "abs": 65.923,
+   "sp": "MAMA",
+   "txt": "Qasim! Kahan the tum?"
+  },
+  "kn": {
+   "scene": "secret",
+   "s": 2.315,
+   "d": 1.102,
+   "abs": 67.738,
+   "sp": "QASIM",
+   "txt": "Kuch nahi Mama!"
+  },
+  "d2": {
+   "scene": "secret",
+   "s": 3.917,
+   "d": 3.678,
+   "abs": 69.34,
+   "sp": "DADI",
+   "txt": "Koi hero aaya tha... parindon ko|paani pila kar chala gaya!"
+  },
+  "q6": {
+   "scene": "secret",
+   "s": 7.896,
+   "d": 1.707,
+   "abs": 73.319,
+   "sp": "QASIM",
+   "txt": "Achha?|Mujhe to suusuu aayi thi!"
+  },
+  "v1": {
+   "scene": "tv",
+   "s": 0.5,
+   "d": 3.962,
+   "abs": 76.525,
+   "sp": "DANIEL",
+   "txt": "Breaking news! Mystery hero ne|garmi mein chidiya ko bachaya!"
+  },
+  "v2": {
+   "scene": "tv",
+   "s": 4.662,
+   "d": 2.839,
+   "abs": 80.687,
+   "sp": "AMARA",
+   "txt": "Aur chhat par parindon ke liye|paani bhi rakh diya!"
+  },
+  "z3": {
+   "scene": "lesson",
+   "s": 0.4,
+   "d": 3.822,
+   "abs": 84.426,
+   "sp": "ZAHRA MISS",
+   "txt": "Bachcho, garmi mein chhat par|parindon ke liye paani zaroor rakho!"
+  },
+  "bv": {
+   "scene": "cliff",
+   "s": 0.4,
+   "d": 2.192,
+   "abs": 90.448,
+   "sp": "BASIM",
+   "txt": "Arre! School van|apne aap chal padi!"
+  },
+  "qe": {
+   "scene": "endcard",
+   "s": 0.8,
+   "d": 2.175,
+   "abs": 94.94,
+   "sp": "QASIM",
+   "txt": "LIKE aur SUBSCRIBE karo!|Bye bye!"
+  }
+ },
+ "total": 108.315
+}

@@ -49,3 +49,4 @@ List what is on screen each second for the first 15 s of the final file: danger 
 
 ## Log
 - Nov 18, 2026: Hassan chose to release Ep 8 unchanged (original opening). The new rules apply from Ep 9 (Fri Nov 20). A cold-open cut of Ep 8 exists at susuman-media/ep8/susuman_ep8_16x9_coldopen.mp4 (opens on the traffic jam), for compilations only.
+- Nov 19, 2026: Ep 9 (Garmi Mein Parinde) is the first episode built to the retention structure: danger visible at frame 0, a character speaks at 0.3 s, no narrator before the flush (0:36), escalation (pipe burst + fall) at 0:44, cliffhanger flash of Ep 10 at 1:30, native 16:9 end screen. Its cliffhanger Short (~30 s) ends unresolved on the dive with "POORA EPISODE DEKHO!".
