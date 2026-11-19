@@ -1,0 +1,26 @@
+{
+ "kokoro": [
+  {"id": "b1", "text": "अरे! चिड़िया गिर गई!", "voice": "hm_psi", "speed": 1.1},
+  {"id": "q1", "text": "दादी, चिड़िया को पानी चाहिए!", "voice": "hf_beta", "speed": 1.05},
+  {"id": "k2", "text": "मामा... मुझे पहले ठंडा ठंडा नींबू पानी चाहिए... अभी...", "voice": "hf_alpha", "speed": 0.95},
+  {"id": "q3", "text": "डरो मत, नन्ही चिड़िया! मैं आ गया!", "voice": "hf_beta", "speed": 1.05},
+  {"id": "q4", "text": "पकड़ लिया!", "voice": "hf_beta", "speed": 1.0},
+  {"id": "q5", "text": "लो! अब सब परिंदों को पानी मिलेगा!", "voice": "hf_beta", "speed": 1.05},
+  {"id": "b2", "text": "वाह! चिड़िया ने पानी पी लिया!", "voice": "hm_psi", "speed": 1.05},
+  {"id": "bv", "text": "अरे! स्कूल वैन अपने आप चल पड़ी!", "voice": "hm_psi", "speed": 1.1},
+  {"id": "qe", "text": "लाइक और सब्सक्राइब करो! बाय बाय!", "voice": "hf_beta", "speed": 1.0},
+  {"id": "v1", "text": "ब्रेकिंग न्यूज़! मिस्ट्री हीरो ने गर्मी में चिड़िया को बचाया!", "voice": "hm_omega", "speed": 1.05},
+  {"id": "v2", "text": "और छत पर परिंदों के लिए पानी भी रख दिया!", "voice": "hf_alpha", "speed": 1.05}
+ ],
+ "edge": [
+  {"id": "d1", "text": "ہائے! گرمی سے بے ہوش ہو گئی بیچاری!", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz", "asr": 1},
+  {"id": "z1", "text": "इतनी गर्मी में परिंदों को पानी कहाँ से मिलेगा?", "voice": "hi-IN-SwaraNeural", "rate": "+0%", "asr": 1},
+  {"id": "zs", "text": "बच्चो, किनारे से दूर रहो!", "voice": "hi-IN-SwaraNeural", "rate": "+0%", "asr": 1},
+  {"id": "a2", "text": "اتنی گرمی میں نیچے اکیلے؟ چلو، میں ساتھ چلتی ہوں!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1},
+  {"id": "a3", "text": "اچھا اچھا، رونا بند! پہلے تمہیں دیتی ہوں!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1},
+  {"id": "z2", "text": "टंकी फट गई! चिड़िया नीचे गिर रही है!", "voice": "hi-IN-SwaraNeural", "rate": "+5%", "asr": 1},
+  {"id": "d3", "text": "ارے! سارا پانی بہہ جائے گا!", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz", "asr": 1},
+  {"id": "d2", "text": "کوئی ہیرو آیا تھا... پرندوں کو پانی پلا گیا!", "voice": "ur-IN-GulNeural", "rate": "-10%", "pitch": "-10Hz", "asr": 1},
+  {"id": "z3", "text": "बच्चो, गर्मी में छत पर परिंदों के लिए पानी ज़रूर रखो!", "voice": "hi-IN-SwaraNeural", "rate": "+0%", "asr": 1}
+ ]
+}
