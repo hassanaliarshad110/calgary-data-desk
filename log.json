@@ -2296,10 +2296,14 @@
     ],
     "publish_at": "2026-11-19T11:00",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "youtube_deferred": true
+    "youtube_deferred": true,
+    "publicUrls": {
+     "youtube": "https://www.youtube.com/shorts/Q8KAQc21gpY"
+    },
+    "confirmed_by": "2026-11-19 PM run (getScheduledPosts)"
    }
   ],
   "post_note": "Instagram + Facebook at the fixed 15:00 news slot (14:00 GTA Part 1 is 60 min earlier). YouTube deferred (section 7 cap): the 24 h before 15:00 already held 8 YouTube uploads (Nov 17 17:30, 18:30; Nov 18 08:00, 08:45, 09:30, 10:00, 11:00, 14:00), so the Short is its own post at Nov 19 11:00 (24 h counts 6 and 2 incl. it; Nov 19 10:00 is Origins Part 2). Both due >30 min after scheduling, so the next run confirms them (section 1)."
@@ -2394,10 +2398,14 @@
     ],
     "publish_at": "2026-11-19T14:00",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "youtube_deferred": true
+    "youtube_deferred": true,
+    "publicUrls": {
+     "youtube": "https://www.youtube.com/shorts/dYPF2hA62-k"
+    },
+    "confirmed_by": "2026-11-19 PM run (getScheduledPosts)"
    }
   ],
   "post_note": "Instagram + Facebook at the fixed 18:30 fun-fact slot (60 min after the 17:30 GTA Part 2 post, 90 min before 20:00 Part 3). YouTube deferred (section 7 cap): the 24 h before 18:30 already held 8 YouTube uploads (Nov 17 18:30; Nov 18 08:00, 08:45, 09:30, 10:00, 11:00, 14:00, 17:30), and Nov 19 10:00/11:00 are taken (Origins Part 2, civic Short), so the Short is its own post at Nov 19 14:00 (24 h before counts about 7 incl. it and tomorrow's 12:30 flagship Short). Both due >30 min after scheduling, so the next run confirms them (section 1). Earlier posts confirmed this run: 2026-11-18 CIVIC 433308591 PUBLISHED on Facebook and Instagram."
@@ -2520,10 +2528,15 @@
     "file": "forgotten-streetcars-short.mp4",
     "publish_at": "2026-11-19T12:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "media_commit": "studio-videos 26fa2ff"
+    "media_commit": "studio-videos 26fa2ff",
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/Df7uzH0AWm_/",
+     "youtube": "https://www.youtube.com/shorts/COB74MU3cWE"
+    },
+    "confirmed_by": "2026-11-19 PM run (getScheduledPosts)"
    },
    {
     "metricool_id": 434513228,
@@ -2560,5 +2573,86 @@
     "note": "Section 7b Facebook layout: own Facebook-only post; caption keeps '▶ Full film on our YouTube channel: Calgary Insight' with no URL; firstCommentText = '▶ Full film: https://youtu.be/<id>' on the first line, then first_comment. No AI labels; videoThumbnailUrl = thumbnail_url."
    }
   ]
+ },
+ {
+  "date": "2026-11-19",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Calgary's zoo had more than fifty dinosaurs. Only one survived.",
+  "topic_used": "Dinny the Dinosaur: the concrete brontosaurus unveiled at the Calgary Zoo in 1937 with more than 50 other dinosaur sculptures (CTV); the original Natural History Park was dismantled in 1983 and Dinny is the last survivor of 56 (CBC); submerged up to his neck in the 2013 flood (CBC).",
+  "changed_from_calendar": "Kept (\"The Calgary Zoo's dinosaur park\"), sharpened into a survivor twist (50+ dinosaurs, one survived).",
+  "central_figure": "more than 50 dinosaur sculptures; one survivor (Dinny); unveiled 1937; park dismantled 1983; 2013 flood to his neck",
+  "sources": [
+   "https://amp.cbc.ca/news/canada/calgary/dinny-the-dinosaur-improvements-1.6001600",
+   "https://calgary.ctvnews.ca/mobile/100k-exterior-makeover-begins-on-dinny-the-dinosaur-at-the-calgary-zoo-1.5473296?cache=yes",
+   "https://calgary.ctvnews.ca/green-space-now-open-around-dinny-the-dinosaur-at-the-calgary-zoo-1.5572558",
+   "https://newsroom.calgary.ca/dinosaurs-dancing-and-the-birth-of-a-prehistoric-park/"
+  ],
+  "link": "https://calgaryinsight.ca/visit/explore/?utm_source=facebook&utm_medium=social&utm_campaign=dinny-last-dinosaur",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/build_site.py builds visit/explore/; visit.py lists the Calgary Zoo).",
+  "length_s": 21.63,
+  "video_path": "studio-videos/2026-11-19-PM/dinny-last-dinosaur.mp4",
+  "thumbnail_path": "studio-videos/2026-11-19-PM/dinny-last-dinosaur-thumb.jpg",
+  "package": "packages/2026-11-19-PM-dinny-last-dinosaur.md",
+  "production": "production/2026-11-19-PM/ (scene.js, cues.json, durs.json, thumb.html)",
+  "identity": "Data Explainer lead (kinetic hook, elimination field, stamps, rising-water gauge) + Storyteller map dive onto the zoo + Civic two-tick timeline",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 5,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-19-PM.md"
+  },
+  "narration": {
+   "lane": "studio-probe (2 pushes; closing line re-voiced)",
+   "asr_mean_acc": 1.0,
+   "lines_checked": 5,
+   "check_lines": 0,
+   "lines_used_match": true
+  },
+  "qc": {
+   "stills": "pass (after layout fixes)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "captions clear of Dinny in S2/S4",
+    "two-tick timeline replaces scrubbing year head",
+    "closer 3.9 s (question to last frame)",
+    "-14.6 LUFS, 10.1 MB"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 434919250,
+    "uuid": "4859821321889598952",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4859821321889598952",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-19T18:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "media_commit": "studio-videos 9d3055c"
+   }
+  ],
+  "post_note": "Fixed 18:30 fun-fact slot (60 min after the 17:30 flagship post B; next post Nov 20 10:00). YouTube 24 h count before 18:30: 7 including this one (Nov 18 20:00; Nov 19 10:00, 11:00, 12:30, 14:00, 17:30). Earlier posts confirmed this run: Nov 18 CIVIC YouTube (11:00) and Nov 18 PM YouTube (14:00) PUBLISHED; Nov 19 FLAGSHIP post A (12:30) PUBLISHED on Instagram and YouTube; post B (17:30) still pending at check time."
  }
 ]

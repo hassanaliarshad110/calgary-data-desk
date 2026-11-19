@@ -1,0 +1,21 @@
+<html><head><style>
+@font-face{font-family:Fira;src:url(file:///home/claude/studio/motion/engine/fonts/fira-sans-bold.woff);font-weight:800}
+body{margin:0;width:1080px;height:1920px;background:url(file:///home/claude/studio/production/2026-11-19-PM/thumbsrc/still_0001.20.png);font-family:Fira;overflow:hidden;position:relative}
+.bar{position:absolute;left:0;right:0;top:330px;height:1260px;background:linear-gradient(rgba(11,31,58,0),rgba(11,31,58,.9) 10%,rgba(11,31,58,.92) 90%,rgba(11,31,58,0))}
+.t{position:absolute;left:30px;width:1020px;text-align:center;top:420px;font-size:170px;line-height:1.0;color:#fff;font-weight:800;text-shadow:0 6px 24px rgba(0,0,0,.6)}
+.t b{color:#f2b632}
+.s{position:absolute;left:150px;width:780px;top:1290px;padding:14px 0;text-align:center;font-size:104px;color:#f2b632;font-weight:800;border:10px solid #f2b632;border-radius:24px;background:rgba(7,13,24,.88);transform:rotate(-3deg)}
+canvas{position:absolute;left:0;top:0}
+.logo{position:absolute;left:930px;top:1460px;width:90px;height:90px}
+</style></head><body><div class="bar"></div><canvas id="c" width="1080" height="1920"></canvas><img class="logo" src="file:///home/claude/studio/assets/logo.svg"><div class="t"><b>50+</b> DINOSAURS.</div><div class="s">ONE SURVIVED</div>
+<script>
+const c=document.getElementById('c').getContext('2d');
+function saur(x,y,s,col){c.save();c.translate(x,y);c.scale(s,s);c.fillStyle=col;c.shadowColor='rgba(242,182,50,.6)';c.shadowBlur=col=='#f2b632'?50:0;
+c.beginPath();c.ellipse(40,-165,160,92,0,0,7);c.fill();
+[[-70,-150],[-15,-140],[120,-150],[170,-150]].forEach(([lx,ly])=>{c.fillRect(lx-22,ly,44,-ly)});
+c.beginPath();c.moveTo(-95,-235);c.quadraticCurveTo(-205,-280,-238,-440);c.lineTo(-268,-432);c.quadraticCurveTo(-200,-205,-70,-120);c.closePath();c.fill();
+c.beginPath();c.ellipse(-262,-444,46,24,-.15,0,7);c.fill();
+c.beginPath();c.moveTo(185,-215);c.quadraticCurveTo(330,-180,450,-40);c.quadraticCurveTo(320,-120,175,-110);c.closePath();c.fill();c.restore();}
+[[170,1130,.28],[900,1120,.28],[120,880,.2],[960,860,.2],[250,1220,.18],[830,1230,.18]].forEach(([x,y,s])=>saur(x,y,s,'rgba(154,163,173,.55)'));
+saur(560,1250,.85,'#f2b632');
+</script></body></html>
