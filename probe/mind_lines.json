@@ -1,70 +1,77 @@
 [
 {
 "id": "h1",
-"text": "Why does a flute... sound so sad?",
+"text": "Lion... or fox? Which one are you?",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "Rumi opens his great poem, the Masnavi, with a crying flute.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "q1",
-"text": "Hearken to the reed-flute, how it complains, lamenting its banishment from its home.",
+"text": "Start your day with this.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "The flute was cut from its reed bed. Its song... is the sound of missing home.",
+"text": "Picture Sam. Fearless. A pure lion.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n4",
-"text": "Like a student in a new city, far from family. Life looks fine... but something keeps calling.",
+"text": "He signs a big deal fast... and walks into a trap in the small print.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
-"id": "q2",
-"text": "He who abides far away from his home is ever longing for the day he shall return.",
+"id": "n5",
+"text": "Maya is a pure fox. She spots every trap... but when a bully pushes, she folds.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "q1",
+"text": "Machiavelli wrote... it is necessary to be a fox to discover the snares... and a lion to terrify the wolves.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n6",
-"text": "But here's the catch... the reed only sings because it was cut... and hollowed.",
+"text": "But here's the catch.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "q2",
+"text": "His fox also breaks promises... a great pretender and dissembler.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n7",
-"text": "Your longing is not weakness. It is a compass.",
+"text": "Don't copy that. Understand it... so nobody plays you. Spot the trap... never set one.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n8",
-"text": "Your action today: name one thing you miss... and take one small step toward it.",
+"text": "Your action today: before you say yes to anything, ask one fox question... what's the catch? Then answer like a lion.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n9",
-"text": "What does your heart miss most? Tell me below.",
+"text": "More lion, or more fox? Comment below.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
