@@ -1,5 +1,5 @@
 {
- "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-18 2026.",
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-19 2026.",
  "ur": {
   "اللہ کے نبی ﷺ": "اللہ کے نبی",
   "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
@@ -41,7 +41,10 @@
   "جنگِ جمل": "جنگ جمل",
   "مدائن": "مَدائِن",
   "وفاء الوفاء": "وفا الوفا",
-  "بیت الحزن": "بیت الحُزن"
+  "بیت الحزن": "بیت الحُزن",
+  "اُمُّ المؤمنین": "ام المومنین",
+  "خُرَیبہ": "خریبہ",
+  "حوأب": "حواب"
  },
  "ar": {
   "رسول الله ﷺ": "رسولِ الله، صلّى اللهُ عليه وآله وسلّم،",
