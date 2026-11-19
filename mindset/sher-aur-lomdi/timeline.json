@@ -1,0 +1,161 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 3.573
+},
+{
+"id": "sc2",
+"start": 3.573,
+"lines": [
+"n2"
+],
+"dur": 1.73
+},
+{
+"id": "sc3",
+"start": 5.303,
+"lines": [
+"n3",
+"n4"
+],
+"dur": 9.232
+},
+{
+"id": "sc4",
+"start": 14.535,
+"lines": [
+"n5"
+],
+"dur": 7.002
+},
+{
+"id": "sc5",
+"start": 21.537,
+"lines": [
+"q1"
+],
+"dur": 7.128
+},
+{
+"id": "sc6",
+"start": 28.665,
+"lines": [
+"n6",
+"q2"
+],
+"dur": 5.851
+},
+{
+"id": "sc7",
+"start": 34.516,
+"lines": [
+"n7"
+],
+"dur": 7.621
+},
+{
+"id": "sc8",
+"start": 42.137,
+"lines": [
+"n8"
+],
+"dur": 8.583
+},
+{
+"id": "sc9",
+"start": 50.72,
+"lines": [
+"n9"
+],
+"dur": 4.031
+},
+{
+"id": "sc10",
+"start": 54.751,
+"lines": [
+"n10"
+],
+"dur": 3.483
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 3.413,
+"kind": "N",
+"cap": "Lion... or fox? Which one are you?"
+},
+"n2": {
+"start": 3.633,
+"dur": 1.61,
+"kind": "N",
+"cap": "Start your day with this."
+},
+"n3": {
+"start": 5.363,
+"dur": 4.737,
+"kind": "N",
+"cap": "Picture Sam. Fearless. A pure lion."
+},
+"n4": {
+"start": 10.22,
+"dur": 4.255,
+"kind": "N",
+"cap": "He signs a big deal fast... and walks into a trap in the small print."
+},
+"n5": {
+"start": 14.595,
+"dur": 6.682,
+"kind": "N",
+"cap": "Maya is a pure fox. She spots every trap... but when a bully pushes, she folds."
+},
+"q1": {
+"start": 21.597,
+"dur": 6.808,
+"kind": "Q",
+"cap": "Machiavelli wrote... \"it is necessary to be a fox to discover the snares and a lion to terrify the wolves.\""
+},
+"n6": {
+"start": 28.725,
+"dur": 1.38,
+"kind": "N",
+"cap": "But here's the catch."
+},
+"q2": {
+"start": 30.225,
+"dur": 4.231,
+"kind": "Q",
+"cap": "His fox also breaks promises... \"a great pretender and dissembler.\""
+},
+"n7": {
+"start": 34.576,
+"dur": 7.501,
+"kind": "N",
+"cap": "Don't copy that. Understand it... so nobody plays you. Spot the trap... never set one."
+},
+"n8": {
+"start": 42.197,
+"dur": 8.463,
+"kind": "N",
+"cap": "Your action today: before you say yes to anything, ask one fox question... what's the catch? Then answer like a lion."
+},
+"n9": {
+"start": 50.78,
+"dur": 3.911,
+"kind": "N",
+"cap": "More lion, or more fox? Comment below."
+},
+"n10": {
+"start": 54.811,
+"dur": 2.323,
+"kind": "N",
+"cap": "Follow Awazzzz for your daily mindset."
+}
+},
+"total": 58.234
+}
