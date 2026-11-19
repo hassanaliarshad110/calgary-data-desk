@@ -2419,13 +2419,26 @@
    "news": "no confirmed rare Calgary event found",
    "noted_not_used": "ECCC daily (preliminary) now shows Nov 18 snow 10.0 cm (2nd for Nov 18 since 1926 after 16.5 in 1926) and Nov 17-18 total 17.7 cm (most for those two dates since 1926; 1926 had 16.5). Not used: event was yesterday (not same-day) and the storm was already the Nov 17 moment."
   },
-  "next_check": "16:41 / 19:41: refetch SWOB, alerts, traffic (35ra-9556)",
-  "evidence": "production/2026-11-19-MOMENT-watch/",
+  "next_check": "19:41: last check of the day",
+  "evidence": "production/2026-11-19-MOMENT-watch/ (check-1641/)",
   "sources": [
    "https://dd.weather.gc.ca/today/observations/swob-ml/20261119/CYYC/",
    "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=19&timeframe=2&submit=Download+Data"
+  ],
+  "checks": [
+   {
+    "checked_at": "2026-11-19 16:45 Calgary (22:45 UTC)",
+    "temp": "CYYC SWOB 07Z-22Z (local day so far): max -1.7 C, min -3.8 C; not near top/bottom 5 for Nov 19 since 1926",
+    "max_gust_kmh": 27.7,
+    "chinook": false,
+    "first_snow": false,
+    "alerts": "none for Calgary bbox (api.weather.gc.ca, 22:43 UTC); morning fog advisory ended",
+    "traffic_incidents_today_so_far": "19 by 15:13 Calgary; 365-day max 111, p99 62: not rare",
+    "news": "no confirmed rare Calgary event today",
+    "result": "nothing qualifies"
+   }
   ]
  },
  {
