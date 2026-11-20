@@ -25,9 +25,9 @@ Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param
 
 ## Metadata
 - YouTube (both): madeForKids **true**, category FILM_ANIMATION, isAiGeneratedContent false, privacy public, ~18 tags (susuman, suusuu man, susuman episode N, "<x> wala cartoon", hindi cartoon, urdu cartoon, kids cartoon, desi cartoon, superhero cartoon, cartoon kahani, moral story for kids, pakistani cartoon, bachon ka cartoon, …).
-- Short title: `<Devanagari hook>? 😱 <X> Wala Cartoon | Susuman Ep N | Hindi Urdu Cartoon #shorts` (≤100 chars).
+- Short title: `<Devanagari hook>? <X> Wala Cartoon | Susuman Ep N | Hindi Urdu Cartoon #shorts` (≤100 chars). No shock emoji (😱) and no exaggeration in kids' titles or thumbnails (YouTube kids quality principle "sensational or misleading").
 - Full title: `Susuman Episode N – <Roman title> | <Devanagari keyword> | Hindi Urdu Cartoon for Kids`.
-- Description: 2-line hook in Roman Hindi/Urdu → episode name → one-line lesson → (full video) chapters from timeline.json scene starts → characters → subscribe link `https://www.youtube.com/channel/UCcRe0XnHPTeqmZeCMGOW0VQ?sub_confirmation=1` → keyword line mixing Roman, Devanagari and Urdu script → `#susuman #hindicartoon #urducartoon` (+ `#shorts` on Shorts).
+- Description: 2-line hook in Roman Hindi/Urdu → episode name → one-line lesson → (full video) chapters from timeline.json scene starts → characters → subscribe link `https://www.youtube.com/channel/UCcRe0XnHPTeqmZeCMGOW0VQ?sub_confirmation=1` → `#susuman #hindicartoon #urducartoon` (+ `#shorts` on Shorts).
 - Chapters must be at least 10 s each (YouTube ignores shorter ones): merge short scenes (hook + intro, home into the scene before it).
 - IG/FB/TikTok caption: SHORT — one hook line with 2–3 emoji, "YouTube par full episode 👉 youtube.com/channel/UCcRe0XnHPTeqmZeCMGOW0VQ", 8 hashtags (#susuman #hindicartoon #urducartoon #cartoon #kidscartoon #desicartoon #funnycartoon + episode animal/topic). instagramData REEL showReelOnFeed true; facebookData REEL with title; tiktokData title + PUBLIC_TO_EVERYONE. videoThumbnailUrl = cover_vertical.jpg on all.
 - Made-for-kids: never ask viewers to comment; CTA is LIKE + SUBSCRIBE.
@@ -83,3 +83,12 @@ Use `publicationDate: {dateTime, timezone: "Asia/Karachi"}` and the `date` param
 - budget-probe is SHARED with the Awazzzz runs, which push to it too: always `git fetch` + `git reset --hard origin/budget-probe` right before committing, push without -f, and after pushing check `git log origin/budget-probe` that your commit is still the tip. On Nov 17 one Susuman TTS commit was overwritten by a parallel run and had to be pushed again. When budget-probe-out arrives, check its commit message is yours before using it.
 - hi-IN-MadhurNeural (Officer Gill, Dharmender) sometimes returns NoAudioReceived on the first try — just re-run those lines.
 - Recurring catchphrase clips are reused from the previous episode's aud/ (same voice + text) so they sound identical every episode; only new lines go to Actions.
+
+## YOUTUBE KIDS QUALITY + MONETIZATION RULES (binding, Nov 20, 2026)
+Made-for-kids monetization is decided by YouTube's kids quality principles; a channel with a strong focus on low-quality kids content can be removed from the Partner Program. Every episode, Short, title and description must pass:
+- **No keyword lists in descriptions** (tag stuffing is spam). Keywords in other scripts go only into the tags field (max ~18 relevant tags). Descriptions: hook, lesson, chapters, characters, subscribe link, 3 hashtags.
+- **Not sensational or misleading:** titles/thumbnails show what really happens; no 😱, no "shocking", no fake danger.
+- **No encouraging negative behaviour:** dangerous acts (electric poles, rooftops, roads, water) only with an adult stepping in and the safety lesson stated; kids never shown doing the stunt successfully on their own; never mock or tease animals.
+- **Sakina's crying gag (until Hassan decides otherwise):** keep it light and kind, but fake tears never win her treats, toys, money or purchases. It can buy a distraction, a hug or a laugh; it backfires or is gently caught at least every other episode, and the end lesson never praises tricking grown-ups.
+- **Every episode is a new story** with a new problem, place or animal; no two episodes may share the same setup and outcome ("same situation over and over with the same outcome" is not allowed). Compilations: max one per week, only of full episodes, never Shorts stitched together.
+- **Not hard to follow:** clear story, clear audio (dialogue above music and effects).
