@@ -1,0 +1,45 @@
+<html><head><style>
+@font-face{font-family:Fira;src:url(file:///home/claude/studio/motion/engine/fonts/fira-sans-bold.woff);font-weight:800}
+body{margin:0;width:1080px;height:1920px;background:linear-gradient(#0e2b52,#081428);font-family:Fira;overflow:hidden;position:relative}
+canvas{position:absolute;left:0;top:0}
+.t{position:absolute;left:40px;width:1000px;text-align:center;top:330px;font-size:150px;line-height:1.0;color:#fff;font-weight:800;text-shadow:0 6px 24px rgba(0,0,0,.6)}
+.t b{color:#f2b632}
+.s{position:absolute;left:190px;width:700px;top:1440px;padding:12px 0;text-align:center;font-size:72px;color:#f2b632;font-weight:800;border:9px solid #f2b632;border-radius:22px;background:rgba(7,13,24,.88);transform:rotate(-3deg)}
+.logo{position:absolute;left:940px;top:330px;width:80px;height:80px;display:none}
+.lg{position:absolute;left:930px;top:1560px;width:90px;height:90px}
+</style></head><body><canvas id="c" width="1080" height="1920"></canvas><img class="lg" src="file:///home/claude/studio/assets/logo.svg">
+<div class="t">ONCE A CATTLE <b>FEEDLOT</b></div><div class="s">SPRUCE MEADOWS</div>
+<script>
+const M={rr:(c,x,y,w,h,r)=>{c.beginPath();c.roundRect(x,y,w,h,r);},house:{gold:'#f2b632'}};const GOLD='#f2b632';
+function horse(c, x, y, s, o = {}) {
+  c.save(); c.translate(x, y); c.scale(s, s); c.rotate(o.tilt ?? -.18); c.fillStyle = o.color || GOLD; c.globalAlpha *= o.alpha ?? 1;
+  if (o.glow) { c.shadowColor = 'rgba(242,182,50,.55)'; c.shadowBlur = 40; }
+  c.beginPath(); c.ellipse(120, -190, 150, 62, 0, 0, 7); c.fill();                                   // body
+  c.beginPath(); c.moveTo(220, -230); c.quadraticCurveTo(275, -300, 300, -360); c.lineTo(345, -345); c.quadraticCurveTo(310, -260, 265, -170); c.closePath(); c.fill(); // neck
+  c.beginPath(); c.moveTo(300, -365); c.lineTo(395, -330); c.quadraticCurveTo(410, -312, 392, -300); c.lineTo(325, -318); c.closePath(); c.fill();   // head
+  c.beginPath(); c.moveTo(305, -362); c.lineTo(312, -395); c.lineTo(325, -360); c.fill();          // ear
+  c.lineCap = 'round'; c.strokeStyle = c.fillStyle; c.lineWidth = 30;
+  c.beginPath(); c.moveTo(225, -175); c.lineTo(290, -150); c.lineTo(255, -100); c.stroke();        // front legs tucked
+  c.beginPath(); c.moveTo(205, -170); c.lineTo(255, -130); c.lineTo(225, -90); c.stroke();
+  c.beginPath(); c.moveTo(20, -170); c.lineTo(-60, -90); c.lineTo(-120, -40); c.stroke();          // hind legs extended
+  c.beginPath(); c.moveTo(45, -160); c.lineTo(-30, -70); c.lineTo(-80, -10); c.stroke();
+  c.lineWidth = 22; c.beginPath(); c.moveTo(-25, -215); c.quadraticCurveTo(-90, -230, -120, -170); c.stroke(); // tail
+  c.beginPath(); c.ellipse(150, -300, 34, 62, .5, 0, 7); c.fill();                                 // rider torso
+  c.beginPath(); c.arc(182, -372, 30, 0, 7); c.fill();                                             // helmet
+  c.lineWidth = 20; c.beginPath(); c.moveTo(135, -260); c.lineTo(185, -225); c.lineTo(165, -190); c.stroke(); // rider leg
+  c.beginPath(); c.moveTo(170, -310); c.lineTo(250, -275); c.stroke();                             // arm to the reins
+  c.restore();
+}
+function jump(c, x, y, w, h, cols = ['#e23b3b', '#ffffff', '#2f6fd6']) {   // a show-jumping fence: two standards + striped poles
+  c.save(); c.fillStyle = '#ffffff'; M.rr(c, x - w / 2 - 14, y - h - 20, 14, h + 20, 4); c.fill(); M.rr(c, x + w / 2, y - h - 20, 14, h + 20, 4); c.fill();
+  [0, .45, .8].forEach((f, k) => { const py = y - h + f * h * .9; const seg = 6; for (let q = 0; q < seg; q++) { c.fillStyle = cols[(q + k) % cols.length]; c.fillRect(x - w / 2 + q * w / seg, py, w / seg + 1, 14); } });
+  c.restore();
+}
+
+const c=document.getElementById('c').getContext('2d');
+// faint feedlot pen grid
+c.strokeStyle='rgba(217,199,166,.18)';c.lineWidth=5;for(let gy=0;gy<4;gy++)for(let gx=0;gx<3;gx++)c.strokeRect(70+gx*320,820+gy*170,290,150);
+c.fillStyle='#3f8f4e';c.fillRect(0,1380,1080,60);
+jump(c,560,1380,300,170);
+horse(c,330,1250,1.05,{glow:true,tilt:-.05});
+</script></body></html>

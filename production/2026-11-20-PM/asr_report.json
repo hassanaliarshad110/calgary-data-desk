@@ -1,0 +1,138 @@
+{
+ "summary": {
+  "v": {
+   "lines": 6,
+   "check": [],
+   "mean_acc": 1.0
+  }
+ },
+ "lexicon_entries": 32,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "This world-famous horse venue was once a cattle feedlot.",
+    "said": "This world-famous horse venue was once a cattle feedlot.",
+    "heard": "This world-famous horse venue was once a cattle feedlot.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.413,
+    "input_lufs": -22.7,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "Marg and Ron Southern opened Spruce Meadows, just south of Calgary, in nineteen seventy-five.",
+    "said": "Marg and Ron Southern opened Spruce Meadows, just south of Calgary, in nineteen seventy-five.",
+    "heard": "Marg and Ron Southern opened Spruce Meadows, just south of Calgary, in 1975.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.803,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "In nineteen eighty-one, its new grand prix was the richest in the world.",
+    "said": "In nineteen eighty-one, its new grand prix was the richest in the world.",
+    "heard": "In 1981, its new Grand Prix was the richest in the world.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.84,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "Today, it's one of only four venues in show jumping's Rolex Grand Slam.",
+    "said": "Today, it's one of only four venues in show jumping's Rolex Grand Slam.",
+    "heard": "Today, it's one of only four venues in show, Jumping's Rolex Grand Slam.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.309,
+    "input_lufs": -22.7,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "And most days, the grounds are free to visit.",
+    "said": "And most days, the grounds are free to visit.",
+    "heard": "And most days, the grounds are free to visit.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.453,
+    "input_lufs": -21.8,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "Have you been? Drop your thoughts below.",
+    "said": "Have you been? Drop your thoughts below.",
+    "heard": "Have you been? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.832,
+    "input_lufs": -21.9,
+    "status": "ok"
+   }
+  ]
+ }
+}

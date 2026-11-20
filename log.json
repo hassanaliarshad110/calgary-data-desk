@@ -2751,5 +2751,84 @@
   "status": "blocked-by-audit",
   "blocked_reason": "Round 3: every claim passed, but the auditor flagged the package's S1 on-screen text list ('BIKE LANE', 'MINISTER'S WRITTEN APPROVAL') as implying approval applies to every lane; the scene already draws 'NEW BIKE LANE?' / 'MINISTER'S WRITTEN APPROVAL NEEDED'. Package corrected after round 3, but the playbook allows no 4th round. Not narrated, rendered or posted.",
   "posted": []
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "This world-famous horse venue was once a cattle feedlot",
+  "topic_used": "Spruce Meadows: one-time cattle feedlot opened in 1975 by Marg and Ron Southern just south of Calgary; 1981 inaugural du Maurier International was at the time the world's richest grand prix; today one of only four Rolex Grand Slam of Show Jumping venues; grounds free most days when no ticketed event",
+  "changed_from_calendar": "PM row 'Jamaican bobsled team 1988' swapped for today's unused AM row (Spruce Meadows): today's 20:30 'Calgary's strangest heists' post already features the Cool Runnings bobsled, so a bobsled fun fact two hours earlier would repeat it",
+  "central_figure": "Opened 1975 on a former cattle feedlot (sprucemeadows.com/about.jsp)",
+  "sources": [
+   "https://sprucemeadows.com/about.jsp",
+   "https://www.avenuecalgary.com/things-to-do/evolution-of-spruce-meadows-calgary/",
+   "https://inside.fei.org/node/7055000",
+   "https://globalnews.ca/news/2032685/calgarys-spruce-meadows-equestrian-venue-celebrates-40-years/"
+  ],
+  "link": "https://calgaryinsight.ca/visit/explore/?utm_source=facebook&utm_medium=social&utm_campaign=spruce-meadows-feedlot",
+  "link_check": "WebFetch blocked (permission timeout) this run; page exists in site source web/visit/explore/index.html and was used Nov 19",
+  "length_s": 25.1,
+  "video_path": "studio-videos/2026-11-20-PM/spruce-meadows-feedlot.mp4",
+  "thumbnail_path": "studio-videos/2026-11-20-PM/spruce-meadows-feedlot-thumb.jpg",
+  "package": "packages/2026-11-20-PM-spruce-meadows-feedlot.md",
+  "production": "production/2026-11-20-PM/",
+  "identity": "Data Explainer lead (kinetic hook, year slams, trophy stamp, 1-of-4 rings, gate reveal) + Storyteller map dive onto the SW city edge + before/after feedlot-to-arena wipe",
+  "audit": {
+   "rounds": 1,
+   "claims_checked": 6,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-20-PM.md"
+  },
+  "narration": {
+   "lane": "studio-probe",
+   "voice": "af_heart",
+   "asr_mean_acc": 1.0,
+   "lines": 6,
+   "check": 0
+  },
+  "qc": {
+   "stills": "pass (hook moved up clear of the pin label)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "frame 0: moving map dive + hook on screen",
+    "closer 3.8 s",
+    "-14.7 LUFS, 5.7 MB"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 436207380,
+    "uuid": "4260670128967404288",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4260670128967404288",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-20T18:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "media_commit": "studio-videos fc92766"
+   }
+  ]
  }
 ]
