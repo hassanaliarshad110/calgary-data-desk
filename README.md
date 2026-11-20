@@ -4,6 +4,7 @@ Daily animated Reels for the Facebook page (currently named Shia Voice Dubai; on
 Each episode is made in Urdu and Arabic, vertical 1080x1920, 30 fps, narrated, subtitles burned in.
 
 Hard rules
+- LEGAL AND PLATFORM SAFETY (Nov 20, 2026, overrides tone choices below): UAE Federal Decree-Law 34/2023 makes it a crime to insult, mock, defame or curse a prophet or the prophets' wives, family or companions; Pakistan's Penal Code (s. 298-A) has a similar offence, and Meta removes content that attacks people for their religion. So: no insulting, mocking or derogatory words, adjectives, visuals or sarcasm about ANY companion or wife of the Prophet, in script, captions, titles or thumbnails; state contested events as "according to <book>" with the source; never generalise about Sunni Muslims as a group; no calls to hostility. Facts and sources are fine; contempt is not.
 - Never show the face or hands of the Prophet, the Ahlul Bayt or any holy personality: they appear only as light (`holyLight`).
 - Other people are dark silhouettes with no features. Nothing graphic.
 - Shia perspective, factual tone, sources named on screen (Shia narrations and, where they exist, Sunni books). People are named as history names them, no insults.
