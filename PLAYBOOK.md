@@ -164,6 +164,11 @@ git clone -q --depth 1 -b studio-probe-out https://github.com/hassanaliarshad110
   3. `<slug>-teaser.mp4`: **1080×1920 vertical teaser, 20-30 seconds (never over 85 s)**, rendered from package section 12 (the short-form teaser script), with its own short narration run on the studio-probe lane. It ends on a short card (about 2 s, no Subscribe button) saying "Full video on our page · calgaryinsight.ca". Its claims must be a subset of the audited claims table, with no new facts.
   All versions get burned-in captions and the logo; only versions over 2:00 get the end card (section 3, length rule). 30 fps, H.264 `-crf 18 -preset veryfast`, one file per scene, concatenated with `-c copy`.
 - Logo: `assets/logo.svg` in this branch, placed as the explainer skill specifies. Navy/gold, Fira Sans. Burned-in captions. Source and data period shown small on every data scene.
+- **Series brand "Calgary Insight ORIGINS" (Hassan, Nov 20, 2026: "we post as Calgary Insight Origins, with Origins in orange").** Every FLAGSHIP (Calgary story) and every Calgary Origins film and part is posted under the series name **Calgary Insight Origins**:
+  - On screen: wherever the logo header appears (from about 3 s), the end card and the thumbnail/cover, show the wordmark as the logo + "Calgary Insight" in white and **"ORIGINS" in orange (#F7931E)**, same font (Fira Sans 700-800), on one line or ORIGINS just under it. Never in the first 3 s (rule 0b.1 still holds).
+  - Titles and captions: YouTube titles end with "| Calgary Insight Origins"; Instagram/Facebook captions name the series once ("Calgary Insight Origins:" before the story line or in the follow line). The site credit stays calgaryinsight.ca.
+  - Fun facts, news (CIVIC), same-day moments and other slots keep the plain Calgary Insight header.
+
 - Audio: mux the `sfx.py mix` output (voice + music bed + effects), not the bare narration.
 - Before the full render, render the two busiest scenes plus the last frame (the closing question for videos of 2:00 or less, the end card for longer ones) as stills and **look at them** (Read the image). Fix overlaps and clipped text.
 - After assembly: contact sheet of six frames (look at it), duration check, fade check. Aim for ≤ 10 MB.
