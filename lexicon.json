@@ -1,5 +1,5 @@
 {
- "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-19 2026.",
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-20 2026.",
  "ur": {
   "اللہ کے نبی ﷺ": "اللہ کے نبی",
   "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
@@ -44,7 +44,9 @@
   "بیت الحزن": "بیت الحُزن",
   "اُمُّ المؤمنین": "ام المومنین",
   "خُرَیبہ": "خریبہ",
-  "حوأب": "حواب"
+  "حوأب": "حواب",
+  "ہذیان": "ہذ یان",
+  "ابنِ ابی الحدید": "ابنِ ابی الحدید"
  },
  "ar": {
   "رسول الله ﷺ": "رسولِ الله، صلّى اللهُ عليه وآله وسلّم،",
