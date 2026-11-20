@@ -1,0 +1,175 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 4.734
+},
+{
+"id": "sc2",
+"start": 4.734,
+"lines": [
+"n2"
+],
+"dur": 1.681
+},
+{
+"id": "sc3",
+"start": 6.415,
+"lines": [
+"n3",
+"n4"
+],
+"dur": 7.591
+},
+{
+"id": "sc4",
+"start": 14.006,
+"lines": [
+"n5"
+],
+"dur": 5.69
+},
+{
+"id": "sc5",
+"start": 19.696,
+"lines": [
+"q1"
+],
+"dur": 9.139
+},
+{
+"id": "sc6",
+"start": 28.835,
+"lines": [
+"n6"
+],
+"dur": 5.661
+},
+{
+"id": "sc7",
+"start": 34.496,
+"lines": [
+"n7",
+"q2"
+],
+"dur": 6.236
+},
+{
+"id": "sc8",
+"start": 40.732,
+"lines": [
+"n8"
+],
+"dur": 5.417
+},
+{
+"id": "sc9",
+"start": 46.149,
+"lines": [
+"n9"
+],
+"dur": 6.344
+},
+{
+"id": "sc10",
+"start": 52.493,
+"lines": [
+"n10"
+],
+"dur": 3.101
+},
+{
+"id": "sc11",
+"start": 55.594,
+"lines": [
+"n11"
+],
+"dur": 3.425
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 4.574,
+"kind": "N",
+"cap": "Luck controls half your life. The other half... is yours."
+},
+"n2": {
+"start": 4.794,
+"dur": 1.561,
+"kind": "N",
+"cap": "Start your day with this."
+},
+"n3": {
+"start": 6.475,
+"dur": 4.63,
+"kind": "N",
+"cap": "Two students. Same surprise test... same bad luck."
+},
+"n4": {
+"start": 11.225,
+"dur": 2.721,
+"kind": "N",
+"cap": "Nia shrugs. It's fate."
+},
+"n5": {
+"start": 14.066,
+"dur": 5.37,
+"kind": "N",
+"cap": "Omar studied twenty minutes a night. When the storm hit... his walls were built."
+},
+"q1": {
+"start": 19.756,
+"dur": 9.019,
+"kind": "Q",
+"cap": "Machiavelli wrote... \"Fortune is the arbiter of one-half of our actions, but... she still leaves us to direct the other half, or perhaps a little less.\""
+},
+"n6": {
+"start": 28.895,
+"dur": 5.341,
+"kind": "N",
+"cap": "He compared fortune to a raging river. In calm weather... build your barriers."
+},
+"n7": {
+"start": 34.556,
+"dur": 1.34,
+"kind": "N",
+"cap": "But here's the catch."
+},
+"q2": {
+"start": 36.016,
+"dur": 4.656,
+"kind": "Q",
+"cap": "\"The cautious man, when it is time to turn adventurous, does not know how to do it.\""
+},
+"n8": {
+"start": 40.792,
+"dur": 5.297,
+"kind": "N",
+"cap": "The habit that won yesterday... can sink you tomorrow. So change with the river."
+},
+"n9": {
+"start": 46.209,
+"dur": 6.224,
+"kind": "N",
+"cap": "Your action today: name one storm coming your way... and build one small wall against it before lunch."
+},
+"n10": {
+"start": 52.553,
+"dur": 2.981,
+"kind": "N",
+"cap": "What's your wall today? Comment below."
+},
+"n11": {
+"start": 55.654,
+"dur": 2.265,
+"kind": "N",
+"cap": "Follow Awazzzz for your daily mindset."
+}
+},
+"total": 59.019
+}
