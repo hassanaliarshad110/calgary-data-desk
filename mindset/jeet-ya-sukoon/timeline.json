@@ -1,0 +1,154 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 2.524
+},
+{
+"id": "sc2",
+"start": 2.524,
+"lines": [
+"n2"
+],
+"dur": 3.457
+},
+{
+"id": "sc3",
+"start": 5.981,
+"lines": [
+"n3"
+],
+"dur": 5.707
+},
+{
+"id": "sc4",
+"start": 11.688,
+"lines": [
+"q1"
+],
+"dur": 7.01
+},
+{
+"id": "sc5",
+"start": 18.698,
+"lines": [
+"n4"
+],
+"dur": 5.955
+},
+{
+"id": "sc6",
+"start": 24.653,
+"lines": [
+"q2"
+],
+"dur": 6.103
+},
+{
+"id": "sc7",
+"start": 30.756,
+"lines": [
+"n5",
+"n6"
+],
+"dur": 8.651
+},
+{
+"id": "sc8",
+"start": 39.407,
+"lines": [
+"n7"
+],
+"dur": 6.278
+},
+{
+"id": "sc9",
+"start": 45.685,
+"lines": [
+"n8"
+],
+"dur": 4.633
+},
+{
+"id": "sc10",
+"start": 50.318,
+"lines": [
+"n9"
+],
+"dur": 3.483
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 2.364,
+"kind": "N",
+"cap": "Do you want to win... or do you want peace?"
+},
+"n2": {
+"start": 2.584,
+"dur": 3.337,
+"kind": "N",
+"cap": "Two great minds. Two answers."
+},
+"n3": {
+"start": 6.041,
+"dur": 5.407,
+"kind": "N",
+"cap": "Picture Leo. He waits for his boss to notice him... and loses the promotion."
+},
+"q1": {
+"start": 11.748,
+"dur": 6.89,
+"kind": "Q",
+"cap": "Machiavelli wrote... \"A wise prince should establish himself on that which is in his own control and not in that of others.\""
+},
+"n4": {
+"start": 18.758,
+"dur": 5.655,
+"kind": "N",
+"cap": "Now picture Sara. She wins everything... and still feels homesick inside."
+},
+"q2": {
+"start": 24.713,
+"dur": 5.753,
+"kind": "Q",
+"cap": "Rumi wrote... \"He who abides far away from his home is ever longing for the day he shall return.\""
+},
+"n5": {
+"start": 30.816,
+"dur": 1.379,
+"kind": "N",
+"cap": "But here's the catch."
+},
+"n6": {
+"start": 32.345,
+"dur": 7.002,
+"kind": "N",
+"cap": "They're not enemies. Machiavelli wins the game outside... Rumi guards the home inside."
+},
+"n7": {
+"start": 39.467,
+"dur": 6.158,
+"kind": "N",
+"cap": "Your action today: finish one thing in your control... then take five quiet minutes, no phone."
+},
+"n8": {
+"start": 45.745,
+"dur": 4.513,
+"kind": "N",
+"cap": "Win or peace... which comes first for you? Comment below."
+},
+"n9": {
+"start": 50.378,
+"dur": 2.323,
+"kind": "N",
+"cap": "Follow Awazzzz for your daily mindset."
+}
+},
+"total": 53.801
+}
