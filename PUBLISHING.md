@@ -89,6 +89,6 @@ Made-for-kids monetization is decided by YouTube's kids quality principles; a ch
 - **No keyword lists in descriptions** (tag stuffing is spam). Keywords in other scripts go only into the tags field (max ~18 relevant tags). Descriptions: hook, lesson, chapters, characters, subscribe link, 3 hashtags.
 - **Not sensational or misleading:** titles/thumbnails show what really happens; no 😱, no "shocking", no fake danger.
 - **No encouraging negative behaviour:** dangerous acts (electric poles, rooftops, roads, water) only with an adult stepping in and the safety lesson stated; kids never shown doing the stunt successfully on their own; never mock or tease animals.
-- **Sakina's crying gag (until Hassan decides otherwise):** keep it light and kind, but fake tears never win her treats, toys, money or purchases. It can buy a distraction, a hug or a laugh; it backfires or is gently caught at least every other episode, and the end lesson never praises tricking grown-ups.
+- **Sakina's crying gag stays exactly as Hassan set it (Family rules above).**
 - **Every episode is a new story** with a new problem, place or animal; no two episodes may share the same setup and outcome ("same situation over and over with the same outcome" is not allowed). Compilations: max one per week, only of full episodes, never Shorts stitched together.
 - **Not hard to follow:** clear story, clear audio (dialogue above music and effects).
