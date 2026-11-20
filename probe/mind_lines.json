@@ -1,83 +1,76 @@
 [
 {
 "id": "h1",
-"text": "Lion... or fox? Which one are you?",
+"text": "Do you want to win... or do you want peace?",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "Start your day with this.",
+"text": "Two great minds. Two answers.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "Picture Sam. Fearless. A pure lion.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n4",
-"text": "He signs a big deal fast... and walks into a trap in the small print.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n5",
-"text": "Maya is a pure fox. She spots every trap... but when a bully pushes, she folds.",
+"text": "Picture Leo. He waits for his boss to notice him... and loses the promotion.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "q1",
-"text": "Machiavelli wrote... it is necessary to be a fox to discover the snares... and a lion to terrify the wolves.",
+"text": "Machiavelli wrote... a wise prince should establish himself on that which is in his own control... and not in that of others.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
-"id": "n6",
-"text": "But here's the catch.",
+"id": "n4",
+"text": "Now picture Sara. She wins everything... and still feels homesick inside.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "q2",
-"text": "His fox also breaks promises... a great pretender and dissembler.",
+"text": "Rumi wrote... he who abides far away from his home... is ever longing for the day he shall return.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n5",
+"text": "But here's the catch.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n6",
+"text": "They're not enemies. Machiavelli wins the game outside... Rumi guards the home inside.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n7",
-"text": "Don't copy that. Understand it... so nobody plays you. Spot the trap... never set one.",
+"text": "Your action today: finish one thing in your control... then take five quiet minutes, no phone.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n8",
-"text": "Your action today: before you say yes to anything, ask one fox question... what's the catch? Then answer like a lion.",
+"text": "Win or peace... which comes first for you? Comment below.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n9",
-"text": "More lion, or more fox? Comment below.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n10",
 "text": "Follow Awaaz for your daily mindset.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
