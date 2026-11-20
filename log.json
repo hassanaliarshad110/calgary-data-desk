@@ -2561,10 +2561,15 @@
     "file": "forgotten-streetcars-youtube.mp4",
     "publish_at": "2026-11-19T17:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "media_commit": "studio-videos 42a11f8"
+    "media_commit": "studio-videos 42a11f8",
+    "publicUrls": {
+     "facebook": "https://facebook.com/122097271263547631/posts/2641747859601649",
+     "youtube": "https://www.youtube.com/watch?v=Kr2CFOIbPaU"
+    },
+    "confirmed_by": "2026-11-20 CIVIC run (getScheduledPosts)"
    }
   ],
   "pending_link": [
@@ -2588,10 +2593,14 @@
     "uuid": "4397699060750634727",
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4397699060750634727",
     "publish_at": "2026-11-19T20:00",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "link_used": "https://youtu.be/Kr2CFOIbPaU",
     "link_placement": "firstCommentText (Facebook exception, PLAYBOOK 7b); caption has no YouTube URL",
-    "scheduled_by": "link-up task 2026-11-19 17:41 run"
+    "scheduled_by": "link-up task 2026-11-19 17:41 run",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1760871665017223"
+    },
+    "confirmed_by": "2026-11-20 CIVIC run (getScheduledPosts)"
    }
   ]
  },
@@ -2668,10 +2677,17 @@
     ],
     "publish_at": "2026-11-19T18:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "media_commit": "studio-videos 9d3055c"
+    "media_commit": "studio-videos 9d3055c",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/2617387388779444",
+     "instagram": "https://www.instagram.com/reel/Df8X_Aojeqv/",
+     "youtube": "https://www.youtube.com/shorts/oxrJpfCJCT0"
+    },
+    "youtube_warning": "Could not upload video thumbnail (published)",
+    "confirmed_by": "2026-11-20 CIVIC run (getScheduledPosts)"
    }
   ],
   "post_note": "Fixed 18:30 fun-fact slot (60 min after the 17:30 flagship post B; next post Nov 20 10:00). YouTube 24 h count before 18:30: 7 including this one (Nov 18 20:00; Nov 19 10:00, 11:00, 12:30, 14:00, 17:30). Earlier posts confirmed this run: Nov 18 CIVIC YouTube (11:00) and Nov 18 PM YouTube (14:00) PUBLISHED; Nov 19 FLAGSHIP post A (12:30) PUBLISHED on Instagram and YouTube; post B (17:30) still pending at check time."
@@ -2702,5 +2718,36 @@
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=20&timeframe=2&submit=Download+Data"
   ]
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "CIVIC",
+  "type": "civic",
+  "category": "Calgary news",
+  "title": "Who decides Calgary's bike lanes? Alberta's Bill 43 explained",
+  "topic_used": "Alberta tabled Bill 43 on Thu Nov 19, 2026: if passed, new bike lanes that take road space from vehicles need the transportation minister's written approval; the minister could order such existing lanes removed; exemptions case by case; minister cites safety/accountability and congestion concerns; Calgary Mayor Farkas opposes provincial intervention and (Nov 20) expects changes; details in regulations.",
+  "changed_from_calendar": null,
+  "why_this_story": "Most-talked-about Calgary-related story of the past 48 h (Calgary Journal/CP, Global News, Edmonton Journal, CTV Calgary, National Observer; CP follow-up Nov 20). Not in log.json; published in Calgary News Nov 19.",
+  "central_figure": "Bill 43 tabled Nov 19, 2026 (Global News/CP; Edmonton Journal)",
+  "sources": [
+   "https://calgaryjournal.ca/2026/11/19/alberta-proposes-provincial-law-giving-it-power-to-remove-municipal-bike-lanes/",
+   "https://globalnews.ca/news/12158067/alberta-transportation-bill-43-bike-lanes-transit-roads/",
+   "https://ca.news.yahoo.com/alberta-legislation-province-control-over-200205576.html",
+   "https://ca.news.yahoo.com/calgary-mayor-farkas-says-believes-183641985.html"
+  ],
+  "link_planned": "https://calgaryinsight.ca/news/2026-11-19-alberta-tables-bill-giving-the-province-power-over-city-bike-lanes/?utm_source=<network>&utm_medium=social&utm_campaign=alberta-bike-lane-bill",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (no answer); not needed since nothing was posted.",
+  "package": "packages/2026-11-20-CIVIC-alberta-bike-lane-bill.md",
+  "scene": "production/2026-11-20-CIVIC/scene.js",
+  "identity": "Civic Analyst lead (street cutaway, document cards, stepper) + Storyteller dive/orbits + Data Explainer wipe",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 12,
+   "verdict": "NOT APPROVED",
+   "report": "audits/2026-11-20-CIVIC.md"
+  },
+  "status": "blocked-by-audit",
+  "blocked_reason": "Round 3: every claim passed, but the auditor flagged the package's S1 on-screen text list ('BIKE LANE', 'MINISTER'S WRITTEN APPROVAL') as implying approval applies to every lane; the scene already draws 'NEW BIKE LANE?' / 'MINISTER'S WRITTEN APPROVAL NEEDED'. Package corrected after round 3, but the playbook allows no 4th round. Not narrated, rendered or posted.",
+  "posted": []
  }
 ]
