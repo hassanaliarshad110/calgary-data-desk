@@ -2675,5 +2675,32 @@
    }
   ],
   "post_note": "Fixed 18:30 fun-fact slot (60 min after the 17:30 flagship post B; next post Nov 20 10:00). YouTube 24 h count before 18:30: 7 including this one (Nov 18 20:00; Nov 19 10:00, 11:00, 12:30, 14:00, 17:30). Earlier posts confirmed this run: Nov 18 CIVIC YouTube (11:00) and Nov 18 PM YouTube (14:00) PUBLISHED; Nov 19 FLAGSHIP post A (12:30) PUBLISHED on Instagram and YouTube; post B (17:30) still pending at check time."
+ },
+ {
+  "date": "2026-11-20",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (watch)",
+  "title": "Watching: Nov 20",
+  "status": "watching_nothing_yet",
+  "checked_at": "2026-11-20 10:44 Calgary (16:44 UTC)",
+  "detection": {
+   "temp": "CYYC SWOB 07Z-16Z (local day so far): max -2.7 C, min -8.9 C; Nov 20 history 1926-2025 (99 yrs) top-5 highs 13.3..17.3, bottom-5 highs -16.6..-23.3, bottom-5 lows -25.6..-32.2, top-5 lows 0.8..4.8: not near",
+   "gust_ge_80": false,
+   "chinook": false,
+   "first_snow": false,
+   "alerts": "none for Calgary bbox (api.weather.gc.ca, 16:44 UTC)",
+   "traffic_incidents_today_so_far": "7 rows dated Nov 20 (feed lags); 365-day max 111, p99 62: not rare",
+   "news": "no confirmed rare Calgary event found (web search)"
+  },
+  "result": "nothing qualifies",
+  "next_check": "16:41",
+  "evidence": "production/2026-11-20-MOMENT-watch/check-1041/",
+  "sources": [
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261120/CYYC/",
+   "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
+   "https://data.calgary.ca/resource/35ra-9556.json",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=20&timeframe=2&submit=Download+Data"
+  ]
  }
 ]

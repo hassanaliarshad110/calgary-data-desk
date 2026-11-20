@@ -1,0 +1,30 @@
+{
+ "https://dd.weather.gc.ca/today/observations/swob-ml/20261119/CYYC/": "ERR <HTTPError 404: 'Not Found'>",
+ "https://dd.weather.gc.ca/today/observations/swob-ml/20261120/CYYC/": [
+  "2026-11-20-0000-CYYC-MAN-swob.xml",
+  "2026-11-20-0100-CYYC-MAN-swob.xml",
+  "2026-11-20-0200-CYYC-MAN-swob.xml",
+  "2026-11-20-0232-CYYC-MAN-swob.xml",
+  "2026-11-20-0251-CYYC-MAN-swob.xml",
+  "2026-11-20-0300-CYYC-MAN-swob.xml",
+  "2026-11-20-0319-CYYC-MAN-swob.xml",
+  "2026-11-20-0339-CYYC-MAN-swob.xml",
+  "2026-11-20-0352-CYYC-MAN-swob.xml",
+  "2026-11-20-0400-CYYC-MAN-swob.xml",
+  "2026-11-20-0405-CYYC-MAN-swob.xml",
+  "2026-11-20-0417-CYYC-MAN-swob.xml",
+  "2026-11-20-0438-CYYC-MAN-swob.xml",
+  "2026-11-20-0500-CYYC-MAN-swob.xml",
+  "2026-11-20-0600-CYYC-MAN-swob.xml",
+  "2026-11-20-0700-CYYC-MAN-swob.xml",
+  "2026-11-20-0800-CYYC-MAN-swob.xml",
+  "2026-11-20-0900-CYYC-MAN-swob.xml",
+  "2026-11-20-1000-CYYC-MAN-swob.xml",
+  "2026-11-20-1101-CYYC-MAN-swob.xml",
+  "2026-11-20-1200-CYYC-MAN-swob.xml",
+  "2026-11-20-1300-CYYC-MAN-swob.xml",
+  "2026-11-20-1400-CYYC-MAN-swob.xml",
+  "2026-11-20-1500-CYYC-MAN-swob.xml",
+  "2026-11-20-1600-CYYC-MAN-swob.xml"
+ ]
+}
