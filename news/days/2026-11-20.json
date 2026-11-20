@@ -1,0 +1,481 @@
+{
+ "date": "2026-11-20",
+ "published_at": "2026-11-20T23:37:23Z",
+ "articles": [
+  {
+   "title": "Farkas invites premier and prime minister to Calgary to talk about costs passed down to the city",
+   "dek": "Days before budget debate begins, the mayor says provincial and federal costs make up nearly a third of the proposed 15 per cent property tax increase.",
+   "section": "City Hall",
+   "body": [
+    "Mayor Jeromy Farkas has formally invited Premier Danielle Smith and Prime Minister Mark Carney to a three-way meeting in Calgary on costs he says other orders of government have shifted onto the city [1].",
+    "The invitation comes as council prepares to start deliberations on the next four-year city budget on Monday, Nov. 23 [1]. The proposed budget calls for a 15 per cent property tax increase in 2027, which works out to about $53 a month for a typical single-family detached homeowner, and water rates that would rise by nearly 75 per cent by 2030 [1].",
+    "Farkas pointed to a figure in the city's own budget documents that puts provincially and federally downloaded costs at $137.5 million in 2027 [1]. He said that amount equals about 5.6 percentage points of the proposed tax increase, or nearly a third of the total [1]. The article's summary line gives the figure as roughly $135 million, while the body uses $137.5 million [1].",
+    "The mayor also said federal counter-tariffs in the trade dispute with the United States could add between $355 million and $466 million to city costs, which he described as equivalent to an 18 per cent property tax increase [1]. He said he wants all three orders of government at the same table [1].",
+    "Not every councillor sees value in the meeting. Ward 11 Coun. Rob Ward said costs are downloaded only because the city allows it, citing the low-income transit pass that the city pays for [1]. He questioned whether a meeting would help, noting that Farkas and Ward 13 Coun. Dan McLean travelled to Ottawa in February and that promised help for infrastructure and transit has not yet arrived [1].",
+    "The Government of Alberta was sent the list of downloaded costs from the budget but had not responded when the report was published [1]. No response from the federal government was reported [1]."
+   ],
+   "key_facts": [
+    "Budget deliberations start Monday, Nov. 23",
+    "Proposed 2027 property tax increase: 15 per cent, about $53 a month for a typical detached home",
+    "Downloaded provincial and federal costs: $137.5 million in 2027, per the mayor",
+    "Province had not responded at publication"
+   ],
+   "topics": [
+    "City Council",
+    "Budget and taxes",
+    "Provincial",
+    "Federal"
+   ],
+   "image_query": "Calgary Municipal Building",
+   "charts": [
+    {
+     "title": "Estimated added city costs from federal counter-tariffs, per the mayor",
+     "kind": "bar",
+     "labels": [
+      "Low estimate",
+      "High estimate"
+     ],
+     "series": [
+      {
+       "name": "Added cost",
+       "values": [
+        355,
+        466
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "'Trilateral' meeting pitched to discuss provincial, federal costs downloaded to Calgary",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/20/trilateral-meeting-provincial-federal-costs-downloaded-calgary/",
+     "published": "2026-11-20"
+    }
+   ],
+   "id": "2026-11-20-farkas-invites-premier-and-prime-minister-to-calgary-to-talk-about-cos",
+   "date": "2026-11-20",
+   "published_at": "2026-11-20T23:37:23Z",
+   "words": 314
+  },
+  {
+   "title": "Council votes 11-4 to map unused city space that non-profits could rent below market",
+   "dek": "A motion from Ward 8 Coun. Nathan Schmidt starts work on a framework for offering city-owned space to community groups.",
+   "section": "City Hall",
+   "body": [
+    "Calgary city council voted 11-4 on Tuesday, Nov. 17 to have city administration begin work on a framework that would make city-owned space available to local non-profits at below-market rates [1].",
+    "The motion, brought by Ward 8 Coun. Nathan Schmidt, calls for an inventory of city-owned space that community organizations could use and a process for handling requests for it [1]. The idea grew out of the case of the Arusha Centre, which was given notice to leave the Old Y building in the Beltline; the group later submitted a plan to revitalize that site [1].",
+    "Schmidt argued the city can help community groups without spending money, and said non-profits taking over vacant space could save the city maintenance costs such as plumbing and heating and ventilation [1].",
+    "Calgary's Non-Profit Chamber sent a letter of support. Alexa Briggs, the chamber's executive vice president of policy, insight and engagement, said rising overhead costs were the second-highest concern in its 2025 research on the sector [1].",
+    "Opponents raised cost concerns. Ward 13 Coun. Dan McLean said the number of non-profits is growing quickly and subsidizing them has a cost [1]. Ward 12 Coun. Mike Jamieson said he would not support what he described as the start of a new subsidy program during budget month [1]. Ward 9 Coun. Harrison Clark backed the motion as a way to help non-profits at no cost to the city [1].",
+    "Administration is to bring a series of reports through 2027, with a final report due in the first quarter of 2028 [1]."
+   ],
+   "key_facts": [
+    "Vote: 11 in favour, 4 against, on Nov. 17",
+    "Inventory of city-owned space for community groups",
+    "Final report due in early 2028"
+   ],
+   "topics": [
+    "City Council",
+    "Community",
+    "City services"
+   ],
+   "image_query": "Calgary Municipal Building council chamber",
+   "charts": [
+    {
+     "title": "Council vote on the non-profit space framework",
+     "kind": "bar",
+     "labels": [
+      "For",
+      "Against"
+     ],
+     "series": [
+      {
+       "name": "Votes",
+       "values": [
+        11,
+        4
+       ]
+      }
+     ],
+     "unit": "votes",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "'A leg up without using city resources': Calgary to inventory unused space for non-profits",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/20/calgary-inventory-unused-space-non-profits/",
+     "published": "2026-11-20"
+    }
+   ],
+   "id": "2026-11-20-council-votes-11-4-to-map-unused-city-space-that-non-profits-could-ren",
+   "date": "2026-11-20",
+   "published_at": "2026-11-20T23:37:23Z",
+   "words": 256
+  },
+  {
+   "title": "Farkas says Calgary will not pay to remove bike lanes under Bill 43; ministry has not confirmed",
+   "dek": "The mayor says the premier's office assured him the city is not on the hook, a day after the province tabled its omnibus roads bill.",
+   "section": "Transit and roads",
+   "updated_from": "2026-11-19-alberta-tables-bill-giving-the-province-power-over-city-bike-lanes",
+   "body": [
+    "A day after the province tabled a transportation bill that could lead to some bike lanes being removed, Mayor Jeromy Farkas said he has been assured that Calgary will not have to pay for any removals [1]. Alberta's transportation ministry did not confirm that on Friday, Nov. 20 [1].",
+    "Bill 43, the Safe and Sensible Roads Act, was tabled on Thursday, Nov. 19. It covers bike lanes, personal mobility devices, changes to LRT design and other matters [1].",
+    "Farkas told reporters the premier's office told him the bike-lane section of the bill as first drafted was a premature version and a mistake, and that an updated version focuses on future bike lanes rather than existing ones [1]. He said municipalities would not pay for removals under any circumstances [1].",
+    "As first proposed, the bill would require a case, supported by data, that a new bike lane would not reduce road capacity. It also said the province was reviewing bike lanes in Calgary and Edmonton and that some could be removed, especially when roads are repaved or resurfaced [1].",
+    "Transportation Minister Devin Dreeshen said on Thursday the province would not pay for removals, which Farkas said was not the message he had received [1]. In an emailed statement on Friday, the ministry said it would limit future bike lanes in high-traffic areas and deal with existing problem lanes in co-operation with the municipalities affected; the statement did not say who would pay [1].",
+    "Dreeshen named a southwest Calgary route, which LiveWire Calgary linked to the 26 Avenue S.W. bike lane, a project that removed a substantial number of parking spaces [1]. Who pays for any removals remains unresolved, as the mayor's account and the ministry's statements do not match [1]."
+   ],
+   "key_facts": [
+    "Bill 43, the Safe and Sensible Roads Act, tabled Nov. 19",
+    "Mayor says premier's office told him the city will not pay for removals",
+    "Ministry statement did not say who would pay"
+   ],
+   "topics": [
+    "Roads and traffic",
+    "Transit",
+    "Provincial",
+    "City Council"
+   ],
+   "image_query": "Calgary bike lane",
+   "sources": [
+    {
+     "title": "Mayor Farkas said Calgary isn't on the hook for bike lane removals",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/20/mayor-farkas-calgary-bike-lane-removals/",
+     "published": "2026-11-20"
+    }
+   ],
+   "id": "2026-11-20-farkas-says-calgary-will-not-pay-to-remove-bike-lanes-under-bill-43-mi",
+   "date": "2026-11-20",
+   "published_at": "2026-11-20T23:37:23Z",
+   "words": 289
+  },
+  {
+   "title": "Water use under the limit for a 16th straight day as Bearspaw crews connect a new steel joint",
+   "dek": "Calgary used 480 million litres on Thursday, and the City says snow and cold are not expected to slow the feeder main work.",
+   "section": "Environment and weather",
+   "updated_from": "2026-11-18-two-weeks-under-the-water-limit-calgary-is-halfway-through-the-bearspa",
+   "body": [
+    "Calgary and neighbouring communities kept water use in the green zone for a 16th straight day, the City said Friday, Nov. 20, as Stage 4 water restrictions continue [1][2].",
+    "Water use on Thursday, Nov. 19 was 480 million litres, two million litres below forecast demand [1]. The City is asking residents to keep daily demand below 500 million litres, which keeps the system out of the red zone, where less water would be available for emergencies and everyday services [1].",
+    "Connection work on the new Bearspaw feeder main is moving ahead at three sites [1]. At 33 Avenue and 89 Street N.W., where crews are working around the clock, a new steel joint has been placed and connected, linking the new feeder main to the existing pipe that leads to the Bearspaw Water Treatment Plant; welding continues [1]. At 33 Avenue and 83 Street N.W., the excavation has been widened to allow extra work on an existing pipe, and pipe installation and welding continue near the Shaganappi Pump Station [1].",
+    "Separate repairs along Parkdale Boulevard, between the Shaganappi and Memorial pump stations, are also progressing. The City said pipe installation was to be finished at all those locations on Friday, with backfilling through the weekend [1].",
+    "The update comes as Calgary heads into what CTV News describes as its first winter weekend, with a cold Friday morning and traces of snow expected [3]. The City said snow and colder weather are not expected to delay the project and that crews will keep working through winter conditions [1]."
+   ],
+   "key_facts": [
+    "16 straight days under the 500-million-litre target",
+    "Thursday use: 480 million litres",
+    "New steel joint connected at 33 Avenue and 89 Street N.W.",
+    "City says winter weather will not delay the work"
+   ],
+   "topics": [
+    "Water",
+    "City services",
+    "Weather"
+   ],
+   "image_query": "Bearspaw Dam Calgary",
+   "communities": [
+    "Parkdale"
+   ],
+   "charts": [
+    {
+     "title": "Water use on Nov. 19 compared with the daily target",
+     "kind": "bar",
+     "labels": [
+      "Used Nov. 19",
+      "Daily target"
+     ],
+     "series": [
+      {
+       "name": "Water",
+       "values": [
+        480,
+        500
+       ]
+      }
+     ],
+     "unit": "million litres",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Water use stays in green zone as Bearspaw connection work ramps up at some locations",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/water-use-stays-in-green-zone-as-bearspaw-connection-work-ramps-up-at-some-locations/",
+     "published": "2026-11-20"
+    },
+    {
+     "title": "Calgary water restrictions: Green zone streak continues for 16th day",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/calgary-water-restrictions-green-zone-streak-continues-for-16th-day/",
+     "published": "2026-11-20"
+    },
+    {
+     "title": "First winter weekend coming to Calgary",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/first-winter-weekend-coming-to-calgary/",
+     "published": "2026-11-19"
+    }
+   ],
+   "id": "2026-11-20-water-use-under-the-limit-for-a-16th-straight-day-as-bearspaw-crews-co",
+   "date": "2026-11-20",
+   "published_at": "2026-11-20T23:37:23Z",
+   "words": 257
+  },
+  {
+   "title": "Fireworks calls fall 65 per cent over Diwali as City credits outreach with faith and cultural groups",
+   "dek": "Police and 311 logged 72 fireworks-related calls over the three-day period, down from more than 207 last year.",
+   "section": "Community and events",
+   "updated_from": "2026-11-08-city-reports-five-fireworks-incidents-and-three-fines-on-first-night-o",
+   "body": [
+    "Fireworks-related calls during this year's Diwali and Bandi Chhor Divas celebrations dropped by 65 per cent compared with 2025, the City of Calgary said Thursday, Nov. 19 [1].",
+    "Calgary police and 311 received 72 fireworks-related calls and service requests over the three-day Diwali period, down from more than 207 during the same period last year [1].",
+    "There were five fireworks-related fires this year, all involving grass or dumpsters, compared with six in 2025, which included a vehicle fire and a fire on a residential balcony [1]. The City said this year's fires caused less damage, with no harm to buildings or neighbouring properties, even though conditions were unusually dry and windy [1].",
+    "Police and Community Safety peace officers issued eight tickets and 70 warnings [1]. Business safety staff visited 115 businesses and found none selling fireworks illegally, which the City called an improvement over previous years [1].",
+    "The City said it worked with faith groups, cultural organizations and community members on an education campaign in several languages, and a community-organized professional fireworks display was held at the Diwali in Huxley event on Nov. 5 [1]. Fire Marshal Glenn Baxter called the results encouraging [1].",
+    "Personal fireworks are not permitted in Calgary; only trained, certified professionals with a permit may set them off [1]. The City asks people to call 9-1-1 for fires or emergencies, the police non-emergency line at 403-266-1234 for fireworks happening now, and to file a 311 request for fireworks that have already happened [1]."
+   ],
+   "key_facts": [
+    "72 calls in 2026, down from more than 207 in 2025",
+    "Five fireworks-related fires, none affecting buildings",
+    "8 tickets and 70 warnings issued",
+    "No businesses found selling fireworks illegally"
+   ],
+   "topics": [
+    "Community",
+    "Public safety",
+    "City services",
+    "Events"
+   ],
+   "image_query": "fireworks",
+   "charts": [
+    {
+     "title": "Fireworks-related calls and fires during the three-day Diwali period",
+     "kind": "bar",
+     "labels": [
+      "Calls and service requests",
+      "Fires"
+     ],
+     "series": [
+      {
+       "name": "2025",
+       "values": [
+        207,
+        6
+       ]
+      },
+      {
+       "name": "2026",
+       "values": [
+        72,
+        5
+       ]
+      }
+     ],
+     "unit": "count",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Fireworks-related calls drop significantly during Diwali 2026",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/fireworks-related-calls-drop-significantly-during-diwali-2026/",
+     "published": "2026-11-19"
+    }
+   ],
+   "id": "2026-11-20-fireworks-calls-fall-65-per-cent-over-diwali-as-city-credits-outreach-",
+   "date": "2026-11-20",
+   "published_at": "2026-11-20T23:37:23Z",
+   "words": 247
+  },
+  {
+   "title": "Mayor's Urban Design Awards honour projects from The Confluence to a Bridgeland-Riverside study",
+   "dek": "A five-member jury reviewed 51 submissions for the 2026 awards, presented Wednesday at The Ampersand.",
+   "section": "Housing and development",
+   "body": [
+    "The City of Calgary presented the 2026 Mayor's Urban Design Awards on Wednesday, Nov. 18 at The Ampersand, recognizing buildings, public spaces, plans and student work across the city [1].",
+    "The jury reviewed 51 submissions in six core categories: civic design, community initiatives, student projects, urban architecture, urban design plans and urban fragments [1]. The awards also recognized conceptual or theoretical projects, housing innovation, a climate resilience commendation and The Confluence Award [1].",
+    "Winners shown by the City include Varsity, the University of Calgary School of Architecture, The Open, The Confluence, a Land Acknowledgement project, the Bridgeland-Riverside Feasibility Study and BonBons [1]. The City's release does not list which category each winner received; full details are posted on the City's awards page [1].",
+    "Winners in the six core categories become eligible for the Royal Architectural Institute of Canada's National Urban Design Awards program [1]. The jury was made up of David Fortin, Joseph Fry, John Lewis, Betsy Williamson and Claire Weisz [1].",
+    "The awards were established in 2005 [1]. Speaking at the event, Mayor Jeromy Farkas said design is central to a city that is safe, inclusive and memorable [1]. Deborah Hamilton, general manager of Planning and Development Services, and Peter Spearey, the City's chief urban designer, also took part, along with John Brown, dean of the University of Calgary's School of Architecture, Planning and Landscape, who spoke for the architectural institute [1]."
+   ],
+   "key_facts": [
+    "Awards presented Nov. 18 at The Ampersand",
+    "51 submissions in six core categories",
+    "Core category winners eligible for national awards"
+   ],
+   "topics": [
+    "Development",
+    "Arts and culture",
+    "City services"
+   ],
+   "image_query": "The Confluence Calgary",
+   "sources": [
+    {
+     "title": "The Mayor's Urban Design Awards recognize Calgary's design excellence",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/the-mayors-urban-design-awards-recognize-calgarys-design-excellence/",
+     "published": "2026-11-20"
+    }
+   ],
+   "id": "2026-11-20-mayor-s-urban-design-awards-honour-projects-from-the-confluence-to-a-b",
+   "date": "2026-11-20",
+   "published_at": "2026-11-20T23:37:23Z",
+   "words": 233
+  },
+  {
+   "title": "Alberta lets carbon capture grants flow during construction, matching the federal tax credit",
+   "dek": "The change to the province's incentive program comes as talks on the Pathways project run past a mid-November target.",
+   "section": "Alberta and Canada",
+   "body": [
+    "Alberta has changed its carbon capture and storage incentive so that some money can be paid while projects are being built, not only once they start operating [1][2].",
+    "Under the Alberta Carbon Capture Incentive Program, companies can receive grants covering 12 per cent of eligible capital costs for certain projects, including in the oil and gas, petrochemical and power industries [1][2]. The province said the change brings its program in line with the federal Carbon Capture, Utilization and Storage Tax Credit [1][2].",
+    "Energy and Minerals Minister Brian Jean announced the change in a news release late Thursday, Nov. 19, describing Alberta as already a global leader in carbon capture and storage [1].",
+    "The change comes as Alberta, Ottawa and the five biggest oilsands producers negotiate final agreements on the Pathways project [1][2]. The governments and industry had aimed to announce those agreements around Nov. 15, but company executives have signalled they will take the time they need [1][2].",
+    "Pathways would carry carbon dioxide by pipeline from oilsands sites to an underground storage hub near Cold Lake [1][2]. The Oil Sands Alliance, made up of Cenovus Energy, Canadian Natural Resources, Suncor Energy, Imperial Oil and ConocoPhillips Canada, is developing the project [1].",
+    "The project would be able to store about six million tonnes of captured carbon dioxide a year by the mid-2030s, with another 10 million tonnes of reductions targeted by 2045, a significant scale-back from the 22 million tonnes by 2030 targeted earlier [1]. Under a federal-provincial energy accord signed a year ago, progress on Pathways is tied to Ottawa's support for the proposed Pacific Link pipeline to the West Coast, and the reverse [1]."
+   ],
+   "key_facts": [
+    "Grants cover 12 per cent of eligible capital costs",
+    "Money can now flow during construction",
+    "Pathways agreements missed a Nov. 15 target"
+   ],
+   "topics": [
+    "Provincial",
+    "Energy",
+    "Environment",
+    "Economy"
+   ],
+   "image_query": "carbon capture facility Alberta",
+   "charts": [
+    {
+     "title": "Pathways carbon dioxide targets",
+     "kind": "hbar",
+     "labels": [
+      "Earlier target (by 2030)",
+      "Capture capacity (mid-2030s)",
+      "Further reductions targeted by 2045"
+     ],
+     "series": [
+      {
+       "name": "Million tonnes",
+       "values": [
+        22,
+        6,
+        10
+       ]
+      }
+     ],
+     "unit": "million tonnes",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Alberta tweaks carbon capture incentive program to allow grants during construction",
+     "outlet": "The Canadian Press via CP24",
+     "url": "https://www.cp24.com/news/canada/2026/11/20/alberta-tweaks-carbon-capture-incentive-program-to-allow-grants-during-construction/",
+     "published": "2026-11-20"
+    },
+    {
+     "title": "Alberta tweaks carbon capture incentive program to allow grants during construction",
+     "outlet": "BOE Report",
+     "url": "https://boereport.com/2026/11/20/alberta-tweaks-carbon-capture-incentive-program-to-allow-grants-during-construction/",
+     "published": "2026-11-20"
+    }
+   ],
+   "id": "2026-11-20-alberta-lets-carbon-capture-grants-flow-during-construction-matching-t",
+   "date": "2026-11-20",
+   "published_at": "2026-11-20T23:37:23Z",
+   "words": 275
+  },
+  {
+   "title": "Cavalry FC hosts Atletico Ottawa in Saturday's CPL Final as the Festival of Lights opens",
+   "dek": "A Shield and Cup double would be a league first for Cavalry; the weekend also brings the Flames, the Hitmen and holiday lights.",
+   "section": "Community and events",
+   "body": [
+    "Cavalry FC hosts Atletico Ottawa in the Canadian Premier League Final on Saturday, Nov. 21 at 2 p.m. at ATCO Field at Spruce Meadows, 18011 Spruce Meadows Way S.W. [1][2]. It is a rematch of last year's final in Ottawa, which Atletico won 2-1 in extra time during a blizzard [1].",
+    "Cavalry has already won the CPL Shield, which also qualified the club for the 2027 Concacaf Champions Cup; adding the final would give the club a Shield and Cup double, a league first [1]. Cavalry reached the final by beating FC Supra du Quebec 3-2 on aggregate, winning the second leg 2-0 at ATCO Field before 5,199 fans [1]. The two finalists met four times this season, with Cavalry winning three [1].",
+    "The game will air on TSN, CBC and OneSoccer, with pregame coverage from 1 p.m. [1]. A fan zone in the Lower Plaza opens at noon for ticket holders, and tickets were listed from about $61 [2]. The stadium record is 7,052, set at the 2024 final [1].",
+    "Elsewhere, the Lions Festival of Lights in Confederation Park, along 14 Street N.W. north of 24 Avenue, marks its 40th year with an opening night at 5 p.m. Saturday, then runs nightly from 5:30 p.m. to midnight through Jan. 8, with no admission charge [2].",
+    "At the Scotiabank Saddledome, the Hitmen play the Edmonton Oil Kings at 7 p.m. Friday and the Swift Current Broncos at 2 p.m. Sunday, while the Flames host the Chicago Blackhawks at 2:30 p.m. Saturday [2]. Christmas in Kensington runs noon to 3 p.m. Saturday and Sunday, and Zoolights continues nightly at the Calgary Zoo, which is closed Tuesday, Nov. 24 [2]."
+   ],
+   "key_facts": [
+    "CPL Final: Saturday, Nov. 21, 2 p.m., ATCO Field at Spruce Meadows",
+    "Broadcast on TSN, CBC and OneSoccer",
+    "Lions Festival of Lights opens Saturday at 5 p.m."
+   ],
+   "topics": [
+    "Sports",
+    "Events",
+    "Community"
+   ],
+   "image_query": "Spruce Meadows Calgary",
+   "location": {
+    "lat": 50.917,
+    "lon": -114.117,
+    "label": "ATCO Field at Spruce Meadows"
+   },
+   "charts": [
+    {
+     "title": "Cavalry FC vs Atletico Ottawa, goals in 2026 meetings",
+     "kind": "bar",
+     "labels": [
+      "April",
+      "July",
+      "August",
+      "September"
+     ],
+     "series": [
+      {
+       "name": "Cavalry",
+       "values": [
+        3,
+        3,
+        3,
+        2
+       ]
+      },
+      {
+       "name": "Atletico Ottawa",
+       "values": [
+        1,
+        0,
+        1,
+        3
+       ]
+      }
+     ],
+     "unit": "goals",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Cavalry FC heads to a fourth straight CPL Final, with a league first on the line at Spruce Meadows",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/cavalry-fc-cpl-final-2026",
+     "published": "2026-11-09"
+    },
+    {
+     "title": "10 Things to Do in Calgary This Weekend: November 20-22, 2026",
+     "outlet": "Culture Alberta",
+     "url": "https://www.culturealberta.com/articles/10-things-to-do-in-calgary-this-weekend-november-2022-2026-cpl-final-lions-festival-of-lights-more",
+     "published": "2026-11-20"
+    }
+   ],
+   "id": "2026-11-20-cavalry-fc-hosts-atletico-ottawa-in-saturday-s-cpl-final-as-the-festiv",
+   "date": "2026-11-20",
+   "published_at": "2026-11-20T23:37:23Z",
+   "words": 278
+  }
+ ]
+}
