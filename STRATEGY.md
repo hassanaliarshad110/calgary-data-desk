@@ -24,11 +24,13 @@ Note: Made for Kids turns off comments and the subscriber bell, so every view de
 | 0–5 | COLD OPEN: frame 0 is the danger or funniest chaos, in motion, with a hit/whoosh. A character IN the scene shouts the problem in kid words. A 2–4 word Roman title on screen. |
 | 5–25 | Why it matters + family/Basim reaction, fast. Context in one line while the danger is on screen. |
 | 25–40 | "Mama! Suusuu aayi hai!" → "Phir se?!" + Sakina's crying act. |
-| 40–48 | Door glow, FLUUSH, SUUSUU POWER, "SUUU-SUUU-MAN!" (≤ 8 s; the only narrator line in the episode). |
+| 40–48 | Door glow, FLUUSH, SUUSUU POWER, "SUUU-SUUU-MAN!" (≤ 8 s; one of only two narrator lines, the other is the closing lesson). |
 | 48–95 | The rescue, with ONE escalation around 1:05 (it gets worse before it gets better). |
 | 95–110 | Secret-keeping joke ("Kuch nahi Mama!", Sakina's wink) + one-line lesson. |
 | 110–115 | CLIFFHANGER: 3–4 s flash of the NEXT episode's danger, "AGLE EPISODE MEIN…". |
-| last 12–15 s | End screen: Susuman waving on the left, room for YouTube's video + subscribe elements on the right, "LIKE aur SUBSCRIBE karo!". |
+| last 12–15 s | End screen: Susuman waving on the left, room for YouTube's video + subscribe elements on the right. **The episode ENDS WITH THE LESSON** (Hassan, Nov 20, 2026): the first line on the end screen is the narrator's lesson, "Bachcho, <one-line lesson>!" (shown big on screen too), then "Video achhi lagi to LIKE aur SUBSCRIBE karo!". Exactly as Ep 1–8 ended. |
+
+The closing lesson is MANDATORY in every episode, and it must be the last thing said before LIKE/SUBSCRIBE (after the cliffhanger flash, never only in the middle). A character may also say the lesson inside the story, but the narrator still repeats it on the end screen. The narrator may speak only twice: the SUUU-SUUU-MAN power line and this closing lesson.
 
 Never: a narrator in the first 15 s, a recap of who Qasim is, a title card or theme song before 0:30, a "getting ready / going somewhere" scene before the problem, anything static for more than 3 s.
 
@@ -50,3 +52,4 @@ List what is on screen each second for the first 15 s of the final file: danger 
 ## Log
 - Nov 18, 2026: Hassan chose to release Ep 8 unchanged (original opening). The new rules apply from Ep 9 (Fri Nov 20). A cold-open cut of Ep 8 exists at susuman-media/ep8/susuman_ep8_16x9_coldopen.mp4 (opens on the traffic jam), for compilations only.
 - Nov 19, 2026: Ep 9 (Garmi Mein Parinde) is the first episode built to the retention structure: danger visible at frame 0, a character speaks at 0.3 s, no narrator before the flush (0:36), escalation (pipe burst + fall) at 0:44, cliffhanger flash of Ep 10 at 1:30, native 16:9 end screen. Its cliffhanger Short (~30 s) ends unresolved on the dive with "POORA EPISODE DEKHO!".
+- Nov 20, 2026: Hassan noticed the new episode did not end with the lesson like the earlier ones (Ep 9 put Zahra Miss's lesson before the cliffhanger and ended on Qasim's "LIKE aur SUBSCRIBE karo! Bye bye!"). Rule restored from Ep 10: every episode ends with the narrator's "Bachcho, …" lesson on the end screen, then LIKE/SUBSCRIBE. Ep 9 was already live and was left as published.

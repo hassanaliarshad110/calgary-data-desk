@@ -1,7 +1,7 @@
 # SUSUMAN — series plan (new episodes Mon / Wed / Fri — see STRATEGY.md, which wins over this file)
 Status key: DONE / NEXT / TODO. The daily run takes the first NEXT (or TODO), makes it, then marks it DONE with the date and sets the following one to NEXT.
 
-Every episode (structure and cold open: STRATEGY.md): 1:45–2:15 full 16:9 first, opens on the danger at frame 0, no narrator recap, desi setting, Qasim's washroom running gag ("Mama! Suusuu aayi hai!" → "Phir se?!" + counter), Sakina's "crying girl" gag (fake tears that make the grown-ups give in), flush → SUUSUU POWER → "SUUU-SUUU-MAN!", he saves kids / animals / the world, keeps the secret, a one-line safety/kindness lesson, LIKE + SUBSCRIBE end card. Title pattern: <Devanagari danger hook> 😱 + <Roman keyword "X wala cartoon"> + Susuman Ep N + Hindi Urdu Cartoon for Kids. Each episode ends with a 3–4 s flash of the NEXT episode's danger.
+Every episode (structure and cold open: STRATEGY.md): 1:45–2:15 full 16:9 first, opens on the danger at frame 0, no narrator recap, desi setting, Qasim's washroom running gag ("Mama! Suusuu aayi hai!" → "Phir se?!" + counter), Sakina's "crying girl" gag (fake tears that make the grown-ups give in), flush → SUUSUU POWER → "SUUU-SUUU-MAN!", he saves kids / animals / the world, keeps the secret, and ENDS WITH THE LESSON: the narrator's "Bachcho, <one-line safety/kindness lesson>!" on the end screen (after the cliffhanger flash), then LIKE + SUBSCRIBE (mandatory, Hassan Nov 20, 2026). Title pattern: <Devanagari danger hook> 😱 + <Roman keyword "X wala cartoon"> + Susuman Ep N + Hindi Urdu Cartoon for Kids. Each episode ends with a 3–4 s flash of the NEXT episode's danger.
 
 | # | Status | Title (Roman) | Keyword | Story | Lesson |
 |---|---|---|---|---|---|
