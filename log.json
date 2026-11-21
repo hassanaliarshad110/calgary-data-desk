@@ -2830,5 +2830,31 @@
     "media_commit": "studio-videos fc92766"
    }
   ]
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (watch)",
+  "title": "Watching: Nov 21 (nothing rare so far)",
+  "status": "closed_no_moment",
+  "checked_at": "2026-11-21 10:46 Calgary (16:46 UTC)",
+  "detection": {
+   "temp": "CYYC SWOB local day so far (to 10:00): max -4.4 C, min -5.5 C; Nov 21 history 1926-2025 (100 yrs): top-5 highs 15.0..20.0, bottom-5 highs -15.6..-21.7, bottom-5 lows -24.8..-30.8, top-5 lows 1.1..3.3: not near",
+   "gust_ge_80": false,
+   "chinook": false,
+   "first_snow": "no (already Nov 17)",
+   "alerts": "none for Calgary bbox (api.weather.gc.ca, 16:43 UTC)",
+   "traffic_incidents_today_so_far": "0 rows dated Nov 21 (latest feed row Nov 20 21:39 Calgary; feed lags); 365-day max 110, p99 62: not rare",
+   "news": "no confirmed rare Calgary event found (web search 10:45)"
+  },
+  "next_check": "16:41",
+  "evidence": "production/2026-11-21-MOMENT-watch/check-1041/",
+  "sources": [
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261121/CYYC/",
+   "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
+   "https://data.calgary.ca/resource/35ra-9556.json",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=21&timeframe=2&submit=Download+Data"
+  ]
  }
 ]
