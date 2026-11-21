@@ -35,8 +35,9 @@ def _get(u, t=60):
     return err
 mw = os.path.join(out, 'moment'); os.makedirs(mw, exist_ok=True)
 res = {}
-for day in ['20261119','20261120']:
-    base = f'https://dd.weather.gc.ca/today/observations/swob-ml/{day}/CYYC/'
+for day, base in [('20261120','https://dd.weather.gc.ca/20261120/WXO-DD/observations/swob-ml/20261120/CYYC/'),
+                  ('20261121','https://dd.weather.gc.ca/today/observations/swob-ml/20261121/CYYC/'),
+                  ('20261121b','https://dd.weather.gc.ca/20261121/WXO-DD/observations/swob-ml/20261121/CYYC/')]:
     idx = _get(base)
     if idx.startswith('ERR'): res[base] = idx; continue
     files = sorted(set(re.findall(r'href="([^"]+\.xml)"', idx)))
@@ -55,7 +56,7 @@ json.dump(res, open(os.path.join(mw, 'swob_index.json'), 'w'), indent=1)
 for nm, u in [('eccc_daily_2026_11.csv', 'https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=50430&Year=2026&Month=11&Day=20&timeframe=2&submit=Download+Data'),
               ('alerts_api.txt','https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50'),
               ('traffic_latest.json','https://data.calgary.ca/resource/35ra-9556.json?$order=start_dt_utc%20DESC&$limit=400'),
-              ('traffic_rows_365d.json',"https://data.calgary.ca/resource/35ra-9556.json?$select=start_dt_utc,id&$where=start_dt_utc%3E'2025-11-19T00:00:00'&$limit=50000")]:
+]:
     open(os.path.join(mw, nm), 'w').write(_get(u, 120))
 print('moment fetch done')
 sys.exit(0)
