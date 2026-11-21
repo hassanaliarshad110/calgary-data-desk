@@ -2923,10 +2923,15 @@
     "file": "snow-eater-chinook-short.mp4",
     "publish_at": "2026-11-21T12:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "media_commit": "studio-videos 3c9e302"
+    "media_commit": "studio-videos 3c9e302",
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/DgA4YVSEwGy/",
+     "youtube": "https://www.youtube.com/shorts/5yPkEMtSD94"
+    },
+    "confirmed_by": "2026-11-21 PM run (getScheduledPosts)"
    },
    {
     "metricool_id": 436860933,
@@ -2939,10 +2944,15 @@
     "file": "snow-eater-chinook-youtube.mp4",
     "publish_at": "2026-11-21T17:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "media_commit": "studio-videos 3c9e302"
+    "media_commit": "studio-videos 3c9e302",
+    "publicUrls": {
+     "facebook": "https://facebook.com/122097271263547631/posts/2588013778360366",
+     "youtube": "https://www.youtube.com/watch?v=1JfvFweSXzA"
+    },
+    "confirmed_by": "2026-11-21 PM run (getScheduledPosts)"
    }
   ],
   "pending_link": [
@@ -2999,5 +3009,87 @@
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=21&timeframe=2&submit=Download+Data"
   ],
   "evidence_1641": "production/2026-11-21-MOMENT-watch/check-1641/"
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Only one visiting team ever beat the Canadiens for the Cup at the Montreal Forum",
+  "topic_used": "Calgary Flames 1989: only visiting team to beat the Canadiens for the Stanley Cup at the Montreal Forum (Canadiens there seventy years from 1926); Game 6, May 25 1989, 4-2; Lanny McDonald scored in his final NHL game; still the Flames' only Cup",
+  "changed_from_calendar": null,
+  "central_figure": "Only visiting team to beat the Canadiens for the Cup at the Forum (TCE; Wikipedia 1989 Stanley Cup Final; Global News)",
+  "sources": [
+   "https://thecanadianencyclopedia.ca/en/article/calgary-flames",
+   "https://en.wikipedia.org/wiki/1989_Stanley_Cup_Final",
+   "https://globalnews.ca/news/5159056/calgary-flames-30-facts-stanley-cup-playoffs",
+   "https://www.canadashistory.ca/explore/arts-culture-society/mcdonald-s-triumph",
+   "https://thehockeynews.com/news/all-access/greatest-games-calgary-flames-legend-lannys-perfect-ending"
+  ],
+  "link": "https://calgaryinsight.ca/visit/?utm_source=facebook&utm_medium=social&utm_campaign=flames-forum-cup",
+  "link_check": "WebFetch blocked (permission timeout) this run; page exists in site source web/visit/index.html with a 'Flames: The Saddledome roars' tile",
+  "length_s": 22.4,
+  "video_path": "studio-videos/2026-11-21-PM/flames-forum-cup.mp4",
+  "thumbnail_path": "studio-videos/2026-11-21-PM/flames-forum-cup-thumb.jpg",
+  "package": "packages/2026-11-21-PM-flames-forum-cup.md",
+  "production": "production/2026-11-21-PM/",
+  "identity": "Data Explainer lead (kinetic question hook over a Forum push-in, Cup rise, 70-year timeline with single-dot drop, scoreboard counters, stamps) + Storyteller map dive onto the Saddledome",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 7,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-21-PM.md",
+   "note": "round 1 caught the 1928 Rangers Cup at the Forum: every line scoped to 'beat the Canadiens'; round 3 approved the shortened spoken closer"
+  },
+  "narration": {
+   "lane": "studio-probe",
+   "voice": "af_heart",
+   "asr_mean_acc": 1.0,
+   "lines": 6,
+   "check": 0
+  },
+  "qc": {
+   "stills": "pass (arena moved up clear of captions; McDonald net moved above captions, goaltender added; source line off the rink)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "frame 0: moving push-in + hook words on screen",
+    "closer 3.9 s",
+    "-14.6 LUFS, 4.4 MB"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 437123841,
+    "uuid": "-3141397797976520959",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-3141397797976520959",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-21T18:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "youtube_category": "SPORTS",
+    "media_commit": "studio-videos f0408ba"
+   }
+  ]
  }
 ]

@@ -1,0 +1,138 @@
+{
+ "summary": {
+  "v": {
+   "lines": 6,
+   "check": [],
+   "mean_acc": 1.0
+  }
+ },
+ "lexicon_entries": 32,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "Only one visiting team ever beat the Canadiens for the Stanley Cup at the Montreal Forum.",
+    "said": "Only one visiting team ever beat the Canadiens for the Stanley Cup at the Montreal Forum.",
+    "heard": "Only one visiting team ever beat the Canadians for the Stanley Cup at the Montreal Forum.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.547,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "In seventy years, it was Calgary.",
+    "said": "In seventy years, it was Calgary.",
+    "heard": "In 70 years, it was Calgary.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.027,
+    "input_lufs": -21.9,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "May twenty-fifth, nineteen eighty-nine. Flames four, Canadiens two.",
+    "said": "May twenty-fifth, nineteen eighty-nine. Flames four, Canadiens two.",
+    "heard": "May 25th, 1989. Flames 4, Canadians 2.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.396,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "Lanny McDonald scored in his final NHL game.",
+    "said": "Lanny McDonald scored in his final NHL game.",
+    "heard": "Lanny McDonald scored in his final NHL game.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.965,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "It's still the Flames' only Stanley Cup.",
+    "said": "It's still the Flames' only Stanley Cup.",
+    "heard": "It's still the flame's only Stanley cup.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.027,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "Did you know this? Drop your thoughts below.",
+    "said": "Did you know this? Drop your thoughts below.",
+    "heard": "Did you know this? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.939,
+    "input_lufs": -21.7,
+    "status": "ok"
+   }
+  ]
+ }
+}
