@@ -2970,7 +2970,15 @@
     "first_comment": "❄️ Plan your next chinook day: winter ideas on our Calgary trip planner: https://calgaryinsight.ca/visit/explore/?utm_source=facebook&utm_medium=social&utm_campaign=snow-eater-chinook-teaser",
     "post_at": "2026-11-21T20:00",
     "link_to": "436860933",
-    "status": "pending"
+    "status": "scheduled",
+    "scheduled": true,
+    "metricool_id": 437126604,
+    "uuid": "1035905343094604010",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=1035905343094604010",
+    "publish_at": "2026-11-21T20:00",
+    "link_used": "https://youtu.be/1JfvFweSXzA",
+    "link_placement": "firstCommentText (Facebook exception, PLAYBOOK 7b); caption has no YouTube URL",
+    "scheduled_by": "link-up task 2026-11-21 17:41 run"
    }
   ]
  },
