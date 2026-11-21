@@ -1,5 +1,5 @@
 {
- "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-20 2026.",
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-21 2026.",
  "ur": {
   "اللہ کے نبی ﷺ": "اللہ کے نبی",
   "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
@@ -54,7 +54,8 @@
   "حدیثِ ثقلین": "حدیث ثقلین",
   "حدیثِ منزلت": "حدیث منزلت",
   "شبہائے پشاور": "شبِ ہائے پشاور",
-  "تیئیس": "تئیس"
+  "تیئیس": "تئیس",
+  "مِسوَر بن مَخرَمہ": "مسور بن مخرمہ"
  },
  "ar": {
   "رسول الله ﷺ": "رسولِ الله، صلّى اللهُ عليه وآله وسلّم،",
