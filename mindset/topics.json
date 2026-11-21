@@ -1,262 +1,264 @@
 {
-  "rules": {
-    "series": "Awazzzz Mindset, in English — \"Machiavelli's Rules\" (power, strategy, self-reliance), \"Rumi's Voice\" (inner peace, love, purpose) and \"Mind vs Heart\" (both thinkers on one question).",
-    "truth": "Quote only from public-domain translations you actually read: Machiavelli, The Prince (W. K. Marriott 1908, Project Gutenberg) and Discourses (Ninian Hill Thomson 1883); Rumi, Masnavi (E. H. Whinfield 1887/1898; R. A. Nicholson vols. published before 1929) and Selected Poems from the Divani Shamsi Tabriz (Nicholson 1898). Quote the translation's own English wording (modernise spelling only) and name the book, chapter and translator on screen. Never use popular internet 'Rumi quotes' unless found in those texts (many are Coleman Barks paraphrases, which are copyrighted, or fakes). Paraphrase clearly marked as 'saar' (gist) when not a direct line.",
-    "tone": "Motivational and practical: every video ends with one action the viewer can do today. Machiavelli = strategy for career, business and life, never advice to harm, cheat or manipulate people; frame dark ideas as 'samjho taaki koi tumhare saath na kare'. Rumi = universal, spiritual, non-sectarian; respectful; no religious rulings.",
-    "visual": "Dark cinematic 2.5D: Machiavelli = candlelit Florentine study, chessboard, lion and fox, crown, ink and parchment, red/black/gold; Rumi = moonlit desert, whirling silhouette with flowing robe, reed flute, lanterns, deep blue/teal/gold; Clash = split screen red vs blue. Thinkers only as stylised silhouettes, no portraits. Full-bleed picture, minimal text.",
-    "language": "English narration and English subtitles (Hassan, Nov 17, 2026). Titles and examples in plain global English; examples may come from work, business, school, sport, family.",
-    "youtube_policy": "Binding (Nov 20, 2026): see README 'YOUTUBE MONETIZATION RULES'. No recurring stock phrases; rotate structures; fresh commentary/story in every video (quotes ≤ ~20% of narration); new scene composition each time; max 2 uploads/day; no keyword lists in descriptions; titles must match content."
+ "rules": {
+  "series": "Awazzzz Mindset, in English — \"Machiavelli's Rules\" (power, strategy, self-reliance), \"Rumi's Voice\" (inner peace, love, purpose) and \"Mind vs Heart\" (both thinkers on one question).",
+  "truth": "Quote only from public-domain translations you actually read: Machiavelli, The Prince (W. K. Marriott 1908, Project Gutenberg) and Discourses (Ninian Hill Thomson 1883); Rumi, Masnavi (E. H. Whinfield 1887/1898; R. A. Nicholson vols. published before 1929) and Selected Poems from the Divani Shamsi Tabriz (Nicholson 1898). Quote the translation's own English wording (modernise spelling only) and name the book, chapter and translator on screen. Never use popular internet 'Rumi quotes' unless found in those texts (many are Coleman Barks paraphrases, which are copyrighted, or fakes). Paraphrase clearly marked as 'saar' (gist) when not a direct line.",
+  "tone": "Motivational and practical: every video ends with one action the viewer can do today. Machiavelli = strategy for career, business and life, never advice to harm, cheat or manipulate people; frame dark ideas as 'samjho taaki koi tumhare saath na kare'. Rumi = universal, spiritual, non-sectarian; respectful; no religious rulings.",
+  "visual": "Dark cinematic 2.5D: Machiavelli = candlelit Florentine study, chessboard, lion and fox, crown, ink and parchment, red/black/gold; Rumi = moonlit desert, whirling silhouette with flowing robe, reed flute, lanterns, deep blue/teal/gold; Clash = split screen red vs blue. Thinkers only as stylised silhouettes, no portraits. Full-bleed picture, minimal text.",
+  "language": "English narration and English subtitles (Hassan, Nov 17, 2026). Titles and examples in plain global English; examples may come from work, business, school, sport, family.",
+  "youtube_policy": "Binding (Nov 20, 2026): see README 'YOUTUBE MONETIZATION RULES'. No recurring stock phrases; rotate structures; fresh commentary/story in every video (quotes ≤ ~20% of narration); new scene composition each time; max 2 uploads/day; no keyword lists in descriptions; titles must match content."
+ },
+ "topics": [
+  {
+   "slug": "dar-ya-pyaar",
+   "hook": "Dar ya pyaar — kya behtar hai?",
+   "source": "The Prince ch.17 (feared vs loved)",
+   "voice_of": "machiavelli",
+   "status": "posted",
+   "claimed_by": "morning",
+   "time": "2026-11-18T20:12Z",
+   "title": "Loved or Feared? What Machiavelli Really Said (The Prince, Ch. 17) #shorts",
+   "metricool_uuid": "5720305654942944636",
+   "post_time": "2026-11-19T13:00+05:30",
+   "video": "awazzz-media:mindset/2026-11-19-dar-ya-pyaar/loved-or-feared.mp4"
   },
-  "topics": [
-    {
-      "slug": "dar-ya-pyaar",
-      "hook": "Dar ya pyaar — kya behtar hai?",
-      "source": "The Prince ch.17 (feared vs loved)",
-      "voice_of": "machiavelli",
-      "status": "posted",
-      "claimed_by": "morning",
-      "time": "2026-11-18T20:12Z",
-      "title": "Loved or Feared? What Machiavelli Really Said (The Prince, Ch. 17) #shorts",
-      "metricool_uuid": "5720305654942944636",
-      "post_time": "2026-11-19T13:00+05:30",
-      "video": "awazzz-media:mindset/2026-11-19-dar-ya-pyaar/loved-or-feared.mp4"
-    },
-    {
-      "slug": "bansuri-ki-pukaar",
-      "hook": "Bansuri kyun roti hai?",
-      "source": "Masnavi Book I opening, Song of the Reed",
-      "voice_of": "rumi",
-      "status": "posted",
-      "claimed_by": "evening",
-      "time": "2026-11-19T07:45Z",
-      "title": "Why Does a Flute Sound So Sad? Rumi's Answer (Song of the Reed) #shorts",
-      "metricool_uuid": "6148903088245456911",
-      "post_time": "2026-11-19T21:00+05:30",
-      "video": "awazzz-media:mindset/2026-11-19-bansuri-ki-pukaar/why-does-a-flute-sound-so-sad.mp4",
-      "source_text": "Masnavi Book I Prologue, tr. Whinfield 1898 (sacred-texts msn01.htm)"
-    },
-    {
-      "slug": "sher-aur-lomdi",
-      "hook": "Sher bano ya lomdi? Dono!",
-      "source": "The Prince ch.18 (lion and fox)",
-      "voice_of": "machiavelli",
-      "status": "posted",
-      "claimed_by": "morning",
-      "time": "2026-11-19T20:12Z",
-      "title": "Lion or Fox? Machiavelli's Rule So Nobody Plays You (The Prince, Ch. 18) #shorts",
-      "metricool_uuid": "-2447198098536445067",
-      "post_time": "2026-11-20T08:30+05:30",
-      "video": "awazzz-media:mindset/2026-11-20-sher-aur-lomdi/sher-aur-lomdi.mp4"
-    },
-    {
-      "slug": "jeet-ya-sukoon",
-      "hook": "Machiavelli vs Rumi: jeet chahiye ya sukoon?",
-      "source": "Prince ch.15/18 vs Masnavi",
-      "voice_of": "clash",
-      "status": "posted",
-      "claimed_by": "evening",
-      "time": "2026-11-20T07:13Z",
-      "title": "Win or Peace? Machiavelli vs Rumi on What Really Matters #shorts",
-      "metricool_uuid": "-7544327645732583687",
-      "post_time": "2026-11-20T21:00+05:30",
-      "video": "awazzz-media:mindset/2026-11-20-jeet-ya-sukoon/win-or-peace.mp4",
-      "source_text": "The Prince Ch. 17 (Marriott) + Masnavi Book I Prologue (Whinfield); quotes re-used from Nov 19 verified records (live fetch blocked Nov 20)"
-    },
-    {
-      "slug": "kismat-aadhi",
-      "hook": "Kismat sirf aadhi hai — baaki tumhare haath",
-      "source": "The Prince ch.25 (fortune and the river)",
-      "voice_of": "machiavelli",
-      "status": "posted",
-      "claimed_by": "morning",
-      "time": "2026-11-20T20:15Z",
-      "title": "Is Half Your Life Just Luck? Machiavelli's River Rule (The Prince, Ch. 25) #shorts",
-      "metricool_uuid": "-2759818709534095847",
-      "post_time": "2026-11-21T08:30+05:30",
-      "video": "awazzz-media:mindset/2026-11-21-kismat-aadhi/half-your-life-is-luck.mp4",
-      "source_text": "The Prince Ch. 25, tr. Marriott 1908 (Standard Ebooks GitHub source, chapter-25.xhtml)"
-    },
-    {
-      "slug": "andhere-ka-haathi",
-      "hook": "Andhere mein haathi — sach kiska?",
-      "source": "Masnavi Book III, the elephant in the dark",
-      "voice_of": "rumi",
-      "status": "posted",
-      "claimed_by": "evening",
-      "time": "2026-11-21T07:15Z",
-      "title": "Everyone Was Right, Everyone Was Wrong: Rumi's Elephant in the Dark #shorts",
-      "metricool_uuid": "-7134474308148770049",
-      "post_time": "2026-11-21T21:00+05:30",
-      "video": "awazzz-media:mindset/2026-11-21-andhere-ka-haathi/everyone-was-right.mp4",
-      "source_text": "Masnavi Book III, Story V 'The Elephant in a Dark Room' + 'Comparison of the sensual eye...', tr. E. H. Whinfield (IntraText ENG0134 _P16; sacred-texts blocked Nov 21)"
-    },
-    {
-      "slug": "apne-hathiyaar",
-      "hook": "Doosron ke bharose jeetoge? Kabhi nahi",
-      "source": "The Prince ch.13 (own arms)",
-      "voice_of": "machiavelli",
-      "status": "todo"
-    },
-    {
-      "slug": "dushman-ke-saath",
-      "hook": "Dushman se kya karein? Do jawab",
-      "source": "Prince ch.7/8 vs Masnavi (Ali and the knight, Book I)",
-      "voice_of": "clash",
-      "status": "todo"
-    },
-    {
-      "slug": "chaploos",
-      "hook": "Jo sirf tareef kare, wahi sabse khatarnak",
-      "source": "The Prince ch.23 (flatterers)",
-      "voice_of": "machiavelli",
-      "status": "todo"
-    },
-    {
-      "slug": "tota-aur-saudagar",
-      "hook": "Pinjre ka tota aur azaadi ka raaz",
-      "source": "Masnavi Book I, the merchant and the parrot",
-      "voice_of": "rumi",
-      "status": "todo"
-    },
-    {
-      "slug": "dikhta-vs-hai",
-      "hook": "Log wahi dekhte hain jo tum dikhate ho",
-      "source": "The Prince ch.18 (few feel what you are)",
-      "voice_of": "machiavelli",
-      "status": "todo"
-    },
-    {
-      "slug": "taaqat-kya-hai",
-      "hook": "Asli taaqat kya hai? Dimaag vs Dil",
-      "source": "Prince vs Masnavi",
-      "voice_of": "clash",
-      "status": "todo"
-    },
-    {
-      "slug": "badlav-ke-dushman",
-      "hook": "Kuch naya karoge to dushman banenge",
-      "source": "The Prince ch.6 (the innovator's enemies)",
-      "voice_of": "machiavelli",
-      "status": "todo"
-    },
-    {
-      "slug": "chini-aur-yunani",
-      "hook": "Dil ko aaina bana do",
-      "source": "Masnavi Book I, the Chinese and Greek painters",
-      "voice_of": "rumi",
-      "status": "todo"
-    },
-    {
-      "slug": "door-ki-bimari",
-      "hook": "Problem chhoti ho tabhi pakdo",
-      "source": "The Prince ch.3 (hectic fever)",
-      "voice_of": "machiavelli",
-      "status": "todo"
-    },
-    {
-      "slug": "akelapan",
-      "hook": "Akele ho? Machiavelli aur Rumi kya kehte",
-      "source": "Prince ch.9/19 vs Song of the Reed",
-      "voice_of": "clash",
-      "status": "todo"
-    },
-    {
-      "slug": "aas-paas-ke-log",
-      "hook": "Tumhare dost batate hain tum kaun ho",
-      "source": "The Prince ch.22 (those around the ruler)",
-      "voice_of": "machiavelli",
-      "status": "todo"
-    },
-    {
-      "slug": "unt-baandho",
-      "hook": "Bharosa rakho, par unt bhi baandho",
-      "source": "Masnavi Book I, the lion and the beasts (trust vs effort)",
-      "voice_of": "rumi",
-      "status": "todo"
-    },
-    {
-      "slug": "beech-mein-mat-raho",
-      "hook": "Neutral rehna sabse bada nuksaan",
-      "source": "The Prince ch.21 (true friend or open enemy)",
-      "voice_of": "machiavelli",
-      "status": "todo"
-    },
-    {
-      "slug": "gussa",
-      "hook": "Gussa — hathiyaar ya zeher?",
-      "source": "Prince vs Masnavi (Ali and the knight)",
-      "voice_of": "clash",
-      "status": "todo"
-    },
-    {
-      "slug": "waqt-ke-saath",
-      "hook": "Jo badalta nahi, wo haarta hai",
-      "source": "The Prince ch.25 (adapting to the times)",
-      "voice_of": "machiavelli",
-      "status": "todo"
-    },
-    {
-      "slug": "shams-ki-mulaqat",
-      "hook": "Ek mulaqat jisne Rumi ko badal diya",
-      "source": "History: Rumi meets Shams of Tabriz, Konya 1244",
-      "voice_of": "rumi",
-      "status": "todo"
-    },
-    {
-      "slug": "ehsaan-dheere",
-      "hook": "Ehsaan dheere-dheere, sakhti ek baar",
-      "source": "The Prince ch.8",
-      "voice_of": "machiavelli",
-      "status": "todo"
-    },
-    {
-      "slug": "log-kya-kahenge",
-      "hook": "Log kya kahenge? Do jawab",
-      "source": "Prince ch.18 vs Masnavi",
-      "voice_of": "clash",
-      "status": "todo"
-    },
-    {
-      "slug": "pansari-ka-tota",
-      "hook": "Shakl dekh kar faisla mat karo",
-      "source": "Masnavi Book I, the grocer and the parrot",
-      "voice_of": "rumi",
-      "status": "todo"
-    },
-    {
-      "slug": "khamoshi",
-      "hook": "Khamoshi ki taaqat",
-      "source": "Rumi on silence — only lines verified in a public-domain translation",
-      "voice_of": "rumi",
-      "status": "todo"
-    },
-    {
-      "slug": "dard-ki-dawa",
-      "hook": "Dard hi dawa ban jaata hai",
-      "source": "Masnavi theme of pain and remedy — verified lines only",
-      "voice_of": "rumi",
-      "status": "todo"
-    },
-    {
-      "slug": "mitti-se-insaan",
-      "hook": "Main mar kar pathar se paudha bana…",
-      "source": "Masnavi Book III, 'I died as mineral' passage",
-      "voice_of": "rumi",
-      "status": "todo"
-    },
-    {
-      "slug": "fake-rumi",
-      "hook": "Ye 5 'Rumi quotes' Rumi ke hain hi nahi!",
-      "source": "Misattributed Rumi quotes vs the real Masnavi",
-      "voice_of": "rumi",
-      "status": "todo"
-    },
-    {
-      "slug": "wafaadar-kutta",
-      "hook": "Talaash karne wala hi paata hai",
-      "source": "Masnavi theme of seeking — verified lines only",
-      "voice_of": "rumi",
-      "status": "todo"
-    }
-  ]
+  {
+   "slug": "bansuri-ki-pukaar",
+   "hook": "Bansuri kyun roti hai?",
+   "source": "Masnavi Book I opening, Song of the Reed",
+   "voice_of": "rumi",
+   "status": "posted",
+   "claimed_by": "evening",
+   "time": "2026-11-19T07:45Z",
+   "title": "Why Does a Flute Sound So Sad? Rumi's Answer (Song of the Reed) #shorts",
+   "metricool_uuid": "6148903088245456911",
+   "post_time": "2026-11-19T21:00+05:30",
+   "video": "awazzz-media:mindset/2026-11-19-bansuri-ki-pukaar/why-does-a-flute-sound-so-sad.mp4",
+   "source_text": "Masnavi Book I Prologue, tr. Whinfield 1898 (sacred-texts msn01.htm)"
+  },
+  {
+   "slug": "sher-aur-lomdi",
+   "hook": "Sher bano ya lomdi? Dono!",
+   "source": "The Prince ch.18 (lion and fox)",
+   "voice_of": "machiavelli",
+   "status": "posted",
+   "claimed_by": "morning",
+   "time": "2026-11-19T20:12Z",
+   "title": "Lion or Fox? Machiavelli's Rule So Nobody Plays You (The Prince, Ch. 18) #shorts",
+   "metricool_uuid": "-2447198098536445067",
+   "post_time": "2026-11-20T08:30+05:30",
+   "video": "awazzz-media:mindset/2026-11-20-sher-aur-lomdi/sher-aur-lomdi.mp4"
+  },
+  {
+   "slug": "jeet-ya-sukoon",
+   "hook": "Machiavelli vs Rumi: jeet chahiye ya sukoon?",
+   "source": "Prince ch.15/18 vs Masnavi",
+   "voice_of": "clash",
+   "status": "posted",
+   "claimed_by": "evening",
+   "time": "2026-11-20T07:13Z",
+   "title": "Win or Peace? Machiavelli vs Rumi on What Really Matters #shorts",
+   "metricool_uuid": "-7544327645732583687",
+   "post_time": "2026-11-20T21:00+05:30",
+   "video": "awazzz-media:mindset/2026-11-20-jeet-ya-sukoon/win-or-peace.mp4",
+   "source_text": "The Prince Ch. 17 (Marriott) + Masnavi Book I Prologue (Whinfield); quotes re-used from Nov 19 verified records (live fetch blocked Nov 20)"
+  },
+  {
+   "slug": "kismat-aadhi",
+   "hook": "Kismat sirf aadhi hai — baaki tumhare haath",
+   "source": "The Prince ch.25 (fortune and the river)",
+   "voice_of": "machiavelli",
+   "status": "posted",
+   "claimed_by": "morning",
+   "time": "2026-11-20T20:15Z",
+   "title": "Is Half Your Life Just Luck? Machiavelli's River Rule (The Prince, Ch. 25) #shorts",
+   "metricool_uuid": "-2759818709534095847",
+   "post_time": "2026-11-21T08:30+05:30",
+   "video": "awazzz-media:mindset/2026-11-21-kismat-aadhi/half-your-life-is-luck.mp4",
+   "source_text": "The Prince Ch. 25, tr. Marriott 1908 (Standard Ebooks GitHub source, chapter-25.xhtml)"
+  },
+  {
+   "slug": "andhere-ka-haathi",
+   "hook": "Andhere mein haathi — sach kiska?",
+   "source": "Masnavi Book III, the elephant in the dark",
+   "voice_of": "rumi",
+   "status": "posted",
+   "claimed_by": "evening",
+   "time": "2026-11-21T07:15Z",
+   "title": "Everyone Was Right, Everyone Was Wrong: Rumi's Elephant in the Dark #shorts",
+   "metricool_uuid": "-7134474308148770049",
+   "post_time": "2026-11-21T21:00+05:30",
+   "video": "awazzz-media:mindset/2026-11-21-andhere-ka-haathi/everyone-was-right.mp4",
+   "source_text": "Masnavi Book III, Story V 'The Elephant in a Dark Room' + 'Comparison of the sensual eye...', tr. E. H. Whinfield (IntraText ENG0134 _P16; sacred-texts blocked Nov 21)"
+  },
+  {
+   "slug": "apne-hathiyaar",
+   "hook": "Doosron ke bharose jeetoge? Kabhi nahi",
+   "source": "The Prince ch.13 (own arms)",
+   "voice_of": "machiavelli",
+   "status": "making",
+   "claimed_by": "morning",
+   "time": "2026-11-21T20:12Z"
+  },
+  {
+   "slug": "dushman-ke-saath",
+   "hook": "Dushman se kya karein? Do jawab",
+   "source": "Prince ch.7/8 vs Masnavi (Ali and the knight, Book I)",
+   "voice_of": "clash",
+   "status": "todo"
+  },
+  {
+   "slug": "chaploos",
+   "hook": "Jo sirf tareef kare, wahi sabse khatarnak",
+   "source": "The Prince ch.23 (flatterers)",
+   "voice_of": "machiavelli",
+   "status": "todo"
+  },
+  {
+   "slug": "tota-aur-saudagar",
+   "hook": "Pinjre ka tota aur azaadi ka raaz",
+   "source": "Masnavi Book I, the merchant and the parrot",
+   "voice_of": "rumi",
+   "status": "todo"
+  },
+  {
+   "slug": "dikhta-vs-hai",
+   "hook": "Log wahi dekhte hain jo tum dikhate ho",
+   "source": "The Prince ch.18 (few feel what you are)",
+   "voice_of": "machiavelli",
+   "status": "todo"
+  },
+  {
+   "slug": "taaqat-kya-hai",
+   "hook": "Asli taaqat kya hai? Dimaag vs Dil",
+   "source": "Prince vs Masnavi",
+   "voice_of": "clash",
+   "status": "todo"
+  },
+  {
+   "slug": "badlav-ke-dushman",
+   "hook": "Kuch naya karoge to dushman banenge",
+   "source": "The Prince ch.6 (the innovator's enemies)",
+   "voice_of": "machiavelli",
+   "status": "todo"
+  },
+  {
+   "slug": "chini-aur-yunani",
+   "hook": "Dil ko aaina bana do",
+   "source": "Masnavi Book I, the Chinese and Greek painters",
+   "voice_of": "rumi",
+   "status": "todo"
+  },
+  {
+   "slug": "door-ki-bimari",
+   "hook": "Problem chhoti ho tabhi pakdo",
+   "source": "The Prince ch.3 (hectic fever)",
+   "voice_of": "machiavelli",
+   "status": "todo"
+  },
+  {
+   "slug": "akelapan",
+   "hook": "Akele ho? Machiavelli aur Rumi kya kehte",
+   "source": "Prince ch.9/19 vs Song of the Reed",
+   "voice_of": "clash",
+   "status": "todo"
+  },
+  {
+   "slug": "aas-paas-ke-log",
+   "hook": "Tumhare dost batate hain tum kaun ho",
+   "source": "The Prince ch.22 (those around the ruler)",
+   "voice_of": "machiavelli",
+   "status": "todo"
+  },
+  {
+   "slug": "unt-baandho",
+   "hook": "Bharosa rakho, par unt bhi baandho",
+   "source": "Masnavi Book I, the lion and the beasts (trust vs effort)",
+   "voice_of": "rumi",
+   "status": "todo"
+  },
+  {
+   "slug": "beech-mein-mat-raho",
+   "hook": "Neutral rehna sabse bada nuksaan",
+   "source": "The Prince ch.21 (true friend or open enemy)",
+   "voice_of": "machiavelli",
+   "status": "todo"
+  },
+  {
+   "slug": "gussa",
+   "hook": "Gussa — hathiyaar ya zeher?",
+   "source": "Prince vs Masnavi (Ali and the knight)",
+   "voice_of": "clash",
+   "status": "todo"
+  },
+  {
+   "slug": "waqt-ke-saath",
+   "hook": "Jo badalta nahi, wo haarta hai",
+   "source": "The Prince ch.25 (adapting to the times)",
+   "voice_of": "machiavelli",
+   "status": "todo"
+  },
+  {
+   "slug": "shams-ki-mulaqat",
+   "hook": "Ek mulaqat jisne Rumi ko badal diya",
+   "source": "History: Rumi meets Shams of Tabriz, Konya 1244",
+   "voice_of": "rumi",
+   "status": "todo"
+  },
+  {
+   "slug": "ehsaan-dheere",
+   "hook": "Ehsaan dheere-dheere, sakhti ek baar",
+   "source": "The Prince ch.8",
+   "voice_of": "machiavelli",
+   "status": "todo"
+  },
+  {
+   "slug": "log-kya-kahenge",
+   "hook": "Log kya kahenge? Do jawab",
+   "source": "Prince ch.18 vs Masnavi",
+   "voice_of": "clash",
+   "status": "todo"
+  },
+  {
+   "slug": "pansari-ka-tota",
+   "hook": "Shakl dekh kar faisla mat karo",
+   "source": "Masnavi Book I, the grocer and the parrot",
+   "voice_of": "rumi",
+   "status": "todo"
+  },
+  {
+   "slug": "khamoshi",
+   "hook": "Khamoshi ki taaqat",
+   "source": "Rumi on silence — only lines verified in a public-domain translation",
+   "voice_of": "rumi",
+   "status": "todo"
+  },
+  {
+   "slug": "dard-ki-dawa",
+   "hook": "Dard hi dawa ban jaata hai",
+   "source": "Masnavi theme of pain and remedy — verified lines only",
+   "voice_of": "rumi",
+   "status": "todo"
+  },
+  {
+   "slug": "mitti-se-insaan",
+   "hook": "Main mar kar pathar se paudha bana…",
+   "source": "Masnavi Book III, 'I died as mineral' passage",
+   "voice_of": "rumi",
+   "status": "todo"
+  },
+  {
+   "slug": "fake-rumi",
+   "hook": "Ye 5 'Rumi quotes' Rumi ke hain hi nahi!",
+   "source": "Misattributed Rumi quotes vs the real Masnavi",
+   "voice_of": "rumi",
+   "status": "todo"
+  },
+  {
+   "slug": "wafaadar-kutta",
+   "hook": "Talaash karne wala hi paata hai",
+   "source": "Masnavi theme of seeking — verified lines only",
+   "voice_of": "rumi",
+   "status": "todo"
+  }
+ ]
 }
