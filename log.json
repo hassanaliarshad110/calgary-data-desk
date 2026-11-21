@@ -1284,9 +1284,17 @@
      "facebook REEL",
      "youtube short"
     ],
-    "publish_at": "2026-11-20T19:30",
+    "publish_at": "2026-11-20T20:30",
     "note": "Scheduled (autoPublish, not draft) after the revision audit APPROVED and Hassan's review. 19:30 rather than 19:00 because the calendar's PM fun fact posts at 18:30 (60-minute rule). Designed thumbnail and first comment set. Nov 16: media swapped to v3 (narration fix) with updateScheduledPost; time, text, thumbnail and first comment unchanged.",
-    "previous_metricool_id": 429366661
+    "previous_metricool_id": 429366661,
+    "status": "PUBLISHED",
+    "current_metricool_id": 435958137,
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/2133245940892168",
+     "instagram": "https://www.instagram.com/reel/Df_KfwGCc5A/",
+     "youtube": "https://www.youtube.com/shorts/SMr5LTIxDqw"
+    },
+    "confirmed_by": "2026-11-21 FLAGSHIP run (getScheduledPosts; published at 20:30 as Metricool id 435958137)"
    }
   ],
   "notes": "Calendar PM fun fact on the same day (Nov 20) is 'The Jamaican bobsled team's 1988 Calgary story' and overlaps with heist #2; consider moving it. Left out (thin sourcing): Brink's cash amount, ferry-in-France arrest detail, $650,000 figure, store reopening, Aug 2026 replica-plaque theft, sea-can fraud.",
@@ -2824,10 +2832,135 @@
     ],
     "publish_at": "2026-11-20T18:30",
     "draft": false,
+    "status": "PUBLISHED",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "media_commit": "studio-videos fc92766",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/2974017436301136",
+     "instagram": "https://www.instagram.com/reel/Df-82AQD3EK/",
+     "youtube": "https://www.youtube.com/shorts/3aIZfA9aIH0"
+    },
+    "confirmed_by": "2026-11-21 FLAGSHIP run (getScheduledPosts)"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-21",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "The Snow Eater: How Calgary's Chinook Works",
+  "series": "Calgary Insight Origins",
+  "topic_used": "The chinook as a story: starts with a wind shift over the Pacific; cools ~0.5°/100 m climbing the Rockies, warms ~1°/100 m descending; the chinook arch; Jan 11, 1983: Calgary −17 → +13 °C in four hours; Nov 22, 2017 7 a.m.: airport −8.1 °C vs Springbank Airport +8.4 °C, 25 km west; about 25 chinook days per winter (Environment Canada meteorologist); named for the Chinook people of the lower Columbia River, also known by an Indigenous name, the snow eater; melts snow, dries soil, trees wake early and frost kills new leaves; 2000 University of Calgary study of 75 migraine patients' diaries (prechinook and high-wind chinook days, most not affected); the cold returns; a welcome break.",
+  "changed_from_calendar": null,
+  "central_figure": "Jan 11, 1983: Calgary rose 30 °C (−17 to +13) in four hours (CBC Calgary interactive)",
+  "sources": [
+   "https://www.cbc.ca/calgary/interactives/chinook",
+   "https://amp.cbc.ca/news/canada/calgary/calgary-chinook-valentines-day-record-high-torneby-environment-canada-1.3982463",
+   "https://www.cbc.ca/lite/story/1.4413832",
+   "https://thecanadianencyclopedia.ca/en/article/chinook",
+   "https://en.wikipedia.org/wiki/Chinook_wind",
+   "https://pubmed.ncbi.nlm.nih.gov/10668687",
+   "https://www.sciencedaily.com/releases/2000/01/000125052856.htm"
+  ],
+  "link": "https://calgaryinsight.ca/visit/explore/?utm_source=<platform>&utm_medium=social&utm_campaign=snow-eater-chinook",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/explore.py 'Winter in Calgary' itinerary with the chinook tip) and used by the Nov 19-20 posts.",
+  "length_s": 106.8,
+  "short_length_s": 70.8,
+  "teaser_length_s": 21.9,
+  "video_path": "studio-videos/2026-11-21-FLAGSHIP/snow-eater-chinook-{short,youtube,teaser}.mp4",
+  "thumbnail_path": "studio-videos/2026-11-21-FLAGSHIP/snow-eater-chinook-thumb.jpg, snow-eater-chinook-thumb-yt.jpg",
+  "package": "packages/2026-11-21-FLAGSHIP-snow-eater-chinook.md",
+  "production": "production/2026-11-21-FLAGSHIP/",
+  "identity": "Storyteller lead (winter dusk/night drones over the real OSM downtown with a story sky: cold → warm → cold, chinook arch) + Data Explainer counter/thermometer/day grid + Civic Analyst study card and evidence map; Natural Earth regional maps",
+  "library": "animation-studio select_assets.py plan reviewed; Natural Earth 1:50m provinces/rivers from the library; engine OSM 3D downtown, story bed and wind effect",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 14,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-21-FLAGSHIP.md",
+   "note": "r1: C5 wording, C12 date, title figures, 'dread', teaser attribution/caption; r2: C2 'far out', teaser attribution, Short title; r3 APPROVED, no flags"
+  },
+  "narration": {
+   "lane": "studio-probe (1 run)",
+   "asr_mean_acc": 0.995,
+   "lines": 16,
+   "check_lines": [],
+   "note": "L13 tightened (pause cut 0.25 s, atempo 1.05) so the ending stays ≤ 4 s"
+  },
+  "qc": {
+   "stills": "pass after layout fixes (chunked captions, thermometer/hook overlap, cross-section labels, S5/S6/S10 layout, wide header over card, stronger arch)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "no 0s; ending 3.9 s; -14.4 LUFS Short/film, -14.5 teaser; Short 12.3 MB, film 13.0 MB, teaser 3.5 MB"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 436860715,
+    "uuid": "-7378863415434786912",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-7378863415434786912",
+    "providers": [
+     "instagram",
+     "youtube-short"
+    ],
+    "file": "snow-eater-chinook-short.mp4",
+    "publish_at": "2026-11-21T12:30",
+    "draft": false,
     "status": "scheduled",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "media_commit": "studio-videos fc92766"
+    "media_commit": "studio-videos 3c9e302"
+   },
+   {
+    "metricool_id": 436860933,
+    "uuid": "8365282288303951052",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=8365282288303951052",
+    "providers": [
+     "facebook",
+     "youtube-video"
+    ],
+    "file": "snow-eater-chinook-youtube.mp4",
+    "publish_at": "2026-11-21T17:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "media_commit": "studio-videos 3c9e302"
+   }
+  ],
+  "pending_link": [
+   {
+    "file": "snow-eater-chinook-teaser.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-21-FLAGSHIP/snow-eater-chinook-teaser.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-21-FLAGSHIP/snow-eater-chinook-thumb.jpg",
+    "providers": [
+     {
+      "network": "facebook",
+      "type": "REEL"
+     }
+    ],
+    "caption_without_link": "One wind can turn a frozen Calgary day warm in a few hours.\nCalgary Insight Origins: the chinook pours down the Rockies warm and dry, and Calgary gets it again and again each winter.\nChinooks: love them or hate them? Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔗 Link in the first comment\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca\n\n#Calgary #yyc #Chinook #AlbertaWeather",
+    "first_comment": "❄️ Plan your next chinook day: winter ideas on our Calgary trip planner: https://calgaryinsight.ca/visit/explore/?utm_source=facebook&utm_medium=social&utm_campaign=snow-eater-chinook-teaser",
+    "post_at": "2026-11-21T20:00",
+    "link_to": "436860933",
+    "status": "pending"
    }
   ]
  },
