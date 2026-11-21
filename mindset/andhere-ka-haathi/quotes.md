@@ -1,0 +1,8 @@
+| Quoted line (on screen / spoken) | Source | Public-domain text |
+|---|---|---|
+| "One felt its trunk, and declared that the beast resembled a water-pipe" | Masnavi, Book III, Story V "The Elephant in a Dark Room", tr. E. H. Whinfield (1887/1898, abridged) | https://www.intratext.com/IXT/ENG0134/_P16.HTM (IntraText edition of Whinfield's "Masnavi I Ma'navi"; also sacred-texts.com/isl/masnavi/msn03.htm, blocked for fetch on Nov 21) |
+| "The whole of the object is not grasped in the palm." (preceded in the text by "The eye of outward sense is as the palm of a hand,") | Masnavi, Book III, section "Comparison of the sensual eye to the hand of one that felt the elephant", tr. Whinfield | same |
+| Narration "Another felt the ear... a large fan. The leg... a pillar. The back... a great throne." (from "another felt its ear, and said it must be a large fan;" / "another its leg, and thought it must be a pillar;" / "another felt its back, and declared the beast must be like a great throne.") | Book III, Story V | same |
+| Narration "An elephant in a dark room. Nobody can see it... so they touch it." (in essence: "Some Hindoos were exhibiting an elephant in a dark room, and many people collected to see it.") | Book III, Story V | same |
+| Narration "Rumi says our senses work like the palm of a hand." (in essence: "The eye of outward sense is as the palm of a hand") — on screen tagged "in essence" | Book III | same |
+Not used on purpose: the popular "if each had held a candle" moral — it does not appear in Whinfield's text of this story (checked on the IntraText page), so it is left out.

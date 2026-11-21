@@ -1,0 +1,182 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 3.283
+},
+{
+"id": "sc2",
+"start": 3.283,
+"lines": [
+"n2"
+],
+"dur": 2.42
+},
+{
+"id": "sc3",
+"start": 5.703,
+"lines": [
+"n3"
+],
+"dur": 4.928
+},
+{
+"id": "sc4",
+"start": 10.631,
+"lines": [
+"q1"
+],
+"dur": 4.036
+},
+{
+"id": "sc5",
+"start": 14.667,
+"lines": [
+"n4"
+],
+"dur": 7.336
+},
+{
+"id": "sc6",
+"start": 22.003,
+"lines": [
+"n5"
+],
+"dur": 9.058
+},
+{
+"id": "sc7",
+"start": 31.061,
+"lines": [
+"n6"
+],
+"dur": 3.4
+},
+{
+"id": "sc8",
+"start": 34.461,
+"lines": [
+"n7",
+"q2"
+],
+"dur": 6.471
+},
+{
+"id": "sc9",
+"start": 40.932,
+"lines": [
+"n8"
+],
+"dur": 5.925
+},
+{
+"id": "sc10",
+"start": 46.857,
+"lines": [
+"n9"
+],
+"dur": 4.762
+},
+{
+"id": "sc11",
+"start": 51.619,
+"lines": [
+"n10"
+],
+"dur": 3.653
+},
+{
+"id": "sc12",
+"start": 55.272,
+"lines": [
+"n11"
+],
+"dur": 4.172
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 3.123,
+"kind": "N",
+"cap": "Everyone in that room was right... and everyone was wrong."
+},
+"n2": {
+"start": 3.343,
+"dur": 2.3,
+"kind": "N",
+"cap": "Rumi tells this story in the Masnavi."
+},
+"n3": {
+"start": 5.763,
+"dur": 4.678,
+"kind": "N",
+"cap": "An elephant in a dark room. Nobody can see it... so they touch it."
+},
+"q1": {
+"start": 10.691,
+"dur": 3.916,
+"kind": "Q",
+"cap": "\"One felt its trunk, and declared that the beast resembled a water-pipe.\""
+},
+"n4": {
+"start": 14.727,
+"dur": 7.136,
+"kind": "N",
+"cap": "Another felt the ear... a large fan. The leg... a pillar. The back... a great throne."
+},
+"n5": {
+"start": 22.063,
+"dur": 8.938,
+"kind": "N",
+"cap": "At work, a launch flops. Sales blames the price. Support... the bugs. Design... the look."
+},
+"n6": {
+"start": 31.121,
+"dur": 3.28,
+"kind": "N",
+"cap": "Each one holds a piece... and calls it the whole elephant."
+},
+"n7": {
+"start": 34.521,
+"dur": 2.947,
+"kind": "N",
+"cap": "Rumi says our senses work like the palm of a hand."
+},
+"q2": {
+"start": 37.668,
+"dur": 3.074,
+"kind": "Q",
+"cap": "\"The whole of the object is not grasped in the palm.\""
+},
+"n8": {
+"start": 40.992,
+"dur": 5.725,
+"kind": "N",
+"cap": "The twist? You're in that room too. Your piece always feels like the whole."
+},
+"n9": {
+"start": 46.917,
+"dur": 4.642,
+"kind": "N",
+"cap": "Before tonight, in one disagreement, ask... what are you seeing that I'm not?"
+},
+"n10": {
+"start": 51.679,
+"dur": 3.533,
+"kind": "N",
+"cap": "Which piece are you holding right now? Tell me below."
+},
+"n11": {
+"start": 55.332,
+"dur": 2.812,
+"kind": "N",
+"cap": "Follow Awazzzz... and see the whole elephant."
+}
+},
+"total": 59.444
+}
