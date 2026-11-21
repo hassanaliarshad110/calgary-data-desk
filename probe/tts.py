@@ -22,45 +22,6 @@ _cfg (all optional):
 import json, os, re, sys, subprocess, urllib.request, difflib, unicodedata
 
 out = sys.argv[1]; os.makedirs(os.path.join(out, 'raw'), exist_ok=True)
-# --- temporary moment-watch fetch block (2026-11-21 afternoon) ---
-import csv, io, concurrent.futures as cf
-def _get(u, t=60):
-    err = ''
-    for _ in range(3):
-        try:
-            r = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=t)
-            return r.read().decode('utf-8', 'replace')
-        except Exception as e:
-            err = 'ERR ' + repr(e)
-    return err
-mw = os.path.join(out, 'moment'); os.makedirs(mw, exist_ok=True)
-res = {}
-for day, base in [('20261121','https://dd.weather.gc.ca/today/observations/swob-ml/20261121/CYYC/'),
-                  ('20261122','https://dd.weather.gc.ca/today/observations/swob-ml/20261122/CYYC/')]:
-    idx = _get(base)
-    if idx.startswith('ERR'): res[base] = idx; continue
-    files = sorted(set(re.findall(r'href="([^"]+\.xml)"', idx)))
-    res[base] = files
-    obs = {}
-    def one(f):
-        x = _get(base + f)
-        d = {}
-        for m in re.finditer(r'<element name="([^"]+)"[^>]*?value="([^"]*)"', x):
-            d[m.group(1)] = m.group(2)
-        return f, d
-    with cf.ThreadPoolExecutor(16) as ex:
-        for f, d in ex.map(one, files): obs[f] = d
-    json.dump(obs, open(os.path.join(mw, f'swob_{day}.json'), 'w'), indent=0)
-json.dump(res, open(os.path.join(mw, 'swob_index.json'), 'w'), indent=1)
-jobs = [('alerts_api.txt','https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50'),
-        ('traffic_latest.json','https://data.calgary.ca/resource/35ra-9556.json?$order=start_dt_utc%20DESC&$limit=400'),
-        ('traffic_rows_365d.json',"https://data.calgary.ca/resource/35ra-9556.json?$select=start_dt_utc,id&$where=start_dt_utc%3E'2025-11-20T00:00:00'&$limit=50000")]
-def dl(j):
-    open(os.path.join(mw, j[0]), 'w').write(_get(j[1], 120))
-with cf.ThreadPoolExecutor(6) as ex: list(ex.map(dl, jobs))
-print('moment fetch done')
-sys.exit(0)
-# --- end block ---
 HERE = os.path.dirname(os.path.abspath(__file__))
 L = json.load(open(os.path.join(HERE, 'tts_lines.json')))
 cfg = L.pop('_cfg', {})
