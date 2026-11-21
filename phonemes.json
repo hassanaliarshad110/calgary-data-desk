@@ -1,0 +1,197 @@
+{
+ "lexicon": {
+  "Bow": {
+   "kokoro_default": "bˈoʊ",
+   "listed": "bˈoʊ"
+  },
+  "Bowness": {
+   "kokoro_default": "bˈoʊnəs",
+   "listed": "bˈoʊnəs"
+  },
+  "Macleod": {
+   "kokoro_default": "məklˈaʊd",
+   "listed": "məklˈaʊd"
+  },
+  "Brisebois": {
+   "kokoro_default": "bɹˈaɪsbwɑː",
+   "listed": "bɹiːzbwˈɑː"
+  },
+  "Éphrem": {
+   "kokoro_default": "ɪfɹˈɛm",
+   "listed": "ɪfɹˈɛm"
+  },
+  "Ephrem": {
+   "kokoro_default": "ˈɛfɹəm",
+   "listed": "ɪfɹˈɛm"
+  },
+  "Gaelic": {
+   "kokoro_default": "ɡˈeɪlɪk",
+   "listed": "ɡˈælɪk"
+  },
+  "Chinook": {
+   "kokoro_default": "tʃˈɪnʊk",
+   "listed": "ʃɪnˈʊk"
+  },
+  "chinook": {
+   "kokoro_default": "tʃˈɪnʊk",
+   "listed": "ʃɪnˈʊk"
+  },
+  "Chinooks": {
+   "kokoro_default": "tʃˈɪnʊks",
+   "listed": "ʃɪnˈʊks"
+  },
+  "chinooks": {
+   "kokoro_default": "tʃˈɪnʊks",
+   "listed": "ʃɪnˈʊks"
+  },
+  "Lougheed": {
+   "kokoro_default": "lˈʌfiːd",
+   "listed": "lˈɔːhiːd"
+  },
+  "Tsuut'ina": {
+   "kokoro_default": "tsˈuːətˌɪnə",
+   "listed": "suːtˈɪnə"
+  },
+  "Tsuut’ina": {
+   "kokoro_default": "tsˈuːətˌɪnə",
+   "listed": "suːtˈɪnə"
+  },
+  "Métis": {
+   "kokoro_default": "mˈeɪɾiz",
+   "listed": "meɪtˈiː"
+  },
+  "Metis": {
+   "kokoro_default": "mˈɛɾiz",
+   "listed": "meɪtˈiː"
+  },
+  "TELUS": {
+   "kokoro_default": "tˈɛləs",
+   "listed": "tˈɛləs"
+  },
+  "CTrain": {
+   "kokoro_default": "sˈiː tɹˈeɪn",
+   "listed": "sˈiːtɹeɪn"
+  },
+  "CTrains": {
+   "kokoro_default": "sˈiː tɹˈeɪnz",
+   "listed": "sˈiːtɹeɪnz"
+  },
+  "YYC": {
+   "kokoro_default": "jˈɪk",
+   "listed": "wˌaɪwˌaɪsˈiː"
+  },
+  "LRT": {
+   "kokoro_default": "ˌɛlˌɑːɹtˈiː",
+   "listed": "ˌɛlɑːɹtˈiː"
+  },
+  "Rouleauville": {
+   "kokoro_default": "ɹˈuːloʊvˌɪl",
+   "listed": "ɹˈuːloʊvɪl"
+  },
+  "Kananaskis": {
+   "kokoro_default": "kˌænɐnˈæskɪz",
+   "listed": "kˌænənˈæskɪs"
+  },
+  "Okotoks": {
+   "kokoro_default": "ˈɑːkətˌɑːks",
+   "listed": "ˈoʊkətˌɑːks"
+  },
+  "Shaganappi": {
+   "kokoro_default": "ʃˈæɡɐnˌæpi",
+   "listed": "ʃˌæɡənˈæpi"
+  },
+  "Mohkinstsis": {
+   "kokoro_default": "moʊkˈɪnstsɪs",
+   "listed": "moʊkˈɪnstsɪs"
+  },
+  "Acheson": {
+   "kokoro_default": "ˈeɪksən",
+   "listed": "ˈætʃəsən"
+  },
+  "Ranche": {
+   "kokoro_default": "ɹˈæntʃ",
+   "listed": "ɹˈæntʃ"
+  },
+  "Pekisko": {
+   "kokoro_default": "pɛkˈɪskoʊ",
+   "listed": "pəkˈɪskoʊ"
+  },
+  "Percheron": {
+   "kokoro_default": "pɚtʃˈɜːɹən",
+   "listed": "pˈɜːɹʃəɹˌɑːn"
+  },
+  "Longabaugh": {
+   "kokoro_default": "lˈɔŋɡɐbˌɔː",
+   "listed": "lˈɔŋɡəbˌɔː"
+  },
+  "Cochrane": {
+   "kokoro_default": "kˈɑːkɹeɪn",
+   "listed": "kˈɑːkɹən"
+  }
+ },
+ "script_names": {
+  "Airport": "ˈɛɹpɔːɹt",
+  "Calgary": "kˈælɡɚɹi",
+  "Calgary's": "kˈælɡɚɹiz",
+  "Canada": "kˈænədə",
+  "Columbia": "kəlˈʌmbiə",
+  "Environment": "ɛnvˈaɪɹənmənt",
+  "Indigenous": "ɪndˈɪdʒənəs",
+  "January": "dʒˈænjuːˌɛɹi",
+  "November": "noʊvˈɛmbɚ",
+  "Pacific": "pɐsˈɪfɪk",
+  "River": "ɹˈɪvɚ",
+  "Rockies": "ɹˈɑːkiz",
+  "University": "jˌuːnɪvˈɜːsᵻɾi"
+ },
+ "sentences": [
+  {
+   "sentence": "It's called a chinook.",
+   "phonemes": "ɪts kˈɔːld ˈeɪ ʃɪnˈʊk."
+  },
+  {
+   "sentence": "The chinook arch.",
+   "phonemes": "ðə ʃɪnˈʊk ˈɑːɹtʃ."
+  },
+  {
+   "sentence": "A chinook can even split the map.",
+   "phonemes": "ˈeɪ ʃɪnˈʊk kæn ˈiːvən splˈɪt ðə mˈæp."
+  },
+  {
+   "sentence": "An Environment Canada meteorologist put it at about twenty-five chinook days a winter in Calgary.",
+   "phonemes": "ɐn ɛnvˈaɪɹənmənt kˈænədə mˌiːɾɪɔːɹˈɑːlədʒˌɪst pˌʊt ɪɾ æɾ ɐbˌaʊt twˈɛntifˈaɪv ʃɪnˈʊk dˈeɪz ɐ wˈɪntɚɹ ɪn kˈælɡɚɹi."
+  },
+  {
+   "sentence": "The name comes from the Chinook people of the lower Columbia River, near the Pacific.",
+   "phonemes": "ðə nˈeɪm kˈʌmz fɹʌmðə ʃɪnˈʊk pˈiːpəl ʌvðə lˈoʊɚ kəlˈʌmbiə ɹˈɪvɚ, nˌɪɹ ðə pɐsˈɪfɪk."
+  },
+  {
+   "sentence": "For some, migraines were more likely just before a chinook, or on high-wind chinook days.",
+   "phonemes": "fɔːɹ sˌʌm, mˈaɪɡɹeɪnz wɜː mˈɔːɹ lˈaɪkli dʒˈʌst bᵻfˌɔːɹ ˈeɪ ʃɪnˈʊk, ɔːɹ ˌɔn hˈaɪwˈɪnd ʃɪnˈʊk dˈeɪz."
+  },
+  {
+   "sentence": "It's a chinook: a warm, dry wind pouring down the Rockies.",
+   "phonemes": "ɪts ˈeɪ ʃɪnˈʊk: ɐ wˈɔːɹm, dɹˈaɪ wˈɪnd pˈɔːɹɪŋ dˌaʊn ðə ɹˈɑːkiz."
+  },
+  {
+   "sentence": "An Environment Canada meteorologist puts it at about twenty-five chinook days a Calgary winter.",
+   "phonemes": "ɐn ɛnvˈaɪɹənmənt kˈænədə mˌiːɾɪɔːɹˈɑːlədʒˌɪst pˌʊts ɪɾ æɾ ɐbˌaʊt twˈɛntifˈaɪv ʃɪnˈʊk dˈeɪz ɐ kˈælɡɚɹi wˈɪntɚ."
+  },
+  {
+   "sentence": "Chinooks: love them or hate them?",
+   "phonemes": "ʃɪnˈʊks: lˈʌv ðˌɛm ɔːɹ hˈeɪt ðˌɛm?"
+  },
+  {
+   "sentence": "Chinooks: love them or hate them?",
+   "phonemes": "ʃɪnˈʊks: lˈʌv ðˌɛm ɔːɹ hˈeɪt ðˌɛm?"
+  },
+  {
+   "sentence": "Chinooks: love them or hate them?",
+   "phonemes": "ʃɪnˈʊks: lˈʌv ðˌɛm ɔːɹ hˈeɪt ðˌɛm?"
+  },
+  {
+   "sentence": "Chinooks: love them or hate them?",
+   "phonemes": "ʃɪnˈʊks: lˈʌv ðˌɛm ɔːɹ hˈeɪt ðˌɛm?"
+  }
+ ]
+}

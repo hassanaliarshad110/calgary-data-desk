@@ -1,0 +1,322 @@
+{
+ "summary": {
+  "v": {
+   "lines": 16,
+   "check": [],
+   "mean_acc": 0.995
+  }
+ },
+ "lexicon_entries": 32,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "One January day, a wind warmed Calgary by thirty degrees in four hours.",
+    "said": "One January day, a wind warmed Calgary by thirty degrees in four hours.",
+    "heard": "One January day, a wind warmed Calgary by 30 degrees in four hours.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.523,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "It's called a chinook. It usually begins with a sudden shift in the wind over the Pacific.",
+    "said": "It's called a shinook. It usually begins with a sudden shift in the wind over the Pacific.",
+    "heard": "It's called a Chinook. It usually begins with a sudden shift in the wind over the Pacific.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.463,
+    "input_lufs": -22.0,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "Forced up over the Rockies, the air cools about half a degree for every hundred metres it climbs.",
+    "said": "Forced up over the Rockies, the air cools about half a degree for every hundred metres it climbs.",
+    "heard": "Forced up over the Rockies, the air cools about half a degree for every hundred meters it climbs.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.44,
+    "input_lufs": -22.6,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "Then it races down the other side, warming about one degree every hundred metres. Warm, dry wind pours onto the prairie.",
+    "said": "Then it races down the other side, warming about one degree every hundred metres. Warm, dry wind pours onto the prairie.",
+    "heard": "Then it races down the other side, warming about one degree every hundred meters. Warm, dry wind pours onto the prairie.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 7.127,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "You can spot it in the sky: a band of cloud parallel to the mountains, with a sharp, straight edge. The chinook arch.",
+    "said": "You can spot it in the sky: a band of cloud parallel to the mountains, with a sharp, straight edge. The shinook arch.",
+    "heard": "You can spot it in the sky. A band of cloud parallel to the mountains with a sharp, straight edge. The Chinook Arch.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.913,
+    "input_lufs": -21.9,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "On January eleventh, nineteen eighty-three, Calgary went from minus seventeen to plus thirteen in four hours.",
+    "said": "On January eleventh, nineteen eighty-three, Calgary went from minus seventeen to plus thirteen in four hours.",
+    "heard": "On January 11, 1983, Calgary went from minus 17 to plus 13 in 4 hours.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.677,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 6,
+    "text": "A chinook can even split the map. At seven in the morning on November twenty-second, twenty seventeen, Calgary's airport read minus eight point one. Springbank Airport, just twenty-five kilometres west, read plus eight point four.",
+    "said": "A shinook can even split the map. At seven in the morning on November twenty-second, twenty seventeen, Calgary's airport read minus eight point one. Springbank Airport, just twenty-five kilometres west, read plus eight point four.",
+    "heard": "A Chinook can even split the map. At 7 in the morning on November 22, 2017, Calgary's airport read minus 8.1. Springbank Airport, just 25 kilometers west, read plus 8.4.",
+    "acc": 0.919,
+    "mismatches": [
+     "second->two",
+     "point->(missing)",
+     "point->(missing)"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.919
+     }
+    ],
+    "dur": 14.04,
+    "input_lufs": -22.0,
+    "status": "ok"
+   },
+   {
+    "i": 7,
+    "text": "An Environment Canada meteorologist put it at about twenty-five chinook days a winter in Calgary. About one every three or four days.",
+    "said": "An Environment Canada meteorologist put it at about twenty-five shinook days a winter in Calgary. About one every three or four days.",
+    "heard": "An Environment Canada meteorologist put it at about 25 Chinook days, a winter in Calgary. About one every three or four days.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 8.641,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 8,
+    "text": "The name comes from the Chinook people of the lower Columbia River, near the Pacific. But it's also known by an Indigenous name: the snow eater.",
+    "said": "The name comes from the Shinook people of the lower Columbia River, near the Pacific. But it's also known by an Indigenous name: the snow eater.",
+    "heard": "The name comes from the Chinook people of the Lower Columbia River, near the Pacific. But it's also known by an indigenous name, the Snow Eater.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 8.108,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 9,
+    "text": "It melts snow and dries the soil. Trees can start growing too early, and new leaves may be killed by the next frost.",
+    "said": "It melts snow and dries the soil. Trees can start growing too early, and new leaves may be killed by the next frost.",
+    "heard": "It melts snow and dries the soil. Trees can start growing too early, and new leaves may be killed by the next frost.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.807,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 10,
+    "text": "Not everyone loves it. In a study published in two thousand, University of Calgary researchers looked at the diaries of seventy-five migraine patients. For some, migraines were more likely just before a chinook, or on high-wind chinook days. Most weren't affected by either.",
+    "said": "Not everyone loves it. In a study published in two thousand, University of Calgary researchers looked at the diaries of seventy-five migraine patients. For some, migraines were more likely just before a shinook, or on high-wind shinook days. Most weren't affected by either.",
+    "heard": "Not everyone loves it. In a study published in 2000, University of Calgary researchers looked at the diaries of 75 migraine patients. For some, migraines were more likely just before a Chinook or on high-wind Chinook days. Most weren't affected by either.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 17.433,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 11,
+    "text": "A few hours or days later, the cold comes back.",
+    "said": "A few hours or days later, the cold comes back.",
+    "heard": "A few hours or days later, the cold comes back.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.688,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 12,
+    "text": "For most people, it's a welcome break from the winter cold.",
+    "said": "For most people, it's a welcome break from the winter cold.",
+    "heard": "For most people, it's a welcome break from the winter cold.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.2,
+    "input_lufs": -22.0,
+    "status": "ok"
+   },
+   {
+    "i": 13,
+    "text": "It's a chinook: a warm, dry wind pouring down the Rockies. An Environment Canada meteorologist puts it at about twenty-five chinook days a Calgary winter.",
+    "said": "It's a shinook: a warm, dry wind pouring down the Rockies. An Environment Canada meteorologist puts it at about twenty-five shinook days a Calgary winter.",
+    "heard": "It's a Chinook, a warm dry wind pouring down the Rockies. An Environment Canada meteorologist puts it at about 25 Chinook days, a Calgary winter.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 9.921,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 14,
+    "text": "Full video on our page. Chinooks: love them or hate them? Drop your thoughts below.",
+    "said": "Full video on our page. Shinooks: love them or hate them? Drop your thoughts below.",
+    "heard": "Full video on our page. Chinooks love them or hate them. Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.5,
+    "input_lufs": -22.0,
+    "status": "ok"
+   },
+   {
+    "i": 15,
+    "text": "Chinooks: love them or hate them? Drop your thoughts below.",
+    "said": "Shinooks: love them or hate them? Drop your thoughts below.",
+    "heard": "Chinooks love them or hate them. Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.771,
+    "input_lufs": -21.7,
+    "status": "ok"
+   }
+  ]
+ }
+}
