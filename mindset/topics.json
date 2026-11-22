@@ -5,7 +5,8 @@
   "tone": "Motivational and practical: every video ends with one action the viewer can do today. Machiavelli = strategy for career, business and life, never advice to harm, cheat or manipulate people; frame dark ideas as 'samjho taaki koi tumhare saath na kare'. Rumi = universal, spiritual, non-sectarian; respectful; no religious rulings.",
   "visual": "Dark cinematic 2.5D: Machiavelli = candlelit Florentine study, chessboard, lion and fox, crown, ink and parchment, red/black/gold; Rumi = moonlit desert, whirling silhouette with flowing robe, reed flute, lanterns, deep blue/teal/gold; Clash = split screen red vs blue. Thinkers only as stylised silhouettes, no portraits. Full-bleed picture, minimal text.",
   "language": "English narration and English subtitles (Hassan, Nov 17, 2026). Titles and examples in plain global English; examples may come from work, business, school, sport, family.",
-  "youtube_policy": "Binding (Nov 20, 2026): see README 'YOUTUBE MONETIZATION RULES'. No recurring stock phrases; rotate structures; fresh commentary/story in every video (quotes ≤ ~20% of narration); new scene composition each time; max 2 uploads/day; no keyword lists in descriptions; titles must match content."
+  "youtube_policy": "Binding (Nov 20, 2026): see README 'YOUTUBE MONETIZATION RULES'. No recurring stock phrases; rotate structures; fresh commentary/story in every video (quotes ≤ ~20% of narration); new scene composition each time; max 2 uploads/day; no keyword lists in descriptions; titles must match content.",
+  "schedule_note": "Nov 22 2026 (Sunday long): Nov 22 already had 2 Awazzzz uploads (08:30 Short + 11:30 Bonnie & Clyde long), so the Sunday long video 'What Do You Do With an Enemy?' is scheduled Mon Nov 23 21:00 IST. With the Mon 08:30 morning Short that makes 2 uploads on Nov 23: the Nov 23 evening run must NOT publish another video that day (README cap: max 2/day). Its Short cut (drop-the-sword.mp4) is hosted on awazzz-media but not scheduled; use it in the next free slot."
  },
  "topics": [
   {
@@ -109,9 +110,16 @@
    "hook": "Dushman se kya karein? Do jawab",
    "source": "Prince ch.7/8 vs Masnavi (Ali and the knight, Book I)",
    "voice_of": "clash",
-   "status": "making",
+   "status": "posted",
    "claimed_by": "evening-sunday-long",
-   "time": "2026-11-22T07:15Z"
+   "time": "2026-11-22T08:00Z",
+   "title": "What Do You Do With an Enemy? Machiavelli vs Rumi | Mind vs Heart",
+   "metricool_uuid": "376669928337784879",
+   "post_time": "2026-11-23T21:00+05:30",
+   "type": "long 16:9, 8:10",
+   "video": "awazzz-media:mindset/2026-11-22-dushman-ke-saath/what-do-you-do-with-an-enemy.mp4",
+   "short": "awazzz-media:mindset/2026-11-22-dushman-ke-saath/drop-the-sword.mp4 (56 s, NOT scheduled: daily cap; proposed title \"He Had His Enemy Beaten... So Why Did He Drop the Sword? Rumi's Answer #shorts\")",
+   "source_text": "The Prince ch. 7 + ch. 20 + Marriott's introduction/endnotes (Standard Ebooks repo via git clone); Masnavi Book I Story XVI 'Ali's Forbearance, tr. Whinfield (IntraText ENG0134 _PH.HTM)"
   },
   {
    "slug": "chaploos",
