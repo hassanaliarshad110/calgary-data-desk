@@ -1,0 +1,289 @@
+{
+ "scenes": [
+  {
+   "id": "cold",
+   "start": 0.0,
+   "dur": 5.621
+  },
+  {
+   "id": "why",
+   "start": 5.621,
+   "dur": 11.581
+  },
+  {
+   "id": "gag",
+   "start": 17.203,
+   "dur": 16.976
+  },
+  {
+   "id": "power",
+   "start": 34.179,
+   "dur": 7.827
+  },
+  {
+   "id": "rescue",
+   "start": 42.006,
+   "dur": 20.549
+  },
+  {
+   "id": "after",
+   "start": 62.555,
+   "dur": 7.372
+  },
+  {
+   "id": "secret",
+   "start": 69.927,
+   "dur": 10.724
+  },
+  {
+   "id": "school",
+   "start": 80.651,
+   "dur": 16.697
+  },
+  {
+   "id": "cliff",
+   "start": 97.348,
+   "dur": 3.979
+  },
+  {
+   "id": "endcard",
+   "start": 101.327,
+   "dur": 14.543
+  }
+ ],
+ "lines": {
+  "bv": {
+   "scene": "cold",
+   "s": 0.3,
+   "d": 2.192,
+   "abs": 0.3,
+   "sp": "BASIM",
+   "txt": "Arre! School van|apne aap chal padi!"
+  },
+  "b1": {
+   "scene": "cold",
+   "s": 2.992,
+   "d": 2.13,
+   "abs": 2.992,
+   "sp": "BABA",
+   "txt": "Andar bachche hain!|Koi roko!"
+  },
+  "a1": {
+   "scene": "why",
+   "s": 0.3,
+   "d": 3.557,
+   "abs": 5.921,
+   "sp": "MAMA",
+   "txt": "Haaye! Driver bhai ghanti bajane utre,|aur van phisal gayi!"
+  },
+  "m1": {
+   "scene": "why",
+   "s": 4.357,
+   "d": 2.861,
+   "abs": 9.979,
+   "sp": "AMMAR",
+   "txt": "Ruko! Neeche naali ka|khadda khula hai!"
+  },
+  "q1": {
+   "scene": "why",
+   "s": 7.719,
+   "d": 3.363,
+   "abs": 13.34,
+   "sp": "QASIM",
+   "txt": "Mera school ka pehla din...|aur van mein ek bachchi ro rahi hai!"
+  },
+  "qs": {
+   "scene": "gag",
+   "s": 0.3,
+   "d": 1.276,
+   "abs": 17.503,
+   "sp": "QASIM",
+   "txt": "Mama! Suusuu aayi hai!"
+  },
+  "pf": {
+   "scene": "gag",
+   "s": 1.776,
+   "d": 1.736,
+   "abs": 18.978,
+   "sp": "MAMA",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "a2": {
+   "scene": "gag",
+   "s": 3.711,
+   "d": 3.501,
+   "abs": 20.914,
+   "sp": "MAMA",
+   "txt": "Abhi?! Itni bhaag-daud mein?|Chalo, main saath chalti hoon!"
+  },
+  "k2": {
+   "scene": "gag",
+   "s": 7.613,
+   "d": 3.61,
+   "abs": 24.815,
+   "sp": "SAKINA",
+   "txt": "Mamaaa... mera tiffin van mein|reh gayaaa... main bhookhi rahoongi..."
+  },
+  "a3": {
+   "scene": "gag",
+   "s": 11.823,
+   "d": 2.832,
+   "abs": 29.026,
+   "sp": "MAMA",
+   "txt": "Achha achha, rona band!|Naya tiffin banati hoon!"
+  },
+  "jj": {
+   "scene": "gag",
+   "s": 14.905,
+   "d": 0.972,
+   "abs": 32.107,
+   "sp": "SAKINA",
+   "txt": "Jaa jaldi!"
+  },
+  "n2": {
+   "scene": "power",
+   "s": 0.6,
+   "d": 3.628,
+   "abs": 34.779,
+   "sp": "NARR",
+   "txt": "Sirf Sakina jaanti hai...|har flush ke saath Qasim ban jata hai..."
+  },
+  "qp": {
+   "scene": "power",
+   "s": 5.028,
+   "d": 1.599,
+   "abs": 39.207,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "q3": {
+   "scene": "rescue",
+   "s": 1.0,
+   "d": 1.512,
+   "abs": 43.006,
+   "sp": "QASIM",
+   "txt": "Daro mat bachcho!|Main aa gaya!"
+  },
+  "m2": {
+   "scene": "rescue",
+   "s": 6.6,
+   "d": 2.901,
+   "abs": 48.606,
+   "sp": "AMMAR",
+   "txt": "Bumper toot gaya!|Van khadde ki taraf!"
+  },
+  "q4": {
+   "scene": "rescue",
+   "s": 13.0,
+   "d": 0.744,
+   "abs": 55.006,
+   "sp": "QASIM",
+   "txt": "Pakad liya!"
+  },
+  "o1": {
+   "scene": "rescue",
+   "s": 17.2,
+   "d": 1.349,
+   "abs": 59.206,
+   "sp": "NOOR",
+   "txt": "Shukriya, superhero!"
+  },
+  "m3": {
+   "scene": "after",
+   "s": 0.6,
+   "d": 5.572,
+   "abs": 63.155,
+   "sp": "AMMAR",
+   "txt": "Shabash! Bachche bilkul theek hain!|Ab pahiyon ke peeche eent laga deta hoon!"
+  },
+  "kt": {
+   "scene": "secret",
+   "s": 0.5,
+   "d": 1.615,
+   "abs": 70.427,
+   "sp": "MAMA",
+   "txt": "Qasim! Kahan the tum?"
+  },
+  "kn": {
+   "scene": "secret",
+   "s": 2.315,
+   "d": 1.102,
+   "abs": 72.242,
+   "sp": "QASIM",
+   "txt": "Kuch nahi Mama!"
+  },
+  "b2": {
+   "scene": "secret",
+   "s": 3.917,
+   "d": 3.8,
+   "abs": 73.844,
+   "sp": "BABA",
+   "txt": "Koi SUPERHERO aaya tha...|van ko haathon se rok diya!"
+  },
+  "q6": {
+   "scene": "secret",
+   "s": 8.018,
+   "d": 1.707,
+   "abs": 77.945,
+   "sp": "QASIM",
+   "txt": "Achha?|Mujhe to suusuu aayi thi!"
+  },
+  "z1": {
+   "scene": "school",
+   "s": 0.6,
+   "d": 2.633,
+   "abs": 81.251,
+   "sp": "ZAHRA MISS",
+   "txt": "Bachcho, school mein|aapka swaagat hai!"
+  },
+  "q7": {
+   "scene": "school",
+   "s": 4.033,
+   "d": 2.957,
+   "abs": 84.684,
+   "sp": "QASIM",
+   "txt": "Main Qasim! Tum akeli kyun ho?|Mere saath baithogi?"
+  },
+  "o2": {
+   "scene": "school",
+   "s": 7.291,
+   "d": 1.7,
+   "abs": 87.942,
+   "sp": "NOOR",
+   "txt": "Haan! Main Noor.|Ab hum dost!"
+  },
+  "o3": {
+   "scene": "school",
+   "s": 9.591,
+   "d": 3.222,
+   "abs": 90.242,
+   "sp": "NOOR",
+   "txt": "Mere tiffin mein aloo paratha hai...|aadha aadha?"
+  },
+  "q8": {
+   "scene": "school",
+   "s": 13.113,
+   "d": 2.184,
+   "abs": 93.764,
+   "sp": "QASIM",
+   "txt": "Haan! Dost sab kuch|aadha aadha karte hain!"
+  },
+  "c1": {
+   "scene": "cliff",
+   "s": 0.4,
+   "d": 2.579,
+   "abs": 97.748,
+   "sp": "SAKINA",
+   "txt": "Arre! Pilla platform par|akela reh gaya!"
+  },
+  "n3": {
+   "scene": "endcard",
+   "s": 0.8,
+   "d": 6.143,
+   "abs": 102.127,
+   "sp": "NARR",
+   "txt": "Bachcho, naye bachchon se dosti karo,|aur chalti gaadi se door raho!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
+  }
+ },
+ "total": 115.87
+}

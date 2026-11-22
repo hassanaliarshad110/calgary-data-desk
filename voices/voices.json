@@ -105,5 +105,12 @@
     "speed": 1.0,
     "post_ffmpeg": "asetrate=24000*1.25,aresample=24000,atempo=0.8,highpass=f=120",
     "note": "Pari, the lost girl in Ep 6"
+  },
+  "NOOR (proposed)": {
+    "engine": "Kokoro, lang hi, Devanagari",
+    "voice": "hf_alpha",
+    "speed": 1.0,
+    "post_ffmpeg": "asetrate=24000*1.25,aresample=24000,atempo=0.8,highpass=f=120",
+    "note": "Noor, Qasim's new school friend (Ep 10); same recipe as Pari"
   }
 }

@@ -1,0 +1,125 @@
+{
+ "rule": "voice - (music+SFX) in 300-3400 Hz >= 10 dB; no SFX under any line; no noise beds",
+ "lines": {
+  "bv": {
+   "voice_minus_bed_dB": 16.0,
+   "bed_hiss_4_10k_dBFS": -65.9
+  },
+  "b1": {
+   "voice_minus_bed_dB": 17.7,
+   "bed_hiss_4_10k_dBFS": -75.8
+  },
+  "a1": {
+   "voice_minus_bed_dB": 25.7,
+   "bed_hiss_4_10k_dBFS": -78.3
+  },
+  "m1": {
+   "voice_minus_bed_dB": 22.9,
+   "bed_hiss_4_10k_dBFS": -79.1
+  },
+  "q1": {
+   "voice_minus_bed_dB": 21.5,
+   "bed_hiss_4_10k_dBFS": -81.1
+  },
+  "qs": {
+   "voice_minus_bed_dB": 95.6,
+   "bed_hiss_4_10k_dBFS": -120.0
+  },
+  "pf": {
+   "voice_minus_bed_dB": 21.7,
+   "bed_hiss_4_10k_dBFS": -108.9
+  },
+  "a2": {
+   "voice_minus_bed_dB": 93.2,
+   "bed_hiss_4_10k_dBFS": -120.0
+  },
+  "k2": {
+   "voice_minus_bed_dB": 17.2,
+   "bed_hiss_4_10k_dBFS": -73.5
+  },
+  "a3": {
+   "voice_minus_bed_dB": 21.5,
+   "bed_hiss_4_10k_dBFS": -87.2
+  },
+  "jj": {
+   "voice_minus_bed_dB": 25.3,
+   "bed_hiss_4_10k_dBFS": -54.9
+  },
+  "n2": {
+   "voice_minus_bed_dB": 13.2,
+   "bed_hiss_4_10k_dBFS": -72.7
+  },
+  "qp": {
+   "voice_minus_bed_dB": 23.9,
+   "bed_hiss_4_10k_dBFS": -65.1
+  },
+  "q3": {
+   "voice_minus_bed_dB": 13.5,
+   "bed_hiss_4_10k_dBFS": -68.0
+  },
+  "m2": {
+   "voice_minus_bed_dB": 14.4,
+   "bed_hiss_4_10k_dBFS": -70.4
+  },
+  "q4": {
+   "voice_minus_bed_dB": 23.4,
+   "bed_hiss_4_10k_dBFS": -64.4
+  },
+  "o1": {
+   "voice_minus_bed_dB": 18.6,
+   "bed_hiss_4_10k_dBFS": -77.9
+  },
+  "m3": {
+   "voice_minus_bed_dB": 13.6,
+   "bed_hiss_4_10k_dBFS": -75.1
+  },
+  "kt": {
+   "voice_minus_bed_dB": 23.7,
+   "bed_hiss_4_10k_dBFS": -77.7
+  },
+  "kn": {
+   "voice_minus_bed_dB": 37.3,
+   "bed_hiss_4_10k_dBFS": -105.8
+  },
+  "b2": {
+   "voice_minus_bed_dB": 28.6,
+   "bed_hiss_4_10k_dBFS": -81.9
+  },
+  "q6": {
+   "voice_minus_bed_dB": 95.3,
+   "bed_hiss_4_10k_dBFS": -120.0
+  },
+  "z1": {
+   "voice_minus_bed_dB": 19.2,
+   "bed_hiss_4_10k_dBFS": -81.1
+  },
+  "q7": {
+   "voice_minus_bed_dB": 19.0,
+   "bed_hiss_4_10k_dBFS": -80.5
+  },
+  "o2": {
+   "voice_minus_bed_dB": 20.3,
+   "bed_hiss_4_10k_dBFS": -80.6
+  },
+  "o3": {
+   "voice_minus_bed_dB": 19.2,
+   "bed_hiss_4_10k_dBFS": -81.1
+  },
+  "q8": {
+   "voice_minus_bed_dB": 18.6,
+   "bed_hiss_4_10k_dBFS": -81.3
+  },
+  "c1": {
+   "voice_minus_bed_dB": 17.5,
+   "bed_hiss_4_10k_dBFS": -65.0
+  },
+  "n3": {
+   "voice_minus_bed_dB": 15.8,
+   "bed_hiss_4_10k_dBFS": -76.5
+  }
+ },
+ "loudness": {
+  "I": -14.1,
+  "TP": -1.2
+ }
+}
