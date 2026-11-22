@@ -1,483 +1,112 @@
 [
 {
 "id": "h1",
-"text": "Someone wronged you. And now... you have the upper hand. What do you do?",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n1",
-"text": "Two men stood in that exact moment... centuries apart.",
+"text": "You have power over an enemy. Right now. What do you do?",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "One was a duke in Renaissance Italy. He chose to hope... and it ruined him.",
+"text": "One was a duke in Renaissance Italy. He trusted an enemy he had wronged... and it ruined him.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "The other was a warrior in one of Rumi's stories. He chose the opposite... and won something no battle could give him.",
+"text": "The other was a warrior in one of Rumi's stories. His beaten enemy insulted him... and what he did next won something no battle could give him.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n4",
-"text": "Tonight, Machiavelli and Rumi answer one of the oldest questions there is. What do you do... with an enemy?",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1a",
-"text": "Florence... fifteen thirteen.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1b",
-"text": "Niccolo Machiavelli has lost his government job. He has been jailed... and tortured. Now he lives on a small farm outside the city... writing a short book about power.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1c",
-"text": "He calls it The Prince. And one of its main characters... is a man he had watched up close. Cesare Borgia.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1d",
-"text": "Borgia's father was Pope Alexander the Sixth. With his father's power behind him... Borgia built a state of his own.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1e",
-"text": "Then, in the summer of fifteen oh three... his father died. And Borgia himself was so sick... he was close to death.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1f",
-"text": "Machiavelli says Borgia told him he had planned for everything his father's death could bring... everything, except being close to death himself.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1g",
-"text": "Now Rome had to choose a new Pope. Borgia could not pick the winner... but he could still block one.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1h",
-"text": "And he let a man through. A cardinal he had injured in the past... a man with every reason to fear him. That man became Pope Julius the Second.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1i",
-"text": "Why would Borgia allow it? Because he hoped. He hoped fresh favours would wash away old wounds.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "q1",
-"text": "Machiavelli's answer is ice cold. He who believes that new benefits will cause great personages to forget old injuries... is deceived.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "q1b",
-"text": "And his verdict on Borgia? The duke erred in his choice... and it was the cause of his ultimate ruin.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1k",
-"text": "Look at what the mistake really was. Not cruelty. Not weakness. Wishful thinking.",
+"text": "Today, Machiavelli and Rumi answer one of the oldest questions there is. What do you do... with an enemy?",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "q2",
-"text": "Machiavelli explains it in seven words. For men injure either from fear or hatred.",
+"text": "Machiavelli explains it in one line. For men injure either from fear or hatred.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "c1m",
-"text": "Someone you once hurt... may still be afraid of you. And fear, handed power, tends to strike first.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1n",
-"text": "Picture an office. Last year, Maya took credit for a teammate's idea... in front of everyone.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1o",
-"text": "This year, she's friendly. Coffee. Compliments. A birthday card.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1p",
-"text": "Then a promotion opens up... and that teammate sits on the hiring panel.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1q",
-"text": "Does a birthday card erase that meeting? Machiavelli would say... don't bet your future on it.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c1r",
-"text": "His lesson isn't revenge. It's clear sight. Know who you have hurt. Repair it honestly... or prepare for it. But never just hope.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c2a",
-"text": "Machiavelli has a second idea about enemies. And this one... is strangely hopeful.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c2b",
-"text": "In chapter twenty, he writes that leaders become great by overcoming what stands against them. Fortune even sends a new leader enemies... so that he can rise.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "q3",
-"text": "By them to mount higher... as by a ladder which his enemies have raised.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c2c",
-"text": "Read that again. Every person who doubted you... every door that was shut in your face... can become a rung.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c2d",
-"text": "A girl is cut from her school's basketball team. The coach says she's too slow.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c2e",
-"text": "That sentence becomes her alarm clock. Five in the morning. Every day. For a year.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c2f",
-"text": "Next season, she makes the team. The coach never trained her... but he built the ladder.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c2g",
-"text": "And Machiavelli goes one step further. He noticed that new rulers often found more loyalty in people they first distrusted... than in the ones they trusted from the start.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c2h",
-"text": "Why? Because a former rival who joins you has something to prove. They have to show, by what they do... that you were wrong about them.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c2i",
-"text": "So today's opponent could be tomorrow's most loyal partner... if you leave the door open.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3a",
-"text": "Now... travel east. To Rumi.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3b",
-"text": "In the thirteenth century, he wrote the Masnavi... a vast poem, full of stories.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3c",
-"text": "One of them is about Ali, the great warrior of early Islam... whom the story calls the Lion of God.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3d",
-"text": "Ali is locked in a fight with an enemy chief. And Ali is winning. The fight is almost over.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3e",
-"text": "Then the beaten man does the one thing he has left. He spits in Ali's face.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3f",
-"text": "Stop the story right there. Every instinct says... strike. Anyone watching would understand.",
+"text": "Someone you once hurt... may still resent you, or fear you. And resentment, handed power, tends to strike first.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "q4",
-"text": "Instead, Rumi's story goes like this. Ali, instead of taking vengeance on him, at once dropped his sword... to the Magian's great astonishment.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3g",
-"text": "The enemy can't believe it. Why spare me? Why now... right after I insulted you?",
+"text": "But as Whinfield's translation tells it... Ali, instead of taking vengeance on him, at once dropped his sword... to the Magian's great astonishment.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "c3h",
-"text": "In essence, Ali's answer is this. He fought for a cause... not for his own pride.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3i",
-"text": "The moment that spit made it personal, anger had entered the fight. And a fight run by anger... was not one he was willing to win.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3j",
-"text": "The story says that one act won what the sword never could. The enemy chief... and his whole family... came over to Ali's faith.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3k",
-"text": "Now look at that spit again. It was a weapon... the last one the enemy had.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3l",
-"text": "He couldn't win the fight anymore. So he tried to win Ali's temper.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3m",
-"text": "If Ali had struck in rage, the enemy would still have been in control of him... for one final second.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c3n",
-"text": "That's Rumi's point. The enemy in front of you is beaten in a moment. The anger inside you... keeps fighting long after.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c4a",
-"text": "So who is right? The cold strategist... or the poet?",
+"text": "In essence, Ali's answer is this. He fought for something higher than himself... not for his own pride.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "c4b",
-"text": "At first, they sound like opposites. Machiavelli says, never forget an old injury. Rumi says, drop the sword.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c4c",
-"text": "But look closer. Borgia lost because he let hope make his decision. Ali won because he refused to let anger make his.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c4d",
-"text": "Same lesson... from two sides. When an enemy is near, don't let a feeling take the wheel.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c4e",
-"text": "Machiavelli is the mind. See your enemy exactly as they are. Not better. Not worse.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c4f",
-"text": "Rumi is the heart. See yourself exactly as you are... and notice the moment a fight becomes about your pride.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c4g",
-"text": "A message from a rival lands at midnight. Sharp. Built to sting.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c4h",
-"text": "The mind asks... what can this person really do to me? The heart asks... what does my anger want me to do? And whose plan is that?",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c4i",
-"text": "Most of the time... the angry reply is exactly the move they were hoping you'd make.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c5a",
-"text": "So here's one thing to try... today.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c5b",
-"text": "Think of one person you'd call a rival. At work, at school, online.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c5c",
-"text": "Take a piece of paper. On the left, write what they could really do to you. Be honest, not hopeful. That's Machiavelli.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c5d",
-"text": "On the right, write what your anger wants to do to them. That's Rumi's battlefield. Then... don't do it.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c5e",
-"text": "Instead, pick one move that makes you stronger. One rung... on the ladder they built for you.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c5f",
-"text": "Now tell me. Which is harder for you? Seeing an enemy clearly... or putting down the sword? Mind, or heart? Write it in the comments.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "c5g",
-"text": "Follow Awaaz Mindset... where Machiavelli and Rumi meet every week.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "s1",
-"text": "He had his enemy beaten... and he dropped his sword. Why?",
+"text": "At first, they sound like opposites. Machiavelli says, never assume an old injury is forgotten. Rumi says, drop the sword.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "s2",
-"text": "Next time someone pokes at you... wait one breath, and ask. Is this my move... or theirs?",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "s3",
-"text": "Could you have dropped the sword? Tell me below.",
+"text": "Next time someone pokes at you, wait one breath. Is this my move... or theirs?",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "s4",
-"text": "Follow Awaaz. The full Machiavelli versus Rumi story is on the channel.",
+"text": "Follow Awaaz... for the full story.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "sA",
+"text": "In a story by Rumi, Ali is winning a fight against an enemy chief.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "sE",
+"text": "Then the beaten man spits in Ali's face.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "sQ",
+"text": "As Whinfield's translation tells it. Ali, instead of taking vengeance on him, at once dropped his sword... to the Magian's great astonishment.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "sB",
+"text": "That spit was the enemy's last weapon. He couldn't win the fight... so he tried to win Ali's temper.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "sC",
+"text": "When a rival sends you a message built to sting... the angry reply is exactly the move they were hoping you'd make.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
