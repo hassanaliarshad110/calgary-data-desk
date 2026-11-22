@@ -1,5 +1,5 @@
 {
- "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-21 2026.",
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-22 2026.",
  "ur": {
   "اللہ کے نبی ﷺ": "اللہ کے نبی",
   "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
@@ -55,7 +55,9 @@
   "حدیثِ منزلت": "حدیث منزلت",
   "شبہائے پشاور": "شبِ ہائے پشاور",
   "تیئیس": "تئیس",
-  "مِسوَر بن مَخرَمہ": "مسور بن مخرمہ"
+  "مِسوَر بن مَخرَمہ": "مسور بن مخرمہ",
+  "قبیلۂ مراد": "قبیلہ مراد",
+  "کتاب الارشاد": "کتاب اَل اِرشاد"
  },
  "ar": {
   "رسول الله ﷺ": "رسولِ الله، صلّى اللهُ عليه وآله وسلّم،",
@@ -82,7 +84,10 @@
   "رسولِ الله ﷺ": "رسولِ الله، صلّى اللهُ عليه وآله وسلّم،",
   "بيت الأحزان": "بيتِ الأَحْزانِ",
   "ببيت الأحزان": "بِبَيْتِ الأَحْزانِ",
-  "بيتِ الأحزان": "بيتِ الأَحْزانِ"
+  "بيتِ الأحزان": "بيتِ الأَحْزانِ",
+  "الرَّقّة": "الرقة",
+  "الكوفة": "الكُوفة",
+  "أُوَيْسُ بنُ عامر": "أُوَيْسُ بنُ عامِر"
  },
  "_rule_ur": "Urdu narration never says رسولِ خدا or the spoken salawat (mispronounced). Write اللہ کے نبی ﷺ in the script: the voice says 'Allah ke Nabi', the captions show ﷺ."
 }
