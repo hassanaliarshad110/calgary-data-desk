@@ -1,23 +1,10 @@
 {
- "kokoro": [
-  {"id": "q1", "text": "मेरा स्कूल का पहला दिन... और वैन में एक बच्ची रो रही है!", "voice": "hf_beta", "speed": 1.05},
-  {"id": "k2", "text": "मामाऽऽ... मेरा टिफ़िन वैन में रह गयाऽऽ... मैं भूखी रहूँगी...", "voice": "hf_alpha", "speed": 1.05},
-  {"id": "q3", "text": "डरो मत बच्चो! मैं आ गया!", "voice": "hf_beta", "speed": 1.05},
-  {"id": "o1", "text": "शुक्रिया, सुपरहीरो!", "voice": "hf_alpha", "speed": 1.0},
-  {"id": "q7", "text": "मैं क़ासिम! तुम अकेली क्यों हो? मेरे साथ बैठोगी?", "voice": "hf_beta", "speed": 1.05},
-  {"id": "o2", "text": "हाँ! मैं नूर। अब हम दोस्त!", "voice": "hf_alpha", "speed": 1.0},
-  {"id": "c1", "text": "अरे! पिल्ला प्लेटफ़ॉर्म पर अकेला रह गया!", "voice": "hf_alpha", "speed": 1.05}
- ],
+ "kokoro": [],
  "edge": [
-  {"id": "b1", "text": "اندر بچے ہیں! کوئی روکو!", "voice": "ur-IN-SalmanNeural", "rate": "-3%", "pitch": "-8Hz"},
-  {"id": "m1", "text": "رکو! نیچے نالی کا گڑھا کھلا ہے!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz"},
-  {"id": "a1", "text": "ہائے! ڈرائیور بھائی گھنٹی بجانے اترے، اور وین پھسل گئی!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
   {"id": "a2", "text": "ابھی؟! اتنی بھاگ دوڑ میں؟ چلو، میں ساتھ چلتی ہوں!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
-  {"id": "a3", "text": "اچھا اچھا، رونا بند! نیا ٹفن بناتی ہوں!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
-  {"id": "m2", "text": "بمپر ٹوٹ گیا! وین گڑھے کی طرف!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz", "asr": 1},
-  {"id": "b2", "text": "کوئی SUPERHERO آیا تھا... وین کو ہاتھوں سے روک دیا!", "voice": "ur-IN-SalmanNeural", "rate": "-3%", "pitch": "-8Hz", "asr": 1},
-  {"id": "z1", "text": "बच्चो, स्कूल में आपका स्वागत है!", "voice": "hi-IN-SwaraNeural", "rate": "+0%"},
-  {"id": "n3", "text": "بچو، نئے بچوں سے دوستی کرو، اور چلتی گاڑی سے دور رہو! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1},
-  {"id": "n3c", "text": "بچو، سب سے دوستی کرو، اور چلتی گاڑی کے پاس مت جاؤ! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!", "voice": "ur-PK-AsadNeural", "rate": "+8%", "asr": 1}
+  {"id": "m1", "text": "رکو! نیچے نالی کا گڑھا کھلا ہے!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz", "asr": 1},
+  {"id": "m1b", "text": "رکو! نیچے نالی کا کھڈا کھلا ہے!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz", "asr": 1},
+  {"id": "m2b", "text": "بمپر ٹوٹ گیا! وین کھڈے کی طرف!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz", "asr": 1},
+  {"id": "a1", "text": "ہائے! ڈرائیور بھائی گھنٹی بجانے اترے، اور وین پھسل گئی!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1}
  ]
 }
