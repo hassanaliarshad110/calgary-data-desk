@@ -1,0 +1,10 @@
+*.mp4
+*.wav
+aud/
+prev/
+mix_raw.wav
+fonts
+logo.jpg
+thumb_full.jpg
+list.txt
+*.log

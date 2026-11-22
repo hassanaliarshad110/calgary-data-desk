@@ -1,0 +1,637 @@
+{
+"scenes": [
+{
+"id": "poem",
+"start": 0,
+"dur": 6.029,
+"lines": [
+"n01"
+]
+},
+{
+"id": "poemcard",
+"start": 6.029,
+"dur": 7.334,
+"lines": [
+"n02"
+]
+},
+{
+"id": "dawncar",
+"start": 13.363,
+"dur": 4.976,
+"lines": [
+"n03"
+]
+},
+{
+"id": "graves",
+"start": 18.339,
+"dur": 8.171,
+"lines": [
+"n04"
+]
+},
+{
+"id": "name",
+"start": 26.51,
+"dur": 10.568,
+"lines": [
+"n05"
+]
+},
+{
+"id": "promise",
+"start": 37.078,
+"dur": 8.472,
+"lines": [
+"n06"
+]
+},
+{
+"id": "title",
+"start": 45.55,
+"dur": 4.0,
+"lines": []
+},
+{
+"id": "ch1",
+"start": 49.55,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "rowena",
+"start": 52.15,
+"dur": 11.224,
+"lines": [
+"n07"
+]
+},
+{
+"id": "wedding",
+"start": 63.374,
+"dur": 17.902,
+"lines": [
+"n08",
+"n09"
+]
+},
+{
+"id": "clyde",
+"start": 81.276,
+"dur": 8.93,
+"lines": [
+"n10"
+]
+},
+{
+"id": "meet",
+"start": 90.206,
+"dur": 15.931,
+"lines": [
+"n11",
+"n12"
+]
+},
+{
+"id": "ch2",
+"start": 106.137,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "jail",
+"start": 108.737,
+"dur": 17.135,
+"lines": [
+"n13",
+"n14"
+]
+},
+{
+"id": "axe",
+"start": 125.872,
+"dur": 21.536,
+"lines": [
+"n15",
+"n16"
+]
+},
+{
+"id": "free",
+"start": 147.408,
+"dur": 7.335,
+"lines": [
+"n17"
+]
+},
+{
+"id": "ch3",
+"start": 154.743,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "road",
+"start": 157.343,
+"dur": 7.916,
+"lines": [
+"n18"
+]
+},
+{
+"id": "robin",
+"start": 165.259,
+"dur": 13.515,
+"lines": [
+"n19"
+]
+},
+{
+"id": "victims",
+"start": 178.774,
+"dur": 10.88,
+"lines": [
+"n20"
+]
+},
+{
+"id": "crash",
+"start": 189.654,
+"dur": 23.079,
+"lines": [
+"n21",
+"n22"
+]
+},
+{
+"id": "know",
+"start": 212.733,
+"dur": 5.112,
+"lines": [
+"n23"
+]
+},
+{
+"id": "ch4",
+"start": 217.845,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "ambush",
+"start": 220.445,
+"dur": 12.654,
+"lines": [
+"n24"
+]
+},
+{
+"id": "ford",
+"start": 233.099,
+"dur": 6.325,
+"lines": [
+"n25"
+]
+},
+{
+"id": "shots",
+"start": 239.424,
+"dur": 6.005,
+"lines": [
+"n26"
+]
+},
+{
+"id": "ages",
+"start": 245.429,
+"dur": 10.109,
+"lines": [
+"n27"
+]
+},
+{
+"id": "trail",
+"start": 255.538,
+"dur": 10.586,
+"lines": [
+"n28"
+]
+},
+{
+"id": "ch5",
+"start": 266.124,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "wish",
+"start": 268.724,
+"dur": 9.465,
+"lines": [
+"n29"
+]
+},
+{
+"id": "plot",
+"start": 278.189,
+"dur": 5.95,
+"lines": [
+"n30"
+]
+},
+{
+"id": "mother",
+"start": 284.139,
+"dur": 11.698,
+"lines": [
+"n31",
+"d01"
+]
+},
+{
+"id": "crownhill",
+"start": 295.837,
+"dur": 9.107,
+"lines": [
+"n32"
+]
+},
+{
+"id": "western",
+"start": 304.944,
+"dur": 11.265,
+"lines": [
+"n33"
+]
+},
+{
+"id": "court",
+"start": 316.209,
+"dur": 17.428,
+"lines": [
+"n34"
+]
+},
+{
+"id": "ch6",
+"start": 333.637,
+"dur": 2.6,
+"lines": []
+},
+{
+"id": "bloomberg",
+"start": 336.237,
+"dur": 18.611,
+"lines": [
+"n35"
+]
+},
+{
+"id": "trailer",
+"start": 354.848,
+"dur": 10.541,
+"lines": [
+"n36"
+]
+},
+{
+"id": "match1",
+"start": 365.389,
+"dur": 14.929,
+"lines": [
+"n37"
+]
+},
+{
+"id": "match2",
+"start": 380.318,
+"dur": 8.035,
+"lines": [
+"n38"
+]
+},
+{
+"id": "way",
+"start": 388.353,
+"dur": 16.313,
+"lines": [
+"n39"
+]
+},
+{
+"id": "launch",
+"start": 404.666,
+"dur": 10.855,
+"lines": [
+"n40"
+]
+},
+{
+"id": "controller",
+"start": 415.521,
+"dur": 9.618,
+"lines": [
+"n41"
+]
+},
+{
+"id": "empty",
+"start": 425.139,
+"dur": 7.803,
+"lines": [
+"n42"
+]
+},
+{
+"id": "question",
+"start": 432.942,
+"dur": 11.074,
+"lines": [
+"n43"
+]
+},
+{
+"id": "end",
+"start": 444.016,
+"dur": 9.642,
+"lines": [
+"n44"
+]
+}
+],
+"lines": {
+"n01": {
+"start": 0.6,
+"dur": 4.929,
+"spk": "N",
+"roman": "Marne se do hafte pehle, ek ladki ne apni maa ko ek kavita di."
+},
+"n02": {
+"start": 6.329,
+"dur": 6.434,
+"spk": "N",
+"roman": "Usmein likha tha: ek din woh dono saath jaayenge… aur unhe saath-saath dafnaaya jaayega."
+},
+"n03": {
+"start": 13.663,
+"dur": 4.076,
+"spk": "N",
+"roman": "Woh dono saath gaye. Ek hi subah. Ek hi gaadi mein."
+},
+"n04": {
+"start": 18.639,
+"dur": 7.071,
+"spk": "N",
+"roman": "Par dafn alag-alag hue. Aur 92 saal baad bhi, ek qabr ke bagal ki zameen… khaali hai."
+},
+"n05": {
+"start": 26.81,
+"dur": 9.668,
+"spk": "N",
+"roman": "Us ladki ka naam tha Bonnie Parker. Aur uski kahaani se juda bataaya jaata hai, is waqt duniya ka sabse bada game… GTA 6!"
+},
+"n06": {
+"start": 37.378,
+"dur": 7.572,
+"spk": "N",
+"roman": "Aaj suniye Bonnie aur Clyde ki asli kahaani… aur woh aakhri khwahish, jo aaj tak poori nahi hui."
+},
+"n07": {
+"start": 52.45,
+"dur": 10.424,
+"spk": "N",
+"roman": "1910. Texas ka ek chhota sa qasba, Rowena. Wahaan paida hui Bonnie. School mein hoshiyaar, aur kavitaayein likhne ki shauqeen."
+},
+"n08": {
+"start": 63.674,
+"dur": 6.974,
+"spk": "N",
+"roman": "Solah ki hone se chhe din pehle, usne apne school ke saathi Roy Thornton se shaadi kar li."
+},
+"n09": {
+"start": 71.098,
+"dur": 9.578,
+"spk": "N",
+"roman": "Shaadi kuch hi mahinon mein toot gayi. Par Bonnie ne kabhi talaaq nahi liya. Aakhri din tak, uski ungli mein Roy ki angoothi thi."
+},
+"n10": {
+"start": 81.576,
+"dur": 8.03,
+"spk": "N",
+"roman": "Udhar, 1909 mein paida hua Clyde Barrow. Navy mein jaana chahta tha, par medical wajahon se reject ho gaya."
+},
+"n11": {
+"start": 90.506,
+"dur": 8.27,
+"spk": "N",
+"roman": "January 1930. Texas mein dono pehli baar mile. Bonnie 19 ki. Clyde 21 ka."
+},
+"n12": {
+"start": 99.226,
+"dur": 6.111,
+"spk": "N",
+"roman": "Aur yahin se shuru hui America ki sabse mashhoor… aur sabse khatarnaak prem kahaani."
+},
+"n13": {
+"start": 109.037,
+"dur": 8.382,
+"spk": "N",
+"roman": "Milne ke kuch hi waqt baad Clyde chori mein pakda gaya. Aur Bonnie ne jail mein us tak ek bandook pahuncha di!"
+},
+"n14": {
+"start": 117.869,
+"dur": 7.503,
+"spk": "N",
+"roman": "Clyde bhaag nikla. Par phir pakda gaya. Aur is baar, 14 saal ki saza… Eastham Prison Farm mein."
+},
+"n15": {
+"start": 126.172,
+"dur": 10.507,
+"spk": "N",
+"roman": "January 1932. Wahaan kulhaadi se Clyde ke pair ka angootha kaat diya gaya! Shaayad wahaan se nikalne ki ek tarkeeb."
+},
+"n16": {
+"start": 137.129,
+"dur": 9.779,
+"spk": "N",
+"roman": "Aur qismat ka mazaak dekhiye. Sirf chhe din baad use parole mil gayi! Par woh zakhm zindagi bhar ke liye uski chaal badal gaya."
+},
+"n17": {
+"start": 147.708,
+"dur": 6.235,
+"spk": "N",
+"roman": "February 1932. Clyde baahar aaya… aur seedha Bonnie ke paas."
+},
+"n18": {
+"start": 157.743,
+"dur": 6.916,
+"spk": "N",
+"roman": "Phir shuru hua bhaagna. Mandi ka America. Chori ki gaadiyaan. Ek raajya se doosre raajya."
+},
+"n19": {
+"start": 165.559,
+"dur": 12.715,
+"spk": "N",
+"roman": "Logon ne inhe Robin Hood jaisa bana diya. Par sach? Inhone bankon se kahin zyaada petrol pump aur kiraane ki dukaanein lootin. Kai baar sirf 5-10 dollar ke liye!"
+},
+"n20": {
+"start": 179.074,
+"dur": 9.78,
+"spk": "N",
+"roman": "Aur ye koi khel nahi tha. FBI ke mutabiq, maut tak in par 13 hatyaon ka shak tha. Jinmein policewale bhi the."
+},
+"n21": {
+"start": 189.954,
+"dur": 9.336,
+"spk": "N",
+"roman": "June 1933. 70 meel ki raftaar. Ek adhoora pul. Aur Clyde ki gaadi sookhi nadi mein ja giri."
+},
+"n22": {
+"start": 199.74,
+"dur": 12.393,
+"spk": "N",
+"roman": "Battery ka acid Bonnie ke pair par gira. Jalan haddi tak pahunch gayi. Uske baad woh langdaakar chalti thi… aur kai baar Clyde use god mein uthaakar le jaata tha."
+},
+"n23": {
+"start": 213.133,
+"dur": 3.312,
+"spk": "N",
+"roman": "Woh dono jaante the… ye kahaani kaise khatm hogi."
+},
+"n24": {
+"start": 220.845,
+"dur": 11.654,
+"spk": "N",
+"roman": "23 May 1934. Louisiana ki ek sunsaan sadak. Jhaadiyon mein chhipe chhe afsar. Unke leader, purv Texas Ranger Frank Hamer."
+},
+"n25": {
+"start": 233.399,
+"dur": 5.425,
+"spk": "N",
+"roman": "Subah, kareeb sawa nau baje. Ek Ford gaadi dheere-dheere paas aayi."
+},
+"n26": {
+"start": 241.224,
+"dur": 3.005,
+"spk": "N",
+"roman": "Aur phir… 130 se zyaada goliyaan."
+},
+"n27": {
+"start": 245.829,
+"dur": 8.909,
+"spk": "N",
+"roman": "Bonnie 23 saal ki thi. Clyde 25 ka. Dono saath gaye… theek waise hi, jaise Bonnie ne likha tha."
+},
+"n28": {
+"start": 255.838,
+"dur": 9.086,
+"spk": "N",
+"roman": "Do hafte pehle jo kavita usne maa ko di thi, uska naam tha 'The Trail's End'. Yaani… raaste ka aakhri mod."
+},
+"n29": {
+"start": 269.124,
+"dur": 8.465,
+"spk": "N",
+"roman": "Ab aati hai woh baat jo dil tod deti hai. Bonnie aur Clyde dono chahte the ki unhe saath-saath dafnaaya jaaye."
+},
+"n30": {
+"start": 278.489,
+"dur": 5.15,
+"spk": "N",
+"roman": "Clyde ke parivaar ne uski qabr ke bagal mein Bonnie ke liye jagah bhi chhod di."
+},
+"n31": {
+"start": 284.439,
+"dur": 6.297,
+"spk": "N",
+"roman": "Par Bonnie ki maa, Emma Parker, nahi maanin. Parivaar waalon ke mutabiq, unhone kaha tha…"
+},
+"d01": {
+"start": 291.436,
+"dur": 3.401,
+"spk": "M",
+"roman": "\"Zindagi mein woh uski thi… maut mein, woh uski nahi hogi.\""
+},
+"n32": {
+"start": 296.137,
+"dur": 8.307,
+"spk": "N",
+"roman": "Bonnie ko alag qabristaan mein dafnaaya gaya. Aur 1945 mein use Dallas ke Crown Hill le jaaya gaya."
+},
+"n33": {
+"start": 305.244,
+"dur": 10.365,
+"spk": "N",
+"roman": "Aur Clyde? Kareeb 9 meel door, Western Heights mein, apne bhai Marvin ke bagal mein. Uske patthar par likha hai: 'Gone but not forgotten.'"
+},
+"n34": {
+"start": 316.509,
+"dur": 16.228,
+"spk": "N",
+"roman": "Dono parivaaron ke waaris saalon se koshish kar rahe hain ki Bonnie ko Clyde ke paas le jaaya jaaye. Par iske liye court ka order chahiye. Aur 2025 ki reports ke mutabiq, Bonnie aaj bhi Crown Hill mein hi hai."
+},
+"n35": {
+"start": 336.637,
+"dur": 17.711,
+"spk": "N",
+"roman": "Ab, 90 saal aage chaliye. July 2022. Bloomberg ke reporter Jason Schreier ne report kiya ki GTA 6 mein do lead kirdaar honge. Ek ladka, ek ladki. Aur kahaani par Bonnie aur Clyde ka asar."
+},
+"n36": {
+"start": 355.148,
+"dur": 9.741,
+"spk": "N",
+"roman": "Rockstar ne us waqt is report par kuch nahi kaha. Phir aaye trailers… aur saamne aaye Lucia Caminos aur Jason Duval."
+},
+"n37": {
+"start": 365.689,
+"dur": 13.829,
+"spk": "N",
+"roman": "Ab milaan dekhiye. Rockstar ki official site ke mutabiq, Lucia abhi-abhi jail se baahar aayi hai. Bonnie bhi 1932 mein ek chori ke baad jail ja chuki thi."
+},
+"n38": {
+"start": 380.618,
+"dur": 6.935,
+"spk": "N",
+"roman": "Jason Army mein reh chuka hai. Aur Clyde? Woh Navy mein jaana chahta tha… par ja nahi paaya."
+},
+"n39": {
+"start": 388.653,
+"dur": 15.413,
+"spk": "N",
+"roman": "Aur Rockstar Lucia ke baare mein likhta hai ki Jason ke saath zindagi uska baahar nikalne ka raasta ho sakti hai. Shaayad Bonnie ne bhi Clyde mein yahi dekha tha. Par woh raasta use Louisiana ki us sadak tak le gaya."
+},
+"n40": {
+"start": 404.966,
+"dur": 10.055,
+"spk": "N",
+"roman": "19 November ko GTA 6 launch ho gaya. Sensor Tower ke anumaan se, launch ke din tak 1.84 arab dollar ki bikri!"
+},
+"n41": {
+"start": 415.821,
+"dur": 8.718,
+"spk": "N",
+"roman": "Game mein Lucia aur Jason ki kahaani aap khelenge. Par asli Bonnie ki kahaani ka ant… koi controller nahi badal sakta."
+},
+"n42": {
+"start": 425.539,
+"dur": 5.403,
+"spk": "N",
+"roman": "92 saal baad bhi, Clyde ke bagal ki woh jagah… uska intezaar kar rahi hai."
+},
+"n43": {
+"start": 433.242,
+"dur": 9.974,
+"spk": "N",
+"roman": "Aap kya sochte hain? Kya Bonnie ko aakhirkaar Clyde ke paas dafnaaya jaana chahiye… ya maa ka faisla sahi tha? Comment mein zaroor bataaiye."
+},
+"n44": {
+"start": 444.216,
+"dur": 6.442,
+"spk": "N",
+"roman": "Kahaani dil ko chhoo gayi ho, to LIKE kijiye, SHARE kijiye, aur Awazzzz ko SUBSCRIBE kijiye."
+}
+},
+"total": 453.65800000000036
+}
