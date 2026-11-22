@@ -1,112 +1,84 @@
 [
 {
 "id": "h1",
-"text": "You have power over an enemy. Right now. What do you do?",
+"text": "The person who always agrees with you... might be your biggest risk.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "One was a duke in Renaissance Italy. He trusted an enemy he had wronged... and it ruined him.",
+"text": "Machiavelli called flatterers a pest... and said royal courts are full of them.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "The other was a warrior in one of Rumi's stories. His beaten enemy insulted him... and what he did next won something no battle could give him.",
+"text": "A team captain shares a plan. Everyone says... great idea! Nobody mentions the weak defence... until match day.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n4",
-"text": "Today, Machiavelli and Rumi answer one of the oldest questions there is. What do you do... with an enemy?",
+"text": "Take Emperor Maximilian. He kept his plans secret... and asked nobody for advice.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "q1",
+"text": "A man close to him said... He consulted with no one, yet never got his own way in anything.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n5",
+"text": "When his plans came out, his people pushed back... and he gave in. Done one day... undone the next.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n6",
+"text": "So shutting people out isn't the answer. Pick wise people... ask them everything... then decide for yourself.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "q2",
-"text": "Machiavelli explains it in one line. For men injure either from fear or hatred.",
+"text": "The more freely he shall speak... the more he shall be preferred.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
-"id": "c1m",
-"text": "Someone you once hurt... may still resent you, or fear you. And resentment, handed power, tends to strike first.",
+"id": "n7",
+"text": "Reward the one who brings bad news... and bad news stops hiding from you.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
-"id": "q4",
-"text": "But as Whinfield's translation tells it... Ali, instead of taking vengeance on him, at once dropped his sword... to the Magian's great astonishment.",
+"id": "n8",
+"text": "This morning, ask someone you trust... what am I getting wrong? Then just listen.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
-"id": "c3h",
-"text": "In essence, Ali's answer is this. He fought for something higher than himself... not for his own pride.",
+"id": "n9",
+"text": "Who always tells you the truth? Give them a shout-out in the comments.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
-"id": "c4b",
-"text": "At first, they sound like opposites. Machiavelli says, never assume an old injury is forgotten. Rumi says, drop the sword.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "s2",
-"text": "Next time someone pokes at you, wait one breath. Is this my move... or theirs?",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "s4",
-"text": "Follow Awaaz... for the full story.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "sA",
-"text": "In a story by Rumi, Ali is winning a fight against an enemy chief.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "sE",
-"text": "Then the beaten man spits in Ali's face.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "sQ",
-"text": "As Whinfield's translation tells it. Ali, instead of taking vengeance on him, at once dropped his sword... to the Magian's great astonishment.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "sB",
-"text": "That spit was the enemy's last weapon. He couldn't win the fight... so he tried to win Ali's temper.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "sC",
-"text": "When a rival sends you a message built to sting... the angry reply is exactly the move they were hoping you'd make.",
+"id": "n10",
+"text": "Follow Awaaz... and keep honest people close.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
