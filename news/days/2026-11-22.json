@@ -1,0 +1,241 @@
+{
+ "date": "2026-11-22",
+ "published_at": "2026-11-22T23:37:12Z",
+ "articles": [
+  {
+   "title": "Cavalry FC beats Atletico Ottawa 3-2 at Spruce Meadows to win the CPL's first league-and-championship double",
+   "dek": "Tobias Warschewski scored twice as Calgary's club won the North Star Cup before a record 9,131 fans, adding the title to its regular-season Shield.",
+   "section": "Community and events",
+   "body": [
+    "Cavalry FC won the Canadian Premier League championship on Saturday, Nov. 21, beating Atletico Ottawa 3-2 in the CPL Final at ATCO Field at Spruce Meadows [1][2]. The win made Cavalry the first club in the league's eight-year history to take both the regular-season CPL Shield and the North Star Cup, the championship trophy, in the same season [1][2][3].",
+    "Tobias Warschewski opened the scoring in the fifth minute [1][2]. Sergio Camargo made it 2-0 in the 47th minute, heading in a cross from Warschewski [1]. Ottawa cut the lead in the 65th minute when the ball went in off a Cavalry defender for an own goal [1][2]. Warschewski restored the two-goal margin in the 74th minute, and Nicolas Fleuriau Chateau scored from the penalty spot for Ottawa deep in stoppage time, too late to change the result [1][2][3].",
+    "Warschewski, the league's player of the year, was named the match's most valuable player after two goals and an assist [1][2]. The Canadian Press reported that his second goal was his eighth in eight career playoff games, the most in the league [1].",
+    "The crowd of 9,131 was a club record for ATCO Field, according to the league's release, which said more than 16,000 people were on the Spruce Meadows grounds that day [2]. The Canadian Press described a wind chill of minus 11 C, with some fans sitting on a snowbank beside the field [1].",
+    "The game was a rematch of the 2025 final, which Ottawa won 2-1 in extra time during a snowstorm at TD Place in Ottawa [1][3]. Cavalry reached the final for a fourth straight year and won its second North Star Cup, after its first in 2024 [1][3]. The league said Cavalry finished first in the 2026 regular season with 60 points from 18 wins, six draws and four losses, scored a league-record 58 goals and went unbeaten at home [2].",
+    "Ottawa played without its leading scorer, who was injured in the semifinal against Hamilton, according to The Canadian Press [1]. Cavalry is coached by Tommy Wheeldon Jr. and has played in the league since its first season in 2019 [2]. CTV News also reported the 3-2 result [4]."
+   ],
+   "key_facts": [
+    "Final score: Cavalry FC 3, Atletico Ottawa 2, on Nov. 21 at ATCO Field",
+    "First CPL club to win the Shield and North Star Cup in one season",
+    "Tobias Warschewski: two goals, one assist, match MVP",
+    "Club-record crowd of 9,131"
+   ],
+   "topics": [
+    "Sports",
+    "Events",
+    "Community"
+   ],
+   "image_query": "Spruce Meadows Calgary",
+   "location": {
+    "lat": 50.9131,
+    "lon": -114.0911,
+    "label": "ATCO Field at Spruce Meadows"
+   },
+   "charts": [
+    {
+     "title": "Cavalry FC's 2026 regular-season record",
+     "kind": "bar",
+     "labels": [
+      "Wins",
+      "Draws",
+      "Losses"
+     ],
+     "series": [
+      {
+       "name": "Games",
+       "values": [
+        18,
+        6,
+        4
+       ]
+      }
+     ],
+     "unit": "games",
+     "source": 2
+    }
+   ],
+   "sources": [
+    {
+     "title": "Warschewski scores twice as Cavalry FC beats Atletico Ottawa to win CPL Final",
+     "outlet": "TSN (The Canadian Press)",
+     "url": "https://www.tsn.ca/soccer/article/warschewski-scores-twice-as-cavalry-fc-beats-atletico-ottawa-to-win-cpl-final/",
+     "published": "2026-11-21"
+    },
+    {
+     "title": "Cavalry FC Claims 2026 Canadian Premier League Championship, Makes History as First Club to Win the League and Cup Double",
+     "outlet": "Canadian Premier League release via OurSports Central",
+     "url": "https://www.oursportscentral.com/services/releases/cavalry-fc-claims-2026-canadian-premier-league-championship-makes-history-as-first-club-to-win-the-league-and-cup-double/n-6426538",
+     "published": "2026-11-21"
+    },
+    {
+     "title": "Cavalry FC defeats Atletico Ottawa 3-2 to claim CPL title and historic double",
+     "outlet": "CP24 (The Canadian Press)",
+     "url": "https://www.cp24.com/news/sports/2026/11/21/cavalry-fc-defeats-atletico-ottawa-3-2-to-claim-cpl-title-and-historic-double/",
+     "published": "2026-11-21"
+    },
+    {
+     "title": "Cavalry FC defeats Atlético Ottawa 3-2 in CPL final rematch",
+     "outlet": "CTV News",
+     "url": "https://www.ctvnews.ca/ottawa/article/cavalry-fc-defeats-atletico-ottawa-3-2-in-cpl-final-rematch/",
+     "published": "2026-11-21"
+    }
+   ],
+   "id": "2026-11-22-cavalry-fc-beats-atletico-ottawa-3-2-at-spruce-meadows-to-win-the-cpl-",
+   "date": "2026-11-22",
+   "published_at": "2026-11-22T23:37:12Z",
+   "words": 362
+  },
+  {
+   "title": "Premier Smith says amendments are coming to Alberta's bike lane bill after pushback from Calgary and Edmonton",
+   "dek": "Danielle Smith said Saturday the province has changes to propose to Bill 43, a day after her transportation minister said cities would pay for ordered bike lane removals.",
+   "section": "Transit and roads",
+   "updated_from": "2026-11-20-farkas-says-calgary-will-not-pay-to-remove-bike-lanes-under-bill-43-mi",
+   "body": [
+    "Premier Danielle Smith said on Saturday, Nov. 21, that her government has amendments to propose to Bill 43, the Safe and Sensible Roads Act, the transportation bill that would give the province power over municipal bike lanes [1]. Speaking on her Saturday morning radio show, Smith said her chief of staff met Calgary Mayor Jeromy Farkas during the week about concerns she called legitimate, and that she wants a collaborative process with cities [1].",
+    "The bill was introduced on Thursday, Nov. 19, by Transportation Minister Devin Dreeshen [1][2]. As introduced, it would bar municipalities from installing new bike lanes that remove or restrict road space for vehicles without the minister's written approval, and would let the minister order existing bike lanes removed [1][2]. It would also expand provincial powers over municipal LRT projects, including the ability to approve plans and direct changes at any stage, even during construction [1].",
+    "The new development is the premier's statement. On Friday, Farkas said the bill appeared to have been fumbled and that it did not reflect assurances from the premier's office that the province would cover the cost of any removals it ordered [2]. He described the published text as a premature draft and said he expected changes, including to the minister-approval requirement [2]. The same day, Dreeshen told reporters that municipalities would be responsible for paying for removals the province orders, according to the Calgary Herald [1]. Smith did not say on Saturday what the amendments would contain [1].",
+    "Smith said the province would work with municipalities to identify bike lanes that are underused or interfere with traffic, and to decide whether to modify or remove them when road construction begins [1]. On LRT, she pointed to cost overruns and said the province needs a role as a funding partner; she also raised fare collection and passenger safety [1].",
+    "In an emailed statement reported by CBC, Dreeshen said the province would work with cities to limit future bike lanes in busy areas and deal with lanes it considers problems, and suggested removals be timed to scheduled road work to save money [2]. The ministry did not directly address the mayor's account or confirm amendments in that statement [2].",
+    "Edmonton Mayor Andrew Knack also criticized the bill, saying the province should focus on its own responsibilities [1][2]. Edmonton city administration has estimated that removing that city's bike lanes could cost $150 million [1][2]. Cycling groups in both cities, including Bike Calgary, have opposed the bill [2]."
+   ],
+   "key_facts": [
+    "Bill 43, the Safe and Sensible Roads Act, was introduced Nov. 19",
+    "Smith said Nov. 21 the government has amendments to propose; details not yet released",
+    "Dreeshen said Nov. 20 that cities would pay for ordered removals",
+    "Bill also expands provincial powers over municipal LRT projects"
+   ],
+   "topics": [
+    "Transit",
+    "Roads and traffic",
+    "Provincial",
+    "City Council"
+   ],
+   "image_query": "Calgary bike lane",
+   "sources": [
+    {
+     "title": "Smith signals amendments to bike lane bill amid pushback from Calgary, Edmonton mayors",
+     "outlet": "Calgary Herald (via Yahoo News Canada)",
+     "url": "https://ca.news.yahoo.com/smith-signals-amendments-bike-lane-205204090.html",
+     "published": "2026-11-21"
+    },
+    {
+     "title": "Calgary mayor says he believes revisions coming to Alberta bike lane bill",
+     "outlet": "CBC News (via Yahoo News Canada)",
+     "url": "https://ca.news.yahoo.com/calgary-mayor-says-believes-revisions-215156336.html",
+     "published": "2026-11-20"
+    }
+   ],
+   "id": "2026-11-22-premier-smith-says-amendments-are-coming-to-alberta-s-bike-lane-bill-a",
+   "date": "2026-11-22",
+   "published_at": "2026-11-22T23:37:12Z",
+   "words": 413
+  },
+  {
+   "title": "Police and sheriffs issue 149 summonses in three-night downtown Calgary operation",
+   "dek": "A joint Calgary Police Service and Alberta Sheriffs operation from Nov. 13 to 15 also led to 10 charges, six warrants and two drug trafficking investigations.",
+   "section": "Public safety",
+   "body": [
+    "Calgary Police Service officers and Alberta Sheriffs issued 149 summonses and laid 10 charges during a three-night enforcement operation in downtown Calgary, police said in results released Thursday, Nov. 19 [1][2]. The operation ran on evening shifts from Friday, Nov. 13, to Sunday, Nov. 15 [1][2].",
+    "Police said officers executed six arrest warrants and conducted about 400 mandatory alcohol screenings at checkstops [1][2]. Nine drivers received immediate roadside sanctions: four for failing impaired driving tests and five for impaired driving warnings [1][2]. Officers also carried out two commercial vehicle inspections [1].",
+    "Two drug trafficking investigations were opened, and police said officers seized crack cocaine, fentanyl, methamphetamine, Xanax and OxyContin [1][2]. Neither the police release nor news reports gave the amounts seized, and police did not break down the 10 charges by offence [1][2].",
+    "Police said officers and sheriffs focused on hot spots known for social disorder and drug use, but did not name specific locations [1][2]. Acting Insp. Paul Ralstin of the police service's District 1 and Alberta Sheriffs Insp. Bj Bjornson both commented on the joint work, with Bjornson saying, \"Albertans expect law enforcement agencies to work together\" [1].",
+    "Police said the operation is part of Safer Calgary, an ongoing initiative that combines enforcement and patrols with social supports [1][2]. The Medicine Hat News reported that a one-day sweep earlier in November led to 10 people being charged and 99 summonses, and that police reported in August that downtown violence was at a six-year high [2]."
+   ],
+   "key_facts": [
+    "Operation ran evenings Nov. 13 to 15 in downtown Calgary",
+    "149 summonses, 10 charges, six warrants executed",
+    "About 400 alcohol screenings; nine roadside sanctions",
+    "Part of the Safer Calgary initiative"
+   ],
+   "topics": [
+    "Public safety",
+    "Provincial"
+   ],
+   "image_query": "Calgary Police Service vehicle",
+   "charts": [
+    {
+     "title": "Results of the Nov. 13-15 downtown operation",
+     "kind": "hbar",
+     "labels": [
+      "Summonses",
+      "Charges",
+      "Roadside sanctions",
+      "Warrants executed",
+      "Vehicle inspections",
+      "Drug trafficking investigations"
+     ],
+     "series": [
+      {
+       "name": "Count",
+       "values": [
+        149,
+        10,
+        9,
+        6,
+        2,
+        2
+       ]
+      }
+     ],
+     "unit": "count",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "CPS officers and Alberta Sheriffs partner for downtown operation targeting criminal activity",
+     "outlet": "Calgary Police Service (City of Calgary Newsroom)",
+     "url": "https://newsroom.calgary.ca/cps-officers-and-alberta-sheriffs-partner-for-downtown-operation-targeting-criminal-activity/",
+     "published": "2026-11-19"
+    },
+    {
+     "title": "Calgary police issue 149 summons in three-night downtown operation",
+     "outlet": "Medicine Hat News",
+     "url": "https://medicinehatnews.com/news/local-news/2026/11/21/calgary-police-issue-149-summons-in-three-night-downtown-operation/",
+     "published": "2026-11-21"
+    }
+   ],
+   "id": "2026-11-22-police-and-sheriffs-issue-149-summonses-in-three-night-downtown-calgar",
+   "date": "2026-11-22",
+   "published_at": "2026-11-22T23:37:12Z",
+   "words": 247
+  },
+  {
+   "title": "Owner and contractor of downtown Hanover Building fined more than $120,000 after equipment fell to the street",
+   "dek": "Two companies pleaded guilty to building and fire code violations after a 70-pound metal shroud blew off the building during repairs in 2025; no one was hurt.",
+   "section": "Housing and development",
+   "body": [
+    "Two companies connected to a construction project at the Hanover Building in downtown Calgary have been fined more than $120,000 for building and fire code violations, the City of Calgary said in a release posted Nov. 19 [1].",
+    "The City said that on April 29, 2025, a 70-pound metal shroud covering ventilation equipment blew off the building while it was under repair and fell to the street below [1]. No one was injured [1].",
+    "On Sept. 23, 2026, the Alberta Court of Justice accepted guilty pleas from the property owner, 101 Residential Capital, and the general contractor, Cairo Development Ltd., according to the City [1]. The City said the pleas relate to violations of the National Building Code and the National Fire Code, and that the companies admitted proper precautions were not taken to prevent undue risk to the public and that several fire code requirements were not met [1]. The release did not say how the fines were split between the two companies [1].",
+    "The City said its own investigations led to the prosecutions [1]. Darren Lockhart, the City's manager of building and development inspections, said, \"The safety of residents, visitors and workers must always come first\" [1]. Virginia Buckley, deputy chief of risk management with the Calgary Fire Department, also commented in the release [1].",
+    "The City said its safety codes officers enforce building and fire rules on construction sites, and that it is working on construction-site safety planning, guidance for the industry and stronger enforcement tools [1]. The release did not give the building's street address [1]."
+   ],
+   "key_facts": [
+    "Incident: April 29, 2025; metal shroud fell to the street, no injuries",
+    "Guilty pleas accepted Sept. 23, 2026, by the Alberta Court of Justice",
+    "Fines totalled more than $120,000",
+    "Owner 101 Residential Capital and contractor Cairo Development Ltd."
+   ],
+   "topics": [
+    "Development",
+    "Public safety",
+    "Courts",
+    "City services"
+   ],
+   "image_query": "downtown Calgary construction",
+   "sources": [
+    {
+     "title": "City puts public safety first following Hanover Building convictions",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/city-puts-public-safety-first-following-hanover-building-convictions/",
+     "published": "2026-11-19"
+    }
+   ],
+   "id": "2026-11-22-owner-and-contractor-of-downtown-hanover-building-fined-more-than-120-",
+   "date": "2026-11-22",
+   "published_at": "2026-11-22T23:37:12Z",
+   "words": 260
+  }
+ ]
+}
