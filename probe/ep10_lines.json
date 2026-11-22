@@ -1,10 +1,9 @@
 {
- "kokoro": [],
+ "kokoro": [
+  {"id": "o3", "text": "मेरे टिफ़िन में आलू पराठा है... आधा आधा?", "voice": "hf_alpha", "speed": 1.0},
+  {"id": "q8", "text": "हाँ! दोस्त सब कुछ आधा आधा करते हैं!", "voice": "hf_beta", "speed": 1.05}
+ ],
  "edge": [
-  {"id": "a2", "text": "ابھی؟! اتنی بھاگ دوڑ میں؟ چلو، میں ساتھ چلتی ہوں!", "voice": "ur-PK-UzmaNeural", "rate": "+5%"},
-  {"id": "m1", "text": "رکو! نیچے نالی کا گڑھا کھلا ہے!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz", "asr": 1},
-  {"id": "m1b", "text": "رکو! نیچے نالی کا کھڈا کھلا ہے!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz", "asr": 1},
-  {"id": "m2b", "text": "بمپر ٹوٹ گیا! وین کھڈے کی طرف!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz", "asr": 1},
-  {"id": "a1", "text": "ہائے! ڈرائیور بھائی گھنٹی بجانے اترے، اور وین پھسل گئی!", "voice": "ur-PK-UzmaNeural", "rate": "+5%", "asr": 1}
+  {"id": "m3", "text": "شاباش! بچے بالکل ٹھیک ہیں! اب پہیوں کے پیچھے اینٹ لگا دیتا ہوں!", "voice": "ur-IN-SalmanNeural", "rate": "-5%", "pitch": "-15Hz", "asr": 1}
  ]
 }
