@@ -1,0 +1,175 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 3.818
+},
+{
+"id": "sc2",
+"start": 3.818,
+"lines": [
+"n2"
+],
+"dur": 4.058
+},
+{
+"id": "sc3",
+"start": 7.876,
+"lines": [
+"n3"
+],
+"dur": 7.581
+},
+{
+"id": "sc4",
+"start": 15.457,
+"lines": [
+"n4"
+],
+"dur": 5.535
+},
+{
+"id": "sc5",
+"start": 20.992,
+"lines": [
+"q1"
+],
+"dur": 5.752
+},
+{
+"id": "sc6",
+"start": 26.744,
+"lines": [
+"n5"
+],
+"dur": 6.338
+},
+{
+"id": "sc7",
+"start": 33.082,
+"lines": [
+"n6"
+],
+"dur": 6.26
+},
+{
+"id": "sc8",
+"start": 39.342,
+"lines": [
+"q2"
+],
+"dur": 3.664
+},
+{
+"id": "sc9",
+"start": 43.006,
+"lines": [
+"n7"
+],
+"dur": 4.106
+},
+{
+"id": "sc10",
+"start": 47.112,
+"lines": [
+"n8"
+],
+"dur": 4.966
+},
+{
+"id": "sc11",
+"start": 52.078,
+"lines": [
+"n9"
+],
+"dur": 3.69
+},
+{
+"id": "sc12",
+"start": 55.768,
+"lines": [
+"n10"
+],
+"dur": 4.131
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 3.678,
+"kind": "N",
+"cap": "The person who always agrees with you... might be your biggest risk."
+},
+"n2": {
+"start": 3.878,
+"dur": 3.958,
+"kind": "N",
+"cap": "Machiavelli called flatterers a pest... and said courts are full of them."
+},
+"n3": {
+"start": 7.936,
+"dur": 7.421,
+"kind": "N",
+"cap": "A captain shares his plan. Everyone says... great idea! Nobody mentions the weak defence... until match day."
+},
+"n4": {
+"start": 15.517,
+"dur": 5.275,
+"kind": "N",
+"cap": "Take Emperor Maximilian. He kept his plans secret... and asked nobody for advice."
+},
+"q1": {
+"start": 21.052,
+"dur": 5.652,
+"kind": "Q",
+"cap": "A man close to him said... \"He consulted with no one, yet never got his own way in anything.\""
+},
+"n5": {
+"start": 26.804,
+"dur": 6.118,
+"kind": "N",
+"cap": "His plans came out... his people pushed back... he gave in. Done one day... undone the next."
+},
+"n6": {
+"start": 33.142,
+"dur": 6.0,
+"kind": "N",
+"cap": "Shutting people out isn't the answer. Pick wise people... ask them everything... then decide yourself."
+},
+"q2": {
+"start": 39.402,
+"dur": 3.564,
+"kind": "Q",
+"cap": "\"The more freely he shall speak, the more he shall be preferred.\""
+},
+"n7": {
+"start": 43.066,
+"dur": 4.006,
+"kind": "N",
+"cap": "Reward whoever brings bad news... and bad news stops hiding."
+},
+"n8": {
+"start": 47.172,
+"dur": 4.866,
+"kind": "N",
+"cap": "This morning, ask someone you trust... what am I getting wrong? Then just listen."
+},
+"n9": {
+"start": 52.138,
+"dur": 3.59,
+"kind": "N",
+"cap": "Who always tells you the truth? Shout them out in the comments."
+},
+"n10": {
+"start": 55.828,
+"dur": 3.071,
+"kind": "N",
+"cap": "Follow Awazzzz... and keep honest people close."
+}
+},
+"total": 59.899
+}

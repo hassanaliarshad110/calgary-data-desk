@@ -1,0 +1,12 @@
+h1 [N] The person who always agrees with you... might be your biggest risk.
+n2 [N] Machiavelli called flatterers a pest... and said courts are full of them.
+n3 [N] A captain shares his plan. Everyone says... great idea! Nobody mentions the weak defence... until match day.
+n4 [N] Take Emperor Maximilian. He kept his plans secret... and asked nobody for advice.
+q1 [Q] A man close to him said... "He consulted with no one, yet never got his own way in anything."
+n5 [N] His plans came out... his people pushed back... he gave in. Done one day... undone the next.
+n6 [N] Shutting people out isn't the answer. Pick wise people... ask them everything... then decide yourself.
+q2 [Q] "The more freely he shall speak, the more he shall be preferred."
+n7 [N] Reward whoever brings bad news... and bad news stops hiding.
+n8 [N] This morning, ask someone you trust... what am I getting wrong? Then just listen.
+n9 [N] Who always tells you the truth? Shout them out in the comments.
+n10 [N] Follow Awazzzz... and keep honest people close.
