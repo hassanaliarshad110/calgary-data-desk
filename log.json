@@ -3102,11 +3102,17 @@
     ],
     "publish_at": "2026-11-21T18:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
     "youtube_category": "SPORTS",
-    "media_commit": "studio-videos f0408ba"
+    "media_commit": "studio-videos f0408ba",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1655165586352369",
+     "instagram": "https://www.instagram.com/reel/DgBhg6zDHi-/",
+     "youtube": "https://www.youtube.com/shorts/ji3hn9P6_tQ"
+    },
+    "confirmed_by": "2026-11-22 PM run"
    }
   ]
  },
@@ -3146,5 +3152,89 @@
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=22&timeframe=2&submit=Download+Data"
   ],
   "evidence_1641": "production/2026-11-22-MOMENT-watch/check-1641/"
+ },
+ {
+  "date": "2026-11-22",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "This Calgary street is named after an oil city in China",
+  "topic_used": "Daqing: in Chinatown, 2 Avenue SW is also Daqing Street/Avenue, named in 1985 for Calgary's twin city in China (City of Calgary Chinatown Historical Context Paper; SFU; Daily Hive); Daqing is an oil field and city, one of China's most important sources of oil (Britannica); Daqing Plaza at the Chinese Cultural Centre's west entrance (City paper).",
+  "changed_from_calendar": "Kept the calendar topic ('Calgary's sister cities around the world'), sharpened into one twist: the Chinatown street named for the twin city. No twinning years claimed (sources differ: Daily Hive gives 1981); only the City's 1985 street-naming year.",
+  "central_figure": "Street named in 1985 for Calgary's twin city in China (City of Calgary, Chinatown Historical Context Paper, p. 56)",
+  "sources": [
+   "https://www.calgary.ca/PDA/pd/Documents/Current-studies-and-ongoing-activities/tomorrows-chinatown/chinatown-context-paper.pdf",
+   "https://www.sfu.ca/chinese-canadian-history/calgary_chinatown_en.html",
+   "https://dailyhive.com/calgary/calgary-six-sister-cities",
+   "https://www.britannica.com/place/Daqing"
+  ],
+  "link": "https://calgaryinsight.ca/visit/downtown/?utm_source=facebook&utm_medium=social&utm_campaign=daqing-street",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed in the site source (web/visit_content.py builds visit/downtown/ with a 'Chinatown' tile, 'Centre St and 2 Ave SW').",
+  "length_s": 24.8,
+  "video_path": "studio-videos/2026-11-22-PM/daqing-street.mp4",
+  "thumbnail_path": "studio-videos/2026-11-22-PM/daqing-street-thumb.jpg",
+  "package": "packages/2026-11-22-PM-daqing-street.md",
+  "production": "production/2026-11-22-PM/",
+  "identity": "Data Explainer lead; Storyteller map dive (S0); Civic evidence stamps; techniques: map dive, sign-flip reveal, timeline stamp, schematic route arc + pumpjack, plaza build, closer",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 7,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-22-PM.md",
+   "note": "round 1: 'beside the Chinese Cultural Centre' tightened to 'at the Chinese Cultural Centre's west entrance'; dome added as C7"
+  },
+  "narration": {
+   "lane": "studio-probe",
+   "voice": "af_heart",
+   "asr_mean_acc": 1.0,
+   "lines": 6,
+   "check": 0,
+   "lexicon_added": [
+    "Daqing"
+   ]
+  },
+  "qc": {
+   "stills": "pass (stamp and chips moved clear of the caption band; pumpjack moved off the arc; closer lanterns replaced by a faint dome)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "frame 0: map dive moving + hook words on screen",
+    "closer 3.9 s, no end card",
+    "-14.5 LUFS, 9.8 MB, 24.8 s"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 438090382,
+    "uuid": "4689074941227322171",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4689074941227322171",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-22T18:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "youtube_category": "EDUCATION",
+    "media_commit": "studio-videos bcce44c"
+   }
+  ]
  }
 ]

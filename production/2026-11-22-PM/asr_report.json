@@ -1,0 +1,138 @@
+{
+ "summary": {
+  "v": {
+   "lines": 6,
+   "check": [],
+   "mean_acc": 1.0
+  }
+ },
+ "lexicon_entries": 33,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "This Calgary street is named after an oil city in China.",
+    "said": "This Calgary street is named after an oil city in China.",
+    "heard": "This Calgary street is named after an oil city in China.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.349,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "In Chinatown, Second Avenue Southwest has a second name: Daqing.",
+    "said": "In Chinatown, Second Avenue Southwest has a second name: Dah-ching.",
+    "heard": "In Chinatown, 2nd Avenue Southwest has a second name, Dodging.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.224,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "It was named in nineteen eighty-five, for Calgary's twin city in China.",
+    "said": "It was named in nineteen eighty-five, for Calgary's twin city in China.",
+    "heard": "It was named in 1985 for Calgary's Twin City in China.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.032,
+    "input_lufs": -21.9,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "Daqing is one of China's most important sources of oil.",
+    "said": "Dah-ching is one of China's most important sources of oil.",
+    "heard": "Daching is one of China's most important sources of oil.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.499,
+    "input_lufs": -22.7,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "There's even a Daqing Plaza, at the Chinese Cultural Centre's west entrance.",
+    "said": "There's even a Dah-ching Plaza, at the Chinese Cultural Centre's west entrance.",
+    "heard": "There's even a duching plaza at the Chinese cultural center's west entrance.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.629,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "Did you know this? Drop your thoughts below.",
+    "said": "Did you know this? Drop your thoughts below.",
+    "heard": "Did you know this? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.939,
+    "input_lufs": -21.7,
+    "status": "ok"
+   }
+  ]
+ }
+}
