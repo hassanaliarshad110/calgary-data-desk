@@ -1,0 +1,75 @@
+{
+ "gfx": "/home/claude/work/gfx",
+ "cold": {
+  "src": "/home/claude/susu/episodes/ep5/susuman_ep5_16x9.mp4",
+  "start": 57.4,
+  "end": 67.5
+ },
+ "eps": [
+  {
+   "ep": 5,
+   "src": "/home/claude/susu/episodes/ep5/susuman_ep5_16x9.mp4",
+   "start": 16.43,
+   "end": 107.09,
+   "chapter": "Bandar ne Dadi ka chashma churaya!"
+  },
+  {
+   "ep": 6,
+   "src": "/home/claude/susu/episodes/ep6/susuman_ep6_16x9.mp4",
+   "start": 36.3,
+   "end": 110.41,
+   "chapter": "Mele mein nanhi Pari kho gayi!",
+   "vend": 110.28
+  },
+  {
+   "ep": 4,
+   "src": "/home/claude/susu/episodes/ep4/susuman_ep4_16x9.mp4",
+   "start": 35.4,
+   "end": 104.06,
+   "chapter": "Kulfi ka thela dhalaan par bhaaga!"
+  },
+  {
+   "ep": 8,
+   "src": "/home/claude/media/ep8/susuman_ep8_16x9_coldopen.mp4",
+   "start": 0.0,
+   "end": 94.22,
+   "chapter": "Beech sadak par gaay, poora shehar jam!"
+  },
+  {
+   "ep": 2,
+   "src": "/home/claude/susu/episodes/ep3/susuman_barish_16x9.mp4",
+   "start": 22.65,
+   "end": 87.11,
+   "chapter": "Barish mein pilla naale ki taraf!"
+  },
+  {
+   "ep": 1,
+   "src": "/home/claude/susu/episodes/ep1/susuman_ep1_16x9_true.mp4",
+   "start": 45.4,
+   "end": 104.39,
+   "chapter": "Mano billi ped par phas gayi!",
+   "vend": 104.065
+  },
+  {
+   "ep": 3,
+   "src": "/home/claude/susu/episodes/ep2/susuman_patang_16x9.mp4",
+   "start": 43.85,
+   "end": 105.51,
+   "chapter": "Kabootar manjhe mein phas gaya!"
+  },
+  {
+   "ep": 7,
+   "src": "/home/claude/susu/episodes/ep7/susuman_ep7_16x9.mp4",
+   "start": 31.5,
+   "end": 109.81,
+   "chapter": "Mano billi machaan par chadh gayi!"
+  },
+  {
+   "ep": 9,
+   "src": "/home/claude/susu/episodes/ep9/susuman_ep9_16x9.mp4",
+   "start": 0.0,
+   "end": null,
+   "chapter": "Garmi mein chidiya gir gayi!"
+  }
+ ]
+}
