@@ -3121,8 +3121,8 @@
   "slot": "MOMENT",
   "type": "moment",
   "category": "Same-day moment (watch)",
-  "title": "Watched: Nov 22 (nothing rare so far)",
-  "status": "watching_none",
+  "title": "Watched: Nov 22 (nothing rare)",
+  "status": "closed_no_moment",
   "checked_at": "2026-11-22 16:46 Calgary (22:46 UTC)",
   "detection": {
    "temp": "CYYC SWOB local day so far (07:00Z-16:00Z): max -6.4 C, min -9.0 C; Nov 22 history 1926-2025 (99 yrs): bottom-5 highs -18.8..-21.7, bottom-5 lows -27.2..-30.8, top-5 highs 13.5..20.0: not near",
@@ -3141,9 +3141,17 @@
     "alerts": "none for Calgary bbox (api.weather.gc.ca, 22:45 UTC)",
     "traffic_incidents_today_so_far": "6 (feed to 22:29 UTC); prior 365-day max 111, p99 62: not rare",
     "news": "no confirmed rare Calgary event found (web search 16:44)"
+   },
+   "check_1941": {
+    "temp": "CYYC SWOB local day (07:00Z Nov 22-01:00Z Nov 23): max -6.4 C, min -10.6 C (latest -9.6 at 01:00Z); not near Nov 22 top/bottom 5 (highs 13.5..20.0 / -18.8..-21.7; lows -27.2..-30.8)",
+    "gust_max_km_h": 32.0,
+    "gust_ge_80": false,
+    "chinook": false,
+    "alerts": "none for Calgary bbox (api.weather.gc.ca, 01:44 UTC Nov 23)",
+    "traffic_incidents_today_so_far": "9 (feed to 00:42 UTC Nov 23); prior 365-day max 111: not rare",
+    "news": "no confirmed rare Calgary event found (web search 19:43)"
    }
   },
-  "next_check": "19:41",
   "evidence": "production/2026-11-22-MOMENT-watch/check-1041/",
   "sources": [
    "https://dd.weather.gc.ca/today/observations/swob-ml/20261122/CYYC/",
@@ -3151,7 +3159,9 @@
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=22&timeframe=2&submit=Download+Data"
   ],
-  "evidence_1641": "production/2026-11-22-MOMENT-watch/check-1641/"
+  "evidence_1641": "production/2026-11-22-MOMENT-watch/check-1641/",
+  "evidence_1941": "production/2026-11-22-MOMENT-watch/check-1941/",
+  "closed_at": "2026-11-22 19:46 Calgary"
  },
  {
   "date": "2026-11-22",

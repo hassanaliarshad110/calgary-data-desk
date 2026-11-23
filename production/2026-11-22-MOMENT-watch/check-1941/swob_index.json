@@ -1,0 +1,42 @@
+{
+ "https://dd.weather.gc.ca/20261122/WXO-DD/observations/swob-ml/20261122/CYYC/": [
+  "2026-11-22-0000-CYYC-MAN-swob.xml",
+  "2026-11-22-0100-CYYC-MAN-swob.xml",
+  "2026-11-22-0200-CYYC-MAN-swob.xml",
+  "2026-11-22-0300-CYYC-MAN-swob.xml",
+  "2026-11-22-0344-CYYC-MAN-swob.xml",
+  "2026-11-22-0400-CYYC-MAN-swob.xml",
+  "2026-11-22-0500-CYYC-MAN-swob.xml",
+  "2026-11-22-0600-CYYC-MAN-swob.xml",
+  "2026-11-22-0700-CYYC-MAN-COR1-swob.xml",
+  "2026-11-22-0700-CYYC-MAN-swob.xml",
+  "2026-11-22-0753-CYYC-MAN-swob.xml",
+  "2026-11-22-0800-CYYC-MAN-swob.xml",
+  "2026-11-22-0900-CYYC-MAN-swob.xml",
+  "2026-11-22-1000-CYYC-MAN-swob.xml",
+  "2026-11-22-1100-CYYC-MAN-swob.xml",
+  "2026-11-22-1133-CYYC-MAN-swob.xml",
+  "2026-11-22-1200-CYYC-MAN-swob.xml",
+  "2026-11-22-1300-CYYC-MAN-swob.xml",
+  "2026-11-22-1328-CYYC-MAN-swob.xml",
+  "2026-11-22-1400-CYYC-MAN-swob.xml",
+  "2026-11-22-1412-CYYC-MAN-swob.xml",
+  "2026-11-22-1500-CYYC-MAN-swob.xml",
+  "2026-11-22-1600-CYYC-MAN-swob.xml",
+  "2026-11-22-1700-CYYC-MAN-swob.xml",
+  "2026-11-22-1800-CYYC-MAN-swob.xml",
+  "2026-11-22-1813-CYYC-MAN-swob.xml",
+  "2026-11-22-1900-CYYC-MAN-swob.xml",
+  "2026-11-22-1913-CYYC-MAN-swob.xml",
+  "2026-11-22-2000-CYYC-MAN-swob.xml",
+  "2026-11-22-2100-CYYC-MAN-swob.xml",
+  "2026-11-22-2200-CYYC-MAN-swob.xml",
+  "2026-11-22-2225-CYYC-MAN-swob.xml",
+  "2026-11-22-2250-CYYC-MAN-swob.xml",
+  "2026-11-22-2300-CYYC-MAN-swob.xml"
+ ],
+ "https://dd.weather.gc.ca/today/observations/swob-ml/20261123/CYYC/": [
+  "2026-11-23-0000-CYYC-MAN-swob.xml",
+  "2026-11-23-0100-CYYC-MAN-swob.xml"
+ ]
+}
