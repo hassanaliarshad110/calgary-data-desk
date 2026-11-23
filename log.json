@@ -3312,5 +3312,65 @@
   "status": "blocked-by-audit",
   "blocked_reason": "Round 3 auditor did not approve. All 21 factual claims PASSED in rounds 2 and 3; the remaining blocks were claims-table bookkeeping (source key not in the auditor's input and source codes clashing with scene IDs; teaser claim list missing C18/C19; teaser caption, titles and thumbnail not listed under their claims). Fixed in the package after round 3, but the 3-round limit means no narration, render or posting this run.",
   "posted": []
+ },
+ {
+  "date": "2026-11-23",
+  "slot": "CIVIC",
+  "type": "civic",
+  "category": "Calgary news",
+  "title": "Cavalry FC made league history in Calgary: what happened",
+  "topic_used": "News explained: Cavalry FC beat Atletico Ottawa 3-2 in the CPL Final on Sat Nov 21, 2026 at ATCO Field, Spruce Meadows (Warschewski 5' and 74', minus 11 C wind chill, capacity 9,131); first club in the CPL's eight-year history to win both the regular-season Shield and the championship; fourth straight final, second title in three years (first 2024); already qualified for the 2027 Concacaf Champions Cup (27 clubs).",
+  "changed_from_calendar": null,
+  "why_this_story": "Most-talked-about Calgary story of the past 48 h (TSN/The Canadian Press, CBC, CTV, Calgary Journal); a first in league history, played in Calgary; published in Calgary News Nov 22. Not in log.json. Passed over: Bill 43 amendments (details not released; Nov 20 video on it blocked), budget deliberations (began today, outcomes not yet known; proposed budget covered Nov 11).",
+  "central_figure": "First club in the CPL's eight-year history to win both the regular-season Shield and the championship (TSN/The Canadian Press; Calgary Journal)",
+  "sources": [
+   "https://www.tsn.ca/soccer/article/warschewski-scores-twice-as-cavalry-fc-beats-atletico-ottawa-to-win-cpl-final/",
+   "https://calgaryjournal.ca/2026/11/21/cavalry-fc-claim-historic-double-in-the-highest-scoring-canadian-premier-league-final-on-record/",
+   "https://www.concacaf.com/competitions/champions-cup/news/2027-concacaf-champions-cup-qualified-clubs"
+  ],
+  "length_s": 43.4,
+  "video_path": "studio-videos/2026-11-23-CIVIC/cavalry-fc-cpl-double.mp4",
+  "thumbnail": "studio-videos/2026-11-23-CIVIC/cavalry-fc-cpl-double-thumb.jpg",
+  "package": "packages/2026-11-23-CIVIC-cavalry-fc-cpl-double.md",
+  "scene": "production/2026-11-23-CIVIC/scene.js",
+  "identity": "Civic Analyst lead (match timeline, evidence chips, qualification card + stamp) + Storyteller snowy floodlit pitch push-in + Data Explainer counter slams",
+  "link": "https://calgaryinsight.ca/news/2026-11-22-cavalry-fc-beats-atletico-ottawa-3-2-at-spruce-meadows-to-win-the-cpl-/?utm_source=facebook&utm_medium=social&utm_campaign=cavalry-fc-cpl-double",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/news_pages.py writes news/<id>/ for each published story; story published Nov 22 23:37 UTC).",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 7,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-23-CIVIC.md",
+   "note": "Round 1 APPROVED; closing line shortened afterwards for the 4-second ending rule, so round 2 re-audited: APPROVED."
+  },
+  "narration": {
+   "lines": 8,
+   "asr_mean_acc": 0.993,
+   "asr_check": [],
+   "lexicon_added": [
+    "Warschewski",
+    "Concacaf",
+    "Atletico"
+   ]
+  },
+  "qc": {
+   "stills": "pass (fixed frame-0 fill, S6 counter/chip vs caption, S5 label overlap)",
+   "final": "pass (contact sheet, 43.4 s, -14.5 LUFS, captions == narration, ending 3.98 s, no end card)",
+   "scores": "all 2"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 439329286,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=737235891234033444",
+    "providers": [
+     "instagram REEL",
+     "facebook REEL",
+     "youtube short"
+    ],
+    "publish_at": "2026-11-23T15:00 America/Edmonton",
+    "status": "scheduled"
+   }
+  ]
  }
 ]
