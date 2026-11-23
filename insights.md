@@ -101,7 +101,7 @@ Small groups (1-3 videos) are a hint, not proof.
 - Times: Facebook's best hours did not move (weekdays 10:00 then 12:00, 15:00-18:00 close behind; weekends 10:00, Sunday also 18:00). Instagram returned data for the first time: strongest 16:00-21:00 (Fri 16:00 and 19:00, Wed 16:00 and 20:00, Thu 15:00 and 17:00-18:00, weekends 16:00 and 20:00; Mon/Tue peak 21:00). The current 12:30, 17:30 and 18:30 slots already fit both, so section 7's table was not changed.
 
 ### For Hassan to decide (not changed: these touch rules outside "What's working")
-- **Calgary Origins parts:** cut each part to 60-75 s (one beat, twist first) or post them at 12:30/18:30 instead of 10:00: they were the weakest regular format two weeks running (section 8).
+- **Calgary Origins parts (decided Nov 23: Hassan left it to the review):** from Episode 3 each part is a 60-75 s cut of its chapter's strongest beat, twist first; posting time stays 10:00 (Facebook's best hour). PLAYBOOK section 8 updated. Check next week whether parts beat the 376 median.
 - **Game promos:** they're posted outside the studio log; five on one day (Nov 18) pulled down that day's other posts. Spacing them through section 7's slots would avoid that.
 - **Calendar repeats** (not swapped, as they aren't like the bottom 3): Nov 30 AM "Pat Burns" repeats Origins Part 3; Dec 10 PM "winter chinook days" and Dec 16 AM "the Chinook arch" repeat the Nov 21 chinook flagship and the Nov 18 sun reel. The daily run should skip or replace them.
 
