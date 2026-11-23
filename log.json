@@ -3239,11 +3239,17 @@
     ],
     "publish_at": "2026-11-22T18:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
     "youtube_category": "EDUCATION",
-    "media_commit": "studio-videos bcce44c"
+    "media_commit": "studio-videos bcce44c",
+    "public_urls": {
+     "facebook": "https://facebook.com/reel/1672741424226350",
+     "instagram": "https://www.instagram.com/reel/DgEGatalWQ8/",
+     "youtube": "https://www.youtube.com/shorts/W3xeVtUqFvI"
+    },
+    "confirmed_by": "2026-11-23 FLAGSHIP run (getScheduledPosts)"
    }
   ]
  },
@@ -3273,5 +3279,38 @@
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=23&timeframe=2&submit=Download+Data"
   ]
+ },
+ {
+  "date": "2026-11-23",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "Bowness Was a Town: How Annexation Grew Calgary",
+  "series": "Calgary Insight Origins",
+  "topic_used": "How annexation grew Calgary, told through the towns it absorbed: Rouleauville/Mission (1907), the 1956-61 annexations (40 to 151 sq mi), Forest Lawn (1961), Montgomery (1963), Bowness's vote (1963, joined 1964, 154 sq mi), 2007 Rocky View lands",
+  "changed_from_calendar": "Same subject, new angle: dropped the unverified 'one of Canada's largest cities by land area' ranking; told through the absorbed towns (place-with-a-twist hook); 1894 kept to one line because today's PM fun fact is about 1894; skips 1912 (Origins Ep 3).",
+  "central_figure": "Town of Bowness voted 1,003 to 397 to join Calgary (Oct 1963); city grew from about 40 to about 154 square miles 1956-1964",
+  "sources": [
+   "https://read.aupress.ca/read/6dfd1abc-54b5-4f2f-9cec-eeb0e8ca10c5/section/24e9d231-3695-4172-8fc0-18315e0120f5",
+   "https://www.creb.com/News/CREBNow/2014/October/a_city_founded/",
+   "https://en.wikipedia.org/wiki/Forest_Lawn,_Calgary",
+   "https://www.thecanadianencyclopedia.ca/en/article/calgary",
+   "https://www.calgary.ca/planning/annexation.html",
+   "https://www.calgary.ca/property-owners/taxes/2007-annexed-properties.html",
+   "https://data.calgary.ca/d/surr-xmvs"
+  ],
+  "package": "packages/2026-11-23-FLAGSHIP-annexation-grew-calgary.md",
+  "identity": "storyteller (+ explainer area squares/counters, civic document card/vote bars)",
+  "link": "https://calgaryinsight.ca/communities/?utm_source=<platform>&utm_medium=social&utm_campaign=annexation-grew-calgary",
+  "link_check": "WebFetch of calgaryinsight.ca/communities/ refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/seo_pages.py writes communities/ and communities/<slug>/)",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 21,
+   "verdict": "NOT APPROVED",
+   "report": "audits/2026-11-23-FLAGSHIP.md"
+  },
+  "status": "blocked-by-audit",
+  "blocked_reason": "Round 3 auditor did not approve. All 21 factual claims PASSED in rounds 2 and 3; the remaining blocks were claims-table bookkeeping (source key not in the auditor's input and source codes clashing with scene IDs; teaser claim list missing C18/C19; teaser caption, titles and thumbnail not listed under their claims). Fixed in the package after round 3, but the 3-round limit means no narration, render or posting this run.",
+  "posted": []
  }
 ]
