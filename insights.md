@@ -4,6 +4,112 @@ Newest week at the top. Written by the Monday weekly review (PLAYBOOK section 0b
 
 ---
 
+## Week of Nov 16-22, 2026 (review run Nov 23, 2026)
+
+**Total: 39,912 views on 24 videos** (Facebook 14,759 · Instagram 24,755 · YouTube 398). Week before (Nov 9-15): 23,499 views on 30 videos, so **+16,413 (+70%) with fewer videos**. Without each week's biggest video: 31,984 vs 12,584 (about 2.5×). Median video: **963 views** (last week 319). Median Instagram 3-second skip: **49%** (last week 74.5%). Instagram + YouTube shares: 208 (last week 75); Instagram saves: 75.
+
+How this was measured: per post from Metricool (Facebook Reels FBRE10/11/13/07/08, Instagram Reels IGRE23/11/24/28/30/21/12/07, YouTube YTVP published-in-range: views, average view duration, likes, comments, shares), lifetime counts on Nov 23, matched to log.json by caption first line and post time, worked out with pandas. Metricool's timestamps run 6 h ahead of Calgary time. Each "video" combines all its posts (flagships: the Short on Instagram/YouTube, the widescreen film on Facebook/YouTube and the Facebook teaser). Facebook gives no reach (0), shares or saves per reel; "Avg watch" is weighted by views over every platform. *Comments: Instagram + YouTube, minus our own first-comment link (Facebook comment counts aren't available). The five game posts of Nov 18-19 (GTA 6 tie-ins for calgaryinsight.ca/game) are not in log.json; they were matched by caption. YouTube for the chinook flagship, Origins Part 4, the Flames and Daqing reels is not yet in Metricool's YouTube data (shown as –).
+
+### Per video (sorted by total views)
+
+| Video | Slot | Topic | Hook type | Length | First post (Calgary) | Total | FB | IG | YT | Avg watch (all) | IG 3-s skip | Shares | IG saves | Comments* | Link page |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| The Snow Eater: chinook (flagship) | FLAGSHIP | history | surprising fact | 71 s | Sat 12:32 | **7,928** | 5,122 | 2,806 | – | 21.7 s | 43.0% | 35 | 16 | 2 | /visit/explore/ |
+| 14 °C Sunday, snowfall warning today | MOMENT | news | lived moment (today) | 36 s | Tue 11:14 | **7,022** | 2,796 | 4,189 | 37 | 11.0 s | 46.5% | 45 | 9 | 0 | (none logged) |
+| Calgary's strangest heists | SPECIAL | history | story question | 89 s | Fri 20:30 | **3,126** | 1,101 | 2,014 | 11 | 20.9 s | 47.5% | 17 | 13 | 0 | /?view=videos |
+| Calgary's top predator: the coyote | PM | places | surprising fact | 22 s | Tue 18:30 | **2,580** | 621 | 1,932 | 27 | 8.4 s | 47.9% | 24 | 1 | 2 | /visit/river/ |
+| Forgotten streetcars (flagship) | FLAGSHIP | history | place with a twist | 68 s | Thu 12:32 | **2,518** | 589 | 1,909 | 20 | 16.2 s | 49.1% | 9 | 11 | 1 | /visit/explore/ |
+| Avenues had names (flagship) | FLAGSHIP | history | surprising fact | 68 s | Tue 12:32 | 2,224 | 497 | 1,698 | 29 | 16.2 s | 55.6% | 13 | 5 | 0 | /visit/downtown/ |
+| Street named after a Chinese oil city (Daqing) | PM | places | place with a twist | 25 s | Sun 18:30 | 2,076 | 233 | 1,843 | – | 8.2 s | 45.1% | 11 | 3 | 0 | /visit/downtown/ |
+| Zoo's 50 dinosaurs, one survived (Dinny) | PM | history | place with a twist | 22 s | Thu 18:30 | 1,951 | 273 | 1,651 | 27 | 8.6 s | 45.2% | 9 | 3 | 0 | /visit/explore/ |
+| A provincial park inside Calgary: Fish Creek | PM | places | place with a twist | 22 s | Mon 18:30 | 1,704 | 135 | 1,474 | 95 | 7.6 s | 46.0% | 6 | 3 | 0 | /visit/explore/ |
+| 333 days of sun has a catch | PM | places | myth to break | 20 s | Wed 18:30 | 1,601 | 8 | 1,586 | 7 | 10.5 s | 47.7% | 3 | 3 | 1 | /visit/explore/ |
+| Flames: only visitors to win the Cup at the Forum | PM | history | surprising fact | 22 s | Sat 18:30 | 1,341 | 286 | 1,055 | – | 6.3 s | 54.1% | 1 | 1 | 1 | /visit/ |
+| Game Part 1: the city | GAME (not in log) | game promo | trend tie-in | – | Wed 14:05 | 1,278 | 676 | 563 | 39 | 9.0 s | 60.5% | 4 | 3 | 0 | /game |
+| GTA 6 / free Calgary game: launch reel | GAME (not in log) | game promo | trend tie-in | – | Wed 08:45 | 648 | 93 | 547 | 8 | 7.5 s | 61.3% | 26 | 3 | 0 | /game |
+| Edmonton won the Grey Cup in Calgary | CIVIC | news | headline | 38 s | Mon 15:03 | 596 | 375 | 199 | 22 | 5.6 s | 50.0% | 0 | 0 | 0 | /news/<grey cup article> |
+| Spruce Meadows was a cattle feedlot | PM | places | place with a twist | 25 s | Fri 18:30 | 546 | 257 | 283 | 6 | 5.6 s | 49.0% | 0 | 0 | 1 | /visit/explore/ |
+| Would you pause giant data centres? | CIVIC | news | you question | 38 s | Wed 15:03 | 519 | 214 | 304 | 1 | 4.9 s | 63.1% | 1 | 0 | 0 | /news/<data centre article> |
+| Origins Ep 2, Part 3 | ORIGINS | history | surprising fact | 142 s | Fri 10:06 | 493 | 324 | 165 | 4 | 9.6 s | 56.5% | 1 | 1 | 0 | /visit/stampede/ |
+| Origins Ep 2, Part 4 | ORIGINS | history | statement | 142 s | Sat 10:02 | 387 | 202 | 185 | – | 9.9 s | 47.0% | 0 | 0 | 0 | /visit/stampede/ |
+| Origins Ep 2, Part 1 | ORIGINS | history | surprising fact | 138 s | Wed 10:08 | 376 | 189 | 181 | 6 | 7.2 s | 54.7% | 1 | 0 | 0 | /visit/stampede/ |
+| Origins Ep 2, Part 2 | ORIGINS | history | statement | 141 s | Thu 10:05 | 357 | 182 | 171 | 4 | 9.9 s | 55.4% | 2 | 0 | 0 | /visit/stampede/ |
+| GTA 6 / free Calgary game: long video | GAME (not in log) | game promo | trend tie-in | – | Wed 11:13 | 312 | 297 | 0 | 15 | 3.0 s | – | 0 | 0 | 0 | /game |
+| Game Part 2: getting around | GAME (not in log) | game promo | trend tie-in | – | Wed 17:30 | 257 | 237 | 0 | 20 | 2.8 s | – | 0 | 0 | 0 | /game |
+| Game Part 3: the stories | GAME (not in log) | game promo | trend tie-in | – | Wed 20:02 | 55 | 52 | 0 | 3 | 2.9 s | – | 0 | 0 | 0 | /game |
+| Origins Ep 2 full film (YouTube) | ORIGINS | history | statement | 525 s | Wed 09:32 | 17 | 0 | 0 | 17 | 148.0 s | – | 0 | 0 | 0 | /visit/stampede/ |
+
+YouTube is still tiny (398 views, 1% of the week). Best Short: Fish Creek (95). The Origins full film held viewers longest again (148 s average, 17 views).
+
+### Medians (total views per video; IG 3-second skip rate)
+
+| Group | Videos | Median views | Median IG skip |
+|---|---|---|---|
+| **Topic:** places | 5 | 1,704 | 48% |
+| history | 11 | 1,341 | 52% |
+| news | 3 | 596 | 50% |
+| game promo | 5 | 312 | 61% |
+| **Hook:** lived moment (today) | 1 | 7,022 | 46% |
+| story question | 1 | 3,126 | 48% |
+| place with a twist | 5 | 1,951 | 46% |
+| surprising fact | 6 | 1,782 | 54% |
+| myth to break | 1 | 1,601 | 48% |
+| headline | 1 | 596 | 50% |
+| you question | 1 | 519 | 63% |
+| statement | 3 | 357 | 51% |
+| trend tie-in | 5 | 312 | 61% |
+| **Length:** 46-75 s | 3 | 2,518 | 49% |
+| ≤25 s | 7 | 1,704 | 48% |
+| 26-45 s | 3 | 596 | 50% |
+| >75 s | 6 | 382 | 55% |
+| **Time:** midday 11-14 | 5 | 2,518 | 48% |
+| evening 17-19 | 8 | 1,652 | 48% |
+| late 19+ | 2 | 1,590 | 48% |
+| afternoon 14-17 | 3 | 596 | 60% |
+| morning 08-11 | 6 | 382 | 55% |
+| **Slot:** MOMENT | 1 | 7,022 | 46% |
+| SPECIAL | 1 | 3,126 | 48% |
+| FLAGSHIP | 3 | 2,518 | 49% |
+| PM | 7 | 1,704 | 48% |
+| CIVIC | 2 | 558 | 57% |
+| ORIGINS | 5 | 376 | 55% |
+| GAME (not in log) | 5 | 312 | 61% |
+
+Small groups (1-3 videos) are a hint, not proof.
+
+### Top 3 and bottom 3
+
+- **Top 3: The Snow Eater (chinook flagship, 7,928), the snowfall-warning moment (7,022), Calgary's strangest heists (3,126).** What they share: weather Calgarians feel (two of three; with last week's heat reel, weather has been the #1 video two weeks running) or a mystery told as a story ("Thieves broke through walls… in Calgary?"); the longest watch of the week (11-22 s vs a median of 8.5 s); the most Instagram shares (45, 35, 17) and saves (9-16); and they went out on days with 4 or fewer Facebook posts. The chinook widescreen film alone took 4,864 Facebook views on Saturday at 17:30, the best Facebook post of the week (the other two flagship films got 257 and 342).
+- **Bottom 3 (leaving out the YouTube-only Origins film, 17 views): game Part 3 (55), game Part 2 (257), the long game video (312).** All Wednesday Nov 18 GTA 6 tie-ins for the free Calgary game: a hook about a video game rather than about Calgary, Facebook and YouTube only (no Instagram copy), about 3 s average watch, and part of a day with 8 Facebook posts (5 of them game promos). The same evening the 333-days-of-sun reel got **8 Facebook views** (1,586 on Instagram): the same throttling after a burst that we saw on Nov 11.
+
+### Findings in plain words
+
+1. **The whole account lifted, not just one hit.** Last week one reel was 46% of all views; this week the top video is 20%, and 11 of 24 videos passed 1,300 views. Instagram skip fell from 75% to 49%: the 0b rules (moving frame 0, a one-line twist, 15-25 s fun facts) are working.
+2. **Weather and lived moments remain the strongest lever** (snow warning 4,189 on Instagram with 45 shares; chinook film 4,864 on Facebook).
+3. **Fun facts with a one-sentence twist on something everyone knows** (coyote, Daqing street, Dinny, Fish Creek, 333 days of sun) all got 1,470-1,940 Instagram views with 45-48% skip. The weakest fun facts opened on a record or a venue few people visit: Flames at the Forum (54% skip) and Spruce Meadows (283 Instagram views).
+4. **Flagship Shorts of 68-71 s work** (median 2,518, all three over 1,650 on Instagram) when line one is the twist. Length alone isn't the problem: the 89 s heists countdown held 29 s on Instagram.
+5. **Calgary Origins parts (~140 s each, 10:00) were the weakest regular format:** median 376 views, 55% skip, about 1 share each. Parts that opened on a statement ("The winter the chinook never came.") did no better than those with a fact.
+6. **News explained stays mid-table** (Grey Cup 596, data centres 519); the "would you…?" opening had the highest skip of the week's studio videos (63%).
+7. **Bunching still kills Facebook reach.** Wednesday had 9 videos and 8 Facebook posts: 5,063 views in total, median 376, against 1,951 on the other days.
+8. Comments are still near zero (8 from viewers all week); shares are the engagement that is growing.
+
+### What to change (applied in PLAYBOOK 0b "What's working")
+
+- Lean fun-fact and flagship picks toward weather, seasons and things Calgarians see every day; make a same-day moment whenever section 9's test is met.
+- Fun facts: one-sentence twist on a known place/name/animal, 15-25 s; avoid record/stat openings and places most people haven't been.
+- Keep no more than 4 Facebook posts a day and 60+ minutes between posts, including promos outside the studio log.
+- Times: Facebook's best hours did not move (weekdays 10:00 then 12:00, 15:00-18:00 close behind; weekends 10:00, Sunday also 18:00). Instagram returned data for the first time: strongest 16:00-21:00 (Fri 16:00 and 19:00, Wed 16:00 and 20:00, Thu 15:00 and 17:00-18:00, weekends 16:00 and 20:00; Mon/Tue peak 21:00). The current 12:30, 17:30 and 18:30 slots already fit both, so section 7's table was not changed.
+
+### For Hassan to decide (not changed: these touch rules outside "What's working")
+- **Calgary Origins parts:** cut each part to 60-75 s (one beat, twist first) or post them at 12:30/18:30 instead of 10:00: they were the weakest regular format two weeks running (section 8).
+- **Game promos:** they're posted outside the studio log; five on one day (Nov 18) pulled down that day's other posts. Spacing them through section 7's slots would avoid that.
+- **Calendar repeats** (not swapped, as they aren't like the bottom 3): Nov 30 AM "Pat Burns" repeats Origins Part 3; Dec 10 PM "winter chinook days" and Dec 16 AM "the Chinook arch" repeat the Nov 21 chinook flagship and the Nov 18 sun reel. The daily run should skip or replace them.
+
+### Calendar swaps made this week
+- None. The bottom 3 were game promos (not on the calendar), and no upcoming row is a game or trend tie-in.
+
+---
+
 ## Week of Nov 9-15, 2026 (review run Nov 16, 2026)
 
 **Total: 23,499 views on 30 videos** (Facebook 13,022 · Instagram 9,693 · YouTube 784). Week before (Nov 2-8, only 9 posts, the first two days of posting): 2,420 views, so about 9.7× more. Without the one breakout (the heat reel), 12,584 views: still about 5×. Median video: 320 views across all platforms.
