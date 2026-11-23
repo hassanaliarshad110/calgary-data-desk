@@ -1,0 +1,120 @@
+{
+ "summary": {
+  "v": {
+   "lines": 5,
+   "check": [],
+   "mean_acc": 1.0
+  }
+ },
+ "lexicon_entries": 37,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "Prince's Island was never named after a prince.",
+    "said": "Prince's Island was never named after a prince.",
+    "heard": "Prince's Island was never named after a prince.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.816,
+    "input_lufs": -22.6,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "It's named after a lumberman from Quebec, Peter Anthony Prince.",
+    "said": "It's named after a lumberman from Quebec, Peter Anthony Prince.",
+    "heard": "It's named after a lumberman from Quebec, Peter Anthony Prince.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.627,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "His company dug a channel to float logs in from Kananaskis, and that channel cut off an island.",
+    "said": "His company dug a channel to float logs in from Canuhnasskiss, and that channel cut off an island.",
+    "heard": "His company dug a channel to float logs in from Kananaskis, and that channel cut off an island.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.568,
+    "input_lufs": -22.6,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "Today the channel is the lagoon. And near it, he built Calgary's first hydro-electric plant.",
+    "said": "Today the channel is the lagoon. And near it, he built Calgary's first hydro-electric plant.",
+    "heard": "Today the channel is The Lagoon, and near it, he built Calgary's first hydroelectric plant.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.42,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "Did you know this? Yes or no. Drop your thoughts below.",
+    "said": "Did you know this? Yes or no. Drop your thoughts below.",
+    "heard": "Did you know this? Yes or no? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.22,
+    "input_lufs": -21.6,
+    "status": "ok"
+   }
+  ]
+ }
+}

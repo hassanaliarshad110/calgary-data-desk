@@ -3331,7 +3331,8 @@
     ],
     "file": "short",
     "publish_at": "2026-11-23T16:00",
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "publicUrl": "https://www.instagram.com/reel/DgGaHsSif7v/"
    },
    {
     "metricool_id": 439423427,
@@ -3341,7 +3342,8 @@
     ],
     "file": "short",
     "publish_at": "2026-11-23T16:00",
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "publicUrl": "https://www.youtube.com/shorts/ZQVNkqqmaM8"
    },
    {
     "metricool_id": 439423741,
@@ -3486,7 +3488,94 @@
      "youtube short"
     ],
     "publish_at": "2026-11-23T15:00 America/Edmonton",
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "publicUrls": [
+     "https://facebook.com/reel/3018514508512310",
+     "https://www.instagram.com/reel/DgGTlKijifk/",
+     "https://www.youtube.com/shorts/EGfS_nJVmmU"
+    ]
+   }
+  ]
+ },
+ {
+  "date": "2026-11-23",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Prince's Island was never named after a prince",
+  "topic_used": "Prince's Island is named after Peter Anthony Prince, a lumberman from Quebec (not royalty); his company (Eau Claire and Bow River Lumber Company) dug a channel to bring logs from Kananaskis to the sawmill, which cut off the island; the channel is now the lagoon; near it he built Calgary's first hydro-electric plant (1893, near the lagoon's east end).",
+  "changed_from_calendar": "Calendar topic 'Calgary became a city in 1894' overlaps today's FLAGSHIP (annexation, from 1894) and the posted city-history overview; picked a place-with-a-twist fun fact in the same category (places and names are the top topics in What's working).",
+  "central_figure": "Named after lumberman Peter Anthony Prince; the island was made by his company's log channel (City of Calgary, Prince's Island Park, History)",
+  "sources": [
+   "https://www.calgary.ca/parks/princes-island-park.html",
+   "https://amp.cbc.ca/news/canada/calgary/history-of-prince-s-island-park-1.5861007",
+   "https://dailyhive.com/calgary/princes-island-park-history",
+   "https://en.wikipedia.org/wiki/Prince%27s_Island_Park_(Calgary)"
+  ],
+  "link": "https://calgaryinsight.ca/visit/river/?utm_source=facebook&utm_medium=social&utm_campaign=princes-island-name",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed in the site source (web/visit_content.py builds visit/river/ with the 'rv-princes' Prince's Island Park tile).",
+  "length_s": 22.46,
+  "video_path": "studio-videos/2026-11-23-PM/princes-island.mp4",
+  "thumbnail_path": "studio-videos/2026-11-23-PM/princes-island-thumb.jpg",
+  "package": "packages/2026-11-23-PM-princes-island.md",
+  "production": "production/2026-11-23-PM/",
+  "identity": "Data Explainer lead; Storyteller map dive (S0); Civic-style schematic how-it-works (S3-S4); techniques: map dive, icon strike + stamp, name card + saw prop, schematic process, before/after channel->lagoon, closer",
+  "audit": {
+   "rounds": 1,
+   "claims_checked": 8,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-23-PM.md",
+   "note": "housekeeping: MILL row C9 added, C1 location corrected"
+  },
+  "narration": {
+   "lane": "studio-probe",
+   "voice": "af_heart",
+   "asr_mean_acc": 1.0,
+   "lines": 5,
+   "check": 0,
+   "note": "closing line pauses tightened to keep ending <= 4 s; wording unchanged"
+  },
+  "qc": {
+   "stills": "pass (S2-S4 moved clear of the caption band; stamps separated from chips)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "frame 0: map dive moving + hook on screen",
+    "closer 3.98 s, no end card",
+    "-14.5 LUFS, 6.5 MB, 22.46 s"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 439585975,
+    "uuid": "-9030821857025372778",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-9030821857025372778",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-23T18:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "youtube_category": "EDUCATION",
+    "media_commit": "studio-videos 0fd9c9d"
    }
   ]
  }
