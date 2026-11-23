@@ -56,21 +56,21 @@ Not used (could not be confirmed from a primary source in this run): today's tot
 | T2 | Full video on our page. Out or up? Drop your thoughts below. | | | ✓ |
 
 Opening hook: L0 (spoken from 0.3 s, on screen at frame 0). Closing viewer question: L15 (teaser: T2), two-sided ("out, or up?").
-Ending (all three files are under 2:00): no end card; closing question big with "Drop your thoughts below 👇" and a small calgaryinsight.ca line, held ~1.5 s after the voice; question-to-last-frame ≤ 4 s. Teaser: ~1.6 s "▶ FULL VIDEO · on our page · calgaryinsight.ca" card then the question.
+Ending (all three files are under 2:00): no end card; closing question big with "Drop your thoughts below 👇" and a small calgaryinsight.ca line, held ~1.5 s after the voice; question-to-last-frame ≤ 4 s. Teaser: ~1.6 s "▶ FULL VIDEO · on our Facebook page and YouTube" (calgaryinsight.ca as a separate small line) card then the question.
 
 ## 6. Scene-by-scene storyboard (both formats; durations come from the measured Kokoro lines, scene = line + gap)
-One scene per narration line. Wide (1920×1080) and Short (1080×1920, native vertical layout, key content y 300-1420, clear of the right 120 px) share the scene file (`--param cut=wide|short|teaser`).
+One scene per narration line. Every map scene with a highlighted community (S0, S1, S4, S8-S14, T0, T1) carries the small on-screen label "today's community boundaries" next to the map credit, so today's shapes are not read as the historic town limits. Wide (1920×1080) and Short (1080×1920, native vertical layout, key content y 300-1420, clear of the right 120 px) share the scene file (`--param cut=wide|short|teaser`).
 
 | Scene | Line | Purpose (what it explains) | Visual (technique) | Camera | Transition in |
 |---|---|---|---|---|---|
 | S0 | L0 | WHERE: Bowness and Forest Lawn are real places on today's map | **Visual hook, frame 0:** night-navy 3D map of the real City of Calgary (OSM boundary, Bow and Elbow, roads) already diving onto today's Bowness community, which flashes gold; hook text "BOWNESS WAS A TOWN." slams in at frame 0 (kinetic, 150 px vertical / 120 px wide), at ~2.4 s the camera whips east, Forest Lawn flashes gold, "SO WAS FOREST LAWN." | fast dive (0-1.2 s), whip pan east (2.2-2.8 s) | — (opens moving) |
-| R1 | L1 | sets the question | pull back to the whole city: both communities glow gold, a white "?" pin pulses on each; chip "HOW?" | crane up and out | match (map to map) |
-| R2 | L2 | WHEN: town 1884, city 1894 | 3D downtown drone at dusk (real OSM buildings) behind an animated timeline: ticks 1884 "TOWN" and 1894 "CITY" drop in | slow drone orbit | dissolve through time |
-| R3 | L3 | HOW: annexation = taking in land around it | top-down map; today's city boundary (labelled "today's city limits") draws itself as a gold line from downtown outward, rings ripple outward; chip "ANNEXATION" | top-down slow push | match |
-| R4 | L4 | WHERE/WHEN: Rouleauville → Mission, 1907 | map dives to today's Mission community beside the Elbow, gold fill; stamp "1907"; label "ROULEAUVILLE → MISSION"; small note "today's community boundary" | dive | push |
-| R5 | L5 | HOW MUCH: ~40 sq mi | area squares: a gold square labelled "~40 sq mi · mid-1950s" grows from zero beside a schematic note "squares to scale (area)" | locked, square scales up | zoom |
-| R6 | L6 | WHAT CHANGED: 40 → 151 sq mi, 1956-61 | the 40 square stays; a larger square (151) grows around it while a year counter runs 1956 → 1961 and stops; label "~151 sq mi · 1961" | slow push in | match (square to square) |
-| R7 | L7 | HOW MUCH: 70+ sq mi in 1961 | the 151 square splits to show a "70+ SQ MI ADDED · 1961" band; stamp "ALMOST DOUBLED" | locked | flash (shock) |
+| S1 | L1 | sets the question | pull back to the whole city: both communities glow gold, a white "?" pin pulses on each; chip "HOW?" | crane up and out | match (map to map) |
+| S2 | L2 | WHEN: town 1884, city 1894 | 3D downtown drone at dusk (real OSM buildings) behind an animated timeline: ticks 1884 "TOWN" and 1894 "CITY" drop in | slow drone orbit | dissolve through time |
+| S3 | L3 | HOW: annexation = taking in land around it | top-down map; today's city boundary (labelled "today's city limits") draws itself as a gold line from downtown outward, rings ripple outward; chip "ANNEXATION" | top-down slow push | match |
+| S4 | L4 | WHERE/WHEN: Rouleauville → Mission, 1907 | map dives to today's Mission community beside the Elbow, gold fill; stamp "1907"; label "ROULEAUVILLE → MISSION"; small note "today's community boundary" | dive | push |
+| S5 | L5 | HOW MUCH: ~40 sq mi | area squares: a gold square labelled "~40 sq mi · mid-1950s" grows from zero beside a schematic note "squares to scale (area)" | locked, square scales up | zoom |
+| S6 | L6 | WHAT CHANGED: 40 → 151 sq mi, 1956-61 | the 40 square stays; a larger square (151) grows around it while a year counter runs 1956 → 1961 and stops; label "~151 sq mi · 1961" | slow push in | match (square to square) |
+| S7 | L7 | HOW MUCH: 70+ sq mi in 1961 | the 151 square splits to show a "70+ SQ MI ADDED · 1961" band; stamp "ALMOST DOUBLED" | locked | flash (shock) |
 | S8 | L8 | the complication: Forest Lawn resisted | map: Forest Lawn (today's community boundary, labelled) in orange; document card "FOREST LAWN · 1956 RACE FOR MAYOR"; horizontal bar fills from 0 to 81 % "candidate against annexation" (bar on a 0-100 % track) | slow drift | dissolve |
 | S9 | L9 | WHEN: 1961 | stamp "1961 · PART OF CALGARY" lands on Forest Lawn; the community's border turns from orange to the city's gold | small push | push |
 | S10 | L10 | WHERE/WHEN: Montgomery 1963 | camera glides north-west along the Bow; Montgomery fills gold; stamp "1963" | drone glide | push |
@@ -79,7 +79,7 @@ One scene per narration line. Wide (1920×1080) and Short (1080×1920, native ve
 | S13 | L13 | 2007: ~25,000 acres from Rocky View | whole city boundary pulses; chip "2007 · ~25,000 ACRES FROM ROCKY VIEW" (shape of the 2007 lands not drawn: not in our geodata) | slow orbit | dissolve |
 | S14 | L14 | meaning | dusk drone over the real downtown, rising until the gold-lit communities and the city boundary fill the frame; text "REDRAWN AGAIN AND AGAIN" | crane rise | dissolve |
 | S15 | L15 | closing question | navy card over the darkened map: "Out or up?" (≥ 92 px vertical) with OUT/UP highlighted, "Drop your thoughts below 👇", small calgaryinsight.ca; held ~1.5 s after the voice | still | dissolve |
-Short = S0, S1, S2, S3, S5, S6, S8, S9, S11, S12, S15 (the same scene code, vertical layout). Teaser = S0 (T0), T1 (map pull-out with Forest Lawn + Bowness gold, vote bars, ~154 sq mi square), T2 (full-video card then question).
+Short = S0, S1, S2, S3, S5, S6, S8, S9, S11, S12, S15 (the same scene code, vertical layout; in the Short, S12 lights only Forest Lawn and Bowness, since the Mission and Montgomery lines are not in it). Teaser = S0 (T0), T1 (map pull-out with Forest Lawn + Bowness gold, vote bars, ~154 sq mi square), T2 (full-video card then question).
 
 ## 7. Visual generation prompts (optional paid cinematic version; NOT run in this render)
 Continuity tags: [CALGARY-NIGHT-MAP] navy land, gold highlights, white roads, blue Bow and Elbow rivers, north up; [DOWNTOWN-DUSK] real downtown Calgary skyline at dusk including the Calgary Tower and The Bow; [ARCHIVE-1950S] 1950s prairie town main street, low wooden and brick storefronts, no identifiable people.
@@ -104,7 +104,7 @@ Image prompts: thumbnail plate "navy stylised night map of north-west Calgary, B
 | Area squares (S5, S6, S12) | ~40 (mid-1950s), ~151 (1961), ~154 (1964); square sides ∝ √area | sq mi | C7, C8, C14 | Foran, Expansive Discourses (AU Press) |
 | Band (S7) | 70+ sq mi ("over 70"), 1961; "ALMOST DOUBLED" | sq mi | C9 | AU Press |
 | Bar (S8) | 81 % on a 0-100 % track | % of popular vote, Forest Lawn 1956 mayoralty | C10 | AU Press |
-| Stamps (S9, S10) | 1961, 1963 | year | C11, C12 | AU Press · CREB |
+| Stamps (S9, S10) | 1961, 1963 | year | C11, C12 | Wikipedia · AU Press · CREB |
 | Vote bars (S11) | YES 1,003 · NO 397, from zero | votes, Town of Bowness, Oct 1963 | C13 | AU Press |
 | Chip (S13) | 2007 · ~25,000 ACRES FROM ROCKY VIEW | acres | C15 | City of Calgary |
 | Maps | today's community boundaries (City of Calgary Open Data), OSM city limits, rivers, roads; north arrow | — | — | "Map data © OpenStreetMap contributors · City of Calgary Open Data" + "today's community boundaries" |
@@ -116,8 +116,9 @@ Image prompts: thumbnail plate "navy stylised night map of north-west Calgary, B
 - R4: The Canadian Encyclopedia, "Calgary" (Max L. Foran; last edited Feb 20, 2020): https://www.thecanadianencyclopedia.ca/en/article/calgary
 - R5: City of Calgary, "Annexation": https://www.calgary.ca/planning/annexation.html
 - R6: City of Calgary, "2007 annexed properties": https://www.calgary.ca/property-owners/taxes/2007-annexed-properties.html
-- R7 (context): AU Press, Chapter 5 "The Annexation Debates, 1972-1978": https://read.aupress.ca/read/6dfd1abc-54b5-4f2f-9cec-eeb0e8ca10c5/section/0ca6250b-cfc4-45a7-a21c-27667061f6ad
-- Map: OpenStreetMap contributors (ODbL); City of Calgary Open Data, Community District Boundaries (surr-xmvs).
+- R7: City of Calgary Open Data, Community District Boundaries (surr-xmvs): https://data.calgary.ca/d/surr-xmvs
+- R8 (context only, no claim relies on it): AU Press, Chapter 5 "The Annexation Debates, 1972-1978": https://read.aupress.ca/read/6dfd1abc-54b5-4f2f-9cec-eeb0e8ca10c5/section/0ca6250b-cfc4-45a7-a21c-27667061f6ad
+- Map base: OpenStreetMap contributors (ODbL): https://www.openstreetmap.org/copyright
 
 ## 10. YouTube titles and descriptions; captions
 - Short title: `Bowness Was Once Its Own Town | Calgary Insight Origins #shorts`
@@ -169,7 +170,7 @@ first_comment: `▶ Full film: https://youtu.be/<id>` + newline + `🔗 Look up 
 Vertical (1080×1920, all text inside the centre 1080×1350) and widescreen (1280×720): navy night map of north-west Calgary with today's Bowness community lit gold beside the blue Bow River; headline "BOWNESS WAS A TOWN" in Fira Sans 800 (≥ 130 px vertical, ≥ 110 px wide), "WAS A TOWN" in gold; no kicker; small logo + "Calgary Insight ORIGINS" (ORIGINS orange) in a corner. 4-6 words, no numbers. The video's frame 0 uses the same design (same map, same headline).
 
 ## 12. Short-form promotional version (teaser, 9:16, ~22 s)
-T0 (= L0, map hook as S0) → T1 (map pull-out: Forest Lawn and Bowness gold, vote bars YES 1,003 / NO 397, area square ~154 sq mi · 1964) → T2 ("▶ FULL VIDEO · on our page · calgaryinsight.ca" for ~1.6 s, then the closing question card). Claims: C1, C2, C11, C13 (spoken in T1: "Bowness even voted to join"; vote bars shown), C14, C18, C19, C21 only.
+T0 (= L0, map hook as S0) → T1 (map pull-out: Forest Lawn and Bowness gold, vote bars YES 1,003 / NO 397, area square ~154 sq mi · 1964) → T2 ("▶ FULL VIDEO · on our Facebook page and YouTube" (calgaryinsight.ca as a separate small line) for ~1.6 s, then the closing question card). Claims: C1, C2, C11, C13 (spoken in T1: "Bowness even voted to join"; vote bars shown), C14, C18, C19, C21 only.
 
 ---
 
@@ -197,12 +198,26 @@ EDL = one scene per line in the order of section 6 (in/out times written to the 
 1884 TOWN / 1894 CITY → C4 · ANNEXATION → C5 · 1907, ROULEAUVILLE → MISSION → C6 · ~40 sq mi → C7 · 1956→1961, ~151 sq mi → C8 · 70+ SQ MI ADDED · 1961, ALMOST DOUBLED → C9 · 81 % → C10 · 1961 PART OF CALGARY → C11 · 1963 (Montgomery) → C12 · OCTOBER 1963 VOTE, YES 1,003 / NO 397 → C13 · ~154 sq mi · 1964 → C14 · 2007 · ~25,000 ACRES FROM ROCKY VIEW → C15 · BOWNESS WAS A TOWN / SO WAS FOREST LAWN → C1, C2 · REDRAWN AGAIN AND AGAIN → C17.
 
 ## 19. Quality control
-Not run: the fact audit did not approve the package after 3 rounds (status blocked-by-audit), so nothing was narrated or rendered.
+| # | Check | Score | Note |
+|---|---|---|---|
+| 1 | Opening visually compelling | 2 | frame 0 already diving onto Bowness (lit gold), "BOWNESS" on screen at frame 0, full hook by 0.5 s; same design as the thumbnail |
+| 2 | Every scene adds information | 2 | map = where, timeline = when, squares = how much, card/bars = the vote |
+| 3 | Achievable | 2 | all built with the free engine from real geography; no placeholder frames |
+| 4 | Transitions | 2 | match/dissolve/push/whip/flash/zoom with reasons; one brief text cross-over at the L5→L6 match (0.4 s) |
+| 5 | Consistent style | 2 | one night-map look, gold = part of Calgary, orange = outside; north arrow on every map |
+| 6 | Data visuals accurate | 2 | counters land on 81 %, 1,003, 397; squares to scale by area; bars from zero; source line on every data scene; maps credited and labelled "today's community boundaries" / "today's city limits" |
+| 7 | Documentary, not slideshow | 2 | motion in every scene; 5 techniques (map dive, drone, timeline, area squares, vote bars/result card) |
+| 7b | No step back | 2 | hook 150 px vertical / 120 px wide, chips ≥ 50, closing question 92 px |
+| 8 | Safe areas | 1 | teaser T1: the ~154 sq mi inset brushes the Forest Lawn label for ~3 s; everything else clear |
+| 9 | Captions = audited narration | 2 | built from the approved lines; closing line split at its own pause (same words) |
+| 10 | Sound | 2 | voice on top, story bed + 38/51/11 cues; -14.5 / -14.5 / -14.6 LUFS |
+| 11 | Ending | 2 | all under 2:00: closing question card, no end card, question to last frame ≤ 4 s |
+Narration lane: asr mean accuracy 0.972 on 18 lines; 2 lines flagged "check" (5, 11) only because the recogniser wrote the spoken numbers as digits ("mid-1950s", "1,003 to 397"); listened lengths normal. Lacombe added to the lexicon (luh-KOHM).
 
 ---
 
 ## Claims table (section 3b)
-Source key (R = reference; S0-S15 are scene numbers): R1 AU Press, Foran, Expansive Discourses, ch. 3 https://read.aupress.ca/read/6dfd1abc-54b5-4f2f-9cec-eeb0e8ca10c5/section/24e9d231-3695-4172-8fc0-18315e0120f5 · R2 CREB 2014 https://www.creb.com/News/CREBNow/2014/October/a_city_founded/ · R3 Wikipedia, Forest Lawn https://en.wikipedia.org/wiki/Forest_Lawn,_Calgary · R4 The Canadian Encyclopedia https://www.thecanadianencyclopedia.ca/en/article/calgary · R5 City of Calgary, Annexation https://www.calgary.ca/planning/annexation.html · R6 City of Calgary, 2007 annexed properties https://www.calgary.ca/property-owners/taxes/2007-annexed-properties.html · R7 City of Calgary Open Data, Community District Boundaries https://data.calgary.ca/d/surr-xmvs
+Source key (R = reference; S0-S15 are scene numbers): R1 AU Press, Foran, Expansive Discourses, ch. 3 https://read.aupress.ca/read/6dfd1abc-54b5-4f2f-9cec-eeb0e8ca10c5/section/24e9d231-3695-4172-8fc0-18315e0120f5 · R2 CREB 2014 https://www.creb.com/News/CREBNow/2014/October/a_city_founded/ · R3 Wikipedia, Forest Lawn https://en.wikipedia.org/wiki/Forest_Lawn,_Calgary · R4 The Canadian Encyclopedia https://www.thecanadianencyclopedia.ca/en/article/calgary · R5 City of Calgary, Annexation https://www.calgary.ca/planning/annexation.html · R6 City of Calgary, 2007 annexed properties https://www.calgary.ca/property-owners/taxes/2007-annexed-properties.html · R7 City of Calgary Open Data, Community District Boundaries https://data.calgary.ca/d/surr-xmvs · R8 (context only, no claim relies on it) AU Press ch. 5 https://read.aupress.ca/read/6dfd1abc-54b5-4f2f-9cec-eeb0e8ca10c5/section/0ca6250b-cfc4-45a7-a21c-27667061f6ad
 | # | Claim as worded | Exact figure, unit, period, boundary | Label | Source URL | Where in the source |
 |---|---|---|---|---|---|
 | C1 | "Bowness was once its own town." (L0, T0; on screen and thumbnail "BOWNESS WAS A TOWN"; titles "Bowness Was Once Its Own Town", "Bowness Was a Town: …"; captions) | Town of Bowness, before Aug 1964 | fact | R1; R2 | R1: "The Town of Bowness voted 1003 to 397…"; R2 Bowness section: "blossom into a town" |
@@ -223,6 +238,6 @@ Source key (R = reference; S0-S15 are scene numbers): R1 AU Press, Foran, Expans
 | C16 | "Not everyone wanted in." (L8) | — | interpretation (supported by C10 and R1: the Town "was prepared to fight for its survival") | R1 | Forest Lawn passage |
 | C17 | "Calgary's map was never finished. It's been redrawn again and again, one border at a time." (L14; REDRAWN AGAIN AND AGAIN) | — | interpretation | R5; R1 | summary of C5-C15 |
 | C18 | Closing question: "Should Calgary keep growing out, or build up? Out or up?" (L15, T2) | — | question (not a fact; must be neutral) | — | — |
-| C19 | Map labels: BOWNESS, FOREST LAWN, MONTGOMERY, MISSION drawn with today's community boundaries (label "today's community boundaries" visible on every map scene with a highlighted community: scenes S0, S1, S4, S8-S13 and teaser T0, T1; historic town limits differed, e.g. the former Town of Forest Lawn also took in portions of today's Albert Park/Radisson Heights) | City of Calgary Community District Boundaries, dataset surr-xmvs (updated Nov 1, 2026) | fact | https://data.calgary.ca/d/surr-xmvs ; city limits, rivers, roads: OpenStreetMap https://www.openstreetmap.org/copyright | dataset page; credit line on screen |
+| C19 | Map labels: BOWNESS, FOREST LAWN, MONTGOMERY, MISSION drawn with today's community boundaries (label "today's community boundaries" visible on every map scene with a highlighted community: scenes S0, S1, S4, S8-S14 and teaser T0, T1; historic town limits differed, e.g. the former Town of Forest Lawn also took in portions of today's Albert Park/Radisson Heights) | City of Calgary Community District Boundaries, dataset surr-xmvs (updated Nov 1, 2026) | fact | https://data.calgary.ca/d/surr-xmvs ; city limits, rivers, roads: OpenStreetMap https://www.openstreetmap.org/copyright | dataset page; credit line on screen |
 | C20 | Caption: "Calgary grew by taking in the towns and land around it, and one town even voted to join." | — | fact | R1; R5; R6 | C5, C13, C15 (2007 lands were County land) |
-| C21 | Teaser card and T2: "Full video on our page" (on screen "▶ FULL VIDEO · on our page · calgaryinsight.ca"); teaser caption "▶ Full film on our YouTube channel: Calgary Insight" | the full film is posted on the Calgary Insight Facebook page (post B, 17:30) and YouTube the same day; the teaser is a Facebook Reel | fact (our own posting plan) | — | section 7 posting plan |
+| C21 | Teaser card and T2: "Full video on our page" (on screen "▶ FULL VIDEO · on our Facebook page and YouTube" (calgaryinsight.ca as a separate small line)); teaser caption "▶ Full film on our YouTube channel: Calgary Insight" | the full film is posted on the Calgary Insight Facebook page (post B, 17:30) and YouTube the same day; the teaser is a Facebook Reel | fact (our own posting plan) | — | section 7 posting plan |

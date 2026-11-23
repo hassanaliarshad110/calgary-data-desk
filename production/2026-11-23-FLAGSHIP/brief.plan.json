@@ -1,0 +1,18 @@
+ASSET PLAN · channel=calgaryinsight · terms: 151, 1894, 1907, 1956, 1961, 1963, 1964, 2007, 3d, annexation, annexations, area, became, borders, boundary, bowness, burst, calgary
+  characters    CHR-007 Zahra (Explainer host; in Susuman: Zah | CHR-008 Ammar (Construction foreman; in Susuma
+  motions       MOV-017 Motion: celebrate | MOV-002 Motion: walk | MOV-008 Motion: talk | MOV-019 Motion: point
+  environments  3DS-001 Realistic 3D downtown Calgary (OpenStr | ENV-012 Environment: calgary skyline | ENV-003 Environment: city street
+  props         M3D-001 sofa_02_1k.gltf | M3D-002 wooden_table_02_1k.gltf | M3D-003 Camera_01_1k.gltf | M3D-004 Television_01_1k.gltf | M3D-005 potted_plant_02_1k.gltf | M3D-006 marble_bust_01_1k.gltf
+  vfx           
+  graphics      GFX-009 Graphic: pin | GFX-010 Graphic: route | LOT-010 Lottie: map_ping | SVG-004 Animated SVG: map_ping | GFX-005 Graphic: counter | GFX-020 Graphic: timeline | TXT-007 Animated text: counter | GFX-008 Graphic: map
+  maps_data     GEO-010 downtown_buildings.json | GEO-014 downtown_parks_water.json | GEO-008 communities_ab7m-fwn6.geojson
+  camera        CAM-006 Camera preset: kenBurns
+  transitions   TRN-002 Transition: dissolve
+  music         MUS-001 Music: documentary calm 72bpm | ACM-004 Monkeys_Spinning_Monkeys.mp3
+  sfx           AMB-003 Ambience: city
+  fonts         FNT-005 Inter[opsz,wght].ttf | FNT-007 FiraSans-Black.ttf
+  ⚠ credit: 3DS-001 Realistic 3D downtown Calgary (OpenStreetMap buildings, river, parks, LRT, Plus 15 footbridges): Code original; map data ODbL (credit "© OpenStreetMap contributors")
+  ⚠ credit: GEO-010 downtown_buildings.json: ODbL 1.0 - credit "© OpenStreetMap contributors"
+  ⚠ credit: GEO-014 downtown_parks_water.json: ODbL 1.0 - credit "© OpenStreetMap contributors"
+  ⚠ credit: GEO-008 communities_ab7m-fwn6.geojson: Open Government Licence - City of Calgary (credit the City)
+  ⚠ credit: ACM-004 Monkeys_Spinning_Monkeys.mp3: CC BY 4.0 - credit "Kevin MacLeod (incompetech.com)"

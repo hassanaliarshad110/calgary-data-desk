@@ -3304,14 +3304,120 @@
   "link": "https://calgaryinsight.ca/communities/?utm_source=<platform>&utm_medium=social&utm_campaign=annexation-grew-calgary",
   "link_check": "WebFetch of calgaryinsight.ca/communities/ refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/seo_pages.py writes communities/ and communities/<slug>/)",
   "audit": {
-   "rounds": 3,
+   "rounds": 5,
    "claims_checked": 21,
-   "verdict": "NOT APPROVED",
-   "report": "audits/2026-11-23-FLAGSHIP.md"
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-23-FLAGSHIP.md",
+   "note": "Rounds 1-3 not approved (bookkeeping only; all claims passed from round 2). Hassan asked live on Nov 23 to keep running fresh audits until approved; round 5 APPROVED."
   },
-  "status": "blocked-by-audit",
-  "blocked_reason": "Round 3 auditor did not approve. All 21 factual claims PASSED in rounds 2 and 3; the remaining blocks were claims-table bookkeeping (source key not in the auditor's input and source codes clashing with scene IDs; teaser claim list missing C18/C19; teaser caption, titles and thumbnail not listed under their claims). Fixed in the package after round 3, but the 3-round limit means no narration, render or posting this run.",
-  "posted": []
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 439423402,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-1752120217509410330",
+    "providers": [
+     "instagram"
+    ],
+    "file": "short",
+    "publish_at": "2026-11-23T16:00",
+    "status": "scheduled"
+   },
+   {
+    "metricool_id": 439423427,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=4094074742055455867",
+    "providers": [
+     "youtube"
+    ],
+    "file": "short",
+    "publish_at": "2026-11-23T16:00",
+    "status": "scheduled"
+   },
+   {
+    "metricool_id": 439423741,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=5971550587791494274",
+    "providers": [
+     "facebook"
+    ],
+    "file": "youtube",
+    "publish_at": "2026-11-23T17:30",
+    "status": "scheduled"
+   },
+   {
+    "metricool_id": 439423774,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=6759484268407704770",
+    "providers": [
+     "youtube"
+    ],
+    "file": "youtube",
+    "publish_at": "2026-11-23T17:30",
+    "status": "scheduled"
+   }
+  ],
+  "length_s": {
+   "short": 63.6,
+   "youtube": 93.2,
+   "teaser": 20.2
+  },
+  "video_path": {
+   "short": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-23-FLAGSHIP/annexation-grew-calgary-short.mp4",
+   "youtube": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-23-FLAGSHIP/annexation-grew-calgary-youtube.mp4",
+   "teaser": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-23-FLAGSHIP/annexation-grew-calgary-teaser.mp4",
+   "thumb": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-23-FLAGSHIP/annexation-grew-calgary-thumb.jpg",
+   "thumb_yt": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-23-FLAGSHIP/annexation-grew-calgary-thumb-yt.jpg"
+  },
+  "production": "production/2026-11-23-FLAGSHIP/",
+  "narration": {
+   "lane": "studio-probe",
+   "voice": "af_heart",
+   "asr_mean_acc": 0.972,
+   "asr_check_lines": [
+    5,
+    11
+   ],
+   "asr_note": "both flags are the recogniser writing spoken numbers as digits; lexicon: Lacombe added",
+   "closing_line_split": "v_15 split at 2.60 s into the question set-up and the closing card (same words)"
+  },
+  "qc": {
+   "stills": "pass",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "teaser T1: inset brushes the Forest Lawn label for ~3 s",
+    "L5→L6 match: 0.4 s text cross-over"
+   ]
+  },
+  "schedule_note": "Post A moved from 12:30 to 16:00 (the run was blocked, then re-run after Hassan's go-ahead at ~14:25; 16:00 is the earliest slot 60+ min from the 15:00 CIVIC and 17:30 post B). Post A split into an Instagram post and a YouTube post (different link lines); post B into Facebook and YouTube posts (different descriptions).",
+  "pending_link": [
+   {
+    "file": "annexation-grew-calgary-teaser.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-23-FLAGSHIP/annexation-grew-calgary-teaser.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-23-FLAGSHIP/annexation-grew-calgary-thumb.jpg",
+    "providers": [
+     {
+      "network": "facebook",
+      "type": "REEL"
+     }
+    ],
+    "caption_without_link": "Bowness was once its own town. So was Forest Lawn.\nCalgary Insight Origins: both became part of Calgary, and one of them voted to join.\nOut or up: how should Calgary grow? Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca\n\n#Calgary #yyc #CalgaryHistory #Bowness #ForestLawn",
+    "first_comment": "▶ Full film: https://youtu.be/<id>\n🔗 Look up your own community: https://calgaryinsight.ca/communities/?utm_source=facebook&utm_medium=social&utm_campaign=annexation-grew-calgary",
+    "post_at": "2026-11-23T20:00",
+    "link_to": 439423774,
+    "status": "pending"
+   }
+  ]
  },
  {
   "date": "2026-11-23",
