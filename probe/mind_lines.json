@@ -1,42 +1,91 @@
 [
 {
+"id": "h1",
+"text": "A bird escaped its cage... without breaking a single bar.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
 "id": "n2",
-"text": "Machiavelli called flatterers a pest... and said courts are full of them.",
+"text": "Rumi tells how.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "A captain shares his plan. Everyone says... great idea! Nobody mentions the weak defence... until match day.",
+"text": "A merchant heads to India. His caged parrot says... tell the wild parrots I'm locked in here.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "q1",
+"text": "He does... On hearing it, one of them at once fell down dead.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n4",
+"text": "Back home, his parrot hears this... and drops. Thrown out... it flies to a branch. Alive.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "q2",
+"text": "The wild parrot had only feigned death... to suggest this way of escaping from confinement in a cage.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n5",
-"text": "His plans came out... his people pushed back... he gave in. Done one day... undone the next.",
+"text": "In Rumi's full verse, the message was... your sweet voice keeps you caged.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n6",
-"text": "Shutting people out isn't the answer. Pick wise people... ask them everything... then decide yourself.",
+"text": "The gift that wins you praise... can become your cage.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n7",
-"text": "Reward whoever brings bad news... and bad news stops hiding.",
+"text": "The top student who never risks a wrong answer. The joker who can't say he's hurt.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n8",
+"text": "Freedom isn't smashing bars. It's dropping the performance.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n9",
-"text": "Who always tells you the truth? Shout them out in the comments.",
+"text": "Today, do one thing nobody will clap for... just to grow.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n10",
+"text": "What were you praised into? One word, in the comments.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n11",
+"text": "Follow Awaaz for tomorrow morning's lesson.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
