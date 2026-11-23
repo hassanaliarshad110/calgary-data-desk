@@ -35,8 +35,8 @@ def _get(u, t=60):
     return err
 mw = os.path.join(out, 'moment'); os.makedirs(mw, exist_ok=True)
 res = {}
-for day, base in [('20261121','https://dd.weather.gc.ca/20261121/WXO-DD/observations/swob-ml/20261121/CYYC/'),
-                  ('20261122','https://dd.weather.gc.ca/today/observations/swob-ml/20261122/CYYC/')]:
+for day, base in [('20261122','https://dd.weather.gc.ca/20261122/WXO-DD/observations/swob-ml/20261122/CYYC/'),
+                  ('20261123','https://dd.weather.gc.ca/today/observations/swob-ml/20261123/CYYC/')]:
     idx = _get(base)
     if idx.startswith('ERR'): res[base] = idx; continue
     files = sorted(set(re.findall(r'href="([^"]+\.xml)"', idx)))
@@ -52,7 +52,7 @@ for day, base in [('20261121','https://dd.weather.gc.ca/20261121/WXO-DD/observat
         for f, d in ex.map(one, files): obs[f] = d
     json.dump(obs, open(os.path.join(mw, f'swob_{day}.json'), 'w'), indent=0)
 json.dump(res, open(os.path.join(mw, 'swob_index.json'), 'w'), indent=1)
-jobs = [('alerts_api.txt','https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50'),
+jobs = [] or [('alerts_api.txt','https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50'),
         ('traffic_latest.json','https://data.calgary.ca/resource/35ra-9556.json?$order=start_dt_utc%20DESC&$limit=400'),
         ('traffic_rows_365d.json',"https://data.calgary.ca/resource/35ra-9556.json?$select=start_dt_utc,id&$where=start_dt_utc%3E'2025-11-21T00:00:00'&$limit=50000")]
 def dl(j):
