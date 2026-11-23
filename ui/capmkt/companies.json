@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-16",
+ "checked": "2026-11-23",
  "coverage": "Companies listed on the Toronto Stock Exchange and the TSX Venture Exchange that TMX lists with an Alberta head office (September 2026), excluding funds, exchange-traded products and capital pool companies. Canadian Securities Exchange companies are being added.",
  "groups": {
   "calgary": "Headquartered in Calgary",
@@ -44,7 +44,8 @@
    "city": "Calgary",
    "group": "calgary",
    "hq_source": "https://www.advantageog.com",
-   "hq_how": "Company website"
+   "hq_how": "Company website",
+   "note": "Agreed on November 16, 2026 to be acquired by Canadian Natural Resources; still listed until the deal closes"
   },
   {
    "ticker": "AUTO",
@@ -1061,7 +1062,8 @@
    "city": "Calgary",
    "group": "calgary",
    "hq_source": "https://www.greenfireres.com",
-   "hq_how": "Company website"
+   "hq_how": "Company website",
+   "note": "Agreed on November 8, 2026 to be acquired by Strathcona Resources; still listed until the deal closes"
   },
   {
    "ticker": "GZD",

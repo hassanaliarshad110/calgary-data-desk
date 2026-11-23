@@ -62,7 +62,7 @@ TOP = [
     {'id': 'tower', 'name': 'Calgary Tower', 'kind': 'Viewpoint', 'area': 'Downtown', 'lat': 51.0444, 'lon': -114.0631, 'indoor': True,
      'what': 'The 191 m tower from 1968, with an observation deck, a glass floor and a view to the Rockies on a clear day.', 'url': 'https://www.calgarytower.com/', 'fit': ['warm', 'cool', 'cold', 'wet']},
     {'id': 'glenbow', 'match': ['Glenbow Museum', 'Glenbow'], 'name': 'Glenbow at the JR Shaw Centre for Arts & Culture', 'kind': 'Museum', 'area': 'Downtown', 'lat': 51.0447, 'lon': -114.0609, 'indoor': True,
-     'what': 'Western Canada\'s largest museum, closed for its rebuild and reopening in 2027 with general admission paid for by an endowment, so visitors pay nothing to walk in.', 'url': 'https://www.glenbow.org/', 'fit': ['cold', 'wet', 'cool'], 'closed_until': '2027'},
+     'what': 'Western Canada\'s largest museum, closed for its rebuild and reopening in fall 2027 with general admission paid for by an endowment, so visitors pay nothing to walk in.', 'url': 'https://www.glenbow.org/', 'fit': ['cold', 'wet', 'cool'], 'closed_until': '2027'},
     {'id': 'studiobell', 'match': ['Studio Bell', 'National Music Centre'], 'name': 'Studio Bell, home of the National Music Centre', 'kind': 'Museum', 'area': 'Downtown', 'lat': 51.0426, 'lon': -114.0511, 'indoor': True,
      'what': "Canada's national music museum in East Village: instruments, recording studios and the Canadian Music Hall of Fame.", 'url': 'https://www.studiobell.ca/', 'fit': ['cold', 'wet', 'cool']},
     {'id': 'library', 'match': ['Calgary Central Library', 'Central Library'], 'name': 'Central Library', 'kind': 'Landmark', 'area': 'Downtown', 'lat': 51.04552, 'lon': -114.05507, 'indoor': True,
@@ -473,5 +473,5 @@ def build(cache_dir, today=None, force=False):
     out['stats'] = [{'n': a, 'what': b, 'source': c} for a, b, c in STATS]
     out['areas_about'] = [{'area': a, 'about': b} for a, b, _ in AREAS]
     out['sources'] = SOURCES
-    out['checked'] = '2026-11-16'
+    out['checked'] = '2026-11-23'
     return out
