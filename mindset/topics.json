@@ -142,9 +142,16 @@
    "hook": "Pinjre ka tota aur azaadi ka raaz",
    "source": "Masnavi Book I, the merchant and the parrot",
    "voice_of": "rumi",
-   "status": "making",
+   "status": "posted",
    "claimed_by": "morning",
-   "time": "2026-11-23T20:12Z"
+   "time": "2026-11-23T20:12Z",
+   "title": "A Bird Escaped Its Cage Without Breaking a Single Bar: Rumi's Parrot Story #shorts",
+   "metricool_uuid": "-9083613586747997470",
+   "post_time": "2026-11-24T08:30+05:30",
+   "type": "short 9:16, 0:57",
+   "video": "awazzz-media:mindset/2026-11-24-tota-aur-saudagar/no-bars-broken.mp4",
+   "source_text": "Masnavi Book I, Story VII 'The Merchant and his Clever Parrot', tr. E. H. Whinfield 1887 (archive.org OCR cu31924026910251, read via web fetch; sacred-texts and runner fetches blocked Nov 24) + vv. 1830-32 paraphrase (Dar al-Masnavi footnotes citing Nicholson 1926)",
+   "structure": "riddle hook + story retold + praised-roles commentary"
   },
   {
    "slug": "dikhta-vs-hai",
