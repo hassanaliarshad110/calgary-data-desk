@@ -1,5 +1,5 @@
 {
- "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-22 2026.",
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-23 2026.",
  "ur": {
   "اللہ کے نبی ﷺ": "اللہ کے نبی",
   "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
@@ -67,7 +67,12 @@
   "جنابِ حمزہ": "جناب حمزہ",
   "ثُوَیبہ": "ثوے بہ",
   "اُحد": "اوحد",
-  "شعبِ ابی طالب": "شعب ابو طالب"
+  "شعبِ ابی طالب": "شعب ابو طالب",
+  "بشیر بن جذلم": "بشیر بن جذ لم",
+  "کتاب اللہوف": "کتاب لُہوف",
+  "اللہوف": "لُہوف",
+  "اہلِ یثرب": "اہل یس رب",
+  "چونسٹھ ہجری": "چونسَٹھ ہجری"
  },
  "ar": {
   "رسول الله ﷺ": "رسولِ الله، صلّى اللهُ عليه وآله وسلّم،",

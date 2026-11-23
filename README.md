@@ -33,6 +33,7 @@ Hard rules
 Posting schedule (since Nov 14 2026: two topics a day, each in Urdu and Arabic, Facebook Reels, Asia/Dubai)
 - Topic 2 (calendar columns H-K): 13:00 Urdu, 16:00 Arabic.
 - Topic 1 (calendar columns C-G, tied to the Hijri date): 19:00 Urdu, 21:00 Arabic.
+- Topic 1 is tied to the Hijri date; where a date is only commemorated (not recorded in the books), say so in the script (e.g. ep23, Umm al-Banin).
 - If a slot has passed: next time at least 15 min from now and 60 min from every other Shia Voice post that day, Urdu before Arabic. No teaser cuts.
 - Two daily tasks share this repo: the episode number is the next after the highest folder in episodes/; always `git pull --rebase` before pushing.
 
