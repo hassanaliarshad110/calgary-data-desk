@@ -143,7 +143,7 @@ Closing question (Q/C) is two-sided (yes or no) and neutral; not a fact.
 | 10 | Sound -14.5 LUFS, voice on top | 2 | 2 | 2 |
 | 11 | Ending: closer 3.9 s (Short/wide), 2.65 s (teaser), no end card | 2 | 2 | 2 |
 Narration: studio-probe af_heart, 18 lines, ASR mean 0.981; lines 2 and 9 flagged "check" only because the recogniser wrote the spoken numbers as digits (3900, 1900s, 25,000): words spoken correctly. Teaser line T2's two sentence pauses tightened (wording unchanged).
-Lengths: Short 81.1 s, wide 94.9 s, teaser 15.9 s (shorter than the 20-30 s teaser guide; content limited to audited lines).
+Lengths (after the metric revision): Short 83.1 s, wide 97.0 s, teaser 15.9 s (shorter than the 20-30 s teaser guide; content limited to audited lines).
 
 
 ## 10. Revision 1 (Hassan, Nov 23 23:10): Canadian metric units

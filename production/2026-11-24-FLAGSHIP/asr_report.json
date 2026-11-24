@@ -3,10 +3,9 @@
   "v": {
    "lines": 18,
    "check": [
-    2,
-    9
+    2
    ],
-   "mean_acc": 0.981
+   "mean_acc": 0.988
   }
  },
  "lexicon_entries": 37,
@@ -124,29 +123,9 @@
    },
    {
     "i": 5,
-    "text": "By nineteen twenty-five, Calgary covered about forty square miles, and it barely changed until the mid-fifties.",
-    "said": "By nineteen twenty-five, Calgary covered about forty square miles, and it barely changed until the mid-fifties.",
-    "heard": "By 1925, Calgary covered about 40 square miles and it barely changed until the mid-50s.",
-    "acc": 0.944,
-    "mismatches": [
-     "fifties->50s"
-    ],
-    "speed": 1.0,
-    "takes": [
-     {
-      "speed": 1.0,
-      "acc": 0.944
-     }
-    ],
-    "dur": 6.613,
-    "input_lufs": -22.4,
-    "status": "ok"
-   },
-   {
-    "i": 6,
-    "text": "Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than seventy square miles.",
-    "said": "Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than seventy square miles.",
-    "heard": "Then it grew fast. In 1961 alone, it took in the town of Forest Lawn, the community of Midnapore, and more than 70 square miles.",
+    "text": "By nineteen twenty-five, Calgary covered about a hundred square kilometres, and it barely changed until the mid-fifties.",
+    "said": "By nineteen twenty-five, Calgary covered about a hundred square kilometres, and it barely changed until the mid-fifties.",
+    "heard": "By 1925, Calgary covered about a hundred square kilometers and it barely changed until the mid-fifties.",
     "acc": 1.0,
     "mismatches": [],
     "speed": 1.0,
@@ -156,8 +135,26 @@
       "acc": 1.0
      }
     ],
-    "dur": 8.983,
-    "input_lufs": -22.0,
+    "dur": 6.933,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 6,
+    "text": "Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than one hundred and eighty square kilometres.",
+    "said": "Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than one hundred and eighty square kilometres.",
+    "heard": "Then it grew fast. In 1961 alone, it took in the town of Forest Lawn, the community of Midnapore, and more than 180 square kilometers.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 9.985,
+    "input_lufs": -22.2,
     "status": "ok"
    },
    {
@@ -180,9 +177,9 @@
    },
    {
     "i": 8,
-    "text": "By nineteen seventy-eight, Calgary covered one hundred and eighty-nine square miles.",
-    "said": "By nineteen seventy-eight, Calgary covered one hundred and eighty-nine square miles.",
-    "heard": "By 1978, Calgary covered 189 square miles.",
+    "text": "By nineteen seventy-eight, Calgary covered about four hundred and ninety square kilometres.",
+    "said": "By nineteen seventy-eight, Calgary covered about four hundred and ninety square kilometres.",
+    "heard": "By 1978, Calgary covered about 490 square kilometers.",
     "acc": 1.0,
     "mismatches": [],
     "speed": 1.0,
@@ -192,38 +189,29 @@
       "acc": 1.0
      }
     ],
-    "dur": 4.693,
-    "input_lufs": -22.4,
+    "dur": 4.8,
+    "input_lufs": -22.3,
     "status": "ok"
    },
    {
     "i": 9,
-    "text": "In two thousand seven, it added about twenty-five thousand acres from Rocky View County.",
-    "said": "In two thousand seven, it added about twenty-five thousand acres from Rocky View County.",
-    "heard": "In 2007, it added about 25,000 acres from Rocky View County.",
-    "acc": 0.867,
+    "text": "In two thousand seven, it added about one hundred and three square kilometres from Rocky View County.",
+    "said": "In two thousand seven, it added about one hundred and three square kilometres from Rocky View County.",
+    "heard": "In 2007, it added about 103 square kilometers from Rocky View County.",
+    "acc": 0.941,
     "mismatches": [
-     "(extra)->and",
-     "thousand->zero"
+     "(extra)->and"
     ],
     "speed": 1.0,
     "takes": [
      {
       "speed": 1.0,
-      "acc": 0.867
-     },
-     {
-      "speed": 0.94,
-      "acc": 0.867
-     },
-     {
-      "speed": 1.06,
-      "acc": 0.867
+      "acc": 0.941
      }
     ],
-    "dur": 5.248,
+    "dur": 5.931,
     "input_lufs": -22.4,
-    "status": "check"
+    "status": "ok"
    },
    {
     "i": 10,

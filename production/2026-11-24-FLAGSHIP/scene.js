@@ -146,8 +146,9 @@ const D = {
     square(c, 39.6, k, GOLD, { x: WIDE ? 260 : CX - side(39.6) / 2 });
     M.text(c, '~100 km²', WIDE ? 1000 : CX, WIDE ? 380 : 300, { size: L.big, weight: 800, align: WIDE ? 'left' : 'center' });
     chip(c, '1925', WIDE ? 520 : 450, ease(t, .5, .9), WIDE ? { x: 1004, align: 'left' } : {});
-    chip(c, 'BARELY CHANGED UNTIL THE MID-1950s', WIDE ? 620 : 560, ease(t, d * .55, d * .55 + .4, 'outBack'), Object.assign({ bg: '#ffffff', color: NAVY }, WIDE ? { x: 1004, align: 'left' } : {}));
-    M.text(c, 'to scale · converted from 39.6 sq mi', WIDE ? 1000 : CX, WIDE ? 720 : 680, { size: 28, weight: 500, align: WIDE ? 'left' : 'center', color: '#9fb0c8', alpha: ease(t, 1, 1.5) });
+    if (WIDE) chip(c, 'BARELY CHANGED UNTIL THE MID-1950s', 620, ease(t, d * .55, d * .55 + .4, 'outBack'), { bg: '#ffffff', color: NAVY, x: 1004, align: 'left' });
+    else { const kb = ease(t, d * .55, d * .55 + .4, 'outBack'); chip(c, 'BARELY CHANGED', 540, kb, { bg: '#ffffff', color: NAVY }); chip(c, 'UNTIL THE MID-1950s', 625, kb, { bg: '#ffffff', color: NAVY }); }
+    M.text(c, 'to scale · converted from 39.6 sq mi', WIDE ? 1000 : CX, WIDE ? 720 : 720, { size: 28, weight: 500, align: WIDE ? 'left' : 'center', color: '#9fb0c8', alpha: ease(t, 1, 1.5) });
     src(c, 'Source: Foran, Expansive Discourses (AU Press), Table 2'); },
   L6: (c, t, d) => { const p = ease(t, 0, d * .6, 'inOutCubic'), lk = ease(t, d * .35, d * .6);
     map(c, above(CITY, M.lerp(16000, WIDE ? 44000 : 52000, p), .2), lit(3, lk, { newCol: lk < 1 ? ORANGE : GOLD, labels: { 'FOREST LAWN': 'FOREST LAWN', 'MIDNAPORE': 'MIDNAPORE' }, lsize: WIDE ? 40 : 46 }), { bnd: 1, bndA: .35, bndW: 140 });

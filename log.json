@@ -3609,7 +3609,7 @@
   "category": "Calgary story",
   "title": "When Calgary Became a City, This Was All of It (wide: Calgary's Original Boundary, and How It Grew)",
   "requested_by": "Hassan, Nov 23 22:00, after a viewer comment on the Bowness film asking for 'the original settlement of Calgary'; scope: boundary at city status, growth town by town, full timeline, planned/under-discussion/potential annexations, Airdrie/Chestermere question",
-  "topic_used": "First city (Jan 1, 1894, ~3,900 people) on today's map (approx.); 17 Avenue southern edge in the early 1900s; Rouleauville/Mission 1907; Crescent Heights 1910; ~40 sq mi 1925, barely changed to mid-1950s; 1961 Forest Lawn + Midnapore, 70+ sq mi; Montgomery 1963, Bowness 1964; 189 sq mi 1978; 2007 ~25,000 acres from Rocky View; Foothills County ~428 acres near Sirocco (process started 2025, early stages); Rocky View southeast plan on hold for a partnership; Chestermere shares a border, Airdrie ~10 km north; amalgamation process in Alberta (negotiate, consult, province decides).",
+  "topic_used": "First city (Jan 1, 1894, ~3,900 people) on today's map (approx.); 17 Avenue southern edge in the early 1900s; Rouleauville/Mission 1907; Crescent Heights 1910; ~100 km² 1925 (converted), barely changed to mid-1950s; 1961 Forest Lawn + Midnapore, 180+ km² (converted); Montgomery 1963, Bowness 1964; ~490 km² 1978 (converted); 2007 ~103 km² from Rocky View; Foothills County ~173 ha near Sirocco (process started 2025, early stages); Rocky View southeast plan on hold for a partnership; Chestermere shares a border, Airdrie ~10 km north; amalgamation process in Alberta (negotiate, consult, province decides).",
   "changed_from_calendar": "Extra flagship (no calendar row); distinct from the Nov 23 Bowness film: map/timeline/future rather than the towns' votes.",
   "sources": [
    "https://www.calgary.ca/ca/city-clerks/archives/archival-records-gallery.html",
@@ -3632,11 +3632,11 @@
    "https://www.calgary.ca/content/dam/arb/pdf/m26.pdf"
   ],
   "length_s": {
-   "short": 81.07,
-   "wide": 94.9,
+   "short": 83.08,
+   "wide": 97.03,
    "teaser": 15.93
   },
-  "video_path": "studio-videos/2026-11-24-FLAGSHIP/",
+  "video_path": "studio-videos/2026-11-24-FLAGSHIP/ (posted: *-short-v2.mp4, *-youtube-v2.mp4, *-teaser.mp4)",
   "package": "packages/2026-11-24-FLAGSHIP-calgary-original-boundary.md",
   "production": "production/2026-11-24-FLAGSHIP/",
   "identity": "Storyteller lead (night map lighting up annexation by annexation, dusk drone); Data Explainer counter, stamps, to-scale squares; Civic Analyst evidence cards and process steps",
@@ -3679,50 +3679,54 @@
   "status": "done",
   "posted": [
    {
-    "metricool_id": 439810617,
+    "metricool_id": 439827287,
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-7825624446912675140",
     "providers": [
      "instagram REEL"
     ],
-    "file": "short",
+    "file": "short-v2",
     "publish_at": "2026-11-24T12:30",
     "status": "scheduled",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "note": "media replaced with the metric-units version (v2), Nov 23 23:37"
    },
    {
-    "metricool_id": 439810625,
+    "metricool_id": 439827301,
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-2447527862733550258",
     "providers": [
      "youtube short"
     ],
-    "file": "short",
+    "file": "short-v2",
     "publish_at": "2026-11-24T12:30",
     "status": "scheduled",
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "note": "media replaced with the metric-units version (v2), Nov 23 23:37"
    },
    {
-    "metricool_id": 439810647,
+    "metricool_id": 439827312,
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-3298621493196928294",
     "providers": [
      "facebook POST"
     ],
-    "file": "youtube",
+    "file": "youtube-v2",
     "publish_at": "2026-11-24T17:30",
     "status": "scheduled",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "note": "media replaced with the metric-units version (v2), Nov 23 23:37"
    },
    {
-    "metricool_id": 439810661,
+    "metricool_id": 439827324,
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=5018445292569709317",
     "providers": [
      "youtube video"
     ],
-    "file": "youtube",
+    "file": "youtube-v2",
     "publish_at": "2026-11-24T17:30",
     "status": "scheduled",
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "note": "media replaced with the metric-units version (v2), Nov 23 23:37"
    }
   ],
   "pending_link": [
@@ -3736,8 +3740,13 @@
     "caption_without_link": "Calgary once ended at Seventeenth Avenue.\nCalgary Insight Origins: it grew by taking in its neighbours, from Mission to Forest Lawn to Bowness, and the City is still working on a new annexation today.\nA question for you: should Airdrie or Chestermere ever join Calgary? Yes or no. Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca\n\n#Calgary #yyc #CalgaryHistory #Airdrie #Chestermere",
     "first_comment": "🔗 Look up your own community: https://calgaryinsight.ca/communities/?utm_source=facebook&utm_medium=social&utm_campaign=calgary-original-boundary",
     "post_at": "2026-11-24T20:00",
-    "link_to": 439810661
+    "link_to": 439827324
    }
-  ]
+  ],
+  "revision": {
+   "what": "Canadian metric units (Hassan, Nov 23 23:10): areas in km²/hectares; Foran sq-mi figures converted (×2.589988) and labelled",
+   "audit": "revision round APPROVED (audits/2026-11-24-FLAGSHIP.md)",
+   "asr_mean_acc": 0.988
+  }
  }
 ]
