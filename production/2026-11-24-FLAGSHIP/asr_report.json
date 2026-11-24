@@ -1,0 +1,382 @@
+{
+ "summary": {
+  "v": {
+   "lines": 18,
+   "check": [
+    2,
+    9
+   ],
+   "mean_acc": 0.981
+  }
+ },
+ "lexicon_entries": 37,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "When Calgary became a city, this was all of it.",
+    "said": "When Calgary became a city, this was all of it.",
+    "heard": "When Calgary became a city, this was all of it.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.517,
+    "input_lufs": -21.8,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "It became a town in eighteen eighty-four, and a city on New Year's Day, eighteen ninety-four.",
+    "said": "It became a town in eighteen eighty-four, and a city on New Year's Day, eighteen ninety-four.",
+    "heard": "It became a town in 1884 and a city on New Year's Day, 1894.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.992,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "About thirty-nine hundred people lived here. Even in the early nineteen-hundreds, its southern edge was Seventeenth Avenue.",
+    "said": "About thirty-nine hundred people lived here. Even in the early nineteen-hundreds, its southern edge was Seventeenth Avenue.",
+    "heard": "About 3900 people lived here, even in the early 1900s. Its southern edge was 17th Avenue.",
+    "acc": 0.842,
+    "mismatches": [
+     "thirty->three",
+     "nineteen->1900s",
+     "hundreds->(missing)"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.842
+     },
+     {
+      "speed": 0.94,
+      "acc": 0.842
+     },
+     {
+      "speed": 1.06,
+      "acc": 0.842
+     }
+    ],
+    "dur": 6.849,
+    "input_lufs": -22.4,
+    "status": "check"
+   },
+   {
+    "i": 3,
+    "text": "One by one, it took in its neighbours. In nineteen-oh-seven, the village of Rouleauville. Today, that's Mission.",
+    "said": "One by one, it took in its neighbours. In nineteen-oh-seven, the village of Roolowville. Today, that's Mission.",
+    "heard": "One by one, it took in its neighbors. In 1907, the village of Ruleville. Today, that's mission.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.531,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "In nineteen-ten, the village of Crescent Heights.",
+    "said": "In nineteen-ten, the village of Crescent Heights.",
+    "heard": "In 1910, the village of Crescent Heights",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.539,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "By nineteen twenty-five, Calgary covered about forty square miles, and it barely changed until the mid-fifties.",
+    "said": "By nineteen twenty-five, Calgary covered about forty square miles, and it barely changed until the mid-fifties.",
+    "heard": "By 1925, Calgary covered about 40 square miles and it barely changed until the mid-50s.",
+    "acc": 0.944,
+    "mismatches": [
+     "fifties->50s"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.944
+     }
+    ],
+    "dur": 6.613,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 6,
+    "text": "Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than seventy square miles.",
+    "said": "Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than seventy square miles.",
+    "heard": "Then it grew fast. In 1961 alone, it took in the town of Forest Lawn, the community of Midnapore, and more than 70 square miles.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 8.983,
+    "input_lufs": -22.0,
+    "status": "ok"
+   },
+   {
+    "i": 7,
+    "text": "Montgomery joined in nineteen sixty-three, and Bowness in nineteen sixty-four.",
+    "said": "Montgomery joined in nineteen sixty-three, and Boness in nineteen sixty-four.",
+    "heard": "Montgomery joined in 1963 and bonus in 1964.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.715,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 8,
+    "text": "By nineteen seventy-eight, Calgary covered one hundred and eighty-nine square miles.",
+    "said": "By nineteen seventy-eight, Calgary covered one hundred and eighty-nine square miles.",
+    "heard": "By 1978, Calgary covered 189 square miles.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.693,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 9,
+    "text": "In two thousand seven, it added about twenty-five thousand acres from Rocky View County.",
+    "said": "In two thousand seven, it added about twenty-five thousand acres from Rocky View County.",
+    "heard": "In 2007, it added about 25,000 acres from Rocky View County.",
+    "acc": 0.867,
+    "mismatches": [
+     "(extra)->and",
+     "thousand->zero"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.867
+     },
+     {
+      "speed": 0.94,
+      "acc": 0.867
+     },
+     {
+      "speed": 1.06,
+      "acc": 0.867
+     }
+    ],
+    "dur": 5.248,
+    "input_lufs": -22.4,
+    "status": "check"
+   },
+   {
+    "i": 10,
+    "text": "So, what's next? The City has started the process to annex a small piece of Foothills County, near Sirocco.",
+    "said": "So, what's next? The City has started the process to annex a small piece of Foothills County, near Sirocco.",
+    "heard": "So, what's next? The city has started the process to annex a small piece of Foothills County, near Sorroco.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.544,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 11,
+    "text": "A bigger plan for Rocky View land in the southeast was put on hold, for a partnership instead.",
+    "said": "A bigger plan for Rocky View land in the southeast was put on hold, for a partnership instead.",
+    "heard": "A bigger plan for Rocky View land in the southeast was put on hold, for a partnership instead.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.483,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 12,
+    "text": "You might wonder: what about Airdrie or Chestermere? Chestermere already shares a border with Calgary. Airdrie sits about ten kilometres north.",
+    "said": "You might wonder: what about Airdrie or Chestermere? Chestermere already shares a border with Calgary. Airdrie sits about ten kilometres north.",
+    "heard": "You might wonder, what about Airdrie or Chestermere? Chestermere already shares a border with Calgary. Airdrie sits about 10 kilometers north.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 8.188,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 13,
+    "text": "In Alberta, merging municipalities that share a border is up to the province, after the councils negotiate and consult the public.",
+    "said": "In Alberta, merging municipalities that share a border is up to the province, after the councils negotiate and consult the public.",
+    "heard": "In Alberta, merging municipalities that share a border is up to the province, after the councils negotiate and consult the public.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 7.979,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 14,
+    "text": "Should Airdrie or Chestermere ever join Calgary?",
+    "said": "Should Airdrie or Chestermere ever join Calgary?",
+    "heard": "Should Airdrie or Chestermere ever join Calgary?",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.752,
+    "input_lufs": -22.7,
+    "status": "ok"
+   },
+   {
+    "i": 15,
+    "text": "Yes or no? Drop your thoughts below.",
+    "said": "Yes or no? Drop your thoughts below.",
+    "heard": "Yes or no? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.725,
+    "input_lufs": -21.4,
+    "status": "ok"
+   },
+   {
+    "i": 16,
+    "text": "Then it took in its neighbours, one by one. Mission, Forest Lawn, Bowness, and more.",
+    "said": "Then it took in its neighbours, one by one. Mission, Forest Lawn, Boness, and more.",
+    "heard": "Then it took in its neighbors, one by one. Mission, forest lawn, bonus, and more.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.993,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 17,
+    "text": "Full video on our YouTube channel. Should Airdrie or Chestermere ever join Calgary? Drop your thoughts below.",
+    "said": "Full video on our YouTube channel. Should Airdrie or Chestermere ever join Calgary? Drop your thoughts below.",
+    "heard": "Full video on our YouTube channel. Should Airdrie or Chestermere ever join Calgary? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.972,
+    "input_lufs": -22.3,
+    "status": "ok"
+   }
+  ]
+ }
+}
