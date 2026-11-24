@@ -1,0 +1,175 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 2.632
+},
+{
+"id": "sc2",
+"start": 2.632,
+"lines": [
+"n2"
+],
+"dur": 5.207
+},
+{
+"id": "sc3",
+"start": 7.839,
+"lines": [
+"n3"
+],
+"dur": 4.537
+},
+{
+"id": "sc4",
+"start": 12.376,
+"lines": [
+"n4"
+],
+"dur": 4.784
+},
+{
+"id": "sc5",
+"start": 17.16,
+"lines": [
+"q1"
+],
+"dur": 8.107
+},
+{
+"id": "sc6",
+"start": 25.267,
+"lines": [
+"n5"
+],
+"dur": 4.908
+},
+{
+"id": "sc7",
+"start": 30.175,
+"lines": [
+"n6"
+],
+"dur": 4.532
+},
+{
+"id": "sc8",
+"start": 34.707,
+"lines": [
+"n7"
+],
+"dur": 6.593
+},
+{
+"id": "sc9",
+"start": 41.3,
+"lines": [
+"n8"
+],
+"dur": 6.18
+},
+{
+"id": "sc10",
+"start": 47.48,
+"lines": [
+"n9"
+],
+"dur": 5.136
+},
+{
+"id": "sc11",
+"start": 52.616,
+"lines": [
+"n10"
+],
+"dur": 3.132
+},
+{
+"id": "sc12",
+"start": 55.748,
+"lines": [
+"n11"
+],
+"dur": 3.134
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 2.522,
+"kind": "N",
+"cap": "Myth... a great idea sells itself."
+},
+"n2": {
+"start": 2.692,
+"dur": 5.137,
+"kind": "N",
+"cap": "Fact... a great idea makes enemies. Machiavelli knew it in 1513."
+},
+"n3": {
+"start": 7.899,
+"dur": 4.467,
+"kind": "N",
+"cap": "Maya, new on her team, finds a way to do the weekly report in half the time."
+},
+"n4": {
+"start": 12.436,
+"dur": 4.564,
+"kind": "N",
+"cap": "The people who built the old way push back. The people it helps... just shrug."
+},
+"q1": {
+"start": 17.22,
+"dur": 7.967,
+"kind": "Q",
+"cap": "He wrote... \"the innovator has for enemies all those who have done well under the old conditions, and lukewarm defenders in those who may do well under the new.\""
+},
+"n5": {
+"start": 25.327,
+"dur": 4.838,
+"kind": "N",
+"cap": "Two groups. One has something to lose. The other... doesn't believe it yet."
+},
+"n6": {
+"start": 30.235,
+"dur": 4.372,
+"kind": "N",
+"cap": "In essence... people don't trust new things until they've lived with them a long time."
+},
+"n7": {
+"start": 34.767,
+"dur": 6.523,
+"kind": "N",
+"cap": "My take? Stop pouring your energy into the critics. Win the shruggers... with proof, not speeches."
+},
+"n8": {
+"start": 41.36,
+"dur": 6.04,
+"kind": "N",
+"cap": "Maya quietly runs her method for one week... then shows the hours saved. Now the shruggers defend it."
+},
+"n9": {
+"start": 47.54,
+"dur": 5.066,
+"kind": "N",
+"cap": "Today, build the smallest version of your idea that works... and show one person it helps."
+},
+"n10": {
+"start": 52.676,
+"dur": 3.062,
+"kind": "N",
+"cap": "What change did people fight you on? Tell me below."
+},
+"n11": {
+"start": 55.808,
+"dur": 2.274,
+"kind": "N",
+"cap": "Follow Awazzzz... and keep building."
+}
+},
+"total": 58.882
+}

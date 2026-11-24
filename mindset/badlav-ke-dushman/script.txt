@@ -1,0 +1,12 @@
+h1 [N] Myth... a great idea sells itself.
+n2 [N] Fact... a great idea makes enemies. Machiavelli knew it in 1513.
+n3 [N] Maya, new on her team, finds a way to do the weekly report in half the time.
+n4 [N] The people who built the old way push back. The people it helps... just shrug.
+q1 [Q] He wrote... "the innovator has for enemies all those who have done well under the old conditions, and lukewarm defenders in those who may do well under the new."
+n5 [N] Two groups. One has something to lose. The other... doesn't believe it yet.
+n6 [N] In essence... people don't trust new things until they've lived with them a long time.
+n7 [N] My take? Stop pouring your energy into the critics. Win the shruggers... with proof, not speeches.
+n8 [N] Maya quietly runs her method for one week... then shows the hours saved. Now the shruggers defend it.
+n9 [N] Today, build the smallest version of your idea that works... and show one person it helps.
+n10 [N] What change did people fight you on? Tell me below.
+n11 [N] Follow Awazzzz... and keep building.
