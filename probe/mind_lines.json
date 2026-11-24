@@ -1,91 +1,98 @@
 [
 {
 "id": "h1",
-"text": "A bird escaped its cage... without breaking a single bar.",
+"text": "Why does the loudest person in the room... get the credit?",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "Rumi tells how.",
+"text": "Two new hires. Dan talks big in every meeting.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "A merchant heads to India. His caged parrot says... tell the wild parrots I'm locked in here.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "q1",
-"text": "He does... On hearing it, one of them at once fell down dead.",
+"text": "Aisha quietly fixes the problems nobody sees.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n4",
-"text": "Back home, his parrot hears this... and drops. Thrown out... it flies to a branch. Alive.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "q2",
-"text": "The wild parrot had only feigned death... to suggest this way of escaping from confinement in a cage.",
+"text": "Six months later... Dan gets promoted.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n5",
-"text": "In Rumi's full verse, the message was... your sweet voice keeps you caged.",
+"text": "Unfair? Machiavelli saw this coming... over five hundred years ago.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "q1",
+"text": "He wrote... men judge generally more by the eye than by the hand.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n6",
-"text": "The gift that wins you praise... can become your cage.",
+"text": "The eye is how you look. The hand is what people find up close... and few get that close.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "q2",
+"text": "Everyone sees what you appear to be... few really know what you are.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n7",
-"text": "The top student who never risks a wrong answer. The joker who can't say he's hurt.",
+"text": "He meant it as advice to rulers... you don't need every virtue... just seem to have them.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n8",
-"text": "Freedom isn't smashing bars. It's dropping the performance.",
+"text": "Don't copy the mask. Flip the lesson. Judge people by the hand... what they do, not what they promise.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n9",
-"text": "Today, do one thing nobody will clap for... just to grow.",
+"text": "And if you're Aisha... hidden work can't speak for you. Let the eye see it.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n10",
-"text": "What were you praised into? One word, in the comments.",
+"text": "Tonight, send your team one short note... three things you finished this month.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n11",
-"text": "Follow Awaaz for tomorrow morning's lesson.",
+"text": "Ever been an Aisha? Tell me in the comments.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n12",
+"text": "Follow Awaaz... and let your real work be seen.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
