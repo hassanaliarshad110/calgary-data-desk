@@ -1,5 +1,5 @@
 {
- "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-23 2026.",
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-24 2026.",
  "ur": {
   "اللہ کے نبی ﷺ": "اللہ کے نبی",
   "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
@@ -72,7 +72,8 @@
   "کتاب اللہوف": "کتاب لُہوف",
   "اللہوف": "لُہوف",
   "اہلِ یثرب": "اہل یس رب",
-  "چونسٹھ ہجری": "چونسَٹھ ہجری"
+  "چونسٹھ ہجری": "چونسَٹھ ہجری",
+  "حدیثِ کساء": "حدیث کسا"
  },
  "ar": {
   "رسول الله ﷺ": "رسولِ الله، صلّى اللهُ عليه وآله وسلّم،",
