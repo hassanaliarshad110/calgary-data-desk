@@ -1,0 +1,268 @@
+{
+ "scenes": [
+  {
+   "id": "cold",
+   "start": 0.0,
+   "dur": 5.878
+  },
+  {
+   "id": "why",
+   "start": 5.878,
+   "dur": 13.714
+  },
+  {
+   "id": "gag",
+   "start": 19.592,
+   "dur": 15.362
+  },
+  {
+   "id": "power",
+   "start": 34.954,
+   "dur": 7.827
+  },
+  {
+   "id": "rescue",
+   "start": 42.781,
+   "dur": 16.644
+  },
+  {
+   "id": "handoff",
+   "start": 59.425,
+   "dur": 11.8
+  },
+  {
+   "id": "secret",
+   "start": 71.225,
+   "dur": 15.007
+  },
+  {
+   "id": "cliff",
+   "start": 86.232,
+   "dur": 3.424
+  },
+  {
+   "id": "endcard",
+   "start": 89.656,
+   "dur": 15.347
+  }
+ ],
+ "lines": {
+  "c1": {
+   "scene": "cold",
+   "s": 0.3,
+   "d": 2.579,
+   "abs": 0.3,
+   "sp": "SAKINA",
+   "txt": "Arre! Pilla platform par|akela reh gaya!"
+  },
+  "p1": {
+   "scene": "cold",
+   "s": 3.279,
+   "d": 2.199,
+   "abs": 3.279,
+   "sp": "PARI",
+   "txt": "Golu! Mera Golu|neeche reh gaya!"
+  },
+  "d1": {
+   "scene": "why",
+   "s": 0.2,
+   "d": 3.807,
+   "abs": 6.078,
+   "sp": "DHARMENDER",
+   "txt": "Arre! Ye to Pari ka pilla hai!|Khidki se kood gaya!"
+  },
+  "l1": {
+   "scene": "why",
+   "s": 4.357,
+   "d": 2.638,
+   "abs": 10.235,
+   "sp": "LATIFA",
+   "txt": "Aur train chal padi!|Pari andar ro rahi hai!"
+  },
+  "b1": {
+   "scene": "why",
+   "s": 7.395,
+   "d": 3.032,
+   "abs": 13.273,
+   "sp": "BABA",
+   "txt": "Sab peeli line ke peeche!|Kinaare se door!"
+  },
+  "q1": {
+   "scene": "why",
+   "s": 10.828,
+   "d": 2.387,
+   "abs": 16.705,
+   "sp": "QASIM",
+   "txt": "Golu akela hai...|aur Pari bhi ro rahi hai!"
+  },
+  "qs": {
+   "scene": "gag",
+   "s": 0.3,
+   "d": 1.276,
+   "abs": 19.892,
+   "sp": "QASIM",
+   "txt": "Mama! Suusuu aayi hai!"
+  },
+  "pf": {
+   "scene": "gag",
+   "s": 1.776,
+   "d": 1.736,
+   "abs": 21.368,
+   "sp": "MAMA",
+   "txt": "Phir se?! Abhi to gaye the!"
+  },
+  "a2": {
+   "scene": "gag",
+   "s": 3.711,
+   "d": 2.392,
+   "abs": 23.303,
+   "sp": "MAMA",
+   "txt": "Station par?!|Chalo, main saath chalti hoon!"
+  },
+  "k2": {
+   "scene": "gag",
+   "s": 6.503,
+   "d": 3.308,
+   "abs": 26.095,
+   "sp": "SAKINA",
+   "txt": "Mamaaa... mujhe garam|samosa chahiyeee... abhiii..."
+  },
+  "a3": {
+   "scene": "gag",
+   "s": 10.411,
+   "d": 2.629,
+   "abs": 30.003,
+   "sp": "MAMA",
+   "txt": "Achha achha, rona band!|Samosa laati hoon!"
+  },
+  "jj": {
+   "scene": "gag",
+   "s": 13.29,
+   "d": 0.972,
+   "abs": 32.882,
+   "sp": "SAKINA",
+   "txt": "Jaa jaldi!"
+  },
+  "n2": {
+   "scene": "power",
+   "s": 0.6,
+   "d": 3.628,
+   "abs": 35.554,
+   "sp": "NARR",
+   "txt": "Sirf Sakina jaanti hai...|har flush ke saath Qasim ban jata hai..."
+  },
+  "qp": {
+   "scene": "power",
+   "s": 5.028,
+   "d": 1.599,
+   "abs": 39.982,
+   "sp": "QASIM",
+   "txt": "SUUU-SUUU-MAN!"
+  },
+  "q3": {
+   "scene": "rescue",
+   "s": 1.0,
+   "d": 1.524,
+   "abs": 43.781,
+   "sp": "QASIM",
+   "txt": "Daro mat Golu!|Main aa gaya!"
+  },
+  "d2": {
+   "scene": "rescue",
+   "s": 4.7,
+   "d": 1.328,
+   "abs": 47.481,
+   "sp": "DHARMENDER",
+   "txt": "Pilla patri par gir gaya!"
+  },
+  "l2": {
+   "scene": "rescue",
+   "s": 6.5,
+   "d": 2.738,
+   "abs": 49.281,
+   "sp": "LATIFA",
+   "txt": "Neeche mat utro!|Doosri train aa rahi hai!"
+  },
+  "q4": {
+   "scene": "rescue",
+   "s": 12.3,
+   "d": 0.744,
+   "abs": 55.081,
+   "sp": "QASIM",
+   "txt": "Pakad liya!"
+  },
+  "q5": {
+   "scene": "handoff",
+   "s": 3.0,
+   "d": 1.407,
+   "abs": 62.425,
+   "sp": "QASIM",
+   "txt": "Pari! Ye lo,|tumhara Golu!"
+  },
+  "p2": {
+   "scene": "handoff",
+   "s": 4.907,
+   "d": 1.692,
+   "abs": 64.333,
+   "sp": "PARI",
+   "txt": "Golu! Shukriya, superhero!"
+  },
+  "kt": {
+   "scene": "secret",
+   "s": 0.5,
+   "d": 1.615,
+   "abs": 71.725,
+   "sp": "MAMA",
+   "txt": "Qasim! Kahan the tum?"
+  },
+  "kn": {
+   "scene": "secret",
+   "s": 2.315,
+   "d": 1.102,
+   "abs": 73.54,
+   "sp": "QASIM",
+   "txt": "Kuch nahi Mama!"
+  },
+  "l3": {
+   "scene": "secret",
+   "s": 3.917,
+   "d": 3.156,
+   "abs": 75.142,
+   "sp": "LATIFA",
+   "txt": "Koi SUPERHERO aaya tha...|pilla train tak pahuncha diya!"
+  },
+  "q6": {
+   "scene": "secret",
+   "s": 7.373,
+   "d": 1.707,
+   "abs": 78.598,
+   "sp": "QASIM",
+   "txt": "Achha?|Mujhe to suusuu aayi thi!"
+  },
+  "b2": {
+   "scene": "secret",
+   "s": 9.68,
+   "d": 3.528,
+   "abs": 80.905,
+   "sp": "BABA",
+   "txt": "Hamari train aa gayi!|Sab Mama-Baba ka haath pakdo!"
+  },
+  "x1": {
+   "scene": "cliff",
+   "s": 0.4,
+   "d": 2.024,
+   "abs": 86.632,
+   "sp": "BASIM",
+   "txt": "Arre! Ball seedhi|khidki ki taraf!"
+  },
+  "n3": {
+   "scene": "endcard",
+   "s": 0.8,
+   "d": 6.947,
+   "abs": 90.456,
+   "sp": "NARR",
+   "txt": "Bachcho, hamesha Mama-Baba ke saath raho,|aur platform ke kinaare se door raho!~Video achhi lagi to|LIKE aur SUBSCRIBE karo!"
+  }
+ },
+ "total": 105.003
+}
