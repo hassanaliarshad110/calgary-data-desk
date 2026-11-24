@@ -1,0 +1,125 @@
+{
+ "kokoro": [
+  {
+   "id": "q1",
+   "voice": "hf_beta",
+   "speed": 1.05,
+   "text": "गोलू अकेला है... और परी भी रो रही है!"
+  },
+  {
+   "id": "q3",
+   "voice": "hf_beta",
+   "speed": 1.05,
+   "text": "डरो मत गोलू! मैं आ गया!"
+  },
+  {
+   "id": "q5",
+   "voice": "hf_beta",
+   "speed": 1.05,
+   "text": "परी! ये लो, तुम्हारा गोलू!"
+  },
+  {
+   "id": "k2",
+   "voice": "hf_alpha",
+   "speed": 0.85,
+   "text": "मामाऽऽ... मुझे गरम समोसा चाहिएऽऽ... अभीऽऽ..."
+  },
+  {
+   "id": "p1",
+   "voice": "hf_alpha",
+   "speed": 0.95,
+   "text": "गोलू! मेरा गोलू नीचे रह गया!"
+  },
+  {
+   "id": "p2",
+   "voice": "hf_alpha",
+   "speed": 1.0,
+   "text": "गोलू! शुक्रिया, सुपरहीरो!"
+  },
+  {
+   "id": "x1",
+   "voice": "hm_psi",
+   "speed": 1.05,
+   "text": "अरे! बॉल सीधी खिड़की की तरफ़!"
+  }
+ ],
+ "edge": [
+  {
+   "id": "d1",
+   "text": "अरे! ये तो परी का पिल्ला है! खिड़की से कूद गया!",
+   "asr": 1,
+   "voice": "hi-IN-MadhurNeural",
+   "rate": "+8%",
+   "pitch": "+25Hz"
+  },
+  {
+   "id": "l1",
+   "text": "اور ٹرین چل پڑی! پری اندر رو رہی ہے!",
+   "asr": 1,
+   "voice": "ur-IN-GulNeural",
+   "rate": "+8%",
+   "pitch": "+20Hz"
+  },
+  {
+   "id": "b1",
+   "text": "سب پیلی لائن کے پیچھے! کنارے سے دور!",
+   "asr": 1,
+   "voice": "ur-IN-SalmanNeural",
+   "rate": "-3%",
+   "pitch": "-8Hz"
+  },
+  {
+   "id": "a2",
+   "text": "اسٹیشن پر؟! چلو، میں ساتھ چلتی ہوں!",
+   "asr": 0,
+   "voice": "ur-PK-UzmaNeural",
+   "rate": "+5%"
+  },
+  {
+   "id": "a3",
+   "text": "اچھا اچھا، رونا بند! سموسہ لاتی ہوں!",
+   "asr": 0,
+   "voice": "ur-PK-UzmaNeural",
+   "rate": "+5%"
+  },
+  {
+   "id": "d2",
+   "text": "पिल्ला पटरी पर गिर गया!",
+   "asr": 1,
+   "voice": "hi-IN-MadhurNeural",
+   "rate": "+8%",
+   "pitch": "+25Hz"
+  },
+  {
+   "id": "l2",
+   "text": "نیچے مت اترو! دوسری ٹرین آ رہی ہے!",
+   "asr": 1,
+   "voice": "ur-IN-GulNeural",
+   "rate": "+8%",
+   "pitch": "+20Hz"
+  },
+  {
+   "id": "l3",
+   "text": "کوئی SUPERHERO آیا تھا... پلا ٹرین تک پہنچا دیا!",
+   "asr": 1,
+   "voice": "ur-IN-GulNeural",
+   "rate": "+8%",
+   "pitch": "+20Hz"
+  },
+  {
+   "id": "b2",
+   "text": "ہماری ٹرین آ گئی! سب ماما بابا کا ہاتھ پکڑو!",
+   "asr": 1,
+   "voice": "ur-IN-SalmanNeural",
+   "rate": "-3%",
+   "pitch": "-8Hz"
+  },
+  {
+   "id": "n3",
+   "text": "بچو، ہمیشہ ماما بابا کے ساتھ رہو، اور پلیٹ فارم کے کنارے سے دور رہو! ویڈیو اچھی لگی تو LIKE اور SUBSCRIBE کرو!",
+   "asr": 1,
+   "voice": "ur-PK-AsadNeural",
+   "rate": "+8%"
+  }
+ ]
+}
