@@ -1,98 +1,84 @@
 [
 {
 "id": "h1",
-"text": "Why does the loudest person in the room... get the credit?",
+"text": "Myth... a great idea sells itself.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "Two new hires. Dan talks big in every meeting.",
+"text": "Fact... a great idea makes enemies. Machiavelli knew it in fifteen thirteen.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "Aisha quietly fixes the problems nobody sees.",
+"text": "Maya, new on her team, finds a way to do the weekly report in half the time.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n4",
-"text": "Six months later... Dan gets promoted.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n5",
-"text": "Unfair? Machiavelli saw this coming... over five hundred years ago.",
+"text": "The people who built the old way push back. The people it helps... just shrug.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "q1",
-"text": "He wrote... men judge generally more by the eye than by the hand.",
+"text": "He wrote... the innovator has for enemies all those who have done well under the old conditions, and lukewarm defenders in those who may do well under the new.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n5",
+"text": "Two groups. One has something to lose. The other... doesn't believe it yet.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n6",
-"text": "The eye is how you look. The hand is what people find up close... and few get that close.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "q2",
-"text": "Everyone sees what you appear to be... few really know what you are.",
+"text": "In essence... people don't trust new things until they've lived with them a long time.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n7",
-"text": "He meant it as advice to rulers... you don't need every virtue... just seem to have them.",
+"text": "My take? Stop pouring your energy into the critics. Win the shruggers... with proof, not speeches.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n8",
-"text": "Don't copy the mask. Flip the lesson. Judge people by the hand... what they do, not what they promise.",
+"text": "Maya quietly runs her method for one week... then shows the hours saved. Now the shruggers defend it.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n9",
-"text": "And if you're Aisha... hidden work can't speak for you. Let the eye see it.",
+"text": "Today, build the smallest version of your idea that works... and show one person it helps.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n10",
-"text": "Tonight, send your team one short note... three things you finished this month.",
+"text": "What change did people fight you on? Tell me below.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n11",
-"text": "Ever been an Aisha? Tell me in the comments.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n12",
-"text": "Follow Awaaz... and let your real work be seen.",
+"text": "Follow Awaaz... and keep building.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
