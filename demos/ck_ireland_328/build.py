@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+"""Cricket Kahani — Ireland chase 328: Kevin O'Brien's 50-ball hundred (Bengaluru, 2 March 2011).
+Vertical 1080x1920.   python3 build.py [timeline|render|mix|cover|all]
+Scenes: scenes.js (this episode's own) on top of ../ck_kit/kit.js; steps and mix levels: ../ck_kit/ckbuild.py."""
+import os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '../ck_kit')); import ckbuild
+# (shot, 'at' seconds | 'rel' fraction of the voice line, position, sound in render/audio.py, gain[, args])
+CUES = [
+    ('s0', 'at', 0.05, 'riser', 0.3, 1.0),
+    ('s0', 'at', 0.27, 'impact_boom', 0.5, 1.4),
+    ('s0', 'at', 1.5, 'thud', 0.5),
+    ('s1', 'at', 0.0, 'swoosh_news', 0.5, 0.8),
+    ('s1', 'at', 0.3, 'pop', 0.3),
+    ('s1', 'at', 1.1, 'pop', 0.3),
+    ('s1', 'at', 2.0, 'pop', 0.3),
+    ('s2', 'rel', 0.16, 'whoosh', 0.5, 0.5),
+    ('s2', 'rel', 0.22, 'slap', 0.7),
+    ('s2', 'rel', 0.22, 'impact_boom', 0.4, 1.2),
+    ('s2', 'rel', 0.55, 'thud', 0.5),
+    ('s2', 'rel', 0.65, 'pop', 0.3),
+    ('s3', 'at', 0.3, 'pop', 0.3),
+    ('s3', 'rel', 0.3, 'pop', 0.3),
+    ('s3', 'rel', 0.66, 'riser', 0.3, 0.6),
+    ('s3', 'rel', 0.68, 'impact_boom', 0.5, 1.4),
+    ('s3', 'rel', 0.7, 'thunder', 0.3, 2.0),
+    ('s4', 'at', 0.28, 'bonk', 0.5),
+    ('s4', 'at', 0.9, 'bonk', 0.5),
+    ('s4', 'at', 1.52, 'bonk', 0.5),
+    ('s4', 'at', 2.14, 'bonk', 0.5),
+    ('s4', 'at', 2.76, 'bonk', 0.5),
+    ('s4', 'at', 3.38, 'bonk', 0.5),
+    ('s4', 'at', 4.0, 'bonk', 0.5),
+    ('s4', 'at', 4.62, 'bonk', 0.5),
+    ('s4', 'at', 5.24, 'bonk', 0.5),
+    ('s4', 'at', 0.9, 'cheer', 0.3),
+    ('s4', 'at', 2.76, 'cheer', 0.3),
+    ('s4', 'at', 4.62, 'cheer', 0.3),
+    ('s4', 'rel', 0.6, 'impact_boom', 0.45, 1.4),
+    ('s4', 'rel', 0.6, 'cheer', 0.5),
+    ('s4', 'rel', 0.62, 'chime_up', 0.3),
+    ('s4', 'rel', 0.78, 'pop', 0.3),
+    ('s5', 'at', 0.3, 'riser', 0.25, 1.5),
+    ('s5', 'rel', 0.62, 'thud', 0.5),
+    ('s5', 'rel', 0.62, 'pop', 0.3),
+    ('s6', 'rel', 0.38, 'bonk', 0.6),
+    ('s6', 'rel', 0.5, 'cheer', 0.5),
+    ('s6', 'rel', 0.62, 'impact_boom', 0.45, 1.4),
+    ('s6', 'rel', 0.64, 'chime_up', 0.35),
+    ('s7', 'at', 0.1, 'swoosh_news', 0.5, 0.8),
+    ('s7', 'at', 0.9, 'swoosh_news', 0.4, 0.8),
+    ('s7', 'rel', 0.68, 'chime_up', 0.35),
+    ('s7', 'rel', 0.72, 'pop', 0.3),
+    ('s7', 'rel', 0.8, 'pop', 0.3),
+    ('s7', 'rel', 0.88, 'pop', 0.3),
+]
+ckbuild.run(__file__, out='CricketKahani_Ireland328_KevinOBrien.mp4', cues=CUES, music=('documentary', 96), prefix='hi_ire')
