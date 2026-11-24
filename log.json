@@ -3748,5 +3748,33 @@
    "audit": "revision round APPROVED (audits/2026-11-24-FLAGSHIP.md)",
    "asr_mean_acc": 0.988
   }
+ },
+ {
+  "date": "2026-11-24",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (watch)",
+  "title": "Watched: Nov 24 (nothing rare so far)",
+  "status": "none",
+  "checked_at": "2026-11-24 10:55 Calgary (16:55 UTC)",
+  "detection": {
+   "temp": "CYYC SWOB local day so far (07:00Z-16:00Z): max 1.3 C (07Z), min -7.8 C, latest -4.0 at 16Z; Nov 24 history 1926-2025 (100 yrs): top-5 highs 12.2..17.0, bottom-5 highs -14.8..-18.8, bottom-5 lows -23.6..-29.2, top-5 lows 0.0..3.3: not near",
+   "rise_24h_c": 11.4,
+   "chinook": false,
+   "gust": "no gusts reported (MSNG); max wind field 14 km/h",
+   "gust_ge_80": false,
+   "first_snow": "no (already Nov 17)",
+   "alerts": "fog advisories only for Rocky View Co. near Chestermere/Irricana (api.weather.gc.ca, 15:17 UTC); no warning for the City of Calgary",
+   "traffic_incidents_today_so_far": "11 (feed to 16:36 UTC); prior 365-day max 110, p99 63: not rare",
+   "news": "no confirmed rare Calgary event found (web search 10:50)"
+  },
+  "next_check": "16:41",
+  "evidence": "production/2026-11-24-MOMENT-watch/check-1041/",
+  "sources": [
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261124/CYYC/",
+   "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
+   "https://data.calgary.ca/resource/35ra-9556.json",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=24&timeframe=2&submit=Download+Data"
+  ]
  }
 ]
