@@ -3776,5 +3776,44 @@
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=24&timeframe=2&submit=Download+Data"
   ]
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "ORIGINS",
+  "type": "origins",
+  "category": "Calgary Origins",
+  "title": "Boom and Bust: The Land Rush That Drew Calgary's Map (Calgary Origins Ep 3)",
+  "series": "Calgary Insight Origins",
+  "topic_used": "1901-1955: growth (about 4,000 in 1901 to 43,704 in 1911); building permits $5.6M/$12.9M/$20.4M (1910-12); Grain Exchange, City Hall, Lougheed/Sherman Grand, Memorial Park Library, HBC, Palliser; speculative subdivisions up to ~8 km out, $50-$300 asking prices, Fred Lowes, South Mount Royal/American Hill, Bowness plans, 1910 annexation; Lake View Heights (never built); 1913 bust (Balkan Wars, railway work ending, permits halved, 1 in 10 out of work, 400 real estate offices shut); Dingman No. 1 (May 14, 1914) and 500+ oil companies; WWI; tax arrears and land acquired by default; communities built decades later (Parkdale, Bowness, Killarney, Highwood, Spruce Cliff 1953, Cambrian Heights 1955: the $500 lot sold for $400).",
+  "changed_from_calendar": null,
+  "central_figure": "A north Calgary lot bought for $500 in 1912 sold for $400 in 1955 (Foran, Expansive Discourses, AU Press 2009, ch. 1)",
+  "sources": [
+   "https://read.aupress.ca/read/6dfd1abc-54b5-4f2f-9cec-eeb0e8ca10c5/section/868ef0b1-f1ab-49ae-9368-02068965ea26",
+   "https://ucp.manifoldapp.org/system/resource/d/2/a/d2aa8bc7-038b-45a5-9e0f-2cf6ae9151ba/attachment/a4b2340cd545854f0ea7f4b86d43b4ef.pdf",
+   "https://www.heritagecalgary.ca/heritage-calgary-blog/subdivisions",
+   "https://www.calgary.ca/PDA/pd/Documents/Heritage-planning/heritage-resources/heritage-parkdale-community-inventory.pdf",
+   "https://hdp-ca-prod-app-cgy-engage-files.s3.ca-central-1.amazonaws.com/9816/3759/8962/Westbrook_Communities_Additional_Community_Histories.pdf",
+   "https://www.thecanadianencyclopedia.ca/en/article/calgary",
+   "https://history.alberta.ca/energyheritage/oil/the-waterton-and-the-turner-valley-eras-1890s-1946/turner-valley-period-1914-1946/dingman-era-1914-1923/default.aspx",
+   "https://prism.ucalgary.ca/items/db04897f-8c2f-4e2e-b9f0-d2a7b37769f4/full"
+  ],
+  "package": "packages/2026-11-25-ORIGINS-boom-and-bust.md",
+  "production": "production/2026-11-25-ORIGINS/",
+  "identity": "Storyteller lead (painted 1912 street rising and going dark, prairie, derrick, 1953 queue, 3D downtown) + Data Explainer bars/counters + Civic Analyst document cards, ledger and real community maps",
+  "link": "https://calgaryinsight.ca/communities/?utm_source=<platform>&utm_medium=social&utm_campaign=origins-boom-and-bust-part<n>",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 57,
+   "verdict": "NOT APPROVED",
+   "report": "audits/2026-11-25-ORIGINS.md",
+   "open": [
+    "B1: L8 on-screen arrow label must read 'THE PRAIRIES' (claim C7 is about the Prairies) — fixed in package; was an audit-input listing error",
+    "B2: L57 'To see how the City ended up holding so much empty land' + Part 4 title 'The Backstory' implied the 1953 Spruce Cliff City lots were tax-default land (unsourced) — fixed: L57 'To see why so much of the boom's map sat empty for so long, go back to the crash'; title '... City Lots in 1953 | ...'"
+   ],
+   "round4_input": "production/2026-11-25-ORIGINS/audit_input_r4_ready.md"
+  },
+  "status": "blocked-by-audit",
+  "blocked_reason": "Fact audit not approved after the 3-round limit (round 3: 57/57 claims PASS, 2 blocking wording/label flags). Per PLAYBOOK 3b.4 nothing was narrated, rendered or scheduled; the Nov 25 09:30 film slot and the Wed-Sat 10:00 part slots are empty. Both flags are fixed in the package; a 4th round needs Hassan's go-ahead.",
+  "posted": []
  }
 ]
