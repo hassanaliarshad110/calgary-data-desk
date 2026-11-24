@@ -40,11 +40,11 @@ Not used: today's total area (Statistics Canada page not readable in this run); 
 | L2 | About thirty-nine hundred people lived here. Even in the early nineteen-hundreds, its southern edge was Seventeenth Avenue. | ✓ | ✓ | |
 | L3 | One by one, it took in its neighbours. In nineteen-oh-seven, the village of Rouleauville. Today, that's Mission. | ✓ | ✓ | |
 | L4 | In nineteen-ten, the village of Crescent Heights. | ✓ | | |
-| L5 | By nineteen twenty-five, Calgary covered about forty square miles, and it barely changed until the mid-fifties. | ✓ | ✓ | |
-| L6 | Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than seventy square miles. | ✓ | ✓ | |
+| L5 | By nineteen twenty-five, Calgary covered about a hundred square kilometres, and it barely changed until the mid-fifties. | ✓ | ✓ | |
+| L6 | Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than one hundred and eighty square kilometres. | ✓ | ✓ | |
 | L7 | Montgomery joined in nineteen sixty-three, and Bowness in nineteen sixty-four. | ✓ | ✓ | |
-| L8 | By nineteen seventy-eight, Calgary covered one hundred and eighty-nine square miles. | ✓ | | |
-| L9 | In two thousand seven, it added about twenty-five thousand acres from Rocky View County. | ✓ | ✓ | |
+| L8 | By nineteen seventy-eight, Calgary covered about four hundred and ninety square kilometres. | ✓ | | |
+| L9 | In two thousand seven, it added about one hundred and three square kilometres from Rocky View County. | ✓ | ✓ | |
 | L10 | So, what's next? The City has started the process to annex a small piece of Foothills County, near Sirocco. | ✓ | ✓ | |
 | L11 | A bigger plan for Rocky View land in the southeast was put on hold, for a partnership instead. | ✓ | | |
 | L12 | You might wonder: what about Airdrie or Chestermere? Chestermere already shares a border with Calgary. Airdrie sits about ten kilometres north. | ✓ | ✓ | |
@@ -61,12 +61,12 @@ Opening hook L0 (frame 0). Closing question Q + C (two-sided yes/no). All files 
 - L2: counter "~3,900" + chip "PEOPLE · 1894"; white line along 17 Avenue (west of the Stampede grounds only) with label "17 AVENUE: SOUTHERN EDGE" and chip "EARLY 1900s".
 - L3: stamp "1907"; chip "ROULEAUVILLE → MISSION".
 - L4: stamp "1910"; chip "VILLAGE OF CRESCENT HEIGHTS".
-- L5: area square "~40 sq mi · 1925"; chip "BARELY CHANGED UNTIL THE MID-1950s".
-- L6: kinetic "Then it grew fast"; stamp "1961"; labels FOREST LAWN, MIDNAPORE (names only); chip "70+ SQ MI ADDED".
+- L5: area square "~100 km²" · chip "1925" · note "to scale · converted from 39.6 sq mi"; chip "BARELY CHANGED UNTIL THE MID-1950s".
+- L6: kinetic "Then it grew fast"; stamp "1961"; labels FOREST LAWN, MIDNAPORE (names only); chip "180+ KM² ADDED".
 - L7: stamps "1963 MONTGOMERY" "1964 BOWNESS".
-- L8: squares "~40 (1925)" → "189 sq mi · 1978" (to scale).
-- L9: stamp "2007"; chip "~25,000 ACRES FROM ROCKY VIEW COUNTY".
-- L10: kinetic "What's next?" (Foothills card only); card "FOOTHILLS COUNTY · ~428 ACRES · NEAR SIROCCO · STARTED 2025 · EARLY STAGES".
+- L8: squares "~100 (1925)" → "~490 km²" · "1978" (to scale; note "to scale · converted from 189 sq mi").
+- L9: stamp "2007"; chip "~103 KM² FROM ROCKY VIEW COUNTY".
+- L10: kinetic "What's next?" (Foothills card only); card "FOOTHILLS COUNTY · ~173 HECTARES · NEAR SIROCCO · STARTED 2025 · EARLY STAGES".
 - L11: card "ROCKY VIEW (SOUTHEAST) · ON HOLD → PARTNERSHIP".
 - L12: schematic markers "CHESTERMERE · SHARES A BORDER" (east) and "AIRDRIE · ~10 KM NORTH" (north); label "schematic · not to scale".
 - L13: process steps "1 NEGOTIATE · 2 CONSULT THE PUBLIC · 3 PROVINCE DECIDES".
@@ -92,7 +92,7 @@ Titles: Short "When Calgary Became a City, This Was All of It | Calgary Insight 
 
 ## 7. Production bible
 **Visual direction / continuity:** lead Storyteller (night map of the real city, north up, gold = inside Calgary, orange = what's next, white = neighbours), one coherent navy/gold look as the Nov 23 film. Borrowed: Data Explainer counters, stamps, area squares to scale (L2, L5, L8); Civic Analyst evidence cards and process steps (L10, L11, L13). The map grows: each annexation adds gold communities that stay lit for the rest of the film. Community shapes are TODAY's districts (labelled), never presented as historic limits.
-**Beat list / storyboard:** L0 WHERE (map dive onto the lit first city, hook at frame 0) · L1 WHEN (dusk drone over real downtown + timeline) · L2 HOW BIG (counter + 17 Avenue edge line on the map) · L3 WHERE/WHEN (Mission lights, 1907 stamp) · L4 (Crescent Heights lights, 1910) · L5 HOW MUCH (40 sq mi square) · L6 WHAT CHANGED (camera pulls out, Forest Lawn + Midnapore light, 1961 stamp, 70+ chip) · L7 (Montgomery, Bowness light; stamps) · L8 HOW MUCH (40 → 189 squares to scale) · L9 (whole boundary pulses, 2007 chip) · L10 WHAT'S NEXT (orange evidence card, Foothills) · L11 (card: on hold → partnership) · L12 WHERE (pull back past the city limits: schematic Chestermere marker on the east edge, Airdrie marker north, "schematic") · L13 HOW (three process steps stamp in) · Q (map, kinetic question) · C (closer).
+**Beat list / storyboard:** L0 WHERE (map dive onto the lit first city, hook at frame 0) · L1 WHEN (dusk drone over real downtown + timeline) · L2 HOW BIG (counter + 17 Avenue edge line on the map) · L3 WHERE/WHEN (Mission lights, 1907 stamp) · L4 (Crescent Heights lights, 1910) · L5 HOW MUCH (~100 km² square, converted) · L6 WHAT CHANGED (camera pulls out, Forest Lawn + Midnapore light, 1961 stamp, 180+ km² chip) · L7 (Montgomery, Bowness light; stamps) · L8 HOW MUCH (~100 → ~490 km² squares to scale, converted) · L9 (whole boundary pulses, 2007 chip) · L10 WHAT'S NEXT (orange evidence card, Foothills) · L11 (card: on hold → partnership) · L12 WHERE (pull back past the city limits: schematic Chestermere marker on the east edge, Airdrie marker north, "schematic") · L13 HOW (three process steps stamp in) · Q (map, kinetic question) · C (closer).
 **AI video prompts (not run):** one per beat, tags [CALGARY-NIGHT-MAP] navy land, gold districts, blue Bow/Elbow, north up; [DOWNTOWN-DUSK]. e.g. L0 "Fast drone dive at night onto a small glowing gold district at the heart of a navy stylised map of Calgary, north up, 2 s"; L6 "Crane pull-out as districts east and south light gold, stamp 1961"; L12 "Pull back beyond the city outline to two small white markers east and north on dark prairie, schematic".
 **Image prompts:** thumbnail plate "navy night map, tiny gold downtown district inside a thin gold city outline, empty top third".
 **Sound:** pulse/storyteller bed ducked under VO; stamps on dates, ticks under counters, riser into L6, whoosh/whoosh_rev on transitions, ping on future cards; mix -14 to -16 LUFS (cues.json per cut).
@@ -110,14 +110,14 @@ Titles: Short "When Calgary Became a City, This Was All of It | Calgary Insight 
 | C5 | Map: the first city ≈ today's downtown core, Eau Claire, West End, Beltline, East Village, historic Inglewood ("THE FIRST CITY (APPROX.)") | "When Calgary first became a city, it consisted of today's downtown Core, plus … Victoria Park, East Village and the historic …" (reprint of the City's History of Annexation map) | fact (approximate) | https://www.ucalgary.ca/lib-old/maps/burbs_sm.pdf | first paragraph |
 | C6 | 1907: the village of Rouleauville; today, Mission | incorporated 1899; "in 1907, Rouleauville was annexed by The City of Calgary" | fact | https://www.heritagecalgary.ca/heritage-calgary-blog/ciffbungalowmission-6cw58 ; https://amp.cbc.ca/news/canada/calgary/rouleauville-calgary-1.5179329 ("In 1907 when the village was annexed") | body |
 | C7 | 1910: the village of Crescent Heights | "Incorporated in 1908 as the Village of Crescent Heights, the community was annexed to Calgary in 1910." | fact | https://www.heritagecalgary.ca/s/Crescent-Heights-Context-Paper_Final.pdf | p. 21 |
-| C8 | By 1925 about forty square miles ("~40 sq mi · 1925") | 39.6 sq mi in 1925 | historical figure | https://www.aupress.ca/app/uploads/120152_99Z_Foran_2009-Expansive_Discources.pdf | Table 2 "Area of Calgary 1925–1978" |
+| C8 | By 1925 about a hundred square kilometres ("~100 km²", "converted from 39.6 sq mi") | 39.6 sq mi in 1925 = 102.6 km² (× 2.589988, converted) | historical figure, converted | https://www.aupress.ca/app/uploads/120152_99Z_Foran_2009-Expansive_Discources.pdf | Table 2 "Area of Calgary 1925–1978" |
 | C9 | Barely changed until the mid-fifties ("BARELY CHANGED UNTIL THE MID-1950s"); "Then it grew fast" (1956 49.6, 1957 74.4, 1962 151.5) | 39.6 (1925), 39.6 (1945), 40.1 (1954), then 49.6 (1956) | interpretation of C8 table | Foran Table 2 | Table 2 |
 | C10 | 1961 alone: the town of Forest Lawn, the community of Midnapore | "1961: Calgary's most extensive annexation … added the existing towns of Forest Lawn and Midnapore"; City: "former towns like Bowness, Midnapore and Forest Lawn" | fact | https://www.ucalgary.ca/lib-old/maps/burbs_sm.pdf ; https://www.calgary.ca/content/dam/www/pda/pd/documents/lap/lap-snapshots-of-community-evolution.pdf | 1961 entry; snapshot intro |
-| C11 | More than seventy square miles in 1961 ("70+ SQ MI ADDED") | "The next major annexation occurred in 1961, when over 70 square miles were added to the city" | historical figure | https://read.aupress.ca/read/6dfd1abc-54b5-4f2f-9cec-eeb0e8ca10c5/section/24e9d231-3695-4172-8fc0-18315e0120f5 (Foran ch. 3) | p. 49 |
+| C11 | More than one hundred and eighty square kilometres in 1961 ("180+ KM² ADDED") | "over 70 square miles were added"; 70 sq mi = 181.3 km² (× 2.589988, converted) | historical figure, converted | https://read.aupress.ca/read/6dfd1abc-54b5-4f2f-9cec-eeb0e8ca10c5/section/24e9d231-3695-4172-8fc0-18315e0120f5 (Foran ch. 3) | p. 49 |
 | C12 | Montgomery 1963, Bowness 1964 | "The City ultimately annexed the Town of Montgomery in August 1963"; Bowness "approved in July 1964 and became effective the following month" | fact | Foran ch. 3 (above) | p. 53 |
-| C13 | By 1978, 189 square miles ("189 sq mi · 1978") | 189.0 sq mi, 1978 | historical figure | Foran PDF | Table 2 |
-| C14 | 2007: about twenty-five thousand acres from Rocky View County | "Calgary annexed approximately 103 square kilometres / 25,000 acres of land from Rocky View County" | fact | https://www.calgary.ca/property-owners/taxes/2007-annexed-properties.html | intro |
-| C15 | The City has started the process to annex a small piece of Foothills County, near Sirocco ("~428 ACRES · STARTED 2025 · EARLY STAGES") | "428.32 acres (173.34 hectares) of land immediately north of the Sirocco Golf Course"; initiated by Administration after Council direction July 2025; formal notice Sept 2025; "currently in its early stages" | fact | https://www.calgary.ca/planning/projects/foothills-county-annexation.html | overview |
+| C13 | By 1978, about four hundred and ninety square kilometres ("~490 km²", "converted from 189 sq mi") | 189.0 sq mi = 489.5 km² (× 2.589988, converted) | historical figure, converted | Foran PDF | Table 2 |
+| C14 | 2007: about one hundred and three square kilometres from Rocky View County ("~103 KM²") | "Calgary annexed approximately 103 square kilometres / 25,000 acres of land from Rocky View County" | fact | https://www.calgary.ca/property-owners/taxes/2007-annexed-properties.html | intro |
+| C15 | The City has started the process to annex a small piece of Foothills County, near Sirocco ("~173 HECTARES · STARTED 2025 · EARLY STAGES") | "428.32 acres (173.34 hectares) of land immediately north of the Sirocco Golf Course"; initiated by Administration after Council direction July 2025; formal notice Sept 2025; "currently in its early stages" | fact | https://www.calgary.ca/planning/projects/foothills-county-annexation.html | overview |
 | C16 | A bigger plan for Rocky View land in the southeast was put on hold, for a partnership instead | 1,676 ha southeast lands; City "placed work on the proposed annexation … on hold"; "Originally intended for annexation, The City of Calgary and Rocky View County instead agreed on a partnership" | fact | https://www.calgary.ca/planning/rocky-view-county-annexation.html ; https://www.calgary.ca/planning/prairie-economic-gateway/timeline.html ; https://www.rockyview.ca/news-events/news/article/2026/city-of-calgary-proposes-annexation-in-southeast-region-of-rocky-view-county | overview; timeline |
 | C17 | Chestermere already shares a border with Calgary | boundary "along Range Road 284, which is a shared boundary" | fact | https://calgary.ca/planning/projects/calgary-chestermere-interface.html | overview |
 | C18 | Airdrie sits about ten kilometres north ("~10 KM NORTH") | "located 10 km north of Calgary's city limits" | fact | https://thecanadianencyclopedia.ca/en/article/airdrie | intro |
@@ -144,3 +144,7 @@ Closing question (Q/C) is two-sided (yes or no) and neutral; not a fact.
 | 11 | Ending: closer 3.9 s (Short/wide), 2.65 s (teaser), no end card | 2 | 2 | 2 |
 Narration: studio-probe af_heart, 18 lines, ASR mean 0.981; lines 2 and 9 flagged "check" only because the recogniser wrote the spoken numbers as digits (3900, 1900s, 25,000): words spoken correctly. Teaser line T2's two sentence pauses tightened (wording unchanged).
 Lengths: Short 81.1 s, wide 94.9 s, teaser 15.9 s (shorter than the 20-30 s teaser guide; content limited to audited lines).
+
+
+## 10. Revision 1 (Hassan, Nov 23 23:10): Canadian metric units
+All areas switched to km²/hectares. Foran's square-mile figures converted with 1 sq mi = 2.589988 km², rounded in the safe direction ("about", "more than") and marked "converted" in the claims table and on screen. City figures already in metric used as published (103 km², 173.34 ha). Re-audited (audits/2026-11-24-FLAGSHIP.md, revision round).

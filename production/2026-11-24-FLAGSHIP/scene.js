@@ -19,11 +19,11 @@ const LINES = {
  L2: 'About thirty-nine hundred people lived here. Even in the early nineteen-hundreds, its southern edge was Seventeenth Avenue.',
  L3: "One by one, it took in its neighbours. In nineteen-oh-seven, the village of Rouleauville. Today, that's Mission.",
  L4: 'In nineteen-ten, the village of Crescent Heights.',
- L5: 'By nineteen twenty-five, Calgary covered about forty square miles, and it barely changed until the mid-fifties.',
- L6: 'Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than seventy square miles.',
+ L5: 'By nineteen twenty-five, Calgary covered about a hundred square kilometres, and it barely changed until the mid-fifties.',
+ L6: 'Then it grew fast. In nineteen sixty-one alone, it took in the town of Forest Lawn, the community of Midnapore, and more than one hundred and eighty square kilometres.',
  L7: 'Montgomery joined in nineteen sixty-three, and Bowness in nineteen sixty-four.',
- L8: 'By nineteen seventy-eight, Calgary covered one hundred and eighty-nine square miles.',
- L9: 'In two thousand seven, it added about twenty-five thousand acres from Rocky View County.',
+ L8: 'By nineteen seventy-eight, Calgary covered about four hundred and ninety square kilometres.',
+ L9: 'In two thousand seven, it added about one hundred and three square kilometres from Rocky View County.',
  L10: "So, what's next? The City has started the process to annex a small piece of Foothills County, near Sirocco.",
  L11: 'A bigger plan for Rocky View land in the southeast was put on hold, for a partnership instead.',
  L12: 'You might wonder: what about Airdrie or Chestermere? Chestermere already shares a border with Calgary. Airdrie sits about ten kilometres north.',
@@ -144,16 +144,16 @@ const D = {
     north(c); mapCredit(c, 'Source: Heritage Calgary, Crescent Heights Context Paper'); },
   L5: (c, t, d) => { sqBg(c, t); const k = ease(t, .2, 1.4, 'outBack');
     square(c, 39.6, k, GOLD, { x: WIDE ? 260 : CX - side(39.6) / 2 });
-    M.text(c, '~40 sq mi', WIDE ? 1000 : CX, WIDE ? 380 : 300, { size: L.big, weight: 800, align: WIDE ? 'left' : 'center' });
+    M.text(c, '~100 km²', WIDE ? 1000 : CX, WIDE ? 380 : 300, { size: L.big, weight: 800, align: WIDE ? 'left' : 'center' });
     chip(c, '1925', WIDE ? 520 : 450, ease(t, .5, .9), WIDE ? { x: 1004, align: 'left' } : {});
     chip(c, 'BARELY CHANGED UNTIL THE MID-1950s', WIDE ? 620 : 560, ease(t, d * .55, d * .55 + .4, 'outBack'), Object.assign({ bg: '#ffffff', color: NAVY }, WIDE ? { x: 1004, align: 'left' } : {}));
-    M.text(c, 'square drawn to scale (area)', WIDE ? 1000 : CX, WIDE ? 720 : 680, { size: 28, weight: 500, align: WIDE ? 'left' : 'center', color: '#9fb0c8', alpha: ease(t, 1, 1.5) });
+    M.text(c, 'to scale · converted from 39.6 sq mi', WIDE ? 1000 : CX, WIDE ? 720 : 680, { size: 28, weight: 500, align: WIDE ? 'left' : 'center', color: '#9fb0c8', alpha: ease(t, 1, 1.5) });
     src(c, 'Source: Foran, Expansive Discourses (AU Press), Table 2'); },
   L6: (c, t, d) => { const p = ease(t, 0, d * .6, 'inOutCubic'), lk = ease(t, d * .35, d * .6);
     map(c, above(CITY, M.lerp(16000, WIDE ? 44000 : 52000, p), .2), lit(3, lk, { newCol: lk < 1 ? ORANGE : GOLD, labels: { 'FOREST LAWN': 'FOREST LAWN', 'MIDNAPORE': 'MIDNAPORE' }, lsize: WIDE ? 40 : 46 }), { bnd: 1, bndA: .35, bndW: 140 });
     band(c, WIDE ? 30 : 200, WIDE ? 330 : 640, .5);
     M.kinetic(c, 'Then it grew fast', t, CX, WIDE ? 60 : 250, { size: WIDE ? 110 : 120, maxW: WIDE ? 1500 : 860, highlight: ['fast'] });
-    stamp(c, '1961', t, d * .4, CX, WIDE ? 230 : 450); chip(c, '70+ SQ MI ADDED', WIDE ? 320 : 560, ease(t, d * .6, d * .6 + .35, 'outBack'), { bg: ORANGE, color: NAVY });
+    stamp(c, '1961', t, d * .4, CX, WIDE ? 230 : 450); chip(c, '180+ KM² ADDED', WIDE ? 320 : 560, ease(t, d * .6, d * .6 + .35, 'outBack'), { bg: ORANGE, color: NAVY });
     north(c); mapCredit(c, 'Sources: Foran (AU Press) · City of Calgary History of Annexation map'); },
   L7: (c, t, d) => { const p = ease(t, 0, d, 'inOutSine'), m = P('MONTGOMERY');
     map(c, above([m[0] + 1500, m[1] - 1500, 0], M.lerp(30000, 22000, p), .35), lit(4, ease(t, .2, 1.2), { labels: { 'MONTGOMERY': 'MONTGOMERY', 'BOWNESS': 'BOWNESS' }, lsize: WIDE ? 40 : 46 }));
@@ -162,19 +162,19 @@ const D = {
     north(c); mapCredit(c, 'Source: Foran, Expansive Discourses (AU Press)'); },
   L8: (c, t, d) => { sqBg(c, t); square(c, 39.6, 1, GOLD); const k = ease(t, .4, d * .7, 'inOutCubic'); square(c, 189, k, '#ffffff', { fillA: .08 });
     const yr = Math.round(M.lerp(1925, 1978, k)); M.text(c, String(yr), WIDE ? 1000 : CX, WIDE ? 200 : 230, { size: WIDE ? 150 : 170, weight: 800, align: WIDE ? 'left' : 'center', color: k >= 1 ? GOLD : '#fff' });
-    if (k > .98) M.text(c, '189 sq mi', WIDE ? 1000 : CX, WIDE ? 430 : 420, { size: L.big, weight: 800, align: WIDE ? 'left' : 'center' });
-    M.text(c, '~40', SQX + side(39.6) / 2, SQY - side(39.6) / 2 - 30, { size: 48, weight: 800, align: 'center', color: GOLD });
-    M.text(c, 'squares drawn to scale (area)', WIDE ? 1000 : CX, WIDE ? 600 : 1340, { size: 28, weight: 500, align: WIDE ? 'left' : 'center', color: '#9fb0c8' });
+    if (k > .98) M.text(c, '~490 km²', WIDE ? 1000 : CX, WIDE ? 430 : 420, { size: L.big, weight: 800, align: WIDE ? 'left' : 'center' });
+    M.text(c, '~100', SQX + side(39.6) / 2, SQY - side(39.6) / 2 - 30, { size: 48, weight: 800, align: 'center', color: GOLD });
+    M.text(c, 'to scale · converted from 189 sq mi', WIDE ? 1000 : CX, WIDE ? 600 : 1340, { size: 28, weight: 500, align: WIDE ? 'left' : 'center', color: '#9fb0c8' });
     src(c, 'Source: Foran, Expansive Discourses (AU Press), Table 2'); },
   L9: (c, t, d) => { const pulse = .55 + .45 * Math.sin(t * 4);
     map(c, cam(M.moves.orbit(CITY, 34000, 38000, 260, 25, ease(t, 0, d, 'linear'))), lit(4, 1, { a: .55 }), { bnd: 1, bndA: pulse, bndW: 260 });
-    stamp(c, '2007', t, d * .25); chip(c, '~25,000 ACRES FROM ROCKY VIEW COUNTY', L.stampY + (WIDE ? 90 : 115), ease(t, d * .45, d * .45 + .4), { size: L.chip });
+    stamp(c, '2007', t, d * .25); chip(c, '~103 KM² FROM ROCKY VIEW COUNTY', L.stampY + (WIDE ? 90 : 115), ease(t, d * .45, d * .45 + .4), { size: L.chip });
     M.text(c, "today's city limits", WIDE ? W - 60 : CX, WIDE ? H - 130 : 1340, { size: 28, weight: 600, align: WIDE ? 'right' : 'center', color: GOLD });
     north(c); src(c, 'Map data © OpenStreetMap contributors · Source: City of Calgary'); },
   L10: (c, t, d) => { map(c, above(CITY, M.lerp(52000, 56000, ease(t, 0, d)), .2), lit(4, 1, { a: .4 }), { bnd: 1, bndA: .5, bndW: 160 });
     c.fillStyle = 'rgba(7,13,24,.45)'; c.fillRect(0, 0, W, H);
     M.kinetic(c, "What's next?", t, CX, WIDE ? 80 : 290, { size: WIDE ? 120 : 130, maxW: 860, highlight: ['next?'] });
-    card(c, t, d * .3, 'FOOTHILLS COUNTY', ['~428 acres near Sirocco', 'Annexation started in 2025'], 'EARLY STAGES');
+    card(c, t, d * .3, 'FOOTHILLS COUNTY', ['~173 hectares near Sirocco', 'Annexation started in 2025'], 'EARLY STAGES');
     src(c, 'Source: City of Calgary, Foothills County annexation'); },
   L11: (c, t, d) => { map(c, above(CITY, 56000, .2), lit(4, 1, { a: .4 }), { bnd: 1, bndA: .5, bndW: 160 }); c.fillStyle = 'rgba(7,13,24,.45)'; c.fillRect(0, 0, W, H);
     card(c, t, .2, 'ROCKY VIEW · SOUTHEAST', ['A bigger annexation plan', 'Put on hold'], 'PARTNERSHIP INSTEAD', { col: '#ffffff' });
