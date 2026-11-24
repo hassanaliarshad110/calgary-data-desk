@@ -3686,10 +3686,11 @@
     ],
     "file": "short-v2",
     "publish_at": "2026-11-24T12:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "note": "media replaced with the metric-units version (v2), Nov 23 23:37"
+    "note": "media replaced with the metric-units version (v2), Nov 23 23:37",
+    "publicUrl": "https://www.instagram.com/reel/DgImutFCZV7/"
    },
    {
     "metricool_id": 439827301,
@@ -3699,9 +3700,10 @@
     ],
     "file": "short-v2",
     "publish_at": "2026-11-24T12:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "videoThumbnailUrl": true,
-    "note": "media replaced with the metric-units version (v2), Nov 23 23:37"
+    "note": "media replaced with the metric-units version (v2), Nov 23 23:37",
+    "publicUrl": "https://www.youtube.com/shorts/IgKQj9pPPEg"
    },
    {
     "metricool_id": 439827312,
@@ -3816,5 +3818,89 @@
   "status": "blocked-by-audit",
   "blocked_reason": "Fact audit not approved after the 3-round limit (round 3: 57/57 claims PASS, 2 blocking wording/label flags). Per PLAYBOOK 3b.4 nothing was narrated, rendered or scheduled; the Nov 25 09:30 film slot and the Wed-Sat 10:00 part slots are empty. Both flags are fixed in the package; a 4th round needs Hassan's go-ahead.",
   "posted": []
+ },
+ {
+  "date": "2026-11-24",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "The Calgary Herald was first printed in a tent",
+  "topic_used": "The Calgary Herald began on Aug 31, 1883 as a 4-page weekly, produced on a hand press (it arrived by train) in a tent pitched where the Bow and Elbow rivers meet, by teacher Thomas Braden and printer Andrew Armour; first name: The Calgary Herald, Mining and Ranche Advocate and General Advertiser.",
+  "changed_from_calendar": null,
+  "central_figure": "First printed in a tent at the Bow-Elbow confluence, Aug 31, 1883 (The Canadian Encyclopedia; Heritage Calgary)",
+  "sources": [
+   "https://thecanadianencyclopedia.ca/en/article/calgary-herald",
+   "https://www.heritagecalgary.ca/heritage-calgary-blog/yycnewspapers",
+   "https://plainshumanities.unl.edu/encyclopedia/doc/egp.med.008.html",
+   "https://amp.cbc.ca/lite/story/1.3411116"
+  ],
+  "link": "https://calgaryinsight.ca/visit/river/?utm_source=facebook&utm_medium=social&utm_campaign=herald-tent",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed in the site source (web/visit_content.py builds visit/river/, intro 'Calgary began where the Bow and the Elbow meet, at Fort Calgary').",
+  "length_s": 22.23,
+  "video_path": "studio-videos/2026-11-24-PM/herald-tent.mp4",
+  "thumbnail_path": "studio-videos/2026-11-24-PM/herald-tent-thumb.jpg",
+  "package": "packages/2026-11-24-PM-herald-tent.md",
+  "production": "production/2026-11-24-PM/",
+  "identity": "Data Explainer lead; Storyteller map dive onto the Bow-Elbow confluence (S0); Civic-style rivers schematic (S2); process build train -> press -> pages (S3); kinetic masthead (S4); closer",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 9,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-24-PM.md",
+   "note": "round 1: all claims passed; first-comment wording flagged and reworded"
+  },
+  "narration": {
+   "lane": "studio-probe",
+   "voice": "af_heart",
+   "asr_mean_acc": 1.0,
+   "lines": 5,
+   "check": 0,
+   "lexicon_added": [
+    "Ranche"
+   ],
+   "note": "closing line's two internal pauses tightened (0.58->0.20 s, 0.48->0.20 s; wording unchanged) to keep the ending <= 4 s"
+  },
+  "qc": {
+   "stills": "pass (S1 tent behind masthead, S2 label and S3/S4 content moved clear of the caption band; masthead size fixed)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "frame 0: map dive moving + hook 'PRINTED IN A TENT' on screen",
+    "closer 3.94 s, no end card",
+    "-14.6 LUFS, 9.7 MB, 22.23 s, 1080x1920 30 fps"
+   ]
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 441058019,
+    "uuid": "-6841891668468085810",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-6841891668468085810",
+    "providers": [
+     "instagram",
+     "facebook",
+     "youtube"
+    ],
+    "publish_at": "2026-11-24T18:30",
+    "draft": false,
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "youtube_category": "EDUCATION"
+   }
+  ]
  }
 ]
