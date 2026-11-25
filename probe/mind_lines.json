@@ -15,14 +15,14 @@
 },
 {
 "id": "n3",
-"text": "The Chinese ask for every kind of paint... and cover their walls with wonders.",
+"text": "The Chinese gather every kind of paint... and cover their walls with wonders.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n4",
-"text": "The Greeks used no colours at all. Day after day... they just cleaned.",
+"text": "The Greeks used no colours at all. They just cleaned... and polished.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
@@ -36,7 +36,7 @@
 },
 {
 "id": "n5",
-"text": "Judging day. The Sultan loves the paintings. But in the end...",
+"text": "Judging day. The Sultan inspects both. The painted house is much admired. But in the end...",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
@@ -57,7 +57,7 @@
 },
 {
 "id": "n7",
-"text": "In essence... what your heart truly knows beats what you only memorised.",
+"text": "In essence... what your heart truly knows beats what you only learned from books.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
