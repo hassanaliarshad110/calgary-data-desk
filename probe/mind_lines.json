@@ -1,21 +1,21 @@
 [
 {
 "id": "h1",
-"text": "Who has more power... the boss everyone fears... or the boss nobody wants to lose?",
+"text": "Who has more power... the boss everyone fears... or the one nobody wants to lose?",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "Two thinkers, centuries apart... and neither gives the easy answer.",
+"text": "Two thinkers, centuries apart... two answers.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "In essence, Machiavelli says... it's safer to be feared than loved, if you must choose. But never... be hated.",
+"text": "In essence, Machiavelli says... better feared than loved, if you must choose. But never... be hated.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
@@ -36,7 +36,7 @@
 },
 {
 "id": "n5",
-"text": "Rumi looks inside the walls. In essence... he turns from the battle outside to the battle within.",
+"text": "In essence... Rumi turns from the battle outside... to the battle within.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
@@ -50,7 +50,7 @@
 },
 {
 "id": "n6",
-"text": "A team captain. Best player on the pitch. One bad call... he shoves the referee. Red card. The final... without him.",
+"text": "A team captain. Best player on the pitch. One bad call... he shoves the referee. Red card. Final... without him.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
@@ -64,14 +64,14 @@
 },
 {
 "id": "n8",
-"text": "So who wins? Machiavelli guards the walls. Rumi guards the gate inside. Real power needs both... and it starts inside.",
+"text": "Machiavelli guards the walls. Rumi guards the gate inside. Real power needs both... and it starts inside.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n9",
-"text": "Today, catch one urge... to snap, to quit, to scroll... and don't obey it. Once.",
+"text": "Today, catch one urge... to snap, to quit, to scroll... and don't obey it.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
