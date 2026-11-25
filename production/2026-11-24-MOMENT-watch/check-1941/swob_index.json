@@ -1,0 +1,32 @@
+{
+ "https://dd.weather.gc.ca/20261124/WXO-DD/observations/swob-ml/20261124/CYYC/": [
+  "2026-11-24-0000-CYYC-MAN-swob.xml",
+  "2026-11-24-0100-CYYC-MAN-swob.xml",
+  "2026-11-24-0200-CYYC-MAN-swob.xml",
+  "2026-11-24-0300-CYYC-MAN-swob.xml",
+  "2026-11-24-0400-CYYC-MAN-swob.xml",
+  "2026-11-24-0500-CYYC-MAN-swob.xml",
+  "2026-11-24-0600-CYYC-MAN-swob.xml",
+  "2026-11-24-0700-CYYC-MAN-swob.xml",
+  "2026-11-24-0800-CYYC-MAN-swob.xml",
+  "2026-11-24-0900-CYYC-MAN-swob.xml",
+  "2026-11-24-1000-CYYC-MAN-swob.xml",
+  "2026-11-24-1100-CYYC-MAN-swob.xml",
+  "2026-11-24-1200-CYYC-MAN-swob.xml",
+  "2026-11-24-1300-CYYC-MAN-swob.xml",
+  "2026-11-24-1400-CYYC-MAN-swob.xml",
+  "2026-11-24-1500-CYYC-MAN-swob.xml",
+  "2026-11-24-1600-CYYC-MAN-swob.xml",
+  "2026-11-24-1700-CYYC-MAN-swob.xml",
+  "2026-11-24-1800-CYYC-MAN-swob.xml",
+  "2026-11-24-1900-CYYC-MAN-swob.xml",
+  "2026-11-24-2000-CYYC-MAN-swob.xml",
+  "2026-11-24-2100-CYYC-MAN-swob.xml",
+  "2026-11-24-2200-CYYC-MAN-swob.xml",
+  "2026-11-24-2300-CYYC-MAN-swob.xml"
+ ],
+ "https://dd.weather.gc.ca/today/observations/swob-ml/20261125/CYYC/": [
+  "2026-11-25-0000-CYYC-MAN-swob.xml",
+  "2026-11-25-0100-CYYC-MAN-swob.xml"
+ ]
+}

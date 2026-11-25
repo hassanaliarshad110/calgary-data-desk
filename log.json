@@ -3765,7 +3765,7 @@
   "category": "Same-day moment (watch)",
   "title": "Watched: Nov 24 (nothing rare so far)",
   "status": "none",
-  "checked_at": "2026-11-24 16:42 Calgary (22:42 UTC)",
+  "checked_at": "2026-11-24 19:42 Calgary (01:42 UTC Nov 25)",
   "detection": {
    "temp": "CYYC SWOB local day so far (07Z-22Z): max 1.3 C (07Z), min -7.8 C, latest 0.1 C at 22Z; Nov 24 top-5 highs 12.2..17.0, bottom-5 lows -23.6..-29.2: not near",
    "rise_24h_c": 11.4,
@@ -3777,7 +3777,7 @@
    "traffic_incidents_today_so_far": "21 (since 07:00 UTC, feed at 22:43 UTC); prior 365-day max 110, p99 63: not rare",
    "news": "no confirmed rare Calgary event found (web search 16:45)"
   },
-  "next_check": "19:41",
+  "next_check": null,
   "evidence": "production/2026-11-24-MOMENT-watch/check-1041/",
   "sources": [
    "https://dd.weather.gc.ca/today/observations/swob-ml/20261124/CYYC/",
@@ -3785,7 +3785,16 @@
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=24&timeframe=2&submit=Download+Data"
   ],
-  "evidence_1641": "production/2026-11-24-MOMENT-watch/check-1641/"
+  "evidence_1641": "production/2026-11-24-MOMENT-watch/check-1641/",
+  "evidence_1941": "production/2026-11-24-MOMENT-watch/check-1941/",
+  "detection_1941": {
+   "temp": "CYYC SWOB local day 07Z Nov 24-01Z Nov 25: max 1.3 C, min -7.8 C, latest -2.0 C at 01Z: not near top/bottom 5",
+   "gust": "max 10-min gust/wind field 13.7 km/h",
+   "alerts": "0 alerts (api.weather.gc.ca bbox Calgary, 01:44 UTC)",
+   "traffic_incidents_today_so_far": "29 (prior 365-day max 110, p99 63): not rare",
+   "news": "no confirmed rare Calgary event (web search 19:45)",
+   "verdict": "nothing rare today; day closed"
+  }
  },
  {
   "date": "2026-11-25",
