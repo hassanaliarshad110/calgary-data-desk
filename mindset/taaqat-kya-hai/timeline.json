@@ -1,0 +1,189 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 4.663
+},
+{
+"id": "sc2",
+"start": 4.663,
+"lines": [
+"n2"
+],
+"dur": 3.011
+},
+{
+"id": "sc3",
+"start": 7.674,
+"lines": [
+"n3"
+],
+"dur": 6.421
+},
+{
+"id": "sc4",
+"start": 14.095,
+"lines": [
+"q1"
+],
+"dur": 4.214
+},
+{
+"id": "sc5",
+"start": 18.309,
+"lines": [
+"n4"
+],
+"dur": 4.137
+},
+{
+"id": "sc6",
+"start": 22.446,
+"lines": [
+"n5"
+],
+"dur": 4.318
+},
+{
+"id": "sc7",
+"start": 26.764,
+"lines": [
+"q2"
+],
+"dur": 3.366
+},
+{
+"id": "sc8",
+"start": 30.13,
+"lines": [
+"n6"
+],
+"dur": 7.82
+},
+{
+"id": "sc9",
+"start": 37.95,
+"lines": [
+"n7"
+],
+"dur": 2.614
+},
+{
+"id": "sc10",
+"start": 40.564,
+"lines": [
+"n8"
+],
+"dur": 6.694
+},
+{
+"id": "sc11",
+"start": 47.258,
+"lines": [
+"n9"
+],
+"dur": 5.095
+},
+{
+"id": "sc12",
+"start": 52.353,
+"lines": [
+"n10"
+],
+"dur": 4.2
+},
+{
+"id": "sc13",
+"start": 56.553,
+"lines": [
+"n11"
+],
+"dur": 3.279
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 4.553,
+"kind": "N",
+"cap": "Who has more power... the boss everyone fears... or the one nobody wants to lose?"
+},
+"n2": {
+"start": 4.723,
+"dur": 2.941,
+"kind": "N",
+"cap": "Two thinkers, centuries apart... two answers."
+},
+"n3": {
+"start": 7.734,
+"dur": 6.201,
+"kind": "N",
+"cap": "In essence, Machiavelli says... better feared than loved, if you must choose. But never... be hated."
+},
+"q1": {
+"start": 14.155,
+"dur": 4.144,
+"kind": "Q",
+"cap": "He wrote... \"the best possible fortress is... not to be hated by the people.\""
+},
+"n4": {
+"start": 18.369,
+"dur": 4.067,
+"kind": "N",
+"cap": "Walls, titles, money... none of it saves you if your people want you gone."
+},
+"n5": {
+"start": 22.506,
+"dur": 4.118,
+"kind": "N",
+"cap": "In essence... Rumi turns from the battle outside... to the battle within."
+},
+"q2": {
+"start": 26.824,
+"dur": 3.206,
+"kind": "Q",
+"cap": "His words... \"the (true) lion is he that breaks (conquers) himself.\""
+},
+"n6": {
+"start": 30.19,
+"dur": 7.75,
+"kind": "N",
+"cap": "A team captain. Best player on the pitch. One bad call... he shoves the referee. Red card. Final... without him."
+},
+"n7": {
+"start": 38.01,
+"dur": 2.454,
+"kind": "N",
+"cap": "Nobody beat him. His own temper did."
+},
+"n8": {
+"start": 40.624,
+"dur": 6.554,
+"kind": "N",
+"cap": "Machiavelli guards the walls. Rumi guards the gate inside. Real power needs both... and it starts inside."
+},
+"n9": {
+"start": 47.318,
+"dur": 5.025,
+"kind": "N",
+"cap": "Today, catch one urge... to snap, to quit, to scroll... and don't obey it."
+},
+"n10": {
+"start": 52.413,
+"dur": 4.13,
+"kind": "N",
+"cap": "Which battle is harder for you... outside or inside? Comment below."
+},
+"n11": {
+"start": 56.613,
+"dur": 2.419,
+"kind": "N",
+"cap": "Follow Awazzzz... and be the true lion."
+}
+},
+"total": 59.832
+}
