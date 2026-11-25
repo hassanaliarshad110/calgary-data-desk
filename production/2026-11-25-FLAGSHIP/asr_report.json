@@ -1,0 +1,387 @@
+{
+ "summary": {
+  "v": {
+   "lines": 19,
+   "check": [
+    6
+   ],
+   "mean_acc": 0.99
+  }
+ },
+ "lexicon_entries": 37,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "Calgary's first oil boom started with a gas well.",
+    "said": "Calgary's first oil boom started with a gas well.",
+    "heard": "Calgary's first oil boom started with a gas well.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.709,
+    "input_lufs": -23.0,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "In nineteen-eleven, a rancher named William Herron noticed gas seeping out along the Sheep River.",
+    "said": "In nineteen-eleven, a rancher named William Herron noticed gas seeping out along the Sheep River.",
+    "heard": "In 1911, a rancher named William Herron noticed gas seeping out along the Sheep River.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.44,
+    "input_lufs": -22.9,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "He teamed up with a driller, Archibald Dingman, and some of Calgary's most influential businessmen. In nineteen-thirteen, they started drilling in Turner Valley, southwest of the city.",
+    "said": "He teamed up with a driller, Archibald Dingman, and some of Calgary's most influential businessmen. In nineteen-thirteen, they started drilling in Turner Valley, southwest of the city.",
+    "heard": "He teamed up with a driller, Archibald Dingman, and some of Calgary's most influential businessmen. In 1913, they started drilling in Turner Valley, southwest of the city.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 10.369,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "On May fourteenth, nineteen-fourteen, a well in Turner Valley, Dingman Number One, blew in.",
+    "said": "On May fourteenth, nineteen-fourteen, a well in Turner Valley, Dingman Number One, blew in.",
+    "heard": "On May 14, 1914, a well in Turner Valley, Dingman No. 1, blew in.",
+    "acc": 0.933,
+    "mismatches": [
+     "number->no"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.933
+     }
+    ],
+    "dur": 5.184,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "Calgary went wild. People drove out to see it, and filled their cars straight from the well.",
+    "said": "Calgary went wild. People drove out to see it, and filled their cars straight from the well.",
+    "heard": "Calgary went wild. People drove out to see it and filled their cars straight from the well.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.143,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "More than five hundred oil companies were started. Some brokers were so swamped with orders, they locked their doors.",
+    "said": "More than five hundred oil companies were started. Some brokers were so swamped with orders, they locked their doors.",
+    "heard": "More than 500 oil companies were started. Some brokers were so swamped with orders, they locked their doors.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.465,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 6,
+    "text": "The Calgary Herald reported more than four hundred thousand dollars pulled from savings accounts at Calgary banks.",
+    "said": "The Calgary Herald reported more than four hundred thousand dollars pulled from savings accounts at Calgary banks.",
+    "heard": "The Calgary Herald reported more than $400,000 pulled from savings accounts at Calgary banks.",
+    "acc": 0.882,
+    "mismatches": [
+     "thousand->zero",
+     "dollars->(missing)"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.882
+     },
+     {
+      "speed": 0.94,
+      "acc": 0.882
+     },
+     {
+      "speed": 1.06,
+      "acc": 0.882
+     }
+    ],
+    "dur": 6.187,
+    "input_lufs": -22.7,
+    "status": "check"
+   },
+   {
+    "i": 7,
+    "text": "But it wasn't the oil investors had hoped for. The well had struck wet natural gas, rich in a light liquid called naphtha.",
+    "said": "But it wasn't the oil investors had hoped for. The well had struck wet natural gas, rich in a light liquid called naphtha.",
+    "heard": "but it wasn't the oil investors had hoped for. The well had struck wet natural gas, rich in a light liquid called naphtha.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.807,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 8,
+    "text": "That August, the First World War began, and the boom was over.",
+    "said": "That August, the First World War began, and the boom was over.",
+    "heard": "That August, the First World War began, and the boom was over.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.413,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 9,
+    "text": "By the end of the war, all but twenty-one of those companies had failed. Most never even drilled a well.",
+    "said": "By the end of the war, all but twenty-one of those companies had failed. Most never even drilled a well.",
+    "heard": "By the end of the war, all but 21 of those companies had failed. Most never even drilled a well.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.783,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 10,
+    "text": "In nineteen twenty-one, Imperial Oil took over Dingman's company. Alberta's energy history archive says that confirmed Calgary as the centre of Canada's oil and gas industry.",
+    "said": "In nineteen twenty-one, Imperial Oil took over Dingman's company. Alberta's energy history archive says that confirmed Calgary as the centre of Canada's oil and gas industry.",
+    "heard": "In 1921, Imperial Oil took over Dingman's company. Alberta's Energy History Archive says that confirmed Calgary as the center of Canada's oil and gas industry.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 11.031,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 11,
+    "text": "Turner Valley kept going. In nineteen twenty-four, Royalite Number Four erupted in fire, at a place called Hell's Half Acre.",
+    "said": "Turner Valley kept going. In nineteen twenty-four, Royalite Number Four erupted in fire, at a place called Hell's Half Acre.",
+    "heard": "Turner Valley kept going. In 1924, rhyolite number four erupted in fire at a place called Hell's Half Acre.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 7.703,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 12,
+    "text": "Turner Valley flared away about ninety percent of its gas supply.",
+    "said": "Turner Valley flared away about ninety percent of its gas supply.",
+    "heard": "Turner Valley flared away about 90 percent of its gas supply.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.691,
+    "input_lufs": -22.7,
+    "status": "ok"
+   },
+   {
+    "i": 13,
+    "text": "Then in nineteen thirty-six, a well called Royalties Number One struck oil, and set off another oil boom.",
+    "said": "Then in nineteen thirty-six, a well called Royalties Number One struck oil, and set off another oil boom.",
+    "heard": "Then in 1936, a well-called Rialty's number one struck oil and set off another oil boom.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.379,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 14,
+    "text": "According to Calgary Economic Development, Calgary today is home to head offices of almost every major company in the energy business.",
+    "said": "According to Calgary Economic Development, Calgary today is home to head offices of almost every major company in the energy business.",
+    "heard": "According to Calgary Economic Development, Calgary Today is home to head offices of almost every major company in the energy business.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 7.979,
+    "input_lufs": -22.6,
+    "status": "ok"
+   },
+   {
+    "i": 15,
+    "text": "So, did you know Calgary's first oil boom started with gas?",
+    "said": "So, did you know Calgary's first oil boom started with gas?",
+    "heard": "So, did you know Calgary's first oil boom started with gas?",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.179,
+    "input_lufs": -22.8,
+    "status": "ok"
+   },
+   {
+    "i": 16,
+    "text": "Yes or no? Drop your thoughts below.",
+    "said": "Yes or no? Drop your thoughts below.",
+    "heard": "Yes or no? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.725,
+    "input_lufs": -21.4,
+    "status": "ok"
+   },
+   {
+    "i": 17,
+    "text": "On May fourteenth, nineteen-fourteen, a well in Turner Valley blew in. More than five hundred oil companies were started. But it wasn't the oil investors had hoped for.",
+    "said": "On May fourteenth, nineteen-fourteen, a well in Turner Valley blew in. More than five hundred oil companies were started. But it wasn't the oil investors had hoped for.",
+    "heard": "On May 14, 1914, a well in Turner Valley blew in. More than 500 oil companies were started, but it wasn't the oil investors had hoped for.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 9.475,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 18,
+    "text": "Full video on our page. Did you know this? Drop your thoughts below.",
+    "said": "Full video on our page. Did you know this? Drop your thoughts below.",
+    "heard": "Full video on our page. Did you know this? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.775,
+    "input_lufs": -22.0,
+    "status": "ok"
+   }
+  ]
+ }
+}

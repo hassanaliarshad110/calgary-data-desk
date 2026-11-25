@@ -3713,10 +3713,12 @@
     ],
     "file": "youtube-v2",
     "publish_at": "2026-11-24T17:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "note": "media replaced with the metric-units version (v2), Nov 23 23:37"
+    "note": "media replaced with the metric-units version (v2), Nov 23 23:37",
+    "publicUrl": "https://facebook.com/122097271263547631/posts/1891511305173654",
+    "confirmed_by": "2026-11-25 FLAGSHIP run (getScheduledPosts)"
    },
    {
     "metricool_id": 439827324,
@@ -3726,9 +3728,11 @@
     ],
     "file": "youtube-v2",
     "publish_at": "2026-11-24T17:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "videoThumbnailUrl": true,
-    "note": "media replaced with the metric-units version (v2), Nov 23 23:37"
+    "note": "media replaced with the metric-units version (v2), Nov 23 23:37",
+    "publicUrl": "https://www.youtube.com/watch?v=tCLqIDrIe_g",
+    "confirmed_by": "2026-11-25 FLAGSHIP run (getScheduledPosts)"
    }
   ],
   "pending_link": [
@@ -3744,12 +3748,14 @@
     "post_at": "2026-11-24T20:00",
     "link_to": 439827324,
     "scheduled": true,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "metricool_id": 441058859,
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-7439801155910155169",
     "youtube_link": "https://youtu.be/tCLqIDrIe_g",
     "scheduled_at": "2026-11-24 17:42 Calgary",
-    "note": "Facebook-only Reel at 20:00; YouTube link in firstCommentText (Nov 13 rule), caption has no YouTube URL."
+    "note": "Facebook-only Reel at 20:00; YouTube link in firstCommentText (Nov 13 rule), caption has no YouTube URL.",
+    "publicUrl": "https://facebook.com/reel/1683356076827695",
+    "confirmed_by": "2026-11-25 FLAGSHIP run (getScheduledPosts)"
    }
   ],
   "revision": {
@@ -3912,10 +3918,151 @@
     ],
     "publish_at": "2026-11-24T18:30",
     "draft": false,
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
-    "youtube_category": "EDUCATION"
+    "youtube_category": "EDUCATION",
+    "publicUrls": {
+     "facebook": "https://facebook.com/reel/1667017481833891",
+     "instagram": "https://www.instagram.com/reel/DgJQCADiRUR/",
+     "youtube": "https://www.youtube.com/shorts/zrdfEz4Yvg4"
+    },
+    "confirmed_by": "2026-11-25 FLAGSHIP run (getScheduledPosts)"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "The Oil Boom That Started With a Gas Well: Turner Valley 1914 (Calgary Insight Origins)",
+  "topic_used": "1911 Herron notices gas seeps on the Sheep River; Dingman + Calgary businessmen, drilling 1913; May 14, 1914 Dingman No. 1 blows in with wet gas (naphtha), not the oil investors hoped for; Calgarians drive out and fill cars at the well; 500+ oil companies, brokers lock doors; Herald: $400,000+ withdrawn from savings; August 1914 war, boom over; all but 21 companies failed by war's end; 1921 Imperial Oil takes over (confirmed Calgary as industry centre, per Alberta energy heritage); 1924 Royalite No. 4 fire at Hell's Half Acre; ~90% of gas flared; 1936 Royalties No. 1 strikes oil; today head offices of almost every major energy company (Calgary Economic Development).",
+  "changed_from_calendar": null,
+  "central_figure": "More than 500 oil companies started after the May 14, 1914 Dingman No. 1 strike; all but 21 had failed by the end of the First World War (Alberta Culture, Energy Heritage)",
+  "sources": [
+   "https://history.alberta.ca/EnergyHeritage/turner-valley-gas-plant/history-of-the-turner-valley-gas-plant/beginnings/discovery.aspx",
+   "https://history.alberta.ca/energyheritage/oil/the-waterton-and-the-turner-valley-eras-1890s-1946/turner-valley-period-1914-1946/dingman-era-1914-1923/default.aspx",
+   "https://history.alberta.ca/energyheritage/gas/creation-of-an-industry/exploration-comes-west/archibald-dingman.aspx",
+   "https://history.alberta.ca/EnergyHeritage/turner-valley-gas-plant/history-of-the-turner-valley-gas-plant/early-days/default.aspx",
+   "https://history.alberta.ca/EnergyHeritage/gas/transformation/regulation/flaring.aspx",
+   "https://legionmagazine.com/albertas-first-real-oil-boom/",
+   "https://ucp.manifoldapp.org/read/the-boom/section/7219fd3a-8535-43d9-8e5c-f7d66e00044d",
+   "https://calgaryeconomicdevelopment.com/sectors/focus-areas/energy",
+   "https://thecanadianencyclopedia.ca/en/article/Calgary"
+  ],
+  "length_s": {
+   "short": 61.53,
+   "wide": 108.37,
+   "teaser": 20.12
+  },
+  "video_path": "studio-videos/2026-11-25-FLAGSHIP/ (turner-valley-1914-short.mp4, -youtube.mp4, -teaser.mp4, -thumb.jpg, -thumb-yt.jpg)",
+  "package": "packages/2026-11-25-FLAGSHIP-turner-valley-1914.md",
+  "production": "production/2026-11-25-FLAGSHIP/",
+  "identity": "Storyteller lead (dusk foothills derrick with venting gas plume and push-ins, night flare, dusk drone over real downtown); Data Explainer counter slam, 500-dot grid, bar; Civic Analyst newspaper/evidence cards and well cutaway; real Calgary map with Turner Valley pin (approximate location)",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 24,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-25-FLAGSHIP.md"
+  },
+  "narration": {
+   "lane": "studio-probe",
+   "voice": "af_heart",
+   "lines": 19,
+   "asr_mean_acc": 0.99,
+   "check": "line 6 ($400,000 digits vs words) and line 3 (No. vs Number) only: recogniser normalisation, not mispronunciation"
+  },
+  "qc": {
+   "stills": "pass after fixes (map pin above captions, hook wording to 7 words, L14 overlap, brokers chip, wide header clearance)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "-14.6/-14.5 LUFS",
+    "all cuts under 2:00, closing question frame, no end card",
+    "teaser 20.1 s",
+    "first hook word on screen at 0.0 s in all three"
+   ]
+  },
+  "link": "https://calgaryinsight.ca/visit/mountains/?utm_source=<platform>&utm_medium=social&utm_campaign=turner-valley-origins",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED) and the sandbox proxy; page confirmed in the site source (web/visit_content.py builds visit/mountains/: Banff, Canmore, Kananaskis 'South-west of Calgary').",
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 442085859,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-6453262477885681982",
+    "providers": [
+     "instagram REEL"
+    ],
+    "file": "short",
+    "publish_at": "2026-11-25T12:30",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   },
+   {
+    "metricool_id": 442085884,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-4962074564545000570",
+    "providers": [
+     "youtube short"
+    ],
+    "file": "short",
+    "publish_at": "2026-11-25T12:30",
+    "status": "scheduled",
+    "videoThumbnailUrl": true
+   },
+   {
+    "metricool_id": 442097448,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=752338697771499866",
+    "providers": [
+     "facebook POST"
+    ],
+    "file": "youtube",
+    "publish_at": "2026-11-25T17:30",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   },
+   {
+    "metricool_id": 442097464,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=8953116254096411115",
+    "providers": [
+     "youtube video"
+    ],
+    "file": "youtube",
+    "publish_at": "2026-11-25T17:30",
+    "status": "scheduled",
+    "videoThumbnailUrl": true
+   }
+  ],
+  "pending_link": [
+   {
+    "file": "turner-valley-1914-teaser.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-25-FLAGSHIP/turner-valley-1914-teaser.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-25-FLAGSHIP/turner-valley-1914-thumb.jpg",
+    "providers": [
+     "facebook REEL"
+    ],
+    "caption_without_link": "Calgary's first oil boom started with a gas well.\nCalgary Insight Origins: when Dingman's well blew in at Turner Valley, Calgary went oil crazy and new oil companies popped up everywhere. But the well had struck wet gas, not the oil investors hoped for, and when war broke out that August, the boom was over.\nDid you know this? Yes or no. Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca\n\n#Calgary #yyc #CalgaryHistory #TurnerValley #AlbertaHistory",
+    "first_comment": "🔗 Plan a day trip into the mountains: https://calgaryinsight.ca/visit/mountains/?utm_source=facebook&utm_medium=social&utm_campaign=turner-valley-origins",
+    "post_at": "2026-11-25T20:00",
+    "link_to": 442097464,
+    "scheduled": false,
+    "status": "pending_link",
+    "note": "Facebook-only Reel at 20:00; the link-up task puts '▶ Full film: https://youtu.be/<id>' on the first line of firstCommentText (Nov 13 rule), caption keeps no YouTube URL."
    }
   ]
  },
