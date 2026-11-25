@@ -4009,9 +4009,12 @@
     ],
     "file": "short",
     "publish_at": "2026-11-25T12:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": [
+     "https://www.instagram.com/reel/DgLLskKRZRW/"
+    ]
    },
    {
     "metricool_id": 442085884,
@@ -4021,8 +4024,11 @@
     ],
     "file": "short",
     "publish_at": "2026-11-25T12:30",
-    "status": "scheduled",
-    "videoThumbnailUrl": true
+    "status": "PUBLISHED",
+    "videoThumbnailUrl": true,
+    "publicUrls": [
+     "https://www.youtube.com/shorts/Ua8YpJkR9u8"
+    ]
    },
    {
     "metricool_id": 442097448,
@@ -4093,6 +4099,64 @@
    "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=25&timeframe=2&submit=Download+Data"
+  ]
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "CIVIC",
+  "type": "civic",
+  "category": "Calgary news",
+  "title": "Calgary's budget debate: what's on the table for your property tax",
+  "topic_used": "News explained: council began deliberating the proposed 2027-2030 budget on Mon Nov 23, 2026 (public hearing; 264 speakers registered as of Monday afternoon); proposal requires a 15% increase in municipal property tax revenue from existing properties in 2027 (~$37/month typical home, City estimate); mayor called the police capital request 'unprecedented', commission chair: 'There is no room to cut in this police budget.'; Coun. Tyers wants a zero per cent scenario, mayor says about 4-5% needed 'to keep the lights on'; at least 69 amendments; final approval follows debate.",
+  "changed_from_calendar": null,
+  "why_this_story": "Biggest and most-talked-about Calgary story of the past 48 h (CBC, CTV, Calgary Herald, LiveWire, Calgary Citizen; our Calgary News Nov 23 and Nov 24). New since the Nov 9/11 budget videos: deliberations, hearing, zero per cent request, police-budget debate, amendments. Passed over: water restrictions (covered recently), officers charged (court matter), Bill 43 memo.",
+  "central_figure": "Proposed 15% increase in municipal property tax revenue from existing properties in 2027, about $37 a month for a typical home (City of Calgary, Nov 10, 2026)",
+  "sources": [
+   "https://newsroom.calgary.ca/the-city-releases-proposed-20272030-budget-focused-on-calgarians-priorities/",
+   "https://ca.news.yahoo.com/hundreds-signed-speak-city-hall-203635294.html",
+   "https://ca.news.yahoo.com/calgary-police-want-catch-budget-175003519.html",
+   "https://livewirecalgary.com/2026/11/23/tyers-wants-zero-per-cent-property-tax-increase-presented-to-calgary-city-council/",
+   "https://livewirecalgary.com/2026/11/24/calgary-2027-2030-budget-recap-day-2-recreation"
+  ],
+  "length_s": 41.3,
+  "video_path": "studio-videos/2026-11-25-CIVIC/council-budget-week.mp4",
+  "thumbnail": "studio-videos/2026-11-25-CIVIC/council-budget-week-thumb.jpg",
+  "package": "packages/2026-11-25-CIVIC-council-budget-week.md",
+  "scene": "production/2026-11-25-CIVIC/scene.js",
+  "identity": "Civic Analyst lead (City Hall map from City boundaries, quote cards, attributed 0-15% scale, process stages) + Storyteller map push-in + Data Explainer counter slams",
+  "link": "https://calgaryinsight.ca/news/2026-11-24-police-request-comes-under-scrutiny-as-council-moves-into-budget-quest/?utm_source=facebook&utm_medium=social&utm_campaign=council-budget-week",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); article published in Calgary News Nov 24 23:44 UTC (news/index.json), so its page exists from the Nov 25 morning build.",
+  "audit": {
+   "rounds": 3,
+   "claims_checked": 12,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-25-CIVIC.md",
+   "note": "R1 NOT APPROVED (councillor wording, caption 'on the table', framing flags) -> fixed; R2 APPROVED; spoken closer shortened for the 4 s ending rule -> R3 APPROVED."
+  },
+  "narration": {
+   "lines": 7,
+   "asr_mean_acc": 0.988,
+   "asr_check": [],
+   "lexicon_added": []
+  },
+  "qc": {
+   "stills": "pass (fixed: map needed --geo, hook line overlap, S4 label sizes to 48 px, police card vs caption)",
+   "final": "pass (contact sheet, 41.3 s, -14.4 LUFS, 8.5 MB, captions == narration, ending 3.98 s, no end card)",
+   "scores": "all 2 (S3 caption sits at the card's bottom edge without covering text: 1)"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 442229654,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-7942429344875921378",
+    "providers": [
+     "instagram REEL",
+     "facebook REEL",
+     "youtube short"
+    ],
+    "publish_at": "2026-11-25T15:00 America/Edmonton",
+    "status": "scheduled"
+   }
   ]
  }
 ]
