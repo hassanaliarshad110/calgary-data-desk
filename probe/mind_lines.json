@@ -36,7 +36,7 @@
 },
 {
 "id": "n5",
-"text": "Judging day. The Sultan inspects both. The painted house is much admired. But in the end...",
+"text": "The Sultan inspects both. The painted house is much admired. But in the end...",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
@@ -50,7 +50,7 @@
 },
 {
 "id": "n6",
-"text": "Their shining walls caught every colour in the room... in endless shades.",
+"text": "Their shining walls caught every colour... in endless shades.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
@@ -64,7 +64,7 @@
 },
 {
 "id": "n8",
-"text": "We try to grow by adding. More apps. More courses. More noise. Sometimes... we grow by clearing.",
+"text": "We try to grow by adding... more apps, more courses, more noise. Sometimes, we grow by clearing.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
@@ -78,14 +78,14 @@
 },
 {
 "id": "n10",
-"text": "This morning, remove one thing before adding anything. One tab. One app. One grudge.",
+"text": "This morning, remove one thing before adding anything... a tab, an app, a grudge.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n11",
-"text": "What would you clear first? One word, in the comments.",
+"text": "What would you clear first? One word, below.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
