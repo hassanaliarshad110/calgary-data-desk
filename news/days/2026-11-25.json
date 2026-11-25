@@ -1,0 +1,629 @@
+{
+ "date": "2026-11-25",
+ "published_at": "2026-11-25T23:44:47Z",
+ "articles": [
+  {
+   "title": "Proposed city budget would add 3,535 staff positions by 2030, with transit asking for the most",
+   "dek": "The 2027-2030 budget before council would grow the City's workforce by 18.2 per cent, and councillors are split on whether that is needed growth or excess.",
+   "section": "City Hall",
+   "body": [
+    "The City of Calgary's proposed 2027-2030 budget asks for 3,535 new full-time equivalent positions, an increase of 18.2 per cent that would take the workforce from 19,411 this year to 22,946 by 2030 [1].",
+    "Most of the growth would come early. The budget calls for 1,743 new positions next year, followed by 760 in 2028, 514 in 2029 and 518 in 2030 [1].",
+    "Calgary Transit made the largest request, at 648 positions, including bus and LRT operators and fleet mechanics [1]. The Calgary Police Service plans 524 new full-time positions by 2030, which includes 34 officers beyond the 275 it is able to hire next year, as well as 191 civilian roles [1].",
+    "Under the plan, City staff per 1,000 residents would rise from 12.26 to 13.58 by 2030. The budget document states that Calgary has fewer positions per resident than Toronto, Vancouver, Ottawa, Edmonton and Winnipeg [1]. Salaries, wages and benefits cost $2.7 billion in 2025, or 51.7 per cent of that year's operating budget, and the operating budget would pass $8 billion by 2030 [1]. The budget also requests $2.4 million a year from 2028 to lease more office space from third parties [1]. The proposal carries a 15 per cent property tax increase for 2027 [1].",
+    "Mayor Jeromy Farkas said police, fire and transit service cannot improve without more staff, but that some positions could be halted or delayed [1]. Ward 13 Coun. Dan McLean described the increase as bloat and said he sees room for savings in communications, human resources, information technology and supply management [1]. Ward 6 Coun. John Pantazopoulos said he is agnostic about the number of positions and is focused on outcomes [1].",
+    "Council's budget deliberations continue this week. The city clerk said public submissions would resume at 9:30 a.m. Wednesday, Nov. 25, with 218 speakers still registered after 98 people addressed council over the first two days [2]. Council has not yet voted on the staffing plan or the tax rate."
+   ],
+   "key_facts": [
+    "3,535 new positions proposed for 2027-2030 (18.2% growth)",
+    "1,743 of them would come in 2027",
+    "Calgary Transit requested 648; police plan 524 by 2030",
+    "Proposed 2027 property tax increase: 15%"
+   ],
+   "topics": [
+    "City Council",
+    "Budget and taxes",
+    "City services",
+    "Transit"
+   ],
+   "image_query": "Calgary Municipal Building",
+   "location": {
+    "lat": 51.0453,
+    "lon": -114.0577,
+    "label": "Calgary Municipal Building"
+   },
+   "charts": [
+    {
+     "title": "New City positions proposed by year",
+     "kind": "bar",
+     "labels": [
+      "2027",
+      "2028",
+      "2029",
+      "2030"
+     ],
+     "series": [
+      {
+       "name": "New positions (FTE)",
+       "values": [
+        1743,
+        760,
+        514,
+        518
+       ]
+      }
+     ],
+     "unit": "positions",
+     "source": 1
+    },
+    {
+     "title": "City workforce, now and proposed for 2030",
+     "kind": "bar",
+     "labels": [
+      "2026",
+      "2030 (proposed)"
+     ],
+     "series": [
+      {
+       "name": "Full-time equivalent positions",
+       "values": [
+        19411,
+        22946
+       ]
+      }
+     ],
+     "unit": "positions",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Calgary budget proposes hiring more than 3,500 new staff over four years",
+     "outlet": "Global News (via WOL)",
+     "url": "https://www.wol.com/2026/11/25/calgary-budget-proposes-hiring-more-than-3500-new-staff-over-four-years-calgary/",
+     "published": "2026-11-25"
+    },
+    {
+     "title": "Calgary 2027-2030 budget recap, day 2: Recreation",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/24/calgary-2027-2030-budget-recap-day-2-recreation/",
+     "published": "2026-11-24"
+    }
+   ],
+   "id": "2026-11-25-proposed-city-budget-would-add-3-535-staff-positions-by-2030-with-tran",
+   "date": "2026-11-25",
+   "published_at": "2026-11-25T23:44:47Z",
+   "words": 329
+  },
+  {
+   "title": "School board says the city must secure high school land before the province will fund new schools",
+   "dek": "The Calgary Board of Education's chair told council during budget submissions that crowded high schools are waiting on land the City has not yet bought.",
+   "section": "Housing and development",
+   "body": [
+    "The chair of the Calgary Board of Education asked city council on Nov. 24 to find a lasting way to pay for high school sites, saying the province will not fund construction of new schools until the City has secured the land [1]. Board Chair Laura Hack spoke during public submissions on the City's 2027-2030 budget [1].",
+    "High school sites are bought with cash-in-lieu payments made to the City's Joint Use Reserve Fund, which go to the City's real estate department [1]. Hack told council that industrial levies were used for this in the past but are not sustainable [1]. The proposed capital budget includes $40 million for future land purchases for high schools and recreation centres [1].",
+    "The board's three-year school capital plan, approved last March, asks for 21 new schools. Three are senior high schools: Glacier Ridge and Livingston in year one, and Belmont/West Macleod in year two [1]. The province has not approved those projects [1]. City land purchase plans presented to the Infrastructure and Planning Committee on May 7 covered high school sites at Glacier Ridge, Keystone and Providence, of which only Glacier Ridge is on the board's priority list [1].",
+    "Space is tight. System-wide use of CBE buildings is about 95 per cent, against a target of 85 per cent, the highest in 10 years, and the 22 senior high schools average about 104 per cent [1]. Enrolment rose by more than 17,000 students between 2021 and 2024 [1]. Hack summed up the request in one line: \"We need the high school land and space.\" [1]",
+    "The same day, the board's 2025-26 financial report showed a surplus of nearly $18 million [2]. Spending came in $21.5 million below plan, partly offset by $3.5 million less revenue, and enrolment was 3,739 students below forecast, which reduced provincial grants [2]. The board holds more than $7 billion in school buildings across 252 sites, and 60 per cent of its infrastructure is more than 50 years old [2]."
+   ],
+   "key_facts": [
+    "Province will not fund new high schools until the City secures the land",
+    "Proposed capital budget has $40M for high school and recreation land",
+    "CBE senior highs average about 104% of capacity",
+    "CBE reported a nearly $18M surplus for 2025-26"
+   ],
+   "topics": [
+    "Education",
+    "Development",
+    "Budget and taxes",
+    "City Council"
+   ],
+   "image_query": "Calgary high school building",
+   "communities": [
+    "Glacier Ridge",
+    "Livingston",
+    "Belmont",
+    "West Macleod",
+    "Keystone",
+    "Providence"
+   ],
+   "charts": [
+    {
+     "title": "How full CBE schools are",
+     "kind": "hbar",
+     "labels": [
+      "Target",
+      "System-wide",
+      "Senior high average"
+     ],
+     "series": [
+      {
+       "name": "Utilization",
+       "values": [
+        85,
+        95,
+        104
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "City land acquisition needed for CBE high school development",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/25/city-land-acquisition-needed-for-cbe-high-school-development/",
+     "published": "2026-11-25"
+    },
+    {
+     "title": "Fewer students, more surplus: CBE presents 2025-26 financial report",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/24/fewer-students-more-surplus-cbe-presents-2025-26-financial-report/",
+     "published": "2026-11-24"
+    }
+   ],
+   "id": "2026-11-25-school-board-says-the-city-must-secure-high-school-land-before-the-pro",
+   "date": "2026-11-25",
+   "published_at": "2026-11-25T23:44:47Z",
+   "words": 330
+  },
+  {
+   "title": "Recreation groups press council as 12 planned facilities go unfunded in the four-year capital plan",
+   "dek": "Speakers from sports groups lined up at the budget hearing while councillors floated ways to pay for more recreation space.",
+   "section": "City Hall",
+   "body": [
+    "Recreation was the main theme of the second day of public submissions on the City's 2027-2030 budget, with advocates for motocross, ringette, basketball, hockey and cricket among those appealing to council [1]. A total of 98 speakers addressed council over the first two days [1].",
+    "The proposed capital plan funds several recreation projects, including $185 million to redevelop the Forest Lawn Aquatic and Fitness Centre, known as the Bob Bahan pool, $70 million for the Foothills Multisport Fieldhouse and $28.9 million for the Kingsland and Belmont athletic parks [1]. Twelve Wave 1 projects from the City's recreation plan, known as GamePlan, are not funded in the 2027-2030 capital plan, including an expansion of the Westside Recreation Centre [1].",
+    "Ward 2 Coun. Jennifer Wyness wants capital set aside for the long-idle fieldhouse moved to projects that are ready to build [1]. The chair of the fieldhouse society told council the province is considering the project for its 2027 budget [1].",
+    "Ward 6 Coun. John Pantazopoulos called the model of the City alone paying for $100-million to $200-million facilities broken and said he is considering amendments to increase recreation spending [1]. Ward 13 Coun. Dan McLean proposed paying for the Flourish Centre in Alpine Park with a split among the City, the province, Ottawa and fundraising [1]. Mayor Jeromy Farkas said projects the City would fund alone should be postponed until a willing partner is found [1].",
+    "Submissions were scheduled to resume Wednesday morning with 218 speakers still registered [1]. Council has made no decisions on the recreation projects."
+   ],
+   "key_facts": [
+    "$185M proposed for the Forest Lawn pool redevelopment",
+    "12 Wave 1 GamePlan projects are unfunded",
+    "98 speakers in the first two days; 218 still registered",
+    "Flourish Centre split proposed: City $80M, province $80M, federal $50M, fundraising $40M"
+   ],
+   "topics": [
+    "City Council",
+    "Budget and taxes",
+    "Parks and recreation",
+    "Sports"
+   ],
+   "image_query": "Calgary recreation centre swimming pool",
+   "communities": [
+    "Forest Lawn",
+    "Kingsland",
+    "Belmont",
+    "Alpine Park"
+   ],
+   "charts": [
+    {
+     "title": "Funded recreation capital in the proposed plan",
+     "kind": "hbar",
+     "labels": [
+      "Forest Lawn pool",
+      "Foothills Fieldhouse",
+      "Kingsland and Belmont parks"
+     ],
+     "series": [
+      {
+       "name": "Capital",
+       "values": [
+        185,
+        70,
+        28.9
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    },
+    {
+     "title": "Proposed Flourish Centre funding split",
+     "kind": "bar",
+     "labels": [
+      "City",
+      "Province",
+      "Federal",
+      "Fundraising"
+     ],
+     "series": [
+      {
+       "name": "Share",
+       "values": [
+        80,
+        80,
+        50,
+        40
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Calgary 2027-2030 budget recap, day 2: Recreation",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/24/calgary-2027-2030-budget-recap-day-2-recreation/",
+     "published": "2026-11-24"
+    }
+   ],
+   "id": "2026-11-25-recreation-groups-press-council-as-12-planned-facilities-go-unfunded-i",
+   "date": "2026-11-25",
+   "published_at": "2026-11-25T23:44:47Z",
+   "words": 257
+  },
+  {
+   "title": "Two men charged after loaded handgun, $30,100 and suspected drugs found in northeast traffic stop",
+   "dek": "Police say officers on patrol stopped a car near Edmonton Trail N.E. on Tuesday morning after it missed a stop sign.",
+   "section": "Public safety",
+   "body": [
+    "Two Calgary men face a combined 21 charges after police found a loaded handgun, cash and suspected drugs during a traffic stop in the northeast on Tuesday, Nov. 24 [1][2].",
+    "At about 10:30 a.m., District 3 officers on patrol saw two people inflating the tires of a heavily tinted white 2007 Audi A6 at a gas station in the 0-100 block of Fourth Street N.E. [1]. Police say the driver then missed a stop sign and failed to signal while turning onto Edmonton Trail N.E., and officers stopped the car on Marsh Road N.E. [1]. CTV News placed the stop in the Bridgeland area [2].",
+    "Officers said they smelled burning cannabis and detained both men under the Gaming, Liquor and Cannabis Act [1]. Police say the driver resisted arrest, and the passenger was arrested after officers saw drug paraphernalia [1].",
+    "Police say they seized suspected methamphetamine and fentanyl, drug paraphernalia, a scale, $30,100 in cash and a loaded Canik 9 mm handgun with a 15-round magazine [1]. No drug quantities were released [1].",
+    "A 56-year-old Calgary man faces eight charges, including careless storage of a firearm, carrying a concealed weapon, possessing property obtained by crime over $5,000 and obstructing a police officer [1]. A 43-year-old Calgary man faces 13 charges, including firearm storage and weapons offences and five counts each of possessing a weapon and possessing ammunition while under a prohibition order [1]. Both are due in court on Thursday, Nov. 26 [1]. The charges have not been proven in court.",
+    "Acting Staff Sgt. Shona Brunton of District 3 said in the release that a loaded firearm is \"especially concerning\" [1]. Police ask anyone with information to call 403-266-1234 [1]."
+   ],
+   "key_facts": [
+    "Stop on Marsh Road N.E. at about 10:30 a.m. on Nov. 24",
+    "Loaded 9 mm handgun and $30,100 cash seized",
+    "Two men face 8 and 13 charges",
+    "Court appearance set for Nov. 26"
+   ],
+   "topics": [
+    "Public safety",
+    "Courts"
+   ],
+   "image_query": "Calgary police car",
+   "communities": [
+    "Bridgeland"
+   ],
+   "charts": [
+    {
+     "title": "Charges laid per accused",
+     "kind": "bar",
+     "labels": [
+      "Man, 56",
+      "Man, 43"
+     ],
+     "series": [
+      {
+       "name": "Charges",
+       "values": [
+        8,
+        13
+       ]
+      }
+     ],
+     "unit": "charges",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Traffic stop leads to two men charged, seizure of loaded firearm, drugs and cash",
+     "outlet": "Calgary Police Service",
+     "url": "https://newsroom.calgary.ca/traffic-stop-leads-to-two-men-charged-seizure-of-loaded-firearm-drugs-and-cash/",
+     "published": "2026-11-25"
+    },
+    {
+     "title": "Calgary men charged after loaded gun, illegal drugs seized from vehicle",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/calgary-men-charged-after-loaded-gun-illegal-drugs-seized-from-vehicle/",
+     "published": "2026-11-25"
+    }
+   ],
+   "id": "2026-11-25-two-men-charged-after-loaded-handgun-30-100-and-suspected-drugs-found-",
+   "date": "2026-11-25",
+   "published_at": "2026-11-25T23:44:47Z",
+   "words": 280
+  },
+  {
+   "title": "Water use stays under 500 million litres for another two days as Stage 4 rules continue",
+   "dek": "Calgary used 489 million litres on Monday and 491 million on Tuesday, keeping the city in the green zone while the Bearspaw feeder main is connected.",
+   "section": "Environment and weather",
+   "body": [
+    "Calgary's water use stayed below the City's daily target again early this week, with 489 million litres used on Monday, Nov. 23, and 491 million litres on Tuesday, Nov. 24 [1][2]. Stage 4 outdoor water restrictions remain in effect [2][3].",
+    "The City asks residents to keep demand below 500 million litres a day while crews connect the new Bearspaw south feeder main, which keeps the city in what it calls the green zone [1][3]. The City's restrictions page, updated Nov. 24, thanked residents for keeping the streak alive but did not give a count of days under the limit [1].",
+    "The shutdown of the existing main was expected to last about four weeks from Nov. 4 [1]. The City says no restrictions are expected while the new main is commissioned in December [1]. The most recent estimate reported for lifting the current restrictions is early December [4]. The City has not announced a firm end date.",
+    "Use has been steady over the past several days. Calgary used 476 million litres on Saturday, Nov. 21, and 490 million litres on Sunday, Nov. 22 [4].",
+    "Residents can follow the daily figures and the rules in effect on the City's water restrictions page [1]."
+   ],
+   "key_facts": [
+    "491 million litres used on Tuesday, Nov. 24",
+    "Daily target: below 500 million litres",
+    "Stage 4 restrictions remain in effect",
+    "Latest estimate for lifting restrictions: early December"
+   ],
+   "topics": [
+    "Water",
+    "City services",
+    "Environment"
+   ],
+   "image_query": "Bearspaw Dam Calgary",
+   "charts": [
+    {
+     "title": "Daily water use, Nov. 21-24 (target: under 500)",
+     "kind": "line",
+     "labels": [
+      "Nov 21",
+      "Nov 22",
+      "Nov 23",
+      "Nov 24"
+     ],
+     "series": [
+      {
+       "name": "Water used",
+       "values": [
+        476,
+        490,
+        489,
+        491
+       ]
+      },
+      {
+       "name": "Daily target",
+       "values": [
+        500,
+        500,
+        500,
+        500
+       ]
+      }
+     ],
+     "unit": "million litres",
+     "source": 4
+    }
+   ],
+   "sources": [
+    {
+     "title": "Water restrictions - Bearspaw feeder main",
+     "outlet": "City of Calgary",
+     "url": "https://www.calgary.ca/planning/water/bearspaw-feeder-main/water-restrictions.html",
+     "published": "2026-11-24"
+    },
+    {
+     "title": "Calgary water use remains below target on Tuesday",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/calgary-water-use-remains-below-target-on-tuesday/",
+     "published": "2026-11-25"
+    },
+    {
+     "title": "Calgary water use remains below target on Tuesday",
+     "outlet": "Beloud",
+     "url": "https://www.beloud.com/news/149256425",
+     "published": "2026-11-25"
+    },
+    {
+     "title": "Calgary water restrictions on track to end in early December",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/calgary-water-restrictions-lift-winsport-snowmaking",
+     "published": "2026-11-24"
+    }
+   ],
+   "id": "2026-11-25-water-use-stays-under-500-million-litres-for-another-two-days-as-stage",
+   "date": "2026-11-25",
+   "published_at": "2026-11-25T23:44:47Z",
+   "words": 201
+  },
+  {
+   "title": "Chinook brings a mild end to the work week before temperatures fall below zero",
+   "dek": "Highs near 9 C are forecast for Thursday, with a cooldown to below-freezing highs by Monday.",
+   "section": "Environment and weather",
+   "body": [
+    "An overnight chinook gave Calgary a warm start on Wednesday, and temperatures are expected to stay above seasonal for the rest of the work week [2]. Environment Canada recorded 9.9 C at Calgary International Airport at 5 p.m. Wednesday under mostly cloudy skies, and no weather alerts were in effect [1].",
+    "The forecast calls for south winds of 20 km/h gusting to 40 on Wednesday night, with a low of -1 C [1]. Thursday is expected to be mainly cloudy with a high of 9 C and west winds of 30 km/h gusting to 50 in the afternoon [1].",
+    "Friday and Saturday are forecast to be sunny, with highs of 8 C and 4 C [1]. Temperatures then drop, with a high of 1 C on Sunday, -3 C on Monday and -1 C on Tuesday, Dec. 1, under a mix of sun and cloud [1]. Overnight lows are forecast at 1 C on Thursday night and 0 C on Friday night, then -4 C on Saturday night, -7 C on Sunday night and -9 C on Monday night [1].",
+    "The forecast lists no precipitation amounts for the coming days [1]. The mild spell comes as outdoor water restrictions remain in place across the city."
+   ],
+   "key_facts": [
+    "9.9 C at the airport at 5 p.m. Wednesday",
+    "Thursday high 9 C with gusts to 50 km/h",
+    "Highs fall to -3 C by Monday",
+    "No weather alerts in effect Wednesday"
+   ],
+   "topics": [
+    "Weather"
+   ],
+   "image_query": "Chinook arch Calgary",
+   "charts": [
+    {
+     "title": "Forecast daily highs and lows",
+     "kind": "line",
+     "labels": [
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun",
+      "Mon"
+     ],
+     "series": [
+      {
+       "name": "High",
+       "values": [
+        9,
+        8,
+        4,
+        1,
+        -3
+       ]
+      },
+      {
+       "name": "Overnight low",
+       "values": [
+        1,
+        0,
+        -4,
+        -7,
+        -9
+       ]
+      }
+     ],
+     "unit": "°C",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Calgary, AB - 7 day forecast",
+     "outlet": "Environment and Climate Change Canada",
+     "url": "https://beta.weather.gc.ca/en/location/index.html?coords=51.046%2C-114.057",
+     "published": "2026-11-25"
+    },
+    {
+     "title": "Wednesday warmup underway in Calgary",
+     "outlet": "CTV News Calgary",
+     "url": "https://ctvnews.ca/calgary/article/wednesday-warmup-underway-in-calgary",
+     "published": "2026-11-25"
+    }
+   ],
+   "id": "2026-11-25-chinook-brings-a-mild-end-to-the-work-week-before-temperatures-fall-be",
+   "date": "2026-11-25",
+   "published_at": "2026-11-25T23:44:47Z",
+   "words": 205
+  },
+  {
+   "title": "Alberta plans Sovereignty Act motion against the federal Combatting Hate Act",
+   "dek": "The province says the federal law's removal of a good-faith religious opinion defence creates uncertainty, and wants cabinet to consider lawful steps in response.",
+   "section": "Alberta and Canada",
+   "body": [
+    "The Alberta government says it will bring a motion under the Alberta Sovereignty within a United Canada Act in response to the federal Combatting Hate Act [1]. The motion must be passed by the legislature, and the government's announcement on Nov. 24 did not give it a number [1].",
+    "According to the province, the federal act removes a Criminal Code defence for people who express religious beliefs or opinions in good faith [1]. The motion would affirm fundamental freedoms and urge cabinet to consider lawful steps to protect Albertans from the federal law [1].",
+    "The steps the province proposes include protecting lawful political and religious expression, keeping people able to read and quote sacred texts, educating Albertans about their rights and continuing to address crime [1]. The announcement also points to the Alberta Bill of Rights, the Charter of Rights and Freedoms and the Criminal Code [1].",
+    "The announcement was made by Premier Danielle Smith and Mickey Amery, Minister of Justice and Attorney General [1]. Amery said removing the good-faith religious opinion defence \"creates unnecessary uncertainty for Albertans\" [1].",
+    "The province noted earlier steps. In August, the public safety minister told police that stopping crime, not policing opinions, is the priority, and in September the Attorney General directed the Alberta Crown Prosecution Service to give significant weight to freedom of expression [1]. The Attorney General's consent is still required before certain hate-related charges can proceed [1]. The federal government's response was not included in the provincial announcement."
+   ],
+   "key_facts": [
+    "Motion under the Alberta Sovereignty within a United Canada Act",
+    "Targets the federal Combatting Hate Act",
+    "Must be passed by the legislature",
+    "Announced Nov. 24 by the premier and justice minister"
+   ],
+   "topics": [
+    "Provincial",
+    "Federal",
+    "Courts"
+   ],
+   "image_query": "Alberta Legislature Building",
+   "sources": [
+    {
+     "title": "Protecting Albertans' fundamental freedoms",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=981918C19F50B-BF95-E212-593A118C2A10DED1",
+     "published": "2026-11-24"
+    }
+   ],
+   "id": "2026-11-25-alberta-plans-sovereignty-act-motion-against-the-federal-combatting-ha",
+   "date": "2026-11-25",
+   "published_at": "2026-11-25T23:44:47Z",
+   "words": 247
+  },
+  {
+   "title": "Alberta eases school flag rules so existing schools do not need new outdoor poles",
+   "dek": "From Jan. 4, schools will display the Canadian and Alberta flags based on how many outdoor poles they already have.",
+   "section": "Alberta and Canada",
+   "body": [
+    "The Alberta government has changed its school flag rules so existing schools will not need to install new outdoor flagpoles [1]. The amendment to the Flag Display Regulation takes effect on Jan. 4, 2027 [1].",
+    "The change reverses an earlier plan that required both the Canadian and Alberta flags to fly outdoors on separate poles, and the province says it responds to feedback from school boards [1].",
+    "Under the new rule, a school with no outdoor pole will display both flags indoors [1]. A school with one outdoor pole will fly the Canadian flag outside and display the Alberta flag prominently inside [1]. A school with two poles will fly both flags outdoors [1]. The Canadian flag takes priority, and each pole carries one flag [1].",
+    "New schools will be built with two outdoor flagpoles, so both flags can fly outside at those buildings [1].",
+    "The announcement was made by Demetrios Nicolaides, Minister of Education and Childcare, who said the flags \"deserve a place of pride in schools across Alberta\" [1]. The rule applies to schools across the province, including those run by Calgary's public and Catholic boards."
+   ],
+   "key_facts": [
+    "Amended Flag Display Regulation takes effect Jan. 4, 2027",
+    "No new outdoor poles needed at existing schools",
+    "One-pole schools fly the Canadian flag outside",
+    "New schools get two outdoor poles"
+   ],
+   "topics": [
+    "Provincial",
+    "Education"
+   ],
+   "image_query": "Canadian flag on flagpole",
+   "sources": [
+    {
+     "title": "Updated flag display rules for schools",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=98192956806EB-AB82-0418-70EBBEC814C73B72",
+     "published": "2026-11-24"
+    }
+   ],
+   "id": "2026-11-25-alberta-eases-school-flag-rules-so-existing-schools-do-not-need-new-ou",
+   "date": "2026-11-25",
+   "published_at": "2026-11-25T23:44:47Z",
+   "words": 188
+  },
+  {
+   "title": "Flames drop 2-1 decision in Ottawa and visit Pittsburgh on Wednesday night",
+   "dek": "Calgary outshot the Senators but fell behind early, and now sits at 10-13-2 heading into a road game against the Penguins.",
+   "section": "Community and events",
+   "body": [
+    "The Calgary Flames lost 2-1 to the Ottawa Senators on Monday, Nov. 23, at Canadian Tire Centre [1]. Ottawa scored twice in the first period, through Michael Amadio at 12:16 and Shane Pinto at 17:36 [1]. Matt Coronato scored Calgary's goal on the power play at 15:40 of the third period [1].",
+    "Ottawa goaltender Linus Ullmark made 35 saves, and Devin Cooley made 29 for Calgary [1]. Head coach Ryan Huska said after the game that he did not like how his team started [1]. Forward Joel Farabee also pointed to a flat start [1]. The loss left the Flames with a record of 10-13-2 [1].",
+    "The Flames visit the Pittsburgh Penguins on Wednesday, Nov. 25, at 5 p.m. Calgary time at PPG Paints Arena [2]. Pittsburgh is 8-6-4 in its last 18 games against Calgary [2]. Before the game, the Flames had 22 points and a 4-7-1 road record, while the Penguins were 7-14-2 with 16 points [3].",
+    "In goal this season, Cooley is 5-6-0 with a .909 save percentage and Dustin Wolf is 5-6-2 with a .877 save percentage [3]. The result of Wednesday's game was not available at publication time."
+   ],
+   "key_facts": [
+    "Senators 2, Flames 1 on Nov. 23",
+    "Coronato scored on the power play",
+    "Flames record: 10-13-2",
+    "At Pittsburgh Wednesday, 5 p.m. Calgary time"
+   ],
+   "topics": [
+    "Sports"
+   ],
+   "image_query": "Scotiabank Saddledome",
+   "charts": [
+    {
+     "title": "Shots on goal, Flames at Senators, Nov. 23",
+     "kind": "bar",
+     "labels": [
+      "Calgary",
+      "Ottawa"
+     ],
+     "series": [
+      {
+       "name": "Shots",
+       "values": [
+        36,
+        31
+       ]
+      }
+     ],
+     "unit": "shots",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Senators vs. Flames game recap, November 23, 2026",
+     "outlet": "NHL.com",
+     "url": "https://www.nhl.com/news/calgary-flames-ottawa-senators-game-recap-november-23-2026",
+     "published": "2026-11-24"
+    },
+    {
+     "title": "Game preview: Penguins vs. Calgary Flames",
+     "outlet": "NHL.com (Pittsburgh Penguins)",
+     "url": "https://www.nhl.com/penguins/news/game-preview-11-25-26-vs-calgary-flames",
+     "published": "2026-11-25"
+    },
+    {
+     "title": "Flames vs. Penguins game page",
+     "outlet": "ESPN",
+     "url": "https://www.espn.com/nhl/game/_/gameId/401892786/flames-penguins",
+     "published": "2026-11-25"
+    }
+   ],
+   "id": "2026-11-25-flames-drop-2-1-decision-in-ottawa-and-visit-pittsburgh-on-wednesday-n",
+   "date": "2026-11-25",
+   "published_at": "2026-11-25T23:44:47Z",
+   "words": 193
+  }
+ ]
+}
