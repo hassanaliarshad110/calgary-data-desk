@@ -1,0 +1,9 @@
+aud/
+prev/
+fr_*/
+scene_*.mp4
+silent.mp4
+mix*.wav
+list.txt
+render.log
+*.mp4
