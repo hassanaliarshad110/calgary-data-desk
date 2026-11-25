@@ -4038,9 +4038,12 @@
     ],
     "file": "youtube",
     "publish_at": "2026-11-25T17:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": [
+     "https://facebook.com/122097271263547631/posts/2165635677676079"
+    ]
    },
    {
     "metricool_id": 442097464,
@@ -4050,8 +4053,11 @@
     ],
     "file": "youtube",
     "publish_at": "2026-11-25T17:30",
-    "status": "scheduled",
-    "videoThumbnailUrl": true
+    "status": "PUBLISHED",
+    "videoThumbnailUrl": true,
+    "publicUrls": [
+     "https://www.youtube.com/watch?v=rbuqJuhc19Q"
+    ]
    }
   ],
   "pending_link": [
@@ -4168,6 +4174,71 @@
      "youtube short"
     ],
     "publish_at": "2026-11-25T15:00 America/Edmonton",
+    "status": "PUBLISHED",
+    "publicUrls": [
+     "https://facebook.com/reel/4189104907889480",
+     "https://www.instagram.com/reel/DgLdKwsKYfv/",
+     "https://www.youtube.com/shorts/56wKzyUHfEs"
+    ]
+   }
+  ]
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "Calgary's giant blue ring is a streetlamp",
+  "topic_used": "Travelling Light (the blue ring, 96 Avenue NE near Airport Trail/Deerfoot, by Berlin collective inges idee): designed into the row of street lamps with lights on top; cost about $470,000 (CBC; City budget $471K); the mayor of the day called it 'awful' (CBC Oct 11, 2013); completed Dec 2013; since gained a cult-like following (Daily Hive)",
+  "changed_from_calendar": null,
+  "central_figure": "About $470,000 (CBC, Oct 11, 2013; City public art budget $471K)",
+  "sources": [
+   "https://www.calgary.ca/arts-culture/public-art/96-avenue-ne.html",
+   "https://ingesidee.de/art-in-public-space/travelling-light-streetlamp-landmark-calgary/",
+   "https://www.cbc.ca/lite/story/1.1991453",
+   "https://dailyhive.com/calgary/giant-blue-ring-calgary-10-years",
+   "https://atlasobscura.com/places/travelling-light-calgary"
+  ],
+  "length_s": 23.06,
+  "video_path": "studio-videos/2026-11-25-PM/blue-ring.mp4",
+  "thumbnail": "studio-videos/2026-11-25-PM/blue-ring-thumb.jpg",
+  "package": "packages/2026-11-25-PM-blue-ring.md",
+  "scene": "production/2026-11-25-PM/scene.js",
+  "identity": "Data Explainer lead (kinetic hook, stamp, counter slam, timeline) + Storyteller map dive + lamp-to-ring morph + real-geo road map + Civic quote card",
+  "link": "https://calgaryinsight.ca/visit/explore/?utm_source=facebook&utm_medium=social&utm_campaign=blue-ring",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); /visit/explore/ is in the playbook link table.",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 11,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-25-PM.md",
+   "note": "R1 NOT APPROVED ('built' -> 'designed', 'now has' -> 'has since gained', schematic -> geo-pack road map); R2 APPROVED."
+  },
+  "narration": {
+   "lines": 5,
+   "asr_mean_acc": 0.962,
+   "asr_check": [
+    2
+   ],
+   "asr_note": "line 2 flagged only because ASR wrote $470,000 as digits; words and duration correct",
+   "lexicon_added": []
+  },
+  "qc": {
+   "stills": "pass (fixed: S1/S3/S5 lifted above the caption band, S2 map rescaled and labels placed, map credit moved; dive starts at 12 km)",
+   "final": "pass (contact sheet, 23.06 s, -14.6 LUFS, 8.0 MB, captions == narration, ending 3.42 s, no end card)",
+   "scores": "all 2"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 442467664,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-389643438529428936",
+    "providers": [
+     "instagram REEL",
+     "facebook REEL",
+     "youtube short"
+    ],
+    "publish_at": "2026-11-25T18:30 America/Edmonton",
     "status": "scheduled"
    }
   ]
