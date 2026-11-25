@@ -1,0 +1,203 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 4.118
+},
+{
+"id": "sc2",
+"start": 4.118,
+"lines": [
+"n2"
+],
+"dur": 6.177
+},
+{
+"id": "sc3",
+"start": 10.295,
+"lines": [
+"n3"
+],
+"dur": 4.1
+},
+{
+"id": "sc4",
+"start": 14.395,
+"lines": [
+"n4"
+],
+"dur": 4.317
+},
+{
+"id": "sc5",
+"start": 18.712,
+"lines": [
+"q1"
+],
+"dur": 3.328
+},
+{
+"id": "sc6",
+"start": 22.04,
+"lines": [
+"n5"
+],
+"dur": 4.974
+},
+{
+"id": "sc7",
+"start": 27.014,
+"lines": [
+"q2"
+],
+"dur": 2.094
+},
+{
+"id": "sc8",
+"start": 29.108,
+"lines": [
+"n6"
+],
+"dur": 3.568
+},
+{
+"id": "sc9",
+"start": 32.676,
+"lines": [
+"n7"
+],
+"dur": 4.173
+},
+{
+"id": "sc10",
+"start": 36.849,
+"lines": [
+"n8"
+],
+"dur": 6.622
+},
+{
+"id": "sc11",
+"start": 43.471,
+"lines": [
+"n9"
+],
+"dur": 4.687
+},
+{
+"id": "sc12",
+"start": 48.158,
+"lines": [
+"n10"
+],
+"dur": 5.271
+},
+{
+"id": "sc13",
+"start": 53.429,
+"lines": [
+"n11"
+],
+"dur": 3.161
+},
+{
+"id": "sc14",
+"start": 56.59,
+"lines": [
+"n12"
+],
+"dur": 3.37
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 3.928,
+"kind": "N",
+"cap": "One team used every colour... the other used none. Pick your winner."
+},
+"n2": {
+"start": 4.178,
+"dur": 6.077,
+"kind": "N",
+"cap": "Rumi tells of a contest. A Sultan gives two houses... one to Chinese artists, one to Greek."
+},
+"n3": {
+"start": 10.355,
+"dur": 4.0,
+"kind": "N",
+"cap": "The Chinese gather every kind of paint... and cover their walls with wonders."
+},
+"n4": {
+"start": 14.455,
+"dur": 4.117,
+"kind": "N",
+"cap": "The Greeks \"used no colours at all.\" They just cleaned... and polished."
+},
+"q1": {
+"start": 18.772,
+"dur": 3.178,
+"kind": "Q",
+"cap": "\"...burnishing them till they were as clear and bright as the heavens.\""
+},
+"n5": {
+"start": 22.1,
+"dur": 4.724,
+"kind": "N",
+"cap": "The Sultan inspects both. The painted house is much admired. But in the end..."
+},
+"q2": {
+"start": 27.074,
+"dur": 1.944,
+"kind": "Q",
+"cap": "\"...the Greek house carried off the palm.\""
+},
+"n6": {
+"start": 29.168,
+"dur": 3.368,
+"kind": "N",
+"cap": "Their shining walls caught every colour... in endless shades."
+},
+"n7": {
+"start": 32.736,
+"dur": 3.973,
+"kind": "N",
+"cap": "In essence... what your heart truly knows beats what you only learned from books."
+},
+"n8": {
+"start": 36.909,
+"dur": 6.472,
+"kind": "N",
+"cap": "We try to grow by adding... more apps, more courses, more noise. Sometimes, we grow by clearing."
+},
+"n9": {
+"start": 43.531,
+"dur": 4.487,
+"kind": "N",
+"cap": "Painting looks like progress. Polishing looks like nothing... until the light hits."
+},
+"n10": {
+"start": 48.218,
+"dur": 5.121,
+"kind": "N",
+"cap": "This morning, remove one thing before adding anything... a tab, an app, a grudge."
+},
+"n11": {
+"start": 53.489,
+"dur": 3.011,
+"kind": "N",
+"cap": "What would you clear first? One word, below."
+},
+"n12": {
+"start": 56.65,
+"dur": 2.31,
+"kind": "N",
+"cap": "Follow Awazzzz... keep your wall clean."
+}
+},
+"total": 59.96
+}
