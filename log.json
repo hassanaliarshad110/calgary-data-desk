@@ -3918,5 +3918,34 @@
     "youtube_category": "EDUCATION"
    }
   ]
+ },
+ {
+  "date": "2026-11-25",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (watch)",
+  "title": "Watched: Nov 25 (nothing rare so far)",
+  "status": "none",
+  "checked_at": "2026-11-25 10:46 Calgary (16:46 UTC)",
+  "detection": {
+   "temp": "CYYC SWOB local day so far (07Z-16Z): max 6.4 C (11Z), min -0.4 C (14Z), latest 2.6 C at 16Z; Nov 25 top-5 highs 13.9..14.9 (record 14.9, 2009), bottom-5 lows -23.3..-31.3: not near",
+   "rise_24h_c": 14.2,
+   "chinook": "overnight warming (-7.8 C Nov 24 09:00 to 6.4 C 04:00 local) but below the 15 C rule; winds light (max 2-min avg 18.4 km/h)",
+   "chinook_ge_15": false,
+   "gust": "no gust values reported in SWOB to 16Z",
+   "gust_ge_80": false,
+   "first_snow": "no (already Nov 17)",
+   "alerts": "api.weather.gc.ca bbox Calgary: 0 alerts at 16:45 UTC",
+   "traffic_incidents_today_so_far": "11 (since 07:00 UTC, feed latest 16:21 UTC); prior 365-day max 111, p99 58: not rare",
+   "news": "no confirmed rare Calgary event found (web search 10:45)"
+  },
+  "next_check": "16:41 Calgary",
+  "evidence": "production/2026-11-25-MOMENT-watch/check-1041/",
+  "sources": [
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261125/CYYC/",
+   "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
+   "https://data.calgary.ca/resource/35ra-9556.json",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=25&timeframe=2&submit=Download+Data"
+  ]
  }
 ]
