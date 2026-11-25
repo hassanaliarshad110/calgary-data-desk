@@ -1,84 +1,91 @@
 [
 {
 "id": "h1",
-"text": "Myth... a great idea sells itself.",
+"text": "Who has more power... the boss everyone fears... or the boss nobody wants to lose?",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "Fact... a great idea makes enemies. Machiavelli knew it in fifteen thirteen.",
+"text": "Two thinkers, centuries apart... and neither gives the easy answer.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "Maya, new on her team, finds a way to do the weekly report in half the time.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n4",
-"text": "The people who built the old way push back. The people it helps... just shrug.",
+"text": "Machiavelli said it's safer to be feared than loved... if you must choose. But never... be hated.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "q1",
-"text": "He wrote... the innovator has for enemies all those who have done well under the old conditions, and lukewarm defenders in those who may do well under the new.",
+"text": "He wrote... the best possible fortress is... not to be hated by the people.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n4",
+"text": "Walls, titles, money... none of it saves you if your people want you gone.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n5",
-"text": "Two groups. One has something to lose. The other... doesn't believe it yet.",
+"text": "Rumi looks inside the walls. In essence... he turns from the battle outside to the battle within.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "q2",
+"text": "His words... the true lion is he that breaks himself.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n6",
-"text": "In essence... people don't trust new things until they've lived with them a long time.",
+"text": "A team captain. Best player on the pitch. One bad call... he shoves the referee. Red card. The final... without him.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n7",
-"text": "My take? Stop pouring your energy into the critics. Win the shruggers... with proof, not speeches.",
+"text": "Nobody beat him. He beat himself.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n8",
-"text": "Maya quietly runs her method for one week... then shows the hours saved. Now the shruggers defend it.",
+"text": "So who wins? Machiavelli guards the walls. Rumi guards the gate inside. Real power needs both... and it starts inside.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n9",
-"text": "Today, build the smallest version of your idea that works... and show one person it helps.",
+"text": "Today, catch one urge... to snap, to quit, to scroll... and don't obey it. Once.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n10",
-"text": "What change did people fight you on? Tell me below.",
+"text": "Which battle is harder for you... outside or inside? Comment below.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n11",
-"text": "Follow Awaaz... and keep building.",
+"text": "Follow Awaaz... and be the true lion.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
