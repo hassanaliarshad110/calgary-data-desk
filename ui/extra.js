@@ -598,7 +598,7 @@ function renderGapInner() {
     <ul class="ac-crowd">${acCrowdWords(A).map(x => `<li>${esc(x)}</li>`).join('')}${acNearCrowdedWords(A).map(x => `<li class="ac-nc-line">${esc(x)}</li>`).join('')}</ul>
     ${scData() ? `<p class="card-note">Crowding counts everyone who can reach a playground or park, from any community: children from the next community who use the same playground share it too. "Near, but crowded" uses the score below (the community's crowding against Calgary's).</p>` : ''}
     ${Object.keys(A.sensitivity || {}).length ? `<p class="card-note"><b>How much the estimate moves:</b> Calgary's playground figure (within ${acM(acTh(A, 'playground', false))}) under each way of counting residents: ${Object.entries(A.sensitivity).map(([m, v]) => `${esc(acMethodName(m))} ${fmt(((v.playground || {})[String(acTh(A, 'playground', false))]), 2)}${m === popMethod() ? ' (in use)' : ''}`).join(' · ')} playgrounds per 1,000 children.</p>` : ''}
-    <p class="card-note">Crowding spreads the estimated children (0 to 14) and residents of each community evenly over its homes (the ${CY()} Census plus modelled growth, not counted), counts each playground as one whatever its size, and will be firmed up with the 2026 Census age data in 2027. It is shown beside Calgary's figure only: no tier, no combined score.</p></div>`;
+    <p class="card-note">Crowding spreads the estimated children (0 to 14) and residents of each community evenly over its homes (the ${CY()} Census plus modelled growth, not counted), counts each playground as one whatever its size, and will be firmed up with the 2026 Census age data in 2027. Each reading stands on its own; the scores section below compares crowding with Calgary's and averages it into local and district scores.</p></div>`;
 
   // 2. the 14 wards, the same measures, in ward order
   const wardRows = (A.wards || []).slice().sort((a, b) => a.ward - b.ward);
@@ -787,7 +787,7 @@ function renderChanges() {
     ['What is measured', 'City assets counted inside each community\'s boundary, per 1,000 residents (playgrounds per 1,000 children).', 'The straight-line distance from every home to the nearest amenity, in any community; and for playgrounds and parks, how many children or residents share the ones within reach.'],
     ['A playground across the street, in the next community', 'Counted as zero for the community it serves.', 'Counted: the nearest one is found wherever it is.'],
     ['Amenities', 'Benches, picnic tables, playgrounds, sports equipment, fitness equipment, bins, off-leash areas, neighbourhood park space, trees, transit stops (and facilities for wards).', 'Playgrounds, public parks, transit stops, community centres, indoor recreation centres, libraries.'],
-    ['How they combine', 'Each kind against Calgary, capped at 2.00 and averaged into one "amenity level".', 'Never combined: each amenity on its own, no overall score.'],
+    ['How they combine', 'Each kind against Calgary, capped at 2.00 and averaged into one "amenity level".', 'Each amenity read on its own. A separate scores section compares crowding with Calgary\'s and averages it into local and district scores, shown beside the readings.'],
     ['Growth', '"Not kept up with growth" when a community grew over 20% since 2021 (or was new) and sat below 0.75; Needs attention tiers Urgent, High, Watch with a growth weight.', 'Homes built since 2021 against older homes, amenity by amenity. A reading for each community: Measured gap, Check inventory, Most homes within reach, Too few homes.'],
     ['People', 'Residents and children from the population estimate in every figure.', 'Distance: homes from the property roll, no population estimate. Crowding only: children and residents from the estimate, shown as an estimate with how much it moves.'],
   ];
@@ -805,7 +805,7 @@ function renderChanges() {
       <li>23 communities were flagged as not having kept up with growth (home to about 230,000 people).</li>
       <li>The Needs attention tab ranked communities Urgent, High or Watch.</li></ul></div>
     <div><h3>Now</h3><ul>${A ? `<li>${esc(acHeadline(A))}</li>${acCrowdWords(A).map(x => `<li>Crowding (estimate): ${esc(x)}</li>`).join('')}` : '<li>The new figures are not available right now.</li>'}
-      <li>The list of 23 communities is replaced: each community now has a reading for each amenity, never an overall rank.</li></ul></div></div></section>
+      <li>The list of 23 communities is replaced: each community now has a reading for each amenity, with local and district scores shown beside the readings.</li></ul></div></div></section>
     ${fl.length ? `<section class="card"><h2>The 23 communities on the earlier list, read with the new method</h2>
       <p class="card-sub">Share of homes within the first distance, and the reading, amenity by amenity. Of the 23, ${kinds.map(k => `${cnt(k)} have most homes within reach of ${esc((A.kinds[k].plural || k))}`).join('; ')}.</p>
       <div class="table-wrap"><table class="data"><thead><tr><th scope="col">Community</th><th scope="col" class="num">Homes</th>${kinds.map(k => `<th scope="col">${esc(A.kinds[k].label)}<small>within ${acM(acTh(A, k, false))}</small></th>`).join('')}</tr></thead><tbody>

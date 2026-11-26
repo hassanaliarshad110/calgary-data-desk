@@ -457,7 +457,7 @@ function renderKpis() {
     [`311 requests, ${esc(D.period)}`, fmt(s.requests12), chg(s.requests_change_pct, null, '%', 1, cw),
       `${fmt(s.requests_per_1000, 0)} per 1,000 residents a year${isCity() && s.requests12_no_community ? `. Every request in the City's data, ${fmt(s.requests12_no_community)} of them with no community (in the total, not in the rate)` : ''}`, spark(D.trend.all)],
     ['Closed within 7 days', fmt(s.closed_7_days_pct, 1) + '%', isCity() ? '' : chg(s.closed_7_days_pct - s.closed_7_days_pct_city, false, ' pts', 1, 'Calgary as a whole'),
-      `Of the period's requests closed so far. Calgary: ${fmt(s.closed_7_days_pct_city, 1)}% (marker)`, meter(s.closed_7_days_pct / 100, s.closed_7_days_pct_city / 100, 'vs')],
+      `Of the period's requests closed so far. Calgary: ${fmt(s.closed_7_days_pct_city, 1)}% (marker), every request including those with no community; Compare wards counts requests placed in a community`, meter(s.closed_7_days_pct / 100, s.closed_7_days_pct_city / 100, 'vs')],
     ['Traffic incidents', fmt(s.traffic12), chg(s.traffic_change_pct, true, '%', 1, cw), `${fmt(s.traffic_prev)} in ${esc(cw)} (marker)`, versus(s.traffic12, s.traffic_prev)],
     ['Homes in building permits issued', fmt(s.issued_homes12), chg(s.issued_homes_change_pct, null, '%', 1, cw),
       `${fmt(s.new_homes12)} applied for. Planned, not yet built. ${fmt(s.issued_homes_prev)} issued in ${esc(cw)} (marker)`, versus(s.issued_homes12, s.issued_homes_prev)],

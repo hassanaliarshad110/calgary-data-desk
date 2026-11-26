@@ -24,11 +24,13 @@ ACCESS_STEPS = [
     'shows.',
     'For a community, a ward and Calgary, weighted by units: the share of homes within the first distance and within '
     'the second; the same for homes built since 2021 and homes built before 2021 (homes with no year are in neither); '
-    'the median distance.',
+    'and the median distance of the area\'s property records (each record once, so a rental building '
+    'counts once).',
     'Reading for a community and an amenity, a stated rule, not a score: Too few homes (under 100 units); Measured gap '
     '(under half of units within the first distance); Check inventory (a measured gap where 25% or more of units were '
     'built in the last five years, because developer-built amenities may not be in the City\'s inventory yet); Most '
-    'homes within reach (otherwise). Readings are never combined across amenities and there is no overall score.',
+    'homes within reach (otherwise). Readings are never combined across amenities. A separate scores section compares '
+    'crowding with Calgary\'s and averages it into local and district scores (see the amenity scores note).',
 ]
 CROWDING_STEPS = [
     'Crowding asks how many people share the playgrounds and parks within reach. It is an estimate.',
@@ -45,7 +47,8 @@ CROWDING_STEPS = [
     'Calgary\'s figure is simply the playgrounds with children within reach x 1,000 / the children in homes: the measure '
     'moves people between communities, it adds no playgrounds. The tab shows Calgary\'s figure under every way of '
     'counting residents, so the effect of the estimate shows.',
-    'No tier and no combining with distance: the crowding figure stands beside Calgary\'s, in its own column.',
+    'The crowding figure stands beside Calgary\'s, in its own column. "Near, but crowded" pairs it with the distance '
+    'reading, and the scores section compares it with Calgary\'s (see the amenity scores note).',
 ]
 SCORE_STEPS = [
     'Crowding (two-step catchment, as for playgrounds and parks) for all six amenities: playgrounds per 1,000 '
@@ -563,7 +566,7 @@ METHODS = [
      'method': ACCESS_STEPS,
      'excel': ['Take one community\'s homes from the property roll (4bsw-nn7w, the filters above) and the City\'s '
                'playgrounds (bdu9-amk8); for each home, the distance to the nearest playground = the smallest '
-               'SQRT(((lon2 - lon1) x 69,880)^2 + ((lat2 - lat1) x 111,132)^2) metres; count the homes at 400 m or '
+               'SQRT(((lon2 - lon1) x 69,870)^2 + ((lat2 - lat1) x 111,132)^2) metres; count the homes at 400 m or '
                'less and divide by all the homes.'],
      'cautions': access.LIMITATIONS[:4] + [access.LIMITATIONS[5], access.LIMITATIONS[7], access.LIMITATIONS[8]],
      'code': 'access.py (compute, summarise, reading, shares, distances_to_points, distances_to_polygons)'},
@@ -588,7 +591,7 @@ METHODS = [
      'updated': 'With every refresh', 'used_in': 'Growth vs amenities (scores), Data Genie',
      'method': SCORE_STEPS,
      'excel': ['From the community details: score = crowding / Calgary\'s crowding; MIN(score, 2) for each amenity; '
-               'local = AVERAGE of the three capped local scores; consistent gap when every one of the 4 (or 8) ways is '
+               'local = AVERAGE of the four capped local scores; consistent gap when every one of the 4 (or 8) ways is '
                'below 0.80.'],
      'cautions': ['The comparison is with Calgary\'s own level, not a standard of adequate provision.',
                   'The 0.80 line and the bands are choices, applied the same way to every community.',
@@ -596,7 +599,7 @@ METHODS = [
                   'are shown apart, and every amenity\'s own score is in the details.',
                   'A transit stop per resident is not a service level: dense areas with frequent buses can score low.',
                   'Community centre data needs checking (association halls may be missing from the City\'s list), which '
-                  'can lower district scores in newer communities.',
+                  'can lower local scores in newer communities.',
                   access.LIMITATIONS[6]],
      'code': 'scores.py; access.py (crowding_inputs, amenity_scores)'},
 
