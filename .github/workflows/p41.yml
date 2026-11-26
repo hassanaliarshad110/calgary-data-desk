@@ -1,0 +1,96 @@
+name: Probe 41
+
+# Read only. Audit of the LIVE site (calgaryinsight.ca) on Nov 25, 2026: downloads the published data, checks it for
+# internal consistency, works the Dashboard out again from the City's open data with audit-only code, works Growth vs
+# amenities out again from the City's live data with the site's own method file, and reads the main screens in a
+# browser. Nothing is built, published or cached. Output goes to the branch fetched-41.
+
+on: {push: {branches: [site-check-41]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with: {path: probe}
+      - uses: actions/checkout@v4
+        with: {ref: main, path: site}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - run: pip install -q numpy scipy openpyxl shapely
+      - uses: actions/cache/restore@v4
+        with:
+          path: site/.site-cache
+          key: site-cache-${{ github.run_id }}
+          restore-keys: site-cache-
+      - name: Download the live site's published data
+        run: |
+          set +e
+          mkdir -p out live/city_actual
+          S=https://calgaryinsight.ca/data
+          for f in built.json live.json settings.json methods.json access_base.json planned.json srg_raw.json infra.json budget.json tax.json school_tax.json accountability.json business.json capmkt.json elections.json safety_rank.json tourism.json visit.json; do
+            curl -fsSL --retry 3 "$S/$f?nc=$RANDOM" -o "live/$f" || echo "missing $f" >> out/download.txt
+          done
+          for w in $(seq 0 14); do curl -fsSL --retry 3 "$S/city_actual/w$w.json?nc=$RANDOM" -o "live/city_actual/w$w.json" || echo "missing w$w" >> out/download.txt; done
+          ls -la live live/city_actual > out/live-files.txt
+          python3 - <<'PY' > out/built-summary.txt 2>&1
+          import json
+          b = json.load(open('live/built.json'))
+          print('built_at', b.get('built_at'), 'minutes', b.get('minutes'), 'commit', b.get('commit') or b.get('sha'))
+          st = b.get('steps') or []
+          print('steps', len(st), 'failed', [(s['step'], (s.get('error') or '')[:200]) for s in st if not s.get('ok')])
+          try:
+              L = json.load(open('live/live.json'))
+              r = L.get('results') or {}
+              items = r.items() if isinstance(r, dict) else enumerate(r)
+              bad = [(k, v) for k, v in items if isinstance(v, dict) and not v.get('ok', True)]
+              print('live checks', len(r), 'not ok', json.dumps(bad)[:3000])
+          except Exception as e: print('live.json', e)
+          PY
+          cat out/built-summary.txt
+      - name: Consistency of the published data
+        if: always()
+        run: |
+          set +e
+          python probe/audit/consistency.py live out/consistency1.json > out/consistency1.txt 2>&1
+          python probe/audit/consistency2.py live out/consistency2.json > out/consistency2.txt 2>&1
+          tail -5 out/consistency1.txt out/consistency2.txt
+      - name: Dashboard against the City's open data (audit-only code)
+        if: always()
+        run: |
+          set +e
+          python probe/audit/independent_city.py out > out/independent.txt 2>&1
+          mkdir -p out/live/city_actual && cp live/city_actual/w0.json out/live/city_actual/w0.json
+          python probe/audit/compare_city.py out out/compare.json > out/compare.txt 2>&1
+          tail -20 out/compare.txt
+      - name: Growth vs amenities worked out again from the City's live data
+        if: always()
+        working-directory: site
+        run: |
+          set +e
+          python web/access_check.py ../out/access_recompute --cache .site-cache > ../out/access_recompute.txt 2>&1
+          echo "exit $?" >> ../out/access_recompute.txt
+          tail -30 ../out/access_recompute.txt
+      - name: Main screens in a browser (live site)
+        if: always()
+        run: |
+          set +e
+          cd probe && npm init -y > /dev/null && npm i playwright@1.48.2 > /dev/null 2>&1 && npx playwright install --with-deps chromium > /dev/null 2>&1; cd ..
+          export NODE_PATH=$PWD/probe/node_modules
+          node probe/audit/screen_text.js https://calgaryinsight.ca out/screens dashboard,growth,compare,families,infra,budget,budget-intelligence,issues,livemap,methods,sources,ask > out/screens.txt 2>&1
+          cat out/screens.txt
+      - name: Push to fetched-41 (evidence only)
+        if: always()
+        run: |
+          set +e
+          cp -r live out/live-data
+          find out -type f -size +90M -print -delete > out/too-big.txt
+          cd probe
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q --orphan fetched-41
+          git rm -rqf --cached . > /dev/null 2>&1
+          rm -rf audit .github node_modules package*.json; mv ../out out
+          git add -f out && git commit -qm "Live site audit, Nov 25 2026 (evidence only)" && git push -qf origin fetched-41
