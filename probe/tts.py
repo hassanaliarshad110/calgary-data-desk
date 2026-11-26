@@ -22,33 +22,6 @@ _cfg (all optional):
 import json, os, re, sys, subprocess, urllib.request, difflib, unicodedata
 
 out = sys.argv[1]; os.makedirs(os.path.join(out, 'raw'), exist_ok=True)
-# --- temporary wards fetch block (2026-11-25) ---
-import concurrent.futures as cf
-def _get(u, t=120):
-    err = ''
-    for _ in range(3):
-        try:
-            r = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=t)
-            return r.read().decode('utf-8', 'replace')
-        except Exception as e:
-            err = 'ERR ' + repr(e)
-    return err
-mw = os.path.join(out, 'wards4'); os.makedirs(mw, exist_ok=True)
-jobs = [('w2017.geojson','https://data.calgary.ca/resource/au4g-xjwh.geojson?$limit=50'),('wcur.geojson','https://data.calgary.ca/resource/tz8z-hyaz.geojson?$limit=50'),
-        ('w2021.geojson','https://data.calgary.ca/resource/bxgr-t8xb.geojson?$limit=50'),('meta_au4g.json','https://data.calgary.ca/api/views/au4g-xjwh.json'),('meta_limits.json','https://data.calgary.ca/api/views/twfe-ukxx.json'),
-        ('meta_cw1999.json','https://data.calgary.ca/api/views/hjim-jabu.json'),('meta_cw2011.json','https://data.calgary.ca/api/views/kquu-znqr.json'),('meta_tz8z.json','https://data.calgary.ca/api/views/tz8z-hyaz.json')]
-def dl(j):
-    if j[0].endswith('.bin'):
-        try:
-            r = urllib.request.urlopen(urllib.request.Request(j[1], headers={'User-Agent': 'Mozilla/5.0'}), timeout=120)
-            open(os.path.join(mw, j[0][:-4]), 'wb').write(r.read()); return
-        except Exception as e:
-            open(os.path.join(mw, j[0]), 'w').write('ERR '+repr(e)); return
-    open(os.path.join(mw, j[0]), 'w').write(_get(j[1]))
-with cf.ThreadPoolExecutor(8) as ex: list(ex.map(dl, jobs))
-print('wards fetch done')
-sys.exit(0)
-# --- end block ---
 HERE = os.path.dirname(os.path.abspath(__file__))
 L = json.load(open(os.path.join(HERE, 'tts_lines.json')))
 cfg = L.pop('_cfg', {})
