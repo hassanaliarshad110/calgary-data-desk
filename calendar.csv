@@ -54,7 +54,7 @@ date,day,slot,type,skill,category,topic,length,format
 2026-11-25,Wed,CIVIC,civic,calgary-storyteller,Calgary news,"Calgary news explained: the biggest Calgary story of the past two days, picked at run time and explained neutrally",30-60 s,1080x1920 vertical
 2026-11-25,Wed,PM,quick-insight,calgary-data-explainer,Fun fact,The big blue ring: Calgary's most argued-about sculpture,15-35 s,1080x1920 vertical
 2026-11-26,Thu,AM,quick-insight,calgary-data-explainer,Fun fact,The Bow tower's crescent shape,15-35 s,1080x1920 vertical
-2026-11-26,Thu,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary passed one million people,15-35 s,1080x1920 vertical
+2026-11-26,Thu,PM,quick-insight,calgary-data-explainer,Fun fact,"Edworthy Park's Douglas firs, far from home",15-35 s,1080x1920 vertical
 2026-11-27,Fri,AM,quick-insight,calgary-data-explainer,Fun fact,Telus Spark: Calgary's science centre,15-35 s,1080x1920 vertical
 2026-11-27,Fri,FLAGSHIP,flagship,calgary-storyteller,Calgary story,"June 2013: the flood that reshaped Calgary, and the reservoirs and barriers built since",60-120 s,1080x1920 Short + 1920x1080 YouTube + teaser
 2026-11-27,Fri,CIVIC,civic,calgary-storyteller,Calgary news,"Calgary news explained: the biggest Calgary story of the past two days, picked at run time and explained neutrally",30-60 s,1080x1920 vertical
@@ -82,7 +82,7 @@ date,day,slot,type,skill,category,topic,length,format
 2026-12-04,Fri,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's off-leash dog parks,15-35 s,1080x1920 vertical
 2026-12-05,Sat,AM,quick-insight,calgary-data-explainer,Fun fact,Calgary's outdoor community rinks,15-35 s,1080x1920 vertical
 2026-12-05,Sat,FLAGSHIP,flagship,calgary-storyteller,Calgary story,"Zoolights and the Calgary Zoo: a century on St. George's Island, floods included",60-120 s,1080x1920 Short + 1920x1080 YouTube + teaser
-2026-12-05,Sat,PM,quick-insight,calgary-data-explainer,Fun fact,"Edworthy Park's Douglas firs, far from home",15-35 s,1080x1920 vertical
+2026-12-05,Sat,PM,quick-insight,calgary-data-explainer,Fun fact,(open: weak topic dropped; pick a twist-style fun fact at run time or skip),15-35 s,1080x1920 vertical
 2026-12-06,Sun,AM,quick-insight,calgary-data-explainer,Fun fact,The Weaselhead: wilderness inside the city,15-35 s,1080x1920 vertical
 2026-12-06,Sun,PM,quick-insight,calgary-data-explainer,Fun fact,Calgary's tallest building,15-35 s,1080x1920 vertical
 2026-12-07,Mon,AM,quick-insight,calgary-data-explainer,Fun fact,Calgary's most spoken languages after English,15-35 s,1080x1920 vertical

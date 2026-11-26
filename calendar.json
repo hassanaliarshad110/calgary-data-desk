@@ -611,10 +611,10 @@
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
   "category": "Fun fact",
-  "topic": "Calgary passed one million people",
+  "topic": "Edworthy Park's Douglas firs, far from home",
   "length": "15-35 s",
   "format": "1080x1920 vertical",
-  "note": "Swapped Nov 25 (Hassan: duplicate of the Bow tower AM topic, reschedule): Nov 26 PM <-> Dec 6 PM"
+  "note": "Hassan, Nov 26: 'Calgary passed 1 million' is old news, not a fun fact. Dropped; Edworthy firs moved here from Dec 5 PM"
  },
  {
   "date": "2026-11-27",
@@ -920,9 +920,10 @@
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
   "category": "Fun fact",
-  "topic": "Edworthy Park's Douglas firs, far from home",
+  "topic": "(open: weak topic dropped; pick a twist-style fun fact at run time or skip)",
   "length": "15-35 s",
-  "format": "1080x1920 vertical"
+  "format": "1080x1920 vertical",
+  "note": "Hassan, Nov 26: 'Calgary passed 1 million' is old news, not a fun fact. Dropped; Edworthy firs moved here from Dec 5 PM"
  },
  {
   "date": "2026-12-06",
