@@ -1,84 +1,98 @@
 [
 {
 "id": "h1",
-"text": "Most problems that wreck you... were once small enough to fix in five minutes.",
+"text": "Name the five people you talk to most. That list... is your real CV.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "Rewind a friendship. Month six... you're basically strangers.",
+"text": "Siena... over five hundred years ago. Its lord, Pandolfo Petrucci, had a right-hand man.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "Month two... the replies got shorter. Nobody said a word.",
+"text": "Antonio da Venafro. People judged Pandolfo... by him.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n4",
-"text": "Week one... a cancelled plan. A joke that landed wrong. One honest message would have fixed it.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n5",
-"text": "In fifteen thirteen, Machiavelli explained this trap... with a doctor's rule.",
+"text": "In essence, Machiavelli says Pandolfo looked clever... simply for having him.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "q1",
-"text": "He wrote... in the beginning of the malady it is easy to cure but difficult to detect... but in the course of time... it becomes easy to detect but difficult to cure.",
+"text": "His words... the first opinion which one forms of a prince... is by observing the men he has around him.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n5",
+"text": "Then he sorts minds into three kinds.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n6",
-"text": "While a problem is cheap... it's invisible. Once everyone sees it... it's expensive.",
+"text": "One works things out alone. One recognises good ideas from others. One does neither.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "q2",
+"text": "His verdict... the first is the most excellent, the second is good, the third is useless.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n7",
-"text": "In essence... he praised the Romans for spotting trouble early... and dealing with it at once.",
+"text": "So you don't need to be the genius. Spotting good minds... is a power of its own.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n8",
-"text": "The real skill isn't fixing big problems. It's acting on small ones... while it still feels silly.",
+"text": "Group project. Pick the quiet kid who reads the brief... and you look brilliant on results day.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n9",
-"text": "Tonight, pick one thing you keep calling fine... a friend, a bill, that noise in your car... give it five minutes.",
+"text": "Now flip it. You're in someone's circle too. Make them look wise.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n10",
-"text": "What small thing are you ignoring? One word, below.",
+"text": "This morning, message one person who makes you sharper... and tell them why.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n11",
-"text": "Follow Awaaz... and catch it early.",
+"text": "Who's the Venafro in your corner? Tell us what they do for you.",
+"name": "en-US-ChristopherNeural",
+"rate": "-8%",
+"pitch": "-6Hz"
+},
+{
+"id": "n12",
+"text": "Choose your circle well... and follow Awaaz.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
