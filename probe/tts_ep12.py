@@ -29,8 +29,12 @@ import edge_tts
 async def main():
     for l in J['edge']:
         try:
-            c = edge_tts.Communicate(l['text'], l['voice'], rate=l.get('rate', '+0%'), pitch=l.get('pitch', '+0Hz'))
-            await c.save(os.path.join(out, l['id'] + '.mp3')); info['edge'][l['id']] = 'ok'
+            for att in range(5):
+                try:
+                    c = edge_tts.Communicate(l['text'], l['voice'], rate=l.get('rate', '+0%'), pitch=l.get('pitch', '+0Hz'))
+                    await c.save(os.path.join(out, l['id'] + '.mp3')); info['edge'][l['id']] = 'ok%d' % att; break
+                except Exception as e2:
+                    info['edge'][l['id']] = repr(e2); await asyncio.sleep(6)
         except Exception as e:
             info['edge'][l['id']] = repr(e)
 asyncio.run(main())

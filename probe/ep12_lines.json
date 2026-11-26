@@ -10,12 +10,28 @@
    "pitch": "-20Hz"
   },
   {
+   "id": "g1_alt",
+   "text": "ارے! میری کھڑکی! یہ کس نے کیا؟!",
+   "asr": 1,
+   "voice": "ur-PK-AsadNeural",
+   "rate": "-6%",
+   "pitch": "-28Hz"
+  },
+  {
    "id": "g2",
    "text": "रुको! मैं नीचे आता हूँ!",
    "asr": 1,
    "voice": "hi-IN-MadhurNeural",
    "rate": "-5%",
    "pitch": "-20Hz"
+  },
+  {
+   "id": "g2_alt",
+   "text": "رکو! میں نیچے آتا ہوں!",
+   "asr": 1,
+   "voice": "ur-PK-AsadNeural",
+   "rate": "-6%",
+   "pitch": "-28Hz"
   },
   {
    "id": "g3",
@@ -26,12 +42,28 @@
    "pitch": "-20Hz"
   },
   {
+   "id": "g3_alt",
+   "text": "اب بتاؤ، میری کھڑکی کس نے توڑی؟",
+   "asr": 1,
+   "voice": "ur-PK-AsadNeural",
+   "rate": "-6%",
+   "pitch": "-28Hz"
+  },
+  {
    "id": "g4",
    "text": "सच बोलने वाला ही असली बहादुर है! खिड़की सब मिलके ठीक करेंगे।",
    "asr": 1,
    "voice": "hi-IN-MadhurNeural",
    "rate": "-5%",
    "pitch": "-20Hz"
+  },
+  {
+   "id": "g4_alt",
+   "text": "سچ بولنے والا ہی اصلی بہادر ہے! کھڑکی سب مل کے ٹھیک کریں گے۔",
+   "asr": 1,
+   "voice": "ur-PK-AsadNeural",
+   "rate": "-6%",
+   "pitch": "-28Hz"
   },
   {
    "id": "d1",
@@ -42,12 +74,12 @@
    "pitch": "+25Hz"
   },
   {
-   "id": "x2",
-   "text": "ارے ارے! میرا کیک گر رہا ہے!",
+   "id": "d1_alt",
+   "text": "باسم، سچ بول دے یار!",
    "asr": 1,
-   "voice": "ur-IN-GulNeural",
-   "rate": "-10%",
-   "pitch": "-10Hz"
+   "voice": "ur-IN-SalmanNeural",
+   "rate": "+10%",
+   "pitch": "+30Hz"
   }
  ]
 }
