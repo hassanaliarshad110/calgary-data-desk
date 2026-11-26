@@ -1,0 +1,186 @@
+{
+  "id" : "r9vx-mhnf",
+  "name" : "Ward Boundaries",
+  "assetType" : "map",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Government",
+  "createdAt" : 1473715790,
+  "description" : "A ward is the division of the city into electoral areas, each represented by one elected Councillor. Wards are a geographical division of the municipality and are referred to by a number defined in the bylaw. Divisions are determined under the authority of the Municipal Government Act and criteria in Council policy.",
+  "diciBackend" : false,
+  "displayType" : "visualization_canvas_map",
+  "downloadCount" : 1332,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "SEE_TERMS_OF_USE",
+  "locked" : false,
+  "modifyingViewUid" : "tz8z-hyaz",
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 42059591,
+  "provenance" : "official",
+  "publicationAppendEnabled" : true,
+  "publicationDate" : 1775667674,
+  "publicationGroup" : 14460975,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1793545682,
+  "rowsUpdatedBy" : "55bi-hyk4",
+  "tableId" : 18491474,
+  "totalTimesRated" : 0,
+  "viewCount" : 6944,
+  "viewLastModified" : 1775667674,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1473715836,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 7423356,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1473715836,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "55bi-hyk4",
+      "displayName" : "Calgary Open Data"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ ],
+  "disabledFeatureFlags" : [ "allow_comments" ],
+  "displayFormat" : {
+    "visualizationCanvasMetadata" : {
+      "vifs" : [ {
+        "configuration" : {
+          "viewSourceDataLink" : true,
+          "mapCenterAndZoom" : {
+            "center" : {
+              "lng" : -114.06867812705497,
+              "lat" : 51.02365720944218
+            },
+            "zoom" : 9.28613886590669
+          },
+          "basemapOptions" : {
+            "searchBoundaryLowerRightLongitude" : -113.85990527612,
+            "searchBoundaryUpperLeftLongitude" : -114.315796136221,
+            "searchBoundaryUpperLeftLatitude" : 51.2123658557924,
+            "navigationControl" : true,
+            "basemapStyle" : "mapbox://styles/mapbox/basic-v9",
+            "geoCoderControl" : false,
+            "geoLocateControl" : true,
+            "searchBoundaryLowerRightLatitude" : 50.8428220340678
+          },
+          "mapPitchAndBearing" : {
+            "bearing" : 0,
+            "pitch" : 0
+          },
+          "datasetMetadata" : false,
+          "showLegendOpened" : true,
+          "panAndZoom" : true,
+          "locateUser" : false
+        },
+        "series" : [ {
+          "visible" : true,
+          "color" : {
+            "palette" : "categorical",
+            "primary" : "#eb6900"
+          },
+          "mapOptions" : {
+            "colorByQuantificationMethod" : "category",
+            "mapFlyoutTitleColumnName" : "label",
+            "colorBoundariesBy" : "label",
+            "mapType" : "boundaryMap",
+            "additionalFlyoutColumns" : [ "councillor" ]
+          },
+          "showLegend" : true,
+          "type" : "map",
+          "dataSource" : {
+            "measure" : {
+              "aggregationFunction" : "count"
+            },
+            "name" : "Ward_Boundary_layer",
+            "type" : "socrata.soql",
+            "datasetUid" : "tz8z-hyaz",
+            "dimension" : {
+              "columnName" : "multipolygon"
+            }
+          },
+          "primary" : true
+        } ],
+        "format" : {
+          "type" : "visualization_interchange_format",
+          "version" : 4
+        },
+        "description" : "",
+        "id" : "3cd2b917-19fc-438f-8a2f-b7c54458a171",
+        "title" : "",
+        "currentMapLayerIndex" : 0
+      } ],
+      "version" : 1
+    }
+  },
+  "grants" : [ {
+    "inherited" : true,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "See Terms of Use"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "License/Attribution" : {
+        "License URL" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Data Supplier" : {
+        "Organization" : "The City of Calgary",
+        "Business Unit" : "City and Regional Planning"
+      },
+      "Time/Date" : {
+        "How Data is Collected" : "manual",
+        "Date of Last Update" : "October 2017",
+        "Update Frequency" : "Irregular",
+        "Time Period Covered" : "October 16 2017- October 2021"
+      },
+      "Geospatial Information" : {
+        "Map Projection" : "EPSG:4326 WGS84",
+        "Dataset contains geospatial information" : "Yes"
+      }
+    },
+    "availableDisplayTypes" : [ "visualization" ]
+  },
+  "owner" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "ward", "election" ],
+  "flags" : [ "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

@@ -1,0 +1,637 @@
+{
+  "id" : "f2h8-5h2c",
+  "name" : "Historical Civic Census by Ward (1968-1997)",
+  "assetType" : "filter",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Demographics",
+  "createdAt" : 1652822398,
+  "description" : "The City of Calgary has been conducting the annual civic census for over fifty years. This dataset provides the counts of residents and dwelling units including by structure type broken out into community districts for years 1968-1997.",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 87,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "SEE_TERMS_OF_USE",
+  "locked" : false,
+  "modifyingViewUid" : "icm7-bsyz",
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 38491015,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1652822407,
+  "publicationGroup" : 18699629,
+  "publicationStage" : "published",
+  "queryString" : "SELECT `year`, `area_code`, `area_type`, `pre_school`, `population`, `apt_non_res`, `apt_occupied_units`, `apt_owned_units`, `apt_persons`, `apt_total_units`, `apt_vacant_units`, `cnv_non_res`, `cnv_occupied_units`, `cnv_owned_units`, `cnv_persons`, `cnv_total_units`, `cnv_vacant_units`, `dup_non_res`, `dup_occupied_units`, `dup_owned_units`, `dup_persons`, `dup_total_units`, `dup_vacant_units`, `mob_non_res`, `mob_occupied_units`, `mob_owned_units`, `mob_persons`, `mob_total_units`, `mob_vacant_units`, `oth_non_res`, `oth_occupied_units`, `oth_owned_units`, `oth_persons`, `oth_total_units`, `oth_vacant_units`, `row_non_res`, `row_occupied_units`, `row_owned_units`, `row_persons`, `row_total_units`, `row_vacant_units`, `sf_non_res`, `sf_occupied_units`, `sf_owned_units`, `sf_persons`, `sf_total_units`, `sf_vacant_units` WHERE upper(`area_type`) = \"WARD\"",
+  "rowsUpdatedAt" : 1652796788,
+  "tableId" : 18699629,
+  "totalTimesRated" : 0,
+  "viewCount" : 602,
+  "viewLastModified" : 1778083562,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1652973602,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 4706884,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1652973602,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1652973602,
+      "failureCount" : 0,
+      "startedAt" : 1652973602,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "7gje-thpf",
+      "displayName" : "Open Data Administrator"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 560556590,
+    "name" : "Year",
+    "dataTypeName" : "number",
+    "description" : "Year the data was collected",
+    "fieldName" : "year",
+    "position" : 1,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184527,
+    "width" : 100,
+    "format" : {
+      "noCommas" : "true"
+    }
+  }, {
+    "id" : 560556591,
+    "name" : "Area_Code",
+    "dataTypeName" : "text",
+    "description" : "Community codes",
+    "fieldName" : "area_code",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 142184530,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556592,
+    "name" : "Area_Type",
+    "dataTypeName" : "text",
+    "description" : "Area covered: City (wide), Ward, Community",
+    "fieldName" : "area_type",
+    "position" : 3,
+    "renderTypeName" : "text",
+    "tableColumnId" : 142184540,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556593,
+    "name" : "Pre_School",
+    "dataTypeName" : "number",
+    "description" : "Preschool population",
+    "fieldName" : "pre_school",
+    "position" : 4,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184545,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556594,
+    "name" : "Population",
+    "dataTypeName" : "number",
+    "description" : "Total population",
+    "fieldName" : "population",
+    "position" : 5,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184561,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556595,
+    "name" : "Apt_Non_Res",
+    "dataTypeName" : "number",
+    "description" : "Count of apartments used for non-residential purposes",
+    "fieldName" : "apt_non_res",
+    "position" : 6,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184534,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556596,
+    "name" : "Apt_Occupied_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of apartments with confirmed residents",
+    "fieldName" : "apt_occupied_units",
+    "position" : 7,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184523,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556597,
+    "name" : "Apt_Owned_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of apartments occupied by homeowners",
+    "fieldName" : "apt_owned_units",
+    "position" : 8,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184533,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556598,
+    "name" : "Apt_Persons",
+    "dataTypeName" : "number",
+    "description" : "Count of people in apartments",
+    "fieldName" : "apt_persons",
+    "position" : 9,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184560,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556599,
+    "name" : "Apt_Total_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of all apartments",
+    "fieldName" : "apt_total_units",
+    "position" : 10,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184549,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556600,
+    "name" : "Apt_Vacant_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of vacant apartments",
+    "fieldName" : "apt_vacant_units",
+    "position" : 11,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184537,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556601,
+    "name" : "Cnv_Non_Res",
+    "dataTypeName" : "number",
+    "description" : "Count of converted units used for non-residential purposes",
+    "fieldName" : "cnv_non_res",
+    "position" : 12,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184553,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556602,
+    "name" : "Cnv_Occupied_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of converted units with confirmed residents",
+    "fieldName" : "cnv_occupied_units",
+    "position" : 13,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184548,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556603,
+    "name" : "Cnv_Owned_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of converted units occupied by homeowners",
+    "fieldName" : "cnv_owned_units",
+    "position" : 14,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184541,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556604,
+    "name" : "Cnv_Persons",
+    "dataTypeName" : "number",
+    "description" : "Count of people in converted units",
+    "fieldName" : "cnv_persons",
+    "position" : 15,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184520,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556605,
+    "name" : "Cnv_Total_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of all converted units",
+    "fieldName" : "cnv_total_units",
+    "position" : 16,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184539,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556606,
+    "name" : "Cnv_Vacant_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of vacant converted units",
+    "fieldName" : "cnv_vacant_units",
+    "position" : 17,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184526,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556607,
+    "name" : "Dup_Non_Res",
+    "dataTypeName" : "number",
+    "description" : "Count of duplexes used for non-residential purposes",
+    "fieldName" : "dup_non_res",
+    "position" : 18,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184556,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556608,
+    "name" : "Dup_Occupied_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of duplexes with confirmed residents",
+    "fieldName" : "dup_occupied_units",
+    "position" : 19,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184519,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556609,
+    "name" : "Dup_Owned_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of duplexes occupied by homeowners",
+    "fieldName" : "dup_owned_units",
+    "position" : 20,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184554,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556610,
+    "name" : "Dup_Persons",
+    "dataTypeName" : "number",
+    "description" : "Count of people in duplexes",
+    "fieldName" : "dup_persons",
+    "position" : 21,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184529,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556611,
+    "name" : "Dup_Total_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of all duplexes",
+    "fieldName" : "dup_total_units",
+    "position" : 22,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184557,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556612,
+    "name" : "Dup_Vacant_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of vacant duplexes",
+    "fieldName" : "dup_vacant_units",
+    "position" : 23,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184531,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556613,
+    "name" : "Mob_Non_Res",
+    "dataTypeName" : "number",
+    "description" : "Count of mobile homes used for non-residential purposes",
+    "fieldName" : "mob_non_res",
+    "position" : 24,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184551,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556614,
+    "name" : "Mob_Occupied_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of mobile homes with confirmed residents",
+    "fieldName" : "mob_occupied_units",
+    "position" : 25,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184555,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556615,
+    "name" : "Mob_Owned_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of mobile homes occupied by homeowners",
+    "fieldName" : "mob_owned_units",
+    "position" : 26,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184550,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556616,
+    "name" : "Mob_Persons",
+    "dataTypeName" : "number",
+    "description" : "Count of people in mobile homes",
+    "fieldName" : "mob_persons",
+    "position" : 27,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184558,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556617,
+    "name" : "Mob_Total_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of all mobile homes",
+    "fieldName" : "mob_total_units",
+    "position" : 28,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184524,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556618,
+    "name" : "Mob_Vacant_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of vacant mobile homes",
+    "fieldName" : "mob_vacant_units",
+    "position" : 29,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184546,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556619,
+    "name" : "Oth_Non_Res",
+    "dataTypeName" : "number",
+    "description" : "Count of other dwelling types",
+    "fieldName" : "oth_non_res",
+    "position" : 30,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184536,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556620,
+    "name" : "Oth_Occupied_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of other dwelling types with confirmed residents",
+    "fieldName" : "oth_occupied_units",
+    "position" : 31,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184522,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556621,
+    "name" : "Oth_Owned_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of other dwelling types occupied by homeowners",
+    "fieldName" : "oth_owned_units",
+    "position" : 32,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184517,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556622,
+    "name" : "Oth_Persons",
+    "dataTypeName" : "number",
+    "description" : "Count of people in other dwelling types",
+    "fieldName" : "oth_persons",
+    "position" : 33,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184559,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556623,
+    "name" : "Oth_Total_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of all other dwelling types",
+    "fieldName" : "oth_total_units",
+    "position" : 34,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184547,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556624,
+    "name" : "Oth_Vacant_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of vacant other dwelling types",
+    "fieldName" : "oth_vacant_units",
+    "position" : 35,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184525,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556625,
+    "name" : "Row_Non_Res",
+    "dataTypeName" : "number",
+    "description" : "Count of row housing used for non-residential purposes",
+    "fieldName" : "row_non_res",
+    "position" : 36,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184552,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556626,
+    "name" : "Row_Occupied_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of row housing units with confirmed residents",
+    "fieldName" : "row_occupied_units",
+    "position" : 37,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184521,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556627,
+    "name" : "Row_Owned_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of row housing units occupied by homeowners",
+    "fieldName" : "row_owned_units",
+    "position" : 38,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184544,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556628,
+    "name" : "Row_Persons",
+    "dataTypeName" : "number",
+    "description" : "Count of people in row housing units",
+    "fieldName" : "row_persons",
+    "position" : 39,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184515,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556629,
+    "name" : "Row_Total_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of all row housing units",
+    "fieldName" : "row_total_units",
+    "position" : 40,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184532,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556630,
+    "name" : "Row_Vacant_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of vacant row housing units",
+    "fieldName" : "row_vacant_units",
+    "position" : 41,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184543,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556631,
+    "name" : "Sf_Non_Res",
+    "dataTypeName" : "number",
+    "description" : "Count of single family homes used for non-residential purposes",
+    "fieldName" : "sf_non_res",
+    "position" : 42,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184542,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556632,
+    "name" : "Sf_Occupied_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of single family homes with confirmed residents",
+    "fieldName" : "sf_occupied_units",
+    "position" : 43,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184535,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556633,
+    "name" : "Sf_Owned_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of single family homes occupied by homeowners",
+    "fieldName" : "sf_owned_units",
+    "position" : 44,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184518,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556634,
+    "name" : "Sf_Persons",
+    "dataTypeName" : "number",
+    "description" : "Count of people in single family homes",
+    "fieldName" : "sf_persons",
+    "position" : 45,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184538,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556635,
+    "name" : "Sf_Total_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of all single family homes",
+    "fieldName" : "sf_total_units",
+    "position" : 46,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184516,
+    "width" : 100,
+    "format" : { }
+  }, {
+    "id" : 560556636,
+    "name" : "Sf_Vacant_Units",
+    "dataTypeName" : "number",
+    "description" : "Count of vacant single family homes",
+    "fieldName" : "sf_vacant_units",
+    "position" : 47,
+    "renderTypeName" : "number",
+    "tableColumnId" : 142184528,
+    "width" : 100,
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "See Terms of Use"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "License/Attribution" : {
+        "License URL" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Data Supplier" : {
+        "Organization" : "The City of Calgary",
+        "Business Unit" : "City and Regional Planning"
+      },
+      "Time/Date" : {
+        "Update Frequency" : "None",
+        "Time Period Covered" : "1968-1997"
+      },
+      "Geospatial Information" : {
+        "Dataset contains geospatial information" : "No"
+      }
+    },
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+    "renderTypeConfig" : {
+      "visible" : {
+        "table" : true
+      }
+    }
+  },
+  "owner" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "census", "population", "dwelling", "vacant", "occupied" ],
+  "flags" : [ "calculatedView", "ownerMayBeContacted", "restorable", "restorePossibleForType", "soqlBasedView" ]
+}

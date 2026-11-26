@@ -1,0 +1,5148 @@
+{
+  "id" : "hjim-jabu",
+  "name" : "Census By Ward 1999",
+  "assetType" : "dataset",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Demographics",
+  "createdAt" : 1477602162,
+  "description" : "Census data is an official count of dwelling units and population within those units. The data is physically collected and may be supplemented with other information such as the periodic age/gender distribution data. This additional data allows for better interpretation of the population statistics. \r\nData is presented by ward boundaries, the electoral areas represented by one Alderman.",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 430,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "indexUpdatedAt" : 1539907978,
+  "licenseId" : "SEE_TERMS_OF_USE",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 24780041,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1477602203,
+  "publicationGroup" : 13875193,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1477602203,
+  "tableId" : 13875193,
+  "totalTimesRated" : 0,
+  "viewCount" : 894,
+  "viewLastModified" : 1775494799,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1477605984,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 2907541,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1477605984,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "55bi-hyk4",
+      "displayName" : "Calgary Open Data"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 275148252,
+    "name" : "the_geom",
+    "dataTypeName" : "polygon",
+    "fieldName" : "the_geom",
+    "position" : 1,
+    "renderTypeName" : "polygon",
+    "tableColumnId" : 39716759,
+    "format" : { }
+  }, {
+    "id" : 275148253,
+    "name" : "CNSS_YR",
+    "dataTypeName" : "number",
+    "fieldName" : "cnss_yr",
+    "position" : 2,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716760,
+    "cachedContents" : {
+      "largest" : "1999",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1999",
+        "count" : "14"
+      } ],
+      "smallest" : "1999",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148254,
+    "name" : "WARD_NUM",
+    "dataTypeName" : "number",
+    "fieldName" : "ward_num",
+    "position" : 3,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716761,
+    "cachedContents" : {
+      "largest" : "14",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "7",
+        "count" : "1"
+      }, {
+        "item" : "1",
+        "count" : "1"
+      }, {
+        "item" : "4",
+        "count" : "1"
+      }, {
+        "item" : "8",
+        "count" : "1"
+      }, {
+        "item" : "6",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "9",
+        "count" : "1"
+      }, {
+        "item" : "13",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "11",
+        "count" : "1"
+      }, {
+        "item" : "3",
+        "count" : "1"
+      }, {
+        "item" : "14",
+        "count" : "1"
+      }, {
+        "item" : "12",
+        "count" : "1"
+      }, {
+        "item" : "10",
+        "count" : "1"
+      } ],
+      "smallest" : "1",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148255,
+    "name" : "LABEL",
+    "dataTypeName" : "text",
+    "fieldName" : "label",
+    "position" : 4,
+    "renderTypeName" : "text",
+    "tableColumnId" : 39716762,
+    "cachedContents" : {
+      "largest" : "WARD 9",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "WARD 11",
+        "count" : "1"
+      }, {
+        "item" : "WARD 3",
+        "count" : "1"
+      }, {
+        "item" : "WARD 2",
+        "count" : "1"
+      }, {
+        "item" : "WARD 13",
+        "count" : "1"
+      }, {
+        "item" : "WARD 8",
+        "count" : "1"
+      }, {
+        "item" : "WARD 6",
+        "count" : "1"
+      }, {
+        "item" : "WARD 12",
+        "count" : "1"
+      }, {
+        "item" : "WARD 7",
+        "count" : "1"
+      }, {
+        "item" : "WARD 9",
+        "count" : "1"
+      }, {
+        "item" : "WARD 1",
+        "count" : "1"
+      }, {
+        "item" : "WARD 4",
+        "count" : "1"
+      }, {
+        "item" : "WARD 5",
+        "count" : "1"
+      }, {
+        "item" : "WARD 14",
+        "count" : "1"
+      }, {
+        "item" : "WARD 10",
+        "count" : "1"
+      } ],
+      "smallest" : "WARD 1",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148256,
+    "name" : "RES_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "res_cnt",
+    "position" : 5,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716763,
+    "cachedContents" : {
+      "largest" : "76813",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "45734",
+        "count" : "1"
+      }, {
+        "item" : "47777",
+        "count" : "1"
+      }, {
+        "item" : "76813",
+        "count" : "1"
+      }, {
+        "item" : "59042",
+        "count" : "1"
+      }, {
+        "item" : "70456",
+        "count" : "1"
+      }, {
+        "item" : "73511",
+        "count" : "1"
+      }, {
+        "item" : "51944",
+        "count" : "1"
+      }, {
+        "item" : "71925",
+        "count" : "1"
+      }, {
+        "item" : "47332",
+        "count" : "1"
+      }, {
+        "item" : "60210",
+        "count" : "1"
+      }, {
+        "item" : "55868",
+        "count" : "1"
+      }, {
+        "item" : "68399",
+        "count" : "1"
+      }, {
+        "item" : "58102",
+        "count" : "1"
+      }, {
+        "item" : "55276",
+        "count" : "1"
+      } ],
+      "smallest" : "45734",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148257,
+    "name" : "DWELL_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "dwell_cnt",
+    "position" : 6,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716764,
+    "cachedContents" : {
+      "largest" : "28777",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "20870",
+        "count" : "1"
+      }, {
+        "item" : "25806",
+        "count" : "1"
+      }, {
+        "item" : "21880",
+        "count" : "1"
+      }, {
+        "item" : "23798",
+        "count" : "1"
+      }, {
+        "item" : "27020",
+        "count" : "1"
+      }, {
+        "item" : "27403",
+        "count" : "1"
+      }, {
+        "item" : "21133",
+        "count" : "1"
+      }, {
+        "item" : "28777",
+        "count" : "1"
+      }, {
+        "item" : "25260",
+        "count" : "1"
+      }, {
+        "item" : "19996",
+        "count" : "1"
+      }, {
+        "item" : "23079",
+        "count" : "1"
+      }, {
+        "item" : "19051",
+        "count" : "1"
+      }, {
+        "item" : "25903",
+        "count" : "1"
+      }, {
+        "item" : "22317",
+        "count" : "1"
+      } ],
+      "smallest" : "19051",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148258,
+    "name" : "PRSCH_CHLD",
+    "dataTypeName" : "number",
+    "fieldName" : "prsch_chld",
+    "position" : 7,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716765,
+    "cachedContents" : {
+      "largest" : "7564",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3550",
+        "count" : "1"
+      }, {
+        "item" : "1567",
+        "count" : "1"
+      }, {
+        "item" : "4929",
+        "count" : "1"
+      }, {
+        "item" : "2262",
+        "count" : "1"
+      }, {
+        "item" : "7564",
+        "count" : "1"
+      }, {
+        "item" : "7080",
+        "count" : "1"
+      }, {
+        "item" : "4659",
+        "count" : "1"
+      }, {
+        "item" : "5646",
+        "count" : "1"
+      }, {
+        "item" : "6713",
+        "count" : "1"
+      }, {
+        "item" : "6967",
+        "count" : "1"
+      }, {
+        "item" : "2906",
+        "count" : "1"
+      }, {
+        "item" : "2961",
+        "count" : "1"
+      }, {
+        "item" : "5089",
+        "count" : "1"
+      }, {
+        "item" : "4606",
+        "count" : "1"
+      } ],
+      "smallest" : "1567",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148259,
+    "name" : "ELECT_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "elect_cnt",
+    "position" : 8,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716766,
+    "cachedContents" : {
+      "largest" : "0",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "14"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148260,
+    "name" : "EMPLYD_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "emplyd_cnt",
+    "position" : 9,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716767,
+    "cachedContents" : {
+      "largest" : "40867",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "30056",
+        "count" : "1"
+      }, {
+        "item" : "30048",
+        "count" : "1"
+      }, {
+        "item" : "37656",
+        "count" : "1"
+      }, {
+        "item" : "40176",
+        "count" : "1"
+      }, {
+        "item" : "29088",
+        "count" : "1"
+      }, {
+        "item" : "24652",
+        "count" : "1"
+      }, {
+        "item" : "34954",
+        "count" : "1"
+      }, {
+        "item" : "38544",
+        "count" : "1"
+      }, {
+        "item" : "30186",
+        "count" : "1"
+      }, {
+        "item" : "30646",
+        "count" : "1"
+      }, {
+        "item" : "33482",
+        "count" : "1"
+      }, {
+        "item" : "26188",
+        "count" : "1"
+      }, {
+        "item" : "30803",
+        "count" : "1"
+      }, {
+        "item" : "40867",
+        "count" : "1"
+      } ],
+      "smallest" : "24652",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148261,
+    "name" : "OWNSHP_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "ownshp_cnt",
+    "position" : 10,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716768,
+    "cachedContents" : {
+      "largest" : "21863",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "18173",
+        "count" : "1"
+      }, {
+        "item" : "15962",
+        "count" : "1"
+      }, {
+        "item" : "19212",
+        "count" : "1"
+      }, {
+        "item" : "10891",
+        "count" : "1"
+      }, {
+        "item" : "12491",
+        "count" : "1"
+      }, {
+        "item" : "21863",
+        "count" : "1"
+      }, {
+        "item" : "17138",
+        "count" : "1"
+      }, {
+        "item" : "21003",
+        "count" : "1"
+      }, {
+        "item" : "11533",
+        "count" : "1"
+      }, {
+        "item" : "14275",
+        "count" : "1"
+      }, {
+        "item" : "15768",
+        "count" : "1"
+      }, {
+        "item" : "11956",
+        "count" : "1"
+      }, {
+        "item" : "6467",
+        "count" : "1"
+      }, {
+        "item" : "16562",
+        "count" : "1"
+      } ],
+      "smallest" : "6467",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148262,
+    "name" : "DOG_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "dog_cnt",
+    "position" : 11,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716769,
+    "cachedContents" : {
+      "largest" : "8335",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2090",
+        "count" : "1"
+      }, {
+        "item" : "6361",
+        "count" : "1"
+      }, {
+        "item" : "7181",
+        "count" : "1"
+      }, {
+        "item" : "7024",
+        "count" : "1"
+      }, {
+        "item" : "7362",
+        "count" : "1"
+      }, {
+        "item" : "8335",
+        "count" : "1"
+      }, {
+        "item" : "6152",
+        "count" : "1"
+      }, {
+        "item" : "6715",
+        "count" : "1"
+      }, {
+        "item" : "4577",
+        "count" : "1"
+      }, {
+        "item" : "5301",
+        "count" : "1"
+      }, {
+        "item" : "7267",
+        "count" : "1"
+      }, {
+        "item" : "4849",
+        "count" : "1"
+      }, {
+        "item" : "6110",
+        "count" : "1"
+      }, {
+        "item" : "3503",
+        "count" : "1"
+      } ],
+      "smallest" : "2090",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148263,
+    "name" : "CAT_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "cat_cnt",
+    "position" : 12,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716770,
+    "cachedContents" : {
+      "largest" : "6918",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "5996",
+        "count" : "1"
+      }, {
+        "item" : "6344",
+        "count" : "1"
+      }, {
+        "item" : "5720",
+        "count" : "1"
+      }, {
+        "item" : "5052",
+        "count" : "1"
+      }, {
+        "item" : "6640",
+        "count" : "1"
+      }, {
+        "item" : "6070",
+        "count" : "1"
+      }, {
+        "item" : "6409",
+        "count" : "1"
+      }, {
+        "item" : "5594",
+        "count" : "1"
+      }, {
+        "item" : "6882",
+        "count" : "1"
+      }, {
+        "item" : "6918",
+        "count" : "1"
+      }, {
+        "item" : "5660",
+        "count" : "1"
+      }, {
+        "item" : "5167",
+        "count" : "1"
+      }, {
+        "item" : "6098",
+        "count" : "1"
+      }, {
+        "item" : "5321",
+        "count" : "1"
+      } ],
+      "smallest" : "5052",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148264,
+    "name" : "PUB_SCH",
+    "dataTypeName" : "number",
+    "fieldName" : "pub_sch",
+    "position" : 13,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716771,
+    "cachedContents" : {
+      "largest" : "19044",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "18273",
+        "count" : "1"
+      }, {
+        "item" : "14568",
+        "count" : "1"
+      }, {
+        "item" : "17954",
+        "count" : "1"
+      }, {
+        "item" : "16095",
+        "count" : "1"
+      }, {
+        "item" : "15571",
+        "count" : "1"
+      }, {
+        "item" : "16828",
+        "count" : "1"
+      }, {
+        "item" : "14025",
+        "count" : "1"
+      }, {
+        "item" : "13004",
+        "count" : "1"
+      }, {
+        "item" : "14419",
+        "count" : "1"
+      }, {
+        "item" : "14774",
+        "count" : "1"
+      }, {
+        "item" : "19044",
+        "count" : "1"
+      }, {
+        "item" : "17087",
+        "count" : "1"
+      }, {
+        "item" : "16719",
+        "count" : "1"
+      }, {
+        "item" : "15059",
+        "count" : "1"
+      } ],
+      "smallest" : "13004",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148265,
+    "name" : "SEP_SCH",
+    "dataTypeName" : "number",
+    "fieldName" : "sep_sch",
+    "position" : 14,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716772,
+    "cachedContents" : {
+      "largest" : "7562",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "6039",
+        "count" : "1"
+      }, {
+        "item" : "4712",
+        "count" : "1"
+      }, {
+        "item" : "4492",
+        "count" : "1"
+      }, {
+        "item" : "4873",
+        "count" : "1"
+      }, {
+        "item" : "5968",
+        "count" : "1"
+      }, {
+        "item" : "5309",
+        "count" : "1"
+      }, {
+        "item" : "7123",
+        "count" : "1"
+      }, {
+        "item" : "5158",
+        "count" : "1"
+      }, {
+        "item" : "7251",
+        "count" : "1"
+      }, {
+        "item" : "4696",
+        "count" : "1"
+      }, {
+        "item" : "7562",
+        "count" : "1"
+      }, {
+        "item" : "4494",
+        "count" : "1"
+      }, {
+        "item" : "6218",
+        "count" : "1"
+      }, {
+        "item" : "5459",
+        "count" : "1"
+      } ],
+      "smallest" : "4492",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148266,
+    "name" : "SING_FAMLY",
+    "dataTypeName" : "number",
+    "fieldName" : "sing_famly",
+    "position" : 15,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716773,
+    "cachedContents" : {
+      "largest" : "20623",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "14089",
+        "count" : "1"
+      }, {
+        "item" : "11128",
+        "count" : "1"
+      }, {
+        "item" : "10327",
+        "count" : "1"
+      }, {
+        "item" : "4495",
+        "count" : "1"
+      }, {
+        "item" : "13711",
+        "count" : "1"
+      }, {
+        "item" : "16882",
+        "count" : "1"
+      }, {
+        "item" : "19752",
+        "count" : "1"
+      }, {
+        "item" : "11114",
+        "count" : "1"
+      }, {
+        "item" : "11883",
+        "count" : "1"
+      }, {
+        "item" : "18316",
+        "count" : "1"
+      }, {
+        "item" : "15346",
+        "count" : "1"
+      }, {
+        "item" : "20623",
+        "count" : "1"
+      }, {
+        "item" : "12871",
+        "count" : "1"
+      }, {
+        "item" : "13384",
+        "count" : "1"
+      } ],
+      "smallest" : "4495",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148267,
+    "name" : "DUPLEX",
+    "dataTypeName" : "number",
+    "fieldName" : "duplex",
+    "position" : 16,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716774,
+    "cachedContents" : {
+      "largest" : "2653",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1932",
+        "count" : "1"
+      }, {
+        "item" : "2370",
+        "count" : "1"
+      }, {
+        "item" : "1928",
+        "count" : "1"
+      }, {
+        "item" : "2307",
+        "count" : "1"
+      }, {
+        "item" : "1445",
+        "count" : "1"
+      }, {
+        "item" : "1277",
+        "count" : "1"
+      }, {
+        "item" : "1032",
+        "count" : "1"
+      }, {
+        "item" : "851",
+        "count" : "1"
+      }, {
+        "item" : "1662",
+        "count" : "1"
+      }, {
+        "item" : "1074",
+        "count" : "1"
+      }, {
+        "item" : "1613",
+        "count" : "1"
+      }, {
+        "item" : "1395",
+        "count" : "1"
+      }, {
+        "item" : "307",
+        "count" : "1"
+      }, {
+        "item" : "2653",
+        "count" : "1"
+      } ],
+      "smallest" : "307",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148268,
+    "name" : "MULTI_PLEX",
+    "dataTypeName" : "number",
+    "fieldName" : "multi_plex",
+    "position" : 17,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716775,
+    "cachedContents" : {
+      "largest" : "141",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "4"
+      }, {
+        "item" : "1",
+        "count" : "2"
+      }, {
+        "item" : "116",
+        "count" : "1"
+      }, {
+        "item" : "12",
+        "count" : "1"
+      }, {
+        "item" : "27",
+        "count" : "1"
+      }, {
+        "item" : "136",
+        "count" : "1"
+      }, {
+        "item" : "104",
+        "count" : "1"
+      }, {
+        "item" : "51",
+        "count" : "1"
+      }, {
+        "item" : "141",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "10"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148269,
+    "name" : "APARTMENT",
+    "dataTypeName" : "number",
+    "fieldName" : "apartment",
+    "position" : 18,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716776,
+    "cachedContents" : {
+      "largest" : "20063",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "429",
+        "count" : "1"
+      }, {
+        "item" : "3591",
+        "count" : "1"
+      }, {
+        "item" : "1442",
+        "count" : "1"
+      }, {
+        "item" : "1947",
+        "count" : "1"
+      }, {
+        "item" : "1813",
+        "count" : "1"
+      }, {
+        "item" : "4263",
+        "count" : "1"
+      }, {
+        "item" : "3997",
+        "count" : "1"
+      }, {
+        "item" : "13993",
+        "count" : "1"
+      }, {
+        "item" : "6146",
+        "count" : "1"
+      }, {
+        "item" : "1796",
+        "count" : "1"
+      }, {
+        "item" : "20063",
+        "count" : "1"
+      }, {
+        "item" : "780",
+        "count" : "1"
+      }, {
+        "item" : "1249",
+        "count" : "1"
+      }, {
+        "item" : "4744",
+        "count" : "1"
+      } ],
+      "smallest" : "429",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148270,
+    "name" : "TOWN_HOUSE",
+    "dataTypeName" : "number",
+    "fieldName" : "town_house",
+    "position" : 19,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716777,
+    "cachedContents" : {
+      "largest" : "3828",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3828",
+        "count" : "1"
+      }, {
+        "item" : "3218",
+        "count" : "1"
+      }, {
+        "item" : "3437",
+        "count" : "1"
+      }, {
+        "item" : "804",
+        "count" : "1"
+      }, {
+        "item" : "1213",
+        "count" : "1"
+      }, {
+        "item" : "1648",
+        "count" : "1"
+      }, {
+        "item" : "2434",
+        "count" : "1"
+      }, {
+        "item" : "2678",
+        "count" : "1"
+      }, {
+        "item" : "1950",
+        "count" : "1"
+      }, {
+        "item" : "2387",
+        "count" : "1"
+      }, {
+        "item" : "2122",
+        "count" : "1"
+      }, {
+        "item" : "3114",
+        "count" : "1"
+      }, {
+        "item" : "2953",
+        "count" : "1"
+      }, {
+        "item" : "2925",
+        "count" : "1"
+      } ],
+      "smallest" : "804",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148271,
+    "name" : "MANUF_HOME",
+    "dataTypeName" : "number",
+    "fieldName" : "manuf_home",
+    "position" : 20,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716778,
+    "cachedContents" : {
+      "largest" : "521",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "3"
+      }, {
+        "item" : "276",
+        "count" : "1"
+      }, {
+        "item" : "482",
+        "count" : "1"
+      }, {
+        "item" : "521",
+        "count" : "1"
+      }, {
+        "item" : "144",
+        "count" : "1"
+      }, {
+        "item" : "360",
+        "count" : "1"
+      }, {
+        "item" : "1",
+        "count" : "1"
+      }, {
+        "item" : "183",
+        "count" : "1"
+      }, {
+        "item" : "216",
+        "count" : "1"
+      }, {
+        "item" : "141",
+        "count" : "1"
+      }, {
+        "item" : "6",
+        "count" : "1"
+      }, {
+        "item" : "309",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "12"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148272,
+    "name" : "CONV_STRUC",
+    "dataTypeName" : "number",
+    "fieldName" : "conv_struc",
+    "position" : 21,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716779,
+    "cachedContents" : {
+      "largest" : "2359",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1864",
+        "count" : "1"
+      }, {
+        "item" : "1178",
+        "count" : "1"
+      }, {
+        "item" : "121",
+        "count" : "1"
+      }, {
+        "item" : "1437",
+        "count" : "1"
+      }, {
+        "item" : "627",
+        "count" : "1"
+      }, {
+        "item" : "734",
+        "count" : "1"
+      }, {
+        "item" : "2359",
+        "count" : "1"
+      }, {
+        "item" : "1088",
+        "count" : "1"
+      }, {
+        "item" : "402",
+        "count" : "1"
+      }, {
+        "item" : "358",
+        "count" : "1"
+      }, {
+        "item" : "15",
+        "count" : "1"
+      }, {
+        "item" : "1108",
+        "count" : "1"
+      }, {
+        "item" : "53",
+        "count" : "1"
+      }, {
+        "item" : "69",
+        "count" : "1"
+      } ],
+      "smallest" : "15",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148273,
+    "name" : "COMUNL_HSE",
+    "dataTypeName" : "number",
+    "fieldName" : "comunl_hse",
+    "position" : 22,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716780,
+    "cachedContents" : {
+      "largest" : "13",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "8"
+      }, {
+        "item" : "13",
+        "count" : "2"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "1",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "4",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "6"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148274,
+    "name" : "RES_COMM",
+    "dataTypeName" : "number",
+    "fieldName" : "res_comm",
+    "position" : 23,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716781,
+    "cachedContents" : {
+      "largest" : "45",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "6"
+      }, {
+        "item" : "28",
+        "count" : "1"
+      }, {
+        "item" : "13",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "31",
+        "count" : "1"
+      }, {
+        "item" : "1",
+        "count" : "1"
+      }, {
+        "item" : "45",
+        "count" : "1"
+      }, {
+        "item" : "9",
+        "count" : "1"
+      }, {
+        "item" : "8",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "9"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148275,
+    "name" : "OTHER_RES",
+    "dataTypeName" : "number",
+    "fieldName" : "other_res",
+    "position" : 24,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716782,
+    "cachedContents" : {
+      "largest" : "114",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1",
+        "count" : "2"
+      }, {
+        "item" : "4",
+        "count" : "2"
+      }, {
+        "item" : "25",
+        "count" : "1"
+      }, {
+        "item" : "110",
+        "count" : "1"
+      }, {
+        "item" : "8",
+        "count" : "1"
+      }, {
+        "item" : "22",
+        "count" : "1"
+      }, {
+        "item" : "6",
+        "count" : "1"
+      }, {
+        "item" : "114",
+        "count" : "1"
+      }, {
+        "item" : "16",
+        "count" : "1"
+      }, {
+        "item" : "3",
+        "count" : "1"
+      }, {
+        "item" : "14",
+        "count" : "1"
+      }, {
+        "item" : "83",
+        "count" : "1"
+      } ],
+      "smallest" : "1",
+      "count" : "14",
+      "cardinality" : "12"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148276,
+    "name" : "NURSING_HM",
+    "dataTypeName" : "number",
+    "fieldName" : "nursing_hm",
+    "position" : 25,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716783,
+    "cachedContents" : {
+      "largest" : "101",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1",
+        "count" : "5"
+      }, {
+        "item" : "3",
+        "count" : "3"
+      }, {
+        "item" : "0",
+        "count" : "2"
+      }, {
+        "item" : "101",
+        "count" : "1"
+      }, {
+        "item" : "6",
+        "count" : "1"
+      }, {
+        "item" : "92",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "7"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148277,
+    "name" : "OTHER_INST",
+    "dataTypeName" : "number",
+    "fieldName" : "other_inst",
+    "position" : 26,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716784,
+    "cachedContents" : {
+      "largest" : "17",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1",
+        "count" : "5"
+      }, {
+        "item" : "0",
+        "count" : "5"
+      }, {
+        "item" : "3",
+        "count" : "2"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "17",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "5"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148278,
+    "name" : "HOTEL_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "hotel_cnt",
+    "position" : 27,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716785,
+    "cachedContents" : {
+      "largest" : "31",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "3"
+      }, {
+        "item" : "9",
+        "count" : "2"
+      }, {
+        "item" : "2",
+        "count" : "2"
+      }, {
+        "item" : "1",
+        "count" : "2"
+      }, {
+        "item" : "10",
+        "count" : "1"
+      }, {
+        "item" : "12",
+        "count" : "1"
+      }, {
+        "item" : "3",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "31",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "9"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148279,
+    "name" : "APT_NO_RES",
+    "dataTypeName" : "number",
+    "fieldName" : "apt_no_res",
+    "position" : 28,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716786,
+    "cachedContents" : {
+      "largest" : "0",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "14"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148280,
+    "name" : "APT_OCCPD",
+    "dataTypeName" : "number",
+    "fieldName" : "apt_occpd",
+    "position" : 29,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716787,
+    "cachedContents" : {
+      "largest" : "19282",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1687",
+        "count" : "1"
+      }, {
+        "item" : "1112",
+        "count" : "1"
+      }, {
+        "item" : "1666",
+        "count" : "1"
+      }, {
+        "item" : "741",
+        "count" : "1"
+      }, {
+        "item" : "3559",
+        "count" : "1"
+      }, {
+        "item" : "3961",
+        "count" : "1"
+      }, {
+        "item" : "3460",
+        "count" : "1"
+      }, {
+        "item" : "1858",
+        "count" : "1"
+      }, {
+        "item" : "1231",
+        "count" : "1"
+      }, {
+        "item" : "313",
+        "count" : "1"
+      }, {
+        "item" : "12794",
+        "count" : "1"
+      }, {
+        "item" : "19282",
+        "count" : "1"
+      }, {
+        "item" : "5817",
+        "count" : "1"
+      }, {
+        "item" : "4273",
+        "count" : "1"
+      } ],
+      "smallest" : "313",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148281,
+    "name" : "APT_OWNED",
+    "dataTypeName" : "number",
+    "fieldName" : "apt_owned",
+    "position" : 30,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716788,
+    "cachedContents" : {
+      "largest" : "2787",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "375",
+        "count" : "1"
+      }, {
+        "item" : "102",
+        "count" : "1"
+      }, {
+        "item" : "152",
+        "count" : "1"
+      }, {
+        "item" : "305",
+        "count" : "1"
+      }, {
+        "item" : "46",
+        "count" : "1"
+      }, {
+        "item" : "2787",
+        "count" : "1"
+      }, {
+        "item" : "461",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "1271",
+        "count" : "1"
+      }, {
+        "item" : "618",
+        "count" : "1"
+      }, {
+        "item" : "997",
+        "count" : "1"
+      }, {
+        "item" : "263",
+        "count" : "1"
+      }, {
+        "item" : "631",
+        "count" : "1"
+      }, {
+        "item" : "1638",
+        "count" : "1"
+      } ],
+      "smallest" : "5",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148282,
+    "name" : "APT_PERSON",
+    "dataTypeName" : "number",
+    "fieldName" : "apt_person",
+    "position" : 31,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716789,
+    "cachedContents" : {
+      "largest" : "29533",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "9176",
+        "count" : "1"
+      }, {
+        "item" : "1961",
+        "count" : "1"
+      }, {
+        "item" : "19031",
+        "count" : "1"
+      }, {
+        "item" : "5242",
+        "count" : "1"
+      }, {
+        "item" : "6992",
+        "count" : "1"
+      }, {
+        "item" : "2397",
+        "count" : "1"
+      }, {
+        "item" : "6107",
+        "count" : "1"
+      }, {
+        "item" : "1351",
+        "count" : "1"
+      }, {
+        "item" : "2723",
+        "count" : "1"
+      }, {
+        "item" : "6294",
+        "count" : "1"
+      }, {
+        "item" : "464",
+        "count" : "1"
+      }, {
+        "item" : "29533",
+        "count" : "1"
+      }, {
+        "item" : "3153",
+        "count" : "1"
+      }, {
+        "item" : "2619",
+        "count" : "1"
+      } ],
+      "smallest" : "464",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148283,
+    "name" : "APT_VACANT",
+    "dataTypeName" : "number",
+    "fieldName" : "apt_vacant",
+    "position" : 32,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716790,
+    "cachedContents" : {
+      "largest" : "1315",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "438",
+        "count" : "2"
+      }, {
+        "item" : "45",
+        "count" : "1"
+      }, {
+        "item" : "922",
+        "count" : "1"
+      }, {
+        "item" : "235",
+        "count" : "1"
+      }, {
+        "item" : "39",
+        "count" : "1"
+      }, {
+        "item" : "116",
+        "count" : "1"
+      }, {
+        "item" : "101",
+        "count" : "1"
+      }, {
+        "item" : "1315",
+        "count" : "1"
+      }, {
+        "item" : "380",
+        "count" : "1"
+      }, {
+        "item" : "472",
+        "count" : "1"
+      }, {
+        "item" : "127",
+        "count" : "1"
+      }, {
+        "item" : "335",
+        "count" : "1"
+      }, {
+        "item" : "130",
+        "count" : "1"
+      } ],
+      "smallest" : "39",
+      "count" : "14",
+      "cardinality" : "13"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148284,
+    "name" : "CNV_NO_RES",
+    "dataTypeName" : "number",
+    "fieldName" : "cnv_no_res",
+    "position" : 33,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716791,
+    "cachedContents" : {
+      "largest" : "0",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "14"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148285,
+    "name" : "CNV_OCCPD",
+    "dataTypeName" : "number",
+    "fieldName" : "cnv_occpd",
+    "position" : 34,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716792,
+    "cachedContents" : {
+      "largest" : "1946",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "37",
+        "count" : "1"
+      }, {
+        "item" : "11",
+        "count" : "1"
+      }, {
+        "item" : "1946",
+        "count" : "1"
+      }, {
+        "item" : "882",
+        "count" : "1"
+      }, {
+        "item" : "548",
+        "count" : "1"
+      }, {
+        "item" : "1551",
+        "count" : "1"
+      }, {
+        "item" : "1231",
+        "count" : "1"
+      }, {
+        "item" : "960",
+        "count" : "1"
+      }, {
+        "item" : "103",
+        "count" : "1"
+      }, {
+        "item" : "290",
+        "count" : "1"
+      }, {
+        "item" : "640",
+        "count" : "1"
+      }, {
+        "item" : "305",
+        "count" : "1"
+      }, {
+        "item" : "61",
+        "count" : "1"
+      }, {
+        "item" : "918",
+        "count" : "1"
+      } ],
+      "smallest" : "11",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148286,
+    "name" : "CNV_OWNED",
+    "dataTypeName" : "number",
+    "fieldName" : "cnv_owned",
+    "position" : 35,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716793,
+    "cachedContents" : {
+      "largest" : "119",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3",
+        "count" : "2"
+      }, {
+        "item" : "34",
+        "count" : "1"
+      }, {
+        "item" : "119",
+        "count" : "1"
+      }, {
+        "item" : "48",
+        "count" : "1"
+      }, {
+        "item" : "79",
+        "count" : "1"
+      }, {
+        "item" : "60",
+        "count" : "1"
+      }, {
+        "item" : "74",
+        "count" : "1"
+      }, {
+        "item" : "91",
+        "count" : "1"
+      }, {
+        "item" : "7",
+        "count" : "1"
+      }, {
+        "item" : "24",
+        "count" : "1"
+      }, {
+        "item" : "52",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "32",
+        "count" : "1"
+      } ],
+      "smallest" : "3",
+      "count" : "14",
+      "cardinality" : "13"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148287,
+    "name" : "CNV_PERSON",
+    "dataTypeName" : "number",
+    "fieldName" : "cnv_person",
+    "position" : 36,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716794,
+    "cachedContents" : {
+      "largest" : "3090",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1841",
+        "count" : "1"
+      }, {
+        "item" : "750",
+        "count" : "1"
+      }, {
+        "item" : "73",
+        "count" : "1"
+      }, {
+        "item" : "1557",
+        "count" : "1"
+      }, {
+        "item" : "184",
+        "count" : "1"
+      }, {
+        "item" : "1046",
+        "count" : "1"
+      }, {
+        "item" : "1769",
+        "count" : "1"
+      }, {
+        "item" : "1888",
+        "count" : "1"
+      }, {
+        "item" : "2427",
+        "count" : "1"
+      }, {
+        "item" : "17",
+        "count" : "1"
+      }, {
+        "item" : "3090",
+        "count" : "1"
+      }, {
+        "item" : "1004",
+        "count" : "1"
+      }, {
+        "item" : "108",
+        "count" : "1"
+      }, {
+        "item" : "550",
+        "count" : "1"
+      } ],
+      "smallest" : "17",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148288,
+    "name" : "CNV_VACANT",
+    "dataTypeName" : "number",
+    "fieldName" : "cnv_vacant",
+    "position" : 37,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716795,
+    "cachedContents" : {
+      "largest" : "413",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "206",
+        "count" : "2"
+      }, {
+        "item" : "94",
+        "count" : "1"
+      }, {
+        "item" : "16",
+        "count" : "1"
+      }, {
+        "item" : "79",
+        "count" : "1"
+      }, {
+        "item" : "190",
+        "count" : "1"
+      }, {
+        "item" : "68",
+        "count" : "1"
+      }, {
+        "item" : "313",
+        "count" : "1"
+      }, {
+        "item" : "18",
+        "count" : "1"
+      }, {
+        "item" : "4",
+        "count" : "1"
+      }, {
+        "item" : "413",
+        "count" : "1"
+      }, {
+        "item" : "8",
+        "count" : "1"
+      }, {
+        "item" : "97",
+        "count" : "1"
+      }, {
+        "item" : "218",
+        "count" : "1"
+      } ],
+      "smallest" : "4",
+      "count" : "14",
+      "cardinality" : "13"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148289,
+    "name" : "DUP_NO_RES",
+    "dataTypeName" : "number",
+    "fieldName" : "dup_no_res",
+    "position" : 38,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716796,
+    "cachedContents" : {
+      "largest" : "0",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "14"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148290,
+    "name" : "DUP_OCCPD",
+    "dataTypeName" : "number",
+    "fieldName" : "dup_occpd",
+    "position" : 39,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716797,
+    "cachedContents" : {
+      "largest" : "2618",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1030",
+        "count" : "1"
+      }, {
+        "item" : "1841",
+        "count" : "1"
+      }, {
+        "item" : "293",
+        "count" : "1"
+      }, {
+        "item" : "1552",
+        "count" : "1"
+      }, {
+        "item" : "1887",
+        "count" : "1"
+      }, {
+        "item" : "1160",
+        "count" : "1"
+      }, {
+        "item" : "2230",
+        "count" : "1"
+      }, {
+        "item" : "2618",
+        "count" : "1"
+      }, {
+        "item" : "1614",
+        "count" : "1"
+      }, {
+        "item" : "806",
+        "count" : "1"
+      }, {
+        "item" : "1244",
+        "count" : "1"
+      }, {
+        "item" : "1019",
+        "count" : "1"
+      }, {
+        "item" : "2284",
+        "count" : "1"
+      }, {
+        "item" : "1393",
+        "count" : "1"
+      } ],
+      "smallest" : "293",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148291,
+    "name" : "DUP_OWNED",
+    "dataTypeName" : "number",
+    "fieldName" : "dup_owned",
+    "position" : 40,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716798,
+    "cachedContents" : {
+      "largest" : "1719",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "111",
+        "count" : "1"
+      }, {
+        "item" : "766",
+        "count" : "1"
+      }, {
+        "item" : "914",
+        "count" : "1"
+      }, {
+        "item" : "462",
+        "count" : "1"
+      }, {
+        "item" : "626",
+        "count" : "1"
+      }, {
+        "item" : "724",
+        "count" : "1"
+      }, {
+        "item" : "1719",
+        "count" : "1"
+      }, {
+        "item" : "912",
+        "count" : "1"
+      }, {
+        "item" : "1328",
+        "count" : "1"
+      }, {
+        "item" : "833",
+        "count" : "1"
+      }, {
+        "item" : "448",
+        "count" : "1"
+      }, {
+        "item" : "1283",
+        "count" : "1"
+      }, {
+        "item" : "1068",
+        "count" : "1"
+      }, {
+        "item" : "1025",
+        "count" : "1"
+      } ],
+      "smallest" : "111",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148292,
+    "name" : "DUP_PERSON",
+    "dataTypeName" : "number",
+    "fieldName" : "dup_person",
+    "position" : 41,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716799,
+    "cachedContents" : {
+      "largest" : "8628",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "5722",
+        "count" : "1"
+      }, {
+        "item" : "2799",
+        "count" : "1"
+      }, {
+        "item" : "5010",
+        "count" : "1"
+      }, {
+        "item" : "4250",
+        "count" : "1"
+      }, {
+        "item" : "8628",
+        "count" : "1"
+      }, {
+        "item" : "642",
+        "count" : "1"
+      }, {
+        "item" : "3214",
+        "count" : "1"
+      }, {
+        "item" : "2005",
+        "count" : "1"
+      }, {
+        "item" : "2358",
+        "count" : "1"
+      }, {
+        "item" : "3447",
+        "count" : "1"
+      }, {
+        "item" : "4645",
+        "count" : "1"
+      }, {
+        "item" : "6356",
+        "count" : "1"
+      }, {
+        "item" : "2976",
+        "count" : "1"
+      }, {
+        "item" : "6440",
+        "count" : "1"
+      } ],
+      "smallest" : "642",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148293,
+    "name" : "DUP_VACANT",
+    "dataTypeName" : "number",
+    "fieldName" : "dup_vacant",
+    "position" : 42,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716800,
+    "cachedContents" : {
+      "largest" : "235",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "91",
+        "count" : "1"
+      }, {
+        "item" : "44",
+        "count" : "1"
+      }, {
+        "item" : "35",
+        "count" : "1"
+      }, {
+        "item" : "52",
+        "count" : "1"
+      }, {
+        "item" : "45",
+        "count" : "1"
+      }, {
+        "item" : "61",
+        "count" : "1"
+      }, {
+        "item" : "33",
+        "count" : "1"
+      }, {
+        "item" : "77",
+        "count" : "1"
+      }, {
+        "item" : "235",
+        "count" : "1"
+      }, {
+        "item" : "86",
+        "count" : "1"
+      }, {
+        "item" : "13",
+        "count" : "1"
+      }, {
+        "item" : "48",
+        "count" : "1"
+      }, {
+        "item" : "14",
+        "count" : "1"
+      }, {
+        "item" : "41",
+        "count" : "1"
+      } ],
+      "smallest" : "13",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148294,
+    "name" : "MFH_NO_RES",
+    "dataTypeName" : "number",
+    "fieldName" : "mfh_no_res",
+    "position" : 43,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716801,
+    "cachedContents" : {
+      "largest" : "0",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "14"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148295,
+    "name" : "MFH_OCCPD",
+    "dataTypeName" : "number",
+    "fieldName" : "mfh_occpd",
+    "position" : 44,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716802,
+    "cachedContents" : {
+      "largest" : "512",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "3"
+      }, {
+        "item" : "274",
+        "count" : "1"
+      }, {
+        "item" : "197",
+        "count" : "1"
+      }, {
+        "item" : "137",
+        "count" : "1"
+      }, {
+        "item" : "138",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "180",
+        "count" : "1"
+      }, {
+        "item" : "348",
+        "count" : "1"
+      }, {
+        "item" : "472",
+        "count" : "1"
+      }, {
+        "item" : "1",
+        "count" : "1"
+      }, {
+        "item" : "304",
+        "count" : "1"
+      }, {
+        "item" : "512",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "12"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148296,
+    "name" : "MFH_OWNED",
+    "dataTypeName" : "number",
+    "fieldName" : "mfh_owned",
+    "position" : 45,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716803,
+    "cachedContents" : {
+      "largest" : "410",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "4"
+      }, {
+        "item" : "124",
+        "count" : "1"
+      }, {
+        "item" : "373",
+        "count" : "1"
+      }, {
+        "item" : "172",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "296",
+        "count" : "1"
+      }, {
+        "item" : "133",
+        "count" : "1"
+      }, {
+        "item" : "327",
+        "count" : "1"
+      }, {
+        "item" : "178",
+        "count" : "1"
+      }, {
+        "item" : "274",
+        "count" : "1"
+      }, {
+        "item" : "410",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "11"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148297,
+    "name" : "MFH_PERSON",
+    "dataTypeName" : "number",
+    "fieldName" : "mfh_person",
+    "position" : 46,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716804,
+    "cachedContents" : {
+      "largest" : "1274",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "3"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "1274",
+        "count" : "1"
+      }, {
+        "item" : "519",
+        "count" : "1"
+      }, {
+        "item" : "284",
+        "count" : "1"
+      }, {
+        "item" : "432",
+        "count" : "1"
+      }, {
+        "item" : "307",
+        "count" : "1"
+      }, {
+        "item" : "315",
+        "count" : "1"
+      }, {
+        "item" : "1048",
+        "count" : "1"
+      }, {
+        "item" : "738",
+        "count" : "1"
+      }, {
+        "item" : "498",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "12"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148298,
+    "name" : "MFH_VACANT",
+    "dataTypeName" : "number",
+    "fieldName" : "mfh_vacant",
+    "position" : 47,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716805,
+    "cachedContents" : {
+      "largest" : "19",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "4"
+      }, {
+        "item" : "3",
+        "count" : "2"
+      }, {
+        "item" : "9",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "12",
+        "count" : "1"
+      }, {
+        "item" : "10",
+        "count" : "1"
+      }, {
+        "item" : "7",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "4",
+        "count" : "1"
+      }, {
+        "item" : "19",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "10"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148299,
+    "name" : "OTH_NO_RES",
+    "dataTypeName" : "number",
+    "fieldName" : "oth_no_res",
+    "position" : 48,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716806,
+    "cachedContents" : {
+      "largest" : "0",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "14"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148300,
+    "name" : "OTH_OCCPD",
+    "dataTypeName" : "number",
+    "fieldName" : "oth_occpd",
+    "position" : 49,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716807,
+    "cachedContents" : {
+      "largest" : "186",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "115",
+        "count" : "1"
+      }, {
+        "item" : "118",
+        "count" : "1"
+      }, {
+        "item" : "4",
+        "count" : "1"
+      }, {
+        "item" : "186",
+        "count" : "1"
+      }, {
+        "item" : "47",
+        "count" : "1"
+      }, {
+        "item" : "8",
+        "count" : "1"
+      }, {
+        "item" : "77",
+        "count" : "1"
+      }, {
+        "item" : "34",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "9",
+        "count" : "1"
+      }, {
+        "item" : "13",
+        "count" : "1"
+      }, {
+        "item" : "29",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "3",
+        "count" : "1"
+      } ],
+      "smallest" : "2",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148301,
+    "name" : "OTH_OWNED",
+    "dataTypeName" : "number",
+    "fieldName" : "oth_owned",
+    "position" : 50,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716808,
+    "cachedContents" : {
+      "largest" : "15",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1",
+        "count" : "5"
+      }, {
+        "item" : "0",
+        "count" : "3"
+      }, {
+        "item" : "7",
+        "count" : "2"
+      }, {
+        "item" : "3",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "15",
+        "count" : "1"
+      }, {
+        "item" : "4",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "7"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148302,
+    "name" : "OTH_PERSON",
+    "dataTypeName" : "number",
+    "fieldName" : "oth_person",
+    "position" : 51,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716809,
+    "cachedContents" : {
+      "largest" : "1991",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "278",
+        "count" : "1"
+      }, {
+        "item" : "782",
+        "count" : "1"
+      }, {
+        "item" : "214",
+        "count" : "1"
+      }, {
+        "item" : "194",
+        "count" : "1"
+      }, {
+        "item" : "1341",
+        "count" : "1"
+      }, {
+        "item" : "140",
+        "count" : "1"
+      }, {
+        "item" : "621",
+        "count" : "1"
+      }, {
+        "item" : "37",
+        "count" : "1"
+      }, {
+        "item" : "1271",
+        "count" : "1"
+      }, {
+        "item" : "1990",
+        "count" : "1"
+      }, {
+        "item" : "291",
+        "count" : "1"
+      }, {
+        "item" : "1991",
+        "count" : "1"
+      }, {
+        "item" : "1043",
+        "count" : "1"
+      }, {
+        "item" : "258",
+        "count" : "1"
+      } ],
+      "smallest" : "37",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148303,
+    "name" : "OTH_VACANT",
+    "dataTypeName" : "number",
+    "fieldName" : "oth_vacant",
+    "position" : 52,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716810,
+    "cachedContents" : {
+      "largest" : "113",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "2"
+      }, {
+        "item" : "3",
+        "count" : "2"
+      }, {
+        "item" : "5",
+        "count" : "2"
+      }, {
+        "item" : "41",
+        "count" : "1"
+      }, {
+        "item" : "21",
+        "count" : "1"
+      }, {
+        "item" : "17",
+        "count" : "1"
+      }, {
+        "item" : "7",
+        "count" : "1"
+      }, {
+        "item" : "25",
+        "count" : "1"
+      }, {
+        "item" : "24",
+        "count" : "1"
+      }, {
+        "item" : "113",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "11"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148304,
+    "name" : "TWN_NO_RES",
+    "dataTypeName" : "number",
+    "fieldName" : "twn_no_res",
+    "position" : 53,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716811,
+    "cachedContents" : {
+      "largest" : "0",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "14"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148305,
+    "name" : "TWN_OCCPD",
+    "dataTypeName" : "number",
+    "fieldName" : "twn_occpd",
+    "position" : 54,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716812,
+    "cachedContents" : {
+      "largest" : "3722",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3722",
+        "count" : "1"
+      }, {
+        "item" : "1962",
+        "count" : "1"
+      }, {
+        "item" : "2225",
+        "count" : "1"
+      }, {
+        "item" : "2783",
+        "count" : "1"
+      }, {
+        "item" : "2792",
+        "count" : "1"
+      }, {
+        "item" : "3122",
+        "count" : "1"
+      }, {
+        "item" : "1474",
+        "count" : "1"
+      }, {
+        "item" : "2397",
+        "count" : "1"
+      }, {
+        "item" : "1179",
+        "count" : "1"
+      }, {
+        "item" : "1873",
+        "count" : "1"
+      }, {
+        "item" : "714",
+        "count" : "1"
+      }, {
+        "item" : "3149",
+        "count" : "1"
+      }, {
+        "item" : "2568",
+        "count" : "1"
+      }, {
+        "item" : "3027",
+        "count" : "1"
+      } ],
+      "smallest" : "714",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148306,
+    "name" : "TWN_OWNED",
+    "dataTypeName" : "number",
+    "fieldName" : "twn_owned",
+    "position" : 55,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716813,
+    "cachedContents" : {
+      "largest" : "2361",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "748",
+        "count" : "1"
+      }, {
+        "item" : "923",
+        "count" : "1"
+      }, {
+        "item" : "1322",
+        "count" : "1"
+      }, {
+        "item" : "353",
+        "count" : "1"
+      }, {
+        "item" : "1094",
+        "count" : "1"
+      }, {
+        "item" : "714",
+        "count" : "1"
+      }, {
+        "item" : "1333",
+        "count" : "1"
+      }, {
+        "item" : "2076",
+        "count" : "1"
+      }, {
+        "item" : "728",
+        "count" : "1"
+      }, {
+        "item" : "1683",
+        "count" : "1"
+      }, {
+        "item" : "1329",
+        "count" : "1"
+      }, {
+        "item" : "1169",
+        "count" : "1"
+      }, {
+        "item" : "2361",
+        "count" : "1"
+      }, {
+        "item" : "1277",
+        "count" : "1"
+      } ],
+      "smallest" : "353",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148307,
+    "name" : "TWN_PERSON",
+    "dataTypeName" : "number",
+    "fieldName" : "twn_person",
+    "position" : 56,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716814,
+    "cachedContents" : {
+      "largest" : "9279",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3412",
+        "count" : "1"
+      }, {
+        "item" : "5928",
+        "count" : "1"
+      }, {
+        "item" : "8018",
+        "count" : "1"
+      }, {
+        "item" : "6813",
+        "count" : "1"
+      }, {
+        "item" : "7881",
+        "count" : "1"
+      }, {
+        "item" : "9279",
+        "count" : "1"
+      }, {
+        "item" : "6202",
+        "count" : "1"
+      }, {
+        "item" : "4860",
+        "count" : "1"
+      }, {
+        "item" : "5012",
+        "count" : "1"
+      }, {
+        "item" : "5931",
+        "count" : "1"
+      }, {
+        "item" : "1315",
+        "count" : "1"
+      }, {
+        "item" : "2156",
+        "count" : "1"
+      }, {
+        "item" : "5062",
+        "count" : "1"
+      }, {
+        "item" : "7834",
+        "count" : "1"
+      } ],
+      "smallest" : "1315",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148308,
+    "name" : "TWN_VACANT",
+    "dataTypeName" : "number",
+    "fieldName" : "twn_vacant",
+    "position" : 57,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716815,
+    "cachedContents" : {
+      "largest" : "288",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "110",
+        "count" : "1"
+      }, {
+        "item" : "34",
+        "count" : "1"
+      }, {
+        "item" : "37",
+        "count" : "1"
+      }, {
+        "item" : "77",
+        "count" : "1"
+      }, {
+        "item" : "106",
+        "count" : "1"
+      }, {
+        "item" : "288",
+        "count" : "1"
+      }, {
+        "item" : "90",
+        "count" : "1"
+      }, {
+        "item" : "133",
+        "count" : "1"
+      }, {
+        "item" : "96",
+        "count" : "1"
+      }, {
+        "item" : "160",
+        "count" : "1"
+      }, {
+        "item" : "174",
+        "count" : "1"
+      }, {
+        "item" : "87",
+        "count" : "1"
+      }, {
+        "item" : "162",
+        "count" : "1"
+      }, {
+        "item" : "170",
+        "count" : "1"
+      } ],
+      "smallest" : "34",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148309,
+    "name" : "SF_NO_RES",
+    "dataTypeName" : "number",
+    "fieldName" : "sf_no_res",
+    "position" : 58,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716816,
+    "cachedContents" : {
+      "largest" : "0",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0",
+        "count" : "14"
+      } ],
+      "smallest" : "0",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148310,
+    "name" : "SF_OCCPD",
+    "dataTypeName" : "number",
+    "fieldName" : "sf_occpd",
+    "position" : 59,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716817,
+    "cachedContents" : {
+      "largest" : "19839",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "19087",
+        "count" : "1"
+      }, {
+        "item" : "16403",
+        "count" : "1"
+      }, {
+        "item" : "11667",
+        "count" : "1"
+      }, {
+        "item" : "19839",
+        "count" : "1"
+      }, {
+        "item" : "17630",
+        "count" : "1"
+      }, {
+        "item" : "12998",
+        "count" : "1"
+      }, {
+        "item" : "13825",
+        "count" : "1"
+      }, {
+        "item" : "4296",
+        "count" : "1"
+      }, {
+        "item" : "13503",
+        "count" : "1"
+      }, {
+        "item" : "12786",
+        "count" : "1"
+      }, {
+        "item" : "10639",
+        "count" : "1"
+      }, {
+        "item" : "10989",
+        "count" : "1"
+      }, {
+        "item" : "10058",
+        "count" : "1"
+      }, {
+        "item" : "15167",
+        "count" : "1"
+      } ],
+      "smallest" : "4296",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148311,
+    "name" : "SF_OWNED",
+    "dataTypeName" : "number",
+    "fieldName" : "sf_owned",
+    "position" : 60,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716818,
+    "cachedContents" : {
+      "largest" : "19072",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "18351",
+        "count" : "1"
+      }, {
+        "item" : "12195",
+        "count" : "1"
+      }, {
+        "item" : "16255",
+        "count" : "1"
+      }, {
+        "item" : "12568",
+        "count" : "1"
+      }, {
+        "item" : "15153",
+        "count" : "1"
+      }, {
+        "item" : "9366",
+        "count" : "1"
+      }, {
+        "item" : "9596",
+        "count" : "1"
+      }, {
+        "item" : "3149",
+        "count" : "1"
+      }, {
+        "item" : "19072",
+        "count" : "1"
+      }, {
+        "item" : "9453",
+        "count" : "1"
+      }, {
+        "item" : "11878",
+        "count" : "1"
+      }, {
+        "item" : "11937",
+        "count" : "1"
+      }, {
+        "item" : "7957",
+        "count" : "1"
+      }, {
+        "item" : "14418",
+        "count" : "1"
+      } ],
+      "smallest" : "3149",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148312,
+    "name" : "SF_PERSON",
+    "dataTypeName" : "number",
+    "fieldName" : "sf_person",
+    "position" : 61,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716819,
+    "cachedContents" : {
+      "largest" : "65401",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "65401",
+        "count" : "1"
+      }, {
+        "item" : "44765",
+        "count" : "1"
+      }, {
+        "item" : "28378",
+        "count" : "1"
+      }, {
+        "item" : "63539",
+        "count" : "1"
+      }, {
+        "item" : "23981",
+        "count" : "1"
+      }, {
+        "item" : "10413",
+        "count" : "1"
+      }, {
+        "item" : "51358",
+        "count" : "1"
+      }, {
+        "item" : "39303",
+        "count" : "1"
+      }, {
+        "item" : "27935",
+        "count" : "1"
+      }, {
+        "item" : "48330",
+        "count" : "1"
+      }, {
+        "item" : "56021",
+        "count" : "1"
+      }, {
+        "item" : "37332",
+        "count" : "1"
+      }, {
+        "item" : "41588",
+        "count" : "1"
+      }, {
+        "item" : "36630",
+        "count" : "1"
+      } ],
+      "smallest" : "10413",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148313,
+    "name" : "SF_VACANT",
+    "dataTypeName" : "number",
+    "fieldName" : "sf_vacant",
+    "position" : 62,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716820,
+    "cachedContents" : {
+      "largest" : "784",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "199",
+        "count" : "1"
+      }, {
+        "item" : "208",
+        "count" : "1"
+      }, {
+        "item" : "216",
+        "count" : "1"
+      }, {
+        "item" : "125",
+        "count" : "1"
+      }, {
+        "item" : "85",
+        "count" : "1"
+      }, {
+        "item" : "264",
+        "count" : "1"
+      }, {
+        "item" : "479",
+        "count" : "1"
+      }, {
+        "item" : "489",
+        "count" : "1"
+      }, {
+        "item" : "386",
+        "count" : "1"
+      }, {
+        "item" : "269",
+        "count" : "1"
+      }, {
+        "item" : "665",
+        "count" : "1"
+      }, {
+        "item" : "179",
+        "count" : "1"
+      }, {
+        "item" : "686",
+        "count" : "1"
+      }, {
+        "item" : "784",
+        "count" : "1"
+      } ],
+      "smallest" : "85",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148314,
+    "name" : "MALE_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "male_cnt",
+    "position" : 63,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716821,
+    "cachedContents" : {
+      "largest" : "38413",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "28490",
+        "count" : "1"
+      }, {
+        "item" : "36140",
+        "count" : "1"
+      }, {
+        "item" : "38413",
+        "count" : "1"
+      }, {
+        "item" : "26424",
+        "count" : "1"
+      }, {
+        "item" : "27654",
+        "count" : "1"
+      }, {
+        "item" : "36820",
+        "count" : "1"
+      }, {
+        "item" : "29942",
+        "count" : "1"
+      }, {
+        "item" : "23551",
+        "count" : "1"
+      }, {
+        "item" : "28598",
+        "count" : "1"
+      }, {
+        "item" : "33846",
+        "count" : "1"
+      }, {
+        "item" : "35610",
+        "count" : "1"
+      }, {
+        "item" : "23148",
+        "count" : "1"
+      }, {
+        "item" : "24103",
+        "count" : "1"
+      }, {
+        "item" : "29954",
+        "count" : "1"
+      } ],
+      "smallest" : "23148",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148315,
+    "name" : "FEMALE_CNT",
+    "dataTypeName" : "number",
+    "fieldName" : "female_cnt",
+    "position" : 64,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716822,
+    "cachedContents" : {
+      "largest" : "38400",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "34553",
+        "count" : "1"
+      }, {
+        "item" : "35785",
+        "count" : "1"
+      }, {
+        "item" : "30444",
+        "count" : "1"
+      }, {
+        "item" : "28160",
+        "count" : "1"
+      }, {
+        "item" : "34842",
+        "count" : "1"
+      }, {
+        "item" : "38400",
+        "count" : "1"
+      }, {
+        "item" : "26786",
+        "count" : "1"
+      }, {
+        "item" : "24629",
+        "count" : "1"
+      }, {
+        "item" : "23781",
+        "count" : "1"
+      }, {
+        "item" : "25520",
+        "count" : "1"
+      }, {
+        "item" : "30256",
+        "count" : "1"
+      }, {
+        "item" : "36688",
+        "count" : "1"
+      }, {
+        "item" : "28214",
+        "count" : "1"
+      }, {
+        "item" : "21631",
+        "count" : "1"
+      } ],
+      "smallest" : "21631",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148316,
+    "name" : "MALE_0_4",
+    "dataTypeName" : "number",
+    "fieldName" : "male_0_4",
+    "position" : 65,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716823,
+    "cachedContents" : {
+      "largest" : "2995",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1370",
+        "count" : "1"
+      }, {
+        "item" : "1964",
+        "count" : "1"
+      }, {
+        "item" : "2732",
+        "count" : "1"
+      }, {
+        "item" : "593",
+        "count" : "1"
+      }, {
+        "item" : "1784",
+        "count" : "1"
+      }, {
+        "item" : "1947",
+        "count" : "1"
+      }, {
+        "item" : "1188",
+        "count" : "1"
+      }, {
+        "item" : "2233",
+        "count" : "1"
+      }, {
+        "item" : "932",
+        "count" : "1"
+      }, {
+        "item" : "2768",
+        "count" : "1"
+      }, {
+        "item" : "2771",
+        "count" : "1"
+      }, {
+        "item" : "1165",
+        "count" : "1"
+      }, {
+        "item" : "1894",
+        "count" : "1"
+      }, {
+        "item" : "2995",
+        "count" : "1"
+      } ],
+      "smallest" : "593",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148317,
+    "name" : "MALE_5_14",
+    "dataTypeName" : "number",
+    "fieldName" : "male_5_14",
+    "position" : 66,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716824,
+    "cachedContents" : {
+      "largest" : "7259",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "4138",
+        "count" : "1"
+      }, {
+        "item" : "2586",
+        "count" : "1"
+      }, {
+        "item" : "4064",
+        "count" : "1"
+      }, {
+        "item" : "1630",
+        "count" : "1"
+      }, {
+        "item" : "6349",
+        "count" : "1"
+      }, {
+        "item" : "2168",
+        "count" : "1"
+      }, {
+        "item" : "6130",
+        "count" : "1"
+      }, {
+        "item" : "4422",
+        "count" : "1"
+      }, {
+        "item" : "5753",
+        "count" : "1"
+      }, {
+        "item" : "1170",
+        "count" : "1"
+      }, {
+        "item" : "3899",
+        "count" : "1"
+      }, {
+        "item" : "4555",
+        "count" : "1"
+      }, {
+        "item" : "7259",
+        "count" : "1"
+      }, {
+        "item" : "4550",
+        "count" : "1"
+      } ],
+      "smallest" : "1170",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148318,
+    "name" : "MALE_15_19",
+    "dataTypeName" : "number",
+    "fieldName" : "male_15_19",
+    "position" : 67,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716825,
+    "cachedContents" : {
+      "largest" : "3222",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1753",
+        "count" : "1"
+      }, {
+        "item" : "2885",
+        "count" : "1"
+      }, {
+        "item" : "2502",
+        "count" : "1"
+      }, {
+        "item" : "2058",
+        "count" : "1"
+      }, {
+        "item" : "3069",
+        "count" : "1"
+      }, {
+        "item" : "956",
+        "count" : "1"
+      }, {
+        "item" : "780",
+        "count" : "1"
+      }, {
+        "item" : "3222",
+        "count" : "1"
+      }, {
+        "item" : "2446",
+        "count" : "1"
+      }, {
+        "item" : "1705",
+        "count" : "1"
+      }, {
+        "item" : "2194",
+        "count" : "1"
+      }, {
+        "item" : "2472",
+        "count" : "1"
+      }, {
+        "item" : "1288",
+        "count" : "1"
+      }, {
+        "item" : "1086",
+        "count" : "1"
+      } ],
+      "smallest" : "780",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148319,
+    "name" : "MALE_20_24",
+    "dataTypeName" : "number",
+    "fieldName" : "male_20_24",
+    "position" : 68,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716826,
+    "cachedContents" : {
+      "largest" : "3124",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1842",
+        "count" : "1"
+      }, {
+        "item" : "2015",
+        "count" : "1"
+      }, {
+        "item" : "2803",
+        "count" : "1"
+      }, {
+        "item" : "1780",
+        "count" : "1"
+      }, {
+        "item" : "2604",
+        "count" : "1"
+      }, {
+        "item" : "3063",
+        "count" : "1"
+      }, {
+        "item" : "2401",
+        "count" : "1"
+      }, {
+        "item" : "3124",
+        "count" : "1"
+      }, {
+        "item" : "2694",
+        "count" : "1"
+      }, {
+        "item" : "1881",
+        "count" : "1"
+      }, {
+        "item" : "1897",
+        "count" : "1"
+      }, {
+        "item" : "1978",
+        "count" : "1"
+      }, {
+        "item" : "2785",
+        "count" : "1"
+      }, {
+        "item" : "1936",
+        "count" : "1"
+      } ],
+      "smallest" : "1780",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148320,
+    "name" : "MALE_25_34",
+    "dataTypeName" : "number",
+    "fieldName" : "male_25_34",
+    "position" : 69,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716827,
+    "cachedContents" : {
+      "largest" : "7758",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "5110",
+        "count" : "1"
+      }, {
+        "item" : "3744",
+        "count" : "1"
+      }, {
+        "item" : "4751",
+        "count" : "1"
+      }, {
+        "item" : "5159",
+        "count" : "1"
+      }, {
+        "item" : "5509",
+        "count" : "1"
+      }, {
+        "item" : "6325",
+        "count" : "1"
+      }, {
+        "item" : "7758",
+        "count" : "1"
+      }, {
+        "item" : "5475",
+        "count" : "1"
+      }, {
+        "item" : "7315",
+        "count" : "1"
+      }, {
+        "item" : "2963",
+        "count" : "1"
+      }, {
+        "item" : "4534",
+        "count" : "1"
+      }, {
+        "item" : "4379",
+        "count" : "1"
+      }, {
+        "item" : "5424",
+        "count" : "1"
+      }, {
+        "item" : "5043",
+        "count" : "1"
+      } ],
+      "smallest" : "2963",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148321,
+    "name" : "MALE_35_44",
+    "dataTypeName" : "number",
+    "fieldName" : "male_35_44",
+    "position" : 70,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716828,
+    "cachedContents" : {
+      "largest" : "7808",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "6730",
+        "count" : "1"
+      }, {
+        "item" : "7808",
+        "count" : "1"
+      }, {
+        "item" : "4992",
+        "count" : "1"
+      }, {
+        "item" : "4279",
+        "count" : "1"
+      }, {
+        "item" : "6049",
+        "count" : "1"
+      }, {
+        "item" : "5328",
+        "count" : "1"
+      }, {
+        "item" : "7736",
+        "count" : "1"
+      }, {
+        "item" : "4802",
+        "count" : "1"
+      }, {
+        "item" : "7570",
+        "count" : "1"
+      }, {
+        "item" : "6270",
+        "count" : "1"
+      }, {
+        "item" : "6446",
+        "count" : "1"
+      }, {
+        "item" : "5101",
+        "count" : "1"
+      }, {
+        "item" : "6019",
+        "count" : "1"
+      }, {
+        "item" : "5933",
+        "count" : "1"
+      } ],
+      "smallest" : "4279",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148322,
+    "name" : "MALE_45_54",
+    "dataTypeName" : "number",
+    "fieldName" : "male_45_54",
+    "position" : 71,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716829,
+    "cachedContents" : {
+      "largest" : "5840",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3512",
+        "count" : "1"
+      }, {
+        "item" : "4096",
+        "count" : "1"
+      }, {
+        "item" : "3077",
+        "count" : "1"
+      }, {
+        "item" : "5840",
+        "count" : "1"
+      }, {
+        "item" : "3316",
+        "count" : "1"
+      }, {
+        "item" : "4208",
+        "count" : "1"
+      }, {
+        "item" : "2636",
+        "count" : "1"
+      }, {
+        "item" : "3638",
+        "count" : "1"
+      }, {
+        "item" : "4912",
+        "count" : "1"
+      }, {
+        "item" : "2815",
+        "count" : "1"
+      }, {
+        "item" : "5241",
+        "count" : "1"
+      }, {
+        "item" : "4964",
+        "count" : "1"
+      }, {
+        "item" : "4689",
+        "count" : "1"
+      }, {
+        "item" : "4254",
+        "count" : "1"
+      } ],
+      "smallest" : "2636",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148323,
+    "name" : "MALE_55_64",
+    "dataTypeName" : "number",
+    "fieldName" : "male_55_64",
+    "position" : 72,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716830,
+    "cachedContents" : {
+      "largest" : "2720",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2720",
+        "count" : "1"
+      }, {
+        "item" : "2043",
+        "count" : "1"
+      }, {
+        "item" : "1933",
+        "count" : "1"
+      }, {
+        "item" : "1823",
+        "count" : "1"
+      }, {
+        "item" : "2327",
+        "count" : "1"
+      }, {
+        "item" : "2115",
+        "count" : "1"
+      }, {
+        "item" : "1846",
+        "count" : "1"
+      }, {
+        "item" : "2186",
+        "count" : "1"
+      }, {
+        "item" : "2516",
+        "count" : "1"
+      }, {
+        "item" : "1281",
+        "count" : "1"
+      }, {
+        "item" : "1426",
+        "count" : "1"
+      }, {
+        "item" : "1808",
+        "count" : "1"
+      }, {
+        "item" : "2562",
+        "count" : "1"
+      }, {
+        "item" : "1826",
+        "count" : "1"
+      } ],
+      "smallest" : "1281",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148324,
+    "name" : "MALE_65_74",
+    "dataTypeName" : "number",
+    "fieldName" : "male_65_74",
+    "position" : 73,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716831,
+    "cachedContents" : {
+      "largest" : "2119",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1066",
+        "count" : "1"
+      }, {
+        "item" : "2119",
+        "count" : "1"
+      }, {
+        "item" : "1201",
+        "count" : "1"
+      }, {
+        "item" : "1989",
+        "count" : "1"
+      }, {
+        "item" : "1829",
+        "count" : "1"
+      }, {
+        "item" : "1405",
+        "count" : "1"
+      }, {
+        "item" : "1099",
+        "count" : "1"
+      }, {
+        "item" : "1373",
+        "count" : "1"
+      }, {
+        "item" : "1261",
+        "count" : "1"
+      }, {
+        "item" : "1856",
+        "count" : "1"
+      }, {
+        "item" : "1433",
+        "count" : "1"
+      }, {
+        "item" : "1065",
+        "count" : "1"
+      }, {
+        "item" : "1823",
+        "count" : "1"
+      }, {
+        "item" : "1664",
+        "count" : "1"
+      } ],
+      "smallest" : "1065",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148325,
+    "name" : "MALE_75",
+    "dataTypeName" : "number",
+    "fieldName" : "male_75",
+    "position" : 74,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716832,
+    "cachedContents" : {
+      "largest" : "1455",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "615",
+        "count" : "1"
+      }, {
+        "item" : "1414",
+        "count" : "1"
+      }, {
+        "item" : "407",
+        "count" : "1"
+      }, {
+        "item" : "453",
+        "count" : "1"
+      }, {
+        "item" : "1130",
+        "count" : "1"
+      }, {
+        "item" : "636",
+        "count" : "1"
+      }, {
+        "item" : "740",
+        "count" : "1"
+      }, {
+        "item" : "754",
+        "count" : "1"
+      }, {
+        "item" : "406",
+        "count" : "1"
+      }, {
+        "item" : "370",
+        "count" : "1"
+      }, {
+        "item" : "1217",
+        "count" : "1"
+      }, {
+        "item" : "932",
+        "count" : "1"
+      }, {
+        "item" : "1455",
+        "count" : "1"
+      }, {
+        "item" : "591",
+        "count" : "1"
+      } ],
+      "smallest" : "370",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148326,
+    "name" : "FEM_0_4",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_0_4",
+    "position" : 75,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716833,
+    "cachedContents" : {
+      "largest" : "2997",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1181",
+        "count" : "1"
+      }, {
+        "item" : "1752",
+        "count" : "1"
+      }, {
+        "item" : "2683",
+        "count" : "1"
+      }, {
+        "item" : "2997",
+        "count" : "1"
+      }, {
+        "item" : "672",
+        "count" : "1"
+      }, {
+        "item" : "1331",
+        "count" : "1"
+      }, {
+        "item" : "2174",
+        "count" : "1"
+      }, {
+        "item" : "2592",
+        "count" : "1"
+      }, {
+        "item" : "2516",
+        "count" : "1"
+      }, {
+        "item" : "1943",
+        "count" : "1"
+      }, {
+        "item" : "1899",
+        "count" : "1"
+      }, {
+        "item" : "873",
+        "count" : "1"
+      }, {
+        "item" : "1116",
+        "count" : "1"
+      }, {
+        "item" : "1847",
+        "count" : "1"
+      } ],
+      "smallest" : "672",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148327,
+    "name" : "FEM_5_14",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_5_14",
+    "position" : 76,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716834,
+    "cachedContents" : {
+      "largest" : "6691",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "4281",
+        "count" : "1"
+      }, {
+        "item" : "6691",
+        "count" : "1"
+      }, {
+        "item" : "5799",
+        "count" : "1"
+      }, {
+        "item" : "5648",
+        "count" : "1"
+      }, {
+        "item" : "2215",
+        "count" : "1"
+      }, {
+        "item" : "4197",
+        "count" : "1"
+      }, {
+        "item" : "3825",
+        "count" : "1"
+      }, {
+        "item" : "2575",
+        "count" : "1"
+      }, {
+        "item" : "1048",
+        "count" : "1"
+      }, {
+        "item" : "3715",
+        "count" : "1"
+      }, {
+        "item" : "1558",
+        "count" : "1"
+      }, {
+        "item" : "6282",
+        "count" : "1"
+      }, {
+        "item" : "4371",
+        "count" : "1"
+      }, {
+        "item" : "4117",
+        "count" : "1"
+      } ],
+      "smallest" : "1048",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148328,
+    "name" : "FEM_15_19",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_15_19",
+    "position" : 77,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716835,
+    "cachedContents" : {
+      "largest" : "2987",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "966",
+        "count" : "1"
+      }, {
+        "item" : "2308",
+        "count" : "1"
+      }, {
+        "item" : "1927",
+        "count" : "1"
+      }, {
+        "item" : "2596",
+        "count" : "1"
+      }, {
+        "item" : "2267",
+        "count" : "1"
+      }, {
+        "item" : "2987",
+        "count" : "1"
+      }, {
+        "item" : "1575",
+        "count" : "1"
+      }, {
+        "item" : "2849",
+        "count" : "1"
+      }, {
+        "item" : "1032",
+        "count" : "1"
+      }, {
+        "item" : "2337",
+        "count" : "1"
+      }, {
+        "item" : "1315",
+        "count" : "1"
+      }, {
+        "item" : "940",
+        "count" : "1"
+      }, {
+        "item" : "1648",
+        "count" : "1"
+      }, {
+        "item" : "2002",
+        "count" : "1"
+      } ],
+      "smallest" : "940",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148329,
+    "name" : "FEM_20_24",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_20_24",
+    "position" : 78,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716836,
+    "cachedContents" : {
+      "largest" : "3004",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2570",
+        "count" : "1"
+      }, {
+        "item" : "1915",
+        "count" : "1"
+      }, {
+        "item" : "2636",
+        "count" : "1"
+      }, {
+        "item" : "1927",
+        "count" : "1"
+      }, {
+        "item" : "3004",
+        "count" : "1"
+      }, {
+        "item" : "1742",
+        "count" : "1"
+      }, {
+        "item" : "1670",
+        "count" : "1"
+      }, {
+        "item" : "2108",
+        "count" : "1"
+      }, {
+        "item" : "1945",
+        "count" : "1"
+      }, {
+        "item" : "2337",
+        "count" : "1"
+      }, {
+        "item" : "1786",
+        "count" : "1"
+      }, {
+        "item" : "1814",
+        "count" : "1"
+      }, {
+        "item" : "2907",
+        "count" : "1"
+      }, {
+        "item" : "2795",
+        "count" : "1"
+      } ],
+      "smallest" : "1670",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148330,
+    "name" : "FEM_25_34",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_25_34",
+    "position" : 79,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716837,
+    "cachedContents" : {
+      "largest" : "7407",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "5367",
+        "count" : "1"
+      }, {
+        "item" : "5034",
+        "count" : "1"
+      }, {
+        "item" : "5797",
+        "count" : "1"
+      }, {
+        "item" : "4982",
+        "count" : "1"
+      }, {
+        "item" : "7407",
+        "count" : "1"
+      }, {
+        "item" : "6340",
+        "count" : "1"
+      }, {
+        "item" : "5665",
+        "count" : "1"
+      }, {
+        "item" : "3110",
+        "count" : "1"
+      }, {
+        "item" : "3496",
+        "count" : "1"
+      }, {
+        "item" : "4510",
+        "count" : "1"
+      }, {
+        "item" : "4789",
+        "count" : "1"
+      }, {
+        "item" : "5583",
+        "count" : "1"
+      }, {
+        "item" : "4681",
+        "count" : "1"
+      }, {
+        "item" : "4863",
+        "count" : "1"
+      } ],
+      "smallest" : "3110",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148331,
+    "name" : "FEM_35_44",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_35_44",
+    "position" : 80,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716838,
+    "cachedContents" : {
+      "largest" : "8291",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "5657",
+        "count" : "1"
+      }, {
+        "item" : "4468",
+        "count" : "1"
+      }, {
+        "item" : "6385",
+        "count" : "1"
+      }, {
+        "item" : "3707",
+        "count" : "1"
+      }, {
+        "item" : "8291",
+        "count" : "1"
+      }, {
+        "item" : "8078",
+        "count" : "1"
+      }, {
+        "item" : "4237",
+        "count" : "1"
+      }, {
+        "item" : "5924",
+        "count" : "1"
+      }, {
+        "item" : "6782",
+        "count" : "1"
+      }, {
+        "item" : "6408",
+        "count" : "1"
+      }, {
+        "item" : "5141",
+        "count" : "1"
+      }, {
+        "item" : "7440",
+        "count" : "1"
+      }, {
+        "item" : "5508",
+        "count" : "1"
+      }, {
+        "item" : "4404",
+        "count" : "1"
+      } ],
+      "smallest" : "3707",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148332,
+    "name" : "FEM_45_54",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_45_54",
+    "position" : 81,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716839,
+    "cachedContents" : {
+      "largest" : "5491",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2407",
+        "count" : "1"
+      }, {
+        "item" : "3401",
+        "count" : "1"
+      }, {
+        "item" : "4231",
+        "count" : "1"
+      }, {
+        "item" : "4663",
+        "count" : "1"
+      }, {
+        "item" : "3130",
+        "count" : "1"
+      }, {
+        "item" : "5124",
+        "count" : "1"
+      }, {
+        "item" : "4676",
+        "count" : "1"
+      }, {
+        "item" : "4106",
+        "count" : "1"
+      }, {
+        "item" : "2268",
+        "count" : "1"
+      }, {
+        "item" : "4891",
+        "count" : "1"
+      }, {
+        "item" : "5491",
+        "count" : "1"
+      }, {
+        "item" : "3841",
+        "count" : "1"
+      }, {
+        "item" : "2906",
+        "count" : "1"
+      }, {
+        "item" : "3002",
+        "count" : "1"
+      } ],
+      "smallest" : "2268",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148333,
+    "name" : "FEM_55_64",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_55_64",
+    "position" : 82,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716840,
+    "cachedContents" : {
+      "largest" : "2901",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1966",
+        "count" : "1"
+      }, {
+        "item" : "1660",
+        "count" : "1"
+      }, {
+        "item" : "1778",
+        "count" : "1"
+      }, {
+        "item" : "2719",
+        "count" : "1"
+      }, {
+        "item" : "1798",
+        "count" : "1"
+      }, {
+        "item" : "1226",
+        "count" : "1"
+      }, {
+        "item" : "2419",
+        "count" : "1"
+      }, {
+        "item" : "2240",
+        "count" : "1"
+      }, {
+        "item" : "2118",
+        "count" : "1"
+      }, {
+        "item" : "2276",
+        "count" : "1"
+      }, {
+        "item" : "1696",
+        "count" : "1"
+      }, {
+        "item" : "2901",
+        "count" : "1"
+      }, {
+        "item" : "2059",
+        "count" : "1"
+      }, {
+        "item" : "2068",
+        "count" : "1"
+      } ],
+      "smallest" : "1226",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148334,
+    "name" : "FEM_65_74",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_65_74",
+    "position" : 83,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716841,
+    "cachedContents" : {
+      "largest" : "2556",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1981",
+        "count" : "1"
+      }, {
+        "item" : "1362",
+        "count" : "1"
+      }, {
+        "item" : "1417",
+        "count" : "1"
+      }, {
+        "item" : "2105",
+        "count" : "1"
+      }, {
+        "item" : "1442",
+        "count" : "1"
+      }, {
+        "item" : "1291",
+        "count" : "1"
+      }, {
+        "item" : "2293",
+        "count" : "1"
+      }, {
+        "item" : "1282",
+        "count" : "1"
+      }, {
+        "item" : "1608",
+        "count" : "1"
+      }, {
+        "item" : "2556",
+        "count" : "1"
+      }, {
+        "item" : "1114",
+        "count" : "1"
+      }, {
+        "item" : "2453",
+        "count" : "1"
+      }, {
+        "item" : "2279",
+        "count" : "1"
+      }, {
+        "item" : "1545",
+        "count" : "1"
+      } ],
+      "smallest" : "1114",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148335,
+    "name" : "FEM_75",
+    "dataTypeName" : "number",
+    "fieldName" : "fem_75",
+    "position" : 84,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716842,
+    "cachedContents" : {
+      "largest" : "2590",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "555",
+        "count" : "2"
+      }, {
+        "item" : "2151",
+        "count" : "1"
+      }, {
+        "item" : "1884",
+        "count" : "1"
+      }, {
+        "item" : "1500",
+        "count" : "1"
+      }, {
+        "item" : "2541",
+        "count" : "1"
+      }, {
+        "item" : "2590",
+        "count" : "1"
+      }, {
+        "item" : "883",
+        "count" : "1"
+      }, {
+        "item" : "743",
+        "count" : "1"
+      }, {
+        "item" : "1144",
+        "count" : "1"
+      }, {
+        "item" : "899",
+        "count" : "1"
+      }, {
+        "item" : "877",
+        "count" : "1"
+      }, {
+        "item" : "1168",
+        "count" : "1"
+      }, {
+        "item" : "553",
+        "count" : "1"
+      } ],
+      "smallest" : "553",
+      "count" : "14",
+      "cardinality" : "13"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148336,
+    "name" : "MF_0_4",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_0_4",
+    "position" : 85,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716843,
+    "cachedContents" : {
+      "largest" : "5992",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1805",
+        "count" : "1"
+      }, {
+        "item" : "5360",
+        "count" : "1"
+      }, {
+        "item" : "5248",
+        "count" : "1"
+      }, {
+        "item" : "3631",
+        "count" : "1"
+      }, {
+        "item" : "3846",
+        "count" : "1"
+      }, {
+        "item" : "3646",
+        "count" : "1"
+      }, {
+        "item" : "3907",
+        "count" : "1"
+      }, {
+        "item" : "5992",
+        "count" : "1"
+      }, {
+        "item" : "2369",
+        "count" : "1"
+      }, {
+        "item" : "2281",
+        "count" : "1"
+      }, {
+        "item" : "1265",
+        "count" : "1"
+      }, {
+        "item" : "5454",
+        "count" : "1"
+      }, {
+        "item" : "2701",
+        "count" : "1"
+      }, {
+        "item" : "4407",
+        "count" : "1"
+      } ],
+      "smallest" : "1265",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148337,
+    "name" : "MF_5_14",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_5_14",
+    "position" : 86,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716844,
+    "cachedContents" : {
+      "largest" : "13950",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "12631",
+        "count" : "1"
+      }, {
+        "item" : "11401",
+        "count" : "1"
+      }, {
+        "item" : "8752",
+        "count" : "1"
+      }, {
+        "item" : "8703",
+        "count" : "1"
+      }, {
+        "item" : "5161",
+        "count" : "1"
+      }, {
+        "item" : "2218",
+        "count" : "1"
+      }, {
+        "item" : "8255",
+        "count" : "1"
+      }, {
+        "item" : "7889",
+        "count" : "1"
+      }, {
+        "item" : "4383",
+        "count" : "1"
+      }, {
+        "item" : "3188",
+        "count" : "1"
+      }, {
+        "item" : "13950",
+        "count" : "1"
+      }, {
+        "item" : "7614",
+        "count" : "1"
+      }, {
+        "item" : "8921",
+        "count" : "1"
+      }, {
+        "item" : "11929",
+        "count" : "1"
+      } ],
+      "smallest" : "2218",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148338,
+    "name" : "MF_15_19",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_15_19",
+    "position" : 87,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716845,
+    "cachedContents" : {
+      "largest" : "6071",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "6071",
+        "count" : "1"
+      }, {
+        "item" : "4810",
+        "count" : "1"
+      }, {
+        "item" : "4196",
+        "count" : "1"
+      }, {
+        "item" : "2603",
+        "count" : "1"
+      }, {
+        "item" : "3985",
+        "count" : "1"
+      }, {
+        "item" : "1720",
+        "count" : "1"
+      }, {
+        "item" : "2118",
+        "count" : "1"
+      }, {
+        "item" : "6056",
+        "count" : "1"
+      }, {
+        "item" : "1922",
+        "count" : "1"
+      }, {
+        "item" : "4783",
+        "count" : "1"
+      }, {
+        "item" : "3328",
+        "count" : "1"
+      }, {
+        "item" : "4739",
+        "count" : "1"
+      }, {
+        "item" : "5481",
+        "count" : "1"
+      }, {
+        "item" : "3353",
+        "count" : "1"
+      } ],
+      "smallest" : "1720",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148339,
+    "name" : "MF_20_24",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_20_24",
+    "position" : 88,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716846,
+    "cachedContents" : {
+      "largest" : "5970",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "5264",
+        "count" : "1"
+      }, {
+        "item" : "5439",
+        "count" : "1"
+      }, {
+        "item" : "3960",
+        "count" : "1"
+      }, {
+        "item" : "3711",
+        "count" : "1"
+      }, {
+        "item" : "4941",
+        "count" : "1"
+      }, {
+        "item" : "3584",
+        "count" : "1"
+      }, {
+        "item" : "3796",
+        "count" : "1"
+      }, {
+        "item" : "4509",
+        "count" : "1"
+      }, {
+        "item" : "3566",
+        "count" : "1"
+      }, {
+        "item" : "5970",
+        "count" : "1"
+      }, {
+        "item" : "3606",
+        "count" : "1"
+      }, {
+        "item" : "5919",
+        "count" : "1"
+      }, {
+        "item" : "3905",
+        "count" : "1"
+      }, {
+        "item" : "5789",
+        "count" : "1"
+      } ],
+      "smallest" : "3566",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148340,
+    "name" : "MF_25_34",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_25_34",
+    "position" : 89,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716847,
+    "cachedContents" : {
+      "largest" : "14722",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "14098",
+        "count" : "1"
+      }, {
+        "item" : "7240",
+        "count" : "1"
+      }, {
+        "item" : "6073",
+        "count" : "1"
+      }, {
+        "item" : "11174",
+        "count" : "1"
+      }, {
+        "item" : "9168",
+        "count" : "1"
+      }, {
+        "item" : "9044",
+        "count" : "1"
+      }, {
+        "item" : "10118",
+        "count" : "1"
+      }, {
+        "item" : "11272",
+        "count" : "1"
+      }, {
+        "item" : "10406",
+        "count" : "1"
+      }, {
+        "item" : "14722",
+        "count" : "1"
+      }, {
+        "item" : "9906",
+        "count" : "1"
+      }, {
+        "item" : "11908",
+        "count" : "1"
+      }, {
+        "item" : "10144",
+        "count" : "1"
+      }, {
+        "item" : "9840",
+        "count" : "1"
+      } ],
+      "smallest" : "6073",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148341,
+    "name" : "MF_35_44",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_35_44",
+    "position" : 90,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716848,
+    "cachedContents" : {
+      "largest" : "16099",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "12103",
+        "count" : "1"
+      }, {
+        "item" : "8516",
+        "count" : "1"
+      }, {
+        "item" : "9796",
+        "count" : "1"
+      }, {
+        "item" : "10310",
+        "count" : "1"
+      }, {
+        "item" : "15010",
+        "count" : "1"
+      }, {
+        "item" : "15814",
+        "count" : "1"
+      }, {
+        "item" : "11074",
+        "count" : "1"
+      }, {
+        "item" : "16099",
+        "count" : "1"
+      }, {
+        "item" : "9396",
+        "count" : "1"
+      }, {
+        "item" : "13512",
+        "count" : "1"
+      }, {
+        "item" : "12457",
+        "count" : "1"
+      }, {
+        "item" : "12655",
+        "count" : "1"
+      }, {
+        "item" : "11943",
+        "count" : "1"
+      }, {
+        "item" : "8808",
+        "count" : "1"
+      } ],
+      "smallest" : "8516",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148342,
+    "name" : "MF_45_54",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_45_54",
+    "position" : 91,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716849,
+    "cachedContents" : {
+      "largest" : "11331",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "6222",
+        "count" : "1"
+      }, {
+        "item" : "11331",
+        "count" : "1"
+      }, {
+        "item" : "6642",
+        "count" : "1"
+      }, {
+        "item" : "10088",
+        "count" : "1"
+      }, {
+        "item" : "6079",
+        "count" : "1"
+      }, {
+        "item" : "5083",
+        "count" : "1"
+      }, {
+        "item" : "8485",
+        "count" : "1"
+      }, {
+        "item" : "9352",
+        "count" : "1"
+      }, {
+        "item" : "8314",
+        "count" : "1"
+      }, {
+        "item" : "7937",
+        "count" : "1"
+      }, {
+        "item" : "10132",
+        "count" : "1"
+      }, {
+        "item" : "5043",
+        "count" : "1"
+      }, {
+        "item" : "7039",
+        "count" : "1"
+      }, {
+        "item" : "9588",
+        "count" : "1"
+      } ],
+      "smallest" : "5043",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148343,
+    "name" : "MF_55_64",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_55_64",
+    "position" : 92,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716850,
+    "cachedContents" : {
+      "largest" : "5621",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3964",
+        "count" : "1"
+      }, {
+        "item" : "3885",
+        "count" : "1"
+      }, {
+        "item" : "4603",
+        "count" : "1"
+      }, {
+        "item" : "2507",
+        "count" : "1"
+      }, {
+        "item" : "4981",
+        "count" : "1"
+      }, {
+        "item" : "4254",
+        "count" : "1"
+      }, {
+        "item" : "3711",
+        "count" : "1"
+      }, {
+        "item" : "3519",
+        "count" : "1"
+      }, {
+        "item" : "4355",
+        "count" : "1"
+      }, {
+        "item" : "5621",
+        "count" : "1"
+      }, {
+        "item" : "5235",
+        "count" : "1"
+      }, {
+        "item" : "3086",
+        "count" : "1"
+      }, {
+        "item" : "4009",
+        "count" : "1"
+      }, {
+        "item" : "3606",
+        "count" : "1"
+      } ],
+      "smallest" : "2507",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148344,
+    "name" : "MF_65_74",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_65_74",
+    "position" : 93,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716851,
+    "cachedContents" : {
+      "largest" : "4675",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "4149",
+        "count" : "1"
+      }, {
+        "item" : "4442",
+        "count" : "1"
+      }, {
+        "item" : "2213",
+        "count" : "1"
+      }, {
+        "item" : "3769",
+        "count" : "1"
+      }, {
+        "item" : "4108",
+        "count" : "1"
+      }, {
+        "item" : "2815",
+        "count" : "1"
+      }, {
+        "item" : "2356",
+        "count" : "1"
+      }, {
+        "item" : "3804",
+        "count" : "1"
+      }, {
+        "item" : "2978",
+        "count" : "1"
+      }, {
+        "item" : "4675",
+        "count" : "1"
+      }, {
+        "item" : "2563",
+        "count" : "1"
+      }, {
+        "item" : "3013",
+        "count" : "1"
+      }, {
+        "item" : "2678",
+        "count" : "1"
+      }, {
+        "item" : "2348",
+        "count" : "1"
+      } ],
+      "smallest" : "2213",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 275148345,
+    "name" : "MF_75",
+    "dataTypeName" : "number",
+    "fieldName" : "mf_75",
+    "position" : 94,
+    "renderTypeName" : "number",
+    "tableColumnId" : 39716852,
+    "cachedContents" : {
+      "largest" : "4004",
+      "non_null" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1908",
+        "count" : "1"
+      }, {
+        "item" : "1898",
+        "count" : "1"
+      }, {
+        "item" : "1492",
+        "count" : "1"
+      }, {
+        "item" : "925",
+        "count" : "1"
+      }, {
+        "item" : "959",
+        "count" : "1"
+      }, {
+        "item" : "3014",
+        "count" : "1"
+      }, {
+        "item" : "4004",
+        "count" : "1"
+      }, {
+        "item" : "1535",
+        "count" : "1"
+      }, {
+        "item" : "3996",
+        "count" : "1"
+      }, {
+        "item" : "3368",
+        "count" : "1"
+      }, {
+        "item" : "962",
+        "count" : "1"
+      }, {
+        "item" : "1474",
+        "count" : "1"
+      }, {
+        "item" : "2432",
+        "count" : "1"
+      }, {
+        "item" : "1196",
+        "count" : "1"
+      } ],
+      "smallest" : "925",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "See Terms of Use"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "License/Attribution" : {
+        "License URL" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Data Supplier" : {
+        "Organization" : "The City of Calgary",
+        "Business Unit" : "City and Regional Planning"
+      },
+      "Time/Date" : {
+        "Creation Date" : "November 1, 2009",
+        "Date of Last Update" : "n/a",
+        "Update Frequency" : "None"
+      },
+      "Geospatial Information" : {
+        "Map Projection" : "EPSG:4326 WGS84",
+        "Dataset contains geospatial information" : "Yes"
+      }
+    },
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

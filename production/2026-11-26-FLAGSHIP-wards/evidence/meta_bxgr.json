@@ -1,0 +1,1728 @@
+{
+  "id" : "bxgr-t8xb",
+  "name" : "Ward Boundaries for 2021 October 18 General Election",
+  "assetType" : "dataset",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Government",
+  "createdAt" : 1595445520,
+  "description" : "Ward boundaries have been updated for the 2021 General Election. These boundaries will not come into effect until Election Day October 18, 2021.",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 412,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "SEE_TERMS_OF_USE",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 34743821,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1595458462,
+  "publicationGroup" : 17363565,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1595458462,
+  "tableId" : 17363565,
+  "totalTimesRated" : 0,
+  "viewCount" : 3016,
+  "viewLastModified" : 1775668466,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1595533775,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 2472221,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1595533775,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1595533775,
+      "failureCount" : 0,
+      "startedAt" : 1595533775,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "pwgx-sm7j",
+      "displayName" : "Stark, Cameron"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 482923322,
+    "name" : "WardNumber",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "wardnumber",
+    "position" : 2,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450899,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "14.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "7.0",
+        "count" : "1"
+      }, {
+        "item" : "1.0",
+        "count" : "1"
+      }, {
+        "item" : "4.0",
+        "count" : "1"
+      }, {
+        "item" : "8.0",
+        "count" : "1"
+      }, {
+        "item" : "6.0",
+        "count" : "1"
+      }, {
+        "item" : "5.0",
+        "count" : "1"
+      }, {
+        "item" : "9.0",
+        "count" : "1"
+      }, {
+        "item" : "13.0",
+        "count" : "1"
+      }, {
+        "item" : "2.0",
+        "count" : "1"
+      }, {
+        "item" : "14.0",
+        "count" : "1"
+      }, {
+        "item" : "11.0",
+        "count" : "1"
+      }, {
+        "item" : "3.0",
+        "count" : "1"
+      }, {
+        "item" : "12.0",
+        "count" : "1"
+      }, {
+        "item" : "10.0",
+        "count" : "1"
+      } ],
+      "smallest" : "1.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923316,
+    "name" : "SUM_RES_CNT",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_res_cnt",
+    "position" : 3,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450893,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "105331.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "89254.0",
+        "count" : "1"
+      }, {
+        "item" : "85066.0",
+        "count" : "1"
+      }, {
+        "item" : "105331.0",
+        "count" : "1"
+      }, {
+        "item" : "95717.0",
+        "count" : "1"
+      }, {
+        "item" : "96167.0",
+        "count" : "1"
+      }, {
+        "item" : "91235.0",
+        "count" : "1"
+      }, {
+        "item" : "92901.0",
+        "count" : "1"
+      }, {
+        "item" : "84399.0",
+        "count" : "1"
+      }, {
+        "item" : "95687.0",
+        "count" : "1"
+      }, {
+        "item" : "92115.0",
+        "count" : "1"
+      }, {
+        "item" : "98601.0",
+        "count" : "1"
+      }, {
+        "item" : "89707.0",
+        "count" : "1"
+      }, {
+        "item" : "81482.0",
+        "count" : "1"
+      }, {
+        "item" : "88049.0",
+        "count" : "1"
+      } ],
+      "smallest" : "81482.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923312,
+    "name" : "SUM_DWELL_CNT",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_dwell_cnt",
+    "position" : 4,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450889,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "56251.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "56251.0",
+        "count" : "1"
+      }, {
+        "item" : "32101.0",
+        "count" : "1"
+      }, {
+        "item" : "33421.0",
+        "count" : "1"
+      }, {
+        "item" : "28378.0",
+        "count" : "1"
+      }, {
+        "item" : "32232.0",
+        "count" : "1"
+      }, {
+        "item" : "34849.0",
+        "count" : "1"
+      }, {
+        "item" : "38540.0",
+        "count" : "1"
+      }, {
+        "item" : "38029.0",
+        "count" : "1"
+      }, {
+        "item" : "39134.0",
+        "count" : "1"
+      }, {
+        "item" : "44444.0",
+        "count" : "1"
+      }, {
+        "item" : "35318.0",
+        "count" : "1"
+      }, {
+        "item" : "45841.0",
+        "count" : "1"
+      }, {
+        "item" : "32386.0",
+        "count" : "1"
+      }, {
+        "item" : "29640.0",
+        "count" : "1"
+      } ],
+      "smallest" : "28378.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923328,
+    "name" : "SUM_SING_FAMLY",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_sing_famly",
+    "position" : 5,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450905,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "27079.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "22957.0",
+        "count" : "1"
+      }, {
+        "item" : "23136.0",
+        "count" : "1"
+      }, {
+        "item" : "16799.0",
+        "count" : "1"
+      }, {
+        "item" : "22678.0",
+        "count" : "1"
+      }, {
+        "item" : "11996.0",
+        "count" : "1"
+      }, {
+        "item" : "18004.0",
+        "count" : "1"
+      }, {
+        "item" : "22324.0",
+        "count" : "1"
+      }, {
+        "item" : "23683.0",
+        "count" : "1"
+      }, {
+        "item" : "20092.0",
+        "count" : "1"
+      }, {
+        "item" : "21079.0",
+        "count" : "1"
+      }, {
+        "item" : "22544.0",
+        "count" : "1"
+      }, {
+        "item" : "22150.0",
+        "count" : "1"
+      }, {
+        "item" : "27079.0",
+        "count" : "1"
+      }, {
+        "item" : "11036.0",
+        "count" : "1"
+      } ],
+      "smallest" : "11036.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923317,
+    "name" : "SUM_DUPLEX",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_duplex",
+    "position" : 6,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450894,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "4004.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3713.0",
+        "count" : "1"
+      }, {
+        "item" : "2077.0",
+        "count" : "1"
+      }, {
+        "item" : "1411.0",
+        "count" : "1"
+      }, {
+        "item" : "2151.0",
+        "count" : "1"
+      }, {
+        "item" : "2513.0",
+        "count" : "1"
+      }, {
+        "item" : "2600.0",
+        "count" : "1"
+      }, {
+        "item" : "2905.0",
+        "count" : "1"
+      }, {
+        "item" : "3798.0",
+        "count" : "1"
+      }, {
+        "item" : "4004.0",
+        "count" : "1"
+      }, {
+        "item" : "1959.0",
+        "count" : "1"
+      }, {
+        "item" : "1460.0",
+        "count" : "1"
+      }, {
+        "item" : "2294.0",
+        "count" : "1"
+      }, {
+        "item" : "3957.0",
+        "count" : "1"
+      }, {
+        "item" : "1153.0",
+        "count" : "1"
+      } ],
+      "smallest" : "1153.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923319,
+    "name" : "SUM_MULTI_PLEX",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_multi_plex",
+    "position" : 7,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450896,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "356.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "150.0",
+        "count" : "1"
+      }, {
+        "item" : "24.0",
+        "count" : "1"
+      }, {
+        "item" : "8.0",
+        "count" : "1"
+      }, {
+        "item" : "274.0",
+        "count" : "1"
+      }, {
+        "item" : "304.0",
+        "count" : "1"
+      }, {
+        "item" : "356.0",
+        "count" : "1"
+      }, {
+        "item" : "86.0",
+        "count" : "1"
+      }, {
+        "item" : "191.0",
+        "count" : "1"
+      }, {
+        "item" : "97.0",
+        "count" : "1"
+      }, {
+        "item" : "84.0",
+        "count" : "1"
+      }, {
+        "item" : "14.0",
+        "count" : "1"
+      }, {
+        "item" : "3.0",
+        "count" : "1"
+      }, {
+        "item" : "95.0",
+        "count" : "1"
+      }, {
+        "item" : "90.0",
+        "count" : "1"
+      } ],
+      "smallest" : "3.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923321,
+    "name" : "SUM_APARTMENT",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_apartment",
+    "position" : 8,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450898,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "34752.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "34752.0",
+        "count" : "1"
+      }, {
+        "item" : "4105.0",
+        "count" : "1"
+      }, {
+        "item" : "2207.0",
+        "count" : "1"
+      }, {
+        "item" : "2557.0",
+        "count" : "1"
+      }, {
+        "item" : "3246.0",
+        "count" : "1"
+      }, {
+        "item" : "10413.0",
+        "count" : "1"
+      }, {
+        "item" : "23096.0",
+        "count" : "1"
+      }, {
+        "item" : "7557.0",
+        "count" : "1"
+      }, {
+        "item" : "3626.0",
+        "count" : "1"
+      }, {
+        "item" : "5761.0",
+        "count" : "1"
+      }, {
+        "item" : "4486.0",
+        "count" : "1"
+      }, {
+        "item" : "9004.0",
+        "count" : "1"
+      }, {
+        "item" : "4741.0",
+        "count" : "1"
+      }, {
+        "item" : "3453.0",
+        "count" : "1"
+      } ],
+      "smallest" : "2207.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923331,
+    "name" : "SUM_TOWN_HOUSE",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_town_house",
+    "position" : 9,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450908,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "5305.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "4740.0",
+        "count" : "1"
+      }, {
+        "item" : "4826.0",
+        "count" : "1"
+      }, {
+        "item" : "4520.0",
+        "count" : "1"
+      }, {
+        "item" : "3972.0",
+        "count" : "1"
+      }, {
+        "item" : "3202.0",
+        "count" : "1"
+      }, {
+        "item" : "5027.0",
+        "count" : "1"
+      }, {
+        "item" : "2484.0",
+        "count" : "1"
+      }, {
+        "item" : "3862.0",
+        "count" : "1"
+      }, {
+        "item" : "4177.0",
+        "count" : "1"
+      }, {
+        "item" : "4153.0",
+        "count" : "1"
+      }, {
+        "item" : "5305.0",
+        "count" : "1"
+      }, {
+        "item" : "4712.0",
+        "count" : "1"
+      }, {
+        "item" : "2913.0",
+        "count" : "1"
+      }, {
+        "item" : "2949.0",
+        "count" : "1"
+      } ],
+      "smallest" : "2484.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923337,
+    "name" : "SUM_MANUF_HOME",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_manuf_home",
+    "position" : 10,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450914,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "665.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0.0",
+        "count" : "4"
+      }, {
+        "item" : "1.0",
+        "count" : "2"
+      }, {
+        "item" : "665.0",
+        "count" : "1"
+      }, {
+        "item" : "126.0",
+        "count" : "1"
+      }, {
+        "item" : "93.0",
+        "count" : "1"
+      }, {
+        "item" : "150.0",
+        "count" : "1"
+      }, {
+        "item" : "310.0",
+        "count" : "1"
+      }, {
+        "item" : "3.0",
+        "count" : "1"
+      }, {
+        "item" : "494.0",
+        "count" : "1"
+      }, {
+        "item" : "301.0",
+        "count" : "1"
+      } ],
+      "smallest" : "0.0",
+      "count" : "14",
+      "cardinality" : "10"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923335,
+    "name" : "SUM_CONV_STRUC",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_conv_struc",
+    "position" : 11,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450912,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "3668.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3668.0",
+        "count" : "1"
+      }, {
+        "item" : "2646.0",
+        "count" : "1"
+      }, {
+        "item" : "722.0",
+        "count" : "1"
+      }, {
+        "item" : "2800.0",
+        "count" : "1"
+      }, {
+        "item" : "296.0",
+        "count" : "1"
+      }, {
+        "item" : "428.0",
+        "count" : "1"
+      }, {
+        "item" : "1966.0",
+        "count" : "1"
+      }, {
+        "item" : "319.0",
+        "count" : "1"
+      }, {
+        "item" : "606.0",
+        "count" : "1"
+      }, {
+        "item" : "221.0",
+        "count" : "1"
+      }, {
+        "item" : "2100.0",
+        "count" : "1"
+      }, {
+        "item" : "208.0",
+        "count" : "1"
+      }, {
+        "item" : "102.0",
+        "count" : "1"
+      }, {
+        "item" : "2435.0",
+        "count" : "1"
+      } ],
+      "smallest" : "102.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923324,
+    "name" : "SUM_COMUNL_HSE",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_comunl_hse",
+    "position" : 12,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450901,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "18.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0.0",
+        "count" : "7"
+      }, {
+        "item" : "2.0",
+        "count" : "2"
+      }, {
+        "item" : "6.0",
+        "count" : "1"
+      }, {
+        "item" : "18.0",
+        "count" : "1"
+      }, {
+        "item" : "4.0",
+        "count" : "1"
+      }, {
+        "item" : "3.0",
+        "count" : "1"
+      }, {
+        "item" : "5.0",
+        "count" : "1"
+      } ],
+      "smallest" : "0.0",
+      "count" : "14",
+      "cardinality" : "7"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923311,
+    "name" : "SUM_RES_COMM",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_res_comm",
+    "position" : 13,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450888,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "80.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0.0",
+        "count" : "8"
+      }, {
+        "item" : "5.0",
+        "count" : "1"
+      }, {
+        "item" : "80.0",
+        "count" : "1"
+      }, {
+        "item" : "33.0",
+        "count" : "1"
+      }, {
+        "item" : "63.0",
+        "count" : "1"
+      }, {
+        "item" : "1.0",
+        "count" : "1"
+      }, {
+        "item" : "2.0",
+        "count" : "1"
+      } ],
+      "smallest" : "0.0",
+      "count" : "14",
+      "cardinality" : "7"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923340,
+    "name" : "SUM_OTHER_RES",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_other_res",
+    "position" : 14,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450917,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "89.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0.0",
+        "count" : "3"
+      }, {
+        "item" : "1.0",
+        "count" : "2"
+      }, {
+        "item" : "9.0",
+        "count" : "1"
+      }, {
+        "item" : "2.0",
+        "count" : "1"
+      }, {
+        "item" : "16.0",
+        "count" : "1"
+      }, {
+        "item" : "5.0",
+        "count" : "1"
+      }, {
+        "item" : "89.0",
+        "count" : "1"
+      }, {
+        "item" : "66.0",
+        "count" : "1"
+      }, {
+        "item" : "7.0",
+        "count" : "1"
+      }, {
+        "item" : "12.0",
+        "count" : "1"
+      }, {
+        "item" : "6.0",
+        "count" : "1"
+      } ],
+      "smallest" : "0.0",
+      "count" : "14",
+      "cardinality" : "11"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923339,
+    "name" : "SUM_NURSING_HM",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_nursing_hm",
+    "position" : 15,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450916,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "24.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "3.0",
+        "count" : "3"
+      }, {
+        "item" : "9.0",
+        "count" : "2"
+      }, {
+        "item" : "7.0",
+        "count" : "2"
+      }, {
+        "item" : "6.0",
+        "count" : "2"
+      }, {
+        "item" : "10.0",
+        "count" : "1"
+      }, {
+        "item" : "24.0",
+        "count" : "1"
+      }, {
+        "item" : "5.0",
+        "count" : "1"
+      }, {
+        "item" : "2.0",
+        "count" : "1"
+      }, {
+        "item" : "11.0",
+        "count" : "1"
+      } ],
+      "smallest" : "2.0",
+      "count" : "14",
+      "cardinality" : "9"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923309,
+    "name" : "SUM_OTHER_INST",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_other_inst",
+    "position" : 16,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450886,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "13.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0.0",
+        "count" : "6"
+      }, {
+        "item" : "1.0",
+        "count" : "4"
+      }, {
+        "item" : "5.0",
+        "count" : "1"
+      }, {
+        "item" : "13.0",
+        "count" : "1"
+      }, {
+        "item" : "2.0",
+        "count" : "1"
+      }, {
+        "item" : "3.0",
+        "count" : "1"
+      } ],
+      "smallest" : "0.0",
+      "count" : "14",
+      "cardinality" : "6"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923338,
+    "name" : "SUM_HOTEL_CNT",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_hotel_cnt",
+    "position" : 17,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450915,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "46.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "11.0",
+        "count" : "2"
+      }, {
+        "item" : "4.0",
+        "count" : "2"
+      }, {
+        "item" : "0.0",
+        "count" : "2"
+      }, {
+        "item" : "14.0",
+        "count" : "1"
+      }, {
+        "item" : "10.0",
+        "count" : "1"
+      }, {
+        "item" : "23.0",
+        "count" : "1"
+      }, {
+        "item" : "1.0",
+        "count" : "1"
+      }, {
+        "item" : "5.0",
+        "count" : "1"
+      }, {
+        "item" : "46.0",
+        "count" : "1"
+      }, {
+        "item" : "28.0",
+        "count" : "1"
+      }, {
+        "item" : "2.0",
+        "count" : "1"
+      } ],
+      "smallest" : "0.0",
+      "count" : "14",
+      "cardinality" : "11"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923336,
+    "name" : "SUM_OTHER_MISC",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_other_misc",
+    "position" : 18,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450913,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "0.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "0.0",
+        "count" : "14"
+      } ],
+      "smallest" : "0.0",
+      "count" : "14",
+      "cardinality" : "1"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923329,
+    "name" : "SUM_MF_0_4",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_0_4",
+    "position" : 19,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450906,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "8817.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "8817.0",
+        "count" : "1"
+      }, {
+        "item" : "5605.0",
+        "count" : "1"
+      }, {
+        "item" : "4768.0",
+        "count" : "1"
+      }, {
+        "item" : "4748.0",
+        "count" : "1"
+      }, {
+        "item" : "5560.0",
+        "count" : "1"
+      }, {
+        "item" : "4188.0",
+        "count" : "1"
+      }, {
+        "item" : "4726.0",
+        "count" : "1"
+      }, {
+        "item" : "5340.0",
+        "count" : "1"
+      }, {
+        "item" : "7092.0",
+        "count" : "1"
+      }, {
+        "item" : "5482.0",
+        "count" : "1"
+      }, {
+        "item" : "5711.0",
+        "count" : "1"
+      }, {
+        "item" : "6377.0",
+        "count" : "1"
+      }, {
+        "item" : "4703.0",
+        "count" : "1"
+      }, {
+        "item" : "4169.0",
+        "count" : "1"
+      } ],
+      "smallest" : "4169.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923318,
+    "name" : "SUM_MF_5_14",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_5_14",
+    "position" : 20,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450895,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "16456.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "12390.0",
+        "count" : "1"
+      }, {
+        "item" : "16456.0",
+        "count" : "1"
+      }, {
+        "item" : "11196.0",
+        "count" : "1"
+      }, {
+        "item" : "5981.0",
+        "count" : "1"
+      }, {
+        "item" : "10222.0",
+        "count" : "1"
+      }, {
+        "item" : "12328.0",
+        "count" : "1"
+      }, {
+        "item" : "11846.0",
+        "count" : "1"
+      }, {
+        "item" : "9295.0",
+        "count" : "1"
+      }, {
+        "item" : "14520.0",
+        "count" : "1"
+      }, {
+        "item" : "12205.0",
+        "count" : "1"
+      }, {
+        "item" : "6631.0",
+        "count" : "1"
+      }, {
+        "item" : "15137.0",
+        "count" : "1"
+      }, {
+        "item" : "10719.0",
+        "count" : "1"
+      }, {
+        "item" : "12848.0",
+        "count" : "1"
+      } ],
+      "smallest" : "5981.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923341,
+    "name" : "SUM_MF_15_19",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_15_19",
+    "position" : 21,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450918,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "6125.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "2307.0",
+        "count" : "1"
+      }, {
+        "item" : "5880.0",
+        "count" : "1"
+      }, {
+        "item" : "4295.0",
+        "count" : "1"
+      }, {
+        "item" : "5397.0",
+        "count" : "1"
+      }, {
+        "item" : "5431.0",
+        "count" : "1"
+      }, {
+        "item" : "5520.0",
+        "count" : "1"
+      }, {
+        "item" : "3840.0",
+        "count" : "1"
+      }, {
+        "item" : "5310.0",
+        "count" : "1"
+      }, {
+        "item" : "3167.0",
+        "count" : "1"
+      }, {
+        "item" : "6125.0",
+        "count" : "1"
+      }, {
+        "item" : "4976.0",
+        "count" : "1"
+      }, {
+        "item" : "5385.0",
+        "count" : "1"
+      }, {
+        "item" : "4470.0",
+        "count" : "1"
+      }, {
+        "item" : "5410.0",
+        "count" : "1"
+      } ],
+      "smallest" : "2307.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923334,
+    "name" : "SUM_MF_20_24",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_20_24",
+    "position" : 22,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450911,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "7800.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "5019.0",
+        "count" : "1"
+      }, {
+        "item" : "4653.0",
+        "count" : "1"
+      }, {
+        "item" : "5905.0",
+        "count" : "1"
+      }, {
+        "item" : "4651.0",
+        "count" : "1"
+      }, {
+        "item" : "5547.0",
+        "count" : "1"
+      }, {
+        "item" : "5070.0",
+        "count" : "1"
+      }, {
+        "item" : "6287.0",
+        "count" : "1"
+      }, {
+        "item" : "4974.0",
+        "count" : "1"
+      }, {
+        "item" : "6405.0",
+        "count" : "1"
+      }, {
+        "item" : "4894.0",
+        "count" : "1"
+      }, {
+        "item" : "7800.0",
+        "count" : "1"
+      }, {
+        "item" : "3641.0",
+        "count" : "1"
+      }, {
+        "item" : "5085.0",
+        "count" : "1"
+      }, {
+        "item" : "5957.0",
+        "count" : "1"
+      } ],
+      "smallest" : "3641.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923325,
+    "name" : "SUM_MF_25_34",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_25_34",
+    "position" : 23,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450902,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "26969.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "13199.0",
+        "count" : "1"
+      }, {
+        "item" : "14902.0",
+        "count" : "1"
+      }, {
+        "item" : "11029.0",
+        "count" : "1"
+      }, {
+        "item" : "10088.0",
+        "count" : "1"
+      }, {
+        "item" : "26969.0",
+        "count" : "1"
+      }, {
+        "item" : "20222.0",
+        "count" : "1"
+      }, {
+        "item" : "17231.0",
+        "count" : "1"
+      }, {
+        "item" : "13718.0",
+        "count" : "1"
+      }, {
+        "item" : "12748.0",
+        "count" : "1"
+      }, {
+        "item" : "17409.0",
+        "count" : "1"
+      }, {
+        "item" : "10637.0",
+        "count" : "1"
+      }, {
+        "item" : "10165.0",
+        "count" : "1"
+      }, {
+        "item" : "10401.0",
+        "count" : "1"
+      }, {
+        "item" : "14070.0",
+        "count" : "1"
+      } ],
+      "smallest" : "10088.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923326,
+    "name" : "SUM_MF_35_44",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_35_44",
+    "position" : 24,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450903,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "20859.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "18972.0",
+        "count" : "1"
+      }, {
+        "item" : "15490.0",
+        "count" : "1"
+      }, {
+        "item" : "14681.0",
+        "count" : "1"
+      }, {
+        "item" : "14608.0",
+        "count" : "1"
+      }, {
+        "item" : "18229.0",
+        "count" : "1"
+      }, {
+        "item" : "20859.0",
+        "count" : "1"
+      }, {
+        "item" : "15927.0",
+        "count" : "1"
+      }, {
+        "item" : "15280.0",
+        "count" : "1"
+      }, {
+        "item" : "13455.0",
+        "count" : "1"
+      }, {
+        "item" : "13675.0",
+        "count" : "1"
+      }, {
+        "item" : "13822.0",
+        "count" : "1"
+      }, {
+        "item" : "12597.0",
+        "count" : "1"
+      }, {
+        "item" : "15127.0",
+        "count" : "1"
+      }, {
+        "item" : "15526.0",
+        "count" : "1"
+      } ],
+      "smallest" : "12597.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923323,
+    "name" : "SUM_MF_45_54",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_45_54",
+    "position" : 25,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450900,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "15340.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "11654.0",
+        "count" : "1"
+      }, {
+        "item" : "11369.0",
+        "count" : "1"
+      }, {
+        "item" : "11735.0",
+        "count" : "1"
+      }, {
+        "item" : "9479.0",
+        "count" : "1"
+      }, {
+        "item" : "12826.0",
+        "count" : "1"
+      }, {
+        "item" : "13231.0",
+        "count" : "1"
+      }, {
+        "item" : "11368.0",
+        "count" : "1"
+      }, {
+        "item" : "12069.0",
+        "count" : "1"
+      }, {
+        "item" : "15340.0",
+        "count" : "1"
+      }, {
+        "item" : "11325.0",
+        "count" : "1"
+      }, {
+        "item" : "14294.0",
+        "count" : "1"
+      }, {
+        "item" : "13488.0",
+        "count" : "1"
+      }, {
+        "item" : "10897.0",
+        "count" : "1"
+      }, {
+        "item" : "12547.0",
+        "count" : "1"
+      } ],
+      "smallest" : "9479.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923315,
+    "name" : "SUM_MF_55_64",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_55_64",
+    "position" : 26,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450892,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "15842.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "11336.0",
+        "count" : "1"
+      }, {
+        "item" : "12185.0",
+        "count" : "1"
+      }, {
+        "item" : "11856.0",
+        "count" : "1"
+      }, {
+        "item" : "9200.0",
+        "count" : "1"
+      }, {
+        "item" : "12689.0",
+        "count" : "1"
+      }, {
+        "item" : "11771.0",
+        "count" : "1"
+      }, {
+        "item" : "11567.0",
+        "count" : "1"
+      }, {
+        "item" : "8821.0",
+        "count" : "1"
+      }, {
+        "item" : "12508.0",
+        "count" : "1"
+      }, {
+        "item" : "15842.0",
+        "count" : "1"
+      }, {
+        "item" : "10205.0",
+        "count" : "1"
+      }, {
+        "item" : "6973.0",
+        "count" : "1"
+      }, {
+        "item" : "8197.0",
+        "count" : "1"
+      }, {
+        "item" : "9552.0",
+        "count" : "1"
+      } ],
+      "smallest" : "6973.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923320,
+    "name" : "SUM_MF_65_74",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_65_74",
+    "position" : 27,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450897,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "10342.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "7763.0",
+        "count" : "1"
+      }, {
+        "item" : "5518.0",
+        "count" : "1"
+      }, {
+        "item" : "4942.0",
+        "count" : "1"
+      }, {
+        "item" : "6106.0",
+        "count" : "1"
+      }, {
+        "item" : "7779.0",
+        "count" : "1"
+      }, {
+        "item" : "7395.0",
+        "count" : "1"
+      }, {
+        "item" : "10342.0",
+        "count" : "1"
+      }, {
+        "item" : "7918.0",
+        "count" : "1"
+      }, {
+        "item" : "8234.0",
+        "count" : "1"
+      }, {
+        "item" : "7643.0",
+        "count" : "1"
+      }, {
+        "item" : "5438.0",
+        "count" : "1"
+      }, {
+        "item" : "6138.0",
+        "count" : "1"
+      }, {
+        "item" : "6581.0",
+        "count" : "1"
+      }, {
+        "item" : "4112.0",
+        "count" : "1"
+      } ],
+      "smallest" : "4112.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923314,
+    "name" : "SUM_MF_75",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "sum_mf_75",
+    "position" : 28,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450891,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "7757.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "5137.0",
+        "count" : "1"
+      }, {
+        "item" : "2544.0",
+        "count" : "1"
+      }, {
+        "item" : "5205.0",
+        "count" : "1"
+      }, {
+        "item" : "7757.0",
+        "count" : "1"
+      }, {
+        "item" : "4204.0",
+        "count" : "1"
+      }, {
+        "item" : "4227.0",
+        "count" : "1"
+      }, {
+        "item" : "1549.0",
+        "count" : "1"
+      }, {
+        "item" : "4053.0",
+        "count" : "1"
+      }, {
+        "item" : "3545.0",
+        "count" : "1"
+      }, {
+        "item" : "3822.0",
+        "count" : "1"
+      }, {
+        "item" : "5989.0",
+        "count" : "1"
+      }, {
+        "item" : "3236.0",
+        "count" : "1"
+      }, {
+        "item" : "1678.0",
+        "count" : "1"
+      }, {
+        "item" : "3839.0",
+        "count" : "1"
+      } ],
+      "smallest" : "1549.0",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923327,
+    "name" : "CommAssoc",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "commassoc",
+    "position" : 31,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450904,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "18.0",
+      "null" : "0",
+      "top" : [ {
+        "item" : "5.0",
+        "count" : "2"
+      }, {
+        "item" : "13.0",
+        "count" : "2"
+      }, {
+        "item" : "10.0",
+        "count" : "2"
+      }, {
+        "item" : "8.0",
+        "count" : "2"
+      }, {
+        "item" : "3.0",
+        "count" : "1"
+      }, {
+        "item" : "12.0",
+        "count" : "1"
+      }, {
+        "item" : "18.0",
+        "count" : "1"
+      }, {
+        "item" : "9.0",
+        "count" : "1"
+      }, {
+        "item" : "17.0",
+        "count" : "1"
+      }, {
+        "item" : "15.0",
+        "count" : "1"
+      } ],
+      "smallest" : "3.0",
+      "count" : "14",
+      "cardinality" : "10"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923310,
+    "name" : "Deviation",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "deviation",
+    "position" : 32,
+    "renderTypeName" : "number",
+    "tableColumnId" : 109450887,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "14.6946731129405",
+      "null" : "0",
+      "top" : [ {
+        "item" : "4.22601158587046",
+        "count" : "1"
+      }, {
+        "item" : "-0.654427457641883",
+        "count" : "1"
+      }, {
+        "item" : "-8.09813145171828",
+        "count" : "1"
+      }, {
+        "item" : "4.71601550590182",
+        "count" : "1"
+      }, {
+        "item" : "-4.12365521146391",
+        "count" : "1"
+      }, {
+        "item" : "-7.3718367524718",
+        "count" : "1"
+      }, {
+        "item" : "14.6946731129405",
+        "count" : "1"
+      }, {
+        "item" : "1.15967594407422",
+        "count" : "1"
+      }, {
+        "item" : "-2.31826299054837",
+        "count" : "1"
+      }, {
+        "item" : "0.303802430419443",
+        "count" : "1"
+      }, {
+        "item" : "-11.2744457511216",
+        "count" : "1"
+      }, {
+        "item" : "4.19334465786837",
+        "count" : "1"
+      }, {
+        "item" : "-2.81153360337994",
+        "count" : "1"
+      }, {
+        "item" : "7.36639226447145",
+        "count" : "1"
+      } ],
+      "smallest" : "-11.2744457511216",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 482923332,
+    "name" : "multipolygon",
+    "dataTypeName" : "multipolygon",
+    "description" : "",
+    "fieldName" : "multipolygon",
+    "position" : 33,
+    "renderTypeName" : "multipolygon",
+    "tableColumnId" : 109450909,
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "See Terms of Use"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "License/Attribution" : {
+        "License URL" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Data Supplier" : {
+        "Organization" : "The City of Calgary",
+        "Business Unit" : "City Clerks"
+      },
+      "Time/Date" : {
+        "Date of Last Update" : "2020-06-15",
+        "Update Frequency" : "Irregular"
+      },
+      "Geospatial Information" : {
+        "Map Projection" : "EPSG:4326 WGS84",
+        "Dataset contains geospatial information" : "Yes"
+      }
+    },
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

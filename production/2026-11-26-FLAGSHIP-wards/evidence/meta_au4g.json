@@ -1,0 +1,311 @@
+{
+  "id" : "au4g-xjwh",
+  "name" : "Ward Boundaries 2017-2021",
+  "assetType" : "dataset",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Government",
+  "createdAt" : 1498151576,
+  "description" : "This dataset reflects the Ward Boundaries that were in affect from October 16, 2017 until October 18, 2021. A ward is the division of the city into electoral areas, each represented by one elected Councillor. Wards are a geographical division of the municipality and are referred to by a number defined in the bylaw. Divisions are determined under the authority of the Municipal Government Act and criteria in Council policy. Please see the Ward Boundaries dataset for the current data.",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 278,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "SEE_TERMS_OF_USE",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 38176669,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1644340747,
+  "publicationGroup" : 14280706,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1644340741,
+  "tableId" : 18588459,
+  "totalTimesRated" : 0,
+  "viewCount" : 713,
+  "viewLastModified" : 1775668229,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1644351503,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 4422351,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1644351503,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1644351503,
+      "failureCount" : 0,
+      "startedAt" : 1644351503,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "7gje-thpf",
+      "displayName" : "Open Data Administrator"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 555570070,
+    "name" : "COUNCILLOR",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "councillor",
+    "position" : 1,
+    "renderTypeName" : "text",
+    "tableColumnId" : 49200688,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "WARD SUTHERLAND",
+      "null" : "0",
+      "top" : [ {
+        "item" : "WARD SUTHERLAND",
+        "count" : "1"
+      }, {
+        "item" : "JEROMY FARKAS",
+        "count" : "1"
+      }, {
+        "item" : "SHANE KEATING",
+        "count" : "1"
+      }, {
+        "item" : "GEORGE CHAHAL",
+        "count" : "1"
+      }, {
+        "item" : "JOE MAGLIOCCA",
+        "count" : "1"
+      }, {
+        "item" : "JEFF DAVISON",
+        "count" : "1"
+      }, {
+        "item" : "DRUH FARRELL",
+        "count" : "1"
+      }, {
+        "item" : "SEAN CHU",
+        "count" : "1"
+      }, {
+        "item" : "GIAN-CARLO CARRA",
+        "count" : "1"
+      }, {
+        "item" : "EVAN WOOLLEY",
+        "count" : "1"
+      }, {
+        "item" : "PETER DEMONG",
+        "count" : "1"
+      }, {
+        "item" : "DIANE COLLEY-URQUHART",
+        "count" : "1"
+      }, {
+        "item" : "RAY JONES",
+        "count" : "1"
+      }, {
+        "item" : "JYOTI GONDEK",
+        "count" : "1"
+      } ],
+      "smallest" : "DIANE COLLEY-URQUHART",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 555570068,
+    "name" : "LABEL",
+    "dataTypeName" : "text",
+    "fieldName" : "label",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 49200686,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "WARD 9",
+      "null" : "0",
+      "top" : [ {
+        "item" : "WARD 11",
+        "count" : "1"
+      }, {
+        "item" : "WARD 3",
+        "count" : "1"
+      }, {
+        "item" : "WARD 2",
+        "count" : "1"
+      }, {
+        "item" : "WARD 13",
+        "count" : "1"
+      }, {
+        "item" : "WARD 6",
+        "count" : "1"
+      }, {
+        "item" : "WARD 8",
+        "count" : "1"
+      }, {
+        "item" : "WARD 12",
+        "count" : "1"
+      }, {
+        "item" : "WARD 7",
+        "count" : "1"
+      }, {
+        "item" : "WARD 9",
+        "count" : "1"
+      }, {
+        "item" : "WARD 1",
+        "count" : "1"
+      }, {
+        "item" : "WARD 5",
+        "count" : "1"
+      }, {
+        "item" : "WARD 4",
+        "count" : "1"
+      }, {
+        "item" : "WARD 14",
+        "count" : "1"
+      }, {
+        "item" : "WARD 10",
+        "count" : "1"
+      } ],
+      "smallest" : "WARD 1",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 555570069,
+    "name" : "WARD_NUM",
+    "dataTypeName" : "number",
+    "fieldName" : "ward_num",
+    "position" : 3,
+    "renderTypeName" : "number",
+    "tableColumnId" : 49200687,
+    "cachedContents" : {
+      "non_null" : "14",
+      "largest" : "14",
+      "null" : "0",
+      "top" : [ {
+        "item" : "7",
+        "count" : "1"
+      }, {
+        "item" : "1",
+        "count" : "1"
+      }, {
+        "item" : "4",
+        "count" : "1"
+      }, {
+        "item" : "8",
+        "count" : "1"
+      }, {
+        "item" : "6",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "9",
+        "count" : "1"
+      }, {
+        "item" : "13",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "11",
+        "count" : "1"
+      }, {
+        "item" : "14",
+        "count" : "1"
+      }, {
+        "item" : "3",
+        "count" : "1"
+      }, {
+        "item" : "12",
+        "count" : "1"
+      }, {
+        "item" : "10",
+        "count" : "1"
+      } ],
+      "smallest" : "1",
+      "count" : "14",
+      "cardinality" : "14"
+    },
+    "format" : { }
+  }, {
+    "id" : 555570067,
+    "name" : "the_geom",
+    "dataTypeName" : "polygon",
+    "description" : "",
+    "fieldName" : "the_geom",
+    "position" : 4,
+    "renderTypeName" : "polygon",
+    "tableColumnId" : 49200685,
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "See Terms of Use"
+  },
+  "metadata" : {
+    "attachments" : [ {
+      "filename" : "2017 Ward Boundaries.json",
+      "assetId" : "5a8491c6-cd5d-4659-92b6-9f6aa18138df",
+      "name" : "2017 Ward Boundaries.json"
+    } ],
+    "custom_fields" : {
+      "License/Attribution" : {
+        "License URL" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Additional Information" : {
+        "Source URL" : "http://www.calgary.ca/CA/city-clerks/Pages/Ward-Boundary-Commission/Ward-Boundary-Commission.aspx"
+      },
+      "Data Supplier" : {
+        "Organization" : "The City of Calgary",
+        "Business Unit" : "City Clerks"
+      },
+      "Time/Date" : {
+        "Update Frequency" : "None",
+        "Time Period Covered" : "October 16, 2017 - October 18, 2021"
+      },
+      "Geospatial Information" : {
+        "Map Projection" : "WGS84/Web Mercator",
+        "Dataset contains geospatial information" : "Yes"
+      }
+    },
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "ward", "boundary", "election" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

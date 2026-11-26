@@ -611,9 +611,10 @@
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
   "category": "Fun fact",
-  "topic": "Calgary's tallest building",
+  "topic": "Calgary passed one million people",
   "length": "15-35 s",
-  "format": "1080x1920 vertical"
+  "format": "1080x1920 vertical",
+  "note": "Swapped Nov 25 (Hassan: duplicate of the Bow tower AM topic, reschedule): Nov 26 PM <-> Dec 6 PM"
  },
  {
   "date": "2026-11-27",
@@ -941,9 +942,10 @@
   "type": "quick-insight",
   "skill": "calgary-data-explainer",
   "category": "Fun fact",
-  "topic": "Calgary passed one million people",
+  "topic": "Calgary's tallest building",
   "length": "15-35 s",
-  "format": "1080x1920 vertical"
+  "format": "1080x1920 vertical",
+  "note": "Swapped Nov 25 (Hassan: duplicate of the Bow tower AM topic, reschedule): Nov 26 PM <-> Dec 6 PM"
  },
  {
   "date": "2026-12-07",

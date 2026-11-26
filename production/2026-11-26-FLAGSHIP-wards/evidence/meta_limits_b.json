@@ -1,0 +1,439 @@
+{
+  "id" : "twfe-ukxx",
+  "name" : "Historic City Limits",
+  "assetType" : "dataset",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Base Maps",
+  "createdAt" : 1509045434,
+  "description" : "The boundaries of Calgary from 1884-present. <a href=\"https://data.calgary.ca/d/7t9h-2z9s\">Click here to see just the current city limits.</a>",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 379,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "indexUpdatedAt" : 1510007543,
+  "licenseId" : "SEE_TERMS_OF_USE",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 27163630,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1509656787,
+  "publicationGroup" : 14563792,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1638287963,
+  "tableId" : 14587320,
+  "totalTimesRated" : 0,
+  "viewCount" : 1494,
+  "viewLastModified" : 1789139409,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1510007217,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 2907581,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1510007217,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "55bi-hyk4",
+      "displayName" : "Calgary Open Data"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 328242708,
+    "name" : "end_year",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "end_year",
+    "position" : 1,
+    "renderTypeName" : "number",
+    "tableColumnId" : 55899009,
+    "cachedContents" : {
+      "largest" : "2011",
+      "non_null" : "30",
+      "null" : "1",
+      "top" : [ {
+        "item" : "1971",
+        "count" : "1"
+      }, {
+        "item" : "1922",
+        "count" : "1"
+      }, {
+        "item" : "2011",
+        "count" : "1"
+      }, {
+        "item" : "1902",
+        "count" : "1"
+      }, {
+        "item" : "2007",
+        "count" : "1"
+      }, {
+        "item" : "1951",
+        "count" : "1"
+      }, {
+        "item" : "1953",
+        "count" : "1"
+      }, {
+        "item" : "2005",
+        "count" : "1"
+      }, {
+        "item" : "1975",
+        "count" : "1"
+      }, {
+        "item" : "1952",
+        "count" : "1"
+      }, {
+        "item" : "1950",
+        "count" : "1"
+      }, {
+        "item" : "1981",
+        "count" : "1"
+      }, {
+        "item" : "1905",
+        "count" : "1"
+      }, {
+        "item" : "1984",
+        "count" : "1"
+      }, {
+        "item" : "1963",
+        "count" : "1"
+      }, {
+        "item" : "1955",
+        "count" : "1"
+      }, {
+        "item" : "1983",
+        "count" : "1"
+      }, {
+        "item" : "1994",
+        "count" : "1"
+      }, {
+        "item" : "1974",
+        "count" : "1"
+      }, {
+        "item" : "1910",
+        "count" : "1"
+      } ],
+      "smallest" : "1900",
+      "count" : "31",
+      "cardinality" : "30"
+    },
+    "format" : {
+      "noCommas" : "true"
+    }
+  }, {
+    "id" : 328242709,
+    "name" : "start_year",
+    "dataTypeName" : "number",
+    "description" : "",
+    "fieldName" : "start_year",
+    "position" : 2,
+    "renderTypeName" : "number",
+    "tableColumnId" : 55899010,
+    "cachedContents" : {
+      "largest" : "2011",
+      "non_null" : "31",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1972",
+        "count" : "1"
+      }, {
+        "item" : "1956",
+        "count" : "1"
+      }, {
+        "item" : "2011",
+        "count" : "1"
+      }, {
+        "item" : "1993",
+        "count" : "1"
+      }, {
+        "item" : "2007",
+        "count" : "1"
+      }, {
+        "item" : "1951",
+        "count" : "1"
+      }, {
+        "item" : "1953",
+        "count" : "1"
+      }, {
+        "item" : "1923",
+        "count" : "1"
+      }, {
+        "item" : "1954",
+        "count" : "1"
+      }, {
+        "item" : "2005",
+        "count" : "1"
+      }, {
+        "item" : "1907",
+        "count" : "1"
+      }, {
+        "item" : "1903",
+        "count" : "1"
+      }, {
+        "item" : "1975",
+        "count" : "1"
+      }, {
+        "item" : "1961",
+        "count" : "1"
+      }, {
+        "item" : "1952",
+        "count" : "1"
+      }, {
+        "item" : "2008",
+        "count" : "1"
+      }, {
+        "item" : "1981",
+        "count" : "1"
+      }, {
+        "item" : "1976",
+        "count" : "1"
+      }, {
+        "item" : "1901",
+        "count" : "1"
+      }, {
+        "item" : "1884",
+        "count" : "1"
+      } ],
+      "smallest" : "1884",
+      "count" : "31",
+      "cardinality" : "31"
+    },
+    "format" : {
+      "noCommas" : "true"
+    }
+  }, {
+    "id" : 328242710,
+    "name" : "the_geom",
+    "dataTypeName" : "polygon",
+    "fieldName" : "the_geom",
+    "position" : 3,
+    "renderTypeName" : "polygon",
+    "tableColumnId" : 55899011,
+    "format" : { }
+  }, {
+    "id" : 328242711,
+    "name" : "label",
+    "dataTypeName" : "text",
+    "fieldName" : "label",
+    "position" : 4,
+    "renderTypeName" : "text",
+    "tableColumnId" : 55899012,
+    "cachedContents" : {
+      "largest" : "2011",
+      "non_null" : "31",
+      "null" : "0",
+      "top" : [ {
+        "item" : "1903-1905",
+        "count" : "1"
+      }, {
+        "item" : "1956-1960",
+        "count" : "1"
+      }, {
+        "item" : "1983",
+        "count" : "1"
+      }, {
+        "item" : "1982",
+        "count" : "1"
+      }, {
+        "item" : "2011",
+        "count" : "1"
+      }, {
+        "item" : "1981",
+        "count" : "1"
+      }, {
+        "item" : "1952",
+        "count" : "1"
+      }, {
+        "item" : "1976-1978",
+        "count" : "1"
+      }, {
+        "item" : "2008-2011",
+        "count" : "1"
+      }, {
+        "item" : "1964-1971",
+        "count" : "1"
+      }, {
+        "item" : "1961-1962",
+        "count" : "1"
+      }, {
+        "item" : "1951",
+        "count" : "1"
+      }, {
+        "item" : "1985-1988",
+        "count" : "1"
+      }, {
+        "item" : "1974",
+        "count" : "1"
+      }, {
+        "item" : "1972-1973",
+        "count" : "1"
+      }, {
+        "item" : "1901-1902",
+        "count" : "1"
+      }, {
+        "item" : "1907-1909",
+        "count" : "1"
+      }, {
+        "item" : "2005",
+        "count" : "1"
+      }, {
+        "item" : "1906",
+        "count" : "1"
+      }, {
+        "item" : "1954-1955",
+        "count" : "1"
+      } ],
+      "smallest" : "1884-1900",
+      "count" : "31",
+      "cardinality" : "31"
+    },
+    "format" : { }
+  }, {
+    "id" : 328242712,
+    "name" : "order",
+    "dataTypeName" : "number",
+    "fieldName" : "order",
+    "position" : 5,
+    "renderTypeName" : "number",
+    "tableColumnId" : 55899013,
+    "cachedContents" : {
+      "largest" : "31",
+      "non_null" : "31",
+      "null" : "0",
+      "top" : [ {
+        "item" : "8",
+        "count" : "1"
+      }, {
+        "item" : "19",
+        "count" : "1"
+      }, {
+        "item" : "9",
+        "count" : "1"
+      }, {
+        "item" : "13",
+        "count" : "1"
+      }, {
+        "item" : "29",
+        "count" : "1"
+      }, {
+        "item" : "14",
+        "count" : "1"
+      }, {
+        "item" : "3",
+        "count" : "1"
+      }, {
+        "item" : "17",
+        "count" : "1"
+      }, {
+        "item" : "7",
+        "count" : "1"
+      }, {
+        "item" : "27",
+        "count" : "1"
+      }, {
+        "item" : "18",
+        "count" : "1"
+      }, {
+        "item" : "20",
+        "count" : "1"
+      }, {
+        "item" : "25",
+        "count" : "1"
+      }, {
+        "item" : "6",
+        "count" : "1"
+      }, {
+        "item" : "5",
+        "count" : "1"
+      }, {
+        "item" : "28",
+        "count" : "1"
+      }, {
+        "item" : "2",
+        "count" : "1"
+      }, {
+        "item" : "11",
+        "count" : "1"
+      }, {
+        "item" : "21",
+        "count" : "1"
+      }, {
+        "item" : "31",
+        "count" : "1"
+      } ],
+      "smallest" : "1",
+      "count" : "31",
+      "cardinality" : "31"
+    },
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "See Terms of Use"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "License/Attribution" : {
+        "License URL" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Data Supplier" : {
+        "Organization" : "The City of Calgary",
+        "Business Unit" : "City and Regional Planning"
+      },
+      "Time/Date" : {
+        "Temporal End Date" : "2011",
+        "Temporal Start Date" : "1884",
+        "Update Frequency" : "Irregular"
+      },
+      "Geospatial Information" : {
+        "Map Projection" : "EPSG:4326 WGS84",
+        "Dataset contains geospatial information" : "Yes"
+      }
+    },
+    "rowLabel" : "City Boundary",
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

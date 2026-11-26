@@ -1,0 +1,217 @@
+{
+  "id" : "xrns-k6ck",
+  "name" : "Historic City Annexation",
+  "assetType" : "map",
+  "attribution" : "The City of Calgary",
+  "averageRating" : 0,
+  "category" : "Base Maps",
+  "createdAt" : 1509400621,
+  "description" : "For more information on annexation, visit the <a href=\"http://www.calgary.ca/PDA/pd/Pages/Planning-and-development-resource-library/Publications.aspx\">Planning and Development Resource Library</a> or this <a href=\"http://www.calgary.ca/PDA/pd/Documents/pdf/history-of-annexation.pdf\">History of Annexation</a> pdf map.",
+  "diciBackend" : false,
+  "displayType" : "visualization_canvas_map",
+  "downloadCount" : 262,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "SEE_TERMS_OF_USE",
+  "locked" : false,
+  "modifyingViewUid" : "g9nd-fuwf",
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 40513999,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1712604058,
+  "publicationGroup" : 14586762,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1712866379,
+  "tableId" : 14586767,
+  "totalTimesRated" : 0,
+  "viewCount" : 15312,
+  "viewLastModified" : 1712604058,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1510007224,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 6252698,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1510007224,
+    "targetAudience" : "public",
+    "workflowId" : 2143,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "failureCount" : 0,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "55bi-hyk4",
+      "displayName" : "Calgary Open Data"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ ],
+  "displayFormat" : {
+    "visualizationCanvasMetadata" : {
+      "vifs" : [ {
+        "configuration" : {
+          "viewSourceDataLink" : true,
+          "mapCenterAndZoom" : {
+            "center" : {
+              "lng" : -114.087850705336,
+              "lat" : 51.0276236758161
+            },
+            "zoom" : 8.625092700222812
+          },
+          "basemapOptions" : {
+            "searchBoundaryLowerRightLongitude" : -113.859905274451,
+            "searchBoundaryUpperLeftLongitude" : -114.315796136221,
+            "searchBoundaryUpperLeftLatitude" : 51.2124253175644,
+            "navigationControl" : true,
+            "basemapStyle" : "mapbox://styles/mapbox/basic-v9",
+            "geoCoderControl" : false,
+            "geoLocateControl" : true,
+            "searchBoundaryLowerRightLatitude" : 50.8428220340678
+          },
+          "mapPitchAndBearing" : {
+            "bearing" : 0,
+            "pitch" : 0
+          },
+          "datasetMetadata" : false,
+          "panAndZoom" : true,
+          "locateUser" : false
+        },
+        "series" : [ {
+          "visible" : true,
+          "color" : {
+            "primary" : "#eb6900"
+          },
+          "mapOptions" : {
+            "colorByQuantificationMethod" : "category",
+            "mapFlyoutTitleColumnName" : "description",
+            "colorBoundariesBy" : "year_annexed",
+            "mapType" : "boundaryMap",
+            "additionalFlyoutColumns" : [ "year_withdrawn", "year_annexed", "year_modified" ]
+          },
+          "showLegend" : true,
+          "type" : "map",
+          "dataSource" : {
+            "measure" : {
+              "aggregationFunction" : "count"
+            },
+            "name" : "annexations",
+            "filters" : [ {
+              "columns" : [ {
+                "fieldName" : "year_annexed",
+                "datasetUid" : "g9nd-fuwf"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : false,
+              "columnName" : "year_annexed",
+              "isHidden" : false
+            }, {
+              "columns" : [ {
+                "fieldName" : "year_withdrawn",
+                "datasetUid" : "g9nd-fuwf"
+              } ],
+              "function" : "noop",
+              "isDrilldown" : false,
+              "columnName" : "year_withdrawn",
+              "isHidden" : false
+            } ],
+            "type" : "socrata.soql",
+            "datasetUid" : "g9nd-fuwf",
+            "dimension" : {
+              "columnName" : "the_geom"
+            }
+          },
+          "primary" : true
+        } ],
+        "format" : {
+          "type" : "visualization_interchange_format",
+          "version" : 6
+        },
+        "description" : "",
+        "id" : "b7c025c1-fa0c-4126-a324-8dc6d82348c5",
+        "title" : "",
+        "currentMapLayerIndex" : 0
+      } ],
+      "filters" : [ {
+        "columns" : [ {
+          "fieldName" : "year_annexed",
+          "datasetUid" : "g9nd-fuwf"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : false,
+        "columnName" : "year_annexed",
+        "isHidden" : false
+      }, {
+        "columns" : [ {
+          "fieldName" : "year_withdrawn",
+          "datasetUid" : "g9nd-fuwf"
+        } ],
+        "function" : "noop",
+        "isDrilldown" : false,
+        "columnName" : "year_withdrawn",
+        "isHidden" : false
+      } ],
+      "version" : 1
+    }
+  },
+  "grants" : [ {
+    "inherited" : true,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "See Terms of Use"
+  },
+  "metadata" : {
+    "rdfSubject" : "0",
+    "custom_fields" : {
+      "License/Attribution" : {
+        "License URL" : "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Data Supplier" : {
+        "Organization" : "The City of Calgary",
+        "Business Unit" : "City and Regional Planning"
+      },
+      "Time/Date" : {
+        "Update Frequency" : "Irregular"
+      },
+      "Geospatial Information" : {
+        "Dataset contains geospatial information" : "Yes"
+      }
+    },
+    "availableDisplayTypes" : [ "visualization" ]
+  },
+  "owner" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "55bi-hyk4",
+    "displayName" : "Calgary Open Data",
+    "profileImageUrlLarge" : "/api/users/55bi-hyk4/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/55bi-hyk4/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/55bi-hyk4/profile_images/TINY",
+    "screenName" : "Calgary Open Data",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+  },
+  "tags" : [ "boundary", "boundaries", "limit", "limits", "annexation" ],
+  "flags" : [ "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}
