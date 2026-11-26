@@ -22,6 +22,46 @@ _cfg (all optional):
 import json, os, re, sys, subprocess, urllib.request, difflib, unicodedata
 
 out = sys.argv[1]; os.makedirs(os.path.join(out, 'raw'), exist_ok=True)
+# --- temporary wards fetch block (2026-11-25) ---
+import concurrent.futures as cf
+def _get(u, t=120):
+    err = ''
+    for _ in range(3):
+        try:
+            r = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=t)
+            return r.read().decode('utf-8', 'replace')
+        except Exception as e:
+            err = 'ERR ' + repr(e)
+    return err
+mw = os.path.join(out, 'wards'); os.makedirs(mw, exist_ok=True)
+jobs = [('catalog_ward.json','https://data.calgary.ca/api/catalog/v1?q=ward&limit=100&domains=data.calgary.ca'),
+        ('catalog_boundary.json','https://data.calgary.ca/api/catalog/v1?q=boundaries&limit=100&domains=data.calgary.ca'),
+        ('catalog_historic.json','https://data.calgary.ca/api/catalog/v1?q=historic&limit=100&domains=data.calgary.ca'),
+        ('w2013.geojson','https://data.calgary.ca/resource/9u83-tgux.geojson?$limit=50'),
+        ('w2017.geojson','https://data.calgary.ca/resource/au4g-xjwh.geojson?$limit=50'),
+        ('wcur.geojson','https://data.calgary.ca/resource/tz8z-hyaz.geojson?$limit=50'),
+        ('citylimits.geojson','https://data.calgary.ca/resource/rkvn-tce9.geojson?$limit=500'),
+        ('meta_2013.json','https://data.calgary.ca/api/views/9u83-tgux.json'),
+        ('meta_2017.json','https://data.calgary.ca/api/views/au4g-xjwh.json'),
+        ('meta_cur.json','https://data.calgary.ca/api/views/tz8z-hyaz.json'),
+        ('meta_limits.json','https://data.calgary.ca/api/views/rkvn-tce9.json'),
+        ('cityboundary.geojson','https://data.calgary.ca/resource/erra-cqp9.geojson?$limit=5'),
+        ('council_history.html','https://www.calgary.ca/council/city-council-brief-history.html'),
+        ('election_exhibit.html','https://www.calgary.ca/ca/city-clerks/archives/election-exhibit.html'),
+        ('calgary_votes.html','https://www.calgary.ca/info-requests/archives/calgary-votes.html'),
+        ('wbc2024.pdf.txt','https://calgary.ca/content/dam/www/ca/city-clerks/documents/ward-boundary-commission/ward-boundary-commission-report-2024.pdf')]
+def dl(j):
+    if j[0].endswith('.pdf.txt'):
+        try:
+            r = urllib.request.urlopen(urllib.request.Request(j[1], headers={'User-Agent': 'Mozilla/5.0'}), timeout=120)
+            open(os.path.join(mw, j[0][:-4]), 'wb').write(r.read()); return
+        except Exception as e:
+            open(os.path.join(mw, j[0]), 'w').write('ERR '+repr(e)); return
+    open(os.path.join(mw, j[0]), 'w').write(_get(j[1]))
+with cf.ThreadPoolExecutor(8) as ex: list(ex.map(dl, jobs))
+print('wards fetch done')
+sys.exit(0)
+# --- end block ---
 HERE = os.path.dirname(os.path.abspath(__file__))
 L = json.load(open(os.path.join(HERE, 'tts_lines.json')))
 cfg = L.pop('_cfg', {})
