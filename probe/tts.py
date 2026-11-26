@@ -33,25 +33,24 @@ def _get(u, t=120):
         except Exception as e:
             err = 'ERR ' + repr(e)
     return err
-mw = os.path.join(out, 'wards'); os.makedirs(mw, exist_ok=True)
-jobs = [('catalog_ward.json','https://data.calgary.ca/api/catalog/v1?q=ward&limit=100&domains=data.calgary.ca'),
-        ('catalog_boundary.json','https://data.calgary.ca/api/catalog/v1?q=boundaries&limit=100&domains=data.calgary.ca'),
-        ('catalog_historic.json','https://data.calgary.ca/api/catalog/v1?q=historic&limit=100&domains=data.calgary.ca'),
-        ('w2013.geojson','https://data.calgary.ca/resource/9u83-tgux.geojson?$limit=50'),
-        ('w2017.geojson','https://data.calgary.ca/resource/au4g-xjwh.geojson?$limit=50'),
-        ('wcur.geojson','https://data.calgary.ca/resource/tz8z-hyaz.geojson?$limit=50'),
-        ('citylimits.geojson','https://data.calgary.ca/resource/rkvn-tce9.geojson?$limit=500'),
-        ('meta_2013.json','https://data.calgary.ca/api/views/9u83-tgux.json'),
-        ('meta_2017.json','https://data.calgary.ca/api/views/au4g-xjwh.json'),
-        ('meta_cur.json','https://data.calgary.ca/api/views/tz8z-hyaz.json'),
-        ('meta_limits.json','https://data.calgary.ca/api/views/rkvn-tce9.json'),
-        ('cityboundary.geojson','https://data.calgary.ca/resource/erra-cqp9.geojson?$limit=5'),
-        ('council_history.html','https://www.calgary.ca/council/city-council-brief-history.html'),
-        ('election_exhibit.html','https://www.calgary.ca/ca/city-clerks/archives/election-exhibit.html'),
-        ('calgary_votes.html','https://www.calgary.ca/info-requests/archives/calgary-votes.html'),
-        ('wbc2024.pdf.txt','https://calgary.ca/content/dam/www/ca/city-clerks/documents/ward-boundary-commission/ward-boundary-commission-report-2024.pdf')]
+mw = os.path.join(out, 'wards2'); os.makedirs(mw, exist_ok=True)
+X = lambda i: 'https://data.calgary.ca/api/geospatial/%s?method=export&format=GeoJSON' % i
+jobs = [('g_w2013.geojson', X('mjit-gete')), ('g_w2013b.geojson', X('9u83-tgux')), ('g_w2017.geojson', X('4f6r-atgm')),
+        ('g_w2021.geojson', X('bxgr-t8xb')), ('g_wcur.geojson', X('r9vx-mhnf')), ('g_limits.geojson', X('rkvn-tce9')),
+        ('g_annex.geojson', X('xrns-k6ck')), ('meta_r9vx.json', 'https://data.calgary.ca/api/views/r9vx-mhnf.json'),
+        ('meta_bxgr.json', 'https://data.calgary.ca/api/views/bxgr-t8xb.json'), ('meta_annex.json', 'https://data.calgary.ca/api/views/xrns-k6ck.json'),
+        ('census_hist.csv', 'https://data.calgary.ca/api/views/f2h8-5h2c/rows.csv?accessType=DOWNLOAD'),
+        ('meta_census_hist.json', 'https://data.calgary.ca/api/views/f2h8-5h2c.json'),
+        ('bylaw19m91.pdf.bin', 'https://www.calgary.ca/content/dam/www/ca/city-clerks/documents/legislative-services/bylaws/19m91-electoralwardboundries.pdf'),
+        ('cbc2010.pdf.bin', 'https://www.cbc.ca/calgary/news/docs/2010_ward_boundaries.pdf'),
+        ('wbc2024.pdf.bin', 'https://calgary.ca/content/dam/www/ca/city-clerks/documents/ward-boundary-commission/ward-boundary-commission-report-2024.pdf'),
+        ('wbc2024att.pdf.bin', 'https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=301060'),
+        ('cbc_overhaul.html', 'https://www.cbc.ca/news/canada/calgary/calgary-s-ward-boundaries-to-get-overhaul-1.3152004'),
+        ('livewire2024.html', 'https://livewirecalgary.com/2024/01/15/calgarys-ward-boundary-commission-wont-be-looking-at-changing-calgary-ward-boundaries/')]
+for yr, i in [(1999,'p33k-g6pb'),(2000,'vxbk-4cwe'),(2001,'igfq-vyug'),(2002,'56up-4ui9'),(2003,'kcgd-54t9'),(2004,'ev3p-fxn7'),(2005,'s6pd-q354'),(2006,'6cni-2se9'),(2007,'8v7a-kjgy'),(2008,'wp8i-idr6'),(2009,'kzuk-8i2d'),(2010,'ejif-sbc3'),(2011,'pqiy-7f6n'),(2012,'2pm8-2956'),(2013,'e7nx-qhf7'),(2014,'t2x5-8ez2'),(2015,'kqjb-e98t'),(2016,'t9g6-k4du'),(2017,'bvb5-ntsh'),(2018,'pryy-7s2m'),(2019,'seqt-d3id')]:
+    jobs.append(('cw_%d.csv' % yr, 'https://data.calgary.ca/api/views/%s/rows.csv?accessType=DOWNLOAD' % i))
 def dl(j):
-    if j[0].endswith('.pdf.txt'):
+    if j[0].endswith('.bin'):
         try:
             r = urllib.request.urlopen(urllib.request.Request(j[1], headers={'User-Agent': 'Mozilla/5.0'}), timeout=120)
             open(os.path.join(mw, j[0][:-4]), 'wb').write(r.read()); return
