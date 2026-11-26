@@ -4260,7 +4260,13 @@
      "youtube short"
     ],
     "publish_at": "2026-11-25T18:30 America/Edmonton",
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "public_urls": {
+     "facebook": "https://facebook.com/reel/1692846195776693",
+     "instagram": "https://www.instagram.com/reel/DgL02n1N3HS/",
+     "youtube": "https://www.youtube.com/shorts/J7kTDC2c39Y"
+    },
+    "confirmed_by": "2026-11-26 PM run"
    }
   ]
  },
@@ -4307,11 +4313,16 @@
     ],
     "file": "short",
     "publish_at": "2026-11-26T12:45",
-    "status": "PENDING",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
     "previous_metricool_id": 442700485,
-    "series_hashtag": "#CalgaryInsightOrigins (added Nov 26 10:26, playbook 7c)"
+    "series_hashtag": "#CalgaryInsightOrigins (added Nov 26 10:26, playbook 7c)",
+    "public_urls": {
+     "instagram": "https://www.instagram.com/reel/DgNx68yiL3r/",
+     "youtube": "https://www.youtube.com/shorts/UzmIhL0cFIc"
+    },
+    "confirmed_by": "2026-11-26 PM run"
    },
    {
     "metricool_id": 443359543,
@@ -4322,11 +4333,17 @@
     ],
     "file": "wide",
     "publish_at": "2026-11-26T15:45",
-    "status": "PENDING",
+    "status": "PUBLISHED",
     "firstCommentText": true,
     "videoThumbnailUrl": true,
     "previous_metricool_id": 442700501,
-    "series_hashtag": "#CalgaryInsightOrigins (added Nov 26 10:26, playbook 7c)"
+    "series_hashtag": "#CalgaryInsightOrigins (added Nov 26 10:26, playbook 7c)",
+    "public_urls": {
+     "facebook": "https://facebook.com/122097271263547631/posts/1182197304798746",
+     "youtube": "https://www.youtube.com/watch?v=J7BP-sTDa34"
+    },
+    "confirmed_by": "2026-11-26 PM run",
+    "note": "Metricool shows this wide post as id 443520643 published at 16:30 (not 443359543 at 15:45): it was re-created/moved after the flagship run"
    }
   ],
   "site": "not added (site changes need Hassan's go-ahead)"
@@ -4368,6 +4385,65 @@
     "traffic_today_so_far": "20 incidents since 07:00 UTC (feed latest 22:23 UTC); 365-day p99 58: not rare",
     "news": "web search 16:41: no confirmed rare Calgary event",
     "evidence": "production/2026-11-26-MOMENT-watch/check-1641/"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "This Calgary forest belongs in the mountains",
+  "topic_used": "Edworthy Park's Douglas-firs: usually found in the Rocky Mountains and on the coast; among the most easterly in Canada; some about 500 years old; the creeping slope makes them lean, nicknamed 'the drunken forest' (City of Calgary)",
+  "changed_from_calendar": null,
+  "topic_test": "twist (mountain/coast trees in a city park, drunken forest); hook line; no Edworthy/Douglas-fir post in 7 days; Bowness Park deliberately not named (Nov 23 flagship, Nov 27 PM lagoon)",
+  "central_figure": "Some trees about 500 years old (City of Calgary, Douglas-fir Trail page)",
+  "sources": [
+   "https://www.calgary.ca/parks/douglas-fir-trail.html",
+   "https://calgary.ca/parks-rec-programs/at-home/park-of-the-week-edworthy.html",
+   "https://www.calgary.ca/parks/edworthy-park.html"
+  ],
+  "length_s": 22.3,
+  "video_path": "studio-videos/2026-11-26-PM/edworthy-firs.mp4",
+  "thumbnail": "studio-videos/2026-11-26-PM/edworthy-firs-thumb.jpg",
+  "package": "packages/2026-11-26-PM-edworthy-firs.md",
+  "scene": "production/2026-11-26-PM/scene.js",
+  "identity": "Data Explainer lead (kinetic hook, chips, stamps, counter) + Storyteller 3D map dive onto Edworthy Park (geo pack) + flat geo-pack map + Civic cutaways (trunk slice, creeping slope cross-section)",
+  "link": "https://calgaryinsight.ca/visit/river/?utm_source=facebook&utm_medium=social&utm_campaign=edworthy-firs",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator (web/visit_content.py river page lists 'Edworthy Park and the Douglas Fir Trail').",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 7,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-26-PM.md",
+   "note": "R1 APPROVED with notes; wording tightened ('Their nickname?', chip AGE, shorter closing question for the 4 s ending) -> R2 APPROVED"
+  },
+  "narration": {
+   "lines": 6,
+   "asr_mean_acc": 0.986,
+   "asr_check": [],
+   "lexicon_added": [],
+   "note": "last line atempo 1.08 for the 4 s ending"
+  },
+  "qc": {
+   "stills": "pass (fixed: S1 label overlap and schematic note position, removed unaudited 'EAST' label)",
+   "final": "pass (contact sheet, 22.3 s, -14.6 LUFS, 7.6 MB, captions == narration, ending 3.7 s, no end card)",
+   "scores": "all 2"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 443767540,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-2050759268853657834",
+    "providers": [
+     "instagram REEL",
+     "facebook REEL",
+     "youtube short"
+    ],
+    "publish_at": "2026-11-26T18:30 America/Edmonton",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
    }
   ]
  }

@@ -1,0 +1,140 @@
+{
+ "summary": {
+  "v": {
+   "lines": 6,
+   "check": [],
+   "mean_acc": 0.986
+  }
+ },
+ "lexicon_entries": 37,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "This Calgary forest belongs in the mountains.",
+    "said": "This Calgary forest belongs in the mountains.",
+    "heard": "This Calgary forest belongs in the mountains.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.261,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "Douglas firs usually grow in the Rocky Mountains and on the coast.",
+    "said": "Douglas firs usually grow in the Rocky Mountains and on the coast.",
+    "heard": "Douglas furs usually grow in the Rocky Mountains and on the coast.",
+    "acc": 0.917,
+    "mismatches": [
+     "firs->furs"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.917
+     }
+    ],
+    "dur": 3.904,
+    "input_lufs": -22.9,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "These ones, in Edworthy Park, are among the most easterly in Canada.",
+    "said": "These ones, in Edworthy Park, are among the most easterly in Canada.",
+    "heard": "These ones in Edworthy Park are among the most easterly in Canada.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.861,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "Some are about five hundred years old.",
+    "said": "Some are about five hundred years old.",
+    "heard": "Some are about 500 years old.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 1.92,
+    "input_lufs": -21.9,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "The slope keeps creeping, so the trees lean. Their nickname? The drunken forest.",
+    "said": "The slope keeps creeping, so the trees lean. Their nickname? The drunken forest.",
+    "heard": "The slope keeps creeping, so the trees lean. Their nickname, The Drunken Forest.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.159,
+    "input_lufs": -21.6,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "Did you know? Yes or no. Drop your thoughts below.",
+    "said": "Did you know? Yes or no. Drop your thoughts below.",
+    "heard": "Did you know, yes or no? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.028,
+    "input_lufs": -21.4,
+    "status": "ok"
+   }
+  ]
+ }
+}

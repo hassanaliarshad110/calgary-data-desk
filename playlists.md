@@ -30,7 +30,7 @@ Built Nov 26, 2026 from log.json and Metricool.
 - [ ] 2026-11-23 · Bowness Was a Town: How Annexation Grew Calgary · YouTube: [Short](https://www.youtube.com/shorts/ZQVNkqqmaM8), [film](https://www.youtube.com/watch?v=kAH7smZml_M) · Facebook: [video](https://facebook.com/122097271263547631/posts/1457081633291045)
 - [ ] 2026-11-24 · When Calgary Became a City, This Was All of It · YouTube: [Short](https://www.youtube.com/shorts/IgKQj9pPPEg), [film](https://www.youtube.com/watch?v=tCLqIDrIe_g) · Facebook: [video](https://facebook.com/122097271263547631/posts/1891511305173654), [reel](https://facebook.com/reel/1683356076827695)
 - [ ] 2026-11-25 · The Oil Boom That Started With a Gas Well: Turner Valley 1914 (Calgary Insight Origins) · YouTube: [Short](https://www.youtube.com/shorts/Ua8YpJkR9u8), [film](https://www.youtube.com/watch?v=rbuqJuhc19Q) · Facebook: [video](https://facebook.com/122097271263547631/posts/2165635677676079), [reel](https://facebook.com/reel/1852706996004260)
-- [ ] 2026-11-26 · Calgary Once Had No Wards at All (scheduled, not published yet: links added once live)
+- [ ] 2026-11-26 · Calgary Once Had No Wards at All / How Calgary Got Its 14 Wards · YouTube: [Short](https://www.youtube.com/shorts/UzmIhL0cFIc), [film](https://www.youtube.com/watch?v=J7BP-sTDa34) · Facebook: [video](https://facebook.com/122097271263547631/posts/1182197304798746)
 
 ## Calgary Fun Facts
 
@@ -60,6 +60,7 @@ Built Nov 26, 2026 from log.json and Metricool.
 - [ ] 2026-11-23 · Prince's Island was never named after a prince · YouTube: [Short](https://www.youtube.com/shorts/fxrY0J8V1YQ) · Facebook: [reel](https://facebook.com/reel/1916815519684425)
 - [ ] 2026-11-24 · The Calgary Herald was first printed in a tent · YouTube: [Short](https://www.youtube.com/shorts/zrdfEz4Yvg4) · Facebook: [reel](https://facebook.com/reel/1667017481833891)
 - [ ] 2026-11-25 · Calgary's giant blue ring is a streetlamp · YouTube: [Short](https://www.youtube.com/shorts/J7kTDC2c39Y) · Facebook: [reel](https://facebook.com/reel/1692846195776693)
+- [ ] 2026-11-26 · This Calgary forest belongs in the mountains (scheduled, not published yet)
 
 ## Calgary News Explained
 

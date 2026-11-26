@@ -1,0 +1,161 @@
+{
+ "lexicon": {
+  "Bow": {
+   "kokoro_default": "bˈoʊ",
+   "listed": "bˈoʊ"
+  },
+  "Bowness": {
+   "kokoro_default": "bˈoʊnəs",
+   "listed": "bˈoʊnəs"
+  },
+  "Macleod": {
+   "kokoro_default": "məklˈaʊd",
+   "listed": "məklˈaʊd"
+  },
+  "Brisebois": {
+   "kokoro_default": "bɹˈaɪsbwɑː",
+   "listed": "bɹiːzbwˈɑː"
+  },
+  "Éphrem": {
+   "kokoro_default": "ɪfɹˈɛm",
+   "listed": "ɪfɹˈɛm"
+  },
+  "Ephrem": {
+   "kokoro_default": "ˈɛfɹəm",
+   "listed": "ɪfɹˈɛm"
+  },
+  "Gaelic": {
+   "kokoro_default": "ɡˈeɪlɪk",
+   "listed": "ɡˈælɪk"
+  },
+  "Chinook": {
+   "kokoro_default": "tʃˈɪnʊk",
+   "listed": "ʃɪnˈʊk"
+  },
+  "chinook": {
+   "kokoro_default": "tʃˈɪnʊk",
+   "listed": "ʃɪnˈʊk"
+  },
+  "Chinooks": {
+   "kokoro_default": "tʃˈɪnʊks",
+   "listed": "ʃɪnˈʊks"
+  },
+  "chinooks": {
+   "kokoro_default": "tʃˈɪnʊks",
+   "listed": "ʃɪnˈʊks"
+  },
+  "Lougheed": {
+   "kokoro_default": "lˈʌfiːd",
+   "listed": "lˈɔːhiːd"
+  },
+  "Tsuut'ina": {
+   "kokoro_default": "tsˈuːətˌɪnə",
+   "listed": "suːtˈɪnə"
+  },
+  "Tsuut’ina": {
+   "kokoro_default": "tsˈuːətˌɪnə",
+   "listed": "suːtˈɪnə"
+  },
+  "Métis": {
+   "kokoro_default": "mˈeɪɾiz",
+   "listed": "meɪtˈiː"
+  },
+  "Metis": {
+   "kokoro_default": "mˈɛɾiz",
+   "listed": "meɪtˈiː"
+  },
+  "TELUS": {
+   "kokoro_default": "tˈɛləs",
+   "listed": "tˈɛləs"
+  },
+  "CTrain": {
+   "kokoro_default": "sˈiː tɹˈeɪn",
+   "listed": "sˈiːtɹeɪn"
+  },
+  "CTrains": {
+   "kokoro_default": "sˈiː tɹˈeɪnz",
+   "listed": "sˈiːtɹeɪnz"
+  },
+  "YYC": {
+   "kokoro_default": "jˈɪk",
+   "listed": "wˌaɪwˌaɪsˈiː"
+  },
+  "LRT": {
+   "kokoro_default": "ˌɛlˌɑːɹtˈiː",
+   "listed": "ˌɛlɑːɹtˈiː"
+  },
+  "Rouleauville": {
+   "kokoro_default": "ɹˈuːloʊvˌɪl",
+   "listed": "ɹˈuːloʊvɪl"
+  },
+  "Kananaskis": {
+   "kokoro_default": "kˌænɐnˈæskɪz",
+   "listed": "kˌænənˈæskɪs"
+  },
+  "Okotoks": {
+   "kokoro_default": "ˈɑːkətˌɑːks",
+   "listed": "ˈoʊkətˌɑːks"
+  },
+  "Shaganappi": {
+   "kokoro_default": "ʃˈæɡɐnˌæpi",
+   "listed": "ʃˌæɡənˈæpi"
+  },
+  "Mohkinstsis": {
+   "kokoro_default": "moʊkˈɪnstsɪs",
+   "listed": "moʊkˈɪnstsɪs"
+  },
+  "Acheson": {
+   "kokoro_default": "ˈeɪksən",
+   "listed": "ˈætʃəsən"
+  },
+  "Ranche": {
+   "kokoro_default": "ɹˈæntʃ",
+   "listed": "ɹˈæntʃ"
+  },
+  "Pekisko": {
+   "kokoro_default": "pɛkˈɪskoʊ",
+   "listed": "pəkˈɪskoʊ"
+  },
+  "Percheron": {
+   "kokoro_default": "pɚtʃˈɜːɹən",
+   "listed": "pˈɜːɹʃəɹˌɑːn"
+  },
+  "Longabaugh": {
+   "kokoro_default": "lˈɔŋɡɐbˌɔː",
+   "listed": "lˈɔŋɡəbˌɔː"
+  },
+  "Cochrane": {
+   "kokoro_default": "kˈɑːkɹeɪn",
+   "listed": "kˈɑːkɹən"
+  },
+  "Daqing": {
+   "kokoro_default": "dˈeɪkɪŋ",
+   "listed": "dˌɑːʧˈɪŋ"
+  },
+  "Warschewski": {
+   "kokoro_default": "wɔːɹʃˈuːski",
+   "listed": "vɑːɹʃˈɛfski"
+  },
+  "Concacaf": {
+   "kokoro_default": "kəŋkˈækæf",
+   "listed": "kˈɑŋkəkˌæf"
+  },
+  "Atletico": {
+   "kokoro_default": "ˈæɾəlɾɪkˌoʊ",
+   "listed": "ætlˈɛɾɪkˌoʊ"
+  },
+  "Lacombe": {
+   "kokoro_default": "lˈækuːm",
+   "listed": "ləkˈoʊm"
+  }
+ },
+ "script_names": {
+  "Calgary": "kˈælɡɚɹi",
+  "Canada": "kˈænədə",
+  "Edworthy": "ˈɛdwɜːði",
+  "Mountains": "mˈaʊntɪnz",
+  "Park": "pˈɑːɹk",
+  "Rocky": "ɹˈɑːki"
+ },
+ "sentences": []
+}
