@@ -1,0 +1,98 @@
+Skip to main content
+VIEWING
+Calgary: all wards
+Ward 1 · Tyers
+Ward 2 · Wyness
+Ward 3 · Yule
+Ward 4 · Kelly
+Ward 5 · Dhaliwal
+Ward 6 · Pantazopoulos
+Ward 7 · Atkinson
+Ward 8 · Schmidt
+Ward 9 · Clark
+Ward 10 · Chabot
+Ward 11 · Ward
+Ward 12 · Jamieson
+Ward 13 · McLean
+Ward 14 · Johnston
+Search Calgary Insight
+Ctrl K
+Home
+Living here
+Money
+Democracy
+Visiting Calgary
+Ask the data
+More
+Invest in Calgary
+
+Every business in Calgary, where each kind is underserved for the people nearby, where new ones are opening, and business plans from the Business Economist
+
+Opportunities
+Underserved index
+Business directory
+Growth
+Business Economist
+🔒
+INVEST IN CALGARY
+Where Calgary needs more business
+Every business we can find, measured from every home: the share of homes within 800 m (a ten-minute walk) of each kind, wherever it is. Residents are counted the way chosen in Settings.
+400 m walk
+800 m walk
+1 km
+2 km
+3 km
+All measured from every home · walk: one close by? · km: how much choice?
+LICENSED BUSINESSES
+23,230
+City of Calgary business licences
+BUSINESSES, COUNTED ONCE
+41,242
+12,106 found in more than one source (City licences, OpenStreetMap, Overture Maps), counted once
+NEW LICENCES, LAST 12 MONTHS
+3,287
++30% on the 12 months before
+GAPS FOUND
+711
+in 149 communities: 18% of the 3,990 checked. See every one below
+CATEGORIES
+33
+19 serve the neighbourhood
+COMMUNITIES
+289
+with at least one business
+
+How this is measured. From every home on the City's property roll (weighted by its units) to the businesses of each kind around it, wherever they are: a supermarket 400 m away across the community line counts. Walking distance asks: is there one close by? A gap: under 60% of Calgary's share of homes within 800 m, and at least 1,000 residents without one; only kinds of business that at least a quarter of Calgary's homes have this close are judged. Every community is judged the same way, whatever its size.
+
+The biggest gaps
+
+Communities where far fewer homes are within 800 m of a kind of business than across Calgary. Most residents without one first.
+
+Community	Business	Residents	Homes within 800 m	Calgary	Residents without one	Index	Growth since 2021
+Saddle Ridge	Bars, pubs and lounges	33,168	0%	63%	33,168	0	+36%
+Saddle Ridge	Pet stores, groomers and vets	33,168	0%	64%	33,168	0	+36%
+Saddle Ridge	Gas stations and car washes	33,168	0%	67%	33,168	0	+36%
+Saddle Ridge	Laundromats and dry cleaners	33,168	6%	53%	31,112	12	+36%
+Panorama Hills	Bakeries and specialty food	28,090	0%	34%	28,090	0	+10%
+Saddle Ridge	Bakeries and specialty food	33,168	19%	34%	26,932	55	+36%
+Panorama Hills	Hardware, garden and home improvement	28,090	9%	69%	25,618	13	+10%
+Cranston	Bakeries and specialty food	25,206	0%	34%	25,206	0	+21%
+Evergreen	Bakeries and specialty food	22,993	1%	34%	22,878	1	+11%
+Evanston	Bakeries and specialty food	22,317	0%	34%	22,317	0	+19%
+Tuscany	Bakeries and specialty food	22,034	0%	34%	22,034	0	+12%
+Tuscany	Bars, pubs and lounges	22,034	0%	63%	22,034	0	+12%
+Evanston	Laundromats and dry cleaners	22,317	11%	53%	19,840	21	+19%
+Taradale	Bakeries and specialty food	19,388	0%	34%	19,388	0	+10%
+Taradale	Pet stores, groomers and vets	19,388	0%	64%	19,388	0	+10%
+Panorama Hills	Convenience stores	28,090	32%	63%	19,242	50	+10%
+Evanston	Convenience stores	22,317	14%	63%	19,126	23	+19%
+Saddle Ridge	Gyms and fitness studios	33,168	43%	77%	18,972	55	+36%
+Coventry Hills	Bakeries and specialty food	19,087	3%	34%	18,572	8	+10%
+Cornerstone	Bakeries and specialty food	18,253	0%	34%	18,253	0	+195%
+Cornerstone	Bars, pubs and lounges	18,253	0%	63%	18,253	0	+195%
+Cornerstone	Laundromats and dry cleaners	18,253	0%	53%	18,253	0	+195%
+Cornerstone	Gas stations and car washes	18,253	0%	67%	18,253	0	+195%
+Evanston	Medical clinics and doctors	22,317	19%	76%	18,188	24	+19%
+Mahogany	Gas stations and car washes	23,132	25%	67%	17,442	37	+67%
+
+Index: the community's share of homes within 800 m as a share of Calgary's (100 = Calgary's average). A gap is a lead to check, not a guarantee: 

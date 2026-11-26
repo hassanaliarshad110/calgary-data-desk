@@ -1,0 +1,20 @@
+01-dashboard ok 
+02-compare ok 
+03-livemap ok 
+04-growth ok 
+05-budget-intel ok 
+06-elections ok 
+07-election-analytics ok 
+08-studies ok 
+09-ask ok 
+10-infra ok 
+11-issues ok 
+12-city-stories FAIL TimeoutError: page.screenshot: Timeout 30000ms exceeded.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+  - fonts loaded
+
+13-game ok 
+14-invest ok 
+15-help ok 

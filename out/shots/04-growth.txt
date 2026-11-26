@@ -1,0 +1,95 @@
+Skip to main content
+VIEWING
+Calgary: all wards
+Ward 1 · Tyers
+Ward 2 · Wyness
+Ward 3 · Yule
+Ward 4 · Kelly
+Ward 5 · Dhaliwal
+Ward 6 · Pantazopoulos
+Ward 7 · Atkinson
+Ward 8 · Schmidt
+Ward 9 · Clark
+Ward 10 · Chabot
+Ward 11 · Ward
+Ward 12 · Jamieson
+Ward 13 · McLean
+Ward 14 · Johnston
+Search Calgary Insight
+Ctrl K
+Home
+Living here
+Money
+Democracy
+Visiting Calgary
+Ask the data
+More
+Growth vs amenities
+
+How near homes are to everyday amenities, in any community, and how many people share the playgrounds and parks within reach
+
+Growth vs amenities
+Forecast to 2030
+Assets
+Population build-up
+Amenities
+Being built
+Development and rezoning
+Save this list
+Area on this screen
+All of Calgary
+Ward 1
+Ward 2
+Ward 3
+Ward 4
+Ward 5
+Ward 6
+Ward 7
+Ward 8
+Ward 9
+Ward 10
+Ward 11
+Ward 12
+Ward 13
+Ward 14
+
+Residents counted: City's total, shared by actual growth (change it in Settings). Distances are measured from homes, so the shares of homes within reach stay the same under every way of counting; residents, children and crowding follow it.
+
+Revised 5 November 2026. This tab first counted amenities inside each community's boundary per resident. It now measures the distance from every home to the nearest amenity, in any community, and how many children or residents share the playgrounds and parks within reach. The earlier list of 23 communities is replaced. What changed
+Count private amenities accessible to the community (OpenStreetMap: developer, school and other playgrounds and parks that are not the City's, every one the City already lists taken out). Changes the playground and park figures only; transit stops and facilities stay the City's.
+Also count gated, residents-only ones (marked private in OpenStreetMap: homeowners' association and condo parks and playgrounds). Off by default.
+
+Off: every figure counts the City's own amenities only. How they are found and matched
+
+Are new homes keeping up?
+
+Homes built since 2021 are about as near as older homes to playgrounds (68% within 400 m, against 72%) and parks (97% within 400 m, against 99%), but farther from transit stops (70% within 400 m, against 97%), community centres (18% within 800 m, against 41%), indoor recreation centres (30% within 2 km, against 52%) and libraries (33% within 2 km, against 53%).
+
+Amenity	Distance	Homes built since 2021	Homes built before 2021	Difference	All homes, Calgary
+Playground	within 400 m	
+68%	
+72%	−4 pts	71% median 278 m
+Public park	within 400 m	
+97%	
+99%	−2 pts	99% median 86 m
+Transit stop	within 400 m	
+70%	
+97%	−27 pts	95% median 148 m
+Community centre	within 800 m	
+18%	
+41%	−23 pts	39% median 1.0 km
+Indoor recreation centre	within 2 km	
+30%	
+52%	−22 pts	50% median 2.0 km
+Public library	within 2 km	
+33%	
+53%	−20 pts	51% median 2.1 km
+
+Share of homes (dwelling units) within the distance of the nearest one, in any community, straight-line. 573,451 homes on the City's property roll (500,028 records; 31,970 rental units estimated from assessed value). "Built since 2021": year of construction 2021 or later; homes with no year are in neither group.
+
+Crowding at playgrounds and parks
+ESTIMATE
+Playgrounds within 400 m: 4.08 playgrounds per 1,000 children across Calgary; 2.71 in the 31 communities where a quarter or more of homes were built since 2021, 4.33 in the rest.
+Parks within 400 m: 5.9 park hectares per 1,000 residents across Calgary; 4.9 in the 31 communities where a quarter or more of homes were built since 2021, 6.0 in the rest.
+Near, but crowded (playgrounds): 9 communities in Ward 5 have most homes within 400 m of a playground, yet what is within reach is shared by more children than Calgary's average (score under 0.80; 8 of them under every assumption). Examples: Cityscape 0.28, Falconridge 0.38, Skyview Ranch 0.39, Redstone 0.39, Homestead 0.44. The typical community scores 0.44 for this amenity: Calgary's figure is an average over every resident and is lifted by the communities next to a few very large parks, so 9 of 10 communities fall under 0.80.
+Nea
