@@ -22,54 +22,6 @@ _cfg (all optional):
 import json, os, re, sys, subprocess, urllib.request, difflib, unicodedata
 
 out = sys.argv[1]; os.makedirs(os.path.join(out, 'raw'), exist_ok=True)
-# --- temporary moment-watch fetch block (2026-11-26 afternoon) ---
-import csv, io, concurrent.futures as cf
-def _get(u, t=60):
-    err = ''
-    for _ in range(3):
-        try:
-            r = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=t)
-            return r.read().decode('utf-8', 'replace')
-        except Exception as e:
-            err = 'ERR ' + repr(e)
-    return err
-mw = os.path.join(out, 'moment'); os.makedirs(mw, exist_ok=True)
-res = {}
-for day, base in [("20261126","https://dd.weather.gc.ca/today/observations/swob-ml/20261126/CYYC/")]:
-    idx = _get(base)
-    if idx.startswith('ERR'): res[base] = idx; continue
-    files = sorted(set(re.findall(r'href="([^"]+\.xml)"', idx)))
-    res[base] = files
-    obs = {}
-    def one(f):
-        x = _get(base + f)
-        d = {}
-        for m in re.finditer(r'<element name="([^"]+)"[^>]*?value="([^"]*)"', x):
-            d[m.group(1)] = m.group(2)
-        return f, d
-    with cf.ThreadPoolExecutor(16) as ex:
-        for f, d in ex.map(one, files): obs[f] = d
-    json.dump(obs, open(os.path.join(mw, f'swob_{day}.json'), 'w'), indent=0)
-json.dump(res, open(os.path.join(mw, 'swob_index.json'), 'w'), indent=1)
-B = 'https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID={s}&Year={y}&Month=11&Day=26&timeframe=2&submit=Download+Data'
-jobs = [('alerts_api.txt','https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50'),
-        ('traffic_latest.json','https://data.calgary.ca/resource/35ra-9556.json?$order=start_dt_utc%20DESC&$limit=400'),
-        ('eccc_daily_2026_11.csv', B.format(s=50430, y=2026))]
-hist = {}
-for y in range(1881, 1926):
-    jobs.append((f'h_2205_{y}', B.format(s=2205, y=y)))
-def dl(j):
-    txt = _get(j[1], 120)
-    if j[0].startswith('h_'):
-        rows = [r for r in csv.DictReader(io.StringIO(txt.lstrip('\ufeff'))) if r.get('Date/Time', '').endswith('-11-26')] if not txt.startswith('ERR') else [{'err': txt}]
-        hist[j[0]] = rows
-    else:
-        open(os.path.join(mw, j[0]), 'w').write(txt)
-with cf.ThreadPoolExecutor(12) as ex: list(ex.map(dl, jobs))
-json.dump(hist, open(os.path.join(mw, 'eccc_nov26_1881_1925.json'), 'w'), indent=0)
-print('moment fetch done')
-sys.exit(0)
-# --- end block ---
 HERE = os.path.dirname(os.path.abspath(__file__))
 L = json.load(open(os.path.join(HERE, 'tts_lines.json')))
 cfg = L.pop('_cfg', {})
