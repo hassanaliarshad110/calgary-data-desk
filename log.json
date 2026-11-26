@@ -4330,5 +4330,34 @@
    }
   ],
   "site": "not added (site changes need Hassan's go-ahead)"
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (watch)",
+  "title": "Watching: Nov 26 warm overnight low (possible record warm minimum for the date)",
+  "status": "watching",
+  "checked_at": "2026-11-26 10:45 Calgary (16:45 UTC)",
+  "detection": {
+   "temp": "CYYC SWOB local day so far (07Z-16Z): max 6.9 C (07Z), min 2.8 C (12Z), latest 6.0 C at 16Z. Nov 26 history 1926-2025 (100 years): top-5 highs 16.1 (1939), 14.6 (2017), 13.9 (1936), 13.3 (1963), 12.9 (2009): high not near; warmest minimums 1.7 (1929), 0.6 (2009), 0.2 (1998), 0.0 (1935, 1936 tie): today's min so far 2.8 C is ABOVE the warmest minimum on record for the date, but the day runs to 00:00 local (07Z Nov 27) and tonight's low may fall below 1.7",
+   "rise_24h_c": "none (previous 24 h already >= 0.4 C)",
+   "chinook_ge_15": false,
+   "gust": "no gust values in SWOB to 16Z",
+   "gust_ge_80": false,
+   "first_snow": "no (already Nov 17)",
+   "alerts": "api.weather.gc.ca bbox Calgary: 0 alerts at 16:45 UTC",
+   "traffic_incidents_today_so_far": "9 (since 07:00 UTC, feed latest 15:13 UTC); prior 365-day max 111, p99 58: not rare",
+   "news": "no confirmed rare Calgary event found (web search 10:45)"
+  },
+  "watch_note": "Candidate: record warm daily minimum for Nov 26 (needs min to stay >= 1.8 C through 23:59 local; ECCC daily min is the full climate day). Later checks: re-pull SWOB; only report once the low is settled, wording 'preliminary'; if tonight's low drops to 1.7 or below, mark status none.",
+  "next_check": "16:41 Calgary",
+  "evidence": "production/2026-11-26-MOMENT-watch/check-1041/",
+  "sources": [
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261126/CYYC/",
+   "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
+   "https://data.calgary.ca/resource/35ra-9556.json",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=26&timeframe=2&submit=Download+Data"
+  ]
  }
 ]
