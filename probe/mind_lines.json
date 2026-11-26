@@ -1,98 +1,84 @@
 [
 {
 "id": "h1",
-"text": "One team used every colour... the other used none. Pick your winner.",
+"text": "Most problems that wreck you... were once small enough to fix in five minutes.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "Rumi tells of a contest. A Sultan gives two houses... one to Chinese artists, one to Greek.",
+"text": "Rewind a friendship. Month six... you're basically strangers.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n3",
-"text": "The Chinese gather every kind of paint... and cover their walls with wonders.",
+"text": "Month two... the replies got shorter. Nobody said a word.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n4",
-"text": "The Greeks used no colours at all. They just cleaned... and polished.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "q1",
-"text": "Burnishing them... till they were as clear and bright as the heavens.",
+"text": "Week one... a cancelled plan. A joke that landed wrong. One honest message would have fixed it.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n5",
-"text": "The Sultan inspects both. The painted house is much admired. But in the end...",
+"text": "In fifteen thirteen, Machiavelli explained this trap... with a doctor's rule.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
-"id": "q2",
-"text": "The Greek house carried off the palm.",
+"id": "q1",
+"text": "He wrote... in the beginning of the malady it is easy to cure but difficult to detect... but in the course of time... it becomes easy to detect but difficult to cure.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n6",
-"text": "Their shining walls caught every colour... in endless shades.",
+"text": "While a problem is cheap... it's invisible. Once everyone sees it... it's expensive.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n7",
-"text": "In essence... what your heart truly knows beats what you only learned from books.",
+"text": "In essence... he praised the Romans for spotting trouble early... and dealing with it at once.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n8",
-"text": "We try to grow by adding... more apps, more courses, more noise. Sometimes, we grow by clearing.",
+"text": "The real skill isn't fixing big problems. It's acting on small ones... while it still feels silly.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n9",
-"text": "Painting looks like progress. Polishing looks like nothing... until the light hits.",
+"text": "Tonight, pick one thing you keep calling fine... a friend, a bill, that noise in your car... give it five minutes.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n10",
-"text": "This morning, remove one thing before adding anything... a tab, an app, a grudge.",
+"text": "What small thing are you ignoring? One word, below.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n11",
-"text": "What would you clear first? One word, below.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n12",
-"text": "Follow Awaaz... keep your wall clean.",
+"text": "Follow Awaaz... and catch it early.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
