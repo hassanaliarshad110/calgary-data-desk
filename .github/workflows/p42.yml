@@ -1,0 +1,35 @@
+name: Probe 42
+
+# Read only. Screenshots of the LIVE site (calgaryinsight.ca) for a presentation, Nov 26, 2026.
+# Nothing is built, published or cached. Output goes to the branch fetched-42.
+
+on: {push: {branches: [site-check-42]}}
+permissions: {contents: write}
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {path: probe}
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - name: Screenshots
+        run: |
+          set +e
+          mkdir -p out
+          cd probe && npm init -y > /dev/null && npm i playwright@1.48.2 > /dev/null 2>&1 && npx playwright install --with-deps chromium > /dev/null 2>&1; cd ..
+          export NODE_PATH=$PWD/probe/node_modules
+          node probe/audit/shots.js out/shots > out/shots.txt 2>&1
+          cat out/shots.txt
+      - name: Push to fetched-42 (evidence only)
+        if: always()
+        run: |
+          set +e
+          find out -type f -size +90M -print -delete > out/too-big.txt
+          cd probe
+          git config user.name "Hassan Ali"; git config user.email hassanaliarshad110@users.noreply.github.com
+          git checkout -q --orphan fetched-42
+          git rm -rqf --cached . > /dev/null 2>&1
+          rm -rf audit .github node_modules package*.json; mv ../out out
+          git add -f out && git commit -qm "Live site screenshots, Nov 26 2026 (evidence only)" && git push -qf origin fetched-42
