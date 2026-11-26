@@ -1,0 +1,582 @@
+{
+ "date": "2026-11-26",
+ "published_at": "2026-11-26T23:39:31Z",
+ "articles": [
+  {
+   "title": "Bearspaw feeder main replacement is built and connected; water restrictions could lift late next week",
+   "dek": "Crews finished the 6.5-kilometre replacement pipe slightly ahead of schedule, but Stage 4 rules stay in place while the old line is refilled and water is tested.",
+   "section": "Environment and weather",
+   "body": [
+    "The replacement for Calgary's Bearspaw South feeder main is fully built and connected to the water system after 11 months of work, the City said Thursday morning [1]. Chief Operating Officer Michael Thompson said the roughly 6.5 kilometres of pipe was finished slightly ahead of schedule, less than 11 months after the project started [2].",
+    "About two-thirds of the new line was built by microtunnelling from the Shaganappi Pump Station to 73 Street N.W., and the remaining third was dug as an open trench along 34 Avenue N.W. between 73 Street and 89 Street [2]. Thompson put the budget at $381 million and said the project is on time and on budget; the final cost will be announced once all bills are in [2].",
+    "Stage 4 outdoor water restrictions, in place since Nov. 4, are not over yet [1][3]. Before the new line goes into service, it must be pressure tested, cleaned, flushed, refilled and pass water-quality tests, and the City expects it to be operating later in December [1]. First, crews will refill the old Bearspaw pipe starting Friday, Nov. 27, a job expected to take about five days and about 22 million litres of water from the Bearspaw Water Treatment Plant [1][2].",
+    "If the water passes testing, valves will be opened and the City expects to lift restrictions later next week, the City and Thompson said [1][2]. CJWE noted that this is about a week later than the four-week mark the City first gave, which passed on Nov. 25 [3]. The City has warned that water use is expected to rise during refilling [1][3].",
+    "Calgarians have stayed under the daily target of 500 million litres. Use was 491 million litres on Nov. 24 and 493 million litres on Nov. 25 [4][1]. LiveWire Calgary reported that the region stayed under 500 million litres for the whole restriction period [2].",
+    "Work is also wrapping up at street level. Pipe at the Shaganappi Pump Station is ready to receive water, segments at 89 Street and 83 Street at 33 Avenue N.W. are to be refilled Friday, and pressure testing begins at Parkdale Boulevard and Memorial Drive N.W., where residents may see water being released [1]. Parkdale Boulevard is expected to return to regular traffic by the end of next week [1][4].",
+    "The old pipe remains in poor condition and at risk of breaking until the new main is in service [2]. After commissioning, the City will decide what to do with it; one option is lining it so it can serve as a backup [2]. Mayor Jeromy Farkas said the City usually audits major projects once they are finished and he expects this one to be audited too [2].",
+    "Until restrictions are lifted, outdoor water use is not allowed, and residents are asked to keep showers to three minutes, run dishwashers and washing machines only when full and flush only when necessary [3]."
+   ],
+   "key_facts": [
+    "New 6.5 km line built in under 11 months; budget $381 million",
+    "Old pipe refill starts Nov. 27 and takes about five days and 22 million litres",
+    "Restrictions could lift late next week if water tests pass",
+    "Water use: 493 million litres on Nov. 25, under the 500 million target"
+   ],
+   "topics": [
+    "Water",
+    "City services",
+    "Environment"
+   ],
+   "image_query": "Bearspaw Water Treatment Plant Calgary",
+   "charts": [
+    {
+     "title": "Daily water use vs. target",
+     "kind": "bar",
+     "labels": [
+      "Nov. 24",
+      "Nov. 25"
+     ],
+     "series": [
+      {
+       "name": "Water used",
+       "values": [
+        491,
+        493
+       ]
+      },
+      {
+       "name": "Daily target",
+       "values": [
+        500,
+        500
+       ]
+      }
+     ],
+     "unit": "million litres",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "New Bearspaw Feeder Main reaches construction milestone as preparations for return to service begin",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/new-bearspaw-feeder-main-reaches-construction-milestone-as-preparations-for-return-to-service-begin/",
+     "published": "2026-11-26"
+    },
+    {
+     "title": "Construction on the Bearspaw South replacement line is complete",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/26/construction-bearspaw-south-replacement-line-complete/",
+     "published": "2026-11-26"
+    },
+    {
+     "title": "Calgary has been under Stage 4 water restrictions for 4 weeks, but more time may be required",
+     "outlet": "CJWE",
+     "url": "https://cjwe.ca/2026/11/26/calgary-has-been-under-stage-4-water-restrictions-for-4-weeks-but-city-says-we-may-need-one-more/",
+     "published": "2026-11-26"
+    },
+    {
+     "title": "Water use stays in green zone as feeder main connection work reaches final stages",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/water-use-stays-in-green-zone-as-feeder-main-connection-work-reaches-final-stages/",
+     "published": "2026-11-25"
+    }
+   ],
+   "id": "2026-11-26-bearspaw-feeder-main-replacement-is-built-and-connected-water-restrict",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 482
+  },
+  {
+   "title": "Civic partners make their case as councillors look for savings in $163-million grant line",
+   "dek": "The zoo, library, Heritage Park and 17 other civic partners would see operating grants rise about $50 million by 2030, while some councillors want cuts.",
+   "section": "City Hall",
+   "body": [
+    "Calgary's 20 civic partners, including the Wilder Institute/Calgary Zoo, Tourism Calgary, Heritage Park and the Calgary Public Library, made their case to council this week as some councillors look for ways to trim the proposed 2027-2030 budget, the Calgary Herald reported Thursday [1].",
+    "The partners received $157 million in operating grants and $99 million in capital grants this year [1]. The draft four-year budget would raise operating grants to $163 million next year, $190 million in 2028, $201 million in 2029 and $208 million in 2030, about $50 million above current levels [1].",
+    "According to the Herald, that increase is made up of $17.9 million for inflation, growth and service levels; $20 million for economic development, tourism, libraries, sport, community supports, and arts and culture; and $11.6 million for new partner facilities, including the Calgary Public Library and the Werklund Centre [1].",
+    "Not every partner gains. Parks Foundation Calgary would drop from $600,000 this year to $200,000 in 2027 [1]. Its chief executive, Cynthia Watson, told council the foundation brings in $8 for every city dollar and that its fundraising rose from $13.9 million to $19.5 million as of Oct. 31 [1].",
+    "Partners were able to speak at the hearing after Ward 8 Coun. Nathaniel Schmidt moved to lift a restriction that had kept them from lobbying [1]. Ward 13 Coun. Dan McLean has proposed a 10 per cent cut across partners' operating grants, pointing to the proposed 15 per cent property tax increase in 2027 [1]. Ward 12 Coun. Mike Jamieson said council needs to search everywhere for savings and asked partners what they do to raise money on their own [1].",
+    "Mayor Jeromy Farkas said partners return five or even 10 dollars for each one invested, and said the City would be \"really grilling each of them line by line\" [1]. Brad Parry, chief executive of Calgary Economic Development, a city-owned subsidiary, told council the agency has helped attract more than $3 billion in capital investment since 2022 [1].",
+    "No decision has been made. Council's budget hearing continues, and amendments, including the proposed 10 per cent cut, are still to be debated before a final vote on the full budget [1]."
+   ],
+   "key_facts": [
+    "20 civic partners got $157M in operating grants this year",
+    "Draft budget: $163M in 2027 rising to $208M in 2030",
+    "Parks Foundation Calgary would fall to $200,000 in 2027",
+    "A proposed amendment would cut operating grants 10%"
+   ],
+   "topics": [
+    "City Council",
+    "Budget and taxes",
+    "Arts and culture",
+    "Parks and recreation"
+   ],
+   "image_query": "Calgary Central Library",
+   "charts": [
+    {
+     "title": "Civic partner operating grants, proposed",
+     "kind": "bar",
+     "labels": [
+      "2026",
+      "2027",
+      "2028",
+      "2029",
+      "2030"
+     ],
+     "series": [
+      {
+       "name": "Operating grants",
+       "values": [
+        157,
+        163,
+        190,
+        201,
+        208
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Civic partners plead their case as some councillors hope to trim funding in city budget",
+     "outlet": "Calgary Herald (via Yahoo News Canada)",
+     "url": "https://ca.news.yahoo.com/civic-partners-plead-case-councillors-210915697.html",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-26-civic-partners-make-their-case-as-councillors-look-for-savings-in-163-",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 363
+  },
+  {
+   "title": "Council debate looms over $180 million held for the long-delayed Foothills fieldhouse",
+   "dek": "The money has sat in reserve since 2019 while the City waits on provincial and federal funding, and one councillor wants to redirect it.",
+   "section": "City Hall",
+   "body": [
+    "Calgary has $109 million in reserve for the Foothills Multisport Fieldhouse and another $70 million proposed in the 2027-2030 budget, and council faces a debate over whether to keep waiting for other governments or move the money to projects that are ready to build, LiveWire Calgary reported [1].",
+    "The project still needs a $360 million commitment, $180 million each from the provincial and federal governments [1]. It has been in budget requests to both since 2022 but has received no new money, according to LiveWire [1]. The estimated cost was $380 million in 2023; LiveWire reported that the figure is rumoured to be more than $500 million now because of tariffs and inflation, which has not been confirmed [1].",
+    "The City has held money for the fieldhouse since 2019, when it was approved alongside three other major projects [1]. Mayor Jeromy Farkas, then a councillor, was one of four who voted against it [1].",
+    "Ward 2 Coun. Jennifer Wyness said she wants to look at redeploying the money to other recreation needs [1]. Under the proposed budget, the City would fund four of 16 first-wave projects from its recreation facility plan, totalling $283.5 million, with $185 million for the Forest Lawn Aquatic and Fitness Centre and $70 million for Foothills [1].",
+    "Speakers at the budget hearing were divided. A representative of the Calgary Minor Soccer Association asked council to fund construction at Rocky Ridge and detailed design at Southland, pointing to a shortage of field space [1]. Former MLA Mark Hlady backed keeping the money in place and pressing the province, while former Ward 3 Coun. Jasmine Mian, who chaired the old Foothills Athletic Park advisory committee, said her society has sent the province several packages on the project [1].",
+    "LiveWire said questions sent to three Alberta ministries went unanswered [1]. Council has not yet voted on the issue."
+   ],
+   "key_facts": [
+    "$109M in reserve plus $70M proposed for Foothills",
+    "Project needs $180M each from Alberta and Ottawa",
+    "Cost estimate was $380M in 2023",
+    "Four of 16 recreation projects would be funded, totalling $283.5M"
+   ],
+   "topics": [
+    "City Council",
+    "Budget and taxes",
+    "Parks and recreation",
+    "Sports"
+   ],
+   "image_query": "McMahon Stadium Calgary",
+   "charts": [
+    {
+     "title": "Foothills fieldhouse funding picture",
+     "kind": "hbar",
+     "labels": [
+      "City reserve now",
+      "City, proposed in budget",
+      "Alberta, requested",
+      "Canada, requested"
+     ],
+     "series": [
+      {
+       "name": "Amount",
+       "values": [
+        109,
+        70,
+        180,
+        180
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Debate percolates over continued funding for Calgary's Multisport Fieldhouse",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/25/debate-funding-calgary-foothills-multisport-fieldhouse/",
+     "published": "2026-11-25"
+    }
+   ],
+   "id": "2026-11-26-council-debate-looms-over-180-million-held-for-the-long-delayed-foothi",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 309
+  },
+  {
+   "title": "Woman charged after police seize about $50,000 in Lululemon clothing in northeast home",
+   "dek": "Calgary police say an online marketplace account was selling new designer clothing, some of it stolen from stores.",
+   "section": "Public safety",
+   "body": [
+    "Calgary police have charged a 25-year-old woman who they believe was selling stolen designer clothing online, the Calgary Police Service said Thursday [1][2].",
+    "The force's Online Stolen Property Team began looking into a Facebook Marketplace account in June after it advertised new Lululemon clothing at discounted prices [1]. Investigators found that some of the clothing had been stolen from various stores, police said [1].",
+    "On Friday, Oct. 23, officers executed a search warrant at a home in the 100 block of Harvest Grove N.E. and seized Lululemon clothing believed to be worth about $50,000 in total [1][2].",
+    "The woman faces two counts each of possession of stolen property under $5,000, trafficking in stolen property under $5,000 and possession of proceeds of crime under $5,000, along with one count of possession of stolen property over $5,000 and one count of fraud over $5,000 [1]. Her next court appearance is set for Jan. 10, 2027 [1]. The charges have not been proven in court.",
+    "Police used the case to remind shoppers to be careful with high-end items sold online. They suggest meeting sellers in a safe public place, such as the marked buy-and-sell zones at each police district office, checking seller profiles for warning signs such as new items with tags or anti-theft devices still attached, calling the seller's phone number directly and paying by e-transfer instead of cash [1].",
+    "Anyone with information is asked to call police at 403-266-1234 [1]."
+   ],
+   "key_facts": [
+    "25-year-old woman faces eight charges",
+    "About $50,000 in clothing seized in the 100 block of Harvest Grove N.E.",
+    "Investigation began in June with a Marketplace account",
+    "Next court date Jan. 10, 2027"
+   ],
+   "topics": [
+    "Public safety",
+    "Courts"
+   ],
+   "image_query": "Calgary Police Service car",
+   "sources": [
+    {
+     "title": "Calgary woman charged with selling stolen property online",
+     "outlet": "Calgary Police Service",
+     "url": "https://newsroom.calgary.ca/calgary-woman-charged-with-selling-stolen-property-online/",
+     "published": "2026-11-26"
+    },
+    {
+     "title": "Woman charged after allegedly selling stolen designer clothing online",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/woman-charged-after-allegedly-selling-stolen-designer-clothing-online/",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-26-woman-charged-after-police-seize-about-50-000-in-lululemon-clothing-in",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 239
+  },
+  {
+   "title": "City urges caution on e-scooter gifts as e-bike injury visits pass last year's total",
+   "dek": "Calgary saw 191 emergency or urgent-care visits for e-bike injuries from April to August, more than in all of last year, the City says.",
+   "section": "Transit and roads",
+   "body": [
+    "The City of Calgary is asking families thinking of giving an e-scooter this holiday season to check where it can legally be used first, saying that buying one does not make it legal to ride wherever a child plans to go [1].",
+    "Hospital data cited by the City show 191 emergency or urgent-care visits for e-bike injuries in Calgary between April and August, compared with 159 in all of last year [1]. There were 755 visits for e-scooter injuries over the same April-to-August period, compared with 797 for all of last year [1].",
+    "Rules are expected to change in 2027 [1]. The City said it is waiting for a provincial framework for e-mobility devices and is drafting a municipal bylaw that would deal with age limits and where the devices can be used [1].",
+    "Ryan Pleckaitis, the City's chief of community standards, said \"An e-scooter is not a toy\" [1]. The City's advice includes thinking about whether a device suits the child, checking the rules for that specific device, and taking the risk of injuries such as facial fractures seriously; it notes that helmets do not prevent all serious injuries [1].",
+    "Safety information is posted on the City's e-scooter safety page [1]."
+   ],
+   "key_facts": [
+    "191 e-bike injury visits April to August vs. 159 all last year",
+    "755 e-scooter injury visits April to August vs. 797 all last year",
+    "City drafting a bylaw on age limits and where devices can be used",
+    "Provincial e-mobility framework still pending"
+   ],
+   "topics": [
+    "Roads and traffic",
+    "Public safety",
+    "Health",
+    "City services"
+   ],
+   "image_query": "electric scooter",
+   "charts": [
+    {
+     "title": "Injury visits to emergency or urgent care",
+     "kind": "bar",
+     "labels": [
+      "E-bike",
+      "E-scooter"
+     ],
+     "series": [
+      {
+       "name": "April to August this year",
+       "values": [
+        191,
+        755
+       ]
+      },
+      {
+       "name": "All of last year",
+       "values": [
+        159,
+        797
+       ]
+      }
+     ],
+     "unit": "visits",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "E-scooters are not toys: consider safety and upcoming rule changes before purchasing this holiday season",
+     "outlet": "City of Calgary Newsroom",
+     "url": "https://newsroom.calgary.ca/e-scooters-are-not-toys-consider-safety-and-upcoming-rule-changes-before-purchasing-this-holiday-season/",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-26-city-urges-caution-on-e-scooter-gifts-as-e-bike-injury-visits-pass-las",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 202
+  },
+  {
+   "title": "$2-million gift backs 50-unit family housing project on Bowness Road",
+   "dek": "Partners for Affordable Housing says it has raised close to $13 million, including money for a five-storey rental for families at risk of homelessness.",
+   "section": "Housing and development",
+   "body": [
+    "Partners for Affordable Housing says it has raised close to $13 million for community-led housing, announcing the total during National Housing Week, which runs Nov. 22 to 28 [1].",
+    "The largest new piece is a $2-million gift from the Alberta-based Peters Family Foundation toward a Calgary project [1]. The money flows through the organization's Last Mile Fund to the Trellis Foundation for Community Impact for a 50-unit, five-storey affordable rental building at 6623 Bowness Road N.W. [1].",
+    "The building is meant for families who are experiencing or at risk of homelessness, including single-parent and multigenerational households [1]. Rents are set at about 77 per cent of median market rent, units range from studios to three bedrooms, and about 20 per cent will be built for full accessibility [1]. Construction is underway and completion is expected in spring 2027; Trellis will develop and operate the building [1].",
+    "The release also lists $1.5 million from the Government of Alberta over three years for what it calls an Alberta-first model, and nearly $1 million in first grants from its Tenant Stability Fund to 10 non-profits in four provinces and territories [1]. A family has offered to match gifts to that fund up to $250,000 [1].",
+    "The organization cited the Office of the Federal Housing Advocate's estimate that Canada is short 4.4 million homes affordable to people in housing need [1]. The figures come from the organization's own announcement and have not been independently verified."
+   ],
+   "key_facts": [
+    "Close to $13 million raised, the group says",
+    "$2M gift for 50 units at 6623 Bowness Road N.W.",
+    "Rents about 77% of median market rent",
+    "Completion expected spring 2027"
+   ],
+   "topics": [
+    "Housing",
+    "Community"
+   ],
+   "communities": [
+    "Bowness"
+   ],
+   "image_query": "Bowness Road Calgary",
+   "sources": [
+    {
+     "title": "Partners for Affordable Housing marks National Housing Week with close to $13 million raised to move housing solutions forward",
+     "outlet": "GlobeNewswire (Harvest Impact Foundation)",
+     "url": "https://www.globenewswire.com/news-release/2026/11/26/3410980/0/en/partners-for-affordable-housing-marks-national-housing-week-with-close-to-13-million-raised-to-move-housing-solutions-forward.html",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-26-2-million-gift-backs-50-unit-family-housing-project-on-bowness-road",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 241
+  },
+  {
+   "title": "Real Canadian Superstore opens a 102,300-square-foot store at Buffalo Run on Tsuut'ina Nation",
+   "dek": "The store, just southwest of Calgary in the Taza development, was designed with a Tsuut'ina cultural advisory group and features work by four Indigenous artists.",
+   "section": "Business and economy",
+   "body": [
+    "A 102,300-square-foot Real Canadian Superstore was scheduled to open Thursday at Buffalo Run on Tsuut'ina Nation, just southwest of Calgary, with a grand opening ceremony at 7 a.m. [1][2]. The Calgary Citizen listed the store as opening Thursday [3].",
+    "The store is part of Taza, a 1,200-acre development overseen by Taza Development Corp. that is divided into three villages: Taza Park, Buffalo Run and The Crossing [1]. Loblaw Companies Limited, Tsuut'ina Nation and Taza Development Corp. are partners in the project [1].",
+    "It is described as the first Real Canadian Superstore in Alberta developed in close consultation with an Indigenous community [1][2]. The design was shaped with the Tsuut'ina-Taza Cultural Advisory Working Group, and original artwork by four local Indigenous artists, developed with a curator, was to be unveiled on opening day [1][2]. The Calgary Citizen reported that Loblaw worked with local Indigenous artists on the artwork in the store [3].",
+    "The store has fresh produce, full-service meat and seafood counters, a bakery, and household and general merchandise including home goods, beauty products and toys [1][2]. Retail Insider reported the project is expected to support jobs but gave no number [1].",
+    "James Robertson, president of Taza Development Corp., said \"Real Canadian Superstore took the time to listen\" [1].",
+    "The opening comes a day before Black Friday [3]."
+   ],
+   "key_facts": [
+    "102,300 square feet at Buffalo Run, Tsuut'ina Nation",
+    "Part of the 1,200-acre Taza development",
+    "Designed with a Tsuut'ina-Taza cultural advisory group",
+    "Artwork by four local Indigenous artists"
+   ],
+   "topics": [
+    "Business",
+    "Economy",
+    "Indigenous"
+   ],
+   "image_query": "Tsuut'ina Nation Taza development",
+   "sources": [
+    {
+     "title": "Real Canadian Superstore to open new Buffalo Run location Nov. 26",
+     "outlet": "Retail Insider",
+     "url": "https://retail-insider.com/retail-insider/2026/10/real-canadian-superstore-to-open-new-buffalo-run-location-nov-26/",
+     "published": "2026-10-30"
+    },
+    {
+     "title": "Enormous new grocery store opening just outside Calgary reveals opening date",
+     "outlet": "Daily Hive",
+     "url": "https://dailyhive.com/calgary/real-canadian-superstore-buffalo-run",
+     "published": "2026-10-29"
+    },
+    {
+     "title": "A jam-packed weekend in YYC (newsletter, Thursday, Nov. 26, 2026)",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/thursday-nov-26-2026",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-26-real-canadian-superstore-opens-a-102-300-square-foot-store-at-buffalo-",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 217
+  },
+  {
+   "title": "Alberta's mid-year update forecasts an $8.5-billion surplus on record resource revenue",
+   "dek": "The province says its 2026-27 bottom line has improved by nearly $18 billion since the budget, driven by oil royalties and corporate taxes.",
+   "section": "Alberta and Canada",
+   "body": [
+    "The Alberta government's second-quarter fiscal update, released Thursday, forecasts a surplus of $8.5 billion for 2026-27, a nearly $18-billion improvement since Budget 2026 [1]. The province says it is on track for record resource revenue this year [2][1].",
+    "According to the update, stronger West Texas Intermediate oil prices are driving royalties up, and corporate income tax revenue is higher because of stronger corporate earnings [1]. The reports read did not give the oil price assumption or the royalty amount in dollars [1].",
+    "The government says this would be the largest surplus in nearly 20 years and the sixth in a row [1]. The Alberta Heritage Savings Trust Fund is forecast to reach more than $36 billion this fiscal year, more than double its 2020 value [1].",
+    "The province forecasts real economic growth of 2.6 per cent in both 2026 and 2027, with employment and household income growth also expected to beat budget forecasts [1]. It says the net debt-to-GDP ratio has improved to 5.1 per cent from 10.5 per cent, which it describes as the lowest in the country [1]. The update also notes six months of fuel tax relief on gasoline and diesel [1].",
+    "Finance Minister Jason Nixon said, \"When Alberta does well, Albertans do better\" [1].",
+    "The reports read did not set out spending totals or measures specific to Calgary. The figures are forecasts and can change with oil prices before the fiscal year ends on March 31."
+   ],
+   "key_facts": [
+    "2026-27 surplus forecast: $8.5 billion",
+    "Nearly $18 billion better than Budget 2026",
+    "Heritage Fund forecast above $36 billion",
+    "Net debt-to-GDP: 5.1%, down from 10.5%"
+   ],
+   "topics": [
+    "Provincial",
+    "Budget and taxes",
+    "Economy",
+    "Energy"
+   ],
+   "image_query": "Alberta Legislature Building",
+   "charts": [
+    {
+     "title": "Alberta net debt-to-GDP ratio",
+     "kind": "bar",
+     "labels": [
+      "Earlier",
+      "Q2 forecast"
+     ],
+     "series": [
+      {
+       "name": "Net debt to GDP",
+       "values": [
+        10.5,
+        5.1
+       ]
+      }
+     ],
+     "unit": "%",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Alberta's second-quarter fiscal update projects $8.5-billion surplus for 2026-27",
+     "outlet": "Red Deer Advocate (Today in BC)",
+     "url": "https://todayinbc.com/2026/11/26/albertas-second-quarter-fiscal-update-projects-8-5-billion-surplus-for-2026-27/",
+     "published": "2026-11-26"
+    },
+    {
+     "title": "Alberta expecting $18B budget turnaround propelled by oil royalties",
+     "outlet": "CTV News (The Canadian Press)",
+     "url": "https://www.ctvnews.ca/edmonton/article/alberta-expecting-18b-budget-turnaround-propelled-by-oil-royalties/",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-26-alberta-s-mid-year-update-forecasts-an-8-5-billion-surplus-on-record-r",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 240
+  },
+  {
+   "title": "Calgary teachers describe heavy workloads as provincial hiring money rolls out",
+   "dek": "Teachers, the Alberta Teachers' Association and a university researcher say class complexity is wearing on staff even after new funding for teachers and support teams.",
+   "section": "Alberta and Canada",
+   "body": [
+    "Calgary public school teachers say growing classroom complexity is wearing on their well-being, even as provincial money for new teachers and support teams reaches schools, LiveWire Calgary reported Thursday [1].",
+    "The province provided one-time grants of $218 million for classroom complexity teams and $200 million for hiring teachers [1]. The Calgary Board of Education's latest financial report says the money let it hire more than 300 teachers and set up more than 118 complexity teams [1].",
+    "Teachers interviewed said the effect has been uneven. An elementary teacher with 14 years in the classroom said she arrives almost an hour before students and has 30 minutes of set prep time; her first class this semester has 27 students, 21 of them learning English as an additional language [1]. A music teacher said her school hired two extra teachers but had no room for them, so a music room was repurposed and her two classes were merged into one of 58 students [1].",
+    "A CBE report from November 2025 found that one in five students had special education needs and that the average class size was 26 [1]. Jason Schilling, president of the Alberta Teachers' Association, said some Calgary high school classes are in the high 30s and low 40s [1].",
+    "The article cited the 2024 TALIS survey, in which Alberta teachers reported the highest stress levels across 55 education systems, and a fall 2025 association study of 5,700 respondents in which nearly 80 per cent said student needs contributed to burnout [1].",
+    "Lisa Taylor, an assistant professor of education at Mount Royal University, said the issue is how the ministry rolled out the funding and that mental health supports for teachers should have been funded at the same time [1]. The Ministry of Education and Childcare's response focused on hiring, according to LiveWire [1].",
+    "Alberta teachers went on strike in fall 2025 over class size and complexity [1]."
+   ],
+   "key_facts": [
+    "Province gave one-time $218M for complexity teams and $200M for teachers",
+    "CBE says it hired 300+ teachers and set up 118+ complexity teams",
+    "ATA says some Calgary high school classes reach the low 40s",
+    "Nearly 80% in an ATA study tied burnout to student needs"
+   ],
+   "topics": [
+    "Education",
+    "Provincial",
+    "Health"
+   ],
+   "image_query": "Calgary Board of Education building",
+   "charts": [
+    {
+     "title": "One-time provincial classroom grants",
+     "kind": "bar",
+     "labels": [
+      "Complexity teams",
+      "Hiring teachers"
+     ],
+     "series": [
+      {
+       "name": "Grant",
+       "values": [
+        218,
+        200
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "'Worn thin': Classroom complexity wears on Calgary teachers' well-being",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/26/worn-thin-classroom-complexity-wears-on-calgary-teachers-well-being/",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-26-calgary-teachers-describe-heavy-workloads-as-provincial-hiring-money-r",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 317
+  },
+  {
+   "title": "Flames win 6-3 in Pittsburgh as a mild weekend brings new and returning Christmas markets",
+   "dek": "A new winter market opens at Eau Claire, Spruce Meadows hosts more than 325 vendors and Tsuut'ina Nation holds its holiday market.",
+   "section": "Community and events",
+   "body": [
+    "The Calgary Flames beat the Pittsburgh Penguins 6-3 on Wednesday night, with Brennan Othmann scoring a goal and adding an assist and Ryan Strome scoring the winner, the Calgary Citizen reported [1]. The Flames play in New Jersey on Friday at noon and against the Rangers in New York on Saturday at 6 p.m. Calgary time [1].",
+    "The Wranglers host the Ontario Reign at the Saddledome on Saturday at 6 p.m., an Indigenous Celebration night, and again Sunday at 3 p.m., while the Hitmen play in Medicine Hat on Friday and Swift Current on Saturday [1].",
+    "The weather should help anyone heading outside. The Citizen's forecast calls for a cloudy high of 9 C on Thursday, sun and 8 C on Friday and sun with a high of 4 C on Saturday [1]. CTV News described Thursday as warm, windy and cloudy after Calgary reached 10 C on Wednesday afternoon [2].",
+    "A new Calgary Winter Market at Eau Claire Plaza has wooden chalets and a heated beer tent and runs 11 a.m. to 9 p.m. Thursday to Saturday and until 6 p.m. Sunday [1]. Entry costs $10 after 5 p.m. from Thursday to Saturday, with no charge before 5 p.m., all day Sunday, or for people under 18 and over 65 [1].",
+    "The International Christmas Market at Spruce Meadows has more than 325 indoor and outdoor vendors from Friday to Sunday; tickets are $20, or $12 for children aged 3 to 12 and seniors, plus GST, and Friday after 6 p.m. is adults only [1]. Christmas at the Nation, a Tsuut'ina Nation holiday market with more than 175 Indigenous and local artists and makers, runs Thursday to Sunday at the Seven Chiefs Sportsplex for $10, with children under 12 admitted at no charge [1].",
+    "Other listings include Vertigo Theatre's Sherlock Holmes: The Hunt for Moriarty through Sunday, a holiday concert at Mount Royal University's Bella Concert Hall on Friday and a holiday celebration at Taza Park on Sunday afternoon [1]. Some Calgary pubs and restaurants are also serving American Thanksgiving dinners on Thursday [1]."
+   ],
+   "key_facts": [
+    "Flames beat Penguins 6-3; Strome scored the winner",
+    "Flames at New Jersey Friday noon, at the Rangers Saturday 6 p.m.",
+    "New Calgary Winter Market at Eau Claire Plaza",
+    "Spruce Meadows market has more than 325 vendors"
+   ],
+   "topics": [
+    "Events",
+    "Sports",
+    "Community",
+    "Weather"
+   ],
+   "image_query": "Eau Claire Plaza Calgary",
+   "sources": [
+    {
+     "title": "A jam-packed weekend in YYC (newsletter, Thursday, Nov. 26, 2026)",
+     "outlet": "Calgary Citizen",
+     "url": "https://calgarycitizen.com/p/thursday-nov-26-2026",
+     "published": "2026-11-26"
+    },
+    {
+     "title": "Warm, windy, and cloudy for Calgary on Thursday",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/warm-windy-and-cloudy-for-calgary-on-thursday/",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-26-flames-win-6-3-in-pittsburgh-as-a-mild-weekend-brings-new-and-returnin",
+   "date": "2026-11-26",
+   "published_at": "2026-11-26T23:39:31Z",
+   "words": 344
+  }
+ ]
+}
