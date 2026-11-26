@@ -1,0 +1,14 @@
+h1 N Name the five people you talk to most. That list... is your real CV.
+n2 N Siena... over 500 years ago. Its lord, Pandolfo Petrucci, had a right-hand man.
+n3 N Antonio da Venafro. People judged Pandolfo... by him.
+n4 N In essence, Machiavelli says Pandolfo looked clever... simply for having him.
+q1 Q His words... "the first opinion which one forms of a prince... is by observing the men he has around him."
+n5 N Then he sorts minds into three kinds.
+n6 N One works things out alone. One recognises good ideas from others. One does neither.
+q2 Q His verdict... "the first is the most excellent, the second is good, the third is useless."
+n7 N So you don't need to be the genius. Spotting good minds... is a power of its own.
+n8 N Group project. Pick the quiet kid who reads the brief... and you look brilliant on results day.
+n9 N Now flip it. You're in someone's circle too. Make them look wise.
+n10 N This morning, message one person who makes you sharper... and tell them why.
+n11 N Who's the Venafro in your corner? Tell us what they do for you.
+n12 N Choose your circle well... and follow Awazzzz.

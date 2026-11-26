@@ -1,0 +1,203 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 4.24
+},
+{
+"id": "sc2",
+"start": 4.24,
+"lines": [
+"n2"
+],
+"dur": 5.711
+},
+{
+"id": "sc3",
+"start": 9.951,
+"lines": [
+"n3"
+],
+"dur": 3.928
+},
+{
+"id": "sc4",
+"start": 13.879,
+"lines": [
+"n4"
+],
+"dur": 4.501
+},
+{
+"id": "sc5",
+"start": 18.38,
+"lines": [
+"q1"
+],
+"dur": 5.472
+},
+{
+"id": "sc6",
+"start": 23.852,
+"lines": [
+"n5"
+],
+"dur": 2.299
+},
+{
+"id": "sc7",
+"start": 26.151,
+"lines": [
+"n6"
+],
+"dur": 5.293
+},
+{
+"id": "sc8",
+"start": 31.444,
+"lines": [
+"q2"
+],
+"dur": 4.83
+},
+{
+"id": "sc9",
+"start": 36.274,
+"lines": [
+"n7"
+],
+"dur": 4.495
+},
+{
+"id": "sc10",
+"start": 40.769,
+"lines": [
+"n8"
+],
+"dur": 5.138
+},
+{
+"id": "sc11",
+"start": 45.907,
+"lines": [
+"n9"
+],
+"dur": 4.039
+},
+{
+"id": "sc12",
+"start": 49.946,
+"lines": [
+"n10"
+],
+"dur": 3.834
+},
+{
+"id": "sc13",
+"start": 53.78,
+"lines": [
+"n11"
+],
+"dur": 3.181
+},
+{
+"id": "sc14",
+"start": 56.961,
+"lines": [
+"n12"
+],
+"dur": 3.001
+}
+],
+"lines": {
+"h1": {
+"start": 0.05,
+"dur": 4.2,
+"kind": "N",
+"cap": "Name the five people you talk to most. That list... is your real CV."
+},
+"n2": {
+"start": 4.3,
+"dur": 5.661,
+"kind": "N",
+"cap": "Siena... over 500 years ago. Its lord, Pandolfo Petrucci, had a right-hand man."
+},
+"n3": {
+"start": 10.011,
+"dur": 3.878,
+"kind": "N",
+"cap": "Antonio da Venafro. People judged Pandolfo... by him."
+},
+"n4": {
+"start": 13.939,
+"dur": 4.361,
+"kind": "N",
+"cap": "In essence, Machiavelli says Pandolfo looked clever... simply for having him."
+},
+"q1": {
+"start": 18.44,
+"dur": 5.372,
+"kind": "Q",
+"cap": "His words... \"the first opinion which one forms of a prince... is by observing the men he has around him.\""
+},
+"n5": {
+"start": 23.912,
+"dur": 2.249,
+"kind": "N",
+"cap": "Then he sorts minds into three kinds."
+},
+"n6": {
+"start": 26.211,
+"dur": 5.153,
+"kind": "N",
+"cap": "One works things out alone. One recognises good ideas from others. One does neither."
+},
+"q2": {
+"start": 31.504,
+"dur": 4.78,
+"kind": "Q",
+"cap": "His verdict... \"the first is the most excellent, the second is good, the third is useless.\""
+},
+"n7": {
+"start": 36.334,
+"dur": 4.445,
+"kind": "N",
+"cap": "So you don't need to be the genius. Spotting good minds... is a power of its own."
+},
+"n8": {
+"start": 40.829,
+"dur": 5.088,
+"kind": "N",
+"cap": "Group project. Pick the quiet kid who reads the brief... and you look brilliant on results day."
+},
+"n9": {
+"start": 45.967,
+"dur": 3.989,
+"kind": "N",
+"cap": "Now flip it. You're in someone's circle too. Make them look wise."
+},
+"n10": {
+"start": 50.006,
+"dur": 3.784,
+"kind": "N",
+"cap": "This morning, message one person who makes you sharper... and tell them why."
+},
+"n11": {
+"start": 53.84,
+"dur": 3.131,
+"kind": "N",
+"cap": "Who's the Venafro in your corner? Tell us what they do for you."
+},
+"n12": {
+"start": 57.021,
+"dur": 2.541,
+"kind": "N",
+"cap": "Choose your circle well... and follow Awazzzz."
+}
+},
+"total": 59.962
+}
