@@ -1,0 +1,175 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 4.254
+},
+{
+"id": "sc2",
+"start": 4.254,
+"lines": [
+"n2"
+],
+"dur": 3.886
+},
+{
+"id": "sc3",
+"start": 8.14,
+"lines": [
+"n3"
+],
+"dur": 3.826
+},
+{
+"id": "sc4",
+"start": 11.966,
+"lines": [
+"n4"
+],
+"dur": 5.816
+},
+{
+"id": "sc5",
+"start": 17.782,
+"lines": [
+"n5"
+],
+"dur": 4.639
+},
+{
+"id": "sc6",
+"start": 22.421,
+"lines": [
+"q1"
+],
+"dur": 8.461
+},
+{
+"id": "sc7",
+"start": 30.882,
+"lines": [
+"n6"
+],
+"dur": 4.961
+},
+{
+"id": "sc8",
+"start": 35.843,
+"lines": [
+"n7"
+],
+"dur": 4.908
+},
+{
+"id": "sc9",
+"start": 40.751,
+"lines": [
+"n8"
+],
+"dur": 5.931
+},
+{
+"id": "sc10",
+"start": 46.682,
+"lines": [
+"n9"
+],
+"dur": 6.767
+},
+{
+"id": "sc11",
+"start": 53.449,
+"lines": [
+"n10"
+],
+"dur": 3.343
+},
+{
+"id": "sc12",
+"start": 56.792,
+"lines": [
+"n11"
+],
+"dur": 3.154
+}
+],
+"lines": {
+"h1": {
+"start": 0.1,
+"dur": 4.144,
+"kind": "N",
+"cap": "Most problems that wreck you... were once small enough to fix in five minutes."
+},
+"n2": {
+"start": 4.314,
+"dur": 3.816,
+"kind": "N",
+"cap": "Rewind a friendship. Month six... you're basically strangers."
+},
+"n3": {
+"start": 8.2,
+"dur": 3.756,
+"kind": "N",
+"cap": "Month two... the replies got shorter. Nobody said a word."
+},
+"n4": {
+"start": 12.026,
+"dur": 5.656,
+"kind": "N",
+"cap": "Week one... a cancelled plan. A joke that landed wrong. One honest message would have fixed it."
+},
+"n5": {
+"start": 17.842,
+"dur": 4.419,
+"kind": "N",
+"cap": "In 1513, Machiavelli explained this trap... with a doctor's rule."
+},
+"q1": {
+"start": 22.481,
+"dur": 8.281,
+"kind": "Q",
+"cap": "He wrote... \"in the beginning of the malady it is easy to cure but difficult to detect... but in the course of time... it becomes easy to detect but difficult to cure.\""
+},
+"n6": {
+"start": 30.942,
+"dur": 4.891,
+"kind": "N",
+"cap": "While a problem is cheap... it's invisible. Once everyone sees it... it's expensive."
+},
+"n7": {
+"start": 35.903,
+"dur": 4.768,
+"kind": "N",
+"cap": "In essence... he praised the Romans for spotting trouble early... and dealing with it at once."
+},
+"n8": {
+"start": 40.811,
+"dur": 5.771,
+"kind": "N",
+"cap": "The real skill isn't fixing big problems. It's acting on small ones... while it still feels silly."
+},
+"n9": {
+"start": 46.742,
+"dur": 6.697,
+"kind": "N",
+"cap": "Tonight, pick one thing you keep calling \"fine\"... a friend, a bill, that noise in your car... give it five minutes."
+},
+"n10": {
+"start": 53.509,
+"dur": 3.273,
+"kind": "N",
+"cap": "What small thing are you ignoring? One word, below."
+},
+"n11": {
+"start": 56.852,
+"dur": 2.294,
+"kind": "N",
+"cap": "Follow Awazzzz... and catch it early."
+}
+},
+"total": 59.946
+}
