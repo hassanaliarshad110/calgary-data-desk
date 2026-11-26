@@ -33,15 +33,10 @@ def _get(u, t=120):
         except Exception as e:
             err = 'ERR ' + repr(e)
     return err
-mw = os.path.join(out, 'wards3'); os.makedirs(mw, exist_ok=True)
-X = lambda i: 'https://data.calgary.ca/api/geospatial/%s?method=export&format=GeoJSON' % i
-R = lambda i: 'https://data.calgary.ca/api/views/%s/rows.csv?accessType=DOWNLOAD' % i
-jobs = [('limits_a.geojson', 'https://data.calgary.ca/resource/twfe-ukxx.geojson?$limit=500'), ('limits_b.csv', R('rkvn-tce9')), ('limits_c.csv', R('twfe-ukxx')),
-        ('annex_a.geojson', 'https://data.calgary.ca/resource/g9nd-fuwf.geojson?$limit=500'), ('annex_b.csv', R('xrns-k6ck')), ('annex_c.csv', R('g9nd-fuwf')),
-        ('w2017.csv', R('4f6r-atgm')), ('wcur.csv', R('r9vx-mhnf')), ('w2021.csv', R('bxgr-t8xb')),
-        ('meta_limits_b.json', 'https://data.calgary.ca/api/views/twfe-ukxx.json')]
-for yr, i in [(1999,'hjim-jabu'),(2000,'xvc2-3u78'),(2001,'2fxp-yrhj'),(2002,'rmad-dcwz'),(2003,'6y2r-upvw'),(2004,'u7gw-tfe3'),(2005,'ygai-4gfr'),(2006,'5tdg-3k43'),(2007,'erx5-9f9e'),(2008,'xxwt-fdh5'),(2009,'5ira-8898'),(2010,'fbu6-4bnu'),(2011,'kquu-znqr'),(2013,'9vii-yr3z'),(2014,'aj43-35ks'),(2015,'idp8-ukcf'),(2016,'4c8i-ruhm'),(2017,'qe4n-g76r')]:
-    jobs.append(('cw_%d.csv' % yr, R(i)))
+mw = os.path.join(out, 'wards4'); os.makedirs(mw, exist_ok=True)
+jobs = [('w2017.geojson','https://data.calgary.ca/resource/au4g-xjwh.geojson?$limit=50'),('wcur.geojson','https://data.calgary.ca/resource/tz8z-hyaz.geojson?$limit=50'),
+        ('w2021.geojson','https://data.calgary.ca/resource/bxgr-t8xb.geojson?$limit=50'),('meta_au4g.json','https://data.calgary.ca/api/views/au4g-xjwh.json'),('meta_limits.json','https://data.calgary.ca/api/views/twfe-ukxx.json'),
+        ('meta_cw1999.json','https://data.calgary.ca/api/views/hjim-jabu.json'),('meta_cw2011.json','https://data.calgary.ca/api/views/kquu-znqr.json'),('meta_tz8z.json','https://data.calgary.ca/api/views/tz8z-hyaz.json')]
 def dl(j):
     if j[0].endswith('.bin'):
         try:
