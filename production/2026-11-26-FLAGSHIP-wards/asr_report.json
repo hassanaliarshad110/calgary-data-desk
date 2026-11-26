@@ -1,0 +1,305 @@
+{
+ "summary": {
+  "v": {
+   "lines": 13,
+   "check": [
+    8,
+    9
+   ],
+   "mean_acc": 0.982
+  }
+ },
+ "lexicon_entries": 37,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "Calgary once had no wards at all.",
+    "said": "Calgary once had no wards at all.",
+    "heard": "Calgary once had no words at all.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 1.984,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "When it became a city in eighteen ninety-four, it had three wards, with three aldermen each.",
+    "said": "When it became a city in eighteen ninety-four, it had three wards, with three aldermen each.",
+    "heard": "When it became a city in 1894, it had three wards with three alderman each.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.992,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "By nineteen-oh-six, there were four.",
+    "said": "By nineteen-oh-six, there were four.",
+    "heard": "By 1906, there were four.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 1.92,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "Then, from nineteen fourteen, wards were dropped. For almost fifty years, every alderman was elected by the whole city.",
+    "said": "Then, from nineteen fourteen, wards were dropped. For almost fifty years, every alderman was elected by the whole city.",
+    "heard": "Then, from 1914, wards were dropped. For almost 50 years, every alderman was elected by the whole city.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 7.127,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "In nineteen sixty, voters chose to bring them back: six wards, with two aldermen each.",
+    "said": "In nineteen sixty, voters chose to bring them back: six wards, with two aldermen each.",
+    "heard": "In 1960, voters chose to bring them back, six wards with two alderman each.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.376,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "The nineteen seventy-seven election was the first with fourteen wards, one alderman each.",
+    "said": "The nineteen seventy-seven election was the first with fourteen wards, one alderman each.",
+    "heard": "The 1977 election was the first with 14 wards, one alderman each.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.163,
+    "input_lufs": -22.6,
+    "status": "ok"
+   },
+   {
+    "i": 6,
+    "text": "And the lines keep moving. As the city grows, wards are redrawn to keep about the same number of voters in each.",
+    "said": "And the lines keep moving. As the city grows, wards are redrawn to keep about the same number of voters in each.",
+    "heard": "And the lines keep moving. As the city grows, wards are redrawn to keep about the same number of voters in each.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.94,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.227
+     },
+     {
+      "speed": 0.94,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.06,
+      "acc": 1.0
+     }
+    ],
+    "dur": 6.785,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 7,
+    "text": "The City's open data maps start in nineteen ninety-eight. Watch the lines move, election after election, up to twenty twenty-one.",
+    "said": "The City's open data maps start in nineteen ninety-eight. Watch the lines move, election after election, up to twenty twenty-one.",
+    "heard": "The city's open data maps start in 1998. Watch the lines move, election after election, up to 2021.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 7.873,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 8,
+    "text": "By twenty sixteen, the biggest ward had more than a hundred and nine thousand people, the smallest just over seventy-six thousand. The next election used new lines.",
+    "said": "By twenty sixteen, the biggest ward had more than a hundred and nine thousand people, the smallest just over seventy-six thousand. The next election used new lines.",
+    "heard": "By 2016, the biggest ward had more than 109,000 people, the smallest just over 76,000. The next election used new lines.",
+    "acc": 0.893,
+    "mismatches": [
+     "a->one",
+     "thousand->zero",
+     "thousand->zero"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.893
+     },
+     {
+      "speed": 0.94,
+      "acc": 0.893
+     },
+     {
+      "speed": 1.06,
+      "acc": 0.893
+     }
+    ],
+    "dur": 9.857,
+    "input_lufs": -22.1,
+    "status": "check"
+   },
+   {
+    "i": 9,
+    "text": "Since twenty thirteen, they're called councillors, not aldermen.",
+    "said": "Since twenty thirteen, they're called councillors, not aldermen.",
+    "heard": "Since 2013, they're called counselors, not alderman.",
+    "acc": 0.875,
+    "mismatches": [
+     "councillors->counselors"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.875
+     },
+     {
+      "speed": 0.94,
+      "acc": 0.875
+     },
+     {
+      "speed": 1.06,
+      "acc": 0.875
+     }
+    ],
+    "dur": 3.392,
+    "input_lufs": -22.4,
+    "status": "check"
+   },
+   {
+    "i": 10,
+    "text": "Today, it's still fourteen wards. The next election is in twenty twenty-nine.",
+    "said": "Today, it's still fourteen wards. The next election is in twenty twenty-nine.",
+    "heard": "Today, it's still 14 wards. The next election is in 2029.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.673,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 11,
+    "text": "Should Calgary have more wards, or fewer?",
+    "said": "Should Calgary have more wards, or fewer?",
+    "heard": "Should Calgary have more wards or fewer?",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.091,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 12,
+    "text": "More or fewer? Drop your thoughts below.",
+    "said": "More or fewer? Drop your thoughts below.",
+    "heard": "More or fewer? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.912,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 0.857
+     },
+     {
+      "speed": 1.009,
+      "acc": 0.857
+     },
+     {
+      "speed": 0.931,
+      "acc": 0.857
+     },
+     {
+      "speed": 0.912,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.028,
+      "acc": 0.857
+     }
+    ],
+    "dur": 3.109,
+    "input_lufs": -21.7,
+    "status": "ok"
+   }
+  ]
+ }
+}

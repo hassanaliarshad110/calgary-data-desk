@@ -4263,5 +4263,68 @@
     "status": "scheduled"
    }
   ]
+ },
+ {
+  "date": "2026-11-26",
+  "slot": "FLAGSHIP-EXTRA",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "Calgary Once Had No Wards at All (wide: How Calgary Got Its 14 Wards: Every Ward Map Since 1998)",
+  "requested_by": "Hassan, Nov 25 ~23:00: how and when Calgary was divided into wards, colours of wards across years; then: show every election's boundaries after 1976, run the audit, schedule for tomorrow",
+  "topic_used": "1894 three wards x three aldermen; four by 1906; no wards 1914-1960 (at large); 1960 plebiscite: six wards, two aldermen each (1961); 1977 first 14-ward election; redrawn to keep about equal electors (Bylaw 19M91); official ward maps 1998, 2001, 2004, 2007, 2010, 2013, 2017, 2021 (2025 same wards, technical tweaks only); 2016 census Ward 12 109,384 vs Ward 9 76,533, new lines 2017; councillors since 2013; 14 wards, next election 2029",
+  "data_note": "Ward maps from City open data: Census By Ward 1999/2002/2005/2008/2011 geometry (boundaries set at the previous October election), Ward Boundaries 2013-2017, 2017-2021, 2021 election, current; pre-1998 years shown as Historic City Limits only, labelled",
+  "package": "packages/2026-11-26-FLAGSHIP-calgary-wards.md",
+  "production": "production/2026-11-26-FLAGSHIP-wards/",
+  "video_path": "studio-videos/2026-11-26-FLAGSHIP-wards/ (calgary-wards-short.mp4, calgary-wards-wide.mp4, thumbnails)",
+  "length_s": {
+   "short": 74.5,
+   "wide": 74.5
+  },
+  "audit": {
+   "rounds": 2,
+   "verdict": "APPROVED",
+   "round1": "NOT APPROVED: 2025 shown as a redraw; 'about seventy-six thousand'; caption number words; fixed"
+  },
+  "narration": {
+   "lane": "studio-probe",
+   "voice": "af_heart",
+   "lines": 13,
+   "asr_mean_acc": 0.982,
+   "check": "line 8 digits-vs-words, line 9 councillors/counselors homophone only"
+  },
+  "qc": {
+   "final": "pass after fixes (follow pill moved off the map run, L8 overlaps, wide map framing)",
+   "loudness": "-14.5 LUFS"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 442700485,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=298515620771809738",
+    "providers": [
+     "instagram REEL",
+     "youtube short"
+    ],
+    "file": "short",
+    "publish_at": "2026-11-26T12:45",
+    "status": "PENDING",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   },
+   {
+    "metricool_id": 442700501,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=513545157810211964",
+    "providers": [
+     "facebook POST",
+     "youtube video"
+    ],
+    "file": "wide",
+    "publish_at": "2026-11-26T15:45",
+    "status": "PENDING",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
+   }
+  ],
+  "site": "not added (site changes need Hassan's go-ahead)"
  }
 ]

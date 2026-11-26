@@ -43,7 +43,8 @@ const today = () => ({ wards: Object.fromEntries((G().wards.items || []).map(it 
 const centroid = polys => { let best = polys[0][0]; polys.forEach(p => { if (p[0].length > best.length) best = p[0]; }); let sx = 0, sy = 0; best.forEach(q => { sx += q[0]; sy += q[1]; }); return [sx / best.length, sy / best.length]; };
 const limit = y => { const ls = G().limits; let best = ls[0]; ls.forEach(l => { if (l.start <= y) best = l; }); return best; };
 const BND = () => { const b = G().boundary[0]; let best = b[0]; (Array.isArray(b[0][0]) ? b : [b]).forEach(r => { if (r.length > best.length) best = r; }); return Array.isArray(best[0]) ? best : b; };
-const CITY = [-2600, -600, 0];
+const CITY = WIDE ? [-15000, -3500, 0] : [-2600, -600, 0];
+const MX = WIDE ? 520 : null;
 
 // ---------- helpers ----------
 const cam = o => M.camera(Object.assign({ fov: L.fov }, o), W, H);
@@ -73,7 +74,7 @@ function map(c, cm, o = {}) {
 function headline(c, t, txt, hl) { band(c, WIDE ? 40 : 200, WIDE ? 420 : 760, .62);
   M.kinetic(c, txt, THUMB ? 9 : t, CX, L.hookY, { size: L.hook * (THUMB ? (WIDE ? 1.4 : 1.1) : 1), maxW: WIDE ? 1500 : 860, t0: -0.12, every: .1, highlight: hl }); }
 const CREDIT = 'City of Calgary Open Data · Historic City Limits';
-const H0 = WIDE ? 46000 : 66000;   // whole-city camera height
+const H0 = WIDE ? 62000 : 66000;   // whole-city camera height
 
 // ---------- scenes ----------
 const D = {
@@ -119,27 +120,27 @@ const D = {
     const cur = era(MAPRUN[i]), prv = i > 0 ? era(MAPRUN[i - 1]) : null, mix = prv ? ease(f, 0, .55) : (t < t0 ? ease(t, 0, .6) : 1);
     const layers = []; if (prv && mix < 1) layers.push({ wards: prv.wards, a: 1 - mix, z: 0 }); layers.push({ wards: cur.wards, a: mix, z: 1, labels: true });
     map(c, above(CITY, H0), { layers, bndA: .35, roads: false });
-    if (u > 0 || t >= t0) { stamp(c, String(MAPRUN[i]), f, 0, CX, L.stampY, WIDE ? 96 : 112); }
+    if (u > 0 || t >= t0) { stamp(c, String(MAPRUN[i]), f, 0, MX ?? CX, WIDE ? 300 : L.stampY, WIDE ? 110 : 112); }
     if (i === 0 && f < .2) {}
-    const hold = u > MAPRUN.length * SLOT - .1; if (hold) { const kh = ease(u, MAPRUN.length * SLOT, MAPRUN.length * SLOT + .35, 'outBack'); chip(c, 'SAME WARDS IN 2025', L.stampY + (WIDE ? 105 : 130), kh, { bg: '#ffffff', color: NAVY }); chip(c, 'TECHNICAL TWEAKS ONLY', L.stampY + (WIDE ? 185 : 215), kh, { size: L.chip - 4 }); }
+    const hold = u > MAPRUN.length * SLOT - .1; if (hold) { const kh = ease(u, MAPRUN.length * SLOT, MAPRUN.length * SLOT + .35, 'outBack'); chip(c, 'SAME WARDS IN 2025', WIDE ? 430 : L.stampY + 130, kh, { bg: '#ffffff', color: NAVY, x: MX ?? CX }); chip(c, 'TECHNICAL TWEAKS ONLY', WIDE ? 510 : L.stampY + 215, kh, { size: L.chip - 4, x: MX ?? CX }); }
     if (t < t0) { band(c, WIDE ? 30 : 200, WIDE ? 330 : 620, .6); M.kinetic(c, 'Every ward map since 1998', t, CX, WIDE ? 70 : 260, { size: WIDE ? 104 : 112, maxW: WIDE ? 1500 : 860, highlight: ['1998'] }); }
     north(c); src(c, 'City of Calgary Open Data · ward boundaries in force at each election (Census by Ward 1999–2011 · Ward Boundaries 2013–2021)'); },
   L8: (c, t, d) => { navyBg(c); const big = 109384, small = 76533, maxW = WIDE ? 1100 : 820, x0 = WIDE ? 420 : 100;
-    M.text(c, '2016 CIVIC CENSUS', CX, WIDE ? 110 : 300, { size: WIDE ? 64 : 70, weight: 800, align: 'center', color: GOLD, alpha: ease(t, 0, .3) });
-    [[`WARD 12`, big, WC[12], .3], [`WARD 9`, small, WC[9], .9]].forEach(([lab, v, col, t0], j) => { const k = ease(t, t0, t0 + 1.2, 'outCubic'); const y = (WIDE ? 330 : 560) + j * (WIDE ? 230 : 300);
+    M.text(c, '2016 CIVIC CENSUS', CX, WIDE ? 150 : 400, { size: WIDE ? 64 : 70, weight: 800, align: 'center', color: GOLD, alpha: ease(t, 0, .3) });
+    [[`WARD 12`, big, WC[12], .3], [`WARD 9`, small, WC[9], .9]].forEach(([lab, v, col, t0], j) => { const k = ease(t, t0, t0 + 1.2, 'outCubic'); const y = (WIDE ? 360 : 620) + j * (WIDE ? 230 : 280);
       M.text(c, lab, x0, y - (WIDE ? 70 : 80), { size: WIDE ? 50 : 56, weight: 800, alpha: Math.min(1, k * 3) });
       c.save(); c.fillStyle = col; c.globalAlpha = .9; c.fillRect(x0, y, maxW * (v / big) * k, WIDE ? 90 : 110); c.restore();
       M.text(c, Math.round(v * k).toLocaleString('en-US'), x0, y + (WIDE ? 105 : 125), { size: WIDE ? 56 : 64, weight: 800, color: '#fff', alpha: Math.min(1, k * 3) }); });
-    M.text(c, 'residents · bars to scale from zero', CX, WIDE ? 860 : 1080, { size: 28, weight: 600, align: 'center', color: '#9fb0c8' });
-    stamp(c, '2017 · NEW LINES', t, d * .72, CX, WIDE ? 960 : 1210, WIDE ? 70 : 80);
+    M.text(c, 'residents · bars to scale from zero', CX, WIDE ? 760 : 1115, { size: 28, weight: 600, align: 'center', color: '#9fb0c8' });
+    stamp(c, '2017 · NEW LINES', t, d * .72, CX, WIDE ? 860 : 1235, WIDE ? 70 : 80);
     src(c, 'Source: City of Calgary Open Data, Census By Ward 2016 · Ward Boundaries 2017–2021'); },
   L9: (c, t, d) => { map(c, above(CITY, H0), { layers: [{ wards: today().wards, a: .75, labels: true }], bndA: .35, roads: false });
-    band(c, WIDE ? 30 : 230, WIDE ? 330 : 640, .6);
-    chip(c, 'ALDERMEN → COUNCILLORS', WIDE ? 120 : 330, ease(t, .2, .55, 'outBack'), { size: L.chip + 8 }); chip(c, 'SINCE 2013', WIDE ? 220 : 450, ease(t, d * .4, d * .4 + .35, 'outBack'), { bg: '#ffffff', color: NAVY });
+    if (!WIDE) band(c, 230, 640, .6);
+    chip(c, 'ALDERMEN → COUNCILLORS', WIDE ? 330 : 330, ease(t, .2, .55, 'outBack'), { size: L.chip + 8, x: MX ?? CX }); chip(c, 'SINCE 2013', WIDE ? 430 : 450, ease(t, d * .4, d * .4 + .35, 'outBack'), { bg: '#ffffff', color: NAVY, x: MX ?? CX });
     north(c); src(c, 'Sources: City of Calgary · Wikipedia · ward map: City of Calgary Open Data (today)'); },
   L10: (c, t, d) => { map(c, above(CITY, M.lerp(H0, H0 * 1.05, ease(t, 0, d))), { layers: [{ wards: today().wards, a: .75, labels: true }], bndA: .45, roads: false });
-    band(c, WIDE ? 30 : 230, WIDE ? 330 : 640, .6);
-    chip(c, '14 WARDS TODAY', WIDE ? 120 : 330, ease(t, .2, .55, 'outBack'), { size: L.chip + 8 }); chip(c, 'NEXT ELECTION · 2029', WIDE ? 220 : 450, ease(t, d * .5, d * .5 + .35, 'outBack'), { bg: '#ffffff', color: NAVY });
+    if (!WIDE) band(c, 230, 640, .6);
+    chip(c, '14 WARDS TODAY', WIDE ? 330 : 330, ease(t, .2, .55, 'outBack'), { size: L.chip + 8, x: MX ?? CX }); chip(c, 'NEXT ELECTION · 2029', WIDE ? 430 : 450, ease(t, d * .5, d * .5 + .35, 'outBack'), { bg: '#ffffff', color: NAVY, x: MX ?? CX });
     north(c); src(c, 'Sources: City of Calgary Open Data · Wikipedia, Calgary City Council'); },
   Q: (c, t, d) => { map(c, above(CITY, H0 * 1.05), { layers: [{ wards: today().wards, a: .6, labels: true }], bndA: .45, roads: false });
     band(c, WIDE ? 30 : 230, WIDE ? 420 : 860, .65); M.kinetic(c, 'Should Calgary have more wards, or fewer?', t, CX, WIDE ? 90 : 330, { size: WIDE ? 100 : 112, maxW: WIDE ? 1500 : 860, highlight: ['more', 'fewer?'], every: .1 }); },
@@ -172,7 +173,7 @@ window.BUILD = () => { window.CUES = CUESFN(); return M.film({ W, H, identity: '
     if (THUMB) { thumbBrand(c); return; }
     if (t > 3 && !last) originsHeader(c);
     if (!last) M.caption(c, capAt(t), W, H, WIDE ? {} : { bottom: 1410 });
-    if (S.total > 25) { const mid = S.total / 2; M.followPill(c, M.seg(t, mid - 1, mid + 1, 'linear'), W, H); }
+    if (S.total > 25) { const m0 = sc[8].sceneStart + .3; M.followPill(c, M.seg(t, m0, m0 + 2.5, 'linear'), W, H); }
   } }); };
 
 const CUESFN = () => { const s = i => sc[i].sceneStart, cues = [{ t: 0, sfx: 'impact', gain: -5 }, { t: .1, sfx: 'whoosh', gain: -12 }, { t: .9, sfx: 'pop', gain: -12 }];
