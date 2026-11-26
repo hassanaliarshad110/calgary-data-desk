@@ -4350,14 +4350,25 @@
    "traffic_incidents_today_so_far": "9 (since 07:00 UTC, feed latest 15:13 UTC); prior 365-day max 111, p99 58: not rare",
    "news": "no confirmed rare Calgary event found (web search 10:45)"
   },
-  "watch_note": "Candidate: record warm daily minimum for Nov 26 (needs min to stay >= 1.8 C through 23:59 local; ECCC daily min is the full climate day). Later checks: re-pull SWOB; only report once the low is settled, wording 'preliminary'; if tonight's low drops to 1.7 or below, mark status none.",
-  "next_check": "16:41 Calgary",
+  "watch_note": "Two live candidates for the 19:41 check: (1) warmest Nov 26 daily minimum since 1926 (needs min to stay >= 1.8 C to 07Z Nov 27; frame as 'warmest Nov 26 low in 100 years, since 1922', not a record); (2) CYYC gust >= 80 km/h this evening (wind warning on all sides of the city; gusts were rising). Re-pull SWOB + alerts at 19:41; if neither holds, close as none.",
+  "next_check": "19:41 Calgary",
   "evidence": "production/2026-11-26-MOMENT-watch/check-1041/",
   "sources": [
    "https://dd.weather.gc.ca/today/observations/swob-ml/20261126/CYYC/",
    "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=26&timeframe=2&submit=Download+Data"
+  ],
+  "checks": [
+   {
+    "checked_at": "2026-11-26 16:41 Calgary (22:43 UTC)",
+    "temp": "CYYC SWOB local day 07Z-22Z: min so far 2.8 C (12Z, unchanged), max so far 11.0 C (22Z, rising with westerly wind). Top-5 Nov 26 highs since 1926 need >= 12.9 C: not yet.",
+    "history_pre1926": "Station 2205 Nov 26 1881-1925 pulled: 1922 min 3.9 C (max 18.3 C), 1884 min 1.1 C; 1882, 1883, 1885 missing. So 2.8 C would NOT be the all-time record warm minimum (1922 = 3.9 C); it would be the warmest Nov 26 minimum since 1926 (100 years, prior best 1.7 C in 1929) and 2nd warmest since 1881. Never call it a record.",
+    "wind": "ECCC wind warning issued 21:24 UTC (gusts up to 100 km/h early this evening, event end 00:00 UTC) for Foothills Co. near Okotoks/De Winton and Priddis, Rocky View Co. near Airdrie/Crossfield, Cochrane, Bragg Creek/Tsuu T'ina: City of Calgary itself NOT listed. CYYC max gust past 10 min 52.6 km/h at 22Z (below 80). Westerly 289 deg, 37.8 km/h.",
+    "traffic_today_so_far": "20 incidents since 07:00 UTC (feed latest 22:23 UTC); 365-day p99 58: not rare",
+    "news": "web search 16:41: no confirmed rare Calgary event",
+    "evidence": "production/2026-11-26-MOMENT-watch/check-1641/"
+   }
   ]
  }
 ]
