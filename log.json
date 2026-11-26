@@ -4299,7 +4299,7 @@
   "status": "done",
   "posted": [
    {
-    "metricool_id": 442700485,
+    "metricool_id": 443359525,
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=298515620771809738",
     "providers": [
      "instagram REEL",
@@ -4309,10 +4309,12 @@
     "publish_at": "2026-11-26T12:45",
     "status": "PENDING",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "previous_metricool_id": 442700485,
+    "series_hashtag": "#CalgaryInsightOrigins (added Nov 26 10:26, playbook 7c)"
    },
    {
-    "metricool_id": 442700501,
+    "metricool_id": 443359543,
     "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=513545157810211964",
     "providers": [
      "facebook POST",
@@ -4322,7 +4324,9 @@
     "publish_at": "2026-11-26T15:45",
     "status": "PENDING",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "previous_metricool_id": 442700501,
+    "series_hashtag": "#CalgaryInsightOrigins (added Nov 26 10:26, playbook 7c)"
    }
   ],
   "site": "not added (site changes need Hassan's go-ahead)"
