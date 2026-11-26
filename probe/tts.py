@@ -33,22 +33,15 @@ def _get(u, t=120):
         except Exception as e:
             err = 'ERR ' + repr(e)
     return err
-mw = os.path.join(out, 'wards2'); os.makedirs(mw, exist_ok=True)
+mw = os.path.join(out, 'wards3'); os.makedirs(mw, exist_ok=True)
 X = lambda i: 'https://data.calgary.ca/api/geospatial/%s?method=export&format=GeoJSON' % i
-jobs = [('g_w2013.geojson', X('mjit-gete')), ('g_w2013b.geojson', X('9u83-tgux')), ('g_w2017.geojson', X('4f6r-atgm')),
-        ('g_w2021.geojson', X('bxgr-t8xb')), ('g_wcur.geojson', X('r9vx-mhnf')), ('g_limits.geojson', X('rkvn-tce9')),
-        ('g_annex.geojson', X('xrns-k6ck')), ('meta_r9vx.json', 'https://data.calgary.ca/api/views/r9vx-mhnf.json'),
-        ('meta_bxgr.json', 'https://data.calgary.ca/api/views/bxgr-t8xb.json'), ('meta_annex.json', 'https://data.calgary.ca/api/views/xrns-k6ck.json'),
-        ('census_hist.csv', 'https://data.calgary.ca/api/views/f2h8-5h2c/rows.csv?accessType=DOWNLOAD'),
-        ('meta_census_hist.json', 'https://data.calgary.ca/api/views/f2h8-5h2c.json'),
-        ('bylaw19m91.pdf.bin', 'https://www.calgary.ca/content/dam/www/ca/city-clerks/documents/legislative-services/bylaws/19m91-electoralwardboundries.pdf'),
-        ('cbc2010.pdf.bin', 'https://www.cbc.ca/calgary/news/docs/2010_ward_boundaries.pdf'),
-        ('wbc2024.pdf.bin', 'https://calgary.ca/content/dam/www/ca/city-clerks/documents/ward-boundary-commission/ward-boundary-commission-report-2024.pdf'),
-        ('wbc2024att.pdf.bin', 'https://pub-calgary.escribemeetings.com/filestream.ashx?DocumentId=301060'),
-        ('cbc_overhaul.html', 'https://www.cbc.ca/news/canada/calgary/calgary-s-ward-boundaries-to-get-overhaul-1.3152004'),
-        ('livewire2024.html', 'https://livewirecalgary.com/2024/01/15/calgarys-ward-boundary-commission-wont-be-looking-at-changing-calgary-ward-boundaries/')]
-for yr, i in [(1999,'p33k-g6pb'),(2000,'vxbk-4cwe'),(2001,'igfq-vyug'),(2002,'56up-4ui9'),(2003,'kcgd-54t9'),(2004,'ev3p-fxn7'),(2005,'s6pd-q354'),(2006,'6cni-2se9'),(2007,'8v7a-kjgy'),(2008,'wp8i-idr6'),(2009,'kzuk-8i2d'),(2010,'ejif-sbc3'),(2011,'pqiy-7f6n'),(2012,'2pm8-2956'),(2013,'e7nx-qhf7'),(2014,'t2x5-8ez2'),(2015,'kqjb-e98t'),(2016,'t9g6-k4du'),(2017,'bvb5-ntsh'),(2018,'pryy-7s2m'),(2019,'seqt-d3id')]:
-    jobs.append(('cw_%d.csv' % yr, 'https://data.calgary.ca/api/views/%s/rows.csv?accessType=DOWNLOAD' % i))
+R = lambda i: 'https://data.calgary.ca/api/views/%s/rows.csv?accessType=DOWNLOAD' % i
+jobs = [('limits_a.geojson', 'https://data.calgary.ca/resource/twfe-ukxx.geojson?$limit=500'), ('limits_b.csv', R('rkvn-tce9')), ('limits_c.csv', R('twfe-ukxx')),
+        ('annex_a.geojson', 'https://data.calgary.ca/resource/g9nd-fuwf.geojson?$limit=500'), ('annex_b.csv', R('xrns-k6ck')), ('annex_c.csv', R('g9nd-fuwf')),
+        ('w2017.csv', R('4f6r-atgm')), ('wcur.csv', R('r9vx-mhnf')), ('w2021.csv', R('bxgr-t8xb')),
+        ('meta_limits_b.json', 'https://data.calgary.ca/api/views/twfe-ukxx.json')]
+for yr, i in [(1999,'hjim-jabu'),(2000,'xvc2-3u78'),(2001,'2fxp-yrhj'),(2002,'rmad-dcwz'),(2003,'6y2r-upvw'),(2004,'u7gw-tfe3'),(2005,'ygai-4gfr'),(2006,'5tdg-3k43'),(2007,'erx5-9f9e'),(2008,'xxwt-fdh5'),(2009,'5ira-8898'),(2010,'fbu6-4bnu'),(2011,'kquu-znqr'),(2013,'9vii-yr3z'),(2014,'aj43-35ks'),(2015,'idp8-ukcf'),(2016,'4c8i-ruhm'),(2017,'qe4n-g76r')]:
+    jobs.append(('cw_%d.csv' % yr, R(i)))
 def dl(j):
     if j[0].endswith('.bin'):
         try:
