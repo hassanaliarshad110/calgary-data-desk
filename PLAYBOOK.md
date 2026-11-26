@@ -43,6 +43,12 @@ What the numbers showed (Metricool, Nov 8-11): Facebook Reels 107-549 views, Ins
    Add `?utm_source=<facebook|instagram|youtube>&utm_medium=social&utm_campaign=<slug>` to the link so visits can be counted by post.
 6. **A reason to click.** The closing line on screen and in the caption offers something personal the site gives: "Find your community's number", "Work out your own bill", "See your ward". If the topic has no personal tool, offer the next story ("The full story, with the photos: link in the first comment").
 7. **Questions people can answer in one word.** "Which one: A or B?", "Did you know this? Yes or no", "Guess the year 👇". Still neutral and two-sided on news.
+7b. **Topic test before any fun fact is made, moved or swapped in (Hassan, Nov 26, 2026: "Don't make this stupid mistake again", after "Calgary passed one million people" was moved into a fun-fact slot).** A fun fact must pass all four, or it is replaced or the slot is skipped:
+   - **Twist:** it surprises someone who lives here (a myth broken, a hidden origin, something familiar that is not what it seems). A milestone, record or statistic everyone already knows or that happened years ago ("Calgary passed one million") is NOT a fun fact.
+   - **Hook line:** it can be said as one twist sentence in the 0b.2 / 0b.2b style. If the best hook is a plain statement, it fails.
+   - **No repeat:** not the same place, building or subject as any post in the 7 days before or after, including flagships, Origins and moments (check log.json and calendar.json).
+   - **Fits the day:** not back-to-back with a similar topic (two towers, two Bowness stories, etc.).
+   When a calendar topic has to move, pick the replacement with this test and write the reason in the calendar note; never fill a slot just to fill it.
 8. **Fewer, better.** About two posts a day: one fun fact a day (not two), the flagship every second day, news Monday/Wednesday/Friday, Calgary Origins weekly. A weak topic is skipped rather than posted.
 9. **Times follow the audience** (Metricool's best times for this Facebook page: weekdays 10:00 and 12:00, then 17:00-18:00; weekends about 10:00). See section 7's table.
 10. **Every Monday the weekly review** (its own scheduled task) reads last week's numbers (views, average watch, 3-second skip rate, shares, saves, comments, and site visits by utm_campaign where available), writes `insights.md`, and updates the "What's working" list below: which hooks, topics, lengths and times did best. Follow it when picking hooks and topics.
