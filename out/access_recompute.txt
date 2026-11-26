@@ -1,0 +1,124 @@
+{
+ "playground": {
+  "units": 572294.0,
+  "records": 499930,
+  "share_1": 0.7117,
+  "share_2": 0.9718,
+  "share_records_1": 0.7332,
+  "share_new_1": 0.6859,
+  "share_old_1": 0.7187,
+  "median_m": 278,
+  "ref": {
+   "units": 572294.0,
+   "records": 499930,
+   "share_primary": 0.8517,
+   "share_secondary": 0.9946,
+   "share_primary_records": 0.8706,
+   "share_new_primary": 0.743,
+   "share_old_primary": 0.8665,
+   "median_m": 226
+  }
+ },
+ "park": {
+  "units": 572294.0,
+  "records": 499930,
+  "share_1": 0.9891,
+  "share_2": 0.9997,
+  "share_records_1": 0.9906,
+  "share_new_1": 0.9713,
+  "share_old_1": 0.9919,
+  "median_m": 86,
+  "ref": {
+   "units": 572294.0,
+   "records": 499930,
+   "share_primary": 0.9943,
+   "share_secondary": 0.9997,
+   "share_primary_records": 0.9951,
+   "share_new_primary": 0.979,
+   "share_old_primary": 0.9968,
+   "median_m": 82
+  }
+ },
+ "transit_stop": {
+  "units": 572294.0,
+  "records": 499930,
+  "share_1": 0.9457,
+  "share_2": 0.9863,
+  "share_records_1": 0.9417,
+  "share_new_1": 0.696,
+  "share_old_1": 0.9743,
+  "median_m": 148,
+  "ref": {
+   "units": 572294.0,
+   "records": 499930,
+   "share_primary": 0.9457,
+   "share_secondary": 0.9863,
+   "share_primary_records": 0.9417,
+   "share_new_primary": 0.696,
+   "share_old_primary": 0.9743,
+   "median_m": 148
+  }
+ },
+ "community_centre": {
+  "units": 572294.0,
+  "records": 499930,
+  "share_1": 0.3906,
+  "share_2": 0.675,
+  "share_records_1": 0.3803,
+  "share_new_1": 0.1833,
+  "share_old_1": 0.4146,
+  "median_m": 1040,
+  "ref": {
+   "units": 572294.0,
+   "records": 499930,
+   "share_primary": 0.3906,
+   "share_secondary": 0.675,
+   "share_primary_records": 0.3803,
+   "share_new_primary": 0.1833,
+   "share_old_primary": 0.4146,
+   "median_m": 1040
+  }
+ },
+ "rec_centre": {
+  "units": 572294.0,
+  "records": 499930,
+  "share_1": 0.4995,
+  "share_2": 0.9518,
+  "share_records_1": 0.4828,
+  "share_new_1": 0.2973,
+  "share_old_1": 0.5202,
+  "median_m": 2044,
+  "ref": {
+   "units": 572294.0,
+   "records": 499930,
+   "share_primary": 0.4995,
+   "share_secondary": 0.9518,
+   "share_primary_records": 0.4828,
+   "share_new_primary": 0.2973,
+   "share_old_primary": 0.5202,
+   "median_m": 2044
+  }
+ },
+ "library": {
+  "units": 572294.0,
+  "records": 499930,
+  "share_1": 0.5094,
+  "share_2": 0.9742,
+  "share_records_1": 0.4838,
+  "share_new_1": 0.3295,
+  "share_old_1": 0.5297,
+  "median_m": 2052,
+  "ref": {
+   "units": 572294.0,
+   "records": 499930,
+   "share_primary": 0.5094,
+   "share_secondary": 0.9742,
+   "share_primary_records": 0.4838,
+   "share_new_primary": 0.3295,
+   "share_old_primary": 0.5297,
+   "median_m": 2052
+  }
+ }
+}
+seconds 700.5
+exit 0

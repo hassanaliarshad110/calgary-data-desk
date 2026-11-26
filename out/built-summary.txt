@@ -1,0 +1,3 @@
+built_at 2026-11-25 15:02 minutes 91.6 commit None
+steps 84 failed []
+live checks 36 not ok [[34, {"key": "camera_images", "name": "Traffic camera images", "publisher": "City of Calgary", "ok": false, "updated": null, "checked": "2026-11-25 16:02:01", "detail": "The open data portal answered 403: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\"/>\r\n<title>403 - Forbidden: Ac", "ms": 304}]]

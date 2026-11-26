@@ -1,0 +1,7 @@
+{'PASS': 30, 'NOTE': 28, 'FAIL': 6}
+FAIL | City budget | 2023-2032 (open budget fqax-i3nz): departments add to each year's total; business units to their department | [('2024', 'operating', 'Corporate Services', 'units', 370.115, 370.113), ('2025', 'capital', 'Corporate Services', 'units', 191.03, 191.032), ('2026', 'operating', 'Operational Services', 'units', 2031.013, 2031.015), ('2026', 'operating', 'Corporate Services', 'units', 432.451, 432.449)]
+FAIL | City budget: property tax by ward | municipal: the levy shown equals the levy in the bylaw (within $5) | {'residential': 1378401556, 'non_residential': 1141158380, 'farm_land': 1305107, 'total': 2520865042} vs {'residential': 1378401552, 'non_residential': 1141158372, 'farm_land': 1305110, 'total': 2520865034}
+FAIL | City budget: property tax by ward | education: classes add to the total | 1,235,731,196 vs 1,235,731,199
+FAIL | City budget: property tax by ward | Wards add up to Calgary: municipal | 2,519,313,820 vs 2,520,865,042 (difference -1,551,222)
+FAIL | City budget: property tax by ward | Wards add up to Calgary: education | 1,235,376,018 vs 1,235,731,199 (difference -355,181)
+FAIL | City budget: property tax by ward | Wards add up to Calgary: total | 3,754,689,838 vs 3,756,596,241 (difference -1,906,403)

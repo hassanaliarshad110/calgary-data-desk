@@ -1,0 +1,1063 @@
+Data sources
+
+Every dataset Calgary Insight uses, what it shows, and what you can ask for: download, analyze or chart
+
+All City datasets
+When each part is refreshed
+
+Calgary time. Each source is read again on this schedule; a source that publishes less often (yearly, quarterly) is simply read again and kept until it changes.
+
+When	What is refreshed
+Every morning, about 4:20 a.m.
+a backup start at 5:10 a.m. if the first does not begin
+	All City of Calgary open data on every screen (311, permits, development, traffic, child care, schools, amenities, property tax), Calgary Police crime data, council and committee votes, House of Commons votes and bills, the City's performance measures, Invest in Calgary businesses, infrastructure condition, Calgary Capital Markets totals, weather. A full build takes one to two hours, and Visiting Calgary's weather (the current year's daily records and the forecast).
+With every update to the website	The same full refresh as the morning one.
+Every evening, about 5:30 p.m.	Calgary News: the day's edition, with pictures added within the hour.
+Every week	Growth vs amenities (distance from every home, crowding, scores), election results, the City's Suburban Residential Growth forecast, major projects in every ward (Government of Alberta Major Projects), park land and facilities already planned, private amenities and the sights and places to stay on Visiting Calgary (OpenStreetMap).
+Every Monday, checked by hand	Promises and commitments on Civic Accountability and whether each is kept, City facilities being built that the provincial list misses (fire stations, libraries, recreation), each ward's hand-checked projects, the Calgary Capital Markets company list, and Visiting Calgary's facts, events, fares and visitor figures. Each change is checked against its source before it is published.
+Every month	Homes on the City's property roll (the growth model and the population build-up).
+Live, while you look	Bus positions (every 30 seconds), the live population counter, traffic cameras, and each source under "Live connections" below when tested.
+Live connections
+
+Each source asked directly now, with no saved copies: one small request each. Test one, or all of them together.
+
+36 sources
+Test all
+Source	Publisher	Status	Time	Source last updated	What came back	
+Link
+
+311 Service Requests iahh-g8bj	City of Calgary	Not tested				Test
+Traffic Incidents 35ra-9556	City of Calgary	Not tested				Test
+Building Permits c2es-76ed	City of Calgary	Not tested				Test
+Development Permits 6933-unw5	City of Calgary	Not tested				Test
+Road Construction Projects sizs-hgef	City of Calgary	Not tested				Test
+Current Year Property Assessments (growth model) 4bsw-nn7w	City of Calgary	Not tested				Test
+Census Population by Community f9wk-wej9	City of Calgary	Not tested				Test
+Census Households by Community msjx-5ygv	City of Calgary	Not tested				Test
+Census by Ward (who lives here) k4pr-cznc	City of Calgary	Not tested				Test
+Ward Boundaries tz8z-hyaz	City of Calgary	Not tested				Test
+Community District Boundaries surr-xmvs	City of Calgary	Not tested				Test
+City Boundary erra-cqp9	City of Calgary	Not tested				Test
+Recreation Facilities hxfu-6d96	City of Calgary	Not tested				Test
+Community Services (libraries, community centres) x34e-bcjz	City of Calgary	Not tested				Test
+Calgary Transit Stops muzh-c9qc	City of Calgary	Not tested				Test
+Playground Equipment bdu9-amk8	City of Calgary	Not tested				Test
+Parks Seating (benches, picnic tables) ikeb-n5bc	City of Calgary	Not tested				Test
+Parks Sport Equipment da6k-wpxb	City of Calgary	Not tested				Test
+Parks Plumbing Fixtures (washrooms, fountains) jjkg-kv4n	City of Calgary	Not tested				Test
+Parks Wayfinder Garbage and Recycle fwyk-8pth	City of Calgary	Not tested				Test
+Parks Off Leash Areas enr4-crti	City of Calgary	Not tested				Test
+Parks Sites kami-qbfh	City of Calgary	Not tested				Test
+Public Trees tfs4-3wwa	City of Calgary	Not tested				Test
+Schools (locations) fd9t-tdn2	City of Calgary	Not tested				Test
+Parcel Address (placing child care) 9zvu-p8uz	City of Calgary	Not tested				Test
+Traffic Cameras k7p9-kppz	City of Calgary	Not tested				Test
+Calgary Open Budget fqax-i3nz	City of Calgary	Not tested				Test
+City open data catalogue (2026 Census check, Data Genie search)	City of Calgary	Not tested				Test
+Community safety data (crime and disorder)	Calgary Police Service	Not tested				Test
+Crime Severity Index	Statistics Canada	Not tested				Test
+Rental Market Survey	CMHC	Not tested				Test
+Child Care Information	Government of Alberta	Not tested				Test
+Student enrolment by school	Government of Alberta	Not tested				Test
+Daily climate data, Calgary airport	Environment and Climate Change Canada	Not tested				Test
+Traffic camera images	City of Calgary	Not tested				Test
+Police news releases (missing persons)	City of Calgary Newsroom	Not tested				Test
+Search
+Publisher
+All publishers
+City of Calgary
+Government of Alberta
+Calgary Police Service
+CMHC
+Statistics Canada
+Environment and Climate Change Canada
+OpenStreetMap contributors
+311 Service Requests
+
+City of Calgary · iahh-g8bj
+
+Every 311 request: type, date, status, department, community and how it was made. Updated daily, back to 2012.
+
+Used in: Dashboard, Open issues, the study
+
+How it is counted
+How quickly departments close requests (Open issues): requests made in the period with status Open or Closed (duplicates and records marked for deletion left out), by agency_responsible and by service_name; days to close = closed_date minus requested_date, in bands (7 days or less, 8 to 30, 31 to 90, over 90) and on average over closed requests. Track a request: the record with that service_request_id, read live. Closed is the department closing the request in its system; the data does not say whether the problem was fixed, and has no notes on what was done or when the department took it on.
+A ward = requests whose comm_code is one of the ward's communities (the communities section of the dashboard lists them; a community belongs to the ward holding most of its area); Calgary = every request in the City's data, including those with no community (about 6% of a year's requests; they are in Calgary's totals but in no community or ward). Compare wards adds up the 14 wards, so its Calgary row counts only requests placed in a community.
+Requests in a period: requested_date from the first day of the first month to the last day of the last month. Duplicates are left out: status_description "Duplicate (Open)" and "Duplicate (Closed)".
+Per 1,000 residents a year: requests in the area's residential communities / its residents at the middle of the period, counted the way chosen in Settings (the City's total shared by actual growth by default), x 1,000 x (12 / months in the period). Business areas have no residents, so their requests are in the totals but not in the rates.
+Infrastructure reports: the 21 service types of the 311 study. Roads: Pothole Maintenance, Streetlight Maintenance, Traffic or Pedestrian Light Repair, Sidewalk - Curb and Gutter Repair, Roadway Maintenance, Backlane Maintenance, Debris on Street/Sidewalk/Boulevard, Signs - Missing - Damaged, Snow and Ice Control, Dead Animal Pick-Up, Pathway Concerns, Pathway Snow and Ice Concerns. Water (WATS): Catch Basin Concerns, Sewage Back-up, Sewer Maintenance, Water Main Break or Leak, Service and Main Valve Issues. Parks: Tree Concern - GIS, Garbage - GIS, Maintenance - GIS, Infrastructure - GIS.
+Open requests: status_description exactly "Open" at the last refresh, whatever date they were made. Open more than 90 days: also requested_date more than 90 days before the refresh.
+Closed within 7 days: requests made in the period with status "Closed" whose closed_date is within 7 days of requested_date, as a share of the period's requests closed so far (requests still open are not counted, so a short or recent period looks faster than it will end up). Calgary uses every request.
+Made on a phone (311 Calgary): source = "App" as a share of the period's non-duplicate requests (Web and Other, mostly phone, are the rest).
+City service: the first part of service_name, before " - " (Roads, WATS = Water, WRS = Waste and Recycling, CT = Calgary Transit, Bylaw, Parks and so on).
+The 311 study ("Who Calgary's 311 Hears"): requested_date 2024-10-01 to 2026-09-30, no duplicates, no blank community; it looked at nine northeast communities (56,473 requests).
+
+Check it yourself in Excel
+
+Filter comm_code to the area's community codes (see "Wards and their communities"), or to one community; for Calgary, no filter.
+Filter requested_date between the first and last day of the months you want (dates sort as text: 2025-11-01).
+Filter status_description: untick "Duplicate (Open)" and "Duplicate (Closed)". The row count is the number of requests.
+For open requests: status_description = "Open" only, and no date filter.
+
+Keep in mind
+
+Most requests are published at the community's centre point, not the exact address, so maps show 311 by community.
+The City's own 311 ward dashboard counts by ward boundary from its internal system and is 1 to 3% higher; it also divides by 2021 Census households for every year, which favours large, fast-growing households.
+"Closed" means the City closed the request, not always that the problem was fixed; some open requests are years old and may already be dealt with.
+
+Updated: Daily. Used in: Status board, map, 311 charts, Open issues, community table, newsletter.
+
+Download 311 data for our study period for Calgary
+Which Calgary community has the most open pothole requests?
+Chart 311 requests in Saddle Ridge by month for the last two years
+Traffic Incidents
+
+City of Calgary · 35ra-9556
+
+Reported traffic incidents with exact locations.
+
+Used in: Dashboard map and key figures
+
+How it is counted
+Incidents with start_dt_utc in the period whose exact latitude and longitude fall inside the ward's boundary (Ward Boundaries, tz8z-hyaz), or anywhere in Calgary for the whole city. The map shows the last 90 days of the period.
+
+Check it yourself in Excel
+
+Filter start_dt_utc to the period, then keep rows inside the ward (a map check; Calgary Insight does the boundary test exactly).
+
+Keep in mind
+
+The City stores times in UTC; Calgary Insight converts them to Calgary time and counts months by Calgary dates. These are incidents the City reports for traffic, not every collision.
+
+Updated: Continuously. Used in: Traffic incidents (status board), map points.
+
+Map traffic incidents in Calgary in the last 90 days
+Which Calgary intersections had the most traffic incidents this year?
+Building Permits
+
+City of Calgary · c2es-76ed
+
+Building permits with housing units, project cost and status.
+
+Used in: Homes in building permits
+
+How it is counted
+Homes in permits = the sum of housingunits on building permits in the area's communities (communitycode).
+"Applied for": applieddate in the period. "Issued": issueddate in the period.
+
+Check it yourself in Excel
+
+Filter communitycode to the area's community codes and issueddate (or applieddate) to the period; sum housingunits.
+
+Keep in mind
+
+Planned homes, not finished ones: a home is lived in a year or more after its permit.
+
+Updated: Daily. Used in: Homes in building permits (status board, community table, newsletter).
+
+How many new homes were approved in Cornerstone each year since 2020?
+Download building permits issued in Calgary this year
+Development Permits
+
+City of Calgary · 6933-unw5
+
+Development permit applications and decisions, with ward and community.
+
+Used in: Growth vs amenities
+
+How it is counted
+A ward = the permit's own ward field (e.g. "1" for Ward 1); Calgary = every permit. Applications = applieddate in the period.
+Types are grouped from category: New homes and apartment buildings; Secondary (basement) suites; Change of use; New commercial and industrial; Non-residential renovations; Home businesses; Signs; Relaxations (small exceptions to the rules); Home additions and renovations; Other.
+Larger developments = New homes and apartment buildings + Change of use + New commercial and industrial.
+Approved = statuscurrent "Released". In review also counts "Approved" (decided, not yet released while the appeal period runs), Hold and Pending Appeal. Also counted: refused, cancelled.
+
+Check it yourself in Excel
+
+Filter ward to the ward's number (no filter for Calgary) and applieddate to the period; count rows, or group by category.
+
+Keep in mind
+
+"Change of use" includes new child care centres, schools, clinics and places of worship.
+
+Updated: Daily. Used in: Development permit card, Growth vs amenities, newsletter.
+
+List new child care centres and schools applied for in Calgary this year
+Download development permits for Calgary in the last 12 months
+Land Use Redesignation Applications
+
+City of Calgary · 33vi-ew4s
+
+Rezoning applications (LOC numbers): changes to what a property may be used for, decided by Council at a public hearing. Placed in a ward and community by their map point.
+
+Used in: Growth vs amenities (Development and rezoning)
+
+How it is counted
+Land Use Redesignation Applications (33vi-ew4s): applications to change a property's land use district (rezoning), often with an outline plan or road closure; numbers start with LOC. Council decides them at a public hearing.
+The dataset has no ward or community, so each application is placed by its map point: inside the ward's boundary (Ward Boundaries, tz8z-hyaz) and in the community whose outline holds it.
+Listed: every application with applieddate in the period, plus every one still open (status New, Submitted, Under Review or Miscellaneous) made since 2020, because a rezoning can take a year or more. "Rezoning applications" counts those made in the period; "still open" counts the open ones whenever made.
+Proposed use = the current district (fromlud) to the proposed one (proposedlud), as the City writes them (for example R-CG to DC).
+
+Check it yourself in Excel
+
+Download 33vi-ew4s, filter applieddate to the period (or statuscurrent to the open ones) and keep the rows whose latitude and longitude fall in the area (a map check; Calgary Insight tests the boundary exactly).
+
+Keep in mind
+
+An approved LOC is a rezoning or outline plan, not a new community: new communities are Council growth applications (GA numbers; read_source key=data:new_communities).
+Public hearing dates are on Council agendas, not in the open data.
+A large application can list several districts at once, separated by commas, in the same order.
+
+Updated: Daily. Used in: Growth vs amenities (Development and rezoning), map layer, Data Genie.
+
+Which rezoning applications are still open in Calgary?
+Find rezoning application LOC2025-0257
+Road Construction Projects
+
+City of Calgary · sizs-hgef
+
+The City's larger road projects, with budgets and timing.
+
+Used in: Growth vs amenities, map
+
+How it is counted
+Projects whose location is inside the ward or just outside it (all of Calgary for the whole city).
+
+Check it yourself in Excel
+
+Download the dataset and look for projects in or near the area.
+
+Keep in mind
+
+Only the City's larger road projects; repairs and utility work are not listed.
+
+Updated: As projects change. Used in: Road construction card.
+
+What road construction is planned near Calgary?
+Recreation Facilities
+
+City of Calgary · hxfu-6d96
+
+Leisure centres, arenas, pools, sports fields and more.
+
+Used in: Amenities, Growth vs amenities
+
+How it is counted
+Homes: every residential record on the City's property assessment roll (Current Year Property Assessments, 4bsw-nn7w, with assessment_class = RE, property_type = LI and a residential use code starting with R), each roll number once, placed at the mean of its parcel outline's corners. A purpose-built rental building is one record on the roll; it counts as its number of units (from a matching building permit, or estimated from assessed value).
+Amenities, from the City's own inventory: playgrounds (Playground Equipment, bdu9-amk8, multi-play complexes that are active or installed), public parks (Parks Sites, kami-qbfh, every site except non-park and parks depot), transit stops (Calgary Transit Stops, muzh-c9qc, active), community centres and public libraries (Community Services, x34e-bcjz) and indoor recreation centres (Recreation Facilities, hxfu-6d96: leisure centres, aquatic and fitness centres and fieldhouses).
+For every home and every kind: the straight-line distance in metres to the nearest one, in ANY community. Parks: to the nearest point of the park's edge (sampled every 20 m), 0 for a home inside a park.
+Distances: playgrounds, parks and transit stops 400 m and 800 m; community centres 800 m and 1.6 km; recreation centres and libraries 2 km and 5 km. The 400 m for transit is the coverage distance in Calgary Transit's Service Guidelines (May 2025); every other distance is a choice, published at two distances so the effect of the choice shows.
+For a community, a ward and Calgary, weighted by units: the share of homes within the first distance and within the second; the same for homes built since 2021 and homes built before 2021 (homes with no year are in neither); the median distance.
+Reading for a community and an amenity, a stated rule, not a score: Too few homes (under 100 units); Measured gap (under half of units within the first distance); Check inventory (a measured gap where 25% or more of units were built in the last five years, because developer-built amenities may not be in the City's inventory yet); Most homes within reach (otherwise). Readings are never combined across amenities and there is no overall score.
+
+Check it yourself in Excel
+
+Take one community's homes from the property roll (4bsw-nn7w, the filters above) and the City's playgrounds (bdu9-amk8); for each home, the distance to the nearest playground = the smallest SQRT(((lon2 - lon1) x 69,880)^2 + ((lat2 - lat1) x 111,132)^2) metres; count the homes at 400 m or less and divide by all the homes.
+
+Keep in mind
+
+Straight-line distance, not walking distance: walking routes are longer (curved streets, rivers, rail lines, major roads), so every share is the most generous reading.
+The City's inventory only: school, developer, condominium, community association and private amenities are not counted.
+A transit stop is not a service level: how often buses come is not measured.
+The size and condition of amenities are not measured: each playground counts as one, whatever its size.
+Rental units are partly estimated: purpose-built rental buildings count as their units, from building permits or, where no permit matches, estimated from assessed value.
+New communities on the city's edge are naturally farther from shared facilities (recreation centres, libraries), some planned for later phases.
+Community centre data needs checking: several large communities show no community centre within 800 m, which may mean community association halls are missing from the City's list.
+
+Updated: Worked out again every week; the property roll every month. Used in: Growth vs amenities, Compare wards, Data Genie.
+
+Which recreation facilities are in or near Calgary?
+Community Services
+
+City of Calgary · x34e-bcjz
+
+Libraries, community centres and other City services.
+
+Used in: Amenities, Growth vs amenities
+
+How it is counted
+Homes: every residential record on the City's property assessment roll (Current Year Property Assessments, 4bsw-nn7w, with assessment_class = RE, property_type = LI and a residential use code starting with R), each roll number once, placed at the mean of its parcel outline's corners. A purpose-built rental building is one record on the roll; it counts as its number of units (from a matching building permit, or estimated from assessed value).
+Amenities, from the City's own inventory: playgrounds (Playground Equipment, bdu9-amk8, multi-play complexes that are active or installed), public parks (Parks Sites, kami-qbfh, every site except non-park and parks depot), transit stops (Calgary Transit Stops, muzh-c9qc, active), community centres and public libraries (Community Services, x34e-bcjz) and indoor recreation centres (Recreation Facilities, hxfu-6d96: leisure centres, aquatic and fitness centres and fieldhouses).
+For every home and every kind: the straight-line distance in metres to the nearest one, in ANY community. Parks: to the nearest point of the park's edge (sampled every 20 m), 0 for a home inside a park.
+Distances: playgrounds, parks and transit stops 400 m and 800 m; community centres 800 m and 1.6 km; recreation centres and libraries 2 km and 5 km. The 400 m for transit is the coverage distance in Calgary Transit's Service Guidelines (May 2025); every other distance is a choice, published at two distances so the effect of the choice shows.
+For a community, a ward and Calgary, weighted by units: the share of homes within the first distance and within the second; the same for homes built since 2021 and homes built before 2021 (homes with no year are in neither); the median distance.
+Reading for a community and an amenity, a stated rule, not a score: Too few homes (under 100 units); Measured gap (under half of units within the first distance); Check inventory (a measured gap where 25% or more of units were built in the last five years, because developer-built amenities may not be in the City's inventory yet); Most homes within reach (otherwise). Readings are never combined across amenities and there is no overall score.
+
+Check it yourself in Excel
+
+Take one community's homes from the property roll (4bsw-nn7w, the filters above) and the City's playgrounds (bdu9-amk8); for each home, the distance to the nearest playground = the smallest SQRT(((lon2 - lon1) x 69,880)^2 + ((lat2 - lat1) x 111,132)^2) metres; count the homes at 400 m or less and divide by all the homes.
+
+Keep in mind
+
+Straight-line distance, not walking distance: walking routes are longer (curved streets, rivers, rail lines, major roads), so every share is the most generous reading.
+The City's inventory only: school, developer, condominium, community association and private amenities are not counted.
+A transit stop is not a service level: how often buses come is not measured.
+The size and condition of amenities are not measured: each playground counts as one, whatever its size.
+Rental units are partly estimated: purpose-built rental buildings count as their units, from building permits or, where no permit matches, estimated from assessed value.
+New communities on the city's edge are naturally farther from shared facilities (recreation centres, libraries), some planned for later phases.
+Community centre data needs checking: several large communities show no community centre within 800 m, which may mean community association halls are missing from the City's list.
+
+Updated: Worked out again every week; the property roll every month. Used in: Growth vs amenities, Compare wards, Data Genie.
+
+List libraries and community centres in Calgary
+Playground Equipment
+
+City of Calgary · bdu9-amk8
+
+City playground equipment and play structures.
+
+Used in: Amenities, map, Growth vs amenities
+
+How it is counted
+Homes: every residential record on the City's property assessment roll (Current Year Property Assessments, 4bsw-nn7w, with assessment_class = RE, property_type = LI and a residential use code starting with R), each roll number once, placed at the mean of its parcel outline's corners. A purpose-built rental building is one record on the roll; it counts as its number of units (from a matching building permit, or estimated from assessed value).
+Amenities, from the City's own inventory: playgrounds (Playground Equipment, bdu9-amk8, multi-play complexes that are active or installed), public parks (Parks Sites, kami-qbfh, every site except non-park and parks depot), transit stops (Calgary Transit Stops, muzh-c9qc, active), community centres and public libraries (Community Services, x34e-bcjz) and indoor recreation centres (Recreation Facilities, hxfu-6d96: leisure centres, aquatic and fitness centres and fieldhouses).
+For every home and every kind: the straight-line distance in metres to the nearest one, in ANY community. Parks: to the nearest point of the park's edge (sampled every 20 m), 0 for a home inside a park.
+Distances: playgrounds, parks and transit stops 400 m and 800 m; community centres 800 m and 1.6 km; recreation centres and libraries 2 km and 5 km. The 400 m for transit is the coverage distance in Calgary Transit's Service Guidelines (May 2025); every other distance is a choice, published at two distances so the effect of the choice shows.
+For a community, a ward and Calgary, weighted by units: the share of homes within the first distance and within the second; the same for homes built since 2021 and homes built before 2021 (homes with no year are in neither); the median distance.
+Reading for a community and an amenity, a stated rule, not a score: Too few homes (under 100 units); Measured gap (under half of units within the first distance); Check inventory (a measured gap where 25% or more of units were built in the last five years, because developer-built amenities may not be in the City's inventory yet); Most homes within reach (otherwise). Readings are never combined across amenities and there is no overall score.
+
+Check it yourself in Excel
+
+Take one community's homes from the property roll (4bsw-nn7w, the filters above) and the City's playgrounds (bdu9-amk8); for each home, the distance to the nearest playground = the smallest SQRT(((lon2 - lon1) x 69,880)^2 + ((lat2 - lat1) x 111,132)^2) metres; count the homes at 400 m or less and divide by all the homes.
+
+Keep in mind
+
+Straight-line distance, not walking distance: walking routes are longer (curved streets, rivers, rail lines, major roads), so every share is the most generous reading.
+The City's inventory only: school, developer, condominium, community association and private amenities are not counted.
+A transit stop is not a service level: how often buses come is not measured.
+The size and condition of amenities are not measured: each playground counts as one, whatever its size.
+Rental units are partly estimated: purpose-built rental buildings count as their units, from building permits or, where no permit matches, estimated from assessed value.
+New communities on the city's edge are naturally farther from shared facilities (recreation centres, libraries), some planned for later phases.
+Community centre data needs checking: several large communities show no community centre within 800 m, which may mean community association halls are missing from the City's list.
+
+Updated: Worked out again every week; the property roll every month. Used in: Growth vs amenities, Compare wards, Data Genie.
+
+How many playgrounds does each Calgary community have?
+Calgary Transit Stops
+
+City of Calgary · muzh-c9qc
+
+Active and inactive transit stops.
+
+Used in: Amenities, map, Growth vs amenities
+
+How it is counted
+Homes: every residential record on the City's property assessment roll (Current Year Property Assessments, 4bsw-nn7w, with assessment_class = RE, property_type = LI and a residential use code starting with R), each roll number once, placed at the mean of its parcel outline's corners. A purpose-built rental building is one record on the roll; it counts as its number of units (from a matching building permit, or estimated from assessed value).
+Amenities, from the City's own inventory: playgrounds (Playground Equipment, bdu9-amk8, multi-play complexes that are active or installed), public parks (Parks Sites, kami-qbfh, every site except non-park and parks depot), transit stops (Calgary Transit Stops, muzh-c9qc, active), community centres and public libraries (Community Services, x34e-bcjz) and indoor recreation centres (Recreation Facilities, hxfu-6d96: leisure centres, aquatic and fitness centres and fieldhouses).
+For every home and every kind: the straight-line distance in metres to the nearest one, in ANY community. Parks: to the nearest point of the park's edge (sampled every 20 m), 0 for a home inside a park.
+Distances: playgrounds, parks and transit stops 400 m and 800 m; community centres 800 m and 1.6 km; recreation centres and libraries 2 km and 5 km. The 400 m for transit is the coverage distance in Calgary Transit's Service Guidelines (May 2025); every other distance is a choice, published at two distances so the effect of the choice shows.
+For a community, a ward and Calgary, weighted by units: the share of homes within the first distance and within the second; the same for homes built since 2021 and homes built before 2021 (homes with no year are in neither); the median distance.
+Reading for a community and an amenity, a stated rule, not a score: Too few homes (under 100 units); Measured gap (under half of units within the first distance); Check inventory (a measured gap where 25% or more of units were built in the last five years, because developer-built amenities may not be in the City's inventory yet); Most homes within reach (otherwise). Readings are never combined across amenities and there is no overall score.
+
+Check it yourself in Excel
+
+Take one community's homes from the property roll (4bsw-nn7w, the filters above) and the City's playgrounds (bdu9-amk8); for each home, the distance to the nearest playground = the smallest SQRT(((lon2 - lon1) x 69,880)^2 + ((lat2 - lat1) x 111,132)^2) metres; count the homes at 400 m or less and divide by all the homes.
+
+Keep in mind
+
+Straight-line distance, not walking distance: walking routes are longer (curved streets, rivers, rail lines, major roads), so every share is the most generous reading.
+The City's inventory only: school, developer, condominium, community association and private amenities are not counted.
+A transit stop is not a service level: how often buses come is not measured.
+The size and condition of amenities are not measured: each playground counts as one, whatever its size.
+Rental units are partly estimated: purpose-built rental buildings count as their units, from building permits or, where no permit matches, estimated from assessed value.
+New communities on the city's edge are naturally farther from shared facilities (recreation centres, libraries), some planned for later phases.
+Community centre data needs checking: several large communities show no community centre within 800 m, which may mean community association halls are missing from the City's list.
+
+Updated: Worked out again every week; the property roll every month. Used in: Growth vs amenities, Compare wards, Data Genie.
+
+Which Calgary communities have the fewest transit stops per resident?
+Traffic Cameras
+
+City of Calgary · k7p9-kppz
+
+Camera locations and their still images.
+
+Used in: Traffic cameras, Briefing screen
+
+How it is counted
+Cameras inside the ward or within about 2 km of it (every camera for the whole city). Each camera shows the City's latest image.
+
+Keep in mind
+
+The City keeps no recording.
+
+Updated: Images about once a minute. Used in: Traffic cameras, Briefing screen.
+
+List the traffic cameras in Calgary
+Property Assessments
+
+City of Calgary · 4bsw-nn7w
+
+Every property on the assessment roll, with year built.
+
+Used in: growth model (population today), Growth vs amenities (where every home is)
+
+How it is counted
+Homes: accounts on the Current Year Property Assessments roll (4bsw-nn7w) with assessment_class = "RE" (residential), property_type = "LI" (land with a building) and sub_property_use starting with "R" (a dwelling: R110 single detached, R120 and R201 semi-detached and rowhouse, R401/R402 condominium units and so on).
+Not homes, so left out: land-only lots (property_type "LO"), non-residential ("NR") and farmland ("FL") accounts, condo parking stalls (sub_property_use A004, addresses ending in V), storage units (A005, addresses ending in S) and other accessory or under-construction units (A000, A006, A007).
+A home counts as lived in one year after its year_of_construction, spread evenly through that year, so homes built this year and part of last year are not counted yet.
+A rental apartment building is one roll account; the model takes it out and adds its units instead (from matching building permits, data/rentals_all.json, every community in Calgary), at 2.0 people per unit or the community's 2021 household size if smaller.
+People per home = (2021 Census population - people in rental units) / homes lived in on Census day (May 11, 2021). Residents = people per home x homes lived in + people per unit x rental units.
+Where homes on Census day differ from 2021 Census households by more than 15% (24 communities across Calgary), new homes get the community's 2021 household size. Communities built since 2021 have no 2021 count, so they use the Calgary average (2.66 people per home).
+2021 Census: 2021 Federal Census Population by Community (f9wk-wej9, total_pop_household) and Households (msjx-5ygv, total_private_households). Calgary: 1,288,995 people in 500,990 households in its residential communities (the file also has 695 people and 405 households in business, industrial and park areas, which have no residents in the model).
+
+Check it yourself in Excel
+
+Download the roll for a community (4bsw-nn7w, comm_code = e.g. CNS).
+Filter assessment_class = RE, property_type = LI, sub_property_use begins with R: that is the number of homes (Cornerstone, Oct 2026: 4,987).
+Pivot year_of_construction against a count of roll_number to see homes by year built. The model then leaves out homes built in the last year or so and swaps rental buildings for their units (Cornerstone: 4,954).
+
+Keep in mind
+
+An estimate, not a count: it holds 2021 people per home and does not count basement suites or more people moving into existing homes, nor people in seniors' homes, residences and shelters, so the Calgary total from the same method is 8.2% below the City's estimate (1,467,348 against 1,598,075, November 2026).
+Tested against the City's 2016 and 2019 civic census: typical error about 3% by community, 6% for fast-growing ones. The 2026 Census by community (expected 2027) will allow a direct check.
+It follows homes, so it never shows a community shrinking: an older community whose households are getting smaller stays at its 2021 count until homes are added. No residential community is below its 2021 count in November 2026.
+The 2021 Census for the City of Calgary is 1,306,784 (Statistics Canada); the 223 residential communities add up to 1,288,995. The 17,789 in between live in industrial, park and residual areas the City's community file places in no community, and are not in any community or ward figure.
+
+Updated: Property roll: through the year; Census: 2021. Used in: Residents today, every rate per 1,000, population charts, children estimates.
+
+How many homes were built in Calgary each year since 2015?
+2021 Census by Community
+
+City of Calgary (Statistics Canada) · f9wk-wej9
+
+Population by age and household counts for every community, 2021.
+
+Used in: Population and children
+
+How it is counted
+Homes: accounts on the Current Year Property Assessments roll (4bsw-nn7w) with assessment_class = "RE" (residential), property_type = "LI" (land with a building) and sub_property_use starting with "R" (a dwelling: R110 single detached, R120 and R201 semi-detached and rowhouse, R401/R402 condominium units and so on).
+Not homes, so left out: land-only lots (property_type "LO"), non-residential ("NR") and farmland ("FL") accounts, condo parking stalls (sub_property_use A004, addresses ending in V), storage units (A005, addresses ending in S) and other accessory or under-construction units (A000, A006, A007).
+A home counts as lived in one year after its year_of_construction, spread evenly through that year, so homes built this year and part of last year are not counted yet.
+A rental apartment building is one roll account; the model takes it out and adds its units instead (from matching building permits, data/rentals_all.json, every community in Calgary), at 2.0 people per unit or the community's 2021 household size if smaller.
+People per home = (2021 Census population - people in rental units) / homes lived in on Census day (May 11, 2021). Residents = people per home x homes lived in + people per unit x rental units.
+Where homes on Census day differ from 2021 Census households by more than 15% (24 communities across Calgary), new homes get the community's 2021 household size. Communities built since 2021 have no 2021 count, so they use the Calgary average (2.66 people per home).
+2021 Census: 2021 Federal Census Population by Community (f9wk-wej9, total_pop_household) and Households (msjx-5ygv, total_private_households). Calgary: 1,288,995 people in 500,990 households in its residential communities (the file also has 695 people and 405 households in business, industrial and park areas, which have no residents in the model).
+
+Check it yourself in Excel
+
+Download the roll for a community (4bsw-nn7w, comm_code = e.g. CNS).
+Filter assessment_class = RE, property_type = LI, sub_property_use begins with R: that is the number of homes (Cornerstone, Oct 2026: 4,987).
+Pivot year_of_construction against a count of roll_number to see homes by year built. The model then leaves out homes built in the last year or so and swaps rental buildings for their units (Cornerstone: 4,954).
+
+Keep in mind
+
+An estimate, not a count: it holds 2021 people per home and does not count basement suites or more people moving into existing homes, nor people in seniors' homes, residences and shelters, so the Calgary total from the same method is 8.2% below the City's estimate (1,467,348 against 1,598,075, November 2026).
+Tested against the City's 2016 and 2019 civic census: typical error about 3% by community, 6% for fast-growing ones. The 2026 Census by community (expected 2027) will allow a direct check.
+It follows homes, so it never shows a community shrinking: an older community whose households are getting smaller stays at its 2021 count until homes are added. No residential community is below its 2021 count in November 2026.
+The 2021 Census for the City of Calgary is 1,306,784 (Statistics Canada); the 223 residential communities add up to 1,288,995. The 17,789 in between live in industrial, park and residual areas the City's community file places in no community, and are not in any community or ward figure.
+
+Updated: Property roll: through the year; Census: 2021. Used in: Residents today, every rate per 1,000, population charts, children estimates.
+
+Compare the age profile of Taradale and Cornerstone in the 2021 Census
+Social Disorder Statistics
+
+City of Calgary (Calgary Police Service) · 4evm-wx9a
+
+Police-reported social disorder by community. Public data ends July 2025.
+
+Used in: Dashboard
+
+How it is counted
+Events in the area's community regions over the latest 12 months published.
+
+Keep in mind
+
+No longer updated; the police community safety file replaces it.
+
+Updated: Ended July 2025. Used in: Disorder card only when the police file is not available.
+
+How did social disorder in Calgary change from 2023 to 2025?
+Schools
+
+City of Calgary · fd9t-tdn2
+
+School locations, boards and grades.
+
+Used in: Families and schools, map
+
+How it is counted
+School locations from the City's Schools dataset (fd9t-tdn2): schools inside the ward's boundary (every Calgary school for the whole city).
+Each one is matched by name to the Government of Alberta enrolment file for each school year; students = the school's total enrolment (kindergarten to grade 12), split into K to 9 and grades 10 to 12.
+
+Check it yourself in Excel
+
+Open the Alberta enrolment file for a school year and filter School Name to the area's schools; sum Total.
+
+Keep in mind
+
+Students are counted where they go to school, not where they live: many travel in from other wards and some of a ward's children go to school in another ward.
+
+Updated: Yearly. Used in: Schools cards, Families and schools, newsletter.
+
+List the schools in Calgary with their grades
+Ward and community boundaries
+
+City of Calgary · tz8z-hyaz
+
+Ward, community and City boundaries.
+
+Used in: Every map
+
+Child Care Information
+
+Government of Alberta
+
+Every licensed child care program, its capacity, and its inspections and enforcement, quarterly.
+
+Used in: Families and schools
+
+How it is counted
+One file per quarter listing every licensed program, its type, licensed capacity and every inspection.
+Programs are placed in a ward by their address (matched to the City's parcel addresses, 9zvu-p8uz).
+Spaces = licensed capacity of programs located in the area. Family day home agencies are listed but not counted, because the homes they oversee are spread across the city.
+Last 12 months: inspections (visits), non-compliance findings and enforcement actions (such as an order to remedy).
+
+Check it yourself in Excel
+
+Open the latest quarter's CSV, filter City = Calgary and the area's addresses or postal codes; sum Capacity once per program (the file has one row per inspection).
+
+Keep in mind
+
+Capacity is how many children may attend at once, not how many are enrolled.
+
+Updated: Quarterly. Used in: Families and schools, child care cards, newsletter.
+
+Which Calgary child care programs had an order to remedy in the last year?
+Student enrolment by school
+
+Government of Alberta
+
+Students enrolled at each school by grade, every school year.
+
+Used in: Families and schools
+
+How it is counted
+School locations from the City's Schools dataset (fd9t-tdn2): schools inside the ward's boundary (every Calgary school for the whole city).
+Each one is matched by name to the Government of Alberta enrolment file for each school year; students = the school's total enrolment (kindergarten to grade 12), split into K to 9 and grades 10 to 12.
+
+Check it yourself in Excel
+
+Open the Alberta enrolment file for a school year and filter School Name to the area's schools; sum Total.
+
+Keep in mind
+
+Students are counted where they go to school, not where they live: many travel in from other wards and some of a ward's children go to school in another ward.
+
+Updated: Yearly. Used in: Schools cards, Families and schools, newsletter.
+
+Which Calgary schools grew the most in the last five years?
+Community safety data
+
+Calgary Police Service
+
+Crime by type, community and ward each month since 2020, and calls about disorder. Published every quarter; the data behind the police Community Safety Dashboard.
+
+Used in: Dashboard (crime in Calgary), Newsletter
+
+How it is counted
+The spreadsheet linked as "Download Community Safety Data" on the police page; Calgary Insight finds the current link at each refresh and downloads it only when it changes.
+A ward = rows whose Ward column is that ward, e.g. "Ward 1" (the police assign each community to a ward, including the airport and business areas); Calgary = every row.
+Crime categories: assault and other violence (not domestic), street and commercial robbery, break and enter (homes, businesses, other premises such as garages), theft from vehicles and vehicle theft.
+The period is the dashboard period moved back to the latest month the police have published, compared with the same months a year before.
+Per 1,000 residents a year: the ward's crimes / the ward's residents x 1,000 x (12 / months). Residents are counted at the middle month of the police period (for October to September, April), the way chosen in Settings. Calgary: all crimes in the file / every residential community's residents counted the same way, so the ward and Calgary are compared like with like. Under the default count (the City's total) Calgary's residents are the City's own estimate, so Calgary's rate is about 16.3 per 1,000 for Oct 2025 to Sep 2026; under the growth model, whose Calgary total is about 9% lower, it reads about 17.8.
+Disorder: calls from the public about disorder (sheet "Disorder"), counted by event.
+A few incidents in the file have no ward, so the 14 wards add up to slightly less than Calgary (Oct 2025 to Sep 2026: 25,857 crimes against 25,861).
+
+Check it yourself in Excel
+
+Download the spreadsheet: the "Police data file" button on the Crime card, or "Download Community Safety Data" on the police page. Sheet "Community Crime": filter Ward (e.g. "Ward 1"), or a Community, or nothing for Calgary; Year and Month; sum "Total Crime".
+When someone asks for the source, open the police page at "Dashboard data download" (link above) and click "Download Community Safety Data": every crime number on Calgary Insight can be found in that spreadsheet.
+
+Keep in mind
+
+Totals on Calgary Insight always match the police file.
+The police leave out unfounded reports and domestic violence, and leave out incidents with no location; they advise against comparing the file directly with their dashboard.
+Small communities swing a lot from year to year; compare with several years before quoting a change.
+The police changed what counts as disorder in 2025, so older disorder years are not directly comparable, and a change against the year before can partly reflect the new definition.
+
+Updated: Every quarter (monthly figures). Used in: Crime tiles, Crime card, disorder card, Compare wards, newsletter, Data Genie.
+
+Which Calgary communities had the most vehicle thefts in the last 12 months?
+How has violent crime in Calgary changed compared with a year ago?
+Community Crime Statistics, 2012 to 2019
+
+City of Calgary (Calgary Police Service) · 848s-4m4z
+
+The older police crime counts by community and month, published on the City's open data site until 2019. For 2020 onward use Community safety data.
+
+Used in: Data Genie
+
+How did crime in Calgary communities change from 2012 to 2019?
+Rental Market Survey
+
+CMHC
+
+Average rent, vacancy and the number of purpose-built rental apartments, by bedroom count, for Calgary, the Northeast zone and the neighbourhood that covers Calgary. Surveyed each October.
+
+Used in: Dashboard (rents and vacancy), Newsletter
+
+How it is counted
+CMHC surveys purpose-built rental apartments (buildings of 3 or more rental units) every October.
+Read from the portal's Calgary tables: Average Rent, Vacancy Rate and Rental Universe, by bedroom count, for Calgary, each survey zone and each CMHC neighbourhood (see "Which CMHC rent area a ward gets").
+Average rent is what sitting tenants pay, not the asking rent for empty units. Vacancy = units empty and ready to rent on the survey date.
+
+Check it yourself in Excel
+
+On the CMHC portal, open Calgary > Primary Rental Market > Average Rent > Neighbourhoods, and choose Export to Spreadsheet (CSV).
+
+Keep in mind
+
+Condos rented out, basement suites and houses are not in the survey (CMHC's secondary market).
+CMHC neighbourhoods and zones do not follow community or ward lines; no figures exist by community.
+Letters are CMHC's reliability grades (a excellent to d use with caution); ** means not published.
+
+Updated: Yearly: surveyed each October, published in December or January. Used in: Rents and vacancy card, newsletter.
+
+How do rents in the Calgary area compare with Calgary?
+Ward profile (2021 Census)
+
+City of Calgary (Statistics Canada)
+
+Who lives in Calgary against Calgary: household size, ages, languages spoken at home, immigrants and recent arrivals, renters, crowding, housing costs, income and work. 2021 Census, the latest full count.
+
+Used in: Dashboard (who lives in Calgary), Data Genie
+
+How it is counted
+Figures are copied from the City's printed ward profile, the ward next to Calgary, and kept with Calgary Insight (data/ward5_profile_2021.json, so far for one ward; every other ward uses "Who lives in each ward" below). Nothing is estimated or grown: they describe May 2021.
+People in private households only; 2021 ward boundaries; income is for 2020; work questions refer to May 2021, during the pandemic.
+
+Check it yourself in Excel
+
+Open the ward's profile from the City's ward profiles page; each figure is in the table named on the card.
+
+Keep in mind
+
+Calgary has about 14% more homes and about 21% more residents than in 2021 (much more in new communities), so shares today may differ.
+Statistics Canada rounds counts to the nearest 5.
+
+Updated: 2021 Census (published 2023, revised July 2025); next: 2026 Census results from early 2027. Used in: Who lives here card, Data Genie reports.
+
+Which languages should Calgary notices be translated into, and how many residents would that reach?
+Crime Severity Index
+
+Statistics Canada
+
+How much police-reported crime there is and how serious it is, for Calgary and every large city, each year since 1998. City level, not by ward.
+
+Used in: Dashboard (crime in Calgary)
+
+How it is counted
+Overall, violent and non-violent index for the Calgary metropolitan area and other large cities, last 11 years, from Statistics Canada's Web Data Service.
+
+Check it yourself in Excel
+
+Download the table from the Statistics Canada page and filter Geography to Calgary, Alberta.
+
+Keep in mind
+
+City level only. The index weighs each crime by how serious it is (100 = Canada in 2006); it is not a count and cannot be compared with the police ward counts.
+
+Updated: Yearly, each July. Used in: Crime in Calgary compared with other cities, newsletter.
+
+How does Calgary's Crime Severity Index compare with Edmonton over the last 10 years?
+Daily climate data, Calgary airport
+
+Environment and Climate Change Canada
+
+Daily temperature, rain, snow and snow depth back to 1881. The airport station is inside Calgary.
+
+Used in: Data Genie
+
+How it is counted
+Daily temperature, rain, snow and snow on ground at the Calgary International Airport station (northeast Calgary), back to 1881; grouped by month or year on request. The forecast is Environment Canada's public forecast for Calgary, about 7 days ahead.
+
+Keep in mind
+
+One station for the whole city: snow and temperature vary across Calgary.
+
+Updated: Daily. Used in: Data Genie.
+
+How has Calgary's winter snowfall changed over the last 10 years?
+Chart the hottest summers in Calgary since 2000
+City population outlook
+
+City of Calgary (Corporate Economics)
+
+The City's population estimate and forecast for Calgary (Calgary and Region Economic Outlook 2026-2031, Spring 2026, Table 4, page 19), and its forecast of children. A published report, not open data: its figures are kept with Calgary Insight and updated with each new outlook.
+
+Used in: Residents today (the default way of counting), live counter, children
+
+How it is counted
+Four choices. The City's total, shared by actual growth, is the default (below). Growth model: each community's 2021 Census count grown with the homes on the property roll (see "Growth model" below).
+2021 Census, no growth: each community's 2021 Census count (total_pop_household, f9wk-wej9), unchanged. The City's own 311 ward dashboard counts this way (it divides by 2021 Census households).
+Grown to the City's total: all of Calgary adds up to the City's own population estimate for that month (Calgary and Region Economic Outlook 2026-2031, Spring 2026, Table 4 "City of Calgary Population Projection", page 19, Total Population as of April: estimates 2021-2025, forecast from 2026; November 2026 = 1,583,200 + 7/12 x (1,608,700 - 1,583,200) = 1,598,075). Communities built since 2021 have no 2021 count, so they keep their growth model count (19 communities, 29,547 people in November 2026). Every other community is its 2021 Census count x one factor = (the City's estimate - those new communities) / Calgary's 2021 Census count (1,288,995 people in private households). November 2026: (1,598,075 - 29,547) / 1,288,995 = 1.217, so each older community is 21.7% above its 2021 count. A ward is its communities added up.
+The factor is more than growth: the City's estimate also counts people the 2021 Census count of private households leaves out (seniors' homes, residences, shelters) and those it missed. On Census day the City's estimate was already 2.7% above the Census count (1,323,783 against 1,288,995); the City's own growth from May 2021 to November 2026 is 20.7%. So "growth since 2021" under this choice reads higher than real growth, and growth for amenity flags always uses the growth model.
+City's total, shared by actual growth: all of Calgary still adds up to the City's own estimate for that month, but growth is placed where homes were built. Each community = its 2021 Census count x f + the growth the growth model measured there (growth model count - 2021 count; for a community built since 2021, all of it). f = 1 + (the City's estimate - Calgary's growth model total) / Calgary's 2021 Census count. November 2026: 1 + (1,598,075 - 1,467,348) / 1,288,995 = 1.1014. So the City's growth the homes do not explain (more people per home since 2021, seniors' homes, residences, shelters, the Census undercount: 130,727 people) is spread over every community as a share of its 2021 count, and the growth from homes built stays where they were built. f is not people per home: it multiplies each community's 2021 count (+10.14% for every community). Going from the growth model, which already holds the 2021 count once, only the extra is added: residents = growth model + 2021 count x (f - 1). Calgary as a whole: 1,288,995 x 1.1014 + (1,467,348 - 1,288,995) = 1,598,075, the City's own estimate. A ward or community is worked out the same way from its own 2021 count and growth model count. Children: each community's 2021 children x one factor + the children the growth model adds for its new homes, the factor set so Calgary matches the City's forecast of children.
+The largest community takes the person or two that rounding leaves over, so Calgary matches the City's figure exactly under both City's-total choices.
+Every figure that uses residents (rates per 1,000, children, crowding at playgrounds and parks, Compare wards, property tax and budget per resident, the briefing screen) is worked out again under the choice; the website works all of them out under every choice each morning.
+Rates per 1,000 residents = count / residents in the middle of the period x 1,000 x (12 / months).
+
+Check it yourself in Excel
+
+2021 Census: filter f9wk-wej9 to the area's community codes and add up total_pop_household (all of Calgary's residential communities: 1,288,995).
+City's total, shared by actual growth: f = 1 + (City's estimate - the growth model total over every residential community) / 1,288,995; each community = 2021 count x f + (growth model count - 2021 count).
+Grown to the City's total: subtract the growth model residents of communities with no 2021 count from the City's population for the date, divide by 1,288,995 (f9wk-wej9 total_pop_household added up over every residential community), and multiply each older community's 2021 count by the result.
+
+Keep in mind
+
+"Shared by actual growth" relies on the growth model's homes: where homes are missing from the property roll (some new towers until they are assessed), that community's growth is understated and every other community gets a little more of the factor.
+The growth model follows homes built, so it can undercount established areas that grew by filling existing homes and towers (more people per unit); "grown to the City's total" grows every community at the same rate, so it undercounts communities where many homes were built.
+The 2026 Census was taken in May 2026, but its counts are not published yet (population counts are due February 10, 2027); until then every choice is an estimate except the 2021 Census itself.
+
+Updated: Census: 2021; property roll: through the year; City outlook: each spring. Used in: Residents, every rate per 1,000, population charts, children estimates, newsletter, Data Genie.
+
+How is the population of Martindale worked out today?
+2021 Census households by community
+
+City of Calgary (Statistics Canada) · msjx-5ygv
+
+Private households by community in the 2021 Census.
+
+Used in: Growth model (people per home)
+
+How it is counted
+Homes: accounts on the Current Year Property Assessments roll (4bsw-nn7w) with assessment_class = "RE" (residential), property_type = "LI" (land with a building) and sub_property_use starting with "R" (a dwelling: R110 single detached, R120 and R201 semi-detached and rowhouse, R401/R402 condominium units and so on).
+Not homes, so left out: land-only lots (property_type "LO"), non-residential ("NR") and farmland ("FL") accounts, condo parking stalls (sub_property_use A004, addresses ending in V), storage units (A005, addresses ending in S) and other accessory or under-construction units (A000, A006, A007).
+A home counts as lived in one year after its year_of_construction, spread evenly through that year, so homes built this year and part of last year are not counted yet.
+A rental apartment building is one roll account; the model takes it out and adds its units instead (from matching building permits, data/rentals_all.json, every community in Calgary), at 2.0 people per unit or the community's 2021 household size if smaller.
+People per home = (2021 Census population - people in rental units) / homes lived in on Census day (May 11, 2021). Residents = people per home x homes lived in + people per unit x rental units.
+Where homes on Census day differ from 2021 Census households by more than 15% (24 communities across Calgary), new homes get the community's 2021 household size. Communities built since 2021 have no 2021 count, so they use the Calgary average (2.66 people per home).
+2021 Census: 2021 Federal Census Population by Community (f9wk-wej9, total_pop_household) and Households (msjx-5ygv, total_private_households). Calgary: 1,288,995 people in 500,990 households in its residential communities (the file also has 695 people and 405 households in business, industrial and park areas, which have no residents in the model).
+
+Check it yourself in Excel
+
+Download the roll for a community (4bsw-nn7w, comm_code = e.g. CNS).
+Filter assessment_class = RE, property_type = LI, sub_property_use begins with R: that is the number of homes (Cornerstone, Oct 2026: 4,987).
+Pivot year_of_construction against a count of roll_number to see homes by year built. The model then leaves out homes built in the last year or so and swaps rental buildings for their units (Cornerstone: 4,954).
+
+Keep in mind
+
+An estimate, not a count: it holds 2021 people per home and does not count basement suites or more people moving into existing homes, nor people in seniors' homes, residences and shelters, so the Calgary total from the same method is 8.2% below the City's estimate (1,467,348 against 1,598,075, November 2026).
+Tested against the City's 2016 and 2019 civic census: typical error about 3% by community, 6% for fast-growing ones. The 2026 Census by community (expected 2027) will allow a direct check.
+It follows homes, so it never shows a community shrinking: an older community whose households are getting smaller stays at its 2021 count until homes are added. No residential community is below its 2021 count in November 2026.
+The 2021 Census for the City of Calgary is 1,306,784 (Statistics Canada); the 223 residential communities add up to 1,288,995. The 17,789 in between live in industrial, park and residual areas the City's community file places in no community, and are not in any community or ward figure.
+
+Updated: Property roll: through the year; Census: 2021. Used in: Residents today, every rate per 1,000, population charts, children estimates.
+
+2021 Census by ward
+
+City of Calgary (Statistics Canada) · k4pr-cznc
+
+Ages, households, families and work for every ward in the 2021 Census (with jzfi-qvb4 and b5q8-82zn, and the same tables for Calgary).
+
+Used in: Who lives in each ward
+
+How it is counted
+Population and Dwellings by Ward (k4pr-cznc), Families and Households by Ward (jzfi-qvb4) and Employment by Ward (b5q8-82zn), against the same three tables for the whole city (fm6w-acnx, u75s-8rqc, 8w7b-2yqx).
+Shares: children 0 to 14 and seniors 65+ / people in private households; households of 5 or more and people living alone / private households; one-parent families / census families; in the labour force / people 15+; unemployed and self-employed / the labour force.
+One ward also shows the City's printed ward profile (languages, newcomers, housing costs, income), kept with Calgary Insight (see "The City's printed ward profile").
+
+Check it yourself in Excel
+
+Download the three ward tables and divide the columns named above.
+
+Keep in mind
+
+2021 Census on the wards as they were in 2021; the 2026 Census replaces it when the City publishes it.
+
+Updated: Census 2021; read again weekly. Used in: Who lives here (every ward), Compare wards, Data Genie.
+
+How big are households in each ward?
+Parks Seating
+
+City of Calgary · ikeb-n5bc
+
+Park benches and picnic tables.
+
+Used in: Growth vs amenities, Assets list
+
+How it is counted
+Each item is placed in a community by its location inside the community boundary (surr-xmvs).
+Transit stops: status = ACTIVE. Playgrounds: playground equipment with life_cycle_status = ACTIVE and type_description = "MULTI PLAY COMPLEX" (one per play structure). Recreation facilities and community services (libraries, community centres) as listed.
+Per 1,000 residents and children per playground use today's estimated residents and children.
+
+Check it yourself in Excel
+
+Download the dataset, filter the conditions above and count by community.
+
+Keep in mind
+
+School playgrounds and private play areas are not City equipment and are not counted.
+
+Updated: As the City updates them. Used in: Amenities by community, map layers, Growth vs amenities.
+
+Parks Sport Equipment
+
+City of Calgary · da6k-wpxb
+
+Basketball hoops, sports field goal posts and disc golf baskets.
+
+Used in: Growth vs amenities, Assets list
+
+How it is counted
+Each item is placed in a community by its location inside the community boundary (surr-xmvs).
+Transit stops: status = ACTIVE. Playgrounds: playground equipment with life_cycle_status = ACTIVE and type_description = "MULTI PLAY COMPLEX" (one per play structure). Recreation facilities and community services (libraries, community centres) as listed.
+Per 1,000 residents and children per playground use today's estimated residents and children.
+
+Check it yourself in Excel
+
+Download the dataset, filter the conditions above and count by community.
+
+Keep in mind
+
+School playgrounds and private play areas are not City equipment and are not counted.
+
+Updated: As the City updates them. Used in: Amenities by community, map layers, Growth vs amenities.
+
+Parks Plumbing Fixtures
+
+City of Calgary · jjkg-kv4n
+
+Park washrooms and drinking fountains.
+
+Used in: Growth vs amenities
+
+How it is counted
+Each item is placed in a community by its location inside the community boundary (surr-xmvs).
+Transit stops: status = ACTIVE. Playgrounds: playground equipment with life_cycle_status = ACTIVE and type_description = "MULTI PLAY COMPLEX" (one per play structure). Recreation facilities and community services (libraries, community centres) as listed.
+Per 1,000 residents and children per playground use today's estimated residents and children.
+
+Check it yourself in Excel
+
+Download the dataset, filter the conditions above and count by community.
+
+Keep in mind
+
+School playgrounds and private play areas are not City equipment and are not counted.
+
+Updated: As the City updates them. Used in: Amenities by community, map layers, Growth vs amenities.
+
+Parks Wayfinder Garbage and Recycle
+
+City of Calgary · fwyk-8pth
+
+Park garbage and recycling bins.
+
+Used in: Growth vs amenities
+
+How it is counted
+Each item is placed in a community by its location inside the community boundary (surr-xmvs).
+Transit stops: status = ACTIVE. Playgrounds: playground equipment with life_cycle_status = ACTIVE and type_description = "MULTI PLAY COMPLEX" (one per play structure). Recreation facilities and community services (libraries, community centres) as listed.
+Per 1,000 residents and children per playground use today's estimated residents and children.
+
+Check it yourself in Excel
+
+Download the dataset, filter the conditions above and count by community.
+
+Keep in mind
+
+School playgrounds and private play areas are not City equipment and are not counted.
+
+Updated: As the City updates them. Used in: Amenities by community, map layers, Growth vs amenities.
+
+Parks Off Leash Areas
+
+City of Calgary · enr4-crti
+
+Off-leash dog areas (outlines).
+
+Used in: Growth vs amenities, Assets list
+
+How it is counted
+Each item is placed in a community by its location inside the community boundary (surr-xmvs).
+Transit stops: status = ACTIVE. Playgrounds: playground equipment with life_cycle_status = ACTIVE and type_description = "MULTI PLAY COMPLEX" (one per play structure). Recreation facilities and community services (libraries, community centres) as listed.
+Per 1,000 residents and children per playground use today's estimated residents and children.
+
+Check it yourself in Excel
+
+Download the dataset, filter the conditions above and count by community.
+
+Keep in mind
+
+School playgrounds and private play areas are not City equipment and are not counted.
+
+Updated: As the City updates them. Used in: Amenities by community, map layers, Growth vs amenities.
+
+Parks Sites
+
+City of Calgary · kami-qbfh
+
+Every City park site (outlines), for park space and neighbourhood park space.
+
+Used in: Growth vs amenities (distance to a park, park crowding), Assets list
+
+How it is counted
+Homes: every residential record on the City's property assessment roll (Current Year Property Assessments, 4bsw-nn7w, with assessment_class = RE, property_type = LI and a residential use code starting with R), each roll number once, placed at the mean of its parcel outline's corners. A purpose-built rental building is one record on the roll; it counts as its number of units (from a matching building permit, or estimated from assessed value).
+Amenities, from the City's own inventory: playgrounds (Playground Equipment, bdu9-amk8, multi-play complexes that are active or installed), public parks (Parks Sites, kami-qbfh, every site except non-park and parks depot), transit stops (Calgary Transit Stops, muzh-c9qc, active), community centres and public libraries (Community Services, x34e-bcjz) and indoor recreation centres (Recreation Facilities, hxfu-6d96: leisure centres, aquatic and fitness centres and fieldhouses).
+For every home and every kind: the straight-line distance in metres to the nearest one, in ANY community. Parks: to the nearest point of the park's edge (sampled every 20 m), 0 for a home inside a park.
+Distances: playgrounds, parks and transit stops 400 m and 800 m; community centres 800 m and 1.6 km; recreation centres and libraries 2 km and 5 km. The 400 m for transit is the coverage distance in Calgary Transit's Service Guidelines (May 2025); every other distance is a choice, published at two distances so the effect of the choice shows.
+For a community, a ward and Calgary, weighted by units: the share of homes within the first distance and within the second; the same for homes built since 2021 and homes built before 2021 (homes with no year are in neither); the median distance.
+Reading for a community and an amenity, a stated rule, not a score: Too few homes (under 100 units); Measured gap (under half of units within the first distance); Check inventory (a measured gap where 25% or more of units were built in the last five years, because developer-built amenities may not be in the City's inventory yet); Most homes within reach (otherwise). Readings are never combined across amenities and there is no overall score.
+
+Check it yourself in Excel
+
+Take one community's homes from the property roll (4bsw-nn7w, the filters above) and the City's playgrounds (bdu9-amk8); for each home, the distance to the nearest playground = the smallest SQRT(((lon2 - lon1) x 69,880)^2 + ((lat2 - lat1) x 111,132)^2) metres; count the homes at 400 m or less and divide by all the homes.
+
+Keep in mind
+
+Straight-line distance, not walking distance: walking routes are longer (curved streets, rivers, rail lines, major roads), so every share is the most generous reading.
+The City's inventory only: school, developer, condominium, community association and private amenities are not counted.
+A transit stop is not a service level: how often buses come is not measured.
+The size and condition of amenities are not measured: each playground counts as one, whatever its size.
+Rental units are partly estimated: purpose-built rental buildings count as their units, from building permits or, where no permit matches, estimated from assessed value.
+New communities on the city's edge are naturally farther from shared facilities (recreation centres, libraries), some planned for later phases.
+Community centre data needs checking: several large communities show no community centre within 800 m, which may mean community association halls are missing from the City's list.
+
+Updated: Worked out again every week; the property roll every month. Used in: Growth vs amenities, Compare wards, Data Genie.
+
+Public Trees
+
+City of Calgary · tfs4-3wwa
+
+Every tree the City maintains.
+
+Used in: Growth vs amenities
+
+How it is counted
+Each item is placed in a community by its location inside the community boundary (surr-xmvs).
+Transit stops: status = ACTIVE. Playgrounds: playground equipment with life_cycle_status = ACTIVE and type_description = "MULTI PLAY COMPLEX" (one per play structure). Recreation facilities and community services (libraries, community centres) as listed.
+Per 1,000 residents and children per playground use today's estimated residents and children.
+
+Check it yourself in Excel
+
+Download the dataset, filter the conditions above and count by community.
+
+Keep in mind
+
+School playgrounds and private play areas are not City equipment and are not counted.
+
+Updated: As the City updates them. Used in: Amenities by community, map layers, Growth vs amenities.
+
+Community District Boundaries
+
+City of Calgary · surr-xmvs
+
+Community outlines, for placing amenities and programs in a community.
+
+Used in: Every community count
+
+How it is counted
+Ward outlines: Ward Boundaries (tz8z-hyaz), with each ward's councillor. Community outlines: Community District Boundaries (surr-xmvs), with each community's class (Residential, Industrial, Major Park ...) and sector.
+Each community belongs to the one ward holding most of its area. The area is measured by laying a 24 x 24 grid of points over the community and counting how many fall in each ward; a sliver too thin for the grid goes to the ward holding its middle point.
+Residential communities (class "Residential") have residents and per-resident rates; the others (industrial and business areas, major parks, undeveloped land) are listed and counted in totals but have no rates.
+So every community is in exactly one ward and the 14 wards add up to Calgary.
+
+Check it yourself in Excel
+
+Open both datasets' maps on data.calgary.ca and lay one over the other; a community split by a ward line goes to the side with most of its area.
+
+Keep in mind
+
+A community split between two wards is counted whole in one of them, so a ward's figures can differ slightly from figures the City or the police publish by exact ward line (the police assign each community to one ward too).
+
+Updated: Outlines read again every week. Used in: Every ward view, Compare wards, City view.
+
+Amenities that are not the City's
+
+OpenStreetMap contributors (Open Database Licence)
+
+Playgrounds, parks, basketball courts, fitness stations and dog parks mapped by volunteers, read through the Overpass API every week; every one matching a City amenity is taken out.
+
+Used in: Growth vs amenities (optional filter: playgrounds and parks), Assets list
+
+How it is counted
+Ask OpenStreetMap (Overpass API) for every playground, fitness station, basketball court, dog park and park inside a box around Calgary.
+Take out every one the City already lists: a City playground (Playground Equipment) within 80 m of its middle or inside its outline; City fitness equipment or a basketball hoop (Parks Sport Equipment) within 40 m or inside it; a dog park whose middle is inside a City off-leash area or within 100 m of one's middle; a park with 30% or more of its area inside City park sites (Parks Sites). Anything tagged as operated or owned by the City of Calgary is the City's too.
+Take out closed, customers-only, paid and indoor ones. Ones marked private (residents only: homeowners' association, condo) are kept apart and count only when the "include private ones" filter is on (off by default); they still take part in the duplicate check. Also take out the same thing mapped twice (within 25 m or inside an outline already counted; parks 30% inside one already counted), and parks under 0.05 ha or over 20 ha.
+Place each one left in the community holding its middle and count it: playgrounds, fitness stations and dog parks 1 each; basketball courts their hoops tag (else 1); parks their area in hectares, added to neighbourhood park space.
+They are listed beside the City's counts in the Assets list. On Growth vs amenities they count only when the "Count private amenities accessible to the community" filter is on (off by default), and then only for playgrounds and parks: the distance to the nearest one and the crowding. An OpenStreetMap park is a circle of its own area around its middle. Gated, residents-only ones count only when "Also count gated" is ticked too.
+
+Check it yourself in Excel
+
+Open overpass-turbo.eu, run the query for one kind (for example leisure=playground) over a community, and compare each result with the City's Playground Equipment points (bdu9-amk8) on the same map.
+
+Keep in mind
+
+Volunteer-edited: coverage is uneven; a missing feature means nobody has mapped it yet.
+Matching is by distance: two separate playgrounds closer than 80 m count as one City one.
+A fitness station may hold several pieces, the City counts each piece.
+
+Updated: Read again every week with the City's assets. Used in: Growth vs amenities (the optional "Count private amenities" filter, playgrounds and parks), Assets list.
+
+List the private amenities accessible to the community in Taradale with links
+Calgary Open Budget
+
+City of Calgary · fqax-i3nz
+
+Every line of the City's operating and capital budget, by department and business unit.
+
+Used in: City budget
+
+How it is counted
+Every line of Calgary Open Budget, added up by year, budget (operating or capital), department and business unit. Operating is "Operating Expenditures Net of Recoveries"; capital is "Capital". Amounts are in millions of dollars, as the City publishes them.
+Per resident = the budget / the City's population estimate for this month.
+Capital already approved for 2027 and later years (no budget has been set for them yet) comes from the City's 2027-2030 Budget open data (nnnm-9sfh, budget_status Approved), the same figures as the screen's table of the proposed budget. The open budget also lists those years but puts some projects (the Green Line above all) in different years, so its figures for them are not used and the two are never added together.
+By ward: the City does not publish its budget by ward. The ward table adds up only the published costs of City and partner projects and road projects listed on Calgary Insight with a location in the ward (the largest dollar amount named in each project's cost).
+
+Check it yourself in Excel
+
+Download fqax-i3nz, filter year and fund, and sum budget by budget_department.
+
+Keep in mind
+
+Project costs are often spread over several years and shared with other governments, so they do not add up to a year's capital budget.
+
+Updated: Each budget adjustment (November); read daily. Used in: City budget, Data Genie.
+
+What is the City's 2026 operating budget by department?
+Budget book: operating revenue by source
+
+City of Calgary
+
+Operating revenue by source (property tax, user fees, franchise fees and so on) from the 2026 Budget as approved, Budget Overview, page 24. A published book, not open data: kept with Calgary Insight and updated with each budget.
+
+Used in: City budget
+
+2026 Property Tax Bylaw
+
+City of Calgary (Alberta Municipal Affairs)
+
+The 2026 tax rates and levy (Bylaw 9M2026), applied to the assessment roll (4bsw-nn7w) to estimate property tax by ward and community. A bylaw document: its rates are kept with Calgary Insight.
+
+Used in: City budget (property tax by ward)
+
+How it is counted
+The City does not publish property tax by ward. Assessed values: the Current Year Property Assessments roll (4bsw-nn7w), added up by community and sub_property_use, for residential (re_assessed_value), non-residential (nr_assessed_value) and farm land (fl_assessed_value).
+Exempt property left out: non-residential property whose sub_property_use starts with S (public and institutional: hospitals, schools, universities, places of worship, utilities, police and fire, airport) or P (parks, reserves, libraries, arenas, pools, museums).
+Scaling: what is left is multiplied, class by class, so Calgary's total equals the taxable assessment in the bylaw (municipal: residential x 0.9765, non-residential x 0.7885). Exemptions the roll does not show are spread evenly.
+Tax billed = scaled assessment x the bylaw's rates. 2026 municipal (City) rates: residential 0.0038906, non-residential 0.0179986, farm land 0.0339557; education (Province): residential 0.0027593, non-residential 0.0041502, farm land 0.0027593.
+City share = the municipal tax; the rest of the bill is the Province's education tax, which the City collects and passes to the Government of Alberta. Paid on homes = residential tax / all tax billed.
+A ward is the sum of its communities (the City's community-to-ward table). Calgary's total equals the bylaw's levy: $3,756.6M ($2,520.9M City, $1,235.7M education).
+Against the budget: the 2026 budget book's "Property tax, including levies" ($2,551M) also holds local improvement and community revitalization levies and tax from properties added during the year, which cannot be placed by ward; the City share placed in wards is $2,521M.
+
+Check it yourself in Excel
+
+Download 4bsw-nn7w with comm_code, sub_property_use, re/nr/fl_assessed_value; drop rows with nr value and sub_property_use starting S or P; sum by community; multiply by the factors and rates above.
+
+Keep in mind
+
+An estimate of tax billed (the levy), not tax collected: arrears, appeals and in-year changes are not published by property.
+Exempt business property the roll does not flag is spread evenly, so wards with much public or institutional land (Ward 7 downtown, industrial wards 9 and 10) carry the most uncertainty.
+
+Updated: Roll: through the year, read weekly; rates: each spring (bylaw). Used in: City budget (property tax by ward), Data Genie.
+
+How much property tax does each ward pay?
+Missing-person appeals
+
+Calgary Police Service (City newsroom)
+
+Missing-person news releases, read live from the City newsroom feed; nothing is saved, and an appeal disappears when the police take it down.
+
+Used in: Dashboard
+
+Data Genie can also find and use any of the City of Calgary's other open datasets (over 400, alongside data from Calgary Police, the Province of Alberta, Statistics Canada, CMHC, Environment Canada and OpenStreetMap): ask about a topic and it searches the catalogue. Downloads are saved as spreadsheet files (CSV) to the Files tab.

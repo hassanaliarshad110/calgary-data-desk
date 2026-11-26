@@ -1,0 +1,43 @@
+live:
+total 11876
+drwxr-xr-x 3 runner runner    4096 Nov 26 00:03 .
+drwxr-xr-x 6 runner runner    4096 Nov 26 00:03 ..
+-rw-r--r-- 1 runner runner 2133830 Nov 26 00:03 access_base.json
+-rw-r--r-- 1 runner runner  221651 Nov 26 00:03 accountability.json
+-rw-r--r-- 1 runner runner   71392 Nov 26 00:03 budget.json
+-rw-r--r-- 1 runner runner    5472 Nov 26 00:03 built.json
+-rw-r--r-- 1 runner runner 7717999 Nov 26 00:03 business.json
+-rw-r--r-- 1 runner runner    6057 Nov 26 00:03 capmkt.json
+drwxr-xr-x 2 runner runner    4096 Nov 26 00:03 city_actual
+-rw-r--r-- 1 runner runner  753832 Nov 26 00:03 elections.json
+-rw-r--r-- 1 runner runner  297243 Nov 26 00:03 infra.json
+-rw-r--r-- 1 runner runner   13705 Nov 26 00:03 live.json
+-rw-r--r-- 1 runner runner  122731 Nov 26 00:03 methods.json
+-rw-r--r-- 1 runner runner   44769 Nov 26 00:03 planned.json
+-rw-r--r-- 1 runner runner   71637 Nov 26 00:03 safety_rank.json
+-rw-r--r-- 1 runner runner  261449 Nov 26 00:03 school_tax.json
+-rw-r--r-- 1 runner runner    2330 Nov 26 00:03 settings.json
+-rw-r--r-- 1 runner runner   83418 Nov 26 00:03 srg_raw.json
+-rw-r--r-- 1 runner runner  116591 Nov 26 00:03 tax.json
+-rw-r--r-- 1 runner runner   62323 Nov 26 00:03 tourism.json
+-rw-r--r-- 1 runner runner  123321 Nov 26 00:03 visit.json
+
+live/city_actual:
+total 42840
+drwxr-xr-x 2 runner runner    4096 Nov 26 00:03 .
+drwxr-xr-x 3 runner runner    4096 Nov 26 00:03 ..
+-rw-r--r-- 1 runner runner 7573798 Nov 26 00:03 w0.json
+-rw-r--r-- 1 runner runner 2334367 Nov 26 00:03 w1.json
+-rw-r--r-- 1 runner runner 2191897 Nov 26 00:03 w10.json
+-rw-r--r-- 1 runner runner 3106897 Nov 26 00:03 w11.json
+-rw-r--r-- 1 runner runner 2397816 Nov 26 00:03 w12.json
+-rw-r--r-- 1 runner runner 2010618 Nov 26 00:03 w13.json
+-rw-r--r-- 1 runner runner 1937060 Nov 26 00:03 w14.json
+-rw-r--r-- 1 runner runner 2037064 Nov 26 00:03 w2.json
+-rw-r--r-- 1 runner runner 1845391 Nov 26 00:03 w3.json
+-rw-r--r-- 1 runner runner 2680129 Nov 26 00:03 w4.json
+-rw-r--r-- 1 runner runner 2353834 Nov 26 00:03 w5.json
+-rw-r--r-- 1 runner runner 2270165 Nov 26 00:03 w6.json
+-rw-r--r-- 1 runner runner 4101735 Nov 26 00:03 w7.json
+-rw-r--r-- 1 runner runner 3478912 Nov 26 00:03 w8.json
+-rw-r--r-- 1 runner runner 3508851 Nov 26 00:03 w9.json

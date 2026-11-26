@@ -1,0 +1,122 @@
+Live map
+
+Calgary News stories where they happened, traffic incidents as they are reported, the newest 311 requests and police-reported crime by community
+
+News stories
+Traffic, live
+311 requests
+Crime by community
+Today's stories
+The last 7 days
+The last 30 days
+The last 60 days
+Public safety only
+Traffic updated just now
++
+−
+ Leaflet | Esri, OpenStreetMap contributors · City of Calgary, Calgary Police Service
+STORIES ON THE MAP
+13
+TRAFFIC INCIDENTS, LAST 24 H
+29
+311 REQUESTS, LAST 3 DAYS
+off
+Stories
+Proposed city budget would add 3,535 staff positions by 2030, with transit asking for the most
+City Hall · Calgary Municipal Building · 25 Nov 2026
+School board says the city must secure high school land before the province will fund new schools
+Housing and development · Glacier Ridge · 25 Nov 2026
+Recreation groups press council as 12 planned facilities go unfunded in the four-year capital plan
+City Hall · Forest Lawn · 25 Nov 2026
+Police request comes under scrutiny as council moves into budget questions, with housing a theme at the hearing
+City Hall · Ward 2 · 24 Nov 2026
+Woman dies after fire in Kingsland apartment building, one of three fires overnight
+Public safety · 7700 block of Elbow Drive S.W., Kingsland · 24 Nov 2026
+SAIT's Highwood restaurant reopens as new spots open downtown and in Marda Loop and Rosso closes a café
+Business and economy · Downtown Commercial Core · 24 Nov 2026
+Three Calgary police officers charged with manslaughter in 2024 death of man at southeast hotel
+Public safety · Carriage House Hotel, 9030 Macleod Trail S.E. · 23 Nov 2026
+Cavalry FC beats Atletico Ottawa 3-2 at Spruce Meadows to win the CPL's first league-and-championship double
+Community and events · ATCO Field at Spruce Meadows · 22 Nov 2026
+Alberta signs air deal with Discover Airlines for Edmonton-Frankfurt flight, backing Calgary service too
+Business and economy · Calgary International Airport · 21 Nov 2026
+University of Calgary study calls for round-the-clock family access in children's intensive care
+Community and events · Alberta Children's Hospital · 21 Nov 2026
+Water use under the limit for a 16th straight day as Bearspaw crews connect a new steel joint
+Environment and weather · Parkdale · 20 Nov 2026
+Cavalry FC hosts Atletico Ottawa in Saturday's CPL Final as the Festival of Lights opens
+Community and events · ATCO Field at Spruce Meadows · 20 Nov 2026
+Flames host the league-leading Wild at the Saddledome on Thursday night
+Community and events · Scotiabank Saddledome · 19 Nov 2026
+Traffic now
+Eastbound Old Banff Coach Road and Cougar Ridge Drive SW
+Nov 25, 5:14 p.m. · Two vehicle incident. Blocking EB right lane
+Westbound 17 Avenue and 45 Street SW
+Nov 25, 4:54 p.m. · Traffic incident. Blocking the WB right lane.
+144 Avenue and 24 Street NW
+Nov 25, 4:42 p.m. · Traffic incident.
+Southbound Deerfoot Trail and Southland Drive SE
+Nov 25, 3:41 p.m. · Two vehicle incident. Blocking the on-ramp lanes to Southland Dr
+59 Avenue and 11 Street SE
+Nov 25, 3:33 p.m. · Traffic incident.
+Westbound Glenmore Trail after Elbow Drive SW
+Nov 25, 3:27 p.m. · Stalled vehicle. Blocking the WB right lane.
+Southbound Deerfoot Trail after Memorial Drive SE
+Nov 25, 1:45 p.m. · Traffic incident. Blocking the SB right lane
+Southbound Crowchild approaching Glenmore Trail SW
+Nov 25, 1:24 p.m. · Multi-vehicle incident. Blocking the SB right lane
+Chaparral Boulevard and 194 Avenue SE
+Nov 25, 12:41 p.m. · Traffic incident.
+Northbound 52 Street and New Brighton Drive SE
+Nov 25, 12:36 p.m. · Two vehicle incident. Blocking NB right lane
+Glenmore Trail approaching 14 Street SW
+Nov 25, 12:20 p.m. · Two vehicle incident. Blocking the middle lane
+90 Avenue and Oakmount Drive SW
+Nov 25, 11:00 a.m. · Single vehicle incident.
+Westbound Country Hills Boulevard approaching 112 Avenue NW
+Nov 25, 9:43 a.m. · Traffic incident. Blocking the right two lanes
+16 Avenue at 19 Street NE
+Nov 25, 9:21 a.m. · Two vehicle incident. Blocking the EB middle lane
+Northbound Macleod Trail at 11 Avenue SW
+Nov 25, 7:49 a.m. · Stalled vehicle. Blocking the right lane.
+Midlake Boulevard at Macleod Trail SE
+Nov 25, 7:44 a.m. · Traffic incident. Blocking the EB right lane
+Westbound Memorial Drive approaching 44 Street NE
+Nov 25, 7:36 a.m. · Multi-vehicle incident. Blocking the right lane.
+64 Avenue and Travois Cr NW
+Nov 25, 7:28 a.m. · Two vehicle incident.
+Blackfoot Trail approaching 19 Street SE
+Nov 25, 7:17 a.m. · Two vehicle incident. Blocking the right lane
+Southbound Sarcee Trail approaching Bow Trail SW
+Nov 25, 7:01 a.m. · Two vehicle incident. Blocking the left lane.
+Southbound Stoney Trail at 16 Avenue NW
+Nov 25, 6:45 a.m. · Stalled vehicle. On the exit shoulder.
+Macleod Trail approaching James McKevitt Road SE
+Nov 25, 6:07 a.m. · Multi-vehicle incident. Blocking the right lanes
+Stoney Trail at 17 Avenue SW
+Nov 25, 5:55 a.m. · Traffic incident.
+52 Street at 61 Avenue SE
+Nov 25, 4:34 a.m. · Traffic signals are flashing red. The crew has been dispatched.
+Eastbound Memorial Drive approaching 4 Street NE
+Nov 24, 9:58 p.m. · Traffic incident. Blocking the right lane
+Crimes per 1,000 residents a year:
+under 8
+over 26
+(each colour is a fifth of Calgary's communities)
+
+What each layer is. News stories: Calgary News articles placed where the story happened, as its sources describe it; each popup gives the key facts and links to the original reports. Traffic: incidents the City of Calgary reports (dataset 35ra-9556), read again every 2 minutes while this page is open. 311 requests: requests for City service (potholes, noise, graffiti), not crimes; the City's file is updated daily (dataset iahh-g8bj). Crime by community: crimes reported to the Calgary Police Service per 1,000 residents a year, Oct 2025 to Sep 2026. The police publish counts by community and month, not the place of each crime, so single crimes are not on the map.
+
+What you can do
+
+If you see something happening, or have information about a crime
+
+911
+Emergency: a crime in progress, a fire, or someone hurt or in danger
+403-266-1234
+Calgary Police non-emergency: report a crime after the fact or something suspicious
+1-800-222-8477
+Crime Stoppers: give a tip anonymously (calgarycrimestoppers.org)
+311
+City services: potholes, graffiti, noise, an abandoned vehicle (403-268-2489 from outside Calgary)
+511
+Alberta 511: highway and road conditions

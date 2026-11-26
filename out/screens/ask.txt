@@ -1,0 +1,89 @@
+Data Genie
+
+Ask anything about Calgary's data: it finds the right datasets among over 400 from seven public sources, runs the numbers, and answers with charts, tables, maps, downloads and full analysis reports (PDF)
+
+Fast
+Thorough
+Past chats
+New chat
+What would you like to know?
+
+Ask about the area you have selected (all of Calgary or any ward) or anything the City publishes as open data: for casework, briefings or council meetings. Data Genie answers from the data already in this app first (the dashboard's figures, police crime data, files you have saved), and goes to the City's website only when it needs more.
+
+Calgary in figures
+
+What Data Genie answers from, among over 400 public datasets: the area selected on the dashboard, Nov 2025 to Oct 2026; police figures Oct 2025 to Sep 2026
+
+RESIDENTS
+1,598,075
+311 REQUESTS, LAST 12 MONTHS
+484,826
++0.4% on the year before
+OPEN 311 REQUESTS NOW
+79,217
+65,249 open over 90 days
+CRIMES PER 1,000 RESIDENTS
+16.3
+Calgary 16.3
+CRIMES REPORTED TO POLICE
+25,861
+-1.5% on the year before
+CLOSED WITHIN 7 DAYS
+75.8%
+311 requests by month
+Nov
+Dec
+Jan
+Feb
+Mar
+Apr
+May
+Jun
+Jul
+Aug
+Sep
+Oct
+Most common open 311 requests
+Roads - Sidewalk - Curb and Gutter Repair
+5,592
+Roads - Signs - Missing - Damaged
+4,369
+Roads - Backlane Maintenance
+3,091
+Roads - Roadway Maintenance
+2,669
+Roads - NEW Signal, Left Turn or Pedestrian Light Request
+2,401
+Roads - Safety and Education
+2,010
+Crimes by kind
+Theft from vehicles
+7,570
+Assault
+4,790
+Vehicle theft
+3,832
+Break-ins: businesses
+2,847
+Other violence
+2,688
+Break-ins: homes
+1,602
+Which community here has the most open pothole requests?
+Make a report: how have vehicle thefts and break-ins changed in each community here since 2021, with recommendations and an action plan
+Brief me on Taradale: open requests, the oldest ones and what changed this year
+Download all open 311 requests in Martindale and Taradale
+What are the ten largest requests in the proposed 2027 to 2030 budget, and which page of the City's document is each on?
+Which communities here had the most vehicle thefts this year, and how does that compare with last year?
+Compare Calgary's Crime Severity Index with Edmonton and Vancouver over 10 years
+What would the proposed City budget cost a typical Calgary home, and how does Calgary compare with other cities?
+Data Genie is locked
+Sign in with an approved Google account, or enter the passcode. Pick a question and it waits in the box below until you unlock. To get access, contact the developer.
+Passcode
+Unlock
+
+Or sign in with Google if the developer has approved your email.
+
+Your question
+
+Enter to ask. Shift and Enter for a new line. Answers come from the City's open data and show their sources.
