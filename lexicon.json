@@ -1,5 +1,5 @@
 {
- "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-25 2026.",
+ "_note": "TTS-only spellings (captions keep the correct spelling). Tested with edge-tts ur-PK-AsadNeural / ar-SA-HamedNeural + Whisper medium, Nov 13-26 2026.",
  "ur": {
   "اللہ کے نبی ﷺ": "اللہ کے نبی",
   "رسولِ خدا، صلی اللہ علیہ وآلہ وسلم،": "اللہ کے نبی",
@@ -118,7 +118,8 @@
   "وصلّى": "وَصَلَّى",
   "ثُوَيْبة": "ثُوَيْبَةُ",
   "فكمن وحشيٌّ": "فَكَمَنَ وَحْشِيٌّ",
-  "فسكت ولم": "فَسَكَتَ ولم"
+  "فسكت ولم": "فَسَكَتَ ولم",
+  "أمُّ سَلَمة": "أُمُّ سَلَمَة"
  },
  "_rule_ur": "Urdu narration never says رسولِ خدا or the spoken salawat (mispronounced). Write اللہ کے نبی ﷺ in the script: the voice says 'Allah ke Nabi', the captions show ﷺ."
 }
