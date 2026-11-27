@@ -4614,6 +4614,18 @@
    "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=27&timeframe=2&submit=Download+Data"
+  ],
+  "checks_later": [
+   {
+    "checked_at": "2026-11-27 16:42 Calgary (22:43 UTC)",
+    "temp": "CYYC SWOB local day so far (07Z-22Z): max 8.7 C (21Z), min 1.2 C (10-11Z). Below top-5 high threshold (12.8 C); min still 6th warmest, not top 5.",
+    "gust": "max 47.9 km/h (22Z): below 80",
+    "alerts": "api.weather.gc.ca bbox Calgary: 0 alerts at 22:43 UTC",
+    "traffic_incidents_today_so_far": "19 (feed latest 22:02 UTC); prior 365-day max 111, p99 53: not rare",
+    "news": "web search 16:42: no confirmed rare Calgary event today",
+    "verdict": "nothing qualifies",
+    "evidence": "production/2026-11-27-MOMENT-watch/check-1641/"
+   }
   ]
  },
  {
