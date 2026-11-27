@@ -1,0 +1,5 @@
+# Check gate — independent agent (2 rounds), Nov 28 2026
+Round 1: PROBLEMS — (1) n4 "The lion doesn't mock them" false (he calls them fools) → "The lion concedes one point"; (2) n7 "The animals win the debate" fragile (verses end on the lion's argument) → "The lion takes their deal anyway. Then the hare, the weakest of them, makes a plan... and outwits him."; (3) n5 "life" removes who gives the ladder → "the Creator"; (4) q1 card could read as Rumi's own advice → label "The animals said:"; (5) q2 ellipses on the card look like omissions → em dashes; (6) n8 "Hope" → "Trust" (source contrasts trust with effort).
+Round 2: VERDICT: APPROVED.
+- q1, q2 word for word with Whinfield, Masnavi Book I, Story V (sacred-texts page via GitHub mirror). n4 matches "True; but though trust be our mainstay"; n5 "in essence" ladder; n6 "sleeping amidst highwaymen" in essence; n7 matches the prose summary + "Devising a stratagem with himself"; "weakest" supported by "such silly beast as he".
+- Quotes 25 of 190 words (13%). One action (n9), comment question (n10), Follow Awazzzz (n11). No banned template phrases. Non-sectarian; the "tie the camel" saying deliberately left out.
