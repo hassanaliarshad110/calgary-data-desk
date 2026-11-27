@@ -4451,9 +4451,134 @@
      "youtube short"
     ],
     "publish_at": "2026-11-26T18:30 America/Edmonton",
+    "status": "PUBLISHED",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "publicUrls": [
+     "https://facebook.com/reel/3062106257461862",
+     "https://www.instagram.com/reel/DgOZgvVoBEF/",
+     "https://www.youtube.com/shorts/c0PhMeEMl8k"
+    ],
+    "confirmed_by": "2026-11-27 FLAGSHIP run"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "FLAGSHIP",
+  "type": "flagship",
+  "category": "Calgary story",
+  "title": "Built to Stay Empty: Calgary's Flood Defences Since 2013 (Calgary Insight Origins)",
+  "topic_used": "June 2013 flood (rain on snowmelt; Bow 8x, Elbow inflow 12x regular flow; ~80,000 evacuated from 26 communities; downtown inaccessible for days; Saddledome first 10 rows underwater; one Calgarian died; ~$5B Alberta-wide impact assessed) and what was built since: Glenmore Dam 2.5 m steel gates (storage doubled), downtown barrier (completed 2022) and Sunnyside/Hillhurst barrier (Sept 2026), Springbank Off-stream Reservoir (dry, ~15 km west, 70.2 million m3, ~28,000 Olympic pools; with Glenmore designed for a 2013-sized Elbow flood); City says Elbow communities protected and flood risk down ~70%; Bow upstream option (relocated Ghost Dam) still in engineering and regulatory approvals.",
+  "changed_from_calendar": null,
+  "angle_note": "2013 flood was named in the Nov 8-9 history overview; this run takes the new angle (defences built since, told through the dry reservoir).",
+  "central_figure": "Springbank Off-stream Reservoir: dry most of the time, can store 70.2 million cubic metres (about 28,000 Olympic pools) of Elbow River flood water (CBC News; RenewCanada, May 2025)",
+  "sources": [
+   "https://www.calgary.ca/water/flooding/history-calgary.html",
+   "https://www.calgary.ca/water/flooding/resilience-plan.html",
+   "https://newsroom.calgary.ca/2025-flood-risk-normal-as-calgarys-overall-flood-resiliency-reaches-all-time-high/",
+   "https://newsroom.calgary.ca/how-the-2013-floods-left-a-lasting-impact-and-sparked-a-legacy/",
+   "https://newsroom.calgary.ca/calgary-flood-protection-significantly-improved-since-2013-floods/",
+   "https://www.alberta.ca/springbank-off-stream-reservoir",
+   "https://www.renewcanada.net/springbank-off-stream-reservoir-completed-to-protect-albertans-from-future-floods/",
+   "https://www.cbc.ca/news/canada/calgary/springbank-reservoir-operation-flooding-1.7540174",
+   "https://www.ctvnews.ca/calgary/article/sunnyside-flood-barrier-completed-after-two-years-of-construction/"
+  ],
+  "length_s": {
+   "short": 76.64,
+   "wide": 105.56,
+   "teaser": 26.15
+  },
+  "video_path": "studio-videos/2026-11-27-FLAGSHIP/ (built-to-stay-empty-short.mp4, -youtube.mp4, -teaser.mp4, -thumb.jpg, -thumb-yt.jpg)",
+  "package": "packages/2026-11-27-FLAGSHIP-built-to-stay-empty.md",
+  "production": "production/2026-11-27-FLAGSHIP/",
+  "identity": "Storyteller lead (night map dive onto the dry basin, rain over the real city, swelling Bow and Elbow, 3D downtown with the Saddledome, dusk orbits); Data Explainer bars, counters and pool grid; Civic Analyst cutaways (Glenmore gates, how SR1 works) and attributed evidence chips; studio library brief run (3D downtown, rain, documentary bed)",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 27,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-27-FLAGSHIP.md"
+  },
+  "narration": {
+   "lane": "studio-probe",
+   "voice": "af_heart",
+   "lines": 20,
+   "asr_mean_acc": 0.972,
+   "check": "lines 8 and 12 only: recogniser wrote 2.5 meters / 70.2 / 28,000 as digits (normalisation, not mispronunciation); Bow in the voice list"
+  },
+  "qc": {
+   "stills": "pass after fixes (SR1 basin moved north of the Elbow and centred, Ghost pin and north arrow clear of text, wide header clearance, L6 text, thumbnail pin label removed)",
+   "final": "pass",
+   "scores": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "notes": [
+    "-14.6 / -14.5 / -14.6 LUFS",
+    "all cuts under 2:00, closing question frame, no end card",
+    "Short 76.6 s (1.6 s over the 75 s target: L14 Bow caveat kept at the auditor's request)",
+    "first hook word on screen at 0.0 s in all three; camera moving at frame 0"
+   ]
+  },
+  "link": "https://calgaryinsight.ca/?view=infra&utm_source=<platform>&utm_medium=social&utm_campaign=built-to-stay-empty",
+  "link_check": "WebFetch of calgaryinsight.ca refused in the unattended run (PROVENANCE_REQUIRED); page confirmed in the site source on main (ui/index.html data-view=\"infra\": water network, paving, condition figures).",
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 444659868,
+    "uuid": "-711464588547176405",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-711464588547176405",
+    "providers": [
+     "instagram REEL",
+     "youtube short"
+    ],
+    "file": "short",
+    "publish_at": "2026-11-27T12:30",
     "status": "scheduled",
     "firstCommentText": true,
     "videoThumbnailUrl": true
+   },
+   {
+    "metricool_id": 444660265,
+    "uuid": "9012862173243130330",
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=9012862173243130330",
+    "providers": [
+     "facebook POST",
+     "youtube video"
+    ],
+    "file": "youtube",
+    "publish_at": "2026-11-27T17:30",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true,
+    "note": "created as 444660033, updated once to fix chapters (each >= 10 s)"
+   }
+  ],
+  "pending_link": [
+   {
+    "file": "built-to-stay-empty-teaser.mp4",
+    "raw_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-27-FLAGSHIP/built-to-stay-empty-teaser.mp4",
+    "thumbnail_url": "https://raw.githubusercontent.com/hassanaliarshad110/calgary-data-desk/studio-videos/2026-11-27-FLAGSHIP/built-to-stay-empty-thumb.jpg",
+    "providers": [
+     "facebook REEL"
+    ],
+    "caption_without_link": "West of Calgary, there's a reservoir that's meant to stay empty.\nCalgary Insight Origins: after the 2013 flood, Calgary and Alberta built new dam gates, river barriers and a dry reservoir that only fills in a big flood on the Elbow.\nDo you feel safer from the next big flood? Yes or no. Drop your thoughts below 👇\n\n▶ Full film on our YouTube channel: Calgary Insight\n🔔 Follow @calgaryinsight for more Calgary stories\n🌐 More Calgary stories, studies and analysis: calgaryinsight.ca\n\n#Calgary #yyc #yycflood #ElbowRiver #CalgaryInsightOrigins",
+    "first_comment": "🔗 See how Calgary's water network and roads are holding up: https://calgaryinsight.ca/?view=infra&utm_source=facebook&utm_medium=social&utm_campaign=built-to-stay-empty",
+    "post_at": "2026-11-27T20:00",
+    "link_to": 444660265,
+    "scheduled": false,
+    "status": "pending_link",
+    "note": "Facebook-only Reel at 20:00; the link-up task puts '▶ Full film: https://youtu.be/<id>' on the first line of firstCommentText (Nov 13 rule), caption keeps no YouTube URL. link_to is post B (Facebook video + YouTube video)."
    }
   ]
  },

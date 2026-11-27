@@ -1,0 +1,424 @@
+{
+ "summary": {
+  "v": {
+   "lines": 20,
+   "check": [
+    8,
+    12
+   ],
+   "mean_acc": 0.972
+  }
+ },
+ "lexicon_entries": 74,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "West of Calgary, there's a reservoir that's meant to stay empty.",
+    "said": "West of Calgary, there's a reservoir that's meant to stay empty.",
+    "heard": "West of Calgary, there's a reservoir that's meant to stay empty.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.584,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "To understand why, go back to June twenty thirteen.",
+    "said": "To understand why, go back to June twenty thirteen.",
+    "heard": "To understand why, go back to June 2013.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.072,
+    "input_lufs": -21.9,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "Heavy rain fell on melting snow in the Rocky Mountains, and both of Calgary's rivers rose.",
+    "said": "Heavy rain fell on melting snow in the Rocky Mountains, and both of Calgary's rivers rose.",
+    "heard": "Heavy rain fell on melting snow in the Rocky Mountains and both of Calgary's rivers rose.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.547,
+    "input_lufs": -22.8,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "The Bow River peaked at eight times its regular flow. The Elbow, at twelve times.",
+    "said": "The Boe River peaked at eight times its regular flow. The Elbow, at twelve times.",
+    "heard": "The Bow River peaked at 8 times its regular flow, the Elbow at 12 times.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.716,
+    "input_lufs": -22.6,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "About eighty thousand people were evacuated, from twenty-six communities.",
+    "said": "About eighty thousand people were evacuated, from twenty-six communities.",
+    "heard": "About 80,000 people were evacuated from 26 communities.",
+    "acc": 0.9,
+    "mismatches": [
+     "thousand->zero"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.9
+     }
+    ],
+    "dur": 4.032,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "Downtown was inaccessible for days. At the Saddledome, at least the first ten rows were underwater.",
+    "said": "Downtown was inaccessible for days. At the Saddledome, at least the first ten rows were underwater.",
+    "heard": "downtown was inaccessible for days. At the saddle dome, at least the first 10 rows were underwater.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.889,
+    "input_lufs": -22.9,
+    "status": "ok"
+   },
+   {
+    "i": 6,
+    "text": "One Calgarian lost their life. Across Alberta, the flood's impact was assessed at about five billion dollars.",
+    "said": "One Calgarian lost their life. Across Alberta, the flood's impact was assessed at about five billion dollars.",
+    "heard": "one Calgarian lost their life. Across Alberta, the flood's impact was assessed at about $5 billion.",
+    "acc": 0.941,
+    "mismatches": [
+     "dollars->(missing)"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.941
+     }
+    ],
+    "dur": 6.743,
+    "input_lufs": -22.9,
+    "status": "ok"
+   },
+   {
+    "i": 7,
+    "text": "So Calgary and the province started building.",
+    "said": "So Calgary and the province started building.",
+    "heard": "So Calgary and the province started building.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.389,
+    "input_lufs": -21.9,
+    "status": "ok"
+   },
+   {
+    "i": 8,
+    "text": "At the Glenmore Dam, new steel gates, two and a half metres high, doubled the reservoir's storage.",
+    "said": "At the Glenmore Dam, new steel gates, two and a half metres high, doubled the reservoir's storage.",
+    "heard": "At the Glenmore Dam, new steel gates, 2.5 meters high, doubled the reservoir storage.",
+    "acc": 0.765,
+    "mismatches": [
+     "and->five",
+     "a->meters",
+     "half->(missing)",
+     "metres->(missing)"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.765
+     },
+     {
+      "speed": 0.94,
+      "acc": 0.765
+     },
+     {
+      "speed": 1.06,
+      "acc": 0.765
+     }
+    ],
+    "dur": 5.568,
+    "input_lufs": -22.3,
+    "status": "check"
+   },
+   {
+    "i": 9,
+    "text": "Along the Bow, a permanent flood barrier was finished downtown. In September twenty twenty-six, another was completed for Sunnyside and Hillhurst.",
+    "said": "Along the Boe, a permanent flood barrier was finished downtown. In September twenty twenty-six, another was completed for Sunnyside and Hillhurst.",
+    "heard": "Along the bow, a permanent flood barrier was finished downtown. In September 2026, another was completed for Sunaside and Hillhurst.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 8.492,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 10,
+    "text": "And about fifteen kilometres west of the city, Alberta built the Springbank Off-stream Reservoir.",
+    "said": "And about fifteen kilometres west of the city, Alberta built the Springbank Off-stream Reservoir.",
+    "heard": "and about 15 kilometers west of the city, Alberta built the Springbank Offstream Reservoir.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.376,
+    "input_lufs": -22.1,
+    "status": "ok"
+   },
+   {
+    "i": 11,
+    "text": "Most of the time, it's dry land. In a big flood, a channel diverts water from the Elbow River, stores it, and releases it back when it's safe.",
+    "said": "Most of the time, it's dry land. In a big flood, a channel diverts water from the Elbow River, stores it, and releases it back when it's safe.",
+    "heard": "Most of the time, it's dry land. In a big flood, a channel diverts water from the Elbow River, stores it, and releases it back when it's safe.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 8.791,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 12,
+    "text": "It can store seventy point two million cubic metres. That's about twenty-eight thousand Olympic swimming pools.",
+    "said": "It can store seventy point two million cubic metres. That's about twenty-eight thousand Olympic swimming pools.",
+    "heard": "It can store 70.2 million cubic meters. That's about 28,000 Olympic swimming pools.",
+    "acc": 0.882,
+    "mismatches": [
+     "point->(missing)",
+     "thousand->zero"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.882
+     },
+     {
+      "speed": 0.94,
+      "acc": 0.882
+     },
+     {
+      "speed": 1.06,
+      "acc": 0.882
+     }
+    ],
+    "dur": 5.911,
+    "input_lufs": -22.6,
+    "status": "check"
+   },
+   {
+    "i": 13,
+    "text": "The City says Elbow River communities are now protected from a flood the size of twenty thirteen, and that Calgary's flood risk is down by about seventy per cent.",
+    "said": "The City says Elbow River communities are now protected from a flood the size of twenty thirteen, and that Calgary's flood risk is down by about seventy per cent.",
+    "heard": "The city says elbow river communities are now protected from a flood the size of 2013. And that Calgary's flood risk is down by about 70 percent.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 9.621,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 14,
+    "text": "The Bow is a different story. Its upstream reservoir option, a relocated Ghost Dam, is still in engineering and regulatory approvals.",
+    "said": "The Boe is a different story. Its upstream reservoir option, a relocated Ghost Dam, is still in engineering and regulatory approvals.",
+    "heard": "The bow is a different story. Its upstream reservoir option, a relocated ghost dam, is still in engineering and regulatory approvals.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 8.535,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 15,
+    "text": "Twenty thirteen changed how Calgary lives with its rivers.",
+    "said": "Twenty thirteen changed how Calgary lives with its rivers.",
+    "heard": "2013 changed how Calgary lives with its rivers.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.371,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 16,
+    "text": "Do you feel safer from the next big flood?",
+    "said": "Do you feel safer from the next big flood?",
+    "heard": "Do you feel safer from the next big flood?",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.219,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 17,
+    "text": "Yes or no? Drop your thoughts below.",
+    "said": "Yes or no? Drop your thoughts below.",
+    "heard": "Yes or no? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.725,
+    "input_lufs": -21.4,
+    "status": "ok"
+   },
+   {
+    "i": 18,
+    "text": "In June twenty thirteen, about eighty thousand people in Calgary were evacuated. Since then, Alberta built this dry reservoir. Together with the Glenmore Reservoir, it's designed to hold back a flood that size on the Elbow.",
+    "said": "In June twenty thirteen, about eighty thousand people in Calgary were evacuated. Since then, Alberta built this dry reservoir. Together with the Glenmore Reservoir, it's designed to hold back a flood that size on the Elbow.",
+    "heard": "In June 2013, about 80,000 people in Calgary were evacuated. Since then, Alberta built this dry reservoir. Together with the Glenmore Reservoir, it's designed to hold back a flood that sighs on the elbow.",
+    "acc": 0.944,
+    "mismatches": [
+     "thousand->zero",
+     "size->sighs"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.944
+     }
+    ],
+    "dur": 13.421,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 19,
+    "text": "Full video on our page. Do you feel safer from the next big flood? Drop your thoughts below.",
+    "said": "Full video on our page. Do you feel safer from the next big flood? Drop your thoughts below.",
+    "heard": "Full video on our page. Do you feel safer from the next big flood? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.969,
+    "input_lufs": -22.3,
+    "status": "ok"
+   }
+  ]
+ }
+}
