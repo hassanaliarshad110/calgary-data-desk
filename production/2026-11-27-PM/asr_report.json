@@ -1,0 +1,140 @@
+{
+ "summary": {
+  "v": {
+   "lines": 6,
+   "check": [],
+   "mean_acc": 0.985
+  }
+ },
+ "lexicon_entries": 74,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "This Calgary mansion was once a blood donor clinic.",
+    "said": "This Calgary mansion was once a blood donor clinic.",
+    "heard": "This Calgary mansion was once a blood donor clinic.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.88,
+    "input_lufs": -21.8,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "It was built in eighteen ninety-one for Senator James Lougheed.",
+    "said": "It was built in eighteen ninety-one for Senator James Lawheed.",
+    "heard": "It was built in 1891 for Senator James Lahid.",
+    "acc": 0.909,
+    "mismatches": [
+     "lougheed->lahid"
+    ],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 0.909
+     }
+    ],
+    "dur": 3.499,
+    "input_lufs": -22.0,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "In nineteen thirty-four, the City took it over for unpaid taxes.",
+    "said": "In nineteen thirty-four, the City took it over for unpaid taxes.",
+    "heard": "In 1934, the city took it over for unpaid taxes.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.733,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "Then it trained young women, and became army barracks for women in the war.",
+    "said": "Then it trained young women, and became army barracks for women in the war.",
+    "heard": "Then it trained young women and became army barracks for women in the war.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.968,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "Later, it was a Red Cross blood donor clinic.",
+    "said": "Later, it was a Red Cross blood donor clinic.",
+    "heard": "Later, it was a Red Cross Blood donor clinic.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.539,
+    "input_lufs": -22.2,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "Did you know this? Yes or no. Drop your thoughts below.",
+    "said": "Did you know this? Yes or no. Drop your thoughts below.",
+    "heard": "Did you know this? Yes or no? Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.22,
+    "input_lufs": -21.6,
+    "status": "ok"
+   }
+  ]
+ }
+}

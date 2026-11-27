@@ -4683,7 +4683,73 @@
      "youtube short"
     ],
     "publish_at": "2026-11-27T15:00 America/Edmonton",
-    "status": "scheduled"
+    "status": "PUBLISHED",
+    "publicUrls": [
+     "https://facebook.com/reel/1458919299686314",
+     "https://www.instagram.com/reel/DgQmkrmCtJ6/",
+     "https://www.youtube.com/shorts/1kCDSHGkYko"
+    ],
+    "confirmed_by": "2026-11-27 PM run"
+   }
+  ]
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "PM",
+  "type": "quick-insight",
+  "category": "Fun fact",
+  "title": "This Calgary mansion was once a blood donor clinic",
+  "topic_used": "Lougheed House (built 1891 for Senator James Lougheed): City took possession in 1934 for unpaid municipal property taxes; 1938-1940 Dominion Youth Training Program for young women; 1941 Canadian Women's Army Corps barracks; 1950s Red Cross blood donor clinic",
+  "changed_from_calendar": "Calendar 'Skating on the Bowness Park lagoon' failed the 0b.7b topic test: Bowness was the Nov 23 flagship and is the Nov 28 AM topic (no repeat within 7 days, not back-to-back), and lagoon skating is not a twist. Replaced in the same category (place/history twist) with Lougheed House's later uses.",
+  "topic_test": "twist (senator's mansion became a blood donor clinic); hook line; no Lougheed House post in log or calendar Nov 20-Dec 4; fits the day (today: flood flagship, water news)",
+  "central_figure": "Built 1891; City took it over in 1934 for unpaid taxes (Wikipedia, Lougheed House)",
+  "sources": [
+   "https://www.lougheedhouse.com/story-lougheed-house-women",
+   "https://en.wikipedia.org/wiki/Lougheed_House",
+   "https://lougheedhouse.com/?p=629",
+   "https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=5147"
+  ],
+  "length_s": 21.7,
+  "video_path": "studio-videos/2026-11-27-PM/lougheed-blood-clinic.mp4",
+  "thumbnail": "studio-videos/2026-11-27-PM/lougheed-blood-clinic-thumb.jpg",
+  "package": "packages/2026-11-27-PM-lougheed-blood-clinic.md",
+  "scene": "production/2026-11-27-PM/scene.js",
+  "identity": "Data Explainer lead (kinetic hook, stamps, chips, year slams) + Storyteller 3D map dive over downtown/Beltline onto the Lougheed House pin (geo pack) + Civic-style cumulative timeline that stays lit; stylised mansion as continuity anchor; blood-drop icon, no red cross emblem",
+  "link": "https://calgaryinsight.ca/visit/explore/?utm_source=facebook&utm_medium=social&utm_campaign=lougheed-blood-clinic",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); page confirmed from the site generator on main (web/explore.py builds visit/explore/ from visit.py's checked places, which include 'Lougheed House').",
+  "audit": {
+   "rounds": 1,
+   "claims_checked": 7,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-27-PM.md",
+   "note": "non-blocking: Wikipedia dates the basement clinic to WWII; the house museum's '1950s' is the stronger source and the only one tied to the on-screen 1950s"
+  },
+  "narration": {
+   "lines": 6,
+   "asr_mean_acc": 0.985,
+   "asr_check": [],
+   "lexicon_added": [],
+   "note": "ASR heard Lougheed as 'Lahid' (status ok; Lougheed is fixed in the voice list). Last line: two inner pauses shortened (0.57/0.48 s to ~0.29 s) and atempo 1.04 to keep the ending under 4 s; words unchanged"
+  },
+  "qc": {
+   "stills": "pass (fixed: timeline overlapped captions, name clipped -> two lines, house overlapped name)",
+   "final": "pass (contact sheet, 21.7 s, -14.5 LUFS, 6.5 MB, captions == narration, ending 3.9 s, no end card)",
+   "scores": "all 2"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 444986830,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-7228933866704517070",
+    "providers": [
+     "instagram REEL",
+     "facebook REEL",
+     "youtube short"
+    ],
+    "publish_at": "2026-11-27T18:30 America/Edmonton",
+    "status": "scheduled",
+    "firstCommentText": true,
+    "videoThumbnailUrl": true
    }
   ]
  }

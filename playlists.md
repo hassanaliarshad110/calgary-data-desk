@@ -62,6 +62,7 @@ Built Nov 26, 2026 from log.json and Metricool.
 - [ ] 2026-11-24 · The Calgary Herald was first printed in a tent · YouTube: [Short](https://www.youtube.com/shorts/zrdfEz4Yvg4) · Facebook: [reel](https://facebook.com/reel/1667017481833891)
 - [ ] 2026-11-25 · Calgary's giant blue ring is a streetlamp · YouTube: [Short](https://www.youtube.com/shorts/J7kTDC2c39Y) · Facebook: [reel](https://facebook.com/reel/1692846195776693)
 - [ ] 2026-11-26 · This Calgary forest belongs in the mountains · YouTube: [Short](https://www.youtube.com/shorts/c0PhMeEMl8k) · Facebook: [reel](https://facebook.com/reel/3062106257461862)
+- [ ] 2026-11-27 · This Calgary Mansion Was Once a Blood Donor Clinic (scheduled 18:30, not published yet)
 
 ## Calgary News Explained
 
@@ -79,7 +80,7 @@ Built Nov 26, 2026 from log.json and Metricool.
 - [ ] 2026-11-18 · Would you pause giant data centres in Calgary? Council's vote explained · YouTube: [Short](https://www.youtube.com/shorts/Q8KAQc21gpY) · Facebook: [reel](https://facebook.com/reel/899519286540901)
 - [ ] 2026-11-23 · Cavalry FC made league history in Calgary: what happened · YouTube: [Short](https://www.youtube.com/shorts/EGfS_nJVmmU) · Facebook: [reel](https://facebook.com/reel/3018514508512310)
 - [ ] 2026-11-25 · Calgary's budget debate: what's on the table for your property tax · YouTube: [Short](https://www.youtube.com/shorts/56wKzyUHfEs) · Facebook: [reel](https://facebook.com/reel/4189104907889480)
-- [ ] 2026-11-27 · Calgary's Water Restrictions Could Lift Next Week (scheduled 15:00, not published yet)
+- [ ] 2026-11-27 · Calgary's Water Restrictions Could Lift Next Week · YouTube: [Short](https://www.youtube.com/shorts/1kCDSHGkYko) · Instagram: [reel](https://www.instagram.com/reel/DgQmkrmCtJ6/) · Facebook: [reel](https://facebook.com/reel/1458919299686314)
 
 ## Calgary Moments
 
