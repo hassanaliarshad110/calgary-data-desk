@@ -1,7 +1,7 @@
 [
 {
 "id": "h1",
-"text": "Feeling alone? Machiavelli's darkest year... gave the world The Prince.",
+"text": "Feeling alone? Machiavelli's darkest days... are when he wrote The Prince.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
@@ -29,7 +29,7 @@
 },
 {
 "id": "n4",
-"text": "Then, with the books of great men... for four hours, he forgot every trouble.",
+"text": "Then, with the great men of old... for four hours, he forgot every trouble.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
