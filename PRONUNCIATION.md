@@ -20,7 +20,7 @@ The master list of Calgary names the narrator must say correctly: communities, l
 | Atletico | at-LET-ih-koh | Atletico Ottawa (CPL club); Kokoro said 'atelrico', heard as 'Adel to Co' (QC Nov 23, 2026) |
 | Bjarke | BYAR-kuh | Bjarke Ingels, TELUS Sky architect; test heard 'Bjork' |
 | Bow | BOH | Bow River / The Bow rhymes with 'go', not 'cow' |
-| Bowness | boh-NESS | Calgary community, said BO-ness |
+| Bowness | BO-ness | Calgary community, said BO-ness (Hassan, Nov 27, 2026) |
 | Braeside | BRAY-side | Calgary community, said BRAY-side; default said BREE-side |
 | Brisebois | BREEZ-bwah | Inspector Ephrem Brisebois, Brisebois Drive (French name) |
 | Casavant | KAZ-uh-vahn | Casavant Frères organ builders (Jack Singer Concert Hall organ); test heard 'Cass Avent' |
