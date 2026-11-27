@@ -31,7 +31,7 @@ Built Nov 26, 2026 from log.json and Metricool.
 - [ ] 2026-11-24 · When Calgary Became a City, This Was All of It · YouTube: [Short](https://www.youtube.com/shorts/IgKQj9pPPEg), [film](https://www.youtube.com/watch?v=tCLqIDrIe_g) · Facebook: [video](https://facebook.com/122097271263547631/posts/1891511305173654), [reel](https://facebook.com/reel/1683356076827695)
 - [ ] 2026-11-25 · The Oil Boom That Started With a Gas Well: Turner Valley 1914 (Calgary Insight Origins) · YouTube: [Short](https://www.youtube.com/shorts/Ua8YpJkR9u8), [film](https://www.youtube.com/watch?v=rbuqJuhc19Q) · Facebook: [video](https://facebook.com/122097271263547631/posts/2165635677676079), [reel](https://facebook.com/reel/1852706996004260)
 - [ ] 2026-11-26 · Calgary Once Had No Wards at All / How Calgary Got Its 14 Wards · YouTube: [Short](https://www.youtube.com/shorts/UzmIhL0cFIc), [film](https://www.youtube.com/watch?v=J7BP-sTDa34) · Facebook: [video](https://facebook.com/122097271263547631/posts/1182197304798746)
-- [ ] 2026-11-27 · Built to Stay Empty: Calgary's Flood Defences Since 2013 (scheduled, not published yet)
+- [ ] 2026-11-27 · Built to Stay Empty: Calgary's Flood Defences Since 2013 · YouTube: [Short](https://www.youtube.com/shorts/UjnLqWdNr5Y) / film (scheduled 17:30, not published yet) · Instagram: [reel](https://www.instagram.com/reel/DgQVKaBKdLD/) · Facebook: video (scheduled 17:30)
 
 ## Calgary Fun Facts
 
@@ -79,6 +79,7 @@ Built Nov 26, 2026 from log.json and Metricool.
 - [ ] 2026-11-18 · Would you pause giant data centres in Calgary? Council's vote explained · YouTube: [Short](https://www.youtube.com/shorts/Q8KAQc21gpY) · Facebook: [reel](https://facebook.com/reel/899519286540901)
 - [ ] 2026-11-23 · Cavalry FC made league history in Calgary: what happened · YouTube: [Short](https://www.youtube.com/shorts/EGfS_nJVmmU) · Facebook: [reel](https://facebook.com/reel/3018514508512310)
 - [ ] 2026-11-25 · Calgary's budget debate: what's on the table for your property tax · YouTube: [Short](https://www.youtube.com/shorts/56wKzyUHfEs) · Facebook: [reel](https://facebook.com/reel/4189104907889480)
+- [ ] 2026-11-27 · Calgary's Water Restrictions Could Lift Next Week (scheduled 15:00, not published yet)
 
 ## Calgary Moments
 

@@ -4544,9 +4544,14 @@
     ],
     "file": "short",
     "publish_at": "2026-11-27T12:30",
-    "status": "scheduled",
+    "status": "PUBLISHED",
     "firstCommentText": true,
-    "videoThumbnailUrl": true
+    "videoThumbnailUrl": true,
+    "publicUrls": {
+     "instagram": "https://www.instagram.com/reel/DgQVKaBKdLD/",
+     "youtube": "https://www.youtube.com/shorts/UjnLqWdNr5Y"
+    },
+    "confirmed_by": "2026-11-27 CIVIC run (getScheduledPosts)"
    },
    {
     "metricool_id": 444660265,
@@ -4609,6 +4614,65 @@
    "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
    "https://data.calgary.ca/resource/35ra-9556.json",
    "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=27&timeframe=2&submit=Download+Data"
+  ]
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "CIVIC",
+  "type": "civic",
+  "category": "Calgary news",
+  "title": "Calgary's water restrictions could lift next week",
+  "topic_used": "News explained: City said Thu Nov 26, 2026 the new Bearspaw South Feeder Main is connected to the water system and ready for commissioning; it must be pressure tested, cleaned, flushed, refilled and pass water-quality testing before becoming operational later in December; refilling of the existing pipe expected to begin Nov 27, then water-quality testing and system checks; 'If all goes as planned, we expect to lift water restrictions later next week'; still a risk of a break meanwhile; Stage 4 city-wide since Nov 4 (no outdoor water use; City asks for three-minute showers).",
+  "changed_from_calendar": null,
+  "why_this_story": "Most widely felt Calgary story of the past 48 h (every household under Stage 4): City Stage 4 page Nov 26 update, City newsroom, LiveWire Calgary and CJWE (Nov 26), our Calgary News article Nov 26 (4 sources). New since the Nov 9 flagship 'The Pipe Under the Bow': new main now connected; refill and lift timeline. Passed over: budget deliberations (covered Nov 25), provincial fiscal update (not Calgary-specific), a theft charge (court matter).",
+  "central_figure": "City expects to lift Stage 4 water restrictions later next week if all goes as planned; new main operational later in December (City of Calgary, Stage 4 page, Nov 26, 2026)",
+  "sources": [
+   "https://www.calgary.ca/planning/water/bearspaw-feeder-main/water-restrictions.html",
+   "https://www.calgary.ca/emergencies/feeder-main-repair.html",
+   "https://www.calgary.ca/planning/water/bearspaw-feeder-main.html"
+  ],
+  "length_s": 38.0,
+  "video_path": "studio-videos/2026-11-27-CIVIC/feeder-main-connected.mp4",
+  "thumbnail": "studio-videos/2026-11-27-CIVIC/feeder-main-connected-thumb.jpg",
+  "package": "packages/2026-11-27-CIVIC-feeder-main-connected.md",
+  "scene": "production/2026-11-27-CIVIC/scene.js",
+  "identity": "Civic Analyst lead (underground cutaways, stage row, City quote card, evidence chips) + Storyteller map push-in with city-wide wash + Data Explainer week strip and countdown",
+  "link": "https://calgaryinsight.ca/news/2026-11-26-bearspaw-feeder-main-replacement-is-built-and-connected-water-restrict/?utm_source=facebook&utm_medium=social&utm_campaign=feeder-main-connected",
+  "link_check": "WebFetch of calgaryinsight.ca refused by the unattended run's permission gate (PROVENANCE_REQUIRED); article published in Calgary News Nov 26 23:39 UTC (news/index.json), so its page exists from the Nov 27 morning build.",
+  "audit": {
+   "rounds": 2,
+   "claims_checked": 10,
+   "verdict": "APPROVED",
+   "report": "audits/2026-11-27-CIVIC.md",
+   "note": "R1 NOT APPROVED (refill chip, caption and 'THIS WEEK' tile stated an expectation as certain; showers request shown as a rule) -> fixed; R2 APPROVED. City newsroom/LiveWire/CJWE pages could not be opened in this run, so only City-page facts are used."
+  },
+  "narration": {
+   "lines": 8,
+   "asr_mean_acc": 1.0,
+   "asr_check": [],
+   "lexicon_added": [],
+   "names_checked": {
+    "Bearspaw": "bˈɛɹspɔː (correct)"
+   }
+  },
+  "qc": {
+   "stills": "pass (fixed: S4 header under the follow pill moved down; S5 pipe moved above the caption band)",
+   "final": "pass (contact sheet, 38.0 s, -14.5 LUFS, 4.1 MB, captions == narration, ending 3.97 s, no end card)",
+   "scores": "all 2 except #7b S2 stage labels 40 px (1) and #1 frame-0 push-in subtle (1)"
+  },
+  "status": "done",
+  "posted": [
+   {
+    "metricool_id": 444782878,
+    "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=7089421&openWithPostUuid=-6725558548602927457",
+    "providers": [
+     "instagram REEL",
+     "facebook REEL",
+     "youtube short"
+    ],
+    "publish_at": "2026-11-27T15:00 America/Edmonton",
+    "status": "scheduled"
+   }
   ]
  }
 ]

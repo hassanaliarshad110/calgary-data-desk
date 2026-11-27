@@ -1,0 +1,174 @@
+{
+ "summary": {
+  "v": {
+   "lines": 8,
+   "check": [],
+   "mean_acc": 1.0
+  }
+ },
+ "lexicon_entries": 74,
+ "lines": {
+  "v": [
+   {
+    "i": 0,
+    "text": "Your water restrictions could be lifted next week.",
+    "said": "Your water restrictions could be lifted next week.",
+    "heard": "Your water restrictions could be lifted next week.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.05,
+    "takes": [
+     {
+      "speed": 1.05,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.092,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.008,
+      "acc": 1.0
+     }
+    ],
+    "dur": 2.56,
+    "input_lufs": -21.9,
+    "status": "ok"
+   },
+   {
+    "i": 1,
+    "text": "On Thursday, the City said Calgary's new Bearspaw South feeder main is connected to the water system.",
+    "said": "On Thursday, the City said Calgary's new Bearspaw South feeder main is connected to the water system.",
+    "heard": "On Thursday, the city said Calgary's New Bearspaw south feeder main is connected to the water system.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 5.909,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 2,
+    "text": "It still has to be tested and cleaned, and the City expects it running later in December.",
+    "said": "It still has to be tested and cleaned, and the City expects it running later in December.",
+    "heard": "It still has to be tested and cleaned, and the city expects it running later in December.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.843,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 3,
+    "text": "First, the City plans to refill the old pipe from Friday, then test the water.",
+    "said": "First, the City plans to refill the old pipe from Friday, then test the water.",
+    "heard": "First, the city plans to refill the old pipe from Friday, then test the water.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.608,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 4,
+    "text": "If all goes as planned, the City expects to lift restrictions later next week.",
+    "said": "If all goes as planned, the City expects to lift restrictions later next week.",
+    "heard": "If all goes as planned, the city expects to lift restrictions later next week.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.416,
+    "input_lufs": -22.4,
+    "status": "ok"
+   },
+   {
+    "i": 5,
+    "text": "Until the new pipe is in service, the City says there's still a risk of a break.",
+    "said": "Until the new pipe is in service, the City says there's still a risk of a break.",
+    "heard": "Until the new pipe is in service, the city says there's still a risk of a break.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.203,
+    "input_lufs": -22.5,
+    "status": "ok"
+   },
+   {
+    "i": 6,
+    "text": "For now: no outdoor water use, and the City asks for three-minute showers.",
+    "said": "For now: no outdoor water use, and the City asks for three-minute showers.",
+    "heard": "For now, no outdoor water use, and the city asks for three-minute showers.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 1.0,
+    "takes": [
+     {
+      "speed": 1.0,
+      "acc": 1.0
+     }
+    ],
+    "dur": 4.437,
+    "input_lufs": -22.3,
+    "status": "ok"
+   },
+   {
+    "i": 7,
+    "text": "Changed your habits? Drop your thoughts below.",
+    "said": "Changed your habits? Drop your thoughts below.",
+    "heard": "Changed your habits. Drop your thoughts below.",
+    "acc": 1.0,
+    "mismatches": [],
+    "speed": 0.97,
+    "takes": [
+     {
+      "speed": 0.97,
+      "acc": 1.0
+     },
+     {
+      "speed": 1.009,
+      "acc": 1.0
+     },
+     {
+      "speed": 0.931,
+      "acc": 1.0
+     }
+    ],
+    "dur": 3.067,
+    "input_lufs": -21.7,
+    "status": "ok"
+   }
+  ]
+ }
+}
