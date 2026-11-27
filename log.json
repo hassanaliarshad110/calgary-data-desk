@@ -4353,8 +4353,8 @@
   "slot": "MOMENT",
   "type": "moment",
   "category": "Same-day moment (watch)",
-  "title": "Watching: Nov 26 warm overnight low (possible record warm minimum for the date)",
-  "status": "watching",
+  "title": "Watched: Nov 26 (nothing confirmed rare by the last check)",
+  "status": "none",
   "checked_at": "2026-11-26 10:45 Calgary (16:45 UTC)",
   "detection": {
    "temp": "CYYC SWOB local day so far (07Z-16Z): max 6.9 C (07Z), min 2.8 C (12Z), latest 6.0 C at 16Z. Nov 26 history 1926-2025 (100 years): top-5 highs 16.1 (1939), 14.6 (2017), 13.9 (1936), 13.3 (1963), 12.9 (2009): high not near; warmest minimums 1.7 (1929), 0.6 (2009), 0.2 (1998), 0.0 (1935, 1936 tie): today's min so far 2.8 C is ABOVE the warmest minimum on record for the date, but the day runs to 00:00 local (07Z Nov 27) and tonight's low may fall below 1.7",
@@ -4368,7 +4368,7 @@
    "news": "no confirmed rare Calgary event found (web search 10:45)"
   },
   "watch_note": "Two live candidates for the 19:41 check: (1) warmest Nov 26 daily minimum since 1926 (needs min to stay >= 1.8 C to 07Z Nov 27; frame as 'warmest Nov 26 low in 100 years, since 1922', not a record); (2) CYYC gust >= 80 km/h this evening (wind warning on all sides of the city; gusts were rising). Re-pull SWOB + alerts at 19:41; if neither holds, close as none.",
-  "next_check": "19:41 Calgary",
+  "next_check": null,
   "evidence": "production/2026-11-26-MOMENT-watch/check-1041/",
   "sources": [
    "https://dd.weather.gc.ca/today/observations/swob-ml/20261126/CYYC/",
@@ -4385,6 +4385,16 @@
     "traffic_today_so_far": "20 incidents since 07:00 UTC (feed latest 22:23 UTC); 365-day p99 58: not rare",
     "news": "web search 16:41: no confirmed rare Calgary event",
     "evidence": "production/2026-11-26-MOMENT-watch/check-1641/"
+   },
+   {
+    "checked_at": "2026-11-26 19:41 Calgary (01:41 UTC Nov 27)",
+    "temp": "CYYC SWOB 00Z/01Z Nov 27: air 8.0 C (00Z), 7.2 C (01Z, falling); max_air_temp_pst6hrs 11.0 C and pst24hrs 11.0 C: day's high 11.0 C, not top-5 (needs >= 12.9). min_air_temp_pst6hrs 4.9 C; local-day min still 2.8 C (12Z) but the day runs to 07Z Nov 27 and the temperature is falling about 1 C/h with dewpoint -4.9 C, so the 'warmest Nov 26 low since 1926' cannot be confirmed same-day; not posted (no speculation).",
+    "wind": "max_wnd_gst_spd_10m_pst10mts MSNG at 01Z, 2-min wind 273 deg 11.2 km/h; no gust >= 80 km/h recorded",
+    "alerts": "api.weather.gc.ca bbox Calgary: 0 alerts at 01:42 UTC (wind warning near the city has ended)",
+    "traffic_today_so_far": "27 incidents since 07:00 UTC (feed latest 00:47 UTC Nov 27); 365-day p99 58: not rare",
+    "news": "web search 19:41: no confirmed rare Calgary event",
+    "decision": "close as none (no moment posted Nov 26)",
+    "evidence": "production/2026-11-26-MOMENT-watch/check-1941/"
    }
   ]
  },
