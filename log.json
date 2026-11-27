@@ -4456,5 +4456,34 @@
     "videoThumbnailUrl": true
    }
   ]
+ },
+ {
+  "date": "2026-11-27",
+  "slot": "MOMENT",
+  "type": "moment",
+  "category": "Same-day moment (watch)",
+  "title": "Watched: Nov 27 (nothing rare so far)",
+  "status": "none",
+  "checked_at": "2026-11-27 10:41 Calgary (16:41 UTC)",
+  "detection": {
+   "temp": "CYYC SWOB local day so far (07Z-16Z): max 7.1 C (07-08Z), min 1.2 C (10-11Z), latest 5.7 C at 16Z. Nov 27 history 1926-2025 (100 years): top-5 highs 13.9 (1939), 13.6 (2011), 13.1 (1980), 13.0 (2002), 12.8 (1936); warmest minimums 3.9 (1936), 3.3 (1932), 2.8 (1949), 1.4 (2002), 1.3 (2018): today's min so far 1.2 C is 6th warmest (just outside top 5) and can only fall, so not a moment.",
+   "rise_24h_c": "none (falling vs yesterday's 11.0 C high)",
+   "chinook_ge_15": false,
+   "gust": "max 35.6 km/h (07Z)",
+   "gust_ge_80": false,
+   "first_snow": "no (already Nov 17); no snow reported in SWOB today",
+   "alerts": "api.weather.gc.ca bbox Calgary: 0 alerts at 16:43 UTC",
+   "traffic_incidents_today_so_far": "7 (local day, feed latest 16:25 UTC); prior 365-day max 111, p99 53: not rare",
+   "news": "web search 10:41: no confirmed rare Calgary event today",
+   "note_nov26_final": "ECCC daily CSV now shows Nov 26 final: max 11.0 C, min 2.8 C, max gust 65 km/h. 2.8 C is the warmest Nov 26 minimum since 1926 (prior best 1.7 C in 1929; 1922 had 3.9 C). It was yesterday, so not posted as a same-day moment."
+  },
+  "watch_note": "For 16:41/19:41: only new triggers can qualify (ECCC warning, gust >= 80 km/h, traffic spike, news). Temperature rank cannot be reached today (high needs >= 12.8 C).",
+  "evidence": "production/2026-11-27-MOMENT-watch/check-1041/",
+  "sources": [
+   "https://dd.weather.gc.ca/today/observations/swob-ml/20261127/CYYC/",
+   "https://api.weather.gc.ca/collections/weather-alerts/items?f=json&bbox=-114.4,50.8,-113.8,51.25&limit=50",
+   "https://data.calgary.ca/resource/35ra-9556.json",
+   "https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=<2205|50430>&Year=<1926-2025>&Month=11&Day=27&timeframe=2&submit=Download+Data"
+  ]
  }
 ]
