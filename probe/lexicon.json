@@ -184,5 +184,190 @@
   "say": "Lacombe",
   "why": "Father Albert Lacombe, the Oblate missionary; said luh-KOHM (as the town of Lacombe, Alberta)",
   "ipa": "ləkˈoʊm"
+ },
+ "Weadick": {
+  "say": "Weedick",
+  "why": "Guy Weadick, Stampede founder; test heard 'Weidich'",
+  "ipa": "wˈiːdɪk"
+ },
+ "Alyth": {
+  "say": "Aylith",
+  "why": "Alyth Yard, said AY-lith; default said AL-ith",
+  "ipa": "ˈeɪlɪθ"
+ },
+ "Nakiska": {
+  "say": "Nakisska",
+  "why": "Nakiska ski area (1988 Olympics); test heard 'Nachiska'",
+  "ipa": "nəkˈɪskə"
+ },
+ "Piikani": {
+  "say": "Beegahnee",
+  "why": "Piikani Nation, said bee-GAH-nee; test heard 'Piakani'",
+  "ipa": "biːɡˈɑːni"
+ },
+ "Dhaliwal": {
+  "say": "Dahleewahl",
+  "why": "Ward 5 Councillor Raj Dhaliwal, said DAH-lee-wahl; default said DAL-i-wul",
+  "ipa": "dˈɑːliwɑːl"
+ },
+ "Îyârhe": {
+  "say": "Eeyahhay",
+  "why": "Îyârhe (Stoney) Nakoda; test heard 'ER'",
+  "ipa": "iːjˈɑːheɪ"
+ },
+ "Iyarhe": {
+  "say": "Eeyahhay",
+  "why": "same, without accents",
+  "ipa": "iːjˈɑːheɪ"
+ },
+ "Altadore": {
+  "say": "Altuhdore",
+  "why": "Calgary community, said AL-tuh-dor",
+  "ipa": "ˈæltədˌɔːɹ"
+ },
+ "Braeside": {
+  "say": "Brayside",
+  "why": "Calgary community, said BRAY-side; default said BREE-side",
+  "ipa": "bɹˈeɪsaɪd"
+ },
+ "Cedarbrae": {
+  "say": "Seedarbray",
+  "why": "Calgary community, said SEE-dar-bray; default said SED-ar-bree",
+  "ipa": "sˈiːdɚbɹˌeɪ"
+ },
+ "Rideau": {
+  "say": "Reedoh",
+  "why": "Rideau Park, said ree-DOH; test heard 'Rhydow'",
+  "ipa": "ɹiːdˈoʊ"
+ },
+ "Elboya": {
+  "say": "Elboyuh",
+  "why": "Calgary community, said el-BOY-uh; test heard 'Alboya'",
+  "ipa": "ɛlbˈɔɪə"
+ },
+ "Rosscarrock": {
+  "say": "Rosskairock",
+  "why": "Calgary community, said ross-KAIR-ok; test heard 'Roskirk'",
+  "ipa": "ɹɑːskˈɛɹək"
+ },
+ "Sunalta": {
+  "say": "Sunaltuh",
+  "why": "Calgary community, said sun-AL-tuh; test heard 'Sinalta'",
+  "ipa": "sʌnˈæltə"
+ },
+ "Shouldice": {
+  "say": "Sholedice",
+  "why": "Shouldice Park, said SHOLE-dice; test heard 'Shuddus'",
+  "ipa": "ʃˈoʊldaɪs"
+ },
+ "Mewata": {
+  "say": "Muhwahtuh",
+  "why": "Mewata Armoury, said meh-WAH-tuh; test heard 'Muada'",
+  "ipa": "məwˈɑːtə"
+ },
+ "Sien Lok": {
+  "say": "Seen Lock",
+  "why": "Sien Lok Park in Chinatown; test heard 'Scene Loke'",
+  "ipa": "sˈiːn lˈɑːk"
+ },
+ "Zurbriggen": {
+  "say": "Zurbriggen",
+  "why": "Pirmin Zurbriggen, 1988 Olympic champion; test heard 'Zurburgen'",
+  "ipa": "zˈɜːɹbɹɪɡən"
+ },
+ "Hidy": {
+  "say": "Hydee",
+  "why": "Hidy and Howdy, 1988 Olympic mascots; test heard 'Heide'",
+  "ipa": "hˈaɪdi"
+ },
+ "Oshawa": {
+  "say": "Oshuhwuh",
+  "why": "Oshawa, Ontario (Pat Burns story); test heard 'Ashawa'",
+  "ipa": "ˈɑːʃəwə"
+ },
+ "Doucet": {
+  "say": "Doosay",
+  "why": "Father Léon Doucet, Mission district (French); test heard 'Dowsett'",
+  "ipa": "duːsˈeɪ"
+ },
+ "Enmax": {
+  "say": "Enmax",
+  "why": "ENMAX, Ride the Wind; test heard 'NMACS'",
+  "ipa": "ˈɛnmæks"
+ },
+ "ENMAX": {
+  "say": "Enmax",
+  "why": "same, capitals",
+  "ipa": "ˈɛnmæks"
+ },
+ "Casavant": {
+  "say": "Kazuhvahn",
+  "why": "Casavant Frères organ builders (Jack Singer Concert Hall organ); test heard 'Cass Avent'",
+  "ipa": "kˈæzəvɑːn"
+ },
+ "Bjarke": {
+  "say": "Byarkuh",
+  "why": "Bjarke Ingels, TELUS Sky architect; test heard 'Bjork'",
+  "ipa": "bjˈɑːɹkə"
+ },
+ "Ingels": {
+  "say": "Ingulz",
+  "why": "Bjarke Ingels; test lost the word",
+  "ipa": "ˈɪŋəlz"
+ },
+ "Nagar Kirtan": {
+  "say": "Nugger Keertun",
+  "why": "Calgary's Nagar Kirtan (Sikh procession); test heard 'Nagar curtain'",
+  "ipa": "nˈʌɡɚ kˈiːɹtən"
+ },
+ "Kirtan": {
+  "say": "Keertun",
+  "why": "same",
+  "ipa": "kˈiːɹtən"
+ },
+ "Moyie": {
+  "say": "Moyee",
+  "why": "SS Moyie paddlewheeler at Heritage Park; test heard 'Muayi'",
+  "ipa": "mˈɔɪi"
+ },
+ "Iñárritu": {
+  "say": "Inyarritoo",
+  "why": "Alejandro González Iñárritu (The Revenant); test heard 'Inuredu'",
+  "ipa": "ɪnjˈɑːɹɪtuː"
+ },
+ "Inarritu": {
+  "say": "Inyarritoo",
+  "why": "same, without accents",
+  "ipa": "ɪnjˈɑːɹɪtuː"
+ },
+ "Nolan Hill": {
+  "say": "Nolun Hill",
+  "why": "Calgary community; test heard 'Nallen Hill'",
+  "ipa": "nˈoʊlən hˈɪl"
+ },
+ "Nykänen": {
+  "say": "Neekuhnen",
+  "why": "Matti Nykänen, 1988 ski jump champion; test heard 'Nikonon'",
+  "ipa": "nˈiːkənən"
+ },
+ "Nykanen": {
+  "say": "Neekuhnen",
+  "why": "same, without accents",
+  "ipa": "nˈiːkənən"
+ },
+ "Syne": {
+  "say": "Sine",
+  "why": "Auld Lang Syne: 'syne' rhymes with 'line'",
+  "ipa": "sˈaɪn"
+ },
+ "Langevin": {
+  "say": "Lanjuhvin",
+  "why": "Langevin Bridge (now Reconciliation Bridge), said LANJ-uh-vin",
+  "ipa": "lˈændʒəvɪn"
+ },
+ "SAIT": {
+  "say": "Sayt",
+  "why": "SAIT polytechnic, said as one word 'sate', not letters",
+  "ipa": "sˈeɪt"
  }
 }
