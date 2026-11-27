@@ -1,0 +1,358 @@
+{
+ "date": "2026-11-27",
+ "published_at": "2026-11-27T23:42:06Z",
+ "articles": [
+  {
+   "title": "About 7,000 UCP members gather at Calgary's BMO Centre as a protest is planned for Saturday",
+   "dek": "The governing party's three-day annual general meeting opened Friday in Calgary, with a vote on dropping land acknowledgements before government speeches on the agenda.",
+   "section": "Alberta and Canada",
+   "body": [
+    "The United Conservative Party's annual general meeting began Friday at the BMO Centre in Calgary, with about 7,000 party members expected to take part over three days, CTV News Calgary reported [1].",
+    "Premier Danielle Smith, who leads the party, is scheduled to speak to members on Saturday, Nov. 28 [1]. A public protest is planned outside the BMO Centre that same day, according to the report [1]. The report did not say who is organizing the protest [1].",
+    "Among the items before members this weekend is a vote on whether to drop land acknowledgements before government speeches [1]. The report did not say when results of the vote would be announced [1].",
+    "The meeting opened Friday and continues through the weekend at the BMO Centre, with the planned protest timed for the same day as the premier's scheduled speech to party members [1]. The report did not give an expected attendance figure for the protest [1]."
+   ],
+   "key_facts": [
+    "About 7,000 UCP members are taking part in the three-day meeting [1]",
+    "Premier Danielle Smith is scheduled to speak Saturday, Nov. 28 [1]",
+    "A protest is planned outside the BMO Centre on Saturday [1]",
+    "Members will vote on dropping land acknowledgements before government speeches [1]"
+   ],
+   "topics": [
+    "Provincial",
+    "Events",
+    "Indigenous"
+   ],
+   "image_query": "BMO Centre Calgary",
+   "location": {
+    "lat": 51.0375,
+    "lon": -114.0527,
+    "label": "BMO Centre, Stampede Park"
+   },
+   "sources": [
+    {
+     "title": "Protest planned for Calgary's United Conservative Party meeting",
+     "outlet": "CTV News Calgary",
+     "url": "https://www.ctvnews.ca/calgary/article/protest-planned-for-calgarys-united-conservative-party-meeting/",
+     "published": "2026-11-27"
+    }
+   ],
+   "id": "2026-11-27-about-7-000-ucp-members-gather-at-calgary-s-bmo-centre-as-a-protest-is",
+   "date": "2026-11-27",
+   "published_at": "2026-11-27T23:42:06Z",
+   "words": 156
+  },
+  {
+   "title": "Councillor plans budget amendment to keep the Inglewood pool open to at least the end of 2027",
+   "dek": "Ward 9 Coun. Harrison Clark wants funding beyond the $200,000 already proposed, which only covers the pool until the MNP Centre expansion opens in mid-2027.",
+   "section": "City Hall",
+   "body": [
+    "Ward 9 Coun. Harrison Clark plans to bring an amendment during council's 2027-2030 budget deliberations that would keep the Inglewood pool operating until at least the end of 2027, LiveWire Calgary reported [1].",
+    "The proposed budget already contains $200,000 to keep the pool open until the expansion of the MNP Centre opens in mid-2027 [1]. Clark's amendment would add to that amount [1]. He has not set a final figure, but said it will be more than $200,000 and less than $1 million [1].",
+    "The proposal has two parts: money for operations through the end of 2027, and money for capital upgrades [1]. According to budget documents, the pool would close at the end of 2026 without the proposed 2027 funding [1]. A one-time $400,000 capital grant approved in the last budget has been spent, and the documents say some critical repairs could go unfunded [1].",
+    "A 2024 city assessment found significant electrical problems at the building and said it needs a new roof, plumbing, tiling and heating, ventilation and air conditioning work [1].",
+    "The pool has been on the closure list for years. The Inglewood and Beltline pools were first identified for closure in 2019, council directed the Inglewood pool's closure in 2021, and a further order followed in 2024 [1].",
+    "At Thursday's budget public hearing, community advocate Marina Ortman told council the community was told it needs 41,000 pool visits between October 2026 and June 2027 [1].",
+    "Clark said his predecessor, Gian-Carlo Carra, had concluded that $3 million could keep the pool open for three more years, followed by about $2 million to demolish it [1]. Clark questioned that approach, saying it was not the best way to spend public money [1].",
+    "Council has not yet voted on the amendment [1]."
+   ],
+   "key_facts": [
+    "$200,000 is already in the proposed budget to run the pool until mid-2027 [1]",
+    "Clark's add-on would be more than $200,000 but under $1 million [1]",
+    "Without 2027 funding the pool would close at the end of 2026 [1]",
+    "Community told it needs 41,000 visits from October 2026 to June 2027 [1]"
+   ],
+   "topics": [
+    "City Council",
+    "Budget and taxes",
+    "Parks and recreation"
+   ],
+   "image_query": "Inglewood Calgary",
+   "communities": [
+    "Inglewood"
+   ],
+   "wards": [
+    9
+   ],
+   "charts": [
+    {
+     "title": "Inglewood pool: money discussed",
+     "kind": "hbar",
+     "labels": [
+      "Already in proposed budget (to mid-2027)",
+      "Spent one-time capital grant (last budget)",
+      "Upper limit of Clark's add-on",
+      "Carra estimate: 3 more years open",
+      "Carra estimate: demolition"
+     ],
+     "series": [
+      {
+       "name": "Amount",
+       "values": [
+        0.2,
+        0.4,
+        1.0,
+        3.0,
+        2.0
+       ]
+      }
+     ],
+     "unit": "$M",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Inglewood pool could see its life extended... yet again",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/26/inglewood-pool-2026-extension/",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-27-councillor-plans-budget-amendment-to-keep-the-inglewood-pool-open-to-a",
+   "date": "2026-11-27",
+   "published_at": "2026-11-27T23:42:06Z",
+   "words": 293
+  },
+  {
+   "title": "Calgary Catholic report shows completion rates above the provincial average as classroom complexity grows",
+   "dek": "The district's 2025-26 results report says about 88 per cent of students finish high school in three years, while one in three students is in its 'complexity' group.",
+   "section": "Community and events",
+   "body": [
+    "Calgary Catholic School District trustees reviewed the district's 2025-26 results report at a board meeting on Nov. 25, LiveWire Calgary reported [1].",
+    "The district runs 120 schools serving 64,195 students [1]. It met or exceeded the provincial standard on most Provincial Achievement Tests and diploma exams, the report says [1].",
+    "Just over 88 per cent of students completed high school within three years, about six percentage points above the provincial average, and the district's dropout rate was also lower than Alberta's [1]. The completion rate for Indigenous students was roughly 17 per cent higher than in other districts, according to the article [1].",
+    "Students learning English as an additional language have made up about 22 per cent of enrolment since 2021, totalling 11,144 students last year [1]. Their completion rate was about five per cent below the provincial average [1].",
+    "The report also points to rising needs in classrooms. One in three Calgary Catholic students is in the district's 'complexity' group, compared with one in five at the Calgary Board of Education [1]. The district received a little under $50 million in provincial funding for class size and complexity, and used it to hire 181 teachers and set up 73 complexity teams for 2026-27 [1].",
+    "Enrolment at St. Isidore, the district's online school, has dropped from 5,596 students in 2020-21 to 120 last year [1]. The district is reviewing the school's long-term viability and said in a statement that no decision has been made about its future [1]."
+   ],
+   "key_facts": [
+    "120 schools and 64,195 students [1]",
+    "Three-year completion rate just over 88 per cent [1]",
+    "181 teachers hired and 73 complexity teams formed for 2026-27 [1]",
+    "St. Isidore online enrolment fell from 5,596 to 120 [1]"
+   ],
+   "topics": [
+    "Education",
+    "Community"
+   ],
+   "image_query": "school classroom",
+   "charts": [
+    {
+     "title": "St. Isidore online school enrolment",
+     "kind": "bar",
+     "labels": [
+      "2020-21",
+      "2025-26"
+     ],
+     "series": [
+      {
+       "name": "Students",
+       "values": [
+        5596,
+        120
+       ]
+      }
+     ],
+     "unit": "people",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Calgary Catholic's 2025-26 report shows above-average academics amid rising complexity",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/27/calgary-catholics-2025-26-report-shows-above-average-academics-amid-rising-complexity/",
+     "published": "2026-11-27"
+    }
+   ],
+   "id": "2026-11-27-calgary-catholic-report-shows-completion-rates-above-the-provincial-av",
+   "date": "2026-11-27",
+   "published_at": "2026-11-27T23:42:06Z",
+   "words": 248
+  },
+  {
+   "title": "Province's police watchdog investigating injury to woman at Alberta Children's Hospital",
+   "dek": "ASIRT says a visitor who was not part of a disturbance was hurt when two protective services officers and a man they were escorting fell onto her.",
+   "section": "Public safety",
+   "body": [
+    "The Alberta Serious Incident Response Team (ASIRT) is investigating an incident at the Alberta Children's Hospital in Calgary in which a woman was injured, the provincial government announced Friday on behalf of the Police Review Commission [1].",
+    "According to the release, at about 11 p.m. on Oct. 21, 2026, Alberta Health Services Protective Services officers were called to a disturbance involving a group of people visiting a patient [1]. While the officers were escorting a man out of the hospital, the two officers and the man struggled and fell onto a woman in the group [1]. The release says the woman had not been involved in the disturbance [1].",
+    "She was injured and needed medical treatment [1]. The release did not describe the nature of her injuries [1].",
+    "ASIRT is handling the file as a Level 1 investigation [1].",
+    "No charges have been announced. The release says the investigation is ongoing and that no further information will be released at this time [1].",
+    "No one involved has been named [1]."
+   ],
+   "key_facts": [
+    "Incident happened about 11 p.m. on Oct. 21, 2026 [1]",
+    "A visitor not involved in the disturbance was injured [1]",
+    "ASIRT is treating it as a Level 1 investigation [1]",
+    "No further details released; investigation ongoing [1]"
+   ],
+   "topics": [
+    "Public safety",
+    "Health",
+    "Provincial"
+   ],
+   "image_query": "Alberta Children's Hospital Calgary",
+   "location": {
+    "lat": 51.0748,
+    "lon": -114.1475,
+    "label": "Alberta Children's Hospital"
+   },
+   "sources": [
+    {
+     "title": "ASIRT investigating peace officer case at Alberta Children's Hospital",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=982122F30B0C9-A2DC-C7E5-FF319B72F82DA26F",
+     "published": "2026-11-27"
+    }
+   ],
+   "id": "2026-11-27-province-s-police-watchdog-investigating-injury-to-woman-at-alberta-ch",
+   "date": "2026-11-27",
+   "published_at": "2026-11-27T23:42:06Z",
+   "words": 170
+  },
+  {
+   "title": "North Calgary child-care centre placed on probationary licence over staffing and supervision",
+   "dek": "The province says a child was left unsupervised for about 15 minutes at Thornhill Childcare Centre, which has until Feb. 23 to come back into compliance.",
+   "section": "Public safety",
+   "body": [
+    "Alberta's Ministry of Education and Childcare has placed Thornhill Childcare Centre, at 6617 Centre Street N. in Calgary, on a probationary licence, the provincial government announced on Nov. 25 [1].",
+    "The province cited insufficient staffing and inadequate supervision at the program [1]. Among the findings, a child was left unsupervised for about 15 minutes, according to the release [1].",
+    "The centre has until Feb. 23 to return to compliance with provincial child-care rules [1]. A safety plan is now in place, and the operator must notify parents of the probationary licence [1].",
+    "The release did not report any injuries and did not name any staff or children [1].",
+    "The Feb. 23 deadline gives the centre roughly three months from the Nov. 25 announcement to address the staffing and supervision problems the province identified [1]. The centre remains licensed during that period under the probationary terms [1].",
+    "Families with questions about child care or licensing can contact Childcare Connect at 1-844-644-5165, the province said [1]."
+   ],
+   "key_facts": [
+    "Thornhill Childcare Centre is at 6617 Centre Street N. [1]",
+    "A child was unsupervised for about 15 minutes [1]",
+    "Deadline to return to compliance: Feb. 23 [1]",
+    "Childcare Connect: 1-844-644-5165 [1]"
+   ],
+   "topics": [
+    "Education",
+    "Public safety",
+    "Provincial"
+   ],
+   "image_query": "Centre Street Calgary",
+   "sources": [
+    {
+     "title": "Probationary licence issued to child-care program",
+     "outlet": "Government of Alberta",
+     "url": "https://www.alberta.ca/announcements.cfm?xID=98194C0476C12-E692-4A9C-282999D4D20CAF6B",
+     "published": "2026-11-25"
+    }
+   ],
+   "id": "2026-11-27-north-calgary-child-care-centre-placed-on-probationary-licence-over-st",
+   "date": "2026-11-27",
+   "published_at": "2026-11-27T23:42:06Z",
+   "words": 164
+  },
+  {
+   "title": "Christopher Hunt makes his Scrooge debut as Theatre Calgary's A Christmas Carol opens its 39th year",
+   "dek": "The holiday production runs at the Max Bell Theatre from Nov. 27 to Dec. 27 with a new lead and six new young cast members.",
+   "section": "Community and events",
+   "body": [
+    "Theatre Calgary's A Christmas Carol returns to the Max Bell Theatre on Friday, Nov. 27, for its 39th year, LiveWire Calgary reported [1]. The run continues to Dec. 27, with tickets sold through theatrecalgary.com [1].",
+    "Local actor Christopher Hunt takes on the role of Ebenezer Scrooge for the first time [1]. He succeeds Doug McKeag, who played the part for the previous three years [1]. Hunt is no stranger to the show: he played Bob Cratchit in 1999 and has appeared in 45 Theatre Calgary productions [1]. His debut in the title role comes 27 years after he first played Cratchit in the company's production [1].",
+    "This year's cast includes Nathan Schmidt as Bob Cratchit, Sofia Aya Cristancho as Emily and Zoe Pepper as Belle, along with six new young performers [1]. Artistic director Stafford Arima described the production as one that brings generations of Calgarians together [1].",
+    "The article did not list ticket prices or performance times; those are posted on the theatre company's website [1]."
+   ],
+   "key_facts": [
+    "Runs Nov. 27 to Dec. 27 at the Max Bell Theatre [1]",
+    "39th year of the production [1]",
+    "Christopher Hunt's first turn as Scrooge, after 45 Theatre Calgary shows [1]",
+    "Six new young cast members [1]"
+   ],
+   "topics": [
+    "Arts and culture",
+    "Events"
+   ],
+   "image_query": "Arts Commons Calgary",
+   "communities": [
+    "Downtown Commercial Core"
+   ],
+   "location": {
+    "lat": 51.0453,
+    "lon": -114.0601,
+    "label": "Arts Commons (Max Bell Theatre)"
+   },
+   "sources": [
+    {
+     "title": "New Scrooge takes the stage for Theatre Calgary's A Christmas Carol",
+     "outlet": "LiveWire Calgary",
+     "url": "https://livewirecalgary.com/2026/11/26/new-scrooge-theatre-calgary-a-christmas-carol/",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-27-christopher-hunt-makes-his-scrooge-debut-as-theatre-calgary-s-a-christ",
+   "date": "2026-11-27",
+   "published_at": "2026-11-27T23:42:06Z",
+   "words": 167
+  },
+  {
+   "title": "Chilly start, clear afternoon: Calgary's Saturday forecast tops out near 3 C",
+   "dek": "Saturday should be dry after a morning that feels like -7, following a Friday afternoon that was forecast to reach about 7 degrees.",
+   "section": "Environment and weather",
+   "body": [
+    "Calgary is in for a cool but mostly dry Saturday, Nov. 28, according to The Weather Network's local forecast issued Friday [1].",
+    "Saturday morning is expected to sit around -2 C, feeling like -7 with the wind, which is forecast at 14 km/h with gusts to 23 km/h [1]. The forecast gives only a slight chance of precipitation in the morning and says no rain or snow is expected through the day [1].",
+    "The afternoon should warm to about 3 C under clearing skies, with winds near 10 km/h gusting to 18 km/h [1]. Temperatures are forecast to fall to about -3 C in the evening under clear skies, with winds near 7 km/h gusting to 12 km/h [1].",
+    "That is cooler than Friday, when the forecast issued Thursday called for a morning near 2 C, an afternoon high around 7 C with sunshine breaking through, and an evening near 1 C [2]."
+   ],
+   "key_facts": [
+    "Saturday morning about -2 C, feeling like -7 [1]",
+    "Saturday afternoon high about 3 C, clear [1]",
+    "No rain or snow expected Saturday [1]",
+    "Friday's forecast high was about 7 C [2]"
+   ],
+   "topics": [
+    "Weather"
+   ],
+   "image_query": "Calgary skyline winter",
+   "charts": [
+    {
+     "title": "Saturday, Nov. 28 forecast temperatures",
+     "kind": "line",
+     "labels": [
+      "Morning",
+      "Afternoon",
+      "Evening"
+     ],
+     "series": [
+      {
+       "name": "Temperature",
+       "values": [
+        -2,
+        3,
+        -3
+       ]
+      }
+     ],
+     "unit": "°C",
+     "source": 1
+    }
+   ],
+   "sources": [
+    {
+     "title": "Tomorrow's Weather Calgary: Chilly Morning, Clear Afternoon (Nov. 28)",
+     "outlet": "The Weather Network",
+     "url": "https://www.theweathernetwork.com/en/news/weather/local-forecasts/calgary-ab-weather-forecast-28-november",
+     "published": "2026-11-27"
+    },
+    {
+     "title": "Tomorrow's Weather Calgary: Chilly Morning, Clear Afternoon (Nov. 27)",
+     "outlet": "The Weather Network",
+     "url": "https://www.theweathernetwork.com/en/news/weather/local-forecasts/calgary-ab-weather-forecast-27-november",
+     "published": "2026-11-26"
+    }
+   ],
+   "id": "2026-11-27-chilly-start-clear-afternoon-calgary-s-saturday-forecast-tops-out-near",
+   "date": "2026-11-27",
+   "published_at": "2026-11-27T23:42:06Z",
+   "words": 153
+  }
+ ]
+}
