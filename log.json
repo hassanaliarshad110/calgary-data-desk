@@ -4604,7 +4604,7 @@
   "slot": "MOMENT",
   "type": "moment",
   "category": "Same-day moment (watch)",
-  "title": "Watched: Nov 27 (nothing rare so far)",
+  "title": "Watched: Nov 27 (nothing rare all day)",
   "status": "none",
   "checked_at": "2026-11-27 10:41 Calgary (16:41 UTC)",
   "detection": {
@@ -4637,6 +4637,16 @@
     "news": "web search 16:42: no confirmed rare Calgary event today",
     "verdict": "nothing qualifies",
     "evidence": "production/2026-11-27-MOMENT-watch/check-1641/"
+   },
+   {
+    "checked_at": "2026-11-27 19:45 Calgary (01:45 UTC Nov 28)",
+    "temp": "CYYC SWOB 00Z-01Z Nov 28: max 7.2 C, latest 4.9 C at 01Z (20261127 UTC folder no longer in dd 'today'; 16:41 check had 07Z-22Z max 8.7 C). Day high stays far below top-5 threshold (12.8 C); min 1.2 C still 6th warmest, not top 5.",
+    "gust": "max 41.4 km/h (00Z): below 80",
+    "alerts": "api.weather.gc.ca bbox Calgary: 0 alerts at 01:43 UTC",
+    "traffic_incidents_today_so_far": "28 (feed latest 00:45 UTC Nov 28); prior 365-day max 111, p99 53: not rare",
+    "news": "web search 19:45: no confirmed rare Calgary event today",
+    "verdict": "nothing qualifies; day closed with no moment",
+    "evidence": "production/2026-11-27-MOMENT-watch/check-1941/"
    }
   ]
  },

@@ -1,0 +1,7 @@
+{
+ "https://dd.weather.gc.ca/today/observations/swob-ml/20261127/CYYC/": "ERR <HTTPError 404: 'Not Found'>",
+ "https://dd.weather.gc.ca/today/observations/swob-ml/20261128/CYYC/": [
+  "2026-11-28-0000-CYYC-MAN-swob.xml",
+  "2026-11-28-0100-CYYC-MAN-swob.xml"
+ ]
+}
