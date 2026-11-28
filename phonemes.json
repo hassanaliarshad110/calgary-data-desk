@@ -1,0 +1,314 @@
+{
+ "lexicon": {
+  "Bow": {
+   "kokoro_default": "bˈoʊ",
+   "listed": "bˈoʊ"
+  },
+  "Bowness": {
+   "kokoro_default": "bˈoʊnəs",
+   "listed": "bˈoʊnəs"
+  },
+  "Macleod": {
+   "kokoro_default": "məklˈaʊd",
+   "listed": "məklˈaʊd"
+  },
+  "Brisebois": {
+   "kokoro_default": "bɹˈaɪsbwɑː",
+   "listed": "bɹiːzbwˈɑː"
+  },
+  "Éphrem": {
+   "kokoro_default": "ɪfɹˈɛm",
+   "listed": "ɪfɹˈɛm"
+  },
+  "Ephrem": {
+   "kokoro_default": "ˈɛfɹəm",
+   "listed": "ɪfɹˈɛm"
+  },
+  "Gaelic": {
+   "kokoro_default": "ɡˈeɪlɪk",
+   "listed": "ɡˈælɪk"
+  },
+  "Chinook": {
+   "kokoro_default": "tʃˈɪnʊk",
+   "listed": "ʃɪnˈʊk"
+  },
+  "chinook": {
+   "kokoro_default": "tʃˈɪnʊk",
+   "listed": "ʃɪnˈʊk"
+  },
+  "Chinooks": {
+   "kokoro_default": "tʃˈɪnʊks",
+   "listed": "ʃɪnˈʊks"
+  },
+  "chinooks": {
+   "kokoro_default": "tʃˈɪnʊks",
+   "listed": "ʃɪnˈʊks"
+  },
+  "Lougheed": {
+   "kokoro_default": "lˈʌfiːd",
+   "listed": "lˈɔːhiːd"
+  },
+  "Tsuut'ina": {
+   "kokoro_default": "tsˈuːətˌɪnə",
+   "listed": "suːtˈɪnə"
+  },
+  "Tsuut’ina": {
+   "kokoro_default": "tsˈuːətˌɪnə",
+   "listed": "suːtˈɪnə"
+  },
+  "Métis": {
+   "kokoro_default": "mˈeɪɾiz",
+   "listed": "meɪtˈiː"
+  },
+  "Metis": {
+   "kokoro_default": "mˈɛɾiz",
+   "listed": "meɪtˈiː"
+  },
+  "TELUS": {
+   "kokoro_default": "tˈɛləs",
+   "listed": "tˈɛləs"
+  },
+  "CTrain": {
+   "kokoro_default": "sˈiː tɹˈeɪn",
+   "listed": "sˈiːtɹeɪn"
+  },
+  "CTrains": {
+   "kokoro_default": "sˈiː tɹˈeɪnz",
+   "listed": "sˈiːtɹeɪnz"
+  },
+  "YYC": {
+   "kokoro_default": "jˈɪk",
+   "listed": "wˌaɪwˌaɪsˈiː"
+  },
+  "LRT": {
+   "kokoro_default": "ˌɛlˌɑːɹtˈiː",
+   "listed": "ˌɛlɑːɹtˈiː"
+  },
+  "Rouleauville": {
+   "kokoro_default": "ɹˈuːloʊvˌɪl",
+   "listed": "ɹˈuːloʊvɪl"
+  },
+  "Kananaskis": {
+   "kokoro_default": "kˌænɐnˈæskɪz",
+   "listed": "kˌænənˈæskɪs"
+  },
+  "Okotoks": {
+   "kokoro_default": "ˈɑːkətˌɑːks",
+   "listed": "ˈoʊkətˌɑːks"
+  },
+  "Shaganappi": {
+   "kokoro_default": "ʃˈæɡɐnˌæpi",
+   "listed": "ʃˌæɡənˈæpi"
+  },
+  "Mohkinstsis": {
+   "kokoro_default": "moʊkˈɪnstsɪs",
+   "listed": "moʊkˈɪnstsɪs"
+  },
+  "Acheson": {
+   "kokoro_default": "ˈeɪksən",
+   "listed": "ˈætʃəsən"
+  },
+  "Ranche": {
+   "kokoro_default": "ɹˈæntʃ",
+   "listed": "ɹˈæntʃ"
+  },
+  "Pekisko": {
+   "kokoro_default": "pɛkˈɪskoʊ",
+   "listed": "pəkˈɪskoʊ"
+  },
+  "Percheron": {
+   "kokoro_default": "pɚtʃˈɜːɹən",
+   "listed": "pˈɜːɹʃəɹˌɑːn"
+  },
+  "Longabaugh": {
+   "kokoro_default": "lˈɔŋɡɐbˌɔː",
+   "listed": "lˈɔŋɡəbˌɔː"
+  },
+  "Cochrane": {
+   "kokoro_default": "kˈɑːkɹeɪn",
+   "listed": "kˈɑːkɹən"
+  },
+  "Daqing": {
+   "kokoro_default": "dˈeɪkɪŋ",
+   "listed": "dˌɑːʧˈɪŋ"
+  },
+  "Warschewski": {
+   "kokoro_default": "wɔːɹʃˈuːski",
+   "listed": "vɑːɹʃˈɛfski"
+  },
+  "Concacaf": {
+   "kokoro_default": "kəŋkˈækæf",
+   "listed": "kˈɑŋkəkˌæf"
+  },
+  "Atletico": {
+   "kokoro_default": "ˈæɾəlɾɪkˌoʊ",
+   "listed": "ætlˈɛɾɪkˌoʊ"
+  },
+  "Lacombe": {
+   "kokoro_default": "lˈækuːm",
+   "listed": "ləkˈoʊm"
+  },
+  "Weadick": {
+   "kokoro_default": "wˈiːdɪk",
+   "listed": "wˈiːdɪk"
+  },
+  "Alyth": {
+   "kokoro_default": "ˈælɪθ",
+   "listed": "ˈeɪlɪθ"
+  },
+  "Nakiska": {
+   "kokoro_default": "nˈækɪskə",
+   "listed": "nəkˈɪskə"
+  },
+  "Piikani": {
+   "kokoro_default": "pˌɪɪkˈɑːni",
+   "listed": "biːɡˈɑːni"
+  },
+  "Dhaliwal": {
+   "kokoro_default": "dˈælɪwəl",
+   "listed": "dˈɑːliwɑːl"
+  },
+  "Îyârhe": {
+   "kokoro_default": "ˈɪjɑːɹh",
+   "listed": "iːjˈɑːheɪ"
+  },
+  "Iyarhe": {
+   "kokoro_default": "ˈɪjɑːɹh",
+   "listed": "iːjˈɑːheɪ"
+  },
+  "Altadore": {
+   "kokoro_default": "ˈɔːltɐdˌɔːɹ",
+   "listed": "ˈæltədˌɔːɹ"
+  },
+  "Braeside": {
+   "kokoro_default": "bɹˈiːsaɪd",
+   "listed": "bɹˈeɪsaɪd"
+  },
+  "Cedarbrae": {
+   "kokoro_default": "sˈɛdɑːɹbɹˌiː",
+   "listed": "sˈiːdɚbɹˌeɪ"
+  },
+  "Rideau": {
+   "kokoro_default": "ɹˈaɪdaʊ",
+   "listed": "ɹiːdˈoʊ"
+  },
+  "Elboya": {
+   "kokoro_default": "ɛlbˈɔɪə",
+   "listed": "ɛlbˈɔɪə"
+  },
+  "Rosscarrock": {
+   "kokoro_default": "ɹˈɔskæɹək",
+   "listed": "ɹɑːskˈɛɹək"
+  },
+  "Sunalta": {
+   "kokoro_default": "sʌnˈæltə",
+   "listed": "sʌnˈæltə"
+  },
+  "Shouldice": {
+   "kokoro_default": "ʃˈʊdɪs",
+   "listed": "ʃˈoʊldaɪs"
+  },
+  "Mewata": {
+   "kokoro_default": "mjuːˈɑːɾə",
+   "listed": "məwˈɑːtə"
+  },
+  "Sien Lok": {
+   "kokoro_default": "sˈiːn lˈoʊk",
+   "listed": "sˈiːn lˈɑːk"
+  },
+  "Zurbriggen": {
+   "kokoro_default": "zˈɜːbɹɪɡən",
+   "listed": "zˈɜːɹbɹɪɡən"
+  },
+  "Hidy": {
+   "kokoro_default": "hˈaɪdi",
+   "listed": "hˈaɪdi"
+  },
+  "Oshawa": {
+   "kokoro_default": "ɑːʃˈɑːwə",
+   "listed": "ˈɑːʃəwə"
+  },
+  "Doucet": {
+   "kokoro_default": "dˈaʊsɪt",
+   "listed": "duːsˈeɪ"
+  },
+  "Enmax": {
+   "kokoro_default": "ˈɛnmæks",
+   "listed": "ˈɛnmæks"
+  },
+  "ENMAX": {
+   "kokoro_default": "ˈɛnmæks",
+   "listed": "ˈɛnmæks"
+  },
+  "Casavant": {
+   "kokoro_default": "kˈæsævənt",
+   "listed": "kˈæzəvɑːn"
+  },
+  "Bjarke": {
+   "kokoro_default": "bjˈɑːɹk",
+   "listed": "bjˈɑːɹkə"
+  },
+  "Ingels": {
+   "kokoro_default": "ɪndʒˈɛlz",
+   "listed": "ˈɪŋəlz"
+  },
+  "Nagar Kirtan": {
+   "kokoro_default": "nˈæɡɚ kˈɜːtən",
+   "listed": "nˈʌɡɚ kˈiːɹtən"
+  },
+  "Kirtan": {
+   "kokoro_default": "kˈɜːtən",
+   "listed": "kˈiːɹtən"
+  },
+  "Moyie": {
+   "kokoro_default": "mˈɔɪi",
+   "listed": "mˈɔɪi"
+  },
+  "Iñárritu": {
+   "kokoro_default": "ˈɪnjɐɹˌɪɾuː",
+   "listed": "ɪnjˈɑːɹɪtuː"
+  },
+  "Inarritu": {
+   "kokoro_default": "ɪnɚɹˈɪɾuː",
+   "listed": "ɪnjˈɑːɹɪtuː"
+  },
+  "Nolan Hill": {
+   "kokoro_default": "nˈɑːlæn hˈɪl",
+   "listed": "nˈoʊlən hˈɪl"
+  },
+  "Nykänen": {
+   "kokoro_default": "nˈaɪkɛnən",
+   "listed": "nˈiːkənən"
+  },
+  "Nykanen": {
+   "kokoro_default": "nˈaɪkeɪnən",
+   "listed": "nˈiːkənən"
+  },
+  "Syne": {
+   "kokoro_default": "sˈaɪn",
+   "listed": "sˈaɪn"
+  },
+  "Langevin": {
+   "kokoro_default": "lˈændʒɪvˌɪn",
+   "listed": "lˈændʒəvɪn"
+  },
+  "SAIT": {
+   "kokoro_default": "sˈeɪt",
+   "listed": "sˈeɪt"
+  }
+ },
+ "script_names": {
+  "Calgary": "kˈælɡɚɹi",
+  "City": "sˈɪɾi",
+  "Cross": "kɹˈɔs",
+  "James": "dʒˈeɪmz",
+  "Red": "ɹˈɛd",
+  "Senator": "sˈɛnəɾɚ"
+ },
+ "sentences": [
+  {
+   "sentence": "It was built in eighteen ninety-one for Senator James Lougheed.",
+   "phonemes": "ɪt wʌz bˈɪlt ɪn ˈeɪtiːn nˈaɪntiwˈʌn fɔːɹ sˈɛnəɾɚ dʒˈeɪmz lˈɔːhiːd."
+  }
+ ]
+}
