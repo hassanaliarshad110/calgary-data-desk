@@ -286,9 +286,16 @@
    "hook": "Neutral rehna sabse bada nuksaan",
    "source": "The Prince ch.21 (true friend or open enemy)",
    "voice_of": "machiavelli",
-   "status": "making",
+   "status": "posted",
    "claimed_by": "evening",
-   "time": "2026-11-28T07:15Z"
+   "time": "2026-11-28T07:15Z",
+   "title": "Don't Sit on the Fence: Machiavelli on Staying Neutral #shorts",
+   "metricool_uuid": "2069818679812967622",
+   "post_time": "2026-11-28T21:00+05:30",
+   "type": "short 9:16, 1:00",
+   "video": "awazzz-media:mindset/2026-11-28-beech-mein-mat-raho/dont-sit-on-the-fence.mp4",
+   "source_text": "The Prince, Ch. XXI, tr. W. K. Marriott 1908 (Standard Ebooks edition on GitHub, standardebooks/niccolo-machiavelli_the-prince_w-k-marriott commit 98bb3ea, from Gutenberg #1232; gutenberg.org blocked in sandbox)",
+   "structure": "bold-claim hook ('one man disagreed') + history moment (Achaean council, Antiochus vs Rome envoys) + pattern quote + team-meeting dilemma ('both are good') + blunt verdict quote + no-safe-path/lesser-risk twist (scale of two storms) + 'a side is not a swing' + tonight's honest-answer action (phone chat)"
   },
   {
    "slug": "gussa",

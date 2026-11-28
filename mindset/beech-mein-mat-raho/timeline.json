@@ -1,0 +1,189 @@
+{
+"scenes": [
+{
+"id": "sc1",
+"start": 0,
+"lines": [
+"h1"
+],
+"dur": 4.179
+},
+{
+"id": "sc2",
+"start": 4.179,
+"lines": [
+"n2"
+],
+"dur": 5.118
+},
+{
+"id": "sc3",
+"start": 9.297,
+"lines": [
+"n3"
+],
+"dur": 3.924
+},
+{
+"id": "sc4",
+"start": 13.221,
+"lines": [
+"n4"
+],
+"dur": 4.394
+},
+{
+"id": "sc5",
+"start": 17.615,
+"lines": [
+"q1"
+],
+"dur": 6.265
+},
+{
+"id": "sc6",
+"start": 23.88,
+"lines": [
+"n5"
+],
+"dur": 4.448
+},
+{
+"id": "sc7",
+"start": 28.328,
+"lines": [
+"n6"
+],
+"dur": 4.618
+},
+{
+"id": "sc8",
+"start": 32.946,
+"lines": [
+"q2"
+],
+"dur": 6.958
+},
+{
+"id": "sc9",
+"start": 39.904,
+"lines": [
+"n7"
+],
+"dur": 5.821
+},
+{
+"id": "sc10",
+"start": 45.725,
+"lines": [
+"n8"
+],
+"dur": 3.788
+},
+{
+"id": "sc11",
+"start": 49.513,
+"lines": [
+"n9"
+],
+"dur": 5.471
+},
+{
+"id": "sc12",
+"start": 54.984,
+"lines": [
+"n10"
+],
+"dur": 2.45
+},
+{
+"id": "sc13",
+"start": 57.434,
+"lines": [
+"n11"
+],
+"dur": 2.587
+}
+],
+"lines": {
+"h1": {
+"start": 0.05,
+"dur": 4.159,
+"kind": "N",
+"cap": "Staying out of it feels safe. Five hundred years ago, one man disagreed."
+},
+"n2": {
+"start": 4.239,
+"dur": 5.088,
+"kind": "N",
+"cap": "Ancient Greece. King Antiochus comes to drive out Rome. Both send envoys to the Achaeans."
+},
+"n3": {
+"start": 9.357,
+"dur": 3.894,
+"kind": "N",
+"cap": "Antiochus says... stay neutral. Rome says... take up arms."
+},
+"n4": {
+"start": 13.281,
+"dur": 4.344,
+"kind": "N",
+"cap": "Rome warns... stay out, and you get no favour. You're just the winner's prize."
+},
+"q1": {
+"start": 17.675,
+"dur": 6.235,
+"kind": "Q",
+"cap": "Machiavelli saw the pattern... \"he who is not your friend will demand your neutrality, whilst he who is your friend will entreat you to declare yourself\u2026\""
+},
+"n5": {
+"start": 23.94,
+"dur": 4.418,
+"kind": "N",
+"cap": "Team meeting. Two plans. Both leads look at you... you say, both are good."
+},
+"n6": {
+"start": 28.388,
+"dur": 4.568,
+"kind": "N",
+"cap": "Plan A wins. Its lead remembers you didn't help. The other... remembers you didn't either."
+},
+"q2": {
+"start": 33.006,
+"dur": 6.928,
+"kind": "Q",
+"cap": "Machiavelli, bluntly... \"irresolute princes, to avoid present dangers, generally follow the neutral path, and are generally ruined.\""
+},
+"n7": {
+"start": 39.964,
+"dur": 5.791,
+"kind": "N",
+"cap": "Is picking a side safe? No path is perfectly safe, he admits. Choose the lesser risk... eyes open."
+},
+"n8": {
+"start": 45.785,
+"dur": 3.758,
+"kind": "N",
+"cap": "Taking a side isn't taking a swing. It's saying where you stand... and why."
+},
+"n9": {
+"start": 49.573,
+"dur": 5.441,
+"kind": "N",
+"cap": "Tonight, one choice you keep dodging with \"either is fine\"... give your real answer. Kindly, with a reason."
+},
+"n10": {
+"start": 55.044,
+"dur": 2.42,
+"kind": "N",
+"cap": "When did staying neutral cost you? Tell us below."
+},
+"n11": {
+"start": 57.494,
+"dur": 2.377,
+"kind": "N",
+"cap": "Follow Awazzzz... we don't sit on the fence."
+}
+},
+"total": 60.021
+}

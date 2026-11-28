@@ -1,0 +1,13 @@
+h1 [N] Staying out of it feels safe. Five hundred years ago, one man disagreed.
+n2 [N] Ancient Greece. King Antiochus comes to drive out Rome. Both send envoys to the Achaeans.
+n3 [N] Antiochus says... stay neutral. Rome says... take up arms.
+n4 [N] Rome warns... stay out, and you get no favour. You're just the winner's prize.
+q1 [Q] Machiavelli saw the pattern... "he who is not your friend will demand your neutrality, whilst he who is your friend will entreat you to declare yourself…"
+n5 [N] Team meeting. Two plans. Both leads look at you... you say, both are good.
+n6 [N] Plan A wins. Its lead remembers you didn't help. The other... remembers you didn't either.
+q2 [Q] Machiavelli, bluntly... "irresolute princes, to avoid present dangers, generally follow the neutral path, and are generally ruined."
+n7 [N] Is picking a side safe? No path is perfectly safe, he admits. Choose the lesser risk... eyes open.
+n8 [N] Taking a side isn't taking a swing. It's saying where you stand... and why.
+n9 [N] Tonight, one choice you keep dodging with "either is fine"... give your real answer. Kindly, with a reason.
+n10 [N] When did staying neutral cost you? Tell us below.
+n11 [N] Follow Awazzzz... we don't sit on the fence.
