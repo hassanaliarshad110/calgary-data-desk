@@ -1,0 +1,18 @@
+| # | Claim | Source URL |
+|---|---|---|
+| 1 | Ali (a) told the Prophet he had nothing but his armour (when asked "Do you have anything?" on his third visit; earlier he went to propose, was too shy and left without saying it) — Tabrisi, I'lam al-wara vol.1 p.160-161 | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 2 | Migrants and Helpers proposed for Fatima and the Prophet refused | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 3 | Sunan al-Nasa'i 3221, from Buraydah: Abu Bakr and Umar proposed to Fatimah; the Prophet said "She is young"; then Ali proposed and he married her to him (Sahih, Darussalam) | https://sunnah.com/nasai:3221 |
+| 4 | Some companions objected; the Prophet said "I did not give Ali to Fatima, it was God who gave her to Ali" — Tarikh al-Ya'qubi vol.2 p.41 | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 5 | Ibn Abbas: when Ali married Fatimah, the Prophet told him "Give her something"; Ali said he had nothing; the Prophet said "Where is your Hutami armour?" — Sunan Abi Dawud 2125, Sunan al-Nasa'i 3376 | https://hadithunlocked.com/abudawud:2125 ; https://sunnah.com/nasai:3376 |
+| 6 | On different accounts the mahr was between 400 and 500 dirhams (Ibn Shahrashub, Manaqib vol.3 p.350-351); a narration from Imam al-Rida names 500 dirhams as the Mahr al-Sunna (Bihar 93:170). Ali sold his belongings to pay it (Tusi, al-Amali) | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 7 | The Prophet gave Bilal part of the money: "Buy a nice perfume for my daughter"; the rest bought the household things she needed — Tusi, al-Amali vol.1 p.93 | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 8 | Items bought (Tusi, al-Amali): a shirt (7 dirhams), a kerchief, a mat woven in Hajar, a hand-mill, a copper basin, a wooden bowl, a leather waterskin (among others) | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 9 | Sunan al-Nasa'i 3384, from Ali: "The Messenger of Allah fitted out Fatimah with a velvet garment (khamil), a water-skin and a pillow stuffed with idhkhir" (graded Sahih by Zubair Ali Za'i; Albani: weak chain) | https://hadithunlocked.com/nasai:3384 |
+| 10 | Date (presented as the well-known view): 2 AH; Fatima sent to Ali's house on Dhu l-Hijja 1st, 2 AH (Bihar al-anwar vol.43 p.92); other views (Safar 2 AH, al-Tabari; one year after hijra, al-Kafi) | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 11 | Walima: the Prophet asked for a sheep and (five mudds of) barley to feed the people (Yusufi Gharawi, Mawsu'at vol.2 p.214) | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 12 | The Prophet prayed that God create bonds between their hearts and bless their descendants | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 13 | Haritha b. Nu'man offered his house, close to the Prophet's, and they moved there (Ibn Sa'd, al-Tabaqat vol.8 p.22-23) | https://en.wikishia.net/view/Marriage_of_Imam_Ali_(a)_and_Lady_Fatima_(a) |
+| 14 | Hook/close ("a groom with nothing but his armour", "a very simple wedding", "a mahr of armour, a few vessels and a mat") summarise claims 1, 5, 8 | — |
+| 15 | Teaser: tomorrow's Topic 1 is "Bibi Khadija's loneliness before the birth" (hook: Makkah's women would not come to her — then light filled the room) | calendar |
+Independent check: APPROVED in round 2 (round 1 fixes: dropped 'mahr' from the armour in the close, split the 400-500 range from Imam al-Rida's 500 = Mahr al-Sunna, partial jahaz list framed as partial, 2 AH as the well-known view, Arabic paraphrased quotes marked ما معناه).
