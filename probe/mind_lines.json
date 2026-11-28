@@ -1,91 +1,35 @@
 [
 {
 "id": "h1",
-"text": "Staying out of it feels safe. Five hundred years ago, one man saw it differently.",
+"text": "Staying out of it feels safe. Five hundred years ago, one man disagreed.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n2",
-"text": "Ancient Greece. King Antiochus marches in to drive out Rome. Both send envoys to the Achaeans.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n3",
-"text": "Antiochus says... stay neutral. Rome says... take up arms.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n4",
-"text": "Rome warns... stay out, and you get no favour. You're just the winner's prize.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "q1",
-"text": "Machiavelli saw the pattern... he who is not your friend will demand your neutrality, whilst he who is your friend will entreat you to declare yourself.",
+"text": "Ancient Greece. King Antiochus comes to drive out Rome. Both send envoys to the Achaeans.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n5",
-"text": "Team meeting. Two plans. Both leads look at you... and you say, both are good.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n6",
-"text": "Plan A wins. Its lead remembers you didn't help. The other... remembers you didn't either.",
+"text": "Team meeting. Two plans. Both leads look at you... you say, both are good.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "q2",
-"text": "He's blunt about it... irresolute princes, to avoid present dangers, generally follow the neutral path, and are generally ruined.",
+"text": "Machiavelli, bluntly... irresolute princes, to avoid present dangers, generally follow the neutral path, and are generally ruined.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
 },
 {
 "id": "n7",
-"text": "Is picking a side safe? No. No path is perfectly safe, he admits. Choose the lesser risk... eyes open.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n8",
-"text": "Taking a side isn't taking a swing. It's saying where you stand... and why.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n9",
-"text": "Tonight, one choice you keep dodging with, either is fine... give your real answer. Kindly, with a reason.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n10",
-"text": "When did staying neutral cost you? Tell us below.",
-"name": "en-US-ChristopherNeural",
-"rate": "-8%",
-"pitch": "-6Hz"
-},
-{
-"id": "n11",
-"text": "Follow Awaaz... we don't sit on the fence.",
+"text": "Is picking a side safe? No path is perfectly safe, he admits. Choose the lesser risk... eyes open.",
 "name": "en-US-ChristopherNeural",
 "rate": "-8%",
 "pitch": "-6Hz"
